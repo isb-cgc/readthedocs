@@ -1,16 +1,17 @@
 Support
 =======
 
-For general information about the ISB-CGC please contact us at info@isb-cgc.org
+For general information about the ISB-CGC please contact us at info@isb-cgc.org.
 
-To request a Google Cloud Project (GCP), please send a request to request-gcp@isb-cgc.org
-Please describe your research goals in some detail, including information such as the type 
+To request a Google Cloud Project (GCP), please send a request to request-gcp@isb-cgc.org.
+
+In your request, please describe your research goals in some detail, including information such as the type 
 of data that you plan to use (whether it is your own data that you plan to upload or
 TCGA data currently hosted by the ISB-CGC), the algorithms and/or methods you plan to apply,
 and an estimate of the storage and computing costs you expect to incur.
 Please let us know if you have students or collaborators who will also be accessing the
 same GCP.  Note that if you are working as a team on a single project, you should all
-use the same GCP -- if your group is large, we will take that into consideration when
+use the same GCP -- if your group is large, we will take this into consideration when
 determining your funding level.
 If you have previous experience using the Google Cloud Platform, that would be 
 useful for us to know -- including which specific components (*eg* Compute Engine, BigQuery,
