@@ -18,9 +18,14 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   sections/quickstart
-   sections/web-app
-   sections/programmatic-api
+   sections/About-ISB-CGC
+   sections/Web-UI
+   sections/Programmatic-API
+   sections/TCGA-Data
+   sections/Reference-Data
+   sections/FAQ
+   sections/Support
+   sections/Other-Useful-Links
 
 Indices and tables
 ==================
