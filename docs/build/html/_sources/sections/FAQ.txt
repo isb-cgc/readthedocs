@@ -1,20 +1,20 @@
-Frequently Asked Questions
-==========================
+Frequently Asked Questions (FAQ)
+================================
 
 ISB-CGC Accounts and Cloud Projects
 -----------------------------------
 **Do I have to request an ISB-CGC account before I can try out the web interface?**
 No, you can ust "sign in" using your Google identity at isb-cgc.FIXME.appspot.com
 
-**Where can I find the TCGA data that ISB-CGC has made publicly available in BigQuery tables?**
-The BigQuery web interface can be accessed at bigquery.cloud.google.com.  If you have not already added the ISB-CGC datasets to your BigQuery "view", click on the blue arrow
-next to your username in the left side-bar, select "Switch to Project", then "Display Project...",
-and enter "isb-cgc" (without quotes) in the text box labeled "Project ID".  All ISB-CGC public BigQuery
-datasets and tables will now be visible in the left side-bar of the BigQuery web interface.
-Note that in order to use BigQuery, you need to be a member of a Google Cloud Project.
-
 **I want to be able to run big jobs using Google Compute Engine and the TCGA data hosted by the ISB-CGC.  What should I do?**
 You will need to request a Google Cloud Project.  Please send a request to request-gcp@isb-cgc.org
+
+**Can I use any email address as a Google identity?**  Yes, you can.  If your email address is not
+already linked to a Google account, you can create_ a Google account with your current email address.
+Note that your institutional email address may *already* be associated with a Google account (help_).
+
+.. _create: https://accounts.google.com/signupwithoutgmail
+.. _help:  https://support.google.com/accounts/answer/40560?hl=en&ref_topic=3382296
 
 
 Data Access
@@ -23,6 +23,13 @@ Data Access
 No, generally only the low-level sequence (DNA and RNA) and SNP-array data (CEL files) require
 dbGaP authorization.  All of the "high-level" molecular data, as well as the clinical data are
 open-access and much of this has been made available in a convenient set of BigQuery tables. 
+
+**Where can I find the TCGA data that ISB-CGC has made publicly available in BigQuery tables?**
+The BigQuery web interface can be accessed at bigquery.cloud.google.com.  If you have not already added the ISB-CGC datasets to your BigQuery "view", click on the blue arrow
+next to your username in the left side-bar, select "Switch to Project", then "Display Project...",
+and enter "isb-cgc" (without quotes) in the text box labeled "Project ID".  All ISB-CGC public BigQuery
+datasets and tables will now be visible in the left side-bar of the BigQuery web interface.
+Note that in order to use BigQuery, you need to be a member of a Google Cloud Project.
 
 **How can I apply for access to the low-level DNA sequence data?**
 In order to access the TCGA controlled-access data, you will need to apply to dbGaP_.
