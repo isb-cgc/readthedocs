@@ -1,7 +1,7 @@
-## Documentation for the ISB-CGC cookbook
+## Documentation for the ISB-CGC on Read the Docs.
 
 **This** github repository is source control for the content on http://isb-cgc.readthedocs.org.  
-Read it [there](http://isb-cgc.readthedocs.org).  
+Read it [there](http://isb-cancer-genomics-cloud.readthedocs.org).  
 Edit it *here* if you want to contribute!
 
 ISB-CGC source code and example repositories are also on gitub:
