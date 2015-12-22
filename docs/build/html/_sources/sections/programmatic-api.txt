@@ -18,10 +18,13 @@ Metadata API
 
 Cohort API
 ----------
+*Documentation currently under construction!  Please email info@isb-cgc.org if you have questions.*
 
 User API
 --------
+*Documentation currently under construction!  Please email info@isb-cgc.org if you have questions.*
 
 Authorization Process
 ---------------------
+*Documentation currently under construction!  Please email info@isb-cgc.org if you have questions.*
 
