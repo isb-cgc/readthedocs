@@ -16,7 +16,7 @@ This documentation is a work-in-progress, please let us know how we can improve 
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1 
 
    sections/About-ISB-CGC
    sections/Web-UI
