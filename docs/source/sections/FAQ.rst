@@ -6,7 +6,7 @@ ISB-CGC Accounts and Cloud Projects
 **Do I have to request an ISB-CGC account before I can try out the web interface?**
 No, you can just "sign in" using your Google identity at isb-cgc.appspot.com
 
-**I want to be able to run big jobs using Google Compute Engine and the TCGA data hosted by the ISB-CGC.  What should I do?**
+**I want to be able to run big jobs using Google Compute Engine on the TCGA data hosted by the ISB-CGC.  What should I do?**
 You will need to request a Google Cloud Project.  Please send a request to request-gcp@isb-cgc.org
 
 **Can I use any email address as a Google identity?**  Yes, you can.  If your email address is not

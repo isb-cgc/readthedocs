@@ -1,7 +1,9 @@
-Support
-=======
+Contacts & Support
+==================
 
 For general information about the ISB-CGC please contact us at info@isb-cgc.org.
+
+For feature-requests or bug-reports, please send e-mail to feedback@isb-cgc.org.
 
 To request a Google Cloud Project (GCP), please send a request to request-gcp@isb-cgc.org.
 
