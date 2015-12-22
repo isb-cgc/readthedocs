@@ -1,2 +1,2 @@
-ISB-CGC Web Interface
-=====================
+Graphical Web Interface
+=======================

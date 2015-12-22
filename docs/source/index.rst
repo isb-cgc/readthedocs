@@ -3,15 +3,15 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-The ISB Cancer Genomics Cloud (CGC) 
-===================================
+The ISB Cancer Genomics Cloud
+=============================
 
-Welcome to the ISB-CGC Cookbook on Read the Docs.
+Welcome to the ISB-CGC Documentation on Read the Docs.
 
-Here you will find documentation describing the features of the ISB-CGC platform,
+Here you will find information describing the features of the ISB-CGC platform, tips on how to use it, 
 and details about the data that we are hosting on the Google Cloud Platform.
 
-This documentation is a work-in-progress, please let us know how we can improve it!
+This documentation is a work-in-progress, please let us know how we can improve it! 
 
 Contents:
 
