@@ -11,10 +11,13 @@ You will need to request a Google Cloud Project.  Please send a request to reque
 
 **Can I use any email address as a Google identity?**  Yes, you can.  If your email address is not
 already linked to a Google account, you can create_ a Google account with your current email address.
-Note that your institutional email address may *already* be associated with a Google account (help_).
+Please note, however that although these two accounts will then share the same *name*, they will
+still be two separate accounts, with two separate passwords, *etc*.  (It is also possible 
+that your institutional email address is *already* a Google account, if your institution uses
+Google Apps.  You can check here_).
 
 .. _create: https://accounts.google.com/signupwithoutgmail
-.. _help:  https://support.google.com/accounts/answer/40560?hl=en&ref_topic=3382296
+.. _here:  https://support.google.com/accounts/answer/40560?hl=en&ref_topic=3382296
 
 
 Data Access
