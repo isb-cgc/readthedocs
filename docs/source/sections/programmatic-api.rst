@@ -1,3 +1,0 @@
-Programmatic API Documentation
-==============================
-
