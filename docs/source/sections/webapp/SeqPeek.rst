@@ -1,0 +1,5 @@
+SeqPeek
+=======
+
+*Documentation in progress!*
+

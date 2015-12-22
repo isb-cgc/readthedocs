@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Frequently Asked Questions &mdash; ISB Cancer Genomics Cloud 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="ISB Cancer Genomics Cloud 1.0.0 documentation" href="../index.html" />
+    <link rel="next" title="Support" href="Support.html" />
+    <link rel="prev" title="Reference Data" href="Reference-Data.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Support.html" title="Support"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Reference-Data.html" title="Reference Data"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">ISB Cancer Genomics Cloud 1.0.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="frequently-asked-questions">
+<h1>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="isb-cgc-accounts-and-cloud-projects">
+<h2>ISB-CGC Accounts and Cloud Projects<a class="headerlink" href="#isb-cgc-accounts-and-cloud-projects" title="Permalink to this headline">¶</a></h2>
+<p><strong>Do I have to request an ISB-CGC account before I can try out the web interface?</strong>
+No, you can ust &#8220;sign in&#8221; using your Google identity at isb-cgc.FIXME.appspot.com</p>
+<p><strong>Where can I find the TCGA data that ISB-CGC has made publicly available in BigQuery tables?</strong>
+The BigQuery web interface can be accessed at bigquery.cloud.google.com.  If you have not already added the ISB-CGC datasets to your BigQuery &#8220;view&#8221;, click on the blue arrow
+next to your username in the left side-bar, select &#8220;Switch to Project&#8221;, then &#8220;Display Project...&#8221;,
+and enter &#8220;isb-cgc&#8221; (without quotes) in the text box labeled &#8220;Project ID&#8221;.  All ISB-CGC public BigQuery
+datasets and tables will now be visible in the left side-bar of the BigQuery web interface.
+Note that in order to use BigQuery, you need to be a member of a Google Cloud Project.</p>
+<p><strong>I want to be able to run big jobs using Google Compute Engine and the TCGA data hosted by the ISB-CGC.  What should I do?</strong>
+You will need to request a Google Cloud Project.  Please send a request to <a class="reference external" href="mailto:request-gcp&#37;&#52;&#48;isb-cgc&#46;org">request-gcp<span>&#64;</span>isb-cgc<span>&#46;</span>org</a></p>
+</div>
+<div class="section" id="data-access">
+<h2>Data Access<a class="headerlink" href="#data-access" title="Permalink to this headline">¶</a></h2>
+<p><strong>Does all TCGA data require dbGaP authorization prior to access?</strong>
+No, generally only the low-level sequence (DNA and RNA) and SNP-array data (CEL files) require
+dbGaP authorization.  All of the &#8220;high-level&#8221; molecular data, as well as the clinical data are
+open-access and much of this has been made available in a convenient set of BigQuery tables.</p>
+<p><strong>How can I apply for access to the low-level DNA sequence data?</strong>
+In order to access the TCGA controlled-access data, you will need to apply to <a class="reference external" href="https://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&amp;page=login">dbGaP</a>.</p>
+<p><strong>I have dbGaP authorization.  How do I provide this information to the ISB-CGC platform?</strong>
+In order for us to verify your dbGaP authorization, you first need to associate your Google identity
+(used to sign-in to the web-app) with a valid NIH login (<em>eg</em> your eRA Commons id).  After you have
+signed in, click on your avatar (next to your name in the upper-right corner)
+and you will be taken to your account details page where you can
+verify your dbGaP authorization.  You will be redirected to the NIH iTrust login page and after you
+successfully authenticate you will be brought back to the ISB-CGC web-app.  After you successfully
+authenticate, we will verify that you also have dbGaP authorization for the TCGA controlled-access data.</p>
+<p><strong>My professor has dbGaP authorization.  Do I have to have my own authorization too?</strong>
+Yes, your professor will need to add you as a &#8220;data downloader&#8221; to his/her dbGaP application so that you
+have your own dbGaP authorization associated with your own eRA Commons id.</p>
+<p><strong>I already authenticated using my eRA Commons id but now I want to use a different Google identity to
+access the ISB-CGC web-app.  Can I re-authenticate using the same eRA Commons id?</strong>
+Yes, but you will first need to sign-in using your previous Google identity and &#8220;unlink&#8221; your eRA Commons
+id from that one before you can link it with your new Google identity.  An eRA Commons id cannot be
+associated with more than one Google identity within the ISB-CGC platform at any one time.</p>
+<p><strong>Can I authenticate to NIH programmatically?</strong>  No, the current NIH authentication flow requires
+web-based authentication and must therefore be done from within the ISB-CGC web-app.  Once you have
+authenticated to NIH via the web-app, and your dbGaP authorization has been verified, the Google
+identity associated with your account will have access to the controlled-data for 24 hours.</p>
+</div>
+<div class="section" id="python-users">
+<h2>Python Users<a class="headerlink" href="#python-users" title="Permalink to this headline">¶</a></h2>
+<p><strong>I want to write python scripts that access the TCGA data hosted by the ISB-CGC.  Do you have some
+examples that can get me started?</strong>  Yes, of course!  The best place to start is with our <a class="reference external" href="https://github.com/isb-cgc/examples-Python">examples-Python</a>
+repository on github.  You can run any of those examples yourself by signing in
+to your Google Cloud Project and deploying an instance of Google Cloud <a class="reference external" href="https://datalab.cloud.google.com/">Datalab</a>.</p>
+</div>
+<div class="section" id="r-and-bioconductor-users">
+<h2>R and Bioconductor Users<a class="headerlink" href="#r-and-bioconductor-users" title="Permalink to this headline">¶</a></h2>
+<p><strong>I want to use R and Bioconductor packages to work with the TCGA data.  How can I do that?</strong>
+You can run RStudio locally or deploy a dockerized version on a Google Compute Engine VM.  You can
+find some great examples to get you started in our <a class="reference external" href="https://github.com/isb-cgc/examples-R">examples-R</a> repository on github, and also in
+the documentation from the Google Genomics <a class="reference external" href="http://googlegenomics.readthedocs.org/en/latest/workshops/bioc-2015.html">workshop</a> at BioConductor 2015.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Frequently Asked Questions</a><ul>
+<li><a class="reference internal" href="#isb-cgc-accounts-and-cloud-projects">ISB-CGC Accounts and Cloud Projects</a></li>
+<li><a class="reference internal" href="#data-access">Data Access</a></li>
+<li><a class="reference internal" href="#python-users">Python Users</a></li>
+<li><a class="reference internal" href="#r-and-bioconductor-users">R and Bioconductor Users</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Reference-Data.html"
+                        title="previous chapter">Reference Data</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Support.html"
+                        title="next chapter">Support</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/sections/FAQ.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, the ISB-CGC team.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.3</a>
+      
+      |
+      <a href="../_sources/sections/FAQ.txt"
+          rel="nofollow">Page source</a></li>
+    </div>
+
+    
+
+    
+  </body>
+</html>
