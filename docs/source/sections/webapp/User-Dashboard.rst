@@ -1,10 +1,11 @@
 User Dashboard
 ==============
 
-*Documentation in progress!*
-
-Create a Cohort
+Create a cohort
 ---------------
+To create a cohort from the User Dashboard, click on the "+Create" button
+and select "New Cohort".  This will take you to the cohort creation page.
+
 To create a cohort from the user dashboard, click on the “+ Create” button and select “New Cohort”. 
 This will take you to the cohort creation page.
 
@@ -32,8 +33,10 @@ be able to select from a list of users that are already registered in the system
 one or more users you wish to share with. Click the “Share Cohort” button when you are done. This is 
 the same for visualizations. 
 
-Users who you share a cohort with will only be able to view and comment on the cohort and not 
-make changes. They will need to clone the cohort before making changes to it.
+When you share a cohort with another user, that user
+will be able to view and comment on the cohort, but will not be able to 
+make changes.  If you want to make changes to a cohort that has been
+shared with you, first clone that cohort.
 
 Set operations on cohorts
 -------------------------
