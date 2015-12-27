@@ -29,26 +29,10 @@
     <link rel="prev" title="Visualizations" href="Visualizations.html" />
    
   
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="../../genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="IGV-Browser.html" title="IGV-Browser"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="Visualizations.html" title="Visualizations"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">ISB Cancer Genomics Cloud 1.0.0 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="../Web-UI.html" accesskey="U">Web Interface</a> &raquo;</li> 
-      </ul>
-    </div>  
+  <body role="document">  
 
     <div class="document">
       <div class="documentwrapper">
@@ -58,6 +42,35 @@
   <div class="section" id="seqpeek">
 <h1>SeqPeek<a class="headerlink" href="#seqpeek" title="Permalink to this headline">¶</a></h1>
 <p><em>Documentation in progress!</em></p>
+<p>SeqPeek is a visualization designed to show mutations on a protein associated to a Gene. It allows users to select
+multiple cohort and view mutations on a single gene across all of those cohorts.</p>
+<div class="section" id="creating-a-seqpeek-visualization">
+<h2>Creating a SeqPeek Visualization<a class="headerlink" href="#creating-a-seqpeek-visualization" title="Permalink to this headline">¶</a></h2>
+<p>You can create a new SeqPeek visualization from the user dashboard. Select the “SeqPeek” option from the “+ Create”
+menu. This will automatically take you to a SeqPeek page with no settings preselected for you. To make changes, open
+the Settings panel.</p>
+<p>In the Settings panel, there will be options to select in order to make a new plot.
+* Gene selection: This is an autocompleting dropdown that will search the database for valid genes the system has data
+for.
+* Cohorts: This is where you can select one or more cohorts to plot at one time.</p>
+<p>To add a cohort, select the “+ Cohort” option underneath the currently selected list of cohorts. This will take you to
+the cohorts listing panel where you can select a cohort from the list, or use the autocomplete textbox to search in
+their list of cohorts.
+When all the settings have been set, you can click “Update Plot” to regenerate the plot with the new settings.</p>
+</div>
+<div class="section" id="saving-a-seqpeek-visualization">
+<h2>Saving a SeqPeek Visualization<a class="headerlink" href="#saving-a-seqpeek-visualization" title="Permalink to this headline">¶</a></h2>
+<p>To save changes to the visualization, click “Save Visualization” button. This will prompt you to name your SeqPeek
+visualization and save. You will be notified if it saved correctly or not.</p>
+</div>
+<div class="section" id="deleting-a-seqpeek-visualization">
+<h2>Deleting a SeqPeek Visualization<a class="headerlink" href="#deleting-a-seqpeek-visualization" title="Permalink to this headline">¶</a></h2>
+<p><strong>From User Dashboard</strong></p>
+<p>Select the SeqPeek visualizations that you wish to delete using the checkboxes next to the visualization. When one or
+more are selected, the delete button will be active and you can then proceed to deleting them.</p>
+<p><strong>From SeqPeek Visualization</strong></p>
+<p>If you are viewing a SeqPeek visualization you created, then you can delete the cohort from the top right menu option.</p>
+</div>
 </div>
 
 
@@ -66,12 +79,26 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="Visualizations.html"
-                        title="previous chapter">Visualizations</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="IGV-Browser.html"
-                        title="next chapter">IGV-Browser</a></p>
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">SeqPeek</a><ul>
+<li><a class="reference internal" href="#creating-a-seqpeek-visualization">Creating a SeqPeek Visualization</a></li>
+<li><a class="reference internal" href="#saving-a-seqpeek-visualization">Saving a SeqPeek Visualization</a></li>
+<li><a class="reference internal" href="#deleting-a-seqpeek-visualization">Deleting a SeqPeek Visualization</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../Web-UI.html">Web Interface</a><ul>
+      <li>Previous: <a href="Visualizations.html" title="previous chapter">Visualizations</a></li>
+      <li>Next: <a href="IGV-Browser.html" title="next chapter">IGV-Browser</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -100,12 +127,12 @@
       &copy;2015, the ISB-CGC team.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.3</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
       
       |
       <a href="../../_sources/sections/webapp/SeqPeek.txt"
-          rel="nofollow">Page source</a></li>
+          rel="nofollow">Page source</a>
     </div>
 
     
