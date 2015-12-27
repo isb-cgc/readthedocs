@@ -8,3 +8,8 @@ Storage (GCS_) and in BigQuery_.
 .. _GCS: https://cloud.google.com/storage/
 .. _BigQuery: https://cloud.google.com/bigquery/
 
+The data being hosted by the ISB-CGC was obtained from the two main TCGA data
+repositories:
+    * **TCGA DCC**
+    * **CGHub**
+
