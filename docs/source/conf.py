@@ -14,7 +14,10 @@
 
 import sys
 import os
+import sphinx.environment
 import shlex
+
+from docutils.utils import get_source_line
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -76,7 +79,7 @@ language = None
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = []
+exclude_patterns = [ '_build', 'includes/*' ]
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -99,6 +102,41 @@ pygments_style = 'sphinx'
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
 
+# -- This is the ISB-CGC FOOTER -------------------------------------------
+
+rst_epilog = """
+---------------------------------------------------------------------------
+
+.. container:: isbcgcfooter
+
+  Have feedback or corrections?  All improvements to these docs are welcome!
+  You can `file an issue <https://github.com/isb-cgc/readthedocs/issues`_.
+
+  Need more help?  Please email feedback@isb-cgc.org.
+
+.. GLOBAL LINK REPLACEMENTS CAN GO HERE
+
+.. ### random examples
+.. _Cancer Genomics Cloud: http://isb-cgc.org
+.. _BRCA1: http://ghr.nlm.nih.gov/gene/BRCA1
+.. _GA4GH: http://ga4gh.org/#/api
+.. _VCF specification: http://samtools.github.io/hts-specs/VCFv4.2.pdf
+.. _Contact us: feedback@isb-cgc.org
+
+.. ### Google Product Links
+.. _Google BigQuery: https://cloud.google.com/bigquery/
+.. _Google Cloud Dataflow: https://cloud.google.com/dataflow/
+.. _Google Cloud Storage: https://cloud.google.com/storage/
+.. _Google Compute Engine: https://cloud.google.com/compute/
+.. _Google Developers Console: https://console.developers.google.com/
+.. _Google Genomics: https://cloud.google.com/genomics/
+.. _Google Cloud Datalab: https://cloud.google.com/datalab/
+.. _Google Cloud Dataproc: https://cloud.google.com/dataproc/
+
+
+"""
+# -- This is the END of the ISB-CGC FOOTER --------------------------------
+
 # If true, keep warnings as "system message" paragraphs in the built documents.
 #keep_warnings = False
 
@@ -110,7 +148,8 @@ todo_include_todos = True
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'alabaster'
+#### html_theme = 'alabaster'
+html_theme = 'default'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
