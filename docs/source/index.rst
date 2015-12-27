@@ -15,7 +15,8 @@ Google Cloud Platform.
 This documentation is a work-in-progress, please let us know how we can improve 
 it! 
 
-Contents:
+Contents
+--------
 
 .. toctree::
    :maxdepth: 2
@@ -30,7 +31,7 @@ Contents:
    sections/Other-Useful-Links
 
 Indices and tables
-==================
+------------------
 
 * :ref:`search`
 * :ref:`genindex`

@@ -103,7 +103,6 @@ pygments_style = 'sphinx'
 #modindex_common_prefix = []
 
 # -- This is the ISB-CGC FOOTER -------------------------------------------
-
 rst_epilog = """
 ---------------------------------------------------------------------------
 
@@ -132,8 +131,8 @@ rst_epilog = """
 .. _Google Cloud Datalab: https://cloud.google.com/datalab/
 .. _Google Cloud Dataproc: https://cloud.google.com/dataproc/
 
-
 """
+
 # -- This is the END of the ISB-CGC FOOTER --------------------------------
 
 # If true, keep warnings as "system message" paragraphs in the built documents.
