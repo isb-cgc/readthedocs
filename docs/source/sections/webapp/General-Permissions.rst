@@ -1,8 +1,6 @@
 General Permissions
 ===================
 
-*Documentation in progress!*
-
 Owner
 -----
 

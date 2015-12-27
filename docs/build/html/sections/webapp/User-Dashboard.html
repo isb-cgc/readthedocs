@@ -8,8 +8,9 @@
     
     <title>User Dashboard &mdash; ISB Cancer Genomics Cloud 1.0.0 documentation</title>
     
-    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -23,16 +24,29 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/custom.js"></script>
     <link rel="top" title="ISB Cancer Genomics Cloud 1.0.0 documentation" href="../../index.html" />
     <link rel="up" title="Web Interface" href="../Web-UI.html" />
     <link rel="next" title="Cohorts" href="Cohorts.html" />
-    <link rel="prev" title="Web Interface" href="../Web-UI.html" />
-   
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
-
+    <link rel="prev" title="Release Notes" href="releases.html" /> 
   </head>
-  <body role="document">  
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Cohorts.html" title="Cohorts"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="releases.html" title="Release Notes"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">ISB Cancer Genomics Cloud 1.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../Web-UI.html" accesskey="U">Web Interface</a> &raquo;</li> 
+      </ul>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
@@ -41,9 +55,10 @@
             
   <div class="section" id="user-dashboard">
 <h1>User Dashboard<a class="headerlink" href="#user-dashboard" title="Permalink to this headline">¶</a></h1>
-<p><em>Documentation in progress!</em></p>
 <div class="section" id="create-a-cohort">
-<h2>Create a Cohort<a class="headerlink" href="#create-a-cohort" title="Permalink to this headline">¶</a></h2>
+<h2>Create a cohort<a class="headerlink" href="#create-a-cohort" title="Permalink to this headline">¶</a></h2>
+<p>To create a cohort from the User Dashboard, click on the &#8220;+Create&#8221; button
+and select &#8220;New Cohort&#8221;.  This will take you to the cohort creation page.</p>
 <p>To create a cohort from the user dashboard, click on the “+ Create” button and select “New Cohort”.
 This will take you to the cohort creation page.</p>
 </div>
@@ -69,8 +84,10 @@ you wish to share with. You will be able to remove cohorts you no longer want to
 be able to select from a list of users that are already registered in the system and you may select
 one or more users you wish to share with. Click the “Share Cohort” button when you are done. This is
 the same for visualizations.</p>
-<p>Users who you share a cohort with will only be able to view and comment on the cohort and not
-make changes. They will need to clone the cohort before making changes to it.</p>
+<p>When you share a cohort with another user, that user
+will be able to view and comment on the cohort, but will not be able to
+make changes.  If you want to make changes to a cohort that has been
+shared with you, first clone that cohort.</p>
 </div>
 <div class="section" id="set-operations-on-cohorts">
 <h2>Set operations on cohorts<a class="headerlink" href="#set-operations-on-cohorts" title="Permalink to this headline">¶</a></h2>
@@ -109,6 +126,11 @@ does a string matching with the names of cohorts and visualizations.</p>
 <h2>Sorting of cohorts and visualizations<a class="headerlink" href="#sorting-of-cohorts-and-visualizations" title="Permalink to this headline">¶</a></h2>
 <p>You can sort the listing of cohorts and visualizations using the column headers. By clicking on a column,
 it will indicate whether it is sorting that column in ascending order or descending order.</p>
+<hr class="docutils" />
+<div class="isbcgcfooter container">
+Have feedback or corrections?  All improvements to these docs are welcome!
+You can file an issue <a class="reference external" href="https://github.com/isb-cgc/readthedocs/issues">here</a>
+or email us at <a class="reference external" href="mailto:feedback&#37;&#52;&#48;isb-cgc&#46;org">feedback<span>&#64;</span>isb-cgc<span>&#46;</span>org</a>.</div>
 </div>
 </div>
 
@@ -121,7 +143,7 @@ it will indicate whether it is sorting that column in ascending order or descend
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">User Dashboard</a><ul>
-<li><a class="reference internal" href="#create-a-cohort">Create a Cohort</a></li>
+<li><a class="reference internal" href="#create-a-cohort">Create a cohort</a></li>
 <li><a class="reference internal" href="#create-a-general-visualization">Create a general visualization</a></li>
 <li><a class="reference internal" href="#create-a-seqpeek-visualization">Create a SeqPeek visualization</a></li>
 <li><a class="reference internal" href="#batch-operations-on-cohorts-and-visualizations">Batch operations on cohorts and visualizations</a></li>
@@ -134,17 +156,13 @@ it will indicate whether it is sorting that column in ascending order or descend
 </ul>
 </li>
 </ul>
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../../index.html">Documentation overview</a><ul>
-  <li><a href="../Web-UI.html">Web Interface</a><ul>
-      <li>Previous: <a href="../Web-UI.html" title="previous chapter">Web Interface</a></li>
-      <li>Next: <a href="Cohorts.html" title="next chapter">Cohorts</a></li>
-  </ul></li>
-  </ul></li>
-</ul>
-</div>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="releases.html"
+                        title="previous chapter">Release Notes</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="Cohorts.html"
+                        title="next chapter">Cohorts</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -169,20 +187,25 @@ it will indicate whether it is sorting that column in ascending order or descend
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="footer">
-      &copy;2015, the ISB-CGC team.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.3</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
-      
-      |
-      <a href="../../_sources/sections/webapp/User-Dashboard.txt"
-          rel="nofollow">Page source</a>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Cohorts.html" title="Cohorts"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="releases.html" title="Release Notes"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">ISB Cancer Genomics Cloud 1.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../Web-UI.html" >Web Interface</a> &raquo;</li> 
+      </ul>
     </div>
-
-    
-
-    
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, the ISB-CGC team.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
   </body>
 </html>

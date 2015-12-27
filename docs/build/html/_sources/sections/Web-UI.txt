@@ -5,7 +5,7 @@ Documentation for the ISB-CGC web app is available from within the web-app.  Aft
 click on the down-arrow next to your name in the upper-right corner and select "Help".
 
 .. toctree::
-  webapp/Releases
+  webapp/releases
   webapp/User-Dashboard
   webapp/Cohorts
   webapp/Visualizations

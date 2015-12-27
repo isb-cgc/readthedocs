@@ -3,20 +3,18 @@ User Dashboard
 
 Create a cohort
 ---------------
-To create a cohort from the User Dashboard, click on the "+Create" button
-and select "New Cohort".  This will take you to the cohort creation page.
-
-To create a cohort from the user dashboard, click on the “+ Create” button and select “New Cohort”. 
+To create a cohort from the User Dashboard, click on the "+ Create" button and select "New Cohort".  
 This will take you to the cohort creation page.
 
 Create a general visualization
 ------------------------------
-To create a visualization from the user dashboard, click on the “+ Create” button and select “Visualization”. 
+To create a visualization from the User Dashboard, click on the “+ Create” button and select “Visualization”. 
 This will take you to a new visualization with default settings selected.
 
 Create a SeqPeek visualization
 ------------------------------
-To create a visualization from the user dashboard, click on the “+ Create” button and select “SeqPeek”. 
+To create a SeqPeek visualization from the User Dashboard, click on the “+ Create” button and 
+select “SeqPeek”. 
 This will take you to a new SeqPeek visualization with no default settings selected.
 
 Batch operations on cohorts and visualizations
@@ -33,7 +31,7 @@ be able to select from a list of users that are already registered in the system
 one or more users you wish to share with. Click the “Share Cohort” button when you are done. This is 
 the same for visualizations. 
 
-When you share a cohort with another user, that user
+Note that when you share a cohort with another user, that user
 will be able to view and comment on the cohort, but will not be able to 
 make changes.  If you want to make changes to a cohort that has been
 shared with you, first clone that cohort.
@@ -41,14 +39,16 @@ shared with you, first clone that cohort.
 Set operations on cohorts
 -------------------------
 To activate the set operations button, you must have at least one cohort selected. Upon clicking 
-the “Set Operations” button, a dialogue box will appear. Here you may do the following things:
-Enter in a name for the new cohort you’re about to create.
-Select a set operation.
-Edit cohorts to be used in the operation.
+the “Set Operations” button, a dialogue box will appear. From here you may choose one of the following
+operations:
+    * Enter a name for the resulting cohort you will create
+    * Select a set operation
+    * Edit cohorts to be operated upon
 
 The intersect and union operations can take any number of cohorts and in any order.
 
-The complement operation requires that there be a base cohort, from which the other cohorts will be subtracted from.
+The complement operation requires that there be a base cohort, from which the other cohort(s) will 
+be subtracted.
 
 Click “Okay” to complete the operation and create the new cohort.
 

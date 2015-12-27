@@ -1,28 +1,33 @@
 Cohorts
 =======
 
-*Documentation in progress!*
-
-Cohorts are a way of creating groupings of the samples and participant data that you’re interested in looking at. You
-can create cohorts that span across multiple projects, only contain certain types of data, or focus in on a particular
-participant group.
+Cohorts are a way of creating custom groupings of the samples and/or participants that you are 
+interested in analyzing further.
+For example, you can create cohorts that span across multiple projects, only contain samples for
+which certain types of data are avaialble, or focus on specific phenotypic characteristics.
 
 Creating and saving a cohort
 ----------------------------
-**Use the create button**
+**Create Cohort Button**
 
-To create a cohort from the user dashboard, click on the “+ Create” button and select “New Cohort”. This will take you
-to the cohort creation page.
+To create a cohort from the User Dashboard, click on the “+ Create” button and select “New Cohort”. 
+This will take you to the cohort creation page.
 
-**Details of new cohort page**
+**Cohort Creation Page**
 
-Using the provided list of filters on the left hand side, you can select what attributes and features you are
-interested. By clicking on a feature, the field should expand and provide you with options on which to filter on. For
-example, when you click on “Vital Status”, it expands and provides a list of “Alive”, “Dead”, “None” as options to
-choose from. When you select on, the filter should appear in the Selected Filters panel and visualizations on the page
-should be updated to reflect the new cohort that has been filtered by Vital Status. The numbers beside the selectable
-filter values reflect the number of samples that have that attribute based on all other filters that have been selected.
-* Donor Filter List
+Using the provided list of filters on the left hand side, you can select the attributes and features
+that you are interested in.
+By clicking on a feature, the field will expand and provide you with additional filtering options.
+For example, when you click on “Vital Status”, it expands and provides a list of “Alive”, “Dead”, and
+“None” as options to
+choose from. Selecting one or more of these will cause the filter(s) to appear in the Selected Filters 
+panel and visualizations on the page
+will be updated to reflect that the current cohort that has been filtered by Vital Status. 
+The numbers beside the selectable
+filter values reflect the number of samples that have that attribute based on all other filters that 
+have been selected.
+
+**Participant Filters List**
     * Project
     * Study
     * Vital Study
@@ -41,48 +46,53 @@ filter values reflect the number of samples that have that attribute based on al
     * ICD-10
     * ICD-O-3 Histology
     * ICD-O-3 Site
-* Data Type Filter List
-    * DNA Sequencing
-    * RNA Sequencing
-    * miRNA Sequencing
+
+**Data Type Filters List**
+    * DNA-Sequence
+    * RNA-Sequence
+    * miRNA-Sequence
     * Protein
-    * SNP CN
+    * SNP Copy-Number
     * DNA Methylation
 
-Selected Filters Panel
+**Selected Filters Panel**
 
 This is where selected filters are shown so there is an easy way to see what filters have been selected.
 Clicking on “Clear All” will remove all selected filters.
 
-Clinical Features Panel
+**Clinical Features Panel**
 
-This panel shows a list of treemaps that give a high level break of the samples for a handful of features:
-* Disease Code
-* Vital Status
-* Sample Type
-* Tumor Tissue Site
-* Gender
-* Age at Initial Pathologic Diagnosis
-By using the “Show More” button, you can see two more tree maps available.
+This panel shows a list of treemaps that give a high level breakdown of the selected samples for a 
+handful of features:
+    * Disease Code
+    * Vital Status
+    * Sample Type
+    * Tumor Tissue Site
+    * Gender
+    * Age at Initial Pathologic Diagnosis
+By using the “Show More” button, you can see two more tree maps that are currently available.
 
-Data Availability Panel
+**Data Availability Panel**
 
 This panel shows a parallel sets graph of available data for the selected samples in the cohort. The large headers over
-the vertical bars are data types. Each data type is broken up into their different platforms and “NA” for samples that
-do not have that data type. The bars that flow horizontally indicate the number of samples that have that data. By
-hovering on a horizontal segment between the first two bars, you will see the number of data that have both those data
-type platforms. You can also reorder the vertical categories by dragging the headers left and right and reorder the
+the vertical bars are data types. Each data type (vertical bar) is subdivided according to the different platforms
+that were used to generate this type of data (with "NA" indicating samples for which this data type is not available).
+Each sample in the current cohort is represented by a single line that "flows" horizontally from left to right,
+crossing each vertical bar in the appropriate segment.
+Hovering on a swatch between two vertical bars, you will see the number of samples that have data from those
+two platforms. 
+You can also reorder the vertical categories by dragging the headers left and right and reorder the
 platforms by dragging the platform names up and down.
 
 **Set operations**
 
-You can create cohorts using set operations on the user dashboard page.
+You can create cohorts using set operations on the User Dashboard page.
 
 To activate the set operations button, you must have at least one cohort selected. Upon clicking the “Set Operations”
 button, a dialogue box will appear. Here you may do the following things:
-* Enter in a name for the new cohort you’re about to create.
-* Select a set operation.
-* Edit cohorts to be used in the operation.
+    * Enter in a name for the new cohort you’re about to create.
+    * Select a set operation.
+    * Edit cohorts to be used in the operation.
 
 The intersect and union operations can take any number of cohorts and in any order.
 The complement operation requires that there be a base cohort, from which the other cohorts will be subtracted from.
@@ -101,7 +111,7 @@ choose to cancel adding any new filters.
 comment on it. Comments are shared with anyone who can view this cohort and ordered by newest on the bottom.
 * Make a Copy: Making a copy will create a copy of this cohort with the same list of samples and patients and make you
 the owner of the copy.
-* Share with Others: This behaves similarly to on the user dashboard page. A dialogue box appears and the user is
+* Share with Others: This behaves similarly to on the User Dashboard page. A dialogue box appears and the user is
 prompted to select users that are registered in the system to share the cohort with.
 
 Selected Filters Panel

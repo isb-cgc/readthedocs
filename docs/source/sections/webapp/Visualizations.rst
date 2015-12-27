@@ -1,9 +1,8 @@
 Visualizations
 ==============
 
-*Documentation in progress!*
-
-Visualizations are how you can visualize the available data for the cohorts you have created. A visualization is a
+The ISB-CGC web-app provides a variety of tools for visualizing the data associated with cohorts you have defined.
+A visualization is a
 collection of one or more plots and each plot is configurable to show relevant data that can be shared with others.
 
 Creating a visualization
@@ -132,3 +131,4 @@ Pairwise Analysis in Plots
 If the selected features produce meaningful results from a pairwise calculation, then the results will be shown
 underneath the plot in a table. If not, then there will be text stating that no results were returned from a pairwise
 calculation.
+
