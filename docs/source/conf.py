@@ -109,7 +109,6 @@ rst_epilog = """
 .. container:: isbcgcfooter
 
   Have feedback or corrections?  All improvements to these docs are welcome!
-
   You can file an issue `here <https://github.com/isb-cgc/readthedocs/issues>`_ or email us at feedback@isb-cgc.org.
 
 .. GLOBAL LINK REPLACEMENTS CAN GO HERE
