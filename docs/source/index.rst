@@ -35,9 +35,8 @@ Indices and Tables
 ##################
 
 * :ref:`search`
-* :ref:`genindex`
 
-
+.. * :ref:`genindex`
 .. * :ref:`modindex`
 
 
