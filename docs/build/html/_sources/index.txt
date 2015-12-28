@@ -24,20 +24,12 @@ Contents
 
    sections/About-ISB-CGC
    sections/TCGA-Data
+   sections/TCGA_on_ISBCGC
    sections/Web-UI
    sections/Programmatic-API
    sections/Reference-Data
    sections/FAQ
    sections/Support
    sections/Other-Useful-Links
-
-Indices and Tables
-##################
-
-* :ref:`search`
-* :ref:`genindex`
-
-
-.. * :ref:`modindex`
 
 

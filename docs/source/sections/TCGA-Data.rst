@@ -34,8 +34,36 @@ Understanding the TCGA Data Types and Levels
 TCGA Data Types
 ===============
 
+The TCGA dataset is unique in that the tumor samples were assayed using a standard set of platforms and pipelines in order to produce a comprehensive dataset including:
+
+* DNA sequencing of tumor samples and matched-normals (typically blood samples) in order to detect somatic mutations;
+* SNP array based DNA copy-number and genotyping analysis of tumor samples and matched-normals;
+* DNA methylation of tumor samples;
+* messenger RNA (mRNA) expression analysis of the tumor samples to capture the gene expression profile;
+* micro-RNA (miRNA) expression profiling of the tumor samples;
+
+In addition, protein expression for a significant fraction (~20%) of all tumor samples was obtained using RPPA (reverse phase protein array).
+
 TCGA Data Levels
 ================
+
+For each *type* of data, there are typically three *levels* of data:
+* Level 1 typically represents raw, un-normalized data
+* Level 2 typically represents an intermediate level of processing and/or normalization of the data;
+* Level 3 typically represents aggregated, normalized, and/or segmented data.
+
+The results of integrative or pan-cancer analyses are sometimes referred to as "Level 4" data.  More information about
+`Data Level Classification <https://wiki.nci.nih.gov/display/TCGA/Data+level>`_ can be found on the NCI wiki.
+
+TCGA Data Platforms
+===================
+
+When working with any of the data types, it is important to also be aware of both the *platform* that was used to generate the underlying raw data as well as the 
+*pipeline* that was used to process the data.  For example, over the course of the TCGA study, DNA methlyation data was obtained using first the Illumina
+HumanMethylation27 platform, and later using the HumanMethylation450 platform.  Any analysis that combines data from these two platforms across a cohort of
+samples should take this into consideration.  Another example where multiple platforms and/or pipelines were used to produce a single data type is the Level-3 gene
+expression data: most tumor samples were processed at UNC and the normalized gene-expression values are based on the RSEM method, while some tumor samples were
+processed at BCGSC and the normalized gene-expression values are based on RPKM.
 
 Understanding Data Access
 #########################

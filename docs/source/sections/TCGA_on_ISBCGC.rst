@@ -1,6 +1,6 @@
-************************************
-TCGA Data hosted on ISB-CGC Platform
-************************************
+****************************************
+TCGA Data hosted on the ISB-CGC Platform
+****************************************
 
 The ISB-CGC hosts approximately 1 petabyte of TCGA_ data in Google Cloud
 Storage (GCS_) and in BigQuery_.  
@@ -32,6 +32,7 @@ Open-Access TCGA Data
 #####################
 
 The open-access TCGA data hosted by the ISB-CGC Platform includes:
+
 * Clinical (de-identified) and Biospecimen data: these data were originally provided in XML files (Level-1) by the DCC;
 * Somatic mutation data:  these data were originally provided in MAF files (Level-2) by the DCC;
 * DNA copy-number segments:  these data were originally provided as segmentation files (Level-3) by the DCC;
@@ -50,16 +51,17 @@ Controlled-Access TCGA Data
 ###########################
 
 The controlled-access TCGA data hosted by the ISB-CGC Platform includes:
+
 * SNP array CEL files:  these Level-1 data files were provided by the DCC and include over 22,000 files for both tumor and matched-normal samples;
 * VCF files:  these Level-2 data files were provided by the DCC and include over 15,000 files produced by several different centers (primarily Broad and BCGSC);
 * MAF files:  these "protected" mutation files (Level-2) were provided by the DCC (note that these files were not generated uniformly for all tumor types);
 * DNA-seq BAM files:  these Level-1 data files were provided by CGHub;
-    - over 37,000 of these files are available in Google Cloud Storage (GCS);
-    - roughly 90% of these BAM files containe exome data, and 10% contain whole-genome data;
-    - BAM index (BAI) files are also available for all BAM files;
+   - over 37,000 of these files are available in Google Cloud Storage (GCS);
+   - roughly 90% of these BAM files containe exome data, the remaining 10% contain whole-genome data;
+   - BAM index (BAI) files are also available for all BAM files;
 * mRNA- and microRNA-seq BAM files:  these Level-1 data files were provided by CGHub;
-    - over 13,000 mRNA-seq BAM files are available in GCS;
-    - over 16,000 miRNA-seq BAM files are available in GCS;
+   - over 13,000 mRNA-seq BAM files are available in GCS;
+   - over 16,000 miRNA-seq BAM files are available in GCS;
 * mRNA-seq FASTQ files:  these Level-1 data files were provided by CGHub and include over 11,000 tar files.
 
 At this time, all of these controlled-access data files are stored in GCS in the original form, as obtained from the data

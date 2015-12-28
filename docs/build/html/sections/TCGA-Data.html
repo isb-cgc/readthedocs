@@ -26,7 +26,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/custom.js"></script>
     <link rel="top" title="ISB Cancer Genomics Cloud 1.0.0 documentation" href="../index.html" />
-    <link rel="next" title="Web Interface" href="Web-UI.html" />
+    <link rel="next" title="TCGA Data hosted on the ISB-CGC Platform" href="TCGA_on_ISBCGC.html" />
     <link rel="prev" title="About the ISB Cancer Genomics Cloud" href="About-ISB-CGC.html" /> 
   </head>
   <body role="document">
@@ -37,7 +37,7 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="Web-UI.html" title="Web Interface"
+          <a href="TCGA_on_ISBCGC.html" title="TCGA Data hosted on the ISB-CGC Platform"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="About-ISB-CGC.html" title="About the ISB Cancer Genomics Cloud"
@@ -75,9 +75,33 @@ technologies.</p>
 <h2>Understanding the TCGA Data Types and Levels<a class="headerlink" href="#understanding-the-tcga-data-types-and-levels" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="tcga-data-types">
 <h3>TCGA Data Types<a class="headerlink" href="#tcga-data-types" title="Permalink to this headline">¶</a></h3>
+<p>The TCGA dataset is unique in that the tumor samples were assayed using a standard set of platforms and pipelines in order to produce a comprehensive dataset including:</p>
+<ul class="simple">
+<li>DNA sequencing of tumor samples and matched-normals (typically blood samples) in order to detect somatic mutations;</li>
+<li>SNP array based DNA copy-number and genotyping analysis of tumor samples and matched-normals;</li>
+<li>DNA methylation of tumor samples;</li>
+<li>messenger RNA (mRNA) expression analysis of the tumor samples to capture the gene expression profile;</li>
+<li>micro-RNA (miRNA) expression profiling of the tumor samples;</li>
+</ul>
+<p>In addition, protein expression for a significant fraction (~20%) of all tumor samples was obtained using RPPA (reverse phase protein array).</p>
 </div>
 <div class="section" id="tcga-data-levels">
 <h3>TCGA Data Levels<a class="headerlink" href="#tcga-data-levels" title="Permalink to this headline">¶</a></h3>
+<p>For each <em>type</em> of data, there are typically three <em>levels</em> of data:
+* Level 1 typically represents raw, un-normalized data
+* Level 2 typically represents an intermediate level of processing and/or normalization of the data;
+* Level 3 typically represents aggregated, normalized, and/or segmented data.</p>
+<p>The results of integrative or pan-cancer analyses are sometimes referred to as &#8220;Level 4&#8221; data.  More information about
+<a class="reference external" href="https://wiki.nci.nih.gov/display/TCGA/Data+level">Data Level Classification</a> can be found on the NCI wiki.</p>
+</div>
+<div class="section" id="tcga-data-platforms">
+<h3>TCGA Data Platforms<a class="headerlink" href="#tcga-data-platforms" title="Permalink to this headline">¶</a></h3>
+<p>When working with any of the data types, it is important to also be aware of both the <em>platform</em> that was used to generate the underlying raw data as well as the
+<em>pipeline</em> that was used to process the data.  For example, over the course of the TCGA study, DNA methlyation data was obtained using first the Illumina
+HumanMethylation27 platform, and later using the HumanMethylation450 platform.  Any analysis that combines data from these two platforms across a cohort of
+samples should take this into consideration.  Another example where multiple platforms and/or pipelines were used to produce a single data type is the Level-3 gene
+expression data: most tumor samples were processed at UNC and the normalized gene-expression values are based on the RSEM method, while some tumor samples were
+processed at BCGSC and the normalized gene-expression values are based on RPKM.</p>
 </div>
 </div>
 <div class="section" id="understanding-data-access">
@@ -89,9 +113,7 @@ technologies.</p>
 </ul>
 <hr class="docutils" />
 <div class="isbcgcfooter container">
-Have feedback or corrections?  All improvements to these docs are welcome!
-You can file an issue <a class="reference external" href="https://github.com/isb-cgc/readthedocs/issues">here</a>
-or email us at <a class="reference external" href="mailto:feedback&#37;&#52;&#48;isb-cgc&#46;org">feedback<span>&#64;</span>isb-cgc<span>&#46;</span>org</a>.</div>
+Have feedback or corrections?  All improvements to these docs are welcome!  You can file an issue <a class="reference external" href="https://github.com/isb-cgc/readthedocs/issues">here</a> or email us at <a class="reference external" href="mailto:feedback&#37;&#52;&#48;isb-cgc&#46;org">feedback<span>&#64;</span>isb-cgc<span>&#46;</span>org</a>.</div>
 </div>
 </div>
 
@@ -107,6 +129,7 @@ or email us at <a class="reference external" href="mailto:feedback&#37;&#52;&#48
 <li><a class="reference internal" href="#understanding-the-tcga-data-types-and-levels">Understanding the TCGA Data Types and Levels</a><ul>
 <li><a class="reference internal" href="#tcga-data-types">TCGA Data Types</a></li>
 <li><a class="reference internal" href="#tcga-data-levels">TCGA Data Levels</a></li>
+<li><a class="reference internal" href="#tcga-data-platforms">TCGA Data Platforms</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#understanding-data-access">Understanding Data Access</a></li>
@@ -118,8 +141,8 @@ or email us at <a class="reference external" href="mailto:feedback&#37;&#52;&#48
   <p class="topless"><a href="About-ISB-CGC.html"
                         title="previous chapter">About the ISB Cancer Genomics Cloud</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="Web-UI.html"
-                        title="next chapter">Web Interface</a></p>
+  <p class="topless"><a href="TCGA_on_ISBCGC.html"
+                        title="next chapter">TCGA Data hosted on the ISB-CGC Platform</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -151,7 +174,7 @@ or email us at <a class="reference external" href="mailto:feedback&#37;&#52;&#48
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="Web-UI.html" title="Web Interface"
+          <a href="TCGA_on_ISBCGC.html" title="TCGA Data hosted on the ISB-CGC Platform"
              >next</a> |</li>
         <li class="right" >
           <a href="About-ISB-CGC.html" title="About the ISB Cancer Genomics Cloud"
