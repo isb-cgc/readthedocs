@@ -31,12 +31,4 @@ Contents
    sections/Support
    sections/Other-Useful-Links
 
-Indices and Tables
-##################
-
-* :ref:`search`
-
-.. * :ref:`genindex`
-.. * :ref:`modindex`
-
 
