@@ -14,8 +14,9 @@ menu. This will automatically take you to a SeqPeek page with no pre-selected se
 the Settings panel.
 
 In the Settings panel, there will be options to select in order to make a new plot.
-    * Gene selection: this is an autocompleting dropdown for valid gene symbols
-    * Cohorts: here you can select one or more cohorts for the visualization
+
+* Gene selection: this is an autocompleting dropdown for valid gene symbols
+* Cohorts: here you can select one or more cohorts for the visualization
 
 To add a cohort, select the “+ Cohort” option underneath the currently selected list of cohorts. This will take you to
 the cohorts listing panel where you can select a cohort from the list, or use the autocomplete textbox to search in
@@ -32,7 +33,7 @@ visualization and save. You will be notified after it saves correctly.
 Deleting a SeqPeek Visualization
 ################################
 
-    * **From User Dashboard**  Select the SeqPeek visualizations that you wish to delete using the checkboxes next to the visualization. When one or more are selected, the delete button will be active and you can then proceed to deleting them.
+* **From User Dashboard**  Select the SeqPeek visualizations that you wish to delete using the checkboxes next to the visualization. When one or more are selected, the delete button will be active and you can then proceed to deleting them.
 
-    * **From SeqPeek Visualization**  When viewing a SeqPeek visualization that you created, you may delete it using the top right menu option.
+* **From SeqPeek Visualization**  When viewing a SeqPeek visualization that you created, you may delete it using the top right menu option.
 

@@ -36,7 +36,7 @@ Participant Filters List
 
     * Project
     * Study
-    * Vital Study
+    * Vital Status
     * Gender
     * Age At Diagnosis
     * Sample Type Code
@@ -118,29 +118,29 @@ Editing a Cohort
 
 **Details of cohort edit page**
 
-Menu
-* Add New Filters: Selecting this menu item make the filters panel appear. And filters selected will be additive to any
-filters that have already been selected. To return to the previous view, you much either save any selected filters, or
-choose to cancel adding any new filters.
-* Comments: Selecting “Comments” will cause the Comments panel to appear. Here anyone who can see this cohort can
-comment on it. Comments are shared with anyone who can view this cohort and ordered by newest on the bottom.
-* Make a Copy: Making a copy will create a copy of this cohort with the same list of samples and patients and make you
-the owner of the copy.
-* Share with Others: This behaves similarly to on the User Dashboard page. A dialogue box appears and the user is
-prompted to select users that are registered in the system to share the cohort with.
+Main Menu
+---------
+
+* Add New Filters: Selecting this menu item make the filters panel appear. And filters selected will be additive to any filters that have already been selected. To return to the previous view, you much either save any selected filters, or choose to cancel adding any new filters.
+* Comments: Selecting “Comments” will cause the Comments panel to appear. Here anyone who can see this cohort can comment on it. Comments are shared with anyone who can view this cohort and ordered by newest on the bottom.
+* Make a Copy: Making a copy will create a copy of this cohort with the same list of samples and patients and make you the owner of the copy.
+* Share with Others: This behaves similarly to on the User Dashboard page. A dialogue box appears and the user is prompted to select users that are registered in the system to share the cohort with.
 
 Selected Filters Panel
+----------------------
 
 This panel displays any filters that have been used on the cohort or any of its ancestors. These cannot be modified and
 any additional filters applied to this cohort will be appended to the list.
 
 Details Panel
+-------------
 
 This panel displays the number of samples and participant in this cohort. These vary because some participants may have
 provided multiple samples.
 This panel also displays “Your Permissions” which can be either owner or reader.
 
 Clinical Features Panel
+-----------------------
 
 This panel shows a list of treemaps that give a high level break of the samples for a handful of features:
 * Disease Code
@@ -153,7 +153,7 @@ This panel shows a list of treemaps that give a high level break of the samples 
 By using the “Show More” button, you can see two more tree maps available.
 
 Data Availability Panel
-
+-----------------------
 This panel shows a parallel sets graph of available data for the selected samples in the cohort. The large headers over
 the vertical bars are data types. Each data type is broken up into their different platforms and “NA” for samples that
 do not have that data type. The bars that flow horizontally indicate the number of samples that have that data. By
@@ -177,6 +177,7 @@ contains the following information for each file:
 * File Path to the Cloud Storage Location
 
 Commenting
+----------
 Any user who owns or has had a cohort shared with them can comment on it. To open comments, use the menu button at the
 top right and select “Comments”. A sidebar will appear on the right side and any previously created comments will be
 shown.
@@ -185,7 +186,7 @@ On the bottom of the comments sidebar, you can create a new comment and save it.
 list of comments.
 
 Deleting a cohort
------------------
+=================
 
 From the dashboard:
 Select the cohorts that you wish to delete using the checkboxes next to the cohorts. When one or more are selected, the
@@ -194,8 +195,8 @@ delete button will be active and you can then proceed to deleting them.
 From within a cohort:
 If you are viewing a cohort you created, then you can delete the cohort from the top right menu option.
 
-Creating a Cohort From a visualization
---------------------------------------
+Creating a Cohort from a Visualization
+======================================
 
 To create a cohort from a visualization, you must be in plot selection mode. If you are in plot selection mode, the
 crosshairs icon in the top right corner of the plot panel should be blue. If it is not, click on it and it should turn
@@ -210,10 +211,11 @@ on this when you are ready to create a new cohort.
 Put in a name for you newly selected cohort and click the “Save” button.
 
 Copying a cohort
-----------------
+================
 
 Copying a cohort can only be done from the cohort details page of the cohort you are want to copy.
 
 When you are looking at the cohort you wish to copy, select the “Make A Copy” item from the top right menu.
 
 This will take you to your copy of the cohort.
+

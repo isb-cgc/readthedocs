@@ -50,9 +50,10 @@ Set Operations on Cohorts
 To activate the set operations button, you must have at least one cohort selected. Upon clicking 
 the “Set Operations” button, a dialogue box will appear. From here you may choose one of the following
 operations:
-    * Enter a name for the resulting cohort you will create
-    * Select a set operation
-    * Edit cohorts to be operated upon
+
+* Enter a name for the resulting cohort you will create
+* Select a set operation
+* Edit cohorts to be operated upon
 
 The intersect and union operations can take any number of cohorts and in any order.
 

@@ -76,55 +76,46 @@ When you click on the edit icon next to the feature you would like to change (i.
 you will be taken to the feature selection panel.
 Here you must first specify the datatype of the feature you would like to plot. Each datatype requires a different set
 of parameters to narrow down the feature that can be used in the plot.
+
 * Clinical
     * Single autocomplete textbox. This input searches through the names of the all the clinical features available.
 * Gene Expression
-    * Gene Filter: filters down the plot-able features by a specific gene. This is an autocomplete search field for a
-    gene name.
+    * Gene Filter: filters down the plot-able features by a specific gene. This is an autocomplete search field for a gene name.
     * Platform Filter: filters down the plot-able features by platforms.
     * Center Filter: filters down the plot-able features by processing center.
     * Select Feature: provides the filtered down list of plot-able features to select from based on selected filters.
 * miRNA
-    * miRNA Name Filter: filters down the plot-able features by a specific miRNA. This is an autocomplete search field
-    for a miRNA name.
+    * miRNA Name Filter: filters down the plot-able features by a specific miRNA. This is an autocomplete search field for a miRNA name.
     * Platform Filter: filters down the plot-able features by platforms.
     * Value Filter: filters down the plot-able features by value.
     * Select Feature: provides the filtered down list of plot-able features to select from based on selected filters.
 * Methylation
-    * Gene Filter: filters down the plot-able features by a specific gene. This is an autocomplete search field for a
-    gene name.
-    * CpG Probe Filter: filters down the plot-able features by a specific CpG Probe. This is an autocomplete search
-    field for a particular probe.
+    * Gene Filter: filters down the plot-able features by a specific gene. This is an autocomplete search field for a gene name.
+    * CpG Probe Filter: filters down the plot-able features by a specific CpG Probe. This is an autocomplete search field for a particular probe.
     * Platform Filter: filters down the plot-able features by platforms.
     * Gene Region Filter: filters down the plot-able features by specific gene regions.
     * CpG Island region Filter: filters down the plot-able features by CpG Island region.
     * Select Feature: provides the filtered down list of plot-able features to select from based on selected filters.
 * Copy Number
-    * Gene Filter: filters down the plot-able features by a specific gene. This is an autocomplete search field for a
-    gene name.
+    * Gene Filter: filters down the plot-able features by a specific gene. This is an autocomplete search field for a gene name.
     * Value Filter: filters down the plot-able features by value
     * Select Feature: provides the filtered down list of plot-able features to select from based on selected filters.
 * Protein
-    * Gene Filter: filters down the plot-able features by a specific gene. This is an autocomplete search field for a
-    gene name.
-    * Protein Filter: filters down the plot-able features by protein. This is an autocomplete search field for a
-    protein name.
+    * Gene Filter: filters down the plot-able features by a specific gene. This is an autocomplete search field for a gene name.
+    * Protein Filter: filters down the plot-able features by protein. This is an autocomplete search field for a protein name.
     * Select Feature: provides the filtered down list of plot-able features to select from based on selected filters.
 * Mutation
-    * Gene Filter: filters down the plot-able features by a specific gene. This is an autocomplete search field for a
-    gene name.
+    * Gene Filter: filters down the plot-able features by a specific gene. This is an autocomplete search field for a gene name.
     * Value Filter: filters down the plot-able features by mutation value.
-
-Select Feature: provides the filtered down list of plot-able features to select from based on selected filters.
-* Swap Values: This button allows you to instantly swap the features on the X and Y Axes without having to re-select
-each feature individually.
-* Color By Cohort: This checkbox will override any feature that is in the Color By Feature. It will use the cohorts
-provided as the legend and Color By Feature.
+* Select Feature: provides the filtered list of plot-able features to select from based on selected filters.
+* Swap Values: This button allows you to instantly swap the features on the X and Y Axes without having to re-select each feature individually.
+* Color By Cohort: This checkbox will override any feature that is in the Color By Feature. It will use the cohorts provided as the legend and Color By Feature.
 * Cohorts: This is where you can select one or more cohorts to plot at one time.
 
 To add a cohort, select the “+ Cohort” option underneath the currently selected list of cohorts. This will take you to
 the cohorts listing panel where you can select a cohort from the list, or use the autocomplete textbox to search in
 their list of cohorts.
+
 When all the settings have been set, you can click “Update Plot” to regenerate the plot with the new settings.
 
 Pairwise Statistical Test

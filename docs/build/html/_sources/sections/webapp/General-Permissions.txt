@@ -8,9 +8,9 @@ visualizations will, by default, be private to the user who created them.  Users
 also share these components of their interactive analyses.  There are two levels of permissions:
 Owner and Reader:
 
-    * **Owner**: As owner of a cohort or visualization, you are able to edit and share your cohort.
-    * **Reader**:  If a cohort or visualization is shared with you, you have view-only access:
-        - You may be able to make configuration changes to plots in a visualizations, but you will not be able to save those changes;
-        - You are able to comment on a cohort or plot, and your comments will be shared with all other Readers;
-        - You may make a copy ("clone") of the cohort or visualization, after which you will be the owner and you will be able to make changes.
+* **Owner**: As owner of a cohort or visualization, you are able to edit and share your cohort.
+* **Reader**:  If a cohort or visualization is shared with you, you have view-only access:
+    - You may be able to make configuration changes to plots in a visualizations, but you will not be able to save those changes;
+    - You are able to comment on a cohort or plot, and your comments will be shared with all other Readers;
+    - You may make a copy ("clone") of the cohort or visualization, after which you will be the owner and you will be able to make changes.
 

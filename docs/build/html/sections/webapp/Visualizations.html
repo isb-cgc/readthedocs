@@ -111,97 +111,93 @@ Plot Setting panel to open.</p>
 <p>When you click on the edit icon next to the feature you would like to change (i.e. “X Axis Feature”, “Y Axis Feature”),
 you will be taken to the feature selection panel.
 Here you must first specify the datatype of the feature you would like to plot. Each datatype requires a different set
-of parameters to narrow down the feature that can be used in the plot.
-* Clinical</p>
-<blockquote>
-<div><ul class="simple">
-<li>Single autocomplete textbox. This input searches through the names of the all the clinical features available.</li>
-</ul>
-</div></blockquote>
+of parameters to narrow down the feature that can be used in the plot.</p>
 <ul>
 <li><dl class="first docutils">
-<dt>Gene Expression</dt>
-<dd><ul class="first simple">
-<li>Gene Filter: filters down the plot-able features by a specific gene. This is an autocomplete search field for a</li>
+<dt>Clinical</dt>
+<dd><ul class="first last simple">
+<li>Single autocomplete textbox. This input searches through the names of the all the clinical features available.</li>
 </ul>
-<p class="last">gene name.
-* Platform Filter: filters down the plot-able features by platforms.
-* Center Filter: filters down the plot-able features by processing center.
-* Select Feature: provides the filtered down list of plot-able features to select from based on selected filters.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Gene Expression</dt>
+<dd><ul class="first last simple">
+<li>Gene Filter: filters down the plot-able features by a specific gene. This is an autocomplete search field for a gene name.</li>
+<li>Platform Filter: filters down the plot-able features by platforms.</li>
+<li>Center Filter: filters down the plot-able features by processing center.</li>
+<li>Select Feature: provides the filtered down list of plot-able features to select from based on selected filters.</li>
+</ul>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>miRNA</dt>
-<dd><ul class="first simple">
-<li>miRNA Name Filter: filters down the plot-able features by a specific miRNA. This is an autocomplete search field</li>
+<dd><ul class="first last simple">
+<li>miRNA Name Filter: filters down the plot-able features by a specific miRNA. This is an autocomplete search field for a miRNA name.</li>
+<li>Platform Filter: filters down the plot-able features by platforms.</li>
+<li>Value Filter: filters down the plot-able features by value.</li>
+<li>Select Feature: provides the filtered down list of plot-able features to select from based on selected filters.</li>
 </ul>
-<p class="last">for a miRNA name.
-* Platform Filter: filters down the plot-able features by platforms.
-* Value Filter: filters down the plot-able features by value.
-* Select Feature: provides the filtered down list of plot-able features to select from based on selected filters.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>Methylation</dt>
-<dd><ul class="first simple">
-<li>Gene Filter: filters down the plot-able features by a specific gene. This is an autocomplete search field for a</li>
+<dd><ul class="first last simple">
+<li>Gene Filter: filters down the plot-able features by a specific gene. This is an autocomplete search field for a gene name.</li>
+<li>CpG Probe Filter: filters down the plot-able features by a specific CpG Probe. This is an autocomplete search field for a particular probe.</li>
+<li>Platform Filter: filters down the plot-able features by platforms.</li>
+<li>Gene Region Filter: filters down the plot-able features by specific gene regions.</li>
+<li>CpG Island region Filter: filters down the plot-able features by CpG Island region.</li>
+<li>Select Feature: provides the filtered down list of plot-able features to select from based on selected filters.</li>
 </ul>
-<p class="last">gene name.
-* CpG Probe Filter: filters down the plot-able features by a specific CpG Probe. This is an autocomplete search
-field for a particular probe.
-* Platform Filter: filters down the plot-able features by platforms.
-* Gene Region Filter: filters down the plot-able features by specific gene regions.
-* CpG Island region Filter: filters down the plot-able features by CpG Island region.
-* Select Feature: provides the filtered down list of plot-able features to select from based on selected filters.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>Copy Number</dt>
-<dd><ul class="first simple">
-<li>Gene Filter: filters down the plot-able features by a specific gene. This is an autocomplete search field for a</li>
+<dd><ul class="first last simple">
+<li>Gene Filter: filters down the plot-able features by a specific gene. This is an autocomplete search field for a gene name.</li>
+<li>Value Filter: filters down the plot-able features by value</li>
+<li>Select Feature: provides the filtered down list of plot-able features to select from based on selected filters.</li>
 </ul>
-<p class="last">gene name.
-* Value Filter: filters down the plot-able features by value
-* Select Feature: provides the filtered down list of plot-able features to select from based on selected filters.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>Protein</dt>
-<dd><ul class="first simple">
-<li>Gene Filter: filters down the plot-able features by a specific gene. This is an autocomplete search field for a</li>
+<dd><ul class="first last simple">
+<li>Gene Filter: filters down the plot-able features by a specific gene. This is an autocomplete search field for a gene name.</li>
+<li>Protein Filter: filters down the plot-able features by protein. This is an autocomplete search field for a protein name.</li>
+<li>Select Feature: provides the filtered down list of plot-able features to select from based on selected filters.</li>
 </ul>
-<p class="last">gene name.
-* Protein Filter: filters down the plot-able features by protein. This is an autocomplete search field for a
-protein name.
-* Select Feature: provides the filtered down list of plot-able features to select from based on selected filters.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt>Mutation</dt>
-<dd><ul class="first simple">
-<li>Gene Filter: filters down the plot-able features by a specific gene. This is an autocomplete search field for a</li>
+<dd><ul class="first last simple">
+<li>Gene Filter: filters down the plot-able features by a specific gene. This is an autocomplete search field for a gene name.</li>
+<li>Value Filter: filters down the plot-able features by mutation value.</li>
 </ul>
-<p class="last">gene name.
-* Value Filter: filters down the plot-able features by mutation value.</p>
 </dd>
 </dl>
 </li>
+<li><p class="first">Select Feature: provides the filtered list of plot-able features to select from based on selected filters.</p>
+</li>
+<li><p class="first">Swap Values: This button allows you to instantly swap the features on the X and Y Axes without having to re-select each feature individually.</p>
+</li>
+<li><p class="first">Color By Cohort: This checkbox will override any feature that is in the Color By Feature. It will use the cohorts provided as the legend and Color By Feature.</p>
+</li>
+<li><p class="first">Cohorts: This is where you can select one or more cohorts to plot at one time.</p>
+</li>
 </ul>
-<p>Select Feature: provides the filtered down list of plot-able features to select from based on selected filters.
-* Swap Values: This button allows you to instantly swap the features on the X and Y Axes without having to re-select
-each feature individually.
-* Color By Cohort: This checkbox will override any feature that is in the Color By Feature. It will use the cohorts
-provided as the legend and Color By Feature.
-* Cohorts: This is where you can select one or more cohorts to plot at one time.</p>
 <p>To add a cohort, select the “+ Cohort” option underneath the currently selected list of cohorts. This will take you to
 the cohorts listing panel where you can select a cohort from the list, or use the autocomplete textbox to search in
-their list of cohorts.
-When all the settings have been set, you can click “Update Plot” to regenerate the plot with the new settings.</p>
+their list of cohorts.</p>
+<p>When all the settings have been set, you can click “Update Plot” to regenerate the plot with the new settings.</p>
 </div>
 </div>
 <div class="section" id="pairwise-statistical-test">

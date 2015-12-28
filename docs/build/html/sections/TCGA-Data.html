@@ -26,8 +26,8 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/custom.js"></script>
     <link rel="top" title="ISB Cancer Genomics Cloud 1.0.0 documentation" href="../index.html" />
-    <link rel="next" title="Reference Data" href="Reference-Data.html" />
-    <link rel="prev" title="Programmatic Interfaces" href="Programmatic-API.html" /> 
+    <link rel="next" title="Web Interface" href="Web-UI.html" />
+    <link rel="prev" title="About the ISB Cancer Genomics Cloud" href="About-ISB-CGC.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -37,10 +37,10 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="Reference-Data.html" title="Reference Data"
+          <a href="Web-UI.html" title="Web Interface"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="Programmatic-API.html" title="Programmatic Interfaces"
+          <a href="About-ISB-CGC.html" title="About the ISB Cancer Genomics Cloud"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">ISB Cancer Genomics Cloud 1.0.0 documentation</a> &raquo;</li> 
       </ul>
@@ -56,10 +56,12 @@
 <p>The ISB-CGC hosts approximately 1 petabyte of <a class="reference external" href="http://cancergenome.nih.gov/">TCGA</a> data in Google Cloud
 Storage (<a class="reference external" href="https://cloud.google.com/storage/">GCS</a>) and in <a class="reference external" href="https://cloud.google.com/bigquery/">BigQuery</a>.</p>
 <p>The data being hosted by the ISB-CGC was obtained from the two main TCGA data
-repositories:
-* <strong>TCGA DCC</strong>: this is the TCGA Data Coordinating Center which provides a <cite>Data Portal &lt;https://tcga-data.nci.nih.gov/tcga/&gt;_</cite> from which users may download open-access or controlled-access data.  This portal provides access to all TCGA data <em>except</em> for the low-level sequence data.
-* <strong>CGHub</strong>:  this is NCI&#8217;s current secure data repository for all TCGA BAM and FASTQ sequence data files.</p>
-<p>The ISB-CGC platform is one of NCI&#8217;s <cite>Cancer Genomics Cloud Pilots &lt;https://cbiit.nci.nih.gov/ncip/nci-cancer-genomics-cloud-pilots&gt;_</cite>
+repositories:</p>
+<ul class="simple">
+<li><strong>TCGA DCC</strong>: this is the TCGA Data Coordinating Center which provides a <a class="reference external" href="https://tcga-data.nci.nih.gov/tcga/">Data Portal</a> from which users may download open-access or controlled-access data.  This portal provides access to all TCGA data <em>except</em> for the low-level sequence data.</li>
+<li><strong>CGHub</strong>:  this is NCI&#8217;s current secure data repository for all TCGA BAM and FASTQ sequence data files.</li>
+</ul>
+<p>The ISB-CGC platform is one of NCI&#8217;s <a class="reference external" href="https://cbiit.nci.nih.gov/ncip/nci-cancer-genomics-cloud-pilots">Cancer Genomics Cloud Pilots</a>
 and our mission is to host the TCGA data in the cloud so that researchers around the world may work with the data without needing
 to download and store the data at their own local institutions.</p>
 <p>The vast majority (over 99%) of this <strong>petabyte</strong> of data consists of low-level sequence data, currently stored as files in
@@ -80,13 +82,11 @@ technologies.</p>
 </div>
 <div class="section" id="understanding-data-access">
 <h2>Understanding Data Access<a class="headerlink" href="#understanding-data-access" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li><strong>Public Data</strong>  Sometimes the word &#8220;public&#8221; is misinterpreted as meaning &#8220;open&#8221;.  All of the TCGA data is <em>public</em> data, but some of it is <em>open</em>, meaning that it is accessible and available to <em>all</em> users; while some TCGA data is <em>controlled</em> and restricted to authorized users.</li>
 <li><strong>Open-Access Data</strong>  Depending on how you categorize the data, <em>most</em> of the TCGA data is open-access data.  This includes all de-identified clinical and biospecimen data, as well as all Level-3 molecular data including gene expression data, DNA methylation data, DNA copy-number data, protein expression data, somatic mutation calls, etc.</li>
 <li><strong>Controlled-Access Data</strong>  All low-level sequence data (both DNA-seq and RNA-seq), the raw SNP array data (CEL files), germline mutation calls, and a small amount of other data are treated as <em>controlled</em> data and require that a user be properly authenticated and have dbGaP-authorization prior to access these data.</li>
 </ul>
-</div></blockquote>
 <hr class="docutils" />
 <div class="isbcgcfooter container">
 Have feedback or corrections?  All improvements to these docs are welcome!
@@ -115,11 +115,11 @@ or email us at <a class="reference external" href="mailto:feedback&#37;&#52;&#48
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="Programmatic-API.html"
-                        title="previous chapter">Programmatic Interfaces</a></p>
+  <p class="topless"><a href="About-ISB-CGC.html"
+                        title="previous chapter">About the ISB Cancer Genomics Cloud</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="Reference-Data.html"
-                        title="next chapter">Reference Data</a></p>
+  <p class="topless"><a href="Web-UI.html"
+                        title="next chapter">Web Interface</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -151,10 +151,10 @@ or email us at <a class="reference external" href="mailto:feedback&#37;&#52;&#48
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="Reference-Data.html" title="Reference Data"
+          <a href="Web-UI.html" title="Web Interface"
              >next</a> |</li>
         <li class="right" >
-          <a href="Programmatic-API.html" title="Programmatic Interfaces"
+          <a href="About-ISB-CGC.html" title="About the ISB Cancer Genomics Cloud"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">ISB Cancer Genomics Cloud 1.0.0 documentation</a> &raquo;</li> 
       </ul>

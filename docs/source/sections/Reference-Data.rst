@@ -27,7 +27,7 @@ Although additional details can be found at the Illumina_ webpage, we have uploa
 annotation information into the BigQuery table isb-cgc:platform_reference.methylation_annotation
 
 Each CpG locus is uniquely identified as described in this 
-`technical note <http://www.illumina.com/content/dam/illumina-marketing/documents/products/technotes/technote_cpg_loci_identification.pdf>_`
+`technical note <http://www.illumina.com/content/dam/illumina-marketing/documents/products/technotes/technote_cpg_loci_identification.pdf>`_
 and this unique identifier can be used to look up and cross-reference data between the TCGA DNA methylation data table
 and the platform annotation table.
 
@@ -49,7 +49,7 @@ Other Reference Data Sources
 ############################
 
 Google Genomics maintains a list of 
-`publicly available datasets <http://googlegenomics.readthedocs.org/en/latest/use_cases/discover_public_data/index.html>_`, 
+`publicly available datasets <http://googlegenomics.readthedocs.org/en/latest/use_cases/discover_public_data/index.html>`_, 
 including **Reference Genomes**, 
 the **Illumina Platinum Genomes**, information about the **Tute Genomics Annotation** table, *etc*.
 

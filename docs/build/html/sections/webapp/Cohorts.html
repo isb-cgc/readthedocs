@@ -84,7 +84,7 @@ have been selected.</p>
 <div><ul class="simple">
 <li>Project</li>
 <li>Study</li>
-<li>Vital Study</li>
+<li>Vital Status</li>
 <li>Gender</li>
 <li>Age At Diagnosis</li>
 <li>Sample Type Code</li>
@@ -165,24 +165,28 @@ Click “Okay” to complete the operation and create the new cohort.</p>
 <div class="section" id="editing-a-cohort">
 <h3>Editing a Cohort<a class="headerlink" href="#editing-a-cohort" title="Permalink to this headline">¶</a></h3>
 <p><strong>Details of cohort edit page</strong></p>
-<p>Menu
-* Add New Filters: Selecting this menu item make the filters panel appear. And filters selected will be additive to any
-filters that have already been selected. To return to the previous view, you much either save any selected filters, or
-choose to cancel adding any new filters.
-* Comments: Selecting “Comments” will cause the Comments panel to appear. Here anyone who can see this cohort can
-comment on it. Comments are shared with anyone who can view this cohort and ordered by newest on the bottom.
-* Make a Copy: Making a copy will create a copy of this cohort with the same list of samples and patients and make you
-the owner of the copy.
-* Share with Others: This behaves similarly to on the User Dashboard page. A dialogue box appears and the user is
-prompted to select users that are registered in the system to share the cohort with.</p>
-<p>Selected Filters Panel</p>
+<div class="section" id="main-menu">
+<h4>Main Menu<a class="headerlink" href="#main-menu" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Add New Filters: Selecting this menu item make the filters panel appear. And filters selected will be additive to any filters that have already been selected. To return to the previous view, you much either save any selected filters, or choose to cancel adding any new filters.</li>
+<li>Comments: Selecting “Comments” will cause the Comments panel to appear. Here anyone who can see this cohort can comment on it. Comments are shared with anyone who can view this cohort and ordered by newest on the bottom.</li>
+<li>Make a Copy: Making a copy will create a copy of this cohort with the same list of samples and patients and make you the owner of the copy.</li>
+<li>Share with Others: This behaves similarly to on the User Dashboard page. A dialogue box appears and the user is prompted to select users that are registered in the system to share the cohort with.</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h4>Selected Filters Panel<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
 <p>This panel displays any filters that have been used on the cohort or any of its ancestors. These cannot be modified and
 any additional filters applied to this cohort will be appended to the list.</p>
-<p>Details Panel</p>
+</div>
+<div class="section" id="details-panel">
+<h4>Details Panel<a class="headerlink" href="#details-panel" title="Permalink to this headline">¶</a></h4>
 <p>This panel displays the number of samples and participant in this cohort. These vary because some participants may have
 provided multiple samples.
 This panel also displays “Your Permissions” which can be either owner or reader.</p>
-<p>Clinical Features Panel</p>
+</div>
+<div class="section" id="id2">
+<h4>Clinical Features Panel<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
 <p>This panel shows a list of treemaps that give a high level break of the samples for a handful of features:
 * Disease Code
 * Vital Status
@@ -191,7 +195,9 @@ This panel also displays “Your Permissions” which can be either owner or rea
 * Gender
 * Age at Initial Pathologic Diagnosis</p>
 <p>By using the “Show More” button, you can see two more tree maps available.</p>
-<p>Data Availability Panel</p>
+</div>
+<div class="section" id="id3">
+<h4>Data Availability Panel<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
 <p>This panel shows a parallel sets graph of available data for the selected samples in the cohort. The large headers over
 the vertical bars are data types. Each data type is broken up into their different platforms and “NA” for samples that
 do not have that data type. The bars that flow horizontally indicate the number of samples that have that data. By
@@ -212,14 +218,18 @@ contains the following information for each file:
 * Pipeline
 * Data Level
 * File Path to the Cloud Storage Location</p>
-<p>Commenting
-Any user who owns or has had a cohort shared with them can comment on it. To open comments, use the menu button at the
+</div>
+<div class="section" id="commenting">
+<h4>Commenting<a class="headerlink" href="#commenting" title="Permalink to this headline">¶</a></h4>
+<p>Any user who owns or has had a cohort shared with them can comment on it. To open comments, use the menu button at the
 top right and select “Comments”. A sidebar will appear on the right side and any previously created comments will be
 shown.</p>
 <p>On the bottom of the comments sidebar, you can create a new comment and save it. It should appear at the bottom of the
 list of comments.</p>
+</div>
+</div>
 <div class="section" id="deleting-a-cohort">
-<h4>Deleting a cohort<a class="headerlink" href="#deleting-a-cohort" title="Permalink to this headline">¶</a></h4>
+<h3>Deleting a cohort<a class="headerlink" href="#deleting-a-cohort" title="Permalink to this headline">¶</a></h3>
 <p>From the dashboard:
 Select the cohorts that you wish to delete using the checkboxes next to the cohorts. When one or more are selected, the
 delete button will be active and you can then proceed to deleting them.</p>
@@ -227,7 +237,7 @@ delete button will be active and you can then proceed to deleting them.</p>
 If you are viewing a cohort you created, then you can delete the cohort from the top right menu option.</p>
 </div>
 <div class="section" id="creating-a-cohort-from-a-visualization">
-<h4>Creating a Cohort From a visualization<a class="headerlink" href="#creating-a-cohort-from-a-visualization" title="Permalink to this headline">¶</a></h4>
+<h3>Creating a Cohort from a Visualization<a class="headerlink" href="#creating-a-cohort-from-a-visualization" title="Permalink to this headline">¶</a></h3>
 <p>To create a cohort from a visualization, you must be in plot selection mode. If you are in plot selection mode, the
 crosshairs icon in the top right corner of the plot panel should be blue. If it is not, click on it and it should turn
 blue.</p>
@@ -238,7 +248,7 @@ on this when you are ready to create a new cohort.</p>
 <p>Put in a name for you newly selected cohort and click the “Save” button.</p>
 </div>
 <div class="section" id="copying-a-cohort">
-<h4>Copying a cohort<a class="headerlink" href="#copying-a-cohort" title="Permalink to this headline">¶</a></h4>
+<h3>Copying a cohort<a class="headerlink" href="#copying-a-cohort" title="Permalink to this headline">¶</a></h3>
 <p>Copying a cohort can only be done from the cohort details page of the cohort you are want to copy.</p>
 <p>When you are looking at the cohort you wish to copy, select the “Make A Copy” item from the top right menu.</p>
 <p>This will take you to your copy of the cohort.</p>
@@ -247,7 +257,6 @@ on this when you are ready to create a new cohort.</p>
 Have feedback or corrections?  All improvements to these docs are welcome!
 You can file an issue <a class="reference external" href="https://github.com/isb-cgc/readthedocs/issues">here</a>
 or email us at <a class="reference external" href="mailto:feedback&#37;&#52;&#48;isb-cgc&#46;org">feedback<span>&#64;</span>isb-cgc<span>&#46;</span>org</a>.</div>
-</div>
 </div>
 </div>
 </div>
@@ -278,11 +287,17 @@ or email us at <a class="reference external" href="mailto:feedback&#37;&#52;&#48
 <li><a class="reference internal" href="#operations-on-cohorts">Operations on Cohorts</a><ul>
 <li><a class="reference internal" href="#set-operations">Set Operations</a></li>
 <li><a class="reference internal" href="#editing-a-cohort">Editing a Cohort</a><ul>
-<li><a class="reference internal" href="#deleting-a-cohort">Deleting a cohort</a></li>
-<li><a class="reference internal" href="#creating-a-cohort-from-a-visualization">Creating a Cohort From a visualization</a></li>
-<li><a class="reference internal" href="#copying-a-cohort">Copying a cohort</a></li>
+<li><a class="reference internal" href="#main-menu">Main Menu</a></li>
+<li><a class="reference internal" href="#id1">Selected Filters Panel</a></li>
+<li><a class="reference internal" href="#details-panel">Details Panel</a></li>
+<li><a class="reference internal" href="#id2">Clinical Features Panel</a></li>
+<li><a class="reference internal" href="#id3">Data Availability Panel</a></li>
+<li><a class="reference internal" href="#commenting">Commenting</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#deleting-a-cohort">Deleting a cohort</a></li>
+<li><a class="reference internal" href="#creating-a-cohort-from-a-visualization">Creating a Cohort from a Visualization</a></li>
+<li><a class="reference internal" href="#copying-a-cohort">Copying a cohort</a></li>
 </ul>
 </li>
 </ul>
