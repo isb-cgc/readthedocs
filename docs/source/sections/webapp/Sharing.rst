@@ -1,8 +1,9 @@
-Sharing
-=======
+**********************************
+Sharing Cohorts and Visualizations
+**********************************
 
 Sharing a cohort
-----------------
+################
 
 A cohort can only be shared by the owner of the cohort.
 
@@ -11,7 +12,7 @@ first need to make a copy of it. This only copies the list of samples and partic
 any additional information that may be private to the original owner of the cohort.
 
 Sharing a visualization
------------------------
+#######################
 
 A visualization can only be shared by the owner of the visualization.
 
@@ -21,7 +22,7 @@ first. Underlying cohorts are shared with the user when the visualization is sha
 require the user to first clone the cohort as noted above.
 
 Sharing a SeqPeek visualization
--------------------------------
+###############################
 
 A SeqPeek visualization can only be shared by the owner of the visualization.
 

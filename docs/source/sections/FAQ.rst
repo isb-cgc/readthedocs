@@ -1,8 +1,9 @@
+********************************
 Frequently Asked Questions (FAQ)
-================================
+********************************
 
 ISB-CGC Accounts and Cloud Projects
------------------------------------
+###################################
 **Do I have to request an ISB-CGC account before I can try out the web interface?**
 No, you can just "sign in" using your Google identity at isb-cgc.appspot.com
 
@@ -21,7 +22,7 @@ Google Apps.  You can check here_).
 
 
 Data Access
------------
+###########
 **Does all TCGA data require dbGaP authorization prior to access?**
 No, generally only the low-level sequence (DNA and RNA) and SNP-array data (CEL files) require
 dbGaP authorization.  All of the "high-level" molecular data, as well as the clinical data are
@@ -64,7 +65,7 @@ authenticated to NIH via the web-app, and your dbGaP authorization has been veri
 identity associated with your account will have access to the controlled-data for 24 hours.
 
 Python Users
-------------
+############
 **I want to write python scripts that access the TCGA data hosted by the ISB-CGC.  Do you have some 
 examples that can get me started?**  Yes, of course!  The best place to start is with our examples-Python_
 repository on github.  You can run any of those examples yourself by signing in 
@@ -74,7 +75,7 @@ to your Google Cloud Project and deploying an instance of Google Cloud Datalab_.
 .. _Datalab: https://datalab.cloud.google.com/
 
 R and Bioconductor Users
-------------------------
+########################
 **I want to use R and Bioconductor packages to work with the TCGA data.  How can I do that?**
 You can run RStudio locally or deploy a dockerized version on a Google Compute Engine VM.  You can
 find some great examples to get you started in our examples-R_ repository on github, and also in

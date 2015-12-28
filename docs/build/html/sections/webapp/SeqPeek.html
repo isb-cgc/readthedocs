@@ -55,18 +55,22 @@
             
   <div class="section" id="seqpeek">
 <h1>SeqPeek<a class="headerlink" href="#seqpeek" title="Permalink to this headline">¶</a></h1>
-<p><em>Documentation in progress!</em></p>
-<p>SeqPeek is a visualization designed to show mutations on a protein associated to a Gene. It allows users to select
-multiple cohort and view mutations on a single gene across all of those cohorts.</p>
+<p>SeqPeek is a special-purpose visualization designed to show mutations along a linear representation of the protein-product
+from a gene.  Only one protein/gene may be viewed at any one time, but the user may select multiple cohorts in order
+to compare the mutation patterns observed in different cohorts.</p>
 <div class="section" id="creating-a-seqpeek-visualization">
 <h2>Creating a SeqPeek Visualization<a class="headerlink" href="#creating-a-seqpeek-visualization" title="Permalink to this headline">¶</a></h2>
-<p>You can create a new SeqPeek visualization from the user dashboard. Select the “SeqPeek” option from the “+ Create”
-menu. This will automatically take you to a SeqPeek page with no settings preselected for you. To make changes, open
+<p>You can create a new SeqPeek visualization from the User Dashboard. Select the “SeqPeek” option from the “+ Create”
+menu. This will automatically take you to a SeqPeek page with no pre-selected settings. To make changes, open
 the Settings panel.</p>
-<p>In the Settings panel, there will be options to select in order to make a new plot.
-* Gene selection: This is an autocompleting dropdown that will search the database for valid genes the system has data
-for.
-* Cohorts: This is where you can select one or more cohorts to plot at one time.</p>
+<dl class="docutils">
+<dt>In the Settings panel, there will be options to select in order to make a new plot.</dt>
+<dd><ul class="first last simple">
+<li>Gene selection: this is an autocompleting dropdown for valid gene symbols</li>
+<li>Cohorts: here you can select one or more cohorts for the visualization</li>
+</ul>
+</dd>
+</dl>
 <p>To add a cohort, select the “+ Cohort” option underneath the currently selected list of cohorts. This will take you to
 the cohorts listing panel where you can select a cohort from the list, or use the autocomplete textbox to search in
 their list of cohorts.
@@ -75,15 +79,16 @@ When all the settings have been set, you can click “Update Plot” to regenera
 <div class="section" id="saving-a-seqpeek-visualization">
 <h2>Saving a SeqPeek Visualization<a class="headerlink" href="#saving-a-seqpeek-visualization" title="Permalink to this headline">¶</a></h2>
 <p>To save changes to the visualization, click “Save Visualization” button. This will prompt you to name your SeqPeek
-visualization and save. You will be notified if it saved correctly or not.</p>
+visualization and save. You will be notified after it saves correctly.</p>
 </div>
 <div class="section" id="deleting-a-seqpeek-visualization">
 <h2>Deleting a SeqPeek Visualization<a class="headerlink" href="#deleting-a-seqpeek-visualization" title="Permalink to this headline">¶</a></h2>
-<p><strong>From User Dashboard</strong></p>
-<p>Select the SeqPeek visualizations that you wish to delete using the checkboxes next to the visualization. When one or
-more are selected, the delete button will be active and you can then proceed to deleting them.</p>
-<p><strong>From SeqPeek Visualization</strong></p>
-<p>If you are viewing a SeqPeek visualization you created, then you can delete the cohort from the top right menu option.</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>From User Dashboard</strong>  Select the SeqPeek visualizations that you wish to delete using the checkboxes next to the visualization. When one or more are selected, the delete button will be active and you can then proceed to deleting them.</li>
+<li><strong>From SeqPeek Visualization</strong>  When viewing a SeqPeek visualization that you created, you may delete it using the top right menu option.</li>
+</ul>
+</div></blockquote>
 <hr class="docutils" />
 <div class="isbcgcfooter container">
 Have feedback or corrections?  All improvements to these docs are welcome!

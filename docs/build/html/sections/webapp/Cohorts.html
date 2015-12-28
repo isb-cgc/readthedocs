@@ -55,23 +55,31 @@
             
   <div class="section" id="cohorts">
 <h1>Cohorts<a class="headerlink" href="#cohorts" title="Permalink to this headline">¶</a></h1>
-<p><em>Documentation in progress!</em></p>
-<p>Cohorts are a way of creating groupings of the samples and participant data that you’re interested in looking at. You
-can create cohorts that span across multiple projects, only contain certain types of data, or focus in on a particular
-participant group.</p>
+<p>Cohorts are a way of creating custom groupings of the samples and/or participants that you are
+interested in analyzing further.
+For example, you can create cohorts that span across multiple projects, only contain samples for
+which certain types of data are avaialble, or focus on specific phenotypic characteristics.</p>
 <div class="section" id="creating-and-saving-a-cohort">
 <h2>Creating and saving a cohort<a class="headerlink" href="#creating-and-saving-a-cohort" title="Permalink to this headline">¶</a></h2>
-<p><strong>Use the create button</strong></p>
-<p>To create a cohort from the user dashboard, click on the “+ Create” button and select “New Cohort”. This will take you
-to the cohort creation page.</p>
-<p><strong>Details of new cohort page</strong></p>
-<p>Using the provided list of filters on the left hand side, you can select what attributes and features you are
-interested. By clicking on a feature, the field should expand and provide you with options on which to filter on. For
-example, when you click on “Vital Status”, it expands and provides a list of “Alive”, “Dead”, “None” as options to
-choose from. When you select on, the filter should appear in the Selected Filters panel and visualizations on the page
-should be updated to reflect the new cohort that has been filtered by Vital Status. The numbers beside the selectable
-filter values reflect the number of samples that have that attribute based on all other filters that have been selected.
-* Donor Filter List</p>
+<p>To create a cohort from the User Dashboard, click on the “+ Create” button and select “New Cohort”.
+This will take you to the cohort creation page.</p>
+<div class="section" id="cohort-creation-page">
+<h3>Cohort Creation Page<a class="headerlink" href="#cohort-creation-page" title="Permalink to this headline">¶</a></h3>
+<p>Using the provided list of filters on the left hand side, you can select the attributes and features
+that you are interested in.
+By clicking on a feature, the field will expand and provide you with additional filtering options.
+For example, when you click on “Vital Status”, it expands and provides a list of “Alive”, “Dead”, and
+“None” as options to
+choose from. Selecting one or more of these will cause the filter(s) to appear in the Selected Filters
+panel and visualizations on the page
+will be updated to reflect that the current cohort that has been filtered by Vital Status.
+The numbers beside the selectable
+filter values reflect the number of samples that have that attribute based on all other filters that
+have been selected.</p>
+<div class="section" id="cohort-filters">
+<h4>Cohort Filters<a class="headerlink" href="#cohort-filters" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="participant-filters-list">
+<h5>Participant Filters List<a class="headerlink" href="#participant-filters-list" title="Permalink to this headline">¶</a></h5>
 <blockquote>
 <div><ul class="simple">
 <li>Project</li>
@@ -94,42 +102,57 @@ filter values reflect the number of samples that have that attribute based on al
 <li>ICD-O-3 Site</li>
 </ul>
 </div></blockquote>
-<ul>
-<li><dl class="first docutils">
-<dt>Data Type Filter List</dt>
-<dd><ul class="first last simple">
-<li>DNA Sequencing</li>
-<li>RNA Sequencing</li>
-<li>miRNA Sequencing</li>
+</div>
+<div class="section" id="data-type-filters-list">
+<h5>Data Type Filters List<a class="headerlink" href="#data-type-filters-list" title="Permalink to this headline">¶</a></h5>
+<blockquote>
+<div><ul class="simple">
+<li>DNA-Sequence</li>
+<li>RNA-Sequence</li>
+<li>miRNA-Sequence</li>
 <li>Protein</li>
-<li>SNP CN</li>
+<li>SNP Copy-Number</li>
 <li>DNA Methylation</li>
 </ul>
-</dd>
-</dl>
-</li>
-</ul>
-<p>Selected Filters Panel</p>
+</div></blockquote>
+</div>
+<div class="section" id="selected-filters-panel">
+<h5>Selected Filters Panel<a class="headerlink" href="#selected-filters-panel" title="Permalink to this headline">¶</a></h5>
 <p>This is where selected filters are shown so there is an easy way to see what filters have been selected.
 Clicking on “Clear All” will remove all selected filters.</p>
-<p>Clinical Features Panel</p>
-<p>This panel shows a list of treemaps that give a high level break of the samples for a handful of features:
+</div>
+<div class="section" id="clinical-features-panel">
+<h5>Clinical Features Panel<a class="headerlink" href="#clinical-features-panel" title="Permalink to this headline">¶</a></h5>
+<p>This panel shows a list of treemaps that give a high level breakdown of the selected samples for a
+handful of features:
 * Disease Code
 * Vital Status
 * Sample Type
 * Tumor Tissue Site
 * Gender
 * Age at Initial Pathologic Diagnosis
-By using the “Show More” button, you can see two more tree maps available.</p>
-<p>Data Availability Panel</p>
+By using the “Show More” button, you can see two more tree maps that are currently available.</p>
+</div>
+<div class="section" id="data-availability-panel">
+<h5>Data Availability Panel<a class="headerlink" href="#data-availability-panel" title="Permalink to this headline">¶</a></h5>
 <p>This panel shows a parallel sets graph of available data for the selected samples in the cohort. The large headers over
-the vertical bars are data types. Each data type is broken up into their different platforms and “NA” for samples that
-do not have that data type. The bars that flow horizontally indicate the number of samples that have that data. By
-hovering on a horizontal segment between the first two bars, you will see the number of data that have both those data
-type platforms. You can also reorder the vertical categories by dragging the headers left and right and reorder the
+the vertical bars are data types. Each data type (vertical bar) is subdivided according to the different platforms
+that were used to generate this type of data (with &#8220;NA&#8221; indicating samples for which this data type is not available).
+Each sample in the current cohort is represented by a single line that &#8220;flows&#8221; horizontally from left to right,
+crossing each vertical bar in the appropriate segment.
+Hovering on a swatch between two vertical bars, you will see the number of samples that have data from those
+two platforms.
+You can also reorder the vertical categories by dragging the headers left and right and reorder the
 platforms by dragging the platform names up and down.</p>
-<p><strong>Set operations</strong></p>
-<p>You can create cohorts using set operations on the user dashboard page.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="operations-on-cohorts">
+<h2>Operations on Cohorts<a class="headerlink" href="#operations-on-cohorts" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="set-operations">
+<h3>Set Operations<a class="headerlink" href="#set-operations" title="Permalink to this headline">¶</a></h3>
+<p>You can create cohorts using set operations on the User Dashboard page.</p>
 <p>To activate the set operations button, you must have at least one cohort selected. Upon clicking the “Set Operations”
 button, a dialogue box will appear. Here you may do the following things:
 * Enter in a name for the new cohort you’re about to create.
@@ -140,7 +163,7 @@ The complement operation requires that there be a base cohort, from which the ot
 Click “Okay” to complete the operation and create the new cohort.</p>
 </div>
 <div class="section" id="editing-a-cohort">
-<h2>Editing a cohort<a class="headerlink" href="#editing-a-cohort" title="Permalink to this headline">¶</a></h2>
+<h3>Editing a Cohort<a class="headerlink" href="#editing-a-cohort" title="Permalink to this headline">¶</a></h3>
 <p><strong>Details of cohort edit page</strong></p>
 <p>Menu
 * Add New Filters: Selecting this menu item make the filters panel appear. And filters selected will be additive to any
@@ -150,7 +173,7 @@ choose to cancel adding any new filters.
 comment on it. Comments are shared with anyone who can view this cohort and ordered by newest on the bottom.
 * Make a Copy: Making a copy will create a copy of this cohort with the same list of samples and patients and make you
 the owner of the copy.
-* Share with Others: This behaves similarly to on the user dashboard page. A dialogue box appears and the user is
+* Share with Others: This behaves similarly to on the User Dashboard page. A dialogue box appears and the user is
 prompted to select users that are registered in the system to share the cohort with.</p>
 <p>Selected Filters Panel</p>
 <p>This panel displays any filters that have been used on the cohort or any of its ancestors. These cannot be modified and
@@ -195,17 +218,16 @@ top right and select “Comments”. A sidebar will appear on the right side and
 shown.</p>
 <p>On the bottom of the comments sidebar, you can create a new comment and save it. It should appear at the bottom of the
 list of comments.</p>
-</div>
 <div class="section" id="deleting-a-cohort">
-<h2>Deleting a cohort<a class="headerlink" href="#deleting-a-cohort" title="Permalink to this headline">¶</a></h2>
-<p>From dashboard
+<h4>Deleting a cohort<a class="headerlink" href="#deleting-a-cohort" title="Permalink to this headline">¶</a></h4>
+<p>From the dashboard:
 Select the cohorts that you wish to delete using the checkboxes next to the cohorts. When one or more are selected, the
 delete button will be active and you can then proceed to deleting them.</p>
-<p>From within a cohort
+<p>From within a cohort:
 If you are viewing a cohort you created, then you can delete the cohort from the top right menu option.</p>
 </div>
 <div class="section" id="creating-a-cohort-from-a-visualization">
-<h2>Creating a Cohort From a visualization<a class="headerlink" href="#creating-a-cohort-from-a-visualization" title="Permalink to this headline">¶</a></h2>
+<h4>Creating a Cohort From a visualization<a class="headerlink" href="#creating-a-cohort-from-a-visualization" title="Permalink to this headline">¶</a></h4>
 <p>To create a cohort from a visualization, you must be in plot selection mode. If you are in plot selection mode, the
 crosshairs icon in the top right corner of the plot panel should be blue. If it is not, click on it and it should turn
 blue.</p>
@@ -216,7 +238,7 @@ on this when you are ready to create a new cohort.</p>
 <p>Put in a name for you newly selected cohort and click the “Save” button.</p>
 </div>
 <div class="section" id="copying-a-cohort">
-<h2>Copying a cohort<a class="headerlink" href="#copying-a-cohort" title="Permalink to this headline">¶</a></h2>
+<h4>Copying a cohort<a class="headerlink" href="#copying-a-cohort" title="Permalink to this headline">¶</a></h4>
 <p>Copying a cohort can only be done from the cohort details page of the cohort you are want to copy.</p>
 <p>When you are looking at the cohort you wish to copy, select the “Make A Copy” item from the top right menu.</p>
 <p>This will take you to your copy of the cohort.</p>
@@ -225,6 +247,8 @@ on this when you are ready to create a new cohort.</p>
 Have feedback or corrections?  All improvements to these docs are welcome!
 You can file an issue <a class="reference external" href="https://github.com/isb-cgc/readthedocs/issues">here</a>
 or email us at <a class="reference external" href="mailto:feedback&#37;&#52;&#48;isb-cgc&#46;org">feedback<span>&#64;</span>isb-cgc<span>&#46;</span>org</a>.</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -237,11 +261,30 @@ or email us at <a class="reference external" href="mailto:feedback&#37;&#52;&#48
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Cohorts</a><ul>
-<li><a class="reference internal" href="#creating-and-saving-a-cohort">Creating and saving a cohort</a></li>
-<li><a class="reference internal" href="#editing-a-cohort">Editing a cohort</a></li>
+<li><a class="reference internal" href="#creating-and-saving-a-cohort">Creating and saving a cohort</a><ul>
+<li><a class="reference internal" href="#cohort-creation-page">Cohort Creation Page</a><ul>
+<li><a class="reference internal" href="#cohort-filters">Cohort Filters</a><ul>
+<li><a class="reference internal" href="#participant-filters-list">Participant Filters List</a></li>
+<li><a class="reference internal" href="#data-type-filters-list">Data Type Filters List</a></li>
+<li><a class="reference internal" href="#selected-filters-panel">Selected Filters Panel</a></li>
+<li><a class="reference internal" href="#clinical-features-panel">Clinical Features Panel</a></li>
+<li><a class="reference internal" href="#data-availability-panel">Data Availability Panel</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#operations-on-cohorts">Operations on Cohorts</a><ul>
+<li><a class="reference internal" href="#set-operations">Set Operations</a></li>
+<li><a class="reference internal" href="#editing-a-cohort">Editing a Cohort</a><ul>
 <li><a class="reference internal" href="#deleting-a-cohort">Deleting a cohort</a></li>
 <li><a class="reference internal" href="#creating-a-cohort-from-a-visualization">Creating a Cohort From a visualization</a></li>
 <li><a class="reference internal" href="#copying-a-cohort">Copying a cohort</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

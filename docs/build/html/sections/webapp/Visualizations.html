@@ -55,58 +55,59 @@
             
   <div class="section" id="visualizations">
 <h1>Visualizations<a class="headerlink" href="#visualizations" title="Permalink to this headline">¶</a></h1>
-<p><em>Documentation in progress!</em></p>
-<p>Visualizations are how you can visualize the available data for the cohorts you have created. A visualization is a
+<p>The ISB-CGC web-app provides a variety of tools for visualizing the data associated with cohorts you have defined.
+A visualization is a
 collection of one or more plots and each plot is configurable to show relevant data that can be shared with others.</p>
-<div class="section" id="creating-a-visualization">
-<h2>Creating a visualization<a class="headerlink" href="#creating-a-visualization" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="create">
+<h2>Create<a class="headerlink" href="#create" title="Permalink to this headline">¶</a></h2>
 <p>You can create a new visualization from the user dashboard. Select the “Visualization” option from the “+ Create” menu.
 This will prompt you to name the visualization and provide at least one cohort to start with. It will automatically
 choose the last one you created. Click “Create Visualization”.</p>
 </div>
-<div class="section" id="saving-a-visualization">
-<h2>Saving a visualization<a class="headerlink" href="#saving-a-visualization" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="save">
+<h2>Save<a class="headerlink" href="#save" title="Permalink to this headline">¶</a></h2>
 <p>Use the “Save Visualizations” option in the top right menu. It will save the visualization and all plots in their
 current configuration. It will not save any selections that have been made within plots.</p>
 </div>
-<div class="section" id="deleting-a-visualization">
-<h2>Deleting a visualization<a class="headerlink" href="#deleting-a-visualization" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="delete">
+<h2>Delete<a class="headerlink" href="#delete" title="Permalink to this headline">¶</a></h2>
 <p><strong>From User Dashboard</strong>
 Select the visualizations that you wish to delete using the checkboxes next to the visualization. When one or more are
 selected, the delete button will be active and you can then proceed to deleting them.</p>
 <p><strong>From Visualization</strong>
 If you are viewing a visualization you created, then you can delete the cohort from the top right menu option.</p>
 </div>
-<div class="section" id="copying-a-visualization">
-<h2>Copying a visualization<a class="headerlink" href="#copying-a-visualization" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="copy">
+<h2>Copy<a class="headerlink" href="#copy" title="Permalink to this headline">¶</a></h2>
 <p>Copying a visualization can only be done from the visualization you want to copy.</p>
 <p>When you are looking at the visualization you wish to copy, select the “Make A Copy” item from the top right menu.</p>
 <p>This will take you to your copy of the visualization.</p>
 </div>
-<div class="section" id="adding-a-plot-to-a-visualization">
-<h2>Adding a plot to a visualization<a class="headerlink" href="#adding-a-plot-to-a-visualization" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="add-plot">
+<h2>Add Plot<a class="headerlink" href="#add-plot" title="Permalink to this headline">¶</a></h2>
 <p>To add a plot to a visualization, select the “Add a Plot” item in the top right menu.</p>
 <p>This will append a new plot section to your visualization with the default plot of an age histogram for the All TCGA
 Data Cohort.</p>
 </div>
-<div class="section" id="deleting-a-plot-from-a-visualization">
-<h2>Deleting a plot from a visualization<a class="headerlink" href="#deleting-a-plot-from-a-visualization" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="delete-plot">
+<h2>Delete Plot<a class="headerlink" href="#delete-plot" title="Permalink to this headline">¶</a></h2>
 <p>To delete a plot from a visualization, select the “Trash” icon in the top right corner of the plot panel you wish to
 remove.</p>
 </div>
-<div class="section" id="commenting-on-a-plot">
-<h2>Commenting on a plot<a class="headerlink" href="#commenting-on-a-plot" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="plot-comments">
+<h2>Plot Comments<a class="headerlink" href="#plot-comments" title="Permalink to this headline">¶</a></h2>
 <p>To open the comments section for a particular plot, select the “Comment” icon in the top right corner of the plot panel.
 This will cause the comment sidebar to appear from the right side of the window.</p>
 <p>All previous comments will be displayed with the most recent on the bottom.</p>
 <p>To add a new comment, type in your comment in the text box at the bottom of the panel and click the “Comment” button.
 You should see your comment appear at the bottom of the list of comments.</p>
 </div>
-<div class="section" id="editing-a-plot">
-<h2>Editing a plot<a class="headerlink" href="#editing-a-plot" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="edit-plot">
+<h2>Edit Plot<a class="headerlink" href="#edit-plot" title="Permalink to this headline">¶</a></h2>
 <p>To change the settings of a plot, select the “Edit” icon in the top right corner of the plot panel. This will cause the
 Plot Setting panel to open.</p>
-<p><strong>Selecting a new Feature to plot</strong></p>
+<div class="section" id="selecting-new-feature-s">
+<h3>Selecting new Feature(s)<a class="headerlink" href="#selecting-new-feature-s" title="Permalink to this headline">¶</a></h3>
 <p>When you click on the edit icon next to the feature you would like to change (i.e. “X Axis Feature”, “Y Axis Feature”),
 you will be taken to the feature selection panel.
 Here you must first specify the datatype of the feature you would like to plot. Each datatype requires a different set
@@ -202,11 +203,11 @@ the cohorts listing panel where you can select a cohort from the list, or use th
 their list of cohorts.
 When all the settings have been set, you can click “Update Plot” to regenerate the plot with the new settings.</p>
 </div>
-<div class="section" id="pairwise-analysis-in-plots">
-<h2>Pairwise Analysis in Plots<a class="headerlink" href="#pairwise-analysis-in-plots" title="Permalink to this headline">¶</a></h2>
-<p>If the selected features produce meaningful results from a pairwise calculation, then the results will be shown
-underneath the plot in a table. If not, then there will be text stating that no results were returned from a pairwise
-calculation.</p>
+</div>
+<div class="section" id="pairwise-statistical-test">
+<h2>Pairwise Statistical Test<a class="headerlink" href="#pairwise-statistical-test" title="Permalink to this headline">¶</a></h2>
+<p>Each pair of features selected for a plot will be tested for statistical significance, and the results will be
+displayed beneath the plot.</p>
 <hr class="docutils" />
 <div class="isbcgcfooter container">
 Have feedback or corrections?  All improvements to these docs are welcome!
@@ -224,15 +225,18 @@ or email us at <a class="reference external" href="mailto:feedback&#37;&#52;&#48
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Visualizations</a><ul>
-<li><a class="reference internal" href="#creating-a-visualization">Creating a visualization</a></li>
-<li><a class="reference internal" href="#saving-a-visualization">Saving a visualization</a></li>
-<li><a class="reference internal" href="#deleting-a-visualization">Deleting a visualization</a></li>
-<li><a class="reference internal" href="#copying-a-visualization">Copying a visualization</a></li>
-<li><a class="reference internal" href="#adding-a-plot-to-a-visualization">Adding a plot to a visualization</a></li>
-<li><a class="reference internal" href="#deleting-a-plot-from-a-visualization">Deleting a plot from a visualization</a></li>
-<li><a class="reference internal" href="#commenting-on-a-plot">Commenting on a plot</a></li>
-<li><a class="reference internal" href="#editing-a-plot">Editing a plot</a></li>
-<li><a class="reference internal" href="#pairwise-analysis-in-plots">Pairwise Analysis in Plots</a></li>
+<li><a class="reference internal" href="#create">Create</a></li>
+<li><a class="reference internal" href="#save">Save</a></li>
+<li><a class="reference internal" href="#delete">Delete</a></li>
+<li><a class="reference internal" href="#copy">Copy</a></li>
+<li><a class="reference internal" href="#add-plot">Add Plot</a></li>
+<li><a class="reference internal" href="#delete-plot">Delete Plot</a></li>
+<li><a class="reference internal" href="#plot-comments">Plot Comments</a></li>
+<li><a class="reference internal" href="#edit-plot">Edit Plot</a><ul>
+<li><a class="reference internal" href="#selecting-new-feature-s">Selecting new Feature(s)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pairwise-statistical-test">Pairwise Statistical Test</a></li>
 </ul>
 </li>
 </ul>

@@ -55,11 +55,44 @@
 <h1>About the TCGA Data<a class="headerlink" href="#about-the-tcga-data" title="Permalink to this headline">¶</a></h1>
 <p>The ISB-CGC hosts approximately 1 petabyte of <a class="reference external" href="http://cancergenome.nih.gov/">TCGA</a> data in Google Cloud
 Storage (<a class="reference external" href="https://cloud.google.com/storage/">GCS</a>) and in <a class="reference external" href="https://cloud.google.com/bigquery/">BigQuery</a>.</p>
+<p>The data being hosted by the ISB-CGC was obtained from the two main TCGA data
+repositories:
+* <strong>TCGA DCC</strong>: this is the TCGA Data Coordinating Center which provides a <cite>Data Portal &lt;https://tcga-data.nci.nih.gov/tcga/&gt;_</cite> from which users may download open-access or controlled-access data.  This portal provides access to all TCGA data <em>except</em> for the low-level sequence data.
+* <strong>CGHub</strong>:  this is NCI&#8217;s current secure data repository for all TCGA BAM and FASTQ sequence data files.</p>
+<p>The ISB-CGC platform is one of NCI&#8217;s <cite>Cancer Genomics Cloud Pilots &lt;https://cbiit.nci.nih.gov/ncip/nci-cancer-genomics-cloud-pilots&gt;_</cite>
+and our mission is to host the TCGA data in the cloud so that researchers around the world may work with the data without needing
+to download and store the data at their own local institutions.</p>
+<p>The vast majority (over 99%) of this <strong>petabyte</strong> of data consists of low-level sequence data, currently stored as files in
+Google Cloud Storage.  Over the course of the TCGA project, this low-level (<em>&#8220;Level 1&#8221;</em>) data has been processed through
+a set of standardized pipelines and the the resulting high-level (<em>&#8220;Level 3&#8221;</em>) data is frequently the data that is used
+in most downstream analyses.  The ISB-CGC platform aims to make these different types of data accessible to the widest
+possible variety of users within the cancer research community, using the most appropriate Google Cloud Platform
+technologies.</p>
+<p>An overview of the TCGA data is provided below, with links to additional sources of information.</p>
+<div class="section" id="understanding-the-tcga-data-types-and-levels">
+<h2>Understanding the TCGA Data Types and Levels<a class="headerlink" href="#understanding-the-tcga-data-types-and-levels" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="tcga-data-types">
+<h3>TCGA Data Types<a class="headerlink" href="#tcga-data-types" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="tcga-data-levels">
+<h3>TCGA Data Levels<a class="headerlink" href="#tcga-data-levels" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="understanding-data-access">
+<h2>Understanding Data Access<a class="headerlink" href="#understanding-data-access" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Public Data</strong>  Sometimes the word &#8220;public&#8221; is misinterpreted as meaning &#8220;open&#8221;.  All of the TCGA data is <em>public</em> data, but some of it is <em>open</em>, meaning that it is accessible and available to <em>all</em> users; while some TCGA data is <em>controlled</em> and restricted to authorized users.</li>
+<li><strong>Open-Access Data</strong>  Depending on how you categorize the data, <em>most</em> of the TCGA data is open-access data.  This includes all de-identified clinical and biospecimen data, as well as all Level-3 molecular data including gene expression data, DNA methylation data, DNA copy-number data, protein expression data, somatic mutation calls, etc.</li>
+<li><strong>Controlled-Access Data</strong>  All low-level sequence data (both DNA-seq and RNA-seq), the raw SNP array data (CEL files), germline mutation calls, and a small amount of other data are treated as <em>controlled</em> data and require that a user be properly authenticated and have dbGaP-authorization prior to access these data.</li>
+</ul>
+</div></blockquote>
 <hr class="docutils" />
 <div class="isbcgcfooter container">
 Have feedback or corrections?  All improvements to these docs are welcome!
 You can file an issue <a class="reference external" href="https://github.com/isb-cgc/readthedocs/issues">here</a>
 or email us at <a class="reference external" href="mailto:feedback&#37;&#52;&#48;isb-cgc&#46;org">feedback<span>&#64;</span>isb-cgc<span>&#46;</span>org</a>.</div>
+</div>
 </div>
 
 
@@ -68,6 +101,19 @@ or email us at <a class="reference external" href="mailto:feedback&#37;&#52;&#48
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">About the TCGA Data</a><ul>
+<li><a class="reference internal" href="#understanding-the-tcga-data-types-and-levels">Understanding the TCGA Data Types and Levels</a><ul>
+<li><a class="reference internal" href="#tcga-data-types">TCGA Data Types</a></li>
+<li><a class="reference internal" href="#tcga-data-levels">TCGA Data Levels</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#understanding-data-access">Understanding Data Access</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="Programmatic-API.html"
                         title="previous chapter">Programmatic Interfaces</a></p>

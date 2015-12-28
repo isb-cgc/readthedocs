@@ -3,8 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+*****************************
 The ISB Cancer Genomics Cloud
-=============================
+*****************************
 
 Welcome to the ISB-CGC Documentation on Read the Docs.
 
@@ -16,22 +17,22 @@ This documentation is a work-in-progress, please let us know how we can improve
 it! 
 
 Contents
---------
+########
 
 .. toctree::
    :maxdepth: 2
 
    sections/About-ISB-CGC
+   sections/TCGA-Data
    sections/Web-UI
    sections/Programmatic-API
-   sections/TCGA-Data
    sections/Reference-Data
    sections/FAQ
    sections/Support
    sections/Other-Useful-Links
 
-Indices and tables
-------------------
+Indices and Tables
+##################
 
 * :ref:`search`
 * :ref:`genindex`

@@ -1,5 +1,6 @@
+***********************************
 About the ISB Cancer Genomics Cloud
-===================================
+***********************************
 
 The ISB-CGC provides interactive and programmatic access to the TCGA data, 
 leveraging many aspects of the Google Cloud Platform including BigQuery, 

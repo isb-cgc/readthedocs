@@ -1,5 +1,6 @@
+******************
 Other Useful Links
-==================
+******************
 
 The ISB-CGC platform is built on top of the Google Cloud Platform and has been designed to make
 the TCGA data as accessible as possible to a wide
