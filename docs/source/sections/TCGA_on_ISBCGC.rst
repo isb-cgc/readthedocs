@@ -101,5 +101,5 @@ This file contains 3 columns of information: the unique CGHub id for the file, t
 and the size of the file in bytes.
 
 The latest complete CGHub manifest can be 
-`downloaded directly from CGHub <https://cghub.ucsc.edu/reports/SUMMARY_STATS/LATEST_MANIFEST.tsv>`_.
+`downloaded directly from CGHub <https://cghub.ucsc.edu/reports/SUMMARY_STATS/LATEST_MANIFEST.tsv>`_ (67 MB).
 
