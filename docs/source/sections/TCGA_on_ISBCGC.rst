@@ -26,10 +26,18 @@ in most downstream analyses.  The ISB-CGC platform aims to make these different 
 possible variety of users within the cancer research community, using the most appropriate Google Cloud Platform 
 technologies.
 
-An overview of the TCGA data currently hosted on the ISB-CGC platform is provided below.
+Note that all TCGA metadata is considered open-access.  In other words, information *about* controlled-access data 
+files is open-access.  Metadata can be obtained programmatically using the ISB-CGC programmatic API.
+
+An overview of the TCGA data currently hosted on the ISB-CGC platform is provided in the two sections below.
+The first section breaks the data down by access class (open *vs* controlled), and the second section breaks
+it down by original repository (DCC *and* CGHub).
+
+TCGA Data by Access Class
+#########################
 
 Open-Access TCGA Data
-#####################
+=====================
 
 The open-access TCGA data hosted by the ISB-CGC Platform includes:
 
@@ -48,7 +56,7 @@ tables and examples illustrating how to work with them from `Python <https://git
 `R <https://github.com/isb-cgc/examples-R>`_,  please see our `github repositories <https://github.com/isb-cgc>`_.
 
 Controlled-Access TCGA Data
-###########################
+===========================
 
 The controlled-access TCGA data hosted by the ISB-CGC Platform includes:
 
@@ -73,9 +81,25 @@ Upon successful authentication, the users's dbGaP authorization will be verified
 Google identity is added to the access control list (ACL) for the controlled data.  At this time, this access must be renewed
 every 24 hours.
 
-TCGA Metadata
-#############
 
-All TCGA metadata is considered open-access.  In other words, information *about* controlled-access data files is open-access.
-Metadata can be obtained programmatically using the ISB-CGC programmatic API.
+TCGA Data by Source Repository
+##############################
+
+TCGA Data at the DCC
+====================
+
+*Documentation in progress*
+
+TCGA Data at CGHub
+==================
+
+*Documentation in progress*
+
+A complete listing of the TCGA data files from CGHub that are currently available in Google Cloud Storage (GCS)
+can be found `here <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/GCS_listing.v2.tsv>`_.
+This file contains 3 columns of information: the unique CGHub id for the file, the partial GCS object path,
+and the size of the file in bytes.
+
+The latest complete CGHub manifest can be 
+`downloaded directly from CGHub <https://cghub.ucsc.edu/reports/SUMMARY_STATS/LATEST_MANIFEST.tsv>`_.
 
