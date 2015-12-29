@@ -13,7 +13,7 @@ The data being hosted by the ISB-CGC was obtained from the two main TCGA data
 repositories:
 
 * **TCGA DCC**: the TCGA Data Coordinating Center which provides a `Data Portal <https://tcga-data.nci.nih.gov/tcga/>`_ from which users may download open-access or controlled-access data.  This portal provides access to all TCGA data *except* for the low-level sequence data. 
-* **CGHub**:  the `Cancer Genomics Hub <https://cghub.ucsc.edu`_ is NCI's current secure data repository for all TCGA BAM and FASTQ sequence data files.
+* **CGHub**:  the `Cancer Genomics Hub <https://cghub.ucsc.edu>`_ is NCI's current secure data repository for all TCGA BAM and FASTQ sequence data files.
 
 The ISB-CGC platform is one of NCI's `Cancer Genomics Cloud Pilots <https://cbiit.nci.nih.gov/ncip/nci-cancer-genomics-cloud-pilots>`_ 
 and our mission is to host the TCGA data in the cloud so that researchers around the world may work with the data without needing 
@@ -71,7 +71,7 @@ TCGA Data Reports
 A number of useful `Data Reports <https://tcga-data.nci.nih.gov/datareports/dataReportsHome.htm>`_ 
 are available directly from TCGA.  In particular:
 
-* `**Data Statistics Dashboard** <https://tcga-data.nci.nih.gov/datareports/statsDashboard.htm>`_ provides high-level statistics describing TCGA data content and use.
+* **`Data Statistics Dashboard <https://tcga-data.nci.nih.gov/datareports/statsDashboard.htm>`_** provides high-level statistics describing TCGA data content and use.
 
 Understanding Data Access
 #########################
