@@ -88,8 +88,6 @@ TCGA Data by Source Repository
 TCGA Data at the DCC
 ====================
 
-*Documentation in progress*
-
 Complete sets of open-access and controlled-access data archives were copied from the DCC on October 4th, 2015
 into Google Cloud Storage.
 
@@ -113,8 +111,6 @@ month of December 2015 and  none of these new archives are included in any of th
 
 TCGA Data at CGHub
 ==================
-
-*Documentation in progress*
 
 A complete listing of the TCGA data files from CGHub that are currently available in Google Cloud Storage (GCS)
 can be found `here <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/GCS_listing.v2.tsv>`_.
