@@ -16,6 +16,8 @@ Google Cloud Platform.
 This documentation is a work-in-progress, please let us know how we can improve 
 it! feedback@isb-cgc.org 
 
+-- the ISB-CGC team
+
 Contents
 ########
 
