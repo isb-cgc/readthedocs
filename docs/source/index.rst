@@ -27,6 +27,7 @@ Contents
    sections/TCGA_on_ISBCGC
    sections/Web-UI
    sections/Programmatic-API
+   sections/Compute-Engine
    sections/Reference-Data
    sections/FAQ
    sections/Support
