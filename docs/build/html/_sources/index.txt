@@ -14,7 +14,9 @@ tips on how to use it, and details about the data that we are hosting on the
 Google Cloud Platform.
 
 This documentation is a work-in-progress, please let us know how we can improve 
-it! 
+it! feedback@isb-cgc.org 
+
+-- the ISB-CGC team
 
 Contents
 ########
@@ -27,9 +29,9 @@ Contents
    sections/TCGA_on_ISBCGC
    sections/Web-UI
    sections/Programmatic-API
+   sections/Compute-Engine
    sections/Reference-Data
    sections/FAQ
    sections/Support
    sections/Other-Useful-Links
-
-
+   sections/BigQuerySummaries

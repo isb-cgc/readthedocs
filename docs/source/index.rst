@@ -34,5 +34,4 @@ Contents
    sections/FAQ
    sections/Support
    sections/Other-Useful-Links
-
-
+   sections/BigQuerySummaries

@@ -26,7 +26,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/custom.js"></script>
     <link rel="top" title="ISB Cancer Genomics Cloud 1.0.0 documentation" href="../index.html" />
-    <link rel="next" title="Reference Data" href="Reference-Data.html" />
+    <link rel="next" title="Using Google Compute Engine" href="Compute-Engine.html" />
     <link rel="prev" title="General Permissions" href="webapp/General-Permissions.html" /> 
   </head>
   <body role="document">
@@ -37,7 +37,7 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="Reference-Data.html" title="Reference Data"
+          <a href="Compute-Engine.html" title="Using Google Compute Engine"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="webapp/General-Permissions.html" title="General Permissions"
@@ -55,29 +55,82 @@
 <h1>Programmatic Interfaces<a class="headerlink" href="#programmatic-interfaces" title="Permalink to this headline">¶</a></h1>
 <p>Programmatic access to molecular data in BigQuery, Google Cloud Storage, or Google Genomics
 is based directly on the interfaces provided by the Google Cloud Platform, as
-illustrated throughout the ISB-CGC code repositories on <a class="reference external" href="https://github.com/isb-cgc">github</a>.</p>
+illustrated throughout the
+<a class="reference external" href="https://github.com/isb-cgc">ISB-CGC code repositories on github</a>.</p>
 <p>In order to query the ISB-CGC metadata or to get information such as details regarding a
 cohort that a user may have saved during an interactive session, a series of APIs based
 on Google Cloud Endpoints have been defined.  Details about these APIs as well as instructions
 on using helper scripts for the oAuth flow can be found here.</p>
-<div class="section" id="metadata-api">
-<h2>Metadata API<a class="headerlink" href="#metadata-api" title="Permalink to this headline">¶</a></h2>
-<p><em>Documentation currently under construction!  Please email info&#64;isb-cgc.org if you have questions.</em></p>
-</div>
+<p>The Google
+<a class="reference external" href="https://apis-explorer.appspot.com/apis-explorer/?base=https://isb-cgc.appspot.com/_ah/api#p/">APIs Explorer</a>
+can be used to see each API and try it out through your web browser.</p>
+<p>Each API may bundle several endpoints that are functionally related.</p>
 <div class="section" id="cohort-api">
 <h2>Cohort API<a class="headerlink" href="#cohort-api" title="Permalink to this headline">¶</a></h2>
-<p><em>Documentation currently under construction!  Please email info&#64;isb-cgc.org if you have questions.</em></p>
+<p>Cohorts are the primary organizing principle for subsetting and working with the TCGA data.
+A cohort is a list of samples (identified using the 16-character TCGA sample barcode).  Users may
+create and share cohorts using the ISB-CGC web-app and then programmatically access these cohorts
+using this API.</p>
+<p>This API currently bundles several different cohort-related endpoints:</p>
+<ul class="simple">
+<li><strong>cohorts_list</strong>: returns a list of all cohorts that the user has OWNER or READER access to; each cohort is identified by a unique &#8220;id&#8221; and includes other information such as &#8220;name&#8221;, &#8220;comments&#8221;, &#8220;last_date_saved&#8221;, <em>etc</em>;</li>
+<li><strong>cohorts_patients_samples_list</strong>: given a cohort id (required), this endpoint returns the patient_count and sample_count, as well as two lists of barcodes: one for the patients and one for the samples;  (note that the number of patients can be less than the number of samples)</li>
+<li><strong>patient_details</strong>: given a patient barcode (of length 12, <em>eg</em> TCGA-B9-7268), this endpoint returns all available information about this patient, including a list of samples and aliquots derived from this patient;</li>
+<li><strong>sample_details</strong>: given a sample barcode (of length 16, <em>eg</em> TCGA-B9-7268-01A), this endpoint returns all available &#8220;biospecimen&#8221; information about this sample, the associated patient barcode, a list of associated aliquots, and a list of &#8220;data_details&#8221; blocks describing each of the data files associated with this sample;</li>
+<li><strong>datafilenamekey_list</strong>: given a sample barcode (of length 16) this endpoint returns a list of GCS objects containing data from that sample;</li>
+<li><strong>delete_cohort</strong>: given a cohort id (required), the user may programmatically delete a cohort for which they are OWNER (this can also be done interactively via the web-app);</li>
+<li><strong>save_cohort</strong>:</li>
+</ul>
+</div>
+<div class="section" id="metadata-api">
+<h2>Metadata API<a class="headerlink" href="#metadata-api" title="Permalink to this headline">¶</a></h2>
+<p>This API currently bundles several different metadata-related endpoints:</p>
+<ul>
+<li><p class="first"><strong>metadata_list</strong>: returns all metadata about each patient (aka participant) in the specified cohort (if a cohort id is given); a list of &#8220;selectors&#8221; can also be passed in if only some of the metadata is requested;</p>
+</li>
+<li><p class="first"><strong>cohort_files</strong>: given a cohort id, this endpoint returns the total number of files associated with that cohort, the counts according to platform, and details about each file;</p>
+</li>
+<li><p class="first"><strong>sample_files</strong>: given a sample barcode (of length 16) this endpoint returns the total number of files associated with that sample, the counts according to platform, and details about each file;</p>
+</li>
+<li><dl class="first docutils">
+<dt><strong>metadata_attr_list</strong>: returns a list of the metadata attributes; each item contained in the list includes:</dt>
+<dd><ul class="first last simple">
+<li>attribute: a string describing the attribute (<em>eg</em> &#8220;age_at_initial_pathologic_diagnosis&#8221;);</li>
+<li>code: indicates whether the attribute is numeric (N), binary (B), or categorical (includes strings) (C);  and</li>
+<li>spec: indicates whether the attribute is a clinical feature associated with a patient (CLIN), a sample feature (SAMP).</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
 </div>
 <div class="section" id="user-api">
 <h2>User API<a class="headerlink" href="#user-api" title="Permalink to this headline">¶</a></h2>
-<p><em>Documentation currently under construction!  Please email info&#64;isb-cgc.org if you have questions.</em></p>
+<p>This API currently contains a single endpoint:</p>
+<ul>
+<li><dl class="first docutils">
+<dt><strong>am_i_dbgap_authorized</strong>:  accesses the user&#8217;s Google identity and checks whether that identity is currently on the access control list (ACL) for controlled-data (which requires not only that the user have dbGaP authorization but also that the user has authenticated within the past 24 hours;  returns one of two messages:</dt>
+<dd><ul class="first last simple">
+<li><em>&#8220;You are not on the controlled-access google group.&#8221;</em>  or</li>
+<li><em>&#8220;&lt;user&#8217;s Google identity&gt; has dbGaP authorization and is a member of the controlled-access google group.&#8221;</em></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
 </div>
-<div class="section" id="authorization-process">
-<h2>Authorization Process<a class="headerlink" href="#authorization-process" title="Permalink to this headline">¶</a></h2>
-<p><em>Documentation currently under construction!  Please email info&#64;isb-cgc.org if you have questions.</em></p>
+<div class="section" id="helper-scripts">
+<h2>Helper Scripts<a class="headerlink" href="#helper-scripts" title="Permalink to this headline">¶</a></h2>
+<p>Two helper scripts,
+<a class="reference external" href="https://github.com/isb-cgc/ISB-CGC-Webapp/blob/master/scripts/isb_auth.py">isb_auth.py</a>
+and
+<a class="reference external" href="https://github.com/isb-cgc/ISB-CGC-Webapp/blob/master/scripts/isb_curl.py">isb_curl.py</a>
+are available for use from the command-line or from a python script.  The first one is a wrapper
+for the OAuth process, and the second can be used to send a GET or POST request with the
+proper access token to the specified endpoint.</p>
 <hr class="docutils" />
 <div class="isbcgcfooter container">
-Have feedback or corrections?  All improvements to these docs are welcome!  You can file an issue <a class="reference external" href="https://github.com/isb-cgc/readthedocs/issues">here</a> or email us at <a class="reference external" href="mailto:feedback&#37;&#52;&#48;isb-cgc&#46;org">feedback<span>&#64;</span>isb-cgc<span>&#46;</span>org</a>.</div>
+Have feedback or corrections?  You can file an issue <a class="reference external" href="https://github.com/isb-cgc/readthedocs/issues">here</a> or email us at <a class="reference external" href="mailto:feedback&#37;&#52;&#48;isb-cgc&#46;org">feedback<span>&#64;</span>isb-cgc<span>&#46;</span>org</a>.</div>
 </div>
 </div>
 
@@ -90,10 +143,10 @@ Have feedback or corrections?  All improvements to these docs are welcome!  You 
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Programmatic Interfaces</a><ul>
-<li><a class="reference internal" href="#metadata-api">Metadata API</a></li>
 <li><a class="reference internal" href="#cohort-api">Cohort API</a></li>
+<li><a class="reference internal" href="#metadata-api">Metadata API</a></li>
 <li><a class="reference internal" href="#user-api">User API</a></li>
-<li><a class="reference internal" href="#authorization-process">Authorization Process</a></li>
+<li><a class="reference internal" href="#helper-scripts">Helper Scripts</a></li>
 </ul>
 </li>
 </ul>
@@ -102,8 +155,8 @@ Have feedback or corrections?  All improvements to these docs are welcome!  You 
   <p class="topless"><a href="webapp/General-Permissions.html"
                         title="previous chapter">General Permissions</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="Reference-Data.html"
-                        title="next chapter">Reference Data</a></p>
+  <p class="topless"><a href="Compute-Engine.html"
+                        title="next chapter">Using Google Compute Engine</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -135,7 +188,7 @@ Have feedback or corrections?  All improvements to these docs are welcome!  You 
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="Reference-Data.html" title="Reference Data"
+          <a href="Compute-Engine.html" title="Using Google Compute Engine"
              >next</a> |</li>
         <li class="right" >
           <a href="webapp/General-Permissions.html" title="General Permissions"
