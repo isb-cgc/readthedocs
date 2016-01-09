@@ -14,6 +14,8 @@ tips on how to use it, and details about the data that we are hosting on the
 Google Cloud Platform.
 
 .. image:: three-personae.png
+   :scale: 50
+   :align: center
 
 This documentation is a work-in-progress, please let us know how we can improve 
 it! feedback@isb-cgc.org 
