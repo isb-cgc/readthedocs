@@ -26,12 +26,12 @@ Contents
 ########
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    sections/About-ISB-CGC
-   sections/Web-UI
-   sections/Prog-APIs
    sections/Hosted-Data
+   sections/Prog-APIs
+   sections/Web-UI
    sections/FAQ
    sections/Support
 
