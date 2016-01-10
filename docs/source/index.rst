@@ -29,13 +29,9 @@ Contents
    :maxdepth: 2
 
    sections/About-ISB-CGC
-   sections/TCGA-Data
-   sections/TCGA_on_ISBCGC
    sections/Web-UI
-   sections/Programmatic-API
-   sections/Compute-Engine
-   sections/Reference-Data
+   sections/Prog-APIs
+   sections/Hosted-Data
    sections/FAQ
    sections/Support
-   sections/Other-Useful-Links
-   sections/BigQuerySummaries
+
