@@ -1,61 +1,74 @@
 Clinical
 ========
 
-Selection of Clinical Metadata Fields
--------------------------------------
+The
+`Clinical <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.Clinical>`_
+table contains one row per TCGA participant (aka patient or donor).  
+Each TCGA participant is uniquely represented by a
+`TCGA barcode <https://wiki.nci.nih.gov/display/TCGA/TCGA+barcode>`_
+of length 12, *eg* TCGA-2G-AAM4.  (For more information on how TCGA barcodes
+were created and how to *"read"* a TCGA barcode, click on the preceding link.)
 
-XML features with tag  “procurement\_status=Competed” which exist in at
-least 20% of the patients in each Study are considered for the metadata.
-A few important features like smoking, pregnancy etc were added to the
-list as necessary. Selected clinical fields from the clinical and
-auxiliary XML files were extracted and loaded into a “clinical data”
-\ `table <https://www.google.com/url?q=https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.Clinical_data&sa=D&usg=AFQjCNHP0Em9YewAXdL_vgIpbRzGiF2Dgg>`__\  in
-BigQuery.  Each row in the table contains all the information for a
-single patient, with only the most recent follow-up information included
-(for the patients where multiple follow-up sections exist in the
-clinical XML file). Clinical BigQuery table is at patient-level.
+Clinical Feature Selection
+--------------------------
 
-Parsing Clinical XML
---------------------
+In the first pass, any
+XML features with the tag “procurement\_status=Completed” which
+were found to exist in at
+least 20% of the participants in any one Study (aka tumor-type) were considered for selection.
+A few important features related to smoking, pregnancy, *etc* were added to the
+list during a manual-curation pass. 
 
-A clinical XML file is divided into admin and patient blocks, and each
-of them is processed separately.
+Selected fields from the both the clinical and
+auxiliary XML files were then extracted and loaded into the BigQuery table.
 
-Patient block iteration
+Additionally, only the most recent follow-up information was included
+(for the patients where multiple follow-up sections existed in the
+clinical XML file). 
 
-In the first step, while iterating through the patient block, the
-elements (XML tags) and their values are collected. While parsing the
-follow-up block, only the most recent follow-up sub-block elements info
-is obtained (that which have the highest sequence number). Since the
-clinical XML is nested along with element tag repetitions, care is taken
-not to replace the upper block element values with the lower block
-element values. In the last step, patient elements and
-follow-up elements are merged with preference given to
+Parsing XML
+-----------
+
+Each clinical XML file is divided into admin and patient blocks, and
+each of these were processed separately.
+
+While iterating through the patient block of information, all elements
+(XML tags) and their values were collected.  For follow-up blocks, only the
+most recent (based on sequence number) follow-up sub-block elements were kept.
+
+In the final pass, patient elements and
+follow-up elements were carefully merged with preference given to
 follow-up elements.
 
-Formatting
+Transforms
 ----------
 
--  for all patients who are "Alive",
+For the field called vital\_status:
+-  for all patients who are "Alive":
+   -  days\_to\_last\_known\_alive should not be NULL
+   -  days\_to\_last\_known\_alive is set to days\_to\_last\_followup
+   -  days\_to\_death is set to NULL
 
--  days\_to\_last\_known\_alive  is set to days\_to\_last\_followup
--  days\_to\_death is set to NULL
+-  for all patients who are "Dead":
+   -  days\_to\_death should not be NULL (if it is NULL, and days\_to\_last\_followup is not NULL, then vital\_status is set to "Alive"
+   -  days\_to\_last\_known\_alive  is set to days\_to\_death
+   -  days\_to\_last\_followup is set to NULL
 
--  for all patients who are "Dead", we should have
+The following fields were extracted from the cqcf block of the XML
+file: 
+- ‘gleason\_score\_combined', 
+- 'country',
+- 'history\_of\_prior\_malignancy', 
+- 'frozen\_specimen\_anatomic\_site'
 
--  days\_to\_last\_known\_alive  is set to days\_to\_death
--  days\_to\_last\_followup is set to NULL
--  if days\_to\_last\_followup or is available , vital\_status  is set
-   to 'Alive'.
+When an auxiliary XML file exists for a participant, and the batch numbers in 
+both the clinical XML and the auxiliary XML file match, the following fields
+are extracted from the auxiliary XML file and added to the Clinical table:
+-  hpv\_calls, 
+-  hpv\_status,
+-  mononucleotide\_and\_dinucleotide\_marker\_panel\_analysis\_status,
+-  mononucleotide\_marker\_panel\_analysis\_status.
 
--  The following fields are extracted from the cqcf block of the XML
-   file: ‘gleason\_score\_combined', 'country',
-   'history\_of\_prior\_malignancy', 'frozen\_specimen\_anatomic\_site'
--  hpv\_calls, hpv\_status,
-   mononucleotide\_and\_dinucleotide\_marker\_panel\_analysis\_status,
-   and mononucleotide\_marker\_panel\_analysis\_status from the
-   Auxiliary XML are added to the Clinical metadata table, if the batch
-   numbers of the both Clinical and Auxiliary XML files matches.
--  BMI column is calculated based on the height and weight column.
-
+Finally, a BMI value was calculated based on the height and weight values
+(when both were present) and was added to the Clinical table.
 

@@ -2,28 +2,39 @@
 ETL for BigQuery Tables
 ***********************
 
-Data Quality and General Formatting
-###################################
+The open-access TCGA data has been uploaded into a set of consistent tables
+in the publicly-accessible BigQuery dataset called ``isb-cgc:tcga_201510_alpha``.
+These tables can be accessed 
+`here <https://bigquery.cloud.google.com/dataset/isb-cgc:tcga_201510_alpha>`_
+via the BigQuery web interface.
+
+In general, the data in the BigQuery tables is identical to the information that
+you can also access via the TCGA Data Coordinating Center (DCC), but for users
+interested in the details, information is provided here about the various ETL
+(extract, transform and load) steps involved in handling each of the data types.
+
+Before we go into the details for each data-type, a few general notes on
+formatting and data curation:
 
 -  All data uploaded into ISB-CGC BigQuery tables have a consistent
    UTF-8 character set formatting. If the encoding of a character from
-   the raw files could not be detected, the characters are simply
-   ignored. The character encodings are detected using the Python
-   library `Chardet <https://www.google.com/url?q=https://pypi.python.org/pypi/chardet&sa=D&usg=AFQjCNEqIpFiwf3f-ynJmNtP1ZqXe-TvRg>`__.
+   the original file could not be detected, that character was ignored.
+   The character encodings are detected using the Python
+   library `Chardet <https://www.google.com/url?q=https://pypi.python.org/pypi/chardet&sa=D&usg=AFQjCNEqIpFiwf3f-ynJmNtP1ZqXe-TvRg>`_.
 -  All missing information value strings such as: 'none', 'None',
    'NONE', 'null', 'Null', 'NULL', , 'NA', '\_\_UNKNOWN\_\_', <empty
    spaces>, and '?'; are represented as NULL values in the BigQuery
-   tables.
--  The numbers are stored as integer or float value columns, whenever
-   possible. The scientific number format (e.g. 10E2) and thousand
-   separator comma is not used in any of the number columns.
+   tables (or may not appear at all, depending on the table schema).
+-  Numbers are stored as integer or floating point values.  The original ASCII
+   files sometimes used scientific notation or included comma separators, but
+   these are not preserved in the BigQuery tables.
 -  The End of File (EOF) and End of Line (EOL) delimiters, including
-   CTRL-M characters, are removed while loading data into BigQuery.
--  Single and double quotes around the values are removed. The quotes
-   within a value are not changed.
--  The SDRF file was parsed to find the correct association between the
-   aliquot barcode and the Level-3 data file(s), wherever needed and
-   possible.
+   CTRL-M characters, were all removed when the raw files were originally parsed.
+-  Single and double quotes around the values were removed, but in cases where
+   there were quotation marks within a string, they were not removed.
+-  Whenever necessary, the SDRF file (in the mage-tab archive associated with each
+   data archive) was parsed to find the correct association between the
+   aliquot barcode and the Level-3 data file(s).
 
 Major Data Types
 ################
