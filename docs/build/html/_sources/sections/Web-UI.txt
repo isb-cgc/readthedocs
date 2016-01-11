@@ -8,7 +8,6 @@ click on the down-arrow next to your name in the upper-right corner and select "
 .. toctree::
    :maxdepth: 1
 
-   webapp/releases
    webapp/User-Dashboard
    webapp/Cohorts
    webapp/Visualizations
@@ -16,4 +15,5 @@ click on the down-arrow next to your name in the upper-right corner and select "
    webapp/IGV-Browser
    webapp/Sharing
    webapp/General-Permissions
+   webapp/releases
 

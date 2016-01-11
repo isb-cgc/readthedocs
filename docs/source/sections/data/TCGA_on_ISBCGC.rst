@@ -1,6 +1,6 @@
-****************************************
-TCGA Data hosted on the ISB-CGC Platform
-****************************************
+****************
+Hosted TCGA Data 
+****************
 
 The ISB-CGC hosts approximately 1 petabyte of TCGA_ data in Google Cloud
 Storage (GCS_) and in BigQuery_.  
@@ -92,9 +92,10 @@ Complete sets of open-access and controlled-access data archives were copied fro
 into Google Cloud Storage.
 
 Note that for every archive at the DCC, there may be multiple revisions of an archive.  A list of the current 
-"latest archives" at the DCC can be obtained 
-`here <http://tcga-data.nci.nih.gov/datareports/resources/latestarchive>`_.
-The archive `naming convention <https://wiki.nci.nih.gov/display/TCGA/TCGA+Data+Archives#TCGADataArchives-NamingConventions>`_
+`latest archives <http://tcga-data.nci.nih.gov/datareports/resources/latestarchive>`_
+can be obtained from the DCC.
+The archive 
+`naming convention <https://wiki.nci.nih.gov/display/TCGA/TCGA+Data+Archives#TCGADataArchives-NamingConventions>`_
 includes the disease code, the platform/pipeline name, the archive type (*eg* data level), the serial index
 (which is often the batch number), and the revision number.
 If you want to check whether there is a newer version of a specific archive at the DCC than what we currently
@@ -112,10 +113,14 @@ month of December 2015 and  none of these new archives are included in any of th
 TCGA Data at CGHub
 ==================
 
-A complete listing of the TCGA data files from CGHub that are currently available in Google Cloud Storage (GCS)
-can be found `here <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/GCS_listing.v2.tsv>`_.
-This file contains 3 columns of information: the unique CGHub id for the file, the partial GCS object path,
-and the size of the file in bytes.
+The complete 
+`listing <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/GCS_listing.v2.tsv>`_
+of the TCGA data files from CGHub that are currently available in Google Cloud Storage (GCS)
+contains the following three columns of information: 
+* unique CGHub id for the file, 
+* the partial GCS object path, and
+* the size of the file in bytes.
 
 The latest complete CGHub manifest can be 
 `downloaded directly from CGHub <https://cghub.ucsc.edu/reports/SUMMARY_STATS/LATEST_MANIFEST.tsv>`_ (67 MB).
+

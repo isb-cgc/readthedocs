@@ -53,6 +53,13 @@
 <p>Here you will find information describing the features of the ISB-CGC platform,
 tips on how to use it, and details about the data that we are hosting on the
 Google Cloud Platform.</p>
+<a class="reference internal image-reference" href="_images/three-personae.png"><img alt="_images/three-personae.png" class="align-center" src="_images/three-personae.png" style="width: 477.5px; height: 308.5px;" /></a>
+<p>The ISB-CGC aims to serve the needs of a broad range of cancer researchers ranging from
+scientists or clinicians who prefer to use an interactive web-based application to access
+and explore the rich TCGA dataset, to computational scientists who want to write their own
+custom scripts using languages such as R or Python, accessing the data through APIs, and
+to algorithm developers who wish to spin up thousands of virtual machines to analyze hundreds
+of terabytes of sequence data.</p>
 <p>This documentation is a work-in-progress, please let us know how we can improve
 it! <a class="reference external" href="mailto:feedback&#37;&#52;&#48;isb-cgc&#46;org">feedback<span>&#64;</span>isb-cgc<span>&#46;</span>org</a></p>
 <p>&#8211; the ISB-CGC team</p>
@@ -61,58 +68,11 @@ it! <a class="reference external" href="mailto:feedback&#37;&#52;&#48;isb-cgc&#4
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="sections/About-ISB-CGC.html">About the ISB Cancer Genomics Cloud</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sections/TCGA-Data.html">About the TCGA Data</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="sections/TCGA-Data.html#understanding-the-tcga-data-types-and-levels">Understanding the TCGA Data Types and Levels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sections/TCGA-Data.html#understanding-data-access">Understanding Data Access</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="sections/TCGA_on_ISBCGC.html">TCGA Data hosted on the ISB-CGC Platform</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="sections/TCGA_on_ISBCGC.html#tcga-data-by-access-class">TCGA Data by Access Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sections/TCGA_on_ISBCGC.html#tcga-data-by-source-repository">TCGA Data by Source Repository</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="sections/Web-UI.html">Web Interface</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="sections/webapp/releases.html">Release Notes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sections/webapp/User-Dashboard.html">User Dashboard</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sections/webapp/Cohorts.html">Cohorts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sections/webapp/Visualizations.html">Visualizations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sections/webapp/SeqPeek.html">SeqPeek</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sections/webapp/IGV-Browser.html">Integrative Genomics Viewer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sections/webapp/Sharing.html">Sharing Cohorts and Visualizations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sections/webapp/General-Permissions.html">General Permissions</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="sections/Programmatic-API.html">Programmatic Interfaces</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="sections/Programmatic-API.html#cohort-api">Cohort API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sections/Programmatic-API.html#metadata-api">Metadata API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sections/Programmatic-API.html#user-api">User API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sections/Programmatic-API.html#helper-scripts">Helper Scripts</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="sections/Compute-Engine.html">Using Google Compute Engine</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sections/Reference-Data.html">Reference Data</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="sections/Reference-Data.html#isb-cgc-hosted-reference-data">ISB-CGC Hosted Reference Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sections/Reference-Data.html#other-reference-data-sources">Other Reference Data Sources</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="sections/FAQ.html">Frequently Asked Questions (FAQ)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="sections/FAQ.html#isb-cgc-accounts-and-cloud-projects">ISB-CGC Accounts and Cloud Projects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sections/FAQ.html#data-access">Data Access</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sections/FAQ.html#python-users">Python Users</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sections/FAQ.html#r-and-bioconductor-users">R and Bioconductor Users</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="sections/Support.html">Contacts &amp; Support</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="sections/Support.html#your-own-gcp-project">Your Own GCP project</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sections/Support.html#contact-us">Contact Us</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="sections/Other-Useful-Links.html">Other Useful Links</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sections/BigQuerySummaries.html">BigQuery Data ETL</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="sections/BigQuerySummaries.html#data-quality-and-general-formatting">Data Quality and General Formatting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sections/BigQuerySummaries.html#data-types">Data Types</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="sections/Hosted-Data.html">Cloud-Hosted Data Sets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sections/Prog-APIs.html">Programmatic APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sections/Web-UI.html">Web Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sections/FAQ.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sections/Support.html">Support &amp; Other Useful Links</a></li>
 </ul>
 </div>
 <hr class="docutils" />

@@ -35,7 +35,7 @@ and enter "isb-cgc" (without quotes) in the text box labeled "Project ID".  All 
 datasets and tables will now be visible in the left side-bar of the BigQuery web interface.
 Note that in order to use BigQuery, you need to be a member of a Google Cloud Project.
 
-**How can I apply for access to the low-level DNA sequence data?**
+**How can I apply for access to the low-level DNA and RNA sequence data?**
 In order to access the TCGA controlled-access data, you will need to apply to dbGaP_.
 
 .. _dbGaP: https://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login
@@ -51,7 +51,9 @@ authenticate, we will verify that you also have dbGaP authorization for the TCGA
 
 **My professor has dbGaP authorization.  Do I have to have my own authorization too?**
 Yes, your professor will need to add you as a "data downloader" to his/her dbGaP application so that you
-have your own dbGaP authorization associated with your own eRA Commons id.
+have your own dbGaP authorization associated with your own eRA Commons id.  
+(This `video <https://www.youtube.com/watch?v=Yem3OH26kX4>`_ explains how an authorized user of 
+controlled-access data can assign a downloader role to someone in his/her institution.)
 
 **I already authenticated using my eRA Commons id but now I want to use a different Google identity to
 access the ISB-CGC web-app.  Can I re-authenticate using the same eRA Commons id?**

@@ -26,59 +26,14 @@ in most downstream analyses.  The ISB-CGC platform aims to make these different 
 possible variety of users within the cancer research community, using the most appropriate Google Cloud Platform 
 technologies.
 
-An overview of the TCGA data is provided below, with links to additional sources of information.
+More details about the TCGA data can be found in the sections below.
 
-Understanding the TCGA Data Types and Levels
-############################################
+.. toctree::
+   :maxdepth: 1
 
-TCGA Data Types
-===============
-
-The TCGA dataset is unique in that the tumor samples were assayed using a standard set of platforms and pipelines in order to produce a comprehensive dataset including:
-
-* DNA sequencing of tumor samples and matched-normals (typically blood samples) in order to detect somatic mutations;
-* SNP array based DNA copy-number and genotyping analysis of tumor samples and matched-normals;
-* DNA methylation of tumor samples;
-* messenger RNA (mRNA) expression analysis of the tumor samples to capture the gene expression profile;
-* micro-RNA (miRNA) expression profiling of the tumor samples;
-
-In addition, protein expression for a significant fraction (~20%) of all tumor samples was obtained using RPPA (reverse phase protein array).
-
-TCGA Data Levels
-================
-
-For each *type* of data, there are typically three *levels* of data:
-* Level 1 typically represents raw, un-normalized data
-* Level 2 typically represents an intermediate level of processing and/or normalization of the data;
-* Level 3 typically represents aggregated, normalized, and/or segmented data.
-
-The results of integrative or pan-cancer analyses are sometimes referred to as "Level 4" data.  More information about
-`Data Level Classification <https://wiki.nci.nih.gov/display/TCGA/Data+level>`_ can be found on the NCI wiki.
-
-TCGA Data Platforms
-===================
-
-When working with any of the data types, it is important to also be aware of both the *platform* that was used to generate the underlying raw data as well as the 
-*pipeline* that was used to process the data.  For example, over the course of the TCGA study, DNA methlyation data was obtained using first the Illumina
-HumanMethylation27 platform, and later using the HumanMethylation450 platform.  Any analysis that combines data from these two platforms across a cohort of
-samples should take this into consideration.  Another example where multiple platforms and/or pipelines were used to produce a single data type is the Level-3 gene
-expression data: most tumor samples were processed at UNC and the normalized gene-expression values are based on the RSEM method, while some tumor samples were
-processed at BCGSC and the normalized gene-expression values are based on RPKM.
-
-TCGA Data Reports
-=================
-
-A number of useful `Data Reports <https://tcga-data.nci.nih.gov/datareports/dataReportsHome.htm>`_ 
-are available directly from TCGA.  There are several different reports that you can access from that 
-page, including these nice dashboards:
-
-* **Data Statistics**:  this `dashboard <https://tcga-data.nci.nih.gov/datareports/statsDashboard.htm>`_ provides high-level statistics describing TCGA data content and usage.
-* **Project Case Overview**:  this `dashboard <https://tcga-data.nci.nih.gov/datareports/projectCaseDashboard.htm>`_ provides a high-level snapshot of TCGA project progress through the multiple phases of sample analysis.
-
-Understanding Data Access
-#########################
-
-* **Public Data**  Sometimes the word "public" is misinterpreted as meaning "open".  All of the TCGA data is *public* data, and much of it is *open*, meaning that it is accessible and available to *all* users; while some low-level TCGA data is *controlled* and restricted to authorized users.
-* **Open-Access Data**  Depending on how you categorize the data, *most* of the TCGA data is open-access data.  This includes all de-identified clinical and biospecimen data, as well as all Level-3 molecular data including gene expression data, DNA methylation data, DNA copy-number data, protein expression data, somatic mutation calls, etc. 
-* **Controlled-Access Data**  All low-level sequence data (both DNA-seq and RNA-seq), the raw SNP array data (CEL files), germline mutation calls, and a small amount of other data are treated as *controlled* data and require that a user be properly authenticated and have dbGaP-authorization prior to access these data.
+   data2/TCGA_Data_Types
+   data2/TCGA_Data_Levels
+   data2/TCGA_Data_Platforms
+   data2/TCGA_Reports
+   data2/TCGA_Access
 

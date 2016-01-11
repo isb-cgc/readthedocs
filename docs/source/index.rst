@@ -17,6 +17,13 @@ Google Cloud Platform.
    :scale: 50
    :align: center
 
+The ISB-CGC aims to serve the needs of a broad range of cancer researchers ranging from 
+scientists or clinicians who prefer to use an interactive web-based application to access 
+and explore the rich TCGA dataset, to computational scientists who want to write their own 
+custom scripts using languages such as R or Python, accessing the data through APIs, and 
+to algorithm developers who wish to spin up thousands of virtual machines to analyze hundreds 
+of terabytes of sequence data.
+
 This documentation is a work-in-progress, please let us know how we can improve 
 it! feedback@isb-cgc.org 
 
