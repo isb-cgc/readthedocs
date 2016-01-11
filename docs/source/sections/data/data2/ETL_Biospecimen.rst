@@ -9,7 +9,7 @@ uniquely represented by a
 of length 16, *eg* TCGA-2G-AAM4-10A.  (For more information on how TCGA barcodes
 were created and how to *"read"* a TCGA barcode, click on the preceding link.)
 
-Parsing XML
+XML Parsing
 -----------
 
 The TCGA data at the DCC exists in XML files which have been uploaded into

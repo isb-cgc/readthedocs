@@ -26,7 +26,7 @@ Additionally, only the most recent follow-up information was included
 (for the patients where multiple follow-up sections existed in the
 clinical XML file). 
 
-Parsing XML
+XML Parsing 
 -----------
 
 Each clinical XML file is divided into admin and patient blocks, and
