@@ -44,12 +44,15 @@ Transforms
 ----------
 
 For the field called vital\_status:
+
 -  for all patients who are "Alive":
+
    -  days\_to\_last\_known\_alive should not be NULL
    -  days\_to\_last\_known\_alive is set to days\_to\_last\_followup
    -  days\_to\_death is set to NULL
 
 -  for all patients who are "Dead":
+
    -  days\_to\_death should not be NULL (if it is NULL, and days\_to\_last\_followup is not NULL, then vital\_status is set to "Alive"
    -  days\_to\_last\_known\_alive  is set to days\_to\_death
    -  days\_to\_last\_followup is set to NULL
