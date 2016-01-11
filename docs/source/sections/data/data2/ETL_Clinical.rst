@@ -57,8 +57,8 @@ For the field called vital\_status:
    -  days\_to\_last\_known\_alive  is set to days\_to\_death
    -  days\_to\_last\_followup is set to NULL
 
-The following fields were extracted from the cqcf block of the XML
-file: 
+The following fields were extracted from the cqcf block of the XML file: 
+
 - ‘gleason\_score\_combined', 
 - 'country',
 - 'history\_of\_prior\_malignancy', 
@@ -67,6 +67,7 @@ file:
 When an auxiliary XML file exists for a participant, and the batch numbers in 
 both the clinical XML and the auxiliary XML file match, the following fields
 are extracted from the auxiliary XML file and added to the Clinical table:
+
 -  hpv\_calls, 
 -  hpv\_status,
 -  mononucleotide\_and\_dinucleotide\_marker\_panel\_analysis\_status,
