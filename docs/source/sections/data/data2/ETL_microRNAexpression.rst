@@ -2,7 +2,7 @@ microRNA Expression
 ===================
 
 The current ISB TCGA data pipeline uses a Perl script
-(expression\_matrix\_mimat.pl) from Andy Chu at BCGSC which reads the
+``expression\_matrix\_mimat.pl`` provided by BCGSC which reads the
 isoform data files and outputs expression values for "mature microRNAs". 
 It outputs a matrix with a consistent number of mature microRNAs, in
 which the microRNAs are referred to using a combination of the microRNA

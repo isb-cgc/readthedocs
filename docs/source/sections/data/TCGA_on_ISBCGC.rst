@@ -2,36 +2,12 @@
 Hosted TCGA Data 
 ****************
 
-The ISB-CGC hosts approximately 1 petabyte of TCGA_ data in Google Cloud
-Storage (GCS_) and in BigQuery_.  
-
-.. _TCGA: http://cancergenome.nih.gov/
-.. _GCS: https://cloud.google.com/storage/
-.. _BigQuery: https://cloud.google.com/bigquery/
-
-The data being hosted by the ISB-CGC was obtained from the two main TCGA data
-repositories:
-
-* **TCGA DCC**: this is the TCGA Data Coordinating Center which provides a `Data Portal <https://tcga-data.nci.nih.gov/tcga/>`_ from which users may download open-access or controlled-access data.  This portal provides access to all TCGA data *except* for the low-level sequence data. 
-* **CGHub**:  this is NCI's current secure data repository for all TCGA BAM and FASTQ sequence data files.
-
-The ISB-CGC platform is one of NCI's `Cancer Genomics Cloud Pilots <https://cbiit.nci.nih.gov/ncip/nci-cancer-genomics-cloud-pilots>`_ 
-and our mission is to host the TCGA data in the cloud so that researchers around the world may work with the data without needing 
-to download and store the data at their own local institutions.
-
-The vast majority (over 99%) of this **petabyte** of data consists of low-level sequence data, currently stored as files in
-Google Cloud Storage.  Over the course of the TCGA project, this low-level (*"Level 1"*) data has been processed through 
-a set of standardized pipelines and the the resulting high-level (*"Level 3"*) data is frequently the data that is used
-in most downstream analyses.  The ISB-CGC platform aims to make these different types of data accessible to the widest
-possible variety of users within the cancer research community, using the most appropriate Google Cloud Platform 
-technologies.
-
-Note that all TCGA metadata is considered open-access.  In other words, information *about* controlled-access data 
+All TCGA *metadata* is considered open-access.  In other words, information *about* controlled-access data 
 files is open-access.  Metadata can be obtained programmatically using the ISB-CGC programmatic API.
 
 An overview of the TCGA data currently hosted on the ISB-CGC platform is provided in the two sections below.
 The first section breaks the data down by access class (open *vs* controlled), and the second section breaks
-it down by original repository (DCC *and* CGHub).
+it down by original source repository (DCC *and* CGHub).
 
 TCGA Data by Access Class
 #########################
@@ -100,13 +76,13 @@ includes the disease code, the platform/pipeline name, the archive type (*eg* da
 (which is often the batch number), and the revision number.
 If you want to check whether there is a newer version of a specific archive at the DCC than what we currently
 have on the ISB-CGC platform, you can check the date column in the latest archive report mentioned above,
-or you could compare the archive name to these lists of 
+or you can compare the archive name to these lists of 
 `open-access archives <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/DCC_archives.04oct2015.open.tsv>`_
 and 
 `controlled-access archives <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/DCC_archives.04oct2015.cntl.tsv>`_
 based on our most recent upload.
 
-Note that all "bio" archives (containing clinical and biospecimen XML files) were recently migrated to a new
+Note that all "bio" archives (containing clinical, biospecimen, and other types of XML files) were recently migrated to a new
 XSD which is not backwards compatible with the previous XSD.  This update took place over the course of the 
 month of December 2015 and  none of these new archives are included in any of the current ISB-CGC BigQuery tables or files in GCS.
 
@@ -117,10 +93,11 @@ The complete
 `listing <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/GCS_listing.v2.tsv>`_
 of the TCGA data files from CGHub that are currently available in Google Cloud Storage (GCS)
 contains the following three columns of information: 
+
 * unique CGHub id for the file, 
 * the partial GCS object path, and
 * the size of the file in bytes.
 
 The latest complete CGHub manifest can be 
-`downloaded directly from CGHub <https://cghub.ucsc.edu/reports/SUMMARY_STATS/LATEST_MANIFEST.tsv>`_ (67 MB).
+`downloaded directly from CGHub <https://cghub.ucsc.edu/reports/SUMMARY_STATS/LATEST_MANIFEST.tsv>`_ (67 MB spreadsheet).
 

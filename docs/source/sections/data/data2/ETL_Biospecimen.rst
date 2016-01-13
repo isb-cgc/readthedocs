@@ -6,7 +6,7 @@ The
 table contains one row per TCGA sample.  Each TCGA sample is
 uniquely represented by a 
 `TCGA barcode <https://wiki.nci.nih.gov/display/TCGA/TCGA+barcode>`_
-of length 16, *eg* TCGA-2G-AAM4-10A.  (For more information on how TCGA barcodes
+of length 16, *eg* ``TCGA-2G-AAM4-10A``.  (For more information on how TCGA barcodes
 were created and how to *"read"* a TCGA barcode, click on the preceding link.)
 
 XML Parsing
@@ -25,16 +25,16 @@ in the table.
 Filters
 -------
 
--  Samples for which the "is\_ffpe" value was "True" were removed.
--  Patients or Samples for which the "Project" value was "null" (rather than "TCGA") were removed.
+-  Samples for which ``is\_ffpe=True`` were removed.
+-  Patients or Samples for which ``Project`` value was *not* ``TCGA`` were removed.
 
 Transforms
 ----------
 
--  "pregnancies" and "total_number_of_pregnancies" were merged into a
-   single "pregnancies" field. The counts above four are represented as
-   "4+" (e.g: [0,1,2,3,4+])
--  "number\_of\_lymphnodes\_examined" and "lymph\_node\_examined\_count" were
-   merged into a single "number\_of\_lymphnodes\_examined" field
+-  ``pregnancies`` and ``total_number_of_pregnancies`` were merged into a
+   single ``pregnancies`` field. Counts above four are represented as
+   ``4+`` (e.g: [0,1,2,3,4+])
+-  ``number\_of\_lymphnodes\_examined`` and ``lymph\_node\_examined\_count`` were
+   merged into a single ``number\_of\_lymphnodes\_examined`` field
 
 

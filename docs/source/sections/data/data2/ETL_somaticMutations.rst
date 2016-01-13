@@ -1,114 +1,70 @@
 Somatic Mutations
 =================
 
-The `MAF table <https://www.google.com/url?q=https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.Somatic_Mutation_calls>`__ in
-BigQuery contains somatic mutation calls from 30 tumor types.
+The 
+`Somatic Mutations table <https://www.google.com/url?q=https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.Somatic_Mutation_calls>`__ 
+in BigQuery contains somatic mutation calls collected from the open-access 
+`MAF <https://wiki.nci.nih.gov/display/TCGA/Mutation+Annotation+Format+(MAF)+Specification>`_ 
+files from 30 tumor types.
 
-Data-cleaning steps for each MAF file
--------------------------------------
+For each MAF file, some
+simple data-cleaning performed, it was then annotated using
+`Oncotator <https://www.broadinstitute.org/cancer/cga/oncotator>`_ 
+and then further processed to remove duplicates before being merged into a single table.
 
--  Remove any rows where the “build” column is not “37”
--  Remove any lines where the “chr” is not in [1-22,X,Y]
--  Remove any lines where the “Mutation\_Status” is not “Somatic”
--  Remove any lines where the “Sequencer” is not an Illumina platform
--  Replace column names with Oncotator required column names
+Data-Cleaning 
+-------------
 
--  'ncbi\_build' : 'build’ , 'chromosome' : 'chr' ,'start\_position' :
-   'start' ,'end\_position' : 'end', 'reference\_allele' : 'ref\_allele'
-    ,'tumor\_seq\_allele1' : 'tum\_allele1'  
+- Remove any lines where the ``build`` is not ``37``
+- Remove any lines where the ``chr`` is not in ``[1-22, X, Y]``
+- Remove any lines where the ``Mutation_Status`` is not ``Somatic``
+- Remove any lines where the ``Sequencer`` is not an Illumina platform
+- Change the column labels to match what Oncotator expects (*eg* ``ncbi_build`` becomes ``build``, ``chromosome``, ``chr``, *etc*.
 
-Merging Oncotator output
-------------------------
+Oncotator Annotation
+--------------------
 
--  Merge the oncotator output by disease\_type, change/add columns. This
-   step in fact generates the final output that can be loaded into
-   BigQuery. The next step loads the file and deletes the duplicates
--  Merge all the files by disease type.
--  The final columns to be stored in table. Note we have hard-coded some
-   column name changes. Eg: Gc\_content to GC\_Content
--  Change column names
+Each file was then annotated using Oncotator version 1.5.1, with the ``Jan2015`` database,
+and the options ``--input_format=MAFLITE --output_format=TCGAMAF``.
 
--  Replace strings:
+The outputs of Oncotator were lightly processed to change the column labels and to remove
+certain special characters from strings.
 
--  "1000" : "\_1000"
--  " " : "\_" ( spaces replaced by underscore)
--  ")" : "" ( closing bracket to empty string)        
--  "(" : "\_"
--  "+" : "\_"
--  “-" : "\_" ( dashes to underscore)
--  “gencode" : "GENCODE"
+Duplicate Removal
+-----------------
 
--  
+Because many tumor types have several "current" MAF files and deciding which one is the
+"best" is a non-trivial process, and also because some tumor samples may have had mutations
+called relative to a tissue normal and also relative to a blood normal, it is possible that
+the same mutation has been called multiple times.  In order to eliminate over-counting of
+mutations, we sought to remove these duplicate calls from the result of concatenating all
+of the annotated MAF files using the following rules:
 
--  Add new columns
+- if a mutation in the same position is called in a particular tumor sample with respect to 
+multiple matched normals, we prefer the "blood derived normal" over the "solid tissue normal"
 
--  "Tumor\_Sample\_Barcode", "Tumor\_Patient\_Barcode",
-   "Tumor\_Sample\_Type", "Normal\_Sample\_Barcode",
-   "Normal\_Patient\_Barcode", "Normal\_Sample\_Type", "Study"
+- if a mutation in the same position is called in multiple aliquots for one tumor sample, we prefer
+the "D" analyte over the "W" analyte 
+(*eg* ``TCGA-B0-5695-01A-11D-1534-10`` over ``TCGA-B0-5695-01A-11W-1584-10``)
 
-General Rules to remove duplicates
-----------------------------------
-
--  for the cases where there is a "blood derived normal" and a "solid
-   tissue normal", we prefer the blood derived normal
-
--  for the cases where there are multiple aliquots for one tumor sample,
-   then we should first try to choose the "D" over the "W" aliquot, eg:
-
-TCGA-B0-5695-01A-11D-1534-10; TCGA-B0-5695-01A-11W-1584-10
-
+- if both aliquots are "D" (or both are "W") analytes, then we choose based on the 
+data-generating-center (the final two characters in the aliquot barcode):
 -  If both tumor aliquots have a "D" (or both have "W") in that spot,
    then the next way to choose one over the other is by looking at the
-   final two digits which identify the "center" which did generated this
-   data, eg:
+   final two digits which identify the "center" which generated this
+   data, preferring first:
 
-TCGA-B2-4099-01A-02D-1251-10; TCGA-B2-4099-01A-02D-1458-08
+   - ``01``, ``08``, or ``14`` (all of which refer to ``broad.mit.edu``)
+   - ``09``, ``21``, or ``30`` (all of which refer to ``genome.wustl.edu``)
+   - ``10``  or ``12`` (both of which refer to ``hgsc.bcm.edu``)
+   - ``13``  or ``31`` (both of which refer to ``bcgsc.ca``)
+   - ``18``  or ``25`` (both of which refer to ``ucsc.edu``)
 
-and here is how I would choose:
+- finally, in the event that a mutation in the same position was called by the same
+center, with the same t ype of matched normal, and the same type of analyte, then we
+choose the aliquot with the larger value in the final 4-digit sequence 
+in the barcode (positions 21:25)
 
-first choose (01, 08, 14) which all correspond
-to\ `  <https://www.google.com/url?q=http://broad.mit.edu&sa=D&usg=AFQjCNHnEPmO4IR1qZPXJKyzVVMeIxLlAg>`__\ `broad.mit.edu <https://www.google.com/url?q=http://broad.mit.edu&sa=D&usg=AFQjCNHnEPmO4IR1qZPXJKyzVVMeIxLlAg>`__
-
-next choose (09,21,30) which all correspond
-to\ `  <https://www.google.com/url?q=http://genome.wustl.edu&sa=D&usg=AFQjCNGDSSLCDrgNRsyjlYosH1jVUdeqCA>`__\ `genome.wustl.edu <https://www.google.com/url?q=http://genome.wustl.edu&sa=D&usg=AFQjCNGDSSLCDrgNRsyjlYosH1jVUdeqCA>`__
-
-next choose (10,12) which corresponds
-to\ `  <https://www.google.com/url?q=http://hgsc.bcm.edu&sa=D&usg=AFQjCNGwuFEpglbGKZy0Vy7pPBFaOuVoLQ>`__\ `hgsc.bcm.edu <https://www.google.com/url?q=http://hgsc.bcm.edu&sa=D&usg=AFQjCNGwuFEpglbGKZy0Vy7pPBFaOuVoLQ>`__
-
-next choose (13,31) which corresponds
-to\ `  <https://www.google.com/url?q=http://bcgsc.ca&sa=D&usg=AFQjCNFDiYCi3Xsqp9d993xDcZ4O1v64KQ>`__\ `bcgsc.ca <https://www.google.com/url?q=http://bcgsc.ca&sa=D&usg=AFQjCNFDiYCi3Xsqp9d993xDcZ4O1v64KQ>`__
-
-next choose (18,25) which corresponds
-to\ `  <https://www.google.com/url?q=http://ucsc.edu&sa=D&usg=AFQjCNEMtV_drZ8zVeT8jnzrjM4OFS2wSA>`__\ `ucsc.edu <https://www.google.com/url?q=http://ucsc.edu&sa=D&usg=AFQjCNEMtV_drZ8zVeT8jnzrjM4OFS2wSA>`__
-
-` <https://www.google.com/url?q=http://ucsc.edu&sa=D&usg=AFQjCNEMtV_drZ8zVeT8jnzrjM4OFS2wSA>`__
-
--  In case of a tie, this is completely arbitrary, but do this: take the
-   last 4-char sequence in the barcode (21:25) and choose the one where
-   that value is "greater".  Those 4-char substrings do sometimes
-   include letters, so you should do a string comparison rather than
-   casting these to integers
-
-Check and remove duplicates
----------------------------
-
--  This step takes the output files generated in the previous step and
-   removes duplicates. See section “General Rules to remove duplicates”
-   above for the rules to remove duplicates.
--  Pseudo code for the rules:
-
--  The aliquots are selected in the below preference order
-
--  ("13:15", ["10"])  # blood aliquot
--  ("19:20", ["D"])   # select D over W
--  ("26:28", ["01", "08", "14", "09", "21", "30", "10", "12", "13",
-   "31", "18", "25"]) ])
-
--  If tie, select the one which has greater number in (21:25) position,
-   else return first aliquot(default)
-
--  remove any duplicates left after the above steps. Only unique
-   mutations are stored in the table. A unique mutation is defined by
-   (chr, start, end, tum\_allele1, tum\_allele2, tumor\_barcode).
-
+In addition, any exact duplicates (*ie* all fields describing a mutation are the same) in the
+merged file are removed, and the final result uploaded into BigQuery.
 
