@@ -3,7 +3,7 @@ DNA Methylation
 
 The 
 `DNA Methylation <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.DNA_Methylation_betas>`_
-contains one row per CpG probe and TCGA aliquot.
+table contains one row per CpG probe and TCGA aliquot.
 Each TCGA aliquot is uniquely represented by a
 `TCGA barcode <https://wiki.nci.nih.gov/display/TCGA/TCGA+barcode>`_
 of length 24, *eg* ``TCGA-04-1517-01A-01D-0533-01``.  (For more information on how TCGA barcodes
