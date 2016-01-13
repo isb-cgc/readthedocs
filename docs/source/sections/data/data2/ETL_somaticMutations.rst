@@ -2,7 +2,7 @@ Somatic Mutations
 =================
 
 The 
-`Somatic Mutations table <https://www.google.com/url?q=https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.Somatic_Mutation_calls>`__ 
+`Somatic Mutations table <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.Somatic_Mutation_calls>`_
 in BigQuery contains somatic mutation calls collected from the open-access 
 `MAF <https://wiki.nci.nih.gov/display/TCGA/Mutation+Annotation+Format+(MAF)+Specification>`_ 
 files from 30 tumor types.
@@ -40,19 +40,11 @@ the same mutation has been called multiple times.  In order to eliminate over-co
 mutations, we sought to remove these duplicate calls from the result of concatenating all
 of the annotated MAF files using the following rules:
 
-- if a mutation in the same position is called in a particular tumor sample with respect to 
-multiple matched normals, we prefer the "blood derived normal" over the "solid tissue normal"
+- if a mutation in the same position is called in a particular tumor sample with respect to multiple matched normals, we prefer the "blood derived normal" over the "solid tissue normal"
 
-- if a mutation in the same position is called in multiple aliquots for one tumor sample, we prefer
-the "D" analyte over the "W" analyte 
-(*eg* ``TCGA-B0-5695-01A-11D-1534-10`` over ``TCGA-B0-5695-01A-11W-1584-10``)
+- if a mutation in the same position is called in multiple aliquots for one tumor sample, we prefer the "D" analyte over the "W" analyte (*eg* ``TCGA-B0-5695-01A-11D-1534-10`` over ``TCGA-B0-5695-01A-11W-1584-10``)
 
-- if both aliquots are "D" (or both are "W") analytes, then we choose based on the 
-data-generating-center (the final two characters in the aliquot barcode):
--  If both tumor aliquots have a "D" (or both have "W") in that spot,
-   then the next way to choose one over the other is by looking at the
-   final two digits which identify the "center" which generated this
-   data, preferring first:
+- if both aliquots are "D" (or both are "W") analytes, then we choose based on the data-generating-center (the final two characters in the aliquot barcode), preferring first:
 
    - ``01``, ``08``, or ``14`` (all of which refer to ``broad.mit.edu``)
    - ``09``, ``21``, or ``30`` (all of which refer to ``genome.wustl.edu``)
@@ -60,11 +52,9 @@ data-generating-center (the final two characters in the aliquot barcode):
    - ``13``  or ``31`` (both of which refer to ``bcgsc.ca``)
    - ``18``  or ``25`` (both of which refer to ``ucsc.edu``)
 
-- finally, in the event that a mutation in the same position was called by the same
-center, with the same t ype of matched normal, and the same type of analyte, then we
-choose the aliquot with the larger value in the final 4-digit sequence 
-in the barcode (positions 21:25)
+- finally, in the event that a mutation in the same position was called by the same center, with the same type of matched normal, and the same type of analyte, then we choose the aliquot with the larger value in the final 4-digit sequence in the barcode (positions 21:25)
 
 In addition, any exact duplicates (*ie* all fields describing a mutation are the same) in the
 merged file are removed, and the final result uploaded into BigQuery.
+The result is a single table containing over 5.8 million mutations called on 8435 tumor samples from 8373 patients.
 

@@ -3,9 +3,9 @@ ETL for BigQuery Tables
 ***********************
 
 The open-access TCGA data has been uploaded into a set of consistent tables
-in the publicly-accessible BigQuery dataset called ``isb-cgc:tcga_201510_alpha``.
-These tables can be accessed 
-`here <https://bigquery.cloud.google.com/dataset/isb-cgc:tcga_201510_alpha>`_
+in the publicly-accessible BigQuery dataset called ``isb-cgc:tcga_201510_alpha``,
+`tables <https://bigquery.cloud.google.com/dataset/isb-cgc:tcga_201510_alpha>`_
+which can be accessed
 via the BigQuery web interface (by anyone with an active GCP project).
 
 In general, the data in the BigQuery tables is identical to the information that
