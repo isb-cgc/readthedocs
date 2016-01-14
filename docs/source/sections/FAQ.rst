@@ -10,7 +10,7 @@ working on a major revision to the web-app right now and will let you know when 
 
 **I want to be able to run big jobs using Google Compute Engine on the TCGA data hosted by the ISB-CGC.  What should I do?**
 You will need to request a Google Cloud Platform project.  Please see :ref:`request-gcp` for more details
-about requesting a GCP project.
+about requesting a project.
 
 **Can I use any email address as a Google identity?**  Yes, you can.  If your email address is not
 already linked to a Google account, you can create_ a Google account with your current email address.
