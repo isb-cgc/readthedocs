@@ -1,8 +1,12 @@
-*************
-Web Interface
-*************
+*********************
+ISB-CGC Web Interface
+*********************
 
-Documentation for the ISB-CGC web app is available from within the web-app.  After you sign-in,
+The documentation contained in this section is for the ISB-CGC web interface found `here <https://isb-cgc.appspot.com>`_.
+
+Please note that this documentation is for a pre-release system and expect changes to occur in the coming months.
+
+This page is also accessible through the ISB-CGC web application.  After you sign-in,
 click on the down-arrow next to your name in the upper-right corner and select "Help".
 
 .. toctree::
