@@ -9,6 +9,8 @@ For general information about the ISB-CGC please contact us at info@isb-cgc.org.
 
 For feature-requests or bug-reports, please send e-mail to feedback@isb-cgc.org.
 
+.. _request-gcp:
+
 Your Own GCP project
 ####################
 
