@@ -31,11 +31,13 @@ in Google Cloud Storage (GCS)
 
 The data files described above are available to all ISB-CGC users in an open-access GCS bucket (gs://isb-cgc-open).
 
+.. _in_BigQuery:
+
 in BigQuery
 -----------
 
-The information scattered over tens of thousands of XML and TSV files is provided in a *much more accessible* form in
-For more details about these BigQuery tables, including tutorials and code examples in 
+The information scattered over tens of thousands of XML and TSV files at the DCC is provided in a *much more accessible* form in
+a series of BigQuery tables.  For more details, including tutorials and code examples in 
 `Python <https://github.com/isb-cgc/examples-Python>`_ or 
 `R <https://github.com/isb-cgc/examples-R>`_, please see our `github repositories <https://github.com/isb-cgc>`_.
 
