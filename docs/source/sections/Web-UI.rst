@@ -2,7 +2,7 @@
 ISB-CGC Web Interface
 *********************
 
-The documentation contained in this section is for the ISB-CGC web interface found `here <https://isb-cgc.appspot.com>`_.
+The documentation contained in this section is for the prototype `ISB-CGC web interface <https://isb-cgc.appspot.com>`_.
 
 Please understand that the currently deployed web-app is an early prototype and our developers are working on a complete overhaul.
 We encourage you to explore the TCGA data that we have made available :ref:`in_BigQuery` tables and to :ref:`contact-us`

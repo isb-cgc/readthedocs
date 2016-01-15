@@ -18,7 +18,7 @@ Please note, however that although these two accounts will then share the same *
 still be two separate accounts, with two separate passwords, *etc*.  (It is also possible 
 that your institutional email address is *already* a Google account, if your institution uses
 Google Apps.
-`Here <https://support.google.com/accounts/answer/40560?hl=en&ref_topic=3382296>`_ is how you can find out).
+`This <https://support.google.com/accounts/answer/40560?hl=en&ref_topic=3382296>`_ is how to find out).
 
 .. _create: https://accounts.google.com/signupwithoutgmail
 
