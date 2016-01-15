@@ -7,14 +7,15 @@ Release Notes
 
 * September 21, 2015: first set of BigQuery tables (not publicly released)
    * ``isb-cgc:tcga_201507_alpha`` dataset containing clinical, biospecimen, somatic mutation calls and Level-3 TCGA data available at the TCGA DCC as of July 2015
-   * ``isb-cgc:platform_reference`` contains annotation information for the Illumina DNA Methylation platform.
 
 * October 4, 2015: complete data upload from TCGA DCC, including controlled-access data
 
-* November 2, 2015: public release of TCGA open-access data in an updated set of BigQuery tables in ``isb-cgc:tcga_201510_alpha`` dataset, based on data available at the TCGA DCC as of October 2015
-   * includes new ``Annotations`` table with information about redacted samples, etc.
+* November 2, 2015: first public release of TCGA open-access data in BigQuery tables
+   * ``isb-cgc:tcga_201510_alpha`` dataset contains updated set of BigQuery tables, based on data available at the TCGA DCC as of October 2015
+   * includes ``Annotations`` table with information about redacted samples, etc
+   * ``isb-cgc:platform_reference`` contains annotation information for the Illumina DNA Methylation platform.
 
-* November 16, 2015: initial upload of data from CGHub into Google Cloud Storage complete (not yet publicly available)
+* November 16, 2015: initial upload of data from CGHub into Google Cloud Storage complete (not publicly released)
 
 * December 26, 2015: public release of new ``isb-cgc:genome_reference`` dataset, with ``miRTarBase`` table
 
@@ -23,7 +24,8 @@ Release Notes
 Future Plans
 ############
 
-We expect that our future plans will continually evolve based on user feedback, research priorities, and the dynamic nature of the Google Cloud Platform.  Let us know what is important to you at feedback@isb-cgc.org
+We expect that our future plans will continually evolve based on user feedback, research priorities, and the dynamic nature of the Google Cloud Platform.  
+Tell us what is important to you at feedback@isb-cgc.org
 
 Near-Term
 =========
