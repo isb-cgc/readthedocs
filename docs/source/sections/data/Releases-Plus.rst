@@ -23,6 +23,8 @@ Release Notes
 Future Plans
 ############
 
+We expect that our future plans will continually evolve based on user feedback, research priorities, and the dynamic nature of the Google Cloud Platform.  Let us know what is important to you at feedback@isb-cgc.org
+
 Near-Term
 =========
 
