@@ -19,7 +19,7 @@ After you sign-in, click on the down-arrow next to your name in the upper-right 
    webapp/Workbooks
    webapp/Gene-Favorites
    webapp/Variable-Favorites
-   webapp/SeqPeek
+   webapp/Saved-Cohorts
    webapp/IGV-Browser
    webapp/Sharing
    webapp/General-Permissions
