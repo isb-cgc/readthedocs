@@ -11,4 +11,4 @@ Background Gene Favorites text here.
 * What if I only know the protein name
 * Concept of what a Favorite is (a list of genes)
 * What format the gene list has to be in, what if there are errors, are duplicates removed if I re-load the list?
-* What does “View System Gene Identifiers” mean, what does it do, why would I 
+* What does “View System Gene Identifiers” mean, what does it do, why would I use it?
