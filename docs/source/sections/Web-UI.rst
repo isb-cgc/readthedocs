@@ -20,8 +20,7 @@ After you sign-in, click on the down-arrow next to your name in the upper-right 
    webapp/Gene-Favorites
    webapp/Variable-Favorites
    webapp/Saved-Cohorts
-   webapp/IGV-Browser
-   webapp/Sharing
-   webapp/General-Permissions
+   webapp/Saved-Projects
+   webapp/Public-Data
    webapp/releases
 
