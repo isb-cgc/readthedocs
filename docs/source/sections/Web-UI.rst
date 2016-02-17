@@ -15,6 +15,7 @@ After you sign-in, click on the down-arrow next to your name in the upper-right 
    webapp/Overview
    webapp/Logging-In
    webapp/Menu
+   webapp/Sample-Analyses
    webapp/Visualizations
    webapp/SeqPeek
    webapp/IGV-Browser
