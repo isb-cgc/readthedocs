@@ -1,16 +1,13 @@
 *******************
 Overview
 *******************
+Background introductory text here.
 
-Cohorts and visualizations have permissions that are distinct from the TCGA data access permissions.
-Users may create cohorts and visualizations using the ISB-CGC web-app, and these cohorts and 
-visualizations will, by default, be private to the user who created them.  Users may, however, 
-also share these components of their interactive analyses.  There are two levels of permissions:
-Owner and Reader:
-
-* **Owner**: As owner of a cohort or visualization, you are able to edit and share your cohort.
-* **Reader**:  If a cohort or visualization is shared with you, you have view-only access:
-    - You may be able to make configuration changes to plots in a visualizations, but you will not be able to save those changes;
-    - You are able to comment on a cohort or plot, and your comments will be shared with all other Readers;
-    - You may make a copy ("clone") of the cohort or visualization, after which you will be the owner and you will be able to make changes.
-
+* General description of panes in the Dashboard
+ * Concept of Dashboard to save your work
+ * Concept of Workbook to hold multiple Sample Analyses for a given study you are doing (e.g. Pathways and gene mutations seen in Head and Neck Cancer (workbook 1), Determining average age of death from Breast Cancer of each specific subtype (workbook 2)
+* How to navigate.  Cookie Crumb interface in upper left to help in navigation
+* What data am I working with?  All of TCGA?  Other data (e.g. CCLE)?  Is it the same data as from the non-GUI interfaces? Can I add my own data (link to Upload Project Data documentation)?  If so, can I see it?  Can others see it?  How can I share it for others?
+* Is there any way to use the same data in the GUI and the non-GUI UI (e.g. saved cohorts I have made)?  Where can I find how to do that?
+* How to get to Help, to other non-GUI documentation
+* Written for Google Chrome, likely to work with other browsers but not tested
