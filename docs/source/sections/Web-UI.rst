@@ -18,7 +18,7 @@ After you sign-in, click on the down-arrow next to your name in the upper-right 
    webapp/Sample-Analyses
    webapp/Workbooks
    webapp/Gene-Favorites
-   webapp/Visualizations
+   webapp/Variable-Favorites
    webapp/SeqPeek
    webapp/IGV-Browser
    webapp/Sharing
