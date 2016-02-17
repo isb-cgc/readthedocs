@@ -13,7 +13,7 @@ After you sign-in, click on the down-arrow next to your name in the upper-right 
    :maxdepth: 1
 
    webapp/Overview
-   webapp/User-Dashboard
+   webapp/Logging-In
    webapp/Cohorts
    webapp/Visualizations
    webapp/SeqPeek
