@@ -22,7 +22,7 @@ Multiple Sample Analyses can be grouped into Workbooks (and saved for later use,
 **Breadcrumbs** are displayed to show where you in the Web Interface as you move from one section to another (figure below).  These are live links, and can be used to rapidly navigate from one section of the interface to another.
 
 .. image:: Breadcrumbs.png
-   :scale: 20
+   :scale: 50
    :align: center
 
 The data that is being manipulated with the Web Application is the same data that is available through the programmatic APIs.  This includes the TCGA datasets, Public Datasets as well as your own private datasets.  Details of how to access and manipulate each of these datasets are provided in detail in specific documentation sections elsewhere in the documentation.
