@@ -10,7 +10,7 @@ Over time we will be updating and enhancing this web interface based on your fee
    :maxdepth: 1
 
    webapp/Overview
-   webapp/Logging-In
+   webapp/Gaining-Access-To-TCGA-Contolled-Access-Data
    webapp/Menu
    webapp/Sample-Analyses
    webapp/Workbooks
