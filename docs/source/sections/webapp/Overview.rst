@@ -1,7 +1,13 @@
 *******************
 Overview
 *******************
-Background introductory text here.
+The ISB-CGC web application functionality is accessed through a Google account identity (freely available ***HERE***).  If you have not logged into the ISB-CGC application you will be presented with this page.
+
+.. image:: startscreen-nologin.png
+   :scale: 50
+   :align: center
+
+through the "Sign In" link at the upper right of the initial page.
 
 * General description of panes in the Dashboard
  * Concept of Dashboard to save your work
