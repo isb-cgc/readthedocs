@@ -2,10 +2,14 @@
 Overview
 *******************
 The ISB-CGC web application functionality is accessed through a Google account identity (freely available `with a new account <https://accounts.google.com/signupwithoutgmail?hl=en>`_ or `by linking to an existing email account <https://accounts.google.com/SignUpWithoutGmail>`_).  If you have not logged into the ISB-CGC application you will be presented with this page.
+
 .. image:: startscreen-nologin.png
    :scale: 50
    :align: center
-You login through the "Sign In" link at the upper right of the initial page (label "A" in the image above).  Also on this page are 
+
+You login through the "Sign In" link at the upper right of the initial page (label "A" in the image above).  Also on this page are links to our project's overall documentation (including non GUI documentation)(B), our public GitHub repository (C), a link to provide feedback (D), and our required "Warning Notice" (E) indicating that this is a U.S. Government Sponsored Website and by using it you are accepting the policies associated with its use.
+
+
 
 * General description of panes in the Dashboard
  * Concept of Dashboard to save your work
