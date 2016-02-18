@@ -22,14 +22,11 @@ Multiple Sample Analyses can be grouped into Workbooks (and saved for later use,
 **Breadcrumbs** are displayed to show where you in the Web Interface as you move from one section to another (figure below).  These are live links, and can be used to rapidly navigate from one section of the interface to another.
 
 .. image:: Breadcrumbs.png
-   :scale: 50
+   :scale: 20
    :align: center
 
-* General description of panes in the Dashboard
- * Concept of Dashboard to save your work
- * Concept of Workbook to hold multiple Sample Analyses for a given study you are doing (e.g. Pathways and gene mutations seen in Head and Neck Cancer (workbook 1), Determining average age of death from Breast Cancer of each specific subtype (workbook 2)
-* How to navigate.  Cookie Crumb interface in upper left to help in navigation
-* What data am I working with?  All of TCGA?  Other data (e.g. CCLE)?  Is it the same data as from the non-GUI interfaces? Can I add my own data (link to Upload Project Data documentation)?  If so, can I see it?  Can others see it?  How can I share it for others?
-* Is there any way to use the same data in the GUI and the non-GUI UI (e.g. saved cohorts I have made)?  Where can I find how to do that?
-* How to get to Help, to other non-GUI documentation
-* Written for Google Chrome, likely to work with other browsers but not tested
+The data that is being manipulated with the Web Application is the same data that is available through the programmatic APIs.  This includes the TCGA datasets, Public Datasets as well as your own private datasets.  Details of how to access and manipulate each of these datasets are provided in detail in specific documentation sections elsewhere in the documentation.
+
+The Web Application was optimized for use with Google Chrome web browser.  That said, a huge majority of the functionality work with recent versions of other web browsers (e.g. Firefox, Safari, Internet Explorer).  If there is an issue, please try Google Chrome browser to see if the issue is resolved.
+
+If there are any issues, please do not hesitate to `contact us  <https://groups.google.com/a/isb-cgc.org/forum/#!newtopic/feedback>`_.
