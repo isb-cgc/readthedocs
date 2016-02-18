@@ -17,7 +17,9 @@ Upon logging in with a Google account identity, you will be presented with the f
 
 This is your personal "Dashboard" where all your relevant Analyses, Gene Lists, Variable Lists, Cohorts, Projects (your own data), and Public Datasets are stored and readily accessible.  You can also create new Sample Analyses with various chart types through the Sample Analyses section.  Details of how to use each component are provided in individual subsections of this documentation.
 
-Multiple Sample Analyses can be grouped into Workbooks (and saved for later use, editing, and sharing).  Workbooks are used to group together multiple related analyses, and can be used for sharing groups of analysis results with specific groups of people.  For example, you may have one investigation involving identifying gene mutations and pathways involved in Head and Neck Cancer (with a given research group), 
+Multiple Sample Analyses can be grouped into Workbooks (and saved for later use, editing, and sharing).  Workbooks are used to group together multiple related analyses, and can be used for sharing groups of analysis results with specific groups of people.  For example, you may have one study involving identifying gene mutations and pathways involved in Head and Neck Cancer (with a given research group) where you keep all the files in one Workbook, and another study with a different group of researchers investigating the average time after diagnosis of death of different lung cancers - stored in another Workbook.  Think of workbooks as virtual "excel spreadsheets" that various related analyses can be created in individual Worksheets and grouped together in one Workbook.
+
+
 
 * General description of panes in the Dashboard
  * Concept of Dashboard to save your work
