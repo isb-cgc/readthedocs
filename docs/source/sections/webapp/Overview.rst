@@ -7,13 +7,15 @@ The ISB-CGC web application functionality is accessed through a Google account i
    :scale: 50
    :align: center
 
-You login through the "Sign In" link at the upper right of the initial page (label "A" in the image above).  Also on this page are links to our project's overall documentation (including non GUI documentation) (B), our public GitHub repository (C), a link to provide feedback (D), and our required "Warning Notice" (E) indicating that this is a U.S. Government Sponsored Website and by using it you are accepting the policies associated with its use.
+You login through the "Sign In" link at the upper right of the initial page (label "A" in the image above).  Also on this page are links to our project's overall documentation (including non GUI documentation) (B), our public GitHub repository (C), a link to provide feedback (D), a link to more information about ISB-CGC (E), and our required "Warning Notice" (F) indicating that this is a U.S. Government Sponsored Website and by using it you are accepting the policies associated with its use.
 
 Upon logging in with a Google account identity, you will be presented with the following page:
 
 .. image:: startscreen-login.png
    :scale: 50
    :align: center
+
+This is your personal "Dashboard" where all your relevant analyses, Gene Lists, Variable Lists, Cohorts, Projects (your own data), and Public Datasets are stored and readily accessible.  You can also 
 
 * General description of panes in the Dashboard
  * Concept of Dashboard to save your work
