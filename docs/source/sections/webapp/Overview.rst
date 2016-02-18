@@ -1,7 +1,7 @@
 *******************
 Overview
 *******************
-The ISB-CGC web application functionality is accessed through a Google account identity (freely available `for a new account <https://accounts.google.com/signupwithoutgmail?hl=en>`_ or `for an linking to an existing email account <https://accounts.google.com/SignUpWithoutGmail>`_).  If you have not logged into the ISB-CGC application you will be presented with this page.
+The ISB-CGC web application functionality is accessed through a Google account identity (freely available `for a new account <https://accounts.google.com/signupwithoutgmail?hl=en>`_ or `by linking to an existing email account <https://accounts.google.com/SignUpWithoutGmail>`_).  If you have not logged into the ISB-CGC application you will be presented with this page.
 
 .. image:: startscreen-nologin.png
    :scale: 50
