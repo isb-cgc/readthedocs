@@ -647,5 +647,489 @@ google_genomics_from_sample
 ###########################
 
 
+
+
 preview_cohort
 ##############
+
+Takes a JSON object of
+filters in the request body and previews the sample barcodes and participant barcodes in this new cohort. Authentication is not required. Example:
+
+$ curl https:/api-dotisb-cgc.appspot.com/\_ah/api/cohort\_api/v1/preview\_cohort -d '{"Study": "BRCA,OV"}' -H "Content-Type: application/json"
+
+**Access control:** To call this method, you must have the following
+roles:
+
+-  None
+
+Request
+
+HTTP request
+
+POST https://isb-cgc.appspot.com/\_ah/api/cohort\_api/v1/preview\_cohort
+
+Parameters
+
+None
+
+Request body
+
+In the request body, supply a metadata resource:
+
+{
+
+'adenocarcinoma\_invasion ': *string*,
+
+'age\_at\_initial\_pathologic\_diagnosis ': *string*,
+
+'anatomic\_neoplasm\_subdivision ': *string*,
+
+'avg\_percent\_lymphocyte\_infiltration ': *float*,
+
+'avg\_percent\_monocyte\_infiltration ': *float*,
+
+'avg\_percent\_necrosis ': *float*,
+
+'avg\_percent\_neutrophil\_infiltration ': *float*,
+
+'avg\_percent\_normal\_cells ': *float*,
+
+'avg\_percent\_stromal\_cells ': *float*,
+
+'avg\_percent\_tumor\_cells ': *float*,
+
+'avg\_percent\_tumor\_nuclei ': *float*,
+
+'batch\_number ': *integer*,
+
+'bcr ': *string*,
+
+'clinical\_M ': *string*,
+
+'clinical\_N ': *string*,
+
+'clinical\_stage ': *string*,
+
+'clinical\_T ': *string*,
+
+'colorectal\_cancer ': *string*,
+
+'country ': *string*,
+
+'country\_of\_procurement ': *string*,
+
+'days\_to\_birth ': *integer*,
+
+'days\_to\_collection ': *integer*,
+
+'days\_to\_death ': integer,
+
+'days\_to\_initial\_pathologic\_diagnosis ': *integer*,
+
+'days\_to\_last\_followup ': *integer*,
+
+'days\_to\_submitted\_specimen\_dx ': *integer*,
+
+'Study ': *string*,
+
+'ethnicity ': *string*,
+
+'frozen\_specimen\_anatomic\_site ': *string*,
+
+'gender ': *string*,
+
+'height ': *integer*,
+
+'histological\_type ': *string*,
+
+'history\_of\_colon\_polyps ': *string*,
+
+'history\_of\_neoadjuvant\_treatment ': *string*,
+
+'history\_of\_prior\_malignancy ': *string*,
+
+'hpv\_calls ': *string*,
+
+'hpv\_status ': *string*,
+
+'icd\_10 ': *string*,
+
+'icd\_o\_3\_histology ': *string*,
+
+'icd\_o\_3\_site ': *string*,
+
+'lymph\_node\_examined\_count ': *integer*,
+
+'lymphatic\_invasion ': *string*,
+
+'lymphnodes\_examined ': *string*,
+
+'lymphovascular\_invasion\_present ': *string*,
+
+'max\_percent\_lymphocyte\_infiltration ': *integer*,
+
+'max\_percent\_monocyte\_infiltration ': *integer*,
+
+'max\_percent\_necrosis ': *integer*,
+
+'max\_percent\_neutrophil\_infiltration ': *integer*,
+
+'max\_percent\_normal\_cells ': *integer*,
+
+'max\_percent\_stromal\_cells ': *integer*,
+
+'max\_percent\_tumor\_cells ': *integer*,
+
+'max\_percent\_tumor\_nuclei ': *integer*,
+
+'menopause\_status ': *string*,
+
+'min\_percent\_lymphocyte\_infiltration ': *integer*,
+
+'min\_percent\_monocyte\_infiltration ': *integer*,
+
+'min\_percent\_necrosis ': *integer*,
+
+'min\_percent\_neutrophil\_infiltration ': *integer*,
+
+'min\_percent\_normal\_cells ': *integer*,
+
+'min\_percent\_stromal\_cells ': *integer*,
+
+'min\_percent\_tumor\_cells ': *integer*,
+
+'min\_percent\_tumor\_nuclei ': *integer*,
+
+'mononucleotide\_and\_dinucleotide\_marker\_panel\_analysis\_status':
+*string*,
+
+'mononucleotide\_marker\_panel\_analysis\_status ': *string*,
+
+'neoplasm\_histologic\_grade ': *string*,
+
+'new\_tumor\_event\_after\_initial\_treatment ': *string*,
+
+'number\_of\_lymphnodes\_examined ': *integer*,
+
+'number\_of\_lymphnodes\_positive\_by\_he ': *integer*,
+
+'ParticipantBarcode ': *string*,
+
+'pathologic\_M ': *string*,
+
+'pathologic\_N ': *string*,
+
+'pathologic\_stage ': *string*,
+
+'pathologic\_T ': *string*,
+
+'person\_neoplasm\_cancer\_status ': *string*,
+
+'pregnancies ': *string*,
+
+'preservation\_method ': *string*,
+
+'primary\_neoplasm\_melanoma\_dx ': *string*,
+
+'primary\_therapy\_outcome\_success ': *string*,
+
+'prior\_dx ': *string*,
+
+'Project ': *string*,
+
+'psa\_value ': *float*,
+
+'race ': *string*,
+
+'residual\_tumor ': *string*,
+
+'SampleBarcode ': *string*,
+
+'tobacco\_smoking\_history ': *string*,
+
+'total\_number\_of\_pregnancies ': *integer*,
+
+'tumor\_tissue\_site ': *string*,
+
+'tumor\_pathology ': *string*,
+
+'tumor\_type ': *string*,
+
+'weiss\_venous\_invasion ': *string*,
+
+'vital\_status ': *string*,
+
+'weight ': *integer*,
+
+'year\_of\_initial\_pathologic\_diagnosis ': *string*,
+
+'SampleTypeCode ': *string*,
+
+'has\_Illumina\_DNASeq ': *string*,
+
+'has\_BCGSC\_HiSeq\_RNASeq ': *string*,
+
+'has\_UNC\_HiSeq\_RNASeq ': *string*,
+
+'has\_BCGSC\_GA\_RNASeq ': *string*,
+
+'has\_UNC\_GA\_RNASeq ': *string*,
+
+'has\_HiSeq\_miRnaSeq ': *string*,
+
+'has\_GA\_miRNASeq ': *string*,
+
+'has\_RPPA ': *string*,
+
+'has\_SNP6 ': *string*,
+
+'has\_27k ': *string*,
+
+'has\_450k ': *string*
+
+}
+
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Parameter name**                                                   | **Value**   | **Description**                                                                                                                                              |
++======================================================================+=============+==============================================================================================================================================================+
+| adenocarcinoma\_invasion                                             | string      |                                                                                                                                                              |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| age\_at\_initial\_pathologic\_diagnosis                              | string      | Age at which a condition or disease was first diagnosed. (in years)                                                                                          |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| anatomic\_neoplasm\_subdivision                                      | string      | Text term to describe the spatial location, subdivisions and/or anatomic site name of a tumor.                                                               |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| avg\_percent\_lymphocyte\_infiltration                               | float       | Average in the series of numeric values to represent the percentage of lymphocyte infiltration in a malignant tumor sample or specimen.                      |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| avg\_percent\_monocyte\_infiltration                                 | float       | Average in the series of numeric values to represent the percentage of monocyte infiltration in a malignant tumor sample or specimen.                        |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| avg\_percent\_necrosis                                               | float       | Average in the series of numeric values to represent the percentage of cell death in a malignant tumor sample or specimen.                                   |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| avg\_percent\_neutrophil\_infiltration                               | float       | Average in the series of numeric values to represent the percentage of neutrophil infiltration in a malignant tumor sample or specimen.                      |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| avg\_percent\_normal\_cells                                          | float       | Average in the series of numeric values to represent the percentage of normal cells in a malignant tumor sample or specimen.                                 |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| avg\_percent\_stromal\_cells                                         | float       | Average in the series of numeric values to represent the percentage of stromal cells in a malignant tumor sample or specimen.                                |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| avg\_percent\_tumor\_cells                                           | float       | Average in the series of numeric values to represent the percentage of tumor cells in a malignant tumor sample or specimen.                                  |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| avg\_percent\_tumor\_nuclei                                          | float       | Average in the series of numeric values to represent the percentage of tumor nuclei in a malignant tumor sample or specimen.                                 |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| batch\_number                                                        | integer     | groups samples by the batch they were processed in                                                                                                           |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| bcr                                                                  | string      | A TCGA center where samples are carefully catalogued, processed, quality-checked and stored along with participant clinical information.                     |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| clinical\_M                                                          | string      | Extent of the distant metastasis for the cancer based on evidence obtained from clinical assessment parameters determined prior to treatment.                |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| clinical\_N                                                          | string      | Extent of the regional lymph node involvement for the cancer based on evidence obtained from clinical assessment parameters determined prior to treatment.   |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| clinical\_stage                                                      | string      | Stage group determined from clinical information on the tumor (T), regional node (N) and metastases (M) and by grouping cases with similar prognosis ...     |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| clinical\_T                                                          | string      | Extent of the primary cancer based on evidence obtained from clinical assessment parameters determined prior to treatment.                                   |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| colorectal\_cancer                                                   | string      | Text term to signify whether a patient has been diagnosed with colorectal cancer.                                                                            |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| country                                                              | string      | Text to identify the name of the state, province, or country in which the sample was procured.                                                               |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| country\_of\_procurement                                             | string      | Text to identify the name of the state, province, or country in which the sample was procured.                                                               |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| days\_to\_birth                                                      | integer     | Time interval from a person's date of birth to the date of initial pathologic diagnosis, represented as a calculated number of days.                         |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| days\_to\_collection                                                 | integer     |                                                                                                                                                              |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| days\_to\_death                                                      | integer     | Time interval from a person's date of death to the date of initial pathologic diagnosis, represented as a calculated number of days.                         |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| days\_to\_initial\_pathologic\_diagnosis                             | integer     | Numeric value to represent the day of an individual's initial pathologic diagnosis of cancer.                                                                |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| days\_to\_last\_followup                                             | integer     | Time interval from the date of last followup to the date of initial pathologic diagnosis, represented as a calculated number of days.                        |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| days\_to\_submitted\_specimen\_dx                                    | integer     | Time interval from the date of diagnosis of the submitted sample to the date of initial pathologic diagnosis, represented as a calculated number of d...     |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Study                                                                | string      | A disease study is the sum of results from all experiments for a specific cancer type (or tumor type) that TCGA is tasked to study. Within the projec...     |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ethnicity                                                            | string      | The text for reporting information about ethnicity based on the Office of Management and Budget (OMB) categories.                                            |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| frozen\_specimen\_anatomic\_site                                     | string      | Text description of the origin and the anatomic site regarding the frozen biospecimen tumor tissue sample.                                                   |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| gender                                                               | string      | Text designations that identify gender. Gender is described as the assemblage of properties that distinguish people on the basis of their societal ro...     |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| height                                                               | integer     | The height of the patient in centimeters.                                                                                                                    |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| histological\_type                                                   | string      | Text term for the structural pattern of cancer cells used to define a microscopic diagnosis.                                                                 |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| history\_of\_colon\_polyps                                           | string      | Yes/No indicator to describe if the subject had a previous history of colon polyps as noted in the history/physical or previous endoscopic report(s).        |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| history\_of\_neoadjuvant\_treatment                                  | string      | Text term to describe the patient's history of neoadjuvant treatment and the kind of treament given prior to resection of the tumor.                         |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| history\_of\_prior\_malignancy                                       | string      | Text term to describe the patient's history of prior cancer diagnosis and the spatial location of any previous cancer occurrence.                            |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| hpv\_calls                                                           | string      | Results of HPV tests                                                                                                                                         |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| hpv\_status                                                          | string      | Current HPV status                                                                                                                                           |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| icd\_10                                                              | string      | The tenth version of the International Classification of Disease (ICD), published by the World Health Organization in 1992.\_A system of numbered cate...    |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| icd\_o\_3\_histology                                                 | string      | The third edition of the International Classification of Diseases for Oncology, published in 2000, used principally in tumor and cancer registries fo...     |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| icd\_o\_3\_site                                                      | string      | The third edition of the International Classification of Diseases for Oncology, published in 2000, used principally in tumor and cancer registries fo...     |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| lymph\_node\_examined\_count                                         | integer     |                                                                                                                                                              |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| lymphatic\_invasion                                                  | string      | a yes/no indicator to ask if malignant cells are present in small or thin-walled vessels suggesting lymphatic involvement.                                   |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| lymphnodes\_examined                                                 | string      | the yes/no/unknown indicator whether a lymph node assessment was performed at the primary presentation of disease.                                           |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| lymphovascular\_invasion\_present                                    | string      | the yes/no indicator to ask if large vessel (vascular) invasion or small, thin-walled (lymphatic) invasion was detected in a tumor specimen.                 |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| max\_percent\_lymphocyte\_infiltration                               | integer     | Maximum in the series of numeric values to represent the percentage of lymphcyte infiltration in a malignant tumor sample or specimen.                       |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| max\_percent\_monocyte\_infiltration                                 | integer     | Maximum in the series of numeric values to represent the percentage of monocyte infiltration in a malignant tumor sample or specimen.                        |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| max\_percent\_necrosis                                               | integer     | Maximum in the series of numeric values to represent the percentage of cell death in a malignant tumor sample or specimen.                                   |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| max\_percent\_neutrophil\_infiltration                               | integer     | Maximum in the series of numeric values to represent the percentage of neutrophil infiltration in a malignant tumor sample or specimen.                      |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| max\_percent\_normal\_cells                                          | integer     | Maximum in the series of numeric values to represent the percentage of normal cells in a malignant tumor sample or specimen.                                 |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| max\_percent\_stromal\_cells                                         | integer     | Maximum in the series of numeric values to represent the percentage of stromal cells in a malignant tumor sample or specimen.                                |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| max\_percent\_tumor\_cells                                           | integer     | Maximum in the series of numeric values to represent the percentage of tumor cells in a malignant tumor sample or specimen.                                  |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| max\_percent\_tumor\_nuclei                                          | integer     | Maximum in the series of numeric values to represent the percentage of tumor nuclei in a malignant tumor sample or specimen.                                 |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| menopause\_status                                                    | string      | Text term to signify the status of a woman's menopause, the permanent cessation of menses, usually defined by 6 to 12 months of amenorrhea.                  |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| min\_percent\_lymphocyte\_infiltration                               | integer     | Minimum in the series of numeric values to represent the percentage of lymphcyte infiltration in a malignant tumor sample or specimen.                       |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| min\_percent\_monocyte\_infiltration                                 | integer     | Minimum in the series of numeric values to represent the percentage of monocyte infiltration in a malignant tumor sample or specimen.                        |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| min\_percent\_necrosis                                               | integer     | Minimum in the series of numeric values to represent the percentage of cell death in a malignant tumor sample or specimen.                                   |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| min\_percent\_neutrophil\_infiltration                               | integer     | Minimum in the series of numeric values to represent the percentage of neutrophil infiltration in a malignant tumor sample or specimen.                      |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| min\_percent\_normal\_cells                                          | integer     | Minimum in the series of numeric values to represent the percentage of normal cells in a malignant tumor sample or specimen.                                 |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| min\_percent\_stromal\_cells                                         | integer     | Minimum in the series of numeric values to represent the percentage of stromal cells in a malignant tumor sample or specimen.                                |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| min\_percent\_tumor\_cells                                           | integer     | Minimum in the series of numeric values to represent the percentage of tumor cells in a malignant tumor sample or specimen.                                  |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| min\_percent\_tumor\_nuclei                                          | integer     | Minimum in the series of numeric values to represent the percentage of tumor nuclei in a malignant tumor sample or specimen.                                 |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| mononucleotide\_and\_dinucleotide\_marker\_panel\_analysis\_status   | string      | Text result of microsatellite instability (MSI) testing at using a mononucleotide and dinucleotide microsatellite panel.                                     |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| mononucleotide\_marker\_panel\_analysis\_status                      | string      | Text result of microsatellite instability (MSI) testing using a mononucleotide microsatellite panel.                                                         |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| neoplasm\_histologic\_grade                                          | string      | Numeric value to express the degree of abnormality of cancer cells, a measure of differentiation and aggressiveness.                                         |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| new\_tumor\_event\_after\_initial\_treatment                         | string      | Yes/No/Unknown indicator to identify whether a patient has had a new tumor event after initial treatment.                                                    |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| number\_of\_lymphnodes\_examined                                     | integer     | the total number of lymph nodes removed and pathologically assessed for disease.                                                                             |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| number\_of\_lymphnodes\_positive\_by\_he                             | integer     | Numeric value to signify the count of positive lymph nodes identified through hematoxylin and eosin (H&E) staining light microscopy.                         |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ParticipantBarcode                                                   | string      | The barcode assigned by TCGA to the Participant                                                                                                              |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| pathologic\_M                                                        | string      | Code to represent the defined absence or presence of distant spread or metastases (M) to locations via vascular channels or lymphatics beyond the reg...     |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| pathologic\_N                                                        | string      | The codes that represent the stage of cancer based on the nodes present (N stage) according to criteria based on multiple editions of the AJCC's Cance...    |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| pathologic\_stage                                                    | string      | The extent of a cancer, especially whether the disease has spread from the original site to other parts of the body based on AJCC staging criteria.          |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| pathologic\_T                                                        | string      | Code of pathological T (primary tumor) to define the size or contiguous extension of the primary tumor (T), using staging criteria from the American ...     |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| person\_neoplasm\_cancer\_status                                     | string      | The state or condition of an individual's neoplasm at a particular point in time.                                                                            |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| pregnancies                                                          | string      | Value to describe the number of full-term pregnancies that a woman has experienced.                                                                          |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| preservation\_method                                                 | string      |                                                                                                                                                              |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| primary\_neoplasm\_melanoma\_dx                                      | string      | Text indicator to signify whether a person had a primary diagnosis of melanoma.                                                                              |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| primary\_therapy\_outcome\_success                                   | string      | Measure of Success                                                                                                                                           |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| prior\_dx                                                            | string      | Text term to describe the patient's history of prior cancer diagnosis and the spatial location of any previous cancer occurrence                             |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Project                                                              | string      | The study for which the data was generated.                                                                                                                  |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| psa\_value                                                           | float       | The lab value that represents the results of the most recent (post-operative) prostatic-specific antigen (PSA) in the blood.                                 |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| race                                                                 | string      | The text for reporting information about race based on the Office of Management and Budget (OMB) categories.                                                 |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| residual\_tumor                                                      | string      | Text terms to describe the status of a tissue margin following surgical resection.                                                                           |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| SampleBarcode                                                        | string      | The barcode assigned by TCGA to a sample from a Participant                                                                                                  |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| tobacco\_smoking\_history                                            | string      | Category describing current smoking status and smoking history as self-reported by a patient.                                                                |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| total\_number\_of\_pregnancies                                       | integer     |                                                                                                                                                              |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| tumor\_tissue\_site                                                  | string      | Text term that describes the anatomic site of the tumor or disease.                                                                                          |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| tumor\_pathology                                                     | string      |                                                                                                                                                              |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| tumor\_type                                                          | string      | Text term to identify the morphologic subtype of papillary renal cell carcinoma.                                                                             |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| weiss\_venous\_invasion                                              | string      | The result of an assessment using the Weiss histopathologic criteria.                                                                                        |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| vital\_status                                                        | string      | the survival state of the person registered on the protocol.                                                                                                 |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| weight                                                               | integer     | the weight of the patient measured in kilograms.                                                                                                             |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| year\_of\_initial\_pathologic\_diagnosis                             | string      | Numeric value to represent the year of an individual’s initial pathologic diagnosis of cancer.                                                               |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| SampleTypeCode                                                       | string      | the type of the sample tumor or normal tissue cell or blood sample provided by a participant.                                                                |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| has\_Illumina\_DNASeq                                                | string      | Indicates if a sample has gene sequencing data. “True”, “False”, or “None”.                                                                                  |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| has\_BCGSC\_HiSeq\_RNASeq                                            | string      | Indicates if a sample has RNA sequencing data from the IlluminaHiSeq platform and the BCGSC pipeline. “True”, “False”, or “None”.                            |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| has\_UNC\_HiSeq\_RNASeq                                              | string      | Indicates if a sample has RNA sequencing data from the IlluminaHiSeq platform and the UNC pipeline. “True”, “False”, or “None”.                              |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| has\_BCGSC\_GA\_RNASeq                                               | string      | Indicates if a sample has RNA sequencing data from the IlluminaGA platform and the BCGSC pipeline. “True”, “False”, or “None”.                               |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| has\_UNC\_GA\_RNASeq                                                 | string      | Indicates if a sample has RNA sequencing data from the IlluminaGA platform and the UNC pipeline. “True”, “False”, or “None”.                                 |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| has\_HiSeq\_miRnaSeq                                                 | string      | Indicates if a sample has microRNA data from the IlluminaHiSeq platform. “True”, “False”, or “None”.                                                         |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| has\_GA\_miRNASeq                                                    | string      | Indicates if a sample has microRNA data from the IlluminaGA platform. “True”, “False”, or “None”.                                                            |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| has\_RPPA                                                            | string      | Indicates if a sample has protein array data. “True”, “False”, or “None”.                                                                                    |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| has\_SNP6                                                            | string      | Indicates if a sample has copy number data. “True”, “False”, or “None”.                                                                                      |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| has\_27k                                                             | string      | Indicates if a sample has methylation data from the Illumina 27k platform. “True”, “False”, or “None”.                                                       |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| has\_450k                                                            | string      | Indicates if a sample has methylation data from the Illumina 450k platform. “True”, “False”, or “None”.                                                      |
++----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Response
+
+If successful, this method returns a response body with the following
+structure:
+
+{
+
+"kind": "cohort\_api#cohortsItem",
+
+"patient_count": *string,*
+
+"patients": [*string*],
+
+"sample_count": *string,*
+
+"samples": [*string*],
+
+}
+
++---------------------+---------------------------+-------------------------------------------------------------------------------------------------------------+
+| **Property name**   | **Value**                 | **Description**                                                                                             |
++=====================+===========================+=============================================================================================================+
+| kind                | cohort\_api#cohortsItem   | The resource type.                                                                                          |
++---------------------+---------------------------+-------------------------------------------------------------------------------------------------------------+
+| patient_count       | string                    | Number of participants in this cohort.                                                                      |
++---------------------+---------------------------+-------------------------------------------------------------------------------------------------------------+
+| patients            | list                      | List of participant barcodes in this cohort.                                                                |
++---------------------+---------------------------+-------------------------------------------------------------------------------------------------------------+
+| sample_count        | string                    | Number of samples in this cohort.                                                                           |
++---------------------+---------------------------+-------------------------------------------------------------------------------------------------------------+
+| samples             | list                      | List of sample barcodes in this cohort.                                                                     |
++---------------------+---------------------------+-------------------------------------------------------------------------------------------------------------+
