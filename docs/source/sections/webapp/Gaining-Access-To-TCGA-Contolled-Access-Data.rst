@@ -10,6 +10,12 @@ To obtain access to TCGA Controlled Access Data (**either** through the Web Appl
    :scale: 50
    :align: center
 
+You will then see the following page:
+
+.. image:: NIHAssociationPage.png
+   :scale: 50
+   :align: center
+
 **What data can I access if I don't have a dbGaP Authorization?** (or I have not done the ISB-CGC login in the last 24 hours)  You can access all the open access data in ISB-CGC, both through the Web Application as well as the `Programmatic User Interface <../Prog-APIs.rst>`_.  For more information about the Cloud Hosted Data go to `this part of our online documentation <../Hosted-Data.rst>`_.
 
 * Non-eRA users (only open access)
