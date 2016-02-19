@@ -13,7 +13,7 @@ on Google Cloud Endpoints have been defined.  Details about these APIs as well a
 on using helper scripts for the oAuth flow can be found here.
 
 The Google 
-`APIs Explorer <https://apis-explorer.appspot.com/apis-explorer/?base=https://isb-cgc.appspot.com/_ah/api#p/>`_
+`APIs Explorer <https://apis-explorer.appspot.com/apis-explorer/?base=https://api-dot-isb-cgc.appspot.com/_ah/api#p/>`_
 can be used to see each API and try it out through your web browser.
 
 Each API may bundle several endpoints that are functionally related.
