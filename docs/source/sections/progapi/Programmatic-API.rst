@@ -51,8 +51,7 @@ Parameters
 Response
 
 If successful, this method returns a response body with the following
-structure:
-::
+structure: ::
 
 {
 
