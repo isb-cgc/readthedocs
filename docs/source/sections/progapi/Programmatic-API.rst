@@ -29,6 +29,7 @@ Returns information about a specific participant, including a list of samples an
 
 **Access control:** To call this method, you must have the following
 roles:
+
 -  None
 
 Request
@@ -251,6 +252,7 @@ required parameter. User does not need to be authenticated.
 
 **Access control:** To call this method, you must have the following
 roles:
+
 -  None
 
 Request
@@ -468,6 +470,7 @@ controlled-access files will not appear.
 
 **Access control:** To call this method, you must have the following
 roles:
+
 -  None
 
 Request
@@ -525,6 +528,7 @@ Takes a sample barcode as a required parameter and returns the Google Genomics d
 
 **Access control:** To call this method, you must have the following
 roles:
+
 -  None
 
 Request
@@ -590,6 +594,7 @@ $ curl https:/api-dot-isb-cgc.appspot.com/\_ah/api/cohort\_api/v1/preview\_cohor
 
 **Access control:** To call this method, you must have the following
 roles:
+
 -  None
 
 Request
