@@ -54,7 +54,6 @@ If successful, this method returns a response body with the following
 structure: ::
 
 {
-
 "kind": "cohort\_api#cohortsItem",
 
 "aliquots": [*string*],
