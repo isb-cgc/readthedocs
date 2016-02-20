@@ -553,27 +553,19 @@ Response
 If successful, this method returns a response body with the following
 structure:
 
-{
+.. code-block:: javascript
 
-"kind": "cohort\_api#cohortsItem",
-
-"items": [
-
-{
-
-"count": *string*,
-
-"SampleBarcode": *string*,
-
-"GG_dataset_id": *string*,
-
-"GG_readgroupset_id": *string*
-
-}
-
-] 
-
-}
+	{
+	  "kind": "cohort_api#cohortsItem",
+	  "items": [
+		{
+		"count": string,
+		"SampleBarcode": string,
+		"GG_dataset_id": string,
+		"GG_readgroupset_id": string
+		}
+	  ] 
+	}
 
 +----------------------------+-------------------------+-------------------------------------------------------------------------------------------------------------+
 | **Property name**          | **Value**               | **Description**                                                                                             |
