@@ -51,10 +51,10 @@ Parameters
 Response
 
 If successful, this method returns a response body with the following
-structure: ::
+structure:
+.. code-block:: javascript
 
 {
-::
 
 "kind": "cohort\_api#cohortsItem",
 
