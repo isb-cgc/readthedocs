@@ -55,6 +55,7 @@ structure: ::
 
 {
 ::
+
 "kind": "cohort\_api#cohortsItem",
 
 "aliquots": [*string*],
