@@ -276,125 +276,68 @@ Response
 If successful, this method returns a response body with the following
 structure:
 
-{
+.. code-block:: javascript
 
-"kind": "cohort\_api#cohortsItem",
-
-"aliquots": [*string*],
-
-"biospecimen\_data": {
-
-    "ParticipantBarcode": *string*,
-
-    "Project": *string*,
-
-    "SampleBarcode": *string*,
-
-    "Study": *string*,
-
-    "avg\_percent\_lymphocyte\_infiltration": *integer*,
-
-    "avg\_percent\_monocyte\_infiltration": *integer*,
-
-    "avg\_percent\_necrosis": *integer*,
-
-    "avg\_percent\_neutrophil\_infiltration": *integer*,
-
-    "avg\_percent\_normal\_cells": *integer*,
-
-    "avg\_percent\_stromal\_cells": *integer*,
-
-    "avg\_percent\_tumor\_cells": *integer*,
-
-    "avg\_percent\_tumor\_nuclei": *integer*,
-
-    "batch\_number": *string*,
-
-    "bcr": *string*,
-
-    "days\_to\_collection": *string*,
-
-    "max\_percent\_lymphocyte\_infiltration": *string*,
-
-    "max\_percent\_monocyte\_infiltration": *string*,
-
-    "max\_percent\_necrosis": *string*,
-
-    "max\_percent\_neutrophil\_infiltration": *string*,
-
-    "max\_percent\_normal\_cells": *string*,
-
-    "max\_percent\_stromal\_cells": *string*,
-
-    "max\_percent\_tumor\_cells": *string*,
-
-    "max\_percent\_tumor\_nuclei": *string*,
-
-    "min\_percent\_lymphocyte\_infiltration": *string*,
-
-    "min\_percent\_monocyte\_infiltration": *string*,
-
-    "min\_percent\_necrosis": *string*,
-
-    "min\_percent\_neutrophil\_infiltration": *string*,
-
-    "min\_percent\_normal\_cells": *string*,
-
-    "min\_percent\_stromal\_cells": *string*,
-
-    "min\_percent\_tumor\_cells": *string*,
-
-    "min\_percent\_tumor\_nuclei": *string*
-
-},
-
-"data\_details": [
-
-    {
-
-    "CloudStoragePath": *string*,
-
-    "DataCenterName": *string*,
-
-    "DataCenterType": *string*,
-
-    "DataFileName": *string*,
-
-    "DataFileNameKey": *string*,
-
-    "DataLevel": *string*,
-
-    "DatafileUploaded": *string*,
-
-    "Datatype": *string*,
-
-    "GenomeReference": *string*,
-
-    "Pipeline": *string*,
-
-    "Platform": *string*,
-
-    "Project": *string*,
-
-    "Repository": *string*,
-
-    "SDRFFileName": *string*,
-
-    "SampleBarcode": *string*,
-
-    "SecurityProtocol": *string*,
-
-    "platform\_full\_name": *string*
-
-    },
-
-],
-
-"data\_details\_count": *string*,
-
-"patient": *string*
-
-}
+	{
+	  "kind": "cohort_api#cohortsItem",
+	  "aliquots": [string],
+	  "biospecimen_data": {
+	    "ParticipantBarcode": string,
+	    "Project": string,
+	    "SampleBarcode": string,
+	    "Study": string,
+	    "avg_percent_lymphocyte_infiltration": integer,
+	    "avg_percent_monocyte_infiltration": integer,
+	    "avg_percent_necrosis": integer,
+	    "avg_percent_neutrophil_infiltration": integer,
+	    "avg_percent_normal_cells": integer,
+	    "avg_percent_stromal_cells": integer,
+	    "avg_percent_tumor_cells": integer,
+	    "avg_percent_tumor_nuclei": integer,
+	    "batch_number": string,
+	    "bcr": string,
+	    "days_to_collection": string,
+	    "max_percent_lymphocyte_infiltration": string,
+	    "max_percent_monocyte_infiltration": string,
+	    "max_percent_necrosis": string,
+	    "max_percent_neutrophil_infiltration": string,
+	    "max_percent_normal_cells": string,
+	    "max_percent_stromal_cells": string,
+	    "max_percent_tumor_cells": string,
+	    "max_percent_tumor_nuclei": string,
+	    "min_percent_lymphocyte_infiltration": string,
+	    "min_percent_monocyte_infiltration": string,
+	    "min_percent_necrosis": string,
+	    "min_percent_neutrophil_infiltration": string,
+	    "min_percent_normal_cells": string,
+	    "min_percent_stromal_cells": string,
+	    "min_percent_tumor_cells": string,
+	    "min_percent_tumor_nuclei": string
+	  },
+	  "data_details": [
+	    {
+	    "CloudStoragePath": string,
+	    "DataCenterName": string,
+	    "DataCenterType": string,
+	    "DataFileName": string,
+	    "DataFileNameKey": string,
+	    "DataLevel": string,
+	    "DatafileUploaded": string,
+	    "Datatype": string,
+	    "GenomeReference": string,
+	    "Pipeline": string,
+	    "Platform": string,
+	    "Project": string,
+	    "Repository": string,
+	    "SDRFFileName": string,
+	    "SampleBarcode": string,
+	    "SecurityProtocol": string,
+	    "platform_full_name": string
+	    },
+	  ],
+	  "data_details_count": string,
+	  "patient": string
+	}
 
 
 
