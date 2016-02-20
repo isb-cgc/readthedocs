@@ -611,218 +611,114 @@ Request body
 
 In the request body, supply a metadata resource:
 
-{
-
-'adenocarcinoma\_invasion ': *string*,
-
-'age\_at\_initial\_pathologic\_diagnosis ': *string*,
-
-'anatomic\_neoplasm\_subdivision ': *string*,
-
-'avg\_percent\_lymphocyte\_infiltration ': *float*,
-
-'avg\_percent\_monocyte\_infiltration ': *float*,
-
-'avg\_percent\_necrosis ': *float*,
-
-'avg\_percent\_neutrophil\_infiltration ': *float*,
-
-'avg\_percent\_normal\_cells ': *float*,
-
-'avg\_percent\_stromal\_cells ': *float*,
-
-'avg\_percent\_tumor\_cells ': *float*,
-
-'avg\_percent\_tumor\_nuclei ': *float*,
-
-'batch\_number ': *integer*,
-
-'bcr ': *string*,
-
-'clinical\_M ': *string*,
-
-'clinical\_N ': *string*,
-
-'clinical\_stage ': *string*,
-
-'clinical\_T ': *string*,
-
-'colorectal\_cancer ': *string*,
-
-'country ': *string*,
-
-'country\_of\_procurement ': *string*,
-
-'days\_to\_birth ': *integer*,
-
-'days\_to\_collection ': *integer*,
-
-'days\_to\_death ': integer,
-
-'days\_to\_initial\_pathologic\_diagnosis ': *integer*,
-
-'days\_to\_last\_followup ': *integer*,
-
-'days\_to\_submitted\_specimen\_dx ': *integer*,
-
-'Study ': *string*,
-
-'ethnicity ': *string*,
-
-'frozen\_specimen\_anatomic\_site ': *string*,
-
-'gender ': *string*,
-
-'height ': *integer*,
-
-'histological\_type ': *string*,
-
-'history\_of\_colon\_polyps ': *string*,
-
-'history\_of\_neoadjuvant\_treatment ': *string*,
-
-'history\_of\_prior\_malignancy ': *string*,
-
-'hpv\_calls ': *string*,
-
-'hpv\_status ': *string*,
-
-'icd\_10 ': *string*,
-
-'icd\_o\_3\_histology ': *string*,
-
-'icd\_o\_3\_site ': *string*,
-
-'lymph\_node\_examined\_count ': *integer*,
-
-'lymphatic\_invasion ': *string*,
-
-'lymphnodes\_examined ': *string*,
-
-'lymphovascular\_invasion\_present ': *string*,
-
-'max\_percent\_lymphocyte\_infiltration ': *integer*,
-
-'max\_percent\_monocyte\_infiltration ': *integer*,
-
-'max\_percent\_necrosis ': *integer*,
-
-'max\_percent\_neutrophil\_infiltration ': *integer*,
-
-'max\_percent\_normal\_cells ': *integer*,
-
-'max\_percent\_stromal\_cells ': *integer*,
-
-'max\_percent\_tumor\_cells ': *integer*,
-
-'max\_percent\_tumor\_nuclei ': *integer*,
-
-'menopause\_status ': *string*,
-
-'min\_percent\_lymphocyte\_infiltration ': *integer*,
-
-'min\_percent\_monocyte\_infiltration ': *integer*,
-
-'min\_percent\_necrosis ': *integer*,
-
-'min\_percent\_neutrophil\_infiltration ': *integer*,
-
-'min\_percent\_normal\_cells ': *integer*,
-
-'min\_percent\_stromal\_cells ': *integer*,
-
-'min\_percent\_tumor\_cells ': *integer*,
-
-'min\_percent\_tumor\_nuclei ': *integer*,
-
-'mononucleotide\_and\_dinucleotide\_marker\_panel\_analysis\_status':
-*string*,
-
-'mononucleotide\_marker\_panel\_analysis\_status ': *string*,
-
-'neoplasm\_histologic\_grade ': *string*,
-
-'new\_tumor\_event\_after\_initial\_treatment ': *string*,
-
-'number\_of\_lymphnodes\_examined ': *integer*,
-
-'number\_of\_lymphnodes\_positive\_by\_he ': *integer*,
-
-'ParticipantBarcode ': *string*,
-
-'pathologic\_M ': *string*,
-
-'pathologic\_N ': *string*,
-
-'pathologic\_stage ': *string*,
-
-'pathologic\_T ': *string*,
-
-'person\_neoplasm\_cancer\_status ': *string*,
-
-'pregnancies ': *string*,
-
-'preservation\_method ': *string*,
-
-'primary\_neoplasm\_melanoma\_dx ': *string*,
-
-'primary\_therapy\_outcome\_success ': *string*,
-
-'prior\_dx ': *string*,
-
-'Project ': *string*,
-
-'psa\_value ': *float*,
-
-'race ': *string*,
-
-'residual\_tumor ': *string*,
-
-'SampleBarcode ': *string*,
-
-'tobacco\_smoking\_history ': *string*,
-
-'total\_number\_of\_pregnancies ': *integer*,
-
-'tumor\_tissue\_site ': *string*,
-
-'tumor\_pathology ': *string*,
-
-'tumor\_type ': *string*,
-
-'weiss\_venous\_invasion ': *string*,
-
-'vital\_status ': *string*,
-
-'weight ': *integer*,
-
-'year\_of\_initial\_pathologic\_diagnosis ': *string*,
-
-'SampleTypeCode ': *string*,
-
-'has\_Illumina\_DNASeq ': *string*,
-
-'has\_BCGSC\_HiSeq\_RNASeq ': *string*,
-
-'has\_UNC\_HiSeq\_RNASeq ': *string*,
-
-'has\_BCGSC\_GA\_RNASeq ': *string*,
-
-'has\_UNC\_GA\_RNASeq ': *string*,
-
-'has\_HiSeq\_miRnaSeq ': *string*,
-
-'has\_GA\_miRNASeq ': *string*,
-
-'has\_RPPA ': *string*,
-
-'has\_SNP6 ': *string*,
-
-'has\_27k ': *string*,
-
-'has\_450k ': *string*
-
-}
+.. code-block:: javascript
+
+	{
+		'adenocarcinoma_invasion ': string,
+		'age_at_initial_pathologic_diagnosis ': string,
+		'anatomic_neoplasm_subdivision ': string,
+		'avg_percent_lymphocyte_infiltration ': float,
+		'avg_percent_monocyte_infiltration ': float,
+		'avg_percent_necrosis ': float,
+		'avg_percent_neutrophil_infiltration ': float,
+		'avg_percent_normal_cells ': float,
+		'avg_percent_stromal_cells ': float,
+		'avg_percent_tumor_cells ': float,
+		'avg_percent_tumor_nuclei ': float,
+		'batch_number ': integer,
+		'bcr ': string,
+		'clinical_M ': string,
+		'clinical_N ': string,
+		'clinical_stage ': string,
+		'clinical_T ': string,
+		'colorectal_cancer ': string,
+		'country ': string,
+		'country_of_procurement ': string,
+		'days_to_birth ': integer,
+		'days_to_collection ': integer,
+		'days_to_death ': integer,
+		'days_to_initial_pathologic_diagnosis ': integer,
+		'days_to_last_followup ': integer,
+		'days_to_submitted_specimen_dx ': integer,
+		'Study ': string,
+		'ethnicity ': string,
+		'frozen_specimen_anatomic_site ': string,
+		'gender ': string,
+		'height ': integer,
+		'histological_type ': string,
+		'history_of_colon_polyps ': string,
+		'history_of_neoadjuvant_treatment ': string,
+		'history_of_prior_malignancy ': string,
+		'hpv_calls ': string,
+		'hpv_status ': string,
+		'icd_10 ': string,
+		'icd_o_3_histology ': string,
+		'icd_o_3_site ': string,
+		'lymph_node_examined_count ': integer,
+		'lymphatic_invasion ': string,
+		'lymphnodes_examined ': string,
+		'lymphovascular_invasion_present ': string,
+		'max_percent_lymphocyte_infiltration ': integer,
+		'max_percent_monocyte_infiltration ': integer,
+		'max_percent_necrosis ': integer,
+		'max_percent_neutrophil_infiltration ': integer,
+		'max_percent_normal_cells ': integer,
+		'max_percent_stromal_cells ': integer,
+		'max_percent_tumor_cells ': integer,
+		'max_percent_tumor_nuclei ': integer,
+		'menopause_status ': string,
+		'min_percent_lymphocyte_infiltration ': integer,
+		'min_percent_monocyte_infiltration ': integer,
+		'min_percent_necrosis ': integer,
+		'min_percent_neutrophil_infiltration ': integer,
+		'min_percent_normal_cells ': integer,
+		'min_percent_stromal_cells ': integer,
+		'min_percent_tumor_cells ': integer,
+		'min_percent_tumor_nuclei ': integer,
+		'mononucleotide_and_dinucleotide_marker_panel_analysis_status': string,
+		'mononucleotide_marker_panel_analysis_status ': string,
+		'neoplasm_histologic_grade ': string,
+		'new_tumor_event_after_initial_treatment ': string,
+		'number_of_lymphnodes_examined ': integer,
+		'number_of_lymphnodes_positive_by_he ': integer,
+		'ParticipantBarcode ': string,
+		'pathologic_M ': string,
+		'pathologic_N ': string,
+		'pathologic_stage ': string,
+		'pathologic_T ': string,
+		'person_neoplasm_cancer_status ': string,
+		'pregnancies ': string,
+		'preservation_method ': string,
+		'primary_neoplasm_melanoma_dx ': string,
+		'primary_therapy_outcome_success ': string,
+		'prior_dx ': string,
+		'Project ': string,
+		'psa_value ': float,
+		'race ': string,
+		'residual_tumor ': string,
+		'SampleBarcode ': string,
+		'tobacco_smoking_history ': string,
+		'total_number_of_pregnancies ': integer,
+		'tumor_tissue_site ': string,
+		'tumor_pathology ': string,
+		'tumor_type ': string,
+		'weiss_venous_invasion ': string,
+		'vital_status ': string,
+		'weight ': integer,
+		'year_of_initial_pathologic_diagnosis ': string,
+		'SampleTypeCode ': string,
+		'has_Illumina_DNASeq ': string,
+		'has_BCGSC_HiSeq_RNASeq ': string,
+		'has_UNC_HiSeq_RNASeq ': string,
+		'has_BCGSC_GA_RNASeq ': string,
+		'has_UNC_GA_RNASeq ': string,
+		'has_HiSeq_miRnaSeq ': string,
+		'has_GA_miRNASeq ': string,
+		'has_RPPA ': string,
+		'has_SNP6 ': string,
+		'has_27k ': string,
+		'has_450k ': string
+	}
 
 +----------------------------------------------------------------------+-------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | **Parameter name**                                                   | **Value**   | **Description**                                                                                                                                              |
@@ -1041,19 +937,15 @@ Response
 If successful, this method returns a response body with the following
 structure:
 
-{
+.. code-block:: javascript
 
-"kind": "cohort\_api#cohortsItem",
-
-"patient_count": *string,*
-
-"patients": [*string*],
-
-"sample_count": *string,*
-
-"samples": [*string*],
-
-}
+	{
+	  "kind": "cohort_api#cohortsItem",
+	  "patient_count": string,
+	  "patients": [string],
+	  "sample_count": string,
+	  "samples": [string],
+	}
 
 +---------------------+---------------------------+-------------------------------------------------------------------------------------------------------------+
 | **Property name**   | **Value**                 | **Description**                                                                                             |
