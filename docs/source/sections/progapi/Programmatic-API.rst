@@ -55,130 +55,130 @@ structure:
 
 .. code-block:: javascript
 
-{
+	{
 
-"kind": "cohort\_api#cohortsItem",
+	"kind": "cohort\_api#cohortsItem",
 
-"aliquots": [*string*],
+	"aliquots": [*string*],
 
-"clinical\_data": {
+	"clinical\_data": {
 
-    "ParticipantBarcode": *string*,
+	    "ParticipantBarcode": *string*,
 
-    "Project": *string*,
+	    "Project": *string*,
 
-    "Study": *string*,
+	    "Study": *string*,
 
-    "age\_at\_initial\_pathologic\_diagnosis": *string*,
+	    "age\_at\_initial\_pathologic\_diagnosis": *string*,
 
-    "anatomic\_neoplasm\_subdivision": *string*,
+	    "anatomic\_neoplasm\_subdivision": *string*,
 
-    "batch\_number": *string*,
+	    "batch\_number": *string*,
 
-    "bcr": *string*,
+	    "bcr": *string*,
 
-    "clinical\_M": *string*,
+	    "clinical\_M": *string*,
 
-    "clinical\_N": *string*,
+	    "clinical\_N": *string*,
 
-    "clinical\_T": *string*,
+	    "clinical\_T": *string*,
 
-    "clinical\_stage": *string*,
+	    "clinical\_stage": *string*,
 
-    "colorectal\_cancer": *string*,
+	    "colorectal\_cancer": *string*,
 
-    "country": *string*,
+	    "country": *string*,
 
-    "days\_to\_birth": *string*,
+	    "days\_to\_birth": *string*,
 
-    "days\_to\_initial\_pathologic\_diagnosis": *string*,
+	    "days\_to\_initial\_pathologic\_diagnosis": *string*,
 
-    "days\_to\_last\_followup": *string*,
+	    "days\_to\_last\_followup": *string*,
 
-    "ethnicity": *string*,
+	    "ethnicity": *string*,
 
-    "frozen\_specimen\_anatomic\_site": *string*,
+	    "frozen\_specimen\_anatomic\_site": *string*,
 
-    "gender": *string*,
+	    "gender": *string*,
 
-    "histological\_type": *string*,
+	    "histological\_type": *string*,
 
-    "history\_of\_colon\_polyps": *string*,
+	    "history\_of\_colon\_polyps": *string*,
 
-    "history\_of\_neoadjuvant\_treatment": *string*,
+	    "history\_of\_neoadjuvant\_treatment": *string*,
 
-    "history\_of\_prior\_malignancy": *string*,
+	    "history\_of\_prior\_malignancy": *string*,
 
-    "hpv\_calls": *string*,
+	    "hpv\_calls": *string*,
 
-    "hpv\_status": *string*,
+	    "hpv\_status": *string*,
 
-    "icd\_10": *string*,
+	    "icd\_10": *string*,
 
-    "icd\_o\_3\_histology": *string*,
+	    "icd\_o\_3\_histology": *string*,
 
-    "icd\_o\_3\_site": *string*,
+	    "icd\_o\_3\_site": *string*,
 
-    "lymphatic\_invasion": *string*,
+	    "lymphatic\_invasion": *string*,
 
-    "lymphnodes\_examined": *string*,
+	    "lymphnodes\_examined": *string*,
 
-    "lymphovascular\_invasion\_present": *string*,
+	    "lymphovascular\_invasion\_present": *string*,
 
-    "menopause\_status": *string*,
+	    "menopause\_status": *string*,
 
-    "mononucleotide\_and\_dinucleotide\_marker\_panel\_analysis\_status":
-    *string*,
+	    "mononucleotide\_and\_dinucleotide\_marker\_panel\_analysis\_status":
+	    *string*,
 
-    "mononucleotide\_marker\_panel\_analysis\_status": *string*,
+	    "mononucleotide\_marker\_panel\_analysis\_status": *string*,
 
-    "neoplasm\_histologic\_grade": *string*,,
+	    "neoplasm\_histologic\_grade": *string*,,
 
-    "new\_tumor\_event\_after\_initial\_treatment": *string*,
+	    "new\_tumor\_event\_after\_initial\_treatment": *string*,
 
-    "number\_of\_lymphnodes\_examined": *string*,
+	    "number\_of\_lymphnodes\_examined": *string*,
 
-    "number\_of\_lymphnodes\_positive\_by\_he": *string*,
+	    "number\_of\_lymphnodes\_positive\_by\_he": *string*,
 
-    "pathologic\_M": *string*,
+	    "pathologic\_M": *string*,
 
-    "pathologic\_N": *string*,
+	    "pathologic\_N": *string*,
 
-    "pathologic\_T": *string*,
+	    "pathologic\_T": *string*,
 
-    "pathologic\_stage": *string*,
+	    "pathologic\_stage": *string*,
 
-    "person\_neoplasm\_cancer\_status": *string*,
+	    "person\_neoplasm\_cancer\_status": *string*,
 
-    "pregnancies": *string*,
+	    "pregnancies": *string*,
 
-    "primary\_neoplasm\_melanoma\_dx": *string*,
+	    "primary\_neoplasm\_melanoma\_dx": *string*,
 
-    "primary\_therapy\_outcome\_success": *string*,
+	    "primary\_therapy\_outcome\_success": *string*,
 
-    "prior\_dx": *string*,
+	    "prior\_dx": *string*,
 
-    "race": *string*,
+	    "race": *string*,
 
-    "residual\_tumor": *string*,
+	    "residual\_tumor": *string*,
 
-    "tobacco\_smoking\_history": *string*,
+	    "tobacco\_smoking\_history": *string*,
 
-    "tumor\_tissue\_site": *string*,
+	    "tumor\_tissue\_site": *string*,
 
-    "tumor\_type": *string*,
+	    "tumor\_type": *string*,
 
-    "vital\_status": *string*,
+	    "vital\_status": *string*,
 
-    "weiss\_venous\_invasion": *string*,
+	    "weiss\_venous\_invasion": *string*,
 
-    "year\_of\_initial\_pathologic\_diagnosis": *string*
+	    "year\_of\_initial\_pathologic\_diagnosis": *string*
 
-},
+	},
 
-"samples": [],
+	"samples": [],
 
-}
+	}
 
 +-------------------------------------------------------------------------------------+---------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | **Property name**                                                                   | **Value**                 | **Description**                                                                                                                                                    |
