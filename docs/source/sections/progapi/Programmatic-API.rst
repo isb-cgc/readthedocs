@@ -654,7 +654,7 @@ Request
 
 HTTP request
 
-GET https://api-dot-mvm-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/google_genomics_from_sample
+GET https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/google_genomics_from_sample
 
 Parameters
 
@@ -717,7 +717,7 @@ preview_cohort
 Takes a JSON object of
 filters in the request body and previews the sample barcodes and participant barcodes in this new cohort. Authentication is not required. Example:
 
-$ curl https:/api-dotisb-cgc.appspot.com/\_ah/api/cohort\_api/v1/preview\_cohort -d '{"Study": "BRCA,OV"}' -H "Content-Type: application/json"
+$ curl https:/api-dot-isb-cgc.appspot.com/\_ah/api/cohort\_api/v1/preview\_cohort -d '{"Study": "BRCA,OV"}' -H "Content-Type: application/json"
 
 **Access control:** To call this method, you must have the following
 roles:
@@ -728,7 +728,7 @@ Request
 
 HTTP request
 
-POST https://isb-cgc.appspot.com/\_ah/api/cohort\_api/v1/preview\_cohort
+POST https://api-dot-isb-cgc.appspot.com/\_ah/api/cohort\_api/v1/preview\_cohort
 
 Parameters
 
