@@ -26,12 +26,12 @@ Google Apps.
 Your GCP project gives you access to all of the technologies that make
 up the Google Cloud Platform (GCP).  These technologies include BigQuery, Cloud Storage, Compute Engine,
 Google Genomics, etc.  The ISB-CGC makes use of a variety of these technologies to provide access
-to the TCGA data, *without* necessarily being an interface between you and the GCP.  Although one
-component of the ISB-CGC is a web-app (running on Google App Engine), you do not necessarily need to go through
+to the TCGA data, *without* necessarily inserting an extra interface layer between you and the GCP.  Although one
+component of the ISB-CGC is a web-app (running on Google App Engine), some users may prefer not to go through
 the web-app to access other components of the ISB-CGC.  For example, the open-access TCGA data
 that we have loaded into BigQuery tables can be accessed directly via the 
 `BigQuery web interface <https://www.bigquery.cloud.google.com>` or from Python or R.  Similarly,
-the ISB-CGC programmatic API is a REST service that can be used accessed from many different
+the ISB-CGC programmatic API is a REST service that can be used from many different
 programming languages.
 
 The connection between your GCP project (whether it is an ISB-CGC sponsored and funded project
