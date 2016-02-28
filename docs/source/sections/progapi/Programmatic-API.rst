@@ -29,7 +29,7 @@ The Cohort API currently bundles several different cohort-related endpoints:
 .. toctree::
    :maxdepth: 1
 
-   progapi2/preview_cohort.rst
+   progapi2/preview.rst
    progapi2/patient_details.rst
    progapi2/sample_details.rst
    progapi2/datafilenamekey_list_from_sample.rst

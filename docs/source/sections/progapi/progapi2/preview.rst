@@ -1,9 +1,11 @@
 
-preview_cohort
-##############
+preview
+#######
 
-Takes a JSON object of
-filters in the request body and previews the sample barcodes and participant barcodes in this new cohort. Authentication is not required. Example:
+Takes a JSON object of filters in the request body and returns a "preview" of the cohort that would 
+result from passing a similar request to the cohort **save** endpoint.  This preview consists of
+two lists: the lists of participant (aka patient) barcodes, and the list of sample barcodes.
+Authentication is not required. Example:
 
 $ curl https:/api-dot-isb-cgc.appspot.com/\_ah/api/cohort\_api/v1/preview\_cohort -d '{"Study": "BRCA,OV"}' -H "Content-Type: application/json"
 
