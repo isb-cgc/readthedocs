@@ -32,5 +32,5 @@ For an introduction to using Google Compute Engine, please follow the link below
 .. toctree::
    :maxdepth: 1
 
-   gcp-info/GCE-101.rst
+   ../gcp-info/GCE-101.rst
 
