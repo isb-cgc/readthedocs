@@ -30,7 +30,7 @@ to the TCGA data, *without* necessarily inserting an extra interface layer betwe
 component of the ISB-CGC is a web-app (running on Google App Engine), some users may prefer not to go through
 the web-app to access other components of the ISB-CGC.  For example, the open-access TCGA data
 that we have loaded into BigQuery tables can be accessed directly via the 
-`BigQuery web interface <https://www.bigquery.cloud.google.com>` or from Python or R.  Similarly,
+`BigQuery web interface <https://www.bigquery.cloud.google.com>`_ or from Python or R.  Similarly,
 the ISB-CGC programmatic API is a REST service that can be used from many different
 programming languages.
 
