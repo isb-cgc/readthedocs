@@ -59,7 +59,7 @@
 No, you can just &#8220;sign in&#8221; to the web-app using your Google identity.  (Please be patient, we&#8217;re
 working on a major revision to the web-app right now and will let you know when it&#8217;s ready for you to explore!)</p>
 <p><strong>I want to be able to run big jobs using Google Compute Engine on the TCGA data hosted by the ISB-CGC.  What should I do?</strong>
-You will need to request a Google Cloud Platform project.  Please see <a class="reference internal" href="Support.html#request-gcp"><span>Your Own GCP project</span></a> for more details
+You will need to request a Google Cloud Platform (GCP) project.  Please see <a class="reference internal" href="Support.html#request-gcp"><span>Your Own GCP project</span></a> for more details
 about requesting a project.</p>
 <p><strong>Can I use any email address as a Google identity?</strong>  Yes, you can.  If your email address is not
 already linked to a Google account, you can <a class="reference external" href="https://accounts.google.com/signupwithoutgmail">create</a> a Google account with your current email address.
@@ -68,6 +68,21 @@ still be two separate accounts, with two separate passwords, <em>etc</em>.  (It 
 that your institutional email address is <em>already</em> a Google account, if your institution uses
 Google Apps.
 <a class="reference external" href="https://support.google.com/accounts/answer/40560?hl=en&amp;ref_topic=3382296">This</a> is how to find out).</p>
+<p><strong>How do I connect my GCP project to the ISB-CGC?</strong>
+Your GCP project gives you access to all of the technologies that make
+up the Google Cloud Platform (GCP).  These technologies include BigQuery, Cloud Storage, Compute Engine,
+Google Genomics, etc.  The ISB-CGC makes use of a variety of these technologies to provide access
+to the TCGA data, <em>without</em> necessarily inserting an extra interface layer between you and the GCP.  Although one
+component of the ISB-CGC is a web-app (running on Google App Engine), some users may prefer not to go through
+the web-app to access other components of the ISB-CGC.  For example, the open-access TCGA data
+that we have loaded into BigQuery tables can be accessed directly via the
+<cite>BigQuery web interface &lt;https://www.bigquery.cloud.google.com&gt;</cite> or from Python or R.  Similarly,
+the ISB-CGC programmatic API is a REST service that can be used from many different
+programming languages.</p>
+<p>The connection between your GCP project (whether it is an ISB-CGC sponsored and funded project
+or your own personal project) is your Google identity (also referred to as your &#8220;user credentials&#8221;).
+Access to all ISB-CGC hosted data is controlled using access control lists (ACLs) which define the
+permissions attached to each dataset, bucket, or object.</p>
 </div>
 <div class="section" id="data-access">
 <h2>Data Access<a class="headerlink" href="#data-access" title="Permalink to this headline">¶</a></h2>

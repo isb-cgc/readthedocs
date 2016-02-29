@@ -9,7 +9,7 @@ No, you can just "sign in" to the web-app using your Google identity.  (Please b
 working on a major revision to the web-app right now and will let you know when it's ready for you to explore!)
 
 **I want to be able to run big jobs using Google Compute Engine on the TCGA data hosted by the ISB-CGC.  What should I do?**
-You will need to request a Google Cloud Platform project.  Please see :ref:`request-gcp` for more details
+You will need to request a Google Cloud Platform (GCP) project.  Please see :ref:`request-gcp` for more details
 about requesting a project.
 
 **Can I use any email address as a Google identity?**  Yes, you can.  If your email address is not
@@ -22,6 +22,23 @@ Google Apps.
 
 .. _create: https://accounts.google.com/signupwithoutgmail
 
+**How do I connect my GCP project to the ISB-CGC?**
+Your GCP project gives you access to all of the technologies that make
+up the Google Cloud Platform (GCP).  These technologies include BigQuery, Cloud Storage, Compute Engine,
+Google Genomics, etc.  The ISB-CGC makes use of a variety of these technologies to provide access
+to the TCGA data, *without* necessarily inserting an extra interface layer between you and the GCP.  Although one
+component of the ISB-CGC is a web-app (running on Google App Engine), some users may prefer not to go through
+the web-app to access other components of the ISB-CGC.  For example, the open-access TCGA data
+that we have loaded into BigQuery tables can be accessed directly via the 
+`BigQuery web interface <https://www.bigquery.cloud.google.com>`_ or from Python or R.  Similarly,
+the ISB-CGC programmatic API is a REST service that can be used from many different
+programming languages.
+
+The connection between your GCP project (whether it is an ISB-CGC sponsored and funded project
+or your own personal project) and the ISB-CGC is your Google identity 
+(also referred to as your "user credentials").  
+Access to all ISB-CGC hosted data is controlled using access control lists (ACLs) which define the
+permissions attached to each dataset, bucket, or object.
 
 Data Access
 ###########

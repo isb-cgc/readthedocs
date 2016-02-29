@@ -1,0 +1,23 @@
+Introduction to Google Compute Engine
+*************************************
+
+Google Compute Engine (GCE) is the Infrastructure as a Service (IaaS) component of Google
+Cloud Platform (GCP).  `GCE <https://cloud.google.com/compute/docs/>`_ 
+offers scale, performance and value, letting you easily create and run 
+virtual machines (VMs) on Google infrastructure. 
+
+We have tried to put together some basic documentation for ISB-CGC users who are new
+to the Google Cloud Platform, but your main source of information should generally
+be the official Google Cloud Platform `documentation <https://cloud.google.com/docs>`_.
+We have found that sometimes the wealth of available information can result in 
+information overload, so we hope that this brief introduction will be useful to you.
+If you are still feeling lost, please let us know and we'll do our best to get you pointed
+in the right direction.
+
+.. toctree::
+   :maxdepth: 1
+
+   gcp-info2/Setup.rst
+   gcp-info2/LaunchVM.rst
+   gcp-info2/Disks.rst
+

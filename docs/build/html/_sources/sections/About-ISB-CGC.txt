@@ -23,3 +23,10 @@ to interactively define and compare cohorts, examine the underlying molecular
 data for specific genes or pathways of interest, and share insights with 
 collaborators around the globe.  
 
+For an introduction to using Google Compute Engine, please follow the link below.
+
+.. toctree::
+   :maxdepth: 1
+
+   gcp-info/GCE-101.rst
+
