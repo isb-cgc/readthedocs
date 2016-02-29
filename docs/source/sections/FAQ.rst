@@ -35,7 +35,8 @@ the ISB-CGC programmatic API is a REST service that can be used from many differ
 programming languages.
 
 The connection between your GCP project (whether it is an ISB-CGC sponsored and funded project
-or your own personal project) is your Google identity (also referred to as your "user credentials").  
+or your own personal project) and the ISB-CGC is your Google identity 
+(also referred to as your "user credentials").  
 Access to all ISB-CGC hosted data is controlled using access control lists (ACLs) which define the
 permissions attached to each dataset, bucket, or object.
 
