@@ -27,3 +27,10 @@ in the
 `Google Genomics Cookbook <https://googlegenomics.readthedocs.org/en/latest/index.html>`_, 
 also here on readthedocs.
 
+For an introduction to using Google Compute Engine, please follow the link below.
+
+.. toctree::
+   :maxdepth: 1
+
+   gcp-info/GCE-101.rst
+
