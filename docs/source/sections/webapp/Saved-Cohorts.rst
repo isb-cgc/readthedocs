@@ -129,7 +129,7 @@ Cohort Details Page
 When you have gone to your saved cohort page, you will be shown the details of the cohort.  You can:
 
 * Edit: Selecting this menu item makes the filters panel appear. And filters selected will be additive to any filters that have already been selected. To return to the previous view, you much either save any selected filters (with the "Save Changes" button), or choose to cancel adding any new filters (by clicking the "cancel" link).
-* Comments: Selecting “Comments” will cause the Comments panel to appear. Here anyone who can see this cohort can comment on it. Comments are shared with anyone who can view this cohort.  They are ordered by newest on the bottom.  Selecting the "X" on the Comments panel will close the panel.
+* Comments: Selecting “Comments” will cause the Comments panel to appear. Here anyone who can see this cohort can comment on it. Comments are shared with anyone who can view this cohort.  They are ordered by newest on the bottom.  Selecting the "X" on the Comments panel will close the panel.  Any user who owns or has had a cohort shared with them can comment on it.
 * Duplicate: Making a copy will create a copy of this cohort with the same list of samples and patients and make you the owner of the copy.
 * Delete: Allow you to delete this cohort (if you confirm by clicking the second delete button presented)
 * Share: A dialogue box appears and the user is prompted to select users that are registered in the system to share the cohort with.
@@ -151,14 +151,13 @@ Clinical Features Panel
 -----------------------
 
 This panel shows a list of treemaps that give a high level break of the samples for a handful of features:
-* Disease Code
+
+* Study
 * Vital Status
 * Sample Type
 * Tumor Tissue Site
 * Gender
 * Age at Initial Pathologic Diagnosis
-
-By using the “Show More” button, you can see two more tree maps available.
 
 Data Availability Panel
 -----------------------
@@ -173,25 +172,18 @@ platforms by dragging the platform names up and down.
 The file list page provides a paginated list of files available with all samples in the cohort. Here, “available” refers
 to files that have been uploaded to the ISB-CGC Google Cloud Project and that are open access data. You can use the
 “Previous Page” and “Next Page” to show more values in the list.
+
 You may filter on these files if you are only interested in a specific data type and platform. Selecting a filter will
 update the list associated. The numbers next to the platform refers to the number of files available for that platform.
 There is only one menu item available and that is the “Download File List as CSV”. Selecting this item will begin a
 download process of all the files available for the cohort, taking into account the selected Platform filters. The file
 contains the following information for each file:
+
 * Sample Barcode
 * Platform
 * Pipeline
 * Data Level
 * File Path to the Cloud Storage Location
-
-Commenting
-----------
-Any user who owns or has had a cohort shared with them can comment on it. To open comments, use the menu button at the
-top right and select “Comments”. A sidebar will appear on the right side and any previously created comments will be
-shown.
-
-On the bottom of the comments sidebar, you can create a new comment and save it. It should appear at the bottom of the
-list of comments.
 
 Deleting a cohort
 =================
