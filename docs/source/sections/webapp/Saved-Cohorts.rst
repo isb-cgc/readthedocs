@@ -126,12 +126,15 @@ Once you have created a "Saved Cohort" you can view and edit it.  To view a coho
 
 Cohort Details Page
 -------------------
-When you have gone to your saved cohort page, you will be shown the details of the cohort.  You can:
+When you have gone to your saved cohort page, you will be shown the details of the cohort on the "SAVED COHORTS" tab.  The "PUBLIC COHORTS" tab shows public cohorts that are commonly selected.  these can be used for a "New Workbook" and "Set Operations".
 
-* Edit: Selecting this menu item makes the filters panel appear. And filters selected will be additive to any filters that have already been selected. To return to the previous view, you much either save any selected filters (with the "Save Changes" button), or choose to cancel adding any new filters (by clicking the "cancel" link).
-* Comments: Selecting “Comments” will cause the Comments panel to appear. Here anyone who can see this cohort can comment on it. Comments are shared with anyone who can view this cohort.  They are ordered by newest on the bottom.  Selecting the "X" on the Comments panel will close the panel.  Any user who owns or has had a cohort shared with them can comment on it.
+From the "SAVED COHORTS" tab you can:
+
+* New Workbook: Pushing this button creates a New Workbook using the selected Cohorts
+* Edit: Pushing this button makes the filters panel appear. And filters selected will be additive to any filters that have already been selected. To return to the previous view, you much either save any selected filters (with the "Save Changes" button), or choose to cancel adding any new filters (by clicking the "cancel" link).
+* Comments: Pushing “Comments” will cause the Comments panel to appear. Here anyone who can see this cohort can comment on it. Comments are shared with anyone who can view this cohort.  They are ordered by newest on the bottom.  Selecting the "X" on the Comments panel will close the panel.  Any user who owns or has had a cohort shared with them can comment on it.
 * Duplicate: Making a copy will create a copy of this cohort with the same list of samples and patients and make you the owner of the copy.
-* Delete: Allow you to delete this cohort (if you confirm by clicking the second delete button presented)
+* Delete: Allows you to delete this cohort (if you confirm by clicking the second delete button presented)
 * Share: A dialogue box appears and the user is prompted to select users that are registered in the system to share the cohort with.
 
 Selected Filters Panel
@@ -188,12 +191,12 @@ contains the following information for each file:
 Deleting a cohort
 =================
 
-From the dashboard:
+From the "SAVED COHORTS" page:
 Select the cohorts that you wish to delete using the checkboxes next to the cohorts. When one or more are selected, the
 delete button will be active and you can then proceed to deleting them.
 
 From within a cohort:
-If you are viewing a cohort you created, then you can delete the cohort from the top right menu option.
+If you are viewing a cohort you created, then you can delete the cohort using the delete button on the menu.
 
 Creating a Cohort from a Visualization
 ======================================
@@ -213,9 +216,9 @@ Put in a name for you newly selected cohort and click the “Save” button.
 Copying a cohort
 ================
 
-Copying a cohort can only be done from the cohort details page of the cohort you are want to copy.
+Copying a cohort can only be done from the cohort details page of the cohort you want to copy.
 
-When you are looking at the cohort you wish to copy, select the “Make A Copy” item from the top right menu.
+When you are looking at the cohort you wish to copy, select Duplicate from the top menu.
 
 This will take you to your copy of the cohort.
 
@@ -225,13 +228,7 @@ This will take you to your copy of the cohort.
 
 
 * What the Saved Cohorts mean versus Public Cohorts, why would you use them?  Can I delete Public Cohorts, Can I edit them (only after copying)
-* How do I create a cohort
- * Navigation of Create a Cohort
- * What the panels mean
- * What the graphic mean
- * Can I edit the selected filters?  Are filters the same as variables?
- * What does “Data Availability” mean.  What are the mouse-over functionalities.  Can I move the columns.  Give me an example use case, how would I use this?
- * How can I apply Variable Favorites in this panel to create a cohort with my favorite variables?
+
 * What is displayed in the list, can I sort that?
 * What the New Workbook button does, why would you use it, how do you use it?
 * What the Delete button does. Can I get back a deleted cohort if I make a mistake?  Can I delete multiple cohorts at the same time?  Can I delete those that I don’t own?
