@@ -113,11 +113,12 @@ Set Operations
 
 You can create cohorts using set operations on the User Dashboard page.
 
-To activate the set operations button, you must have at least one cohort selected. Upon clicking the “Set Operations”
+To activate the set operations button, you must have at least one cohort selected in your "Cohorts" page. Upon clicking the “Set Operations”
 button, a dialogue box will appear. Here you may do the following things:
 * Enter in a name for the new cohort you’re about to create.
 * Select a set operation.
 * Edit cohorts to be used in the operation.
+* Add A Cohort
 
 The intersect and union operations can take any number of cohorts and in any order.
 The complement operation requires that there be a base cohort, from which the other cohorts will be subtracted from.
