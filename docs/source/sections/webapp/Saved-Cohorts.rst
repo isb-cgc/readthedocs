@@ -8,7 +8,7 @@ interested in analyzing further.  You may frequently re-use a cohort in multiple
 Creating and saving a cohort
 ############################
 
-To create a cohort from the User Dashboard, click on the “+ Create” button and select “New Cohort”. 
+To create a cohort from Your Dashboard, click on the “Create Cohort” link. 
 This will take you to the cohort creation page.
 
 Cohort Creation Page
@@ -18,7 +18,7 @@ Using the provided list of filters on the left hand side, you can select the att
 that you are interested in.
 By clicking on a feature, the field will expand and provide you with additional filtering options.
 For example, when you click on “Vital Status”, it expands and provides a list of “Alive”, “Dead”, and
-“None” as options to
+“NA” as options to
 choose from. Selecting one or more of these will cause the filter(s) to appear in the Selected Filters 
 panel and visualizations on the page
 will be updated to reflect that the current cohort that has been filtered by Vital Status. 
