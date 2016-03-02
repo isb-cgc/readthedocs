@@ -100,13 +100,6 @@ two platforms.
 You can also reorder the vertical categories by dragging the headers left and right and reorder the
 platforms by dragging the platform names up and down.
 
-Editing a cohort
-############################
-
-Once you have created a "Saved Cohort" you can edit it.  To edit select the cohort by clicking on its name either from the "Saved Cohorts" panel on the main "Your Dashboard" page or on the "Cohorts" page listing all your saved cohorts.
-
-QUESTION:  DO YOU GET TO THE DETAILS OF THE COHORT (IS THERE OTHER DOCUMENTATION BELOW?)
-
 Operations on Cohorts
 #####################
 
@@ -127,8 +120,9 @@ The intersect and union operations can take any number of cohorts and in any ord
 The complement operation requires that there be a base cohort, from which the other cohorts will be subtracted from.
 Click “Okay” to complete the operation and create the new cohort.
 
-Editing a Cohort
+Viewing and Editing a Cohort
 ================
+Once you have created a "Saved Cohort" you can view and edit it.  To view select the cohort by clicking on its name either from the "Saved Cohorts" panel on the main "Your Dashboard" page or on the "Cohorts" page listing all your saved cohorts.
 
 **Details of cohort edit page**
 
