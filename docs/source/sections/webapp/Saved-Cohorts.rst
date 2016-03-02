@@ -8,7 +8,7 @@ interested in analyzing further.  You may frequently re-use a cohort in multiple
 Creating and saving a cohort
 ############################
 
-To create a cohort from Your Dashboard, if you do not have a cohort created, click on the “Create Cohort” link in the "Saved Cohorts" panel at the bottom of the page. This will take you to the cohort creation page.  
+To create a cohort from Your Dashboard, if you do not have a cohort created, click on the “Create Cohort” link in the "Saved Cohorts" panel at the bottom of the page. This will take you to the cohort creation page.
 
 If you already have saved cohorts, they will be listed in the "Saved Cohorts" panel.  Click on the "Saved Cohorts" link in that panel and this will take you to a page that displays the details of your saved cohorts.  To create a new saved cohort, use the "Create New Cohort" button on the page listing your current saved cohorts.
 
@@ -99,6 +99,11 @@ Hovering on a swatch between two vertical bars, you will see the number of sampl
 two platforms. 
 You can also reorder the vertical categories by dragging the headers left and right and reorder the
 platforms by dragging the platform names up and down.
+
+Editing a cohort
+############################
+
+Once you have created a "Saved Cohort" you can edit it.  To NEED ADD MORE HERE.
 
 Operations on Cohorts
 #####################
