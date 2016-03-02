@@ -126,14 +126,13 @@ Once you have created a "Saved Cohort" you can view and edit it.  To view a coho
 
 Cohort Details Page
 -------------------
-After you have gone to your saved cohort, you will have 
+When you have gone to your saved cohort page, you will be shown the details of the cohort.  You can:
 
-
-
-* Add New Filters: Selecting this menu item make the filters panel appear. And filters selected will be additive to any filters that have already been selected. To return to the previous view, you much either save any selected filters, or choose to cancel adding any new filters.
-* Comments: Selecting “Comments” will cause the Comments panel to appear. Here anyone who can see this cohort can comment on it. Comments are shared with anyone who can view this cohort and ordered by newest on the bottom.
-* Make a Copy: Making a copy will create a copy of this cohort with the same list of samples and patients and make you the owner of the copy.
-* Share with Others: This behaves similarly to on the User Dashboard page. A dialogue box appears and the user is prompted to select users that are registered in the system to share the cohort with.
+* Edit: Selecting this menu item makes the filters panel appear. And filters selected will be additive to any filters that have already been selected. To return to the previous view, you much either save any selected filters (with the "Save Changes" button), or choose to cancel adding any new filters (by clicking the "cancel" link).
+* Comments: Selecting “Comments” will cause the Comments panel to appear. Here anyone who can see this cohort can comment on it. Comments are shared with anyone who can view this cohort.  They are ordered by newest on the bottom.  Selecting the "X" on the Comments panel will close the panel.
+* Duplicate: Making a copy will create a copy of this cohort with the same list of samples and patients and make you the owner of the copy.
+* Delete: Allow you to delete this cohort (if you confirm by clicking the second delete button presented)
+* Share: A dialogue box appears and the user is prompted to select users that are registered in the system to share the cohort with.
 
 Selected Filters Panel
 ----------------------
