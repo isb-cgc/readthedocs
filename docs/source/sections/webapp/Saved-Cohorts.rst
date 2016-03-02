@@ -122,12 +122,13 @@ Click “Okay” to complete the operation and create the new cohort.
 
 Viewing and Editing a Cohort
 ================
-Once you have created a "Saved Cohort" you can view and edit it.  To view select the cohort by clicking on its name either from the "Saved Cohorts" panel on the main "Your Dashboard" page or on the "Cohorts" page listing all your saved cohorts.
+Once you have created a "Saved Cohort" you can view and edit it.  To view a cohort, select it by clicking on its name either from the "Saved Cohorts" panel on the main "Your Dashboard" page or on the "Cohorts" page listing all your saved cohorts.
 
-**Details of cohort edit page**
+Cohort Details Page
+-------------------
+After you have gone to your saved cohort, you will have 
 
-Main Menu
----------
+
 
 * Add New Filters: Selecting this menu item make the filters panel appear. And filters selected will be additive to any filters that have already been selected. To return to the previous view, you much either save any selected filters, or choose to cancel adding any new filters.
 * Comments: Selecting “Comments” will cause the Comments panel to appear. Here anyone who can see this cohort can comment on it. Comments are shared with anyone who can view this cohort and ordered by newest on the bottom.
