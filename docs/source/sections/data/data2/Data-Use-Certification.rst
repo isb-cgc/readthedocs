@@ -7,8 +7,7 @@ are expected to:
 * Submit a description of the proposed research project; 
 * Submit a **data access request (DAR)**; the DAR requires NIH log-in. 
 
-**Note:** Requesters and institutional SOs must have an NIH eRA User ID and password to access the DAR. Visit electronic Research Administration (eRA) <http://era.nih.gov>`_
-for more information on registering for a NIH eRA account. NIH staff may utilize their NIH log-in. (See additional instructions at `Data Access Request Instructions <http://www.genome.gov/20019654>`_); 
+**Note:** Requesters and institutional SOs must have an NIH eRA User ID and password to access the DAR. Visit `electronic Research Administration (eRA) <http://era.nih.gov>`_ for more information on registering for a NIH eRA account. NIH staff may utilize their NIH log-in. (See additional instructions at `Data Access Request Instructions <http://www.genome.gov/20019654>`_); 
 
 Additionally, they must:
  
