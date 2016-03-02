@@ -221,17 +221,3 @@ Copying a cohort can only be done from the cohort details page of the cohort you
 When you are looking at the cohort you wish to copy, select Duplicate from the top menu.
 
 This will take you to your copy of the cohort.
-
-
-
-
-
-
-* What the Saved Cohorts mean versus Public Cohorts, why would you use them?  Can I delete Public Cohorts, Can I edit them (only after copying)
-
-* What is displayed in the list, can I sort that?
-* What the New Workbook button does, why would you use it, how do you use it?
-* What the Delete button does. Can I get back a deleted cohort if I make a mistake?  Can I delete multiple cohorts at the same time?  Can I delete those that I don’t own?
-* What are “Set Operations”, why would I use them, how would I use them?
-* What is “Share”, why would I use this, how would i use this?  Can I edit sharing?
-* Can I copy cohorts?  How do I do that?
