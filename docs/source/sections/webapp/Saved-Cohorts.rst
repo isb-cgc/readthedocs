@@ -103,7 +103,9 @@ platforms by dragging the platform names up and down.
 Editing a cohort
 ############################
 
-Once you have created a "Saved Cohort" you can edit it.  To NEED ADD MORE HERE.
+Once you have created a "Saved Cohort" you can edit it.  To edit select the cohort by clicking on its name either from the "Saved Cohorts" panel on the main "Your Dashboard" page or on the "Cohorts" page listing all your saved cohorts.
+
+QUESTION:  DO YOU GET TO THE DETAILS OF THE COHORT (IS THERE OTHER DOCUMENTATION BELOW?)
 
 Operations on Cohorts
 #####################
