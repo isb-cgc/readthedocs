@@ -31,7 +31,7 @@ Cohort Filters
 --------------
 The panel on the left of the screen, with two tabs called "Donor" and "Data Type" allow you to apply filters to the cohorts your are creating.  Below are the details of each tab.
 
-Participant Filters Tab
+Donor Tab
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
     * Project
@@ -53,7 +53,7 @@ Participant Filters Tab
     * ICD-O-3 Site
     * ICD-O-3 Histology
 
-Data Type Filters Tab
+Data Type Tab
 ^^^^^^^^^^^^^^^^^^^^^^
 
     * DNA Sequencing
