@@ -143,9 +143,9 @@ any additional filters applied to this cohort will be appended to the list.
 Details Panel
 -------------
 
-This panel displays the number of samples and participant in this cohort. These vary because some participants may have
+This panel displays the number of samples and participants in this cohort. These vary because some participants may have
 provided multiple samples.
-This panel also displays “Your Permissions” which can be either owner or reader.
+This panel also displays “Your Permissions” which can be either owner or reader, as well as revision history.
 
 Clinical Features Panel
 -----------------------
