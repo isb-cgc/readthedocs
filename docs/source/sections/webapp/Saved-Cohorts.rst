@@ -42,44 +42,49 @@ Participant Filters Tab
     * Tumor Tissue Site
     * Histological Type
     * Prior Diagnosis
-    * Pathologic State
+    * Pathologic Stage
     * Tumor Status
     * New Tumor Event After Initial Treatment
     * Histological Grade
     * Residual Tumor
     * Tobacco Smoking History
     * ICD-10
-    * ICD-O-3 Histology
     * ICD-O-3 Site
+    * ICD-O-3 Histology
 
 Data Type Filters Tab
 ^^^^^^^^^^^^^^^^^^^^^^
 
-    * DNA-Sequence
-    * RNA-Sequence
-    * miRNA-Sequence
+    * DNA Sequencing
+    * RNA Sequencing
+    * MIRNA Sequencing
     * Protein
-    * SNP Copy-Number
+    * SNP CN
     * DNA Methylation
+
+Save As New Cohort Button
+^^^^^^^^^^^^^^^^^^^^^^
+
+Push this button if you wish to save the cohort based on the filters you have set.  You will be asked for a cohort name and the selected filters will be displayed.  Enter the name (any text) and push the "Create Cohort" button.
 
 Selected Filters Panel
 ^^^^^^^^^^^^^^^^^^^^^^
 
 This is where selected filters are shown so there is an easy way to see what filters have been selected.
-Clicking on “Clear All” will remove all selected filters.
+Clicking on “Clear All” will remove all selected filters.  Selecting an X beside a single filter will remove that filter.
 
 Clinical Features Panel
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-This panel shows a list of treemaps that give a high level breakdown of the selected samples for a 
+This panel shows a list of images (called "treemaps") that give a high level breakdown of the selected samples for a 
 handful of features:
-* Disease Code
+* Study
 * Vital Status
 * Sample Type
 * Tumor Tissue Site
 * Gender
 * Age at Initial Pathologic Diagnosis
-By using the “Show More” button, you can see two more tree maps that are currently available.
+By using the “Show More” button, you can see the last two tree maps.
 
 Data Availability Panel
 ^^^^^^^^^^^^^^^^^^^^^^^
