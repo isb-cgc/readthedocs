@@ -1,11 +1,9 @@
 *******************
 Menu
 *******************
+The **MENU** is a graphical control element which contains application navigational drop downs (Sub-links). The Menu bar's purpose is to supply quick and common links for application-specific functions / features such as: 
 
-Background Menu text here.
-
-* Functionality, why I would use it (fast navigation.  For each navigation, put in the description below a LINK to the other documentation providing detailed documentation of this function (i.e. a shortcut to the documentation about that feature)
- * Workbooks (concepts Recent, Saved, Create a New, Sample)
+ * **Workbooks** (Workbooks store the Analyses you create -- and their related data.  Basically, the worksheets you create to conduct analysis based on the source data selected (i.e. Genes, Variables and Cohorts – further explained later). 
  * Projects
  * Analyses (concepts of Start New Workbook, Browse All Analyses)
  * Genes (concepts of Recent, Manage Gene Favorite, Create Gene Favorite(s), Select Genes for a New Workbook)
