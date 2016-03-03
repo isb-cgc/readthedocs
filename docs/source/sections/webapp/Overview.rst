@@ -25,6 +25,8 @@ Multiple Sample Analyses can be grouped into Workbooks (and saved for later use,
    :scale: 50
    :align: center
 
+
+
 **Breadcrumbs** are displayed to show where you in the Web Interface as you move from one section to another (figure below).  These are live links, and can be used to rapidly navigate from one section of the interface to another.
 
 .. image:: Breadcrumbs.png
