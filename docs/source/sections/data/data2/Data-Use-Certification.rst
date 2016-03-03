@@ -1,7 +1,7 @@
 ********
 Data Use Certification (DUC)
 ********
-Investigator(s) requesting and receiving Genome - Wide Association Studies (GWAS) data in accordance with the `NIH Genomic Data Sharing (GDS) Policy <https://gds.nih.gov/>`_
+Investigator(s) requesting and receiving Genomic data in accordance with the `NIH Genomic Data Sharing (GDS) Policy <https://gds.nih.gov/>`_
 are expected to:
 
 * Submit a description of the proposed research project; 
