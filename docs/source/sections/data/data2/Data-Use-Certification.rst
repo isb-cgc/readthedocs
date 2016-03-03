@@ -22,5 +22,6 @@ Additionally, they must:
     - The Investigator and their associated institution assume the responsibility for the security of the dbGaP data.  As such, NIH has tried to provide as much information as possible for PIs, institutional signing officials (SOs) and the IT staff who will be supporting these projects, to make sure they understand their responsibilities. (Ref: The `Cloud, dbGaP and the NIH blog <http://datascience.nih.gov/blog/cloud>`_ post 03.27.2015)
 
 Finally, they must:
+
 *  Notify the appropriate Data Access Committee of policy violations; and 
 *  Submit annual progress reports detailing significant research findings. See more at: `Policy for Sharing of Data Obtained in NIH Supported or Conducted Genome-Wide Association Studies (GWAS) <http://grants.nih.gov/grants/guide/notice-files/NOT-OD-07-088.html#sthash.Hde6DhfF.Fbj4vpAj.dpuf>`_.
