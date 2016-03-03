@@ -4,11 +4,15 @@ Workbooks
 
 Workbooks are used to group together multiple related analyses, and can be used for sharing groups of analysis results with specific groups of people.  Multiple Sample Analyses can be grouped into Workbooks (and saved for later use, editing, and sharing).  For example, you may have one study involving identifying gene mutations and pathways involved in Head and Neck Cancer (with a given research group) where you keep all the files in one Workbook, and another study with a different group of researchers investigating the average time after diagnosis of death of different lung cancers - stored in another Workbook.  Think of workbooks as virtual "excel spreadsheets" that various related analyses can be created in individual Worksheets and grouped together in one Workbook.
 
-The screenshot below shows Gabrielle's Workbooks.
+Creating and saving a workbook
+##############################
 
-.. image:: Gabrielle's Workbooks.png
-   :scale: 50
-   :align: center
+To create a workbook from Your Dashboard, if you do not have a workbook created, click on the “Create Workbook” link in the "Saved Workbooks" panel at the bottom of the page. This will take you to the workbook creation page.
+
+If you already have saved workbooks, they will be listed in the "Saved Workbooks" panel.  Click on the "Saved Workbooks" link in that panel and this will take you to a page that displays the details of your saved workbooks.  To create a new saved workbook, use the "Create Workbook" button on the page listing your current saved workbooks.
+
+Workbook Creation Page
+====================
 
 
 * Concept of worksheets, each with a worksheet to do a sample analysis
