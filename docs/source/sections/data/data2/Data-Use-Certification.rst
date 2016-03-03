@@ -12,7 +12,7 @@ are expected to:
 Additionally, they must:
  
 *  Submit a `Data Use Certification (DUC) <http://www.genome.gov/20019653>`_ co-signed by the designated Institutional Official(s) at their sponsoring institution. Sample `DUC form <http://gds.nih.gov/pdf/Model_DUC.pdf>`_;
-*  Protect data confidentiality (Any data used in a study which was initially listed as "Controlled" or TCGA remains as controlled data and **MUST** be protected accordingly, unless prior authorization is obtained from NCI data custodian); 
+*  Protect data confidentiality (Any data used in a study which was initially listed as "Controlled" or TCGA remains as controlled data and **MUST** be protected accordingly, unless prior release authorization is obtained from NCI data custodian); 
 *  Ensure that data security measures are in place (**Only project members authorized to receive controlled data should be listed in a project using controlled data** for example: 
     **Project 1**- has only users authorized to access Controlled data and a DUC in place;
 
