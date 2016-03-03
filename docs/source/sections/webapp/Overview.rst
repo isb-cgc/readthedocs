@@ -19,6 +19,12 @@ This is your personal "Dashboard" where all your relevant Analyses, Gene Lists, 
 
 Multiple Sample Analyses can be grouped into Workbooks (and saved for later use, editing, and sharing).  Workbooks are used to group together multiple related analyses, and can be used for sharing groups of analysis results with specific groups of people.  For example, you may have one study involving identifying gene mutations and pathways involved in Head and Neck Cancer (with a given research group) where you keep all the files in one Workbook, and another study with a different group of researchers investigating the average time after diagnosis of death of different lung cancers - stored in another Workbook.  Think of workbooks as virtual "excel spreadsheets" that various related analyses can be created in individual Worksheets and grouped together in one Workbook.
 
+**IF YOUR SCREEN LOOKS LIKE THIS** If your screen looks like the image below (I am logged in (A in image) by I can't see my analyses pages ("Your Dashboard" - image above)) that is because some browsers save your Google Login as a cookie, and automatically signs you in.  To get to "Your Dashboard" push the "ISB-CGC" icon in the upper left (B in the image).  This will take you to the main analyis dashboard screen.
+
+.. image:: IfYourScreenLooksLikeThis.png
+   :scale: 50
+   :align: center
+
 **Breadcrumbs** are displayed to show where you in the Web Interface as you move from one section to another (figure below).  These are live links, and can be used to rapidly navigate from one section of the interface to another.
 
 .. image:: Breadcrumbs.png
