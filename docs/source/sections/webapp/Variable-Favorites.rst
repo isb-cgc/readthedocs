@@ -63,8 +63,10 @@ This is where the selected filters are shown so their is an easy to see what fil
 Editing a Variable Favorites List
 =================================
 **Details of variables favorites list edit page**
+
 Main Menu
 ---------
+
 * Edit Button: Selecting this menu item make the filters panel appear. And filters selected will be additive to any filters that have already been selected. To return to the previous view, you much either save any selected filters, or choose to cancel adding any new filters.
 * Delete Button: Selecting this button will delete you variable favorites list.
 * Apply New Workbook button: Selecting this button will create a new workbook with the variable favorites list for analysis.
