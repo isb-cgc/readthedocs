@@ -54,5 +54,5 @@ The **MENU** is a graphical control element which contains application navigatio
       * Data Types
       * Projects (Previously Uploaded and Saved) 
   
-
- * **Cohorts** -  
+ * **Cohorts** - Here you can **Manage Saved Cohorts**, select **Public Cohorts** and **Select Cohorts for a New Workbook**
+ 
