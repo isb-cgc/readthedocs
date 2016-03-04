@@ -33,11 +33,26 @@ The **MENU** is a graphical control element which contains application navigatio
 
       * Create a Gene Favorite for Analysis, To Create a New Gene Favorite - You provide a name and select the Gene. You can upload a stored Gene List or to aid in Gene selection, you can access the HGNC portal (Hugo Gene Nomenclature Committee) via the "**View Gene Identifiers**" link under this Menu selection.
       * Save or Cancel a new creation. 
-    - *Select Genes for a New Workbook* - This sub-menu has two features:
+    - *Select Genes for a New Workbook* - This sub-menu has two feature:
       
       * Apply to New Analysis - Select a Favorite(s) Gene from the list shown of stored Favorites to Analyze 
       * Add (+) Apply to New Analysis - Basically navigates back to the **Create Gene Favorite** (See description above)  
 
- * **Variables** -  
+ * **Variables** -  This sub-menu allows you to **Manage Variables Favorite** or **Create New Favorite** (see descriptions below)
+    - *Manage Variables Favorite* - Shows your saved Variables as Favorites:
+
+
+      * Edit, 
+      * Delete, 
+      * Start New Workbook - (Create a New Workbook using the selected Favorite Variables)
+
+    - *Add (+) Create New Favorite* - Here you "Name" your new favorite and select variables from four (4) available data sources to incorporate in your analysis- 
+
+
+      * Common Variables
+      * Favorite(s) Saved
+      * Data Types
+      * Projects (Previously Uploaded and Saved) 
+  
 
  * **Cohorts** -  
