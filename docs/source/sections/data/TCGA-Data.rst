@@ -36,4 +36,4 @@ More details about the TCGA data can be found in the sections below.
    data2/TCGA_Data_Platforms
    data2/TCGA_Reports
    data2/TCGA_Access
-
+   data2/Data-Use-Certification
