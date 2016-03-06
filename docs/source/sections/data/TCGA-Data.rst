@@ -26,14 +26,28 @@ in most downstream analyses.  The ISB-CGC platform aims to make these different 
 possible variety of users within the cancer research community, using the most appropriate Google Cloud Platform 
 technologies.
 
-More details about the TCGA data can be found in the sections below.
+More details about the TCGA data-generating platforms, data-types, and levels and can be found in the sections below:
 
 .. toctree::
    :maxdepth: 1
 
+   data2/TCGA_Data_Platforms
    data2/TCGA_Data_Types
    data2/TCGA_Data_Levels
-   data2/TCGA_Data_Platforms
-   data2/TCGA_Reports
+
+In addition, we recommend that you review important information about data security and data access
+in these sections:
+
+.. toctree::
+   :maxdepth: 1
+
+   data2/TCGA_Data_Security
    data2/TCGA_Access
-   data2/Data-Use-Certification
+
+And finally, links to useful data reports can be found in this final section:
+
+.. toctree::
+   :maxdepth: 1
+
+   data2/TCGA_Reports
+
