@@ -1,10 +1,12 @@
 ************************************************
 Gaining Access to TCGA Controlled Access Data
 ************************************************
-To obtain access to TCGA Controlled Access Data (either through the Web Application or Google Virtual Machines) you must associate a Google Account with a valid NIH login that is associated with a dbGaP project (either an eRA account ID or an NIH account User ID) through the Web Application. Visit `electronic Research Administration (eRA) <http://era.nih.gov>`_ for more information on registering for a NIH eRA account. NIH staff may utilize their NIH log-in. (See additional instructions at `Data Access Request Instructions <http://www.genome.gov/20019654>`_) dbGap Data Access `Request Portal <http://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login>`_; 
+To obtain access to TCGA Controlled Access Data (either through the Web Application or Google Virtual Machines) you must associate a Google Account with a valid NIH login that is associated with a dbGaP project (either an eRA account ID or an NIH account User ID) through the Web Application. Visit `electronic Research Administration (eRA) <http://era.nih.gov>`_ for more information on registering for a NIH eRA account. NIH staff may utilize their NIH log-in. (**See additional instructions** at - `Data Access Request Instructions <http://www.genome.gov/20019654>`_, dbGap Data Access `Request Portal <http://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login>`_, and `Understanding Data Security <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/data/data2/TCGA_Data_Security.html>`_). 
+    * Once you have authenticated to NIH via the web-app, and your dbGaP authorization has been verified, the Google identity associated with your account will have access to the controlled-data for 24 hours.
 
-For more information on how to obtain dbGaP authorization to access TCGA controlled access data go to our `Frequently Asked Questions (FAQs) page, subsection Data Access** <http://http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/FAQ.html?>`_.
+For more information on how to obtain dbGaP authorization to access TCGA controlled access data go to our `Frequently Asked Questions (FAQs) page, subsection Data Access <http://http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/FAQ.html?>`_ or the "How to" `Apply for Controlled Access Data Video <http://www.youtube.com/watch?v=-3tUBeKbP5c>`_.
 
+In order to verify your dbGaP authorization, you first need to associate your Google identity (used to sign-in to the web-app) with a valid NIH login (e.g. your eRA Commons id). 
 
 **Linking a valid NIH login with your Google Account** To link a valid NIH login with your Google Account that you have used to login to the ISB-CGC system, select the "persona" icon beside your login name (A in the image below) after you have logged into the ISB-CGC Web Application.  For more information see `FAQ Accounts and Cloud Projects <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/FAQ.html?>`_ Section. 
 
@@ -49,11 +51,8 @@ The **Controlled-Access** TCGA data hosted by the ISB-CGC Platform includes:
 • mRNA-seq FASTQ files: these Level-1 data files were provided by CGHub and include over 11,000 tar files.
 
 
+Responsibility fro Controlled Access Data
+*****************************************
+You should think about securing controlled data within the context of your GCP project in the same way that you would think about securing controlled data that you might download to a file-server or compute-cluster at your own institution. Your responsibilities for data protection are the same in a cloud environment. For more information, please refer to `NIH Security Best Practices for Controlled-Access Data <http://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/GetPdf.cgi?document_name=dbgap_2b_security_procedures.pdf>`_.
 
-STILL NEEDS WORKING
-* How to associate
-* How to remove association
-* 1:1 forced mapping for Google account and eRA ID
-* Requirement to follow dbGaP DUC
-* Need to revalidate after 24 hours (and times shown for validation)
-* Validation validates both GUI as well as Virtual Machine (scripting through UNIX) interactions
+NIH has tried to provide as much information as possible for PIs, institutional signing officials (SOs) and the IT staff who will be supporting these projects, to make sure they understand their responsibilities.” (Ref: `The Cloud, dbGaP and the NIH blog post 03.27.2015 <http://datascience.nih.gov/blog/cloud>`_)
