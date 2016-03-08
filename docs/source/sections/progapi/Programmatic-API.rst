@@ -29,9 +29,18 @@ The Cohort API currently bundles several different cohort-related endpoints:
 .. toctree::
    :maxdepth: 1
 
-   progapi2/preview.rst
-   progapi2/patient_details.rst
-   progapi2/sample_details.rst
+   progapi2/cohort_patients_samples_list.rst
+   progapi2/cohorts_list.rst
+   progapi2/datafilenamekey_list_from_cohort.rst
    progapi2/datafilenamekey_list_from_sample.rst
+   progapi2/delete_cohort.rst
+   progapi2/google_genomics_from_cohort.rst
    progapi2/google_genomics_from_sample.rst
+   progapi2/patient_details.rst
+   progapi2/patient_details.rst
+   progapi2/preview_cohort.rst
+   progapi2/sample_details.rst
+   progapi2/save_cohort.rst
+
+
 

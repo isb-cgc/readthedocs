@@ -1,12 +1,12 @@
-google_genomics_from_sample
+google_genomics_from_cohort
 ###########################
-Takes a sample barcode as a required parameter and returns the Google Genomics dataset id and readgroupset id associated with the sample, if any.
+Returns a list of Google Genomics dataset and readgroupset ids associated with all the samples in a specified cohort. Authentication is required. User must have either READER or OWNER permissions on the cohort.
 
 Request
 
 HTTP request
 
-GET https://api-dot-mvm-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/google_genomics_from_sample``
+GET https://api-dot-mvm-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/google_genomics_from_cohort``
 
 Parameters
 
@@ -14,7 +14,8 @@ Parameters
 	:header: "**Parameter name**", "**Value**", "**Description**"
 	:widths: 50, 10, 50
 
-	sample_barcode,string,Required.
+	cohort_id,string,Required.
+	token,string,Optional.
 
 
 Response

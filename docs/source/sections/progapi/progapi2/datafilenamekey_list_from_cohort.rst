@@ -1,12 +1,12 @@
-datafilenamekey_list_from_sample
+datafilenamekey_list_from_cohort
 ################################
-Takes a sample barcode as a required parameter and returns cloud storage paths to files associated with that sample.
+Takes a cohort id as a required parameter and returns cloud storage paths to files associated with all the samples in that cohort. Authentication is required. User must have READER or OWNER permissions on the cohort.
 
 Request
 
 HTTP request
 
-GET https://api-dot-mvm-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/datafilenamekey_list_from_sample``
+GET https://api-dot-mvm-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/datafilenamekey_list_from_cohort``
 
 Parameters
 
@@ -14,9 +14,10 @@ Parameters
 	:header: "**Parameter name**", "**Value**", "**Description**"
 	:widths: 50, 10, 50
 
+	cohort_id,string,Required.
 	pipeline,string,Optional.
 	platform,string,Optional.
-	sample_barcode,string,Required.
+	token,string,Optional.
 
 
 Response
