@@ -2,7 +2,7 @@
 Sample Analyses
 *******************
 
-Sample Analyses provide you with the ability to quickly create a new analysis chart or plot to save in a new workbook.  The panel on the Your Dashboard screen shows examples of the types of graphics available.  Follow the "Sample Analysis" link to use this feature.
+Sample Analyses provide you with the ability to quickly create a new analysis chart based on specific data you want to analyze, plot save data (i.e., Gene Favorites, Variables, Cohorts) in a new workbook.  The panel on the Your Dashboard screen shows examples of the types of graphics available.  Follow the "Sample Analysis" link to use this feature.
 
 Analyses Screen
 ###############
