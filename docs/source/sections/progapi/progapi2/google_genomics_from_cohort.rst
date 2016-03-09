@@ -6,7 +6,7 @@ Request
 
 HTTP request
 
-GET https://api-dot-mvm-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/google_genomics_from_cohort``
+GET https://api-dot-isb-cgc.appspot.com/\_ah/api/cohort\_api/v1/google\_genomics\_from\_cohort\``
 
 Parameters
 
@@ -24,23 +24,23 @@ If successful, this method returns a response body with the following structure:
 
 .. code-block:: javascript
 
-	{
-		"count": string,
-		"items": [
-			{
-				"GG_dataset_id": string,
-				"GG_readgroupset_id": string,
-				"SampleBarcode": string
-			}
-		]
-	}
+  {
+    "count": string,
+    "items": [
+      {
+        "GG_dataset_id": string,
+        "GG_readgroupset_id": string,
+        "SampleBarcode": string
+      }
+    ]
+  }
 
 .. csv-table::
 	:header: "**Parameter name**", "**Value**", "**Description**"
 	:widths: 50, 10, 50
 
-	count, string, Number of unique Google genomics datasets and readgroupsets associated with the sample(s).
-	items[], list, List of Google genomics data associated with the sample(s).
-	items[].GG_dataset_id, string, Google genomics dataset id associated with the sample barcode.
-	items[].GG_readgroupset_id, string, Google genomics readgroupset id associated with the sample barcode.
-	items[].SampleBarcode, string, Barcode of the sample.
+	count, string, "Number of unique Google genomics datasets and readgroupsets associated with the sample(s)."
+	items[], list, "List of Google genomics data associated with the sample(s)."
+	items[].GG_dataset_id, string, "Google genomics dataset id associated with the sample barcode."
+	items[].GG_readgroupset_id, string, "Google genomics readgroupset id associated with the sample barcode."
+	items[].SampleBarcode, string, "Barcode of the sample."

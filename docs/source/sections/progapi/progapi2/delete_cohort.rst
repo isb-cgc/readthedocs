@@ -6,7 +6,7 @@ Request
 
 HTTP request
 
-POST https://api-dot-mvm-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/delete_cohort``
+POST https://api-dot-isb-cgc.appspot.com/\_ah/api/cohort\_api/v1/delete\_cohort\``
 
 Parameters
 
@@ -24,12 +24,12 @@ If successful, this method returns a response body with the following structure:
 
 .. code-block:: javascript
 
-	{
-		"msg": string
-	}
+  {
+    "msg": string
+  }
 
 .. csv-table::
 	:header: "**Parameter name**", "**Value**", "**Description**"
 	:widths: 50, 10, 50
 
-	msg, string, Message indicating success or failure of cohort deletion.
+	msg, string, "Message indicating success or failure of cohort deletion."
