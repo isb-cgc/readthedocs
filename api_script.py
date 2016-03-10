@@ -252,7 +252,10 @@ def get_next_parameter_table_row(parameter_json, method_name=None):
         # todo: zip descriptions with key name, maybe just for preview and save cohort?
         description = "Required." if val.get('required') else 'Optional.'
         value_entry = 'list' if val.get('type') == 'array' else val.get('type')
-        # todo: if val['type'] is "string" but val['format'] is "int64", label as such??
+
+        # if val.get('format') and val.get('format').startswith('int'):
+        #     value_entry = 'integer'
+
         return_string += '\t{}{},{},{}\n'.format(key,
                                                  '[]' if value_entry == 'list' else '',
                                                  value_entry,
