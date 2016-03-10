@@ -1,4 +1,11 @@
-{"age_at_initial_pathologic_diagnosis": [],
+{"age_at_initial_pathologic_diagnosis": [
+  "10 to 39",
+  "40 to 49",
+  "50 to 59",
+  "60 to 69",
+  "70 to 79",
+  "Over 80"
+  ],
   "has_27k": ["1", "0", "None"],
   "has_450k": ["1", "0", "None"],
   "has_BCGSC_GA_RNASeq": ["1", "0", "None"],
