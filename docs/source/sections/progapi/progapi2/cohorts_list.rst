@@ -2,11 +2,15 @@ cohorts_list
 ############
 Returns information about cohorts a user has either READER or OWNER permission on. Authentication is required. Optionally takes a cohort id as a parameter to only list information about one cohort.
 
+Example
+
+$ python isb_curl.py "https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/cohorts_list"
+
 Request
 
 HTTP request
 
-GET https://api-dot-isb-cgc.appspot.com/\_ah/api/cohort\_api/v1/cohorts\_list\``
+GET https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/cohorts_list``
 
 Parameters
 

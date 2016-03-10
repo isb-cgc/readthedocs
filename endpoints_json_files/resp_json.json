@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/RjrUnXFOs8MXe2o6W5_l6nNKx3E\"",
+ "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/I5VjLskzV0uwtWOVJZm-9cpHzis\"",
  "discoveryVersion": "v1",
  "id": "cohort_api:v1",
  "name": "cohort_api",
@@ -11,9 +11,9 @@
   "x32": "http://www.google.com/images/icons/product/search-32.gif"
  },
  "protocol": "rest",
- "baseUrl": "https://api-dot-mvm-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/",
+ "baseUrl": "https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/",
  "basePath": "/_ah/api/cohort_api/v1/",
- "rootUrl": "https://api-dot-mvm-dot-isb-cgc.appspot.com/_ah/api/",
+ "rootUrl": "https://api-dot-isb-cgc.appspot.com/_ah/api/",
  "servicePath": "cohort_api/v1/",
  "batchPath": "batch",
  "parameters": {

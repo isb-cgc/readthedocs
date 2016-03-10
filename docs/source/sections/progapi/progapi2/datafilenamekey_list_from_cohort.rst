@@ -2,11 +2,15 @@ datafilenamekey_list_from_cohort
 ################################
 Takes a cohort id as a required parameter and returns cloud storage paths to files associated with all the samples in that cohort. Authentication is required. User must have READER or OWNER permissions on the cohort.
 
+Example
+
+$ python isb_curl.py "https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/datafilenamekey_list_from_cohort?cohort_id={YOUR_COHORT_ID}"
+
 Request
 
 HTTP request
 
-GET https://api-dot-isb-cgc.appspot.com/\_ah/api/cohort\_api/v1/datafilenamekey\_list\_from\_cohort\``
+GET https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/datafilenamekey_list_from_cohort``
 
 Parameters
 

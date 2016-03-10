@@ -2,11 +2,15 @@ sample_details
 ##############
 Given a sample barcode (of length 16, *eg* TCGA-B9-7268-01A), this endpoint returns all available "biospecimen" information about this sample, the associated patient barcode, a list of associated aliquots, and a list of "data_details" blocks describing each of the data files associated with this sample
 
+Example
+
+curl "https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/sample_details?sample_barcode=TCGA-ZH-A8Y6-01A"
+
 Request
 
 HTTP request
 
-GET https://api-dot-isb-cgc.appspot.com/\_ah/api/cohort\_api/v1/sample\_details\``
+GET https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/sample_details``
 
 Parameters
 

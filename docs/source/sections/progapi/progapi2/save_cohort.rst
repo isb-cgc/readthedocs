@@ -2,11 +2,15 @@ save_cohort
 ###########
 Creates and saves a cohort. Takes a JSON object in the request body to use as the cohort's filters. Authentication is required. Returns information about the saved cohort, including the number of patients and the number of samples in that cohort.
 
+Example
+
+$ python isb_curl.py "https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/save_cohort?name=BRCA-OV-cohort" -d '{"Study": ["BRCA", "OV"]}' -H "Content-Type: application/json"
+
 Request
 
 HTTP request
 
-POST https://api-dot-isb-cgc.appspot.com/\_ah/api/cohort\_api/v1/save\_cohort\``
+POST https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/save_cohort``
 
 Parameters
 

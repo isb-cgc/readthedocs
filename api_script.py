@@ -217,13 +217,20 @@ def write_rst_file_header(method):
     http_method = method_json['httpMethod']
     file_name = method_path_name + '.rst'
 
-    example = '\n\n'
+    with open(JSON_FILE_DIRECTORY + '/examples.json', 'r') as f:
+        example_contents = f.read()
+
+    example_contents_json = json.loads(example_contents)
+
+    example_text = ''
+    if example_contents_json.get(method):
+        example_text = '\n\nExample\n\n' + example_contents_json[method]
 
     header_text = "{method_path_name}\n{underscore}\n".format(
         method_path_name=method_path_name,
         underscore='#'*len(method_path_name))
     header_text += "{description}{example}\n\nRequest\n\nHTTP request\n\n".format(
-        description=description, example=example)
+        description=description, example=example_text)
     header_text += "{http_method} {base_url}{method_path_name}``\n\n".format(
         method_path_name=method_path_name,
         http_method=http_method,
@@ -335,12 +342,12 @@ def write_rst_file_response_section(method):
 
 def main():
 
-    # methods_list = get_methods_list()
+    methods_list = get_methods_list()
     # methods_pathnames_list = get_methods_pathnames_list()
     # for method_path_name in methods_pathnames_list:
     #     create_new_rst_file(method_path_name)
 
-    methods_list = ['sample_details']
+
 
     for method in methods_list:
         write_rst_file_header(method)
