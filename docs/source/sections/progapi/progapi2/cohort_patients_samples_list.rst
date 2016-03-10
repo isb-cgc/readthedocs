@@ -2,17 +2,17 @@ cohort_patients_samples_list
 ############################
 Takes a cohort id as a required parameter and returns information about the participants and samples in a particular cohort. Authentication is required. User must have either READER or OWNER permissions on the cohort.
 
-Example
+**Example**
 
 $ python isb_curl.py "https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/cohort_patients_samples_list?cohort_id={YOUR_COHORT_ID}"
 
-Request
+**Request**
 
 HTTP request
 
 GET https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/cohort_patients_samples_list``
 
-Parameters
+**Parameters**
 
 .. csv-table::
 	:header: "**Parameter name**", "**Value**", "**Description**"

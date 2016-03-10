@@ -2,17 +2,17 @@ delete_cohort
 #############
 Deletes a cohort. User must have owner permissions on the cohort.
 
-Example
+**Example**
 
 $ python isb_curl.py "https://api-dot-mvm-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/delete_cohort?cohort_id={YOUR_COHORT_ID}"
 
-Request
+**Request**
 
 HTTP request
 
 POST https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/delete_cohort``
 
-Parameters
+**Parameters**
 
 .. csv-table::
 	:header: "**Parameter name**", "**Value**", "**Description**"

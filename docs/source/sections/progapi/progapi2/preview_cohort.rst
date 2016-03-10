@@ -2,17 +2,17 @@ preview_cohort
 ##############
 Takes a JSON object of filters in the request body and returns a "preview" of the cohort that would result from passing a similar request to the cohort **save** endpoint. This preview consists of two lists: the lists of participant (aka patient) barcodes, and the list of sample barcodes. Authentication is not required.
 
-Example
+**Example**
 
 $ curl "https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/preview_cohort" -d '{"Study": ["BRCA", "OV"]}' -H "Content-Type: application/json"
 
-Request
+**Request**
 
 HTTP request
 
 POST https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/preview_cohort``
 
-Parameters
+**Parameters**
 
 None
 

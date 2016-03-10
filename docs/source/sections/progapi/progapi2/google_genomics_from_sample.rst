@@ -2,17 +2,17 @@ google_genomics_from_sample
 ###########################
 Takes a sample barcode as a required parameter and returns the Google Genomics dataset id and readgroupset id associated with the sample, if any.
 
-Example
+**Example**
 
 $ curl "https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/google_genomics_from_sample?sample_barcode=CCLE-SU-DHL-5-RNA-08"
 
-Request
+**Request**
 
 HTTP request
 
 GET https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/google_genomics_from_sample``
 
-Parameters
+**Parameters**
 
 .. csv-table::
 	:header: "**Parameter name**", "**Value**", "**Description**"

@@ -24,6 +24,23 @@ Other datasets such as CCLE may use other less standardized naming conventions).
 create and share cohorts using the ISB-CGC web-app and then programmatically access these cohorts
 using this API.
 
+
+**Authorization**
+
+Some of the endpoints require authorization. Scripts are provided to access these endpoints from the command line.
+
+Step 1: User runs $ python `isb_auth.py <https://github.com/isb-cgc/ISB-CGC-Webapp/blob/master/scripts/isb_auth.py>`_
+This starts an oauth flow, opening a browser tab and asking the user to log in with their google email address. Once authenticated, the user’s information, including access and refresh tokens, are written to their root directory in a file named .isb_credentials. A --verbose flag displays the location and name of the file as well as the access and refresh tokens.
+
+If a user is running this script via ssh, the --noauth_local_webserver flag will allow the user to obtain a verification code through their local browser.
+
+Step 2: User accesses endpoint with $ python `isb_curl.py<https://github.com/isb-cgc/ISB-CGC-Webapp/blob/master/scripts/isb_curl.py>`_
+
+Once the credentials file is stored on the user's home directory, they can access any API requiring authentication with the command:
+
+`$ python isb_curl.py {ENDPOINT_URL}`
+
+
 The Cohort API currently bundles several different cohort-related endpoints:
 
 .. toctree::

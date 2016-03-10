@@ -2,17 +2,17 @@ google_genomics_from_cohort
 ###########################
 Returns a list of Google Genomics dataset and readgroupset ids associated with all the samples in a specified cohort. Authentication is required. User must have either READER or OWNER permissions on the cohort.
 
-Example
+**Example**
 
 $ python isb_curl.py "https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/google_genomics_from_sample?cohort_id={YOUR_COHORT_ID}"
 
-Request
+**Request**
 
 HTTP request
 
 GET https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/google_genomics_from_cohort``
 
-Parameters
+**Parameters**
 
 .. csv-table::
 	:header: "**Parameter name**", "**Value**", "**Description**"

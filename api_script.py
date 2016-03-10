@@ -224,12 +224,12 @@ def write_rst_file_header(method):
 
     example_text = ''
     if example_contents_json.get(method):
-        example_text = '\n\nExample\n\n' + example_contents_json[method]
+        example_text = '\n\n**Example**\n\n' + example_contents_json[method]
 
     header_text = "{method_path_name}\n{underscore}\n".format(
         method_path_name=method_path_name,
         underscore='#'*len(method_path_name))
-    header_text += "{description}{example}\n\nRequest\n\nHTTP request\n\n".format(
+    header_text += "{description}{example}\n\n**Request**\n\nHTTP request\n\n".format(
         description=description, example=example_text)
     header_text += "{http_method} {base_url}{method_path_name}``\n\n".format(
         method_path_name=method_path_name,
@@ -270,12 +270,12 @@ def write_rst_file_path_parameters(method):
     file_name = method_path_name + '.rst'
     method_parameters = method_json.get('parameters')
     if method_parameters is None:
-        parameter_text = """Parameters\n\nNone\n\n"""
+        parameter_text = """**Parameters**\n\nNone\n\n"""
     else:
         csv_table_heading = get_csv_table_heading()
         csv_table_body = get_next_parameter_table_row(method_parameters)
 
-        parameter_text = """Parameters\n\n{csv_header}\n{csv_table_body}\n\n"""\
+        parameter_text = """**Parameters**\n\n{csv_header}\n{csv_table_body}\n\n"""\
             .format(csv_header=csv_table_heading,
                    csv_table_body=csv_table_body)
 
