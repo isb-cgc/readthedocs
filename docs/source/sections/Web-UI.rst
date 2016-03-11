@@ -12,7 +12,6 @@ Over time we will be updating and enhancing this web interface based on your fee
    webapp/Overview
    webapp/Gaining-Access-To-TCGA-Contolled-Access-Data
    webapp/Menu
-   webapp/Sample-Analyses
    webapp/Workbooks
    webapp/Gene-Favorites
    webapp/Variable-Favorites
