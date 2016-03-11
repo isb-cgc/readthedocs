@@ -1,4 +1,4 @@
-*******************
+ *******************
 Workbooks
 *******************
 Workbooks store the Analyses you create -- and their related data. Basically, the worksheets you create to conduct analysis based on the source data selected (i.e. Genes, Variables and Cohorts).  Workbooks can be used to:
@@ -20,20 +20,19 @@ From your dashboard, under Sample Analysis you will find the “Saved Workbooks�
 
 To create a **workbook** from Your Dashboard, click on the **“Create a New Workbook”** link in the "Saved Workbooks" panel. This will take you to the workbook creation page.
 
-1. From the Workbook creation panel you will first select one of six analysis types (i.e., Bar chart, Histogram, Scatter Plot, Violin Plot, Violin Plot Axis swap or Chubby Hole Plot). 
+1. From the Workbook creation panel you will first select one of five analysis types (i.e., Bar chart, Histogram, Scatter Plot, Violin Plot, or Chubby Hole Plot). 
 
 **Analysis Type Description**
 
-    **Bar Chart** - (This bar chart generates vertical lines to represent the type of data being used. One axis shows the information being used while the other is the y axis data chosen in the edit analysis settings). 
-    **Histogram** - (need text)
+    **Bar Chart** - (This chart is used to plot a single categorical feature for one or more cohorts. It generates vertical lines to represent the type of data being used. The X axis shows categorical information being used while the other y axis,  displays categorical data chosen in the edit analysis settings). 
 
-    **Scatter Plot** - (need text)
+    **Histogram** - (This chart is used to plot a single numerical feature for one or more cohorts. It generates vertical lines to represent the type of data being used. The X axis shows numerical information being used while the other y axis,  displays numerical data chosen in the edit analysis settings).
 
-    **Violin Plot** - (need text)
+    **Scatter Plot** - (This chart is used to plot two numerical features (x & y axis) for one or more cohorts. Can also color code points by a single categorical feature).
 
-    **Violin Plot with axis swap** - (need text)
+    **Violin Plot** - (This chart is used to plot a categorical feature on the x-axis versus a numerical feature on the y-axis. Points in the plot can be colored by another categorical feature.)
 
-    **Chubby Hole Plot** - (need text)
+    **Chubby Hole Plot** - (This chart is used to plot two categorical features. Boxes are colored by their related p-values)
 
 
 2. You will then select **Genes or Variables** (or, optionally – both)
@@ -89,20 +88,6 @@ Manipulation of Workbooks
 
 **Delete** - This function will only appear when you are working with multiple worksheets. This will permanently delete the worksheet from the workbook.
 
-
-Edit Analysis Settings
-======================
-This is where the user can find the plot settings used to generate the graphs.
-
-X-Axis Variable
-
-Y-Axis Variable
-
-Color By Feature
-
-Cohorts
-
-Update Plot Button
 
 Comments Section
 =================
