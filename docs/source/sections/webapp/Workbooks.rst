@@ -20,7 +20,7 @@ From your dashboard, under Sample Analysis you will find the “Saved Workbooks�
 
 To create a **workbook** from Your Dashboard, click on the **“Create a New Workbook”** link in the "Saved Workbooks" panel. This will take you to the workbook creation page.
 
-1. From the Workbook creation panel you will first select one of five analysis types (i.e., Bar chart, Histogram, Scatter Plot, Violin Plot, or Chubby Hole Plot). 
+1. From the Workbook creation panel you will first select one of six analysis types (i.e., Bar chart, Histogram, Scatter Plot, Violin Plot, Cubby Hole Plot or SeqPeek). 
 
 **Analysis Type Description**
 
@@ -32,7 +32,9 @@ To create a **workbook** from Your Dashboard, click on the **“Create a New Wor
 
     **Violin Plot** - (This chart is used to plot a categorical feature on the x-axis versus a numerical feature on the y-axis. Points in the plot can be colored by another categorical feature.)
 
-    **Chubby Hole Plot** - (This chart is used to plot two categorical features. Boxes are colored by their related p-values)
+    **Cubby Hole Plot** - (This chart is used to plot two categorical features. Boxes are colored by their related p-values)
+
+    **SeqPeek** - (This visualization shows where somatic mutations have been observed on a linear representation of a specific protein. Each horizontal strip represents the protein, with data from different tumor types (aka cohorts or studies) shown stacked one on top of the other).
 
 
 2. You will then select **Genes or Variables** (or, optionally – both)
@@ -67,7 +69,7 @@ Then **“Apply to Worksheet”**
 
 By clicking 'Cohorts' or the '+' symbol you will be directed to the Cohorts table where the user can either create a new cohort or choose from an existing cohorts. When creating a new cohort, after selecting your criteria you click the "Create Cohort" button. The button will become disabled (dimmed) as the Cohort builds.  Once completed you can proceed.  The user can also add multiple Cohorts to the worksheet if desired. More information about Cohorts can be found here (link to `Cohorts documentation <http://test>`_).
 
-4. Select **Edit Analysis Settings** - This will trigger the Plot setting displaying the applicable x & y axis settings (i.e. Categorical or Numerical based on analysis type selected). Depending on the analysis type selected (i.e., Bar chart, Histogram, Scatter Plot, Violin Plot, or Chubby Hole Plot) additional specifications may appear for selection.
+4. Select **Edit Analysis Settings** - This will trigger the Plot setting displaying the applicable x & y axis settings (i.e. Categorical or Numerical based on analysis type selected). Depending on the analysis type selected (i.e., Bar chart, Histogram, Scatter Plot, Violin Plot, Cubby Hole Plot, or SeqPeek) additional specifications may appear for selection.
 
 Sample Workbooks
 ----------------
