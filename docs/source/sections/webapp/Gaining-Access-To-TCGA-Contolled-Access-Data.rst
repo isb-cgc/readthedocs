@@ -8,7 +8,9 @@ For more information on how to obtain dbGaP authorization to access TCGA control
 
 In order to verify your dbGaP authorization, you first need to associate your Google identity (used to sign-in to the web-app) with a valid NIH login (e.g. your eRA Commons id). 
 
-**Linking a valid NIH login with your Google Account** To link a valid NIH login with your Google Account that you have used to login to the ISB-CGC system, select the "persona" icon beside your login name (A in the image below) after you have logged into the ISB-CGC Web Application.  For more information see `FAQ Accounts and Cloud Projects <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/FAQ.html?>`_ Section. 
+**Linking a valid NIH login with your Google Account** 
+******************************************************
+To link a valid NIH login with your Google Account that you have used to login to the ISB-CGC system, select the "persona" icon beside your login name (A in the image below) after you have logged into the ISB-CGC Web Application.  For more information see `FAQ Accounts and Cloud Projects <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/FAQ.html?>`_ Section. 
 
 .. image:: personaeicon-NIHLoginAssoc.png
    :scale: 50
