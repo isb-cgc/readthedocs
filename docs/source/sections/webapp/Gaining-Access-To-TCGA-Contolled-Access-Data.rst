@@ -21,6 +21,14 @@ You will then see the following page:
 .. image:: NIHAssociationPage.png
    :scale: 50
    :align: center
+   
+You now need to associate your Google account with a valid NIH login that is associated with a dbGaP project (either an eRA account ID or an NIH account User ID).  To do that select the "Associate with eRA Commons Account" link (highlighted in diagram above with A).  You will then be taken to the following screen:
+
+.. image:: iTtrust.png
+   :scale: 50
+   :align: center
+
+Instruction text here.
 
 **What data can I access if I don't have a dbGaP Authorization?** (or I have not done the ISB-CGC login in the last 24 hours)  You can access all the open access data in ISB-CGC, both through the Web Application as well as the `Programmatic User Interface <../Prog-APIs.rst>`_.  For more information about the Cloud Hosted Data go to `this part of our online documentation <../Hosted-Data.rst>`_.
 
