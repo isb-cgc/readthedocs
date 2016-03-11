@@ -70,7 +70,7 @@ Then **“Apply to Worksheet”**
 By clicking 'Cohorts' or the '+' symbol you will be directed to the Cohorts table where the user can either create a new cohort or choose from an existing cohorts. When creating a new cohort, after selecting your criteria you click the "Create Cohort" button. The button will become disabled (dimmed) as the Cohort builds (shown in the image below).  
 
 .. image:: Not_Dim_Dimmed.jpg
-   :scale: 50
+   :scale: 30
    :align: right
 
 Once completed you can proceed.  The user can also add multiple Cohorts to the worksheet if desired. More information about Cohorts can be found here (link to `Cohorts documentation <http://test>`_).
