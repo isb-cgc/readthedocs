@@ -88,7 +88,11 @@ Manipulation of Workbooks
 
 **Edit Analysis Settings** - This function allows you to select new Plot Setting for selected analysis type.
 
-**Edit Analysis Settings Selection Icon** - This function allows you to select samples from displayed analysis and save that selection to a new Cohort for further drill down analysis. 
+**Edit Analysis Settings Selection Icon** - This function (shown in the image below) allows you to select samples from displayed analysis and save that selection to a new Cohort for further drill down analysis. 
+
+.. image:: EditAnalysis_Finger.jpg
+   :scale: 50
+   :align: center
 
 **Edit Details** - This function allows the user to edit the name of the worksheet and also give a brief description on the worksheet being used for analysis.
 
