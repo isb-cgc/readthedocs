@@ -28,7 +28,11 @@ You now need to associate your Google account with a valid NIH login that is ass
    :scale: 50
    :align: center
 
-If you have an eRA identification, use this to sign in through panel A on this page.  If you have an NIH PIV card, us that to sign in through panel B on this page.  You will then have associated your valid NIH login with your Google account and **have access for 24 hours**.  After 24 hours you need to re-login using the ???? in figure ???.
+If you have an eRA identification, use this to sign in through panel A (see example above).  If you have an NIH PIV card, us that to sign in through panel B on this page (see above).  You will then have associated your valid NIH login with your Google account and **have access to controlled data for 24 hours.  After 24 hours you need to re-login using the "Log in with your eRA Commons Account ..." (link A in the screen below**.
+
+.. image:: LogInandUnlink.png
+   :scale: 50
+   :align: center
 
 Please note: **Only ONE** eRA account can be associated with **only ONE** Google account in the ISB-CGC system.  If you need to unlink your eRA account from your Google account, please use the link "
 
