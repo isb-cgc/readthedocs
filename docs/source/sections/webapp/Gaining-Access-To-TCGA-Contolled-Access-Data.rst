@@ -36,7 +36,11 @@ If you have an eRA identification, use this to sign in through panel A (see exam
 
 Please note: **Only ONE** eRA account can be associated with **only ONE** Google account in the ISB-CGC system.  If you need to unlink your eRA account from your Google account, please use the link "Unlink <GoogleID> from the NIH username <eRA Commons ID>" (link B in the screen above).
 
-**If you would like to stop your access to contolled data**, simply logout of the account (see image below, A).  This will effectively log you out of your eRA Commons ID.  To get back in, log in to your eRA Commons ID (see above).
+**If you would like to stop your access to contolled data**, simply "Sign Out" of the account (see image below, A).  This will effectively log you out of your eRA Commons ID.  To get back in, log in to your eRA Commons ID (see above).
+
+.. image:: SignOut.png
+   :scale: 50
+   :align: center
 
 What data can I access if I don't have a dbGaP Authorization?**(or I have not done the ISB-CGC login in the last 24 hours)
 ##########################################################################################################################
