@@ -8,8 +8,8 @@ For more information on how to obtain dbGaP authorization to access TCGA control
 
 In order to verify your dbGaP authorization, you first need to associate your Google identity (used to sign-in to the web-app) with a valid NIH login (e.g. your eRA Commons id). 
 
-**Linking a valid NIH login with your Google Account** 
-******************************************************
+Linking a valid NIH login with your Google Account 
+**************************************************
 To link a valid NIH login with your Google Account that you have used to login to the ISB-CGC system, select the "persona" icon beside your login name (A in the image below) after you have logged into the ISB-CGC Web Application.  For more information see `FAQ Accounts and Cloud Projects <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/FAQ.html?>`_ Section. 
 
 .. image:: personaeicon-NIHLoginAssoc.png
@@ -36,8 +36,10 @@ If you have an eRA identification, use this to sign in through panel A (see exam
 
 Please note: **Only ONE** eRA account can be associated with **only ONE** Google account in the ISB-CGC system.  If you need to unlink your eRA account from your Google account, please use the link "Unlink <GoogleID> from the NIH username <eRA Commons ID>" (link B in the screen above).
 
-**What data can I access if I don't have a dbGaP Authorization?**(or I have not done the ISB-CGC login in the last 24 hours)
-############################################################################################################################
+**If you would like to stop your access to contolled data**, simply logout of the account (see image below, A).  This will effectively log you out of your eRA Commons ID.  To get back in, log in to your eRA Commons ID (see above).
+
+What data can I access if I don't have a dbGaP Authorization?**(or I have not done the ISB-CGC login in the last 24 hours)
+##########################################################################################################################
 You can access all the open access data in ISB-CGC, both through the Web Application as well as the `Programmatic User Interface <../Prog-APIs.rst>`_.  For more information about the Cloud Hosted Data go to `this part of our online documentation <../Hosted-Data.rst>`_.
 
 **Non-eRA users** (Open Access Only)
