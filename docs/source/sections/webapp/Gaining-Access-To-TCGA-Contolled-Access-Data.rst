@@ -1,5 +1,5 @@
 ************************************************
-Gaining Access to TCGA Controlled Access Data
+Accessing TCGA Controlled Data
 ************************************************
 To obtain access to TCGA Controlled Access Data (either through the Web Application or Google Virtual Machines) you must associate a Google Account with a valid NIH login that is associated with a dbGaP project (either an eRA account ID or an NIH account User ID) through the Web Application. Visit `electronic Research Administration (eRA) <http://era.nih.gov>`_ for more information on registering for a NIH eRA account. NIH staff may utilize their NIH log-in. (**See additional instructions** at - `Data Access Request Instructions <http://www.genome.gov/20019654>`_, dbGap Data Access `Request Portal <http://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login>`_, and `Understanding Data Security <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/data/data2/TCGA_Data_Security.html>`_). 
     * Once you have authenticated to NIH via the web-app, and your dbGaP authorization has been verified, the Google identity associated with your account will have access to the controlled-data for 24 hours.
