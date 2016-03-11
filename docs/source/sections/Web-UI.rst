@@ -17,7 +17,5 @@ Over time we will be updating and enhancing this web interface based on your fee
    webapp/Gene-Favorites
    webapp/Variable-Favorites
    webapp/Saved-Cohorts
-   webapp/Saved-Projects
-   webapp/Public-Data
    webapp/releases
 
