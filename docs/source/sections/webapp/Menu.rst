@@ -19,7 +19,6 @@ The **MENU** is a graphical control element which contains application navigatio
     - *Histogram*
     - *Scatter Plot*
     - *Violin Plot*
-    - *Violin Plot with Axis Swap*
     - *Cubby Hole Plot*
 
  * **Genes** - From this Menu selection you can **Manage Gene Favorites**, **Create Gene Favorite(s)** or **Select Genes for a New Workbook**. For additional details, see `Read the Docs - Gene Favorites <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/Web-UI.html>`_. Each of these categories provide a quick link to additional application-specific functions / features such as:
