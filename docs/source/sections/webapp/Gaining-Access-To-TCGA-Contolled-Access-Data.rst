@@ -28,13 +28,13 @@ You now need to associate your Google account with a valid NIH login that is ass
    :scale: 50
    :align: center
 
-If you have an eRA identification, use this to sign in through panel A (see example above).  If you have an NIH PIV card, us that to sign in through panel B on this page (see above).  You will then have associated your valid NIH login with your Google account and **have access to controlled data for 24 hours.  After 24 hours you need to re-login using the "Log in with your eRA Commons Account ..." (link A in the screen below**.
+If you have an eRA identification, use this to sign in through panel A (see example above).  If you have an NIH PIV card, us that to sign in through panel B on this page (see above).  You will then have associated your valid NIH login with your Google account and **have access to controlled data for 24 hours.  After 24 hours you need to re-login using the "Log in with your eRA Commons Account <eRA Commons ID>" (link A in the screen below)**.
 
 .. image:: LogInandUnlink.png
    :scale: 50
    :align: center
 
-Please note: **Only ONE** eRA account can be associated with **only ONE** Google account in the ISB-CGC system.  If you need to unlink your eRA account from your Google account, please use the link "
+Please note: **Only ONE** eRA account can be associated with **only ONE** Google account in the ISB-CGC system.  If you need to unlink your eRA account from your Google account, please use the link "Unlink <GoogleID> from the NIH username <eRA Commons ID>" (link B in the screen above).
 
 **What data can I access if I don't have a dbGaP Authorization?** (or I have not done the ISB-CGC login in the last 24 hours)  You can access all the open access data in ISB-CGC, both through the Web Application as well as the `Programmatic User Interface <../Prog-APIs.rst>`_.  For more information about the Cloud Hosted Data go to `this part of our online documentation <../Hosted-Data.rst>`_.
 
