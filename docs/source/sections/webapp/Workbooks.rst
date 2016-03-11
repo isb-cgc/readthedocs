@@ -71,7 +71,7 @@ By clicking 'Cohorts' or the '+' symbol you will be directed to the Cohorts tabl
 
 .. image:: Not_Dim_Dimmed.jpg
    :scale: 50
-   :align: center
+   :align: right
 
 Once completed you can proceed.  The user can also add multiple Cohorts to the worksheet if desired. More information about Cohorts can be found here (link to `Cohorts documentation <http://test>`_).
 
