@@ -4,9 +4,7 @@ import json
 import sys
 import os
 
-DEV_DOCUMENTATION_DIRECTORY_PATH = 'docs/source/sections/progapi/progapi2_develop/'
 JSON_FILE_DIRECTORY = 'endpoints_json_files'
-JS_SPACE = '  '
 
 
 try:
@@ -18,8 +16,108 @@ except:
         contents = f.read()
     RESP_JSON = json.loads(contents)
 
-
+DEV_DOCUMENTATION_DIRECTORY_PATH = 'docs/source/sections/progapi/progapi2_develop/'
 BASE_URL = RESP_JSON['baseUrl']
+JS_SPACE = '  '
+
+# biospecimen_data in sample_details only has the following fields from MetadataItem
+SAMPLE_DETAILS_BIOSPECIMEN_DATA_FIELDS = [
+    'avg_percent_lymphocyte_infiltration',
+    'avg_percent_monocyte_infiltration',
+    'avg_percent_necrosis',
+    'avg_percent_neutrophil_infiltration',
+    'avg_percent_normal_cells',
+    'avg_percent_stromal_cells',
+    'avg_percent_tumor_cells',
+    'avg_percent_tumor_nuclei',
+    'batch_number',
+    'bcr',
+    'days_to_collection',
+    'max_percent_lymphocyte_infiltration',
+    'max_percent_monocyte_infiltration',
+    'max_percent_necrosis',
+    'max_percent_neutrophil_infiltration',
+    'max_percent_normal_cells',
+    'max_percent_stromal_cells',
+    'max_percent_tumor_cells',
+    'max_percent_tumor_nuclei',
+    'min_percent_lymphocyte_infiltration',
+    'min_percent_monocyte_infiltration',
+    'min_percent_necrosis',
+    'min_percent_neutrophil_infiltration',
+    'min_percent_normal_cells',
+    'min_percent_stromal_cells',
+    'min_percent_tumor_cells',
+    'min_percent_tumor_nuclei',
+    'ParticipantBarcode',
+    'Project',
+    'SampleBarcode',
+    'Study'
+]
+
+# clinical_data in patient_details only has the following fields for MetadataItem
+PATIENT_DETAILS_CLINICAL_DATA_FIELDS = [
+    'age_at_initial_pathologic_diagnosis',
+    'anatomic_neoplasm_subdivision',
+    'batch_number',
+    'bcr',
+    'clinical_M',
+    'clinical_N',
+    'clinical_stage',
+    'clinical_T',
+    'colorectal_cancer',
+    'country',
+    'days_to_birth',
+    'days_to_death',
+    'days_to_initial_pathologic_diagnosis',
+    'days_to_last_followup',
+    'days_to_submitted_specimen_dx',
+    'Study',
+    'ethnicity',
+    'frozen_specimen_anatomic_site',
+    'gender',
+    'height',
+    'histological_type',
+    'history_of_colon_polyps',
+    'history_of_neoadjuvant_treatment',
+    'history_of_prior_malignancy',
+    'hpv_calls',
+    'hpv_status',
+    'icd_10',
+    'icd_o_3_histology',
+    'icd_o_3_site',
+    'lymphatic_invasion',
+    'lymphnodes_examined',
+    'lymphovascular_invasion_present',
+    'menopause_status',
+    'mononucleotide_and_dinucleotide_marker_panel_analysis_status',
+    'mononucleotide_marker_panel_analysis_status',
+    'neoplasm_histologic_grade',
+    'new_tumor_event_after_initial_treatment',
+    'number_of_lymphnodes_examined',
+    'number_of_lymphnodes_positive_by_he',
+    'ParticipantBarcode',
+    'pathologic_M',
+    'pathologic_N',
+    'pathologic_stage',
+    'pathologic_T',
+    'person_neoplasm_cancer_status',
+    'pregnancies',
+    'primary_neoplasm_melanoma_dx',
+    'primary_therapy_outcome_success',
+    'prior_dx',
+    'Project',
+    'psa_value',
+    'race',
+    'residual_tumor',
+    'tobacco_smoking_history',
+    'tumor_tissue_site',
+    'tumor_type',
+    'weiss_venous_invasion',
+    'vital_status',
+    'weight',
+    'year_of_initial_pathologic_diagnosis'
+]
 
 
 def get_index_of_nth_uppercase_char(a_string, n):
@@ -76,13 +174,24 @@ def get_csv_table_heading(headers=None, widths=None):
     return header_string
 
 
-def get_next_parameter_javascript_row(message_class_name, started_string, level=0):
+def get_next_parameter_javascript_row(message_class_name, started_string, level=0, method_name=None):
     '''
     Recursive function returning javascript formatting of restructured text.
     level will indicate number of JS_SPACE spaces
     todo: figure out tab spaces w nested objects vs lists of nested objects
     '''
     message_class_properties = RESP_JSON['schemas'][message_class_name]['properties']
+
+    # only allow certain fields for patient_details and sample_details methods
+    if method_name == 'patient_details' and message_class_name == 'ApiMetadataMetadataItem':
+        allowed_keys = set(PATIENT_DETAILS_CLINICAL_DATA_FIELDS).intersection(message_class_properties)
+        cleaned_message_class_properties = {k:message_class_properties[k] for k in allowed_keys}
+        message_class_properties = cleaned_message_class_properties
+    elif method_name == 'sample_details' and message_class_name == 'ApiMetadataMetadataItem':
+        allowed_keys = set(SAMPLE_DETAILS_BIOSPECIMEN_DATA_FIELDS).intersection(message_class_properties.keys())
+        cleaned_message_class_properties = {k:message_class_properties[k] for k in allowed_keys}
+        message_class_properties = cleaned_message_class_properties
+
     sorted_message_class_properties = list(sorted(message_class_properties.iteritems(),
                                                   key=lambda s: s[0].lower()))
 
@@ -100,7 +209,8 @@ def get_next_parameter_javascript_row(message_class_name, started_string, level=
             level += 1
             started_string = get_next_parameter_javascript_row(next_message_class,
                                                                started_string,
-                                                               level=level)
+                                                               level=level,
+                                                               method_name=method_name)
             level -= 1
         # 3. value is a list of either...
         if val.get('type') == 'array':
@@ -116,7 +226,8 @@ def get_next_parameter_javascript_row(message_class_name, started_string, level=
                 level += 1
                 started_string = get_next_parameter_javascript_row(next_message_class,
                                                                    started_string,
-                                                                   level=level)
+                                                                   level=level,
+                                                                   method_name=method_name)
                 level -= 2
                 started_string += '\n' + (level+2)*JS_SPACE + ']'
         # end possibilities
@@ -137,13 +248,25 @@ def get_next_parameter_javascript_row(message_class_name, started_string, level=
     return started_string
 
 
-def get_next_property_table_row(message_class_name, started_string, level=''):
+def get_next_property_table_row(message_class_name, started_string, level='', method_name=None):
     '''
     change name to get next response table row?
     Recursive function returning csv formatting of restructured text.
     level indicates number of dots
     '''
     message_class_properties = RESP_JSON['schemas'][message_class_name]['properties']
+
+    print method_name
+    # only allow certain fields for patient_details and sample_details methods
+    if method_name == 'patient_details' and message_class_name == 'ApiMetadataMetadataItem':
+        allowed_keys = set(PATIENT_DETAILS_CLINICAL_DATA_FIELDS).intersection(message_class_properties)
+        cleaned_message_class_properties = {k:message_class_properties[k] for k in allowed_keys}
+        message_class_properties = cleaned_message_class_properties
+    elif method_name == 'sample_details' and message_class_name == 'ApiMetadataMetadataItem':
+        allowed_keys = set(SAMPLE_DETAILS_BIOSPECIMEN_DATA_FIELDS).intersection(message_class_properties.keys())
+        cleaned_message_class_properties = {k:message_class_properties[k] for k in allowed_keys}
+        message_class_properties = cleaned_message_class_properties
+
     sorted_message_class_properties = list(sorted(message_class_properties.iteritems(),
                                                   key=lambda s: s[0].lower()))
 
@@ -170,7 +293,8 @@ def get_next_property_table_row(message_class_name, started_string, level=''):
             next_message_class = val['$ref']
             started_string = get_next_property_table_row(next_message_class,
                                                          started_string,
-                                                         level=level)
+                                                         level=level,
+                                                         method_name=method_name)
             # go up one level i.e. truncate at next to last dot
             level = level[:level[:level.rfind('.')].rfind('.')+1]
         # 3. value is a list of either...
@@ -186,7 +310,8 @@ def get_next_property_table_row(message_class_name, started_string, level=''):
                 next_message_class = val['items'].get('$ref')
                 started_string = get_next_property_table_row(next_message_class,
                                                              started_string,
-                                                             level=level)
+                                                             level=level,
+                                                             method_name=method_name)
                 # go up one level i.e. truncate at next to last dot
                 level = level[:level[:level.rfind('.')].rfind('.')+1]
 
@@ -333,9 +458,11 @@ def write_rst_file_response_section(method):
         js_block_header = '.. code-block:: javascript\n\n'
         response_body_message_class_name = method_response.get('$ref')
         js_block_body = get_next_parameter_javascript_row(response_body_message_class_name,
-                                                          JS_SPACE + '{\n')
+                                                          JS_SPACE + '{\n',
+                                                          method_name=method)
+
         csv_header = get_csv_table_heading()
-        csv_body = get_next_property_table_row(response_body_message_class_name, '')
+        csv_body = get_next_property_table_row(response_body_message_class_name, '', method_name=method)
         response_body_text = 'Response\n\n{}{}{}\n\n{}\n{}'.format(
             response_desc, js_block_header, js_block_body, csv_header, csv_body)
 
@@ -345,12 +472,12 @@ def write_rst_file_response_section(method):
 
 def main():
 
-    methods_list = get_methods_list()
+    # methods_list = get_methods_list()
     # methods_pathnames_list = get_methods_pathnames_list()
     # for method_path_name in methods_pathnames_list:
     #     create_new_rst_file(method_path_name)
 
-
+    methods_list = ['patient_details', 'sample_details']
 
     for method in methods_list:
         write_rst_file_header(method)
