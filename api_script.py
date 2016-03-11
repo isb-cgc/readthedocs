@@ -256,7 +256,6 @@ def get_next_property_table_row(message_class_name, started_string, level='', me
     '''
     message_class_properties = RESP_JSON['schemas'][message_class_name]['properties']
 
-    print method_name
     # only allow certain fields for patient_details and sample_details methods
     if method_name == 'patient_details' and message_class_name == 'ApiMetadataMetadataItem':
         allowed_keys = set(PATIENT_DETAILS_CLINICAL_DATA_FIELDS).intersection(message_class_properties)
@@ -365,23 +364,27 @@ def write_rst_file_header(method):
         f.write(header_text)
 
 
-def get_next_parameter_table_row(parameter_json, method_name=None):
+def get_next_parameter_table_row(parameter_json, allowed_values={}, method_name=None, request_body=False):
     '''
     No need for this to be a recursive function since request parameters
     are only a list. Takes a json object of parameters and returns a string
     for a csv-formatted rst table.
     '''
+
     sorted_parameter_json = list(sorted(parameter_json.iteritems(), key=lambda s: s[0].lower()))
     return_string = ''
     for key, val in sorted_parameter_json:
-        # todo: zip descriptions with key name, maybe just for preview and save cohort?
-        description = "Required." if val.get('required') else 'Optional.'
         value_entry = 'list' if val.get('type') == 'array' else val.get('type')
+
+        description = "Required. " if val.get('required') else 'Optional. '
 
         # if val.get('format') and val.get('format').startswith('int'):
         #     value_entry = 'integer'
 
-        return_string += '\t{}{},{},{}\n'.format(key,
+        if allowed_values.get(key):
+            description += "Possible values include: '" + "', '".join(allowed_values.get(key)) + "'."
+
+        return_string += '\t{}{},{},"{}"\n'.format(key,
                                                  '[]' if value_entry == 'list' else '',
                                                  value_entry,
                                                  description)
@@ -427,13 +430,26 @@ def write_rst_file_request_body(method):
         return
     request_body_message_class_name = method_request['$ref']  # e.g. "ApiMetadataIncomingMetadataItem"
 
-    request_desc = 'In the request body, supply a metadata resource:'
+    request_desc = 'In the request body, supply a metadata resource with the following properties:'
+    # todo: add link to metadata resource allowed values
     js_block_header = '.. code-block:: javascript\n\n'
     message_class_properties = RESP_JSON['schemas'][request_body_message_class_name]['properties']
     js_block_body = get_next_parameter_javascript_row(request_body_message_class_name,
                                                       JS_SPACE + '{\n')
+
+    message_class_properties = RESP_JSON['schemas'][request_body_message_class_name]['properties']
+
     csv_header = get_csv_table_heading()
-    csv_body = get_next_parameter_table_row(message_class_properties)
+    allowed_values = {}
+    if method in ['preview', 'save']:
+        with open(JSON_FILE_DIRECTORY + '/allowed_values.json', 'r') as f:
+            contents = f.read()
+        allowed_values = json.loads(contents)
+
+    csv_body = get_next_parameter_table_row(message_class_properties,
+                                            method_name=method,
+                                            request_body=True,
+                                            allowed_values=allowed_values)
 
     request_body_text = "Request body\n\n{}\n\n{}{}\n\n{}\n{}\n\n"\
         .format(request_desc, js_block_header, js_block_body, csv_header, csv_body)
@@ -477,7 +493,7 @@ def main():
     # for method_path_name in methods_pathnames_list:
     #     create_new_rst_file(method_path_name)
 
-    methods_list = ['patient_details', 'sample_details']
+    methods_list = ['preview', 'save']
 
     for method in methods_list:
         write_rst_file_header(method)
