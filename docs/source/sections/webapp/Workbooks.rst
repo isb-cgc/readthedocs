@@ -1,4 +1,4 @@
- *******************
+*******************
 Workbooks
 *******************
 Workbooks store the Analyses you create -- and their related data. Basically, the worksheets you create to conduct analysis based on the source data selected (i.e. Genes, Variables and Cohorts).  Workbooks can be used to:
@@ -65,7 +65,9 @@ Then **“Apply to Worksheet”**
 
 3. Select your **Cohort** - Cohorts allow the user to create custom groupings of the samples and/or participants that can be used for further analysis.
 
-By clicking 'Cohorts' or the '+' symbol you will be directed to the Cohorts table where the user can either create a new cohort or choose from an existing cohorts. The user can also add multiple Cohorts to the worksheet if desired. More information about Cohorts can be found here (link to `Cohorts documentation <http://test>`_)
+By clicking 'Cohorts' or the '+' symbol you will be directed to the Cohorts table where the user can either create a new cohort or choose from an existing cohorts. When creating a new cohort, after selecting your criteria you click the "Create Cohort" button. The button will become disabled (dimmed) as the Cohort builds.  Once completed you can proceed.  The user can also add multiple Cohorts to the worksheet if desired. More information about Cohorts can be found here (link to `Cohorts documentation <http://test>`_).
+
+4. Select **Edit Analysis Settings** - This will trigger the Plot setting displaying the applicable x & y axis settings (i.e. Categorical or Numerical based on analysis type selected). Depending on the analysis type selected (i.e., Bar chart, Histogram, Scatter Plot, Violin Plot, or Chubby Hole Plot) additional specifications may appear for selection.
 
 Sample Workbooks
 ----------------
@@ -81,6 +83,10 @@ Manipulation of Workbooks
 **Creating A Worksheet** - By selecting the "+" next to an existing worksheet a user can create a new worksheet to create a new analysis. You can give the new worksheet an unique identifier and also give a description for the worksheet. This is ideal by allowing the user to easily have access to different graphs with the same data in the same workbook.
 
 **Worksheet Menu** - The worksheet will have a section similar to the workbook menu where user can edit, duplicate or delete the worksheet. You can find the worksheet menu bar by clicking the arrow pointing down located next to the name of the worksheet that is opened.
+
+**Edit Analysis Settings** - This function allows you to select new Plot Setting for selected analysis type.
+
+**Edit Analysis Settings Selection Icon** - This function allows you to select samples from displayed analysis and save that selection to a new Cohort for further drill down analysis. 
 
 **Edit Details** - This function allows the user to edit the name of the worksheet and also give a brief description on the worksheet being used for analysis.
 
