@@ -30,7 +30,7 @@ The **MENU** is a graphical control element which contains application navigatio
       * Edit Gene Favorites (see Create Gene Favorite(s) description below).
     - *Create Gene Favorite* - Here you can:
 
-      * Create a Gene Favorite for Analysis, To Create a New Gene Favorite - You provide a name and select the Gene. You can upload a stored Gene List or to aid in Gene selection, you can access the HGNC portal (Hugo Gene Nomenclature Committee) via the "**View Gene Identifiers**" link under this Menu selection.
+      * Create a Gene Favorite for Analysis, To Create a New Gene Favorite - You provide a name and select the Gene. You can upload a stored Gene List or type in Gene name (**Note:** This will auto fill as you type in Gene name). To aid in Gene selection, you can access the HGNC portal (Hugo Gene Nomenclature Committee) via the "**View Gene Identifiers**" link under this Menu selection.
       * Save or Cancel a new creation. 
     - *Select Genes for a New Workbook* - This sub-menu has two feature:
       
