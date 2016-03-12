@@ -34,7 +34,7 @@ This starts an oauth flow, opening a browser tab and asking the user to log in w
 
 If a user is running this script via ssh, the --noauth_local_webserver flag will allow the user to obtain a verification code through their local browser.
 
-Step 2: User accesses endpoint with $ python `isb_curl.py<https://github.com/isb-cgc/ISB-CGC-Webapp/blob/master/scripts/isb_curl.py>`_
+Step 2: User accesses endpoint with $ python `isb_curl.py <https://github.com/isb-cgc/ISB-CGC-Webapp/blob/master/scripts/isb_curl.py>`_
 
 Once the credentials file is stored on the user's home directory, they can access any API requiring authentication with the command:
 
