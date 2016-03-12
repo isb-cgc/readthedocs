@@ -121,7 +121,8 @@ The complement operation requires that there be a base cohort, from which the ot
 Click “Okay” to complete the operation and create the new cohort.
 
 Viewing and Editing a Cohort
-================
+============================
+
 Once you have created a "Saved Cohort" you can view and edit it.  To view a cohort, select it by clicking on its name either from the "Saved Cohorts" panel on the main "Your Dashboard" page or on the "Cohorts" page listing all your saved cohorts.
 
 Cohort Details Page
