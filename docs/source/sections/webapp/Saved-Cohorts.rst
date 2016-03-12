@@ -188,6 +188,11 @@ contains the following information for each file:
 * Data Level
 * File Path to the Cloud Storage Location
 
+Viewing a Sequence
+==================
+
+When available, sequences in a cohort can be viewed using the IGV viewer.  To find those sequences that can be viewed with the IGV viewer, open a cohort and select the "View File List" link at the bottom of the "Public Data Availability" panel.  The files associated with your cohort will be shown, with the last column showing if there is a view of the sequence available through the IGV viewer (indicated by a checkmark and "Go to IGV").  Selecting that link will take you to the sequence view of the file, viewed in the IGV viewer.
+
 Deleting a cohort
 =================
 
