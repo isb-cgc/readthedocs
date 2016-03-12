@@ -52,4 +52,5 @@ Major Data Types
    data2/ETL_mRNAexpression
    data2/ETL_microRNAexpression
    data2/ETL_proteinExpression
+   data2/ETL_annotations
 

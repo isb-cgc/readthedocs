@@ -56,6 +56,7 @@ Note that in order to use BigQuery, you need to be a member of a Google Cloud Pr
 
 **How can I apply for access to the low-level DNA and RNA sequence data?**
 In order to access the TCGA controlled-access data, you will need to apply to dbGaP_.
+Please also review our section on **Understanding Data Security**.
 
 .. _dbGaP: https://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login
 
@@ -67,6 +68,7 @@ and you will be taken to your account details page where you can
 verify your dbGaP authorization.  You will be redirected to the NIH iTrust login page and after you
 successfully authenticate you will be brought back to the ISB-CGC web-app.  After you successfully
 authenticate, we will verify that you also have dbGaP authorization for the TCGA controlled-access data. 
+We also ask that you review our section on **Understanding Data Security**.
 
 **My professor has dbGaP authorization.  Do I have to have my own authorization too?**
 Yes, your professor will need to add you as a "data downloader" to his/her dbGaP application so that you
