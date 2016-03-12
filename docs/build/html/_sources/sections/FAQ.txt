@@ -30,12 +30,13 @@ to the TCGA data, *without* necessarily inserting an extra interface layer betwe
 component of the ISB-CGC is a web-app (running on Google App Engine), some users may prefer not to go through
 the web-app to access other components of the ISB-CGC.  For example, the open-access TCGA data
 that we have loaded into BigQuery tables can be accessed directly via the 
-`BigQuery web interface <https://www.bigquery.cloud.google.com>` or from Python or R.  Similarly,
+`BigQuery web interface <https://www.bigquery.cloud.google.com>`_ or from Python or R.  Similarly,
 the ISB-CGC programmatic API is a REST service that can be used from many different
 programming languages.
 
 The connection between your GCP project (whether it is an ISB-CGC sponsored and funded project
-or your own personal project) is your Google identity (also referred to as your "user credentials").  
+or your own personal project) and the ISB-CGC is your Google identity 
+(also referred to as your "user credentials").  
 Access to all ISB-CGC hosted data is controlled using access control lists (ACLs) which define the
 permissions attached to each dataset, bucket, or object.
 
@@ -55,6 +56,7 @@ Note that in order to use BigQuery, you need to be a member of a Google Cloud Pr
 
 **How can I apply for access to the low-level DNA and RNA sequence data?**
 In order to access the TCGA controlled-access data, you will need to apply to dbGaP_.
+Please also review our section on **Understanding Data Security**.
 
 .. _dbGaP: https://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login
 
@@ -66,6 +68,7 @@ and you will be taken to your account details page where you can
 verify your dbGaP authorization.  You will be redirected to the NIH iTrust login page and after you
 successfully authenticate you will be brought back to the ISB-CGC web-app.  After you successfully
 authenticate, we will verify that you also have dbGaP authorization for the TCGA controlled-access data. 
+We also ask that you review our section on **Understanding Data Security**.
 
 **My professor has dbGaP authorization.  Do I have to have my own authorization too?**
 Yes, your professor will need to add you as a "data downloader" to his/her dbGaP application so that you

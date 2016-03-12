@@ -1,20 +1,17 @@
-*******************
+****
 Menu
-*******************
-The **MENU** is a graphical control element which contains application navigational drop downs (Sub-links). The Menu bar's purpose is to supply quick and common links for application-specific functions / features such as: 
+****
 
- * **Workbooks** - Workbooks store the Analyses you create -- and their related data.  Basically, the worksheets you create to conduct analysis based on the source data selected (i.e. Genes, Variables and Cohorts – further explained later) For additional details, see `Read the Docs - Workbooks <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/Web-UI.html>`_. From the "Workbook" link you will be able to quick link to the following:
-     - *Recent* - (Displays your created workbooks and allow quick navigation to them)
-     - *Saved* - (Displays all your saved workbooks and allows you to edit, duplicate or delete the workbook)
-     - *Create a New Workbook* - (Quick Link to Workbook Creation, where you can select the data source)
-     - *Sample Workbooks* - (**Coming Soon**)
+The **MENU** is a graphical control element which contains application navigational drop downs (sub-links). 
+The Menu bar's purpose is to supply quick and common links for application-specific functions / features such as: 
 
- * **Projects** - You can upload from your own research projects or request a GCP project be setup by following the directions under **Support and Other Useful Links** - `Your Own Project <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/Support.html?highlight=project>`_. For additional details see `Read the Docs - Saved Projects <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/Web-UI.html>`_ 
-    - *Saved* - This has two "Tabs" **Saved Projects** you have created and **Public Projects** (see below)
-    - *Upload Project Data* - Data uploading requires that you have a Google Cloud project set up for your account. Once a request is received (see `How to Request <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/Support.html?highlight=project>`_), a project is created in GCP for you and you will receive a completion confirmation email).
-    - *Public Projects* - (Future Home for accessible public projects).  There are no public projects available at the moment. This also has two "Tabs"  **Public Projects** and **Saved Projects** you have created (see above).
- 
- * **Analyses** - From here you can Create, Edit Details, Duplicate, Delete, or Share Sample Analyses. The analysis can be piloted  by creating a customized workbook with the specific data (Genes, Variables, Cohorts) you select to analyze and visualized/plot in one of the following manners:
+ * **Workbooks** - Workbooks store the Analyses you create -- and their related data.  You can create worksheets as you explore and analyze selected underlying data (i.e. Genes, Variables and Cohorts – further explained later).  From the "Workbook" link you can quick link to the following:
+     - *Recent* - Displays your created workbooks and allow quick navigation to them;
+     - *Saved* - Displays all your saved workbooks and allows you to edit, duplicate or delete the workbook;
+     - *Create a New Workbook* - Quick Link to Workbook Creation, where you can select the data source;
+     - *Sample Workbooks* - (Coming Soon)
+
+ * **Analyses** - From here you can Create, Edit Details, Duplicate, Delete, or Share Analyses. You can use a specific analysis type to create a new workbook customized with the specific data (Genes, Variables, Cohorts) you have selected.  The plot types that you can select from include:
     - *Bar Chart*
     - *Histogram*
     - *Scatter Plot*
@@ -41,13 +38,11 @@ The **MENU** is a graphical control element which contains application navigatio
  * **Variables** -  This sub-menu allows you to **Manage Variables Favorite** or **Create New Favorite** (see descriptions below) For additional details, see `Read the Docs - Variable Favorites. <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/Web-UI.html>`_  
     - *Manage Variables Favorite* - Shows your saved Variables as Favorites:
 
-
       * Edit, 
       * Delete, 
       * Start New Workbook - (Create a New Workbook using the selected Favorite Variables)
 
     - *Add (+) Create New Favorite* - Here you "Name" your new favorite and select variables from four (4) available data sources to incorporate in your analysis- 
-
 
       * Common Variables
       * Favorite(s) Saved
@@ -68,3 +63,4 @@ The **MENU** is a graphical control element which contains application navigatio
 
     - *Public Cohorts* - This is a quick link performing the same functions described in the respective tabs of Saved Cohorts above.
     - *Select Cohorts for a New Workbook* - This is a quick link performing the same functions described in the respective tabs of Saved Cohorts and Public Cohorts above.
+
