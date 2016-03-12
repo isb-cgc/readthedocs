@@ -13,7 +13,6 @@ We welcome your ideas and needs.  Please use this `link <https://groups.google.c
    webapp/Overview
    webapp/Gaining-Access-To-TCGA-Contolled-Access-Data
    webapp/Menu
-   webapp/Sample-Analyses
    webapp/Workbooks
    webapp/Gene-Favorites
    webapp/Variable-Favorites
