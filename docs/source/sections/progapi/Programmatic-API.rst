@@ -54,7 +54,6 @@ The Cohort API currently bundles several different cohort-related endpoints:
    progapi2/google_genomics_from_cohort.rst
    progapi2/google_genomics_from_sample.rst
    progapi2/patient_details.rst
-   progapi2/patient_details.rst
    progapi2/preview_cohort.rst
    progapi2/sample_details.rst
    progapi2/save_cohort.rst
