@@ -1,5 +1,5 @@
 Somatic Mutations (DNA)
-======================
+=======================
 
 The 
 `Somatic Mutations table <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.Somatic_Mutation_calls>`_

@@ -17,5 +17,6 @@ We welcome your ideas and needs.  Please use this `link <https://groups.google.c
    webapp/Gene-Favorites
    webapp/Variable-Favorites
    webapp/Saved-Cohorts
+   webapp/IGV-Browser
    webapp/releases
 

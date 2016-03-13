@@ -57,5 +57,5 @@ The Web Application was optimized for use with the Google Chrome web browser.  M
 of other web browsers (e.g. Firefox, Safari, Internet Explorer).  If you find an issue and you are not using Chrome, please
 try using Chrome to see if the issue appears to be browser-specific.
 
-If you encounter issues or have questions, please `contact us  <https://groups.google.com/a/isb-cgc.org/forum/#!newtopic/feedback>`_.
+If you encounter issues or have questions, please use our `feedback <https://groups.google.com/a/isb-cgc.org/forum/#!newtopic/feedback>`_ forum.
 
