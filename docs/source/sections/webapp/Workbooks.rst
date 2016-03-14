@@ -22,28 +22,27 @@ To create a **workbook** from Your Dashboard, click on the **“Create a New Wor
 
 1. From the Workbook creation panel you will first select one of six analysis types (i.e., Bar chart, Histogram, Scatter Plot, Violin Plot, Cubby Hole Plot or SeqPeek). 
 
-**Analysis Type Description**
+  * **Analysis Type Description**
 
-  **Bar Chart** - This chart is used to plot a single categorical feature for one or more cohorts. It generates vertical lines to represent the type of data being used. The X axis shows categorical information being used while the other y axis,  displays categorical data chosen in the edit analysis settings. 
+    - **Bar Chart** - This chart is used to plot a single categorical feature for one or more cohorts. It generates vertical lines to represent the type of data being used. The X axis shows categorical information being used while the other y axis,  displays categorical data chosen in the edit analysis settings. 
 
-  **Histogram** - This chart is used to plot a single numerical feature for one or more cohorts. It generates vertical lines to represent the type of data being used. The X axis shows numerical information being used while the other y axis,  displays numerical data chosen in the edit analysis settings.
+    - **Histogram** - This chart is used to plot a single numerical feature for one or more cohorts. It generates vertical lines to represent the type of data being used. The X axis shows numerical information being used while the other y axis,  displays numerical data chosen in the edit analysis settings.
 
-  **Scatter Plot** - This chart is used to plot two numerical features (x & y axis) for one or more cohorts. Can also color code points by a single categorical feature.
+    - **Scatter Plot** - This chart is used to plot two numerical features (x & y axis) for one or more cohorts. Can also color code points by a single categorical feature.
 
-  **Violin Plot** - This chart is used to plot a categorical feature on the x-axis versus a numerical feature on the y-axis. Points in the plot can be colored by another categorical feature.
+    - **Violin Plot** - This chart is used to plot a categorical feature on the x-axis versus a numerical feature on the y-axis. Points in the plot can be colored by another categorical feature.
 
-  **Cubby Hole Plot** - This chart is used to plot two categorical features. Boxes are colored by their related p-values.
+    - **Cubby Hole Plot** - This chart is used to plot two categorical features. Boxes are colored by their related p-values.
 
-  **SeqPeek** - This visualization shows where somatic mutations have been observed on a linear representation of a specific protein. Each horizontal strip represents the protein, with data from different tumor types (aka cohorts or studies) shown stacked one on top of the other.
+    - **SeqPeek** - This visualization shows where somatic mutations have been observed on a linear representation of a specific protein. Each horizontal strip represents the protein, with data from different tumor types (aka cohorts or studies) shown stacked one on top of the other.
 
-  **Browse All Analyses** - This will direct you to a visual sample of the different analysis types along with a brief description of how to generate each type.
-
+    - **Browse All Analyses** - This will direct you to a visual sample of the different analysis types along with a brief description of how to generate each type.
 
 2. You will then select **Genes or Variables** (or, optionally both)
 
-  **Genes** - This will display previously created “Gene Favorites” which can be “Applied to Analysis" (see `Gene Favorites <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/webapp/Gene-Favorites.html>`_ for details) or you can apply / create a “New Gene List”).
+  * **Genes** - This will display previously created “Gene Favorites” which can be “Applied to Analysis" (see `Gene Favorites <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/webapp/Gene-Favorites.html>`_ for details) or you can apply / create a “New Gene List”).
 
-**When Creating a New Gene List** -
+    - **When Creating a New Gene List** -
 
 You begin by naming the data set (Gene Type or Project Specific); the Gene list you create here will automatically be added to your Gene Favorites list and can be selected for additional analysis later.
 
@@ -52,9 +51,9 @@ Next select the Gene(s) you’re interested in (you can upload a specific list y
 To aid in Gene selection, you can access the HGNC portal (Hugo Gene Nomenclature Committee) via the "`View Gene Identifiers <http://www.genenames.org/>`_
 " link under this Menu selection. This allows you to focus on specific results or queries.
 
-**Variables** - (this will display previously created “Variable Favorites” which can be “Applied to Analysis" (see `Variable Favorites <http://test>`_ for details) or you can apply / create a “New Variable List”).
+  * **Variables** - (this will display previously created “Variable Favorites” which can be “Applied to Analysis" (see `Variable Favorites <http://test>`_ for details) or you can apply / create a “New Variable List”).
 
-**When Creating a New Variable List** -
+    - **When Creating a New Variable List** -
 
 You begin by naming the new Variable; the Variable you create here will automatically be added to your Variable Favorites list and can be applied to other analysis later.
 
