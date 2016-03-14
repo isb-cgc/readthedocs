@@ -36,6 +36,8 @@ To create a **workbook** from Your Dashboard, click on the **“Create a New Wor
 
     **SeqPeek** - (This visualization shows where somatic mutations have been observed on a linear representation of a specific protein. Each horizontal strip represents the protein, with data from different tumor types (aka cohorts or studies) shown stacked one on top of the other).
 
+    **Browse All Analyses** - This will direct you to a visual sample of the different analysis types along with a brief description of how to generate each type.
+
 
 2. You will then select **Genes or Variables** (or, optionally – both)
 
