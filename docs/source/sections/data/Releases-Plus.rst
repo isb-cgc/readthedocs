@@ -29,6 +29,8 @@ Release Notes
 
 * February 26, 2016: new CCLE dataset in BigQuery includes sample metadata, mutation calls, copy-number segments, and expression data (metadata includes full cloud-storage-path for world-readable BAM and SNP CEL files, and Genomics dataset- and readgroupset-ids for sequence data imported into Google Genomics)
 
+* March 14, 2016: with the release of our Web-App, controlled-data is now accessible (programmatically) to users who have previously obtained dbGaP approval for TCGA data and go through the NIH authentication process built-in to the Web-App.
+
 Future Plans
 ############
 
