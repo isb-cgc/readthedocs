@@ -23,7 +23,7 @@ The Menu bar's purpose is to supply quick and common links for application-speci
     - *SeqPeek*
     - *Browse All Analyses*
 
- * **GENES** - From this Menu selection you can **Manage Gene Favorites**, **Create Gene Favorite(s)** or **Select Genes for a New Workbook**. For additional details, see `Read the Docs - Gene Favorites <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/webapp/Gene-Favorites.html`_. Each of these categories provide a quick link to additional application-specific functions / features such as:
+ * **GENES** - From this Menu selection you can **Manage Gene Favorites**, **Create Gene Favorite(s)** or **Select Genes for a New Workbook**. For additional details, see `Read the Docs - Gene Favorites <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/webapp/Gene-Favorites.html>`_. Each of these categories provide a quick link to additional application-specific functions / features such as:
     - *Manage Gene Favorites* - Here you can:
     
       * Edit or Delete a Saved Gene Favorite(s), 
