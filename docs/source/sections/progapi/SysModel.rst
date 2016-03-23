@@ -17,6 +17,8 @@ on which technology is used to host them:
 For users interested in performing custom analyses, accessing the data directly using these APIs 
 will provide greater flexibility.
 
+Here are instructions on how to see ISB-CGC data through the BigQuery Web UI.
+
 The Cloud Paradigm
 ##################
 
