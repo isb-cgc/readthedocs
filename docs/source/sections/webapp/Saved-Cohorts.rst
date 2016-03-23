@@ -1,17 +1,16 @@
-*******
-Cohorts
-*******
+*******************
+Saved Cohorts
+*******************
 
 Cohorts are a way of creating custom groupings of the samples and/or participants that you are 
-interested in analyzing further.
-For example, you can create cohorts that span across multiple projects, only contain samples for
-which certain types of data are avaialble, or focus on specific phenotypic characteristics.
+interested in analyzing further.  You may frequently re-use a cohort in multiple analyses.  Creating a "saved cohort" allows you to do this.  If you have existing saved cohorts, they will be appear here for you to view, edit and share (see below for details).
 
 Creating and saving a cohort
 ############################
 
-To create a cohort from the User Dashboard, click on the “+ Create” button and select “New Cohort”. 
-This will take you to the cohort creation page.
+To create a cohort from Your Dashboard, if you do not have a cohort created, click on the “Create Cohort” link in the "Saved Cohorts" panel at the bottom of the page. This will take you to the cohort creation page.
+
+If you already have saved cohorts, they will be listed in the "Saved Cohorts" panel.  Click on the "Saved Cohorts" link in that panel and this will take you to a page that displays the details of your saved cohorts.  To create a new saved cohort, use the "Create New Cohort" button on the page listing your current saved cohorts.
 
 Cohort Creation Page
 ====================
@@ -20,7 +19,7 @@ Using the provided list of filters on the left hand side, you can select the att
 that you are interested in.
 By clicking on a feature, the field will expand and provide you with additional filtering options.
 For example, when you click on “Vital Status”, it expands and provides a list of “Alive”, “Dead”, and
-“None” as options to
+“NA” as options to
 choose from. Selecting one or more of these will cause the filter(s) to appear in the Selected Filters 
 panel and visualizations on the page
 will be updated to reflect that the current cohort that has been filtered by Vital Status. 
@@ -30,8 +29,9 @@ have been selected.
 
 Cohort Filters
 --------------
+The panel on the left of the screen, with two tabs called "Donor" and "Data Type" allow you to apply filters to the cohorts your are creating.  Below are the details of each tab.
 
-Participant Filters List
+Donor Tab
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
     * Project
@@ -43,44 +43,49 @@ Participant Filters List
     * Tumor Tissue Site
     * Histological Type
     * Prior Diagnosis
-    * Pathologic State
+    * Pathologic Stage
     * Tumor Status
     * New Tumor Event After Initial Treatment
     * Histological Grade
     * Residual Tumor
     * Tobacco Smoking History
     * ICD-10
-    * ICD-O-3 Histology
     * ICD-O-3 Site
+    * ICD-O-3 Histology
 
-Data Type Filters List
+Data Type Tab
 ^^^^^^^^^^^^^^^^^^^^^^
 
-    * DNA-Sequence
-    * RNA-Sequence
-    * miRNA-Sequence
+    * DNA Sequencing
+    * RNA Sequencing
+    * MIRNA Sequencing
     * Protein
-    * SNP Copy-Number
+    * SNP CN
     * DNA Methylation
+
+Save As New Cohort Button
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Push this button if you wish to save the cohort based on the filters you have set.  You will be asked for a cohort name and the selected filters will be displayed.  Enter the name (any text) and push the "Create Cohort" button.
 
 Selected Filters Panel
 ^^^^^^^^^^^^^^^^^^^^^^
 
 This is where selected filters are shown so there is an easy way to see what filters have been selected.
-Clicking on “Clear All” will remove all selected filters.
+Clicking on “Clear All” will remove all selected filters.  Selecting an X beside a single filter will remove that filter.
 
 Clinical Features Panel
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-This panel shows a list of treemaps that give a high level breakdown of the selected samples for a 
+This panel shows a list of images (called "treemaps") that give a high level breakdown of the selected samples for a 
 handful of features:
-* Disease Code
+* Study
 * Vital Status
 * Sample Type
 * Tumor Tissue Site
 * Gender
 * Age at Initial Pathologic Diagnosis
-By using the “Show More” button, you can see two more tree maps that are currently available.
+By using the “Show More” button, you can see the last two tree maps.
 
 Data Availability Panel
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -103,28 +108,35 @@ Set Operations
 
 You can create cohorts using set operations on the User Dashboard page.
 
-To activate the set operations button, you must have at least one cohort selected. Upon clicking the “Set Operations”
+To activate the set operations button, you must have at least one cohort selected in your "Cohorts" page. Upon clicking the “Set Operations”
 button, a dialogue box will appear. Here you may do the following things:
+
 * Enter in a name for the new cohort you’re about to create.
 * Select a set operation.
 * Edit cohorts to be used in the operation.
+* Add A Cohort
 
 The intersect and union operations can take any number of cohorts and in any order.
 The complement operation requires that there be a base cohort, from which the other cohorts will be subtracted from.
 Click “Okay” to complete the operation and create the new cohort.
 
-Editing a Cohort
-================
+Viewing and Editing a Cohort
+============================
 
-**Details of cohort edit page**
+Once you have created a "Saved Cohort" you can view and edit it.  To view a cohort, select it by clicking on its name either from the "Saved Cohorts" panel on the main "Your Dashboard" page or on the "Cohorts" page listing all your saved cohorts.
 
-Main Menu
----------
+Cohort Details Page
+-------------------
+When you have gone to your saved cohort page, you will be shown the details of the cohort on the "SAVED COHORTS" tab.  The "PUBLIC COHORTS" tab shows public cohorts that are commonly selected.  these can be used for a "New Workbook" and "Set Operations".
 
-* Add New Filters: Selecting this menu item make the filters panel appear. And filters selected will be additive to any filters that have already been selected. To return to the previous view, you much either save any selected filters, or choose to cancel adding any new filters.
-* Comments: Selecting “Comments” will cause the Comments panel to appear. Here anyone who can see this cohort can comment on it. Comments are shared with anyone who can view this cohort and ordered by newest on the bottom.
-* Make a Copy: Making a copy will create a copy of this cohort with the same list of samples and patients and make you the owner of the copy.
-* Share with Others: This behaves similarly to on the User Dashboard page. A dialogue box appears and the user is prompted to select users that are registered in the system to share the cohort with.
+From the "SAVED COHORTS" tab you can:
+
+* New Workbook: Pushing this button creates a New Workbook using the selected Cohorts
+* Edit: Pushing this button makes the filters panel appear. And filters selected will be additive to any filters that have already been selected. To return to the previous view, you much either save any selected filters (with the "Save Changes" button), or choose to cancel adding any new filters (by clicking the "cancel" link).
+* Comments: Pushing “Comments” will cause the Comments panel to appear. Here anyone who can see this cohort can comment on it. Comments are shared with anyone who can view this cohort.  They are ordered by newest on the bottom.  Selecting the "X" on the Comments panel will close the panel.  Any user who owns or has had a cohort shared with them can comment on it.
+* Duplicate: Making a copy will create a copy of this cohort with the same list of samples and patients and make you the owner of the copy.
+* Delete: Allows you to delete this cohort (if you confirm by clicking the second delete button presented)
+* Share: A dialogue box appears and the user is prompted to select users that are registered in the system to share the cohort with.
 
 Selected Filters Panel
 ----------------------
@@ -135,22 +147,21 @@ any additional filters applied to this cohort will be appended to the list.
 Details Panel
 -------------
 
-This panel displays the number of samples and participant in this cohort. These vary because some participants may have
+This panel displays the number of samples and participants in this cohort. These vary because some participants may have
 provided multiple samples.
-This panel also displays “Your Permissions” which can be either owner or reader.
+This panel also displays “Your Permissions” which can be either owner or reader, as well as revision history.
 
 Clinical Features Panel
 -----------------------
 
 This panel shows a list of treemaps that give a high level break of the samples for a handful of features:
-* Disease Code
+
+* Study
 * Vital Status
 * Sample Type
 * Tumor Tissue Site
 * Gender
 * Age at Initial Pathologic Diagnosis
-
-By using the “Show More” button, you can see two more tree maps available.
 
 Data Availability Panel
 -----------------------
@@ -165,35 +176,33 @@ platforms by dragging the platform names up and down.
 The file list page provides a paginated list of files available with all samples in the cohort. Here, “available” refers
 to files that have been uploaded to the ISB-CGC Google Cloud Project and that are open access data. You can use the
 “Previous Page” and “Next Page” to show more values in the list.
+
 You may filter on these files if you are only interested in a specific data type and platform. Selecting a filter will
 update the list associated. The numbers next to the platform refers to the number of files available for that platform.
 There is only one menu item available and that is the “Download File List as CSV”. Selecting this item will begin a
 download process of all the files available for the cohort, taking into account the selected Platform filters. The file
 contains the following information for each file:
+
 * Sample Barcode
 * Platform
 * Pipeline
 * Data Level
 * File Path to the Cloud Storage Location
 
-Commenting
-----------
-Any user who owns or has had a cohort shared with them can comment on it. To open comments, use the menu button at the
-top right and select “Comments”. A sidebar will appear on the right side and any previously created comments will be
-shown.
+Viewing a Sequence
+==================
 
-On the bottom of the comments sidebar, you can create a new comment and save it. It should appear at the bottom of the
-list of comments.
+When available, sequences in a cohort can be viewed using the IGV viewer.  To find those sequences that can be viewed with the IGV viewer, open a cohort and select the "View File List" link at the bottom of the "Public Data Availability" panel.  The files associated with your cohort will be shown, with the last column showing if there is a view of the sequence available through the IGV viewer (indicated by a checkmark and "Go to IGV").  Selecting that link will take you to the sequence view of the file, viewed in the IGV viewer.
 
 Deleting a cohort
 =================
 
-From the dashboard:
+From the "SAVED COHORTS" page:
 Select the cohorts that you wish to delete using the checkboxes next to the cohorts. When one or more are selected, the
 delete button will be active and you can then proceed to deleting them.
 
 From within a cohort:
-If you are viewing a cohort you created, then you can delete the cohort from the top right menu option.
+If you are viewing a cohort you created, then you can delete the cohort using the delete button on the menu.
 
 Creating a Cohort from a Visualization
 ======================================
@@ -213,9 +222,8 @@ Put in a name for you newly selected cohort and click the “Save” button.
 Copying a cohort
 ================
 
-Copying a cohort can only be done from the cohort details page of the cohort you are want to copy.
+Copying a cohort can only be done from the cohort details page of the cohort you want to copy.
 
-When you are looking at the cohort you wish to copy, select the “Make A Copy” item from the top right menu.
+When you are looking at the cohort you wish to copy, select Duplicate from the top menu.
 
 This will take you to your copy of the cohort.
-
