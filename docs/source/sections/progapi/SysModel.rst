@@ -17,7 +17,9 @@ on which technology is used to host them:
 For users interested in performing custom analyses, accessing the data directly using these APIs 
 will provide greater flexibility.
 
-`Here </bigqueryGUI/linking big query to isb-cgc project.rst>`_ are instructions on how to see ISB-CGC data through the BigQuery Web UI.
+`Here </bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform.rst>`_ are instructions on how to access BigQuery from the Google Cloud Platform.
+`Here </bigqueryGUI/LinkingBigQueryToIsb-cgcProject.rst>`_ are instructions on how to see ISB-CGC data through the BigQuery Web UI.
+`Here </bigqueryGUI/WalkthroughOfGoogleBigQuery.rst>`_ is an example of how to query ISB-CGC data using BigQuery using multiple tables with Joins.
 
 The Cloud Paradigm
 ##################
