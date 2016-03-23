@@ -4,11 +4,9 @@ How to Access Big Query from the Google Cloud Platform
 
 The Big Query application functionality is accessed through a Google account identity (freely available with a new account or by linking to an existing email account). If you have not logged into the Google Cloud Platform application you will be presented with this page:
 
-.. image:: startscreen-nologin.png
+.. image:: SignIntoGCP.png
    :scale: 50
    :align: center
-
-Slide 1 here
 
 You login through the “Sign In” link at the upper right of the initial page (label “A” in the image above). Also on this page are links to a free-trail on the Google Cloud Platform (B) and (C), a link to contact google for any issues regarding the google cloud platform (D), a link to more information about why use Google Cloud platform (E).
 
