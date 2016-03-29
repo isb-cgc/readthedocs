@@ -6,7 +6,7 @@ This will serve as a guide to navigate through the Google tool for Big Query and
 ***************
 Gaining Access
 ***************
-Please refer to documentation on `how to access big query from google cloud </bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform.rst>`_. 
+Please refer to documentation on `how to access big query from google cloud </bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform.rst>`_ if you have not done this before. 
 
 Also to add ISB-CGC data to your Big Query platform please refer to the documentaion for `linking isb-cgc data to big query < 	LinkingBigQueryToIsb-cgcProject.rst>`_.
 
@@ -22,7 +22,7 @@ Below are the list of tables that can be accessed once you have linked your plat
  This specific dataset contains data from the Broad-Novartis Cancer Cell Line Encyclopedia (CCLE) project and is being redistributed with permission from the Broad Institute.
 
  
- Neither the CCLE project nor the Broad institute are responsible for any errors that may have been made when creating these tables.  For more information about the CCLE project and to access the original datasets, please refer to the CCLE website: http://www.broadinstitute.org/ccle/home
+ Neither the CCLE project nor the Broad institute are responsible for any errors that may have been made when creating these tables.  For more information about the CCLE project and to access the original datasets, please refer to the `CCLE website.  <http://www.broadinstitute.org/ccle/home>`_
 
 * **isb-cgc:genome_reference**
 
