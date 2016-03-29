@@ -25,3 +25,9 @@ Once this has been completed the user will then see all of the buckets associate
 .. image:: ISB-CGCBiqQueryDatasets.png
    :scale: 50
    :align: center
+
+================================================
+Other Genomics BigQuery Data Available on Google
+================================================
+
+Google has made available in BigQuery other genomics datasets that can be used in joins with the ISB-CGC datasets we provide.  The current list can be found here.
