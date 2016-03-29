@@ -22,6 +22,6 @@ As shown in the image above you will type in "isb-cgc" in the project id then cl
 
 Once this has been completed the user will then see all of the buckets associated with isb-cgc on the left hand side above public data sets (see screenshot below).
 
-.. image:: AddISB-CGCProject.png
+.. image:: ISB-CGCBiqQueryDatasets.png
    :scale: 50
    :align: center
