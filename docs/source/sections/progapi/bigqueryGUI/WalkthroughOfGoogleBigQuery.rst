@@ -1,13 +1,14 @@
 ==================================
 Walk Through of Google Big Query
 ==================================
-This will serve as a guide to navigate thought the Google tool Big Query
+This will serve as a guide to navigate through the Google tool for Big Query and do some introductory queiries using isb-cgc TCGA data.
 
 ***************
 Gaining Access
 ***************
-Please refer to documentation on `how to access big query from google cloud</bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform.rst>`_ . 
-Also too add ISB-CGC data to your Big Query platform please refer to (insert link linking isb-cgc to big query).
+Please refer to documentation on `how to access big query from google cloud </bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform.rst>`_. 
+
+Also to add ISB-CGC data to your Big Query platform please refer to the documentaion for `linking isb-cgc data to big query < 	LinkingBigQueryToIsb-cgcProject.rst>`_.
 
 *******
 Tables
