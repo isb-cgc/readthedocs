@@ -22,7 +22,7 @@ Upon signing in with a Google account identity, you will be presented with the f
 This is your personal “Dashboard” where your compute engine (A), Google APIs(C), App Engine(D), Big Query, cloud storage bucket (F) is readily accessible. Google also provides documentation for additional information if needed (E). Additional documentation describing how to use each component of this user interface are provided in the individual subsections of this documentation.
 We strongly recommend the user to try the risk free trial for 60 days(H). Once project is created the user has access to the Google cloud platform and its products (I) and (B). 
 
-Google products and services may also be accessed through (G). Scroll down to to Big Query and open it (see figure below).
+Google products and services may also be accessed through (G). Scroll down to to Big Query and open it (see screenshot below).
 
 .. image:: BigQuerySelect.png
    :scale: 50
