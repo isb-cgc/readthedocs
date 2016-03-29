@@ -8,7 +8,7 @@ Gaining Access
 ***************
 Please refer to documentation on `how to access big query from google cloud </bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform.rst>`_ if you have not done this before. 
 
-Also to add ISB-CGC data to your Big Query platform please refer to the documentaion for `linking isb-cgc data to big query < 	LinkingBigQueryToIsb-cgcProject.rst>`_.
+Also to add ISB-CGC data to your Big Query platform please refer to the documentaion for `linking isb-cgc data to BigQuery <LinkingBigQueryToIsb-cgcProject.rst>`_.
 
 *******
 Tables
