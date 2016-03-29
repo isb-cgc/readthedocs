@@ -4,7 +4,7 @@ Linking Big Query to ISB-CGC Project
 
 To obtain access to the ISB-CGC project tables in big query you must link your account to ISB-CGC. 
 
-Upon access Big Query from your Google Cloud Platform Console (see link here), you will be presented with the following page:
+Upon access Big Query from your Google Cloud Platform Console (see link `here <HowToAccessBigQueryFromTheGoogleCloudPlatform.rst>`_ for more information on this), you will be presented with the following page:
 
 .. image:: BlueArrowDropdown.png
    :scale: 50
@@ -30,4 +30,4 @@ Once this has been completed the user will then see all of the buckets associate
 Other Genomics BigQuery Data Available on Google
 ================================================
 
-Google has made available in BigQuery other genomics datasets that can be used in joins with the ISB-CGC datasets we provide.  The current list can be found here.
+Google has made available in BigQuery other genomics datasets that can be used in joins with the ISB-CGC datasets we provide.  The current list can be found `here <https://googlegenomics.readthedocs.org/en/latest/use_cases/discover_public_data/index.html>`_.
