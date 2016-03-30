@@ -6,9 +6,9 @@ This will serve as a guide to navigate through the Google tool for Big Query and
 ***************
 Gaining Access
 ***************
-Please refer to documentation on `how to access big query from google cloud </bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform.rst>`_ if you have not done this before. 
+Please refer to documentation on `how to access big query from the Google Console </bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform.rst>`_ if you have not done this before. 
 
-Also to add ISB-CGC data to your Big Query platform please refer to the documentaion for `linking isb-cgc data to BigQuery <LinkingBigQueryToIsb-cgcProject.rst>`_.
+Also to add ISB-CGC data to your Big Query platform please refer to the documentaion for `linking isb-cgc data to BigQuery in the Google Console <LinkingBigQueryToIsb-cgcProject.rst>`_.
 
 *******
 Tables
