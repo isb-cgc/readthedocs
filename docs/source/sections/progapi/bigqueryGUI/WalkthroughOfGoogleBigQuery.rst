@@ -1,5 +1,5 @@
 ==================================
-Walk Through of Google Big Query
+Walk Through of Google BigQuery
 ==================================
 This will serve as a guide to navigate through the Google tool for Big Query and do some introductory queiries using isb-cgc TCGA data.
 
