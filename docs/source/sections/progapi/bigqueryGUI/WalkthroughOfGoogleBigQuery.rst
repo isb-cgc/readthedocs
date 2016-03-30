@@ -30,7 +30,7 @@ Below are the list of tables that can be accessed once you have linked your plat
 
 * **isb-cgc:platform_reference**
 
- This dataset contains reference tables that have been compiled by the ISB-CGC team from publicly available sources.  Please see each table for details about the source of the information contained in that table.
+ This dataset contains platform reference tables that have been compiled by the ISB-CGC team from publicly available sources.  Specifically, these tables are used as additional documentation for results provided by instrumentation used in the TCGA project to collect data.
 
 * **isb-cgc:tcga_201510_alpha**
 
