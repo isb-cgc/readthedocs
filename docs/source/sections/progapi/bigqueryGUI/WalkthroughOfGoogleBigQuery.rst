@@ -66,22 +66,13 @@ WHERE
 AND
   STUDY = 'THCA' LIMIT 100
 
-
-**Storing SQL query in a file and passing to BQ:**
-
-cat query.sql | bq query
-
-Join example 
+**QUESTION BEING ASKED: Need the right text here**
 
 SELECT
-  xml.clinical.ParticipantBarcode,
-  xml.biospecimen.SampleBarcode,
-  xml.clinical.gender, 
-  xml.clinical.vital_status, 
-  xml.clinical.days_to_death, 
-  mutation.Variant_Classification, 
-  mutation.Hugo_Symbol,
-  mutation.DbSNP_RS
+  xml.clinical.ParticipantBarcode,xml.biospecimen.SampleBarcode,xml.clinical.gender,xml.clinical.vital_status,xml.clinical.days_to_death,
+  
+  mutation.Variant_Classification, mutation.Hugo_Symbol, mutation.DbSNP_RS
+  
 FROM (
   SELECT 
   clinical.ParticipantBarcode,
