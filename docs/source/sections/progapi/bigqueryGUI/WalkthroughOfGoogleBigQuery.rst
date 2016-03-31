@@ -46,7 +46,9 @@ Below are the list of tables that can be accessed once you have linked your plat
 ************************
 Syntax Queries Examples
 ************************
-Below are some sample queries that will get you started using ISB-CGC data in the analysis.
+Below are some sample queries that will get you started using ISB-CGC data in the analysis.  One easy way is to use the BiqQuery Browser Tool (see screenshot below).  See Google's BiqQuery Browser Tool Tutorial for more general details of how to use this tool.
+
+The examples below describe the question that is being asked, and an example BigQuery SQL syntax that can be used to find the answer.
 
 
 **QUESTION BEING ASKED: Find all THCA participants with UNC genex data in the ARID1B gene**
