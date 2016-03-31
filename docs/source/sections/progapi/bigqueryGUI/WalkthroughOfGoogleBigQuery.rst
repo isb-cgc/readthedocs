@@ -48,7 +48,7 @@ Syntax Queries Examples
 ************************
 Below are some sample queries that will get you started using ISB-CGC data in the analysis.  One easy way is to use the BiqQuery Browser Tool (see screenshot below).  See Google's `BiqQuery Browser Tool Tutorial <https://developers.google.com/bigquery/docs/hello_bigquery_gui>`_ for more general details of how to use this tool.
 
-.. image:: BigQueryExample1Query.png
+.. image:: BigQueryExample1Query.PNG
    :scale: 50
    :align: center
 
