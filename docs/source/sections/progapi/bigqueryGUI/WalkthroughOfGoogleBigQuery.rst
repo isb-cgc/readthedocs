@@ -46,10 +46,10 @@ Below are the list of tables that can be accessed once you have linked your plat
 ************************
 Syntax Queries Examples
 ************************
-Below are a list of queries that can and should be used for analysis.
+Below are some sample queries that will get you started using ISB-CGC data in the analysis.
 
 
-**Tries to find all THCA participants with UNC genex data in the ARID1B gene**
+**QUESTION BEING ASKED: Find all THCA participants with UNC genex data in the ARID1B gene**
 
 Select
   ParticipantBarcode, Study, original_gene_symbol, HGNC_gene_symbol, gene_id
