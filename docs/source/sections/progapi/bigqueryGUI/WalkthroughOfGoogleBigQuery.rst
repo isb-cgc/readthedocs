@@ -46,7 +46,11 @@ Below are the list of tables that can be accessed once you have linked your plat
 ************************
 Syntax Queries Examples
 ************************
-Below are some sample queries that will get you started using ISB-CGC data in the analysis.  One easy way is to use the BiqQuery Browser Tool (see screenshot below).  See Google's BiqQuery Browser Tool Tutorial for more general details of how to use this tool.
+Below are some sample queries that will get you started using ISB-CGC data in the analysis.  One easy way is to use the BiqQuery Browser Tool (see screenshot below).  See Google's `BiqQuery Browser Tool Tutorial <https://developers.google.com/bigquery/docs/hello_bigquery_gui>`_ for more general details of how to use this tool.
+
+.. image:: BlueArrowDropdown.png
+   :scale: 50
+   :align: center
 
 The examples below describe the question that is being asked, and an example BigQuery SQL syntax that can be used to find the answer.
 
