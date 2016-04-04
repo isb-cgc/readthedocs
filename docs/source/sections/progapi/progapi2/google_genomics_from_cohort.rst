@@ -4,7 +4,7 @@ Returns a list of Google Genomics dataset and readgroupset ids associated with a
 
 **Example**
 
-$ python isb_curl.py "https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/google_genomics_from_sample?cohort_id={YOUR_COHORT_ID}"
+$ python isb_curl.py "https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/google_genomics_from_cohort?cohort_id={YOUR_COHORT_ID}"
 
 **Request**
 
