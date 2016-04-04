@@ -13,7 +13,7 @@ Here you will find information describing the features of the ISB-CGC platform,
 tips on how to use it, and details about the data that we are hosting on the 
 Google Cloud Platform.
 
-.. image:: three-personae.png
+.. image:: new-block-three-p.png
    :scale: 50
    :align: center
 
