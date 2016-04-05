@@ -79,4 +79,4 @@ Google also provides a query reference guide
 ***************
 Important Note
 ***************
-Insert here information about how much does it cost per query in using the google big query.
+`Here <https://cloud.google.com/bigquery/pricing>`_ is information about how much does it costs to use BigQuery.
