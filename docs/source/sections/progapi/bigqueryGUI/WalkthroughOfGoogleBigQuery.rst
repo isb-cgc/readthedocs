@@ -52,7 +52,7 @@ Below are some sample queries that will get you started using ISB-CGC data in th
    :scale: 50
    :align: center
 
-The examples below describe the question that is being asked, and an example BigQuery SQL syntax that can be used to find the answer.
+The example below shows the question that is being asked, and an example BigQuery SQL syntax that can be used to find the answer.  Try it yourself by pasting the query into your own instance of the BigQuery Browser Tool.
 
 
 **QUESTION BEING ASKED: Find all THCA participants with UNC genex data in the ARID1B gene**
@@ -65,99 +65,6 @@ WHERE
   original_gene_symbol = 'ARID1B'
 AND
   STUDY = 'THCA' LIMIT 100
-
-**QUESTION BEING ASKED: Need the right text here**
-
-SELECT
-  xml.clinical.ParticipantBarcode,xml.biospecimen.SampleBarcode,xml.clinical.gender,xml.clinical.vital_status,xml.clinical.days_to_death,
-  
-  mutation.Variant_Classification, mutation.Hugo_Symbol, mutation.DbSNP_RS
-  
-FROM (
-  SELECT 
-  clinical.ParticipantBarcode,
-  biospecimen.SampleBarcode,
-  clinical.gender,
-  clinical.vital_status,
-  clinical.days_to_death
-  FROM
-  [isb-cgc:tcga_201510_alpha.Clinical_data] AS clinical
-  JOIN
-  [isb-cgc:tcga_201510_alpha.Biospecimen_data] AS biospecimen
-  ON
-  clinical.ParticipantBarcode = biospecimen.ParticipantBarcode
-WHERE
-  biospecimen.Study = 'BRCA' AND biospecimen.SampleTypeLetterCode = 'TP') AS xml JOIN [isb-cgc:tcga_201510_alpha.Somatic_Mutation_calls] AS mutation ON xml.biospecimen.SampleBarcode = mutation.Tumor_SampleBarcode where mutation.Hugo_Symbol = 'TP53' limit 10
-
-More examples and discussions as to how to create a join query follow the link below.
-
- -http://stackoverflow.com/questions/12333401/joining-3-tables-in-google-bigquery
-
- -https://groups.google.com/forum/#!topic/bigquery-discuss/MW8LyeYE6fA
-
-
-**Four-Table Q uery**
-
-SELECT
-  xml.clinical.ParticipantBarcode,
-  xml.biospecimen.SampleBarcode,
-  xml.biospecimen.SampleType,
-  xml.clinical.gender,
-  xml.clinical.vital_status,
-  xml.clinical.days_to_death,
-  mut.Variant_Classification,
-  mut.Hugo_Symbol,
-  mut.DbSNP_RS,
-  genex.normalized_count
-FROM (
-  SELECT
-    clinical.ParticipantBarcode,
-    biospecimen.SampleBarcode,
-    biospecimen.SampleType,
-    clinical.gender,
-    clinical.vital_status,
-    clinical.days_to_death
-  FROM
-    [isb-cgc:tcga_201510_alpha.Clinical_data] AS clinical
-  JOIN
-    [isb-cgc:tcga_201510_alpha.Biospecimen_data] AS biospecimen
-  ON
-    clinical.ParticipantBarcode = biospecimen.ParticipantBarcode
-  WHERE
-    biospecimen.Study = 'BRCA') AS xml
-JOIN (
-  SELECT
-    mutation.ParticipantBarcode,
-    mutation.Hugo_Symbol,
-    mutation.Variant_Classification,
-    mutation.DbSNP_RS
-  FROM
-    [isb-cgc:tcga_201510_alpha.Somatic_Mutation_calls] AS mutation
-  WHERE
-    mutation.Hugo_Symbol = 'TP53') AS mut
-ON
-  xml.clinical.ParticipantBarcode = mut.mutation.ParticipantBarcode
-JOIN (
-  SELECT
-    expression.ParticipantBarcode,
-    expression.normalized_count
-  FROM
-    [isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM] AS expression
-  WHERE
-    HGNC_gene_symbol = 'MDM2' ) AS genex
-ON
-  xml.clinical.ParticipantBarcode = genex.expression.ParticipantBarcode
-LIMIT
-  100
-
-More examples and discussions as to how to create a four table query follow the link below.
-
- -http://stackoverflow.com/questions/12333401/joining-3-tables-in-google-bigquery
-
- -https://groups.google.com/forum/#!topic/bigquery-discuss/MW8LyeYE6fA
- 
- -http://stackoverflow.com/questions/27856361/bigquery-nested-challenge-involving-joins-and-having-or-where-clauses
-
 
 For Additional Google Support
 =============================
