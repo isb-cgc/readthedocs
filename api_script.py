@@ -488,12 +488,10 @@ def write_rst_file_response_section(method):
 
 def main():
 
-    # methods_list = get_methods_list()
-    # methods_pathnames_list = get_methods_pathnames_list()
-    # for method_path_name in methods_pathnames_list:
-    #     create_new_rst_file(method_path_name)
-
-    methods_list = ['preview', 'save']
+    methods_list = get_methods_list()
+    methods_pathnames_list = get_methods_pathnames_list()
+    for method_path_name in methods_pathnames_list:
+        create_new_rst_file(method_path_name)
 
     for method in methods_list:
         write_rst_file_header(method)
