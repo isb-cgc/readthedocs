@@ -4,7 +4,7 @@ Deletes a cohort. User must have owner permissions on the cohort.
 
 **Example**
 
-$ python isb_curl.py "https://api-dot-mvm-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/delete_cohort?cohort_id={YOUR_COHORT_ID}"
+$ python isb_curl.py "https://api-dot-mvm-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/delete_cohort?cohort_id={YOUR_COHORT_ID}" -d '{}'
 
 **Request**
 
