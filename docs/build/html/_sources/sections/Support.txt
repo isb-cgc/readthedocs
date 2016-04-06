@@ -19,7 +19,10 @@ For feature-requests or bug-reports, please send e-mail to feedback@isb-cgc.org.
 Your Own GCP project
 ####################
 
-To request a Google Cloud Platform (GCP) project, please send a request to request-gcp@isb-cgc.org.
+To request an ISB-CGC funded Google Cloud Platform (GCP) project, please send a request to request-gcp@isb-cgc.org.
+(Note that if you *already* have a GCP project, and are not requesting funds as part of our
+community evaluation phase, you do not need a separate GCP project in order to work with ISB-CGC
+hosted data or tools.)
 
 In your request, please describe your research goals in some detail, including information such as the type 
 of data that you plan to use (whether it is your own data that you plan to upload or

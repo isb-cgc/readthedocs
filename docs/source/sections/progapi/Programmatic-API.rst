@@ -34,7 +34,7 @@ This starts an oauth flow, opening a browser tab and asking the user to log in w
 
 If a user is running this script via ssh, the --noauth_local_webserver flag will allow the user to obtain a verification code through their local browser.
 
-Step 2: User accesses endpoint with $ python `isb_curl.py<https://github.com/isb-cgc/ISB-CGC-Webapp/blob/master/scripts/isb_curl.py>`_
+Step 2: User accesses endpoint with $ python `isb_curl.py <https://github.com/isb-cgc/ISB-CGC-Webapp/blob/master/scripts/isb_curl.py>`_
 
 Once the credentials file is stored on the user's home directory, they can access any API requiring authentication with the command:
 
@@ -53,7 +53,6 @@ The Cohort API currently bundles several different cohort-related endpoints:
    progapi2/delete_cohort.rst
    progapi2/google_genomics_from_cohort.rst
    progapi2/google_genomics_from_sample.rst
-   progapi2/patient_details.rst
    progapi2/patient_details.rst
    progapi2/preview_cohort.rst
    progapi2/sample_details.rst

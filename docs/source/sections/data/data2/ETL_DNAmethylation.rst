@@ -1,5 +1,5 @@
-DNA Methylation
-===============
+Methylation (DNA)
+=================
 
 The 
 `DNA Methylation <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.DNA_Methylation_betas>`_

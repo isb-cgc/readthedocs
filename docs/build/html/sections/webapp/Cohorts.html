@@ -25,10 +25,7 @@
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/custom.js"></script>
-    <link rel="top" title="ISB Cancer Genomics Cloud 1.0.0 documentation" href="../../index.html" />
-    <link rel="up" title="Web Interface" href="../Web-UI.html" />
-    <link rel="next" title="Visualizations" href="Visualizations.html" />
-    <link rel="prev" title="User Dashboard" href="User-Dashboard.html" /> 
+    <link rel="top" title="ISB Cancer Genomics Cloud 1.0.0 documentation" href="../../index.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -37,14 +34,7 @@
         <li class="right" style="margin-right: 10px">
           <a href="../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="Visualizations.html" title="Visualizations"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="User-Dashboard.html" title="User Dashboard"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">ISB Cancer Genomics Cloud 1.0.0 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="../Web-UI.html" accesskey="U">Web Interface</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">ISB Cancer Genomics Cloud 1.0.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -69,10 +59,10 @@ This will take you to the cohort creation page.</p>
 that you are interested in.
 By clicking on a feature, the field will expand and provide you with additional filtering options.
 For example, when you click on “Vital Status”, it expands and provides a list of “Alive”, “Dead”, and
-“None” as options to
-choose from. Selecting one or more of these will cause the filter(s) to appear in the Selected Filters
+“None” as options to choose from.
+Selecting one or more of these will cause these filter(s) to appear in the Selected Filters
 panel and visualizations on the page
-will be updated to reflect that the current cohort that has been filtered by Vital Status.
+will be updated to reflect that the current cohort is the result of the specified filtering operations.
 The numbers beside the selectable
 filter values reflect the number of samples that have that attribute based on all other filters that
 have been selected.</p>
@@ -118,7 +108,7 @@ have been selected.</p>
 </div>
 <div class="section" id="selected-filters-panel">
 <h5>Selected Filters Panel<a class="headerlink" href="#selected-filters-panel" title="Permalink to this headline">¶</a></h5>
-<p>This is where selected filters are shown so there is an easy way to see what filters have been selected.
+<p>This is where selected filters are shown so there is an easy way to see which filters have been selected.
 Clicking on “Clear All” will remove all selected filters.</p>
 </div>
 <div class="section" id="clinical-features-panel">
@@ -131,7 +121,7 @@ handful of features:
 * Tumor Tissue Site
 * Gender
 * Age at Initial Pathologic Diagnosis
-By using the “Show More” button, you can see two more tree maps that are currently available.</p>
+By using the “Show More” button, you can see two more treemaps that are currently available.</p>
 </div>
 <div class="section" id="data-availability-panel">
 <h5>Data Availability Panel<a class="headerlink" href="#data-availability-panel" title="Permalink to this headline">¶</a></h5>
@@ -154,13 +144,13 @@ platforms by dragging the platform names up and down.</p>
 <h3>Set Operations<a class="headerlink" href="#set-operations" title="Permalink to this headline">¶</a></h3>
 <p>You can create cohorts using set operations on the User Dashboard page.</p>
 <p>To activate the set operations button, you must have at least one cohort selected. Upon clicking the “Set Operations”
-button, a dialogue box will appear. Here you may do the following things:
-* Enter in a name for the new cohort you’re about to create.
+button, a dialogue box will appear. Here you may choose between the following actions:
+* Enter the name for the new cohort to be created.
 * Select a set operation.
-* Edit cohorts to be used in the operation.</p>
+* Select cohorts to be used in the operation.</p>
 <p>The intersect and union operations can take any number of cohorts and in any order.
-The complement operation requires that there be a base cohort, from which the other cohorts will be subtracted from.
-Click “Okay” to complete the operation and create the new cohort.</p>
+The complement operation requires that there be a base cohort, from which the other cohorts will be subtracted.
+Click “OK” to complete the operation and create the new cohort.</p>
 </div>
 <div class="section" id="editing-a-cohort">
 <h3>Editing a Cohort<a class="headerlink" href="#editing-a-cohort" title="Permalink to this headline">¶</a></h3>
@@ -168,10 +158,10 @@ Click “Okay” to complete the operation and create the new cohort.</p>
 <div class="section" id="main-menu">
 <h4>Main Menu<a class="headerlink" href="#main-menu" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
-<li>Add New Filters: Selecting this menu item make the filters panel appear. And filters selected will be additive to any filters that have already been selected. To return to the previous view, you much either save any selected filters, or choose to cancel adding any new filters.</li>
-<li>Comments: Selecting “Comments” will cause the Comments panel to appear. Here anyone who can see this cohort can comment on it. Comments are shared with anyone who can view this cohort and ordered by newest on the bottom.</li>
+<li>Add New Filters: Selecting this menu item make the filters panel appear. Any filters selected will be additive to any filters that have already been selected. To return to the previous view, you must either save the newly selected filters, or choose to cancel adding any new filters.</li>
+<li>Comments: Selecting “Comments” will cause the Comments panel to appear. Here anyone who can see this cohort can comment on it. Comments are shared with anyone who can view this cohort and ordered such that the newest comment is at the bottom.</li>
 <li>Make a Copy: Making a copy will create a copy of this cohort with the same list of samples and patients and make you the owner of the copy.</li>
-<li>Share with Others: This behaves similarly to on the User Dashboard page. A dialogue box appears and the user is prompted to select users that are registered in the system to share the cohort with.</li>
+<li>Share with Others: A dialogue box appears and the user is prompted to select one or more other users who are registered in the system to share the cohort with. (This capability is also available on the User Dashboard page.)</li>
 </ul>
 </div>
 <div class="section" id="id1">
@@ -181,35 +171,39 @@ any additional filters applied to this cohort will be appended to the list.</p>
 </div>
 <div class="section" id="details-panel">
 <h4>Details Panel<a class="headerlink" href="#details-panel" title="Permalink to this headline">¶</a></h4>
-<p>This panel displays the number of samples and participant in this cohort. These vary because some participants may have
-provided multiple samples.
+<p>This panel displays the number of samples and participants in this cohort.  (The number of participants
+and the number of samples may differ because a participant may have provided more than one sample.  In the
+TCGA dataset, most participants provided 2 samples.)
 This panel also displays “Your Permissions” which can be either owner or reader.</p>
 </div>
 <div class="section" id="id2">
 <h4>Clinical Features Panel<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
-<p>This panel shows a list of treemaps that give a high level break of the samples for a handful of features:
+<p>This panel shows a list of treemaps that give a high level breakdown of the samples based on the following features:
 * Disease Code
 * Vital Status
 * Sample Type
 * Tumor Tissue Site
 * Gender
 * Age at Initial Pathologic Diagnosis</p>
-<p>By using the “Show More” button, you can see two more tree maps available.</p>
+<p>By using the “Show More” button, you can see two more treemaps available.</p>
 </div>
 <div class="section" id="id3">
 <h4>Data Availability Panel<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
-<p>This panel shows a parallel sets graph of available data for the selected samples in the cohort. The large headers over
-the vertical bars are data types. Each data type is broken up into their different platforms and “NA” for samples that
-do not have that data type. The bars that flow horizontally indicate the number of samples that have that data. By
-hovering on a horizontal segment between the first two bars, you will see the number of data that have both those data
-type platforms. You can also reorder the vertical categories by dragging the headers left and right and reorder the
+<p>This panel shows a parallel-sets graph of available data for the selected samples in the cohort. The large headers over
+the vertical bars are data types. Each data-type line (vertical bar) is divided into segments representing the
+different platforms (as necessary), and an additional &#8220;NA&#8221; segment for samples for which that type of data is not
+available.
+The lines that flow horizontally represent individual samples. By
+hovering on a horizontal segment between the first two bars, you will see the number of samples for which
+both of those data types are available.
+You can also reorder the vertical categories by dragging the headers left and right and reorder the
 platforms by dragging the platform names up and down.</p>
-<p>“View File List” takes you to a new page where you can view the file list associated to the cohort you are looking at.
-The file list page provides a paginated list of files available with all samples in the cohort. Here, “available” refers
+<p>“View File List” takes you to a new page where you can view the file list associated with the current cohort.
+The file list page provides a paginated list of files available for the samples in the cohort. Here, “available” refers
 to files that have been uploaded to the ISB-CGC Google Cloud Project and that are open access data. You can use the
 “Previous Page” and “Next Page” to show more values in the list.
 You may filter on these files if you are only interested in a specific data type and platform. Selecting a filter will
-update the list associated. The numbers next to the platform refers to the number of files available for that platform.
+update the list appropriately. The numbers next to the platform refers to the number of files available for that platform.
 There is only one menu item available and that is the “Download File List as CSV”. Selecting this item will begin a
 download process of all the files available for the cohort, taking into account the selected Platform filters. The file
 contains the following information for each file:
@@ -221,7 +215,7 @@ contains the following information for each file:
 </div>
 <div class="section" id="commenting">
 <h4>Commenting<a class="headerlink" href="#commenting" title="Permalink to this headline">¶</a></h4>
-<p>Any user who owns or has had a cohort shared with them can comment on it. To open comments, use the menu button at the
+<p>Any user who owns or has read-access to a cohort may comment on it. To open comments, use the menu button at the
 top right and select “Comments”. A sidebar will appear on the right side and any previously created comments will be
 shown.</p>
 <p>On the bottom of the comments sidebar, you can create a new comment and save it. It should appear at the bottom of the
@@ -232,24 +226,24 @@ list of comments.</p>
 <h3>Deleting a cohort<a class="headerlink" href="#deleting-a-cohort" title="Permalink to this headline">¶</a></h3>
 <p>From the dashboard:
 Select the cohorts that you wish to delete using the checkboxes next to the cohorts. When one or more are selected, the
-delete button will be active and you can then proceed to deleting them.</p>
+delete button will be active and you can then proceed to delete them.</p>
 <p>From within a cohort:
 If you are viewing a cohort you created, then you can delete the cohort from the top right menu option.</p>
 </div>
 <div class="section" id="creating-a-cohort-from-a-visualization">
 <h3>Creating a Cohort from a Visualization<a class="headerlink" href="#creating-a-cohort-from-a-visualization" title="Permalink to this headline">¶</a></h3>
-<p>To create a cohort from a visualization, you must be in plot selection mode. If you are in plot selection mode, the
-crosshairs icon in the top right corner of the plot panel should be blue. If it is not, click on it and it should turn
-blue.</p>
+<p>To create a cohort directly from a visualization, you must be in <em>plot selection</em> mode.  The current mode is indicated
+by the crosshairs icon in the top right corner of the plot panel.  If it is blue, you are in <em>plot selection</em>
+mode.  Click on the crosshairs icon to change the mode.</p>
 <p>Once in plot selection mode, you can click and drag your cursor of the plot area to select the desired samples. For a
 cubbyhole plot, you will have to select each cubby that you are interested in.</p>
-<p>When your selection has been made, a small window should appear that contains a button labelled “Save as Cohort”. Click
+<p>When your selection has been made, a small window will appear that contains a button labeled “Save as Cohort”. Click
 on this when you are ready to create a new cohort.</p>
-<p>Put in a name for you newly selected cohort and click the “Save” button.</p>
+<p>Enter a name for you newly selected cohort and click the “Save” button.</p>
 </div>
 <div class="section" id="copying-a-cohort">
 <h3>Copying a cohort<a class="headerlink" href="#copying-a-cohort" title="Permalink to this headline">¶</a></h3>
-<p>Copying a cohort can only be done from the cohort details page of the cohort you are want to copy.</p>
+<p>Copying a cohort can only be done from the cohort details page of the cohort you want to copy.</p>
 <p>When you are looking at the cohort you wish to copy, select the “Make A Copy” item from the top right menu.</p>
 <p>This will take you to your copy of the cohort.</p>
 <hr class="docutils" />
@@ -302,12 +296,6 @@ Have feedback or corrections?  You can file an issue <a class="reference externa
 </li>
 </ul>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="User-Dashboard.html"
-                        title="previous chapter">User Dashboard</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="Visualizations.html"
-                        title="next chapter">Visualizations</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -338,14 +326,7 @@ Have feedback or corrections?  You can file an issue <a class="reference externa
         <li class="right" style="margin-right: 10px">
           <a href="../../genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="Visualizations.html" title="Visualizations"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="User-Dashboard.html" title="User Dashboard"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">ISB Cancer Genomics Cloud 1.0.0 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="../Web-UI.html" >Web Interface</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../../index.html">ISB Cancer Genomics Cloud 1.0.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

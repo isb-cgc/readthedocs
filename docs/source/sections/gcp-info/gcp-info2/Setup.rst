@@ -5,10 +5,10 @@ This setup guide assumes that you are already a member of a GCP project with eit
 "Owner" or "Editor" rights.  If you need a GCP project, you may request one as part of
 the ISB-CGC community evaluation phase going on now.
 
-Google Developers Console
-=========================
+Google Cloud Console
+====================
 If you are new to the Google Cloud, it is a good idea to become familiar with the 
-`Developers Console <https://console.developers.google.com>`_ (which we will 
+`Cloud Console <https://console.cloud.google.com>`_ (which we will 
 generally refer to simply as the Console).  You can get help from within the Console
 by clicking on the Help (question mark) icon near the upper right-hand corner.
 The Console provides a convenient web UI for managing resources within your cloud project, 

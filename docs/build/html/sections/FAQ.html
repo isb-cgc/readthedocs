@@ -76,11 +76,12 @@ to the TCGA data, <em>without</em> necessarily inserting an extra interface laye
 component of the ISB-CGC is a web-app (running on Google App Engine), some users may prefer not to go through
 the web-app to access other components of the ISB-CGC.  For example, the open-access TCGA data
 that we have loaded into BigQuery tables can be accessed directly via the
-<cite>BigQuery web interface &lt;https://www.bigquery.cloud.google.com&gt;</cite> or from Python or R.  Similarly,
+<a class="reference external" href="https://www.bigquery.cloud.google.com">BigQuery web interface</a> or from Python or R.  Similarly,
 the ISB-CGC programmatic API is a REST service that can be used from many different
 programming languages.</p>
 <p>The connection between your GCP project (whether it is an ISB-CGC sponsored and funded project
-or your own personal project) is your Google identity (also referred to as your &#8220;user credentials&#8221;).
+or your own personal project) and the ISB-CGC is your Google identity
+(also referred to as your &#8220;user credentials&#8221;).
 Access to all ISB-CGC hosted data is controlled using access control lists (ACLs) which define the
 permissions attached to each dataset, bucket, or object.</p>
 </div>
@@ -97,7 +98,8 @@ and enter &#8220;isb-cgc&#8221; (without quotes) in the text box labeled &#8220;
 datasets and tables will now be visible in the left side-bar of the BigQuery web interface.
 Note that in order to use BigQuery, you need to be a member of a Google Cloud Project.</p>
 <p><strong>How can I apply for access to the low-level DNA and RNA sequence data?</strong>
-In order to access the TCGA controlled-access data, you will need to apply to <a class="reference external" href="https://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&amp;page=login">dbGaP</a>.</p>
+In order to access the TCGA controlled-access data, you will need to apply to <a class="reference external" href="https://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&amp;page=login">dbGaP</a>.
+Please also review our section on <strong>Understanding Data Security</strong>.</p>
 <p><strong>I have dbGaP authorization.  How do I provide this information to the ISB-CGC platform?</strong>
 In order for us to verify your dbGaP authorization, you first need to associate your Google identity
 (used to sign-in to the web-app) with a valid NIH login (<em>eg</em> your eRA Commons id).  After you have
@@ -105,7 +107,8 @@ signed in, click on your avatar (next to your name in the upper-right corner)
 and you will be taken to your account details page where you can
 verify your dbGaP authorization.  You will be redirected to the NIH iTrust login page and after you
 successfully authenticate you will be brought back to the ISB-CGC web-app.  After you successfully
-authenticate, we will verify that you also have dbGaP authorization for the TCGA controlled-access data.</p>
+authenticate, we will verify that you also have dbGaP authorization for the TCGA controlled-access data.
+We also ask that you review our section on <strong>Understanding Data Security</strong>.</p>
 <p><strong>My professor has dbGaP authorization.  Do I have to have my own authorization too?</strong>
 Yes, your professor will need to add you as a &#8220;data downloader&#8221; to his/her dbGaP application so that you
 have your own dbGaP authorization associated with your own eRA Commons id.
