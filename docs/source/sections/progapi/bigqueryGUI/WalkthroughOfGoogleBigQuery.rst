@@ -82,6 +82,26 @@ Stage 1
 Finding the patients with bladder cancer that have mutations in the CDKN2A gene, and displaying the patient ID and 
 the type of mutation
 
+SELECT
+  mutation.ParticipantBarcode,
+  mutation.Variant_Type
+FROM
+  [isb-cgc:tcga_201510_alpha.Somatic_Mutation_calls] AS mutation
+WHERE
+  mutation.Hugo_Symbol = 'CDKN2A'
+  AND Study = 'BLCA'
+GROUP BY
+  mutation.ParticipantBarcode,
+  mutation.Variant_Type
+ORDER BY
+  mutation.ParticipantBarcode
+
+.. image:: BigQueryExample2Query.PNG
+   :scale: 50
+   :align: center  
+   
+We now have the list of patients that have a mutation in the CDKN2A gene and the type of mutation.
+
 For Additional Google Support
 =============================
 Google provides its users with a detailed explanation of Big Query and how it works. 
