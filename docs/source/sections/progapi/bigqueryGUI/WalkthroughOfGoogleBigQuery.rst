@@ -203,7 +203,10 @@ WHERE
 ORDER BY
   ParticipantBarcode,
   HGNC_gene_symbol
-  
+
+.. image:: BigQueryExample4Query.PNG
+   :scale: 50
+   :align: center  
 
 *****************************
 For Additional Google Support
