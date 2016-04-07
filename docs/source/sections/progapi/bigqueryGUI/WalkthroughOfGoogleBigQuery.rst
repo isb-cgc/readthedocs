@@ -50,6 +50,8 @@ Below are some sample queries that will get you started using ISB-CGC data in th
 
 The examples below show the question that is being asked, and an example BigQuery SQL syntax that can be used to find the answer.  Try it yourself by pasting the query into your own instance of the BigQuery Browser Tool.
 
+Getting information from one table
+##################################
 
 **QUESTION BEING ASKED: Find all THCA participants with UNC genex data in the ARID1B gene**
 
@@ -60,7 +62,8 @@ FROM
 WHERE
   original_gene_symbol = 'ARID1B'
 AND
-  STUDY = 'THCA' LIMIT 100
+  STUDY = 'THCA'
+LIMIT 100
   
 .. image:: BigQueryExample1Query.PNG
    :scale: 50
