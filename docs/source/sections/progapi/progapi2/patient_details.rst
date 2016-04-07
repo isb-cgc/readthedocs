@@ -2,15 +2,15 @@ patient_details
 ###############
 Returns information about a specific participant, including a list of samples and aliquots derived from this patient. Takes a participant barcode (of length 12, *eg* TCGA-B9-7268) as a required parameter. User does not need to be authenticated.
 
-**Example**
+**Example**::
 
-curl "https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/patient_details?patient_barcode=TCGA-ZH-A8Y6"
+	curl "https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/patient_details?patient_barcode=TCGA-ZH-A8Y6"
 
 **Request**
 
-HTTP request
+HTTP request::
 
-GET https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/patient_details``
+	GET https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/patient_details
 
 **Parameters**
 
@@ -18,7 +18,7 @@ GET https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/patient_details``
 	:header: "**Parameter name**", "**Value**", "**Description**"
 	:widths: 50, 10, 50
 
-	patient_barcode,string,Required.
+	patient_barcode,string,"Required. "
 
 
 Response
