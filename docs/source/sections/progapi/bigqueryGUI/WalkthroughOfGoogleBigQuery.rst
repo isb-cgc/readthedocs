@@ -215,9 +215,9 @@ Note that the final join surrounds the previous join top and bottom.  This is co
 You can either download the results from a query in either CV or JSON format, or save it for further analysis in Google BigQuery by the "Save as Table" button.  As the next section describes, large queries continuing to combine multiple tables in a gene query may be limited by cost and resources, saving results as intermediate tables is a solution to these issues.
 
 *********************************************
-Saving Query Results in other BigQuery tables
+Saving Query Results in other BigQuery Tables
 *********************************************
-Below are some sample qu
+You can easily save Query results in intermediate tables in your project, allowing others to view and use them as you need.  Details from Google on how to do that is here (INSERT LINK).
 
 *****************************
 For Additional Google Support
