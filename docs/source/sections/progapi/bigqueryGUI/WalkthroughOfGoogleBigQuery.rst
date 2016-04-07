@@ -78,10 +78,10 @@ The question comes from knowing that the p53/Rb pathway is commonly involved in 
 
 This is a complex question that requires information from four tables.  Let's build it in stages.
 
-Stage 1 - Finding the patients with bladder cancer that have mutations in the CDKN2A gene, and displaying the patient ID and 
-****************************************************************************************************************************
+Stage 1
+*******
+Finding the patients with bladder cancer that have mutations in the CDKN2A gene, and displaying the patient ID and 
 the type of mutation
-********************
 
 For Additional Google Support
 =============================
