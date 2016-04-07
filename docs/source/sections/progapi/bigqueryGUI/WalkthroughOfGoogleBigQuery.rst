@@ -102,6 +102,52 @@ ORDER BY
    
 We now have the list of patients that have a mutation in the CDKN2A gene and the type of mutation.
 
+Notice that we have named the "isb-cgc:tcga_201510_alpha.Somatic_Mutation_calls" table "mutation" using the AS statement.  This is useful for easier reading and composing of complex queries.
+
+Stage 2
+*******
+Bringing in the patient data from the ISB-CGC TCGA Clinical table so that we can see the patients gender, vital status and days to death.
+
+SELECT
+  patient_list.mutation.ParticipantBarcode AS ParticipantBarcode,
+  patient_list.mutation.Variant_Type AS Variant_Type,
+  clinical.gender,
+  clinical.vital_status,
+  clinical.days_to_death
+FROM
+  /* this will get the unique list of patients having the TP53 gene mutation in BRCA patients*/ (
+  SELECT
+    mutation.ParticipantBarcode,
+    mutation.Variant_Type
+  FROM
+    [isb-cgc:tcga_201510_alpha.Somatic_Mutation_calls] AS mutation
+  WHERE
+    mutation.Hugo_Symbol = 'CDKN2A'
+    AND Study = 'BLCA'
+  GROUP BY
+    mutation.ParticipantBarcode,
+    mutation.Variant_Type
+  ORDER BY
+    mutation.ParticipantBarcode,
+    ) AS patient_list /* end patient_list */
+JOIN
+  [isb-cgc:tcga_201510_alpha.Clinical_data] AS clinical
+ON
+  patient_list.ParticipantBarcode = clinical.ParticipantBarcode
+  
+.. image:: BigQueryExample3Query.PNG
+   :scale: 50
+   :align: center
+   
+We now have combined information from two tables through a join.  Notice the join syntax:
+
+Also, notice that for the join (inner join by default), the fields that are identiical between the mutation table and the 
+
+JOIN
+  [isb-cgc:tcga_201510_alpha.Clinical_data] AS clinical
+ON
+  patient_list.ParticipantBarcode = clinical.ParticipantBarcode
+
 For Additional Google Support
 =============================
 Google provides its users with a detailed explanation of Big Query and how it works. 
