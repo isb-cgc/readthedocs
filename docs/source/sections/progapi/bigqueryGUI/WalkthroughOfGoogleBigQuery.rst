@@ -217,7 +217,7 @@ You can either download the results from a query in either CV or JSON format, or
 *********************************************
 Saving Query Results in other BigQuery Tables
 *********************************************
-You can easily save Query results in intermediate tables in your project, allowing others to view and use them as you need.  Details from Google on how to do that is here (INSERT LINK).
+You can easily save Query results in intermediate tables in your project, allowing others to view and use them as you need.  Details from Google on how to do that is `here <https://cloud.google.com/bigquery/bigquery-web-ui>`_.  If your query gets too complex it can take too long to run.  Creating intermediate result tables is a good method to the same result cost and time effectively. 
 
 *****************************
 For Additional Google Support
@@ -233,4 +233,4 @@ Google also provides a query reference guide
 ***************
 Important Note
 ***************
-`Here <https://cloud.google.com/bigquery/pricing>`_ is information about how much does it costs to use BigQuery.
+`Here <https://cloud.google.com/bigquery/pricing>`_ is information about how much does it costs to use BigQuery.  In general, BigQuery is not costly.  We recommend you look at your BigQuery charges as you run trial queries to keep track of your costs as you perform your analyses.
