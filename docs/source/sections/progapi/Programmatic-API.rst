@@ -33,7 +33,7 @@ Step 1: User runs::
 
    $ python isb_auth.py
 
-Script `here <https://github.com/isb-cgc/ISB-CGC-Webapp/blob/master/scripts/isb_auth.py>`_.
+Script `source <https://github.com/isb-cgc/ISB-CGC-Webapp/blob/master/scripts/isb_auth.py>`_.
 
 This starts an oauth flow, opening a browser tab and asking the user to log in with their google email address. Once authenticated, the user’s information, including access and refresh tokens, are written to their root directory in a file named .isb_credentials. A ``--verbose`` flag displays the location and name of the file as well as the access and refresh tokens.
 
@@ -43,7 +43,7 @@ Step 2: Once the credentials file is stored on the user's home directory, they c
 
    $ python isb_curl.py {ENDPOINT_URL}
 
-Script `here <https://github.com/isb-cgc/ISB-CGC-Webapp/blob/master/scripts/isb_curl.py>`_.
+Script `source <https://github.com/isb-cgc/ISB-CGC-Webapp/blob/master/scripts/isb_curl.py>`_.
 
 The Cohort API currently bundles several different cohort-related endpoints:
 
