@@ -66,6 +66,12 @@ WHERE
 AND
   STUDY = 'THCA' LIMIT 100
 
+**QUESTION BEING ASKED: What are the gene expression levels, days to death, gender of patient of genes downstream of mutated CDKN2A gene in bladder cancer?**
+
+The question comes from knowing that the 
+
+This is a complex question that requires information from four tables.  Let's build it in stages.
+
 For Additional Google Support
 =============================
 Google provides its users with a detailed explanation of Big Query and how it works. 
