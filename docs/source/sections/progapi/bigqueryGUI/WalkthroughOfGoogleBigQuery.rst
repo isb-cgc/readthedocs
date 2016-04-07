@@ -75,7 +75,7 @@ Getting information from more than one table (Joining)
 
 The question comes from knowing that the p53/Rb pathway is commonly involved in bladder cancer (see `TCGA Network paper <https://tcga-data.nci.nih.gov/docs/publications/blca_2013/>`_ "Comprehensive Molecular Characterization of Urothelial Bladder Carcinoma", Figure 4).
 
-This is a complex question that requires information from four tables.  Let's build it in stages.
+This is a complex question that requires information from four tables.  Let's build it in 3 stages.
 
 Stage 1
 *******
