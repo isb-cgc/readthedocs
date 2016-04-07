@@ -48,11 +48,7 @@ Syntax Queries Examples
 ************************
 Below are some sample queries that will get you started using ISB-CGC data in the analysis.  One easy way is to use the BiqQuery Browser Tool (see screenshot below).  See Google's `BiqQuery Browser Tool Tutorial <https://developers.google.com/bigquery/docs/hello_bigquery_gui>`_ for more general details of how to use this tool.
 
-.. image:: BigQueryExample1Query.PNG
-   :scale: 50
-   :align: center
-
-The example below shows the question that is being asked, and an example BigQuery SQL syntax that can be used to find the answer.  Try it yourself by pasting the query into your own instance of the BigQuery Browser Tool.
+The examples below show the question that is being asked, and an example BigQuery SQL syntax that can be used to find the answer.  Try it yourself by pasting the query into your own instance of the BigQuery Browser Tool.
 
 
 **QUESTION BEING ASKED: Find all THCA participants with UNC genex data in the ARID1B gene**
@@ -65,6 +61,11 @@ WHERE
   original_gene_symbol = 'ARID1B'
 AND
   STUDY = 'THCA' LIMIT 100
+  
+.. image:: BigQueryExample1Query.PNG
+   :scale: 50
+   :align: center
+  
 
 **QUESTION BEING ASKED: What are the gene expression levels, days to death, gender of patient of genes downstream of mutated CDKN2A gene in bladder cancer?**
 
