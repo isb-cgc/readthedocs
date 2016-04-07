@@ -62,8 +62,7 @@ FROM
 WHERE
   original_gene_symbol = 'ARID1B'
 AND
-  STUDY = 'THCA'
-LIMIT 100
+  STUDY = 'THCA' LIMIT 100
   
 .. image:: BigQueryExample1Query.PNG
    :scale: 50
