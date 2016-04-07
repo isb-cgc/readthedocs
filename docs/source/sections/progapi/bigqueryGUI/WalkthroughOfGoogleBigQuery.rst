@@ -141,12 +141,12 @@ ON
    
 We now have combined information from two tables through a join.  Notice the join syntax:
 
-Also, notice that for the join (inner join by default), the fields that are identiical between the mutation table and the 
-
 JOIN
   [isb-cgc:tcga_201510_alpha.Clinical_data] AS clinical
 ON
   patient_list.ParticipantBarcode = clinical.ParticipantBarcode
+  
+Also, notice that for the join (inner join by default), the fields that are identiical between the mutation table and the clinical table is "ParticipantBarcode".  
 
 Stage 3
 *******
