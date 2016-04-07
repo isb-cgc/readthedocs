@@ -72,14 +72,15 @@ LIMIT 100
 Getting information from more than one table (Joining)
 ######################################################
 
-**QUESTION BEING ASKED: For bladder cancer patients that have mutations in the CDKN2A gene, what types of mutations are they, what is their gender, vital status, and age - and for 3 downstream genes (>?>>), what are the gene expression levels?**
+**QUESTION BEING ASKED: For bladder cancer patients that have mutations in the CDKN2A gene, what types of mutations are they, what is their gender, vital status, and age - and for 3 downstream genes (MDM2, TP53, CDKN1A), what are the gene expression levels for each patient?**
 
 The question comes from knowing that the p53/Rb pathway is commonly involved in bladder cancer (see TCGA Network paper, Figure 4).
 
 This is a complex question that requires information from four tables.  Let's build it in stages.
 
-Stage 1 - ????
-**************
+Stage 1 - Finding the patients with bladder cancer that have mutations in the CDKN2A gene, and displaying the patient ID and 
+the type of mutation
+**************************************************************************************************************************************************
 
 For Additional Google Support
 =============================
