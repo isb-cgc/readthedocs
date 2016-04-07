@@ -208,6 +208,8 @@ ORDER BY
    :scale: 50
    :align: center  
 
+We have now gotten all the data together in one table for further analysis.
+
 *****************************
 For Additional Google Support
 *****************************
