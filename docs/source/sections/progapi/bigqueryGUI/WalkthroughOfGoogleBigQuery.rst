@@ -71,7 +71,7 @@ AND
 Getting information from more than one table (Joining)
 ######################################################
 
-**QUESTION BEING ASKED: For bladder cancer patients that have mutations in the CDKN2A gene, what types of mutations are they, what is their gender, vital status, and age - and for 3 downstream genes (MDM2, TP53, CDKN1A), what are the gene expression levels for each patient?**
+**QUESTION BEING ASKED: For bladder cancer patients that have mutations in the CDKN2A gene, what types of mutations are they, what is their gender, vital status, and days to death - and for 3 downstream genes (MDM2, TP53, CDKN1A), what are the gene expression levels for each patient?**
 
 The question comes from knowing that the p53/Rb pathway is commonly involved in bladder cancer (see TCGA Network paper, Figure 4).
 
@@ -106,7 +106,7 @@ Notice that we have named the "isb-cgc:tcga_201510_alpha.Somatic_Mutation_calls"
 
 Stage 2
 *******
-Bringing in the patient data from the ISB-CGC TCGA Clinical table so that we can see the patients gender, vital status and days to death.
+Bringing in the patient data from the ISB-CGC TCGA Clinical table so that we can see each patient's gender, vital status and days to death.
 
 SELECT
   patient_list.mutation.ParticipantBarcode AS ParticipantBarcode,
