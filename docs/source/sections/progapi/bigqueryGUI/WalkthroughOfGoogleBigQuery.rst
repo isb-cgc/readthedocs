@@ -72,7 +72,7 @@ LIMIT 100
 Getting information from more than one table (Joining)
 ######################################################
 
-**QUESTION BEING ASKED: What are the gene expression levels, days to death, gender of patient of genes downstream of mutated CDKN2A gene in bladder cancer?**
+**QUESTION BEING ASKED: For bladder cancer patients that have mutations in the CDKN2A gene, what types of mutations are they, what is their ??? status (dead or not), gender and age, and for 3 downstream genes (>?>>), what are the gene expression levels, days to death, gender of patient of genes downstream of mutated CDKN2A gene in bladder cancer?**
 
 The question comes from knowing that the p53/Rb pathway is commonly involved in bladder cancer (see TCGA Network paper, Figure 4).
 
