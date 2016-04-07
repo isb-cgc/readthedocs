@@ -208,7 +208,16 @@ ORDER BY
    :scale: 50
    :align: center  
 
-We have now gotten all the data together in one table for further analysis.
+We have now gotten all the data together in one table for further analysis.  
+
+Note that the final join surrounds the previous join top and bottom.  This is common method of doing joins.
+
+You can either download the results from a query in either CV or JSON format, or save it for further analysis in Google BigQuery by the "Save as Table" button.  As the next section describes, large queries continuing to combine multiple tables in a gene query may be limited by cost and resources, saving results as intermediate tables is a solution to these issues.
+
+************************
+Syntax Queries Examples
+************************
+Below are some sample qu
 
 *****************************
 For Additional Google Support
