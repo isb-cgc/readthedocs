@@ -174,6 +174,7 @@ FROM ( /* This will get the clinical information for the patients*/
     clinical.days_to_death
   FROM
     /* this will get the unique list of patients having the CDKN2A gene mutation in bladder cancer BLCA patients*/ (
+    
     SELECT
       mutation.ParticipantBarcode,
       mutation.Variant_Type
