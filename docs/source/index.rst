@@ -29,7 +29,7 @@ The table below describes the types of functions that can be performed in ISB-CG
 +---------------------------------------+-----------------------------------------+-----------------------------------------+
 |Goal                                   |In GUI                                   |With Command Line                        |
 +=======================================+=========================================+=========================================+
-|Working with the Google Cloud Platform | - Google Console <www.cnn.com>          | - Command line from local Linux machine |
+|Working with the Google Cloud Platform |- Google Console <www.cnn.com>           |- Command line from local Linux machine  |
 |- Projects                             |                                         |                                         |
 |- ???                                  |                                         |                                         |
 +---------------------------------------+-----------------------------------------+-----------------------------------------+
