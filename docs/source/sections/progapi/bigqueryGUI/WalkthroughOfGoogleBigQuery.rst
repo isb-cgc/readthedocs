@@ -116,6 +116,7 @@ SELECT
   clinical.days_to_death
 FROM
   /* this will get the unique list of patients having the TP53 gene mutation in BRCA patients*/ (
+  
   SELECT
     mutation.ParticipantBarcode,
     mutation.Variant_Type
