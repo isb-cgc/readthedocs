@@ -10,10 +10,10 @@ Please refer to documentation on `how to access BigQuery from the Google Console
 
 Also to add ISB-CGC data to your BigQuery platform please refer to the documentaion for `linking isb-cgc data to BigQuery in the Google Console <LinkingBigQueryToIsb-cgcProject.rst>`_.
 
-*******
-Tables
-*******
-Below are the list of tables that can be accessed once you have linked your platform to the ISB-CGC project.
+*****************************
+ISB-CGC Data Sets in BigQuery
+*****************************
+Below are the list of ISB-CGC generated data sets that can be accessed once you have linked your platform to the ISB-CGC project.
 
 * **isb-cgc:ccle_201602_alpha**
  
