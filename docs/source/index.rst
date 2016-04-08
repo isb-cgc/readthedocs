@@ -26,11 +26,11 @@ of terabytes of sequence data.
 
 The table below describes the types of functions that can be performed in ISB-CGC and provides links to how to do those functions.
 
-+------------+------------+-----------+
-| Header 1   | Header 2   | Header 3  |
-+============+============+===========+
-| body row 1 | column 2   | column 3  |
-+------------+------------+-----------+
++------------+-----------------+-------------------+
+|    Goal    |      In GUI     | With Command Line  |
++============+============+========================+
+| body row 1 | column 2        |    column 3       |
++------------+-----------------+-------------------+
 | body row 2 | Cells may span columns.|
 +------------+------------+-----------+
 | body row 3 | Cells may  | - Cells   |
