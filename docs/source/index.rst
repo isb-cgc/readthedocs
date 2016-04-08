@@ -28,7 +28,7 @@ The table below describes the types of functions that can be performed in ISB-CG
 
 +------------+-----------------+-------------------+
 |    Goal    |      In GUI     | With Command Line |
-+============+============+========================+
++============+=================+===================+
 | body row 1 | column 2        |    column 3       |
 +------------+-----------------+-------------------+
 | body row 2 | Cells may span columns.             |
