@@ -1,14 +1,14 @@
 ==================================
 Walk Through of Google BigQuery
 ==================================
-This will serve as a guide to navigate through the Google tool for Big Query and do some introductory queiries using isb-cgc TCGA data.
+This will serve as a guide to navigate through the Google tool for BigQuery and do some introductory queiries using isb-cgc TCGA data.  For those who would rather use R or Python to programmatically interact with BigQuery, detailed tutorials are provided `here <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/progapi/Tutorials.html>`_.
 
 ***************
 Gaining Access
 ***************
-Please refer to documentation on `how to access big query from the Google Console </bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform.rst>`_ if you have not done this before. 
+Please refer to documentation on `how to access BigQuery from the Google Console </bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform.rst>`_ if you have not done this before. 
 
-Also to add ISB-CGC data to your Big Query platform please refer to the documentaion for `linking isb-cgc data to BigQuery in the Google Console <LinkingBigQueryToIsb-cgcProject.rst>`_.
+Also to add ISB-CGC data to your BigQuery platform please refer to the documentaion for `linking isb-cgc data to BigQuery in the Google Console <LinkingBigQueryToIsb-cgcProject.rst>`_.
 
 *******
 Tables
