@@ -1,16 +1,16 @@
 datafilenamekey_list_from_cohort
 ################################
-Takes a cohort id as a required parameter and returns cloud storage paths to files associated with all the samples in that cohort. Authentication is required. User must have READER or OWNER permissions on the cohort.
+Takes a cohort id as a required parameter and returns cloud storage paths to files associated with all the samples in that cohort, up to a default limit of 10,000 files. Authentication is required. User must have READER or OWNER permissions on the cohort.
 
-**Example**
+**Example**::
 
-$ python isb_curl.py "https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/datafilenamekey_list_from_cohort?cohort_id={YOUR_COHORT_ID}"
+	$ python isb_curl.py "https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/datafilenamekey_list_from_cohort?cohort_id={YOUR_COHORT_ID}"
 
 **Request**
 
-HTTP request
+HTTP request::
 
-GET https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/datafilenamekey_list_from_cohort``
+	GET https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/datafilenamekey_list_from_cohort
 
 **Parameters**
 
@@ -18,10 +18,11 @@ GET https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/datafilenamekey_li
 	:header: "**Parameter name**", "**Value**", "**Description**"
 	:widths: 50, 10, 50
 
-	cohort_id,string,Required.
-	pipeline,string,Optional.
-	platform,string,Optional.
-	token,string,Optional.
+	cohort_id,string,"Required. "
+	limit,string,"Optional. "
+	pipeline,string,"Optional. "
+	platform,string,"Optional. "
+	token,string,"Optional. "
 
 
 Response
