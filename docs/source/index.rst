@@ -27,13 +27,13 @@ of terabytes of sequence data.
 The table below describes the types of functions that can be performed in ISB-CGC and provides links to how to do those functions.
 
 +-----------------------------------+-----------------------------------------+-----------------------------------------+
-|Goal                               |In GUI                                   |With Command Line                        |
+|Function                           |In GUI                                   |With Command Line                        |
 +===================================+=========================================+=========================================+
 |Work on the Google Cloud Platform  |- Google Console <www.cnn.com>           |- Command line from local Linux machine  |
 |- Projects                         |                                         |                                         |
 |- ???                              |                                         |                                         |
 +-----------------------------------+-----------------------------------------+-----------------------------------------+
-|Explore what data avaialble        | Cells may span columns.                 |                                         |
+|Explore what data avaialble        |`GUI <www.cnn.com>`_                     |                                         |
 +-----------------------------------+-----------------------------------------+-----------------------------------------+
 |Understand detals of data          |Cells may                                |- Cells                                  |
 +-----------------------------------+-----------------------------------------+-----------------------------------------+
