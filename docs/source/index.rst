@@ -33,8 +33,8 @@ The table below describes the types of functions that can be performed in ISB-CG
 |- Projects                         |                                         |                                                                          |
 |- ???                              |                                         |                                                                          |
 +-----------------------------------+-----------------------------------------+--------------------------------------------------------------------------+
-|Explore what data avaialble        |- `Documentation <Hosted-Data.html>`_    |- BigQuery `R and Python Tutorials</progapi/Tutorials.html>`_             |
-|                                   |- `GUI</webapp/Saved-Cohorts.html>`_     |                                                                          |
+|Explore what data avaialble        |- `Documentation <Hosted-Data.html>`_    |- BigQuery `R and Python Tutorials </progapi/Tutorials.html>`_            |
+|                                   |- `GUI </webapp/Saved-Cohorts.html>`_    |                                                                          |
 +-----------------------------------+-----------------------------------------+--------------------------------------------------------------------------+
 |Understand detals of data          |Cells may                                |- Cells                                                                   |
 +-----------------------------------+-----------------------------------------+--------------------------------------------------------------------------+
