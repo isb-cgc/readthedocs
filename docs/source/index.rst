@@ -24,7 +24,7 @@ custom scripts using languages such as R or Python, accessing the data through A
 to algorithm developers who wish to spin up thousands of virtual machines to analyze hundreds 
 of terabytes of sequence data.
 
-The table below describes the types of functions that can be performed in ISB-CGC and provides links to how to documentation on how to do those functions.
+The table below describes the types of functions that can be performed in ISB-CGC and provides links to documentation on how to do those functions.
 
 +-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |Function                           |In GUI                                                                                                                                                                                                                                                                                       |With Command Line                                                                                                                                                                                                                                                        |
