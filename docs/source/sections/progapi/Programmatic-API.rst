@@ -47,8 +47,6 @@ Step 2: Once the credentials file is stored on the user's home directory, they c
 
 Script `source <https://github.com/isb-cgc/ISB-CGC-Webapp/blob/master/scripts/isb_curl.py>`_.
 
-The endpoints requiring authorization will search the web application's database for the email address associated with that user.
-
 
 The Cohort API currently bundles several different cohort-related endpoints:
 
