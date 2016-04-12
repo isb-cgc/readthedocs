@@ -29,13 +29,15 @@ using this API.
 
 Some of the endpoints require authorization. Scripts are provided to access these endpoints from the command line.
 
+**Note:** In order for authorization to work properly, the user must have logged into the `web application <https://isb-cgc.appspot.com/>`_ at least once.
+
 Step 1: User runs::
 
    $ python isb_auth.py
 
 Script `source <https://github.com/isb-cgc/ISB-CGC-Webapp/blob/master/scripts/isb_auth.py>`_.
 
-This starts an oauth flow, opening a browser tab and asking the user to log in with their google email address. Once authenticated, the user’s information, including access and refresh tokens, are written to their root directory in a file named .isb_credentials. A ``--verbose`` flag displays the location and name of the file as well as the access and refresh tokens.
+This starts an oauth flow, opening a browser tab and asking the user to log in with their google email address. Once authenticated, the user’s information, including access and refresh tokens, are written to their root directory in a file named ``.isb_credentials``. A ``--verbose`` flag displays the location and name of the file as well as the access and refresh tokens.
 
 If a user is running this script via ssh, the ``--noauth_local_webserver`` flag will allow the user to obtain a verification code through their local browser.
 
@@ -44,6 +46,9 @@ Step 2: Once the credentials file is stored on the user's home directory, they c
    $ python isb_curl.py {ENDPOINT_URL}
 
 Script `source <https://github.com/isb-cgc/ISB-CGC-Webapp/blob/master/scripts/isb_curl.py>`_.
+
+The endpoints requiring authorization will search the web application's database for the email address associated with that user.
+
 
 The Cohort API currently bundles several different cohort-related endpoints:
 
