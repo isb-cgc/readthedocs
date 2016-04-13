@@ -2,15 +2,15 @@ save_cohort
 ###########
 Creates and saves a cohort. Takes a JSON object in the request body to use as the cohort's filters. Authentication is required. Returns information about the saved cohort, including the number of patients and the number of samples in that cohort.
 
-**Example**
+**Example**::
 
-$ python isb_curl.py "https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/save_cohort?name=BRCA-OV-cohort" -d '{"Study": ["BRCA", "OV"]}' -H "Content-Type: application/json"
+	$ python isb_curl.py "https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/save_cohort?name=BRCA-OV-cohort" -d '{"Study": ["BRCA", "OV"]}' -H "Content-Type: application/json"
 
 **Request**
 
-HTTP request
+HTTP request::
 
-POST https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/save_cohort``
+	POST https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/save_cohort
 
 **Parameters**
 
@@ -29,7 +29,6 @@ In the request body, supply a metadata resource with the following properties:
 .. code-block:: javascript
 
   {
-    "adenocarcinoma_invasion": [string],
     "age_at_initial_pathologic_diagnosis": [string],
     "anatomic_neoplasm_subdivision": [string],
     "avg_percent_lymphocyte_infiltration": [number],
@@ -48,7 +47,6 @@ In the request body, supply a metadata resource with the following properties:
     "clinical_T": [string],
     "colorectal_cancer": [string],
     "country": [string],
-    "country_of_procurement": [string],
     "days_to_birth": [string],
     "days_to_collection": [string],
     "days_to_death": [string],
@@ -79,7 +77,6 @@ In the request body, supply a metadata resource with the following properties:
     "icd_10": [string],
     "icd_o_3_histology": [string],
     "icd_o_3_site": [string],
-    "lymph_node_examined_count": [string],
     "lymphatic_invasion": [string],
     "lymphnodes_examined": [string],
     "lymphovascular_invasion_present": [string],
@@ -113,7 +110,6 @@ In the request body, supply a metadata resource with the following properties:
     "pathologic_T": [string],
     "person_neoplasm_cancer_status": [string],
     "pregnancies": [string],
-    "preservation_method": [string],
     "primary_neoplasm_melanoma_dx": [string],
     "primary_therapy_outcome_success": [string],
     "prior_dx": [string],
@@ -125,8 +121,6 @@ In the request body, supply a metadata resource with the following properties:
     "SampleTypeCode": [string],
     "Study": [string],
     "tobacco_smoking_history": [string],
-    "total_number_of_pregnancies": [string],
-    "tumor_pathology": [string],
     "tumor_tissue_site": [string],
     "tumor_type": [string],
     "vital_status": [string],
@@ -139,7 +133,6 @@ In the request body, supply a metadata resource with the following properties:
 	:header: "**Parameter name**", "**Value**", "**Description**"
 	:widths: 50, 10, 50
 
-	adenocarcinoma_invasion[],list,"Optional. "
 	age_at_initial_pathologic_diagnosis[],list,"Optional. Possible values include: '10 to 39', '40 to 49', '50 to 59', '60 to 69', '70 to 79', 'Over 80'."
 	anatomic_neoplasm_subdivision[],list,"Optional. Possible values include: 'Alveolar Ridge', 'Antrum/Distal', 'Ascending Colon', 'Base of tongue', 'Bilateral', 'Bladder - NOS', 'Body of Pancreas', 'Bronchial', 'Buccal Mucosa', 'Cardia/Proximal', 'Cecum', 'Descending Colon', 'Dome', 'Endometrium', 'Floor of mouth', 'Fundus uteri', 'Fundus/Body', 'Gastroesophageal Junction', 'Hard Palate', 'Head of Pancreas', 'Hepatic Flexure', 'Hypopharynx', 'L-Lower', 'L-Upper', 'Larynx', 'Left', 'Left Lower Inner Quadrant', 'Left Lower Outer Quadrant', 'Left Upper Inner Quadrant', 'Left Upper Outer Quadrant', 'Lip', 'Lower uterine segment/ Isthmus uteri', 'Myometrium', 'Neck', 'Oral Cavity', 'Oral Tongue', 'Oropharynx', 'Other (please specify)', 'R-Lower', 'R-Middle', 'R-Upper', 'Rectosigmoid Junction', 'Rectum', 'Right', 'Right Lower Inner Quadrant', 'Right Lower Outer Quadrant', 'Right Upper Inner Quadrant', 'Right Upper Outer Quadrant', 'Sigmoid Colon', 'Splenic Flexure', 'Stomach (NOS)', 'Tail of Pancreas', 'Tonsil', 'Transverse Colon', 'Trigone', 'Wall Anterior', 'Wall Lateral', 'Wall NOS', 'Wall Posterior'."
 	avg_percent_lymphocyte_infiltration[],list,"Optional. "
@@ -158,7 +151,6 @@ In the request body, supply a metadata resource with the following properties:
 	clinical_T[],list,"Optional. Possible values include: 'T1', 'T1a', 'T1b', 'T1c', 'T2', 'T2a', 'T2b', 'T2c', 'T3', 'T3a', 'T3b', 'T4', 'T4a', 'T4b', 'T4c', 'T4d', 'T4e', 'TX'."
 	colorectal_cancer[],list,"Optional. Possible values include: 'NO', 'YES'."
 	country[],list,"Optional. Possible values include: 'Afghanistan', 'Algeria', 'American Samoa', 'Australia', 'Brazil', 'Bulgaria', 'Canada', 'Croatia', 'Czech Republic', 'France', 'Georgia', 'Germany', 'Israel', 'Italy', 'Korea South', 'Moldova', 'Netherlands', 'Nigeria', 'Pakistan', 'Poland', 'Puerto Rico', 'Romania', 'Russia', 'Singapore', 'Spain', 'Switzerland', 'Ukraine', 'United Kingdom', 'United States', 'Vietnam', 'Yemen'."
-	country_of_procurement[],list,"Optional. "
 	days_to_birth[],list,"Optional. "
 	days_to_collection[],list,"Optional. "
 	days_to_death[],list,"Optional. "
@@ -189,7 +181,6 @@ In the request body, supply a metadata resource with the following properties:
 	icd_10[],list,"Optional. "
 	icd_o_3_histology[],list,"Optional. "
 	icd_o_3_site[],list,"Optional. "
-	lymph_node_examined_count[],list,"Optional. "
 	lymphatic_invasion[],list,"Optional. Possible values include: 'NO', 'YES'."
 	lymphnodes_examined[],list,"Optional. Possible values include: 'NO', 'YES'."
 	lymphovascular_invasion_present[],list,"Optional. Possible values include: 'NO', 'YES'."
@@ -223,7 +214,6 @@ In the request body, supply a metadata resource with the following properties:
 	pathologic_T[],list,"Optional. Possible values include: 'T0', 'T1', 'T1a', 'T1a1', 'T1b', 'T1b1', 'T1b2', 'T1c', 'T2', 'T2a', 'T2a1', 'T2a2', 'T2b', 'T2c', 'T3', 'T3a', 'T3b', 'T3c', 'T4', 'T4a', 'T4b', 'T4c', 'T4d', 'T4e', 'TX', 'Tis'."
 	person_neoplasm_cancer_status[],list,"Optional. Possible values include: 'TUMOR FREE', 'WITH TUMOR'."
 	pregnancies[],list,"Optional. Possible values include: '0', '1', '2', '3', '4+'."
-	preservation_method[],list,"Optional. "
 	primary_neoplasm_melanoma_dx[],list,"Optional. Possible values include: 'NO', 'YES'."
 	primary_therapy_outcome_success[],list,"Optional. Possible values include: 'Complete Remission/Response', 'No Measureable Tumor or Tumor Markers', 'Normalization of Tumor Markers, but Residual Tumor Mass', 'Partial Remission/Response', 'Persistent Disease', 'Progressive Disease', 'Stable Disease'."
 	prior_dx[],list,"Optional. Possible values include: 'No', 'Yes', 'Yes, History of Prior Malignancy', 'Yes, History of Synchronous and or Bilateral Malignancy', 'Yes, History of Synchronous/Bilateral Malignancy'."
@@ -235,8 +225,6 @@ In the request body, supply a metadata resource with the following properties:
 	SampleTypeCode[],list,"Optional. "
 	Study[],list,"Optional. Possible values include: 'ACC', 'BLCA', 'BRCA', 'CESC', 'CHOL', 'COAD', 'DLBC', 'ESCA', 'GBM', 'HNSC', 'KICH', 'KIRC', 'KIRP', 'LAML', 'LCLL', 'LGG', 'LIHC', 'LUAD', 'LUSC', 'MESO', 'MM', 'OV', 'PAAD', 'PCPG', 'PRAD', 'READ', 'SARC', 'SKCM', 'STAD', 'TGCT', 'THCA', 'THYM', 'UCEC', 'UCS', 'UVM'."
 	tobacco_smoking_history[],list,"Optional. Possible values include: 'Current Reformed Smoker, Duration Not Specified', 'Current reformed smoker for < or = 15 years', 'Current reformed smoker for > 15 years', 'Current smoker', 'Lifelong Non-smoker'."
-	total_number_of_pregnancies[],list,"Optional. "
-	tumor_pathology[],list,"Optional. "
 	tumor_tissue_site[],list,"Optional. "
 	tumor_type[],list,"Optional. Possible values include: 'Primary', 'Type 1', 'Type 2'."
 	vital_status[],list,"Optional. Possible values include: 'Alive', 'Dead'."
