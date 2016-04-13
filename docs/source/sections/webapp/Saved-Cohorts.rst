@@ -34,8 +34,8 @@ The panel on the left of the screen, with two tabs called "Donor" and "Data Type
 Donor Tab
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-    * Project
-    * Study
+    * Public Projects
+    * Public Studies (mouse over feature will display disease name)
     * Vital Status
     * Gender
     * Age At Diagnosis
