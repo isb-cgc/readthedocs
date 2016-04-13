@@ -118,6 +118,13 @@ button, a dialogue box will appear. Here you may do the following things:
 
 The intersect and union operations can take any number of cohorts and in any order.
 The complement operation requires that there be a base cohort, from which the other cohorts will be subtracted from.
+
+As the figure below shows, the results of the 
+
+.. image:: SetOperations.png
+   :scale: 50
+   :align: center
+
 Click “Okay” to complete the operation and create the new cohort.
 
 Viewing and Editing a Cohort
