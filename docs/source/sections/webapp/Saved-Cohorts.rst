@@ -1,4 +1,4 @@
-*******************
+﻿*******************
 Saved Cohorts
 *******************
 
@@ -121,7 +121,7 @@ The complement operation requires that there be a base cohort, from which the ot
 
 The figure below shows what the results of the set operations will be (represented by I for Intersect, U for Union, and C for Complement).  There are two types of sets shown, those that overlap (on the left) and those that are nested (on the right).  For the last row (complement operations), the "Subtracted" area is removed from the "Base" area to result in the Complement (C). 
 
-.. image:: SetOperations.png
+.. image:: SetOperations.PNG
    :scale: 50
    :align: center
 
