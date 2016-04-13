@@ -25,7 +25,7 @@ panel and visualizations on the page
 will be updated to reflect that the current cohort that has been filtered by Vital Status. 
 The numbers beside the selectable
 filter values reflect the number of samples that have that attribute based on all other filters that 
-have been selected.
+have been selected.  Filters are "ANDed" together, meaning that selecting two filters means that the participants and samples are created based on both filters being executed.  There may be cases where you have 0 participants and samples, because the combination of filters you have chosen are ALL not present (AND function).
 
 Cohort Filters
 --------------
