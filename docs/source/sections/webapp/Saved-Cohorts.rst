@@ -72,7 +72,7 @@ Selected Filters Panel
 ^^^^^^^^^^^^^^^^^^^^^^
 
 This is where selected filters are shown so there is an easy way to see what filters have been selected.
-Clicking on “Clear All” will remove all selected filters.  Selecting an X beside a single filter will remove that filter.
+If you have not saved the cohort yet, clicking on “Clear All” will remove all selected filters.  Also, if you have not saved the cohort yet, selecting an X beside a single filter will remove that filter.  If you have saved the filter, the X is not present as this function is disabled in saved cohorts.
 
 Clinical Features Panel
 ^^^^^^^^^^^^^^^^^^^^^^^
