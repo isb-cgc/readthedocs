@@ -17,4 +17,7 @@ on that link will take you to an IGV browser view of the selected readgroupset.
 Typically the reads from one or more BAM files for a specific sample will be combined into a single "readgroupset".
 For the CCLE and TCGA datasets hosted by the ISB-CGC, one BAM file corresponds to one readgroupset.)
 
+Referencing the Integrative Genomics Viewer (IGV)
+-------------------------------------------------
 
+ISB-CGC did not develop the Integrative Genomics Viewer (IGV), it was developed at the Broad Institute.  For details about IGV and how to reference it in publications, please follow the link by clicking either the "IGV Browser" text at the upper left of the IGV window or the "IGV" icon in the upper right of the IGV window.
