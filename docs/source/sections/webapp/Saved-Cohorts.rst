@@ -35,7 +35,7 @@ Donor Tab
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
     * Public Projects
-    * Public Studies (mouse over feature will display disease name)
+    * Public Studies (mouse over feature will display disease name if it is part of the TCGA dataset)
     * Vital Status
     * Gender
     * Age At Diagnosis
