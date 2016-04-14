@@ -1,0 +1,29 @@
+=======================================================
+How to Access Big Query from the Google Cloud Platform
+=======================================================
+
+The Big Query application functionality is accessed through a Google account identity (freely available with a new account or by linking to an existing email account). If you have not logged into the Google Cloud Platform application you will be presented with this page:
+
+.. image:: SignIntoGCP.png
+   :scale: 50
+   :align: center
+
+You login through the “Sign In” link at the upper right of the initial page (label “A” in the image above). Also on this page are links to a free-trail on the Google Cloud Platform (B) and (C), a link to contact google for any issues regarding the google cloud platform (D), a link to more information about why use Google Cloud platform (E).
+
+
+
+
+Upon signing in with a Google account identity, you will be presented with the following page:
+
+.. image:: GCPDashboard.png
+   :scale: 50
+   :align: center
+   
+This is your personal “Dashboard” where your compute engine (A), Google APIs(C), App Engine(D), Big Query, cloud storage bucket (F) is readily accessible. Google also provides documentation for additional information if needed (E). Additional documentation describing how to use each component of this user interface are provided in the individual subsections of this documentation.
+We strongly recommend the user to try the risk free trial for 60 days(H). Once project is created the user has access to the Google cloud platform and its products (I) and (B). 
+
+Google products and services may also be accessed through (G). Scroll down to to Big Query and open it (see screenshot below).
+
+.. image:: BigQuerySelect.png
+   :scale: 50
+   :align: center
