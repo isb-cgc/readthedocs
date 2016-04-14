@@ -2,7 +2,7 @@
 Release Notes
 *************
 
-*  **April 14, 2016**: `v1.1 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.0>`_
+*  **April 14, 2016**: `v1.1 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.1>`_
     
     **Known issues in this Sprint 2** 
 
