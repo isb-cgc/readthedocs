@@ -6,9 +6,9 @@ This will serve as a guide to navigate through the Google web-interface for BigQ
 ***************
 Gaining Access
 ***************
-Please refer to documentation on `how to access BigQuery from the Google Console </bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform.rst>`_ if you have not done this before. 
+Please refer to documentation on `how to access BigQuery from the Google Console <HowToAccessBigQueryFromTheGoogleCloudPlatform.html>`_ if you have not done this before. 
 
-Also to add ISB-CGC data to your BigQuery platform please refer to the documentaion for `linking ISB-CGC data to BigQuery in the Google Console <LinkingBigQueryToIsb-cgcProject.rst>`_.
+Also to add ISB-CGC data to your BigQuery platform please refer to the documentaion for `linking ISB-CGC data to BigQuery in the Google Console <LinkingBigQueryToIsb-cgcProject.html>`_.
 
 *****************************
 ISB-CGC Data Sets in BigQuery
@@ -17,7 +17,7 @@ Below are the list of ISB-CGC hosted data sets that can be accessed once you hav
 
 * **isb-cgc:ccle_201602_alpha**
  
- This dataset has been created and curated by the ISB-CGC project to be used in conjunction with the TCGA and other datasets currently hosted by the ISB-CGC.  For more information about the ISB-CGC, please see our documentation on readthedocs.   http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/
+ This dataset has been created and curated by the ISB-CGC project to be used in conjunction with the TCGA and other datasets currently hosted by the ISB-CGC.  For more information about the ISB-CGC, please see our documentation on `readthedocs.   <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/>`_
 
  This specific dataset contains data from the Broad-Novartis Cancer Cell Line Encyclopedia (CCLE) project and is being redistributed with permission from the Broad Institute.
  
