@@ -2,6 +2,50 @@
 Release Notes
 *************
 
+*  **April 14, 2016**: `v1.1 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.1>`_
+    
+    **Known issues in this Sprint 2** 
+
+    - If user clicks create in new worksheet too many times within a few seconds will create duplicate worksheets 1178
+    - Can add same gene twice if list has different names 1204
+    - Apply filters button work when no filter is selected in edit cohorts page 1172
+    - If user clicks create in new cohorts too many times within a few seconds will create duplicate cohorts 1213
+    - User can add same filter to existing cohorts 1206
+    - Clicking 150+ selected filters will create error page 1188
+    - Create new Cohort left filters (#) does not re-populate as you select filters to match sample # in clinical feature panel 1183
+    - Clinical Features Panel in create new cohort page will still display BRCA even if unselected 1192
+    - Cancel button on Create new gene list page will send you to Data Source | Gene Favorites page 1200
+    - Violin plot : User can add categorial value to y-axis 1205
+    - Last updated section in existing workbooks panel does not update when changes are made to existing workbook 1215
+    - If user edits an existing cohort the old filter(s) will be removed 1216
+    
+    
+    **Issues that are resolved in Sprint 2**
+
+    New Enhancements
+    
+    - Tool tips added for disease code in create new cohort page 132 1182
+    - Disease in longname in tool tips the first letter is capitalized 1180
+    
+    Bug Fixes
+    
+    - The user detail page will now display the correct date 1064
+    - The plot settings for a new worksheet are now working properly 1123
+    - Plot settings for duplicate worksheets are now working properly 1124
+    - The plot settings will now match the analysis type for  existing worksheet plot 1125
+    - The user can now edit existing cohort name 1127
+    - Set Operations : Intersection working properly 1128
+    - Set Operations : Union working properly 1129
+    - Set Operations : Complement is now working properly 1133
+    - User is now able to delete selected filters from selected filter panel in new cohort page using the blue X 1138
+    - Editing an existing variable favorites list will display previously selected variables 1143
+    - (Already in documentation) Green checkmark will appear for IGV link 1166
+    - Update plot button will now work on a duplicate worksheet(can be added with 3) 1171
+    - User can now delete all cohorts with the select all feature 1185
+    - Fixed bugs with Data Type Create new cohort generating errors 1191 1212
+    - The user can now search for variable favorite with the miRNA feature 1201
+    - The user can now search for a variable favorite through the clinical search feature 1202 
+
 *  **March 14, 2016**: `v1.0 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.0>`_
     - When working with a worksheet two plots will be generated occasionally.
     - Axis labels and tick values sometimes overlap and get cutoff.
