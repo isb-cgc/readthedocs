@@ -54,14 +54,16 @@ Getting information from one table
 
 **Q: Find all THCA participants with UNC HiSeq gene expression data for the ARID1B gene**
 
-Select
-  ParticipantBarcode, Study, original_gene_symbol, HGNC_gene_symbol, gene_id
-FROM
-  [isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM]
-WHERE
-  original_gene_symbol = 'ARID1B'
-AND
-  STUDY = 'THCA' LIMIT 100
+.. code-block:: sql
+
+    SELECT
+      ParticipantBarcode, Study, original_gene_symbol, HGNC_gene_symbol, gene_id
+    FROM
+      [isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM]
+    WHERE
+      original_gene_symbol = 'ARID1B'
+    AND
+      STUDY = 'THCA' LIMIT 100
   
 .. image:: BigQueryExample1Query.PNG
    :scale: 50
@@ -144,14 +146,9 @@ Bringing in the patient data from the ISB-CGC TCGA Clinical table so that we can
    :scale: 50
    :align: center
    
-We now have combined information from two tables through a join.  Notice the join syntax:
-
-JOIN
-  [isb-cgc:tcga_201510_alpha.Clinical_data] AS clinical
-ON
-  patient_list.ParticipantBarcode = clinical.ParticipantBarcode
-  
-Also, notice that for the join (inner join by default), the fields that are identiical between the mutation table and the clinical table is "ParticipantBarcode".  
+We now have combined information from two tables through a join.  Notice in particular the join syntax, 
+and the fact that
+for the join (inner join by default), the fields that are identiical between the mutation table and the clinical table is "ParticipantBarcode".  
 
 Stage 3
 *******
