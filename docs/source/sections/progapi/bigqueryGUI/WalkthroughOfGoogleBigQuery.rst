@@ -17,7 +17,7 @@ Below are the list of ISB-CGC hosted data sets that can be accessed once you hav
 
 * **isb-cgc:ccle_201602_alpha**
  
- This dataset has been created and curated by the ISB-CGC project to be used in conjunction with the TCGA and other datasets currently hosted by the ISB-CGC.  For more information about the ISB-CGC, please see our documentation on readthedocs.   http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/
+ This dataset has been created and curated by the ISB-CGC project to be used in conjunction with the TCGA and other datasets currently hosted by the ISB-CGC.  For more information about the ISB-CGC, please see our documentation on `readthedocs.   <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/>`_
 
  This specific dataset contains data from the Broad-Novartis Cancer Cell Line Encyclopedia (CCLE) project and is being redistributed with permission from the Broad Institute.
  
