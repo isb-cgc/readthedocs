@@ -17,6 +17,12 @@ on which technology is used to host them:
 For users interested in performing custom analyses, accessing the data directly using these APIs 
 will provide greater flexibility.
 
+`Here </bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform.rst>`_ are instructions on how to access BigQuery from the Google Cloud Platform.
+
+`Here </bigqueryGUI/LinkingBigQueryToIsb-cgcProject.rst>`_ are instructions on how to see ISB-CGC data through the BigQuery Web UI.
+
+`Here </bigqueryGUI/WalkthroughOfGoogleBigQuery.rst>`_ is an example of how to query ISB-CGC data using BigQuery using multiple tables with Joins.
+
 The Cloud Paradigm
 ##################
 
@@ -24,7 +30,7 @@ In addition to hosting the TCGA data in the cloud, one of the main goals of the 
 "bring the computation to the data".  There are many ways that this can be done using legacy
 tools, cloud-native tools, or a combination of the two.  Regardless of the details of the particular 
 solution, the single most important difference between the ISB-CGC computational system model 
-and traditional HPC models is that there is no single “monolithic” system that is 
+and traditional HPC models is that there is no single monolithic system that is 
 doing the computational work.  Cloud-native solutions instead abstract the configuration 
 management process from the allocation of physical hardware, making it very easy to 
 programmatically request an arbitrary number of identical machines, which can then be easily 

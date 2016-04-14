@@ -25,7 +25,10 @@
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/custom.js"></script>
-    <link rel="top" title="ISB Cancer Genomics Cloud 1.0.0 documentation" href="../../index.html" /> 
+    <link rel="top" title="ISB Cancer Genomics Cloud 1.0.0 documentation" href="../../index.html" />
+    <link rel="up" title="ISB-CGC Web Interface" href="../Web-UI.html" />
+    <link rel="next" title="Release Notes" href="releases.html" />
+    <link rel="prev" title="Saved Cohorts" href="Saved-Cohorts.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -34,7 +37,14 @@
         <li class="right" style="margin-right: 10px">
           <a href="../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">ISB Cancer Genomics Cloud 1.0.0 documentation</a> &raquo;</li> 
+        <li class="right" >
+          <a href="releases.html" title="Release Notes"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Saved-Cohorts.html" title="Saved Cohorts"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">ISB Cancer Genomics Cloud 1.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../Web-UI.html" accesskey="U">ISB-CGC Web Interface</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -50,12 +60,21 @@ the IGV browser will be able to access the <em>high-level</em> molecular data in
 the <em>low-level</em> sequence data via the GA4GH API.</p>
 <div class="section" id="accessing-the-igv-browser">
 <h2>Accessing the IGV Browser<a class="headerlink" href="#accessing-the-igv-browser" title="Permalink to this headline">¶</a></h2>
-<p>To access IGV, go to the cohort file list page. The file listing table includes a column labelled “IGV”. For
-those files that also have a ReadGroupSet ID in Google Genomics, a green check mark will appear in the column. Clicking
-on that link will take you to an IGV browser view of the selected readgroupset.</p>
-<p>(Note that &#8220;readgroupset&#8221; is a GA4GH term for a group of DNA- or RNA-seq reads from a single sample.
-Typically the reads from one or more BAM files for a specific sample will be combined into a single &#8220;readgroupset&#8221;.
-For the CCLE and TCGA datasets hosted by the ISB-CGC, one BAM file corresponds to one readgroupset.)</p>
+<p>To access IGV, go to the cohort file list page. The file listing table includes a column labelled &#8220;IGV&#8221;.
+For those files that also have a ReadGroupSet ID in Google Genomics, a green check mark will appear in the column.
+Clicking on that link will take you to an IGV browser view of the selected readgroupset.</p>
+<p>(Note that &#8220;readgroupset&#8221; is a GA4GH term for a group of aligned DNA- or RNA-seq reads,
+typically from a single sample or a single BAM file.
+For the CCLE and TCGA datasets hosted by the ISB-CGC, each readgroupset corresponds to a single BAM file which
+in turn corresponds to the aligned DNA- or RNA-seq reads from a single sample.)</p>
+</div>
+<div class="section" id="referencing-the-integrative-genomics-viewer-igv">
+<h2>Referencing the Integrative Genomics Viewer (IGV)<a class="headerlink" href="#referencing-the-integrative-genomics-viewer-igv" title="Permalink to this headline">¶</a></h2>
+<p>The copyright to the Integrative Genomics Viewer is held by the Broad Institute, and the software has been
+released under the MIT License.
+For details about IGV and how to reference it in publications, please follow the link by clicking either the
+&#8220;IGV Browser&#8221; text at the upper left of the IGV window or the &#8220;IGV&#8221; icon in the upper right of the IGV window,
+or visit the IGV home page at www.broadinstitute.org/igv.</p>
 <hr class="docutils" />
 <div class="isbcgcfooter container">
 Have feedback or corrections?  You can file an issue <a class="reference external" href="https://github.com/isb-cgc/readthedocs/issues">here</a> or email us at <a class="reference external" href="mailto:feedback&#37;&#52;&#48;isb-cgc&#46;org">feedback<span>&#64;</span>isb-cgc<span>&#46;</span>org</a>.</div>
@@ -72,10 +91,17 @@ Have feedback or corrections?  You can file an issue <a class="reference externa
   <ul>
 <li><a class="reference internal" href="#">Integrative Genomics Viewer (IGV)</a><ul>
 <li><a class="reference internal" href="#accessing-the-igv-browser">Accessing the IGV Browser</a></li>
+<li><a class="reference internal" href="#referencing-the-integrative-genomics-viewer-igv">Referencing the Integrative Genomics Viewer (IGV)</a></li>
 </ul>
 </li>
 </ul>
 
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="Saved-Cohorts.html"
+                        title="previous chapter">Saved Cohorts</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="releases.html"
+                        title="next chapter">Release Notes</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -106,7 +132,14 @@ Have feedback or corrections?  You can file an issue <a class="reference externa
         <li class="right" style="margin-right: 10px">
           <a href="../../genindex.html" title="General Index"
              >index</a></li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">ISB Cancer Genomics Cloud 1.0.0 documentation</a> &raquo;</li> 
+        <li class="right" >
+          <a href="releases.html" title="Release Notes"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Saved-Cohorts.html" title="Saved Cohorts"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">ISB Cancer Genomics Cloud 1.0.0 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="../Web-UI.html" >ISB-CGC Web Interface</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
