@@ -6,9 +6,9 @@ This will serve as a guide to navigate through the Google web-interface for BigQ
 ***************
 Gaining Access
 ***************
-Please refer to documentation on `how to access BigQuery from the Google Console </bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform.rst>`_ if you have not done this before. 
+Please refer to documentation on `how to access BigQuery from the Google Console <HowToAccessBigQueryFromTheGoogleCloudPlatform.html>`_ if you have not done this before. 
 
-Also to add ISB-CGC data to your BigQuery platform please refer to the documentaion for `linking ISB-CGC data to BigQuery in the Google Console <LinkingBigQueryToIsb-cgcProject.rst>`_.
+Also to add ISB-CGC data to your BigQuery platform please refer to the documentaion for `linking ISB-CGC data to BigQuery in the Google Console <LinkingBigQueryToIsb-cgcProject.html>`_.
 
 *****************************
 ISB-CGC Data Sets in BigQuery
