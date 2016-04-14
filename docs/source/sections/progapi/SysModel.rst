@@ -21,7 +21,7 @@ will provide greater flexibility.
 
 `Here </sections/progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_ are instructions on how to see ISB-CGC data through the BigQuery Web UI.
 
-`Here </sections/progapi/bigqueryGUI/WalkthroughOfGoogleBigQuery.html>`_ is an example of how to query ISB-CGC data using BigQuery using multiple tables with Joins.
+`Here </sections/progapi/bigqueryGUI/WalkthroughOfGoogleBigQuery.html>`_ are examples of how to query ISB-CGC data using BigQuery, including using multiple tables with Joins.
 
 The Cloud Paradigm
 ##################
