@@ -13,8 +13,8 @@ Here you will find information describing the features of the ISB-CGC platform,
 tips on how to use it, and details about the data that we are hosting on the 
 Google Cloud Platform.
 
-.. image:: three-personae.png
-   :scale: 50
+.. image:: new-block-three-p.png
+   :scale: 100
    :align: center
 
 The ISB-CGC aims to serve the needs of a broad range of cancer researchers ranging from 

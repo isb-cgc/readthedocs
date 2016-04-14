@@ -52,7 +52,7 @@ The examples below show the question that is being asked, and an example BigQuer
 Getting information from one table
 ##################################
 
-**QUESTION BEING ASKED: Find all THCA participants with UNC HiSeq gene expression data for the ARID1B gene**
+**Q: Find all THCA participants with UNC HiSeq gene expression data for the ARID1B gene**
 
 Select
   ParticipantBarcode, Study, original_gene_symbol, HGNC_gene_symbol, gene_id
@@ -70,7 +70,7 @@ AND
 Getting information from more than one table (Joining)
 ######################################################
 
-**QUESTION BEING ASKED: For bladder cancer patients that have mutations in the CDKN2A (cyclin-dependent kinase inhibitor 2A) gene, what types of mutations are they, what is their gender, vital status, and days to death - and for 3 downstream genes (MDM2 (MDM2 proto-oncogene), TP53 (tumor protein p53), CDKN1A (cyclin-dependent kinase inhibitor 1A)), what are the gene expression levels for each patient?**
+**Q: For bladder cancer patients that have mutations in the CDKN2A (cyclin-dependent kinase inhibitor 2A) gene, what types of mutations are they, what is their gender, vital status, and days to death - and for 3 downstream genes (MDM2 (MDM2 proto-oncogene), TP53 (tumor protein p53), CDKN1A (cyclin-dependent kinase inhibitor 1A)), what are the gene expression levels for each patient?**
 
 This question was chosen as an interesting example because the p53/Rb pathway is commonly involved in bladder cancer (see `TCGA Network paper <https://tcga-data.nci.nih.gov/docs/publications/blca_2013/>`_ "Comprehensive Molecular Characterization of Urothelial Bladder Carcinoma", Figure 4).
 
@@ -81,19 +81,22 @@ Stage 1
 Finding the patients with bladder cancer that have mutations in the CDKN2A gene, and displaying the patient ID and 
 the type of mutation
 
-SELECT
-  mutation.ParticipantBarcode,
-  mutation.Variant_Type
-FROM
-  [isb-cgc:tcga_201510_alpha.Somatic_Mutation_calls] AS mutation
-WHERE
-  mutation.Hugo_Symbol = 'CDKN2A'
-  AND Study = 'BLCA'
-GROUP BY
-  mutation.ParticipantBarcode,
-  mutation.Variant_Type
-ORDER BY
-  mutation.ParticipantBarcode
+
+.. code-block:: sql
+
+    SELECT
+      mutation.ParticipantBarcode,
+      mutation.Variant_Type
+    FROM
+      [isb-cgc:tcga_201510_alpha.Somatic_Mutation_calls] AS mutation
+    WHERE
+      mutation.Hugo_Symbol = 'CDKN2A'
+      AND Study = 'BLCA'
+    GROUP BY
+      mutation.ParticipantBarcode,
+      mutation.Variant_Type
+    ORDER BY
+      mutation.ParticipantBarcode
 
 .. image:: BigQueryExample2Query.PNG
    :scale: 50
@@ -107,33 +110,35 @@ Stage 2
 *******
 Bringing in the patient data from the ISB-CGC TCGA Clinical table so that we can see each patient's gender, vital status and days to death.
 
-SELECT
-  patient_list.mutation.ParticipantBarcode AS ParticipantBarcode,
-  patient_list.mutation.Variant_Type AS Variant_Type,
-  clinical.gender,
-  clinical.vital_status,
-  clinical.days_to_death
-FROM
-  /* this will get the unique list of patients having the TP53 gene mutation in BRCA patients*/ (
-  
-  SELECT
-    mutation.ParticipantBarcode,
-    mutation.Variant_Type
-  FROM
-    [isb-cgc:tcga_201510_alpha.Somatic_Mutation_calls] AS mutation
-  WHERE
-    mutation.Hugo_Symbol = 'CDKN2A'
-    AND Study = 'BLCA'
-  GROUP BY
-    mutation.ParticipantBarcode,
-    mutation.Variant_Type
-  ORDER BY
-    mutation.ParticipantBarcode,
-    ) AS patient_list /* end patient_list */
-JOIN
-  [isb-cgc:tcga_201510_alpha.Clinical_data] AS clinical
-ON
-  patient_list.ParticipantBarcode = clinical.ParticipantBarcode
+.. code-block:: sql
+
+    SELECT
+      patient_list.mutation.ParticipantBarcode AS ParticipantBarcode,
+      patient_list.mutation.Variant_Type AS Variant_Type,
+      clinical.gender,
+      clinical.vital_status,
+      clinical.days_to_death
+    FROM
+      /* this will get the unique list of patients having the TP53 gene mutation in BRCA patients*/ (
+      
+      SELECT
+        mutation.ParticipantBarcode,
+        mutation.Variant_Type
+      FROM
+        [isb-cgc:tcga_201510_alpha.Somatic_Mutation_calls] AS mutation
+      WHERE
+        mutation.Hugo_Symbol = 'CDKN2A'
+        AND Study = 'BLCA'
+      GROUP BY
+        mutation.ParticipantBarcode,
+        mutation.Variant_Type
+      ORDER BY
+        mutation.ParticipantBarcode,
+        ) AS patient_list /* end patient_list */
+    JOIN
+      [isb-cgc:tcga_201510_alpha.Clinical_data] AS clinical
+    ON
+      patient_list.ParticipantBarcode = clinical.ParticipantBarcode
   
 .. image:: BigQueryExample3Query.PNG
    :scale: 50
@@ -152,58 +157,60 @@ Stage 3
 *******
 Show the gene expression levels for the 4 genes of interest, and order them by patient id (Participant Barcode) and gene name (HGNC_gene_symbol).  
   
-SELECT
-  genex.ParticipantBarcode AS ParticipantBarcode,
-  genex.SampleBarcode AS SampleBarcode,
-  genex.AliquotBarcode AS AliquotBarcode,
-  genex.HGNC_gene_symbol AS HGNC_gene_symbol,
-  patient_list.Variant_Type AS Variant_Type,
-  genex.gene_id AS gene_id,
-  genex.normalized_count AS normalized_count,
-  genex.Study AS Study,
-  clinical_info.clinical.gender AS gender,
-  clinical_info.clinical.vital_status AS vital_status,
-  clinical_info.clinical.days_to_death AS days_to_death
-FROM ( /* This will get the clinical information for the patients*/
-  SELECT
-    patient_list.mutation.Variant_Type AS Variant_Type,
-    patient_list.mutation.ParticipantBarcode AS ParticipantBarcode,
-    clinical.gender,
-    clinical.vital_status,
-    clinical.days_to_death
-  FROM
-    /* this will get the unique list of patients having the CDKN2A gene mutation in bladder cancer BLCA patients*/ (
-    
+.. code-block:: sql
+
     SELECT
-      mutation.ParticipantBarcode,
-      mutation.Variant_Type
-    FROM
-      [isb-cgc:tcga_201510_alpha.Somatic_Mutation_calls] AS mutation
+      genex.ParticipantBarcode AS ParticipantBarcode,
+      genex.SampleBarcode AS SampleBarcode,
+      genex.AliquotBarcode AS AliquotBarcode,
+      genex.HGNC_gene_symbol AS HGNC_gene_symbol,
+      patient_list.Variant_Type AS Variant_Type,
+      genex.gene_id AS gene_id,
+      genex.normalized_count AS normalized_count,
+      genex.Study AS Study,
+      clinical_info.clinical.gender AS gender,
+      clinical_info.clinical.vital_status AS vital_status,
+      clinical_info.clinical.days_to_death AS days_to_death
+    FROM ( /* This will get the clinical information for the patients*/
+      SELECT
+        patient_list.mutation.Variant_Type AS Variant_Type,
+        patient_list.mutation.ParticipantBarcode AS ParticipantBarcode,
+        clinical.gender,
+        clinical.vital_status,
+        clinical.days_to_death
+      FROM
+        /* this will get the unique list of patients having the CDKN2A gene mutation in bladder cancer BLCA patients*/ (
+        
+        SELECT
+          mutation.ParticipantBarcode,
+          mutation.Variant_Type
+        FROM
+          [isb-cgc:tcga_201510_alpha.Somatic_Mutation_calls] AS mutation
+        WHERE
+          mutation.Hugo_Symbol = 'CDKN2A'
+          AND Study = 'BLCA'
+        GROUP BY
+          mutation.ParticipantBarcode,
+          mutation.Variant_Type
+        ORDER BY
+          mutation.ParticipantBarcode,
+          ) AS patient_list /* end patient_list */
+      INNER JOIN
+        [isb-cgc:tcga_201510_alpha.Clinical_data] AS clinical
+      ON
+        patient_list.ParticipantBarcode = clinical.ParticipantBarcode /* end clinical annotation */ ) AS clinical_info
+    INNER JOIN
+      [isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM] AS genex
+    ON
+      genex.ParticipantBarcode = patient_list.ParticipantBarcode
     WHERE
-      mutation.Hugo_Symbol = 'CDKN2A'
-      AND Study = 'BLCA'
-    GROUP BY
-      mutation.ParticipantBarcode,
-      mutation.Variant_Type
+      genex.HGNC_gene_symbol IN ('MDM2',
+        'TP53',
+        'CDKN1A',
+        'CCNE1')
     ORDER BY
-      mutation.ParticipantBarcode,
-      ) AS patient_list /* end patient_list */
-  INNER JOIN
-    [isb-cgc:tcga_201510_alpha.Clinical_data] AS clinical
-  ON
-    patient_list.ParticipantBarcode = clinical.ParticipantBarcode /* end clinical annotation */ ) AS clinical_info
-INNER JOIN
-  [isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM] AS genex
-ON
-  genex.ParticipantBarcode = patient_list.ParticipantBarcode
-WHERE
-  genex.HGNC_gene_symbol IN ('MDM2',
-    'TP53',
-    'CDKN1A',
-    'CCNE1')
-ORDER BY
-  ParticipantBarcode,
-  HGNC_gene_symbol
+      ParticipantBarcode,
+      HGNC_gene_symbol
 
 .. image:: BigQueryExample4Query.PNG
    :scale: 50
