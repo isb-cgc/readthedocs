@@ -1,26 +1,25 @@
 ==================================
 Walk Through of Google BigQuery
 ==================================
-This will serve as a guide to navigate through the Google tool for BigQuery and do some introductory queiries using isb-cgc TCGA data.  For those who would rather use R or Python to programmatically interact with BigQuery, detailed tutorials are provided `here <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/progapi/Tutorials.html>`_.
+This will serve as a guide to navigate through the Google web-interface for BigQuery and do some introductory queiries using ISB-CGC hosted TCGA data.  For those who would rather use R or Python to programmatically interact with BigQuery, detailed tutorials are provided `here <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/progapi/Tutorials.html>`_.
 
 ***************
 Gaining Access
 ***************
 Please refer to documentation on `how to access BigQuery from the Google Console </bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform.rst>`_ if you have not done this before. 
 
-Also to add ISB-CGC data to your BigQuery platform please refer to the documentaion for `linking isb-cgc data to BigQuery in the Google Console <LinkingBigQueryToIsb-cgcProject.rst>`_.
+Also to add ISB-CGC data to your BigQuery platform please refer to the documentaion for `linking ISB-CGC data to BigQuery in the Google Console <LinkingBigQueryToIsb-cgcProject.rst>`_.
 
 *****************************
 ISB-CGC Data Sets in BigQuery
 *****************************
-Below are the list of ISB-CGC generated data sets that can be accessed once you have linked your platform to the ISB-CGC project.
+Below are the list of ISB-CGC hosted data sets that can be accessed once you have linked your platform to the ISB-CGC project.
 
 * **isb-cgc:ccle_201602_alpha**
  
  This dataset has been created and curated by the ISB-CGC project to be used in conjunction with the TCGA and other datasets currently hosted by the ISB-CGC.  For more information about the ISB-CGC, please see our documentation on readthedocs.   http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/
 
  This specific dataset contains data from the Broad-Novartis Cancer Cell Line Encyclopedia (CCLE) project and is being redistributed with permission from the Broad Institute.
-
  
  Neither the CCLE project nor the Broad institute are responsible for any errors that may have been made when creating these tables.  For more information about the CCLE project and to access the original datasets, please refer to the `CCLE website.  <http://www.broadinstitute.org/ccle/home>`_
 
@@ -46,14 +45,14 @@ Below are the list of ISB-CGC generated data sets that can be accessed once you 
 ************************
 Syntax Queries Examples
 ************************
-Below are some sample queries that will get you started using ISB-CGC data in the analysis.  One easy way is to use the BiqQuery Browser Tool (see screenshot below).  See Google's `BiqQuery Browser Tool Tutorial <https://developers.google.com/bigquery/docs/hello_bigquery_gui>`_ for more general details of how to use this tool.
+Below are some sample queries that will get you started using BigQuery and these ISB-CGC datasets for your own analyses.  One easy way is to use the BiqQuery web UI (see screenshot below).  See Google's `BiqQuery Web UI Tutorial <https://developers.google.com/bigquery/docs/hello_bigquery_gui>`_ for more general details of how to use this tool.
 
-The examples below show the question that is being asked, and an example BigQuery SQL syntax that can be used to find the answer.  Try it yourself by pasting the query into your own instance of the BigQuery Browser Tool.
+The examples below show the question that is being asked, and an example BigQuery SQL syntax that can be used to find the answer.  Try it yourself by pasting the query into your own instance of the BigQuery web UI.
 
 Getting information from one table
 ##################################
 
-**QUESTION BEING ASKED: Find all THCA participants with UNC genex data in the ARID1B gene**
+**QUESTION BEING ASKED: Find all THCA participants with UNC HiSeq gene expression data for the ARID1B gene**
 
 Select
   ParticipantBarcode, Study, original_gene_symbol, HGNC_gene_symbol, gene_id
@@ -73,9 +72,9 @@ Getting information from more than one table (Joining)
 
 **QUESTION BEING ASKED: For bladder cancer patients that have mutations in the CDKN2A (cyclin-dependent kinase inhibitor 2A) gene, what types of mutations are they, what is their gender, vital status, and days to death - and for 3 downstream genes (MDM2 (MDM2 proto-oncogene), TP53 (tumor protein p53), CDKN1A (cyclin-dependent kinase inhibitor 1A)), what are the gene expression levels for each patient?**
 
-The question comes from knowing that the p53/Rb pathway is commonly involved in bladder cancer (see `TCGA Network paper <https://tcga-data.nci.nih.gov/docs/publications/blca_2013/>`_ "Comprehensive Molecular Characterization of Urothelial Bladder Carcinoma", Figure 4).
+This question was chosen as an interesting example because the p53/Rb pathway is commonly involved in bladder cancer (see `TCGA Network paper <https://tcga-data.nci.nih.gov/docs/publications/blca_2013/>`_ "Comprehensive Molecular Characterization of Urothelial Bladder Carcinoma", Figure 4).
 
-This is a complex question that requires information from four tables.  Let's build it in 3 stages.
+This is a complex question that requires information from four tables.  We will build up this complex query in three stages.
 
 Stage 1
 *******
@@ -219,12 +218,12 @@ You can either download the results from a query in either CV or JSON format, or
 *********************************************
 Saving Query Results in other BigQuery Tables
 *********************************************
-You can easily save Query results in intermediate tables in your project, allowing others to view and use them as you need.  Details from Google on how to do that is `here <https://cloud.google.com/bigquery/bigquery-web-ui>`_.  If your query gets too complex it can take too long to run.  Creating intermediate result tables is a good method to the same result cost and time effectively. 
+You can easily save Query results in intermediate tables in your project, allowing others to view and use them.  Details from Google on how to do that is `here <https://cloud.google.com/bigquery/bigquery-web-ui>`_.  If your query gets too complex it can take too long to run.  Creating intermediate result tables can be a good approach to obtain the same result more quickly and at a lower cost. 
 
 *****************************
 For Additional Google Support
 *****************************
-Google provides its users with a detailed explanation of Big Query and how it works. 
+Google provides its users with a detailed explanation of BigQuery and how it works. 
 
  -https://cloud.google.com/bigquery/what-is-bigquery 
 
@@ -235,4 +234,5 @@ Google also provides a query reference guide
 ***************
 Important Note
 ***************
-`Here <https://cloud.google.com/bigquery/pricing>`_ is information about how much does it costs to use BigQuery.  In general, BigQuery is not costly.  We recommend you look at your BigQuery charges as you run trial queries to keep track of your costs as you perform your analyses.
+`Here <https://cloud.google.com/bigquery/pricing>`_ is information about how much does it costs to use BigQuery.  Queries are billed according to how much data is scanned during the course of the query, and the rate is $5 per TB, although the first 1 TB is free each month.
+You can keep an eye on your GCP expenses on your Google Cloud Platform `Console home page <https://console.cloud.google.com/home/dashboard>`_.
