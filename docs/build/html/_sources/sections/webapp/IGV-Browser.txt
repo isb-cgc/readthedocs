@@ -9,12 +9,21 @@ the *low-level* sequence data via the GA4GH API.
 Accessing the IGV Browser
 -------------------------
 
-To access IGV, go to the cohort file list page. The file listing table includes a column labelled “IGV”. For
-those files that also have a ReadGroupSet ID in Google Genomics, a green check mark will appear in the column. Clicking
-on that link will take you to an IGV browser view of the selected readgroupset.  
+To access IGV, go to the cohort file list page. The file listing table includes a column labelled "IGV". 
+For those files that also have a ReadGroupSet ID in Google Genomics, a green check mark will appear in the column. 
+Clicking on that link will take you to an IGV browser view of the selected readgroupset.
 
-(Note that "readgroupset" is a GA4GH term for a group of DNA- or RNA-seq reads from a single sample.  
-Typically the reads from one or more BAM files for a specific sample will be combined into a single "readgroupset".
-For the CCLE and TCGA datasets hosted by the ISB-CGC, one BAM file corresponds to one readgroupset.)
+(Note that "readgroupset" is a GA4GH term for a group of aligned DNA- or RNA-seq reads, 
+typically from a single sample or a single BAM file.
+For the CCLE and TCGA datasets hosted by the ISB-CGC, each readgroupset corresponds to a single BAM file which
+in turn corresponds to the aligned DNA- or RNA-seq reads from a single sample.)
 
+Referencing the Integrative Genomics Viewer (IGV)
+-------------------------------------------------
+
+The copyright to the Integrative Genomics Viewer is held by the Broad Institute, and the software has been 
+released under the MIT License.
+For details about IGV and how to reference it in publications, please follow the link by clicking either the 
+"IGV Browser" text at the upper left of the IGV window or the "IGV" icon in the upper right of the IGV window,
+or visit the IGV home page at www.broadinstitute.org/igv.
 
