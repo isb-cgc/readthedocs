@@ -30,14 +30,15 @@ TCGA Data at CGHub
 ==================
 
 The complete 
-`listing <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/GCS_listing.v2.tsv>`_
+`listing <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/GCS_listing.v3.tsv>`_
 of the TCGA data files from CGHub that are currently available in Google Cloud Storage (GCS)
-contains the following three columns of information: 
+contains the following four columns of information: 
 
 * unique CGHub id for the file, 
+* the TCGA aliquot barcode,
 * the partial GCS object path, and
 * the size of the file in bytes.
 
 The latest complete CGHub manifest can be 
-`downloaded directly from CGHub <https://cghub.ucsc.edu/reports/SUMMARY_STATS/LATEST_MANIFEST.tsv>`_ (67 MB spreadsheet).
+`downloaded directly from CGHub <https://cghub.ucsc.edu/reports/SUMMARY_STATS/LATEST_MANIFEST.tsv>`_ (72 MB spreadsheet).
 
