@@ -1,4 +1,4 @@
-*******************
+﻿*******************
 Saved Cohorts
 *******************
 
@@ -25,7 +25,7 @@ panel and visualizations on the page
 will be updated to reflect that the current cohort that has been filtered by Vital Status. 
 The numbers beside the selectable
 filter values reflect the number of samples that have that attribute based on all other filters that 
-have been selected.
+have been selected.  Filters are "ANDed" together, meaning that selecting two filters means that the participants and samples are created based on both filters being executed.  There may be cases where you have 0 participants and samples, because the combination of filters you have chosen are ALL not present (AND function).
 
 Cohort Filters
 --------------
@@ -34,8 +34,8 @@ The panel on the left of the screen, with two tabs called "Donor" and "Data Type
 Donor Tab
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-    * Project
-    * Study
+    * Public Projects
+    * Public Studies (mouse over feature will display disease name if it is part of the TCGA dataset)
     * Vital Status
     * Gender
     * Age At Diagnosis
@@ -72,7 +72,7 @@ Selected Filters Panel
 ^^^^^^^^^^^^^^^^^^^^^^
 
 This is where selected filters are shown so there is an easy way to see what filters have been selected.
-Clicking on “Clear All” will remove all selected filters.  Selecting an X beside a single filter will remove that filter.
+If you have not saved the cohort yet, clicking on “Clear All” will remove all selected filters.  Also, if you have not saved the cohort yet, selecting an X beside a single filter will remove that filter.  If you have saved the filter, the X is not present as this function is disabled in saved cohorts.
 
 Clinical Features Panel
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -118,7 +118,14 @@ button, a dialogue box will appear. Here you may do the following things:
 
 The intersect and union operations can take any number of cohorts and in any order.
 The complement operation requires that there be a base cohort, from which the other cohorts will be subtracted from.
-Click “Okay” to complete the operation and create the new cohort.
+
+The figure below shows what the results of the set operations will be (represented by I for Intersect, U for Union, and C for Complement).  There are two types of sets shown, those that overlap (on the left) and those that are nested (on the right).  For the last row (complement operations), the "Subtracted" area is removed from the "Base" area to result in the Complement (C). 
+
+.. image:: SetOperations.PNG
+   :scale: 50
+   :align: center
+
+Click “Okay” to complete the set operation and create the new cohort.
 
 Viewing and Editing a Cohort
 ============================
