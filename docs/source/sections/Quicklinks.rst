@@ -100,22 +100,3 @@ Run bioinformatics pipelines/tools
 |                                                                                                                                                                                                                                                                                             |- `Compute examples in Github <https://github.com/isb-cgc/examples-Compute>`_ (with Common Workflow Language (CWL) and grid examples)                                                                                                                                                            |
 |                                                                                                                                                                                                                                                                                             |- `Useful recipes <https://googlegenomics.readthedocs.org/en/latest/sections/process_data.html>`_ in the `Google Genomics Cookbook <https://googlegenomics.readthedocs.org/en/latest/index.html>`_                                                                                               |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-This documentation is a work-in-progress, please let us know how we can improve 
-it! feedback@isb-cgc.org 
-
--- the ISB-CGC team
-
-Contents
-########
-
-.. toctree::
-   :maxdepth: 1
-
-   sections/About-ISB-CGC
-   sections/Hosted-Data
-   sections/Prog-APIs
-   sections/Web-UI
-   sections/FAQ
-   sections/Support
-
