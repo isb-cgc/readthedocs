@@ -30,15 +30,33 @@ In the request body, supply a metadata resource with the following properties:
 
   {
     "age_at_initial_pathologic_diagnosis": [string],
+    "age_at_initial_pathologic_diagnosis_gte": string,
+    "age_at_initial_pathologic_diagnosis_lte": string,
     "anatomic_neoplasm_subdivision": [string],
     "avg_percent_lymphocyte_infiltration": [number],
+    "avg_percent_lymphocyte_infiltration_gte": number,
+    "avg_percent_lymphocyte_infiltration_lte": number,
     "avg_percent_monocyte_infiltration": [number],
+    "avg_percent_monocyte_infiltration_gte": number,
+    "avg_percent_monocyte_infiltration_lte": number,
     "avg_percent_necrosis": [number],
+    "avg_percent_necrosis_gte": number,
+    "avg_percent_necrosis_lte": number,
     "avg_percent_neutrophil_infiltration": [number],
+    "avg_percent_neutrophil_infiltration_gte": number,
+    "avg_percent_neutrophil_infiltration_lte": number,
     "avg_percent_normal_cells": [number],
+    "avg_percent_normal_cells_gte": number,
+    "avg_percent_normal_cells_lte": number,
     "avg_percent_stromal_cells": [number],
+    "avg_percent_stromal_cells_gte": number,
+    "avg_percent_stromal_cells_lte": number,
     "avg_percent_tumor_cells": [number],
+    "avg_percent_tumor_cells_gte": number,
+    "avg_percent_tumor_cells_lte": number,
     "avg_percent_tumor_nuclei": [number],
+    "avg_percent_tumor_nuclei_gte": number,
+    "avg_percent_tumor_nuclei_lte": number,
     "batch_number": [string],
     "bcr": [string],
     "clinical_M": [string],
@@ -48,11 +66,23 @@ In the request body, supply a metadata resource with the following properties:
     "colorectal_cancer": [string],
     "country": [string],
     "days_to_birth": [string],
+    "days_to_birth_gte": string,
+    "days_to_birth_lte": string,
     "days_to_collection": [string],
+    "days_to_collection_gte": string,
+    "days_to_collection_lte": string,
     "days_to_death": [string],
+    "days_to_death_gte": string,
+    "days_to_death_lte": string,
     "days_to_initial_pathologic_diagnosis": [string],
+    "days_to_initial_pathologic_diagnosis_gte": string,
+    "days_to_initial_pathologic_diagnosis_lte": string,
     "days_to_last_followup": [string],
+    "days_to_last_followup_gte": string,
+    "days_to_last_followup_lte": string,
     "days_to_submitted_specimen_dx": [string],
+    "days_to_submitted_specimen_dx_gte": string,
+    "days_to_submitted_specimen_dx_lte": string,
     "ethnicity": [string],
     "frozen_specimen_anatomic_site": [string],
     "gender": [string],
@@ -68,6 +98,8 @@ In the request body, supply a metadata resource with the following properties:
     "has_UNC_GA_RNASeq": [string],
     "has_UNC_HiSeq_RNASeq": [string],
     "height": [string],
+    "height_gte": string,
+    "height_lte": string,
     "histological_type": [string],
     "history_of_colon_polyps": [string],
     "history_of_neoadjuvant_treatment": [string],
@@ -81,28 +113,64 @@ In the request body, supply a metadata resource with the following properties:
     "lymphnodes_examined": [string],
     "lymphovascular_invasion_present": [string],
     "max_percent_lymphocyte_infiltration": [string],
+    "max_percent_lymphocyte_infiltration_gte": string,
+    "max_percent_lymphocyte_infiltration_lte": string,
     "max_percent_monocyte_infiltration": [string],
+    "max_percent_monocyte_infiltration_gte": string,
+    "max_percent_monocyte_infiltration_lte": string,
     "max_percent_necrosis": [string],
+    "max_percent_necrosis_gte": string,
+    "max_percent_necrosis_lte": string,
     "max_percent_neutrophil_infiltration": [string],
+    "max_percent_neutrophil_infiltration_gte": string,
+    "max_percent_neutrophil_infiltration_lte": string,
     "max_percent_normal_cells": [string],
+    "max_percent_normal_cells_gte": string,
+    "max_percent_normal_cells_lte": string,
     "max_percent_stromal_cells": [string],
+    "max_percent_stromal_cells_gte": string,
+    "max_percent_stromal_cells_lte": string,
     "max_percent_tumor_cells": [string],
+    "max_percent_tumor_cells_gte": string,
+    "max_percent_tumor_cells_lte": string,
     "max_percent_tumor_nuclei": [string],
+    "max_percent_tumor_nuclei_gte": string,
+    "max_percent_tumor_nuclei_lte": string,
     "menopause_status": [string],
     "min_percent_lymphocyte_infiltration": [string],
+    "min_percent_lymphocyte_infiltration_gte": string,
+    "min_percent_lymphocyte_infiltration_lte": string,
     "min_percent_monocyte_infiltration": [string],
+    "min_percent_monocyte_infiltration_gte": string,
+    "min_percent_monocyte_infiltration_lte": string,
     "min_percent_necrosis": [string],
+    "min_percent_necrosis_gte": string,
+    "min_percent_necrosis_lte": string,
     "min_percent_neutrophil_infiltration": [string],
+    "min_percent_neutrophil_infiltration_gte": string,
+    "min_percent_neutrophil_infiltration_lte": string,
     "min_percent_normal_cells": [string],
+    "min_percent_normal_cells_gte": string,
+    "min_percent_normal_cells_lte": string,
     "min_percent_stromal_cells": [string],
+    "min_percent_stromal_cells_gte": string,
+    "min_percent_stromal_cells_lte": string,
     "min_percent_tumor_cells": [string],
+    "min_percent_tumor_cells_gte": string,
+    "min_percent_tumor_cells_lte": string,
     "min_percent_tumor_nuclei": [string],
+    "min_percent_tumor_nuclei_gte": string,
+    "min_percent_tumor_nuclei_lte": string,
     "mononucleotide_and_dinucleotide_marker_panel_analysis_status": [string],
     "mononucleotide_marker_panel_analysis_status": [string],
     "neoplasm_histologic_grade": [string],
     "new_tumor_event_after_initial_treatment": [string],
     "number_of_lymphnodes_examined": [string],
+    "number_of_lymphnodes_examined_gte": string,
+    "number_of_lymphnodes_examined_lte": string,
     "number_of_lymphnodes_positive_by_he": [string],
+    "number_of_lymphnodes_positive_by_he_gte": string,
+    "number_of_lymphnodes_positive_by_he_lte": string,
     "ParticipantBarcode": [string],
     "pathologic_M": [string],
     "pathologic_N": [string],
@@ -115,6 +183,8 @@ In the request body, supply a metadata resource with the following properties:
     "prior_dx": [string],
     "Project": [string],
     "psa_value": [number],
+    "psa_value_gte": number,
+    "psa_value_lte": number,
     "race": [string],
     "residual_tumor": [string],
     "SampleBarcode": [string],
@@ -125,24 +195,46 @@ In the request body, supply a metadata resource with the following properties:
     "tumor_type": [string],
     "vital_status": [string],
     "weight": [string],
+    "weight_gte": string,
+    "weight_lte": string,
     "weiss_venous_invasion": [string],
-    "year_of_initial_pathologic_diagnosis": [string]
+    "year_of_initial_pathologic_diagnosis": [string],
+    "year_of_initial_pathologic_diagnosis_gte": string,
+    "year_of_initial_pathologic_diagnosis_lte": string
   }
 
 .. csv-table::
 	:header: "**Parameter name**", "**Value**", "**Description**"
 	:widths: 50, 10, 50
 
-	age_at_initial_pathologic_diagnosis[],list,"Optional. Possible values include: '10 to 39', '40 to 49', '50 to 59', '60 to 69', '70 to 79', 'Over 80'."
+	age_at_initial_pathologic_diagnosis[],list,"Optional. "
+	age_at_initial_pathologic_diagnosis_gte,string,"Optional. "
+	age_at_initial_pathologic_diagnosis_lte,string,"Optional. "
 	anatomic_neoplasm_subdivision[],list,"Optional. Possible values include: 'Alveolar Ridge', 'Antrum/Distal', 'Ascending Colon', 'Base of tongue', 'Bilateral', 'Bladder - NOS', 'Body of Pancreas', 'Bronchial', 'Buccal Mucosa', 'Cardia/Proximal', 'Cecum', 'Descending Colon', 'Dome', 'Endometrium', 'Floor of mouth', 'Fundus uteri', 'Fundus/Body', 'Gastroesophageal Junction', 'Hard Palate', 'Head of Pancreas', 'Hepatic Flexure', 'Hypopharynx', 'L-Lower', 'L-Upper', 'Larynx', 'Left', 'Left Lower Inner Quadrant', 'Left Lower Outer Quadrant', 'Left Upper Inner Quadrant', 'Left Upper Outer Quadrant', 'Lip', 'Lower uterine segment/ Isthmus uteri', 'Myometrium', 'Neck', 'Oral Cavity', 'Oral Tongue', 'Oropharynx', 'Other (please specify)', 'R-Lower', 'R-Middle', 'R-Upper', 'Rectosigmoid Junction', 'Rectum', 'Right', 'Right Lower Inner Quadrant', 'Right Lower Outer Quadrant', 'Right Upper Inner Quadrant', 'Right Upper Outer Quadrant', 'Sigmoid Colon', 'Splenic Flexure', 'Stomach (NOS)', 'Tail of Pancreas', 'Tonsil', 'Transverse Colon', 'Trigone', 'Wall Anterior', 'Wall Lateral', 'Wall NOS', 'Wall Posterior'."
 	avg_percent_lymphocyte_infiltration[],list,"Optional. "
+	avg_percent_lymphocyte_infiltration_gte,number,"Optional. "
+	avg_percent_lymphocyte_infiltration_lte,number,"Optional. "
 	avg_percent_monocyte_infiltration[],list,"Optional. "
+	avg_percent_monocyte_infiltration_gte,number,"Optional. "
+	avg_percent_monocyte_infiltration_lte,number,"Optional. "
 	avg_percent_necrosis[],list,"Optional. "
+	avg_percent_necrosis_gte,number,"Optional. "
+	avg_percent_necrosis_lte,number,"Optional. "
 	avg_percent_neutrophil_infiltration[],list,"Optional. "
+	avg_percent_neutrophil_infiltration_gte,number,"Optional. "
+	avg_percent_neutrophil_infiltration_lte,number,"Optional. "
 	avg_percent_normal_cells[],list,"Optional. "
+	avg_percent_normal_cells_gte,number,"Optional. "
+	avg_percent_normal_cells_lte,number,"Optional. "
 	avg_percent_stromal_cells[],list,"Optional. "
+	avg_percent_stromal_cells_gte,number,"Optional. "
+	avg_percent_stromal_cells_lte,number,"Optional. "
 	avg_percent_tumor_cells[],list,"Optional. "
+	avg_percent_tumor_cells_gte,number,"Optional. "
+	avg_percent_tumor_cells_lte,number,"Optional. "
 	avg_percent_tumor_nuclei[],list,"Optional. "
+	avg_percent_tumor_nuclei_gte,number,"Optional. "
+	avg_percent_tumor_nuclei_lte,number,"Optional. "
 	batch_number[],list,"Optional. "
 	bcr[],list,"Optional. Possible values include: 'Nationwide Children's Hospital', 'Washington University'."
 	clinical_M[],list,"Optional. Possible values include: 'M0', 'M1', 'M1a', 'M1b', 'M1c', 'MX'."
@@ -152,11 +244,23 @@ In the request body, supply a metadata resource with the following properties:
 	colorectal_cancer[],list,"Optional. Possible values include: 'NO', 'YES'."
 	country[],list,"Optional. Possible values include: 'Afghanistan', 'Algeria', 'American Samoa', 'Australia', 'Brazil', 'Bulgaria', 'Canada', 'Croatia', 'Czech Republic', 'France', 'Georgia', 'Germany', 'Israel', 'Italy', 'Korea South', 'Moldova', 'Netherlands', 'Nigeria', 'Pakistan', 'Poland', 'Puerto Rico', 'Romania', 'Russia', 'Singapore', 'Spain', 'Switzerland', 'Ukraine', 'United Kingdom', 'United States', 'Vietnam', 'Yemen'."
 	days_to_birth[],list,"Optional. "
+	days_to_birth_gte,string,"Optional. "
+	days_to_birth_lte,string,"Optional. "
 	days_to_collection[],list,"Optional. "
+	days_to_collection_gte,string,"Optional. "
+	days_to_collection_lte,string,"Optional. "
 	days_to_death[],list,"Optional. "
+	days_to_death_gte,string,"Optional. "
+	days_to_death_lte,string,"Optional. "
 	days_to_initial_pathologic_diagnosis[],list,"Optional. "
+	days_to_initial_pathologic_diagnosis_gte,string,"Optional. "
+	days_to_initial_pathologic_diagnosis_lte,string,"Optional. "
 	days_to_last_followup[],list,"Optional. "
+	days_to_last_followup_gte,string,"Optional. "
+	days_to_last_followup_lte,string,"Optional. "
 	days_to_submitted_specimen_dx[],list,"Optional. "
+	days_to_submitted_specimen_dx_gte,string,"Optional. "
+	days_to_submitted_specimen_dx_lte,string,"Optional. "
 	ethnicity[],list,"Optional. Possible values include: 'HISPANIC OR LATINO', 'NOT HISPANIC OR LATINO'."
 	frozen_specimen_anatomic_site[],list,"Optional. Possible values include: 'Alveolar Ridge', 'Antrum', 'Ascending Colon', 'Base of Tongue', 'Brain', 'Brain; Supratentorial', 'Breast', 'Buccal mucosa', 'Cardia; Proximal', 'Cecum', 'Colon', 'Descending Colon', 'Floor of Mouth', 'Fundus of Stomach', 'Gastroesophageal Junction', 'Hard Palate', 'Hepatic Flexure', 'Hypopharynx', 'Larynx', 'Lip', 'Lymph Node(s) Axilla', 'Lymph Node(s) Cervical', 'Lymph Node(s) Inguinal', 'Lymph Node(s) Mesenteric', 'Lymph Node(s) Submandibular', 'Lymph node(s) Mediastinal', 'Oral Cavity', 'Oropharynx', 'Other', 'Popliteal fossa', 'Prostate', 'Rectosigmoid Junction', 'Rectum', 'Sigmoid Colon', 'Small Intestine', 'Soft Tissue', 'Spinal Cord', 'Splenic Flexure', 'Stomach', 'Testicle', 'Tongue', 'Tonsil', 'Transverse Colon', 'Unknown'."
 	gender[],list,"Optional. Possible values include: 'FEMALE', 'MALE', 'NA'."
@@ -172,6 +276,8 @@ In the request body, supply a metadata resource with the following properties:
 	has_UNC_GA_RNASeq[],list,"Optional. Possible values include: '1', '0', 'None'."
 	has_UNC_HiSeq_RNASeq[],list,"Optional. Possible values include: '1', '0', 'None'."
 	height[],list,"Optional. "
+	height_gte,string,"Optional. "
+	height_lte,string,"Optional. "
 	histological_type[],list,"Optional. "
 	history_of_colon_polyps[],list,"Optional. Possible values include: 'NO', 'YES'."
 	history_of_neoadjuvant_treatment[],list,"Optional. Possible values include: 'No', 'Yes', 'Yes, Pharmaceutical Treatment Prior to Resection', 'Yes, Radiation Prior to Resection'."
@@ -185,28 +291,64 @@ In the request body, supply a metadata resource with the following properties:
 	lymphnodes_examined[],list,"Optional. Possible values include: 'NO', 'YES'."
 	lymphovascular_invasion_present[],list,"Optional. Possible values include: 'NO', 'YES'."
 	max_percent_lymphocyte_infiltration[],list,"Optional. "
+	max_percent_lymphocyte_infiltration_gte,string,"Optional. "
+	max_percent_lymphocyte_infiltration_lte,string,"Optional. "
 	max_percent_monocyte_infiltration[],list,"Optional. "
+	max_percent_monocyte_infiltration_gte,string,"Optional. "
+	max_percent_monocyte_infiltration_lte,string,"Optional. "
 	max_percent_necrosis[],list,"Optional. "
+	max_percent_necrosis_gte,string,"Optional. "
+	max_percent_necrosis_lte,string,"Optional. "
 	max_percent_neutrophil_infiltration[],list,"Optional. "
+	max_percent_neutrophil_infiltration_gte,string,"Optional. "
+	max_percent_neutrophil_infiltration_lte,string,"Optional. "
 	max_percent_normal_cells[],list,"Optional. "
+	max_percent_normal_cells_gte,string,"Optional. "
+	max_percent_normal_cells_lte,string,"Optional. "
 	max_percent_stromal_cells[],list,"Optional. "
+	max_percent_stromal_cells_gte,string,"Optional. "
+	max_percent_stromal_cells_lte,string,"Optional. "
 	max_percent_tumor_cells[],list,"Optional. "
+	max_percent_tumor_cells_gte,string,"Optional. "
+	max_percent_tumor_cells_lte,string,"Optional. "
 	max_percent_tumor_nuclei[],list,"Optional. "
+	max_percent_tumor_nuclei_gte,string,"Optional. "
+	max_percent_tumor_nuclei_lte,string,"Optional. "
 	menopause_status[],list,"Optional. Possible values include: 'Indeterminate (neither Pre or Postmenopausal)', 'Peri (6-12 months since last menstrual period)', 'Post (prior bilateral ovariectomy OR >12 mo since LMP with n', 'Pre (<6 months since LMP AND no prior bilateral ovariectomy'."
 	min_percent_lymphocyte_infiltration[],list,"Optional. "
+	min_percent_lymphocyte_infiltration_gte,string,"Optional. "
+	min_percent_lymphocyte_infiltration_lte,string,"Optional. "
 	min_percent_monocyte_infiltration[],list,"Optional. "
+	min_percent_monocyte_infiltration_gte,string,"Optional. "
+	min_percent_monocyte_infiltration_lte,string,"Optional. "
 	min_percent_necrosis[],list,"Optional. "
+	min_percent_necrosis_gte,string,"Optional. "
+	min_percent_necrosis_lte,string,"Optional. "
 	min_percent_neutrophil_infiltration[],list,"Optional. "
+	min_percent_neutrophil_infiltration_gte,string,"Optional. "
+	min_percent_neutrophil_infiltration_lte,string,"Optional. "
 	min_percent_normal_cells[],list,"Optional. "
+	min_percent_normal_cells_gte,string,"Optional. "
+	min_percent_normal_cells_lte,string,"Optional. "
 	min_percent_stromal_cells[],list,"Optional. "
+	min_percent_stromal_cells_gte,string,"Optional. "
+	min_percent_stromal_cells_lte,string,"Optional. "
 	min_percent_tumor_cells[],list,"Optional. "
+	min_percent_tumor_cells_gte,string,"Optional. "
+	min_percent_tumor_cells_lte,string,"Optional. "
 	min_percent_tumor_nuclei[],list,"Optional. "
+	min_percent_tumor_nuclei_gte,string,"Optional. "
+	min_percent_tumor_nuclei_lte,string,"Optional. "
 	mononucleotide_and_dinucleotide_marker_panel_analysis_status[],list,"Optional. Possible values include: 'Indeterminate', 'MSI-H', 'MSI-L', 'MSS', 'Not Tested'."
 	mononucleotide_marker_panel_analysis_status[],list,"Optional. "
 	neoplasm_histologic_grade[],list,"Optional. Possible values include: 'G1', 'G2', 'G3', 'G4', 'GB', 'GX', 'High Grade', 'Low Grade'."
 	new_tumor_event_after_initial_treatment[],list,"Optional. Possible values include: 'NO', 'YES'."
 	number_of_lymphnodes_examined[],list,"Optional. "
+	number_of_lymphnodes_examined_gte,string,"Optional. "
+	number_of_lymphnodes_examined_lte,string,"Optional. "
 	number_of_lymphnodes_positive_by_he[],list,"Optional. "
+	number_of_lymphnodes_positive_by_he_gte,string,"Optional. "
+	number_of_lymphnodes_positive_by_he_lte,string,"Optional. "
 	ParticipantBarcode[],list,"Optional. "
 	pathologic_M[],list,"Optional. Possible values include: 'M0', 'M1', 'M1a', 'M1b', 'M1c', 'MX', 'cM0 (i+)'."
 	pathologic_N[],list,"Optional. Possible values include: 'N0', 'N0 (i+)', 'N0 (i-)', 'N0 (mol+)', 'N1', 'N1a', 'N1b', 'N1c', 'N1mi', 'N2', 'N2a', 'N2b', 'N2c', 'N3', 'N3a', 'N3b', 'N3c', 'NX'."
@@ -219,6 +361,8 @@ In the request body, supply a metadata resource with the following properties:
 	prior_dx[],list,"Optional. Possible values include: 'No', 'Yes', 'Yes, History of Prior Malignancy', 'Yes, History of Synchronous and or Bilateral Malignancy', 'Yes, History of Synchronous/Bilateral Malignancy'."
 	Project[],list,"Optional. Possible values include: 'CCLE', 'TCGA'."
 	psa_value[],list,"Optional. "
+	psa_value_gte,number,"Optional. "
+	psa_value_lte,number,"Optional. "
 	race[],list,"Optional. Possible values include: 'AMERICAN INDIAN OR ALASKA NATIVE', 'ASIAN', 'BLACK OR AFRICAN AMERICAN', 'NATIVE HAWAIIAN OR OTHER PACIFIC ISLANDER', 'WHITE'."
 	residual_tumor[],list,"Optional. Possible values include: 'R0', 'R1', 'R2', 'RX'."
 	SampleBarcode[],list,"Optional. "
@@ -229,11 +373,15 @@ In the request body, supply a metadata resource with the following properties:
 	tumor_type[],list,"Optional. Possible values include: 'Primary', 'Type 1', 'Type 2'."
 	vital_status[],list,"Optional. Possible values include: 'Alive', 'Dead'."
 	weight[],list,"Optional. "
+	weight_gte,string,"Optional. "
+	weight_lte,string,"Optional. "
 	weiss_venous_invasion[],list,"Optional. "
 	year_of_initial_pathologic_diagnosis[],list,"Optional. "
+	year_of_initial_pathologic_diagnosis_gte,string,"Optional. "
+	year_of_initial_pathologic_diagnosis_lte,string,"Optional. "
 
 
-Response
+**Response**
 
 If successful, this method returns a response body with the following structure:
 

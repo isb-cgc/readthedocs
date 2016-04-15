@@ -22,7 +22,7 @@ HTTP request::
 	token,string,"Optional. "
 
 
-Response
+**Response**
 
 If successful, this method returns a response body with the following structure:
 
@@ -45,7 +45,7 @@ If successful, this method returns a response body with the following structure:
         "name": string,
         "num_patients": string,
         "num_samples": string,
-        "parent_id": string,
+        "parent_id": [string],
         "perm": string,
         "source_notes": string,
         "source_type": string
@@ -69,7 +69,7 @@ If successful, this method returns a response body with the following structure:
 	items[].name, string, "Name of cohort."
 	items[].num_patients, string, "Number of unique participant barcodes in the cohort."
 	items[].num_samples, string, "Number of unique sample barcodes in the cohort."
-	items[].parent_id, string, "ID of the parent cohort this cohort was derived from, if any."
+	items[].parent_id[], list, "ID of the parent cohort this cohort was derived from, if any."
 	items[].perm, string, "User permissions on cohort: READER or OWNER."
 	items[].source_notes, string, "Notes on the source of the cohort."
 	items[].source_type, string, "Type of cohort source."
