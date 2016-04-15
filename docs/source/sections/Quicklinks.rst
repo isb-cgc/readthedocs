@@ -1,5 +1,5 @@
 *********************************************************************
-Quick Links to Documentation on How To Do Common Functions on ISB-CGC
+Quick Links - How To Do Common Functions on ISB-CGC - multiple tables
 *********************************************************************
 
 The tables below describe common functions that can be performed in ISB-CGC and provides links to documentation on how to do those functions.
