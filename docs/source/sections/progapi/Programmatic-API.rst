@@ -11,7 +11,7 @@ In order to query the ISB-CGC metadata or to get information such as details reg
 cohort that a user may have saved during an interactive session, a series of APIs based 
 on Google Cloud Endpoints have been defined.  Details about these APIs can be found here,
 and examples illustrating how to use these endpoints from Python can be found in 
-our `examples-Python <https://github.com/isb-cgc/examples-Python/python>`_ repository.
+our `examples-Python <https://github.com/isb-cgc/examples-Python/tree/master/python>`_ repository.
 
 The Google
 `APIs Explorer <https://apis-explorer.appspot.com/apis-explorer/?base=https://api-dot-isb-cgc.appspot.com/_ah/api#p/>`_

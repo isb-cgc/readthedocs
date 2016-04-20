@@ -23,7 +23,7 @@ HTTP request::
 	sample_barcode,string,"Required. "
 
 
-Response
+**Response**
 
 If successful, this method returns a response body with the following structure:
 

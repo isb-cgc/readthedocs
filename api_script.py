@@ -441,7 +441,7 @@ def write_rst_file_request_body(method):
 
     csv_header = get_csv_table_heading()
     allowed_values = {}
-    if method in ['preview', 'save']:
+    if method.startswith('preview') or method.startswith('save'):
         with open(JSON_FILE_DIRECTORY + '/allowed_values.json', 'r') as f:
             contents = f.read()
         allowed_values = json.loads(contents)
@@ -468,7 +468,7 @@ def write_rst_file_response_section(method):
 
     method_response = method_json.get('response')
     if method_response is None:
-        response_body_text = 'Response\n\nNone'
+        response_body_text = '**Response**\n\nNone'
     else:
         response_desc = 'If successful, this method returns a response body with the following structure:\n\n'
         js_block_header = '.. code-block:: javascript\n\n'
@@ -479,7 +479,7 @@ def write_rst_file_response_section(method):
 
         csv_header = get_csv_table_heading()
         csv_body = get_next_property_table_row(response_body_message_class_name, '', method_name=method)
-        response_body_text = 'Response\n\n{}{}{}\n\n{}\n{}'.format(
+        response_body_text = '**Response**\n\n{}{}{}\n\n{}\n{}'.format(
             response_desc, js_block_header, js_block_body, csv_header, csv_body)
 
     with open(DEV_DOCUMENTATION_DIRECTORY_PATH + file_name, 'a+') as f:
