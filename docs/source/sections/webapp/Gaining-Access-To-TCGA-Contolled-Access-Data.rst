@@ -71,6 +71,11 @@ still be signed in to your browser, so you may want to also sign out of the brow
    :scale: 50
    :align: center
 
+Extending Your Access by 24 hours From Now
+******************************************
+Once you have received permission to view controlled access data, your 
+
+
 Available TCGA Data: Open- and Controlled-Access
 ################################################
 
