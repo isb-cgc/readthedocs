@@ -73,7 +73,11 @@ still be signed in to your browser, so you may want to also sign out of the brow
 
 Extending Your Access by 24 hours From Now
 ******************************************
-Once you have received permission to view controlled access data, your 
+Once you have received permission to view controlled access data, your user login page will look like the screenshot below.  
+
+.. image:: SignOut.png
+   :scale: 50
+   :align: center
 
 
 Available TCGA Data: Open- and Controlled-Access
