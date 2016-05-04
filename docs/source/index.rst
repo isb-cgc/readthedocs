@@ -39,6 +39,8 @@ Contents
    sections/Hosted-Data
    sections/Prog-APIs
    sections/Web-UI
+   sections/Quicklinks
+   sections/QuicklinksOneTable
    sections/FAQ
    sections/Support
 
