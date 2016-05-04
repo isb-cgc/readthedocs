@@ -13,7 +13,7 @@ Information we need from YOU
 Please send an email to info@isb-cgc.org with the following information:
 
     * your Google identity (*eg* gmail address)
-    * are bringing a Mac or Windows laptop?
+    * are you bringing a Mac or Windows laptop?
 
 Feel free to ask any other questions you might have about the workshops or
 give us additional information about your specific use-case or goals for
