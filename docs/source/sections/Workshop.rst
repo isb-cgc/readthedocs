@@ -2,6 +2,12 @@
 ISB-CGC Workshops at NCI 
 ************************
 
+This information is currently intended only for attendees who have 
+signed up for the 
+`workshops at NCI on May 24th and 25th <https://cbiit.nci.nih.gov/ncip/nci-cancer-genomics-cloud-pilots/nci-cancer-genomics-cloud-workshop>`.  
+After the workshops, all materials will be made available as part of the
+ISB-CGC documentation here on readthedocs.
+
 Information we need from YOU
 ############################
 Please send an email to info@isb-cgc.org with the following information:
