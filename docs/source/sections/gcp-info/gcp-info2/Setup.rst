@@ -88,6 +88,7 @@ window out of your browser page by clicking on the "Open in new window" icon in 
 right-hand corner of the shell window.
 
 .. _authenticateGoogle:
+
 Authenticate with Google
 ========================
 Regardless of how you choose to interact with the Google Cloud, you will need to authenticate
