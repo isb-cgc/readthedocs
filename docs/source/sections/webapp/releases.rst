@@ -4,7 +4,7 @@ Release Notes
 
 *  **April 27, 2016**: `v1.2 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.2>`_
 
-    **Known issues in this Sprint 3** 
+    **Known issues in Sprint 3** 
 
     - Can add same gene twice if list has different names.
     - User can add same filter to existing cohorts.
@@ -21,7 +21,7 @@ Release Notes
     - When user switches gene in plot settings the feature choices for that specification disappears.
 
 
-    **Issues that are resolved in Sprint 3**
+    **Issues resolved in Sprint 3**
 
     New Enhancements
 
@@ -46,7 +46,7 @@ Release Notes
 
 *  **April 14, 2016**: `v1.1 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.1>`_
     
-    **Known issues in this Sprint 2** 
+    **Known issues in Sprint 2** 
 
     - If user clicks create in new worksheet too many times within a few seconds will create duplicate worksheets
     - Can add same gene twice if list has different names
@@ -62,7 +62,7 @@ Release Notes
     - If user edits an existing cohort the old filter(s) will be removed
     
     
-    **Issues that are resolved in Sprint 2**
+    **Issues resolved in Sprint 2**
 
     New Enhancements
     
