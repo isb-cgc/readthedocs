@@ -15,7 +15,7 @@ Release Notes
    * includes ``Annotations`` table with information about redacted samples, etc
    * ``isb-cgc:platform_reference`` contains annotation information for the Illumina DNA Methylation platform.
 
-* November 16, 2015: initial upload of data from CGHub into Google Cloud Storage complete (not publicly released)
+* November 16, 2015: initial upload of data from CGHub into Google Cloud Storage (GCS) complete (not publicly released)
 
 * December 12, 2015: curated TCGA cohort lists available in ``isb-cgc:tcga_cohorts`` dataset
 
@@ -35,7 +35,7 @@ Release Notes
 
 * May 3, 2016: new ``isb-cgc:tcga_seq_metadata`` dataset contains metadata and FastQC metrics for thousands of TCGA DNA-seq and RNA-seq data files:
     * ``CGHub_Manifest`` table contains metadata for all TCGA files at CGHub as of April 27th, 2016
-    * ``GCS_listing_27apr2016`` table contains metadata for all TCGA files hosted by ISB-CGC in Cloud Storage as of April 27th, 2016
+    * ``GCS_listing_27apr2016`` table contains metadata for all TCGA files hosted by ISB-CGC in GCS 
     * ``RNAseq_FastQC`` table contains metrics derived from FastQC runs on the RNAseq data files, including urls to the FastQC html reports that you can cut and paste directly into your browser
     * ``WXS_FastQC`` table contains metrics derived from FastQC runs on the exome DNAseq data files
 
