@@ -21,19 +21,30 @@ the workshop.  The workshop will be your hands-on introduction to the ISB-CGC;
 be assured that we will follow up with you after the workshops to provide
 any additional support you will need.
 
+Also, we'd like to encourage you to take advantage of the 
+`60-day free trial <https://cloud.google.com/free-trial/>`_ offered by Google.
+If you have already used this one-time offer, we can set you up with an
+ISB-CGC provided (and funded) project, but we'd also be happy to do that for
+you *after* you use the $300/60-day free trial.
+
+When you send us your Google identity, please let us know if you already have 
+a Google Cloud Platform (GCP) project or not.  In addition to your own
+personal GCP project, we will also add all workshop attendees to a group-project
+for the day of the workshop.
+
+
 What you should do before the workshop
 ######################################
-Once we have your Google identity, we will add you as a member to two
-Google Cloud Platform (GCP) projects: a group-project for the workshop,
-and a personal project for your own work.  You will then be notified by 
-email and additional information will be provided to you at that time.
-
 Here are some ways that you can prepare for the workshops:
 
+**Strongly Recommended:**
     * learn your way around the Google Cloud Console
-    * install the Cloud SDK on your laptop
-    * create a free account for yourself on GitHub
-    * install the GitHub desktop app on your laptop
-    * install R and RStudio on your laptop
+    * `install the Cloud SDK <https://cloud.google.com/sdk/>`_ on your laptop
 
+**Suggested:**
+    * install `R <https://cran.r-project.org/>`_ and `RStudio <https://www.rstudio.com/products/rstudio/download/>`_ on your laptop
+    * `sign up for GitHub <https://github.com/open-source>`_ 
+    * install `GitHub Desktop <https://desktop.github.com/>`_ on your laptop
+
+**Additional Resources:**
 

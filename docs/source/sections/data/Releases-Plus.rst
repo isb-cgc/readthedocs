@@ -27,26 +27,25 @@ Release Notes
 
 * February 22, 2016: Kaviar database now available in the ``isb-cgc:genome_reference`` dataset
 
-* February 26, 2016: new CCLE dataset in BigQuery includes sample metadata, mutation calls, copy-number segments, and expression data (metadata includes full cloud-storage-path for world-readable BAM and SNP CEL files, and Genomics dataset- and readgroupset-ids for sequence data imported into Google Genomics)
+* February 26, 2016: new CCLE dataset in BigQuery ``isb-cgc:ccle_201602_alpha`` includes sample metadata, mutation calls, copy-number segments, and expression data (metadata includes full cloud-storage-path for world-readable BAM and SNP CEL files, and Genomics dataset- and readgroupset-ids for sequence data imported into Google Genomics)
 
 * March 14, 2016: with the release of our Web-App, controlled-data is now accessible (programmatically) to users who have previously obtained dbGaP approval for TCGA data and go through the NIH authentication process built-in to the Web-App.
+
+* April 28, 2016: ``GO_Ontology`` and ``GO_Annotations`` tables added to the ``isb-cgc:genome_reference`` dataset
+
+* May 3, 2016: new ``isb-cgc:tcga_seq_metadata`` dataset contains metadata and FastQC metrics for thousands of TCGA DNA-seq and RNA-seq data files:
+    * ``CGHub_Manifest`` table contains metadata for all TCGA files at CGHub as of April 27th, 2016
+    * ``GCS_listing_27apr2016`` table contains metadata for all TCGA files hosted by ISB-CGC in Cloud Storage as of April 27th, 2016
+    * ``RNAseq_FastQC`` table contains metrics derived from FastQC runs on the RNAseq data files, including urls to the FastQC html reports that you can cut and paste directly into your browser
+    * ``WXS_FastQC`` table contains metrics derived from FastQC runs on the exome DNAseq data files
 
 Future Plans
 ############
 
+We have recently brought our CGHub-mirror up-to-date with new TCGA data deposited at CGHub in the past few months.
+We are currently (May 2016) in the  midst of re-uploading TCGA data from the DCC and will be providing an updated
+BigQuery dataset based on this data in June.
+
 We expect that our future plans will continually evolve based on user feedback, research priorities, and the dynamic nature of the Google Cloud Platform.  
 Tell us what is important to you at feedback@isb-cgc.org
-
-Near-Term
-=========
-
-* Enable access to controlled data in GCS by authorized users (March)
-* Upload new data from CGHub into GCS (March)
-* Complete update of data from DCC into GCS (April)
-* New set of BigQuery tables based on new data at the TCGA DCC (April/May)
-
-Longer-Term
-===========
-
-* Import a subset of TCGA VCF files and sequence-level data into Google Genomics
 
