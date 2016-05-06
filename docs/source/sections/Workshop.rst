@@ -8,8 +8,8 @@ signed up for the
 After the workshops, all materials will be made available as part of the
 ISB-CGC documentation here on readthedocs.
 
-Information we need from YOU
-############################
+Step #1: Information we need from YOU
+#####################################
 
 Google identity and OS
 ----------------------
@@ -32,7 +32,7 @@ We'd like to encourage you to take advantage of the
 `60-day free trial <https://cloud.google.com/free-trial/>`_ offered by Google.
 If you have already used this one-time offer, let us know and we will set you up with an
 ISB-CGC provided (and funded) project.  (We'll also be happy to do that for
-you *after* you use the $300/60-day free trial.)
+you after you use the $300/60-day free trial.)
 
 When you send us your Google identity, please let us know if you already have 
 your own GCP project.
@@ -47,13 +47,14 @@ be assured that we will follow up with you after the workshops to provide
 any additional support you will need.
 
 
-How to prepare for the workshop
-###############################
+Step #2: How to prepare for the workshop
+########################################
 Here are some ways that you can prepare for the workshops:
 
 **Strongly Recommended:**
+    * install `Google Chrome <https://www.google.com/chrome/browser/desktop/>`_ on your laptop
     * learn your way around the Google Cloud Console
-    * `install the Cloud SDK <https://cloud.google.com/sdk/>`_ on your laptop
+    * install the `Cloud SDK <https://cloud.google.com/sdk/>`_ on your laptop
 
 **Suggested:**
     * install `R <https://cran.r-project.org/>`_ and `RStudio <https://www.rstudio.com/products/rstudio/download/>`_ on your laptop
