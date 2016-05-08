@@ -16,9 +16,9 @@ Step #1: Information we need from YOU
 Google identity and OS
 ----------------------
 
-Please send us an email **today** (at info@isb-cgc.org) with the following information:
+**Please send us an email today** (at info@isb-cgc.org) with the following information:
 
-    * your Google identity (*eg* gmail address)
+    * your Google identity (for example your gmail address)
     * are you bringing a Mac or Windows laptop?
 
 If you don't already have a Google identity, you can 
@@ -37,8 +37,8 @@ let us know and we will set you up with an
 ISB-CGC provided (and funded) project.  (We'll also be happy to do that for
 you after you use the $300/60-day free trial.)
 
-When you send us your Google identity, please let us know if you already have 
-your own GCP project.
+**When you send us your Google identity, please let us know if you already have 
+your own GCP project.**
 
 Questions?
 ----------
