@@ -8,6 +8,8 @@ signed up for the
 After the workshops, all materials will be made available as part of the
 ISB-CGC documentation here on readthedocs.
 
+**Please check back again before the day of the workshop!**
+
 Step #1: Information we need from YOU
 #####################################
 
@@ -54,14 +56,17 @@ Here are some ways that you can prepare for the workshops:
 
 **Strongly Recommended:**
     * install `Google Chrome <https://www.google.com/chrome/browser/desktop/>`_ on your laptop
-    * learn your way around the `Google Cloud Console <https://console.cloud.google.com>`_
-    * enable the following APIs for your GCP project: BigQuery, Genomics, and Compute Engine
-    * install the `Cloud SDK <https://cloud.google.com/sdk/>`_ on your laptop
+    * learn your way around the `Google Cloud Console <https://console.cloud.google.com>`_ -- we have prepared a `15 minute tutorial <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_Console.pdf>`_
+    * enable the following APIs for your GCP project: BigQuery, Genomics, and Compute Engine -- this should take `less than 5 minutes <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/enabling_new_APIs.pdf>`_
 
 **Suggested:**
+    * install the `Cloud SDK <https://cloud.google.com/sdk/>`_ on your laptop
     * install `R <https://cran.r-project.org/>`_ and `RStudio <https://www.rstudio.com/products/rstudio/download/>`_ on your laptop
     * `sign up for GitHub <https://github.com/open-source>`_ 
     * install `GitHub Desktop <https://desktop.github.com/>`_ on your laptop
 
 **Additional Resources:**
+    * `A Quick Tour of the Google Cloud Console <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_Console.pdf>`_
+    * `How to Enable APIs for your GCP Project <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/enabling_new_APIs.pdf>`_
+    * `An Introduction to BigQuery <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_BigQuery.pdf>`_
 
