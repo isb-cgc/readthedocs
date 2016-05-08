@@ -16,7 +16,7 @@ Step #1: Information we need from YOU
 Google identity and OS
 ----------------------
 
-Please send an email to info@isb-cgc.org with the following information:
+Please send us an email **today** (at info@isb-cgc.org) with the following information:
 
     * your Google identity (*eg* gmail address)
     * are you bringing a Mac or Windows laptop?
