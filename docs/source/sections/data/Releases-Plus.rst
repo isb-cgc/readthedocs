@@ -19,9 +19,9 @@ Release Notes
 
 * December 12, 2015: curated TCGA cohort lists available in ``isb-cgc:tcga_cohorts`` dataset
 
-* December 26, 2015: public release of new ``isb-cgc:genome_reference`` dataset, with ``miRTarBase`` table
+* December 26, 2015: public release of new ``isb-cgc:genome_reference`` dataset: the first table is based on the just-published ``miRTarBase`` release 6.1
 
-* January 10, 2016: ``GENCODE_r19`` and ``miRBase_v20`` tables added to ``isb-cgc:genome_reference`` dataset
+* January 10, 2016: ``GENCODE_r19`` and ``miRBase_v20`` tables added to the ``isb-cgc:genome_reference`` dataset
 
 * February 19, 2016: CCLE RNAseq and DNAseq bam files imported into Google Genomics
 
@@ -38,6 +38,8 @@ Release Notes
     * ``GCS_listing_27apr2016`` table contains metadata for all TCGA files hosted by ISB-CGC in GCS 
     * ``RNAseq_FastQC`` table contains metrics derived from FastQC runs on the RNAseq data files, including urls to the FastQC html reports that you can cut and paste directly into your browser
     * ``WXS_FastQC`` table contains metrics derived from FastQC runs on the exome DNAseq data files
+
+* May 9, 2016: new ``Ensembl2Reactome`` and ``miRBase2Reactome`` tables added to the ``isb-cgc:genome_reference`` dataset
 
 Future Plans
 ############
