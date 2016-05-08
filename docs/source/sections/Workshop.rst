@@ -56,7 +56,7 @@ Here are some ways that you can prepare for the workshops:
 
 **Strongly Recommended:**
     * install `Google Chrome <https://www.google.com/chrome/browser/desktop/>`_ on your laptop
-    * learn your way around the `Google Cloud Console <https://console.cloud.google.com>`_ -- we have prepared a `15 minute tutorial <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_Console.pdf>`_
+    * learn your way around the `Google Cloud Console <https://console.cloud.google.com>`_ -- follow along with this `15 minute tutorial <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_Console.pdf>`_
     * enable the following APIs for your GCP project: BigQuery, Genomics, and Compute Engine -- this should take `less than 5 minutes <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/enabling_new_APIs.pdf>`_
 
 **Suggested:**
