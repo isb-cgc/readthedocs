@@ -20,6 +20,7 @@ Google identity and OS
 
     * your Google identity (for example your gmail address)
     * are you bringing a Mac or Windows laptop?
+    * do you have non-TCGA data that you want to begin analyzing during the workshop?
 
 If you don't already have a Google identity, you can 
 `create one <https://accounts.google.com/SignUp?dsh=308321458437252901&continue=https%3A%2F%2Faccounts.google.com%2FManageAccount#FirstName=&LastName=>`_.
