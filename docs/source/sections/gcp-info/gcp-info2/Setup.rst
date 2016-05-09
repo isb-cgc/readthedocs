@@ -87,6 +87,8 @@ new window that has appeared at the bottom of your Console page.  You can "pop" 
 window out of your browser page by clicking on the "Open in new window" icon in the upper
 right-hand corner of the shell window.
 
+.. _authenticategoogle:
+
 Authenticate with Google
 ========================
 Regardless of how you choose to interact with the Google Cloud, you will need to authenticate

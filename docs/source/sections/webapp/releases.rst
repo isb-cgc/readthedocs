@@ -4,49 +4,49 @@ Release Notes
 
 *  **April 27, 2016**: `v1.2 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.2>`_
 
-    **Known issues in this Sprint 3** 
+    **Known issues in Sprint 3** 
 
-    - Can add same gene twice if list has different names 1204
-    - User can add same filter to existing cohorts 1206
-    - Create new Cohort left filters (#) does not re-populate as you select filters to match sample # in clinical feature panel 1183
-    - Clinical Features Panel in create new cohort page will still display BRCA even if unselected 1192
-    - Last updated section in existing workbooks panel does not update when changes are made to existing workbook 1215
-    - Bar chart renders overlapping text 1040
-    - Set operation Union patient # off by one 1129
-    - Legend Name cut off when name is too long 1134
-    - Upon duplicating a cohort it duplicates the selected filter as well. 1209
-    - Cannot delete whom you share cohort with from existing cohorts table 1228 
-    - Unable to down file list as csv for any other cohort only selected filter CCLE 1246
-    - Legend Cut Off for violin plot when color by feature set to Prior Diagnosis 1250
-    - When user switches gene in plot settings the feature choices for that specification disappears 1252
+    - Can add same gene twice if list has different names.
+    - User can add same filter to existing cohorts.
+    - Create new Cohort left filters (#) does not re-populate as you select filters to match sample # in clinical feature panel.
+    - Clinical Features Panel in create new cohort page will still display BRCA even if unselected.
+    - Last updated section in existing workbooks panel does not update when changes are made to existing workbook.
+    - Bar chart renders overlapping text.
+    - Set operation Union patient # off by one.
+    - Legend Name cut off when name is too long.
+    - Upon duplicating a cohort it duplicates the selected filter as well.
+    - Cannot delete whom you share cohort with from existing cohorts table.
+    - Unable to down file list as csv for any other cohort only selected filter CCLE.
+    - Legend Cut Off for violin plot when color by feature set to Prior Diagnosis.
+    - When user switches gene in plot settings the feature choices for that specification disappears.
 
 
-    **Issues that are resolved in Sprint 3**
+    **Issues resolved in Sprint 3**
 
     New Enhancements
 
-    - The comments section now has a max number of characters 1000 limit 1197
-    - Link created to Extend controlled access period to 24-hours from the moment the link is clicked. 1217
+    - The comments section now has a max number of characters 1000 limit.
+    - Link created to Extend controlled access period to 24-hours from the moment the link is clicked.
 
     Bug Fixes
 
-    - A user can now click new worksheet multiple times within a few seconds and only produce one sheet. 1178
-    - The user must now add a new filter in an existing cohort to edit it the cohort. 1172
-    - The duplicate button for an existing cohort will only make one duplicate at a time. 1213
-    - Clicking 150+ selected filters will not create an error page. 1188
-    - Cancel button on Create new gene list page will send you to Gene list favorites table menu. 1200
-    - Violin plot : User can not add categorial value to y-axis. 1205
-    - If user edits an existing cohort, the old filter(s) will not be removed. 1216
-    - If a new worksheet is generated, the worksheet functionality is working properly. 1123
-    - User will get the ‘500: There was an error while handling your request. If you are trying to access a cohort please log out - and log back in. Sorry for the inconvenience.’  if the user is inactive for more in 15 minutes when trying to create/use existing cohort 1186
-    - Clinical Feature Panel is displayed properly and reacts to filters being added/removed quickly 1214
-    - The user must have text to add a comment. 1223
-    - All columns in file list table will be transferred/displayed when exported as csv file 1229
+    - A user can now click new worksheet multiple times within a few seconds and only produce one sheet.
+    - The user must now add a new filter in an existing cohort to edit it the cohort.
+    - The duplicate button for an existing cohort will only make one duplicate at a time.
+    - Clicking 150+ selected filters will not create an error page.
+    - Cancel button on Create new gene list page will send you to Gene list favorites table menu.
+    - Violin plot : User can not add categorial value to y-axis.
+    - If user edits an existing cohort, the old filter(s) will not be removed.
+    - If a new worksheet is generated, the worksheet functionality is working properly.
+    - User will get the ‘500: There was an error while handling your request. If you are trying to access a cohort please log out - and log back in. Sorry for the inconvenience.’  if the user is inactive for more in 15 minutes when trying to create/use existing cohort.
+    - Clinical Feature Panel is displayed properly and reacts to filters being added/removed quickly.
+    - The user must have text to add a comment.
+    - All columns in file list table will be transferred/displayed when exported as csv file.
 
 
 *  **April 14, 2016**: `v1.1 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.1>`_
     
-    **Known issues in this Sprint 2** 
+    **Known issues in Sprint 2** 
 
     - If user clicks create in new worksheet too many times within a few seconds will create duplicate worksheets
     - Can add same gene twice if list has different names
@@ -62,7 +62,7 @@ Release Notes
     - If user edits an existing cohort the old filter(s) will be removed
     
     
-    **Issues that are resolved in Sprint 2**
+    **Issues resolved in Sprint 2**
 
     New Enhancements
     

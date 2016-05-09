@@ -25,7 +25,7 @@ to algorithm developers who wish to spin up thousands of virtual machines to ana
 of terabytes of sequence data.
 
 This documentation is a work-in-progress, please let us know how we can improve 
-it! feedback@isb-cgc.org 
+it. feedback@isb-cgc.org 
 
 -- the ISB-CGC team
 

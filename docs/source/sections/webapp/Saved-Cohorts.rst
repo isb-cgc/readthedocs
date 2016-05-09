@@ -179,6 +179,10 @@ hovering on a horizontal segment between the first two bars, you will see the nu
 type platforms. You can also reorder the vertical categories by dragging the headers left and right and reorder the
 platforms by dragging the platform names up and down.
 
+.. _viewfilelist:
+
+View File List
+--------------
 “View File List” takes you to a new page where you can view the file list associated to the cohort you are looking at.
 The file list page provides a paginated list of files available with all samples in the cohort. Here, “available” refers
 to files that have been uploaded to the ISB-CGC Google Cloud Project and that are open access data. You can use the
