@@ -10,13 +10,13 @@ ISB-CGC documentation here on readthedocs.
 
 **Please check back again before the day of the workshop!**
 
-Step #1: Information we need from YOU
-#####################################
+Step #1: Basic Information and your own GCP project
+###################################################
 
-Google identity and OS
-----------------------
+Basic Information 
+-----------------
 
-**Please send us an email today** (at info@isb-cgc.org) with the following information:
+**Please send the following information to info@isb-cgc.org before Monday May 16th** 
 
     * your Google identity (for example your gmail address)
     * are you bringing a Mac or Windows laptop?
