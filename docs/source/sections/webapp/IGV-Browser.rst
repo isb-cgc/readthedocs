@@ -2,21 +2,19 @@
 Integrative Genomics Viewer (IGV)
 *********************************
 
-**Important:**  Improved integration of the IGV browser and the ISB-CGC BigQuery data tables is coming soon!  Specifically
-the IGV browser will be able to access the *high-level* molecular data in the ISB-CGC BigQuery tables as well 
-the *low-level* sequence data via the GA4GH API.
-
 Accessing the IGV Browser
 -------------------------
 
-To access IGV, go to the cohort file list page. The file listing table includes a column labelled "IGV". 
-For those files that also have a ReadGroupSet ID in Google Genomics, a green check mark will appear in the column. 
-Clicking on that link will take you to an IGV browser view of the selected readgroupset.
+To access IGV, go to the cohort file list page (through the "View Files" link at the top of the page). The file listing table includes a column labelled "IGV".
 
-(Note that "readgroupset" is a GA4GH term for a group of aligned DNA- or RNA-seq reads, 
+For those files that also have a ReadGroupSet ID in Google Genomics, a "GA4GH" label with a checkbox will appear in the column.  For those files that are available in cloud storage, a "Cloud Storage" label witha checkbox will appear in the column.  You can selecting the files you want to view at the same time in the IGV viewer through selecting the relevant checkboxes on possibly multiple pages of files.  Once you have selected the appropriate files to view in the IGV viewer, pressing the "Launch IGV" button will launch the IGV viewer.
+
+NOTE:  You will only be able to view controlled access sequence files if you have logged in as a registered dbGaP authorized user.
+
+("ReadGroupSet" is a GA4GH term for a group of aligned DNA- or RNA-seq reads, 
 typically from a single sample or a single BAM file.
-For the CCLE and TCGA datasets hosted by the ISB-CGC, each readgroupset corresponds to a single BAM file which
-in turn corresponds to the aligned DNA- or RNA-seq reads from a single sample.)
+For the CCLE and TCGA datasets hosted by the ISB-CGC, each ReadGroupSet corresponds to a single BAM file which
+in turn corresponds to the aligned DNA- or RNA-seq reads from a single sample. IGV can also view BAM files (with associated BAM Index Files) that are stored on a Google Drive.  These are the type of files that are being viewed with the link "Cloud Storage".).
 
 Referencing the Integrative Genomics Viewer (IGV)
 -------------------------------------------------
