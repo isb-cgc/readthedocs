@@ -18,7 +18,8 @@ Cohort Creation Page
 ====================
 
 Using the provided list of filters on the left hand side, you can select the attributes and features
-that you are interested in.
+that you are interested in.  Note that the TCGA project is selected by default as this is the dataset that the majority of researchers are familiar with.  CCLE (The Cancer Cell Line Encyclopedia) data is also available if desired.
+
 By clicking on a feature, the field will expand and provide you with additional filtering options.
 For example, when you click on “Vital Status”, it expands and provides a list of “Alive”, “Dead”, and
 “NA” as options to
@@ -27,7 +28,9 @@ panel and visualizations on the page
 will be updated to reflect that the current cohort that has been filtered by Vital Status. 
 The numbers beside the selectable
 filter values reflect the number of samples that have that attribute based on all other filters that 
-have been selected.  Filters are "ANDed" together, meaning that selecting two filters means that the participants and samples are created based on both filters being executed.  There may be cases where you have 0 participants and samples, because the combination of filters you have chosen are ALL not present (AND function).
+have been selected.  
+
+Filters are "ANDed" together, meaning that selecting two filters means that the participants and samples are created based on both filters being executed.  There may be cases where you have 0 participants and samples, because the combination of filters you have chosen are ALL not present (AND function).
 
 Cohort Filters
 --------------
