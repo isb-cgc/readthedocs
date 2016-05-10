@@ -217,7 +217,7 @@ to files that have been uploaded to the ISB-CGC Google Cloud Project, either con
 You may filter on these files if you are only interested in a specific data type and platform. Selecting a filter will
 update the associated list. The numbers next to the platform refers to the number of files available for that platform.
 
-If there are open access files that have sequences associated with them, you will be able to select files to view in the IGV viewer by selecting check boxes beside the viewer and selecting "VIEW IGV Viewer).  Only if you have logged in as a dbGaP authorized user will you be able to select files controlled access files to view in the IGV viewer.
+If there are open access files that have sequences associated with them, you will be able to select files to view in the IGV viewer by selecting check boxes beside the viewer and selecting "VIEW IGV Viewer".  Only if you have logged in as a dbGaP authorized user will you be able to select files controlled access files to view in the IGV viewer.
 
 Download File List as CSV
 -------------------------
