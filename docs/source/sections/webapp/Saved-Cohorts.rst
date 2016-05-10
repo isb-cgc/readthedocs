@@ -108,8 +108,10 @@ the vertical bars are data types. Each data type (vertical bar) is subdivided ac
 that were used to generate this type of data (with "NA" indicating samples for which this data type is not available).
 Each sample in the current cohort is represented by a single line that "flows" horizontally from left to right,
 crossing each vertical bar in the appropriate segment.
+
 Hovering on a swatch between two vertical bars, you will see the number of samples that have data from those
 two platforms. 
+
 You can also reorder the vertical categories by dragging the headers left and right and reorder the
 platforms by dragging the platform names up and down.
 
