@@ -10,7 +10,9 @@ Creating and saving a cohort
 
 To create a cohort from Your Dashboard, if you do not have a cohort created, click on the “Create Cohort” link in the "Saved Cohorts" panel at the bottom of the page. This will take you to the cohort creation page.
 
-If you already have saved cohorts, they will be listed in the "Saved Cohorts" panel.  Click on the "Saved Cohorts" link in that panel and this will take you to a page that displays the details of your saved cohorts.  To create a new saved cohort, use the "Create New Cohort" button on the page listing your current saved cohorts.
+If you already have saved cohorts, they will be listed in the "Saved Cohorts" panel.  Click on the "Saved Cohorts" link in that panel and this will take you to a page that displays the details of your saved cohorts.  Alternatively, to go directly to a given cohort, click on its name and you will be taken to the cohort details page of that cohort.
+
+To create a new saved cohort, use the "Create Cohort" link.
 
 Cohort Creation Page
 ====================
