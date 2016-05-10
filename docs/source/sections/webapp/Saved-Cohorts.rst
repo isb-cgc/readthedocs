@@ -34,17 +34,17 @@ Filters are "ANDed" together, meaning that selecting two filters means that the 
 
 Cohort Filters
 --------------
-The panel on the left of the screen, with two tabs called "Donor" and "Data Type" allow you to apply filters to the cohorts your are creating.  Below are the details of each tab.
+The panel on the left of the screen, with two tabs called "DONOR" and "DATA TYPE" allow you to apply filters to the cohorts your are creating.  Below are the details of each tab.
 
 Donor Tab
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-    * Public Projects
+    * Public Projects (TCGA is selected as default)
     * Public Studies (mouse over feature will display disease name if it is part of the TCGA dataset)
     * Vital Status
     * Gender
     * Age At Diagnosis
-    * Sample Type Code
+    * Sample Type
     * Tumor Tissue Site
     * Histological Type
     * Prior Diagnosis
@@ -63,9 +63,9 @@ Data Type Tab
 
     * DNA Sequencing
     * RNA Sequencing
-    * MIRNA Sequencing
+    * miRNA Sequencing
     * Protein
-    * SNP CN
+    * SNP Copy Number
     * DNA Methylation
 
 Save As New Cohort Button
