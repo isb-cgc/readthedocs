@@ -77,20 +77,28 @@ Selected Filters Panel
 ^^^^^^^^^^^^^^^^^^^^^^
 
 This is where selected filters are shown so there is an easy way to see what filters have been selected.
+
 If you have not saved the cohort yet, clicking on “Clear All” will remove all selected filters.  Also, if you have not saved the cohort yet, selecting an X beside a single filter will remove that filter.  If you have saved the filter, the X is not present as this function is disabled in saved cohorts.
+
+Details Panel
+^^^^^^^^^^^^^
+
+This panel shows the Total Number of Samples and Total Number of Participants in a cohort that is actively being created.  If there is a small "timer" icon, the calculation is taking place - the results should appear soon.
 
 Clinical Features Panel
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 This panel shows a list of images (called "treemaps") that give a high level breakdown of the selected samples for a 
 handful of features:
+
 * Study
 * Vital Status
 * Sample Type
 * Tumor Tissue Site
 * Gender
 * Age at Initial Pathologic Diagnosis
-By using the “Show More” button, you can see the last two tree maps.
+
+By using the “Show More” button, you can see the last two tree maps.  Mousing over an image shows the details of each specific section of the image and the number of samples associated with it.
 
 Data Availability Panel
 ^^^^^^^^^^^^^^^^^^^^^^^
