@@ -2,6 +2,49 @@
 Release Notes
 *************
 
+*  **May 10, 2016**: `v1.3 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.3>`_
+    **Known issues in Sprint 4**
+    - A user can add same gene twice if identical gene list have different names.
+    - The user can add same filter already selected to an existing cohort. 
+    - The create new Cohort left filters number count does not re-populate as you select filters to match sample number count in clinical feature panel.
+    - When a Bar chart renders overlapping text is displayed on the x-axis of the plot.
+    - Cannot delete whom you share a cohort with from the existing cohorts table only from the details page of a cohort.
+    - Analysis Type : Seq peek formatting is elongated when a user selects certain gene for analysis. Using the gene TP53 can reproduce this issue. 
+    - The CCLE data in GUI currently does not parallel the CCLE data in BigQuery.
+    - A user can add a duplicate gene to same gene favorites list in the create new gene list page.
+    - By double clicking a gene name in the create new gene list page, the gene will expand but display a blank space.
+    - A duplicate worksheet will display the color by feature variables twice in the drop down list.
+    - A user currently cannot select a cohort in the color by feature section.
+    - The Gene list drop down list used for analysis should be exact gene only.
+    - The comments button for both workbook and cohort comments section, if the user is to click comment button multiple time within one second, this action will post a duplicate comment.
+    - The last Update section should reflect any changes made to variable list, cohort, and gene list for their corresponding tables.
+    - The user cannot select the gene HP in the Create Gene list favorite page.
+
+   **Issues that are resolved in Sprint 4**
+
+    New Enhancements
+    
+    - Data Use Certification Agreement link updated and the help link was removed. 
+    - The Data Type section in the Create new Cohort page name change from MIRNA Sequencing to miRNA Sequencing and SNP CN to SNP Copy-Number. 
+    - The number of patients is now dynamically displayed in the create new cohort page when selecting filters in the details panel.
+    - The number of samples is now dynamically displayed in the create new cohort page when selecting filters in the details panel.
+    - By default in the create new cohort page, you will have the TCGA data filter selected.
+    - When creating a cohort, checking feature boxes will be throttled so as to avoid miss-represented data.
+    - Tooltips were added to the Sample Type section in the clinical features panel.
+    - Minor changes were made in personal details page.
+
+   Bug Fixes
+   
+    - The Clinical Features Panel in the create new cohort page will no longer display BRCA even if unselected.
+    - The last updated section in existing workbooks panel does update when changes are made to existing workbook.
+    - Set operation Union patient number is working correctly.
+    - Upon duplicating a cohort it will duplicate the selected filter(s) as well.
+    - User is able  to download file list as csv for any cohort with any filter selected.
+    - There is no legend cut off for violin plot or any other analysis type when the color by feature is set to Prior Diagnosis or any other variable. 
+    - When user switches gene in plot settings the feature choices for that specification will refresh. 
+    - The variable clinical search feature works properly when the user searches for clinical variables and then are used for analysis.
+
+
 *  **April 27, 2016**: `v1.2 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.2>`_
 
     **Known issues in Sprint 3** 
