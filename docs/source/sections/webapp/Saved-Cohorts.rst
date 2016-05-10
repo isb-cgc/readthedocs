@@ -235,7 +235,7 @@ contains the following information for each file:
 Viewing a Sequence
 ==================
 
-When available, sequences in a cohort can be viewed using the IGV viewer.  To find those sequences that can be viewed with the IGV viewer, open a cohort and select the "View Files" button at the top of the page.  The files associated with your cohort will be shown, with the last column showing if there is a view of the sequence available through the IGV viewer (indicated by a checkmark and "Go to IGV").  Selecting that link will take you to the sequence view of the file, viewed in the IGV viewer.  Controlled access files will be viewable by sequence ONLY if you have logged in as a dbGaP authorized user.
+When available, sequences in a cohort can be viewed using the IGV viewer.  To find those sequences that can be viewed with the IGV viewer, open a cohort and select the "View Files" button at the top of the page.  The files associated with your cohort will be shown, with the last column showing if there is a view of the sequence available through the IGV viewer (indicated by a checkmark and "Go to IGV").  Selecting that link will take you to the sequence view of the file, viewed in the IGV viewer.  Controlled access files will be viewable by sequence ONLY if you have `logged in as a registered dbGaP authorized user <Gaining-Access-To-TCGA-Contolled-Access-Data.html>`_.
 
 Deleting a cohort
 =================
