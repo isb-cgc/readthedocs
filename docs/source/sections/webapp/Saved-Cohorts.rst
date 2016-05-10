@@ -204,6 +204,8 @@ hovering on a horizontal segment between the first two bars, you will see the nu
 type platforms. You can also reorder the vertical categories by dragging the headers left and right and reorder the
 platforms by dragging the platform names up and down.
 
+.. _viewfilelist:
+
 View Files Page
 ---------------
 
