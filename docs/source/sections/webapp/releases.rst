@@ -4,6 +4,7 @@ Release Notes
 
 *  **May 10, 2016**: `v1.3 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.3>`_
     **Known issues in Sprint 4**
+
     - A user can add same gene twice if identical gene list have different names.
     - The user can add same filter already selected to an existing cohort. 
     - The create new Cohort left filters number count does not re-populate as you select filters to match sample number count in clinical feature panel.
@@ -20,7 +21,7 @@ Release Notes
     - The last Update section should reflect any changes made to variable list, cohort, and gene list for their corresponding tables.
     - The user cannot select the gene HP in the Create Gene list favorite page.
 
-   **Issues that are resolved in Sprint 4**
+    **Issues resolved in Sprint 4**
 
     New Enhancements
     
@@ -33,7 +34,7 @@ Release Notes
     - Tooltips were added to the Sample Type section in the clinical features panel.
     - Minor changes were made in personal details page.
 
-   Bug Fixes
+    Bug Fixes
    
     - The Clinical Features Panel in the create new cohort page will no longer display BRCA even if unselected.
     - The last updated section in existing workbooks panel does update when changes are made to existing workbook.
