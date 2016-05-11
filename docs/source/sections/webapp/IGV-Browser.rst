@@ -16,8 +16,8 @@ typically from a single sample or a single BAM file.
 For the CCLE and TCGA datasets hosted by the ISB-CGC, each ReadGroupSet corresponds to a single BAM file which
 in turn corresponds to the aligned DNA- or RNA-seq reads from a single sample. IGV can also view BAM files (with associated BAM Index Files) that are stored on a Google Drive.  These are the type of files that are being viewed with the link "Cloud Storage".).
 
-Credits
--------
+Acknowledgements
+----------------
 
 The copyright to the Integrative Genomics Viewer is held by the Broad Institute, and the software has been 
 released under the MIT License.  For more information about IGV please see the 
