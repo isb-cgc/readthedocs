@@ -41,6 +41,15 @@ Below are the list of ISB-CGC hosted data sets that can be accessed once you hav
 
  These cohort tables were created based on the isb-cgc:tcga_201510_alpha dataset and are provided as a resource to the research community by the ISB-CGC.
 
+* **isb-cgc:tcga_seq_metadata**
+
+ This dataset contains metadata and FastQC metrics for thousands of TCGA DNA-seq and RNA-seq data files:
+ 
+ * CGHub_Manifest table contains metadata for all TCGA files at CGHub as of April 27th, 2016
+ * GCS_listing_27apr2016 table contains metadata for all TCGA files hosted by ISB-CGC in GCS
+ * RNAseq_FastQC table contains metrics derived from FastQC runs on the RNAseq data files, including urls to the FastQC html reports that you can cut and paste directly into your browser
+ * WXS_FastQC table contains metrics derived from FastQC runs on the exome DNAseq data files
+
 
 ************************
 Syntax Queries Examples
