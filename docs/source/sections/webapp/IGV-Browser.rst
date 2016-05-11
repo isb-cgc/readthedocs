@@ -26,9 +26,9 @@ released under the MIT License.  For more information about IGV please see the
 
 We are grateful to the IGV team for their assistance in integrating IGV into the ISB-CGC web-app.
 
-Robinson J T, Thorvaldsdottir H, Winckler W, Guttman M, Lander E S, Getz G & Mesirov J P, "Integrative genomics viewer", 
-`Nature Biotechnology 29, 24-26 (2011) <http://www.nature.com/nbt/journal/v29/n1/abs/nbt.1754.html>`.
+Robinson J T, Thorvaldsdottir H, Winckler W, Guttman M, Lander E S, Getz G & Mesirov J P, *Integrative genomics viewer*, 
+`Nature Biotechnology 29, 24-26 (2011) <http://www.nature.com/nbt/journal/v29/n1/abs/nbt.1754.html>`_.
 
 Thorvaldsdottir H, Robinson J T, Mesirov J P, 
-"Integrative Genomics Viewer (IGV): high-performance genomics data visualization and exploration",
+*Integrative Genomics Viewer (IGV): high-performance genomics data visualization and exploration*,
 `Briefings in Bioinformatics 14, 178-192 (2013) <http://bib.oxfordjournals.org/content/14/2/178.full?keytype=ref&%2520ijkey=qTgjFwbRBAzRZWC>`_.
