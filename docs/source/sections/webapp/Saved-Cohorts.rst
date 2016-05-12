@@ -8,7 +8,8 @@ interested in analyzing further.  You may frequently re-use a cohort in multiple
 Creating and saving a cohort
 ############################
 
-To create a cohort from Your Dashboard, if you do not have a cohort created, click on the “Create Cohort” link in the "Saved Cohorts" panel at the bottom of the page. This will take you to the cohort creation page.
+To create a cohort from Your Dashboard, if you do not have a cohort created, click on the "Create Cohort" link in the 
+"Saved Cohorts" panel at the bottom of the page. This will take you to the cohort creation page.
 
 If you already have saved cohorts, they will be listed in the "Saved Cohorts" panel.  Click on the "Saved Cohorts" link in that panel and this will take you to a page that displays the details of your saved cohorts.  Alternatively, to go directly to a given cohort, click on its name and you will be taken to the cohort details page of that cohort.
 
@@ -21,14 +22,14 @@ Using the provided list of filters on the left hand side, you can select the att
 that you are interested in.  Note that the TCGA project is selected by default as this is the dataset that the majority of researchers are familiar with.  CCLE (The Cancer Cell Line Encyclopedia) data is also available if desired.
 
 By clicking on a feature, the field will expand and provide you with additional filtering options.
-For example, when you click on “Vital Status”, it expands and provides a list of “Alive”, “Dead”, and
-“NA” as options to
-choose from. Selecting one or more of these will cause the filter(s) to appear in the Selected Filters 
+For example, when you click on "Vital Status", it expands and provides a list containing "Alive", "Dead", and
+"NA" as options you may choose from. 
+Selecting one or more of these will cause the filter(s) to appear in the Selected Filters
 panel and visualizations on the page
-will be updated to reflect that the current cohort that has been filtered by Vital Status. 
+will be updated to reflect that the current cohort has been filtered according to Vital Status.
 The numbers beside the selectable
-filter values reflect the number of samples that have that attribute based on all other filters that 
-have been selected.  
+filter values reflect the number of samples that have that attribute based on all other filters that
+have been selected.
 
 Filters are "ANDed" together, meaning that selecting two filters means that the participants and samples are created based on both filters being executed.  There may be cases where you have 0 participants and samples, because the combination of filters you have chosen are ALL not present (AND function).
 
@@ -37,7 +38,7 @@ Cohort Filters
 The panel on the left of the screen, with two tabs called "DONOR" and "DATA TYPE" allow you to apply filters to the cohorts your are creating.  Below are the details of each tab.
 
 Donor Tab
-^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^
 
     * Public Projects (TCGA is selected as default)
     * Public Studies (mouse over feature will display disease name if it is part of the TCGA dataset)
@@ -59,7 +60,7 @@ Donor Tab
     * ICD-O-3 Histology
 
 Data Type Tab
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^
 
     * DNA Sequencing
     * RNA Sequencing
@@ -137,8 +138,9 @@ Set Operations
 
 You can create cohorts using set operations on the Cohorts page.
 
-To activate the set operations button, you must have at least one cohort selected in your "Cohorts" page. Upon clicking the “Set Operations”
-button, a dialogue box will appear. Here you may do the following things:
+To activate the set operations button, you must have at least one cohort selected in your "Cohorts" page. 
+Upon clicking the "Set Operations"
+button, a dialogue box will appear. Now you may do one of the following:
 
 * Enter in a name for the new cohort you’re about to create.
 * Select a set operation.
@@ -154,7 +156,7 @@ The figure below shows what the results of the set operations will be (represent
    :scale: 50
    :align: center
 
-Click “Okay” to complete the set operation and create the new cohort.
+Click "Okay" to complete the set operation and create the new cohort.
 
 Cohort Details Page
 -------------------
@@ -164,12 +166,12 @@ From the "SAVED COHORTS" tab you can:
 
 * New Workbook: Pushing this button creates a New Workbook using the cohort
 * Edit: Pushing this button makes the filters panel appear. And filters selected will be additive to any filters that have already been selected. To return to the previous view, you must either save any NEW selected filters (with the "Save Changes" button), or choose to cancel adding any new filters (by clicking the "cancel" link).
-* Comments: Pushing “Comments” will cause the Comments panel to appear. Here anyone who can see this cohort can comment on it. Comments are shared with anyone who can view this cohort.  They are ordered by newest on the bottom.  Selecting the "X" on the Comments panel will close the panel.  Any user who owns or has had a cohort shared with them can comment on it.
+* Comments: Pushing "Comments" will cause the Comments panel to appear. Here anyone who can see this cohort can comment on it. Comments are shared with anyone who can view this cohort.  They are ordered by newest on the bottom.  Selecting the "X" on the Comments panel will close the panel.  Any user who owns or has had a cohort shared with them can comment on it.
 * Duplicate: Making a copy will create a copy of this cohort with the same list of samples and patients and make you the owner of the copy.  This is how you create a copy of a another researchers cohort that they have shared with you (note: if they later change their cohort,  your cohort will not be updated, it will remain the same as it was at the time you duplicated it).
 * Delete: Allows you to delete this cohort (if you confirm by clicking the second delete button presented)
 * View Files: Allows you to view the list of files associated with this cohort (see details below)
 * Download IDs: Provides a list of sample and participant IDs in the cohort
-* Share: A dialogue box appears and the user is prompted to select users that are registered in the system to share the cohort with.
+* Share: A dialogue box appears and the user is prompted to select registered users to share the cohort with.
 
 Selected Filters Panel
 ----------------------
@@ -181,7 +183,7 @@ Details Panel
 
 This panel displays the number of samples and participants in this cohort. The number of samples may be larger than the number of participants because some participants may have
 provided multiple samples.
-This panel also displays “Your Permissions” which can be either owner or reader, as well as revision history.
+This panel also displays "Your Permissions" which can be either owner or reader, as well as revision history.
 
 Clinical Features Panel
 -----------------------
@@ -198,9 +200,11 @@ This panel shows a list of treemaps that give a high level break of the samples 
 Data Availability Panel
 -----------------------
 This panel shows a parallel sets graph of available data for the selected samples in the cohort. The large headers over
-the vertical bars are data types. Each data type is broken up into their different platforms and “NA” for samples that
-do not have that data type. The bars that flow horizontally indicate the number of samples that have that data. By
-hovering on a horizontal segment between the first two bars, you will see the number of data that have both those data
+the vertical bars are data types. Each vertical bar may be broken up to represent different platforms used to generate
+that type of data (and "NA" for samples for which that data type is not available).
+The sets of lines that "flow" from left to right indicate the number of samples for which each type of data is
+available. If you 
+hover over a horizontal segment between two bars, you will see the number of samples that have both those data
 type platforms. You can also reorder the vertical categories by dragging the headers left and right and reorder the
 platforms by dragging the platform names up and down.
 
@@ -209,20 +213,22 @@ platforms by dragging the platform names up and down.
 View Files Page
 ---------------
 
-“View Files" takes you to a new page where you can view the file list associated to the cohort you are looking at.
-The file list page provides a paginated list of files available with all samples in the cohort. Here, “available” refers
-to files that have been uploaded to the ISB-CGC Google Cloud Project, either controlled or open access data. You can use the
-“Previous Page” and “Next Page” to show more values in the list.
+"View Files" takes you to a new page where you can view the complete list of data files associated with your current the cohort.
+The file list page provides a paginated list of files available with all samples in the cohort. Here, "available" refers
+to files that have been uploaded to the ISB-CGC Google Cloud Project, including both controlled and open access data. 
+You can use the "Previous Page" and "Next Page" buttons to see more values in the list.
 
 You may filter on these files if you are only interested in a specific data type and platform. Selecting a filter will
 update the associated list. The numbers next to the platform refers to the number of files available for that platform.
 
-If there are open access files that have sequences associated with them, you will be able to select files to view in the IGV viewer by selecting check boxes beside the viewer and selecting "VIEW IGV Viewer".  Only if you have logged in as a dbGaP authorized user will you be able to select files controlled access files to view in the IGV viewer.
+If there are open access files that contain read-level data, you will be able to select files to view in the IGV 
+viewer by selecting check boxes beside the viewer and selecting "VIEW IGV Viewer".  Only if you have authenticated 
+as a dbGaP authorized user will you be able to select controlled access files to view in the IGV viewer.
 
 Download File List as CSV
 -------------------------
 
-To download a list of files that are part of this cohort, select the menu button in the upper right on the File Listing page and select the “Download File List as CSV”. This will begin a
+To download a list of files that are part of this cohort, select the menu button in the upper right on the File Listing page and select the "Download File List as CSV". This will begin a
 download process of all the files available for the cohort, taking into account the selected Platform filters. The file
 contains the following information for each file:
 
@@ -235,7 +241,9 @@ contains the following information for each file:
 Viewing a Sequence
 ==================
 
-When available, sequences in a cohort can be viewed using the IGV viewer.  To find those sequences that can be viewed with the IGV viewer, open a cohort and select the "View Files" button at the top of the page.  The files associated with your cohort will be shown, with the last column showing if there is a view of the sequence available through the IGV viewer (indicated by a checkbox beside either "GA4GH" or "Cloud Storage" text and "Go to IGV").  Clicking the "Go to IGV" button will take you to the sequence view(s) of the file(s), viewed in the IGV viewer.  Controlled access files will be viewable by sequence ONLY if you have `logged in as a registered dbGaP authorized user <Gaining-Access-To-TCGA-Contolled-Access-Data.html>`_. 
+When available, sequences in a cohort can be viewed using the IGV viewer.  To find those sequences that can be viewed with the IGV viewer, open a cohort and select the "View Files" button at the top of the page.  The files associated with your cohort will be shown, with the last column indicating if the IGV viewer can be used to view the contents of that file.
+This is indicated by a checkbox beside either "GA4GH" or "Cloud Storage"  and "Go to IGV").  Clicking the "Go to IGV" button will take you to an IGV view of the selected sequence data.  
+Controlled access files will be viewable by sequence ONLY if you have `authenticated as a dbGaP-authorized user <Gaining-Access-To-TCGA-Contolled-Access-Data.html>`_. 
 
 (`more information about Viewing a Sequence in the IGV Viewer <IGV-Browser.html>`_).
 
@@ -259,10 +267,10 @@ blue.
 Once in plot selection mode, you can click and drag your cursor of the plot area to select the desired samples. For a
 cubbyhole plot, you will have to select each cubby that you are interested in.
 
-When your selection has been made, a small window should appear that contains a button labelled “Save as Cohort”. Click
+When your selection has been made, a small window should appear that contains a button labelled "Save as Cohort". Click
 on this when you are ready to create a new cohort.
 
-Put in a name for you newly selected cohort and click the “Save” button.
+Put in a name for you newly selected cohort and click the "Save" button.
 
 Copying a cohort
 ================
@@ -271,4 +279,5 @@ Copying a cohort can only be done from the cohort details page of the cohort you
 
 When you are looking at the cohort you wish to copy, select Duplicate from the top menu.
 
-This will take you to your copy of the cohort.
+This will take you to a new copy of the cohort.
+

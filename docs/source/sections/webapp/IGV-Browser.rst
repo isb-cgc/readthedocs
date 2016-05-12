@@ -16,12 +16,19 @@ typically from a single sample or a single BAM file.
 For the CCLE and TCGA datasets hosted by the ISB-CGC, each ReadGroupSet corresponds to a single BAM file which
 in turn corresponds to the aligned DNA- or RNA-seq reads from a single sample. IGV can also view BAM files (with associated BAM Index Files) that are stored on a Google Drive.  These are the type of files that are being viewed with the link "Cloud Storage".).
 
-Referencing the Integrative Genomics Viewer (IGV)
--------------------------------------------------
+Acknowledgements
+----------------
 
 The copyright to the Integrative Genomics Viewer is held by the Broad Institute, and the software has been 
-released under the MIT License.
-For details about IGV and how to reference it in publications, please follow the link by clicking either the 
-"IGV Browser" text at the upper left of the IGV window or the "IGV" icon in the upper right of the IGV window,
-or visit the IGV home page at www.broadinstitute.org/igv.
+released under the MIT License.  For more information about IGV please see the 
+`IGV home page <http://www.broadinstitute.org/software/igv/home>`_ or the 
+`IGV github repo <https://github.com/igvteam/igv>`_.
 
+We are grateful to the IGV team for their assistance in integrating IGV into the ISB-CGC web-app.
+
+Robinson J T, Thorvaldsdottir H, Winckler W, Guttman M, Lander E S, Getz G & Mesirov J P, *Integrative genomics viewer*, 
+`Nature Biotechnology 29, 24-26 (2011) <http://www.nature.com/nbt/journal/v29/n1/abs/nbt.1754.html>`_.
+
+Thorvaldsdottir H, Robinson J T, Mesirov J P, 
+*Integrative Genomics Viewer (IGV): high-performance genomics data visualization and exploration*,
+`Briefings in Bioinformatics 14, 178-192 (2013) <http://bib.oxfordjournals.org/content/14/2/178.full?keytype=ref&%2520ijkey=qTgjFwbRBAzRZWC>`_.
