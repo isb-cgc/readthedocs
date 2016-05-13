@@ -63,8 +63,8 @@ Here are some ways that you can prepare for the workshops:
 **Suggested:**
     * install the `Cloud SDK <https://cloud.google.com/sdk/>`_ on your laptop
     * install `R <https://cran.r-project.org/>`_ and `RStudio <https://www.rstudio.com/products/rstudio/download/>`_ on your laptop
-    * `sign up for GitHub <https://github.com/open-source>`_ 
-    * install `GitHub Desktop <https://desktop.github.com/>`_ on your laptop
+    * if you don't already have a GitHub account, you might want to `sign up for GitHub <https://github.com/open-source>`_ 
+    * install `Git <https://git-scm.com/downloads>`_ or something like `GitHub Desktop <https://desktop.github.com/>`_ on your laptop
 
 **Additional Resources:**
     * `A Quick Tour of the Google Cloud Console <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_Console.pdf>`_
