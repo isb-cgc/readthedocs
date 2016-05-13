@@ -70,6 +70,6 @@ Here are some ways that you can prepare for the workshops:
     * `A Quick Tour of the Google Cloud Console <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_Console.pdf>`_
     * `How to Enable APIs for your GCP Project <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/enabling_new_APIs.pdf>`_
     * `An Introduction to BigQuery <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_BigQuery.pdf>`_
-    * Explore the `ISB-CGC Web App <https://isb-cgc.appspot.com/>`_, the `ISB-CGC Documentation <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/>`_ and our `open-source code on GitHub <https://github.com/isb-cgc/>`_
+    * Sign in to and explore the `ISB-CGC Web App <https://isb-cgc.appspot.com/>`_, peruse the `ISB-CGC Documentation <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/>`_ and our `open-source code on GitHub <https://github.com/isb-cgc/>`_
 
 
