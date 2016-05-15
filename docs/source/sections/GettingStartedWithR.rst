@@ -26,9 +26,9 @@ Installation
 RStudio is a freely available development environment that makes working
 in R more intuitive. Always install (and update to) the most recent versions.
 
-First we need to download and install R. `Download and install R <https://cran.rstudio.com/>`.
+First we need to download and install R. `Download and install R <https://cran.rstudio.com/>`_.
 
-Next we download and install RStudio. `RStudio <https://www.rstudio.com/products/rstudio/download/>`.
+Next we download and install RStudio. `RStudio <https://www.rstudio.com/products/rstudio/download/>`_.
 
 Questions?
 ----------
@@ -45,19 +45,19 @@ interactive R prompt. The window should be in the lower left corner.
 
 **Necessary:**
 
-Install `devtools <https://cran.r-project.org/web/packages/devtools/index.html>`::
+Install `devtools <https://cran.r-project.org/web/packages/devtools/index.html>`_::
 
 	install.packages("devtools")
 
-Install `bigrquery <https://cran.r-project.org/web/packages/bigrquery/index.html>`.::
+Install `bigrquery <https://cran.r-project.org/web/packages/bigrquery/index.html>`_.::
 
 	install.packages("bigrquery")
 
-Install `httr <https://cran.r-project.org/web/packages/httr/index.html>`.::
+Install `httr <https://cran.r-project.org/web/packages/httr/index.html>`_.::
 
 	install.packages("httr")
 
-Install `ISBCGCExamples <https://github.com/isb-cgc/examples-R>`. ::
+Install `ISBCGCExamples <https://github.com/isb-cgc/examples-R>`_. ::
 
 	library(devtools)
 	install_github("isb-cgc/examples-R", build_vignettes=TRUE)
@@ -68,7 +68,7 @@ To view and run the ISB-CGC R vignettes.::
 
 **Strongly Recommended:**
 
-Install `ggplot2 <https://cran.r-project.org/web/packages/ggplot2/index.html>`::
+Install `ggplot2 <https://cran.r-project.org/web/packages/ggplot2/index.html>`_::
 
 	install.packages("ggplot2")
 
@@ -84,4 +84,4 @@ found in the file of the same name in examples-R/R.
 
 **Additional Resources:**
 
-`ISB-CGC documentation <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/index.html>`
+`ISB-CGC documentation <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/index.html>`_
