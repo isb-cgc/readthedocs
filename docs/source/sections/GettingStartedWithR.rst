@@ -2,8 +2,7 @@
 ISB-CGC Workshops at NCI
 ************************
 
-This information is currently intended only for attendees who have
-signed up for the
+This information is currently intended only for attendees who have signed up for the
 `workshops at NCI on May 24th and 25th <https://cbiit.nci.nih.gov/ncip/nci-cancer-genomics-cloud-pilots/nci-cancer-genomics-cloud-workshop>`_.
 After the workshops, all materials will be made available as part of the
 ISB-CGC documentation here on readthedocs.
@@ -15,10 +14,9 @@ Step #1: Installing R and RStudio
 
 Basic Information
 -----------------
-R is a great way to with the cloud pilot data. We can perform Big Queries,
+Working in `R <https://cran.r-project.org/>`_ is a great way to access the cloud pilot data. We can perform Big Queries,
 statistically model data, and easily visualize the results. R programming
 is easier and more robust then ever before.
-
 
 Installation
 -----------------------------------
@@ -26,9 +24,9 @@ Installation
 RStudio is a freely available development environment that makes working
 in R more intuitive. Always install (and update to) the most recent versions.
 
-First we need to download and install R. `Download and install R <https://cran.rstudio.com/>`_.
+* First, we need to download and install R. `Download and install R <https://cran.rstudio.com/>`_.
 
-Next we download and install RStudio. `RStudio <https://www.rstudio.com/products/rstudio/download/>`_.
+* Next, we download and install RStudio. `RStudio <https://www.rstudio.com/products/rstudio/download/>`_.
 
 Questions?
 ----------
