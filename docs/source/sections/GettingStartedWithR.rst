@@ -1,13 +1,6 @@
-************************
-ISB-CGC Workshops at NCI
-************************
-
-This information is currently intended only for attendees who have signed up for the
-`workshops at NCI on May 24th and 25th <https://cbiit.nci.nih.gov/ncip/nci-cancer-genomics-cloud-pilots/nci-cancer-genomics-cloud-workshop>`_.
-After the workshops, all materials will be made available as part of the
-ISB-CGC documentation here on readthedocs.
-
-**Please check back again before the day of the workshop!**
+**********************************
+Getting started with R and RStudio
+**********************************
 
 Step #1: Installing R and RStudio
 ###################################################
@@ -19,7 +12,7 @@ statistically model data, and easily visualize the results. R programming
 is easier and more robust then ever before.
 
 Installation
------------------------------------
+------------
 
 RStudio is a freely available development environment that makes working
 in R more intuitive. Always install (and update to) the most recent versions.
@@ -83,3 +76,4 @@ found in the file of the same name in examples-R/R.
 **Additional Resources:**
 
 `ISB-CGC documentation <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/index.html>`_
+
