@@ -127,6 +127,9 @@ Or we can do this on the command line using the bq command line tool.
 Now we can directly query our own data, and start to combine it with other tables.
 Let's try it out!
 
+This next query is going to select the genes that were associated with HPV
+integration in CESC and HNSC tumors.
+
 .. code-block:: r
 
 	sqlQuery = "
@@ -148,3 +151,49 @@ Let's try it out!
 	head(affected_genes)
 
 	table(affected_genes$Cancer)
+
+Next, with those offen affected genes, we will query gene expression data.
+
+.. code-block:: r
+
+	sqlQuery = "
+	SELECT
+	  ParticipantBarcode,
+	  SampleBarcode,
+	  Study,
+	  HGNC_gene_symbol,
+	  normalized_count
+	FROM
+	  [isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM]
+	WHERE
+	  Study IN ('CESC','HNSC')
+	  AND SampleTypeLetterCode = 'TP'
+	  AND HGNC_gene_symbol IN (
+	  SELECT
+	    Overlapping_genes as HGNC_gene_symbol
+	  FROM
+	    [isb-cgc-04-0002:testVarsha.ncomms3513_s3]
+	  WHERE
+	    Cancer IN ('CESC','HNSC')
+	    AND Overlapping_genes <> 'Intergenic'
+	  GROUP BY
+	    HGNC_gene_symbol )
+		"
+
+	gexp_affected_genes = query_exec(sqlQuery,project = my_cloud_project)
+
+	#view results
+	head(gexp_affected_genes)
+
+	# a couple different ways to look at the results
+	#qplot(data=gexp_affected_genes, x=Study, y=normalized_count, col=HGNC_gene_symbol, geom="boxplot")
+	#qplot(data=gexp_affected_genes, x=Study, y=log2(normalized_count), col=HGNC_gene_symbol, geom="boxplot")
+	qplot(data=gexp_affected_genes, x=log2(normalized_count+1), col=HGNC_gene_symbol, geom="density") + facet_wrap(~ Study)
+
+Not all the samples listed in the clinical data have gene expression data, however.
+Let's filter the hpv_table to match the samples to those in gexp_affected_genes
+
+.. code-block:: r
+
+	# let's get rid of 'indeterminate' samples
+	hpv_table = dplyr::filter(hpv_table, hpv_status != "Indeterminate", ParticipantBarcode %in% gexp_affected_genes$ParticipantBarcode)
