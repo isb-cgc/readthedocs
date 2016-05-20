@@ -78,7 +78,7 @@ found in the file of the same name in examples-R/R.
 `ISB-CGC documentation <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/index.html>`_
 
 What's Next?
-============
+############
 
 Check out our github repo containing introductions to data types and ideas
 for different analysis.
