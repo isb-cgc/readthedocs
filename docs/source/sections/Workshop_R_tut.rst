@@ -20,7 +20,7 @@ Nature Communications 4, Article number:2513|doi:10.1038/ncomms3513
 Loading libraries
 =================
 
-.. code-block:: R
+.. code-block:: r
 
     require(bigrquery,quietly = TRUE) || install.packages('bigrquery',verbose = FALSE)
     require(tidyr,quietly = TRUE) || install.packages('tidyr',verbose = FALSE)
@@ -35,7 +35,7 @@ Your project ID
 You will be using your own project ID. At certain points in the code, it will
 be necessary to complete the code.
 
-.. code-block:: R
+.. code-block:: r
 
     main_cloud_project="isb-cgc"
     my_cloud_project = "your_project_id"
@@ -47,6 +47,6 @@ First query
 
 Now let's see if things are working.
 
-.. code-block:: R
+.. code-block:: r
 
     bigrquery::list_tables(main_cloud_project, tcga_ds)
