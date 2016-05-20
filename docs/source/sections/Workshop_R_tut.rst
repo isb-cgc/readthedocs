@@ -197,3 +197,226 @@ Let's filter the hpv_table to match the samples to those in gexp_affected_genes
 
 	# let's get rid of 'indeterminate' samples
 	hpv_table = dplyr::filter(hpv_table, hpv_status != "Indeterminate", ParticipantBarcode %in% gexp_affected_genes$ParticipantBarcode)
+
+Now, we are going to perform t.tests on expression by hpv_status and study.
+
+.. code-block:: r
+
+	gxps <- merge(x=gexp_affected_genes, y=hpv_table, by=c("Study","ParticipantBarcode"))
+
+	# Performing a t-test between hpv+ and hpv- by study and gene
+	res0 <- gxps %>%
+	group_by(Study, HGNC_gene_symbol) %>%
+	do(tidy(t.test(log2(normalized_count+1) ~ hpv_status, data=.))) %>%
+	ungroup() %>%
+	arrange(desc(statistic))
+
+	# These are the top 5 results ...
+	top5 <- select(top_n(res0, 5, statistic), Study, HGNC_gene_symbol)
+
+	# Let's subset the data by the top 5 results...
+	res1 <- merge(x=top5, y=gxps) %>% mutate( Study_Gene = paste0(Study, "_", HGNC_gene_symbol))
+
+	# now we can plot the results...
+	ggplot(res1, aes(x=Study_Gene, y=log2(normalized_count+1), fill=hpv_status)) + geom_boxplot()
+
+
+Making BigQueries
+=================
+
+Previously, we downloaded data and performed some work on it. But another way to work
+is to compute  as much as possible in the cloud, and use R to visualize summary results.
+
+Please see: https://cloud.google.com/bigquery/query-reference
+
+.. code-block:: r
+
+	sqlQuery = "
+	SELECT
+	  ParticipantBarcode,
+	  SampleBarcode,
+	  Study,
+	  HGNC_gene_symbol,
+	  normalized_count
+	FROM
+	  [isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM]
+	WHERE
+	  Study = 'CESC'
+	  AND SampleTypeLetterCode = 'TP'
+	  AND ParticipantBarcode IN (
+	  SELECT
+	    ParticipantBarcode
+	  FROM
+	    [isb-cgc:tcga_201510_alpha.Clinical_data]
+	  WHERE
+	    hpv_status = 'Positive' )
+	  AND HGNC_gene_symbol IN (
+	  SELECT
+	    Overlapping_genes AS HGNC_gene_symbol
+	  FROM
+	    [isb-cgc-04-0002:testVarsha.ncomms3513_s3]
+	  WHERE
+	    Cancer = 'CESC'
+	    AND Overlapping_genes <> 'Intergenic'
+	  GROUP BY
+	    HGNC_gene_symbol )
+	"
+
+	q1 = query_exec(sqlQuery,project = cloud_project_workshop)
+
+	dim(q1)
+
+Now lets make a small change, and get gene expression for subjects that are hpv negative.
+
+.. code-block:: r
+
+	sqlQuery = "
+	SELECT
+	  ParticipantBarcode,
+	  SampleBarcode,
+	  Study,
+	  HGNC_gene_symbol,
+	  normalized_count
+	FROM
+	  [isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM]
+	WHERE
+	  Study = 'CESC'
+	  AND SampleTypeLetterCode = 'TP'
+	  AND ParticipantBarcode IN (
+	  SELECT
+	    ParticipantBarcode
+	  FROM
+	    [isb-cgc:tcga_201510_alpha.Clinical_data]
+	  WHERE
+	    hpv_status = 'Negative' )
+	  AND HGNC_gene_symbol IN (
+	  SELECT
+	    Overlapping_genes AS HGNC_gene_symbol
+	  FROM
+	    [isb-cgc-04-0030:workspace.ncomms3513_s3]
+	  WHERE
+	    Cancer = 'CESC'
+	    AND Overlapping_genes <> 'Intergenic'
+	  GROUP BY
+	    HGNC_gene_symbol )
+	"
+
+	q2 <- query_exec(sqlQuery,project = cloud_project_workshop)
+
+	dim(q2)
+
+Now we merge the previous two queries, and compute T statistics using
+Biq Query built in functions, SQRT, MEAN, STDDEV, POW, COUNT, and LOG2.
+
+Please see: https://cloud.google.com/bigquery/query-reference
+
+.. code-block:: r
+
+	q <- "
+	SELECT
+	  p.HGNC_gene_symbol AS gene,
+	  p.study AS study,
+	  p.x AS x,
+	  p.sx2 AS sx2,
+	  p.nx AS nx,
+	  o.y AS y,
+	  o.sy2 AS sy2,
+	  o.ny AS ny,
+	  (p.x-o.y) / SQRT((p.sx2/p.nx) + (o.sy2/o.ny)) AS T
+	FROM (
+	  SELECT
+	    Study,
+	    HGNC_gene_symbol,
+	    AVG(LOG2(normalized_count+1)) AS y,
+	    POW(STDDEV(LOG2(normalized_count+1)),2) AS sy2,
+	    COUNT(ParticipantBarcode) AS ny
+	  FROM
+	    [isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM]
+	  WHERE
+	    Study = 'CESC'
+	    AND SampleTypeLetterCode = 'TP'
+	    AND ParticipantBarcode IN (
+	    SELECT
+	      ParticipantBarcode
+	    FROM
+	      [isb-cgc:tcga_201510_alpha.Clinical_data]
+	    WHERE
+	      hpv_status = 'Positive' )
+	    AND HGNC_gene_symbol IN (
+	    SELECT
+	      Overlapping_genes AS HGNC_gene_symbol
+	    FROM
+	      [isb-cgc-04-0030:workspace.ncomms3513_s3]
+	    WHERE
+	      Overlapping_genes <> 'Intergenic'
+	    GROUP BY
+	      HGNC_gene_symbol )
+	  GROUP BY
+	    Study,
+	    HGNC_gene_symbol) AS o
+	JOIN (
+	  SELECT
+	    Study,
+	    HGNC_gene_symbol,
+	    AVG(LOG2(normalized_count+1)) AS x,
+	    POW(STDDEV(LOG2(normalized_count+1)),2) AS sx2,
+	    COUNT(ParticipantBarcode) AS nx
+	  FROM
+	    [isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM]
+	  WHERE
+	    Study = 'CESC'
+	    AND SampleTypeLetterCode = 'TP'
+	    AND ParticipantBarcode IN (
+	    SELECT
+	      ParticipantBarcode
+	    FROM
+	      [isb-cgc:tcga_201510_alpha.Clinical_data]
+	    WHERE
+	      hpv_status = 'Negative' )
+	    AND HGNC_gene_symbol IN (
+	    SELECT
+	      Overlapping_genes AS HGNC_gene_symbol
+	    FROM
+	      [isb-cgc-04-0030:workspace.ncomms3513_s3]
+	    WHERE
+	      Overlapping_genes <> 'Intergenic'
+	    GROUP BY
+	      HGNC_gene_symbol )
+	  GROUP BY
+	    Study,
+	    HGNC_gene_symbol) AS p
+	ON
+	  p.HGNC_gene_symbol = o.HGNC_gene_symbol
+	  AND p.Study = o.Study
+	GROUP BY
+	  gene,
+	  Study,
+	  x,
+	  sx2,
+	  nx,
+	  y,
+	  sy2,
+	  ny,
+	  T
+	 ORDER BY
+	   T DESC
+	 "
+
+	 t_test_result <- query_exec(q, project = cloud_project_workshop)
+
+	 head(t_test_result)
+
+
+	# and we can see the same results in the previously done work.
+	 res0
+
+Extras
+======
+
+Transform gexp_affected_genes_df into a gexp-by-samples feature matrix
+
+.. code-block:: r
+
+	gexp_fm = tidyr::spread(gexp_affected_genes,HGNC_gene_symbol,normalized_count)
+
+	gexp_fm[1:5,1:5]
