@@ -21,6 +21,7 @@ Loading libraries
 =================
 
 .. code-block:: R
+
     require(bigrquery,quietly = TRUE) || install.packages('bigrquery',verbose = FALSE)
     require(tidyr,quietly = TRUE) || install.packages('tidyr',verbose = FALSE)
     require(dplyr,quietly = TRUE) || install.packages('dplyr',verbose = FALSE)
@@ -35,6 +36,7 @@ You will be using your own project ID. At certain points in the code, it will
 be necessary to complete the code.
 
 .. code-block:: R
+
     main_cloud_project="isb-cgc"
     my_cloud_project = "your_project_id"
     tcga_data_set = "tcga_201510_alpha"
@@ -46,4 +48,5 @@ First query
 Now let's see if things are working.
 
 .. code-block:: R
+
     bigrquery::list_tables(main_cloud_project, tcga_ds)
