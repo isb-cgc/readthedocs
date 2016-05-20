@@ -77,3 +77,15 @@ found in the file of the same name in examples-R/R.
 
 `ISB-CGC documentation <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/index.html>`_
 
+What's Next?
+============
+
+.. toctree::
+   :maxdepth: 1
+
+   scripting/Workshop_R_tut
+
+Also, check out our github repo containing introductions to data types and ideas
+for different analysis.
+
+https://github.com/isb-cgc/examples-R
