@@ -80,12 +80,12 @@ found in the file of the same name in examples-R/R.
 What's Next?
 ============
 
+Check out our github repo containing introductions to data types and ideas
+for different analysis.
+
+https://github.com/isb-cgc/examples-R
+
 .. toctree::
    :maxdepth: 1
 
    scripting/Workshop_R_tut
-
-Also, check out our github repo containing introductions to data types and ideas
-for different analysis.
-
-https://github.com/isb-cgc/examples-R
