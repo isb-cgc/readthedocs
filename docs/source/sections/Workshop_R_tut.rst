@@ -125,3 +125,26 @@ Or we can do this on the command line using the bq command line tool.
 	bq load --source_format CSV --field_delimiter "\t"  --schema ncomms3513-s3_Schema.json  mydataset.ncomms3513_s3 ncomms3513-s3.tsv
 
 Now we can directly query our own data, and start to combine it with other tables.
+Let's try it out!
+
+.. code-block:: r
+
+	sqlQuery = "
+	SELECT
+	  Overlapping_genes,
+	  Cancer
+	FROM
+	  [your-project-id:mydataset.ncomms3513_s3]
+	WHERE
+	  Cancer IN ('CESC','HNSC')
+	  AND Overlapping_genes <> 'Intergenic'
+	GROUP BY
+	  Cancer,
+	  Overlapping_genes
+	  "
+
+	affected_genes = query_exec(sqlQuery,project = my_cloud_project)
+
+	head(affected_genes)
+
+	table(affected_genes$Cancer)
