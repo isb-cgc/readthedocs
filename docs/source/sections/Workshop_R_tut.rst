@@ -60,6 +60,8 @@ Biq Query tables. Additionally, we're going to BYOD "Bring your own data".
 	clinical_table = "[isb-cgc:tcga_201510_alpha.Clinical_data]"
 	gexp_table     = "[isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM]"
 
+Constructing Queries
+====================
 
 One of the great things about working in a scripting environment, is that our
 analysis -- the queries -- we write, can be constructed programmatically.
@@ -86,6 +88,9 @@ In the next code block is an example of how to do that.
 
 	# Let's explore the cohort
 	ggplot(data=hpv_table, aes(x=hpv_status, fill=Study)) + geom_bar(stat="count", position=position_dodge())
+
+Uploading Data
+==============
 
 The exact location of HPV integration is not available in the TCGA data,
 so instead we'll get a list of frequently targeted genes that was published
@@ -123,6 +128,9 @@ Or we can do this on the command line using the bq command line tool.
 	bq mk mydataset
 
 	bq load --source_format CSV --field_delimiter "\t"  --schema ncomms3513-s3_Schema.json  mydataset.ncomms3513_s3 ncomms3513-s3.tsv
+
+Gathering Expression Data
+=========================
 
 Now we can directly query our own data, and start to combine it with other tables.
 Let's try it out!
@@ -197,6 +205,9 @@ Let's filter the hpv_table to match the samples to those in gexp_affected_genes
 
 	# let's get rid of 'indeterminate' samples
 	hpv_table = dplyr::filter(hpv_table, hpv_status != "Indeterminate", ParticipantBarcode %in% gexp_affected_genes$ParticipantBarcode)
+
+T-test Time
+===========
 
 Now, we are going to perform t.tests on expression by hpv_status and study.
 
