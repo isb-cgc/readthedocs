@@ -324,6 +324,8 @@ Please see: https://cloud.google.com/bigquery/query-reference
 	  o.ny AS ny,
 	  (p.x-o.y) / SQRT((p.sx2/p.nx) + (o.sy2/o.ny)) AS T
 	FROM (
+
+	  # first the gene expression summaries for hpv+ tumors
 	  SELECT
 	    Study,
 	    HGNC_gene_symbol,
@@ -336,6 +338,8 @@ Please see: https://cloud.google.com/bigquery/query-reference
 	    Study = 'CESC'
 	    AND SampleTypeLetterCode = 'TP'
 	    AND ParticipantBarcode IN (
+
+		# selecting the patients... could also previously put this in a table
 	    SELECT
 	      ParticipantBarcode
 	    FROM
@@ -343,6 +347,8 @@ Please see: https://cloud.google.com/bigquery/query-reference
 	    WHERE
 	      hpv_status = 'Positive' )
 	    AND HGNC_gene_symbol IN (
+
+		# the list of associated genes
 	    SELECT
 	      Overlapping_genes AS HGNC_gene_symbol
 	    FROM
@@ -354,7 +360,10 @@ Please see: https://cloud.google.com/bigquery/query-reference
 	  GROUP BY
 	    Study,
 	    HGNC_gene_symbol) AS o
+
 	JOIN (
+
+	  # Then we get the gene expression summaries from hpv-
 	  SELECT
 	    Study,
 	    HGNC_gene_symbol,
@@ -374,6 +383,8 @@ Please see: https://cloud.google.com/bigquery/query-reference
 	    WHERE
 	      hpv_status = 'Negative' )
 	    AND HGNC_gene_symbol IN (
+
+		# the list of associated genes
 	    SELECT
 	      Overlapping_genes AS HGNC_gene_symbol
 	    FROM
@@ -398,7 +409,7 @@ Please see: https://cloud.google.com/bigquery/query-reference
 	  sy2,
 	  ny,
 	  T
-	 ORDER BY
+	ORDER BY
 	   T DESC
 	 "
 
