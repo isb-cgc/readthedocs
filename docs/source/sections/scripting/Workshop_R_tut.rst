@@ -1,6 +1,6 @@
-************************
-ISB-CGC Workshops at NCI
-************************
+*****************************************
+ISB-CGC Workshops at NCI: analysis with R
+*****************************************
 
 Differential gene expression associated with HPV integration
 ############################################################
