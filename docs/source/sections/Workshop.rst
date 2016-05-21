@@ -1,5 +1,5 @@
 ************************
-ISB-CGC Workshops at NCI 
+Pre-Workshop Information
 ************************
 
 This information is currently intended only for attendees who have 
