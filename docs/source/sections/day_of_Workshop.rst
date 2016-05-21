@@ -23,7 +23,7 @@ following:
         + in the top blue bar, towards the right, you chould be able to select between (at least) two projects: the "ISB-CGC Workshop" project and your own project
 
 .. image:: console_top.png
-   :scale: 200
+   :scale: 50
    :align: center
 
 ..
