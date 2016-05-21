@@ -18,18 +18,18 @@ following:
 
     * check your email for the link to the WebEx for this workshop, and the link to these materials
 
-    * go to the Google Cloud Platform `Console <https://console.cloud.google.com>_`
+    * go to the Google Cloud Platform `Console <https://console.cloud.google.com>`_
         + you should not have to sign in again, but if you are asked to, use the Google identity you provided to us last week
         + in the top blue bar, towards the right, you chould be able to select between (at least) two projects: the "ISB-CGC Workshop" project and your own project
 
 .. image:: console_top.png
-   :scale: 50
+   :scale: 75
    :align: center
 
 ..
 
         + if you do not see and/or cannot select between two or more projects, please **alert one of our team**
 
-    * in a separate browser tab, open up the BigQuery `Web UI <https://bigquery.cloud.google.com>_`
+    * in a separate browser tab, open up the BigQuery `Web UI <https://bigquery.cloud.google.com>`_
 
 
