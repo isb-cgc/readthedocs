@@ -2,4 +2,5 @@
 Introduction to the Google Cloud Platform
 *****************************************
 
-The ISB-CGC ...
+TODO: link to slide deck
+

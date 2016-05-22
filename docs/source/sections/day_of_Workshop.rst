@@ -52,8 +52,7 @@ Workshop Outline & Links
 .. toctree::
    :maxdepth: 1
 
-   workshop/Intro_Goals
-   workshop/Overview
+   workshop/Intro_Goals_Overview
    workshop/GCP_tour
    workshop/Integrative_Analysis_Tutorial
    workshop/Compute_Tutorial
