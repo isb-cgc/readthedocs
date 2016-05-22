@@ -88,4 +88,4 @@ https://github.com/isb-cgc/examples-R
 .. toctree::
    :maxdepth: 1
 
-   scripting/Workshop_R_tut
+   workshop/Workshop_R_tut

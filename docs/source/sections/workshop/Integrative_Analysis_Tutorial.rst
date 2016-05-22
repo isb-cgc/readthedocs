@@ -2,4 +2,8 @@
 Integrative Analysis Tutorial
 *****************************
 
-The ISB-CGC ...
+.. toctree::
+   :maxdepth: 1
+
+   Workshop_R_tut
+

@@ -1,6 +1,6 @@
-*****************************************
-ISB-CGC Workshops at NCI: analysis with R
-*****************************************
+***************
+Analysis with R
+***************
 
 Differential gene expression associated with HPV integration
 ############################################################
@@ -442,3 +442,5 @@ Transform gexp_affected_genes_df into a gexp-by-samples feature matrix
 	gexp_fm = tidyr::spread(gexp_affected_genes,HGNC_gene_symbol,normalized_count)
 
 	gexp_fm[1:5,1:5]
+
+
