@@ -8,9 +8,10 @@ Exploring the TCGA data in BigQuery
 The ISB-CGC (isb-cgc.org) project has aggregated and curated all of the TCGA
 open-access clinical, biospecimen, and Level-3 molecular data and uploaded it
 into BigQuery tables that are open to the public.  Here we will show you how
-you can begin to work with these tables from the familiar R environment.
+you can begin to work with these tables in the Google Web UI.
 
 Helpful BigQuery links
+----------------------
 
 For this example, we'll be working in the `Google BigQuery Web UI <https://cloud.google.com/bigquery>`_.
 
@@ -50,9 +51,9 @@ following SQL into the text field, and hit *Run Query*.
 .. code-block:: sql
 
 	SELECT
-		COUNT(1)
+	  COUNT(1)
 	FROM
-		[isb-cgc:tcga_201510_alpha.Clinical_data]
+	  [isb-cgc:tcga_201510_alpha.Clinical_data]
 
 
 And we see that the table has 1 row - this is the number of unique patients or participants across all of the various TCGA studies.
