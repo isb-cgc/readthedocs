@@ -45,7 +45,7 @@ Or more accurately "isb-cgc:tcga_201510_alpha.Clinical_data"
 Let's start by just counting the number of records in the table. Paste the
 following SQL into the text field, and hit *Run Query*.
 
-.. code-block: sql
+.. code-block:: sql
 
 	SELECT
 		COUNT(1)
@@ -57,7 +57,7 @@ And we see that the table has 1 row - this is the number of unique patients or p
 
 all of the TCGA molecular data tables contain the fields ParticipantBarcode and Study
 
-.. code-block: sql
+.. code-block:: sql
 
 	SELECT
 	  Study,
@@ -94,7 +94,7 @@ column name is added to the query.
 
 To construct this query, I'm going to use the Annotations table.
 
-.. code-block: sql
+.. code-block:: sql
 
 	SELECT
 	  Study,
@@ -109,7 +109,7 @@ To construct this query, I'm going to use the Annotations table.
 Let's suppose we want some biospecimen data on each sample. To do this we
 could join tables, or we can use our *IN* keyword as below.
 
-.. code-block: sql
+.. code-block:: sql
 
 	SELECT
 	  SampleBarcode,
