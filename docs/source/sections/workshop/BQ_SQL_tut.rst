@@ -99,9 +99,36 @@ To construct this query, I'm going to use the Annotations table.
 	SELECT
 	  Study,
 	  ParticipantBarcode,
-	  SampleBarcode,
-	  AliquotBarcode
+	  SampleBarcode
 	FROM
 	  [isb-cgc:tcga_201510_alpha.Annotations]
 	WHERE
 	  Study IN ('CESC', 'HNSC')
+
+
+Let's suppose we want some biospecimen data on each sample. To do this we
+could join tables, or we can use our *IN* keyword as below.
+
+.. code-block: sql
+
+	SELECT
+	  SampleBarcode,
+	  Study,
+	  SampleTypeCode,
+	  avg_percent_tumor_cells
+	FROM
+	  [isb-cgc:tcga_201510_alpha.Biospecimen_data]
+	WHERE
+	  SampleBarcode IN (
+	  SELECT
+	    SampleBarcode
+	  FROM
+	    [isb-cgc:tcga_201510_alpha.Annotations]
+	  WHERE
+	    Study IN ('CESC','HNSC')
+	   )
+	GROUP BY
+	  SampleBarcode,
+	  Study,
+	  SampleTypeCode,
+	  avg_percent_tumor_cells
