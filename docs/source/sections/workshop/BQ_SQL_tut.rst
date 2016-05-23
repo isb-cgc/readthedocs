@@ -102,11 +102,12 @@ To construct this query, I'm going to use the Annotations table.
 	SELECT
 	  Study,
 	  ParticipantBarcode,
-	  SampleBarcode
+	SampleType
 	FROM
-	  [isb-cgc:tcga_201510_alpha.Annotations]
+	  [isb-cgc:tcga_201510_alpha.Biospecimen_data]
 	WHERE
 	  Study IN ('CESC', 'HNSC')
+	AND SampleType = 'Primary solid Tumor'
 
 
 Let's suppose we want some biospecimen data on each sample. To do this we
@@ -130,6 +131,7 @@ could our *IN* keyword as above, or easily join tables using barcodes.
 	  AND a.Study = b.Study
 	WHERE
 	    a.Study IN ('CESC','HNSC')
+		AND a.SampleType = 'TP'
 	GROUP BY
 	  b.ParticipantBarcode,
 	  a.SampleBarcode,
