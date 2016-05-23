@@ -51,7 +51,7 @@ Now let's see if things are working.
     bigrquery::list_tables(main_cloud_project, tcga_data_set)
 
 In this tutorial, we will be investigating two studies using two existing
-Biq Query tables. Additionally, we're going to BYOD "Bring your own data".
+BigQuery tables. Additionally, we're going to BYOD "Bring your own data".
 
 .. code-block:: r
 
@@ -113,7 +113,7 @@ Using the google command line tool:
 
 
 Now the data is in our directory, but we need to transform it into a BQ table.
-To do that, we need to create a data set in our project. We can do this from within the Big query
+To do that, we need to create a data set in our project. We can do this from within the BigQuery
 web UI by clicking on the little blue triangle next to your project ID on the left.
 Or we can do this on the command line using the bq command line tool.
 
@@ -317,7 +317,7 @@ Now lets make a small change, and get gene expression for subjects that are hpv 
 	dim(q2)
 
 Now we merge the previous two queries, and compute T statistics using
-Biq Query built in functions, SQRT, MEAN, STDDEV, POW, COUNT, and LOG2.
+BigQuery built in functions, SQRT, MEAN, STDDEV, POW, COUNT, and LOG2.
 
 Please see: https://cloud.google.com/bigquery/query-reference
 

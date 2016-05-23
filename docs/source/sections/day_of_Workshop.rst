@@ -8,19 +8,20 @@ signed up for the
 After the workshops, all materials will be made available as part of the
 ISB-CGC documentation here on readthedocs.
 
-Before we get started
-#####################
+Before we get started ...
+#########################
 
 As soon as you've found a seat and opened up your laptop, please do the 
 following:
 
-* sign into your Chrome browser using the Google identity you provided to us last week (if you did not provide us with a Google identity, please **alert one of our team**)
+* sign into your Chrome browser using the Google identity you provided to us last week (if you did not send us your Google identity, please **alert one of our team now**)
 
 * check your email for the link to the WebEx for this workshop, and the link to these materials
 
 * go to the Google Cloud Platform `Console <https://console.cloud.google.com>`_
-  + you should not have to sign in again, but if you are asked to, use the Google identity you provided to us last week
-  + in the top blue bar, towards the right, you chould be able to select between (at least) two projects: the "ISB-CGC Workshop" project and your own project -- if you do not see and/or cannot select between two or more projects, please **alert one of our team**
+
+  + you should not have to sign in again, but if you are asked to, use the Google identity you gave us 
+  + in the top blue bar, towards the right, you chould be able to select between (at least) two projects: the "ISB-CGC Workshop" project and your own project -- if you do not see and/or cannot select between two or more projects, please **alert one of our team now**
 
 .. image:: console_top.png
    :scale: 75
@@ -34,10 +35,11 @@ following:
 
 * just for fun, if you have time: in a separate browser tab, open up the BigQuery `Web UI <https://bigquery.cloud.google.com>`_
 
-  + click on the red *COMPOSE QUERY* button in the upper left corner, and then cut and paste the following SQL into the **New Query** box and then click on the red **RUN QUERY** button
+  + click on the red *COMPOSE QUERY* button in the upper left corner, and then cut and paste the SQL below into the **New Query** box and then click on the red **RUN QUERY** button
   + try out the *Format Query* button, and the *Explanation* button above the Results
   + try modifying the query to make it invalid and then click on the red exclamation mark (below the query box on the far right)
   + you can find additional information about accessing and working with the ISB-CGC BigQuery tables `here <progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.rst>`_ and `here <progapi/bigqueryGUI/WalkthroughOfGoogleBigQuery.rst>`_
+  + at the bottom of this page are links to several quickstart tutorials -- one of them is all about BigQuery
 
 .. code-block:: sql
 

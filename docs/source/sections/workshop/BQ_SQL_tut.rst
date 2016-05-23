@@ -1,36 +1,37 @@
 **********************
-Big Query SQL Tutorial
+BigQuery SQL Tutorial
 **********************
 
 Exploring the TCGA data in BigQuery
 -----------------------------------
 
-The ISB-CGC (isb-cgc.org) project has aggregated and curated all of the TCGA
+The ISB-CGC team has aggregated and curated the TCGA
 open-access clinical, biospecimen, and Level-3 molecular data and uploaded it
-into BigQuery tables that are open to the public.  Here we will show you how
-you can begin to work with these tables in the Google Web UI.
+into BigQuery tables that are open to the public.  In this tutorial, we will show you how
+you can begin to work with these tables from the Google BigQuery Web UI.
 
 Helpful BigQuery links
 ----------------------
 
-For this example, we'll be working in the `Google BigQuery Web UI <https://cloud.google.com/bigquery>`_.
+For this example, we'll be working in the `Google BigQuery Web UI <https://bigquery.cloud.google.com>`_.
 
-Here's our own set of slides for a `visual walkthrough <https://drive.google.com/open?id=0ByeOQOsbQstKX2pib0VTd0Q3dW8>`_.
+We've tried to simplify what you need to know to get started using the ISB-CGC BigQuery 
+tables in this quick `visual walkthrough <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_BigQuery.pdf>`_.
 
 It's often helpful to have a `link to the docs <https://cloud.google.com/bigquery/what-is-bigquery>`_ handy,
-
-and especially the `query reference <https://cloud.google.com/bigquery/query-reference>`_.
+and especially the `query reference <https://cloud.google.com/bigquery/query-reference>`_.  
+(You'll probably want to open those into new tabs of your browser.)
 
 Let's query!
 ------------
 
-Please open the browser, and open the `Big Query UI <https://bigquery.cloud.google.com>`_
+Please open the browser, and open the `BigQuery UI <https://bigquery.cloud.google.com>`_
 
 On the left side, from top to bottom we have:
 
 1.  **Compose Query** This button opens the text field, where we can write queries.
 
-2.  **Query History** A list of your past queries.. *very useful*.
+2.  **Query History** A list of your past queries... *very useful*.
 
 3.  **Job History** List of past jobs, like copying tables.
 
@@ -45,7 +46,6 @@ Let's start by working with one of the simplest tables, the Clinical_data table.
 The format of a table name in BigQuery is <project_name>:<dataset_name>.<table_name>
 
 Or more accurately "isb-cgc:tcga_201510_alpha.Clinical_data"
-
 
 Let's start by just counting the number of records in the table. Paste the
 following SQL into the text field, and hit *Run Query*.
@@ -85,7 +85,7 @@ all of the TCGA molecular data tables contain the fields ParticipantBarcode and 
 Number of rows returned by this query:  33
 
 After we've run a query, there's some options. On the upper right side of the
-returned results, we can download the table, or save it as a Big Query table!
+returned results, we can download the table, or save it as a BigQuery table!
 
 Creating Our Cohort
 -------------------
@@ -113,7 +113,7 @@ To construct this query, I'm going to use the Annotations table.
 
 
 Let's suppose we want some biospecimen data on each sample. To do this we
-could our *IN* keyword as above, or easily join tables using barcodes.
+could use our *IN* keyword as above, or easily join tables using barcodes.
 
 .. code-block:: sql
 
@@ -174,3 +174,5 @@ An example on making tables.
 	  )
 	GROUP BY
 	  table_cell
+
+

@@ -4,7 +4,7 @@ Integrative Analysis Tutorial
 
 This tutorial is intended to guide you through several different components of the ISB-CGC platform
 and some of the different ways that you can approach working with the data that is available in
-Google Cloud Storage, Big Query, and Google Genomics.
+Google Cloud Storage, BigQuery, and Google Genomics.
 
 In this example, we will study the potential effects of HPV integration on the
 expression of recurrent target genes in CESC and HNSC tumors. This example
