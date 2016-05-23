@@ -15,6 +15,8 @@ Helpful BigQuery links
 
 For this example, we'll be working in the `Google BigQuery Web UI <https://cloud.google.com/bigquery>`_.
 
+Here's our own set of slides for a `visual walkthrough <https://drive.google.com/open?id=0ByeOQOsbQstKX2pib0VTd0Q3dW8>`_.
+
 It's often helpful to have a `link to the docs <https://cloud.google.com/bigquery/what-is-bigquery>`_ handy,
 
 and especially the `query reference <https://cloud.google.com/bigquery/query-reference>`_.
