@@ -141,3 +141,36 @@ could our *IN* keyword as above, or easily join tables using barcodes.
 	  a.SampleType,
 	  a.avg_percent_tumor_cells,
 	  b.hpv_status
+
+Bonus!
+------
+
+An example on making tables.
+
+.. code-block:: sql
+
+	SELECT
+	  table_cell,
+	  COUNT(*)
+	FROM (
+	SELECT
+	  CASE
+	    WHEN gender = 'MALE' AND hpv_status = 'Positive'
+	      THEN 'Male_and_HPV_Pos'
+	    WHEN gender = 'MALE' AND hpv_status = 'Negative'
+	      THEN 'Male_and_HPV_Neg'
+	    WHEN gender = 'FEMALE' AND hpv_status = 'Positive'
+	      THEN 'Female_and_HPV_Pos'
+	    WHEN gender = 'FEMALE' AND hpv_status = 'Negative'
+	      THEN 'Female_and_HPV_Neg'
+	    ELSE 'None'
+	  END as table_cell,
+	FROM
+	  [isb-cgc:tcga_201510_alpha.Clinical_data]
+	Where
+	  Study IN ('CESC', 'HNSC')
+	HAVING
+	  table_cell <> 'None'
+	  )
+	GROUP BY
+	  table_cell
