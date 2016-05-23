@@ -48,7 +48,7 @@ Now let's see if things are working.
 
 .. code-block:: r
 
-    bigrquery::list_tables(main_cloud_project, tcga_ds)
+    bigrquery::list_tables(main_cloud_project, tcga_data_set)
 
 In this tutorial, we will be investigating two studies using two existing
 Biq Query tables. Additionally, we're going to BYOD "Bring your own data".
@@ -442,5 +442,3 @@ Transform gexp_affected_genes_df into a gexp-by-samples feature matrix
 	gexp_fm = tidyr::spread(gexp_affected_genes,HGNC_gene_symbol,normalized_count)
 
 	gexp_fm[1:5,1:5]
-
-
