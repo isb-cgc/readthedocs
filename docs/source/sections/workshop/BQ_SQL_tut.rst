@@ -115,23 +115,25 @@ could join tables, or we can use our *IN* keyword as below.
 .. code-block:: sql
 
 	SELECT
-	  SampleBarcode,
-	  Study,
-	  SampleTypeCode,
-	  avg_percent_tumor_cells
+	  b.ParticipantBarcode,
+	  a.SampleBarcode,
+	  a.Study,
+	  a.SampleType,
+	  a.avg_percent_tumor_cells,
+	  b.hpv_status
 	FROM
-	  [isb-cgc:tcga_201510_alpha.Biospecimen_data]
+	  [isb-cgc:tcga_201510_alpha.Biospecimen_data] as a
+	JOIN
+	  [isb-cgc:tcga_201510_alpha.Clinical_data] as b
+	ON
+	  a.ParticipantBarcode = b.ParticipantBarcode
+	  AND a.Study = b.Study
 	WHERE
-	  SampleBarcode IN (
-	  SELECT
-	    SampleBarcode
-	  FROM
-	    [isb-cgc:tcga_201510_alpha.Annotations]
-	  WHERE
-	    Study IN ('CESC','HNSC')
-	   )
+	    a.Study IN ('CESC','HNSC')
 	GROUP BY
-	  SampleBarcode,
-	  Study,
-	  SampleTypeCode,
-	  avg_percent_tumor_cells
+	  b.ParticipantBarcode,
+	  a.SampleBarcode,
+	  a.Study,
+	  a.SampleType,
+	  a.avg_percent_tumor_cells,
+	  b.hpv_status
