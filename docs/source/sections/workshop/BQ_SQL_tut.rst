@@ -13,7 +13,9 @@ you can begin to work with these tables from the familiar R environment.
 Helpful BigQuery links
 
 For this example, we'll be working in the `Google BigQuery Web UI <https://cloud.google.com/bigquery>`_.
+
 It's often helpful to have a `link to the docs <https://cloud.google.com/bigquery/what-is-bigquery>`_ handy,
+
 and especially the `query reference <https://cloud.google.com/bigquery/query-reference>`_.
 
 Let's query!
