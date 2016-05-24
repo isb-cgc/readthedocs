@@ -158,9 +158,9 @@ An example on making tables.
 	  SELECT
 	    CASE WHEN gender = 'MALE' AND hpv_status = 'Positive' THEN 'Male_and_HPV_Pos'
 		     WHEN gender = 'MALE' AND hpv_status = 'Negative' THEN 'Male_and_HPV_Neg'
-			 WHEN gender = 'FEMALE' AND hpv_status = 'Positive' THEN 'Female_and_HPV_Pos'
-			 WHEN gender = 'FEMALE' AND hpv_status = 'Negative' THEN 'Female_and_HPV_Neg'
-			 ELSE 'None'
+		     WHEN gender = 'FEMALE' AND hpv_status = 'Positive' THEN 'Female_and_HPV_Pos'
+		     WHEN gender = 'FEMALE' AND hpv_status = 'Negative' THEN 'Female_and_HPV_Neg'
+		     ELSE 'None'
 		END AS table_cell,
 	  FROM
 	    [isb-cgc:tcga_201510_alpha.Clinical_data]
