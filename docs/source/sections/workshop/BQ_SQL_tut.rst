@@ -15,11 +15,11 @@ Helpful BigQuery links
 
 For this example, we'll be working in the `Google BigQuery Web UI <https://bigquery.cloud.google.com>`_.
 
-We've tried to simplify what you need to know to get started using the ISB-CGC BigQuery 
+We've tried to simplify what you need to know to get started using the ISB-CGC BigQuery
 tables in this quick `visual walkthrough <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_BigQuery.pdf>`_.
 
 It's often helpful to have a `link to the docs <https://cloud.google.com/bigquery/what-is-bigquery>`_ handy,
-and especially the `query reference <https://cloud.google.com/bigquery/query-reference>`_.  
+and especially the `query reference <https://cloud.google.com/bigquery/query-reference>`_.
 (You'll probably want to open those into new tabs of your browser.)
 
 Let's query!
@@ -58,10 +58,10 @@ following SQL into the text field, and hit *Run Query*.
 	  [isb-cgc:tcga_201510_alpha.Clinical_data]
 
 
-The result returned from this query is just a single value: the number of unique patients (aka participants) 
+The result returned from this query is just a single value: the number of unique patients (aka participants)
 across all of the TCGA studies (aka tumor types).
 
-For consistency, and to make it easy to work with multiple tables, 
+For consistency, and to make it easy to work with multiple tables,
 all of the TCGA molecular data tables contain the fields ParticipantBarcode and Study
 
 .. code-block:: sql
@@ -156,18 +156,17 @@ An example on making tables.
 	  COUNT(*)
 	FROM (
 	  SELECT
-	    CASE WHEN gender = 'MALE'
-	    AND hpv_status = 'Positive' THEN 'Male_and_HPV_Pos' WHEN gender = 'MALE'
-	    AND hpv_status = 'Negative' THEN 'Male_and_HPV_Neg' WHEN gender = 'FEMALE'
-	    AND hpv_status = 'Positive' THEN 'Female_and_HPV_Pos' WHEN gender = 'FEMALE'
-	    AND hpv_status = 'Negative' THEN 'Female_and_HPV_Neg' ELSE 'None' END AS table_cell,
+	    CASE WHEN gender = 'MALE' AND hpv_status = 'Positive' THEN 'Male_and_HPV_Pos'
+		     WHEN gender = 'MALE' AND hpv_status = 'Negative' THEN 'Male_and_HPV_Neg'
+			 WHEN gender = 'FEMALE' AND hpv_status = 'Positive' THEN 'Female_and_HPV_Pos'
+			 WHEN gender = 'FEMALE' AND hpv_status = 'Negative' THEN 'Female_and_HPV_Neg'
+			 ELSE 'None'
+		END AS table_cell,
 	  FROM
 	    [isb-cgc:tcga_201510_alpha.Clinical_data]
 	  WHERE
-	    Study IN ('CESC',
-	      'HNSC')
+	    Study IN ('CESC', 'HNSC')
 	  HAVING
 	    table_cell <> 'None' )
 	GROUP BY
 	  table_cell
-	
