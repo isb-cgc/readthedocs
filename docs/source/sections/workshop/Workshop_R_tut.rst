@@ -195,10 +195,10 @@ Next, with those offen affected genes, we will query gene expression data.
 	# Now we can visualize it.
 	qplot(data=mean_affected_genes,
 	      x=factor(x = xlabel, ordered = T, levels = xlabel),
-		  y=mean_expression,
-		  col=Study) +
-		  theme(axis.text.x = element_text(angle = 90, hjust = 1, size=4)) +
-		  xlab("Study_Gene")
+	      y=mean_expression,
+	      col=Study) +
+	      theme(axis.text.x = element_text(angle = 90, hjust = 1, size=4)) +
+	      xlab("Study_Gene")
 
 
 Computing Statistics
