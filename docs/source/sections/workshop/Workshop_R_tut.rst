@@ -23,6 +23,7 @@ Loading libraries
 .. code-block:: r
 
     require(bigrquery,quietly = TRUE) || install.packages('bigrquery',verbose = FALSE)
+    require(httpuv, quietly = TRUE) || install.packages('httpuv',verbose=FALSE)
     require(tidyr,quietly = TRUE) || install.packages('tidyr',verbose = FALSE)
     require(dplyr,quietly = TRUE) || install.packages('dplyr',verbose = FALSE)
     require(ggplot2,quietly = TRUE) || install.packages('ggplot2',verbose = FALSE)
