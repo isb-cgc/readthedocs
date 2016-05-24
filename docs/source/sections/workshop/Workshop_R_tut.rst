@@ -24,7 +24,7 @@ Loading libraries
 
     require(bigrquery,quietly = TRUE) || install.packages('bigrquery',verbose = FALSE)
     require(httpuv, quietly = TRUE) || install.packages('httpuv',verbose=FALSE)
-	require(ggplot2,quietly = TRUE) || install.packages('ggplot2',verbose = FALSE)
+    require(ggplot2,quietly = TRUE) || install.packages('ggplot2',verbose = FALSE)
 
 Your project ID
 ===============
@@ -55,7 +55,6 @@ BigQuery tables. Additionally, we're going to BYOD "Bring your own data".
 	study=c('CESC','HNSC')
 
 	clinical_table = "[isb-cgc:tcga_201510_alpha.Clinical_data]"
-	gexp_table     = "[isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM]"
 
 Constructing Queries
 ====================
