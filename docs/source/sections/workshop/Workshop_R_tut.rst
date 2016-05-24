@@ -24,11 +24,7 @@ Loading libraries
 
     require(bigrquery,quietly = TRUE) || install.packages('bigrquery',verbose = FALSE)
     require(httpuv, quietly = TRUE) || install.packages('httpuv',verbose=FALSE)
-    require(tidyr,quietly = TRUE) || install.packages('tidyr',verbose = FALSE)
-    require(dplyr,quietly = TRUE) || install.packages('dplyr',verbose = FALSE)
-    require(ggplot2,quietly = TRUE) || install.packages('ggplot2',verbose = FALSE)
-    require(broom,quietly = TRUE) || install.packages('broom',verbose = FALSE)
-
+	require(ggplot2,quietly = TRUE) || install.packages('ggplot2',verbose = FALSE)
 
 Your project ID
 ===============
@@ -130,8 +126,8 @@ Or we can do this on the command line using the bq command line tool.
 
 	bq load --source_format CSV --field_delimiter "\t"  --schema ncomms3513-s3_Schema.json workspace.ncomms3513_s3 ncomms3513-s3.tsv
 
-Gathering Expression Data
-=========================
+Integrating with the expression data
+====================================
 
 Now we can directly query our own data, and start to combine it with other tables.
 Let's try it out!
@@ -146,7 +142,7 @@ integration in CESC and HNSC tumors.
 	  Overlapping_genes,
 	  Cancer
 	FROM
-	  [your-project:workspace.ncomms3513_s3]
+	  [isb-cgc-04-0030:workspace.ncomms3513_s3]
 	WHERE
 	  Cancer IN ('CESC','HNSC')
 	  AND Overlapping_genes <> 'Intergenic'
@@ -162,6 +158,55 @@ integration in CESC and HNSC tumors.
 	table(affected_genes$Cancer)
 
 Next, with those offen affected genes, we will query gene expression data.
+
+.. code-block:: r
+
+	query <- "
+	SELECT
+	  Study,
+	  HGNC_gene_symbol,
+	  AVG(normalized_count) as mean_expression
+	FROM
+	  [isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM]
+	WHERE
+	  Study IN ('CESC','HNSC')
+	  AND SampleTypeLetterCode = 'TP'
+	  AND HGNC_gene_symbol IN (
+	    SELECT
+	      Overlapping_genes AS HGNC_gene_symbol
+	    FROM
+	      [isb-cgc-04-0030:workspace.ncomms3513_s3]
+	    WHERE
+	      Cancer IN ('CESC','HNSC')
+	      AND Overlapping_genes <> 'Intergenic'
+	    GROUP BY
+	      HGNC_gene_symbol )
+	GROUP BY
+	  Study,
+	  HGNC_gene_symbol
+	ORDER BY
+	  mean_expression"
+
+	# running the query.
+	mean_affected_genes = query_exec(query, project = my_cloud_project)
+
+	# we'll create some more meaningful x-axis labels
+	mean_affected_genes$xlabel <- paste0(mean_affected_genes$Study, "_", mean_affected_genes$HGNC_gene_symbol)
+
+	# Now we can visualize it.
+	qplot(data=mean_affected_genes,
+	      x=factor(x = xlabel, ordered = T, levels = xlabel),
+		  y=mean_expression,
+		  col=Study) +
+		  theme(axis.text.x = element_text(angle = 90, hjust = 1, size=4)) +
+		  xlab("Study_Gene")
+
+
+Computing Statistics
+====================
+
+Instead, if we want to get the actual gene expression values, we could query
+for that, and retrieve it as a data.frame.
 
 .. code-block:: r
 
@@ -204,11 +249,15 @@ Let's filter the hpv_table to match the samples to those in gexp_affected_genes
 
 .. code-block:: r
 
+	require(tidyr,quietly = TRUE) || install.packages('tidyr',verbose = FALSE)
+	require(dplyr,quietly = TRUE) || install.packages('dplyr',verbose = FALSE)
+	require(broom,quietly = TRUE) || install.packages('broom',verbose = FALSE)
+
 	# let's get rid of 'indeterminate' samples
 	hpv_table = dplyr::filter(hpv_table, hpv_status != "Indeterminate", ParticipantBarcode %in% gexp_affected_genes$ParticipantBarcode)
 
-T-test Time
-===========
+T-tests
+=======
 
 Now, we are going to perform t.tests on expression by hpv_status and study.
 
