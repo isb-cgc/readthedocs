@@ -60,6 +60,8 @@ Workshop Outline & Links
   + `Analysis using R and RStudio <workshop/Workshop_R_tut.html>`_
 
 * `Compute Pipelines Tutorial <https://docs.google.com/presentation/d/1IQkwbePfzj5qoCzqX-EV_UTbse075chzDINm5ZXGB5I/edit?usp=sharing>`_
+* `SMC-RNA DREAM challenge <https://docs.google.com/presentation/d/1NPZhxXtC_QuVhpVGmTGgvJKhaYtDxNxSqeoZA4ySGLo/edit#slide=id.g13fd37f827_0_1>`_
+* `Workshop Wrap-Up <https://github.com/isb-cgc/readthedocs/raw/master/docs/include/workshop-intro.pdf>`_
 
 Quickstart Tutorials
 ####################
