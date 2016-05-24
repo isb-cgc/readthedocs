@@ -37,9 +37,9 @@ be necessary to complete the code.
 
 .. code-block:: r
 
-    main_cloud_project="isb-cgc"
-    my_cloud_project  = "your_project_id"
-    tcga_data_set     = "tcga_201510_alpha"
+    main_cloud_project = "isb-cgc"
+    my_cloud_project   = "your_project_id"
+    tcga_data_set      = "tcga_201510_alpha"
 
 First query
 ===========
@@ -108,8 +108,8 @@ Using the google command line tool:
 
 .. code-block:: none
 
-	gsutil cp gs://isb-cgc-workshop/ncomms3513-s3.tsv .
-	gsutil cp gs://isb-cgc-workshop/ncomms3513-s3_Schema.json .
+	gsutil cp gs://isb-cgc-workshop/data/Larsson/ncomms3513-s3.tsv .
+	gsutil cp gs://isb-cgc-workshop/data/Larsson/ncomms3513-s3_Schema.json .
 
 
 Now the data is in our directory, but we need to transform it into a BQ table.
@@ -125,9 +125,9 @@ Or we can do this on the command line using the bq command line tool.
 
 	bq ls
 
-	bq mk mydataset
+	bq mk workspace
 
-	bq load --source_format CSV --field_delimiter "\t"  --schema ncomms3513-s3_Schema.json  mydataset.ncomms3513_s3 ncomms3513-s3.tsv
+	bq load --source_format CSV --field_delimiter "\t"  --schema ncomms3513-s3_Schema.json workspace.ncomms3513_s3 ncomms3513-s3.tsv
 
 Gathering Expression Data
 =========================
@@ -145,7 +145,7 @@ integration in CESC and HNSC tumors.
 	  Overlapping_genes,
 	  Cancer
 	FROM
-	  [your-project-id:mydataset.ncomms3513_s3]
+	  [your-project:workspace.ncomms3513_s3]
 	WHERE
 	  Cancer IN ('CESC','HNSC')
 	  AND Overlapping_genes <> 'Intergenic'
@@ -180,7 +180,7 @@ Next, with those offen affected genes, we will query gene expression data.
 	  SELECT
 	    Overlapping_genes as HGNC_gene_symbol
 	  FROM
-	    [isb-cgc-04-0002:testVarsha.ncomms3513_s3]
+	    [your-project-id:workspace.ncomms3513_s3]
 	  WHERE
 	    Cancer IN ('CESC','HNSC')
 	    AND Overlapping_genes <> 'Intergenic'
