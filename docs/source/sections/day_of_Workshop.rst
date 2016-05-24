@@ -53,6 +53,10 @@ Workshop Outline & Links
 
 * `Introduction to the ISB-CGC Platform <https://github.com/isb-cgc/readthedocs/raw/master/docs/include/workshop-intro.pdf>`_
 * Introduction to the Google Cloud Platform
+
+  + `A Quick Tour of the Google Cloud Console <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_Console.pdf>`_
+  + `How to Enable APIs for your GCP Project <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/enabling_new_APIs.pdf>`_
+
 * Integrative Analysis Tutorial
 
   + `Web-App Tutorial <workshop/WebApp_tut.html>`_
@@ -63,11 +67,9 @@ Workshop Outline & Links
 * `SMC-RNA DREAM challenge <https://docs.google.com/presentation/d/1NPZhxXtC_QuVhpVGmTGgvJKhaYtDxNxSqeoZA4ySGLo/edit#slide=id.g13fd37f827_0_1>`_
 * `Workshop Wrap-Up <https://github.com/isb-cgc/readthedocs/raw/master/docs/include/workshop-intro.pdf>`_
 
-Quickstart Tutorials
-####################
+Other Quickstart Tutorials
+##########################
 
-* `A Quick Tour of the Google Cloud Console <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_Console.pdf>`_
-* `How to Enable APIs for your GCP Project <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/enabling_new_APIs.pdf>`_
 * `An Introduction to BigQuery <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_BigQuery.pdf>`_
 * `An Introduction to Cloud Datalab <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_Cloud_Datalab.pdf>`_
 * `An Introduction to Cloud Shell <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_Cloud_Shell.pdf>`_
