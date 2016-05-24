@@ -51,14 +51,15 @@ following:
 Workshop Outline & Links
 ########################
 
-.. toctree::
-   :maxdepth: 1
+* `Introduction to the ISB-CGC Platform <https://github.com/isb-cgc/readthedocs/raw/master/docs/include/workshop-intro.pdf>`_
+* Introduction to the Google Cloud Platform
+* Integrative Analysis Tutorial
 
-   workshop/Intro_Goals_Overview
-   workshop/GCP_tour
-   workshop/Integrative_Analysis_Tutorial
-   workshop/Compute_Tutorial
-   workshop/Wrap_Up
+  + `Web-App Tutorial <workshop/WebApp_tut.html>`_
+  + `BigQuery SQL Tutorial <workshop/BQ_SQL_tut.html>`_
+  + `Analysis using R and RStudio <workshop/Workshop_R_tut.html>`_
+
+* `Compute Pipelines Tutorial <https://docs.google.com/presentation/d/1IQkwbePfzj5qoCzqX-EV_UTbse075chzDINm5ZXGB5I/edit?usp=sharing>`_
 
 Quickstart Tutorials
 ####################

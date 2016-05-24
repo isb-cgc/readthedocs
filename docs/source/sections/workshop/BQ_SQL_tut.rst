@@ -58,8 +58,10 @@ following SQL into the text field, and hit *Run Query*.
 	  [isb-cgc:tcga_201510_alpha.Clinical_data]
 
 
-And we see that the table has 1 row - this is the number of unique patients or participants across all of the various TCGA studies.
+The result returned from this query is just a single value: the number of unique patients (aka participants) 
+across all of the TCGA studies (aka tumor types).
 
+For consistency, and to make it easy to work with multiple tables, 
 all of the TCGA molecular data tables contain the fields ParticipantBarcode and Study
 
 .. code-block:: sql
@@ -113,7 +115,7 @@ To construct this query, I'm going to use the Annotations table.
 
 
 Let's suppose we want some biospecimen data on each sample. To do this we
-could use our *IN* keyword as above, or easily join tables using barcodes.
+could use our **IN** keyword as above, or easily join tables using barcodes.
 
 .. code-block:: sql
 
@@ -153,26 +155,19 @@ An example on making tables.
 	  table_cell,
 	  COUNT(*)
 	FROM (
-	SELECT
-	  CASE
-	    WHEN gender = 'MALE' AND hpv_status = 'Positive'
-	      THEN 'Male_and_HPV_Pos'
-	    WHEN gender = 'MALE' AND hpv_status = 'Negative'
-	      THEN 'Male_and_HPV_Neg'
-	    WHEN gender = 'FEMALE' AND hpv_status = 'Positive'
-	      THEN 'Female_and_HPV_Pos'
-	    WHEN gender = 'FEMALE' AND hpv_status = 'Negative'
-	      THEN 'Female_and_HPV_Neg'
-	    ELSE 'None'
-	  END as table_cell,
-	FROM
-	  [isb-cgc:tcga_201510_alpha.Clinical_data]
-	Where
-	  Study IN ('CESC', 'HNSC')
-	HAVING
-	  table_cell <> 'None'
-	  )
+	  SELECT
+	    CASE WHEN gender = 'MALE'
+	    AND hpv_status = 'Positive' THEN 'Male_and_HPV_Pos' WHEN gender = 'MALE'
+	    AND hpv_status = 'Negative' THEN 'Male_and_HPV_Neg' WHEN gender = 'FEMALE'
+	    AND hpv_status = 'Positive' THEN 'Female_and_HPV_Pos' WHEN gender = 'FEMALE'
+	    AND hpv_status = 'Negative' THEN 'Female_and_HPV_Neg' ELSE 'None' END AS table_cell,
+	  FROM
+	    [isb-cgc:tcga_201510_alpha.Clinical_data]
+	  WHERE
+	    Study IN ('CESC',
+	      'HNSC')
+	  HAVING
+	    table_cell <> 'None' )
 	GROUP BY
 	  table_cell
-
-
+	
