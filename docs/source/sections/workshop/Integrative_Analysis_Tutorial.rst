@@ -21,6 +21,6 @@ Nature Communications 4, Article number:2513|doi:10.1038/ncomms3513
 .. toctree::
    :maxdepth: 1
 
-   Webapp_tut
+   WebApp_tut
    BQ_SQL_tut
    Workshop_R_tut
