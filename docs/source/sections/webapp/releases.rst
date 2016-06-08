@@ -2,9 +2,54 @@
 Release Notes
 *************
 
-*  **May 10, 2016**: `v1.3 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.3>`_
-    **Known issues in Sprint 4**
+*  **June 8, 2016**: `v1.4 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.4>`_
+    
+    **Known issues in Sprint 5**
+    
+    - The user can add same gene twice if list has different names.
+    - The user can add same filter to existing cohorts.
+    - In the Create new Cohort page, the left filters (#) does not re-populate as you select filters to match the sample number in clinical feature panel.
+    - The bar chart renders overlapping text in the x-axis and y-axis for certain variables.
+    - A user cannot delete whom you share a cohort with from the existing cohorts table.
+    - On a worksheet with the Analysis Type : Seq peek, the formatting will display Elongated when the user selects a certain gene.
+    - CCLE data in GUI is currently not parallel the CCLE data in BigQuery.
+    - User currently cannot select a cohort in the color by feature section in a worksheet.
+    - The Gene list used for analysis currently uses genes similar as to original gene and well as the specific gene added to list, in the plot settings menu.
+    - The comments button for both workbooks/cohorts, if user clicks the comment button multiple times within one second will post duplicate comment.
+    - User currently cannot select gene HP or gene’s with only two letters in the Create Gene list favorite page.
+    - In Violin plot -  the user has no ability to select a different gene once one is already selected.
+    - In the variable favorites table, the menu for a specific variable will be cut off once a certain set of variables list are exceeded.
+    - A 400 Error pop up window will appear as the user transitions from the  File List page to  IGV browser page.
+    - Public Data Availability section will be cut  is user drags data type title to the left of the page away from the panel itself,in detail page of existing cohort.
+   
+    **Issues resolved in Sprint 5**
 
+    New Enhancements
+    
+    - Upgraded system from using Django 1.8 to Django 1.9.
+    - A link to the google cloud platform has been added to the user details page. 
+    - The TCGA filter is selected as the default project when creating a new cohort.
+    - When the user clicks on the browser back button, the user will remain on the same worksheet that they were previously on.
+    - When the user goes adds a new gene list, variable favorites list, and/or cohort from the worksheet data type panel, the button will display “Apply to Worksheet”.
+    - The feedback/help section has been moved to the top of the page to provide the user a more convenient way to send us feedback.
+
+    Bug Fixes
+    
+    - User can no longer add a duplicate gene to same gene favorites list. 
+    - To edit a gene name the user must now delete and re-type the desired gene name. 
+    - The functionality of a duplicate worksheet drop down menu reflects the same functionality of the original worksheet.
+    - The Last Updated section reflects any changes made to the variable list, cohort list, and gene list in their corresponding tables.
+    - The File list page now allows the user to add a maximum of five files to use in the IGV browser between all the pages in the file list table.
+    - When a user hovers over clinical feature panel for Sample Type and Tumor Tissue Type the top row when hovered over the name is displayed clearly.
+    - Order by Ascending/Descending is working properly for Existing Cohorts table page.
+    - The user is now able to plot gene’s with a hyphen(-) in the gene name itself.
+    - The user is now able to download a maximum of 85,000 files at a time, in the File List page for a selected cohort. 
+
+
+*  **May 10, 2016**: `v1.3 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.3>`_
+    
+    **Known issues in Sprint 4**
+    
     - A user can add same gene twice if identical gene list have different names.
     - The user can add same filter already selected to an existing cohort. 
     - The create new Cohort left filters number count does not re-populate as you select filters to match sample number count in clinical feature panel.
