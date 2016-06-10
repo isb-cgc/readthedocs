@@ -6,6 +6,10 @@ Takes a JSON object of filters in the request body and returns a "preview" of th
 
 	$ curl "https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/preview_cohort" -d '{"Study": ["BRCA", "OV"]}' -H "Content-Type: application/json"
 
+**API explorer example**:
+
+Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https://api-dot-isb-cgc.appspot.com/_ah/api#p/cohort_api/v1/cohort_api.cohort_endpoints.cohorts.preview_cohort?_h=7&resource=%257B%250A++%2522Study%2522%253A+%250A++%255B%2522CESC%2522%250A++%255D%252C%250A++%2522age_at_initial_pathologic_diagnosis_lte%2522%253A+%252230%2522%250A%257D&/>`_ to see this endpoint in Google's API explorer.
+
 **Request**
 
 HTTP request::

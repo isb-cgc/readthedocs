@@ -4,7 +4,11 @@ Creates and saves a cohort. Takes a JSON object in the request body to use as th
 
 **Example**::
 
-	$ python isb_curl.py "https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/save_cohort?name=BRCA-OV-cohort" -d '{"Study": ["BRCA", "OV"]}' -H "Content-Type: application/json"
+	$ python isb_curl.py "https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/save_cohort?name=BRCA-OV-80-and-older" -d '{"age_at_initial_pathologic_diagnosis_gte": "80", "Study": ["BRCA", "OV"]}' -H "Content-Type: application/json"
+
+**API explorer example**:
+
+Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https://api-dot-isb-cgc.appspot.com/_ah/api#p/cohort_api/v1/cohort_api.cohort_endpoints.cohorts.save_cohort?_h=2&resource=%257B%250A++%2522Study%2522%253A+%250A++%255B%2522CESC%2522%250A++%255D%252C%250A++%2522age_at_initial_pathologic_diagnosis_lte%2522%253A+%252230%2522%250A%257D&/>`_ to see this endpoint in Google's API explorer.
 
 **Request**
 
@@ -401,7 +405,7 @@ If successful, this method returns a response body with the following structure:
     "name": string,
     "num_patients": string,
     "num_samples": string,
-    "parent_id": string,
+    "parent_id": [string],
     "perm": string,
     "source_notes": string,
     "source_type": string
@@ -421,7 +425,7 @@ If successful, this method returns a response body with the following structure:
 	name, string, "Name of cohort."
 	num_patients, string, "Number of unique participant barcodes in the cohort."
 	num_samples, string, "Number of unique sample barcodes in the cohort."
-	parent_id, string, "ID of the parent cohort this cohort was derived from, if any."
+	parent_id[], list, "ID of the parent cohort this cohort was derived from, if any."
 	perm, string, "User permissions on cohort: READER or OWNER."
 	source_notes, string, "Notes on the source of the cohort."
 	source_type, string, "Type of cohort source."

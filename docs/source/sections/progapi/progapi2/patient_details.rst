@@ -6,6 +6,10 @@ Returns information about a specific participant, including a list of samples an
 
 	curl "https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/patient_details?patient_barcode=TCGA-ZH-A8Y6"
 
+**API explorer example**:
+
+Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https://api-dot-isb-cgc.appspot.com/_ah/api#p/cohort_api/v1/cohort_api.cohort_endpoints.cohorts.patient_details?patient_barcode=TCGA-ZH-A8Y6&/>`_ to see this endpoint in Google's API explorer.
+
 **Request**
 
 HTTP request::
