@@ -6,6 +6,10 @@ Deletes a cohort. User must have owner permissions on the cohort.
 
 	$ python isb_curl.py "https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/delete_cohort?cohort_id={YOUR_COHORT_ID}" -d '{}'
 
+**API explorer example**:
+
+Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https://api-dot-isb-cgc.appspot.com/_ah/api#p/cohort_api/v1/cohort_api.cohort_endpoints.cohorts.delete?/>`_ to see this endpoint in Google's API explorer.
+
 **Request**
 
 HTTP request::

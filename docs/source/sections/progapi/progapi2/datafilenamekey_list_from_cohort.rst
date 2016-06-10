@@ -6,6 +6,10 @@ Takes a cohort id as a required parameter and returns cloud storage paths to fil
 
 	$ python isb_curl.py "https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/datafilenamekey_list_from_cohort?cohort_id={YOUR_COHORT_ID}"
 
+**API explorer example**:
+
+Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https://api-dot-isb-cgc.appspot.com/_ah/api#p/cohort_api/v1/cohort_api.cohort_endpoints.cohorts.datafilenamekey_list_from_cohort?cohort_id=1&/>`_ to see this endpoint in Google's API explorer.
+
 **Request**
 
 HTTP request::
