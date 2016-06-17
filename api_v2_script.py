@@ -174,7 +174,7 @@ def get_csv_table_heading(headers=None, widths=None):
     return header_string
 
 
-def get_next_parameter_javascript_row(message_class_name, started_string, level=0, method_name=None):
+def get_next_parameter_javascript_row(message_class_name, started_string, level=0, resource_name=None, method_name=None):
     '''
     Recursive function returning javascript formatting of restructured text.
     level will indicate number of JS_SPACE spaces
@@ -200,7 +200,7 @@ def get_next_parameter_javascript_row(message_class_name, started_string, level=
         # print key + ": level " + str(level)
         # possibilities
         # 1. value is a 'number' or 'string'
-        if val.get('type') is not None and val.get('type') != 'array':
+        if val.get('type') is not None and val.get('type') != 'array':  # todo: if val['type'] is string but val.get('format') is int64, could clarify that it is a digit optionally in the form of a string?
             started_string += (level+2)*JS_SPACE + '"{}": {}'.format(key, val.get('type'))
         # 2. value is a nested object message class
         if val.get('type') is None:
@@ -210,6 +210,7 @@ def get_next_parameter_javascript_row(message_class_name, started_string, level=
             started_string = get_next_parameter_javascript_row(next_message_class,
                                                                started_string,
                                                                level=level,
+                                                               resource_name=resource_name,
                                                                method_name=method_name)
             level -= 1
         # 3. value is a list of either...
@@ -227,6 +228,7 @@ def get_next_parameter_javascript_row(message_class_name, started_string, level=
                 started_string = get_next_parameter_javascript_row(next_message_class,
                                                                    started_string,
                                                                    level=level,
+                                                                   resource_name=resource_name,
                                                                    method_name=method_name)
                 level -= 2
                 started_string += '\n' + (level+2)*JS_SPACE + ']'
@@ -248,7 +250,7 @@ def get_next_parameter_javascript_row(message_class_name, started_string, level=
     return started_string
 
 
-def get_next_property_table_row(message_class_name, started_string, level='', method_name=None):
+def get_next_property_table_row(message_class_name, started_string, level='', resource_name=None, method_name=None):
     '''
     change name to get next response table row?
     Recursive function returning csv formatting of restructured text.
@@ -260,7 +262,7 @@ def get_next_property_table_row(message_class_name, started_string, level='', me
     if method_name == 'patient_details' and message_class_name == 'ApiMetadataMetadataItem':
         allowed_keys = set(PATIENT_DETAILS_CLINICAL_DATA_FIELDS).intersection(message_class_properties)
         cleaned_message_class_properties = {k:message_class_properties[k] for k in allowed_keys}
-        message_class_properties = cleaned_message_class_properties
+        message_class_propertiesdescription_filename = cleaned_message_class_properties
     elif method_name == 'sample_details' and message_class_name == 'ApiMetadataMetadataItem':
         allowed_keys = set(SAMPLE_DETAILS_BIOSPECIMEN_DATA_FIELDS).intersection(message_class_properties.keys())
         cleaned_message_class_properties = {k:message_class_properties[k] for k in allowed_keys}
@@ -269,50 +271,57 @@ def get_next_property_table_row(message_class_name, started_string, level='', me
     sorted_message_class_properties = list(sorted(message_class_properties.iteritems(),
                                                   key=lambda s: s[0].lower()))
 
-    description_filename = message_class_name[get_index_of_nth_uppercase_char(message_class_name,3):] + '.json'
-    with open(JSON_FILE_DIRECTORY + '/' + description_filename, 'r+') as f:
-        description_contents = f.read()
-        description_json = json.loads(description_contents)
+    description_filename = message_class_name[get_index_of_nth_uppercase_char(message_class_name, 5):] + '.json'
 
-    for key, val in sorted_message_class_properties:
-        # possibilities
-        # 1. value is a number or string
-        if val.get('type') is not None and val.get('type') != 'array':
-            started_string += '\t{level}{key}, {type}, "{desc}"\n'\
-                .format(level=level,
-                        key=key,
-                        type=val.get('type'),
-                        desc=description_json[key])
+    file_path = str(JSON_FILE_DIRECTORY + '/' + description_filename)
+    f = open(file_path, 'w')
+    f.close()
 
-        # 2. value is a nested object message class
-        if val.get('type') is None:
-            started_string += '\t{level}{key}, nested object, "{desc}"\n'\
-                .format(level=level, key=key, desc=description_json[key])
-            level += key + '.'  # will this work?
-            next_message_class = val['$ref']
-            started_string = get_next_property_table_row(next_message_class,
-                                                         started_string,
-                                                         level=level,
-                                                         method_name=method_name)
-            # go up one level i.e. truncate at next to last dot
-            level = level[:level[:level.rfind('.')].rfind('.')+1]
-        # 3. value is a list of either...
-        if val.get('type') == 'array':
-            started_string += '\t{level}{key}[], list, "{desc}"\n'\
-                .format(level=level, key=key, desc=description_json[key])
-            # 3. a) i.e. this is a list of strings or numbers
-            if val['items'].get('type') is not None:  # assuming no lists of lists so don't check for is not 'array'
-                pass
-            # 3. b) value is a list of nested object message classes
-            else:
-                level += key + '[].'
-                next_message_class = val['items'].get('$ref')
-                started_string = get_next_property_table_row(next_message_class,
-                                                             started_string,
-                                                             level=level,
-                                                             method_name=method_name)
-                # go up one level i.e. truncate at next to last dot
-                level = level[:level[:level.rfind('.')].rfind('.')+1]
+    # with open(JSON_FILE_DIRECTORY + '/' + description_filename, 'r+') as f:
+    #     description_contents = f.read()
+    #     description_json = json.loads(description_contents)
+    #
+    # for key, val in sorted_message_class_properties:
+    #     # possibilities
+    #     # 1. value is a number or string
+    #     if val.get('type') is not None and val.get('type') != 'array':
+    #         started_string += '\t{level}{key}, {type}, "{desc}"\n'\
+    #             .format(level=level,
+    #                     key=key,
+    #                     type=val.get('type'),
+    #                     desc=description_json[key])
+    #
+    #     # 2. value is a nested object message class
+    #     if val.get('type') is None:
+    #         started_string += '\t{level}{key}, nested object, "{desc}"\n'\
+    #             .format(level=level, key=key, desc=description_json[key])
+    #         level += key + '.'  # will this work?
+    #         next_message_class = val['$ref']
+    #         started_string = get_next_property_table_row(next_message_class,
+    #                                                      started_string,
+    #                                                      level=level,
+    #                                                      resource_name=resource_name,
+    #                                                      method_name=method_name)
+    #         # go up one level i.e. truncate at next to last dot
+    #         level = level[:level[:level.rfind('.')].rfind('.')+1]
+    #     # 3. value is a list of either...
+    #     if val.get('type') == 'array':
+    #         started_string += '\t{level}{key}[], list, "{desc}"\n'\
+    #             .format(level=level, key=key, desc=description_json[key])
+    #         # 3. a) i.e. this is a list of strings or numbers
+    #         if val['items'].get('type') is not None:  # assuming no lists of lists so don't check for is not 'array'
+    #             pass
+    #         # 3. b) value is a list of nested object message classes
+    #         else:
+    #             level += key + '[].'
+    #             next_message_class = val['items'].get('$ref')
+    #             started_string = get_next_property_table_row(next_message_class,
+    #                                                          started_string,
+    #                                                          level=level,
+    #                                                          resource_name=resource_name,
+    #                                                          method_name=method_name)
+    #             # go up one level i.e. truncate at next to last dot
+    #             level = level[:level[:level.rfind('.')].rfind('.')+1]
 
     return started_string
 
@@ -334,7 +343,7 @@ def get_json_file_contents(file_name):
     return json.loads(example_contents)
 
 
-def write_rst_file_header(method):
+def write_rst_file_header(resource, method):
     '''
     write the title heading,
      description
@@ -343,14 +352,16 @@ def write_rst_file_header(method):
      access control
      request (GET or POST) and the full url
     '''
-    method_json = RESP_JSON['resources']['cohort_endpoints']['resources']['cohorts']['methods'][method]
-    method_path_name = method_json['path']  # todo: put backslash in front of underscores?
+    method_json = RESP_JSON['resources'][resource]['methods'][method]
+    method_path_name = method_json['path']
     description = method_json['description']
     http_method = method_json['httpMethod']
-    file_name = method_path_name + '.rst'
+    body = None if method_json.get('request') is None \
+        else RESP_JSON['schemas'][method_json['request']['$ref']]
+    file_name = resource + '_' + method + '.rst'
 
-    example_contents_json = get_json_file_contents('examples')
-    api_explorer_example_contents_json = get_json_file_contents('api_explorer_examples')
+    example_contents_json = get_json_file_contents('examples_v2')
+    api_explorer_example_contents_json = get_json_file_contents('api_explorer_examples_v2')
 
     example_text = ''
     if example_contents_json.get(method):
@@ -363,11 +374,12 @@ def write_rst_file_header(method):
             api_explorer_example_contents_json[method])
 
     # write title, e.g.
-    # datafilenamekey_list_from_cohort
+    # cohorts().create()
     # ################################
-    header_text = "{method_path_name}\n{underscore}\n".format(
-        method_path_name=method_path_name,
-        underscore='#'*len(method_path_name))
+    header_text = "{resource}().{method}()\n{underscore}\n".format(
+        resource=resource,
+        method=method,
+        underscore='#'*len(resource + '.()' + method + '.()'))
 
     # write description, e.g.
     # Takes a cohort id as a required parameter and returns cloud storage paths to files associated with all the samples in that cohort, up to a default limit of 10,000 files. Authentication is required. User must have READER or OWNER permissions on the cohort.
@@ -419,13 +431,12 @@ def get_next_parameter_table_row(parameter_json, allowed_values={}, method_name=
     return return_string
 
 
-def write_rst_file_path_parameters(method):
+def write_rst_file_path_parameters(resource, method):
     '''
     rst table from csv table of path parameters
     '''
-    method_json = RESP_JSON['resources']['cohort_endpoints']['resources']['cohorts']['methods'][method]
-    method_path_name = method_json['path']
-    file_name = method_path_name + '.rst'
+    method_json = RESP_JSON['resources'][resource]['methods'][method]
+    file_name = resource + '_' + method + '.rst'
     method_parameters = method_json.get('parameters')
     if method_parameters is None:
         parameter_text = """**Parameters**\n\nNone\n\n"""
@@ -444,23 +455,22 @@ def write_rst_file_path_parameters(method):
         f.write(parameter_text)
 
 
-def write_rst_file_request_body(method):
+def write_rst_file_request_body(resource, method):
     '''
     write javascript code block of request body parameters
     and rst table from csv table of request body parameters
     '''
-    method_json = RESP_JSON['resources']['cohort_endpoints']['resources']['cohorts']['methods'][method]
-    method_path_name = method_json['path']
-    file_name = method_path_name + '.rst'
+    method_json = RESP_JSON['resources'][resource]['methods'][method]
+    file_name = resource + '_' + method + '.rst'
     method_request = method_json.get('request')
     if method_request is None:
         return
-    request_body_message_class_name = method_request['$ref']  # e.g. "ApiMetadataIncomingMetadataItem"
+    request_body_message_class_name = method_request['$ref']  # e.g. "ApiIsbCgcApiIsbCgcApiHelpersMetadataRangesItem"
 
     request_desc = 'In the request body, supply a metadata resource with the following properties:'
-    # todo: add link to metadata resource allowed values
+
     js_block_header = '.. code-block:: javascript\n\n'
-    message_class_properties = RESP_JSON['schemas'][request_body_message_class_name]['properties']
+
     js_block_body = get_next_parameter_javascript_row(request_body_message_class_name,
                                                       JS_SPACE + '{\n')
 
@@ -468,7 +478,7 @@ def write_rst_file_request_body(method):
 
     csv_header = get_csv_table_heading()
     allowed_values = {}
-    if method.startswith('preview') or method.startswith('save'):
+    if method in ['preview', 'create'] and resource == 'cohorts':
         with open(JSON_FILE_DIRECTORY + '/allowed_values.json', 'r') as f:
             contents = f.read()
         allowed_values = json.loads(contents)
@@ -484,14 +494,13 @@ def write_rst_file_request_body(method):
         f.write(request_body_text)
 
 
-def write_rst_file_response_section(method):
+def write_rst_file_response_section(resource, method):
     '''
     write javascript code block of response body properties
     and rst table from csv table of response body properties
     '''
-    method_json = RESP_JSON['resources']['cohort_endpoints']['resources']['cohorts']['methods'][method]
-    method_path_name = method_json['path']
-    file_name = method_path_name + '.rst'
+    method_json = RESP_JSON['resources'][resource]['methods'][method]
+    file_name = resource + '_' + method + '.rst'
 
     method_response = method_json.get('response')
     if method_response is None:
@@ -502,10 +511,11 @@ def write_rst_file_response_section(method):
         response_body_message_class_name = method_response.get('$ref')
         js_block_body = get_next_parameter_javascript_row(response_body_message_class_name,
                                                           JS_SPACE + '{\n',
+                                                          resource_name=resource,
                                                           method_name=method)
 
         csv_header = get_csv_table_heading()
-        csv_body = get_next_property_table_row(response_body_message_class_name, '', method_name=method)
+        csv_body = get_next_property_table_row(response_body_message_class_name, '', resource_name=resource, method_name=method)
         response_body_text = '**Response**\n\n{}{}{}\n\n{}\n{}'.format(
             response_desc, js_block_header, js_block_body, csv_header, csv_body)
 
@@ -527,10 +537,10 @@ def main():
     for resource in resource_list:
         for method in RESP_JSON['resources'][resource]['methods'].keys():
             write_rst_file_header(resource, method)
+            write_rst_file_path_parameters(resource, method)
+            write_rst_file_request_body(resource, method)
+            write_rst_file_response_section(resource, method)
 
-            # write_rst_file_path_parameters(resource, method)
-            # write_rst_file_request_body(resource, method)
-            # write_rst_file_response_section(resource, method)
 
 '''
  "resources": {
@@ -552,7 +562,7 @@ def main():
       "name"
      ],
      "request": {
-      "$ref": "ApiIsbCgcApiIsbCgcApiHelpersMetadataRangesItem",
+      "$ref": "ApiIsbCgcApiIsbCgcApiHelpersMetadataRangesItem",  // found in ['parameters']['schemas']
       "parameterName": "resource"
      },
      "response": {
