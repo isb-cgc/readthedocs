@@ -1,0 +1,4 @@
+{
+  "count": "Number of Google Cloud Storage paths returned for the cohort.",
+  "datafilenamekeys": "List of Google Cloud Storage paths of files associated with the cohort."
+}
