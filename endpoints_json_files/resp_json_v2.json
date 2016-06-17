@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"zRMgE0l9nVDW4S28VYYcYQF9UW4/p_ns7VVLb3-hf06FY55cl1jAfs8\"",
+ "etag": "\"zRMgE0l9nVDW4S28VYYcYQF9UW4/1jCUD0FGnB-kT2s8z2t69Ho5FoQ\"",
  "discoveryVersion": "v1",
  "id": "isb_cgc_api:v2",
  "name": "isb_cgc_api",
@@ -324,10 +324,6 @@
    "id": "ApiIsbCgcApiCohortsPreviewCohortPatientsSamplesList",
    "type": "object",
    "properties": {
-    "cohort_id": {
-     "type": "integer",
-     "format": "int32"
-    },
     "patient_count": {
      "type": "integer",
      "format": "int32"
@@ -1400,9 +1396,6 @@
     "data_details_count": {
      "type": "integer",
      "format": "int32"
-    },
-    "error": {
-     "type": "string"
     },
     "patient": {
      "type": "string"

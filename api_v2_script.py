@@ -273,55 +273,53 @@ def get_next_property_table_row(message_class_name, started_string, level='', re
 
     description_filename = message_class_name[get_index_of_nth_uppercase_char(message_class_name, 5):] + '.json'
 
-    file_path = str(JSON_FILE_DIRECTORY + '/' + description_filename)
-    f = open(file_path, 'w')
-    f.close()
 
-    # with open(JSON_FILE_DIRECTORY + '/' + description_filename, 'r+') as f:
-    #     description_contents = f.read()
-    #     description_json = json.loads(description_contents)
-    #
-    # for key, val in sorted_message_class_properties:
-    #     # possibilities
-    #     # 1. value is a number or string
-    #     if val.get('type') is not None and val.get('type') != 'array':
-    #         started_string += '\t{level}{key}, {type}, "{desc}"\n'\
-    #             .format(level=level,
-    #                     key=key,
-    #                     type=val.get('type'),
-    #                     desc=description_json[key])
-    #
-    #     # 2. value is a nested object message class
-    #     if val.get('type') is None:
-    #         started_string += '\t{level}{key}, nested object, "{desc}"\n'\
-    #             .format(level=level, key=key, desc=description_json[key])
-    #         level += key + '.'  # will this work?
-    #         next_message_class = val['$ref']
-    #         started_string = get_next_property_table_row(next_message_class,
-    #                                                      started_string,
-    #                                                      level=level,
-    #                                                      resource_name=resource_name,
-    #                                                      method_name=method_name)
-    #         # go up one level i.e. truncate at next to last dot
-    #         level = level[:level[:level.rfind('.')].rfind('.')+1]
-    #     # 3. value is a list of either...
-    #     if val.get('type') == 'array':
-    #         started_string += '\t{level}{key}[], list, "{desc}"\n'\
-    #             .format(level=level, key=key, desc=description_json[key])
-    #         # 3. a) i.e. this is a list of strings or numbers
-    #         if val['items'].get('type') is not None:  # assuming no lists of lists so don't check for is not 'array'
-    #             pass
-    #         # 3. b) value is a list of nested object message classes
-    #         else:
-    #             level += key + '[].'
-    #             next_message_class = val['items'].get('$ref')
-    #             started_string = get_next_property_table_row(next_message_class,
-    #                                                          started_string,
-    #                                                          level=level,
-    #                                                          resource_name=resource_name,
-    #                                                          method_name=method_name)
-    #             # go up one level i.e. truncate at next to last dot
-    #             level = level[:level[:level.rfind('.')].rfind('.')+1]
+    with open(JSON_FILE_DIRECTORY + '/' + description_filename, 'r+') as f:
+        description_contents = f.read()
+        description_json = json.loads(description_contents)
+
+
+    for key, val in sorted_message_class_properties:
+        # possibilities
+        # 1. value is a number or string
+        if val.get('type') is not None and val.get('type') != 'array':
+            started_string += '\t{level}{key}, {type}, "{desc}"\n'\
+                .format(level=level,
+                        key=key,
+                        type=val.get('type'),
+                        desc=description_json[key])
+
+        # 2. value is a nested object message class
+        if val.get('type') is None:
+            started_string += '\t{level}{key}, nested object, "{desc}"\n'\
+                .format(level=level, key=key, desc=description_json[key])
+            level += key + '.'  # will this work?
+            next_message_class = val['$ref']
+            started_string = get_next_property_table_row(next_message_class,
+                                                         started_string,
+                                                         level=level,
+                                                         resource_name=resource_name,
+                                                         method_name=method_name)
+            # go up one level i.e. truncate at next to last dot
+            level = level[:level[:level.rfind('.')].rfind('.')+1]
+        # 3. value is a list of either...
+        if val.get('type') == 'array':
+            started_string += '\t{level}{key}[], list, "{desc}"\n'\
+                .format(level=level, key=key, desc=description_json[key])
+            # 3. a) i.e. this is a list of strings or numbers
+            if val['items'].get('type') is not None:  # assuming no lists of lists so don't check for is not 'array'
+                pass
+            # 3. b) value is a list of nested object message classes
+            else:
+                level += key + '[].'
+                next_message_class = val['items'].get('$ref')
+                started_string = get_next_property_table_row(next_message_class,
+                                                             started_string,
+                                                             level=level,
+                                                             resource_name=resource_name,
+                                                             method_name=method_name)
+                # go up one level i.e. truncate at next to last dot
+                level = level[:level[:level.rfind('.')].rfind('.')+1]
 
     return started_string
 
