@@ -1,1 +1,13 @@
-{}
+{
+  "cohorts_create": "python isb_curl.py \"http://0.0.0.0:8080/_ah/api/isb_cgc_api/v2/cohorts/create?name={COHORT NAME}\" -H \"Content-Type: application/json\" -d '{\"Study\": [\"UCS\", \"CESC\"], \"age_at_initial_pathologic_diagnosis_lte\": \"60\"}'",
+  "cohorts_datafilenamekeys": "python isb_curl.py http://0.0.0.0:8080/_ah/api/isb_cgc_api/v2/cohorts/{COHORT ID}/datafilenamekeys",
+  "cohorts_delete": "python isb_curl.py http://0.0.0.0:8080/_ah/api/isb_cgc_api/v2/cohorts/{COHORT ID} -X DELETE",
+  "cohorts_get": "python isb_curl.py http://0.0.0.0:8080/_ah/api/isb_cgc_api/v2/cohorts/{COHORT ID}",
+  "cohorts_googlegenomics": "python isb_curl.py http://0.0.0.0:8080/_ah/api/isb_cgc_api/v2/cohorts/{COHORT ID}/googlegenomics",
+  "cohorts_list": "$ python isb_curl.py http://0.0.0.0:8080/_ah/api/isb_cgc_api/v2/cohorts",
+  "cohorts_preview": "curl http://0.0.0.0:8080/_ah/api/isb_cgc_api/v2/cohorts/preview -H \"Content-Type: application/json\" -d '{\"Study\": [\"UCS\", \"CESC\"], \"age_at_initial_pathologic_diagnosis_lte\": \"60\"}'",
+  "samples_datafilenamekeys": "curl http://0.0.0.0:8080/_ah/api/isb_cgc_api/v2/samples/TCGA-ZH-A8Y6-1A/datafilenamekeys",
+  "samples_get": "curl http://0.0.0.0:8080/_ah/api/isb_cgc_api/v2/samples/TCGA-ZH-A8Y6-1A",
+  "samples_googlegenomics": "curl http://0.0.0.0:8080/_ah/api/isb_cgc_api/v2/samples/CCLE-SU-DHL-5-RNA-08/googlegenomics",
+  "users_get": "python isb_curl.py http://0.0.0.0:8080/_ah/api/isb_cgc_api/v2/users"
+}

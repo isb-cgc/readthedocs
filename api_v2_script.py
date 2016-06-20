@@ -354,22 +354,20 @@ def write_rst_file_header(resource, method):
     method_path_name = method_json['path']
     description = method_json['description']
     http_method = method_json['httpMethod']
-    body = None if method_json.get('request') is None \
-        else RESP_JSON['schemas'][method_json['request']['$ref']]
-    file_name = resource + '_' + method + '.rst'
+    file_name = resource + '_' + method
 
     example_contents_json = get_json_file_contents('examples_v2')
     api_explorer_example_contents_json = get_json_file_contents('api_explorer_examples_v2')
 
     example_text = ''
-    if example_contents_json.get(method):
-        example_text = '\n\n**Example**::\n\n\t' + example_contents_json[method]
+    if example_contents_json.get(file_name):
+        example_text = '\n\n**Example**::\n\n\t' + example_contents_json[file_name]
 
     api_explorer_example_text = ''
-    if example_contents_json.get(method):
+    if example_contents_json.get(file_name):
         api_explorer_example_text = "\n\n**API explorer example**:\n\nClick `here <{}/>`_ " \
                                     "to see this endpoint in Google's API explorer.".format(
-            api_explorer_example_contents_json[method])
+            api_explorer_example_contents_json[file_name])
 
     # write title, e.g.
     # cohorts().create()
@@ -397,7 +395,7 @@ def write_rst_file_header(resource, method):
         http_method=http_method,
         base_url=BASE_URL)
 
-    with open(DEV_DOCUMENTATION_DIRECTORY_PATH + file_name, 'w+') as f:
+    with open(DEV_DOCUMENTATION_DIRECTORY_PATH + file_name + '.rst', 'w+') as f:
         f.write(header_text)
 
 
@@ -538,39 +536,6 @@ def main():
             write_rst_file_path_parameters(resource, method)
             write_rst_file_request_body(resource, method)
             write_rst_file_response_section(resource, method)
-
-
-'''
- "resources": {
-  "cohorts": {
-   "methods": {
-    "create": {
-     "id": "isb_cgc_api.cohorts.create",
-     "path": "cohorts/create",
-     "httpMethod": "POST",
-     "description": "Creates and saves a cohort. Takes a JSON object in the request body to use as the cohort's filters. Authentication is required. Returns information about the saved cohort, including the number of patients and the number of samples in that cohort.",
-     "parameters": {
-      "name": {
-       "type": "string",
-       "required": true,
-       "location": "query"
-      }
-     },
-     "parameterOrder": [
-      "name"
-     ],
-     "request": {
-      "$ref": "ApiIsbCgcApiIsbCgcApiHelpersMetadataRangesItem",  // found in ['parameters']['schemas']
-      "parameterName": "resource"
-     },
-     "response": {
-      "$ref": "ApiIsbCgcApiCohortsCreateCreatedCohort"
-     },
-     "scopes": [
-      "https://www.googleapis.com/auth/userinfo.email"
-     ]
-    },
-'''
 
 
 if __name__ == '__main__':
