@@ -1,6 +1,6 @@
 {
   "cohorts_create": "https://apis-explorer.appspot.com/apis-explorer/?base=http%3A%2F%2Flocalhost%3A8080%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.cohorts.create?name=my_cohort_name&resource=%257B%250A++%2522Study%2522%253A+%250A++%255B%2522UCS%2522%250A++%255D%250A%257D&",
-  "cohorts_datafilenamekeys": "https://apis-explorer.appspot.com/apis-explorer/?base=http%3A%2F%2Flocalhost%3A8080%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.cohorts.datafilenamekeys",
+  "cohorts_datafilenamekeys": "https://apis-explorer.appspot.com/apis-explorer/?base=http%3A%2F%2Flocalhost%3A8080%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.cohorts.datafilenamekeys?cohort_id=1&",
   "cohorts_delete": "https://apis-explorer.appspot.com/apis-explorer/?base=http%3A%2F%2Flocalhost%3A8080%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.cohorts.delete",
   "cohorts_get": "https://apis-explorer.appspot.com/apis-explorer/?base=http%3A%2F%2Flocalhost%3A8080%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.cohorts.get?cohort_id=1&",
   "cohorts_googlegenomics": "https://apis-explorer.appspot.com/apis-explorer/?base=http%3A%2F%2Flocalhost%3A8080%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.cohorts.googlegenomics",
