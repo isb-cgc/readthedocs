@@ -1,0 +1,1675 @@
+{
+ "kind": "discovery#restDescription",
+ "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/I5VjLskzV0uwtWOVJZm-9cpHzis\"",
+ "discoveryVersion": "v1",
+ "id": "cohort_api:v1",
+ "name": "cohort_api",
+ "version": "v1",
+ "description": "Get information about cohorts, patients, and samples. Create and delete cohorts.",
+ "icons": {
+  "x16": "http://www.google.com/images/icons/product/search-16.gif",
+  "x32": "http://www.google.com/images/icons/product/search-32.gif"
+ },
+ "protocol": "rest",
+ "baseUrl": "https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/",
+ "basePath": "/_ah/api/cohort_api/v1/",
+ "rootUrl": "https://api-dot-isb-cgc.appspot.com/_ah/api/",
+ "servicePath": "cohort_api/v1/",
+ "batchPath": "batch",
+ "parameters": {
+  "alt": {
+   "type": "string",
+   "description": "Data format for the response.",
+   "default": "json",
+   "enum": [
+    "json"
+   ],
+   "enumDescriptions": [
+    "Responses with Content-Type of application/json"
+   ],
+   "location": "query"
+  },
+  "fields": {
+   "type": "string",
+   "description": "Selector specifying which fields to include in a partial response.",
+   "location": "query"
+  },
+  "key": {
+   "type": "string",
+   "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+   "location": "query"
+  },
+  "oauth_token": {
+   "type": "string",
+   "description": "OAuth 2.0 token for the current user.",
+   "location": "query"
+  },
+  "prettyPrint": {
+   "type": "boolean",
+   "description": "Returns response with indentations and line breaks.",
+   "default": "true",
+   "location": "query"
+  },
+  "quotaUser": {
+   "type": "string",
+   "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+   "location": "query"
+  },
+  "userIp": {
+   "type": "string",
+   "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+   "location": "query"
+  }
+ },
+ "auth": {
+  "oauth2": {
+   "scopes": {
+    "https://www.googleapis.com/auth/userinfo.email": {
+     "description": "View your email address"
+    }
+   }
+  }
+ },
+ "schemas": {
+  "ApiCohortCohort": {
+   "id": "ApiCohortCohort",
+   "type": "object",
+   "properties": {
+    "comments": {
+     "type": "string"
+    },
+    "email": {
+     "type": "string"
+    },
+    "filters": {
+     "type": "array",
+     "items": {
+      "$ref": "ApiCohortFilterDetails"
+     }
+    },
+    "id": {
+     "type": "string"
+    },
+    "last_date_saved": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    },
+    "num_patients": {
+     "type": "string"
+    },
+    "num_samples": {
+     "type": "string"
+    },
+    "parent_id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "perm": {
+     "type": "string"
+    },
+    "source_notes": {
+     "type": "string"
+    },
+    "source_type": {
+     "type": "string"
+    }
+   }
+  },
+  "ApiCohortCohortPatientsSamplesList": {
+   "id": "ApiCohortCohortPatientsSamplesList",
+   "type": "object",
+   "properties": {
+    "cohort_id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "patient_count": {
+     "type": "string",
+     "format": "int64"
+    },
+    "patients": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "sample_count": {
+     "type": "string",
+     "format": "int64"
+    },
+    "samples": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "ApiCohortCohortsList": {
+   "id": "ApiCohortCohortsList",
+   "type": "object",
+   "properties": {
+    "count": {
+     "type": "string",
+     "format": "int64"
+    },
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "ApiCohortCohort"
+     }
+    }
+   }
+  },
+  "ApiCohortDataDetails": {
+   "id": "ApiCohortDataDetails",
+   "type": "object",
+   "properties": {
+    "CloudStoragePath": {
+     "type": "string"
+    },
+    "DataCenterName": {
+     "type": "string"
+    },
+    "DataCenterType": {
+     "type": "string"
+    },
+    "DataFileName": {
+     "type": "string"
+    },
+    "DataFileNameKey": {
+     "type": "string"
+    },
+    "DataLevel": {
+     "type": "string"
+    },
+    "DatafileUploaded": {
+     "type": "string"
+    },
+    "Datatype": {
+     "type": "string"
+    },
+    "GG_dataset_id": {
+     "type": "string"
+    },
+    "GG_readgroupset_id": {
+     "type": "string"
+    },
+    "GenomeReference": {
+     "type": "string"
+    },
+    "Pipeline": {
+     "type": "string"
+    },
+    "Platform": {
+     "type": "string"
+    },
+    "Project": {
+     "type": "string"
+    },
+    "Repository": {
+     "type": "string"
+    },
+    "SDRFFileName": {
+     "type": "string"
+    },
+    "SampleBarcode": {
+     "type": "string"
+    },
+    "SecurityProtocol": {
+     "type": "string"
+    },
+    "platform_full_name": {
+     "type": "string"
+    }
+   }
+  },
+  "ApiCohortDataFileNameKeyList": {
+   "id": "ApiCohortDataFileNameKeyList",
+   "type": "object",
+   "properties": {
+    "count": {
+     "type": "string",
+     "format": "int64"
+    },
+    "datafilenamekeys": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "ApiCohortFilterDetails": {
+   "id": "ApiCohortFilterDetails",
+   "type": "object",
+   "properties": {
+    "name": {
+     "type": "string"
+    },
+    "value": {
+     "type": "string"
+    }
+   }
+  },
+  "ApiCohortGoogleGenomicsItem": {
+   "id": "ApiCohortGoogleGenomicsItem",
+   "type": "object",
+   "properties": {
+    "GG_dataset_id": {
+     "type": "string"
+    },
+    "GG_readgroupset_id": {
+     "type": "string"
+    },
+    "SampleBarcode": {
+     "type": "string"
+    }
+   }
+  },
+  "ApiCohortGoogleGenomicsList": {
+   "id": "ApiCohortGoogleGenomicsList",
+   "type": "object",
+   "properties": {
+    "count": {
+     "type": "string",
+     "format": "int64"
+    },
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "ApiCohortGoogleGenomicsItem"
+     }
+    }
+   }
+  },
+  "ApiCohortPatientDetails": {
+   "id": "ApiCohortPatientDetails",
+   "type": "object",
+   "properties": {
+    "aliquots": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "clinical_data": {
+     "$ref": "ApiMetadataMetadataItem"
+    },
+    "samples": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "ApiCohortReturnJSON": {
+   "id": "ApiCohortReturnJSON",
+   "type": "object",
+   "properties": {
+    "msg": {
+     "type": "string"
+    }
+   }
+  },
+  "ApiCohortSampleDetails": {
+   "id": "ApiCohortSampleDetails",
+   "type": "object",
+   "properties": {
+    "aliquots": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "biospecimen_data": {
+     "$ref": "ApiMetadataMetadataItem"
+    },
+    "data_details": {
+     "type": "array",
+     "items": {
+      "$ref": "ApiCohortDataDetails"
+     }
+    },
+    "data_details_count": {
+     "type": "string",
+     "format": "int64"
+    },
+    "error": {
+     "type": "string"
+    },
+    "patient": {
+     "type": "string"
+    }
+   }
+  },
+  "ApiMetadataIncomingMetadataItem": {
+   "id": "ApiMetadataIncomingMetadataItem",
+   "type": "object",
+   "description": "test description for incoming metdata item :param adenocarcinoma_invasion: description of adenocarcinoma",
+   "properties": {
+    "ParticipantBarcode": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "Project": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "SampleBarcode": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "SampleTypeCode": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "Study": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "adenocarcinoma_invasion": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "age_at_initial_pathologic_diagnosis": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "anatomic_neoplasm_subdivision": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "avg_percent_lymphocyte_infiltration": {
+     "type": "array",
+     "items": {
+      "type": "number",
+      "format": "double"
+     }
+    },
+    "avg_percent_monocyte_infiltration": {
+     "type": "array",
+     "items": {
+      "type": "number",
+      "format": "double"
+     }
+    },
+    "avg_percent_necrosis": {
+     "type": "array",
+     "items": {
+      "type": "number",
+      "format": "double"
+     }
+    },
+    "avg_percent_neutrophil_infiltration": {
+     "type": "array",
+     "items": {
+      "type": "number",
+      "format": "double"
+     }
+    },
+    "avg_percent_normal_cells": {
+     "type": "array",
+     "items": {
+      "type": "number",
+      "format": "double"
+     }
+    },
+    "avg_percent_stromal_cells": {
+     "type": "array",
+     "items": {
+      "type": "number",
+      "format": "double"
+     }
+    },
+    "avg_percent_tumor_cells": {
+     "type": "array",
+     "items": {
+      "type": "number",
+      "format": "double"
+     }
+    },
+    "avg_percent_tumor_nuclei": {
+     "type": "array",
+     "items": {
+      "type": "number",
+      "format": "double"
+     }
+    },
+    "batch_number": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "bcr": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "clinical_M": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "clinical_N": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "clinical_T": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "clinical_stage": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "colorectal_cancer": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "country": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "country_of_procurement": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "days_to_birth": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "days_to_collection": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "days_to_death": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "days_to_initial_pathologic_diagnosis": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "days_to_last_followup": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "days_to_submitted_specimen_dx": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "ethnicity": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "frozen_specimen_anatomic_site": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "gender": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "has_27k": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "has_450k": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "has_BCGSC_GA_RNASeq": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "has_BCGSC_HiSeq_RNASeq": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "has_GA_miRNASeq": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "has_HiSeq_miRnaSeq": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "has_Illumina_DNASeq": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "has_RPPA": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "has_SNP6": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "has_UNC_GA_RNASeq": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "has_UNC_HiSeq_RNASeq": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "height": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "histological_type": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "history_of_colon_polyps": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "history_of_neoadjuvant_treatment": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "history_of_prior_malignancy": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "hpv_calls": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "hpv_status": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "icd_10": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "icd_o_3_histology": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "icd_o_3_site": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "lymph_node_examined_count": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "lymphatic_invasion": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "lymphnodes_examined": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "lymphovascular_invasion_present": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "max_percent_lymphocyte_infiltration": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "max_percent_monocyte_infiltration": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "max_percent_necrosis": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "max_percent_neutrophil_infiltration": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "max_percent_normal_cells": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "max_percent_stromal_cells": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "max_percent_tumor_cells": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "max_percent_tumor_nuclei": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "menopause_status": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "min_percent_lymphocyte_infiltration": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "min_percent_monocyte_infiltration": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "min_percent_necrosis": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "min_percent_neutrophil_infiltration": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "min_percent_normal_cells": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "min_percent_stromal_cells": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "min_percent_tumor_cells": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "min_percent_tumor_nuclei": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "mononucleotide_and_dinucleotide_marker_panel_analysis_status": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "mononucleotide_marker_panel_analysis_status": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "neoplasm_histologic_grade": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "new_tumor_event_after_initial_treatment": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "number_of_lymphnodes_examined": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "number_of_lymphnodes_positive_by_he": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "pathologic_M": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "pathologic_N": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "pathologic_T": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "pathologic_stage": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "person_neoplasm_cancer_status": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "pregnancies": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "preservation_method": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "primary_neoplasm_melanoma_dx": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "primary_therapy_outcome_success": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "prior_dx": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "psa_value": {
+     "type": "array",
+     "items": {
+      "type": "number",
+      "format": "double"
+     }
+    },
+    "race": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "residual_tumor": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "tobacco_smoking_history": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "total_number_of_pregnancies": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "tumor_pathology": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "tumor_tissue_site": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "tumor_type": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "vital_status": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "weight": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "format": "int64"
+     }
+    },
+    "weiss_venous_invasion": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "year_of_initial_pathologic_diagnosis": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "ApiMetadataMetadataItem": {
+   "id": "ApiMetadataMetadataItem",
+   "type": "object",
+   "properties": {
+    "ParticipantBarcode": {
+     "type": "string"
+    },
+    "Project": {
+     "type": "string"
+    },
+    "SampleBarcode": {
+     "type": "string"
+    },
+    "SampleTypeCode": {
+     "type": "string"
+    },
+    "Study": {
+     "type": "string"
+    },
+    "adenocarcinoma_invasion": {
+     "type": "string"
+    },
+    "age_at_initial_pathologic_diagnosis": {
+     "type": "string",
+     "format": "int64"
+    },
+    "anatomic_neoplasm_subdivision": {
+     "type": "string"
+    },
+    "avg_percent_lymphocyte_infiltration": {
+     "type": "number",
+     "format": "double"
+    },
+    "avg_percent_monocyte_infiltration": {
+     "type": "number",
+     "format": "double"
+    },
+    "avg_percent_necrosis": {
+     "type": "number",
+     "format": "double"
+    },
+    "avg_percent_neutrophil_infiltration": {
+     "type": "number",
+     "format": "double"
+    },
+    "avg_percent_normal_cells": {
+     "type": "number",
+     "format": "double"
+    },
+    "avg_percent_stromal_cells": {
+     "type": "number",
+     "format": "double"
+    },
+    "avg_percent_tumor_cells": {
+     "type": "number",
+     "format": "double"
+    },
+    "avg_percent_tumor_nuclei": {
+     "type": "number",
+     "format": "double"
+    },
+    "batch_number": {
+     "type": "string",
+     "format": "int64"
+    },
+    "bcr": {
+     "type": "string"
+    },
+    "clinical_M": {
+     "type": "string"
+    },
+    "clinical_N": {
+     "type": "string"
+    },
+    "clinical_T": {
+     "type": "string"
+    },
+    "clinical_stage": {
+     "type": "string"
+    },
+    "colorectal_cancer": {
+     "type": "string"
+    },
+    "country": {
+     "type": "string"
+    },
+    "country_of_procurement": {
+     "type": "string"
+    },
+    "days_to_birth": {
+     "type": "string",
+     "format": "int64"
+    },
+    "days_to_collection": {
+     "type": "string",
+     "format": "int64"
+    },
+    "days_to_death": {
+     "type": "string",
+     "format": "int64"
+    },
+    "days_to_initial_pathologic_diagnosis": {
+     "type": "string",
+     "format": "int64"
+    },
+    "days_to_last_followup": {
+     "type": "string",
+     "format": "int64"
+    },
+    "days_to_submitted_specimen_dx": {
+     "type": "string",
+     "format": "int64"
+    },
+    "ethnicity": {
+     "type": "string"
+    },
+    "frozen_specimen_anatomic_site": {
+     "type": "string"
+    },
+    "gender": {
+     "type": "string"
+    },
+    "has_27k": {
+     "type": "string"
+    },
+    "has_450k": {
+     "type": "string"
+    },
+    "has_BCGSC_GA_RNASeq": {
+     "type": "string"
+    },
+    "has_BCGSC_HiSeq_RNASeq": {
+     "type": "string"
+    },
+    "has_GA_miRNASeq": {
+     "type": "string"
+    },
+    "has_HiSeq_miRnaSeq": {
+     "type": "string"
+    },
+    "has_Illumina_DNASeq": {
+     "type": "string"
+    },
+    "has_RPPA": {
+     "type": "string"
+    },
+    "has_SNP6": {
+     "type": "string"
+    },
+    "has_UNC_GA_RNASeq": {
+     "type": "string"
+    },
+    "has_UNC_HiSeq_RNASeq": {
+     "type": "string"
+    },
+    "height": {
+     "type": "string",
+     "format": "int64"
+    },
+    "histological_type": {
+     "type": "string"
+    },
+    "history_of_colon_polyps": {
+     "type": "string"
+    },
+    "history_of_neoadjuvant_treatment": {
+     "type": "string"
+    },
+    "history_of_prior_malignancy": {
+     "type": "string"
+    },
+    "hpv_calls": {
+     "type": "string"
+    },
+    "hpv_status": {
+     "type": "string"
+    },
+    "icd_10": {
+     "type": "string"
+    },
+    "icd_o_3_histology": {
+     "type": "string"
+    },
+    "icd_o_3_site": {
+     "type": "string"
+    },
+    "lymph_node_examined_count": {
+     "type": "string",
+     "format": "int64"
+    },
+    "lymphatic_invasion": {
+     "type": "string"
+    },
+    "lymphnodes_examined": {
+     "type": "string"
+    },
+    "lymphovascular_invasion_present": {
+     "type": "string"
+    },
+    "max_percent_lymphocyte_infiltration": {
+     "type": "string",
+     "format": "int64"
+    },
+    "max_percent_monocyte_infiltration": {
+     "type": "string",
+     "format": "int64"
+    },
+    "max_percent_necrosis": {
+     "type": "string",
+     "format": "int64"
+    },
+    "max_percent_neutrophil_infiltration": {
+     "type": "string",
+     "format": "int64"
+    },
+    "max_percent_normal_cells": {
+     "type": "string",
+     "format": "int64"
+    },
+    "max_percent_stromal_cells": {
+     "type": "string",
+     "format": "int64"
+    },
+    "max_percent_tumor_cells": {
+     "type": "string",
+     "format": "int64"
+    },
+    "max_percent_tumor_nuclei": {
+     "type": "string",
+     "format": "int64"
+    },
+    "menopause_status": {
+     "type": "string"
+    },
+    "min_percent_lymphocyte_infiltration": {
+     "type": "string",
+     "format": "int64"
+    },
+    "min_percent_monocyte_infiltration": {
+     "type": "string",
+     "format": "int64"
+    },
+    "min_percent_necrosis": {
+     "type": "string",
+     "format": "int64"
+    },
+    "min_percent_neutrophil_infiltration": {
+     "type": "string",
+     "format": "int64"
+    },
+    "min_percent_normal_cells": {
+     "type": "string",
+     "format": "int64"
+    },
+    "min_percent_stromal_cells": {
+     "type": "string",
+     "format": "int64"
+    },
+    "min_percent_tumor_cells": {
+     "type": "string",
+     "format": "int64"
+    },
+    "min_percent_tumor_nuclei": {
+     "type": "string",
+     "format": "int64"
+    },
+    "mononucleotide_and_dinucleotide_marker_panel_analysis_status": {
+     "type": "string"
+    },
+    "mononucleotide_marker_panel_analysis_status": {
+     "type": "string"
+    },
+    "neoplasm_histologic_grade": {
+     "type": "string"
+    },
+    "new_tumor_event_after_initial_treatment": {
+     "type": "string"
+    },
+    "number_of_lymphnodes_examined": {
+     "type": "string",
+     "format": "int64"
+    },
+    "number_of_lymphnodes_positive_by_he": {
+     "type": "string",
+     "format": "int64"
+    },
+    "pathologic_M": {
+     "type": "string"
+    },
+    "pathologic_N": {
+     "type": "string"
+    },
+    "pathologic_T": {
+     "type": "string"
+    },
+    "pathologic_stage": {
+     "type": "string"
+    },
+    "person_neoplasm_cancer_status": {
+     "type": "string"
+    },
+    "pregnancies": {
+     "type": "string"
+    },
+    "preservation_method": {
+     "type": "string"
+    },
+    "primary_neoplasm_melanoma_dx": {
+     "type": "string"
+    },
+    "primary_therapy_outcome_success": {
+     "type": "string"
+    },
+    "prior_dx": {
+     "type": "string"
+    },
+    "psa_value": {
+     "type": "number",
+     "format": "double"
+    },
+    "race": {
+     "type": "string"
+    },
+    "residual_tumor": {
+     "type": "string"
+    },
+    "tobacco_smoking_history": {
+     "type": "string"
+    },
+    "total_number_of_pregnancies": {
+     "type": "string",
+     "format": "int64"
+    },
+    "tumor_pathology": {
+     "type": "string"
+    },
+    "tumor_tissue_site": {
+     "type": "string"
+    },
+    "tumor_type": {
+     "type": "string"
+    },
+    "vital_status": {
+     "type": "string"
+    },
+    "weight": {
+     "type": "string",
+     "format": "int64"
+    },
+    "weiss_venous_invasion": {
+     "type": "string"
+    },
+    "year_of_initial_pathologic_diagnosis": {
+     "type": "string"
+    }
+   }
+  }
+ },
+ "resources": {
+  "cohort_endpoints": {
+   "resources": {
+    "cohorts": {
+     "methods": {
+      "cohort_patients_samples_list": {
+       "id": "cohort_api.cohort_endpoints.cohorts.cohort_patients_samples_list",
+       "path": "cohort_patients_samples_list",
+       "httpMethod": "GET",
+       "description": "Takes a cohort id as a required parameter and returns information about the participants and samples in a particular cohort. Authentication is required. User must have either READER or OWNER permissions on the cohort.",
+       "parameters": {
+        "cohort_id": {
+         "type": "string",
+         "required": true,
+         "format": "int64",
+         "location": "query"
+        },
+        "token": {
+         "type": "string",
+         "location": "query"
+        }
+       },
+       "parameterOrder": [
+        "cohort_id"
+       ],
+       "response": {
+        "$ref": "ApiCohortCohortPatientsSamplesList"
+       },
+       "scopes": [
+        "https://www.googleapis.com/auth/userinfo.email"
+       ]
+      },
+      "datafilenamekey_list_from_cohort": {
+       "id": "cohort_api.cohort_endpoints.cohorts.datafilenamekey_list_from_cohort",
+       "path": "datafilenamekey_list_from_cohort",
+       "httpMethod": "GET",
+       "description": "Takes a cohort id as a required parameter and returns cloud storage paths to files associated with all the samples in that cohort. Authentication is required. User must have READER or OWNER permissions on the cohort.",
+       "parameters": {
+        "cohort_id": {
+         "type": "string",
+         "required": true,
+         "format": "int64",
+         "location": "query"
+        },
+        "pipeline": {
+         "type": "string",
+         "location": "query"
+        },
+        "platform": {
+         "type": "string",
+         "location": "query"
+        },
+        "token": {
+         "type": "string",
+         "location": "query"
+        }
+       },
+       "parameterOrder": [
+        "cohort_id"
+       ],
+       "response": {
+        "$ref": "ApiCohortDataFileNameKeyList"
+       },
+       "scopes": [
+        "https://www.googleapis.com/auth/userinfo.email"
+       ]
+      },
+      "datafilenamekey_list_from_sample": {
+       "id": "cohort_api.cohort_endpoints.cohorts.datafilenamekey_list_from_sample",
+       "path": "datafilenamekey_list_from_sample",
+       "httpMethod": "GET",
+       "description": "Takes a sample barcode as a required parameter and returns cloud storage paths to files associated with that sample.",
+       "parameters": {
+        "pipeline": {
+         "type": "string",
+         "location": "query"
+        },
+        "platform": {
+         "type": "string",
+         "location": "query"
+        },
+        "sample_barcode": {
+         "type": "string",
+         "required": true,
+         "location": "query"
+        }
+       },
+       "parameterOrder": [
+        "sample_barcode"
+       ],
+       "response": {
+        "$ref": "ApiCohortDataFileNameKeyList"
+       },
+       "scopes": [
+        "https://www.googleapis.com/auth/userinfo.email"
+       ]
+      },
+      "delete": {
+       "id": "cohort_api.cohort_endpoints.cohorts.delete",
+       "path": "delete_cohort",
+       "httpMethod": "POST",
+       "description": "Deletes a cohort. User must have owner permissions on the cohort.",
+       "parameters": {
+        "cohort_id": {
+         "type": "string",
+         "required": true,
+         "format": "int64",
+         "location": "query"
+        },
+        "token": {
+         "type": "string",
+         "location": "query"
+        }
+       },
+       "parameterOrder": [
+        "cohort_id"
+       ],
+       "response": {
+        "$ref": "ApiCohortReturnJSON"
+       },
+       "scopes": [
+        "https://www.googleapis.com/auth/userinfo.email"
+       ]
+      },
+      "google_genomics_from_cohort": {
+       "id": "cohort_api.cohort_endpoints.cohorts.google_genomics_from_cohort",
+       "path": "google_genomics_from_cohort",
+       "httpMethod": "GET",
+       "description": "Returns a list of Google Genomics dataset and readgroupset ids associated with all the samples in a specified cohort. Authentication is required. User must have either READER or OWNER permissions on the cohort.",
+       "parameters": {
+        "cohort_id": {
+         "type": "string",
+         "required": true,
+         "format": "int64",
+         "location": "query"
+        },
+        "token": {
+         "type": "string",
+         "location": "query"
+        }
+       },
+       "parameterOrder": [
+        "cohort_id"
+       ],
+       "response": {
+        "$ref": "ApiCohortGoogleGenomicsList"
+       },
+       "scopes": [
+        "https://www.googleapis.com/auth/userinfo.email"
+       ]
+      },
+      "google_genomics_from_sample": {
+       "id": "cohort_api.cohort_endpoints.cohorts.google_genomics_from_sample",
+       "path": "google_genomics_from_sample",
+       "httpMethod": "GET",
+       "description": "Takes a sample barcode as a required parameter and returns the Google Genomics dataset id and readgroupset id associated with the sample, if any.",
+       "parameters": {
+        "sample_barcode": {
+         "type": "string",
+         "required": true,
+         "location": "query"
+        }
+       },
+       "parameterOrder": [
+        "sample_barcode"
+       ],
+       "response": {
+        "$ref": "ApiCohortGoogleGenomicsList"
+       },
+       "scopes": [
+        "https://www.googleapis.com/auth/userinfo.email"
+       ]
+      },
+      "list": {
+       "id": "cohort_api.cohort_endpoints.cohorts.list",
+       "path": "cohorts_list",
+       "httpMethod": "GET",
+       "description": "Returns information about cohorts a user has either READER or OWNER permission on. Authentication is required. Optionally takes a cohort id as a parameter to only list information about one cohort.",
+       "parameters": {
+        "cohort_id": {
+         "type": "string",
+         "format": "int64",
+         "location": "query"
+        },
+        "token": {
+         "type": "string",
+         "location": "query"
+        }
+       },
+       "response": {
+        "$ref": "ApiCohortCohortsList"
+       },
+       "scopes": [
+        "https://www.googleapis.com/auth/userinfo.email"
+       ]
+      },
+      "patient_details": {
+       "id": "cohort_api.cohort_endpoints.cohorts.patient_details",
+       "path": "patient_details",
+       "httpMethod": "GET",
+       "description": "Returns information about a specific participant, including a list of samples and aliquots derived from this patient. Takes a participant barcode (of length 12, *eg* TCGA-B9-7268) as a required parameter. User does not need to be authenticated.",
+       "parameters": {
+        "patient_barcode": {
+         "type": "string",
+         "required": true,
+         "location": "query"
+        }
+       },
+       "parameterOrder": [
+        "patient_barcode"
+       ],
+       "response": {
+        "$ref": "ApiCohortPatientDetails"
+       },
+       "scopes": [
+        "https://www.googleapis.com/auth/userinfo.email"
+       ]
+      },
+      "preview": {
+       "id": "cohort_api.cohort_endpoints.cohorts.preview",
+       "path": "preview_cohort",
+       "httpMethod": "POST",
+       "description": "Takes a JSON object of filters in the request body and returns a \"preview\" of the cohort that would result from passing a similar request to the cohort **save** endpoint. This preview consists of two lists: the lists of participant (aka patient) barcodes, and the list of sample barcodes. Authentication is not required.",
+       "request": {
+        "$ref": "ApiMetadataIncomingMetadataItem",
+        "parameterName": "resource"
+       },
+       "response": {
+        "$ref": "ApiCohortCohortPatientsSamplesList"
+       },
+       "scopes": [
+        "https://www.googleapis.com/auth/userinfo.email"
+       ]
+      },
+      "sample_details": {
+       "id": "cohort_api.cohort_endpoints.cohorts.sample_details",
+       "path": "sample_details",
+       "httpMethod": "GET",
+       "description": "Given a sample barcode (of length 16, *eg* TCGA-B9-7268-01A), this endpoint returns all available \"biospecimen\" information about this sample, the associated patient barcode, a list of associated aliquots, and a list of \"data_details\" blocks describing each of the data files associated with this sample",
+       "parameters": {
+        "pipeline": {
+         "type": "string",
+         "location": "query"
+        },
+        "platform": {
+         "type": "string",
+         "location": "query"
+        },
+        "sample_barcode": {
+         "type": "string",
+         "required": true,
+         "location": "query"
+        }
+       },
+       "parameterOrder": [
+        "sample_barcode"
+       ],
+       "response": {
+        "$ref": "ApiCohortSampleDetails"
+       },
+       "scopes": [
+        "https://www.googleapis.com/auth/userinfo.email"
+       ]
+      },
+      "save": {
+       "id": "cohort_api.cohort_endpoints.cohorts.save",
+       "path": "save_cohort",
+       "httpMethod": "POST",
+       "description": "Creates and saves a cohort. Takes a JSON object in the request body to use as the cohort's filters. Authentication is required. Returns information about the saved cohort, including the number of patients and the number of samples in that cohort.",
+       "parameters": {
+        "name": {
+         "type": "string",
+         "required": true,
+         "location": "query"
+        },
+        "token": {
+         "type": "string",
+         "location": "query"
+        }
+       },
+       "parameterOrder": [
+        "name"
+       ],
+       "request": {
+        "$ref": "ApiMetadataIncomingMetadataItem",
+        "parameterName": "resource"
+       },
+       "response": {
+        "$ref": "ApiCohortCohort"
+       },
+       "scopes": [
+        "https://www.googleapis.com/auth/userinfo.email"
+       ]
+      }
+     }
+    }
+   }
+  }
+ }
+}

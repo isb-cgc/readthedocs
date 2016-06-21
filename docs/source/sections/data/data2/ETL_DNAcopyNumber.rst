@@ -1,5 +1,5 @@
-DNA Copy-Number Segments
-========================
+Copy-Number Segments (DNA)
+==========================
 
 The
 `Copy_Number_segments <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.Copy_Number_segments>`_
