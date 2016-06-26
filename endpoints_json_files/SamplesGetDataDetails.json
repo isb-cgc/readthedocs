@@ -1,5 +1,5 @@
 {
-    "CloudStoragePath": "Google Cloud Storage path to file.",
+    "cloud_storage_path": "Google Cloud Storage path to file.",
     "DataCenterName": "Short name of the contributing data center, e.g. bcgsc.ca.",
     "DataCenterType": "Abbreviation of the type of contributing data center, e.g. cgcc.",
     "DataFileName": "Name of the datafile stored on the DCC file system.",

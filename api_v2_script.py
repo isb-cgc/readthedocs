@@ -415,9 +415,12 @@ def get_next_parameter_table_row(parameter_json, allowed_values={}, method_name=
 
         # if val.get('format') and val.get('format').startswith('int'):
         #     value_entry = 'integer'
-
-        if allowed_values.get(key):
-            description += "Possible values include: '" + "', '".join(allowed_values.get(key)) + "'."
+        try:
+            if allowed_values.get(key):
+                description += "Possible values include: '" + "', '".join(allowed_values.get(key)) + "'."
+        except TypeError, e:
+            description += "Possible values include: "
+            description += json.dumps(allowed_values.get(key)).strip('[').strip(']') + "."
 
         return_string += '\t{}{},{},"{}"\n'.format(key,
                                                  '[]' if value_entry == 'list' else '',
@@ -475,7 +478,7 @@ def write_rst_file_request_body(resource, method):
     csv_header = get_csv_table_heading()
     allowed_values = {}
     if method in ['preview', 'create'] and resource == 'cohorts':
-        with open(JSON_FILE_DIRECTORY + '/allowed_values.json', 'r') as f:
+        with open(JSON_FILE_DIRECTORY + '/allowed_values_v2.json', 'r') as f:
             contents = f.read()
         allowed_values = json.loads(contents)
 
