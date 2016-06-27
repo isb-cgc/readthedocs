@@ -238,7 +238,7 @@ contains the following information for each file:
 * Data Level
 * File Path to the Cloud Storage Location
 
-Because of the number of files that can be in a cohort, we need to limit the number downloadable in a CSV file to 85000.  If it is more, you will be asked to use the platform panel to filter your list to a number below 85000.  By creating multiple download lists across subsets of platforms you can cover a large number of files.
+Because of the number of files that can be in a cohort, we need to limit the number downloadable in a CSV file to 65000.  If it is more, you will be asked to use the platform panel to filter your list to a number below 65000.  By creating multiple download lists across subsets of platforms you can cover a large number of files.
 
 Viewing a Sequence
 ==================
