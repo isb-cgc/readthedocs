@@ -19,26 +19,17 @@ provide links to existing sources of information elsewere on the web, or will de
 that are hosted by the ISB-CGC.  If there are additional platform reference sources that you would like
 to see hosted in BigQuery tables, please let us know at feedback@isb-cgc.org.
 
-DNA Methylation Platform
-------------------------
-Most of the DNA Methylation data produced by the TCGA project was obtained using the Illumina 
-Infinium HumanMethylation450 (aka 450k) BeadChip array.  Some of the earlier tumor types were assayed
-on the older, 27k array.
+ * **DNA Methylation Platform**
+    - Most of the DNA Methylation data produced by the TCGA project was obtained using the Illumina Infinium HumanMethylation450 (aka 450k) BeadChip array.  Some of the earlier tumor types were assayed on the older, 27k array.
 
-Although additional details can be found at the Illumina_ webpage, we have uploaded the platform
-annotation information into the BigQuery table ``isb-cgc:platform_reference.methylation_annotation``
+    - Although additional details can be found at the Illumina_ webpage, we have uploaded the platform annotation information into the BigQuery table ``isb-cgc:platform_reference.methylation_annotation``
 
-Each CpG locus is uniquely identified as described in this 
-`technical note <http://www.illumina.com/content/dam/illumina-marketing/documents/products/technotes/technote_cpg_loci_identification.pdf>`_
-and this unique identifier can be used to look up and cross-reference data between the TCGA DNA methylation data table
-and the platform annotation table.
+    - Each CpG locus is uniquely identified as described in this `technical note <http://www.illumina.com/content/dam/illumina-marketing/documents/products/technotes/technote_cpg_loci_identification.pdf>`_ and this unique identifier can be used to look up and cross-reference data between the TCGA DNA methylation data table and the platform annotation table. 
 
 .. _Illumina: www.illumina.com
 
-Genome-Wide SNP Array
----------------------
-The technical documentation for the Affymetrix Genome-Wide Human SNP Array 6.0 array can be found 
-`here <http://www.affymetrix.com/catalog/131533/AFFY/Genome-Wide+Human+SNP+Array+6.0#1_3>`_
+  * **Genome-Wide SNP Array**
+    - The technical documentation for the Affymetrix Genome-Wide Human SNP Array 6.0 array can be found `here <http://www.affymetrix.com/catalog/131533/AFFY/Genome-Wide+Human+SNP+Array+6.0#1_3>`_
 
 
 Genome Reference Data
@@ -48,22 +39,11 @@ Reference data that describes or annotates the human (or other) genome(s) is des
 Reference data hosted by the ISB-CGC in BigQuery tables are available in the ``isb-cgc:genome_reference`` 
 dataset.
 
-GENCODE
--------
-Release 19, the final build of the GENCODE geneset mapped to GRCh37 has been uploaded as a BigQuery table
-called ``GENCODE_r19``.  This table can be used to find the genomic coordinates for a gene of interest in 
-combination with queries against molecular tables such as the TCGA copy-number data.
+  * **GENCODE**  Release 19, the final build of the GENCODE geneset mapped to GRCh37 has been uploaded as a BigQuery table called ``GENCODE_r19``.  This table can be used to find the genomic coordinates for a gene of interest in combination with queries against molecular tables such as the TCGA copy-number data. 
 
-miRBase
--------
-The human portion of version 20 of the miRBase database has been uploaded as a BigQuery table 
-called ``miRBase_v20``.  This database can be used to map between MIMAT accession IDs, miR names, and 
-mature miR names.  The miR sequence cal also be retrieved from this table.
+  * **miRBase** The human portion of version 20 of the miRBase database has been uploaded as a BigQuery table called ``miRBase_v20``.  This database can be used to map between MIMAT accession IDs, miR names, and mature miR names.  The miR sequence cal also be retrieved from this table. 
 
-miRTarBase
-----------
-The recently updated miRTarBase_ database (release 6.1) is available as a BigQuery table: 
-isb-cgc:genome_reference.miRTarBase
+  * **miRTarBase** The recently updated miRTarBase_ database (release 6.1) is available as a BigQuery table: isb-cgc:genome_reference.miRTarBase
 
 .. _miRTarBase: http://nar.oxfordjournals.org/content/early/2015/11/19/nar.gkv1258.long
 
@@ -75,4 +55,5 @@ Google Genomics maintains a list of
 `publicly available datasets <http://googlegenomics.readthedocs.org/en/latest/use_cases/discover_public_data/index.html>`_, 
 including **Reference Genomes**, 
 the **Illumina Platinum Genomes**, information about the **Tute Genomics Annotation** table, *etc*.
+
 
