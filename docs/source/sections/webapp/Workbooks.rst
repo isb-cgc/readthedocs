@@ -91,6 +91,7 @@ Manipulation of Workbooks
 **Worksheet Menu** - The worksheet will have a section similar to the workbook menu where user can edit, duplicate or delete the worksheet. You can find the worksheet menu bar by clicking the arrow pointing down located next to the name of the worksheet that is opened.
 
 **Edit Analysis Settings** - This function allows you to select new Plot Setting for selected analysis type.
+
 Please Note: When selecting a gene for either the x-axis or y-axis variable you be promted with selecting a specification. If you select Gene Expression you have the option of choosing a Platform Filter and a Center Filter. If you select the Methylation specification you can select a CpG Probe Filter, a Platform Filter, a Gene Region Filter, and a CpG Island Region Filter. If you select the Copy Number specification you can choose a Value Filter. If you select the Protein specification you can selelct a Protein Filter. If you select the Mutation specification you select select a Value Filter. 
  
 .. _selectionicon:
