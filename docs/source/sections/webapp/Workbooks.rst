@@ -42,7 +42,6 @@ To create a **workbook** from Your Dashboard, click on the **“Create a New Wor
 
   * **Genes** - This will display previously created “Gene Favorites” which can be “Applied to Analysis" (see `Gene Favorites <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/webapp/Gene-Favorites.html>`_ for details) or you can apply / create a “New Gene List”).
 
-    - **When Creating a New Gene List** -
 
 You begin by naming the data set (Gene Type or Project Specific); the Gene list you create here will automatically be added to your Gene Favorites list and can be selected for additional analysis later.
 
@@ -53,7 +52,6 @@ To aid in Gene selection, you can access the HGNC portal (Hugo Gene Nomenclature
 
   * **Variables** - (this will display previously created “Variable Favorites” which can be “Applied to Analysis" (see `Variable Favorites <http://test>`_ for details) or you can apply / create a “New Variable List”).
 
-    - **When Creating a New Variable List** -
 
 You begin by naming the new Variable; the Variable you create here will automatically be added to your Variable Favorites list and can be applied to other analysis later.
 
@@ -93,7 +91,8 @@ Manipulation of Workbooks
 **Worksheet Menu** - The worksheet will have a section similar to the workbook menu where user can edit, duplicate or delete the worksheet. You can find the worksheet menu bar by clicking the arrow pointing down located next to the name of the worksheet that is opened.
 
 **Edit Analysis Settings** - This function allows you to select new Plot Setting for selected analysis type.
-
+Please Note: When selecting a gene for either the x-axis or y-axis variable you be promted with selecting a specification. If you select Gene Expression you have the option of choosing a Platform Filter and a Center Filter. If you select the Methylation specification you can select a CpG Probe Filter, a Platform Filter, a Gene Region Filter, and a CpG Island Region Filter. If you select the Copy Number specification you can choose a Value Filter. If you select the Protein specification you can selelct a Protein Filter. If you select the Mutation specification you select select a Value Filter. 
+ 
 .. _selectionicon:
 
 **Edit Analysis Settings Selection Icon** - This function (shown in the image below) allows you to select samples from displayed analysis and save that selection to a new Cohort for further drill down analysis. 
