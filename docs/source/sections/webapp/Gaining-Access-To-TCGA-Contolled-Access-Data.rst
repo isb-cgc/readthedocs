@@ -33,7 +33,7 @@ select the "persona" icon next to your login name (A in the image below) after y
 
 You will then see the following page:
 
-.. image:: NIHAssociationPage.PNG
+.. image:: NIHAssociationPage.png
    :scale: 50
    :align: center
    
