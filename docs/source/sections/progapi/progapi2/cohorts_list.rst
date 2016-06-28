@@ -6,6 +6,10 @@ Returns information about cohorts a user has either READER or OWNER permission o
 
 	$ python isb_curl.py "https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/cohorts_list"
 
+**API explorer example**:
+
+Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https://api-dot-isb-cgc.appspot.com/_ah/api#p/cohort_api/v1/cohort_api.cohort_endpoints.cohorts.list?/>`_ to see this endpoint in Google's API explorer.
+
 **Request**
 
 HTTP request::

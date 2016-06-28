@@ -23,11 +23,8 @@ Loading libraries
 .. code-block:: r
 
     require(bigrquery,quietly = TRUE) || install.packages('bigrquery',verbose = FALSE)
-    require(tidyr,quietly = TRUE) || install.packages('tidyr',verbose = FALSE)
-    require(dplyr,quietly = TRUE) || install.packages('dplyr',verbose = FALSE)
+    require(httpuv, quietly = TRUE) || install.packages('httpuv',verbose=FALSE)
     require(ggplot2,quietly = TRUE) || install.packages('ggplot2',verbose = FALSE)
-    require(broom,quietly = TRUE) || install.packages('broom',verbose = FALSE)
-
 
 Your project ID
 ===============
@@ -37,9 +34,9 @@ be necessary to complete the code.
 
 .. code-block:: r
 
-    main_cloud_project="isb-cgc"
-    my_cloud_project  = "your_project_id"
-    tcga_data_set     = "tcga_201510_alpha"
+    main_cloud_project = "isb-cgc"
+    my_cloud_project   = "your_project_id"
+    tcga_data_set      = "tcga_201510_alpha"
 
 First query
 ===========
@@ -48,17 +45,16 @@ Now let's see if things are working.
 
 .. code-block:: r
 
-    bigrquery::list_tables(main_cloud_project, tcga_ds)
+    bigrquery::list_tables(main_cloud_project, tcga_data_set)
 
 In this tutorial, we will be investigating two studies using two existing
-Biq Query tables. Additionally, we're going to BYOD "Bring your own data".
+BigQuery tables. Additionally, we're going to BYOD "Bring your own data".
 
 .. code-block:: r
 
 	study=c('CESC','HNSC')
 
 	clinical_table = "[isb-cgc:tcga_201510_alpha.Clinical_data]"
-	gexp_table     = "[isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM]"
 
 Constructing Queries
 ====================
@@ -108,12 +104,12 @@ Using the google command line tool:
 
 .. code-block:: none
 
-	gsutil cp gs://isb-cgc-workshop/ncomms3513-s3.tsv .
-	gsutil cp gs://isb-cgc-workshop/ncomms3513-s3_Schema.json .
+	gsutil cp gs://isb-cgc-workshop/data/Larsson/ncomms3513-s3.tsv .
+	gsutil cp gs://isb-cgc-workshop/data/Larsson/ncomms3513-s3_Schema.json .
 
 
 Now the data is in our directory, but we need to transform it into a BQ table.
-To do that, we need to create a data set in our project. We can do this from within the Big query
+To do that, we need to create a data set in our project. We can do this from within the BigQuery
 web UI by clicking on the little blue triangle next to your project ID on the left.
 Or we can do this on the command line using the bq command line tool.
 
@@ -125,12 +121,12 @@ Or we can do this on the command line using the bq command line tool.
 
 	bq ls
 
-	bq mk mydataset
+	bq mk workspace
 
-	bq load --source_format CSV --field_delimiter "\t"  --schema ncomms3513-s3_Schema.json  mydataset.ncomms3513_s3 ncomms3513-s3.tsv
+	bq load --source_format CSV --field_delimiter "\t"  --schema ncomms3513-s3_Schema.json workspace.ncomms3513_s3 ncomms3513-s3.tsv
 
-Gathering Expression Data
-=========================
+Integrating with the expression data
+====================================
 
 Now we can directly query our own data, and start to combine it with other tables.
 Let's try it out!
@@ -145,7 +141,7 @@ integration in CESC and HNSC tumors.
 	  Overlapping_genes,
 	  Cancer
 	FROM
-	  [your-project-id:mydataset.ncomms3513_s3]
+	  [isb-cgc-04-0030:workspace.ncomms3513_s3]
 	WHERE
 	  Cancer IN ('CESC','HNSC')
 	  AND Overlapping_genes <> 'Intergenic'
@@ -161,6 +157,55 @@ integration in CESC and HNSC tumors.
 	table(affected_genes$Cancer)
 
 Next, with those offen affected genes, we will query gene expression data.
+
+.. code-block:: r
+
+	query <- "
+	SELECT
+	  Study,
+	  HGNC_gene_symbol,
+	  AVG(normalized_count) as mean_expression
+	FROM
+	  [isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM]
+	WHERE
+	  Study IN ('CESC','HNSC')
+	  AND SampleTypeLetterCode = 'TP'
+	  AND HGNC_gene_symbol IN (
+	    SELECT
+	      Overlapping_genes AS HGNC_gene_symbol
+	    FROM
+	      [isb-cgc-04-0030:workspace.ncomms3513_s3]
+	    WHERE
+	      Cancer IN ('CESC','HNSC')
+	      AND Overlapping_genes <> 'Intergenic'
+	    GROUP BY
+	      HGNC_gene_symbol )
+	GROUP BY
+	  Study,
+	  HGNC_gene_symbol
+	ORDER BY
+	  mean_expression"
+
+	# running the query.
+	mean_affected_genes = query_exec(query, project = my_cloud_project)
+
+	# we'll create some more meaningful x-axis labels
+	mean_affected_genes$xlabel <- paste0(mean_affected_genes$Study, "_", mean_affected_genes$HGNC_gene_symbol)
+
+	# Now we can visualize it.
+	qplot(data=mean_affected_genes,
+	      x=factor(x = xlabel, ordered = T, levels = xlabel),
+	      y=mean_expression,
+	      col=Study) +
+	      theme(axis.text.x = element_text(angle = 90, hjust = 1, size=4)) +
+	      xlab("Study_Gene")
+
+
+Computing Statistics
+====================
+
+Instead, if we want to get the actual gene expression values, we could query
+for that, and retrieve it as a data.frame.
 
 .. code-block:: r
 
@@ -180,7 +225,7 @@ Next, with those offen affected genes, we will query gene expression data.
 	  SELECT
 	    Overlapping_genes as HGNC_gene_symbol
 	  FROM
-	    [isb-cgc-04-0002:testVarsha.ncomms3513_s3]
+	    [your-project-id:workspace.ncomms3513_s3]
 	  WHERE
 	    Cancer IN ('CESC','HNSC')
 	    AND Overlapping_genes <> 'Intergenic'
@@ -203,11 +248,15 @@ Let's filter the hpv_table to match the samples to those in gexp_affected_genes
 
 .. code-block:: r
 
+	require(tidyr,quietly = TRUE) || install.packages('tidyr',verbose = FALSE)
+	require(dplyr,quietly = TRUE) || install.packages('dplyr',verbose = FALSE)
+	require(broom,quietly = TRUE) || install.packages('broom',verbose = FALSE)
+
 	# let's get rid of 'indeterminate' samples
 	hpv_table = dplyr::filter(hpv_table, hpv_status != "Indeterminate", ParticipantBarcode %in% gexp_affected_genes$ParticipantBarcode)
 
-T-test Time
-===========
+T-tests
+=======
 
 Now, we are going to perform t.tests on expression by hpv_status and study.
 
@@ -317,7 +366,7 @@ Now lets make a small change, and get gene expression for subjects that are hpv 
 	dim(q2)
 
 Now we merge the previous two queries, and compute T statistics using
-Biq Query built in functions, SQRT, MEAN, STDDEV, POW, COUNT, and LOG2.
+BigQuery built in functions, SQRT, MEAN, STDDEV, POW, COUNT, and LOG2.
 
 Please see: https://cloud.google.com/bigquery/query-reference
 
@@ -442,5 +491,3 @@ Transform gexp_affected_genes_df into a gexp-by-samples feature matrix
 	gexp_fm = tidyr::spread(gexp_affected_genes,HGNC_gene_symbol,normalized_count)
 
 	gexp_fm[1:5,1:5]
-
-

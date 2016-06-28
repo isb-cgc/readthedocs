@@ -40,6 +40,7 @@ Contents
    sections/Prog-APIs
    sections/Web-UI
    sections/QuicklinksOneTable
+   sections/DIYWorkshop
    sections/FAQ
    sections/Support
 

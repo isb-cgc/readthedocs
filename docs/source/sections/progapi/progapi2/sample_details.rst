@@ -6,6 +6,10 @@ Given a sample barcode (of length 16, *eg* TCGA-B9-7268-01A), this endpoint retu
 
 	curl "https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/sample_details?sample_barcode=TCGA-ZH-A8Y6-01A"
 
+**API explorer example**:
+
+Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https://api-dot-isb-cgc.appspot.com/_ah/api#p/cohort_api/v1/cohort_api.cohort_endpoints.cohorts.sample_details?sample_barcode=TCGA-ZH-A8Y6-01A&/>`_ to see this endpoint in Google's API explorer.
+
 **Request**
 
 HTTP request::

@@ -6,6 +6,10 @@ Takes a sample barcode as a required parameter and returns the Google Genomics d
 
 	$ curl "https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/google_genomics_from_sample?sample_barcode=CCLE-SU-DHL-5-RNA-08"
 
+**API explorer example**:
+
+Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https://api-dot-isb-cgc.appspot.com/_ah/api#p/cohort_api/v1/cohort_api.cohort_endpoints.cohorts.google_genomics_from_sample?sample_barcode=CCLE-SU-DHL-5-RNA-08&/>`_ to see this endpoint in Google's API explorer.
+
 **Request**
 
 HTTP request::

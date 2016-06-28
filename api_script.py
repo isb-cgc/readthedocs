@@ -327,13 +327,21 @@ def create_new_rst_file(method_name):
     f.close()
 
 
+def get_json_file_contents(file_name):
+    with open(JSON_FILE_DIRECTORY + '/' + file_name + '.json', 'r') as f:
+        example_contents = f.read()
+
+    return json.loads(example_contents)
+
+
 def write_rst_file_header(method):
     '''
     write the title heading,
      description
+     example from command line
+     example from API explorer
      access control
      request (GET or POST) and the full url
-     example of usage?
     '''
     method_json = RESP_JSON['resources']['cohort_endpoints']['resources']['cohorts']['methods'][method]
     method_path_name = method_json['path']  # todo: put backslash in front of underscores?
@@ -341,21 +349,40 @@ def write_rst_file_header(method):
     http_method = method_json['httpMethod']
     file_name = method_path_name + '.rst'
 
-    with open(JSON_FILE_DIRECTORY + '/examples.json', 'r') as f:
-        example_contents = f.read()
-
-    example_contents_json = json.loads(example_contents)
+    example_contents_json = get_json_file_contents('examples')
+    api_explorer_example_contents_json = get_json_file_contents('api_explorer_examples')
 
     example_text = ''
     if example_contents_json.get(method):
         example_text = '\n\n**Example**::\n\n\t' + example_contents_json[method]
 
+    api_explorer_example_text = ''
+    if example_contents_json.get(method):
+        api_explorer_example_text = "\n\n**API explorer example**:\n\nClick `here <{}/>`_ " \
+                                    "to see this endpoint in Google's API explorer.".format(
+            api_explorer_example_contents_json[method])
+
+    # write title, e.g.
+    # datafilenamekey_list_from_cohort
+    # ################################
     header_text = "{method_path_name}\n{underscore}\n".format(
         method_path_name=method_path_name,
         underscore='#'*len(method_path_name))
-    header_text += "{description}{example}\n\n**Request**\n\nHTTP request::\n\n\t".format(
-        description=description, example=example_text)
-    header_text += "{http_method} {base_url}{method_path_name}\n\n".format(
+
+    # write description, e.g.
+    # Takes a cohort id as a required parameter and returns cloud storage paths to files associated with all the samples in that cohort, up to a default limit of 10,000 files. Authentication is required. User must have READER or OWNER permissions on the cohort.
+    header_text += description
+
+    # write example, e.g.
+    # $ python isb_curl.py "https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/datafilenamekey_list_from_cohort?cohort_id={YOUR_COHORT_ID}"
+    header_text += example_text
+
+    # write api explorer example
+    header_text += api_explorer_example_text
+
+    # write http request, e.g.
+    # GET https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/datafilenamekey_list_from_cohort
+    header_text += "\n\n**Request**\n\nHTTP request::\n\n\t{http_method} {base_url}{method_path_name}\n\n".format(
         method_path_name=method_path_name,
         http_method=http_method,
         base_url=BASE_URL)
