@@ -10,16 +10,24 @@ illustrated throughout the
 In order to query the ISB-CGC metadata or to get information such as details regarding a
 cohort that a user may have saved during an interactive session, a series of APIs based 
 on Google Cloud Endpoints have been defined.  Details about these APIs can be found here,
-and examples illustrating how to use these endpoints from Python can be found in 
-our `examples-Python <https://github.com/isb-cgc/examples-Python/tree/master/python>`_ repository.
+and examples illustrating how to use these endpoints from R and Python can be found in 
+our `examples-R <https://github.com/isb-cgc/examples-R>`_ and
+`examples-Python <https://github.com/isb-cgc/examples-Python/tree/master/python>`_ repositories.
 
 The Google
 `APIs Explorer <https://apis-explorer.appspot.com/apis-explorer/?base=https://api-dot-isb-cgc.appspot.com/_ah/api#p/>`_
-can be used to see each API and try it out through your web browser. Each API may bundle several endpoints that are functionally related.
+can be used to see each API and try it out through your web browser. 
+Following that link will show you a list of ISB-CGC APIs. 
+Each API typically bundles several functionally-related endpoints together.
+Note that not all of these APIs are intended for direct use by end-users: 
+some are intended for use only by the ISB-CGC Web-App.
+In order to see the individual endpoints within a single API, click on the API name,
+such as the `cohort API <https://apis-explorer.appspot.com/apis-explorer/?base=https://api-dot-isb-cgc.appspot.com/_ah/api#p/cohort_api/v1/>`_.
 
 Cohorts are the primary organizing principle for subsetting and working with the TCGA data.
 A cohort is a list of samples and a list of patients.  (TCGA samples are identified using a
-16-character "barcode", while patients are identified using the 12-character prefix of the sample barcode.
+16-character "barcode" *eg* ``TCGA-B9-7268-01A``, 
+while patients are identified using the 12-character prefix (*eg* ``TCGA-B9-7268``) of the sample barcode.
 Other datasets such as CCLE may use other less standardized naming conventions).  Users may
 create and share cohorts using the ISB-CGC web-app and then programmatically access these cohorts
 using this API.
@@ -27,9 +35,14 @@ using this API.
 
 **Authorization**
 
-Some of the endpoints require authorization. Scripts are provided to access these endpoints from the command line.
+Some, but not all, of the endpoints require authorization.  This authorization is not related to
+controlled-access data: these endpoints do not operate on or directly return any controlled data.
+Instead, authorization is related to saving or retrieving cohorts because cohorts are *private* to 
+the user who creates a cohort (and anyone the cohort owner chooses to share the cohort with).
+Helper scripts, described below, are provided to access these endpoints from the command line.
 
-**Note:** In order for authorization to work properly, the user must have logged into the `web application <https://isb-cgc.appspot.com/>`_ at least once.
+**Note:** Prior to using any endpoints that require authorization, a user must have signed into the
+`web application <https://isb-cgc.appspot.com/>`_ at least once.
 
 Step 1: User runs::
 
