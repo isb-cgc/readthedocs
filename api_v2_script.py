@@ -8,8 +8,7 @@ JSON_FILE_DIRECTORY = 'endpoints_json_files'
 
 
 try:
-    resp = requests.get('http://localhost:8080/_ah/api/discovery/v1/apis/isb_cgc_api/v2/rest')
-    # resp = requests.get('http://localhost:8080/_ah/api/discovery/v1/apis/cohort_api/v1/rest')
+    resp = requests.get('https://api-dot-mvm-dot-isb-cgc.appspot.com/_ah/api/discovery/v1/apis/isb_cgc_api/v2/rest')
     RESP_JSON = resp.json()
 except:
     with open(JSON_FILE_DIRECTORY + '/resp_json_v2.json', 'r') as f:
