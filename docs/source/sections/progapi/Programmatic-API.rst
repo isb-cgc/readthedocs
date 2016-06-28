@@ -66,3 +66,20 @@ The Cohort API currently bundles several different cohort-related endpoints:
    progapi2/save_cohort.rst
 
 
+   Version 2 of the API is named ISB-CGC API
+
+.. toctree::
+   :maxdepth: 1
+
+   progapi2_v2/cohorts_cloud_storage_file_paths.rst
+   progapi2_v2/cohorts_create.rst
+   progapi2_v2/cohorts_delete.rst
+   progapi2_v2/cohorts_get.rst
+   progapi2_v2/cohorts_googlegenomics.rst
+   progapi2_v2/cohorts_list.rst
+   progapi2_v2/cohorts_preview.rst
+   progapi2_v2/patients_get.rst
+   progapi2_v2/samples_cloud_storage_file_paths.rst
+   progapi2_v2/samples_get.rst
+   progapi2_v2/samples_googlegenomics.rst
+   progapi2_v2/users_get.rst
