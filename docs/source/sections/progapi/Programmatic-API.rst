@@ -66,7 +66,7 @@ The Cohort API currently bundles several different cohort-related endpoints:
    progapi2/save_cohort.rst
 
 
-   Version 2 of the API is named ISB-CGC API
+   Version 2 of the API is named ISB-CGC API:
 
 .. toctree::
    :maxdepth: 1
