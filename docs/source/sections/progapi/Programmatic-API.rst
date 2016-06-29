@@ -108,6 +108,8 @@ Script `source <https://github.com/isb-cgc/ISB-CGC-Webapp/blob/master/scripts/is
 from R
 ------
 
+The `Examples-R <https://github.com/isb-cgc/examples-R>`_ (ISBCGCExamples) package contains a number of functions that "wrap" the http endpoints calls, making it easier to access your cohorts and query the database.
+
 Step 1: After starting R, user runs::
 
    > library(ISBCGCExamples)
@@ -129,7 +131,7 @@ After authentication, any of the example endpoint functions can be used such as:
 
    list_cohorts(token)
 
-which returns a list of the user's previously created cohorts. Documentation on these functions can be found in the isb github repo, `Examples-R <https://github.com/isb-cgc/examples-R>`_ under 'API Endpoints Interface'. 
+which returns a list of the user's previously created cohorts. Documentation on these functions can be found in the isb github repo, `Examples-R <https://github.com/isb-cgc/examples-R>`_ under 'API Endpoints Interface'.
 
 Cohort API Details
 ==================
