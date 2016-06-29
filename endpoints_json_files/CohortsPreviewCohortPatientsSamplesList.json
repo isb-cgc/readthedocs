@@ -1,0 +1,6 @@
+{
+    "patient_count": "Number of patients in the cohort.",
+    "patients": "List of patient barcodes in the cohort.",
+    "sample_count": "Number of samples in the cohort.",
+    "samples": "List of sample barcodes in the cohort."
+}

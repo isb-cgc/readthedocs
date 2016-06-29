@@ -89,8 +89,8 @@ Examples
 from Python
 -----------
 
-Step 1: A python helper-script, 
-`isb_auth.py <https://github.com/isb-cgc/ISB-CGC-Webapp/blob/master/scripts/isb_auth.py>`_, 
+Step 1: A python helper-script,
+`isb_auth.py <https://github.com/isb-cgc/ISB-CGC-Webapp/blob/master/scripts/isb_auth.py>`_,
 can be used to start the OAuth flow and store the users credentials in a file named ``~/.isb_credentials``
 
 .. code-block:: none
@@ -100,11 +100,11 @@ can be used to start the OAuth flow and store the users credentials in a file na
 This script will open a new tab in your browser and ask you to sign in with your google identity
 (*eg* your gmail address).  The first time, you will also be asked to grant the ISB-CGC application
 permission to see your email address.
-Once authenticated, your access and refresh tokens are written to 
-``~/.isb_credential``. You may use the ``--verbose`` flag when running this script 
+Once authenticated, your access and refresh tokens are written to
+``~/.isb_credential``. You may use the ``--verbose`` flag when running this script
 to see the contents and name of this file.
 
-If you are running this script via ssh, 
+If you are running this script via ssh,
 the ``--noauth_local_webserver`` flag will allow you to obtain a verification code through their local browser.
 
 Step 2: Once you have a ``~/.isb_credentials`` file, you can access any API requiring authentication using
@@ -146,7 +146,7 @@ After authentication, any of the example endpoint functions can be used such as:
 
    list_cohorts(token)
 
-which returns a list of the user's previously created cohorts. Documentation on these functions can be found in the isb github repo, `Examples-R <https://github.com/isb-cgc/examples-R>`_ under 'API Endpoints Interface'. 
+which returns a list of the user's previously created cohorts. Documentation on these functions can be found in the isb github repo, `Examples-R <https://github.com/isb-cgc/examples-R>`_ under 'API Endpoints Interface'.
 
 Cohort API Details
 ==================
@@ -169,3 +169,22 @@ descriptions of all parameters, the form of the response, and whether or not aut
    progapi2/preview_cohort.rst
    progapi2/sample_details.rst
    progapi2/save_cohort.rst
+
+
+   Version 2 of the API is named ISB-CGC API:
+
+.. toctree::
+   :maxdepth: 1
+
+   progapi2_v2/cohorts_cloud_storage_file_paths.rst
+   progapi2_v2/cohorts_create.rst
+   progapi2_v2/cohorts_delete.rst
+   progapi2_v2/cohorts_get.rst
+   progapi2_v2/cohorts_googlegenomics.rst
+   progapi2_v2/cohorts_list.rst
+   progapi2_v2/cohorts_preview.rst
+   progapi2_v2/patients_get.rst
+   progapi2_v2/samples_cloud_storage_file_paths.rst
+   progapi2_v2/samples_get.rst
+   progapi2_v2/samples_googlegenomics.rst
+   progapi2_v2/users_get.rst

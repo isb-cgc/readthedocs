@@ -1,0 +1,4 @@
+{
+  "count": "Number of Google Cloud Storage paths returned for the sample.",
+  "cloud_storage_file_paths": "List of Google Cloud Storage paths of files associated with the sample."
+}
