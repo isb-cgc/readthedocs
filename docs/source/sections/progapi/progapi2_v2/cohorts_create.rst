@@ -4,17 +4,17 @@ Creates and saves a cohort. Takes a JSON object in the request body to use as th
 
 **Example**::
 
-	python isb_curl.py "https://api-dot-mvm-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts/create?name={COHORT NAME}" -H "Content-Type: application/json" -d '{"Study": ["UCS", "CESC"], "age_at_initial_pathologic_diagnosis_lte": "60"}'
+	python isb_curl.py "https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts/create?name={COHORT NAME}" -H "Content-Type: application/json" -d '{"Study": ["UCS", "CESC"], "age_at_initial_pathologic_diagnosis_lte": "60"}'
 
 **API explorer example**:
 
-Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-mvm-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.cohorts.create?name=COHORT%20NAME%20HERE&resource=%257B%250A++%2522Study%2522%253A+%250A++%255B%2522UCS%2522%250A++%255D%250A%257D&/>`_ to see this endpoint in Google's API explorer.
+Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.cohorts.create?name=COHORT%20NAME%20HERE&resource=%257B%250A++%2522Study%2522%253A+%250A++%255B%2522UCS%2522%250A++%255D%250A%257D&/>`_ to see this endpoint in Google's API explorer.
 
 **Request**
 
 HTTP request::
 
-	POST https://api-dot-mvm-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts/create
+	POST https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts/create
 
 **Parameters**
 

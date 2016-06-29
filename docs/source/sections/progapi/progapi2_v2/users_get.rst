@@ -4,17 +4,17 @@ Returns the dbGaP authorization status of the user.
 
 **Example**::
 
-	python isb_curl.py https://api-dot-mvm-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/users
+	python isb_curl.py https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/users
 
 **API explorer example**:
 
-Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-mvm-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.users.get?/>`_ to see this endpoint in Google's API explorer.
+Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.users.get?/>`_ to see this endpoint in Google's API explorer.
 
 **Request**
 
 HTTP request::
 
-	GET https://api-dot-mvm-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/users
+	GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/users
 
 **Parameters**
 

@@ -4,17 +4,17 @@ Given a sample barcode (of length 16, *eg* TCGA-B9-7268-01A), this endpoint retu
 
 **Example**::
 
-	curl https://api-dot-mvm-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/samples/TCGA-ZH-A8Y6-1A
+	curl https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/samples/TCGA-ZH-A8Y6-1A
 
 **API explorer example**:
 
-Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-mvm-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.samples.get?sample_barcode=TCGA-ZH-A8Y6-01A&/>`_ to see this endpoint in Google's API explorer.
+Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.samples.get?sample_barcode=TCGA-ZH-A8Y6-01A&/>`_ to see this endpoint in Google's API explorer.
 
 **Request**
 
 HTTP request::
 
-	GET https://api-dot-mvm-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/samples/{sample_barcode}
+	GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/samples/{sample_barcode}
 
 **Parameters**
 
