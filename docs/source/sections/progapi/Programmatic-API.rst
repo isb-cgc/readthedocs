@@ -7,9 +7,9 @@ uses a combination of ISB-CGC APIs and Google APIs, as illustrated by the
 `block diagram <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/_images/new-block-three-p.png>`_
 on the front page of this documentation.
 
-* The ISB-CGC API provides programmatic access to data and metadata stored in CloudSQL.  This includes information describing TCGA patients and samples, data availability, user-created cohorts, *etc.*  This section of our documentation provides more details about using the ISB-CGC API.
+* The ISB-CGC API provides programmatic access to data and metadata stored in CloudSQL.  This includes information describing TCGA patients and samples, data availability, user-created cohorts, *etc.*  In this section of our documentation, you will find more details about using the ISB-CGC API.
 
-* Native Google APIs are used for optimized, high-speed programmatic access to molecular data in BigQuery, Google Cloud Storage, or Google Genomics.  Code examples illustrating usage of these Google APIs are available in the `ISB-CGC code repositories on github <https://github.com/isb-cgc>`_.  Additional Google Cloud Platform `Documentation <https://cloud.google.com/docs/>`_ for some of the key technologies leveraged by the ISB-CGC platform can be found by following these links:
+* Native Google APIs are used for optimized, high-speed programmatic access to molecular data in BigQuery, Google Cloud Storage, or Google Genomics.  Code examples illustrating usage of these Google APIs are available in the `ISB-CGC code repositories on github <https://github.com/isb-cgc>`_.  Additional `Google Cloud Platform Documentation <https://cloud.google.com/docs/>`_ for some of the key technologies leveraged by the ISB-CGC platform can be found by following these links:
 
   + `BigQuery APIs & Reference <https://cloud.google.com/bigquery/docs/apis>`_
   + `Cloud Storage APIs & Reference <https://cloud.google.com/storage/docs/apis>`_
@@ -20,10 +20,10 @@ ISB-CGC API
 
 The ISB-CGC API provides a REST interface to the ISB-CGC metadata stored in CloudSQL, 
 and consists of several "endpoints", implemented using Google Cloud Endpoints.
-Details about these APIs can be found here,
-and examples illustrating the use of these endpoints from R and Python can be found in 
+Details about these endpoints can be found here,
+and examples illustrating usage from R and Python can be found in 
 our `examples-R <https://github.com/isb-cgc/examples-R>`_ and
-`examples-Python <https://github.com/isb-cgc/examples-Python/tree/master/python>`_ repositories.
+`examples-Python <https://github.com/isb-cgc/examples-Python/tree/master/python>`_ repositories on github.
 
 Some example use-cases include:
 
@@ -35,21 +35,38 @@ Some example use-cases include:
 
 The Google
 `APIs Explorer <https://apis-explorer.appspot.com/apis-explorer/?base=https://api-dot-isb-cgc.appspot.com/_ah/api#p/>`_
-can be used to see details about each endpoint, and also provides an interface to try it out through your web browser. 
+can be used to see details about each endpoint, and also provides a convenient interface 
+to test and endpoint through your web browser. 
 Following the link in the previous sentence will take you to a page with a list of APIs, in which each
 API consists of a set of functionally-related endpoints.  Together, these individual APIs form the **ISB-CGC API**.
-Note that not all of these APIs are intended for direct use by end-users: 
-some are intended for use only by the ISB-CGC Web-App.
-In order to see the individual endpoints within a single API, click on the API name,
-such as the `cohort API <https://apis-explorer.appspot.com/apis-explorer/?base=https://api-dot-isb-cgc.appspot.com/_ah/api#p/cohort_api/v1/>`_.
+In order to see the individual endpoints within a single API, click on the API name, such as the 
+`cohort API <https://apis-explorer.appspot.com/apis-explorer/?base=https://api-dot-isb-cgc.appspot.com/_ah/api#p/cohort_api/v1/>`_.
+(Note that not all of these APIs are intended for direct use by end-users: 
+some are intended for use only by the ISB-CGC Web-App.)
 
 Cohorts are the primary organizing principle for subsetting and working with the TCGA data.
-A cohort is a list of samples and a list of patients.  (TCGA samples are identified using a
+A cohort is a list of samples and a list of patients.  
+Users may create and share cohorts using the ISB-CGC web-app and then programmatically 
+access these cohorts using this API.
+(TCGA samples are identified using a
 16-character "barcode" *eg* ``TCGA-B9-7268-01A``, 
-while patients are identified using the 12-character prefix (*eg* ``TCGA-B9-7268``) of the sample barcode.
-Other datasets such as CCLE may use other less standardized naming conventions).  Users may
-create and share cohorts using the ISB-CGC web-app and then programmatically access these cohorts
-using this API.
+while patients are identified using the 12-character prefix, *ie* ``TCGA-B9-7268``, of the sample barcode.
+Other datasets such as CCLE may use other less standardized naming conventions).  
+
+Usage
+=====
+
+Endpoints are simple https GET or PUT requests, *eg*:
+
+.. code-block:: none
+
+        GET https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/patient_details?patient_barcode=TCGA-B9-7268
+
+which can also be pasted directly into your browser, like 
+`this <https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/patient_details?patient_barcode=TCGA-B9-7268>`_.
+Packages are available in most languages to allow you to easily perform https GET and PUT requests, such as the
+`httr <https://cran.r-project.org/web/packages/httr/index.html>`_ package for R, 
+and the Python `requests <http://docs.python-requests.org/en/master/>`_ library.
 
 Authorization
 =============
@@ -63,8 +80,8 @@ Helper scripts, described below, are provided to access these endpoints from the
 **Note:** Prior to using any endpoints that require authorization, a user must have signed into the
 `web application <https://isb-cgc.appspot.com/>`_ at least once.
 
-Usage
-=====
+Examples
+========
 
 from Python
 -----------
