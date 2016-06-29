@@ -148,12 +148,15 @@ After authentication, any of the example endpoint functions can be used such as:
 
 which returns a list of the user's previously created cohorts. Documentation on these functions can be found in the isb github repo, `Examples-R <https://github.com/isb-cgc/examples-R>`_ under 'API Endpoints Interface'.
 
-Cohort API Details
-==================
+Cohort API Details (v1)
+=======================
 
 The Cohort API bundles the following cohort-related endpoints.  For each endpoint,
 the following sections provide detailed documentation including an example request,
 descriptions of all parameters, the form of the response, and whether or not authorization is required.
+
+**NOTE:** The API has been recently reorganized and version 2 is described in the next section.
+Both versions are currently available, but v1 will eventually be deprecated.
 
 .. toctree::
    :maxdepth: 1
@@ -170,8 +173,12 @@ descriptions of all parameters, the form of the response, and whether or not aut
    progapi2/sample_details.rst
    progapi2/save_cohort.rst
 
+ISB-CGC API (v2)
+=================
 
-   Version 2 of the API is named ISB-CGC API:
+The endpoints have been reorganized and are bundled into the new 
+`ISB-CGC API v2 <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-mvm-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/>`_. 
+Details for each of these endpoints can be found below:
 
 .. toctree::
    :maxdepth: 1
@@ -188,3 +195,4 @@ descriptions of all parameters, the form of the response, and whether or not aut
    progapi2_v2/samples_get.rst
    progapi2_v2/samples_googlegenomics.rst
    progapi2_v2/users_get.rst
+
