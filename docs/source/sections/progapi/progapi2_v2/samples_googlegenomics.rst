@@ -4,17 +4,17 @@ Takes a sample barcode as a required parameter and returns the Google Genomics d
 
 **Example**::
 
-	curl https://api-dot-mvm-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/samples/CCLE-SU-DHL-5-RNA-08/googlegenomics
+	curl https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/samples/CCLE-SU-DHL-5-RNA-08/googlegenomics
 
 **API explorer example**:
 
-Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-mvm-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.samples.googlegenomics?sample_barcode=CCLE-SU-DHL-5-RNA-08&/>`_ to see this endpoint in Google's API explorer.
+Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.samples.googlegenomics?sample_barcode=CCLE-SU-DHL-5-RNA-08&/>`_ to see this endpoint in Google's API explorer.
 
 **Request**
 
 HTTP request::
 
-	GET https://api-dot-mvm-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/samples/{sample_barcode}/googlegenomics
+	GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/samples/{sample_barcode}/googlegenomics
 
 **Parameters**
 

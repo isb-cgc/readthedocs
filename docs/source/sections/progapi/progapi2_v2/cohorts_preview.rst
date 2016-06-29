@@ -4,17 +4,17 @@ Takes a JSON object of filters in the request body and returns a "preview" of th
 
 **Example**::
 
-	curl https://api-dot-mvm-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts/preview -H "Content-Type: application/json" -d '{"Study": ["UCS", "CESC"], "age_at_initial_pathologic_diagnosis_lte": "60"}'
+	curl https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts/preview -H "Content-Type: application/json" -d '{"Study": ["UCS", "CESC"], "age_at_initial_pathologic_diagnosis_lte": "60"}'
 
 **API explorer example**:
 
-Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-mvm-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.cohorts.preview?resource=%257B%250A++%2522Study%2522%253A+%250A++%255B%2522BRCA%2522%252C%2522UCS%2522%250A++%255D%252C%250A++%2522age_at_initial_pathologic_diagnosis_lte%2522%253A+%252230%2522%250A%257D&/>`_ to see this endpoint in Google's API explorer.
+Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.cohorts.preview?resource=%257B%250A++%2522Study%2522%253A+%250A++%255B%2522BRCA%2522%252C%2522UCS%2522%250A++%255D%252C%250A++%2522age_at_initial_pathologic_diagnosis_lte%2522%253A+%252230%2522%250A%257D&/>`_ to see this endpoint in Google's API explorer.
 
 **Request**
 
 HTTP request::
 
-	POST https://api-dot-mvm-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts/preview
+	POST https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts/preview
 
 **Parameters**
 
