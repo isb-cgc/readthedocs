@@ -179,7 +179,7 @@ ISB-CGC API (v2)
 =================
 
 The endpoints have been reorganized and are bundled into the new
-`ISB-CGC API v2 <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-mvm-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/>`_.
+`ISB-CGC API v2 <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/>`_.
 Details for each of these endpoints can be found below:
 
 .. toctree::
