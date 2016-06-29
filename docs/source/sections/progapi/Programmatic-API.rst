@@ -109,6 +109,7 @@ from R
 ------
 
 Step 1: After starting R, user runs::
+
    > library(ISBCGCExamples)
    > token <- isb_init()
    Use a local file to cache OAuth access credentials between R sessions?
