@@ -67,6 +67,10 @@ Packages are available in most languages to allow you to easily perform https GE
 `httr <https://cran.r-project.org/web/packages/httr/index.html>`_ package for R, 
 and the Python `requests <http://docs.python-requests.org/en/master/>`_ library.
 
+In addition, the 
+`Google Python API Client Library <https://developers.google.com/api-client-library/python/>`_ 
+can be used to build a service object which provides a functional interface to the resources defined by the API.
+
 Authorization
 =============
 
