@@ -18,7 +18,7 @@ on the front page of this documentation.
 ISB-CGC API
 ###########
 
-The **ISB-CGC API** provides a REST interface to the ISB-CGC metadata stored in CloudSQL,
+The **ISB-CGC API** provides an interface to the ISB-CGC metadata stored in CloudSQL,
 and consists of several "endpoints", implemented using Google Cloud Endpoints.
 Details about these endpoints can be found here,
 and examples illustrating usage from R and Python can be found in
@@ -101,7 +101,7 @@ This script will open a new tab in your browser and ask you to sign in with your
 (*eg* your gmail address).  The first time, you will also be asked to grant the ISB-CGC application
 permission to see your email address.
 Once authenticated, your access and refresh tokens are written to
-``~/.isb_credential``. You may use the ``--verbose`` flag when running this script
+``~/.isb_credentials``. You may use the ``--verbose`` flag when running this script
 to see the contents and name of this file.
 
 If you are running this script via ssh,
