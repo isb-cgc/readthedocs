@@ -140,7 +140,7 @@ Once authenticated, your access and refresh tokens are written to your working d
 
 Step 2: Using the endpoints
 
-After authentication, any of the example endpoint functions can be used such as::
+After authentication, any of the example endpoint functions can be used such as:
 
 .. code-block:: r
 
