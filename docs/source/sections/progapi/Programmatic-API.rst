@@ -120,7 +120,7 @@ from R
 Step 1: After starting R, and loading the ISBCGCExamples, you can use the R helper script ``isb_init``
 to go through the authentication process:
 
-.. code-block:: r
+.. code-block:: none
 
    > library(ISBCGCExamples)
    > token <- isb_init()
@@ -142,7 +142,7 @@ Step 2: Using the endpoints
 
 After authentication, any of the example endpoint functions can be used such as:
 
-.. code-block:: r
+.. code-block:: none
 
    list_cohorts(token)
 
