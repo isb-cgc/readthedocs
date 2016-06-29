@@ -129,7 +129,7 @@ After authentication, any of the example endpoint functions can be used such as:
 
    list_cohorts(token)
 
-which returns a list of the user's previously created cohorts. Documentation on these functions can be found at the isb github repo, `Examples-R <https://github.com/isb-cgc/examples-R>`_.
+which returns a list of the user's previously created cohorts. Documentation on these functions can be found in the isb github repo, `Examples-R <https://github.com/isb-cgc/examples-R>`_ under 'API Endpoints Interface'. 
 
 Cohort API Details
 ==================
