@@ -93,12 +93,14 @@ Step 1: A python helper-script,
 `isb_auth.py <https://github.com/isb-cgc/ISB-CGC-Webapp/blob/master/scripts/isb_auth.py>`_, 
 can be used to start the OAuth flow and store the users credentials in a file named ``~/.isb_credentials``
 
+.. code-block:: none
+
    $ python isb_auth.py
 
 This script will open a new tab in your browser and ask you to sign in with your google identity
 (*eg* your gmail address).  The first time, you will also be asked to grant the ISB-CGC application
 permission to see your email address.
-Once authenticated, the user's information, including access and refresh tokens, are written to 
+Once authenticated, your access and refresh tokens are written to 
 ``~/.isb_credential``. You may use the ``--verbose`` flag when running this script 
 to see the contents and name of this file.
 
@@ -108,12 +110,17 @@ the ``--noauth_local_webserver`` flag will allow you to obtain a verification co
 Step 2: Once you have a ``~/.isb_credentials`` file, you can access any API requiring authentication using
 another helper-script, `isb_curl.py <https://github.com/isb-cgc/ISB-CGC-Webapp/blob/master/scripts/isb_curl.py>`_
 
+.. code-block:: none
+
    $ python isb_curl.py {ENDPOINT_URL}
 
 from R
 ------
 
-Step 1: After starting R, user runs::
+Step 1: After starting R, and loading the ISBCGCExamples, you can use the R helper script ``isb_init``
+to go through the authentication process:
+
+.. code-block:: r
 
    > library(ISBCGCExamples)
    > token <- isb_init()
@@ -126,11 +133,16 @@ Step 1: After starting R, user runs::
    Press Esc/Ctrl + C to abort
    Authentication complete.
 
-Calling the isb_init function starts an oauth flow, opening a browser tab and asking the user to log in with their google email address. Once authenticated, the user’s information, including access and refresh tokens, are written to their working directory in a file named ``.httr-oauth``.
+The ``isb_init`` function will open a new tab in your browser and ask you to sign in with your google
+identity (*eg* your gmail address).  The first time, you will also be asked to grant the ISB-CGC
+application permission to see your email address.
+Once authenticated, your access and refresh tokens are written to your working directory in a file named ``.httr-oauth``.
 
 Step 2: Using the endpoints
 
 After authentication, any of the example endpoint functions can be used such as::
+
+.. code-block:: r
 
    list_cohorts(token)
 
