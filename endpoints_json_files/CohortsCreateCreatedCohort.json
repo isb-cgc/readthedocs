@@ -1,0 +1,8 @@
+{
+    "filters": "List of filters applied to create cohort, if any.",
+    "id": "Cohort id.",
+    "last_date_saved": "Last date the cohort was saved.",
+    "name": "Name of cohort.",
+    "patient_count": "Number of unique participant barcodes in the cohort.",
+    "sample_count": "Number of unique sample barcodes in the cohort."
+}
