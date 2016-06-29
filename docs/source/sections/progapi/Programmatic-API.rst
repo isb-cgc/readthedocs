@@ -7,9 +7,9 @@ uses a combination of ISB-CGC APIs and Google APIs, as illustrated by the
 `block diagram <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/_images/new-block-three-p.png>`_
 on the front page of this documentation.
 
-* The ISB-CGC API provides programmatic access to data and metadata stored in CloudSQL.  This includes information describing TCGA patients and samples, data availability, user-created cohorts, *etc.*  In this section of our documentation, you will find more details about using the ISB-CGC API.
+* The **ISB-CGC API** provides programmatic access to data and metadata stored in CloudSQL.  This includes information describing TCGA patients and samples, data availability, user-created cohorts, *etc.*  In this section of our documentation, you will find more details about using the ISB-CGC API.
 
-* Native Google APIs are used for optimized, high-speed programmatic access to molecular data in BigQuery, Google Cloud Storage, or Google Genomics.  Code examples illustrating usage of these Google APIs are available in the `ISB-CGC code repositories on github <https://github.com/isb-cgc>`_.  Additional `Google Cloud Platform Documentation <https://cloud.google.com/docs/>`_ for some of the key technologies leveraged by the ISB-CGC platform can be found by following these links:
+* Native **Google APIs** are used for optimized, high-speed programmatic access to molecular data in BigQuery, Google Cloud Storage, or Google Genomics.  Code examples illustrating usage of these Google APIs are available in the ISB-CGC code `repositories <https://github.com/isb-cgc>`_ on github.  Additional `Google Cloud Platform Documentation <https://cloud.google.com/docs/>`_ for some of the key technologies leveraged by the ISB-CGC platform can be found by following these links:
 
   + `BigQuery APIs & Reference <https://cloud.google.com/bigquery/docs/apis>`_
   + `Cloud Storage APIs & Reference <https://cloud.google.com/storage/docs/apis>`_
@@ -18,7 +18,7 @@ on the front page of this documentation.
 ISB-CGC API
 ###########
 
-The ISB-CGC API provides a REST interface to the ISB-CGC metadata stored in CloudSQL, 
+The **ISB-CGC API** provides a REST interface to the ISB-CGC metadata stored in CloudSQL, 
 and consists of several "endpoints", implemented using Google Cloud Endpoints.
 Details about these endpoints can be found here,
 and examples illustrating usage from R and Python can be found in 
@@ -33,12 +33,11 @@ Some example use-cases include:
 * creating a cohort of patients and samples, based on a defined set of criteria;
 * retrieving information about a previously saved cohort;
 
-The Google
-`APIs Explorer <https://apis-explorer.appspot.com/apis-explorer/?base=https://api-dot-isb-cgc.appspot.com/_ah/api#p/>`_
+The `APIs Explorer <https://apis-explorer.appspot.com/apis-explorer/?base=https://api-dot-isb-cgc.appspot.com/_ah/api#p/>`_
 can be used to see details about each endpoint, and also provides a convenient interface 
-to test and endpoint through your web browser. 
+to test an endpoint through your web browser. 
 Following the link in the previous sentence will take you to a page with a list of APIs, in which each
-API consists of a set of functionally-related endpoints.  Together, these individual APIs form the **ISB-CGC API**.
+API consists of a set of functionally-related endpoints.  Together, these individual APIs make up the **ISB-CGC API**.
 In order to see the individual endpoints within a single API, click on the API name, such as the 
 `cohort API <https://apis-explorer.appspot.com/apis-explorer/?base=https://api-dot-isb-cgc.appspot.com/_ah/api#p/cohort_api/v1/>`_.
 (Note that not all of these APIs are intended for direct use by end-users: 
@@ -71,10 +70,10 @@ and the Python `requests <http://docs.python-requests.org/en/master/>`_ library.
 Authorization
 =============
 
-Some, but not all, of the endpoints require authorization.  This authorization is not related to
+Some, but not all, of the endpoints require authorization.  This authorization is *not* related to
 controlled-access data: these endpoints do not operate on or directly return any controlled data.
 Instead, authorization is related to saving or retrieving cohorts because cohorts are *private* to 
-the user who creates a cohort (and anyone the cohort owner chooses to share the cohort with).
+the user who created the cohort (and anyone the cohort owner has chosen to share the cohort with).
 Helper scripts, described below, are provided to access these endpoints from the command line.
 
 **Note:** Prior to using any endpoints that require authorization, a user must have signed into the
@@ -110,7 +109,9 @@ from R
 Cohort API Details
 ==================
 
-The Cohort API bundles the following cohort-related endpoints:
+The Cohort API bundles the following cohort-related endpoints.  For each endpoint,
+the following sections provide detailed documentation including an example request,
+descriptions of all parameters, the form of the response, and whether or not authorization is required.
 
 .. toctree::
    :maxdepth: 1
