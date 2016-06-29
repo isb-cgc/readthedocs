@@ -18,7 +18,7 @@ on the front page of this documentation.
 ISB-CGC API
 ###########
 
-The **ISB-CGC API** provides a REST interface to the ISB-CGC metadata stored in CloudSQL,
+The **ISB-CGC API** provides an interface to the ISB-CGC metadata stored in CloudSQL,
 and consists of several "endpoints", implemented using Google Cloud Endpoints.
 Details about these endpoints can be found here,
 and examples illustrating usage from R and Python can be found in
@@ -101,7 +101,7 @@ This script will open a new tab in your browser and ask you to sign in with your
 (*eg* your gmail address).  The first time, you will also be asked to grant the ISB-CGC application
 permission to see your email address.
 Once authenticated, your access and refresh tokens are written to
-``~/.isb_credential``. You may use the ``--verbose`` flag when running this script
+``~/.isb_credentials``. You may use the ``--verbose`` flag when running this script
 to see the contents and name of this file.
 
 If you are running this script via ssh,
@@ -148,8 +148,8 @@ After authentication, any of the example endpoint functions can be used such as:
 
 which returns a list of the user's previously created cohorts. Documentation on these functions can be found in the isb github repo, `Examples-R <https://github.com/isb-cgc/examples-R>`_ under 'API Endpoints Interface'.
 
-Cohort API Details
-==================
+ISB-CGC API v1 Details
+======================
 
 The Cohort API bundles the following cohort-related endpoints.  For each endpoint,
 the following sections provide detailed documentation including an example request,
@@ -171,7 +171,10 @@ descriptions of all parameters, the form of the response, and whether or not aut
    progapi2/save_cohort.rst
 
 
-   Version 2 of the API is named ISB-CGC API:
+ISB-CGC API v2 Details
+======================
+
+Version 2 of the API is documented in the following sections.
 
 .. toctree::
    :maxdepth: 1
