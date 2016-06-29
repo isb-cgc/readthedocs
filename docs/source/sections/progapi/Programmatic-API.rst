@@ -174,7 +174,7 @@ descriptions of all parameters, the form of the response, and whether or not aut
 ISB-CGC API v2 Details
 ======================
 
-Version 2 of the API is named ISB-CGC API:
+Version 2 of the API is documented in the following sections.
 
 .. toctree::
    :maxdepth: 1
