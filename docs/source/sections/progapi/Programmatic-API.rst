@@ -89,21 +89,26 @@ Examples
 from Python
 -----------
 
-Step 1: User runs::
+Step 1: A python helper-script, 
+`isb_auth.py <https://github.com/isb-cgc/ISB-CGC-Webapp/blob/master/scripts/isb_auth.py>`_, 
+can be used to start the OAuth flow and store the users credentials in a file named ``~/.isb_credentials``
 
    $ python isb_auth.py
 
-Script `source <https://github.com/isb-cgc/ISB-CGC-Webapp/blob/master/scripts/isb_auth.py>`_.
+This script will open a new tab in your browser and ask you to sign in with your google identity
+(*eg* your gmail address).  The first time, you will also be asked to grant the ISB-CGC application
+permission to see your email address.
+Once authenticated, the user's information, including access and refresh tokens, are written to 
+``~/.isb_credential``. You may use the ``--verbose`` flag when running this script 
+to see the contents and name of this file.
 
-This starts an oauth flow, opening a browser tab and asking the user to log in with their google email address. Once authenticated, the user’s information, including access and refresh tokens, are written to their root directory in a file named ``.isb_credentials``. A ``--verbose`` flag displays the location and name of the file as well as the access and refresh tokens.
+If you are running this script via ssh, 
+the ``--noauth_local_webserver`` flag will allow you to obtain a verification code through their local browser.
 
-If a user is running this script via ssh, the ``--noauth_local_webserver`` flag will allow the user to obtain a verification code through their local browser.
-
-Step 2: Once the credentials file is stored on the user's home directory, they can access any API requiring authentication with the command::
+Step 2: Once you have a ``~/.isb_credentials`` file, you can access any API requiring authentication using
+another helper-script, `isb_curl.py <https://github.com/isb-cgc/ISB-CGC-Webapp/blob/master/scripts/isb_curl.py>`_
 
    $ python isb_curl.py {ENDPOINT_URL}
-
-Script `source <https://github.com/isb-cgc/ISB-CGC-Webapp/blob/master/scripts/isb_curl.py>`_.
 
 from R
 ------
