@@ -150,6 +150,29 @@ After authentication, any of the example endpoint functions can be used such as:
 
 which returns a list of the user's previously created cohorts. Documentation on these functions can be found in the isb github repo, `Examples-R <https://github.com/isb-cgc/examples-R>`_ under 'API Endpoints Interface'.
 
+ISB-CGC API (v2)
+=================
+
+The endpoints have been reorganized and are bundled into the new
+`ISB-CGC API v2 <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/>`_.
+Details for each of these endpoints can be found below:
+
+.. toctree::
+   :maxdepth: 1
+
+   progapi2_v2/cohorts_cloud_storage_file_paths.rst
+   progapi2_v2/cohorts_create.rst
+   progapi2_v2/cohorts_delete.rst
+   progapi2_v2/cohorts_get.rst
+   progapi2_v2/cohorts_googlegenomics.rst
+   progapi2_v2/cohorts_list.rst
+   progapi2_v2/cohorts_preview.rst
+   progapi2_v2/patients_get.rst
+   progapi2_v2/samples_cloud_storage_file_paths.rst
+   progapi2_v2/samples_get.rst
+   progapi2_v2/samples_googlegenomics.rst
+   progapi2_v2/users_get.rst
+
 Cohort API Details (v1)
 =======================
 
@@ -175,25 +198,3 @@ Both versions are currently available, but v1 will eventually be deprecated.
    progapi2/sample_details.rst
    progapi2/save_cohort.rst
 
-ISB-CGC API (v2)
-=================
-
-The endpoints have been reorganized and are bundled into the new
-`ISB-CGC API v2 <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/>`_.
-Details for each of these endpoints can be found below:
-
-.. toctree::
-   :maxdepth: 1
-
-   progapi2_v2/cohorts_cloud_storage_file_paths.rst
-   progapi2_v2/cohorts_create.rst
-   progapi2_v2/cohorts_delete.rst
-   progapi2_v2/cohorts_get.rst
-   progapi2_v2/cohorts_googlegenomics.rst
-   progapi2_v2/cohorts_list.rst
-   progapi2_v2/cohorts_preview.rst
-   progapi2_v2/patients_get.rst
-   progapi2_v2/samples_cloud_storage_file_paths.rst
-   progapi2_v2/samples_get.rst
-   progapi2_v2/samples_googlegenomics.rst
-   progapi2_v2/users_get.rst
