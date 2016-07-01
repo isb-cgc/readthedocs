@@ -1,6 +1,6 @@
 cohorts().get()
 ################
-Returns information about cohorts a user has either READER or OWNER permission on. Authentication is required. Optionally takes a cohort id as a parameter to only list information about one cohort.
+Returns information about a specific cohort the user has READER or OWNER permission on when given a cohort ID. Authentication is required.
 
 **Example**::
 
