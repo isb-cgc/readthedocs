@@ -31,7 +31,7 @@ Some example use-cases include:
 * obtaining a list of *sample identifiers*, associated with a specific patient;
 * obtaining detailed *metadata* about a particular patient or sample;
 * creating (or retrieving a previously saved) *cohort* of patients and samples, based on a defined set of criteria;
-* obtaining a list of *data files* in Cloud Storage, associated with a specific sample or cohort;
+* obtaining a list of *data files* in Cloud Storage, associated with a specific *sample*, *cohort*, *platform*, or *data-type* (or any combination thereof);
 
 The `APIs Explorer <https://apis-explorer.appspot.com/apis-explorer/?base=https://api-dot-isb-cgc.appspot.com/_ah/api#p/>`_
 can be used to see details about each endpoint, and also provides a convenient interface
