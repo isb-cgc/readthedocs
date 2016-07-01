@@ -27,11 +27,11 @@ our `examples-R <https://github.com/isb-cgc/examples-R>`_ and
 
 Some example use-cases include:
 
-* obtaining a list of patient identifiers based on a defined set of criteria;
-* obtaining a list of sample identifiers, associated with a specific patient;
-* obtaining a list of data files in Cloud Storage, associated with a specific sample;
-* creating a cohort of patients and samples, based on a defined set of criteria;
-* retrieving information about a previously saved cohort;
+* obtaining a list of *patient identifiers* based on a defined set of criteria;
+* obtaining a list of *sample identifiers*, associated with a specific patient;
+* obtaining detailed *metadata* about a particular patient or sample;
+* creating (or retrieving a previously saved) *cohort* of patients and samples, based on a defined set of criteria;
+* obtaining a list of *data files* in Cloud Storage, associated with a specific sample or cohort;
 
 The `APIs Explorer <https://apis-explorer.appspot.com/apis-explorer/?base=https://api-dot-isb-cgc.appspot.com/_ah/api#p/>`_
 can be used to see details about each endpoint, and also provides a convenient interface
@@ -98,7 +98,7 @@ Examples
 from Python
 -----------
 
-Step 1: A python helper-script,
+**Step 1**: A python helper-script,
 `isb_auth.py <https://github.com/isb-cgc/ISB-CGC-Webapp/blob/master/scripts/isb_auth.py>`_,
 can be used to start the OAuth flow and store the users credentials in a file named ``~/.isb_credentials``
 
@@ -113,22 +113,27 @@ Once authenticated, your access and refresh tokens are written to
 ``~/.isb_credentials``. You may use the ``--verbose`` flag when running this script
 to see the contents and name of this file.
 
-If you are running this script via ssh,
-the ``--noauth_local_webserver`` flag will allow you to obtain a verification code through their local browser.
+If you are running this script via ssh (or from Cloud Shell),
+the ``--noauth_local_webserver`` flag will allow you to obtain a verification code through your local browser.
 
-Step 2: Once you have a ``~/.isb_credentials`` file, you can access any API requiring authentication using
-another helper-script, `isb_curl.py <https://github.com/isb-cgc/ISB-CGC-Webapp/blob/master/scripts/isb_curl.py>`_
+**Step 2**: Once you have a ``~/.isb_credentials`` file 
+(either locally on your laptop, or on a GCE VM, or in Cloud Shell), 
+you can access any API requiring authentication using another helper-script, 
+`isb_curl.py <https://github.com/isb-cgc/ISB-CGC-Webapp/blob/master/scripts/isb_curl.py>`_
 
 .. code-block:: none
 
-   $ python isb_curl.py {ENDPOINT_URL}
+   $ ## usage: python isb_curl.py {ENDPOINT_URL}
+   $ python isb_curl.py https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts
 
 from R
 ------
 
 The `Examples-R <https://github.com/isb-cgc/examples-R>`_ (ISBCGCExamples) package contains a number of functions that "wrap" the http endpoints calls, making it easier to access your cohorts and query the database.
+(Note that these wrappers are currently based on the *v1* endpoints and will soon be updated to 
+use the *v2* endpoints.)
 
-Step 1: After starting R, and loading the ISBCGCExamples, you can use the R helper script ``isb_init``
+**Step 1**: After starting R, and loading the ISBCGCExamples, you can use the R helper script ``isb_init``
 to go through the authentication process:
 
 .. code-block:: none
@@ -147,9 +152,10 @@ to go through the authentication process:
 The ``isb_init`` function will open a new tab in your browser and ask you to sign in with your google
 identity (*eg* your gmail address).  The first time, you will also be asked to grant the ISB-CGC
 application permission to see your email address.
-Once authenticated, your access and refresh tokens are written to your working directory in a file named ``.httr-oauth``.
+Once authenticated, your access and refresh tokens are written to your working directory in a 
+file named ``.httr-oauth``.
 
-Step 2: Using the endpoints
+**Step 2**: Using the endpoints
 
 After authentication, any of the example endpoint functions can be used such as:
 
@@ -157,7 +163,9 @@ After authentication, any of the example endpoint functions can be used such as:
 
    list_cohorts(token)
 
-which returns a list of the user's previously created cohorts. Documentation on these functions can be found in the isb github repo, `Examples-R <https://github.com/isb-cgc/examples-R>`_ under 'API Endpoints Interface'.
+which returns a list of the user's previously created cohorts. 
+Documentation for these functions can be found in the ISB-CGC github repo, 
+`Examples-R <https://github.com/isb-cgc/examples-R>`_ under 'API Endpoints Interface'.
 
 ISB-CGC API (v2)
 =================
