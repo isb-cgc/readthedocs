@@ -39,9 +39,12 @@ to test an endpoint through your web browser.
 Following the link in the previous sentence will take you to a page with a list of APIs, in which each
 API consists of a set of functionally-related endpoints.  Together, these individual APIs make up the **ISB-CGC API**.
 In order to see the individual endpoints within a single API, click on the API name, such as the
-`cohort API <https://apis-explorer.appspot.com/apis-explorer/?base=https://api-dot-isb-cgc.appspot.com/_ah/api#p/cohort_api/v1/>`_.
+`cohort API v1 <https://apis-explorer.appspot.com/apis-explorer/?base=https://api-dot-isb-cgc.appspot.com/_ah/api#p/cohort_api/v1/>`_
+or the just-released
+`ISB-CGC API v2 <https://apis-explorer.appspot.com/apis-explorer/?base=https://api-dot-isb-cgc.appspot.com/_ah/api#p/isb_cgc_api/v2/>`_.
 (Note that not all of these APIs are intended for direct use by end-users:
-some are intended for use only by the ISB-CGC Web-App.)
+some are intended for use only by the ISB-CGC Web-App, as described in the information on the 
+first APIs Explorer page mentioned above.)
 
 Cohorts are the primary organizing principle for subsetting and working with the TCGA data.
 A cohort is a list of samples and a list of patients.
@@ -60,9 +63,13 @@ Endpoints are simple https GET or PUT requests, *eg*:
 .. code-block:: none
 
         GET https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/patient_details?patient_barcode=TCGA-B9-7268
+        GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/patients/TCGA-B9-7268
 
-which can also be pasted directly into your browser, like
-`this <https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/patient_details?patient_barcode=TCGA-B9-7268>`_.
+The first GET command above illustrates the usage in the (deprecated but still available) cohort API v1,
+and the second GET command shows the usage for the new v2 API.
+The url (without the "GET" command) can also be pasted directly into your browser, like
+`this <https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/patient_details?patient_barcode=TCGA-B9-7268>`_
+or `this <https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/patients/TCGA-B9-7268>`_.
 Packages are available in most languages to allow you to easily perform https GET and PUT requests, such as the
 `httr <https://cran.r-project.org/web/packages/httr/index.html>`_ package for R,
 and the Python `requests <http://docs.python-requests.org/en/master/>`_ library.
@@ -70,6 +77,8 @@ and the Python `requests <http://docs.python-requests.org/en/master/>`_ library.
 In addition, the
 `Google Python API Client Library <https://developers.google.com/api-client-library/python/>`_
 can be used to build a service object which provides a functional interface to the resources defined by the API.
+(Examples of this approach can be found in the examples-Python github repo, specifically the 
+``api_test_service*.py`` scripts.)
 
 Authorization
 =============
