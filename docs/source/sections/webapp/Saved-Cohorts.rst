@@ -35,7 +35,7 @@ Filters are "ANDed" together, meaning that selecting two filters means that the 
 
 Cohort Filters
 --------------
-The panel on the left of the screen, with two tabs called "DONOR" and "DATA TYPE" allow you to apply filters to the cohorts your are creating.  Below are the details of each tab.
+The panel on the left of the screen, with two tabs called "DONOR" and "DATA TYPE" allow you to apply filters to the cohorts your are creating.  Below are the details of each tab. The Donor panel filter count is interactive in real time annd reflects the count for which filters have samples associated with filters already slected. 
 
 Donor Tab
 ^^^^^^^^^
