@@ -2,6 +2,52 @@
 Release Notes
 *************
 
+*  **July 6, 2016**: `v1.5 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.5>`_
+    
+    **Known issues in Sprint 6**
+    
+    - The user can add same gene twice if list to the same worksheet it they have different names.
+    - The user can add same filter to existing cohorts.
+    - The Bar chart on the worksheet panel renders overlapping text.
+    - Cannot delete whom you share cohort with from existing cohorts table.
+    - Analysis Type : Seqpeek Formatting Elongated.
+    - The CCLE data in GUI is not parallel to the CCLE data in BigQuery.
+    - If a user opens a shared cohort it will appear twice on the dashboard.
+    - If a user creates a cohort with sample type filter Cell Lines and CCLE the total number of samples count are off by one.
+    - Pathologic State Filter in create cohort Stage should be displayed capitalized.
+    - Histological Type entries in create new cohort page on the user interface should match the Google BigQuery entries in terms of capitalization.
+    - Filter counts with 0 value don't list when editing a pre-existing cohort.
+    - Filters for data type counting in left panel currently is not working properly.
+
+   
+    **Issues resolved in Sprint 6**
+
+    New Enhancements
+    
+    - A user can only select the cloud storage checkbox if he or she has been authenticated and authorized through the user details page. Otherwise the user can view the cloud storage checkbox but there will be a disabled cursor icon when the user hovers over in an attempt to select the checkbox.
+    - The counts for the queries were refactored to match what was done for the APIs .
+    - The Download File List as CSV was refactored to a maximum of 65,000 files at once.
+    - Date formats on Workbooks, Cohort, Gene, and Variables list pages all reflect the same format.
+    - The Last Updated columns to variable and gene lists were added to the user Dashboard
+
+    Bug Fixes
+    
+    -  The user can now select a cohort in the color by feature section for the violin and the scatter plots in the worksheet section.
+    - The Gene list variable used for analysis in the worksheet plot settings section is the exact gene as compared to a gene that contains the string.
+    - The Comments button for both the workbook and the cohort section, when the user clicks the request multiple times within one second the user interface will not post duplicate comments in the comments section.
+    - The user can now select gene HP in Create Gene list favorite page to be used for analysis. For worksheet analysis the user now has ability to select different genes once one already selected and utilized for analysis.
+    - In the variable favorites table, the menu for a specific variable will no longer be cut off once a certain set of variables list are exceeded.
+    - A 400 Error pop up window will no longer appear as the user transitions from the File List page to IGV browser page.
+    - The Public Data Availability section will no longer display any cut off if the user drags data type to the left of the page away from the panel itself, in detail page of existing cohort or the create new cohort page.
+    - When the user edits a cohort, details section will display which filter(s) were applied for each update.
+    - Cloud storage path in CSV file download for GA/BCGSC and GA/UNC V2 platforms can now be viewed.
+    - The menu bar will display existing list for variable favorites list, gene favorites list, cohorts, and workbooks with no cut off.
+    - When the user has selected a variable for the y-axis, the chart will display the selected variable in the charts.
+    - When the user clicks Save Changes when modifying an existing cohort the user can will no longer be spammed with multiple cohorts created at once when clicking the button multiple times within one second.
+    - The Save cohort Endpoint default example for v1 now works properly.
+    - For the cohort_list API endpoint v1 will now pull only the cohort_id you specified.
+
+
 *  **June 8, 2016**: `v1.4 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.4>`_
     
     **Known issues in Sprint 5**
