@@ -1,0 +1,14 @@
+{
+  "cohorts_create": "https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.cohorts.create?name=COHORT%20NAME%20HERE&resource=%257B%250A++%2522Study%2522%253A+%250A++%255B%2522UCS%2522%250A++%255D%250A%257D&",
+  "cohorts_cloud_storage_file_paths": "https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.cohorts.cloud_storage_file_paths?cohort_id=1&limit=10&",
+  "cohorts_delete": "https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.cohorts.delete?cohort_id=COHORT%20ID%20HERE&",
+  "cohorts_get": "https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.cohorts.get?cohort_id=1&",
+  "cohorts_googlegenomics": "https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.cohorts.googlegenomics?cohort_id=COHORT%20ID%20HERE&",
+  "cohorts_list": "https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.cohorts.list?",
+  "cohorts_preview": "https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.cohorts.preview?resource=%257B%250A++%2522Study%2522%253A+%250A++%255B%2522BRCA%2522%252C%2522UCS%2522%250A++%255D%252C%250A++%2522age_at_initial_pathologic_diagnosis_lte%2522%253A+%252230%2522%250A%257D&",
+  "patients_get": "https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.patients.get?patient_barcode=TCGA-ZH-A8Y6&",
+  "samples_cloud_storage_file_paths": "https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.samples.cloud_storage_file_paths?sample_barcode=TCGA-ZH-A8Y6-01A&platform=Genome_Wide_SNP_6&",
+  "samples_get": "https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.samples.get?sample_barcode=TCGA-ZH-A8Y6-01A&",
+  "samples_googlegenomics": "https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.samples.googlegenomics?sample_barcode=CCLE-SU-DHL-5-RNA-08&",
+  "users_get": "https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.users.get?"
+}

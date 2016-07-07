@@ -1,0 +1,14 @@
+{
+  "cohorts_create": "python isb_curl.py \"https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts/create?name={COHORT NAME}\" -H \"Content-Type: application/json\" -d '{\"Study\": [\"UCS\", \"CESC\"], \"age_at_initial_pathologic_diagnosis_lte\": \"60\"}'",
+  "cohorts_cloud_storage_file_paths": "python isb_curl.py https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts/{COHORT ID}/cloud_storage_file_paths",
+  "cohorts_delete": "python isb_curl.py https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts/{COHORT ID} -X DELETE",
+  "cohorts_get": "python isb_curl.py https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts/{COHORT ID}",
+  "cohorts_googlegenomics": "python isb_curl.py https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts/{COHORT ID}/googlegenomics",
+  "cohorts_list": "$ python isb_curl.py https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts",
+  "cohorts_preview": "curl https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts/preview -H \"Content-Type: application/json\" -d '{\"Study\": [\"UCS\", \"CESC\"], \"age_at_initial_pathologic_diagnosis_lte\": \"60\"}'",
+  "patients_get": "curl https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/patients/TCGA-ZH-A8Y6",
+  "samples_cloud_storage_file_paths": "curl https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/samples/TCGA-W5-AA2O-10A/cloud_storage_file_paths",
+  "samples_get": "curl https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/samples/TCGA-ZH-A8Y6-1A",
+  "samples_googlegenomics": "curl https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/samples/CCLE-SU-DHL-5-RNA-08/googlegenomics",
+  "users_get": "python isb_curl.py https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/users"
+}
