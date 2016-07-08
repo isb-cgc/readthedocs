@@ -10,7 +10,6 @@ annotation datasets in different appropriate Google Cloud technologies.
 
    data/TCGA-Data
    data/TCGA_on_ISBCGC
-   data/BQ_ETL
    data/Reference-Data
    data/Releases-Plus
 
