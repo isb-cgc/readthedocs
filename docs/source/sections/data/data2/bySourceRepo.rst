@@ -24,21 +24,31 @@ based on our most recent upload.
 
 Note that all "bio" archives (containing clinical, biospecimen, and other types of XML files) were recently migrated to a new
 XSD which is not backwards compatible with the previous XSD.  This update took place over the course of the 
-month of December 2015 and  none of these new archives are included in any of the current ISB-CGC BigQuery tables or files in GCS.
+month of December 2015 and  none of these new archives are currently included in any of the current ISB-CGC BigQuery tables or files in GCS.
 
 TCGA Data at CGHub
 ==================
 
 The complete 
-`listing <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/GCS_listing.v3.tsv>`_
-of the TCGA data files from CGHub that are currently available in Google Cloud Storage (GCS)
+`listing <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/GCS_listing.v4.tsv>`_
+of the (over 87,000) TCGA data files from CGHub that are currently available in Google Cloud Storage (GCS)
 contains the following four columns of information: 
 
 * unique CGHub id for the file, 
 * the TCGA aliquot barcode,
-* the partial GCS object path, and
+* the GCS object path, and
 * the size of the file in bytes.
 
-The latest complete CGHub manifest can be 
-`downloaded directly from CGHub <https://cghub.ucsc.edu/reports/SUMMARY_STATS/LATEST_MANIFEST.tsv>`_ (72 MB spreadsheet).
+The final complete CGHub manifest (downloaded in early July, just before CGHub shut down) is also 
+`available <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/LATEST_MANIFEST.tsv>`_
+
+TCGA Data at the GDC
+====================
+
+In July (2016), both the DCC and CGHub are scheduled to be shut down.  The official repository for all
+NCI datasets, including the TCGA data is now the NCI `Genomic Data Commons <https://gdc.nci.nih.gov/>`_,
+and moving forward, the ISB-CGC will be switching over to using the GDC as the official source repository 
+of all new data, including the new "harmonized" TCGA data, realigned and reprocessed 
+using the GRCh38 assembly (aka hg38).
+
 
