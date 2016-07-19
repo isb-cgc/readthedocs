@@ -35,7 +35,7 @@ Filters are "ANDed" together, meaning that selecting two filters means that the 
 
 Cohort Filters
 --------------
-The panel on the left of the screen, with two tabs called "DONOR" and "DATA TYPE" allow you to apply filters to the cohorts your are creating.  Below are the details of each tab.
+The panel on the left of the screen, with two tabs called "DONOR" and "DATA TYPE" allow you to apply filters to the cohorts your are creating.  Below are the details of each tab. The Donor panel filter count is interactive in real time annd reflects the count for which filters have samples associated with filters already slected. 
 
 Donor Tab
 ^^^^^^^^^
@@ -237,6 +237,8 @@ contains the following information for each file:
 * Pipeline
 * Data Level
 * File Path to the Cloud Storage Location
+
+Because of the number of files that can be in a cohort, we need to limit the number downloadable in a CSV file to 65000.  If it is more, you will be asked to use the platform panel to filter your list to a number below 65000.  By creating multiple download lists across subsets of platforms you can cover a large number of files.
 
 Viewing a Sequence
 ==================

@@ -7,9 +7,11 @@ Accessing the IGV Browser
 
 To access IGV, go to the cohort file list page (through the "View Files" link at the top of the page). The file listing table includes a column labelled "IGV".
 
-For those files that also have a ReadGroupSet ID in Google Genomics, a "GA4GH" label with a checkbox will appear in the column.  For those files that are available in cloud storage, a "Cloud Storage" label witha checkbox will appear in the column.  You can selecting the files you want to view at the same time in the IGV viewer through selecting the relevant checkboxes on possibly multiple pages of files.  Once you have selected the appropriate files to view in the IGV viewer, pressing the "Launch IGV" button will launch the IGV viewer.
+For those files that also have a ReadGroupSet ID in Google Genomics, a "GA4GH" label with a checkbox will appear in the column.  For those files that are available in cloud storage, a "Cloud Storage" label with a checkbox will appear in the column. A user can only select the cloud storage checkbox if he or she has been authenticated and authorized through the user details page. Otherwise the user can view the cloud storage checkbox but there will be a disabled cursor icon when the user hovers over in an attempt to select the checkbox. You can select a maximum of five files you want to view at the same time in the IGV viewer through selecting the relevant checkboxes on possibly multiple pages of files.  Once you have selected the appropriate files to view in the IGV viewer, pressing the "Launch IGV" button will launch the IGV viewer.
 
-NOTE:  You will only be able to view controlled access sequence files if you have `logged in as a registered dbGaP authorized user <Gaining-Access-To-TCGA-Contolled-Access-Data.html>`_.
+NOTES:
+ - You will only be able to view controlled access sequence files if you have `logged in as a registered dbGaP authorized user <Gaining-Access-To-TCGA-Contolled-Access-Data.html>`_.
+ - You will need to disable your browser pop-up blocker to view files with IGV.  If you see a 403 error when using the IGV viewer, the pop-up blocker is the cause of that error.  Turn off the blocker and try again.
 
 ("ReadGroupSet" is a GA4GH term for a group of aligned DNA- or RNA-seq reads, 
 typically from a single sample or a single BAM file.
