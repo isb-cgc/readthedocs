@@ -23,7 +23,7 @@ The following datasets are currently publicly-accessible:
 TCGA Data and Metadata
 ======================
 
-- **isb-cgc:tcga_201510_alpha**
+- `**isb-cgc:tcga_201510_alpha** <https://bigquery.cloud.google.com/dataset/isb-cgc:tcga_201510_alpha>`_: This dataset contains one table for each of the major datatypes and/or platforms.  All tables include one or more of the following identifiers which can be used for performing cross-table JOINs: ``ParticipantBarcode``, ``SampleBarcode``, and ``AliquotBarcode``.
 
 - **isb-cgc:tcga_cohorts**
 
@@ -41,8 +41,8 @@ CCLE Data
 
 - **isb-cgc:ccle_201602_alpha**
 
-ETL for BigQuery Tables
-#######################
+ETL Details for TCGA Data
+#########################
 
 The open-access TCGA data has been uploaded into a set of consistent tables
 in the publicly-accessible BigQuery dataset called ``isb-cgc:tcga_201510_alpha``,
