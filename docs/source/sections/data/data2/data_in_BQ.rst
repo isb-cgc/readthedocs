@@ -23,7 +23,7 @@ The following datasets are currently publicly-accessible:
 TCGA Data and Metadata
 ======================
 
-- `**isb-cgc:tcga_201510_alpha** <https://bigquery.cloud.google.com/dataset/isb-cgc:tcga_201510_alpha>`_: This dataset contains one table for each of the major datatypes and/or platforms.  All tables include one or more of the following identifiers which can be used for performing cross-table JOINs: ``ParticipantBarcode``, ``SampleBarcode``, and ``AliquotBarcode``.
+- `isb-cgc:tcga_201510_alpha <https://bigquery.cloud.google.com/dataset/isb-cgc:tcga_201510_alpha>`_: This dataset contains one table for each of the major datatypes and/or platforms.  All tables include one or more of the following identifiers which can be used for performing cross-table JOINs: ``ParticipantBarcode``, ``SampleBarcode``, and ``AliquotBarcode``.
 
 - **isb-cgc:tcga_cohorts**
 
