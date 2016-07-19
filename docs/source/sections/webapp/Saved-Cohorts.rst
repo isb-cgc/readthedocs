@@ -3,7 +3,7 @@ Saved Cohorts
 *******************
 
 Cohorts are a way of creating custom groupings of the samples and/or participants that you are 
-interested in analyzing further.  You may frequently re-use a cohort in multiple analyses.  Creating a "saved cohort" allows you to do this.  If you have existing saved cohorts, they will be appear here for you to view, edit and share (see below for details).
+interested in analyzing further.  You may frequently re-use a cohort in multiple analyses.  Creating a "saved cohort" allows you to do this.  If you have any existing saved cohorts, they will appear here for you to view, edit and share (see below for details).
 
 Creating and saving a cohort
 ############################
