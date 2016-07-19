@@ -18,7 +18,8 @@ is made up of multiple tables.
 Datasets are uniquely identified based on the project name and the dataset name, separated by a colon, 
 *eg* ``isb-cgc:tcga_201510_alpha``.  Tables are uniquely identified by appending the table name,
 preceded by a period, *eg* ``isb-cgc:tcga_201510_alpha.Clinical``.
-The following datasets are currently publicly-accessible:
+The following sections describe each of the major datasets that are currently publicly-accessible, 
+and the tables that each one contains.
 
 TCGA Data and Metadata
 ======================
