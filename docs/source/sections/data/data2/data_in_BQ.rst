@@ -10,6 +10,36 @@ a series of BigQuery tables.  For more details, including tutorials and code exa
 This `introductory tutorial <https://github.com/isb-cgc/examples-Python/blob/master/notebooks/The%20ISB-CGC%20open-access%20TCGA%20tables%20in%20BigQuery.ipynb>`_
 gives a great overview of all of the tables and pointers on how to get started exploring them.  Be sure to check it out!
 
+BigQuery Data Overview
+######################
+
+Data made available by the ISB-CGC through BigQuery is organized into several datasets, where a dataset
+is made up of multiple tables.  
+Datasets are uniquely identified based on the project name and the dataset name, separated by a colon, 
+*eg* ``isb-cgc:tcga_201510_alpha``.  Tables are uniquely identified by appending the table name,
+preceded by a period, *eg* ``isb-cgc:tcga_201510_alpha.Clinical``.
+The following datasets are currently publicly-accessible:
+
+TCGA Data and Metadata
+======================
+
+- **isb-cgc:tcga_201510_alpha**
+
+- **isb-cgc:tcga_cohorts**
+
+- **isb-cgc:tcga_seq_metadata**
+
+Reference Data
+==============
+
+- **isb-cgc:genome_reference**
+
+- **isb-cgc:platform_reference**
+
+CCLE Data
+=========
+
+- **isb-cgc:ccle_201602_alpha**
 
 ETL for BigQuery Tables
 #######################
@@ -51,7 +81,7 @@ formatting and data curation:
    aliquot barcode and the Level-3 data file(s).
 
 Major Data Types
-################
+================
 
 .. toctree::
    :maxdepth: 1
