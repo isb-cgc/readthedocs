@@ -19,7 +19,7 @@ Cohort Creation Page
 ====================
 
 Using the provided list of filters on the left hand side, you can select the attributes and features
-that you are interested in.  Note that the TCGA project is selected by default as this is the dataset that the majority of researchers are familiar with.  CCLE (The Cancer Cell Line Encyclopedia) data is also available if desired.
+that you are interested in.  Note that the TCGA project is selected by default as this is the dataset that the majority of researchers are familiar with.  CCLE (The Cancer Cell Line Encyclopedia) data is also available if desired - this is open access data set that can be used to view sequence data with the IGV viewer without having dbGaP permissions.
 
 By clicking on a feature, the field will expand and provide you with additional filtering options.
 For example, when you click on "Vital Status", it expands and provides a list containing "Alive", "Dead", and
@@ -31,11 +31,11 @@ The numbers beside the selectable
 filter values reflect the number of samples that have that attribute based on all other filters that
 have been selected.
 
-Filters are "ANDed" together, meaning that selecting two filters means that the participants and samples are created based on both filters being executed.  There may be cases where you have 0 participants and samples, because the combination of filters you have chosen are ALL not present (AND function).
+Individual selections in a filter are "ORed" together, meaning if any of the selected conditions are met they will be in the filter.  Filters are "ANDed" together, meaning that selecting two filters means that the participants and samples are created based on both filters being executed.  There may be cases where you have 0 participants and samples, because the combination of filters you have chosen are ALL not present (AND function).
 
 Cohort Filters
 --------------
-The panel on the left of the screen, with two tabs called "DONOR" and "DATA TYPE" allow you to apply filters to the cohorts your are creating.  Below are the details of each tab. The Donor panel filter count is interactive in real time annd reflects the count for which filters have samples associated with filters already slected. 
+The panel on the left of the screen, with two tabs called "DONOR" and "DATA TYPE" allow you to apply filters to the cohorts your are creating.  Below are the details of each tab.
 
 Donor Tab
 ^^^^^^^^^
@@ -53,6 +53,8 @@ Donor Tab
     * Tumor Status
     * New Tumor Event After Initial Treatment
     * Histological Grade
+    * BMI (Body Mass Index)
+    * HPV Status
     * Residual Tumor
     * Tobacco Smoking History
     * ICD-10
@@ -79,7 +81,7 @@ Selected Filters Panel
 
 This is where selected filters are shown so there is an easy way to see what filters have been selected.
 
-If you have not saved the cohort yet, clicking on “Clear All” will remove all selected filters.  Also, if you have not saved the cohort yet, selecting an X beside a single filter will remove that filter.  If you have saved the filter, the X is not present as this function is disabled in saved cohorts.
+If you have not saved the cohort yet, clicking on “Clear All” will remove all selected filters.  Also, if you have not saved the cohort yet, selecting an X beside a single filter will remove that filter.  If you have saved the cohort, the X is not present as this function is disabled in saved cohorts (to add back to an existing cohort, you can use set operations - see below).
 
 Details Panel
 ^^^^^^^^^^^^^
@@ -126,7 +128,7 @@ Once you have created a "Saved Cohort" you can view and edit it.  To view a coho
 
 When you have gone to the "Cohorts" page, you will be shown details of the cohort on the "SAVED COHORTS" tab.  The "PUBLIC COHORTS" tab shows public cohorts that are commonly selected.  Public cohorts can be used for a "New Workbook" and "Set Operations".
 
-From the "COHORTS" page you can:
+From the "COHORTS" page you can select:
 
 * New Workbook: Pushing this button creates a New Workbook using the selected Cohorts
 * Delete: Allows you to delete selected cohort(s) (if you confirm by clicking the second delete button presented)
@@ -173,17 +175,17 @@ From the "SAVED COHORTS" tab you can:
 * Download IDs: Provides a list of sample and participant IDs in the cohort
 * Share: A dialogue box appears and the user is prompted to select registered users to share the cohort with.
 
-Selected Filters Panel
+Current Filters Panel
 ----------------------
 
-This panel displays any filters that have been used on the cohort or any of its ancestors. These cannot be modified.  To add  additional filters to this list use the Edit button.
+This panel displays current filters that have been used on the cohort or any of its ancestors. These cannot be modified.  To add additional filters to this list use the Edit button.
 
 Details Panel
 -------------
 
-This panel displays the number of samples and participants in this cohort. The number of samples may be larger than the number of participants because some participants may have
+This panel displays the Internal ISB-CGC Cohort ID (the identifier you use to programatically use this cohort through our APIs), and the number of samples and participants in this cohort. The number of samples may be larger than the number of participants because some participants may have
 provided multiple samples.
-This panel also displays "Your Permissions" which can be either owner or reader, as well as revision history.
+This panel also displays "Your Permissions" which can be either owner or reader, as well as revision history.  If you have edited the cohort, the fiters that were used to originally create the cohort are displayed under the "Creation Filters" label, the newly applied filters since original creation are displayed under the "Applied Filters" label.
 
 Clinical Features Panel
 -----------------------
@@ -221,14 +223,14 @@ You can use the "Previous Page" and "Next Page" buttons to see more values in th
 You may filter on these files if you are only interested in a specific data type and platform. Selecting a filter will
 update the associated list. The numbers next to the platform refers to the number of files available for that platform.
 
-If there are open access files that contain read-level data, you will be able to select files to view in the IGV 
-viewer by selecting check boxes beside the viewer and selecting "VIEW IGV Viewer".  Only if you have authenticated 
-as a dbGaP authorized user will you be able to select controlled access files to view in the IGV viewer.
+If there are files that contain read-level data, you will be able to select files to view in the IGV 
+viewer by selecting check boxes beside the viewer and selecting "Launch IGV" button.  Only if you have authenticated 
+as a dbGaP authorized user will you be able to select controlled access files to view in the IGV viewer (CCLE data does not require authorization to view the sequence data in the IGV viewer).
 
 Download File List as CSV
 -------------------------
 
-To download a list of files that are part of this cohort, select the menu button in the upper right on the File Listing page and select the "Download File List as CSV". This will begin a
+To download a list of files that are part of this cohort, select the link in the upper right on the File Listing panel called "Download File List as CSV". This will begin a
 download process of all the files available for the cohort, taking into account the selected Platform filters. The file
 contains the following information for each file:
 
@@ -237,14 +239,13 @@ contains the following information for each file:
 * Pipeline
 * Data Level
 * File Path to the Cloud Storage Location
-
-Because of the number of files that can be in a cohort, we need to limit the number downloadable in a CSV file to 65000.  If it is more, you will be asked to use the platform panel to filter your list to a number below 65000.  By creating multiple download lists across subsets of platforms you can cover a large number of files.
+* Access type (open or controlled access)
 
 Viewing a Sequence
 ==================
 
 When available, sequences in a cohort can be viewed using the IGV viewer.  To find those sequences that can be viewed with the IGV viewer, open a cohort and select the "View Files" button at the top of the page.  The files associated with your cohort will be shown, with the last column indicating if the IGV viewer can be used to view the contents of that file.
-This is indicated by a checkbox beside either "GA4GH" or "Cloud Storage"  and "Go to IGV").  Clicking the "Go to IGV" button will take you to an IGV view of the selected sequence data.  
+This is indicated by a checkbox beside either "GA4GH" and/or "Cloud Storage").  Clicking the "Launch IGV" button will take you to an IGV view of the selected sequence(s) data.  
 Controlled access files will be viewable by sequence ONLY if you have `authenticated as a dbGaP-authorized user <Gaining-Access-To-TCGA-Contolled-Access-Data.html>`_. 
 
 (`more information about Viewing a Sequence in the IGV Viewer <IGV-Browser.html>`_).
