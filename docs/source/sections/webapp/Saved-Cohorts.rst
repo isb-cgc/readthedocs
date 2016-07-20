@@ -183,7 +183,7 @@ This panel displays current filters that have been used on the cohort or any of 
 Details Panel
 -------------
 
-This panel displays the Internal ISB-CGC Cohort ID (the identifier you use to programatically use this cohort through our `APIs <progapi/Programmatic-API.html#id4>`_ ), and the number of samples and participants in this cohort. The number of samples may be larger than the number of participants because some participants may have
+This panel displays the Internal ISB-CGC Cohort ID (the identifier you use to programatically use this cohort through our `APIs <../progapi/Programmatic-API.html#id4>`_ ), and the number of samples and participants in this cohort. The number of samples may be larger than the number of participants because some participants may have
 provided multiple samples.
 This panel also displays "Your Permissions" which can be either owner or reader, as well as revision history.  If you have edited the cohort, the fiters that were used to originally create the cohort are displayed under the "Creation Filters" label, the newly applied filters since original creation are displayed under the "Applied Filters" label.
 
