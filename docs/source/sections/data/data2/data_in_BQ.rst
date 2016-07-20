@@ -275,8 +275,8 @@ formatting and data curation:
    data archive) was parsed to find the correct association between the
    aliquot barcode and the Level-3 data file(s).
 
-Major Data Types
-================
+ETL Data-Type Specific Details
+==============================
 
 .. toctree::
    :maxdepth: 1
