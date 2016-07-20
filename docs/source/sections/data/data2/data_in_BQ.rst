@@ -110,8 +110,7 @@ TCGA Data and Metadata
     and many (though not all) of the resulting annotation fields were included in this table.  Since multiple
     MAF files are sometimes available for a single tumor type, duplicate mutation calls may exist in this table.
     The next iteration of this table should correct this known issue.
-
-
+   
 - `isb-cgc:tcga_cohorts <https://bigquery.cloud.google.com/dataset/isb-cgc:tcga_cohorts>`_: 
   This dataset contains a series of curated cohorts, one for each of the 33 TCGA tumor types, named 
   according to the tumor abbreviation, *eg* BRCA.  A "cohort" is defined as a paired list of patient- 
@@ -123,7 +122,7 @@ TCGA Data and Metadata
   BRCA patients will return 1097 patients, and a similar query of the Biospecimen_data table for all 
   BRCA samples will return 2293 samples.  The Annotation table contains annotations of one type or 
   another for 39 BRCA patients, 2 BRCA samples, 18 BRCA analytes, and 71 BRCA aliquots.
-
+   
 - `isb-cgc:tcga_seq_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:tcga_seq_metadata>`_: 
   This dataset contains several tables that provide metadata associated with TCGA *sequence* data files.  
   In alphabetical order by name, these tables are:
@@ -186,7 +185,7 @@ Reference Data
   + `Ensembl2Reactome_plusN <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.Ensembl2Reactome_plusN>`_ 
 
   + `Kaviar_160113_Public_hg19 <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.Kaviar_160113_Public_hg19>`_ 
-  
+    
 - `isb-cgc:platform_reference <https://bigquery.cloud.google.com/dataset/isb-cgc:platform_reference>`_: 
   This dataset currently contains only one table: the ``methylation_annotation`` table which contains
   detailed information about the Illumina HumanMethylation 27k and 450k platforms.  The ``Probe_id``
@@ -217,15 +216,15 @@ Other Publicly Available Tables
 
 Google and other institutions also host datasets of interest in BigQuery.  This is not an exhaustive
 list, but a few datasets that may be of particular interest are owned by the following projects:
-
+   
 - `genomics-public-data <https://bigquery.cloud.google.com/queries/genomics-public-data>`_ 
   which includes, for example, the 
   `platinum_genomics.variants table <https://bigquery.cloud.google.com/table/genomics-public-data:platinum_genomes.variants>`_
-
+   
 - `google.com:biggene <https://bigquery.cloud.google.com/queries/google.com:biggene>`_
   which includes, for example, the
   `ExAC 0.2 variants table <https://bigquery.cloud.google.com/table/google.com:biggene:ExAC_release_0_2.reshaped_variants>`_
-
+   
 - `silver-wall-555 <https://bigquery.cloud.google.com/queries/silver-wall-555>`_ 
   which includes a 
   `table <https://bigquery.cloud.google.com/table/silver-wall-555:TuteTable.hg19>`_ 
@@ -256,17 +255,22 @@ formatting and data curation:
    the original file could not be detected, that character was ignored.
    Character encodings were detected using the Python
    library `Chardet <https://www.google.com/url?q=https://pypi.python.org/pypi/chardet&sa=D&usg=AFQjCNEqIpFiwf3f-ynJmNtP1ZqXe-TvRg>`_.
+
 -  All missing information value strings such as: ``none``, ``None``,
    ``NONE``, ``null``, ``Null``, ``NULL``, , ``NA``, ``\_\_UNKNOWN\_\_``, ``<blank>``
    , and ``?``; are represented as NULL values in the BigQuery
    tables (or may not appear at all, depending on the table schema).
+
 -  Numbers are stored as integer or floating point values.  The original ASCII
    files sometimes used scientific notation or included comma separators, but
    these are not preserved in the BigQuery tables.
+
 -  End of File (EOF) and End of Line (EOL) delimiters, including
    CTRL-M characters, were all removed when the raw files were originally parsed.
+
 -  Single and double quotes around the values were removed, but in cases where
    there were quotation marks within a string, they were not removed.
+
 -  Whenever necessary, the SDRF file (in the mage-tab archive associated with each
    data archive) was parsed to find the correct association between the
    aliquot barcode and the Level-3 data file(s).
