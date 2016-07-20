@@ -19,6 +19,12 @@ please let us know (feedback@isb-cgc.org) and we will try to make that happen.
 BigQuery Data Overview
 ######################
 
+.. image:: BQ-layout2b-20jul2016.png
+   :scale: 75
+   :align: center
+
+..
+
 Data made available by the ISB-CGC through BigQuery is organized into several datasets, where a dataset
 is made up of multiple tables.  
 Datasets are uniquely identified based on the project name and the dataset name, separated by a colon, 
