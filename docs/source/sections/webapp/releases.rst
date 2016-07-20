@@ -2,6 +2,42 @@
 Release Notes
 *************
 
+*  **July 20, 2016**: `v1.6 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.6>`_
+    
+    **Known issues in Sprint 7**
+    
+    - The user can add same gene twice if two identical worksheets with different names are uploaded.
+    - The Bar chart on the worksheet panel renders overlapping text.
+    - User cannot delete whom you share cohort with from existing cohorts table.
+    - Analysis Type : Seq peek Formatting Elongated.
+    - The CCLE data in GUI is not parallel to the CCLE data in BigQuery.
+    - If a user creates a cohort with sample type filter Cell Lines and CCLE the total number of samples count off by one.
+    - Histological Type entries in create new cohort page on the user interface should match the Google BigQuery entries in terms of capitalization.
+    - When a user sets a cohort as Color by feature for violin plot legend will remain cohort.
+    - After 24 hour dbGaP authorization runs out the user is unable to re authenticate. (If you have this issue, please log out and log back in to be prompted with login link for dbGaP authorization.)
+
+    **Issues resolved in Sprint 6**
+
+    New Enhancements
+    
+    - Created ability in GUI to make cohorts based on presence of an HPV status.
+    - Created ability in GUI to make cohorts based on BMI value.
+    - In the details panel for existing cohort have a section that shows the ISB-CGC cohort_id.
+    - Enhancements of GUI to view submenu item in different screen sizes and resolutions.
+    - New version of IGV javascript installed.
+
+    Bug Fixes
+
+    - User can no longer add same filter to existing cohorts.
+    - Optimized Security in the user interface.
+    - If a user opens a shared cohort it will appear once on the dashboard.
+    - Pathologic State Filter in create cohort Stage is displayed capitalized.
+    - Filter counts with 0 value do list when editing a pre-existing cohort.
+    - Filters for data type counting in left panel is working properly.
+    - After 24 hour dbGaP authorization runs out the user is able to re authenticate.
+    - User can not create new gene list without giving the gene list a name.
+
+
 *  **July 6, 2016**: `v1.5 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.5>`_
     
     **Known issues in Sprint 6**
