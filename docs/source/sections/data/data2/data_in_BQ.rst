@@ -57,7 +57,7 @@ for each methylation probe, and then that can be used to map to the copy-number
 segment(s) that contain that position.
 
 .. image:: meth-to-cn-map.png
-   :scale: 75
+   :scale: 35
    :align: center
 
 ..
