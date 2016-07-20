@@ -46,15 +46,19 @@ chromosomal coordinates, and some include both (*eg* the somatic mutation calls 
 ..
 
 If you want to map DNA methylation data onto copy-number data, you will need to perform
-multiple JOINs.  The figure below isolates these two tables from the larger diagram above
-to make the relationships easier to see.
+multiple JOINs.  The figure below isolates these two specific TCGA data tables 
+from the larger diagram above to make the relationships easier to see.
 
-Both tables contain sample barcodes so that you'll be able to JOIN information
-that pertains to the same sample in the same output row.  However, neither the
-copy-number nor the methylation table contain a direct map to a gene symbol.
-The methylation annotation table can be used to find the chromosomal coordinate
-for each methylation probe, and then that can be used to map to the copy-number
-segment(s) that contain that position.
+Both TCGA data tables (the red nodes) contain sample barcodes, allowing 
+information from each table that pertains to the same sample to be merged into
+a single output row by a JOIN operation.
+However, neither the copy-number nor the methylation table schemas include a
+field with a gene symbol which is another common way to JOIN one molecular data
+table to another.  
+Instead, the methylation annotation table (yellow node) can be used to find the 
+chromosomal coordinate for each methylation probe (by performing a JOIN operation 
+on the probe id), and then the chromosomal coordinate of the probe can be used to 
+find relevant copy-number segments in the copy-number table.
 
 .. image:: meth-to-cn-map.png
    :scale: 35
