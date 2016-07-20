@@ -128,7 +128,7 @@ TCGA Data and Metadata
   This dataset contains several tables that provide metadata associated with TCGA *sequence* data files.  
   In alphabetical order by name, these tables are:
 
-  + `CGHub_Manifest_24jun2016 <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.CGHub_Manifest_24jun2016`_: 
+  + `CGHub_Manifest_24jun2016 <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.CGHub_Manifest_24jun2016>`_: 
     This table is based on the final "LATEST_MANIFEST" table obtained from CGHub prior to the shutdown of 
     that data repository, and includes information about over 128,000 files.  Most of these files are TCGA 
     data files, but other projects are represented as well, such as TARGET, and the "TCGA MC3 VARIANT CALLING PROJECT".  
@@ -137,7 +137,7 @@ TCGA Data and Metadata
     here for reference purposes.  The important identifier in this table is the ``analysis_id`` -- 
     this is the UUID assigned by CGHub to this particular data file.
 
-  + `GCS_listing_24jun2016 <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.GCS_listing_24jun2016`_: 
+  + `GCS_listing_24jun2016 <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.GCS_listing_24jun2016>`_: 
     This table contains metadata about all TCGA sequence data files (bam and fastq) that *are* being hosted by the 
     ISB-CGC in Google Cloud Storage (GCS).  The important identifiers in this table include the ``CGHubAnalysisID`` 
     and the ``AliquotBarcode``.  You can also find the full url to the object in GCS in this table 
@@ -145,13 +145,13 @@ TCGA Data and Metadata
     **Note** that you will *not* be able to actually *access* these data files unless you have prior 
     dbGaP authorization and have gone through the necessary authentication process in the ISB-CGC web app.
 
-  + `RNAseq_FastQC <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.RNAseq_FastQC`_: 
+  + `RNAseq_FastQC <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.RNAseq_FastQC>`_: 
     This table contains metrics derived from running FastQC on all TCGA RNAseq fastq data files hosted by 
     the ISB-CGC.  Included in this table are urls to the FastQC html reports that you can copy-and-paste 
     directly into your browser (field name ``FastQC_html_url``, 
     `example <https://storage.cloud.google.com/isb-cgc-open/tcga-qc/KIRP/RNA/RNA-Seq/UNC-LCCC/ILLUMINA/00065a62-5e18-4223-a884-12fca053a109-140516_UNC12-SN629_0369_AC4GGKACXX_GGCTAC_L002_1_fastqc.html>`_). 
 
-  + `WXS_FastQC <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.WXS_FastQC`_: 
+  + `WXS_FastQC <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.WXS_FastQC>`_: 
     This table contains metrics derived from running FastQC on all TCGA WXS bam files hosted by the ISB-CGC.  
     Included in this table are urls to the FastQC html reports that you can copy-and-paste directly into your 
     browser (field name ``FastQC_html_url``, 
@@ -167,25 +167,25 @@ Reference Data
   here, with links to the view in the BigQuery web UI.  Each table should include a description
   and reference to the original information source.
 
-  + `GENCODE_r19 <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.GENCODE_r19`_ 
+  + `GENCODE_r19 <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.GENCODE_r19>`_ 
 
-  + `GENCODE_r24 <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.GENCODE_r24`_ 
+  + `GENCODE_r24 <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.GENCODE_r24>`_ 
 
-  + `GO_Annotations <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.GO_Annotations`_ 
+  + `GO_Annotations <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.GO_Annotations>`_ 
 
-  + `GO_Ontology <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.GO_Ontology`_ 
+  + `GO_Ontology <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.GO_Ontology>`_ 
 
-  + `mirBase_v20 <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.mirBase_v20`_ 
+  + `mirBase_v20 <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.mirBase_v20>`_ 
 
-  + `miRTarBase <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.miRTarBase`_ 
+  + `miRTarBase <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.miRTarBase>`_ 
 
-  + `miRBase2Reactome <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.miRBase2Reactome`_ 
+  + `miRBase2Reactome <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.miRBase2Reactome>`_ 
 
-  + `Ensembl2Reactome <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.Ensembl2Reactome`_ 
+  + `Ensembl2Reactome <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.Ensembl2Reactome>`_ 
 
-  + `Ensembl2Reactome_plusN <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.Ensembl2Reactome_plusN`_ 
+  + `Ensembl2Reactome_plusN <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.Ensembl2Reactome_plusN>`_ 
 
-  + `Kaviar_160113_Public_hg19 <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.Kaviar_160113_Public_hg19`_ 
+  + `Kaviar_160113_Public_hg19 <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.Kaviar_160113_Public_hg19>`_ 
   
 - `isb-cgc:platform_reference <https://bigquery.cloud.google.com/dataset/isb-cgc:platform_reference>`_: 
   This dataset currently contains only one table: the ``methylation_annotation`` table which contains
@@ -199,11 +199,17 @@ CCLE Data
 - `isb-cgc:ccle_201602_alpha <https://bigquery.cloud.google.com/dataset/isb-cgc:ccle_201602_alpha>`_: 
   This dataset contains a series of tables based on various CCLE datasources.  Our goal is to
   provide a companion set of tables as similar as possible to the TCGA data tables.  Briefly:
+
   + `AffyU133_RMA_expression <https://bigquery.cloud.google.com/table/isb-cgc:ccle_201602_alpha.AffyU133_RMA_expression>`_ contains gene expression data for 926 cell-line samples, across ~18,000 genes.
+
   + `Copy_Number_segments <https://bigquery.cloud.google.com/table/isb-cgc:ccle_201602_alpha.Copy_Number_segments>`_ contains copy-number segments identified based on SNP-array data for 909 cell-line samples.
+
   + `DataFile_info <https://bigquery.cloud.google.com/table/isb-cgc:ccle_201602_alpha.DataFile_info>`_ contains information about the various CCLE datafiles available in Google Cloud Storage (GCS).  All files, both SNP CEL files and bam files are open-access.  Comparable TCGA data files required dbGaP authorization.
+
   + `fastqc_metrics <https://bigquery.cloud.google.com/table/isb-cgc:ccle_201602_alpha.fastqc_metrics>`_ contains metrics obtained from FastQC.
+
   + `Mutation_calls <https://bigquery.cloud.google.com/table/isb-cgc:ccle_201602_alpha.Mutation_calls>`_ contains mutations and indels in 1651 genes, determined from targeted sequencing.
+
   + `Sample_information <https://bigquery.cloud.google.com/table/isb-cgc:ccle_201602_alpha.Sample_information>`_ contains cell-line metadata (*eg* gender, histology, source, *etc*).
 
 Other Publicly Available Tables
