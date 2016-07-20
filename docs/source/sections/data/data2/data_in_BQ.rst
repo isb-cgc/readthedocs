@@ -25,6 +25,9 @@ BigQuery Data Overview
 
 ..
 
+BigQuery Datasets and Tables
+============================
+
 Data made available by the ISB-CGC through BigQuery is organized into several datasets, where a dataset
 is made up of multiple tables.  
 Datasets are uniquely identified based on the project name and the dataset name, separated by a colon, 
@@ -52,16 +55,22 @@ TCGA Data and Metadata
     This table contains annotations and related information obtained from the 
     `TCGA Annotations Manager <https://wiki.nci.nih.gov/display/TCGA/TCGA+Annotations+Manager+User's+Guide>`_.
 
+..  
+
   + `Biospecimen_data <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.Biospecimen_data>`_: 
     This table is a *sample-centric* table, and contains one row of information for each of the (over 23,000) 
     TCGA samples.  Any given field in this table may be ``null`` for many samples, depending on the 
     sample-type or the tumor-type.
+
+..  
 
   + `Clinical_data <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.Clinical_data>`_: 
     This table is a *patient-centric* table, and contains one row of information for each of the 
     (over 11,000) patients who graciously donated samples to the TCGA project.  Any given field in 
     this table may be ``null`` for many patients, depending on tumor-type or data-availability.  
     For example, the field ``tobacco_smoking_history`` is available for only about 3,000 patients.
+
+..  
 
   + `Copy_Number_segments <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.Copy_Number_segments>`_: 
     This table contains all available Copy Number segmentation data across all TCGA samples.  
@@ -72,6 +81,8 @@ TCGA Data and Metadata
     provides the ``log2(CN/2)`` mean value estimate.  Values near 0 represent "normal" copy-number, 
     while larger positive values indicate *amplifications* and negative values indicate *deletions*.
 
+..  
+
   + `DNA_Methylation_betas <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.DNA_Methylation_betas>`_: 
     This table contains **all** of the DNA methlyation data for all TCGA samples assayed on either the 
     HumanMethylation 27k or 450k platforms.  Please note that this is a very **large** table 
@@ -79,6 +90,8 @@ TCGA Data and Metadata
     for a particular aliquot at a particular probe.  Details about a particular probe, based on the 
     ``Probe_Id`` field value (*eg* ``cg03879918``) can be obtained from the ``methylation_annotation`` 
     table described below.
+
+..  
 
   + `miRNA_expression <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.miRNA_expression>`_: 
     This table contains "mature microRNA" expression estimates based on the "premature miRNA" Level-3 data files.  
@@ -89,11 +102,15 @@ TCGA Data and Metadata
     and by ``mirna_accession`` (*eg* MIMAT0000435).  These fields correspond to the ``mature_miR_name`` 
     and ``accession_ID`` fields in the ``miRBase_v20`` table described below.
 
+..  
+
   + `mRNA_BCGSC_HiSeq_RPKM <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.mRNA_BCGSC_HiSeq_RPKM>`_: 
     This table contains gene expression data from samples that were originally processed at BCGSC on the Illumina 
     HiSeq platform.  The gene expression estimates are based on the BCGSC pipeline and are in RPKM.  Note that 
     only about 900 TCGA samples were processed in this way.  Most of the mRNA gene expression data was instead 
     produced by the UNC RSEM pipeline (see next table).
+
+..  
 
   + `mRNA_UNC_HiSeq_RSEM <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM>`_: 
     This table contains gene expression data from the ~10,000 samples assayed on the Illumina HiSeq platform and 
@@ -102,6 +119,8 @@ TCGA Data and Metadata
     ``original_gene_symbol`` (as originally given in the file submitted by UNC to the TCGA DCC), and 
     ``HGNC_gene_symbol`` (the most current HGNC-approved gene symbol at the time this table was created).  
     More details about specific genes can be obtained from the ``GENCODE_r19`` table described below.
+
+..  
 
   + `Protein_RPPA_data <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.Protein_RPPA_data>`_: 
     This table contains protein expression quantification estimates based on the RPPA (reverse phase protein array) 
@@ -112,12 +131,16 @@ TCGA Data and Metadata
     protein: ``Gene_Name`` (aka symbol), ``Protein_Name``, ``Protein_Basename``, and ``Phospho``.  
     Additional fields include the ``antibodySource`` and ``validationStatus``.
 
+..  
+
   + `Somatic_Mutation_calls <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.Somatic_Mutation_calls>`_: 
     This table contains all somatic mutations called across all TCGA tumor samples, based on aggregating all 
     of the MAF files available when this table was created.  Each mutation call was also annotated using Oncotator, 
     and many (though not all) of the resulting annotation fields were included in this table.  Since multiple
     MAF files are sometimes available for a single tumor type, duplicate mutation calls may exist in this table.
     The next iteration of this table should correct this known issue.
+
+..  
    
 - `isb-cgc:tcga_cohorts <https://bigquery.cloud.google.com/dataset/isb-cgc:tcga_cohorts>`_: 
   This dataset contains a series of curated cohorts, one for each of the 33 TCGA tumor types, named 
@@ -130,10 +153,14 @@ TCGA Data and Metadata
   BRCA patients will return 1097 patients, and a similar query of the Biospecimen_data table for all 
   BRCA samples will return 2293 samples.  The Annotation table contains annotations of one type or 
   another for 39 BRCA patients, 2 BRCA samples, 18 BRCA analytes, and 71 BRCA aliquots.
+
+..  
    
 - `isb-cgc:tcga_seq_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:tcga_seq_metadata>`_: 
   This dataset contains several tables that provide metadata associated with TCGA *sequence* data files.  
   In alphabetical order by name, these tables are:
+
+..  
 
   + `CGHub_Manifest_24jun2016 <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.CGHub_Manifest_24jun2016>`_: 
     This table is based on the final "LATEST_MANIFEST" table obtained from CGHub prior to the shutdown of 
@@ -144,6 +171,8 @@ TCGA Data and Metadata
     here for reference purposes.  The important identifier in this table is the ``analysis_id`` -- 
     this is the UUID assigned by CGHub to this particular data file.
 
+..  
+
   + `GCS_listing_24jun2016 <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.GCS_listing_24jun2016>`_: 
     This table contains metadata about all TCGA sequence data files (bam and fastq) that *are* being hosted by the 
     ISB-CGC in Google Cloud Storage (GCS).  The important identifiers in this table include the ``CGHubAnalysisID`` 
@@ -152,11 +181,15 @@ TCGA Data and Metadata
     **Note** that you will *not* be able to actually *access* these data files unless you have prior 
     dbGaP authorization and have gone through the necessary authentication process in the ISB-CGC web app.
 
+..  
+
   + `RNAseq_FastQC <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.RNAseq_FastQC>`_: 
     This table contains metrics derived from running FastQC on all TCGA RNAseq fastq data files hosted by 
     the ISB-CGC.  Included in this table are urls to the FastQC html reports that you can copy-and-paste 
     directly into your browser (field name ``FastQC_html_url``, 
     `example <https://storage.cloud.google.com/isb-cgc-open/tcga-qc/KIRP/RNA/RNA-Seq/UNC-LCCC/ILLUMINA/00065a62-5e18-4223-a884-12fca053a109-140516_UNC12-SN629_0369_AC4GGKACXX_GGCTAC_L002_1_fastqc.html>`_). 
+
+..  
 
   + `WXS_FastQC <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.WXS_FastQC>`_: 
     This table contains metrics derived from running FastQC on all TCGA WXS bam files hosted by the ISB-CGC.  
@@ -193,6 +226,8 @@ Reference Data
   + `Ensembl2Reactome_plusN <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.Ensembl2Reactome_plusN>`_ 
 
   + `Kaviar_160113_Public_hg19 <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.Kaviar_160113_Public_hg19>`_ 
+
+..  
     
 - `isb-cgc:platform_reference <https://bigquery.cloud.google.com/dataset/isb-cgc:platform_reference>`_: 
   This dataset currently contains only one table: the ``methylation_annotation`` table which contains
@@ -283,8 +318,8 @@ formatting and data curation:
    data archive) was parsed to find the correct association between the
    aliquot barcode and the Level-3 data file(s).
 
-ETL Data-Type Specific Details
-==============================
+Data-Type Specific ETL
+======================
 
 .. toctree::
    :maxdepth: 1
