@@ -19,7 +19,44 @@ please let us know (feedback@isb-cgc.org) and we will try to make that happen.
 BigQuery Data Overview
 ######################
 
+The diagram below illustrates some of the important relationships between our BigQuery 
+tables.  The yellow, red and blue nodes all represent tables in BigQuery.  The green
+nodes represent fields that are common to two or more tables and can be used in "JOIN"
+operations if you want to link information found in one table with relevant information
+found in another table.  These same fields may also be useful in "GROUP BY" operations.
+
+The nodes are color-coded as follows:
+  - **green** indicates a common field in the schemas of one or more tables
+  - **red** indicates a TCGA table
+  - **yellow** indicates a reference table (*eg* genomic or platform reference)
+  - **blue** indicates a metadata table (*eg* file manifest, or other metadata)
+
+All of the TCGA tables include patient, sample, and/or aliquot 
+`barcodes <https://wiki.nci.nih.gov/display/TCGA/TCGA+barcode>`_ on each row.
+(The actual field names are typically ``ParticipantBarcode``, ``SampleBarcode``, or ``AliquotBarcode``.) 
+Almost all of these tables also include a field called ``Study`` which contains the 
+TCGA tumor-type abbreviation (*eg* BRCA for breast cancer, GBM for glioblastoma multiforme, *etc*).
+Most of the molecular data tables include gene (or miRNA) symbols or identifiers, some include
+chromosomal coordinates, and some include both (*eg* the somatic mutation calls (SMC) table).
+
 .. image:: BQ-layout2b-20jul2016.png
+   :scale: 75
+   :align: center
+
+..
+
+If you want to map DNA methylation data onto copy-number data, you will need to perform
+multiple JOINs.  The figure below isolates these two tables from the larger diagram above
+to make the relationships easier to see.
+
+Both tables contain sample barcodes so that you'll be able to JOIN information
+that pertains to the same sample in the same output row.  However, neither the
+copy-number nor the methylation table contain a direct map to a gene symbol.
+The methylation annotation table can be used to find the chromosomal coordinate
+for each methylation probe, and then that can be used to map to the copy-number
+segment(s) that contain that position.
+
+.. image:: meth-to-cn-map.png
    :scale: 75
    :align: center
 
