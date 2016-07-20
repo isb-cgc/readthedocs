@@ -46,6 +46,8 @@ TCGA Data and Metadata
   you will see if you click on the link above to view this dataset using the 
   `BigQuery web UI <https://bigquery.cloud.google.com/welcome>`_.)
 
+.. 
+
   + `Annotations <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.Annotations>`_: 
     This table contains annotations and related information obtained from the 
     `TCGA Annotations Manager <https://wiki.nci.nih.gov/display/TCGA/TCGA+Annotations+Manager+User's+Guide>`_.
