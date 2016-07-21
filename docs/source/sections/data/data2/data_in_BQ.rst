@@ -225,8 +225,8 @@ TCGA Data and Metadata
     ISB-CGC in Google Cloud Storage (GCS).  The important identifiers in this table include the ``CGHubAnalysisID`` 
     and the ``AliquotBarcode``.  You can also find the full url to the object in GCS in this table 
     (field name ``GCSobject``) as well as the size of the file in bytes (``objectSizeBytes``).  
-    **Note** that you will *not* be able to actually *access* these data files unless you have prior 
-    dbGaP authorization and have gone through the necessary authentication process in the ISB-CGC web app.
+    **Note** that you will *not* be able to *access* the raw sequence data in these files without prior 
+    dbGaP authorization.
     (Metadata *about* controlled-access data files is open-access and can therefore be included in these tables.)
 
 ..  
