@@ -3,10 +3,12 @@ TCGA Data in BigQuery
 *********************
 
 The information scattered over tens of thousands of XML and TSV files at the DCC is provided in a 
-*much more accessible* form in a series of BigQuery tables.  For more details, including tutorials 
+*much more accessible* form in a series of *open-access* BigQuery tables.  
+For more details, including tutorials 
 and code examples in `Python <https://github.com/isb-cgc/examples-Python>`_ or 
 `R <https://github.com/isb-cgc/examples-R>`_, 
 please see our `github repositories <https://github.com/isb-cgc>`_.
+Note that dbGaP authorization is **not** required to access these tables!
 
 This `introductory tutorial <https://github.com/isb-cgc/examples-Python/blob/master/notebooks/The%20ISB-CGC%20open-access%20TCGA%20tables%20in%20BigQuery.ipynb>`_
 gives a great overview of all of the tables and pointers on how to get started exploring them.  
@@ -69,8 +71,8 @@ find relevant copy-number segments in the copy-number table.
 BigQuery Datasets and Tables
 ============================
 
-Data made available by the ISB-CGC through BigQuery is organized into several datasets, where a dataset
-is made up of multiple tables.  
+Data made available by the ISB-CGC through BigQuery is organized into several *open-access* 
+datasets, where a dataset is made up of multiple tables.  
 Datasets are uniquely identified based on the project name and the dataset name, separated by a colon, 
 *eg* ``isb-cgc:tcga_201510_alpha``.  Tables are uniquely identified by appending the table name,
 preceded by a period, *eg* ``isb-cgc:tcga_201510_alpha.Clinical_data``.
@@ -81,20 +83,23 @@ TCGA Data and Metadata
 ======================
 
 - `isb-cgc:tcga_201510_alpha <https://bigquery.cloud.google.com/dataset/isb-cgc:tcga_201510_alpha>`_: 
-  This dataset contains one table for each of the major datatypes and/or platforms, and is based on 
-  all available data at the TCGA DCC in October, 2015. (An updated set of tables will be released in 
+  This dataset contains one table for each of the major datatypes and/or platforms, is based on 
+  all available data at the TCGA DCC in October, 2015, and is the same data used by our 
+  Web App and APIs. (An updated set of tables will be released in 
   July or August of 2016.)  All tables include one or more of the following identifiers which can be 
   used for performing cross-table JOINs: ``ParticipantBarcode``, ``SampleBarcode``, and ``AliquotBarcode``.  
   In addition, most tables contain a ``Study`` field which contains the tumor-type abbreviation 
-  (*eg* LUAD, BRCA, *etc*). (The table ordering below is alphabetical, since that is the same order 
-  you will see if you click on the link above to view this dataset using the 
-  `BigQuery web UI <https://bigquery.cloud.google.com/welcome>`_.)
+  (*eg* LUAD, BRCA, *etc*). (The table ordering below is alphabetical, since that is the order 
+  you will see if you view this dataset using the 
+  `BigQuery web UI <https://bigquery.cloud.google.com/welcome>`_.  
+  To view this dataset in the web UI, click on the link at the begining of this paragraph.) 
 
 .. 
 
   + `Annotations <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.Annotations>`_: 
     This table contains annotations and related information obtained from the 
-    `TCGA Annotations Manager <https://wiki.nci.nih.gov/display/TCGA/TCGA+Annotations+Manager+User's+Guide>`_.
+    `TCGA Annotations Manager <https://wiki.nci.nih.gov/display/TCGA/TCGA+Annotations+Manager+User's+Guide>`_
+    (formerly available at the TCGA DCC).
 
 ..  
 
@@ -127,10 +132,10 @@ TCGA Data and Metadata
   + `DNA_Methylation_betas <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.DNA_Methylation_betas>`_: 
     This table contains **all** of the DNA methlyation data for all TCGA samples assayed on either the 
     HumanMethylation 27k or 450k platforms.  Please note that this is a very **large** table 
-    (with close to 4 billion rows), so query it with caution!  Each row contains the methylation "beta" 
-    for a particular aliquot at a particular probe.  Details about a particular probe, based on the 
-    ``Probe_Id`` field value (*eg* ``cg03879918``) can be obtained from the ``methylation_annotation`` 
-    table described below.
+    (with close to 4 billion rows), so query it with caution -- a *single* query will cost *your* GCP project $2-3.  
+    Each row contains the methylation "beta" for a particular aliquot at a particular probe.  
+    Details about a particular probe, based on the ``Probe_Id`` field value (*eg* ``cg03879918``) 
+    can be obtained from the ``methylation_annotation`` table described below.
 
 ..  
 
@@ -167,8 +172,8 @@ TCGA Data and Metadata
     This table contains protein expression quantification estimates based on the RPPA (reverse phase protein array) 
     platform.  Note that only a subset (~70%) of the TCGA tumor samples were assayed on this platform.  This 
     technology uses antibodies which bind (sometimes non-specifically) to the target protein.  In certain cases, 
-    an antibody may target a specific phosphorylated protein.  All of this information is contained in this table: 
-    each row contains an estimate of the ``Protein_Expression``, with the following fields specifying which 
+    an antibody may target a specific phosphorylated protein.  Each row in this table
+    includes an estimate of the ``Protein_Expression``, with the following fields specifying the 
     protein: ``Gene_Name`` (aka symbol), ``Protein_Name``, ``Protein_Basename``, and ``Phospho``.  
     Additional fields include the ``antibodySource`` and ``validationStatus``.
 
@@ -176,7 +181,8 @@ TCGA Data and Metadata
 
   + `Somatic_Mutation_calls <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.Somatic_Mutation_calls>`_: 
     This table contains all somatic mutations called across all TCGA tumor samples, based on aggregating all 
-    of the MAF files available when this table was created.  Each mutation call was also annotated using Oncotator, 
+    of the MAF files available when this table was created.  Each mutation call was annotated using 
+    `Oncotator <https://www.broadinstitute.org/cancer/cga/oncotator>`_, 
     and many (though not all) of the resulting annotation fields were included in this table.  Since multiple
     MAF files are sometimes available for a single tumor type, duplicate mutation calls may exist in this table.
     The next iteration of this table should correct this known issue.
@@ -190,7 +196,7 @@ TCGA Data and Metadata
   must be available for that sample, and there must be no disqualifying annotation for that sample or 
   the patient.  For example, the 
   `BRCA cohort table <https://bigquery.cloud.google.com/table/isb-cgc:tcga_cohorts.BRCA>`_ 
-  contains 1086 unique patients and 2221 uniqe samples, but a query of the Clinical_data table for all 
+  contains 1086 unique patients and 2221 unique samples, but a query of the Clinical_data table for all 
   BRCA patients will return 1097 patients, and a similar query of the Biospecimen_data table for all 
   BRCA samples will return 2293 samples.  The Annotation table contains annotations of one type or 
   another for 39 BRCA patients, 2 BRCA samples, 18 BRCA analytes, and 71 BRCA aliquots.
@@ -221,6 +227,7 @@ TCGA Data and Metadata
     (field name ``GCSobject``) as well as the size of the file in bytes (``objectSizeBytes``).  
     **Note** that you will *not* be able to actually *access* these data files unless you have prior 
     dbGaP authorization and have gone through the necessary authentication process in the ISB-CGC web app.
+    (Metadata *about* controlled-access data files is open-access and can therefore be included in these tables.)
 
 ..  
 
@@ -229,6 +236,8 @@ TCGA Data and Metadata
     the ISB-CGC.  Included in this table are urls to the FastQC html reports that you can copy-and-paste 
     directly into your browser (field name ``FastQC_html_url``, 
     `example <https://storage.cloud.google.com/isb-cgc-open/tcga-qc/KIRP/RNA/RNA-Seq/UNC-LCCC/ILLUMINA/00065a62-5e18-4223-a884-12fca053a109-140516_UNC12-SN629_0369_AC4GGKACXX_GGCTAC_L002_1_fastqc.html>`_). 
+    (As mentioned above, although these summary statistics and associated metrics describe 
+    *controlled-access* data files, they are themselves considered *open-access* data.)
 
 ..  
 
@@ -237,6 +246,8 @@ TCGA Data and Metadata
     Included in this table are urls to the FastQC html reports that you can copy-and-paste directly into your 
     browser (field name ``FastQC_html_url``, 
     `example <https://storage.cloud.google.com/isb-cgc-open/tcga-qc/BRCA/DNA/WXS/BI/ILLUMINA/0004c5c4-a571-4eb2-93ab-58cd1cc24cc4-TCGA_MC3.TCGA-GM-A3XG-01A-31D-A243-09_fastqc.html>`_).  
+    (As mentioned above, although these summary statistics and associated metrics describe 
+    *controlled-access* data files, they are themselves considered *open-access* data.)
     (Note that a similar table based on running Picard across all TCGA bam files will be available in July or August 2016.)
 
 Reference Data
@@ -280,8 +291,9 @@ CCLE Data
 =========
 
 - `isb-cgc:ccle_201602_alpha <https://bigquery.cloud.google.com/dataset/isb-cgc:ccle_201602_alpha>`_: 
-  This dataset contains a series of tables based on various CCLE datasources.  Our goal is to
-  provide a companion set of tables as similar as possible to the TCGA data tables.  Briefly:
+  This dataset contains a series of tables based on various 
+  CCLE (`Cancer Cell Line Encylopedia <http://portals.broadinstitute.org/ccle/home>`_) data sources.  
+  Our goal is to provide a companion set of tables as similar as possible to the TCGA data tables.  
 
   + `AffyU133_RMA_expression <https://bigquery.cloud.google.com/table/isb-cgc:ccle_201602_alpha.AffyU133_RMA_expression>`_ contains gene expression data for 926 cell-line samples, across ~18,000 genes.
 
