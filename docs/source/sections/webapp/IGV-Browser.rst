@@ -21,7 +21,9 @@ in turn corresponds to the aligned DNA- or RNA-seq reads from a single sample. I
 Using the IGV Stand Alone Application to View Alignments Stored in Google Cloud Storage or Google Genomics
 ----------------------------------------------------------------------------------------------------------
 
-You can use the IGV Stand Alone Application (LINK) to view Bam files that are stored either in Google Cloud Storage or Google Genomics.  To to this, please download the most recent version of the Stand Alone IGV Java Application from the IGV website.  
+You can use the IGV Stand Alone Application to view Bam files that are stored either in Google Cloud Storage or Google Genomics.  To to this, please `download <http://www.broadinstitute.org/software/igv/download>`_ the most recent version of the Stand Alone IGV Java Application from the IGV website.
+
+To load BAM files from ISB-CGC Google Cloud Storage use the .....
 
 Acknowledgements
 ----------------
