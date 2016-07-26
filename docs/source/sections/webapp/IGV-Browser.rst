@@ -2,10 +2,10 @@
 Integrative Genomics Viewer (IGV)
 *********************************
 
-Accessing the IGV Browser
--------------------------
+Accessing the IGV Browser from the Web Application
+--------------------------------------------------
 
-To access IGV, go to the cohort file list page (through the "View Files" link at the top of the page). The file listing table includes a column labelled "IGV".
+To access IGV from the ISB-CGC web application, go to the cohort file list page (through the "View Files" link at the top of the page). The file listing table includes a column labelled "IGV".
 
 For those files that also have a ReadGroupSet ID in Google Genomics, a "GA4GH" label with a checkbox will appear in the column.  For those files that are available in cloud storage, a "Cloud Storage" label with a checkbox will appear in the column. A user can only select the cloud storage checkbox to view controlled access data if he or she has been authenticated and authorized through the user details page. Otherwise the user can view the checkbox but there will be a disabled cursor icon when the user hovers over in an attempt to select the checkbox. (Open source data such as the CCLE project does not require authentication and authorization, therefore you will not be presented with the disabled cursor icon when you are trying to view this data in the IGV viewer.) You can select a maximum of five files you want to view at the same time in the IGV viewer through selecting the relevant checkboxes on possibly multiple pages of files.  Once you have selected the appropriate files to view in the IGV viewer, pressing the "Launch IGV" button will launch the IGV viewer.
 
