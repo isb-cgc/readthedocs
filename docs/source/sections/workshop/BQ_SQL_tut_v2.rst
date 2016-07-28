@@ -101,6 +101,34 @@ join the clinical and biospecimen tables. Note the use of JOIN - ON.
 	  b.hpv_status
 
 
+Another way to work with multiple tables is through creating sub-tables.
+Here we are going to create a cohort of Patient Barcodes, filtering by
+study and HPV status, and use that sub-table to filter down the
+biospecimen table, finally computing an average of percent tumor cells.
+
+.. code-block:: sql
+
+    SELECT
+      Study,
+      SampleType,
+      AVG(avg_percent_tumor_cells),
+    FROM
+      [isb-cgc:tcga_201510_alpha.Biospecimen_data]
+    WHERE
+      ParticipantBarcode IN (
+      SELECT
+        ParticipantBarcode
+      FROM
+        [isb-cgc:tcga_201510_alpha.Clinical_data]
+      WHERE
+        hpv_status = 'Positive'
+        AND Study IN ('CESC',
+          'HNSC') )
+    GROUP BY
+      Study,
+      SampleType
+
+
 Using aggregation functions
 ---------------------------
 
