@@ -51,14 +51,14 @@ discover gene modules.
 
 The general structure of the query is going to be:
 
-.. code-block:: r
+.. code-block:: sql
 
-select
-  genes and correlation
-from
-  subtable with genes and samples of interest
-joined to
-  same subtable of genes and samples
+    select
+      genes and correlation
+    from
+      subtable with genes and samples of interest
+    joined to
+      same subtable of genes and samples
 
 
 .. code-block:: r
