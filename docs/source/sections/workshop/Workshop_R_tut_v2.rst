@@ -42,10 +42,72 @@ Now let's see if things are working.
     bigrquery::list_tables(main_cloud_project, tcga_data_set)
 
 
-Using BigQuery to compute co-variance matrices
+Using BigQuery to compute correlation matrices
 ==============================================
 
-here's where we create the co-expression matrix.
+A correlation matrix using gene expression is going to take the correlation
+between each pair of genes. Usually, this matrix can then be clustered to
+discover gene modules.
+
+The general structure of the query is going to be:
+
+.. code-block:: r
+
+select
+  genes and correlation
+from
+  subtable with genes and samples of interest
+joined to
+  same subtable of genes and samples
+
+
+.. code-block:: r
+
+    q <- "
+    SELECT
+      a.HGNC_gene_symbol as gene1,
+      b.HGNC_gene_symbol as gene2,
+      CORR(a.normalized_count, b.normalized_count) as corr
+    FROM (
+      SELECT
+        *
+      FROM
+        [isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM]
+      WHERE
+        HGNC_gene_symbol IN ('APLN','CCL26','IL19','IL37')
+        AND Study = 'COAD'
+        AND SampleTypeLetterCode = 'TP'
+      ) AS a
+    JOIN (
+      SELECT
+        *
+      FROM
+        [isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM]
+      WHERE
+        HGNC_gene_symbol IN ('APLN','CCL26','IL19','IL37')
+        AND Study = 'COAD'
+        AND SampleTypeLetterCode = 'TP'
+      ) AS b
+    ON
+      a.AliquotBarcode = b.AliquotBarcode
+      AND a.Study = b.Study
+    GROUP BY
+      gene1,
+      gene2"
+
+    corrs <- query_exec(q,project)
+
+    # transform to a matrix, and give it rownames
+    corrmat <- spread(corrs, gene1, corr)
+    rownames(corrmat) <- corrmat$gene2
+
+    # visualize the matrix
+    library(pheatmap)
+    pheatmap(corrmat[,-1])
+
+
+It's easy to make a couple changes to this query, enabling a correlation
+matrix *per* study. Try it!
 
 
 Getting a list of genes
@@ -102,7 +164,6 @@ coefficient of variance.
 Now we have a list of genes that we can carry to further analysis.
 
 
-
 Getting a list of samples from the endpoints
 ============================================
 
@@ -153,8 +214,7 @@ The patients and samples elements are also lists, but lists of patients or sampl
 
 .. code-block:: r
 
-    my_barcodes$patients[1:5]
-    my_barcodes$samples[1:5]
+    samples <- my_barcodes$samples[1:5]
 
 
 
@@ -168,28 +228,11 @@ But also we can incorporate long lists of samples or genes into a query.
 
 .. code-block:: r
 
-    sqlQuery = paste("SELECT ParticipantBarcode, Study, hpv_calls, hpv_status ",
-                     "FROM ", clinical_table,
-                     " WHERE Study in (",paste(shQuote(study),collapse = ','),")",sep="")
-
-    sqlQuery
-
-    hpv_table = query_exec(sqlQuery,project = my_cloud_project)
-
-    dim(hpv_table)
-
-    head(hpv_table)
-
-    # We can do some quality control ...
-    # Assert that if hpv_calls is NA, hpv_status is Negative
-    stopifnot((is.na(hpv_table$hpv_calls) && hpv_table$hpv_status=="Negative") || !is.na(hpv_table$hpv_calls))
-
-    # Let's explore the cohort
-    ggplot(data=hpv_table, aes(x=hpv_status, fill=Study)) + geom_bar(stat="count", position=position_dodge())
+    function for formatting lists..
 
 
-Extras
-======
+From Lists to Matrices
+======================
 
 Transform gexp_affected_genes_df into a gexp-by-samples feature matrix
 
