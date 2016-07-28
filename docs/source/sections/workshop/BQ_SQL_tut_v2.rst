@@ -46,26 +46,23 @@ On the left side, from top to bottom we have:
 
 6.  **More data!** Added datasets will appear here. Such as the silver-wall-555 set.
 
-Creating a cohort
+Parts of a query
 -------------------
 
+BigQueries are very similar to regular SQL, with some differences.
+
+We select some variables from tables, filter on some criteria, and occationally
+aggregate the results (such as taking an average).
+
 Here, we want all the associated barcodes for patients in the CESC and HNSC
-studies.
-
-A nice feature, when constructing the query, is when the cursor is in the
-text field, by clicking on a column name in the table schema window, the
-column name is added to the query.
-
-To construct this query, I'm going to use the Annotations table.
-The format of a table name in BigQuery is <project_name>:<dataset_name>.<table_name>
-
+studies. Note the use of the IN keyword.
 
 .. code-block:: sql
 
 	SELECT
 	  Study,
 	  ParticipantBarcode,
-	SampleType
+	  SampleType
 	FROM
 	  [isb-cgc:tcga_201510_alpha.Biospecimen_data]
 	WHERE
@@ -73,8 +70,8 @@ The format of a table name in BigQuery is <project_name>:<dataset_name>.<table_n
 	AND SampleType = 'Primary solid Tumor'
 
 
-Let's suppose we want some biospecimen data on each sample. To do this we
-could use our **IN** keyword as above, or easily join tables using barcodes.
+Let's suppose we want to add some biospecimen data. To do this we
+join the clinical and biospecimen tables. Note the use of JOIN - ON.
 
 .. code-block:: sql
 
@@ -104,15 +101,15 @@ could use our **IN** keyword as above, or easily join tables using barcodes.
 	  b.hpv_status
 
 
-Let's start by working with the Clinical_data table.
-
-Or more accurately "isb-cgc:tcga_201510_alpha.Clinical_data"
-
-Let's start by just counting the number of records in the table. Paste the
-following SQL into the text field, and hit *Run Query*.
-
 Using aggregation functions
 ---------------------------
+
+A beneficial goal is to keep as much computation on the BigQuery side
+as possible. That means we want to aggregate and compute functions that
+return summary data.
+
+In this query, we're going to look at some summary statistics in the
+clinical table.
 
 .. code-block:: sql
 
@@ -144,7 +141,8 @@ returned results, we can download the table, or save it as a BigQuery table!
 Making summary tables
 ---------------------
 
-An example on making tables.
+Another way to create summary information is by creating tables. With summary
+tables, we can even compute statistics like a ChiSq.
 
 .. code-block:: sql
 
