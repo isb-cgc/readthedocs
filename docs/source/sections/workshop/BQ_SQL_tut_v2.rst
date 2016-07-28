@@ -142,26 +142,32 @@ clinical table.
 .. code-block:: sql
 
     SELECT
+      ParticipantBarcode,
+      Study,
       gender,
       country,
-      count(1) as count,
-      AVG(number_pack_years_smoked) as avg_smoked,
-      AVG(weight) AS avg_weight,
-      AVG(height) AS avg_height,
-      CORR(weight, height) AS corr
+      number_pack_years_smoked,
+      number_pack_years_smoked - mu / sd AS z
     FROM
-      [isb-cgc:tcga_201510_alpha.Clinical_data]
-    WHERE
-      vital_status = 'Alive'
-    GROUP BY
-      gender,
-      country
+      [isb-cgc:tcga_201510_alpha.Clinical_data] AS a
+    JOIN (
+      SELECT
+        vital_status,
+        AVG(number_pack_years_smoked) AS mu,
+        STDDEV(number_pack_years_smoked) AS sd
+      FROM
+        [isb-cgc:tcga_201510_alpha.Clinical_data]
+      WHERE
+        vital_status = 'Alive'
+      GROUP BY
+        vital_status ) AS b
+    ON
+      a.vital_status = b.vital_status
     ORDER BY
-      avg_weight DESC
+      z DESC
 
 
-The results are ordered by highest average weight, but we can also order the
-rows by any of the returned columns. What country has the highest rate of smoking?
+The results are ordered by Z score.
 
 After we've run a query, there's some options. On the upper right side of the
 returned results, we can download the table, or save it as a BigQuery table!
