@@ -110,8 +110,8 @@ It's easy to make a couple changes to this query, enabling a correlation
 matrix *per* study. Try it!
 
 
-Getting a list of genes
-=======================
+Getting a list of high variance genes
+=====================================
 
 When we make queries from R, the results come back as a data.frame.
 Let's use the GO annotation, and get a list of genes that are
@@ -159,7 +159,8 @@ coefficient of variance.
     LIMIT
       50"
 
-    genes <- query_exec(q, project)
+    result <- query_exec(q, project)
+    genes <- result$HGNC_gene_symbol
 
 Now we have a list of genes that we can carry to further analysis.
 
@@ -194,17 +195,25 @@ cohorts and the items contains information about the cohorts.
 
 .. code-block:: r
 
+    # first get a list of my saved cohorts.
     my_cohorts <- list_cohorts(my_token)
     names(my_cohorts)
+
+    # to get the names of my saved cohorts
     lapply(my_cohorts$items, function(x) x$name)
 
 Now that we have the cohort IDs, we can collect the various barcodes contained
 in the cohort. These include patient barcodes, sample barcodes, and platform
 specific aliquot barcodes. To do this, we can use the barcodes_from_cohort function.
 
+HERE I'm using my cohort #4, but change this to whatever you have saved.
+
 .. code-block:: r
 
+    # get the cohort IDs
     my_cohort_id <- lapply(my_cohorts$items, function(x) x$id)[[4]]
+
+    # then ping the endpoints with the cohort ID
     my_barcodes <- barcodes_from_cohort(my_cohort_id, my_token)
     names(my_barcodes)
 
@@ -214,8 +223,8 @@ The patients and samples elements are also lists, but lists of patients or sampl
 
 .. code-block:: r
 
-    samples <- my_barcodes$samples[1:5]
-
+    samples <- unlist(my_barcodes$samples)
+    # 836 samples
 
 
 Programmatically constructing Queries
@@ -228,7 +237,51 @@ But also we can incorporate long lists of samples or genes into a query.
 
 .. code-block:: r
 
-    function for formatting lists..
+    #function for formatting lists..
+    sqf <- function(x) {
+        paste("('",paste(x, collapse="','"),"')", sep="")
+    }
+
+    q <- paste("
+    SELECT
+      a.HGNC_gene_symbol as gene1,
+      b.HGNC_gene_symbol as gene2,
+      CORR(a.normalized_count, b.normalized_count) as corr
+    FROM (
+      SELECT
+        *
+      FROM
+        [isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM]
+      WHERE
+        HGNC_gene_symbol IN ", sqf(genes), "
+        AND SampleBarcode IN ", sqf(samples), "
+        AND SampleTypeLetterCode = 'TP'
+      ) AS a
+    JOIN (
+      SELECT
+        *
+      FROM
+        [isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM]
+      WHERE
+        HGNC_gene_symbol IN ", sqf(genes), "
+        AND SampleBarcode IN ", sqf(samples), "
+        AND SampleTypeLetterCode = 'TP'
+      ) AS b
+    ON
+      a.AliquotBarcode = b.AliquotBarcode
+    GROUP BY
+      gene1,
+      gene2", sep=" ")
+
+    corrs <- query_exec(q,project)
+
+    # transform to a matrix, and give it rownames
+    corrmat <- spread(corrs, gene1, corr)
+    rownames(corrmat) <- corrmat$gene2
+
+    # visualize the matrix
+    library(pheatmap)
+    pheatmap(corrmat[,-1])
 
 
 From Lists to Matrices
