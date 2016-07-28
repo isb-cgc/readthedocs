@@ -2,8 +2,8 @@
 Analysis with R and BigQuery
 ****************************
 
-Differential gene expression associated with HPV integration
-############################################################
+Computing on the BigQuery side; making correlation matrices
+###########################################################
 
 In this example, we are going to compute a correlation matrix (or co-expression)
 entirely on the BigQuery side. Since we're in R-land, we can easily visualize
