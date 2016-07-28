@@ -46,8 +46,8 @@ On the left side, from top to bottom we have:
 
 6.  **More data!** Added datasets will appear here. Such as the silver-wall-555 set.
 
-Parts of a query
--------------------
+Querying: Lists, Joins, and Subqueries
+--------------------------------------
 
 BigQueries are very similar to regular SQL, with some differences.
 
@@ -101,7 +101,7 @@ join the clinical and biospecimen tables. Note the use of JOIN - ON.
 	  b.hpv_status
 
 
-Another way to work with multiple tables is through creating sub-tables.
+Another way to work with multiple tables is by using subqueries.
 Here we are going to create a cohort of Patient Barcodes, filtering by
 study and HPV status, and use that sub-table to filter down the
 biospecimen table, finally computing an average of percent tumor cells.
@@ -129,7 +129,7 @@ biospecimen table, finally computing an average of percent tumor cells.
       SampleType
 
 
-Using aggregation functions
+Computing Statistics
 ---------------------------
 
 A beneficial goal is to keep as much computation on the BigQuery side
@@ -147,7 +147,7 @@ clinical table.
       gender,
       country,
       number_pack_years_smoked,
-      number_pack_years_smoked - mu / sd AS z
+      (number_pack_years_smoked - mu) / sd AS z
     FROM
       [isb-cgc:tcga_201510_alpha.Clinical_data] AS a
     JOIN (
@@ -167,12 +167,12 @@ clinical table.
       z DESC
 
 
-The results are ordered by Z score.
+The results are ordered by Z score
 
 After we've run a query, there's some options. On the upper right side of the
 returned results, we can download the table, or save it as a BigQuery table!
 
-Making summary tables
+Making Summary Tables
 ---------------------
 
 Another way to create summary information is by creating tables. With summary
