@@ -197,10 +197,16 @@ clinical table.
       z DESC
 
 
-The results are ordered by Z score
+The results from this query are ordered by Z score
 
-After we've run a query, there's some options. On the upper right side of the
-returned results, we can download the table, or save it as a BigQuery table!
+After running a query, there are several options in the bottom **Results** panel.
+You can get an "Explanation" of how the query was broken into multiple Stages,
+the number of input and outputs from each stage, and the amount of time spent
+reading, computing, etc.  In addition, you can Download or Save the Results in various ways,
+including as a new BigQuery Table.
+If your query will return a large number of results, you may need to click on the 
+**Show Options** button to the right of the **Run Query** button and specific a
+"Destination Table" and then turn on the "Allow Large Results" option.
 
 Making Summary Tables
 ---------------------
