@@ -115,34 +115,48 @@ join the clinical and biospecimen tables. Note the use of **JOIN ... ON**.
 		  a.avg_percent_tumor_cells,
 		  b.hpv_status
 
-
+If you're really paying attention, you might notice that the first query returned
+836 participant barcodes from the Biospecimen_data table, but the second one returned only 
+835 participant and sample barcodes.  In a few cases, the Biospecimen_data table 
+contains information about samples that have no associated information in the Clinical_data
+table, and the "JOIN" operation is by default an *INNER* JOIN which returns only the
+intersection of the two tables being joined.
 
 Another way to work with multiple tables is by using subqueries.
-Here we are going to create a cohort of Patient Barcodes, filtering by
-study and HPV status, and use that sub-table to filter down the
-biospecimen table, finally computing an average of percent tumor cells.
+In the example below, we have an *inner* query (the middle 
+seven lines set off by blank space) which creates a "cohort" on the fly,
+filtering by study and HPV status from the Clinical_data table.  
+We then use that sub-table to filter the Biospecimen_data table,
+where we compute the average of the percent tumor cells, also counting
+how many rows went into each average, grouped according to SampleType,
+and then finally we sort by n.
 
 .. code-block:: sql
 
-    SELECT
-      Study,
-      SampleType,
-      AVG(avg_percent_tumor_cells),
-    FROM
-      [isb-cgc:tcga_201607_beta.Biospecimen_data]
-    WHERE
-      ParticipantBarcode IN (
-      SELECT
-        ParticipantBarcode
-      FROM
-        [isb-cgc:tcga_201607_beta.Clinical_data]
-      WHERE
-        hpv_status = 'Positive'
-        AND Study IN ('CESC',
-          'HNSC') )
-    GROUP BY
-      Study,
-      SampleType
+	SELECT
+	  Study,
+	  SampleType,
+	  AVG(avg_percent_tumor_cells) AS avgPctTumor,
+	  COUNT(*) AS n
+	FROM
+	  [isb-cgc:tcga_201607_beta.Biospecimen_data]
+	WHERE
+	  ParticipantBarcode IN (
+
+	  SELECT
+	    ParticipantBarcode
+	  FROM
+	    [isb-cgc:tcga_201607_beta.Clinical_data]
+	  WHERE
+	    hpv_status = 'Positive'
+	    AND Study IN ('CESC', 'HNSC') 
+
+          )
+	GROUP BY
+	  Study,
+	  SampleType
+	ORDER BY
+	  n DESC
 
 
 Computing Statistics
