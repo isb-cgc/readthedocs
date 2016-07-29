@@ -11,7 +11,8 @@ into BigQuery tables that are open to the public. Additional tables have been
 added to open up new analysis options.
 
 In this tutorial, we will show you how you can begin to work with these tables
-from the Google BigQuery Web UI.
+from the Google BigQuery Web UI.  **Note** that in order to use BigQuery,
+you *must* have access to (*ie* be a member of) a GCP project.
 
 Helpful BigQuery links
 ----------------------
@@ -24,38 +25,37 @@ tables in this quick
 
 It's often helpful to have a `link to the docs <https://cloud.google.com/bigquery/what-is-bigquery>`_ handy,
 and especially the `query reference <https://cloud.google.com/bigquery/query-reference>`_.
-(You'll probably want to open those into new tabs of your browser.)
+(You'll probably want to open those into new tabs of your browser, for easy access.)
 
 Let's query!
 ------------
 
-Please open the browser, and open the `BigQuery UI <https://bigquery.cloud.google.com>`_
+In your browser, go to the `BigQuery Web UI <https://bigquery.cloud.google.com>`_
 
 On the left side, from top to bottom we have:
 
-1.  **Compose Query** This button opens the text field, where we can write queries.
+1.  **Compose Query** This button opens the **New Query** text box, where we can write queries.
 
 2.  **Query History** A list of your past queries... *very useful*.
 
-3.  **Job History** List of past jobs, like copying tables.
+3.  **Job History** A list of past jobs (*eg* copying or creating tables).
 
-4.  **Your Project Datasets** Click the little blue triangle to create a new data
-    set or change projects.
+4.  **Your Project Datasets** Click the little blue triangle to create a new dataet or change projects.
 
-5.  **isb-cgc** The TCGA data sets.
+5.  **isb-cgc** The TCGA data sets.  (**Note**: if you do not see the **isb-cgc** datasets, you need to add them to your "view" by clicking on the blue arrow next to your project name at the top of the left side-bar, select "Switch to Project", then "Display Project...", and enter "isb-cgc" (without quotes) in the text box labeled "Project ID".  All ISB-CGC public BigQuery datasets and tables will now be visible in the left side-bar of the BigQuery web interface.
 
-6.  **More data!** Added datasets will appear here. Such as the silver-wall-555 set.
+6.  **More data!** Other added datasets will appear here (for example, the **genomics-public-data**, **silver-wall-555**, *etc*).
 
 Querying: Lists, Joins, and Subqueries
 --------------------------------------
 
-BigQueries are very similar to regular SQL, with some differences.
+BigQueries are very similar to regular SQL, but with some differences.
 
-We select some variables from tables, filter on some criteria, and occationally
+Typically, we select some variables (aka "fields") from one or more tables, filter on some criteria, and occationally
 aggregate the results (such as taking an average).
 
-Here, we want all the associated barcodes for patients in the CESC and HNSC
-studies. Note the use of the IN keyword.
+Here, we want the barcodes for all patients in the CESC and HNSC
+studies, with an associated "primary solid tumor" sample. Note the use of the **IN** keyword.
 
 .. code-block:: sql
 
