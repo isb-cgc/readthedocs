@@ -42,9 +42,11 @@ On the left side, from top to bottom we have:
 
 4.  **Your Project Datasets** Click the little blue triangle to create a new dataet or change projects.
 
-5.  **isb-cgc** The TCGA data sets.  (**Note**: if you do not see the **isb-cgc** datasets, you need to add them to your "view" by clicking on the blue arrow next to your project name at the top of the left side-bar, select "Switch to Project", then "Display Project...", and enter "isb-cgc" (without quotes) in the text box labeled "Project ID".  All ISB-CGC public BigQuery datasets and tables will now be visible in the left side-bar of the BigQuery web interface.
+5.  **isb-cgc** Publicly accessible ISB-CGC curated datasets (including TCGA and reference data sources).  
 
 6.  **More data!** Other added datasets will appear here (for example, the **genomics-public-data**, **silver-wall-555**, *etc*).
+
+**Note**: if you do not see the **isb-cgc** datasets, you need to add them to your "view" by clicking on the blue arrow next to your project name at the top of the left side-bar, select "Switch to Project", then "Display Project...", and enter "isb-cgc" (without quotes) in the text box labeled "Project ID".  All ISB-CGC public BigQuery datasets and tables will now be visible in the left side-bar of the BigQuery web interface.
 
 Querying: Lists, Joins, and Subqueries
 --------------------------------------
@@ -64,41 +66,55 @@ studies, with an associated "primary solid tumor" sample. Note the use of the **
 	  ParticipantBarcode,
 	  SampleType
 	FROM
-	  [isb-cgc:tcga_201510_alpha.Biospecimen_data]
+	  [isb-cgc:tcga_201607_beta.Biospecimen_data]
 	WHERE
 	  Study IN ('CESC', 'HNSC')
-	AND SampleType = 'Primary solid Tumor'
+	  AND SampleType = 'Primary solid Tumor'
 
+Go ahead and cut and paste the above query directly into the New Query box, 
+and then click on the red **Run Query** button.
 
-Let's suppose we want to add some biospecimen data. To do this we
-join the clinical and biospecimen tables. Note the use of JOIN - ON.
+Next, let's suppose we want to add some biospecimen data. To do this we
+join the clinical and biospecimen tables. Note the use of **JOIN ... ON**.
 
 .. code-block:: sql
 
-	SELECT
-	  b.ParticipantBarcode,
-	  a.SampleBarcode,
-	  a.Study,
-	  a.SampleType,
-	  a.avg_percent_tumor_cells,
-	  b.hpv_status
-	FROM
-	  [isb-cgc:tcga_201510_alpha.Biospecimen_data] as a
-	JOIN
-	  [isb-cgc:tcga_201510_alpha.Clinical_data] as b
-	ON
-	  a.ParticipantBarcode = b.ParticipantBarcode
-	  AND a.Study = b.Study
-	WHERE
-	    a.Study IN ('CESC','HNSC')
-		AND a.SampleType = 'TP'
-	GROUP BY
-	  b.ParticipantBarcode,
-	  a.SampleBarcode,
-	  a.Study,
-	  a.SampleType,
-	  a.avg_percent_tumor_cells,
-	  b.hpv_status
+		SELECT
+		  b.ParticipantBarcode,
+		  a.SampleBarcode,
+		  a.Study,
+		  a.SampleType,
+		  a.avg_percent_tumor_cells,
+		  b.hpv_status
+		FROM (
+		  SELECT
+		    ParticipantBarcode,
+		    SampleBarcode,
+		    Study,
+		    SampleType,
+		    avg_percent_tumor_cells
+		  FROM
+		    [isb-cgc:tcga_201607_beta.Biospecimen_data]
+		  WHERE
+		    Study IN ('CESC',
+		      'HNSC')
+		    AND SampleType='Primary solid Tumor' ) AS a
+		JOIN (
+		  SELECT
+		    ParticipantBarcode,
+		    hpv_status
+		  FROM
+		    [isb-cgc:tcga_201607_beta.Clinical_data] ) AS b
+		ON
+		  a.ParticipantBarcode = b.ParticipantBarcode
+		GROUP BY
+		  b.ParticipantBarcode,
+		  a.SampleBarcode,
+		  a.Study,
+		  a.SampleType,
+		  a.avg_percent_tumor_cells,
+		  b.hpv_status
+
 
 
 Another way to work with multiple tables is by using subqueries.
@@ -113,13 +129,13 @@ biospecimen table, finally computing an average of percent tumor cells.
       SampleType,
       AVG(avg_percent_tumor_cells),
     FROM
-      [isb-cgc:tcga_201510_alpha.Biospecimen_data]
+      [isb-cgc:tcga_201607_beta.Biospecimen_data]
     WHERE
       ParticipantBarcode IN (
       SELECT
         ParticipantBarcode
       FROM
-        [isb-cgc:tcga_201510_alpha.Clinical_data]
+        [isb-cgc:tcga_201607_beta.Clinical_data]
       WHERE
         hpv_status = 'Positive'
         AND Study IN ('CESC',
@@ -149,14 +165,14 @@ clinical table.
       number_pack_years_smoked,
       (number_pack_years_smoked - mu) / sd AS z
     FROM
-      [isb-cgc:tcga_201510_alpha.Clinical_data] AS a
+      [isb-cgc:tcga_201607_beta.Clinical_data] AS a
     JOIN (
       SELECT
         vital_status,
         AVG(number_pack_years_smoked) AS mu,
         STDDEV(number_pack_years_smoked) AS sd
       FROM
-        [isb-cgc:tcga_201510_alpha.Clinical_data]
+        [isb-cgc:tcga_201607_beta.Clinical_data]
       WHERE
         vital_status = 'Alive'
       GROUP BY
@@ -192,7 +208,7 @@ tables, we can even compute statistics like a ChiSq.
 	         ELSE 'None'
 	    END AS table_cell,
 	  FROM
-	    [isb-cgc:tcga_201510_alpha.Clinical_data]
+	    [isb-cgc:tcga_201607_beta.Clinical_data]
 	  WHERE
 	    Study IN ('CESC', 'HNSC')
 	  HAVING
