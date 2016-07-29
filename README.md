@@ -8,8 +8,12 @@ ISB-CGC source code and example repositories are also on gitub:
 * See https://github.com/isb-cgc/examples-Compute if you are looking for computational-pipeline examples
 
 The [docs/include](https://github.com/isb-cgc/readthedocs/tree/master/docs/include) folder contains some tutorial material in PDF form -- each tutorial should take between 5 and 20 minutes:
+* Introduction to ISB-CGC Web App ([pdf](https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/Intro_to_Webapp.pdf))
+  + Introduction to using IGV in the Web App ([pdf](https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/Intro_to_Webapp_IGV.pdf))
+  + Introduction to using SeqPeek in the Web App ([pdf](https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/Intro_to_Webapp_SeqPeek.pdf))
 * A Quick Tour of the Google Cloud Console ([pdf](https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_Console.pdf))
 * How to Enable APIs for your GCP Project ([pdf](https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/enabling_new_APIs.pdf))
 * Introduction to BigQuery ([pdf](https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_BigQuery.pdf))
+* Introduction to Cloud Shell ([pdf](https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_Cloud_Shell.pdf))
 * Introduction to Cloud Datalab ([pdf](https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_Cloud_Datalab.pdf))
 
