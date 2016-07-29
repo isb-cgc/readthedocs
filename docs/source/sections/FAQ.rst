@@ -48,7 +48,7 @@ open-access and much of this has been made available in a convenient set of BigQ
 
 **Where can I find the TCGA data that ISB-CGC has made publicly available in BigQuery tables?**
 The BigQuery web interface can be accessed at bigquery.cloud.google.com.  If you have not already added the ISB-CGC datasets to your BigQuery "view", click on the blue arrow
-next to your username in the left side-bar, select "Switch to Project", then "Display Project...",
+next to your project name at the top of the left side-bar, select "Switch to Project", then "Display Project...",
 and enter "isb-cgc" (without quotes) in the text box labeled "Project ID".  All ISB-CGC public BigQuery
 datasets and tables will now be visible in the left side-bar of the BigQuery web interface.
 Note that in order to use BigQuery, you need to be a member of a Google Cloud Project.
