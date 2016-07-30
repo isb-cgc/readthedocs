@@ -218,20 +218,26 @@ tables, we can even compute statistics like a ChiSq.
 
 	SELECT
 	  table_cell,
-	  COUNT(*)
+	  COUNT(*) AS n
 	FROM (
 	  SELECT
-	    CASE WHEN gender = 'MALE' AND hpv_status = 'Positive' THEN 'Male_and_HPV_Pos'
-	         WHEN gender = 'MALE' AND hpv_status = 'Negative' THEN 'Male_and_HPV_Neg'
-	         WHEN gender = 'FEMALE' AND hpv_status = 'Positive' THEN 'Female_and_HPV_Pos'
-	         WHEN gender = 'FEMALE' AND hpv_status = 'Negative' THEN 'Female_and_HPV_Neg'
-	         ELSE 'None'
-	    END AS table_cell,
+	    CASE WHEN gender = 'MALE'
+	    AND hpv_status = 'Positive' THEN 'Male_and_HPV_Pos' WHEN gender = 'MALE'
+	    AND hpv_status = 'Negative' THEN 'Male_and_HPV_Neg' WHEN gender = 'FEMALE'
+	    AND hpv_status = 'Positive' THEN 'Female_and_HPV_Pos' WHEN gender = 'FEMALE'
+	    AND hpv_status = 'Negative' THEN 'Female_and_HPV_Neg' ELSE 'None' END AS table_cell,
 	  FROM
 	    [isb-cgc:tcga_201607_beta.Clinical_data]
 	  WHERE
-	    Study IN ('CESC', 'HNSC')
+	    Study IN ('CESC',
+	      'HNSC')
 	  HAVING
 	    table_cell <> 'None' )
 	GROUP BY
 	  table_cell
+	ORDER BY
+	  n DESC
+
+
+
+
