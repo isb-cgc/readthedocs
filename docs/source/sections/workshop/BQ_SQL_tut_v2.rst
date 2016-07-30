@@ -200,9 +200,9 @@ clinical table.
 The results from this query are ordered by Z score
 
 After running a query, there are several options in the bottom **Results** panel.
-You can get an "Explanation" of how the query was broken into multiple Stages,
+You can get an "Explanation" showing how the query was broken into multiple Stages,
 the number of input and outputs from each stage, and the amount of time spent
-reading, computing, etc.  In addition, you can Download or Save the Results in various ways,
+reading, computing, *etc*.  In addition, you can Download or Save the Results in various ways,
 including as a new BigQuery Table.
 If your query will return a large number of results, you may need to click on the 
 **Show Options** button to the right of the **Run Query** button and specific a
@@ -211,8 +211,8 @@ If your query will return a large number of results, you may need to click on th
 Making Summary Tables
 ---------------------
 
-Another way to create summary information is by creating tables. With summary
-tables, we can even compute statistics like a ChiSq.
+Another way to create summary information is by creating tables of counts as shown below. 
+With summary tables, we can even compute statistics like a ChiSq.
 
 .. code-block:: sql
 
@@ -220,12 +220,14 @@ tables, we can even compute statistics like a ChiSq.
 	  table_cell,
 	  COUNT(*) AS n
 	FROM (
-	  SELECT
-	    CASE WHEN gender = 'MALE'
-	    AND hpv_status = 'Positive' THEN 'Male_and_HPV_Pos' WHEN gender = 'MALE'
-	    AND hpv_status = 'Negative' THEN 'Male_and_HPV_Neg' WHEN gender = 'FEMALE'
-	    AND hpv_status = 'Positive' THEN 'Female_and_HPV_Pos' WHEN gender = 'FEMALE'
-	    AND hpv_status = 'Negative' THEN 'Female_and_HPV_Neg' ELSE 'None' END AS table_cell,
+	  SELECT (
+	    CASE 
+              WHEN gender = 'MALE' AND hpv_status = 'Positive' THEN 'Male_and_HPV_Pos' 
+              WHEN gender = 'MALE' AND hpv_status = 'Negative' THEN 'Male_and_HPV_Neg' 
+              WHEN gender = 'FEMALE' AND hpv_status = 'Positive' THEN 'Female_and_HPV_Pos' 
+              WHEN gender = 'FEMALE' AND hpv_status = 'Negative' THEN 'Female_and_HPV_Neg' 
+              ELSE 'None' 
+            END ) AS table_cell,
 	  FROM
 	    [isb-cgc:tcga_201607_beta.Clinical_data]
 	  WHERE
