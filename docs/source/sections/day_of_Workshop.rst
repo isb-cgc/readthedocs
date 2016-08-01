@@ -79,16 +79,16 @@ ISB Cancer Genomics Cloud (ISB-CGC)
 
 * **ISB-CGC Web App & API Endpoints**
 
-  + Web-App Tutorial `walkthrough <https://docs.google.com/document/d/1z3XWf_cA-IyqRwmaZofZb5FCWPaW3KU8trXsrafm46c/edit?usp=sharing>`_  `doc <workshop/WebApp_tut.html>`_
-  + API Endpoints demo `doc <progapi/Programmatic-API.html>`_
+  + Web-App Tutorial (`walkthrough <https://docs.google.com/document/d/1z3XWf_cA-IyqRwmaZofZb5FCWPaW3KU8trXsrafm46c/edit?usp=sharing>`_)  (`doc <workshop/WebApp_tut.html>`_)
+  + API Endpoints demo (`doc <progapi/Programmatic-API.html>`_)
 
 ..
 
 * **ISB-CGC Open-Access BigQuery Tables**
 
-  + Overview of TCGA data `docs <XXX>`_
-  + `BigQuery SQL Tutorial <workshop/BQ_SQL_tut.html>`_
-  + `Analysis using R <workshop/Workshop_R_tut.html>`_  (`R example <XXX>`_)
+  + Overview of TCGA data (`doc <data/data2/data_in_BQ.html>`_)
+  + `BigQuery SQL Tutorial <workshop/BQ_SQL_tut_v2.html>`_
+  + `Analysis using R <workshop/Workshop_R_tut_v2.html>`_  (`R example <https://github.com/isb-cgc/examples-R/blob/master/inst/doc/Working_With_Barcode_Lists.md>`_)
 
 ..
 
