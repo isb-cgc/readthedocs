@@ -28,9 +28,8 @@ be necessary to complete the code.
 
 .. code-block:: r
 
-    main_cloud_project = "isb-cgc"
     my_cloud_project   = "your_project_id"
-    tcga_data_set      = "tcga_201510_alpha"
+    tcga_data_set      = "tcga_201607_beta"
 
 First query
 ===========
@@ -39,7 +38,7 @@ Now let's see if things are working.
 
 .. code-block:: r
 
-    bigrquery::list_tables(main_cloud_project, tcga_data_set)
+    bigrquery::list_tables("isb-cgc", tcga_data_set)
 
 
 Using BigQuery to compute correlation matrices
@@ -48,6 +47,12 @@ Using BigQuery to compute correlation matrices
 A correlation matrix using gene expression is going to take the correlation
 between each pair of genes. Usually, this matrix can then be clustered to
 discover gene modules.
+
+In this query, we're going to use the BigQuery CORR function (one of the
+many built-in mathematical functions) to compute a Pearson's correlation.
+
+You can find all the function information at:
+https://cloud.google.com/bigquery/query-reference
 
 The general structure of the query is going to be:
 
@@ -72,7 +77,7 @@ The general structure of the query is going to be:
       SELECT
         *
       FROM
-        [isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM]
+        [isb-cgc:tcga_201607_beta.mRNA_UNC_RSEM]
       WHERE
         HGNC_gene_symbol IN ('APLN','CCL26','IL19','IL37')
         AND Study = 'COAD'
@@ -82,7 +87,7 @@ The general structure of the query is going to be:
       SELECT
         *
       FROM
-        [isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM]
+        [isb-cgc:tcga_201607_beta.mRNA_UNC_RSEM]
       WHERE
         HGNC_gene_symbol IN ('APLN','CCL26','IL19','IL37')
         AND Study = 'COAD'
@@ -95,9 +100,10 @@ The general structure of the query is going to be:
       gene1,
       gene2"
 
-    corrs <- query_exec(q,project)
+    corrs <- query_exec(q,my_cloud_project)
 
     # transform to a matrix, and give it rownames
+    library(tidyr)
     corrmat <- spread(corrs, gene1, corr)
     rownames(corrmat) <- corrmat$gene2
 
@@ -116,7 +122,8 @@ Getting a list of high variance genes
 When we make queries from R, the results come back as a data.frame.
 Let's use the GO annotation, and get a list of genes that are
 related to the immune system. The GO Annotation table is found
-in the genome_reference data set.
+in the genome_reference data set, and GO:0006955 references the
+immune response.
 
 .. code-block:: r
 
@@ -128,7 +135,7 @@ in the genome_reference data set.
     where
       GO_ID = 'GO:0006955'"
 
-    query_exec(q, project)
+    query_exec(q, my_cloud_project)
 
 
 That query returns 472 genes. But let's suppose we want the top 50 by
@@ -141,7 +148,7 @@ coefficient of variance.
       HGNC_gene_symbol,
       STDDEV(normalized_count+1) / AVG(normalized_count+1) AS cv
     FROM
-      [isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM]
+      [isb-cgc:tcga_201607_beta.mRNA_UNC_RSEM]
     WHERE
       HGNC_gene_symbol IN (
       SELECT
@@ -159,7 +166,7 @@ coefficient of variance.
     LIMIT
       50"
 
-    result <- query_exec(q, project)
+    result <- query_exec(q, my_cloud_project)
     genes <- result$HGNC_gene_symbol
 
 Now we have a list of genes that we can carry to further analysis.
@@ -251,7 +258,7 @@ But also we can incorporate long lists of samples or genes into a query.
       SELECT
         *
       FROM
-        [isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM]
+        [isb-cgc:tcga_201607_beta.mRNA_UNC_HiSeq_RSEM]
       WHERE
         HGNC_gene_symbol IN ", sqf(genes), "
         AND SampleBarcode IN ", sqf(samples), "
@@ -261,7 +268,7 @@ But also we can incorporate long lists of samples or genes into a query.
       SELECT
         *
       FROM
-        [isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM]
+        [isb-cgc:tcga_201607_beta.mRNA_UNC_HiSeq_RSEM]
       WHERE
         HGNC_gene_symbol IN ", sqf(genes), "
         AND SampleBarcode IN ", sqf(samples), "
@@ -273,9 +280,10 @@ But also we can incorporate long lists of samples or genes into a query.
       gene1,
       gene2", sep=" ")
 
-    corrs <- query_exec(q,project)
+    corrs <- query_exec(q,my_cloud_project)
 
     # transform to a matrix, and give it rownames
+    library(tidyr)
     corrmat <- spread(corrs, gene1, corr)
     rownames(corrmat) <- corrmat$gene2
 
@@ -283,6 +291,11 @@ But also we can incorporate long lists of samples or genes into a query.
     library(pheatmap)
     pheatmap(corrmat[,-1])
 
+.. image:: correlation_matrix.jpg
+    :width: 300px
+    :align: center
+    :height: 300px
+    :alt: alternate text
 
 From Lists to Matrices
 ======================

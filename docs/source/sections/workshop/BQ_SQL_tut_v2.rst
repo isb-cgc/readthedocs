@@ -42,7 +42,7 @@ On the left side, from top to bottom we have:
 
 4.  **Your Project Datasets** Click the little blue triangle to create a new dataet or change projects.
 
-5.  **isb-cgc** Publicly accessible ISB-CGC curated datasets (including TCGA and reference data sources).  
+5.  **isb-cgc** Publicly accessible ISB-CGC curated datasets (including TCGA and reference data sources).
 
 6.  **More data!** Other added datasets will appear here (for example, the **genomics-public-data**, **silver-wall-555**, *etc*).
 
@@ -53,8 +53,8 @@ Querying: Lists, Joins, and Subqueries
 
 BigQueries are very similar to regular SQL, but with some differences.
 
-Typically, we select some variables (aka "fields") from one or more tables, filter on some criteria, and occationally
-aggregate the results (such as taking an average).
+Typically, we select some variables (aka "fields") from one or more tables, filter on some criteria,
+and occasionally aggregate the results (such as taking an average).
 
 Here, we want the barcodes for all patients in the CESC and HNSC
 studies, with an associated "primary solid tumor" sample. Note the use of the **IN** keyword.
@@ -71,7 +71,7 @@ studies, with an associated "primary solid tumor" sample. Note the use of the **
 	  Study IN ('CESC', 'HNSC')
 	  AND SampleType = 'Primary solid Tumor'
 
-Go ahead and cut and paste the above query directly into the New Query box, 
+Go ahead and cut and paste the above query directly into the New Query box,
 and then click on the red **Run Query** button.
 
 Next, let's suppose we want to add some biospecimen data. To do this we
@@ -116,16 +116,16 @@ join the clinical and biospecimen tables. Note the use of **JOIN ... ON**.
 		  b.hpv_status
 
 If you're really paying attention, you might notice that the first query returned
-836 participant barcodes from the Biospecimen_data table, but the second one returned only 
-835 participant and sample barcodes.  In a few cases, the Biospecimen_data table 
+836 participant barcodes from the Biospecimen_data table, but the second one returned only
+835 participant and sample barcodes.  In a few cases, the Biospecimen_data table
 contains information about samples that have no associated information in the Clinical_data
 table, and the "JOIN" operation is by default an *INNER* JOIN which returns only the
 intersection of the two tables being joined.
 
 Another way to work with multiple tables is by using subqueries.
-In the example below, we have an *inner* query (the middle 
+In the example below, we have an *inner* query (the middle
 seven lines set off by blank space) which creates a "cohort" on the fly,
-filtering by study and HPV status from the Clinical_data table.  
+filtering by study and HPV status from the Clinical_data table.
 We then use that sub-table to filter the Biospecimen_data table,
 where we compute the average of the percent tumor cells, also counting
 how many rows went into each average, grouped according to SampleType,
@@ -149,7 +149,7 @@ and then finally we sort by n.
 	    [isb-cgc:tcga_201607_beta.Clinical_data]
 	  WHERE
 	    hpv_status = 'Positive'
-	    AND Study IN ('CESC', 'HNSC') 
+	    AND Study IN ('CESC', 'HNSC')
 
           )
 	GROUP BY
@@ -204,14 +204,14 @@ You can get an "Explanation" showing how the query was broken into multiple Stag
 the number of input and outputs from each stage, and the amount of time spent
 reading, computing, *etc*.  In addition, you can Download or Save the Results in various ways,
 including as a new BigQuery Table.
-If your query will return a large number of results, you may need to click on the 
+If your query will return a large number of results, you may need to click on the
 **Show Options** button to the right of the **Run Query** button and specific a
 "Destination Table" and then turn on the "Allow Large Results" option.
 
 Making Summary Tables
 ---------------------
 
-Another way to create summary information is by creating tables of counts as shown below. 
+Another way to create summary information is by creating tables of counts as shown below.
 With summary tables, we can even compute statistics like a ChiSq.
 
 .. code-block:: sql
@@ -221,12 +221,12 @@ With summary tables, we can even compute statistics like a ChiSq.
 	  COUNT(*) AS n
 	FROM (
 	  SELECT (
-	    CASE 
-              WHEN gender = 'MALE' AND hpv_status = 'Positive' THEN 'Male_and_HPV_Pos' 
-              WHEN gender = 'MALE' AND hpv_status = 'Negative' THEN 'Male_and_HPV_Neg' 
-              WHEN gender = 'FEMALE' AND hpv_status = 'Positive' THEN 'Female_and_HPV_Pos' 
-              WHEN gender = 'FEMALE' AND hpv_status = 'Negative' THEN 'Female_and_HPV_Neg' 
-              ELSE 'None' 
+	    CASE
+              WHEN gender = 'MALE' AND hpv_status = 'Positive' THEN 'Male_and_HPV_Pos'
+              WHEN gender = 'MALE' AND hpv_status = 'Negative' THEN 'Male_and_HPV_Neg'
+              WHEN gender = 'FEMALE' AND hpv_status = 'Positive' THEN 'Female_and_HPV_Pos'
+              WHEN gender = 'FEMALE' AND hpv_status = 'Negative' THEN 'Female_and_HPV_Neg'
+              ELSE 'None'
             END ) AS table_cell,
 	  FROM
 	    [isb-cgc:tcga_201607_beta.Clinical_data]
@@ -241,5 +241,57 @@ With summary tables, we can even compute statistics like a ChiSq.
 	  n DESC
 
 
+Liftover to hg38
+================
 
+Suppose you want to work with the newer hg38 reference. We can use BigQuery to
+perform the liftover on methylation probe annotation.
 
+.. code-block:: sql
+
+	SELECT
+	  AddressA_ID,
+	  AddressB_ID,
+	  AlleleA_ProbeSeq,
+	  AlleleB_ProbeSeq,
+	  CHR,
+	  Chromosome_36,
+	  Color_Channel,
+	  Coordinate_36,
+	  DHS,
+	  DMR,
+	  Enhancer,
+	  Forward_Sequence,
+	  Genome_Build,
+	  HMM_Island,
+	  IlmnID,
+	  Infinium_Design_Type,
+	  MAPINFO,
+	  Methyl27_Loci,
+	  Name,
+	  Next_Base,
+	  Phantom,
+	  Probe_SNPs,
+	  Probe_SNPs_10,
+	  Random_Loci,
+	  Regulatory_Feature_Group,
+	  Regulatory_Feature_Name,
+	  Relation_to_UCSC_CpG_Island SourceSeq,
+	  UCSC_CpG_Islands_Name,
+	  UCSC.RefGene_Group,
+	  UCSC.RefGene_Accession,
+	  UCSC.RefGene_Name,
+	  liftover.hg38_Chr AS Chromosome_38,
+	  liftover.hg38_Pos AS Coordinate_38
+	FROM (
+	  SELECT
+	    *
+	  FROM
+	    [isb-cgc:platform_reference.methylation_annotation]
+	  WHERE
+	    CHR='17') AS meth
+	JOIN EACH [isb-cgc:genome_reference.liftover_hg19Tohg38] AS liftover
+	ON
+	  meth.CHR = liftover.hg19_Chr
+	  AND meth.MAPINFO = liftover.hg19_Pos
+	LIMIT 10
