@@ -2,26 +2,27 @@
 ISB-CGC Workshop 
 ****************
 
-This information is currently intended only for attendees who have
-signed up for the 
-`workshops at NCI on May 24th and 25th <https://cbiit.nci.nih.gov/ncip/nci-cancer-genomics-cloud-pilots/nci-cancer-genomics-cloud-workshop>`_.  
+This information is currently intended for attendees of the August 2nd workshop at ISB.
 After the workshops, all materials will be made available as part of the
 ISB-CGC documentation here on readthedocs.
+
+If you want to have another look at the Pre-Workshop information we sent you, `here <Workshop_prep_Aug2016.html>`_ it is.
 
 Before we get started ...
 #########################
 
-As soon as you've found a seat and opened up your laptop, please do the 
-following:
+As soon as you've found a seat and opened up your laptop, please do the following:
 
-* sign into your Chrome browser using the Google identity you provided to us last week (if you did not send us your Google identity, please **alert one of our team now**)
+* check your email for the latest workshop information, including links to materials as well as a link to a WebEx session -- you do *not* need to join the WebEx, but you might find it a useful way to see the what is being projected directly on your laptop;
 
-* check your email for the link to the WebEx for this workshop, and the link to these materials
+* sign into your Chrome browser using the Google identity you provided to us, or the "temporary" Google identity that was given to you this morning;
 
 * go to the Google Cloud Platform `Console <https://console.cloud.google.com>`_
 
-  + you should not have to sign in again, but if you are asked to, use the Google identity you gave us 
-  + in the top blue bar, towards the right, you chould be able to select between (at least) two projects: the "ISB-CGC Workshop" project and your own project -- if you do not see and/or cannot select between two or more projects, please **alert one of our team now**
+  + you should not have to sign in again, but if you are asked to, use the same Google identity again
+  + in the top blue bar, towards the right, you should see a project name, *eg* "ISB-CGC Workshop" -- if you are a member of two or more projects, then you will be able to select a project using that pulldown;
+
+* if you have any questions or are unable to access the Google Cloud Console, please *raise your hand!*
 
 .. image:: console_top.png
    :scale: 75
@@ -29,7 +30,16 @@ following:
 
 ..
 
-* did you `enable the APIs <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/enabling_new_APIs.pdf>`_ for your project (your *personal* project, not the workshop project)?  if not, **please do this now**
+* if you *do* have your own GCP project, now would be a good time to make sure that you have certain APIs enabled.  (If you don't know how, take a look at `this tutorial <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/enabling_new_APIs.pdf>`_.)  Specifically, you will need these APIs enabled (some may already be enabled by default):
+
+  + Google Compute Engine
+  + Google Genomics
+  + Google Cloud Logging
+  + Google Cloud Pub/Sub
+
+..
+
+* find out what access-privileges you have in your GCP project: go to the `IAM & Admin <https://console.cloud.google.com/iam-admin/iam>`_ section of the Cloud Console, look for your identity (*eg* gmail address) and look at which Role(s) are listed to the right;
 
 ..
 
@@ -44,31 +54,82 @@ following:
 .. code-block:: sql
 
    SELECT COUNT(*) AS n, Study, Gender
-   FROM [isb-cgc:tcga_201510_alpha.Clinical_data]
+   FROM [isb-cgc:tcga_201607_beta.Clinical_data]
    GROUP BY Gender, Study
    ORDER BY n DESC, Study, Gender
 
 Workshop Outline & Links
 ########################
 
-* `Introduction to the ISB-CGC Platform <https://github.com/isb-cgc/readthedocs/raw/master/docs/include/workshop-intro.pdf>`_
-* Introduction to the Google Cloud Platform
+ISB Cancer Genomics Cloud (ISB-CGC)
+===================================
 
+* **Introductions, Overview** *etc* 
+
+  + `Introduction to the ISB-CGC Platform <https://github.com/isb-cgc/readthedocs/raw/master/docs/include/workshop-intro.pdf>`_
   + `A Quick Tour of the Google Cloud Console <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_Console.pdf>`_
-  + `How to Enable APIs for your GCP Project <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/enabling_new_APIs.pdf>`_
 
-* Integrative Analysis Tutorial
+..
 
-  + `Web-App Tutorial <workshop/WebApp_tut.html>`_
+* **ISB-CGC Web App & API Endpoints**
+
+  + Web-App Tutorial `link <XXX>`_ `link <XXX>`_ ###workshop/WebApp_tut.html###
+  + API Endpoints demo `docs <XXX>`_
+
+..
+
+* **ISB-CGC Open-Access BigQuery Tables**
+
+  + Overview of TCGA data `docs <XXX>`_
   + `BigQuery SQL Tutorial <workshop/BQ_SQL_tut.html>`_
-  + `Analysis using R and RStudio <workshop/Workshop_R_tut.html>`_
+  + `Analysis using R <workshop/Workshop_R_tut.html>`_  (`R example <XXX>`_)
 
-* `Compute Pipelines Tutorial <https://docs.google.com/presentation/d/1IQkwbePfzj5qoCzqX-EV_UTbse075chzDINm5ZXGB5I/edit?usp=sharing>`_
-* `SMC-RNA DREAM challenge <https://docs.google.com/presentation/d/1NPZhxXtC_QuVhpVGmTGgvJKhaYtDxNxSqeoZA4ySGLo/edit#slide=id.g13fd37f827_0_1>`_
-* `Workshop Wrap-Up <https://github.com/isb-cgc/readthedocs/raw/master/docs/include/workshop-intro.pdf>`_
+..
 
-Other Quickstart Tutorials
-##########################
+* **Lunch and Open Q&A Session**
+
+..
+
+
+* **Computing in the Cloud**
+
+  + Useful References: `Cloud SDK cheat sheet <XXX>`_ and `Copy/Paste cheat sheet <XXX>`_
+  + Introduction to GCE (Google Compute Engine) (`slides <XXX>`_)
+  + Google Genomics "Pipelines" Service (`slides <XXX>`_)
+  + ISB-CGC Pipelines Framework (`slides <XXX>`_, `github <XXX>`_) 
+
+..
+
+DREAM Challenge: Somatic Mutation Challenge -- RNA
+==================================================
+
+* DREAM challenges powered by `Sage Bionetworks <http://sagebase.org/>`_
+
+  + `Overview <http://dreamchallenges.org/>`_
+  + `Design and Methodology <http://dreamchallenges.org/designmethodology/>`_
+  + `FAQ <http://dreamchallenges.org/faqs/>`_
+  + `Somatic Mutation Calling Challenge: RNA <https://www.synapse.org/#!Synapse:syn2813589/wiki/401435>`_ -- Registration is now open!
+  + `Publications <http://dreamchallenges.org/publications/>`_ from past challenges
+
+..
+
+Google Genomics
+===============
+
+  + `Overview <https://cloud.google.com/genomics/>`_
+  + `Sign up <https://cloud.google.com/genomics/#contact-form>`_ to receive the Google Genomics whitepaper
+  + `github repositories <https://github.com/googlegenomics>`_
+  + `Google Genomics Cookbook <https://googlegenomics.readthedocs.io/en/latest/>`_ with sections on:
+
+    - finding `published data sources <https://googlegenomics.readthedocs.io/en/latest/use_cases/discover_public_data/index.html>`_
+    - `data-processing <https://googlegenomics.readthedocs.io/en/latest/sections/process_data.html>`_ on the Google Cloud
+    - `data-analysis <https://googlegenomics.readthedocs.io/en/latest/sections/analyze_data.html>`_ on the Google Cloud
+    - accessing data using `IGV <https://googlegenomics.readthedocs.io/en/latest/use_cases/browse_genomic_data/igv.html>`_, `BioConductor <https://googlegenomics.readthedocs.io/en/latest/use_cases/browse_genomic_data/bioconductor.html>`_, `R <https://googlegenomics.readthedocs.io/en/latest/api-client-r/index.html>`_, `Python <https://googlegenomics.readthedocs.io/en/latest/use_cases/getting-started-with-the-api/python.html>`_ and more!
+
+..
+
+Quickstart Tutorials and Other Useful Links
+###########################################
 
 * `An Introduction to BigQuery <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_BigQuery.pdf>`_
 * `An Introduction to Cloud Datalab <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_Cloud_Datalab.pdf>`_
