@@ -89,7 +89,7 @@ ISB Cancer Genomics Cloud (ISB-CGC)
 
   + Overview of TCGA data (`doc <data/data2/data_in_BQ.html>`_)
   + `BigQuery SQL Tutorial <workshop/BQ_SQL_tut_v2.html>`_
-  + `Analysis using R <workshop/Workshop_R_tut_v2.html>`_  (`R example <https://github.com/isb-cgc/examples-R/blob/master/inst/doc/Working_With_Barcode_Lists.md>`_)
+  + `Analysis using R <workshop/Workshop_R_tut_v2.html>`_  (`github <https://github.com/isb-cgc/examples-R>`_)
 
 ..
 
