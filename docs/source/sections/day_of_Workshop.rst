@@ -74,6 +74,7 @@ ISB Cancer Genomics Cloud (ISB-CGC)
 
   + `Introduction to the ISB-CGC Platform <https://github.com/isb-cgc/readthedocs/raw/master/docs/include/workshop-intro.pdf>`_
   + `A Quick Tour of the Google Cloud Console <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_Console.pdf>`_
+  + `Copy/Paste Cheat Sheet <https://docs.google.com/document/d/1LYSRlmm2RwpuOpnpqjmRxHhZ6kU18grz3o5IPq_OhJ8/edit?usp=sharing>`_ (you might find this useful later on in the day)
 
 ..
 
@@ -99,10 +100,10 @@ ISB Cancer Genomics Cloud (ISB-CGC)
 
 * **Computing in the Cloud**
 
-  + Useful References: `Cloud SDK cheat sheet <XXX>`_ and `Copy/Paste cheat sheet <XXX>`_
-  + Introduction to GCE (Google Compute Engine) (`slides <XXX>`_)
-  + Google Genomics "Pipelines" Service (`slides <XXX>`_)
-  + ISB-CGC Pipelines Framework (`slides <XXX>`_, `github <XXX>`_) 
+  + Useful References: `Cloud SDK cheat sheet <https://docs.google.com/document/d/1ZZTsjHzQClA0gZyOhlBav-I4XQhW81Yx980qvgy_jr8/edit?usp=sharing>`_ 
+  + Introduction to GCE (Google Compute Engine) (`slides <https://docs.google.com/presentation/d/13ORIDboGC27uCMf_C9w9WIi0cK9tGO7cqgp6vwA2miE/edit?usp=sharing>`_)
+  + Google Genomics "Pipelines" Service (`slides <https://docs.google.com/presentation/d/1_rRvlhNuA0_SQuO2SOru7ttjPvzlygW3ALILcQ-JEjg/edit?usp=sharing>`_)
+  + ISB-CGC Pipelines Framework (`slides <https://docs.google.com/presentation/d/1akqoZImzei2D47O8rcWrcEzsWPYxUtL-2-eUdiBzzgo/edit?usp=sharing>`_, `github <https://github.com/isb-cgc/ISB-CGC-pipelines>`_) 
 
 ..
 
@@ -140,4 +141,5 @@ Quickstart Tutorials and Other Useful Links
 * `An Introduction to BigQuery <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_BigQuery.pdf>`_
 * `An Introduction to Cloud Datalab <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_Cloud_Datalab.pdf>`_
 * `An Introduction to Cloud Shell <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_Cloud_Shell.pdf>`_
+
 
