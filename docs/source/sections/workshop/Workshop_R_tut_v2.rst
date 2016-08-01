@@ -283,6 +283,7 @@ But also we can incorporate long lists of samples or genes into a query.
     corrs <- query_exec(q,my_cloud_project)
 
     # transform to a matrix, and give it rownames
+    library(tidyr)
     corrmat <- spread(corrs, gene1, corr)
     rownames(corrmat) <- corrmat$gene2
 
@@ -290,6 +291,11 @@ But also we can incorporate long lists of samples or genes into a query.
     library(pheatmap)
     pheatmap(corrmat[,-1])
 
+.. image:: correlation_matrix.jpg
+    :width: 300px
+    :align: center
+    :height: 300px
+    :alt: alternate text
 
 From Lists to Matrices
 ======================
