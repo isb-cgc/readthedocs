@@ -95,7 +95,8 @@ The general structure of the query is going to be:
       ) AS b
     ON
       a.AliquotBarcode = b.AliquotBarcode
-      AND a.Study = b.Study
+      AND a.HGNC_gene_symbol = b.HGNC_gene_symbol
+      AND a.Platform = b.Platform
     GROUP BY
       gene1,
       gene2"
