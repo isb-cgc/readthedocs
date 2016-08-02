@@ -293,7 +293,6 @@ But also we can incorporate long lists of samples or genes into a query.
       ) AS b
     ON
       a.AliquotBarcode = b.AliquotBarcode
-      AND a.HGNC_gene_symbol = b.HGNC_gene_symbol
       AND a.Platform = b.Platform
     GROUP BY
       gene1,
