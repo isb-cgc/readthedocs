@@ -20,6 +20,22 @@ Loading libraries
     require(httpuv, quietly = TRUE) || install.packages('httpuv',verbose=FALSE)
     require(ggplot2,quietly = TRUE) || install.packages('ggplot2',verbose = FALSE)
 
+The ISB-CGC R Examples Package
+==============================
+
+The collection of examples can be found at:
+https://github.com/isb-cgc/examples-R
+
+To install the package, we use the devtools package.
+
+.. code-block:: r
+
+    require(devtools,quietly = TRUE) || install.packages('devtools',verbose = FALSE)
+    require(ISBCGCExamples) || install_github("isb-cgc/examples-R", build_vignettes=F)
+    
+
+If you needed to install any of the packages, remember, you still need to import it!
+
 Your project ID
 ===============
 
