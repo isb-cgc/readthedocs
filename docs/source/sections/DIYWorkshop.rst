@@ -124,7 +124,7 @@ Additional Quickstart Tutorials
 ISB-CGC Workshop Outline & Links
 ################################
 
-* `Introduction to the ISB-CGC Platform <https://github.com/isb-cgc/readthedocs/raw/master/docs/include/workshop-intro.pdf>`_
+* `Introduction to the ISB-CGC Platform <https://github.com/isb-cgc/readthedocs/raw/master/docs/include/workshop-intro-Aug2016.pdf>`_
 
 * Integrative Analysis Tutorial
 

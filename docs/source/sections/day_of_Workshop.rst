@@ -72,7 +72,7 @@ ISB Cancer Genomics Cloud (ISB-CGC)
 
 * **Introductions, Overview** *etc* 
 
-  + `Introduction to the ISB-CGC Platform <https://github.com/isb-cgc/readthedocs/raw/master/docs/include/workshop-intro.pdf>`_
+  + `Introduction to the ISB-CGC Platform <https://github.com/isb-cgc/readthedocs/raw/master/docs/include/workshop-intro-Aug2016.pdf>`_
   + `A Quick Tour of the Google Cloud Console <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_Console.pdf>`_
   + `Copy/Paste Cheat Sheet <https://docs.google.com/document/d/1LYSRlmm2RwpuOpnpqjmRxHhZ6kU18grz3o5IPq_OhJ8/edit?usp=sharing>`_ (you might find this useful later on in the day)
 
