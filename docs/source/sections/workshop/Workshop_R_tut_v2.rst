@@ -16,9 +16,9 @@ Loading libraries
 
 .. code-block:: r
 
-    require(bigrquery,quietly = TRUE) || install.packages('bigrquery',verbose = FALSE)
+    require(bigrquery, quietly = TRUE) || install.packages('bigrquery',verbose = FALSE)
     require(httpuv, quietly = TRUE) || install.packages('httpuv',verbose=FALSE)
-    require(ggplot2,quietly = TRUE) || install.packages('ggplot2',verbose = FALSE)
+    require(ggplot2, quietly = TRUE) || install.packages('ggplot2',verbose = FALSE)
 
 The ISB-CGC R Examples Package
 ==============================
@@ -30,8 +30,8 @@ To install the package, we use the devtools package.
 
 .. code-block:: r
 
-    require(devtools,quietly = TRUE) || install.packages('devtools',verbose = FALSE)
-    require(ISBCGCExamples) || install_github("isb-cgc/examples-R", build_vignettes=F)
+    require(devtools, quietly = TRUE) || install.packages('devtools',verbose = FALSE)
+    require(ISBCGCExamples, quietly = TRUE) || install_github("isb-cgc/examples-R", build_vignettes=F)
     
 
 If you needed to install any of the packages, remember, you still need to import it!
