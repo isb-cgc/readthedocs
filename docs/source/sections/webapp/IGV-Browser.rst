@@ -26,9 +26,9 @@ Using the IGV Stand Alone Application to View Alignments Stored in Google Cloud 
 
 You can use the IGV Stand Alone Application to view reads from data stored in Google Genomics and also from BAM files in Google Cloud Storage. To do this, please `download <http://www.broadinstitute.org/software/igv/download>`_ the most recent version of the Stand Alone IGV Java Application from the IGV website.  Once you have launched the Java IGV application, please go to the Settings menu to enable the Google Menu item in the application (`directions <http://googlegenomics.readthedocs.io/en/latest/use_cases/browse_genomic_data/igv.html>`_ on how to do this).
 
-To load BAM files from ISB-CGC Google Cloud Storage use the "File", "Load from URL..."  menu item in the IGV application, entering the path to the bam file in GCS.  Paths to BAM files stored by ISB-CGC can be found using the ``cohorts().cloud_storage_file_paths()`` and ``samples().cloud_storage_file_paths()`` APIs described `here <../progapi/Programmatic-API.html#id4>`_ .
+To load BAM files from ISB-CGC Google Cloud Storage use the "File", "Load from URL..."  menu item in the IGV application, entering the path to the bam file in GCS.  Paths to BAM files stored by ISB-CGC can be found using the ``cohorts().cloud_storage_file_paths()`` and ``samples().cloud_storage_file_paths()`` APIs described `here <../progapi/Programmatic-API.html#id4>`_.
 
-To load alignments from ISB-CGC Google Genomics use the "Google", "Load Genomics ReadGroupSet..." menu item in the IGV application, entering the ReadGroupSet of the alignment stored in Google Genomics.  ReadGroupSet IDs to alignments stored by ISB-CGC can be found using the ``cohorts().googlegenomics()`` and ``samples().googlegenomics()`` APIs described `here <../progapi/Programmatic-API.html#id4>`_ .
+To load alignments from ISB-CGC Google Genomics use the "Google", "Load Genomics ReadGroupSet..." menu item in the IGV application, entering the ReadGroupSet of the alignment stored in Google Genomics.  ReadGroupSet IDs to alignments stored by ISB-CGC can be found using the ``cohorts().googlegenomics()`` and ``samples().googlegenomics()`` APIs described `here <../progapi/Programmatic-API.html#id4>`_.
 
 Acknowledgements
 ----------------
