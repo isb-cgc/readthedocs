@@ -18,6 +18,9 @@ typically from a single sample or a single BAM file.
 For the CCLE and TCGA datasets hosted by the ISB-CGC, each ReadGroupSet corresponds to a single BAM file which
 in turn corresponds to the aligned DNA- or RNA-seq reads from a single sample. IGV can also view BAM files (with associated BAM Index Files) that are stored on a Google Drive.  These are the type of files that are being viewed with the link "Cloud Storage".).
 
+NOTE:
+ - You will only be able to view controlled access sequence files if you have `logged in as a registered dbGaP authorized user <Gaining-Access-To-TCGA-Contolled-Access-Data.html>`_.
+
 Using the IGV Stand Alone Application to View Alignments Stored in Google Cloud Storage or Google Genomics
 ----------------------------------------------------------------------------------------------------------
 
