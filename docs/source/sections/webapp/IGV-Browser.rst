@@ -1,9 +1,6 @@
 *********************************
 Integrative Genomics Viewer (IGV)
 *********************************
-
-Accessing the IGV Browser
--------------------------
 The IGV Browser is an interactive tool used to explore integrated genomic data sets using a wide variety of data types.
 
 Accessing the IGV Browser from the Web Application
