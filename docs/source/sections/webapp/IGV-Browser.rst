@@ -7,6 +7,7 @@ Accessing the IGV Browser
 The IGV Browser is an interactive tool used to explore integrated genomic data sets using a wide variety of data types.  
 
 To access IGV, first select a cohort and then go to the cohort file list page (through the "View Files" link at the top of the page).
+
 .. image:: Cohort.png
 
 The resulting file list can be filtered using the Platforms listed on the left.  Any file that can be displayed in the IGV Browser will have a "GA4GH" (for files with a ReadGroupSet ID in Google Genomics) or a "Cloud Storage" (for files available via Google Cloud Storage) checkbox in the IGV column on the right side of the file table.  Note that many files viewable in IGV may require that the user have dbGaP authorization to view controlled access data.  If the user has been authenticated and authorized through the user details page, the user will be able to select files.  Otherwise the cursor will be disabled when the user hovers over a checkbox.  Open source data such as the CCLE project do not require dbGaP authorization and can be viewed by any authenticated user.
