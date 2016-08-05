@@ -1,14 +1,14 @@
 ************************************************
 Accessing TCGA Controlled Data
 ************************************************
-Accesssing TCGA controlled-access data is done in two different manners, depending if you are doing it through interactive computing (e.g. BigQuery, R Studio), or programmatically (e.g. a program running from a Google Virtual Machine Compute Engine you have started).  Below the methods are described.  Please note, you can use both methods at the same time, they are not mutuall exclusive.
+Accesssing TCGA controlled-access data is done in two different manners, depending if you are doing it through interactive computing (e.g. the Web Application, BigQuery, R Studio), or programmatically (e.g. a program running from a Google Virtual Machine Compute Engine you have started).  Below the methods are described.  Please note, you can use both methods at the same time, they are not mutuall exclusive.
 
-Accessing TCGA Data Through the Web App
-***************************************
-To obtain access to TCGA controlled-access data (either through the Web Application or programmatically) 
+Accessing TCGA Data Through the Interactive Computing 
+*****************************************************
+To obtain access to TCGA controlled-access data for interactive computing (things that you run while interacting with controlled data such as the Web Application, R, R Studio, Command Line Interfaces, Cloud Datalab etc.)
 you must associate your Google identity with a valid NIH login that is associated with a dbGaP project 
-(either an eRA account ID or an NIH account User ID) through the Web Application.  This association
-is created when you successfully authenticated through NIH.  Your NIH identity will then be 
+(either an eRA account ID or an NIH account User ID).  This is done through the Web Application where an association
+is created when you have successfully authenticated through NIH.  Your NIH identity will then be 
 checked against the current dbGaP whitelist to verify that you are authorized to view and access
 the TCGA controlled data.
 
@@ -27,7 +27,7 @@ Frequently Asked Questions (FAQ)
 or the "How to" `Apply for Controlled Access Data Video <http://www.youtube.com/watch?v=-3tUBeKbP5c>`_.
 
 Linking your NIH and Google identities
-**************************************
+++++++++++++++++++++++++++++++++++++++
 To link your NIH identity with your Google identity (ie the Google account you used to login to the ISB-CGC system), 
 select the "persona" icon next to your login name (A in the image below) after you have signed in to the ISB-CGC Web Application.  
 
@@ -76,7 +76,7 @@ still be signed in to your browser, so you may want to also sign out of the brow
    :align: center
 
 Extending Your Access by 24 hours From Now
-******************************************
+++++++++++++++++++++++++++++++++++++++++++
 Once you have received permission to view controlled access data, your user login page will look like the screenshot below. If you need to extend your access to controlled data for another 24 hours from now (e.g. if your compute job is still running on data that is controlled access), select the link "Extend controlled access period to 24 hours from now" (red box on figure below).  Your time of access will be extended to 24 hours from the time you push the link. 
 
 .. image:: 24hrExtension.png
