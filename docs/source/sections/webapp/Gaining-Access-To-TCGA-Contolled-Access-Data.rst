@@ -1,6 +1,10 @@
 ************************************************
 Accessing TCGA Controlled Data
 ************************************************
+Accesssing TCGA controlled-access data is done in two different manners, depending if you are doing it through interactive computing (e.g. BigQuery, R Studio), or programmatically (e.g. a program running from a Google Virtual Machine Compute Engine you have started).  Below the methods are described.  Please note, you can use both methods at the same time, they are not mutuall exclusive.
+
+Accessing TCGA Data Through the Web App
+***************************************
 To obtain access to TCGA controlled-access data (either through the Web Application or programmatically) 
 you must associate your Google identity with a valid NIH login that is associated with a dbGaP project 
 (either an eRA account ID or an NIH account User ID) through the Web Application.  This association
