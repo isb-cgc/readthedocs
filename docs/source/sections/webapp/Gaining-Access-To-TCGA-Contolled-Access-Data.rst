@@ -1,7 +1,7 @@
 ************************************************
 Accessing TCGA Controlled Data
 ************************************************
-Accesssing TCGA controlled-access data is done in two different manners, depending if you are doing it through interactive computing (e.g. the Web Application, BigQuery, R Studio), or programmatically (e.g. a program running from a Google Virtual Machine Compute Engine you have started).  Below the methods are described.  Please note, you can use both methods at the same time, they are not mutuall exclusive.
+Accesssing TCGA controlled-access data is done in two different manners, depending if you are doing it through interactive computing (e.g. the Web Application, BigQuery, R Studio), or programmatically (e.g. a program running from a Google Virtual Machine Compute Engine you have started).  Below the methods are described.  Please note, you can use both methods at the same time, they are not mutually exclusive.
 
 Accessing TCGA Data Through the Interactive Computing 
 *****************************************************
