@@ -4,7 +4,10 @@ Integrative Genomics Viewer (IGV)
 
 Accessing the IGV Browser
 -------------------------
-The IGV Browser is an interactive tool used to explore integrated genomic data sets using a wide variety of data types.  
+The IGV Browser is an interactive tool used to explore integrated genomic data sets using a wide variety of data types.
+
+Accessing the IGV Browser from the Web Application
+--------------------------------------------------
 
 To access IGV, first select a cohort and then go to the cohort file list page (through the "View Files" link at the top of the page).
 
@@ -12,7 +15,7 @@ To access IGV, first select a cohort and then go to the cohort file list page (t
 
 The resulting file list can be filtered using the Platforms listed on the left.  Any file that can be displayed in the IGV Browser will have a "GA4GH" (for files with a ReadGroupSet ID in Google Genomics) or a "Cloud Storage" (for files available via Google Cloud Storage) checkbox in the IGV column on the right side of the file table.  Note that many files viewable in IGV may require that the user have dbGaP authorization to view controlled access data.  If the user has been authenticated and authorized through the user details page, the user will be able to select files.  Otherwise the cursor will be disabled when the user hovers over a checkbox.  Open source data such as the CCLE project do not require dbGaP authorization and can be viewed by any authenticated user.
 
-Once a maximum of five files ahs been selected, they can be viewed in the IGV Browser by clicking on the "Launch IGV" button in the upper right of the window
+Once a maximum of five files have been selected, they can be viewed in the IGV Browser by clicking on the "Launch IGV" button in the upper right of the window
 
 .. image:: CCLE_Files.png
 
@@ -24,7 +27,19 @@ NOTES:
 ("ReadGroupSet" is a GA4GH term for a group of aligned DNA- or RNA-seq reads, 
 typically from a single sample or a single BAM file.
 For the CCLE and TCGA datasets hosted by the ISB-CGC, each ReadGroupSet corresponds to a single BAM file which
-in turn corresponds to the aligned DNA- or RNA-seq reads from a single sample. IGV can also view BAM files (with associated BAM Index Files) that are stored on a Google Drive.  These are the type of files that are being viewed with the link "Cloud Storage".).
+in turn corresponds to the aligned DNA- or RNA-seq reads from a single sample. IGV can also view BAM files (with associated BAM Index Files) that are stored on a Google Drive.  These are the type of files that are being viewed with the link "Cloud Storage".).a
+
+Using the IGV Stand Alone Application to View Alignments Stored in Google Cloud Storage or Google Genomics
+----------------------------------------------------------------------------------------------------------
+
+You can use the IGV Stand Alone Application to view reads from data stored in Google Genomics and also from BAM files in Google Cloud Storage. To do this, please `download <http://www.broadinstitute.org/software/igv/download>`_ the most recent version of the Stand Alone IGV Java Application from the IGV website.  Once you have launched the Java IGV application, please go to the Settings menu to enable the Google Menu item in the application (`directions <http://googlegenomics.readthedocs.io/en/latest/use_cases/browse_genomic_data/igv.html>`_ on how to do this).
+
+To load BAM files from ISB-CGC Google Cloud Storage use the "File", "Load from URL..."  menu item in the IGV application, entering the path to the bam file in GCS.  Paths to BAM files stored by ISB-CGC can be found using the ``cohorts().cloud_storage_file_paths()`` and ``samples().cloud_storage_file_paths()`` APIs described `here <../progapi/Programmatic-API.html#id4>`_.
+
+To load alignments from ISB-CGC Google Genomics use the "Google", "Load Genomics ReadGroupSet..." menu item in the IGV application, entering the ReadGroupSet of the alignment stored in Google Genomics.  ReadGroupSet IDs to alignments stored by ISB-CGC can be found using the ``cohorts().googlegenomics()`` and ``samples().googlegenomics()`` APIs described `here <../progapi/Programmatic-API.html#id4>`_.
+
+NOTE:
+ - You will only be able to view controlled access sequence files if you have `logged in as a registered dbGaP authorized user <Gaining-Access-To-TCGA-Contolled-Access-Data.html>`_.
 
 Acknowledgements
 ----------------
