@@ -83,6 +83,21 @@ Once you have received permission to view controlled access data, your user logi
    :scale: 50
    :align: center
 
+Accessing TCGA Data Programmatically 
+====================================
+To obtain access to TCGA controlled-access data from a program you need to register at least one service account from your project with ISB-CGC.  This will allow programs running from Virtual Machines of the GCE in your GCP to use controlled access data for up to 7 days.
+
+Registering your GCP Service Account
+------------------------------------
+Text here about registering the account.
+
+Requirements for Registering a Service Account
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Text here about requirements for registering a service account
+
+Extending Your Access by 7 Days From Now
+------------------------------------------
+Once you have received permission to view controlled access data, your user login page will look like the screenshot below. If you need to extend your access to controlled data for another 24 hours from now (e.g. if your compute job is still running on data that is controlled access),
 
 Available TCGA Data: Open- and Controlled-Access
 ================================================
