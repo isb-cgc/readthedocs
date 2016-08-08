@@ -125,7 +125,15 @@ Please fill out the form following the instructions that are provided.  You must
    
 Pushing the "Register" button will take you to the next screen:
 
+.. image:: 0007projectregistered.png
+   :scale: 50
+   :align: center
+   
+Select "Register Service Account" from the drop down menu on the left of the GCP you want to add a service account to.  You will be requested to enter your service account ID (see screenshot below) and select the "Yes" checkbox indicating that you will be using the account to access controlled data.
 
+.. image:: RegisterAServiceAccountFirstScreen.png
+   :scale: 50
+   :align: center
 
 Managing your GCP Project(s) and Service Account(s)
 ---------------------------------------------------
