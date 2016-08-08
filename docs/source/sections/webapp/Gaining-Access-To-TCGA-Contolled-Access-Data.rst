@@ -85,7 +85,7 @@ Once you have received permission to view controlled access data, your user logi
 
 Accessing TCGA Data Programmatically 
 ====================================
-To obtain access to TCGA controlled-access data from a program you need to register at least one service account from your project with ISB-CGC.  This will allow programs running from Virtual Machines of the GCE in your GCP to use controlled access data for up to 7 days.
+To obtain access to TCGA controlled-access data from a program you need to register at least one service account from your Google Cloud Project (GCP) with ISB-CGC.  This will allow programs running from Virtual Machines of the Google Compute Engine in your GCP to use controlled access data for up to 7 days.  (NOTE: to allow flexibility while working with different research teams and different processes, you can have many GCPs registered with ISB-CGC, as well as many service accounts per GCP registered.)
 
 Registering your GCP Service Account
 ------------------------------------
