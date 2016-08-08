@@ -4,7 +4,7 @@ Accessing TCGA Controlled Data
 Accesssing TCGA controlled-access data is done in two different manners, depending if you are doing it through interactive computing (e.g. the Web Application, BigQuery, R Studio), or programmatically (e.g. a program running from a Google Virtual Machine Compute Engine you have started).  Below the methods are described.  Please note, you can use both methods at the same time, they are not mutually exclusive.
 
 Accessing TCGA Data Through the Interactive Computing 
-*****************************************************
+=====================================================
 To obtain access to TCGA controlled-access data for interactive computing (things that you run while interacting with controlled data such as the Web Application, R, R Studio, Command Line Interfaces, Cloud Datalab etc.)
 you must associate your Google identity with a valid NIH login that is associated with a dbGaP project 
 (either an eRA account ID or an NIH account User ID).  This is done through the Web Application where an association
@@ -27,7 +27,7 @@ Frequently Asked Questions (FAQ)
 or the "How to" `Apply for Controlled Access Data Video <http://www.youtube.com/watch?v=-3tUBeKbP5c>`_.
 
 Linking your NIH and Google identities
-++++++++++++++++++++++++++++++++++++++
+--------------------------------------
 To link your NIH identity with your Google identity (ie the Google account you used to login to the ISB-CGC system), 
 select the "persona" icon next to your login name (A in the image below) after you have signed in to the ISB-CGC Web Application.  
 
@@ -76,7 +76,7 @@ still be signed in to your browser, so you may want to also sign out of the brow
    :align: center
 
 Extending Your Access by 24 hours From Now
-++++++++++++++++++++++++++++++++++++++++++
+------------------------------------------
 Once you have received permission to view controlled access data, your user login page will look like the screenshot below. If you need to extend your access to controlled data for another 24 hours from now (e.g. if your compute job is still running on data that is controlled access), select the link "Extend controlled access period to 24 hours from now" (red box on figure below).  Your time of access will be extended to 24 hours from the time you push the link. 
 
 .. image:: 24hrExtension.png
@@ -85,10 +85,10 @@ Once you have received permission to view controlled access data, your user logi
 
 
 Available TCGA Data: Open- and Controlled-Access
-************************************************
+================================================
 
 Open Access Data 
-================
+----------------
 
 All of the open-access data hosted by the ISB-CGC is immediately accessible to all users, without
 NIH authentication nor dbGaP authorization required.  These open-access data can be explored
@@ -107,7 +107,7 @@ The **Open-Access** TCGA data hosted by the ISB-CGC Platform includes:
 • TCGA Annotations data: annotations were obtained from the TCGA Annotations Manager
 
 Controlled-Access Data
-======================
+----------------------
 
 Controlled-access data is accessible only to users who have been authenticated by NIH
 and whose dbGaP authorization has been verified.
@@ -122,7 +122,7 @@ The **Controlled-Access** TCGA data hosted by the ISB-CGC Platform includes:
 • finally, BAM index (BAI) files are available for all BAM files;
 
 Your Responsibilities 
-=====================
+---------------------
 You should think about securing controlled data within the context of your GCP project in the same way 
 that you would think about securing controlled data that you might download to a file-server or 
 compute-cluster at your own institution. Your responsibilities for data protection are the same in a 
