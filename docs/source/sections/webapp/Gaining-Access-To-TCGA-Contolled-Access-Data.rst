@@ -91,13 +91,37 @@ Registering your GCP Service Account
 ------------------------------------
 Text here about registering the account.
 
-Requirements for Registering a Service Account
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Requirements for Registering a GCP Service Account
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Text here about requirements for registering a service account
 
-Extending Your Access by 7 Days From Now
-------------------------------------------
+Managing your GCP Project(s) and Service Account(s)
+---------------------------------------------------
+Text here about managing the accounts.
+
+Adding additional GCPs
+~~~~~~~~~~~~~~~~~~~~~~
+Text here about adding additional accounts
+
+Adding additional service accounts to a given GCP
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Text here about adding additional accounts
+
+Extending Your Service Account Access by 7 Days From Now
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Once you have received permission to view controlled access data, your user login page will look like the screenshot below. If you need to extend your access to controlled data for another 24 hours from now (e.g. if your compute job is still running on data that is controlled access),
+
+Reauthorizing a GCP(s) Service Account(s) after it was revoked permission
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Once you have received permission to view controlled access data, your user login page will look like the screenshot below. If you need to extend your access to controlled data for another 24 hours from now (e.g. if your compute job is still running on data that is controlled access),
+
+Deleting GCPs
+~~~~~~~~~~~~~
+Text here about adding additional accounts
+
+Deleting Service Accounts from GCPs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Text here about adding additional accounts
 
 Available TCGA Data: Open- and Controlled-Access
 ================================================
