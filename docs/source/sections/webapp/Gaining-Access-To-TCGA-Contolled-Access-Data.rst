@@ -116,7 +116,11 @@ Select the "+ Register New Google Cloud Project" button.  That takes you to the 
    :scale: 50
    :align: center
    
-Please fill out the form following the instructions that are provided.  You must enter your GCP ID and enable the isb-cgc service account as an editor in your project to move on to the next step.  Once you have completed these steps you will be presented with the following screen:
+Please fill out the form following the instructions that are provided.  You must enter your GCP ID and enable the isb-cgc service account as an editor in your project to move on to the next step.  Once you have completed these steps you will be presented at the bottom of the same page a listing o fthe members of our GCP you have identified (see screenshot below):
+
+.. image:: GCPMembers.png
+   :scale: 50
+   :align: center
 
 Managing your GCP Project(s) and Service Account(s)
 ---------------------------------------------------
