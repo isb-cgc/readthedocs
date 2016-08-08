@@ -89,7 +89,12 @@ To obtain access to TCGA controlled-access data from a program you need to regis
 
 Requirements for Registering a GCP Service Account
 --------------------------------------------------
-Text here about requirements for registering a service account
+To be able to register your GCP and at least one service account to handle controlled access data the following must all be true:
+
+- at any time, ALL members of the project MUST be authorized to use the data set (be a registered dbGaP PI or downloader) (see dbGap Data Access `Request Portal <http://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login>`_, and `Understanding Data Security <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/data/data2/TCGA_Data_Security.html>`_ for more details).
+- at least one PI must be an OWNER of the project
+
+If ANY of these requirements are not met, your GCP and ANY associated service accounts will be disabled to use controlled access data.  Emails will be sent to the GCP owners if this permission is revoked describing the reason for the withdrawing of controlled access data by the GCP (such as the adding to the project a new member who does not have dbGaP approved access to the controlled-access data set).
 
 Registering your GCP Service Account
 ------------------------------------
