@@ -110,9 +110,13 @@ Select the "View Registered Google Cloud Projects" link.  That takes you to the 
    :scale: 50
    :align: center
    
-Select the "+ Register New Google Cloud Project" button.  That takes you to the following instruction page:
+Select the "+ Register New Google Cloud Project" button.  That takes you to the following instruction page (note, screenshot below is only the top half of the page):
 
-
+.. image:: RegisterAGCPForm.png
+   :scale: 50
+   :align: center
+   
+Please fill out the form following the instructions that are provided.  You must enter your GCP ID and enable the isb-cgc service account as an editor in your project to move on to the next step.  Once you have completed these steps you will be presented with the following screen:
 
 Managing your GCP Project(s) and Service Account(s)
 ---------------------------------------------------
