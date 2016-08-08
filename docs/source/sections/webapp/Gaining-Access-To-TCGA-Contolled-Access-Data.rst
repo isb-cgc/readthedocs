@@ -85,7 +85,7 @@ Once you have received permission to view controlled access data, your user logi
 
 
 Available TCGA Data: Open- and Controlled-Access
-################################################
+************************************************
 
 Open Access Data 
 ================
