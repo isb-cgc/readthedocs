@@ -134,6 +134,8 @@ Select "Register Service Account" from the drop down menu on the left of the GCP
 .. image:: RegisterAServiceAccountFirstScreen.png
    :scale: 50
    :align: center
+   
+Once you click the "Button" at the bottom of the page, you will be presented with a list of the users of the GCP project, if they have registered with ISB-CGC through the Web Application, if the have an eRA Commons ID registered with 
 
 Managing your GCP Project(s) and Service Account(s)
 ---------------------------------------------------
