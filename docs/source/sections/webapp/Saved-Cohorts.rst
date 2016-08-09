@@ -74,7 +74,7 @@ Data Type Tab
 Molecular Tab
 ^^^^^^^^^^^^^
 
-    * Gene Mutation Status (selecting a cohort based on the presence of a mutation (of various types) in a gene)
+    * Gene Mutation Status (creating a cohort based on the presence of a mutation (of various types) in a gene)
 
 Save As New Cohort Button
 ^^^^^^^^^^^^^^^^^^^^^^^^^
