@@ -177,11 +177,15 @@ To add additional service accounts to a given GCP reselect the "Register Service
 
 Deleting Service Accounts from GCPs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Text here about adding additional accounts
+To delete a service account from an GCP (not allowing it to be used to programmatically access controlled data), push the "trashcan" icon beside the service account (see screenshot below).
+
+.. image:: DeleteServiceAccount.png
+   :scale: 50
+   :align: center
 
 Extending Your Service Account Access by 7 Days From Now
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Once you have received permission to view controlled access data, your user login page will look like the screenshot below. If you need to extend your access to controlled data for another 24 hours from now (e.g. if your compute job is still running on data that is controlled access),
+Once you have registered 
 
 Reauthorizing a GCP(s) Service Account(s) after it was revoked permission
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
