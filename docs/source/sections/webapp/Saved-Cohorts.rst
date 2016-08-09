@@ -35,7 +35,7 @@ Individual selections in a filter are "ORed" together, meaning if any of the sel
 
 Cohort Filters
 --------------
-The panel on the left of the screen, with two tabs called "DONOR" and "DATA TYPE" allow you to apply filters to the cohorts your are creating.  Below are the details of each tab.
+The panel on the left of the screen, with three tabs called "DONOR", "DATA TYPE", and "MOLECULAR" allow you to apply filters to the cohorts your are creating.  Below are the details of each tab.
 
 Donor Tab
 ^^^^^^^^^
@@ -70,6 +70,11 @@ Data Type Tab
     * Protein
     * SNP Copy Number
     * DNA Methylation
+    
+Molecular Tab
+^^^^^^^^^^^^^
+
+    * Gene Mutation Status (selecting a cohort based on the presence of a mutation (of various types) in a gene)
 
 Save As New Cohort Button
 ^^^^^^^^^^^^^^^^^^^^^^^^^
