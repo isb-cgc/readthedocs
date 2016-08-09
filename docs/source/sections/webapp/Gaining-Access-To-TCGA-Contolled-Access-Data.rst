@@ -85,17 +85,17 @@ Once you have received permission to view controlled access data, your user logi
 
 Accessing TCGA Data Programmatically 
 ====================================
-To obtain access to TCGA controlled-access data from a program you need to register at least one service account from your Google Cloud Project (GCP) with ISB-CGC.  This will allow programs running from Virtual Machines of the Google Compute Engine in your GCP to use controlled access data for up to 7 days.  (NOTE: to allow flexibility while working with different research teams and different processes, you can have many GCPs registered with ISB-CGC, as well as many service accounts per GCP registered.)
+To obtain access to TCGA controlled-access data from a program you need to register at least one service account from your Google Cloud Project (GCP) with ISB-CGC.  This will allow programs running from Virtual Machines of the Google Compute Engine in your GCP to use controlled access data for up to 7 days.  (NOTE: to allow flexibility while working with different research teams and different processes, you can have many GCPs registered with ISB-CGC, as well as many service accounts registered per GCP.)
 
 Requirements for Registering a GCP Service Account
 --------------------------------------------------
 To be able to register your GCP and at least one service account to handle controlled access data the following must all be true:
 
-- at any time, ALL members of the project MUST be authorized to use the data set (be a registered dbGaP PI or downloader) (see dbGap Data Access `Request Portal <http://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login>`_, and `Understanding Data Security <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/data/data2/TCGA_Data_Security.html>`_ for more details).
-- all members of the project will have had to register their ID with ISB-CGC by using the ISB-CGC Web Application
+- at any time, ALL members of the project MUST be authorized to use the data set (be a registered dbGaP "PI" or "downloader") (see dbGap Data Access `Request Portal <http://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login>`_, and `Understanding Data Security <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/data/data2/TCGA_Data_Security.html>`_ for more details).
+- all members of the project will have had to register their Google ID with ISB-CGC by using the ISB-CGC Web Application
 - all members of the project will have had to associate their Google ID with ISB-CGC with an NIH Identity (see the "Linking your NIH and Google identities" section of this page above for instructions on how to do this).
 
-If ANY of these requirements are not met, your GCP and ANY associated service accounts will be disabled to use controlled access data.  Emails will be sent to the GCP owners if this permission is revoked describing the reason for the withdrawing of controlled access data by the GCP (such as the adding to the project a new member who does not have dbGaP approved access to the controlled-access data set).
+If ANY of these requirements are not met, your GCP and ANY associated service accounts will be disabled to use controlled access data.  Emails will be sent to the GCP owners if this permission is revoked.
 
 Registering your GCP Service Account
 ------------------------------------
@@ -117,7 +117,7 @@ Select the "+ Register New Google Cloud Project" button.  That takes you to the 
    :scale: 50
    :align: center
    
-Please fill out the form following the instructions that are provided.  You must enter your GCP ID and enable the isb-cgc service account as an editor in your project to move on to the next step.  Once you have completed these steps you will be presented at the bottom of the same page a listing o fthe members of our GCP you have identified (see screenshot below):
+Please fill out the form following the instructions that are provided.  You must enter your GCP ID and enable the isb-cgc service account as an editor in your project to move on to the next step.  Once you have completed these steps you will be presented at the bottom of the same page a listing of the members of your GCP you registering (see screenshot below):
 
 .. image:: GCPMembers.png
    :scale: 50
@@ -129,7 +129,7 @@ Pushing the "Register" button will take you to the next screen:
    :scale: 50
    :align: center
    
-Select "Register Service Account" from the drop down menu on the left of the GCP you want to add a service account to.  You will be requested to enter your service account ID (see screenshot below) and select the "Yes" checkbox indicating that you will be using the account to access controlled data.
+Select "Register Service Account" from the drop down menu on the left of the GCP you want to add a service account to.  You will be requested to enter your service account ID (see screenshot below).  Addtionally, select the "Yes" checkbox indicating that you will be using the account to access controlled data and select the Controlled Dataset you will are requesting programmatic access to.
 
 .. image:: RegisterAServiceAccountFirstScreen.png
    :scale: 50
