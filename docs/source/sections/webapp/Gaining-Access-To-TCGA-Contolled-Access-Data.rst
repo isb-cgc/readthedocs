@@ -185,11 +185,19 @@ To delete a service account from an GCP (not allowing it to be used to programma
 
 Extending Your Service Account Access by 7 Days From Now
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Once you have registered 
+Once you have registered a Service Account, you have 7 days before the access is automatically revoked.  To extend the service account access another 7 days (e.g. if your program is still running), select the "refresh" icon beside the service account (see screenshot below).
+
+.. image:: RefreshServiceAccount.png
+   :scale: 50
+   :align: center
 
 Reauthorizing a GCP(s) Service Account(s) after it was revoked permission
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Once you have received permission to view controlled access data, your user login page will look like the screenshot below. If you need to extend your access to controlled data for another 24 hours from now (e.g. if your compute job is still running on data that is controlled access),
+Your service account may have its permissions revoked (because, for example, you have added a member to the GCP who is not authorized to use that controlled data).  To reauthorize the service account 1) remedy the situation that caused the initial revokation of the service account and 2) select the "refresh" icon beside the service account (see screenshot below).
+
+.. image:: RefreshServiceAccount.png
+   :scale: 50
+   :align: center
 
 Available TCGA Data: Open- and Controlled-Access
 ================================================
