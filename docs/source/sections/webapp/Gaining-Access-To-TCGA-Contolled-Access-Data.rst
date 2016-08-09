@@ -73,7 +73,7 @@ There is the rare possibility that your NIH identity has been registered with an
    :scale: 50
    :align: center
    
-If this happens, contact us at ??????????????? and we will help you resolve the issue.   
+If this happens, contact us at feedback@isb-cgc.org and we will help you resolve the issue.   
 
 To end your web-app session, just "Sign Out" by using the pull-down below your name 
 (see image below, A).  After you sign out from the ISB-CGC web-app, your Google identity may 
