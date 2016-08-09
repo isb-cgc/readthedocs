@@ -161,11 +161,19 @@ To add additional Google Cloud Projects (GCPs) that you own to be able run progr
 
 Deleting GCPs
 ~~~~~~~~~~~~~
-Text here about adding additional accounts
+To delete a GCP that is registed, select the "Unregister Project" button from the dropdown menu beside the project your are removing on the "Registered Google Cloud Projects" page (see screenshot below).
+
+.. image:: UnregisterAGCP.png
+   :scale: 50
+   :align: center
 
 Adding additional service accounts to a given GCP
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Text here about adding additional accounts
+To add additional service accounts to a given GCP reselect the "Register Service Account" from the dropdown menu beside the project that has the service account (see screenshot below). 
+
+.. image:: 0007projectregistered.png
+   :scale: 50
+   :align: center
 
 Deleting Service Accounts from GCPs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
