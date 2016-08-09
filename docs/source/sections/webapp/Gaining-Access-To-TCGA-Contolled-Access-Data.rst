@@ -153,7 +153,11 @@ Once your GCP(s) and Service Account(s) are registered, you can add more and rem
 
 Adding additional GCPs
 ~~~~~~~~~~~~~~~~~~~~~~
-Text here about adding additional accounts
+To add additional Google Cloud Projects (GCPs) that you own to be able run programs programmatically select the "+ Register New Google Cloud Project" button from the "Registered Google Cloud Projects" page (see screenshot below).
+
+.. image:: RegisterAnotherGCP.png
+   :scale: 50
+   :align: center
 
 Deleting GCPs
 ~~~~~~~~~~~~~
