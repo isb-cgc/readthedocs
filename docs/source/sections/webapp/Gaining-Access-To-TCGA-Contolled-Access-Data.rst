@@ -67,13 +67,13 @@ If you need to *unlink* your eRA account from your Google account (for example i
 change which Google identity you use to sign in to the ISB-CGC platform), you may do so by
 selecting "Unlink <GoogleID> from the NIH username <eRA Commons ID>" (link B in the screen above).
 
-There is the rare possibility that your NIH identity has been registered with another Google identity (e.g. another Google identity you own).  In that instance you will see the screen below:
+There is the unusual instance that your NIH identity has been registered with another Google identity (e.g. with another Google identity you own).  In that instance you will see the screen below:
 
 .. image:: eRAlinkedtoAnotherGoogle.png
    :scale: 50
    :align: center
    
-If this happens, contact us at feedback@isb-cgc.org and we will help you resolve the issue.   
+If this happens, please go to that account and "unlink" your eRA from that account (see description above).  You will then be able to register your eRA account with your other Google identity.  If you are not able to resolve the issue, contact us at feedback@isb-cgc.org and we will help you resolve it.   
 
 To end your web-app session, just "Sign Out" by using the pull-down below your name 
 (see image below, A).  After you sign out from the ISB-CGC web-app, your Google identity may 
