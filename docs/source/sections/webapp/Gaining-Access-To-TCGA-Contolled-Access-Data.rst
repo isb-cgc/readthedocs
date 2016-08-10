@@ -98,6 +98,7 @@ When using Google to run programs to access data in Google Virtual Machines (GCE
 To obtain access to TCGA controlled-access data from a program you need to register at least one service account from your GCP with ISB-CGC.  This will allow programs running from Virtual Machines of the Google Compute Engine in your GCP to use controlled access data for up to 7 days.
 
 NOTES: 
+
 - to allow flexibility while working with different research teams and different processes, you can have many GCPs registered with ISB-CGC, as well as many service accounts registered per GCP.)
 - if your program tries to access data stored in a controlled access area after the 7 day expiration, it will get an error describing that access is denied.  To prevent this, we have enabled the ability to add another 7 days to the access (if your program is running long), see below for directions.  You may also wish to adjust your program to the posibility that data access may be denied.
 
