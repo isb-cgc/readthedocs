@@ -2,6 +2,59 @@
 Release Notes
 *************
 
+*  **August 10, 2016**: `v1.7 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.7>`_
+    
+    **New Functionality Released in this Sprint**
+    
+    - The researcher can now create a cohort of participants and samples based on the presence of a gene mutation in a specified gene. Look for the new “Molecular” tab when you are creating a cohort.
+    - The bioinformatics programmer now has the ability to associate their Google Cloud Project’s Service Account. This allows the researcher to run computational pipelines from Google Virtual Machines using TCGA Controlled data (e.g. BAM files) for seven days before they have to reauthorize. For more information please select here.
+    
+    
+    **Known issues in Sprint 8**
+    
+    - The user can add same gene twice if list to the same worksheet it they have different names.
+    - The Bar chart on the worksheet panel renders overlapping text. 
+    - Cannot delete whom you share cohort with from existing cohorts table.  
+    - Analysis Type : Seq peek Formatting Elongated
+    - The CCLE data in GUI is not exactly coordinated the CCLE data in BigQuery. 
+    - If a user creates a cohort with sample type filter Cell Lines  and CCLE the total number of samples count is off by one. 
+    - After 24-hours of use, a dbGaP authorized user has to logout and then log back in to be prompted with NIH login link to re-access controlled data. 
+    - User will occasionally be sent to the Social Network Login page when trying to login. If this occurs, please go the the home page of the Web Application and try again.
+    - Page becomes elongated when the user builds a Cubby Hole plot. 
+    - X-axis name cut off for Cubby Hole plot  when x-axis has only 3 criteria. 
+    - When the user shares a cohort they do not receive a confirmation email. 
+    - When a name is too long for variable favorites list table, the Last Updated” column will appear cut off. 
+    - Filter name will appear off the verification panel when the filter is name too long for the create in cohort filter selection. 
+    - Grouped Data Type filter counts (Methylation, RNA Seq, miRNA Seq) don't behave like other count groups. The counts behave as though the values were for distinct categories. 
+    - User will be spammed with email every one minute when their service account is removed from the ACL control list.  To stop this, please either delete your service account from the ISB-CGC interface, or remove the GCP project member(s) who is (are) not authorized to access the controlled data set. (see documentation here).  We are planning to reduce the frequency of the notification emails to once per day.
+    - The user can select a categorical variable for selection for Histogram plot, and will return a graph with no data. 
+    - The Legend is displayed elongated when you use multiple cohort for color by feature for violin plot.
+    - When the user selects multiple cohorts for color by feature for scatter plot they do not display in chart.
+    - When the user creates a duplicate worksheet,the bar chart with a gene with specification protein can freeze when selecting an option for the Select Feature. 
+    
+    
+    **Issues resolved in Sprint 8**
+    
+    
+    New Enhancements
+    
+    - The user now has the option to select all or deselect all possible filters for any tab that has more than 10 possible options in the create new cohort page. 
+    - The user can now set all existing tables by either ascending or descending order. 
+    - The cohort_id has been added to the detail cohort page. This allows the user to reference a desired cohort with ease in the API endpoints. 
+    - When creating a new cohort, the user is given the full description for sample type in the selected filters panel.
+    
+    
+    Bug Fixes
+    
+    - Histological Type entries in create new cohort page on the user interface now match the Google BigQuery entries in terms of capitalization. 
+    - Filters for data type counts in left panel currently is now working properly. 
+    - When a user sets a cohort as Color by feature for violin plot legend will be set to cohort. Then when the user sets another color by feature it will update the legend.
+    - The user can no longer make a gene list without selecting a gene first. 
+    - The user can now list the Last Modified section for the existing cohort table by either ascending or descending order.
+    - In the create new cohort page for the data type tab, the user can now select either True or False for DNA Sequencing, Protein, and SNP Copy Number filters. 
+    - When the user edits a new cohort and sets the edited cohort to return zero samples, the user will be prompted to select different set of filters.
+
+
 *  **July 20, 2016**: `v1.6 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.6>`_
     
     **Known issues in Sprint 7**
@@ -16,7 +69,7 @@ Release Notes
     - When a user sets a cohort as Color by feature for violin plot legend will remain cohort.
     - After 24 hour dbGaP authorization runs out the user is unable to re authenticate. (If you have this issue, please log out and log back in to be prompted with login link for dbGaP authorization.)
 
-    **Issues resolved in Sprint 6**
+    **Issues resolved in Sprint 7**
 
     New Enhancements
     
