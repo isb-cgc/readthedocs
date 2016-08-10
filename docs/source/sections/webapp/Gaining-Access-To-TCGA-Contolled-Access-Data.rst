@@ -95,7 +95,11 @@ Accessing TCGA Data Programmatically
 ====================================
 When using Google to run programs to access data in Google Virtual Machines (GCE), it is a "service account" of your Google Cloud Project (GCP) that is used as the authentication ID to run your program.  You will only have a service account if you have a GCP, service accounts are not associated with Google Identities (such as those you use for accessing gmail, ISB-CGC Web Application, etc.).  When you start a GCP, there is a default service account that is associated with the GCP (see below for details on how to find that).  If you like, you can also define other service accounts for a GCP, allowing you flexibility to use different permissions associated with a service account for different programs. 
 
-To obtain access to TCGA controlled-access data from a program you need to register at least one service account from your GCP with ISB-CGC.  This will allow programs running from Virtual Machines of the Google Compute Engine in your GCP to use controlled access data for up to 7 days.  (NOTE: to allow flexibility while working with different research teams and different processes, you can have many GCPs registered with ISB-CGC, as well as many service accounts registered per GCP.)
+To obtain access to TCGA controlled-access data from a program you need to register at least one service account from your GCP with ISB-CGC.  This will allow programs running from Virtual Machines of the Google Compute Engine in your GCP to use controlled access data for up to 7 days.
+
+NOTES: 
+- to allow flexibility while working with different research teams and different processes, you can have many GCPs registered with ISB-CGC, as well as many service accounts registered per GCP.)
+- if your program tries to access data stored in a controlled access area after the 7 day expiration, it will get an error describing that access is denied.  To prevent this, we have enabled the ability to add another 7 days to the access (if your program is running long), see below for directions.  You may also wish to adjust your program to the posibility that data access may be denied.
 
 Requirements for Registering a GCP Service Account
 --------------------------------------------------
