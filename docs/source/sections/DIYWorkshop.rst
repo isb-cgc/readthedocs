@@ -174,16 +174,15 @@ Other Topics
 ############
 
 DREAM Challenge: Somatic Mutation Challenge -- RNA
-==================================================
+--------------------------------------------------
 
   + DREAM challenges are powered by `Sage Bionetworks <http://sagebase.org/>`_
   + `Presentation <https://docs.google.com/presentation/d/1p5W7ZDdahBYKBOcHu1wTeDClBbq7baDJs6EdMscupkc/edit?usp=sharing>`_
   + `Somatic Mutation Calling Challenge: RNA <https://www.synapse.org/#!Synapse:syn2813589/wiki/401435>`_ -- Registration is now open!
 
-..
 
 Google Genomics
-===============
+---------------
 
   + `Overview <https://cloud.google.com/genomics/>`_
   + `Sign up <https://cloud.google.com/genomics/#contact-form>`_ to receive the Google Genomics whitepaper
@@ -195,5 +194,4 @@ Google Genomics
     - `data-analysis <https://googlegenomics.readthedocs.io/en/latest/sections/analyze_data.html>`_ on the Google Cloud
     - accessing data using `IGV <https://googlegenomics.readthedocs.io/en/latest/use_cases/browse_genomic_data/igv.html>`_, `BioConductor <https://googlegenomics.readthedocs.io/en/latest/use_cases/browse_genomic_data/bioconductor.html>`_, `R <https://googlegenomics.readthedocs.io/en/latest/api-client-r/index.html>`_, `Python <https://googlegenomics.readthedocs.io/en/latest/use_cases/getting-started-with-the-api/python.html>`_ and more!
 
-..
 
