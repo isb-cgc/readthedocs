@@ -176,8 +176,7 @@ Other Topics
 DREAM Challenge: Somatic Mutation Challenge -- RNA
 ==================================================
 
-* DREAM challenges powered by `Sage Bionetworks <http://sagebase.org/>`_
-
+  + DREAM challenges are powered by `Sage Bionetworks <http://sagebase.org/>`_
   + `Presentation <https://docs.google.com/presentation/d/1p5W7ZDdahBYKBOcHu1wTeDClBbq7baDJs6EdMscupkc/edit?usp=sharing>`_
   + `Somatic Mutation Calling Challenge: RNA <https://www.synapse.org/#!Synapse:syn2813589/wiki/401435>`_ -- Registration is now open!
 
