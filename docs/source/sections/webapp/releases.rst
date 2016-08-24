@@ -2,6 +2,51 @@
 Release Notes
 *************
 
+*  **August 24, 2016**: `v1.8 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.8>`_
+    
+    **Known issues in Sprint 9 as of 8/24/2016**
+    
+    - The user can add same gene twice if list to the same worksheet it they have different names. 
+    - The Bar chart on the worksheet panel renders overlapping text. 
+    - Analysis Type : Seq peek Formatting Elongated.
+    - The CCLE data in GUI is not parallel to the CCLE data in BigQuery. 
+    - If a user creates a cohort with sample type filter Cell Lines  and CCLE the total number of samples count off by one. 
+    - User will occasionally be sent to the Social Network Login page when trying to login. If this occurs, please go the the home page of the Web Application and try again. 
+    - Page becomes elongated when the user builds a Cubby Hole plot. 
+    - X-axis name cut off for cubby hole plot  when x-axis has only 3 criteria. 
+    - When the user shares a cohort they do not receive a confirmation email. 
+    - User will be spammed with email every one minute when their service account is removed from the ACL control list.  To stop this, please either delete your service account from the ISB-CGC interface, or remove the GCP project member(s) who is (are) not authorized to access the controlled data set. (see documentation `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-TCGA-Contolled-Access-Data.html>`_).  We are planning to reduce the frequency of the notification emails to once per day. 
+    - The Legend is displayed elongated when you use multiple cohort for color by feature for violin plot. 
+    - When the user selects multiple cohorts for color by feature for scatter plot they do not display in chart. 
+    - When the user creates a duplicate worksheet,the bar chart with a gene with specification protein can freeze when selecting an option for the Select Feature. 
+    - When a user shares a workbook with someone the person who received viewer access to the workbook is sent a confirmation email. If the person who shared the workbook then deletes the workbook before it's opened, then the person clicks the invitation link the person is sent to  the unknown invitation page. The button to go back to the Dashboard page appears like this, "Your Dashboard{" 
+    - Cannot plot any data if you use CCLE data cohort on a worksheet. 
+
+    
+    **Issues that are resolved in Sprint 9 as of 8/24/2016**
+
+    New Enhancements
+
+    - When the researcher is on the Register Service Account page, after they have submitted the Service Account associated to their Google Cloud Project a table that shows who is authorized will be prompted.
+    - There is now a column that says “Has NIH Identity”, before it said, “Has eRA Commons”. 
+    - When the researcher creates a new cohort with more than 20 filters chosen the URL exceeds the limit of 2K characters and this affects the count for the Details panel. Therefore the user is now prompted with an alert box that will say, “You have selected too many filters. The current counts shown will not be accurate until one or more filter options are removed.” if this is ever the case. 
+    - In the user details page, if the researcher has not registered a Google Cloud Project it will say, “Register a Google Cloud Project” on the link. 
+
+
+    Bug Fixes
+
+    - The researcher can now delete whom they share cohort with from existing cohorts table. 
+    - After 24-hours of use, a dbGaP authorized user can re-authenticate through the link provided in the user details page.
+    - The variable favorites list table page can now support a long title for the variable list.
+    - The filter name will appear aligned in the verification panel when the filter is name too long for the create in cohort filter confirmation selection on the create new cohort page. 
+    - Grouped Data Type filter counts (Methylation, RNA Seq, miRNA Seq) now behave like the other count groups. The counts will behave as grouped values. 
+    - The user can no longer select a categorical variable for selection for Histogram plot. 
+    - The Filter token displays are now shown in 'readable' names when working with cohort filters.
+    - Controlled access BAM files are now viewable viewable in the IGV browser after the user has authorized their credentials. 
+    - The user can now unlink an eRA commons account from their Google Identity in the user detail page. 
+    - The violin plot was inconsistently failing. We have updated the JavaScript, therefore the Violin plot no longer fail. 
+
+
 *  **August 10, 2016**: `v1.7 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.7>`_
     
     **New Functionality Released in this Sprint**
