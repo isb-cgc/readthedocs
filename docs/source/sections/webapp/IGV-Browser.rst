@@ -1,7 +1,10 @@
 *********************************
 Integrative Genomics Viewer (IGV)
 *********************************
-The IGV Browser is an interactive tool used to explore integrated genomic data sets using a wide variety of data types.
+IGV is a widely used interactive tool for exploring genomic data.  A web-based version is integrated into the ISB-CGC Web-App, 
+and the IGV desktop version can also be used to access ISB-CGC hosted data in Google Cloud Storage (GCS) and Google Genomics.
+Information about both of these use-cases is provided in this section.  For more information about IGV, please follow the links
+in the Acknowledgements section at the bottom of this page.
 
 Accessing the IGV Browser from the Web Application
 --------------------------------------------------
@@ -20,20 +23,16 @@ Once a maximum of five files have been selected, they can be viewed in the IGV B
 NOTES:
  - You will only be able to view controlled access sequence files if you have `logged in as a registered dbGaP authorized user <Gaining-Access-To-TCGA-Contolled-Access-Data.html>`_.
  - You will need to disable your browser pop-up blocker to view files with IGV.  If you see a 403 error when using the IGV viewer, the pop-up blocker is the cause of that error.  Turn off the blocker and try again.
+ - "ReadGroupSet" is a GA4GH term for a group of aligned DNA- or RNA-seq reads, typically from a single sample or a single BAM file.  For the CCLE and TCGA datasets hosted by the ISB-CGC, each ReadGroupSet corresponds to a single BAM file which in turn corresponds to the aligned DNA- or RNA-seq reads from a single sample.
 
-("ReadGroupSet" is a GA4GH term for a group of aligned DNA- or RNA-seq reads, 
-typically from a single sample or a single BAM file.
-For the CCLE and TCGA datasets hosted by the ISB-CGC, each ReadGroupSet corresponds to a single BAM file which
-in turn corresponds to the aligned DNA- or RNA-seq reads from a single sample. IGV can also view BAM files (with associated BAM Index Files) that are stored on a Google Drive.  These are the type of files that are being viewed with the link "Cloud Storage".).a
+Using IGV Desktop Application to View Aligned Reads in Google Cloud Storage or Google Genomics
+-----------------------------------------------------------------------------------------------
 
-Using the IGV Stand Alone Application to View Alignments Stored in Google Cloud Storage or Google Genomics
-----------------------------------------------------------------------------------------------------------
+You can also download and use the IGV desktop application to view aligned reads stored in Google Genomics "datasets" or in BAM files in Google Cloud Storage. To do this, `download <http://www.broadinstitute.org/software/igv/download>`_ the most recent version of IGV.  After launching IGV, go to the "Settings" menu to enable the Google Menu item in the application (`directions <http://googlegenomics.readthedocs.io/en/latest/use_cases/browse_genomic_data/igv.html>`_ on how to do this).
 
-You can use the IGV Stand Alone Application to view reads from data stored in Google Genomics and also from BAM files in Google Cloud Storage. To do this, please `download <http://www.broadinstitute.org/software/igv/download>`_ the most recent version of the Stand Alone IGV Java Application from the IGV website.  Once you have launched the Java IGV application, please go to the "Settings" menu to enable the Google Menu item in the application (`directions <http://googlegenomics.readthedocs.io/en/latest/use_cases/browse_genomic_data/igv.html>`_ on how to do this).
+To load BAM files from ISB-CGC Google Cloud Storage, use the "File" > "Load from URL..."  menu item in the IGV application, entering the path to the bam file in GCS.  Paths to BAM files stored by ISB-CGC can be found using the ``cohorts().cloud_storage_file_paths()`` and ``samples().cloud_storage_file_paths()`` APIs described `here <../progapi/Programmatic-API.html#id4>`_.
 
-To load BAM files from ISB-CGC Google Cloud Storage use the "File", "Load from URL..."  menu item in the IGV application, entering the path to the bam file in GCS.  Paths to BAM files stored by ISB-CGC can be found using the ``cohorts().cloud_storage_file_paths()`` and ``samples().cloud_storage_file_paths()`` APIs described `here <../progapi/Programmatic-API.html#id4>`_.
-
-To load alignments from ISB-CGC Google Genomics use the "Google", "Load Genomics ReadGroupSet..." menu item in the IGV application, entering the ReadGroupSet of the alignment stored in Google Genomics.  ReadGroupSet IDs to alignments stored by ISB-CGC can be found using the ``cohorts().googlegenomics()`` and ``samples().googlegenomics()`` APIs described `here <../progapi/Programmatic-API.html#id4>`_.
+To load alignments from ISB-CGC Google Genomics datasets, use the "Google" > "Load Genomics ReadGroupSet..." menu item in the IGV application, entering the ReadGroupSet of the alignment stored in Google Genomics.  ReadGroupSet IDs to alignments stored by ISB-CGC can be found using the ``cohorts().googlegenomics()`` and ``samples().googlegenomics()`` APIs described `here <../progapi/Programmatic-API.html#id4>`_.
 
 NOTE:
  - You will only be able to view controlled access sequence files if you have `logged in as a registered dbGaP authorized user <Gaining-Access-To-TCGA-Contolled-Access-Data.html>`_.
