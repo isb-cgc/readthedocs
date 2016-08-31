@@ -45,3 +45,8 @@ If successful, this method returns a response body with the following structure:
 
 	cloud_storage_file_paths[], list, "List of Google Cloud Storage paths of files associated with the cohort."
 	count, integer, "Number of Google Cloud Storage paths returned for the cohort."
+
+
+**Exceptions thrown**::
+
+    endpoints.UnauthorizedException, endpoints.NotFoundException, endpoints.BadRequestException

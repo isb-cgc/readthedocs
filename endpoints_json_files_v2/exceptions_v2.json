@@ -1,0 +1,14 @@
+{
+  "cohorts_cloud_storage_file_paths": "endpoints.UnauthorizedException, endpoints.NotFoundException, endpoints.BadRequestException",
+  "cohorts_create": "endpoints.UnauthorizedException, endpoints.NotFoundException, endpoints.BadRequestException",
+  "cohorts_delete": "endpoints.UnauthorizedException, endpoints.NotFoundException",
+  "cohorts_get": "endpoints.UnauthorizedException, endpoints.NotFoundException, endpoints.BadRequestException",
+  "cohorts_googlegenomics": "endpoints.UnauthorizedException, endpoints.NotFoundException, endpoints.BadRequestException",
+  "cohorts_list": "endpoints.UnauthorizedException, endpoints.NotFoundException, endpoints.BadRequestException",
+  "cohorts_preview": "endpoints.NotFoundException, endpoints.BadRequestException",
+  "patients_get": "endpoints.NotFoundException, endpoints.BadRequestException",
+  "samples_cloud_storage_file_paths": "endpoints.NotFoundException, endpoints.BadRequestException",
+  "samples_get": "endpoints.NotFoundException, endpoints.BadRequestException",
+  "samples_googlegenomics": "endpoints.NotFoundException, endpoints.BadRequestException",
+  "users_get": "endpoints.UnauthorizedException, endpoints.NotFoundException, endpoints.BadRequestException"
+}
