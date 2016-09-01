@@ -210,6 +210,7 @@ def write_rst_file_header(resource, method):
 
     example_contents_json = get_json_file_contents('examples_v2')
     api_explorer_example_contents_json = get_json_file_contents('api_explorer_examples_v2')
+    python_example_contents_json = get_json_file_contents('python_examples_v2')
 
     example_text = ''
     if example_contents_json.get(file_name):
@@ -220,6 +221,19 @@ def write_rst_file_header(resource, method):
         api_explorer_example_text = "\n\n**API explorer example**:\n\nClick `here <{}/>`_ " \
                                     "to see this endpoint in Google's API explorer.".format(
             api_explorer_example_contents_json[file_name])
+
+    python_example_text = ''
+    if python_example_contents_json.get(file_name):
+        python_example_text += '\n\n**Python API Client Example**::\n\n'
+        if (resource == 'cohorts' and method != 'preview') or resource == 'users':  # authentication required
+            python_example_text += python_example_contents_json['auth_globals'] + '\n\n' \
+                                   + python_example_contents_json['get_credentials'] + '\n\n' \
+                                   + python_example_contents_json['get_authorized_service'] + '\n\n'
+        else:
+            python_example_text += python_example_contents_json['get_unauthorized_service'] + '\n\n'
+        python_example_text += python_example_contents_json[file_name]
+
+    # print python_example_text
 
     # write title, e.g.
     # cohorts().create()
@@ -239,6 +253,9 @@ def write_rst_file_header(resource, method):
 
     # write api explorer example
     header_text += api_explorer_example_text
+
+    # write python example
+    header_text += python_example_text + '\n'
 
     # write http request, e.g.
     # GET https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/datafilenamekey_list_from_cohort
@@ -397,6 +414,8 @@ def main():
 
     for file_name in file_name_list:
         create_new_rst_file(file_name)
+
+
 
     for resource in resource_list:
         for method in RESP_JSON['resources'][resource]['methods'].keys():
