@@ -4,7 +4,7 @@ Creates and saves a cohort. Takes a JSON object in the request body to use as th
 
 **Example**::
 
-	python isb_curl.py "https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts/create?name={COHORT NAME}" -H "Content-Type: application/json" -d '{"Study": ["UCS", "CESC"], "age_at_initial_pathologic_diagnosis_lte": "60"}'
+	python isb_curl.py "https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts/create?name={COHORT NAME}" -H "Content-Type: application/json" -d '{"Study": ["UCS", "CESC"], "age_at_initial_pathologic_diagnosis_lte": 60}'
 
 **API explorer example**:
 

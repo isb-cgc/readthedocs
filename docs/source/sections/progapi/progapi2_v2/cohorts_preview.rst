@@ -4,7 +4,7 @@ Takes a JSON object of filters in the request body and returns a "preview" of th
 
 **Example**::
 
-	curl https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts/preview -H "Content-Type: application/json" -d '{"Study": ["UCS", "CESC"], "age_at_initial_pathologic_diagnosis_lte": "60"}'
+	curl "https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts/preview?Study=UCS&Study=CESC&age_at_initial_pathologic_diagnosis_lte=20"
 
 **API explorer example**:
 
@@ -31,7 +31,7 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2
 
 HTTP request::
 
-	POST https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts/preview
+	GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts/preview
 
 **Parameters**
 
