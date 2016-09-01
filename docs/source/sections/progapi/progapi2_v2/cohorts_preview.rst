@@ -12,6 +12,9 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2
 
 **Python API Client Example**::
 
+	from googleapiclient.discovery import build
+	import httplib2
+
 	def get_unauthorized_service():
 		api = 'isb_cgc_api'
 		version = 'v2'
@@ -28,7 +31,7 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2
 
 HTTP request::
 
-	GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts/preview
+	POST https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts/preview
 
 **Parameters**
 

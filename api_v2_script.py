@@ -226,11 +226,13 @@ def write_rst_file_header(resource, method):
     if python_example_contents_json.get(file_name):
         python_example_text += '\n\n**Python API Client Example**::\n\n'
         if (resource == 'cohorts' and method != 'preview') or resource == 'users':  # authentication required
-            python_example_text += python_example_contents_json['auth_globals'] + '\n\n' \
+            python_example_text += python_example_contents_json['authorized_imports'] + '\n\n' \
+                                   + python_example_contents_json['auth_globals'] + '\n\n' \
                                    + python_example_contents_json['get_credentials'] + '\n\n' \
                                    + python_example_contents_json['get_authorized_service'] + '\n\n'
         else:
-            python_example_text += python_example_contents_json['get_unauthorized_service'] + '\n\n'
+            python_example_text += python_example_contents_json['unauthorized_imports'] + '\n\n' \
+                                   + python_example_contents_json['get_unauthorized_service'] + '\n\n'
         python_example_text += python_example_contents_json[file_name]
 
     # print python_example_text

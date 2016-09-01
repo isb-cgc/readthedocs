@@ -12,6 +12,13 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2
 
 **Python API Client Example**::
 
+	from googleapiclient.discovery import build
+	from oauth2client.client import OAuth2WebServerFlow
+	from oauth2client import tools
+	from oauth2client.file import Storage
+	import httplib2
+	import os
+
 	CLIENT_ID = '907668440978-0ol0griu70qkeb6k3gnn2vipfa5mgl60.apps.googleusercontent.com'
 	CLIENT_SECRET = 'To_WJH7-1V-TofhNGcEqmEYi'
 	EMAIL_SCOPE = 'https://www.googleapis.com/auth/userinfo.email'
