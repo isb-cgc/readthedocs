@@ -259,27 +259,29 @@ Reference Data
   here, with links to the view in the BigQuery web UI.  Each table should include a description
   and reference to the original information source.
 
-  + `GENCODE_r19 <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.GENCODE_r19>`_ 
+  + `GENCODE_r19 <https://bigquery.cloud.google.com/table/isb-cgc:genome_reference.GENCODE_r19>`_ 
 
-  + `GENCODE_r24 <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.GENCODE_r24>`_ 
+  + `GENCODE_r24 <https://bigquery.cloud.google.com/table/isb-cgc:genome_reference.GENCODE_r24>`_ 
 
-  + `GO_Annotations <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.GO_Annotations>`_ 
+  + `GO_Annotations <https://bigquery.cloud.google.com/table/isb-cgc:genome_reference.GO_Annotations>`_ 
 
-  + `GO_Ontology <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.GO_Ontology>`_ 
+  + `GO_Ontology <https://bigquery.cloud.google.com/table/isb-cgc:genome_reference.GO_Ontology>`_ 
 
-  + `mirBase_v21 <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.mirBase_v21>`_ 
+  + `mirBase_v21 <https://bigquery.cloud.google.com/table/isb-cgc:genome_reference.mirBase_v21>`_ 
 
-  + `miRTarBase <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.miRTarBase>`_ 
+  + `miRTarBase <https://bigquery.cloud.google.com/table/isb-cgc:genome_reference.miRTarBase>`_ 
 
-  + `miRBase2Reactome <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.miRBase2Reactome>`_ 
+  + `miRBase2Reactome <https://bigquery.cloud.google.com/table/isb-cgc:genome_reference.miRBase2Reactome>`_ 
 
-  + `Ensembl2Reactome <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.Ensembl2Reactome>`_ 
+  + `Ensembl2Reactome <https://bigquery.cloud.google.com/table/isb-cgc:genome_reference.Ensembl2Reactome>`_ 
 
-  + `Ensembl2Reactome_plusN <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.Ensembl2Reactome_plusN>`_ 
+  + `Ensembl2Reactome_plusN <https://bigquery.cloud.google.com/table/isb-cgc:genome_reference.Ensembl2Reactome_plusN>`_ 
 
-  + `Kaviar_160204_Public_hg19 <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.Kaviar_160204_Public_hg19>`_ 
+  + `Kaviar_160204_Public_hg19 <https://bigquery.cloud.google.com/table/isb-cgc:genome_reference.Kaviar_160204_Public_hg19>`_ 
 
-  + `Kaviar_160204_Public_hg38 <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.Kaviar_160204_Public_hg38>`_ 
+  + `Kaviar_160204_Public_hg38 <https://bigquery.cloud.google.com/table/isb-cgc:genome_reference.Kaviar_160204_Public_hg38>`_ 
+
+  + `liftOver_hg19_to_hg38 <https://bigquery.cloud.google.com/table/isb-cgc:genome_reference.liftOver_hg19_to_hg38>`_ 
 
 ..  
     
