@@ -241,57 +241,39 @@ With summary tables, we can even compute statistics like a ChiSq.
 	  n DESC
 
 
-Liftover to hg38
-================
+LiftOver from hg19 to hg38
+==========================
 
 Suppose you want to work with the newer hg38 reference. We can use BigQuery to
-perform the liftover on methylation probe annotation.
+perform the liftOver operation on the methylation probe coordinates using a 
+simple JOIN query.  (This query takes approx 25s and produces an output table
+with one row for each of the input rows in the input annotation table.)
 
 .. code-block:: sql
 
-	SELECT
-	  AddressA_ID,
-	  AddressB_ID,
-	  AlleleA_ProbeSeq,
-	  AlleleB_ProbeSeq,
-	  CHR,
-	  Chromosome_36,
-	  Color_Channel,
-	  Coordinate_36,
-	  DHS,
-	  DMR,
-	  Enhancer,
-	  Forward_Sequence,
-	  Genome_Build,
-	  HMM_Island,
-	  IlmnID,
-	  Infinium_Design_Type,
-	  MAPINFO,
-	  Methyl27_Loci,
-	  Name,
-	  Next_Base,
-	  Phantom,
-	  Probe_SNPs,
-	  Probe_SNPs_10,
-	  Random_Loci,
-	  Regulatory_Feature_Group,
-	  Regulatory_Feature_Name,
-	  Relation_to_UCSC_CpG_Island SourceSeq,
-	  UCSC_CpG_Islands_Name,
-	  UCSC.RefGene_Group,
-	  UCSC.RefGene_Accession,
-	  UCSC.RefGene_Name,
-	  liftover.hg38_Chr AS Chromosome_38,
-	  liftover.hg38_Pos AS Coordinate_38
-	FROM (
-	  SELECT
-	    *
-	  FROM
-	    [isb-cgc:platform_reference.methylation_annotation]
-	  WHERE
-	    CHR='17') AS meth
-	JOIN EACH [isb-cgc:genome_reference.liftover_hg19Tohg38] AS liftover
-	ON
-	  meth.CHR = liftover.hg19_Chr
-	  AND meth.MAPINFO = liftover.hg19_Pos
-	LIMIT 10
+    SELECT
+      a.probeID AS Illumina_probeID,
+      a.hg19_chr AS hg19_chr,
+      a.hg19_pos AS hg19_pos,
+      b.hg38_chr AS hg38_chr,
+      b.hg38_pos AS hg38_pos
+    FROM (
+      SELECT
+        IlmnID AS probeID,
+        CHR AS hg19_chr,
+        MAPINFO AS hg19_pos
+      FROM
+        [isb-cgc:platform_reference.methylation_annotation] ) a
+    LEFT OUTER JOIN EACH (
+      SELECT
+        LTRIM(hg19_ref,"chr") AS hg19_chr,
+        hg19_pos,
+        LTRIM(hg38_ref,"chr") AS hg38_chr,
+        hg38_pos
+      FROM
+        [isb-cgc:genome_reference.liftOver_hg19_to_hg38] ) b
+    ON
+      a.hg19_chr=b.hg19_chr
+      AND a.hg19_pos=b.hg19_pos
+
+
