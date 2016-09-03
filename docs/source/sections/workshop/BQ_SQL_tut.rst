@@ -45,7 +45,7 @@ On the left side, from top to bottom we have:
 Let's start by working with one of the simplest tables, the Clinical_data table.
 The format of a table name in BigQuery is <project_name>:<dataset_name>.<table_name>
 
-Or more accurately "isb-cgc:tcga_201510_alpha.Clinical_data"
+Or more accurately "isb-cgc:tcga_201607_beta.Clinical_data"
 
 Let's start by just counting the number of records in the table. Paste the
 following SQL into the text field, and hit *Run Query*.
@@ -55,7 +55,7 @@ following SQL into the text field, and hit *Run Query*.
 	SELECT
 	  COUNT(1)
 	FROM
-	  [isb-cgc:tcga_201510_alpha.Clinical_data]
+	  [isb-cgc:tcga_201607_beta.Clinical_data]
 
 
 The result returned from this query is just a single value: the number of unique patients (aka participants)
@@ -74,7 +74,7 @@ all of the TCGA molecular data tables contain the fields ParticipantBarcode and 
 	    ParticipantBarcode,
 	    Study
 	  FROM
-	    [isb-cgc:tcga_201510_alpha.Clinical_data]
+	    [isb-cgc:tcga_201607_beta.Clinical_data]
 	  GROUP BY
 	    ParticipantBarcode,
 	    Study )
@@ -108,7 +108,7 @@ To construct this query, I'm going to use the Annotations table.
 	  ParticipantBarcode,
 	SampleType
 	FROM
-	  [isb-cgc:tcga_201510_alpha.Biospecimen_data]
+	  [isb-cgc:tcga_201607_beta.Biospecimen_data]
 	WHERE
 	  Study IN ('CESC', 'HNSC')
 	AND SampleType = 'Primary solid Tumor'
@@ -127,9 +127,9 @@ could use our **IN** keyword as above, or easily join tables using barcodes.
 	  a.avg_percent_tumor_cells,
 	  b.hpv_status
 	FROM
-	  [isb-cgc:tcga_201510_alpha.Biospecimen_data] as a
+	  [isb-cgc:tcga_201607_beta.Biospecimen_data] as a
 	JOIN
-	  [isb-cgc:tcga_201510_alpha.Clinical_data] as b
+	  [isb-cgc:tcga_201607_beta.Clinical_data] as b
 	ON
 	  a.ParticipantBarcode = b.ParticipantBarcode
 	  AND a.Study = b.Study
@@ -163,7 +163,7 @@ An example on making tables.
 	         ELSE 'None'
 	    END AS table_cell,
 	  FROM
-	    [isb-cgc:tcga_201510_alpha.Clinical_data]
+	    [isb-cgc:tcga_201607_beta.Clinical_data]
 	  WHERE
 	    Study IN ('CESC', 'HNSC')
 	  HAVING
