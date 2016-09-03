@@ -4,11 +4,28 @@ Takes a JSON object of filters in the request body and returns a "preview" of th
 
 **Example**::
 
-	curl https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts/preview -H "Content-Type: application/json" -d '{"Study": ["UCS", "CESC"], "age_at_initial_pathologic_diagnosis_lte": "60"}'
+	curl "https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts/preview"  -H "Content-Type: application/json" -d '{"Study": ["UCS", "CESC"], "age_at_initial_pathologic_diagnosis_gte": 90}'
 
 **API explorer example**:
 
-Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.cohorts.preview?resource=%257B%250A++%2522Study%2522%253A+%250A++%255B%2522BRCA%2522%252C%2522UCS%2522%250A++%255D%252C%250A++%2522age_at_initial_pathologic_diagnosis_lte%2522%253A+%252230%2522%250A%257D&/>`_ to see this endpoint in Google's API explorer.
+Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.cohorts.preview?_h=1&resource=%257B%250A++%2522Study%2522%253A+%250A++%255B%2522BRCA%2522%252C%2522UCS%2522%250A++%255D%252C%250A++%2522age_at_initial_pathologic_diagnosis_gte%2522%253A+90%250A%257D&/>`_ to see this endpoint in Google's API explorer.
+
+**Python API Client Example**::
+
+	from googleapiclient.discovery import build
+	import httplib2
+
+	def get_unauthorized_service():
+		api = 'isb_cgc_api'
+		version = 'v2'
+		site = 'https://api-dot-isb-cgc.appspot.com'
+		discovery_url = '%s/_ah/api/discovery/v1/apis/%s/%s/rest' % (site, api, version)
+		return build(api, version, discoveryServiceUrl=discovery_url, http=httplib2.Http())
+
+	service = get_unauthorized_service()
+	body = {'Study': ['BRCA', 'UCS'], 'age_at_initial_pathologic_diagnosis_gte': 90}
+	data = service.cohorts().preview(body=body).execute()
+
 
 **Request**
 
@@ -56,7 +73,12 @@ In the request body, supply a metadata resource with the following properties:
     "avg_percent_tumor_nuclei_gte": number,
     "avg_percent_tumor_nuclei_lte": number,
     "batch_number": [integer],
+    "batch_number_gte": integer,
+    "batch_number_lte": integer,
     "bcr": [string],
+    "BMI": [number],
+    "BMI_gte": number,
+    "BMI_lte": number,
     "clinical_M": [string],
     "clinical_N": [string],
     "clinical_stage": [string],
@@ -78,6 +100,9 @@ In the request body, supply a metadata resource with the following properties:
     "days_to_last_followup": [integer],
     "days_to_last_followup_gte": integer,
     "days_to_last_followup_lte": integer,
+    "days_to_last_known_alive": [integer],
+    "days_to_last_known_alive_gte": integer,
+    "days_to_last_known_alive_lte": integer,
     "days_to_submitted_specimen_dx": [integer],
     "days_to_submitted_specimen_dx_gte": integer,
     "days_to_submitted_specimen_dx_lte": integer,
@@ -195,6 +220,7 @@ In the request body, supply a metadata resource with the following properties:
     "SampleTypeCode": [string],
     "Study": [string],
     "tobacco_smoking_history": [string],
+    "TSSCode": [string],
     "tumor_tissue_site": [string],
     "tumor_type": [string],
     "vital_status": [string],
@@ -240,7 +266,12 @@ In the request body, supply a metadata resource with the following properties:
 	avg_percent_tumor_nuclei_gte,number,"Optional. "
 	avg_percent_tumor_nuclei_lte,number,"Optional. "
 	batch_number[],list,"Optional. "
+	batch_number_gte,integer,"Optional. "
+	batch_number_lte,integer,"Optional. "
 	bcr[],list,"Optional. Possible values include: 'Nationwide Children's Hospital', 'Washington University'."
+	BMI[],list,"Optional. "
+	BMI_gte,number,"Optional. "
+	BMI_lte,number,"Optional. "
 	clinical_M[],list,"Optional. Possible values include: 'M0', 'M1', 'M1a', 'M1b', 'M1c', 'MX'."
 	clinical_N[],list,"Optional. Possible values include: 'N0', 'N1', 'N2', 'N2a', 'N2b', 'N2c', 'N3', 'NX'."
 	clinical_stage[],list,"Optional. Possible values include: 'Stage I', 'Stage IA', 'Stage IA1', 'Stage IA2', 'Stage IB', 'Stage IB1', 'Stage IB2', 'Stage IC', 'Stage II', 'Stage IIA', 'Stage IIA1', 'Stage IIA2', 'Stage IIB', 'Stage IIC', 'Stage III', 'Stage IIIA', 'Stage IIIB', 'Stage IIIC', 'Stage IIIC1', 'Stage IIIC2', 'Stage IS', 'Stage IV', 'Stage IVA', 'Stage IVB', 'Stage IVC'."
@@ -262,6 +293,9 @@ In the request body, supply a metadata resource with the following properties:
 	days_to_last_followup[],list,"Optional. "
 	days_to_last_followup_gte,integer,"Optional. "
 	days_to_last_followup_lte,integer,"Optional. "
+	days_to_last_known_alive[],list,"Optional. "
+	days_to_last_known_alive_gte,integer,"Optional. "
+	days_to_last_known_alive_lte,integer,"Optional. "
 	days_to_submitted_specimen_dx[],list,"Optional. "
 	days_to_submitted_specimen_dx_gte,integer,"Optional. "
 	days_to_submitted_specimen_dx_lte,integer,"Optional. "
@@ -379,6 +413,7 @@ In the request body, supply a metadata resource with the following properties:
 	SampleTypeCode[],list,"Optional. "
 	Study[],list,"Optional. Possible values include: 'ACC', 'BLCA', 'BRCA', 'CESC', 'CHOL', 'COAD', 'DLBC', 'ESCA', 'GBM', 'HNSC', 'KICH', 'KIRC', 'KIRP', 'LAML', 'LCLL', 'LGG', 'LIHC', 'LUAD', 'LUSC', 'MESO', 'MM', 'OV', 'PAAD', 'PCPG', 'PRAD', 'READ', 'SARC', 'SKCM', 'STAD', 'TGCT', 'THCA', 'THYM', 'UCEC', 'UCS', 'UVM'."
 	tobacco_smoking_history[],list,"Optional. Possible values include: 'Current Reformed Smoker, Duration Not Specified', 'Current reformed smoker for < or = 15 years', 'Current reformed smoker for > 15 years', 'Current smoker', 'Lifelong Non-smoker'."
+	TSSCode[],list,"Optional. "
 	tumor_tissue_site[],list,"Optional. "
 	tumor_type[],list,"Optional. Possible values include: 'Primary', 'Type 1', 'Type 2'."
 	vital_status[],list,"Optional. Possible values include: 'Alive', 'Dead'."
