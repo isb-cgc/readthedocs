@@ -2,6 +2,46 @@
 Release Notes
 *************
 
+*  **September 7, 2016**: `v1.9 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.9>`_
+    
+    **Known issues in Sprint 10 as of 9/07/2016**
+
+    - The user can add same gene twice if list to the same worksheet it they have different names.
+    - The Bar chart on the worksheet panel renders overlapping text.
+    - Analysis Type : Seq peek Formatting Elongated 
+    - The CCLE data in GUI is not parallel to the CCLE data in BigQuery. 
+    - If a user creates a cohort with sample type filter Cell Lines  and CCLE the total number of samples count off by one.
+    - User will occasionally be sent to the Social Network Login page when trying to login. If this occurs, please go the the home page of the Web Application and try again.
+    - Page becomes elongated when the user builds a Cubby Hole plot. 
+    - X-axis name cut off for cubby hole plot when x-axis has only 3 criteria.
+    - If the user shares a cohort they do not receive a confirmation email.
+    - The Legend is displayed elongated when you use multiple cohort for color by feature for violin plot.
+    - When the user selects multiple cohorts for color by feature for scatter plot they do not display in chart.
+    - When the user creates a duplicate worksheet,the bar chart with a gene with specification protein can freeze when selecting an option for the Select Feature.
+    - Cannot plot any data if you use CCLE data cohort on a worksheet.
+    - When the user plots a graph with NA values the UI returns a blank graph.
+    - When a user duplicates a worksheet, then tries to implement the log scale it will not function properly. 
+
+    **Issues that are resolved in Sprint 10 as of 9/07/2016**
+
+    New Enhancements
+    
+    - Dictionary mapping feature types to units for use in plot displays added to worksheets. 
+    - The user now has the option to make the axis logarithmic if the plot can display continuous numerical data for eg. mRNA expression levels. 
+    - The NIH username entry is now case insensitive for dbGaP authorization.
+    - The mouse over feature works when the user has created a long workbook name on the existing workbooks table page.
+    - The mouse over functionality was added to the worksheet name within a workbook. 
+
+    Bug Fixes
+    
+    - The order by ascending or descending feature is now working properly for the existing workbooks table page.
+    - Tobacco Smoking History filter in the create cohort page displays the filters in descriptive values.
+    - The user can now select all existing cohorts when on the add cohort(s) to worksheet page.
+    - The gene specification selection on the worksheet page is now working properly.
+    - When a user shares a workbook with someone the person who received viewer access to the workbook is sent a confirmation email. If the person who shared the workbook then deletes the workbook before it's opened, then the person clicks the invitation link the person is sent to  the unknown invitation page. The button to go back to the Dashboard page appears like this, "Your Dashboard"
+    - The user is sent an email when the Service Account is removed the Access controlled list for having a user associated to the project who is not dbGaP authorized.
+
+
 *  **August 24, 2016**: `v1.8 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.8>`_
     
     **Known issues in Sprint 9 as of 8/24/2016**
