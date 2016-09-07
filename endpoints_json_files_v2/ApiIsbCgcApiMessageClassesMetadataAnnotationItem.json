@@ -1,0 +1,15 @@
+{
+    "AliquotBarcode": "Aliquot barcode.",
+    "ParticipantBarcode": "Participant barcode.",
+    "SampleBarcode": "Sample barcode.",
+    "Study": "TCGA study, e.g. 'BRCA', 'OV', 'CESC'.",
+    "annotationCategoryId": "",
+    "annotationCategoryName": "Annotation category name, e.g. 'Acceptable treatment for TCGA tumor'.",
+    "annotationClassification": "Annotation classification, .e.g 'CenterNotification', 'Notification', 'Observation', or 'Redaction'.",
+    "annotationClassificationId": "",
+    "annotationId": "",
+    "annotationNoteText": "",
+    "itemBarcode": "",
+    "itemTypeId": "",
+    "itemTypeName": "Item type, e.g. 'Patient', 'Aliquot', 'Analyte', 'Shipped Portion', 'Portion, 'Slide', or 'Sample'."
+}
