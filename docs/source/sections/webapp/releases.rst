@@ -20,7 +20,7 @@ Release Notes
     - When the user creates a duplicate worksheet,the bar chart with a gene with specification protein can freeze when selecting an option for the Select Feature.
     - Cannot plot any data if you use CCLE data cohort on a worksheet.
     - When the user plots a graph with NA values the UI returns a blank graph.
-    - When a user duplicates a worksheet, then tries to implement the log scale it will not function properly. 
+    - When a user duplicates a worksheet, some functionality related to plotting will not function properly on the duplicate worksheet. 
 
     **Issues that are resolved in Sprint 10 as of 9/07/2016**
 
