@@ -24,10 +24,9 @@ Common Filters List
     * Vital Status
     * Gender
     * Age At Diagnosis
-    * Sample Type Code
     * Tumor Tissue Site
     * Histological Type
-    * Prior Diagnosis
+    * Other Diagnosis
     * Tumor Status
     * New Tumor Event After Initial Treatment
     * Histological Grade
@@ -41,23 +40,17 @@ Favorites Filter
 ^^^^^^^^^^^^^^^^
 This filter allows the user to add selected variables from existing variable Favorite list.
 
-Data Types Filter
-^^^^^^^^^^^^^^^^^
-    * Gene Expression
-    * Clinical
-    * Methylation
-    * Copy Number
-    * Protein
-    * miRNA
-    * Mutation
+Clinical Filter Feature Search
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This filter allows the user to search by any clinical feature that is present in the most recent data upload. 
 
-Projects
-^^^^^^^^
-"Not sure the functionality of this filter atm"
+miRNA Expression Filter
+^^^^^^^^^^^^^^^^^^^^^^^
+This filter allows the user to search by miRNA name filter, platform filter, and value filter for any miRNA expressions present in our system.
 
 Selected Filters Panel
 ^^^^^^^^^^^^^^^^^^^^^^
-This is where the selected filters are shown so their is an easy to see what filters have been selected. Clicking "Clear All" will remove all selected filters. 
+This is where the filters you have selected are shown on the right panel for clear verifcation of what has been selected for analysis. Clicking "Clear All" will remove all selected filters. 
 
 
 Editing a Variable Favorites List
