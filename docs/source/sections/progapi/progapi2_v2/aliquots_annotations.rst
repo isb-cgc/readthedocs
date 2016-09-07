@@ -23,7 +23,7 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https://api-d
 		return build(api, version, discoveryServiceUrl=discovery_url, http=httplib2.Http())
 
 	service = get_unauthorized_service()
-	data = service.aliquots().get(aliquot_barcode='TCGA-01-0628-11A-01D-0358-06').execute()
+	data = service.aliquots().annotations(aliquot_barcode='TCGA-01-0628-11A-01D-0358-06').execute()
 
 
 **Request**
