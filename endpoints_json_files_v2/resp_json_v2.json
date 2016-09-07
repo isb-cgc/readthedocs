@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"zRMgE0l9nVDW4S28VYYcYQF9UW4/4DDKQxCre8GXby7-eJOIU30hG_o\"",
+ "etag": "\"zRMgE0l9nVDW4S28VYYcYQF9UW4/AyJgvyy5HEwYFR7-Yp3hDaOOID4\"",
  "discoveryVersion": "v1",
  "id": "isb_cgc_api:v2",
  "name": "isb_cgc_api",
@@ -73,6 +73,22 @@
   }
  },
  "schemas": {
+  "ApiIsbCgcApiAliquotsAnnotationsMetadataAnnotationList": {
+   "id": "ApiIsbCgcApiAliquotsAnnotationsMetadataAnnotationList",
+   "type": "object",
+   "properties": {
+    "count": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "ApiIsbCgcApiMessageClassesMetadataAnnotationItem"
+     }
+    }
+   }
+  },
   "ApiIsbCgcApiCohortsCloudstoragefilepathsGCSFilePathList": {
    "id": "ApiIsbCgcApiCohortsCloudstoragefilepathsGCSFilePathList",
    "type": "object",
@@ -332,6 +348,55 @@
      "type": "string"
     },
     "value": {
+     "type": "string"
+    }
+   }
+  },
+  "ApiIsbCgcApiMessageClassesMetadataAnnotationItem": {
+   "id": "ApiIsbCgcApiMessageClassesMetadataAnnotationItem",
+   "type": "object",
+   "properties": {
+    "AliquotBarcode": {
+     "type": "string"
+    },
+    "ParticipantBarcode": {
+     "type": "string"
+    },
+    "SampleBarcode": {
+     "type": "string"
+    },
+    "Study": {
+     "type": "string"
+    },
+    "annotationCategoryId": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "annotationCategoryName": {
+     "type": "string"
+    },
+    "annotationClassification": {
+     "type": "string"
+    },
+    "annotationClassificationId": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "annotationId": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "annotationNoteText": {
+     "type": "string"
+    },
+    "itemBarcode": {
+     "type": "string"
+    },
+    "itemTypeId": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "itemTypeName": {
      "type": "string"
     }
    }
@@ -1695,6 +1760,22 @@
     }
    }
   },
+  "ApiIsbCgcApiPatientsAnnotationsMetadataAnnotationList": {
+   "id": "ApiIsbCgcApiPatientsAnnotationsMetadataAnnotationList",
+   "type": "object",
+   "properties": {
+    "count": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "ApiIsbCgcApiMessageClassesMetadataAnnotationItem"
+     }
+    }
+   }
+  },
   "ApiIsbCgcApiPatientsGetPatientDetails": {
    "id": "ApiIsbCgcApiPatientsGetPatientDetails",
    "type": "object",
@@ -1712,6 +1793,22 @@
      "type": "array",
      "items": {
       "type": "string"
+     }
+    }
+   }
+  },
+  "ApiIsbCgcApiSamplesAnnotationsMetadataAnnotationList": {
+   "id": "ApiIsbCgcApiSamplesAnnotationsMetadataAnnotationList",
+   "type": "object",
+   "properties": {
+    "count": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "ApiIsbCgcApiMessageClassesMetadataAnnotationItem"
      }
     }
    }
@@ -1868,6 +1965,37 @@
   }
  },
  "resources": {
+  "aliquots": {
+   "methods": {
+    "annotations": {
+     "id": "isb_cgc_api.aliquots.annotations",
+     "path": "aliquots/{aliquot_barcode}/annotations",
+     "httpMethod": "GET",
+     "description": "Returns TCGA annotations about a specific aliquot, Takes a aliquot barcode (of length 28 *eg* TCGA-01-0628-11A-01D-0358-06) as a required parameter. User does not need to be authenticated.",
+     "parameters": {
+      "aliquot_barcode": {
+       "type": "string",
+       "required": true,
+       "location": "path"
+      },
+      "item_type_name": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      }
+     },
+     "parameterOrder": [
+      "aliquot_barcode"
+     ],
+     "response": {
+      "$ref": "ApiIsbCgcApiAliquotsAnnotationsMetadataAnnotationList"
+     },
+     "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email"
+     ]
+    }
+   }
+  },
   "cohorts": {
    "methods": {
     "cloud_storage_file_paths": {
@@ -2016,11 +2144,986 @@
     "preview": {
      "id": "isb_cgc_api.cohorts.preview",
      "path": "cohorts/preview",
-     "httpMethod": "POST",
+     "httpMethod": "GET",
      "description": "Takes a JSON object of filters in the request body and returns a \"preview\" of the cohort that would result from passing a similar request to the cohort **save** endpoint. This preview consists of two lists: the lists of participant (aka patient) barcodes, and the list of sample barcodes. Authentication is not required.",
-     "request": {
-      "$ref": "ApiIsbCgcApiMessageClassesMetadataRangesItem",
-      "parameterName": "resource"
+     "parameters": {
+      "BMI": {
+       "type": "number",
+       "format": "double",
+       "repeated": true,
+       "location": "query"
+      },
+      "BMI_gte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "BMI_lte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "ParticipantBarcode": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "Project": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "SampleBarcode": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "SampleTypeCode": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "Study": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "TSSCode": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "age_at_initial_pathologic_diagnosis": {
+       "type": "integer",
+       "format": "int32",
+       "repeated": true,
+       "location": "query"
+      },
+      "age_at_initial_pathologic_diagnosis_gte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "age_at_initial_pathologic_diagnosis_lte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "anatomic_neoplasm_subdivision": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "avg_percent_lymphocyte_infiltration": {
+       "type": "number",
+       "format": "double",
+       "repeated": true,
+       "location": "query"
+      },
+      "avg_percent_lymphocyte_infiltration_gte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "avg_percent_lymphocyte_infiltration_lte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "avg_percent_monocyte_infiltration": {
+       "type": "number",
+       "format": "double",
+       "repeated": true,
+       "location": "query"
+      },
+      "avg_percent_monocyte_infiltration_gte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "avg_percent_monocyte_infiltration_lte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "avg_percent_necrosis": {
+       "type": "number",
+       "format": "double",
+       "repeated": true,
+       "location": "query"
+      },
+      "avg_percent_necrosis_gte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "avg_percent_necrosis_lte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "avg_percent_neutrophil_infiltration": {
+       "type": "number",
+       "format": "double",
+       "repeated": true,
+       "location": "query"
+      },
+      "avg_percent_neutrophil_infiltration_gte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "avg_percent_neutrophil_infiltration_lte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "avg_percent_normal_cells": {
+       "type": "number",
+       "format": "double",
+       "repeated": true,
+       "location": "query"
+      },
+      "avg_percent_normal_cells_gte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "avg_percent_normal_cells_lte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "avg_percent_stromal_cells": {
+       "type": "number",
+       "format": "double",
+       "repeated": true,
+       "location": "query"
+      },
+      "avg_percent_stromal_cells_gte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "avg_percent_stromal_cells_lte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "avg_percent_tumor_cells": {
+       "type": "number",
+       "format": "double",
+       "repeated": true,
+       "location": "query"
+      },
+      "avg_percent_tumor_cells_gte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "avg_percent_tumor_cells_lte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "avg_percent_tumor_nuclei": {
+       "type": "number",
+       "format": "double",
+       "repeated": true,
+       "location": "query"
+      },
+      "avg_percent_tumor_nuclei_gte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "avg_percent_tumor_nuclei_lte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "batch_number": {
+       "type": "integer",
+       "format": "int32",
+       "repeated": true,
+       "location": "query"
+      },
+      "batch_number_gte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "batch_number_lte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "bcr": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "clinical_M": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "clinical_N": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "clinical_T": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "clinical_stage": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "colorectal_cancer": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "country": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "days_to_birth": {
+       "type": "integer",
+       "format": "int32",
+       "repeated": true,
+       "location": "query"
+      },
+      "days_to_birth_gte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "days_to_birth_lte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "days_to_collection": {
+       "type": "integer",
+       "format": "int32",
+       "repeated": true,
+       "location": "query"
+      },
+      "days_to_collection_gte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "days_to_collection_lte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "days_to_death": {
+       "type": "integer",
+       "format": "int32",
+       "repeated": true,
+       "location": "query"
+      },
+      "days_to_death_gte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "days_to_death_lte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "days_to_initial_pathologic_diagnosis": {
+       "type": "integer",
+       "format": "int32",
+       "repeated": true,
+       "location": "query"
+      },
+      "days_to_initial_pathologic_diagnosis_gte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "days_to_initial_pathologic_diagnosis_lte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "days_to_last_followup": {
+       "type": "integer",
+       "format": "int32",
+       "repeated": true,
+       "location": "query"
+      },
+      "days_to_last_followup_gte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "days_to_last_followup_lte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "days_to_last_known_alive": {
+       "type": "integer",
+       "format": "int32",
+       "repeated": true,
+       "location": "query"
+      },
+      "days_to_last_known_alive_gte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "days_to_last_known_alive_lte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "days_to_submitted_specimen_dx": {
+       "type": "integer",
+       "format": "int32",
+       "repeated": true,
+       "location": "query"
+      },
+      "days_to_submitted_specimen_dx_gte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "days_to_submitted_specimen_dx_lte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "ethnicity": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "frozen_specimen_anatomic_site": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "gender": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "gleason_score_combined": {
+       "type": "integer",
+       "format": "int32",
+       "repeated": true,
+       "location": "query"
+      },
+      "gleason_score_combined_gte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "gleason_score_combined_lte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "has_27k": {
+       "type": "boolean",
+       "repeated": true,
+       "location": "query"
+      },
+      "has_450k": {
+       "type": "boolean",
+       "repeated": true,
+       "location": "query"
+      },
+      "has_BCGSC_GA_RNASeq": {
+       "type": "boolean",
+       "repeated": true,
+       "location": "query"
+      },
+      "has_BCGSC_HiSeq_RNASeq": {
+       "type": "boolean",
+       "repeated": true,
+       "location": "query"
+      },
+      "has_GA_miRNASeq": {
+       "type": "boolean",
+       "repeated": true,
+       "location": "query"
+      },
+      "has_HiSeq_miRnaSeq": {
+       "type": "boolean",
+       "repeated": true,
+       "location": "query"
+      },
+      "has_Illumina_DNASeq": {
+       "type": "boolean",
+       "repeated": true,
+       "location": "query"
+      },
+      "has_RPPA": {
+       "type": "boolean",
+       "repeated": true,
+       "location": "query"
+      },
+      "has_SNP6": {
+       "type": "boolean",
+       "repeated": true,
+       "location": "query"
+      },
+      "has_UNC_GA_RNASeq": {
+       "type": "boolean",
+       "repeated": true,
+       "location": "query"
+      },
+      "has_UNC_HiSeq_RNASeq": {
+       "type": "boolean",
+       "repeated": true,
+       "location": "query"
+      },
+      "height": {
+       "type": "integer",
+       "format": "int32",
+       "repeated": true,
+       "location": "query"
+      },
+      "height_gte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "height_lte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "histological_type": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "history_of_colon_polyps": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "history_of_neoadjuvant_treatment": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "history_of_prior_malignancy": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "hpv_calls": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "hpv_status": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "icd_10": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "icd_o_3_histology": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "icd_o_3_site": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "lymphatic_invasion": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "lymphnodes_examined": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "lymphovascular_invasion_present": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "max_percent_lymphocyte_infiltration": {
+       "type": "number",
+       "format": "double",
+       "repeated": true,
+       "location": "query"
+      },
+      "max_percent_lymphocyte_infiltration_gte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "max_percent_lymphocyte_infiltration_lte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "max_percent_monocyte_infiltration": {
+       "type": "number",
+       "format": "double",
+       "repeated": true,
+       "location": "query"
+      },
+      "max_percent_monocyte_infiltration_gte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "max_percent_monocyte_infiltration_lte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "max_percent_necrosis": {
+       "type": "number",
+       "format": "double",
+       "repeated": true,
+       "location": "query"
+      },
+      "max_percent_necrosis_gte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "max_percent_necrosis_lte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "max_percent_neutrophil_infiltration": {
+       "type": "number",
+       "format": "double",
+       "repeated": true,
+       "location": "query"
+      },
+      "max_percent_neutrophil_infiltration_gte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "max_percent_neutrophil_infiltration_lte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "max_percent_normal_cells": {
+       "type": "number",
+       "format": "double",
+       "repeated": true,
+       "location": "query"
+      },
+      "max_percent_normal_cells_gte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "max_percent_normal_cells_lte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "max_percent_stromal_cells": {
+       "type": "number",
+       "format": "double",
+       "repeated": true,
+       "location": "query"
+      },
+      "max_percent_stromal_cells_gte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "max_percent_stromal_cells_lte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "max_percent_tumor_cells": {
+       "type": "number",
+       "format": "double",
+       "repeated": true,
+       "location": "query"
+      },
+      "max_percent_tumor_cells_gte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "max_percent_tumor_cells_lte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "max_percent_tumor_nuclei": {
+       "type": "number",
+       "format": "double",
+       "repeated": true,
+       "location": "query"
+      },
+      "max_percent_tumor_nuclei_gte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "max_percent_tumor_nuclei_lte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "menopause_status": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "min_percent_lymphocyte_infiltration": {
+       "type": "number",
+       "format": "double",
+       "repeated": true,
+       "location": "query"
+      },
+      "min_percent_lymphocyte_infiltration_gte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "min_percent_lymphocyte_infiltration_lte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "min_percent_monocyte_infiltration": {
+       "type": "number",
+       "format": "double",
+       "repeated": true,
+       "location": "query"
+      },
+      "min_percent_monocyte_infiltration_gte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "min_percent_monocyte_infiltration_lte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "min_percent_necrosis": {
+       "type": "number",
+       "format": "double",
+       "repeated": true,
+       "location": "query"
+      },
+      "min_percent_necrosis_gte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "min_percent_necrosis_lte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "min_percent_neutrophil_infiltration": {
+       "type": "number",
+       "format": "double",
+       "repeated": true,
+       "location": "query"
+      },
+      "min_percent_neutrophil_infiltration_gte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "min_percent_neutrophil_infiltration_lte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "min_percent_normal_cells": {
+       "type": "number",
+       "format": "double",
+       "repeated": true,
+       "location": "query"
+      },
+      "min_percent_normal_cells_gte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "min_percent_normal_cells_lte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "min_percent_stromal_cells": {
+       "type": "number",
+       "format": "double",
+       "repeated": true,
+       "location": "query"
+      },
+      "min_percent_stromal_cells_gte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "min_percent_stromal_cells_lte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "min_percent_tumor_cells": {
+       "type": "number",
+       "format": "double",
+       "repeated": true,
+       "location": "query"
+      },
+      "min_percent_tumor_cells_gte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "min_percent_tumor_cells_lte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "min_percent_tumor_nuclei": {
+       "type": "number",
+       "format": "double",
+       "repeated": true,
+       "location": "query"
+      },
+      "min_percent_tumor_nuclei_gte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "min_percent_tumor_nuclei_lte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "mononucleotide_and_dinucleotide_marker_panel_analysis_status": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "mononucleotide_marker_panel_analysis_status": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "neoplasm_histologic_grade": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "new_tumor_event_after_initial_treatment": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "number_of_lymphnodes_examined": {
+       "type": "integer",
+       "format": "int32",
+       "repeated": true,
+       "location": "query"
+      },
+      "number_of_lymphnodes_examined_gte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "number_of_lymphnodes_examined_lte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "number_of_lymphnodes_positive_by_he": {
+       "type": "integer",
+       "format": "int32",
+       "repeated": true,
+       "location": "query"
+      },
+      "number_of_lymphnodes_positive_by_he_gte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "number_of_lymphnodes_positive_by_he_lte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "number_pack_years_smoked": {
+       "type": "integer",
+       "format": "int32",
+       "repeated": true,
+       "location": "query"
+      },
+      "number_pack_years_smoked_gte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "number_pack_years_smoked_lte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "pathologic_M": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "pathologic_N": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "pathologic_T": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "pathologic_stage": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "person_neoplasm_cancer_status": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "pregnancies": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "primary_neoplasm_melanoma_dx": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "primary_therapy_outcome_success": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "prior_dx": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "psa_value": {
+       "type": "number",
+       "format": "double",
+       "repeated": true,
+       "location": "query"
+      },
+      "psa_value_gte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "psa_value_lte": {
+       "type": "number",
+       "format": "double",
+       "location": "query"
+      },
+      "race": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "residual_tumor": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "tobacco_smoking_history": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "tumor_tissue_site": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "tumor_type": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "vital_status": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "weight": {
+       "type": "integer",
+       "format": "int32",
+       "repeated": true,
+       "location": "query"
+      },
+      "weight_gte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "weight_lte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "weiss_venous_invasion": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "year_of_initial_pathologic_diagnosis": {
+       "type": "integer",
+       "format": "int32",
+       "repeated": true,
+       "location": "query"
+      },
+      "year_of_initial_pathologic_diagnosis_gte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      },
+      "year_of_initial_pathologic_diagnosis_lte": {
+       "type": "integer",
+       "format": "int32",
+       "location": "query"
+      }
      },
      "response": {
       "$ref": "ApiIsbCgcApiCohortsPreviewCohortPatientsSamplesList"
@@ -2033,6 +3136,33 @@
   },
   "patients": {
    "methods": {
+    "annotations": {
+     "id": "isb_cgc_api.patients.annotations",
+     "path": "patients/{patient_barcode}/annotations",
+     "httpMethod": "GET",
+     "description": "Returns TCGA annotations about a specific patient, Takes a patient barcode (of length 12, *eg* TCGA-B9-7268) as a required parameter. User does not need to be authenticated.",
+     "parameters": {
+      "item_type_name": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "patient_barcode": {
+       "type": "string",
+       "required": true,
+       "location": "path"
+      }
+     },
+     "parameterOrder": [
+      "patient_barcode"
+     ],
+     "response": {
+      "$ref": "ApiIsbCgcApiPatientsAnnotationsMetadataAnnotationList"
+     },
+     "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email"
+     ]
+    },
     "get": {
      "id": "isb_cgc_api.patients.get",
      "path": "patients/{patient_barcode}",
@@ -2059,6 +3189,33 @@
   },
   "samples": {
    "methods": {
+    "annotations": {
+     "id": "isb_cgc_api.samples.annotations",
+     "path": "samples/{sample_barcode}/annotations",
+     "httpMethod": "GET",
+     "description": "Returns TCGA annotations about a specific sample, Takes a patient barcode (of length , *eg* TCGA-01-0628-11A) as a required parameter. User does not need to be authenticated.",
+     "parameters": {
+      "item_type_name": {
+       "type": "string",
+       "repeated": true,
+       "location": "query"
+      },
+      "sample_barcode": {
+       "type": "string",
+       "required": true,
+       "location": "path"
+      }
+     },
+     "parameterOrder": [
+      "sample_barcode"
+     ],
+     "response": {
+      "$ref": "ApiIsbCgcApiSamplesAnnotationsMetadataAnnotationList"
+     },
+     "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email"
+     ]
+    },
     "cloud_storage_file_paths": {
      "id": "isb_cgc_api.samples.cloud_storage_file_paths",
      "path": "samples/{sample_barcode}/cloud_storage_file_paths",
