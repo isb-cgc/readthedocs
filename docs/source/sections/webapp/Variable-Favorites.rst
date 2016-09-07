@@ -24,7 +24,6 @@ Common Filters List
     * Vital Status
     * Gender
     * Age At Diagnosis
-    * Sample Type Code
     * Tumor Tissue Site
     * Histological Type
     * Other Diagnosis
