@@ -5,7 +5,9 @@ Data Releases and Future Plans
 Release Notes
 #############
 
-* August 31, 2016: a table based on the latest liftOver hg19-to-hg38 chain files is available i nthe **isb-cgc:tcga_genome_reference** BigQuery dataset
+* September 10, 2016: **GENCODE** versions 19, 22, 23, and 24 are all now available in the **isb-cgc:genome_reference** BigQuery dataset, with an updated and more complete schema -- note also that the naming convention is now **GENCODE_v19** rather than GENCODE_r19; note that v19 is the last version based on hg19/GRCh37, and all subsequent versions are based on hg38/GRCh38
+
+* August 31, 2016: a table based on the latest liftOver hg19-to-hg38 chain files is available in the **isb-cgc:tcga_genome_reference** BigQuery dataset
 
 * August 26, 2016: a set of tables based on running Picard over ~67,000 TCGA bam files in GCS have been added to the **isb-cgc:tcga_seq_metadata** BigQuery dataset: information contained in these tables includes bam-index stats, insert-size metrics, quality-distribution metrics, and quality-yield metrics -- these tables can be used in conjunction with the FastQC-based tables to look for bam and/or fastq data files that meet your analysis criteria
 
