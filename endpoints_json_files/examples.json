@@ -1,0 +1,13 @@
+{
+  "save_cohort": "$ python isb_curl.py \"https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/save_cohort?name=BRCA-OV-80-and-older\" -d '{\"age_at_initial_pathologic_diagnosis_gte\": \"80\", \"Study\": [\"BRCA\", \"OV\"]}' -H \"Content-Type: application/json\"",
+  "google_genomics_from_sample": "$ curl \"https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/google_genomics_from_sample?sample_barcode=CCLE-SU-DHL-5-RNA-08\"",
+  "preview_cohort": "$ curl \"https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/preview_cohort\" -d '{\"Study\": [\"BRCA\", \"OV\"]}' -H \"Content-Type: application/json\"",
+  "datafilenamekey_list_from_cohort": "$ python isb_curl.py \"https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/datafilenamekey_list_from_cohort?cohort_id={YOUR_COHORT_ID}\"",
+  "cohort_patients_samples_list": "$ python isb_curl.py \"https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/cohort_patients_samples_list?cohort_id={YOUR_COHORT_ID}\"",
+  "sample_details": "curl \"https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/sample_details?sample_barcode=TCGA-ZH-A8Y6-01A\"",
+  "list": "$ python isb_curl.py \"https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/cohorts_list\"",
+  "patient_details": "curl \"https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/patient_details?patient_barcode=TCGA-ZH-A8Y6\"",
+  "datafilenamekey_list_from_sample": "$ curl \"https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/datafilenamekey_list_from_sample?sample_barcode=TCGA-ZH-A8Y6-01A&platform=Genome_Wide_SNP_6\"",
+  "google_genomics_from_cohort": "$ python isb_curl.py \"https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/google_genomics_from_cohort?cohort_id={YOUR_COHORT_ID}\"",
+  "delete": "$ python isb_curl.py \"https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/delete_cohort?cohort_id={YOUR_COHORT_ID}\" -d '{}'"
+}

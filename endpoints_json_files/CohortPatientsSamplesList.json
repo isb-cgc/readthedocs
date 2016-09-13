@@ -1,0 +1,7 @@
+{
+    "cohort_id": "ID of the cohort.",
+    "patient_count": "Total count of unique patient barcodes in the cohort.",
+    "patients": "List of patient barcodes.",
+    "sample_count": "Total count of unique sample barcodes in the cohort.",
+    "samples": "List of sample barcodes."
+}

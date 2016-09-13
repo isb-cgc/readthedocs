@@ -1,11 +1,11 @@
-Protein
-=======
+Protein (RPPA)
+==============
 
 The raw protein data file contains just two columns: The "Composite Element REF", which corresponds to the third column in the antibody
 annotation file, and the estimated expression value for that particular
 protein. The "Composite Element REF" was parsed to generate additional
 information(see details in the formatting section). The BigQuery
-`table <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.Protein_RPPA_data>`_ 
+`table <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201607_beta.Protein_RPPA_data>`_ 
 was populated with all TCGA Level-3 RPPA data matching the pattern -
 "%\_RPPA\_Core.protein\_expression%.txt".
 

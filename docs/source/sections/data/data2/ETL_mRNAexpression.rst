@@ -6,8 +6,8 @@ different platforms and fundamentally different pipelines.  Most of the data, fr
 produced using the Illumina HiSeq platform and for that reason the first two BigQuery tables containing
 gene expression data are based on those specific subsets of the TCGA mRNA expression data:
 
-- the majority of the data was produced by the `UNC LCCC <https://unclineberger.org/>`_ and the resulting normalized RSEM values are stored in `one table <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM>`_
-- and a subset of the data was produced by the `BC GSC <http://www.bcgsc.ca/>`_ and the resulting normalized RPKM values are stored in `another table <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.mRNA_BCGSC_HiSeq_RPKM>`_
+- the majority of the data was produced by the `UNC LCCC <https://unclineberger.org/>`_ and the resulting normalized RSEM values are stored in `one table <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201607_beta.mRNA_UNC_HiSeq_RSEM>`_
+- and a subset of the data was produced by the `BC GSC <http://www.bcgsc.ca/>`_ and the resulting normalized RPKM values are stored in `another table <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201607_beta.mRNA_BCGSC_HiSeq_RPKM>`_
 
 
 UNC RNAseqV2 Pipeline
