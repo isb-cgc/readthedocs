@@ -22,4 +22,4 @@ Other useful Links
 * `DIY Workshop <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DIYWorkshop.html?highlight=workshop>`_ - Please look for the links under "ISB-CGC Open-Access BigQuery Tables."
 * `Google BigQuery <https://cloud.google.com/bigquery/>`_
 * `Getting Started with R <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/GettingStartedWithR.html>`_ 
-* `Code examples can be found at <https://github.com/isb-cgc/examples-R>`_
+* `Code examples can be found at our github repo. <https://github.com/isb-cgc/examples-R>`_
