@@ -16,8 +16,10 @@ Meeting Details
 :WebEx Link: `https://srameeting.webex.com/srameeting/j.php?MTID=mec27d39212a3d7f98913c83d0c379909 <https://srameeting.webex.com/srameeting/j.php?MTID=mec27d39212a3d7f98913c83d0c379909>`_
 :Audio Conference Bridge: 1-800-747-5150, Access Code: 320 131 2
 
-Other useful Tutorials
+Other useful Links
 **********************
 
-* `Linking your NIH and Google Identities <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-TCGA-Contolled-Access-Data.html?#linking-your-nih-and-google-identities>`_
-* `DIY Workshop <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DIYWorkshop.html?highlight=workshop>`_ - Please note that the DIY Workshop includes materials and instructions that are not required to use the web application.
+* `DIY Workshop <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DIYWorkshop.html?highlight=workshop>`_ - Please look for the links under "ISB-CGC Open-Access BigQuery Tables."
+* `Google BigQuery <https://cloud.google.com/bigquery/>`_
+* `Getting Started with R <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/GettingStartedWithR.html>`_ 
+* `Code examples can be found at <https://github.com/isb-cgc/examples-R>`_
