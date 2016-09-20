@@ -37,24 +37,33 @@ BigQuery
 `BigQuery Reference <https://cloud.google.com/bigquery/query-reference>`_
 `Google Examples <https://support.google.com/analytics/answer/4419694?hl=en>`_
 
-- The browser interface (ask what group's experience level is)
+- The browser interface
+
   - query / job histories
   - switching projects
+
     - adding project to your workspace (silver-wall-555)
+
   - making data sets.
+
     - by saving queries
 
 - The new data release
+
   - CCLE (cancer cell line encyclopedia)
+
     - https://portals.broadinstitute.org/ccle/home
     - check out mutation calls, schema, details, preview
+
   - GDC metadata for files https://gdc.cancer.gov/
   - genome references
   - tcga_201607_beta
+
     - methylation by chr
     - joined RNA-seq tables (mRNA_UNC_RSEM)
     - joined miRNA tables (miRNA_Expression)
     - isoform tables
+
   - cohorts
 
 - working on queries [LINK to MY stuff]
