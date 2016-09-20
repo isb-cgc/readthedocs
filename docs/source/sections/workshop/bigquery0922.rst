@@ -39,7 +39,7 @@ BigQuery
 
 - The browser interface
 
-  - query / job histories
+  - query & job histories
   - switching projects
 
     - adding project to your workspace (silver-wall-555)
