@@ -77,17 +77,19 @@ Using R
 
   - `the bigrquery library <https://github.com/rstats-db/bigrquery>`_
   - `the bigrquery CRAN page <https://cran.r-project.org/web/packages/bigrquery/index.html>`_
+  - bigrquery functions
 
 - `The examples-R github repo <https://github.com/isb-cgc/examples-R>`_
 
   - installing the package
   - tour of the package
 
+- `workshop doc v2 <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/workshop/Workshop_R_tut_v2.html>`_
+
 - extra links
 
-  - `workshop doc #1 <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/workshop/Workshop_R_tut.html>`_
-  - `workshop doc #2 <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/workshop/Workshop_R_tut_v2.html>`_
   - `advanced: using dplyr to make queries <https://cran.r-project.org/web/packages/dplyr/vignettes/databases.html>`_
+  - `workshop doc #1 <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/workshop/Workshop_R_tut.html>`_
 
 
 
