@@ -14,7 +14,7 @@ Meeting Details
 :Date: September 22, 2016
 :Time: 10:00 AM Pacific Time, 1:00 PM Eastern Time
 :WebEx Link: `https://srameeting.webex.com/srameeting/j.php?MTID=mec27d39212a3d7f98913c83d0c379909 <https://srameeting.webex.com/srameeting/j.php?MTID=mec27d39212a3d7f98913c83d0c379909>`_
-:Audio Conference Bridge: 1-800-747-5150, Access Code: 320 131 2
+:Audio Bridge: 1-800-747-5150, Access Code: 320 131 2
 
 Other useful Links
 **********************
