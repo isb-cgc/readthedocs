@@ -48,7 +48,7 @@ BigQuery
 
     - by saving queries
 
-- The new data release
+- New Tables
 
   - CCLE (cancer cell line encyclopedia)
 
@@ -66,9 +66,29 @@ BigQuery
 
   - cohorts
 
-- working on queries [LINK to MY stuff]
+- `example queries <https://github.com/isb-cgc/readthedocs/blob/master/docs/include/big_query_examples.sql>`_
 
-- `Workshop doc #1 <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/workshop/BQ_SQL_tut_v2.html>`_
+
+Using R
+-------
+
+
+- `getting set up. <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/GettingStartedWithR.html>`_
+
+  - `the bigrquery library <https://github.com/rstats-db/bigrquery>`_
+  - `the bigrquery CRAN page <https://cran.r-project.org/web/packages/bigrquery/index.html>`_
+
+- `The examples-R github repo <https://github.com/isb-cgc/examples-R>`_
+
+  - installing the package
+  - tour of the package
+
+- extra links
+
+  - `workshop doc #1 <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/workshop/Workshop_R_tut.html>`_
+  - `workshop doc #2 <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/workshop/Workshop_R_tut_v2.html>`_
+  - `advanced: using dplyr to make queries <https://cran.r-project.org/web/packages/dplyr/vignettes/databases.html>`_
+
 
 
 Other useful Links
@@ -78,3 +98,4 @@ Other useful Links
 * `Google BigQuery <https://cloud.google.com/bigquery/>`_
 * `Getting Started with R <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/GettingStartedWithR.html>`_
 * `Code examples can be found at our github repo. <https://github.com/isb-cgc/examples-R>`_
+* `BigQuery Workshop doc v2 <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/workshop/BQ_SQL_tut_v2.html>`_
