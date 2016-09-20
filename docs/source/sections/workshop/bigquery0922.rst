@@ -16,19 +16,54 @@ Meeting Details
 :WebEx Link: `https://srameeting.webex.com/srameeting/j.php?MTID=mec27d39212a3d7f98913c83d0c379909 <https://srameeting.webex.com/srameeting/j.php?MTID=mec27d39212a3d7f98913c83d0c379909>`_
 :Audio Bridge: 1-800-747-5150, Access Code: 320 131 2
 
-Topic Outline
-*************
+Topics
+******
 
 Cloud Console
 -------------
 
 First let's start at the `cloud console <https://console.cloud.google.com>`_.
 
+- Manage project settings : IAM link for permission settings
+- Settings, project names
+- Quotas, set maximum usage
+- Buckets, used for bringing in large tables. (create / delete)
+- CloudShell, can connect to a VM
 
+BigQuery
+--------
+
+`BigQuery <https://bigquery.cloud.google.com>`_
+`BigQuery Reference <https://cloud.google.com/bigquery/query-reference>`_
+`Google Examples <https://support.google.com/analytics/answer/4419694?hl=en>`_
+
+- The browser interface (ask what group's experience level is)
+  - query / job histories
+  - switching projects
+    - adding project to your workspace (silver-wall-555)
+  - making data sets.
+    - by saving queries
+
+- The new data release
+  - CCLE (cancer cell line encyclopedia)
+    - https://portals.broadinstitute.org/ccle/home
+    - check out mutation calls, schema, details, preview
+  - GDC metadata for files https://gdc.cancer.gov/
+  - genome references
+  - tcga_201607_beta
+    - methylation by chr
+    - joined RNA-seq tables (mRNA_UNC_RSEM)
+    - joined miRNA tables (miRNA_Expression)
+    - isoform tables
+  - cohorts
+
+- working on queries [LINK to MY stuff]
+
+- `Workshop doc #1 <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/workshop/BQ_SQL_tut_v2.html>`_
 
 
 Other useful Links
-**********************
+******************
 
 * `DIY Workshop <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DIYWorkshop.html?highlight=workshop>`_ - Please look for the links under "ISB-CGC Open-Access BigQuery Tables."
 * `Google BigQuery <https://cloud.google.com/bigquery/>`_
