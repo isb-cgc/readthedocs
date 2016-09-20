@@ -208,7 +208,7 @@ Once you have registered a Service Account, you have 7 days before the access is
 
 Reauthorizing a GCP(s) Service Account(s) after it was revoked permission
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Your service account may have its permissions revoked (because, for example, you have added a member to the GCP who is not authorized to use that controlled data).  To reauthorize the service account 1) remedy the situation that caused the initial revokation of the service account and 2) select the "refresh" icon beside the service account (see screenshot below).
+Your service account may have its permissions revoked (because, for example, you have added a member to the GCP who is not authorized to use that controlled data). If this happens, the Google Cloud Project owner will be sent an email with a description of which Service Account on which Google Cloud Project and which user caused the removal from the Access Control List. To reauthorize the service account 1) remedy the situation that caused the initial revokation of the service account and 2) select the "refresh" icon beside the service account (see screenshot below).
 
 .. image:: RefreshServiceAccount.png
    :scale: 50
