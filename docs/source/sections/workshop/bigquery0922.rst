@@ -13,8 +13,8 @@ Meeting Details
 
 :Date: September 22, 2016
 :Time: 10:00 AM Pacific Time, 1:00 PM Eastern Time
-:WebEx Link: `https://srameeting.webex.com/srameeting/j.php?MTID=mec27d39212a3d7f98913c83d0c379909 <https://srameeting.webex.com/srameeting/j.php?MTID=mec27d39212a3d7f98913c83d0c379909>`_
-:Audio Bridge: 1-800-747-5150, Access Code: 320 131 2
+:WebEx Link: `https://srameeting.webex.com/srameeting/j.php?MTID=m5612d723f442fb44e016bd58d2ea3920 <https://srameeting.webex.com/srameeting/j.php?MTID=m5612d723f442fb44e016bd58d2ea3920>`_
+:Audio Bridge: 1-800-747-5150, Access Code: 320 131 2 `Global Conference Dial-In Numbers <https://conf.cfer.com/?an=8007475150&ac=3201312&startview=gos&login=true>`_
 
 Topics
 ******
