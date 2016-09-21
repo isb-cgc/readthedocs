@@ -2,6 +2,42 @@
 Release Notes
 *************
 
+*  **September 21, 2016**: `v1.10 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.10>`_
+
+    **Known issues in Sprint 11 as of 9/21/2016**
+    
+    - The user can add same gene twice if list to the same worksheet it they have different names. 
+    - The Bar chart on the worksheet panel renders overlapping text. 
+    - Analysis Type : Seq peek Formatting Elongated 
+    - The CCLE data in GUI is not parallel to the CCLE data in BigQuery. 
+    - If a user creates a cohort with sample type filter Cell Lines  and CCLE the total number of samples count off by one. 
+    - User will occasionally be sent to the Social Network Login page when trying to login. If this occurs, please go the the home page of the Web Application and try again. 
+    - If the user shares a cohort they do not receive a confirmation email.
+    - The Legend is displayed elongated when you use multiple cohort for color by feature for violin plot.
+    - When the user selects multiple cohorts for color by feature for scatter plot they do not display in chart. 
+    - Cannot plot any data if you use CCLE data cohort on a worksheet. 
+    - When the user plots a graph with NA values the UI returns a blank graph. 
+    - When a user duplicates a worksheet, then tries to implement the log scale it will not function properly. 
+    - There are duplicate rows in the molecular data table in BigQuery. 
+
+    **Issues that are resolved in Sprint 11 as of 9/21/2016**
+
+    New Enhancements
+    
+    - Text in confirmation box of a duplication of a workbook has been enhanced. 
+    - On the registered Google Cloud Projects page, icon has been added for the user to go directly to the Google Cloud Console page if desired. 
+    - When the a Service Account is removed from the Access Control List, the project owner is sent an email with an explanation as to why the account was removed. 
+    - IGV File List page displays of which page user is browsing. 
+
+    Bug Fixes
+
+    - For a Cubby hole plot the x - axis name can be seen clearly. 
+    - On a duplicate worksheet when working with gene specifications, user is able to select between all options multiple times. 
+    - Page becomes elongated when the user builds a Cubby Hole plot. 
+    - The selected variables for the plot setting on a worksheet are saved after the user leaves the workbook. 
+    - When registering a Google Cloud Project the user is displayed the list of emails associated to the GCP only once. 
+
+
 *  **September 7, 2016**: `v1.9 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.9>`_
     
     **Known issues in Sprint 10 as of 9/07/2016**
