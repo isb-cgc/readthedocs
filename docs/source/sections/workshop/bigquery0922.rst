@@ -37,8 +37,6 @@ BigQuery
 
 `BigQuery Reference <https://cloud.google.com/bigquery/query-reference>`_
 
-`Google Examples <https://support.google.com/analytics/answer/4419694?hl=en>`_
-
 - The browser interface
 
   - query & job histories
@@ -100,6 +98,7 @@ Other useful Links
 
 * `DIY Workshop <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DIYWorkshop.html>`_ - Please look for the links under "ISB-CGC Open-Access BigQuery Tables."
 * `Google BigQuery <https://cloud.google.com/bigquery/>`_
+* `Google Examples <https://support.google.com/analytics/answer/4419694?hl=en>`_
 * `Getting Started with R <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/GettingStartedWithR.html>`_
 * `Code examples can be found at our github repo. <https://github.com/isb-cgc/examples-R>`_
 * `BigQuery Workshop doc v2 <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/workshop/BQ_SQL_tut_v2.html>`_
