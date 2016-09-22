@@ -34,7 +34,9 @@ BigQuery
 --------
 
 `BigQuery <https://bigquery.cloud.google.com>`_
+
 `BigQuery Reference <https://cloud.google.com/bigquery/query-reference>`_
+
 `Google Examples <https://support.google.com/analytics/answer/4419694?hl=en>`_
 
 - The browser interface
