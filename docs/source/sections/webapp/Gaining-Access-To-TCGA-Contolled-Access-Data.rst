@@ -102,9 +102,9 @@ NOTES:
 - to allow flexibility while working with different research teams and different processes, you can have many GCPs registered with ISB-CGC, as well as many service accounts registered per GCP.)
 - if your program tries to access data stored in a controlled access area after the 7 day expiration, it will get an error describing that access is denied.  To prevent this, we have enabled the ability to add another 7 days to the access (if your program is running long), see below for directions.  You may also wish to adjust your program to the posibility that data access may be denied.
 
-Requirements for Registering a GCP Service Account
+Requirements for Registering a Google Cloud Project Service Account
 --------------------------------------------------
-To be able to register your GCP and at least one service account to handle controlled access data the following must all be true:
+To be able to register your Google Cloud Poject and at least one service account to handle controlled access data the following must all be true:
 
 - at any time, ALL members of the project MUST be authorized to use the data set (be a registered dbGaP "PI" or "downloader") (see dbGap Data Access `Request Portal <http://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login>`_, and `Understanding Data Security <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/data/data2/TCGA_Data_Security.html>`_ for more details).
 - all members of the project will have had to register their Google ID with ISB-CGC by using the ISB-CGC Web Application
@@ -112,7 +112,7 @@ To be able to register your GCP and at least one service account to handle contr
 
 If ANY of these requirements are not met, your GCP and ANY associated service accounts will be disabled to use controlled access data.  Emails will be sent to the GCP owners if this permission is revoked.
 
-Registering your GCP Service Account
+Registering your Google Cloud Project Service Account
 ------------------------------------
 To register your GCP and its Service Account with ISB-CGC, select the "persona" icon next to your login name (see first image above), which takes you to the following page:
 
@@ -162,11 +162,11 @@ If all the requirements for registering a service account are met, the account w
    :scale: 50
    :align: center
 
-Managing your GCP Project(s) and Service Account(s)
+Managing your Google Cloud Project(s) and Service Account(s)
 ---------------------------------------------------
 Once your GCP(s) and Service Account(s) are registered, you can add more and remove existing accounts by following the methods below.  In addition, there are methods to either extend the use of a service account for another 7 days, and reauthorize a service account after you have corrected the errors that caused it to have its permissions revoked.  Below are the details of how to perform these operations.
 
-Adding additional GCPs
+Adding additional Google Cloud Projects
 ~~~~~~~~~~~~~~~~~~~~~~
 To add additional Google Cloud Projects (GCPs) that you own to be able run programs programmatically select the "+ Register New Google Cloud Project" button from the "Registered Google Cloud Projects" page (see screenshot below).
 
@@ -174,7 +174,7 @@ To add additional Google Cloud Projects (GCPs) that you own to be able run progr
    :scale: 50
    :align: center
 
-Deleting GCPs
+Deleting Google Cloud Projects
 ~~~~~~~~~~~~~
 To delete a GCP that is registed, select the "Unregister Project" button from the dropdown menu beside the project your are removing on the "Registered Google Cloud Projects" page (see screenshot below).
 
@@ -182,7 +182,7 @@ To delete a GCP that is registed, select the "Unregister Project" button from th
    :scale: 50
    :align: center
 
-Adding additional service accounts to a given GCP
+Adding additional service accounts to a given Google Cloud Project
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 To add additional service accounts to a given GCP reselect the "Register Service Account" from the dropdown menu beside the project that has the service account (see screenshot below). 
 
@@ -190,7 +190,7 @@ To add additional service accounts to a given GCP reselect the "Register Service
    :scale: 50
    :align: center
 
-Deleting Service Accounts from GCPs
+Deleting Service Accounts from Google Cloud Projects
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 To delete a service account from an GCP (not allowing it to be used to programmatically access controlled data), push the "trashcan" icon beside the service account (see screenshot below).
 
@@ -206,9 +206,9 @@ Once you have registered a Service Account, you have 7 days before the access is
    :scale: 50
    :align: center
 
-Reauthorizing a GCP(s) Service Account(s) after it was revoked permission
+Reauthorizing a Google Cloud Project(s) Service Account(s) after it was revoked permission
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Your service account may have its permissions revoked (because, for example, you have added a member to the GCP who is not authorized to use that controlled data).  To reauthorize the service account 1) remedy the situation that caused the initial revokation of the service account and 2) select the "refresh" icon beside the service account (see screenshot below).
+Your service account may have its permissions revoked (because, for example, you have added a member to the GCP who is not authorized to use that controlled data). If this happens, the Google Cloud Project owner will be sent an email with a description of which Service Account on which Google Cloud Project and which user caused the removal from the Access Control List. To reauthorize the service account 1) remedy the situation that caused the initial revokation of the service account and 2) select the "refresh" icon beside the service account (see screenshot below).
 
 .. image:: RefreshServiceAccount.png
    :scale: 50
