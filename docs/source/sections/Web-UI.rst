@@ -19,4 +19,5 @@ We welcome your ideas and needs.  Please use this `link <https://groups.google.c
    webapp/Saved-Cohorts
    webapp/IGV-Browser
    webapp/releases
+   webapp/ViewingCohorts
 
