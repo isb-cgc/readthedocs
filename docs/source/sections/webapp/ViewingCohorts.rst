@@ -7,7 +7,7 @@ It should be noted that the details of how to use the APIs can differ significan
 
 Related documents:
 
-* `Saved Cohorts'_
+* `Saved Cohorts`_
 * `ISB-CGC API`_
 
 .. _Saved Cohorts: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html
@@ -21,7 +21,9 @@ Any cohort you've previously created can be seen using either the Webapp or the 
 *Figure 1: Cohorts shown on the front page (top) and Cohorts page (bottom) in the Webapp*
 
 Similarly, the **cohorts().list()** endpoint of the ISB-CGC API will return exactly the same set of cohort.  The `Google API Explorer`_ is a convenient tool for examining API output from within a browser.  In addition to showing the data returned from a query, it will also show a constructed query that can be used in a script (see Figure 2).
+
 .. _Google API Explorer: https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2
+
 .. image:: Fig2-APIResponseNamesOnly.png
 
 Creating Cohorts
@@ -40,6 +42,7 @@ Due to the need for authentication and cohort naming, actually creating the coho
     https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts/create?name={COHORT NAME}
   
 Additionally a JSON object containing the query needs to be created. ::
+
     {"Study": ["UCS", "CESC"], "age_at_initial_pathologic_diagnosis_lte": 20}
 
 
