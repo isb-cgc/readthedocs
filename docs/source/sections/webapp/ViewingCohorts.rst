@@ -6,9 +6,11 @@ Cohorts are one of the central concepts that researchers use when anyalyzing lar
 It should be noted that the details of how to use the APIs can differ significantly depending on how users access the REST APIs.  The examples given here are assuming users only have access to a console and not a higher-level language like Python.
 
 Related documents:
-- `Saved Cohorts`_
+
+* `Saved Cohorts'_
+* `ISB-CGC API`_
+
 .. _Saved Cohorts: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html
-- `ISB-CGC API`_
 .. _ISB-CGC API: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/Programmatic-API.html
 
 
