@@ -17,7 +17,9 @@ Related documents:
 Listing Cohorts
 ===============
 Any cohort you've previously created can be seen using either the Webapp or the API.  In the Webapp, cohorts can be viewed both on the front page of the app as well as on the Cohorts page as shown in Figure 1.
+
 .. image:: Fig1-WebappCohorts.png
+
 *Figure 1: Cohorts shown on the front page (top) and Cohorts page (bottom) in the Webapp*
 
 Similarly, the **cohorts().list()** endpoint of the ISB-CGC API will return exactly the same set of cohort.  The `Google API Explorer`_ is a convenient tool for examining API output from within a browser.  In addition to showing the data returned from a query, it will also show a constructed query that can be used in a script (see Figure 2).
@@ -25,6 +27,8 @@ Similarly, the **cohorts().list()** endpoint of the ISB-CGC API will return exac
 .. _Google API Explorer: https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2
 
 .. image:: Fig2-APIResponseNamesOnly.png
+
+*Figure 2: Google API Explorer*
 
 Creating Cohorts
 ================
@@ -35,7 +39,9 @@ In the following example, the first query creates a cohort of patients from the 
 
                 https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts/preview?Study=UCS&Study=CESC&age_at_initial_pathologic_diagnosis_lte=20
   
-.. image:: Fig 3 -PreviewExample.png
+.. image:: Fig3-PreviewExample.png
+
+*Figure 3: Using Google API Explorer to preview creating a cohort*
 
 Due to the need for authentication and cohort naming, actually creating the cohort requires some modifications of the preview query.  First, the *name* attribute needs to be specified with the name users will see in both the Webapp and in the **cohorts().list()** endpoint.::
 
