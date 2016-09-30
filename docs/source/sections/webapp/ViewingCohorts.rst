@@ -7,9 +7,11 @@ It should be noted that the details of how to use the APIs can differ significan
 
 Related documents:
 
+* `Test Link to Programmatic API`_
 * `Creating Saved Cohorts in the Web Application`_
 * `Details of "Cohorts... APIs" in the ISB-CGC API documentation`_
 
+.. _Test Link to Programmatic API: latest/sections/progapi/Programmatic-API 
 .. _Creating Saved Cohorts in the Web Application: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html
 .. _Details of "Cohorts... APIs" in the ISB-CGC API documentation: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/Programmatic-API.html
 
