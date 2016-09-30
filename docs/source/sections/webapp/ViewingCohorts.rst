@@ -1,17 +1,17 @@
-***************************************
-Viewing cohorts in the Webapp and API
-***************************************
-Cohorts are one of the central concepts that researchers use when anyalyzing large datasets.  As has been discussed elsewhere in the documentation, cohorts can be created either in the Webapp or via the ISB-CGC REST API.  What may not be as clear is that cohorts created by one of the systems can be viewed by the other.  In other words, you can create a cohort using the API and use it in the webapp or you can create a cohort in the webapp and use it in the API.  This can give researchers significant flexibility in creating and sharing their cohorts.  
+***********************************************
+Viewing and using cohorts in the Webapp and API
+***********************************************
+Cohorts are one of the central concepts that researchers use when analyzing large datasets.  As has been discussed elsewhere in the documentation, cohorts can be created either in the Webapp or via the ISB-CGC REST API.  What may not be as clear is that cohorts created by one of the systems can be viewed and used in the other.  In other words, you can create a cohort using the API and use it in the webapp or you can create a cohort in the webapp and use it in the API.  This can give researchers significant flexibility in creating and sharing their cohorts.  
 
-It should be noted that the details of how to use the APIs can differ significantly depending on how users access the REST APIs.  The examples given here are assuming users only have access to a console and not a higher-level language like Python.
+It should be noted that the details of how to use the APIs can differ significantly depending on how users access the REST APIs.  The examples given here are assuming users only have access to a console and not a higher-level language like Python where the APIs can be used more programatically.
 
 Related documents:
 
-* `Saved Cohorts`_
-* `ISB-CGC API`_
+* `Creating Saved Cohorts in the Web Application`_
+* `Details of "Cohorts... APIs" in the ISB-CGC API documentation`_
 
-.. _Saved Cohorts: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html
-.. _ISB-CGC API: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/Programmatic-API.html
+.. _Creating Saved Cohorts in the Web Application: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html
+.. _Details of "Cohorts... APIs" in the ISB-CGC API documentation: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/Programmatic-API.html
 
 
 Listing Cohorts
@@ -51,6 +51,7 @@ Additionally a JSON object containing the query needs to be created. ::
 
     {"Study": ["UCS", "CESC"], "age_at_initial_pathologic_diagnosis_lte": 20}
 
+The commands above will create a cohort via the API
 
 .. _Creating cohorts using the Webapp: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html
 .. _cohorts().preview(): http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/progapi2_v2/cohorts_preview.html
