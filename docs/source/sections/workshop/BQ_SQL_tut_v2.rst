@@ -40,23 +40,24 @@ On the left side, from top to bottom we have:
 
 3.  **Job History** A list of past jobs (*eg* copying or creating tables).
 
-4.  **Your Project Datasets** Click the little blue triangle to create a new dataet or change projects.
+4.  **Your Project Datasets** Click the little blue triangle to create a new dataset or change projects.  
 
 5.  **isb-cgc** Publicly accessible ISB-CGC curated datasets (including TCGA and reference data sources).
 
 6.  **More data!** Other added datasets will appear here (for example, the **genomics-public-data**, **silver-wall-555**, *etc*).
 
-**Note**: if you do not see the **isb-cgc** datasets, you need to add them to your "view" by clicking on the blue arrow next to your project name at the top of the left side-bar, select "Switch to Project", then "Display Project...", and enter "isb-cgc" (without quotes) in the text box labeled "Project ID".  All ISB-CGC public BigQuery datasets and tables will now be visible in the left side-bar of the BigQuery web interface.
+**Note**: if you do not see the **isb-cgc** datasets, you need to add them to your "view" by clicking on the blue arrow next to your project name at the top of the left side-bar, select "Switch to Project", then "Display Project...", and enter "isb-cgc" (without quotes) in the text box labeled "Project ID".  All ISB-CGC public BigQuery datasets and tables will now be visible in the left side-bar of the BigQuery web interface.  Do the same for other public datasets, such as the Tute Genomics annotation table which is owned by a project named "silver-wall-555".
 
 Querying: Lists, Joins, and Subqueries
 --------------------------------------
 
-BigQueries are very similar to regular SQL, but with some differences.
+BigQueries are very similar to regular SQL, but with some differences.  (Note: you can now `enable standard SQL <https://cloud.google.com/bigquery/sql-reference/enabling-standard-sql>`_ in BigQuery.)
 
 Typically, we select some variables (aka "fields") from one or more tables, filter on some criteria,
 and occasionally aggregate the results (such as taking an average).
 
-Here, we want the barcodes for all patients in the CESC and HNSC
+In this first simple example, we are asking for the
+barcodes for all patients in the CESC and HNSC
 studies, with an associated "primary solid tumor" sample. Note the use of the **IN** keyword.
 
 .. code-block:: sql
@@ -72,10 +73,10 @@ studies, with an associated "primary solid tumor" sample. Note the use of the **
 	  AND SampleType = 'Primary solid Tumor'
 
 Go ahead and cut and paste the above query directly into the New Query box,
-and then click on the red **Run Query** button.
+and then click the red **Run Query** button.
 
-Next, let's suppose we want to add some biospecimen data. To do this we
-join the clinical and biospecimen tables. Note the use of **JOIN ... ON**.
+Next, let's suppose we want to bring in some information that is available in the Clinical_data table.
+To do this we need to JOIN the clinical and biospecimen tables using the SQL **... JOIN ... ON ...** construct.
 
 .. code-block:: sql
 
@@ -120,7 +121,7 @@ If you're really paying attention, you might notice that the first query returne
 835 participant and sample barcodes.  In a few cases, the Biospecimen_data table
 contains information about samples that have no associated information in the Clinical_data
 table, and the "JOIN" operation is by default an *INNER* JOIN which returns only the
-intersection of the two tables being joined.
+*intersection* of the two tables being joined.
 
 Another way to work with multiple tables is by using subqueries.
 In the example below, we have an *inner* query (the middle
@@ -204,7 +205,7 @@ You can get an "Explanation" showing how the query was broken into multiple Stag
 the number of input and outputs from each stage, and the amount of time spent
 reading, computing, *etc*.  In addition, you can Download or Save the Results in various ways,
 including as a new BigQuery Table.
-If your query will return a large number of results, you may need to click on the
+If your query will return a large number of results, you may need to click the
 **Show Options** button to the right of the **Run Query** button and specific a
 "Destination Table" and then turn on the "Allow Large Results" option.
 
