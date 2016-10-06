@@ -1,0 +1,18 @@
+{
+    "comments": "Comments on the cohort.",
+    "email": "Email of user.",
+    "filters": "List of filters applied to create cohort, if any.",
+    "id": "Cohort id.",
+    "last_date_saved": "Last date the cohort was saved.",
+    "name": "Name of cohort.",
+    "num_patients": "Number of unique participant barcodes in the cohort.",
+    "num_samples": "Number of unique sample barcodes in the cohort.",
+    "parent_id": "ID of the parent cohort this cohort was derived from, if any.",
+    "perm": "User permissions on cohort: READER or OWNER.",
+    "source_notes": "Notes on the source of the cohort.",
+    "source_type": "Type of cohort source."
+}
+
+
+
+

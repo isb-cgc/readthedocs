@@ -1,0 +1,4 @@
+{
+    "count": "Number of data file cloud storage paths returned.",
+    "datafilenamekeys": "List of cloud storage file paths associated with each sample."
+}
