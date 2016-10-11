@@ -122,12 +122,6 @@ To register your GCP and its Service Account with ISB-CGC, select the "persona" 
    
 Select the "Register a Google Cloud Project" link.  That takes you to the following page:
 
-.. image:: RegisterAGCP.png
-   :scale: 50
-   :align: center
-   
-Select the "+ Register New Google Cloud Project" button.  That takes you to the following instruction page (note, screenshot below is only the top half of the page):
-
 .. image:: RegisterAGCPForm.png
    :scale: 50
    :align: center
