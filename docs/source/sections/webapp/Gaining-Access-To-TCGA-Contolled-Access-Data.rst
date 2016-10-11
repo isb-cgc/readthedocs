@@ -140,7 +140,7 @@ Please fill out the form following the instructions that are provided.  You must
    
 Pushing the "Register" button will take you to the next screen:
 
-.. image:: 0007projectregistered.png
+.. image:: 0007projectregistered.PNG
    :scale: 50
    :align: center
    
@@ -158,7 +158,7 @@ Once you click the "Button" at the bottom of the page, you will be presented wit
    
 If all the requirements for registering a service account are met, the account will be registered.  If not, the service account will only be registered for Open Datasets.  The final screen below shows the final registered data set (shown by selecting the drop-down menu beside the service account count highlighted in red).
 
-.. image:: ServiceAcctRegSuccess.png
+.. image:: ServiceAcctRegSuccess.PNG
    :scale: 50
    :align: center
 
@@ -170,7 +170,7 @@ Adding additional Google Cloud Projects
 ~~~~~~~~~~~~~~~~~~~~~~
 To add additional Google Cloud Projects (GCPs) that you own to be able run programs programmatically select the "+ Register New Google Cloud Project" button from the "Registered Google Cloud Projects" page (see screenshot below).
 
-.. image:: RegisterAnotherGCP.png
+.. image:: RegisterAnotherGCP.PNG
    :scale: 50
    :align: center
 
@@ -178,7 +178,7 @@ Deleting Google Cloud Projects
 ~~~~~~~~~~~~~
 To delete a GCP that is registed, select the "Unregister Project" button from the dropdown menu beside the project your are removing on the "Registered Google Cloud Projects" page (see screenshot below).
 
-.. image:: UnregisterAGCP.png
+.. image:: UnregisterAGCP.PNG
    :scale: 50
    :align: center
 
@@ -186,7 +186,7 @@ Adding additional service accounts to a given Google Cloud Project
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 To add additional service accounts to a given GCP reselect the "Register Service Account" from the dropdown menu beside the project that has the service account (see screenshot below). 
 
-.. image:: 0007projectregistered.png
+.. image:: 0007projectregistered.PNG
    :scale: 50
    :align: center
 
@@ -194,7 +194,7 @@ Deleting Service Accounts from Google Cloud Projects
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 To delete a service account from an GCP (not allowing it to be used to programmatically access controlled data), push the "trashcan" icon beside the service account (see screenshot below).
 
-.. image:: DeleteServiceAccount.png
+.. image:: DeleteServiceAccount.PNG
    :scale: 50
    :align: center
 
@@ -202,7 +202,7 @@ Extending Your Service Account Access by 7 Days From Now
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Once you have registered a Service Account, you have 7 days before the access is automatically revoked.  To extend the service account access another 7 days (e.g. if your program is still running), select the "refresh" icon beside the service account (see screenshot below).
 
-.. image:: RefreshServiceAccount.png
+.. image:: RefreshServiceAccount.PNG
    :scale: 50
    :align: center
 
@@ -210,7 +210,7 @@ Reauthorizing a Google Cloud Project(s) Service Account(s) after it was revoked 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Your service account may have its permissions revoked (because, for example, you have added a member to the GCP who is not authorized to use that controlled data). If this happens, the Google Cloud Project owner will be sent an email with a description of which Service Account on which Google Cloud Project and which user caused the removal from the Access Control List. To reauthorize the service account 1) remedy the situation that caused the initial revokation of the service account and 2) select the "refresh" icon beside the service account (see screenshot below).
 
-.. image:: RefreshServiceAccount.png
+.. image:: RefreshServiceAccount.PNG
    :scale: 50
    :align: center
 
