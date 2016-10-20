@@ -108,10 +108,10 @@ handful of features:
 
 By using the “Show More” button, you can see the last two tree maps.  Mousing over an image shows the details of each specific section of the image and the number of samples associated with it.
 
-Data Availability Panel
+Data File Availability Panel
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-This panel shows a parallel sets graph of available data for the selected samples in the cohort. The large headers over
+This panel shows a parallel sets graph of available data files for the selected samples in the cohort. The large headers over
 the vertical bars are data types. Each data type (vertical bar) is subdivided according to the different platforms
 that were used to generate this type of data (with "NA" indicating samples for which this data type is not available).
 Each sample in the current cohort is represented by a single line that "flows" horizontally from left to right,
