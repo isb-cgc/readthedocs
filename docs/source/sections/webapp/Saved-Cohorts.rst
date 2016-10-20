@@ -204,14 +204,13 @@ This panel shows a list of treemaps that give a high level break of the samples 
 * Gender
 * Age at Initial Pathologic Diagnosis
 
-Data Availability Panel
+Data File Availability Panel
 -----------------------
-This panel shows a parallel sets graph of available data for the selected samples in the cohort. The large headers over
+This panel shows a parallel sets graph of available data files for the selected samples in the cohort. The large headers over
 the vertical bars are data types. Each vertical bar may be broken up to represent different platforms used to generate
 that type of data (and "NA" for samples for which that data type is not available).
-The sets of lines that "flow" from left to right indicate the number of samples for which each type of data is
-available. If you 
-hover over a horizontal segment between two bars, you will see the number of samples that have both those data
+The sets of lines that "flow" from left to right indicate the number of samples for which each type of data files are
+available. If you hover over a horizontal segment between two bars, you will see the number of samples that have both those data
 type platforms. You can also reorder the vertical categories by dragging the headers left and right and reorder the
 platforms by dragging the platform names up and down.
 
