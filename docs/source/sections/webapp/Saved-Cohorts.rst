@@ -19,7 +19,7 @@ Cohort Creation Page
 ====================
 
 Using the provided list of filters on the left hand side, you can select the attributes and features
-that you are interested in.  Note that the TCGA project is selected by default as this is the dataset that the majority of researchers are familiar with.  CCLE (The Cancer Cell Line Encyclopedia) data is also available if desired - this is open access data set that can be used to view sequence data with the IGV viewer without having dbGaP permissions.
+that you are interested in either frm ISB-CGC data or the User Data tab.  Note that the TCGA project is selected by default as this is the dataset that the majority of researchers are familiar with.  CCLE (The Cancer Cell Line Encyclopedia) data is also available if desired - this is open access data set that can be used to view sequence data with the IGV viewer without having dbGaP permissions.
 
 By clicking on a feature, the field will expand and provide you with additional filtering options.
 For example, when you click on "Vital Status", it expands and provides a list containing "Alive", "Dead", and
@@ -33,9 +33,11 @@ have been selected.
 
 Individual selections in a filter are "ORed" together, meaning if any of the selected conditions are met they will be in the filter.  Filters are "ANDed" together, meaning that selecting two filters means that the participants and samples are created based on both filters being executed.  There may be cases where you have 0 participants and samples, because the combination of filters you have chosen are ALL not present (AND function).
 
+
 Cohort Filters
 --------------
-The panel on the left of the screen, with three tabs called "DONOR", "DATA TYPE", and "MOLECULAR" allow you to apply filters to the cohorts your are creating.  Below are the details of each tab.
+The panel on the left of the screen, with two tabs called "ISB-CGC DATA" and "USER DATA" will allow to create a cohort between data in the system and data that you have uploaded. The  ISB-CGC DATA tab has three tabs called "DONOR", "DATA TYPE", and "MOLECULAR"  which allow you to apply filters to the cohorts your are creating using ISB-CGC hosted data. For the USER DATA tab, there is one tab called "PROJECTS & STUDIES" which allow you to filter by the projects or studies you have uploaded to the system. Below are the details of each tab.
+
 
 Donor Tab
 ^^^^^^^^^
@@ -75,6 +77,13 @@ Molecular Tab
 ^^^^^^^^^^^^^
 
     * Gene Mutation Status (creating a cohort based on the presence of a mutation (of various types) in a gene)
+    
+Projects & Studies Tab
+^^^^^^^^^^^^^^^^^^^^^^^
+    * User Project
+    * User Study
+
+
 
 Save As New Cohort Button
 ^^^^^^^^^^^^^^^^^^^^^^^^^
