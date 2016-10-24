@@ -50,7 +50,6 @@ Donor Tab
     * Sample Type
     * Tumor Tissue Site
     * Histological Type
-    * Prior Diagnosis
     * Pathologic Stage
     * Tumor Status
     * New Tumor Event After Initial Treatment
