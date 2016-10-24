@@ -131,6 +131,12 @@ two platforms.
 You can also reorder the vertical categories by dragging the headers left and right and reorder the
 platforms by dragging the platform names up and down.
 
+Projects & Studies Panel
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This panel displays a list of images (called "treemaps") similar to the clinical features panel, but can only be found when the User Data tab is selected. This panel displays a high level breakdown of the projects and studies you have uploaded to the system. Similar to the clinical features panel mousing over the image will show details of the specific section of the image and the number of samples associated to it. 
+
+
 Operations on Cohorts
 #####################
 
