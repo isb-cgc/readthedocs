@@ -190,11 +190,15 @@ From the "SAVED COHORTS" tab you can:
 * New Workbook: Pushing this button creates a New Workbook using the cohort
 * Edit: Pushing this button makes the filters panel appear. And filters selected will be additive to any filters that have already been selected. To return to the previous view, you must either save any NEW selected filters (with the "Save Changes" button), or choose to cancel adding any new filters (by clicking the "cancel" link).
 * Comments: Pushing "Comments" will cause the Comments panel to appear. Here anyone who can see this cohort can comment on it. Comments are shared with anyone who can view this cohort.  They are ordered by newest on the bottom.  Selecting the "X" on the Comments panel will close the panel.  Any user who owns or has had a cohort shared with them can comment on it.
-* Duplicate: Making a copy will create a copy of this cohort with the same list of samples and patients and make you the owner of the copy.  This is how you create a copy of a another researchers cohort that they have shared with you (note: if they later change their cohort,  your cohort will not be updated, it will remain the same as it was at the time you duplicated it).
+* Duplicate: Making a copy will create a copy of this cohort with the same list of samples and patients and make you the owner of the copy.  This is how you create a copy of another researchers cohort that they have shared with you (note: If they later change their cohort, your cohort will not be updated, it will remain the same as it was at the time you duplicated it).
 * Delete: Allows you to delete this cohort (if you confirm by clicking the second delete button presented)
 * View Files: Allows you to view the list of files associated with this cohort (see details below)
 * Download IDs: Provides a list of sample and participant IDs in the cohort
 * Share: A dialogue box appears and the user is prompted to select registered users to share the cohort with.
+
+ISB-CGC DATA and USER DATA tab
+--------------------------------
+Both tabs are displayed  and can be selected by default. The corresponding panels on each tab will display data on either ISB-CGC data or user uploaded data with cohorts that you created or shared with you. 
 
 Current Filters Panel
 ----------------------
