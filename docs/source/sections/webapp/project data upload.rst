@@ -5,6 +5,9 @@ Uploading your own data is a way of creating custom groupings of the samples and
 
 Files and File Formats
 ######################
+
+.. _page:
+
 The Project Data Upload uses a number of pre-defined file formats to get data into the system and available for use.  The **Other/Generic** file format is the most flexible.  This format assumes that the first row of the file contains the column headers and all subsequent rows contain data.  The remaining file formats are all matrix formats where the first column (or columns in some data types) contain identifiers like gene or miRNA name, the first row contains sample identifiers and the "cells" contain the actual data values.  Examples of the accepted matrix format files is shown below:
 
 Note that for the matrix files, the text case matters for the required columns.  In addition, the ISB-CGC system will not validate any identifiers such as barcodes or gene names.  It is up to the user to make sure that uploaded data is correctly identified.
@@ -93,22 +96,33 @@ To create a new project, use the “Upload Project Data” link.
 
 Registering Cloud Storage Buckets and BigQuery Datasets
 =======================================================
+
+.. _registered:
+
 You will need to have a BigQuery Dataset and a Google Cloud Storage bucket registered to you Google Cloud Project through the Google Project details page in the UI. (Please note: the names of the buckets and datasets are case sensitive.)
 
 **How To Register Buckets and Datasets**
 Once you have created a bucket and a dataset in the Google Cloud Console, you will need to register them with your project using the Webapp.  
 
-Step 1: Click on your user icon in the upper right.
-.. image: Register_Step_1.png
+**Step 1**: Click on your user icon in the upper right.
 
-Step 2: Click on "View Registered Google Cloud Projects"
-.. image: Register_Step_2.png
 
-Step 3: Click on the project you wish to use
-.. image: Register_Step_3.png
+.. image:: Register_Step_1.png
 
-Step 4: Use the "Register Cloud Storage Bucket" or "Register BigQuery Dataset" links to add buckets and datasets as needed
-.. image: Register_Step_4.png
+**Step 2**: Click on "View Registered Google Cloud Projects"
+
+
+.. image:: Register_Step_2.png
+
+**Step 3**: Click on the project you wish to use
+
+
+.. image:: Register_Step_3.png
+
+**Step 4**: Use the "Register Cloud Storage Bucket" or "Register BigQuery Dataset" links to add buckets and datasets as needed
+
+
+.. image:: Register_Step_4.png
 
 
 Data Upload Page
@@ -116,11 +130,26 @@ Data Upload Page
 
 A New Project
 -------------
+To start an entirely new project, users should click on the **Upload Project Data** link on the front page of the Webapp.  This will bring up a form where a new project can be defined.  Users should fill out the required fields and any optional fields that would be helpful.  Clicking on **Select File(S)** button will bring up a dialog to select the file with data.  Note that you can upload multiple files in a single step.  The **Type** drop-down should be used to indicated what data type the file represents.  If the data type is one of the choices besides **Other**, the file will have to conform to the specifications listed at the top of this page_.
 
+.. image:: MouseProject.png
+
+**Project description and file selection**
+
+
+Clicking on the **Next** button brings up a form where users will select which bucket and BigQuery dataset the file upload should use.  These buckets and datasets were registered_ according to the proccess above.  The **Platform** and **Pipleline** fields can contain any useful description a user wishes to provide.
+
+.. image:: Mouse_bucket_and_dataset.png
+
+Lastly, user should click on the **Upload Data** button to start the process.  Users will first see a page with a message indicating their data is being processed.  Refresh the screen occaisionally until either the final page is displayed or an error is shown indicating a problem with loading the file.
+
+.. image:: Mouse_processing.png
 
 A New Study For An Existing Project
 ------------------------------------
+Adding a new study to an existing project follows the same steps as creating a new project.  However, instead of filling out the new project information fields, users should click on the **A New Project For An Existing Study** tab and select an existing project from the drop-down menu.  All other steps for describing and uploading the file will remain the same.
 
+.. image:: MouseExisting.png
 
 Data Upload
 -----------
