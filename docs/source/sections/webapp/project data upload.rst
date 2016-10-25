@@ -1,14 +1,86 @@
 ********************
 Project Data Upload
 ********************
-
+Uploading your own data is a way of creating custom groupings of the samples and/or participants that you are interested in analyzing further with the data that is already preexisting in our system. You may frequently re-use the data that was uploaded in multiple analyses. Creating a “Project” allows you to do this. If you have any existing Projects with data uploaded, they will appear here for you to view, edit and share (see below for details).
 
 Files and File Formats
 ######################
-The Project Data Upload process allows for a variety of different file formats, however it also has a number of pre-defined file formats.  The Other/Generic file format is the most flexible.  This format assumes that the first row of the file contains the column headers and all subsequent rows contain data.  The remaining file formats are all matrix formats where the first column (or columns in some data types) contain identifiers, the first row contains sample identifiers and the "cells" contain the actual data values.
+The Project Data Upload uses a number of pre-defined file formats to get data into the system and available for use.  The **Other/Generic** file format is the most flexible.  This format assumes that the first row of the file contains the column headers and all subsequent rows contain data.  The remaining file formats are all matrix formats where the first column (or columns in some data types) contain identifiers like gene or miRNA name, the first row contains sample identifiers and the "cells" contain the actual data values.  Examples of the accepted matrix format files is shown below:
+
+Note that for the matrix files, the text case matters for the required columns.
+
+* DNA Methylation
+
+  This is a simple matrix file.  The first column should have the header **Probe_ID**.  Sample barcodes should be the headers for all remaining columns.
+
+  +-----------+-----------+----------+----------+
+  | Probe_ID  | Barcode 1 | Barcode 2| Barcode N|
+  +===========+===========+==========+==========+
+  |Probe ID 1 | Value 1   | Value 2  | Value N  |
+  +-----------+-----------+----------+----------+
+  |Probe ID 2 | Value 1   | Value 2  | Value N  |
+  +-----------+-----------+----------+----------+
+  |Probe ID N | Value 1   | Value 2  | Value N  |
+  +-----------+-----------+----------+----------+
+
+* Gene Expression
+
+  The Gene Expression matrix file has two required column:
+  
+  * **Name**: This is the accession number for the gene 
+  * **Description**: This is the gene symbol for the gene
+
+  +------------+-------------+----------+-----------+-----------+
+  | Name       | Description | Barcode 1| Barcode 2 |Barcode N  |
+  +============+=============+==========+===========+===========+
+  |Accession 1 | Gene name 1 |  Value 1 | Value 2   | Value N   |
+  +------------+-------------+----------+-----------+-----------+
+  |Accession 2 | Gene name 3 |  Value 1 | Value 2   | Value N   |
+  +------------+-------------+----------+-----------+-----------+
+  |Accession N | Gene name N |  Value 1 | Value 2   | Value N   |
+  +------------+-------------+----------+-----------+-----------+
+
+* microRNA
+
+  There is one required and one optional column for micorRNA:
+  
+  * **miRNA_ID** is required and is generally the ID for the miRNA_ID
+  * **miRNA_name** is optional and can be used to provide alternative names for the miRNA.  If not present, the database will have **null** in this column
+  
+  +------------+-------------+----------+-----------+-----------+
+  | miRNA_ID   | miRNA_name  | Barcode 1| Barcode 2 |Barcode N  |
+  +============+=============+==========+===========+===========+
+  |miRNA ID 1  | Alt name 1  |  Value 1 | Value 2   | Value N   |
+  +------------+-------------+----------+-----------+-----------+
+  |miRNA ID 2  | Alt name 2  |  Value 1 | Value 2   | Value N   |
+  +------------+-------------+----------+-----------+-----------+
+  |miRNA ID N  | Alt name N  |  Value 1 | Value 2   | Value N   |
+  +------------+-------------+----------+-----------+-----------+
+
+* Protein Expression
+
+  Protein Expression has three required columns:
+  * Protein_Name: This is the name or symbol for the protein
+  * Gene_Name: This is the name of the gene assocaited wtih the protein
+  * Gene_Id: This is the accession number for the gene
+  
+  +--------------+-------------+-----------+-----------+-----------+-----------+
+  | Protein_name |  Gene_Name  | Gene_ID   | Barcode 1 |Barcode 2  |Barcode N  |
+  +==============+=============+===========+===========+===========+===========+
+  | Protein 1    | Gene Name 1 | Gene ID 1 | Value 1   | Value 2   | Value N   |
+  +--------------+-------------+-----------+-----------+-----------+-----------+
+  | Protein 2    | Gene Name 2 | Gene ID 2 | Value 1   | Value 2   | Value N   |
+  +--------------+-------------+-----------+-----------+-----------+-----------+
+  | Protein 3    | Gene Name 3 | Gene ID 3 | Value 1   | Value 2   | Value N   |
+  +--------------+-------------+-----------+-----------+-----------+-----------+
+
+* Other/Generic
+
+Files in Other/Generic format are not matrix files, but rather have the data in columns.  The order of the columns is very flexible, and the upload interface will allow users to define what kind of data is in each of the columns.  The only requirement is that one, and only one, of the columns should be sample barcodes.  In addition, all rows must have the same number of columns.  Any completely blank columns will be flagged and should be removed.  Any columns containing blank entries will have *null* used for the blanks.
+
+**NOTE:** Currently, each Sample Barcode can only be represented once in a file.  Files with the same barcode on multiple rows will cause a failure.  If you have multiple data values for a single barcode (like gene expression values for mutliple genes) you will either have to create a matrix file or upload multiple files to Other/Generic.
 
 
-Uploading your own data is a way of creating custom groupings of the samples and/or participants that you are interested in analyzing further with the data that is already preexisting in our system. You may frequently re-use the data that was uploaded in multiple analyses. Creating a “Project” allows you to do this. If you have any existing Projects with data uploaded, they will appear here for you to view, edit and share (see below for details).
 
 Creating and Saving a New Project
 #################################
