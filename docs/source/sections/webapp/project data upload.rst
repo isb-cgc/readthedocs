@@ -2,6 +2,12 @@
 Project Data Upload
 ********************
 
+
+Files and File Formats
+######################
+The Project Data Upload process allows for a variety of different file formats, however it also has a number of pre-defined file formats.  The Other/Generic file format is the most flexible.  This format assumes that the first row of the file contains the column headers and all subsequent rows contain data.  The remaining file formats are all matrix formats where the first column (or columns in some data types) contain identifiers, the first row contains sample identifiers and the "cells" contain the actual data values.
+
+
 Uploading your own data is a way of creating custom groupings of the samples and/or participants that you are interested in analyzing further with the data that is already preexisting in our system. You may frequently re-use the data that was uploaded in multiple analyses. Creating a “Project” allows you to do this. If you have any existing Projects with data uploaded, they will appear here for you to view, edit and share (see below for details).
 
 Creating and Saving a New Project
