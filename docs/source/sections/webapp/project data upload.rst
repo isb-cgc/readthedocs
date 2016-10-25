@@ -69,7 +69,7 @@ Note that for the matrix files, the text case matters for the required columns. 
   * **Gene_Id**: This is the accession number for the gene
   
   +--------------+-------------+-----------+-----------+-----------+-----------+
-  | Protein_name |  Gene_Name  | Gene_ID   | Barcode 1 |Barcode 2  |Barcode N  |
+  | Protein_name |  Gene_Name  | Gene_Id   | Barcode 1 |Barcode 2  |Barcode N  |
   +==============+=============+===========+===========+===========+===========+
   | Protein 1    | Gene Name 1 | Gene ID 1 | Value 1   | Value 2   | Value N   |
   +--------------+-------------+-----------+-----------+-----------+-----------+
@@ -151,27 +151,22 @@ Adding a new study to an existing project follows the same steps as creating a n
 
 .. image:: MouseExisting.png
 
-Data Upload
------------
+Data Upload Page Components
+---------------------------
+
+This section describes the features found on the Data Upload page.
 
 System Data Dictionary Link
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 High Level Data Files
 ^^^^^^^^^^^^^^^^^^^^^
+High level data files usually represent some level of data analysis as opposed to raw files.  High level files can be used in Workbooks and visualized alongside TCGA data.
 
 Low Level Files for API Access
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Files uploaded as low-level files for API access will not be usable in the Webapp, but rather will appear in the users Google Storage Bucket.  This feature is intended for files like BAM or VCF files that contain more raw data.
 
-
-Data Types That Can Be Uploaded
------------------------------------------
-
-* DNA Methylation
-* Gene Expression
-* microRNA
-* Protein Expression
-* Other
 
 Review Files
 -------------
