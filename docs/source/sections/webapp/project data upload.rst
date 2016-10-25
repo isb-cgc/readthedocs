@@ -7,7 +7,7 @@ Files and File Formats
 ######################
 The Project Data Upload uses a number of pre-defined file formats to get data into the system and available for use.  The **Other/Generic** file format is the most flexible.  This format assumes that the first row of the file contains the column headers and all subsequent rows contain data.  The remaining file formats are all matrix formats where the first column (or columns in some data types) contain identifiers like gene or miRNA name, the first row contains sample identifiers and the "cells" contain the actual data values.  Examples of the accepted matrix format files is shown below:
 
-Note that for the matrix files, the text case matters for the required columns.
+Note that for the matrix files, the text case matters for the required columns.  In addition, the ISB-CGC system will not validate any identifiers such as barcodes or gene names.  It is up to the user to make sure that uploaded data is correctly identified.
 
 * DNA Methylation
 
@@ -60,9 +60,10 @@ Note that for the matrix files, the text case matters for the required columns.
 * Protein Expression
 
   Protein Expression has three required columns:
-  * Protein_Name: This is the name or symbol for the protein
-  * Gene_Name: This is the name of the gene assocaited wtih the protein
-  * Gene_Id: This is the accession number for the gene
+  
+  * **Protein_Name**: This is the name or symbol for the protein
+  * **Gene_Name**: This is the name of the gene assocaited wtih the protein
+  * **Gene_Id**: This is the accession number for the gene
   
   +--------------+-------------+-----------+-----------+-----------+-----------+
   | Protein_name |  Gene_Name  | Gene_ID   | Barcode 1 |Barcode 2  |Barcode N  |
@@ -90,10 +91,24 @@ If you already have Projects created, they will be listed in the “Saved Projec
 
 To create a new project, use the “Upload Project Data” link.
 
-
 Registering Cloud Storage Buckets and BigQuery Datasets
 =======================================================
-You will need to have a BigQuery Dataset and a Google Cloud Storage bucket registered to you Google Cloud Project through the Google Project details page in the UI. (Please note: It is case sensitive.)
+You will need to have a BigQuery Dataset and a Google Cloud Storage bucket registered to you Google Cloud Project through the Google Project details page in the UI. (Please note: the names of the buckets and datasets are case sensitive.)
+
+**How To Register Buckets and Datasets**
+Once you have created a bucket and a dataset in the Google Cloud Console, you will need to register them with your project using the Webapp.  
+
+Step 1: Click on your user icon in the upper right.
+.. image: Register_Step_1.png
+
+Step 2: Click on "View Registered Google Cloud Projects"
+.. image: Register_Step_2.png
+
+Step 3: Click on the project you wish to use
+.. image: Register_Step_3.png
+
+Step 4: Use the "Register Cloud Storage Bucket" or "Register BigQuery Dataset" links to add buckets and datasets as needed
+.. image: Register_Step_4.png
 
 
 Data Upload Page
