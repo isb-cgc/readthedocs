@@ -6,7 +6,7 @@ Uploading your own data is a way of creating custom groupings of the samples and
 Files and File Formats
 ######################
 
-.. _page:
+  .. _page:
 
 The Project Data Upload uses a number of pre-defined file formats to get data into the system and available for use.  The **Other/Generic** file format is the most flexible.  This format assumes that the first row of the file contains the column headers and all subsequent rows contain data.  The remaining file formats are all matrix formats where the first column (or columns in some data types) contain identifiers like gene or miRNA name, the first row contains sample identifiers and the "cells" contain the actual data values.  Examples of the accepted matrix format files is shown below:
 
@@ -45,7 +45,7 @@ The Project Data Upload uses a number of pre-defined file formats to get data in
 
 * microRNA
 
-  There is one required and one optional column for micorRNA:
+  There is one required and one optional column for micorRNA:`Files and File Formats`_
   
   * **miRNA_ID** is required and is generally the ID for the miRNA_ID
   * **miRNA_name** is optional and can be used to provide alternative names for the miRNA.  If not present, the database will have **null** in this column
@@ -145,37 +145,55 @@ Lastly, user should click on the **Upload Data** button to start the process.  U
 
 .. image:: Mouse_processing.png
 
+Correcting Data Uploaded As Other
+---------------------------------
+If your data does not fit into any of the existing pre-defined matrix formats, the *Other* data type will allow users to upload data that is in a tabular format.  In this format, the first row of the file is assumed to be the description of each of the columns and all subsequent rows are assumed to be data.  The system will attempt to define what kind of data are in each column, however this process may not always be correct and users must review the column data type assignements before proceeding.
+
+In the example shown below, the automated process has identified two columns as potentially containing Sample Barcodes and has further misidentified a column containing decimal data (numeric float values) as containing categorical (text) data.  The user will need to correct both instances so there is only one Sample Barcode column and define the expression data as decimal.
+
+.. image:: OtherExample.png
+
 A New Study For An Existing Project
 ------------------------------------
 Adding a new study to an existing project follows the same steps as creating a new project.  However, instead of filling out the new project information fields, users should click on the **A New Project For An Existing Study** tab and select an existing project from the drop-down menu.  All other steps for describing and uploading the file will remain the same.
 
-.. image:: MouseExisting.png
+  .. image:: MouseExisting.png
+
+
 
 Data Upload Page Components
----------------------------
-
+=============================
 This section describes the features found on the Data Upload page.
 
+
 System Data Dictionary Link
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------------------
+This link goes to the System Data Dictionary which is a comprehensive list of TCGA clinical data fields and possible values.  This dictionary can be helpful in aligning metadata from the imported project to TCGA fields.
+
 
 High Level Data Files
-^^^^^^^^^^^^^^^^^^^^^
+---------------------
 High level data files usually represent some level of data analysis as opposed to raw files.  High level files can be used in Workbooks and visualized alongside TCGA data.
 
 Low Level Files for API Access
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------
 Files uploaded as low-level files for API access will not be usable in the Webapp, but rather will appear in the users Google Storage Bucket.  This feature is intended for files like BAM or VCF files that contain more raw data.
 
+File Type
+----------
+This is the data type that the uploaded file represents.  Currently the allowed data types are:
 
-Review Files
--------------
+* Gene Expression
+* miRNA Expression
+* Protein Expression
+* Methylation
+* Other
 
-On this page you select which Google Cloud Bucket and BigQuery dataset you upload your data to. 
-The System Data Dictionary link can be found on this page as well for reference. 
-You must label a platform and pipeline for the file(s) you choose to upload.  Selecting the Upload Data button will submit your files for processing. 
+File Format Requirements
+-------------------------
+All files must be tab delimited and meet the formatting requirements described in `Files and File Formats`_.
 
-(Please Note: If you select Other for Data Type you will need to label each column of file with the proper type i.e Integer, decimal, categorical.)
+.. image:: MouseProjectAnnotated.png
 
 Projects Page
 =============
