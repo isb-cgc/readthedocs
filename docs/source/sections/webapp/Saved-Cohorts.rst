@@ -171,7 +171,8 @@ button, a dialogue box will appear. Now you may do one of the following:
 The intersect and union operations can take any number of cohorts and in any order.
 The complement operation requires that there be a base cohort, from which the other cohorts will be subtracted from.
 
-Please Note: To combine the User uploaded data and the ISB-CGC data, use the Set Operations function. This is possible since the list of barcodes is what is used to create the set operation. 
+Please Note: To combine the User uploaded data and the ISB-CGC data, use the Set Operations function. This is possible since the list of barcodes is what is used to create the set operation. For example, to make a cohort of user data samples and ISB-CGC curated samples, Set Union must be used, and to filter user data which is an extention of TCGA samples, Set Intersection must be used.
+
 
 The figure below shows what the results of the set operations will be (represented by I for Intersect, U for Union, and C for Complement).  There are two types of sets shown, those that overlap (on the left) and those that are nested (on the right).  For the last row (complement operations), the "Subtracted" area is removed from the "Base" area to result in the Complement (C). 
 
