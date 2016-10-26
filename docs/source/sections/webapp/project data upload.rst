@@ -45,7 +45,7 @@ The Project Data Upload uses a number of pre-defined file formats to get data in
 
 * microRNA
 
-  There is one required and one optional column for micorRNA:
+  There is one required and one optional column for micorRNA:`Files and File Formats`_
   
   * **miRNA_ID** is required and is generally the ID for the miRNA_ID
   * **miRNA_name** is optional and can be used to provide alternative names for the miRNA.  If not present, the database will have **null** in this column
@@ -191,7 +191,7 @@ This is the data type that the uploaded file represents.  Currently the allowed 
 
 File Format Requirements
 -------------------------
-All files must be tab delimited and meet the formatting requirements described above.
+All files must be tab delimited and meet the formatting requirements described in `Files and File Formats`_.
 
 .. image:: MouseProjectAnnotated.png
 
