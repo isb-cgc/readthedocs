@@ -92,16 +92,17 @@ To create a new project from Your Dashboard, if you do not have a project create
 
 If you already have Projects created, they will be listed in the “Saved Projects” panel. Click on the “Saved Projects” link in that panel and this will take you to a page that displays the details of your existing Projects. Alternatively, to go directly to a given Project, click on its name and you will be taken to the project details page of that project.
 
-To create a new project, use the “Upload Project Data” link.
 
 Registering Cloud Storage Buckets and BigQuery Datasets
 =======================================================
 
+
 .. _registered:
 
-You will need to have a BigQuery Dataset and a Google Cloud Storage bucket registered to you Google Cloud Project through the Google Project details page in the UI. (Please note: the names of the buckets and datasets are case sensitive.)
+You will need to have a BigQuery Dataset and a Google Cloud Storage bucket registered to your Google Cloud Project through the Google Project details page in the UI. (Please note: the names of the buckets and datasets are case sensitive.)
 
 **How To Register Buckets and Datasets**
+
 Once you have created a bucket and a dataset in the Google Cloud Console, you will need to register them with your project using the Webapp.  
 
 **Step 1**: Click on your user icon in the upper right.
@@ -130,7 +131,9 @@ Data Upload Page
 
 A New Project
 -------------
-To start an entirely new project, users should click on the **Upload Project Data** link on the front page of the Webapp.  This will bring up a form where a new project can be defined.  Users should fill out the required fields and any optional fields that would be helpful.  Clicking on **Select File(S)** button will bring up a dialog to select the file with data.  Note that you can upload multiple files in a single step.  The **Type** drop-down should be used to indicated what data type the file represents.  If the data type is one of the choices besides **Other**, the file will have to conform to the specifications listed at the top of this page_.
+To start an entirely new project, users should click on the **Upload Project Data** link on the front page of the Webapp.  This will bring up a form where a new project can be defined.  Users should fill out the required fields and any optional fields that would be helpful.  Clicking on **Select File(S)** button will bring up a dialog to select the file with data. 
+
+**NOTE:** You can upload multiple files in a single step.  The **Type** drop-down should be used to indicated what data type the file represents.  If the data type is one of the choices besides **Other**, the file will have to conform to the specifications listed at the top of this page_.
 
 .. image:: MouseProject.png
 
