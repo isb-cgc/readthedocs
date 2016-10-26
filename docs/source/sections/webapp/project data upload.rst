@@ -162,12 +162,14 @@ Adding a new study to an existing project follows the same steps as creating a n
 
 
 Data Upload Page Components
-============================
+=============================
 This section describes the features found on the Data Upload page.
 
 
 System Data Dictionary Link
 ---------------------------
+This link goes to the System Data Dictionary which is a comprehensive list of TCGA clinical data fields and possible values.  This dictionary can be helpful in aligning metadata from the imported project to TCGA fields.
+
 
 High Level Data Files
 ---------------------
@@ -177,15 +179,21 @@ Low Level Files for API Access
 -------------------------------
 Files uploaded as low-level files for API access will not be usable in the Webapp, but rather will appear in the users Google Storage Bucket.  This feature is intended for files like BAM or VCF files that contain more raw data.
 
+File Type
+----------
+This is the data type that the uploaded file represents.  Currently the allowed data types are:
 
-Review Files
--------------
+* Gene Expression
+* miRNA Expression
+* Protein Expression
+* Methylation
+* Other
 
-On this page you select which Google Cloud Bucket and BigQuery dataset you upload your data to. 
-The System Data Dictionary link can be found on this page as well for reference. 
-You must label a platform and pipeline for the file(s) you choose to upload.  Selecting the Upload Data button will submit your files for processing. 
+File Format Requirements
+-------------------------
+All files must be tab delimited and meet the formatting requirements described above.
 
-(Please Note: If you select Other for Data Type you will need to label each column of file with the proper type i.e Integer, decimal, categorical.)
+.. image:: MouseProjectAnnotated.png
 
 Projects Page
 =============
