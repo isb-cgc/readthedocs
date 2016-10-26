@@ -145,6 +145,14 @@ Lastly, user should click on the **Upload Data** button to start the process.  U
 
 .. image:: Mouse_processing.png
 
+Correcting Data Uploaded As Other
+---------------------------------
+If your data does not fit into any of the existing pre-defined matrix formats, the *Other* data type will allow users to upload data that is in a tabular format.  In this format, the first row of the file is assumed to be the description of each of the columns and all subsequent rows are assumed to be data.  The system will attempt to define what kind of data are in each column, however this process may not always be correct and users must review the column data type assignements before proceeding.
+
+In the example shown below, the automated process has identified two columns as potentially containing Sample Barcodes and has further misidentified a column containing decimal data (numeric float values) as containing categorical (text) data.  The user will need to correct both instances so there is only one Sample Barcode column and define the expression data as decimal.
+
+.. image:: OtherExample.png
+
 A New Study For An Existing Project
 ------------------------------------
 Adding a new study to an existing project follows the same steps as creating a new project.  However, instead of filling out the new project information fields, users should click on the **A New Project For An Existing Study** tab and select an existing project from the drop-down menu.  All other steps for describing and uploading the file will remain the same.
