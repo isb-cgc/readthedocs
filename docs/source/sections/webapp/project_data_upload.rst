@@ -45,7 +45,7 @@ The Project Data Upload uses a number of pre-defined file formats to get data in
 
 * microRNA
 
-  There is one required and one optional column for micorRNA:`Files and File Formats`_
+  There is one required and one optional column for micorRNA:
   
   * **miRNA_ID** is required and is generally the ID for the miRNA_ID
   * **miRNA_name** is optional and can be used to provide alternative names for the miRNA.  If not present, the database will have **null** in this column
@@ -133,7 +133,7 @@ A New Project
 -------------
 To start an entirely new project, users should click on the **Upload Project Data** link on the front page of the Webapp.  This will bring up a form where a new project can be defined.  Users should fill out the required fields and any optional fields that would be helpful.  Clicking on **Select File(S)** button will bring up a dialog to select the file with data. 
 
-**NOTE:** You can upload multiple files in a single step.  The **Type** drop-down should be used to indicated what data type the file represents.  If the data type is one of the choices besides **Other**, the file will have to conform to the specifications listed at the top of this page_.
+**NOTE:** You can upload multiple files in a single step.  The **Type** drop-down should be used to indicated what data type the file represents.  If the data type is one of the choices besides **Other**, the file will have to conform to the specifications listed at the top of this page_.  For a more complete description of the options on this page, see the `Data Upload Page Components`_ section.
 
 .. image:: MouseProject.png
 
@@ -197,56 +197,3 @@ File Format Requirements
 All files must be tab delimited and meet the formatting requirements described in `Files and File Formats`_.
 
 .. image:: MouseProjectAnnotated.png
-
-Projects Page
-=============
-
-Saved Projects
---------------
-Drop Down Arrow
-^^^^^^^^^^^^^^^
-* Edit
-* Delete
-* New Workbook
-
-Plus Symbol(+)
-^^^^^^^^^^^^^^^
-
-
-Public Projects
-----------------
-
-Drop down Arrow
-^^^^^^^^^^^^^^^^
-* New Workbook
-
-Plus Symbol(+)
-^^^^^^^^^^^^^^
-
-Upload Data Button
---------------------
-
-
-
-Existing Projects Details Page
-==============================
-
-New Workbook Button
---------------------
-
-Upload Data Button
--------------------
-
-Edit Details Button
----------------------
-
-Delete Button
--------------
-
-Share Button
--------------
-
-Studies Description Panel(s)
-----------------------------
-
-This section displays the description of the study added to the project if one was provided. The date of creation, number of files,and which cloud storage buckets and BigQuery Dataset each is associated to. The settings gear to the left of the Study name allows you to create a new Workbook with only the one study or delete the study. 
