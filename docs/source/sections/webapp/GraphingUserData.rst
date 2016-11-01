@@ -8,7 +8,9 @@ Once a user has `uploaded their own data`_ to the Webapp, that data can be vizua
 
 Important sections on the Webapp front page
 ############################################
+The boxes in the figure below are links that are used to graph user data
 
+.. image:: TopAnnotated.png
 
 
 Step 1: Create a Cohort from your project
@@ -41,4 +43,4 @@ Step 3: Graph the favorites in a Workbook
 * Click on the *Update Plot* button to have the system gather the data and generate the plot.
 * If changes need to be made to the plot, click on the *Edit Analysis Settings* link to bring back the graph dialog box. 
 
-.. image:: GraphingGraph.png
+.. image:: GraphingGraphed.png
