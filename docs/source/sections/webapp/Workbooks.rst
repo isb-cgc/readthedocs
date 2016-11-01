@@ -100,9 +100,9 @@ Please Note: When selecting a gene for either the x-axis or y-axis variable you 
  
 .. _selectionicon:
 
-**Edit Analysis Settings Selection Icon** - This function (shown in the image below) allows you to select samples from displayed analysis and save that selection to a new Cohort for further drill down analysis. 
+**Enable Sample section and Edit Analysis Settings** - Enable Sample Selection(shown in the image below) allows you to select samples from displayed analysis and save that selection to a new Cohort for further drill down analysis. The Edit Analysis Settings allows you to change the variables you wish to use for your analysis(varies by which analysis you choose).
 
-.. image:: EditAnalysis_Finger.jpg
+.. image:: edit_analysis_finger.PNG
    :scale: 50
    :align: center
 
