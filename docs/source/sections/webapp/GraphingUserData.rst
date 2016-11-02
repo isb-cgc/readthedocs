@@ -25,7 +25,7 @@ Step 2: Create a Variables Favorite
 ####################################
 * From the front page of the Webapp, click on *Create Variable Favorites* to start the process
 * Click on the *Projects* tab to see the user supplied studies
-* Select the variables that will be availble to graph.  Note that if the study has a large number of selections, using the browser search function can help locate the item.
+* Select the variables that will be available to graph.  Note that if the study has a large number of selections, using the browser search function can help locate the item.
 * Give the variables a name and click on the *Save as Favorite* button
 
 .. image:: Variables_selected_genes.png
