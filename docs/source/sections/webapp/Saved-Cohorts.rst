@@ -134,7 +134,7 @@ platforms by dragging the platform names up and down.
 Projects & Studies Panel
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This panel displays a list of images (called "treemaps") similar to the clinical features panel, but can only be found when the User Data tab is selected. This panel displays a high level breakdown of the projects and studies you have uploaded to the system. Another similarity to the clinical features panel mousing over the image will show details of the specific section of the image and the number of samples associated to it. 
+This panel displays a list of images (called "treemaps") similar to the clinical features panel, but can only be found when the User Data tab is selected. This panel displays a high level breakdown of the projects and studies you have uploaded to the system. Another similarity to the clinical features panel hovering over the image will show details of the specific section of the image and the number of samples associated with it. 
 
 
 Operations on Cohorts
@@ -171,7 +171,7 @@ button, a dialogue box will appear. Now you may do one of the following:
 The intersect and union operations can take any number of cohorts and in any order.
 The complement operation requires that there be a base cohort, from which the other cohorts will be subtracted from.
 
-**Note:** To combine the User uploaded data and the ISB-CGC data, use the Set Operations function. This is possible since the list of barcodes is what is used to create the set operation. For example, to make a cohort of user data samples and ISB-CGC curated samples, Set Union must be used, and to filter user data which is an extention of TCGA samples, Set Intersection must be used.
+**Note:** To combine the User uploaded data and the ISB-CGC data, use the Set Operations function. This is possible since the list of barcodes is what is used to create the set operation. For example, to make a cohort of user data samples and ISB-CGC curated samples, Set Union must be used, and to filter user data which is an extension of TCGA samples, Set Intersection must be used.
 
 
 The figure below shows what the results of the set operations will be (represented by I for Intersect, U for Union, and C for Complement).  There are two types of sets shown, those that overlap (on the left) and those that are nested (on the right).  For the last row (complement operations), the "Subtracted" area is removed from the "Base" area to result in the Complement (C). 
@@ -202,7 +202,7 @@ From the "SAVED COHORTS" tab you can:
 
 ISB-CGC DATA and USER DATA tab
 --------------------------------
-Both tabs are displayed  and can be selected by default. The corresponding panels on each tab will display data on either ISB-CGC data or user uploaded data with cohorts that you created or shared with you. 
+Both tabs are displayed  and can be selected. The corresponding panels on each tab will display data on either ISB-CGC data or user uploaded data with cohorts that you created or shared with you. 
 
 Current Filters Panel
 ----------------------
@@ -212,9 +212,9 @@ This panel displays current filters that have been used on the cohort or any of 
 Details Panel
 -------------
 
-This panel displays the Internal ISB-CGC Cohort ID (the identifier you use to programatically use this cohort through our `APIs <../progapi/Programmatic-API.html#id4>`_ ), and the number of samples and participants in this cohort. The number of samples may be larger than the number of participants because some participants may have
+This panel displays the Internal ISB-CGC Cohort ID (the identifier you use to programmatically use this cohort through our `APIs <../progapi/Programmatic-API.html#id4>`_ ), and the number of samples and participants in this cohort. The number of samples may be larger than the number of participants because some participants may have
 provided multiple samples.
-This panel also displays "Your Permissions" which can be either owner or reader, as well as revision history.  If you have edited the cohort, the fiters that were used to originally create the cohort are displayed under the "Creation Filters" label, the newly applied filters since original creation are displayed under the "Applied Filters" label.
+This panel also displays "Your Permissions" which can be either owner or reader, as well as revision history.  If you have edited the cohort, the filters that were used to originally create the cohort are displayed under the "Creation Filters" label, the newly applied filters since original creation are displayed under the "Applied Filters" label.
 
 Clinical Features Panel
 -----------------------
