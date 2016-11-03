@@ -20,6 +20,11 @@ From your dashboard, under Sample Analysis you will find the “Saved Workbooks�
 
 To create a **workbook** from Your Dashboard, click on the **“Create a New Workbook”** link in the "Saved Workbooks" panel. This will take you to the workbook creation page.
 
+**Note:** If you wish to use your own data in graphing, please review the documentations on `how to upload your own data`_ and on `how to graph your own data`_.  Using your own data uses a slightly different approach than is described here.
+
+.. _how to upload your own data: project_data_upload
+.. _how to graph your own data: GraphingUserData
+
 1. From the Workbook creation panel you will first select one of six analysis types (i.e., Bar chart, Histogram, Scatter Plot, Violin Plot, Cubby Hole Plot or SeqPeek). 
 
   * **Analysis Type Description**
@@ -39,6 +44,8 @@ To create a **workbook** from Your Dashboard, click on the **“Create a New Wor
     - **Browse All Analyses** - This will direct you to a visual sample of the different analysis types along with a brief description of how to generate each type.
     
     A researcher now has the option to make the axis logarithmic if the plot can display continuous numerical data for eg. mRNA expression levels.
+   
+   **Note:** For Violin Plot and Scatter Plot you can select multiple cohorts as your Color By Feature. This will cause the Legend to list all the cohorts that the sample is associated to. So you'll end up with lots of permutations if you have lots of samples that belong to many different cohorts.
 
 2. You will then select **Genes or Variables** (or, optionally both)
 
@@ -98,9 +105,9 @@ Please Note: When selecting a gene for either the x-axis or y-axis variable you 
  
 .. _selectionicon:
 
-**Edit Analysis Settings Selection Icon** - This function (shown in the image below) allows you to select samples from displayed analysis and save that selection to a new Cohort for further drill down analysis. 
+**Enable Sample section and Edit Analysis Settings** - Enable Sample Selection(shown in the image below) allows you to select samples from displayed analysis and save that selection to a new Cohort for further drill down analysis. The Edit Analysis Settings allows you to change the variables you wish to use for your analysis(varies by which analysis you choose).
 
-.. image:: EditAnalysis_Finger.jpg
+.. image:: edit_analysis_finger.PNG
    :scale: 50
    :align: center
 

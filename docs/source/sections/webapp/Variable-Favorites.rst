@@ -48,6 +48,10 @@ miRNA Expression Filter
 ^^^^^^^^^^^^^^^^^^^^^^^
 This filter allows the user to search by miRNA name filter, platform filter, and value filter for any miRNA expressions present in our system.
 
+User Uploaded Projects Filter
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This filter allows you to select by filters that you have uploaded using the upload data functionality. It's seperated by studies within your projects, a drop down list will display the features that are assocaited.
+
 Selected Filters Panel
 ^^^^^^^^^^^^^^^^^^^^^^
 This is where the filters you have selected are shown on the right panel for clear verifcation of what has been selected for analysis. Clicking "Clear All" will remove all selected filters. 
