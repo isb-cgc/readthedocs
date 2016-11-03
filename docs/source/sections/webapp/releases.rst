@@ -2,6 +2,57 @@
 Release Notes
 *************
 
+*  **November 2, 2016**: `v1.11 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.11>`_
+
+    **Known issues in Sprint 12 as of 11/02/2016**
+
+    - The user can add same gene twice if list to the same worksheet it they have different names. 
+    - Analysis Type : Seq peek Formatting Elongated 
+    - The CCLE data in GUI is not parallel to the CCLE data in BigQuery. 
+    - If a user creates a cohort with sample type filter Cell Lines  and CCLE the total number of samples count off by one. 
+    - User will occasionally be sent to the Social Network Login page when trying to login. If this occurs, please go the the home page of the Web Application and try again. 
+    - If the user shares a cohort they do not receive a confirmation email. 
+    - When the user selects multiple cohorts for color by feature for scatter plot they do not display in chart. 
+    - Cannot plot any data if you use CCLE data cohort on a worksheet. 
+    - When the user plots a graph with NA values the UI returns a blank graph. 
+    - When a user duplicates a worksheet, then tries to implement the log scale it will not function properly. 
+    - If a researcher leaves the workbooks inactive the page freezes. 
+    - On the existing cohort list page for the delete button, selecting the blue x does nothing. It should be disabled. 
+    - On the cohort view files page capitalization bugs on the Platform filter. 
+    - Swap values is not working properly for the plot settings. 
+    - Some plot settings are saved or retrieved when working with worksheets. 
+    - On the existing cohorts table for public cohorts, the new workbook and set operations buttons are currently inactive. 
+    - Worksheets added to an existing workbook behave differently than the original worksheet.
+
+
+    **Issues that are resolved in Sprint 12 as of 11/02/2016**
+
+    New Enhancements
+
+    - Introduce user data upload functionality  see (link to documentation page).
+    - More fluid zoom feature when working with analysis worksheets. 
+    - Case Sensitivity is now maintained in creating and displaying Workbook names throughout the entire User Interface. 
+    - You can now create a new cohort from the menu bar. 
+    - Variables menu bar is displayed similar to the rest of the favorites variables. 
+    - On the dashboard, all create new buttons/links are identical. 
+    - Owner of what is shared is now the only person who can add or remove others. 
+    - Removed BCGSC gene expression from the UI gene specification selection for plot analysis. 
+
+
+    Bug Fixes
+
+    - X or Y- Axis for text no longer overlaps on worksheet for any analysis type, except for violin plot.  
+    - The Legend is no longer displayed elongated when you use multiple cohort for color by feature for violin plot. 
+    - miRNA_expression_values_fixed table in dataset 2016_07_09_tcga_data_open reflect only hg19.mirbase20 files.  
+    - You are now able to duplicate a workbook that has been shared with you by someone else. 
+    - Added pseudo-counts to the mosaic plots on the create new cohort page. This allows you to be sure of always being able to see (and select) the smallest contributors in these mosaics. 
+    - Removing the filter from the filter confirmation from the create new cohort page, this will remove it from the rest of filter selections. 
+    - Select the “check-all” feature on the create new cohort page will no longer cause duplicates on the selected filters panel. 
+    - Create cohort from plot selection now works with all analysis types. 
+    - Data inconsistencies between the create new cohort histogram filter and the most recent BigQuery datasets has been addressed and resolved.
+
+
+
 *  **September 21, 2016**: `v1.10 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.10>`_
 
     **Known issues in Sprint 11 as of 9/21/2016**
