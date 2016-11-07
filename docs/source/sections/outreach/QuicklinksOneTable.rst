@@ -1,6 +1,6 @@
-***********************************************
-ISB-CGC Cloud Credits Available for Researchers
-***********************************************
+**********************************************
+ISB-CGC Cloud Credit Available for Researchers
+**********************************************
 
 To facilitate us and evaluation of the Institute for Systems Biology Cancer Genomics Cloud (ISB-CGC) Pilot, NCI is providing credits to researchers to use on our systems within the Google Cloud Platform.
 
