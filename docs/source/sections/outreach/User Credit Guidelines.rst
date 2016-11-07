@@ -22,6 +22,7 @@ Users are also free to fund their own research using the ISB-CGC platform.
 
 For each of the four ISB-CGC credit tiers above, ISB-CGC leaders will coordinate directly with individual researchers to provide access to the platform. For tier 3 projects, the CGC Pilots will also consult with the researchers to provide support and suggest approaches that may expedite and reduce the cost of the project.
 
+We will also encourage people in Tiers 2, 3 & 4 to apply for credits at the NIH Commons Credits Portal. We are in contact with Onix, a Google Partner / Reseller, as they work through the process to become a conformant cloud provider.
 
 **Important Notes**
 
