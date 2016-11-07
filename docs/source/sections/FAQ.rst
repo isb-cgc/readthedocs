@@ -5,11 +5,10 @@ Frequently Asked Questions (FAQ)
 ISB-CGC Accounts and Cloud Projects
 ###################################
 **Do I have to request an ISB-CGC account before I can try out the web interface?**
-No, you can just "sign in" to the web-app using your Google identity.  (Please be patient, we're 
-working on a major revision to the web-app right now and will let you know when it's ready for you to explore!)
+No, you can just "sign in" to the web-app using your Google identity.  
 
 **I want to be able to run big jobs using Google Compute Engine on the TCGA data hosted by the ISB-CGC.  What should I do?**
-You will need to request a Google Cloud Platform project.  Please see :ref:`request-gcp` for more details
+You will need to request a Google Cloud Platform (GCP) project.  Please see :ref:`request-gcp` for more details
 about requesting a project.
 
 **Can I use any email address as a Google identity?**  Yes, you can.  If your email address is not
@@ -22,6 +21,23 @@ Google Apps.
 
 .. _create: https://accounts.google.com/signupwithoutgmail
 
+**How do I connect my GCP project to the ISB-CGC?**
+Your GCP project gives you access to all of the technologies that make
+up the Google Cloud Platform (GCP).  These technologies include BigQuery, Cloud Storage, Compute Engine,
+Google Genomics, etc.  The ISB-CGC makes use of a variety of these technologies to provide access
+to the TCGA data, *without* necessarily inserting an extra interface layer between you and the GCP.  Although one
+component of the ISB-CGC is a web-app (running on Google App Engine), some users may prefer not to go through
+the web-app to access other components of the ISB-CGC.  For example, the open-access TCGA data
+that we have loaded into BigQuery tables can be accessed directly via the 
+`BigQuery web interface <https://www.bigquery.cloud.google.com>`_ or from Python or R.  Similarly,
+the ISB-CGC programmatic API is a REST service that can be used from many different
+programming languages.
+
+The connection between your GCP project (whether it is an ISB-CGC sponsored and funded project
+or your own personal project) and the ISB-CGC is your Google identity 
+(also referred to as your "user credentials").  
+Access to all ISB-CGC hosted data is controlled using access control lists (ACLs) which define the
+permissions attached to each dataset, bucket, or object.
 
 Data Access
 ###########
@@ -32,13 +48,14 @@ open-access and much of this has been made available in a convenient set of BigQ
 
 **Where can I find the TCGA data that ISB-CGC has made publicly available in BigQuery tables?**
 The BigQuery web interface can be accessed at bigquery.cloud.google.com.  If you have not already added the ISB-CGC datasets to your BigQuery "view", click on the blue arrow
-next to your username in the left side-bar, select "Switch to Project", then "Display Project...",
+next to your project name at the top of the left side-bar, select "Switch to Project", then "Display Project...",
 and enter "isb-cgc" (without quotes) in the text box labeled "Project ID".  All ISB-CGC public BigQuery
 datasets and tables will now be visible in the left side-bar of the BigQuery web interface.
 Note that in order to use BigQuery, you need to be a member of a Google Cloud Project.
 
 **How can I apply for access to the low-level DNA and RNA sequence data?**
 In order to access the TCGA controlled-access data, you will need to apply to dbGaP_.
+Please also review our section on **Understanding Data Security**.
 
 .. _dbGaP: https://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login
 
@@ -50,6 +67,7 @@ and you will be taken to your account details page where you can
 verify your dbGaP authorization.  You will be redirected to the NIH iTrust login page and after you
 successfully authenticate you will be brought back to the ISB-CGC web-app.  After you successfully
 authenticate, we will verify that you also have dbGaP authorization for the TCGA controlled-access data. 
+We also ask that you review our section on **Understanding Data Security**.
 
 **My professor has dbGaP authorization.  Do I have to have my own authorization too?**
 Yes, your professor will need to add you as a "data downloader" to his/her dbGaP application so that you
