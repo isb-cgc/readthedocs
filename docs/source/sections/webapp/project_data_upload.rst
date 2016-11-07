@@ -121,7 +121,7 @@ Once you have created a bucket and a dataset in the Google Cloud Console of your
 
 .. image:: Register_Step_2.png
 
-**Step 3**: Click on the project you wish to use.  If you have not registered a project, follow the instructions here_.
+**Step 3**: Click on the project you wish to use.  If you have not registered a project, follow the instructions `here`_.
 
 .. _here: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-TCGA-Contolled-Access-Data.html#requirements-for-registering-a-google-cloud-project-service-account
 
