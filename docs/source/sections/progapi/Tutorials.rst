@@ -11,7 +11,7 @@ and Python programmers can
 enjoy the richness available in IPython notebooks by taking advantage of
 the newly released `Cloud Datalab <https://cloud.google.com/datalab/>`_ 
 
-**Note:** that Cloud Datalab is a beta release, but Google has released documentation on how to install Cloud Datalab locally  `here <https://cloud.google.com/datalab/docs/quickstarts/quickstart-local>`_ and how to Run Cloud Datalab notebooks on Google Cloud Platform `here <https://cloud.google.com/datalab/docs/quickstarts/quickstart-gce-frontend>`_ .
+**Note:** That Cloud Datalab is a beta release, but Google has released documentation on how to install Cloud Datalab locally  `here <https://cloud.google.com/datalab/docs/quickstarts/quickstart-local>`_ and how to Run Cloud Datalab notebooks on Google Cloud Platform `here <https://cloud.google.com/datalab/docs/quickstarts/quickstart-gce-frontend>`_ .
 
 These repositories contain numerous examples that will help you learn 
 to access and analyze the TCGA data in BigQuery, as well as examples
