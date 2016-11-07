@@ -12,8 +12,9 @@ The Project Data Upload uses a number of pre-defined file formats to get data in
 
 **NOTE:** For the matrix files, the text case matters for the required columns (lower case is different from upper case).  In addition, the ISB-CGC system will not validate any identifiers such as barcodes or gene names.  It is up to the user to make sure that uploaded data is correctly identified.
 
- DNA Methylation
- ^^^^^^^^^^^^^^^
+
+* DNA Methylation
+
 
   This is a simple matrix file.  The first column should have the header **Probe_ID**.  Sample barcodes should be the headers for all remaining columns.
 
@@ -26,6 +27,7 @@ The Project Data Upload uses a number of pre-defined file formats to get data in
   +-----------+-----------+----------+----------+
   |Probe ID N | Value 1   | Value 2  | Value N  |
   +-----------+-----------+----------+----------+
+
 
 * Gene Expression
 
@@ -44,6 +46,7 @@ The Project Data Upload uses a number of pre-defined file formats to get data in
   |Accession N | Gene name N |  Value 1 | Value 2   | Value N   |
   +------------+-------------+----------+-----------+-----------+
 
+
 * microRNA
 
   There is one required and one optional column for micorRNA:
@@ -60,6 +63,7 @@ The Project Data Upload uses a number of pre-defined file formats to get data in
   +------------+-------------+----------+-----------+-----------+
   |miRNA ID N  | Alt name N  |  Value 1 | Value 2   | Value N   |
   +------------+-------------+----------+-----------+-----------+
+
 
 * Protein Expression
 
@@ -78,6 +82,7 @@ The Project Data Upload uses a number of pre-defined file formats to get data in
   +--------------+-------------+-----------+-----------+-----------+-----------+
   | Protein 3    | Gene Name 3 | Gene ID 3 | Value 1   | Value 2   | Value N   |
   +--------------+-------------+-----------+-----------+-----------+-----------+
+
 
 * Other/Generic
 
