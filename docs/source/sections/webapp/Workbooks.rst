@@ -22,8 +22,8 @@ To create a **workbook** from Your Dashboard, click on the **“Create a New Wor
 
 **Note:** If you wish to use your own data in graphing, please review the documentations on `how to upload your own data`_ and on `how to graph your own data`_.  Using your own data uses a slightly different approach than is described here.
 
-.. _how to upload your own data: project_data_upload
-.. _how to graph your own data: GraphingUserData
+.. _how to upload your own data: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/project_data_upload.html
+.. _how to graph your own data: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/GraphingUserData.html
 
 1. From the Workbook creation panel you will first select one of six analysis types (i.e., Bar chart, Histogram, Scatter Plot, Violin Plot, Cubby Hole Plot or SeqPeek). 
 
