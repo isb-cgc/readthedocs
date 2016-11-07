@@ -20,6 +20,7 @@ We welcome your ideas and needs.  Please use this `link <https://groups.google.c
    webapp/project_data_upload
    webapp/GraphingUserData
    webapp/IGV-Browser
-   webapp/releases
    webapp/ViewingCohorts
+   webapp/releases
+   
 
