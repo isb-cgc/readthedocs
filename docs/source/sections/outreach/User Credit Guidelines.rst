@@ -25,5 +25,5 @@ For each of the four ISB-CGC credit tiers above, ISB-CGC leaders will coordinate
 
 **Important Notes**
 
-Since these platforms are pilots, researchers should have no expectation that their data or tools will be maintained after the Cloud Pilots program is completed on September 27, 2017.
-If a researcher has used all available ISB-CGC credit and is still storing data on one of the CGC Cloud platforms, it is the researcher’s responsibility to get more credits, arrange for billing, or download any data they wish to keep. 
+Since the the ISB-CGC platform is a pilot, researchers should have no expectation that their data or tools will be maintained after the ISB-CGC program is completed on September 27, 2017.
+If a researcher has used all available ISB-CGC credit and is still storing data on on the ISB-CGC platform, it is the researcher’s responsibility to get more credits, arrange for billing, or download any data they wish to keep. 
