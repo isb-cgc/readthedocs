@@ -2,29 +2,41 @@
 ISB-CGC Cloud Credit Available for Researchers
 **********************************************
 
-To facilitate use and evaluation of the Institute for Systems Biology Cancer Genomics Cloud (ISB-CGC) Pilot, we are providing NCI-funded credit to researchers for use on our systems within the Google Cloud Platform.
+To facilitate the use and evaluation of the Institute for Systems Biology Cancer Genomics Cloud 
+(ISB-CGC) Pilot, NCI-funded "Google cloud credits" are available to researchers to cover the 
+costs of compute and storage costs associated with using the ISB-CGC platform and resources.
 
-The table below shows the four available user spending tiers.
+The table below describes the four user spending tiers.
 
-+-------+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| Tier  | Amount             | Description                                                                                                                                                        | Requirements                                                                                              |
-+=======+====================+====================================================================================================================================================================+===========================================================================================================+
-| **1** | $300               | Given by Google as a 60-day "free trial" credit upon registration as a new Google Cloud Platform user                                                              | We will encourage but not require people to use the Google credit first                                   |
-+-------+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| **2** | $1,000             | Available after initial new user credit has been depleted                                                                                                          | Provide feedback as requested by ISB-CGC leaders                                                          |
-+-------+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| **3** | Up to $10,000      | Available after tier 2 credit has been depleted to begin a large or collaborative project (two or more researchers working on a project together)                  | Provide project details such as scientific goals, support requirements, collaboration details, etc.       |
-+-------+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
-| **4** | More than $10,000  | Available when ISB-CGC leaders believe researchers have made good use of depleted credit and can provide a reasonable justification for needing additional credit  | ISB-CGC leaders will need to present a case on behalf of researchers and obtain NCI's approval            |
-+-------+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+
++----------+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
+| **Tier** | **Amount**         | **Description**                                                                                                                                                    | **Requirements / Expectations**                                                                                  |
++==========+====================+====================================================================================================================================================================+==================================================================================================================+
+|   **1**  | $300               | Google 60-day "free trial" is available for new Google Cloud Platform (GCP) users                                                                                  | Please see information about requesting an ISB-CGC funded GCP project.                                           |
++----------+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
+|   **2**  | $1,000             | Available after initial new user credit has been depleted                                                                                                          | Provide additional information about project goals, expected costs, *etc*, and provide feedback to ISB-CGC team. |
++----------+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
+|   **3**  | Up to $10,000      | Available after tier 2 credit has been depleted to begin a large or collaborative project (two or more researchers working on a project together)                  | Provide project details such as scientific goals, support requirements, collaboration details, *etc*.            |
++----------+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
+|   **4**  | More than $10,000  | Available in exceptional cases, if researchers can justify the need for additional support.                                                                        | Requires approval by NCI program office.                                                                         |
++----------+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
 
-Users are also free to fund their own research using the ISB-CGC platform.
+Note that user-financed GCP projects can also access the ISB-CGC-hosted data and other resources, 
+subject to the same data-access restrictions as ISB-CGC funded GCP projects.
 
-For each of the four ISB-CGC credit tiers above, ISB-CGC leaders will coordinate directly with individual researchers to provide access to the platform. For tier 3 projects, the CGC Pilots will also consult with the researchers to provide support and suggest approaches that may expedite and reduce the cost of the project.
+For each of the four ISB-CGC credit tiers above, the ISB-CGC team will coordinate directly with 
+individual researchers as needed. For tier 3 (and 4) projects, the ISB-CGC team will work 
+closely with researchers in order to optimize efficiency and minimize costs.  In addition,
+researchers are strongly encouraged to make workflows, software, and related documentation
+publicly available to benefit the broader research community. 
 
-We will also encourage people in tiers 2, 3 & 4 to apply for credits at the NIH Commons Credits Portal. We are in contact with Onix, a Google Partner / Reseller, as they work through the process to become a conformant cloud provider.
+The ISB-CGC team also encourages researchers wishing to run large-scale projects to apply for 
+NIH Commons Credits.  Information about NIH conformant cloud providers will be forthcoming soon.
 
 **Important Notes**
 
-Since the the ISB-CGC platform is a pilot, researchers should have no expectation that their data or tools will be maintained after the ISB-CGC program is completed on September 27, 2017.
-If a researcher has used all available ISB-CGC credit and is still storing data on on the ISB-CGC platform, it is the researcher’s responsibility to get more credits, arrange for billing, or download any data they wish to keep. 
+Since the ISB-CGC is a pilot effort, researchers should have no expectation that data or tools 
+will be maintained after the Cloud Pilots program ends on September 27, 2017.
+If a researcher has used up their allocated "cloud credits", but is still storing data in
+Google Cloud Storage or BigQuery, it will be the researcher's responsibility to arrange to
+transfer this data user-funded GCP project.
+
