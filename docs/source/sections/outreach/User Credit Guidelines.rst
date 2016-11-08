@@ -36,6 +36,7 @@ The ISB-CGC team also encourages researchers wishing to run large-scale projects
 Information about NIH conformant cloud providers will be forthcoming soon.
 
 **Important Notes**
+
 Since the ISB-CGC is a pilot effort, researchers should have no expectation that data or tools 
 will be maintained after the Cloud Pilots program ends on September 27, 2017.
 If a researcher has used up their allocated "cloud credits", but is still storing data in
