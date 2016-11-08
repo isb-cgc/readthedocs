@@ -20,8 +20,9 @@ The table below describes the four user spending tiers.
 |   **4**  | More than $10,000  | Available in exceptional cases, if researchers can justify the need for additional support                                                          | Requires approval by NCI program office                                                                          |
 +----------+--------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
 
-Note that user-financed GCP projects can also access the ISB-CGC-hosted data and other resources, 
-subject to the same data-access restrictions as ISB-CGC funded GCP projects.
+Note that user-financed GCP projects have the *same* access to ISB-CGC-hosted data and resources, 
+(subject to the NIH data-access restrictions) as ISB-CGC funded GCP projects.  (The same is 
+true, of course for the GCP projects started under the Google free-trial program.)
 
 For each of the four ISB-CGC credit tiers above, the ISB-CGC team will coordinate directly with 
 individual researchers as needed. For tier 3 (and 4) projects, the ISB-CGC team will work 
@@ -41,3 +42,7 @@ If a researcher has used up their allocated "cloud credits", but is still storin
 Google Cloud Storage or BigQuery, it will be the researcher's responsibility to arrange to
 transfer this data user-funded GCP project.
 
+Note also that if you take advantage of the Google free-trial program, we **cannot** 
+reimburse you for costs incurred after the free-trial is over if you have chosen to 
+upgrade to a paid account.  All ISB-CGC provided "cloud credits" must be used within
+ISB-CGC *provided* GCP projects.
