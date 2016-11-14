@@ -17,7 +17,7 @@ The resulting file list can be filtered using the Platforms listed on the left. 
 
 Once a maximum of five files have been selected, they can be viewed in the IGV Browser by clicking on the "Launch IGV" button in the upper right of the window
 
-.. image:: CCLE_Files.png
+.. image:: CCLE_Files.PNG
 
 
 NOTES:
