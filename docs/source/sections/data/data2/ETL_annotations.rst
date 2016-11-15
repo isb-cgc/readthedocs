@@ -42,5 +42,8 @@ Sample and Participant barcodes are filled in (*ie* not null) whenever the
 "itemBarcode" is at least 16 or 12 characters long, respectively.  For example, a
 "Shipped Portion" would result in a filled in "ParticipantBarcode" and
 "SampleBarcode" fields. Please note, however, that the annotation applies *only* to the item
-specified in the "itemBarcode" field, the *type* of the item is specified in the "itemTypeName" field.
+specified in the "itemBarcode" field, the *type* of the item is specified in the "itemTypeName" field
+with the following caveat.  If an annotation is on the participant, then it applies to all
+its samples, if on a sample, to all its portions but does not apply to other samples for that
+participant, and so on down to the aliquot, which only applies to that aliquot.
 
