@@ -148,11 +148,8 @@ Visualization
 -------------
 
 .. image:: query_figs/correlation_btw_hg19_hg38.jpg
-   :width: 300px
+   :scale: 25 %
 	 :align: center
-	 :height: 300px
-
-
 
 Let us know if you're having trouble! We're here to help.
 
