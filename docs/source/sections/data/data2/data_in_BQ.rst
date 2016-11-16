@@ -11,6 +11,7 @@ please see our `github repositories <https://github.com/isb-cgc>`_.
 Note that dbGaP authorization is **not** required to access these tables!
 
 This `introductory tutorial <https://github.com/isb-cgc/examples-Python/blob/master/notebooks/The%20ISB-CGC%20open-access%20TCGA%20tables%20in%20BigQuery.ipynb>`_
+(in the form of an IPython notebook) 
 gives a great overview of all of the tables and pointers on how to get started exploring them.  
 Be sure to check it out!
 
@@ -183,7 +184,9 @@ TCGA Data and Metadata
     This table contains all somatic mutations called across all TCGA tumor samples, based on aggregating all 
     of the MAF files available when this table was created.  Each mutation call was annotated using 
     `Oncotator <https://www.broadinstitute.org/cancer/cga/oncotator>`_, 
-    and many (though not all) of the resulting annotation fields were included in this table.
+    and many (though not all) of the resulting annotation fields were included in this table.  Since multiple
+    MAF files are sometimes available for a single tumor type, duplicate mutation calls may exist in this table.
+    The next iteration of this table should correct this known issue.
 
 ..  
    
