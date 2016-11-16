@@ -116,31 +116,31 @@ Rscript
 	xs <- c(961, 2927, 6379,16670)
 
 	qplot(x=1:20119, y=sort(res1$gexpCorr)) + geom_line() +
-	  geom_hline(yintercept = ys, col='grey', lty=2) +
-	  geom_vline(xintercept = xs, col='grey', lty=2) +
-	  annotate(geom="text", label="961", x=961, y=0) +
-	  annotate(geom="text", label="2927", x=2927, y=0) +
-	  annotate(geom="text", label="6379", x=6379, y=0) +
-	  annotate(geom="text", label="16670", x=16670, y=0) +
-	  annotate(geom="text", label="50", y=.50, x=0) +
-	  annotate(geom="text", label="90", y=.90, x=0) +
-	  annotate(geom="text", label="95", y=.95, x=0) +
-	  annotate(geom="text", label="99", y=.99, x=0) +
-	  xlab("20,119 genes sorted by correlation value") +
-	  ylab("Pearson correlation between hg38.a.expFPKM and hg19.normalized_count") +
-	  ggtitle("Pearson correlation between hg38.a.expFPKM and hg19.normalized_count") +
-	  theme_bw() +
-	  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-	        panel.background = element_blank(), axis.line = element_line(colour = "black"))
+  geom_hline(yintercept = ys, col='grey', lty=2) +
+  geom_vline(xintercept = xs, col='grey', lty=2) +
+  annotate(geom="text", label="961", x=961, y=0) +
+  annotate(geom="text", label="2927", x=2927, y=0) +
+  annotate(geom="text", label="6379", x=6379, y=0) +
+  annotate(geom="text", label="16670", x=16670, y=0) +
+  annotate(geom="text", label="50", y=.50, x=0) +
+  annotate(geom="text", label="90", y=.90, x=0) +
+  annotate(geom="text", label="95", y=.95, x=0) +
+  annotate(geom="text", label="99", y=.99, x=0) +
+  xlab("20,119 genes sorted by correlation value") +
+  ylab("Pearson correlation between hg38.a.expFPKM and hg19.normalized_count") +
+  ggtitle("Pearson correlation between hg38.a.expFPKM and hg19.normalized_count") +
+  theme_bw() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"))
 
-		# Then let's take a look at a few genes with good and bad correlations.
-		# I did that by modifying the above query. First I removed the quantiles bit,
-		# then I broke up the correlation statement and added the hg38.SampleID
-		# so we'd get a gene expression value for each sample.
+	# Then let's take a look at a few genes with good and bad correlations.
+	# I did that by modifying the above query. First I removed the quantiles bit,
+	# then I broke up the correlation statement and added the hg38.SampleID
+	# so we'd get a gene expression value for each sample.
 
-		res1[which(res1$gexpCorr > 0.999),]
+	res1[which(res1$gexpCorr > 0.999),]
 
-		# let's look at IL25
+	# let's look at IL25
 
 
 
@@ -149,8 +149,8 @@ Visualization
 
 .. image:: query_figs/correlation_btw_hg19_hg38.jpg
    :width: 300px
+	 :align: center
 	 :height: 300px
-   :align: center
 
 
 
