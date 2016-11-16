@@ -14,7 +14,7 @@ The entire matrix is then melted into a flat structure (known as the tidy data f
 into the table. 
 
 Only the isoform files matching the pattern
-``%.isoform.quantification.txt`` and containing hg19 data were used. The aliquot barcode
+``%.hg19.mirbase20.isoform.quantification.txt`` and containing hg19 data were used. The aliquot barcode
 information was obtained from the SDRF file associated with the Level-3
 isoform data file.
 

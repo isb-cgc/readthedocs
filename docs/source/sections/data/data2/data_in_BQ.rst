@@ -183,9 +183,7 @@ TCGA Data and Metadata
     This table contains all somatic mutations called across all TCGA tumor samples, based on aggregating all 
     of the MAF files available when this table was created.  Each mutation call was annotated using 
     `Oncotator <https://www.broadinstitute.org/cancer/cga/oncotator>`_, 
-    and many (though not all) of the resulting annotation fields were included in this table.  Since multiple
-    MAF files are sometimes available for a single tumor type, duplicate mutation calls may exist in this table.
-    The next iteration of this table should correct this known issue.
+    and many (though not all) of the resulting annotation fields were included in this table.
 
 ..  
    
