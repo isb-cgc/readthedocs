@@ -141,15 +141,19 @@ Rscript
 	res1[which(res1$gexpCorr > 0.999),]
 
 	# let's look at IL25
+	res2 <- query_exec(query_for_IL25, project="isb-cgc-02-0001")
 
+	qplot(x=res2$hg19_normalized_count, y=res2$hg38_a_expFPKM, main="IL25")
+	qplot(x=res2$hg19_normalized_count, y=res2$hg38_a_expFPKM, main="IL25", xlim=c(0,50), ylim=c(0,2)) + geom_smooth(method="lm")
 
 
 Visualization
 -------------
 
 .. image:: query_figs/correlation_btw_hg19_hg38.jpg
-   :scale: 25 %
+   :scale: 25
 	 :align: center
+
 
 Let us know if you're having trouble! We're here to help.
 
