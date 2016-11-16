@@ -109,6 +109,9 @@ Rscript
 
 	res1 <- query_exec(q, project='isb-cgc-xx-xyzw')
 
+	dim(res1)
+	# [1] 20119     3
+
 	ys <- c(0.5, 0.9, 0.95, 0.99)
 	xs <- c(961, 2927, 6379,16670)
 
@@ -130,13 +133,23 @@ Rscript
 	  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
 	        panel.background = element_blank(), axis.line = element_line(colour = "black"))
 
-		
+		# Then let's take a look at a few genes with good and bad correlations.
+		# I did that by modifying the above query. First I removed the quantiles bit,
+		# then I broke up the correlation statement and added the hg38.SampleID
+		# so we'd get a gene expression value for each sample.
 
-Images
-------
+		res1[which(res1$gexpCorr > 0.999),]
+
+		# let's look at IL25
+
+
+
+Visualization
+-------------
 
 .. image:: query_figs/correlation_btw_hg19_hg38.jpg
-   :scale: 50
+   :width: 300px
+	 :height: 300px
    :align: center
 
 
