@@ -2,6 +2,47 @@
 Release Notes
 *************
 
+*  **November 16, 2016**: `v1.12 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.12>`_
+
+    Please Note: We are removing Google Genomics from the user interface. You will still be able to access CCLE open access data in Google Genomics from the command line. We are open to adding Google Genomics controlled data back into the user interface if you have a use case for it. Please feel free to provide `feedback <https://groups.google.com/a/isb-cgc.org/forum/#!newtopic/feedback>`_.
+   
+    **Known issues in Sprint 13 as of 11/16/2016**
+    - Analysis Type : Seq peek Formatting is Elongated 
+    - The CCLE data in GUI is not parallel to the CCLE data in BigQuery. 
+    - User will occasionally be sent to the Social Network Login page when trying to login. If this occurs, please go the the home page of the Web Application and try again. 
+    - If the user shares a cohort they do not receive a confirmation email. 
+    - Cannot plot any data if you use CCLE data cohort on a worksheet. 
+    - When a user duplicates a worksheet, then tries to implement the log scale it will not function properly. 
+    - If a researcher leaves the workbooks inactive the page freezes. 
+    - On the existing cohort list page for the delete button, selecting the blue x does nothing. It will be be disabled in a future release. 
+    - On the cohort view files page there are capitalization bugs on the Platform filter. 
+    - Swap values is not working properly for the plot settings. 
+    - Some plot setting are saved or retrieved when working with worksheets. 
+    - Worksheets added to an existing workbook behave differently than the original worksheet. 
+    - The user can see BCGSC expression as an option when plotting genes if user does not select center filter on worksheet. 
+    - The set operation for existing cohorts intersection is behaving exceptionally slow. 
+
+    **Issues that are resolved in Sprint 13 as of 11/16/2016**
+    
+    New Enhancements
+    
+    - A warning will be displayed if the user is trying to plot with required data missing e.g. must select an analysis, gene or variable, and a cohort to create a plot. 
+    - On the project details page user will be sent to upload new study in existing project tab when they select upload data. 
+    - When the user plots a graph with NA values, you will be returned a notification stating no valid data was found. 
+    - There is no longer text overlapping on the Cloud Hosted Datasets readthedocs page in the documentation. 
+    
+    
+    Bug Fixes
+    
+    - The user can no longer add the same gene symbol twice if list to the same worksheet even if they have given their list different names. 
+    - When the user selects multiple cohorts for color by feature for scatter plot all cohorts selected display on the graph. 
+    - On the existing cohorts table for public cohorts, the new workbook and set operations buttons are now active. 
+    - For all analysis types the x-axis and y-axis with certain variables text will no longer overlap and is displayed clearly. 
+    - The upload data button is disabled on the review files page when no buckets or datasets are associated. 
+    - Someone with multiple eRA accounts will be no longer have issues when trying to access controlled data. 
+
+    
+
 *  **November 2, 2016**: `v1.11 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.11>`_
 
     **Known issues in Sprint 12 as of 11/02/2016**
