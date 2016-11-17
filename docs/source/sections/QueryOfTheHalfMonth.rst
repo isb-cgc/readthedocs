@@ -103,6 +103,7 @@ Rscript
 
   library(bigrquery)
   library(ggplot2)
+	library(stringr)
 
   # after removing the quantiles statement and
 	# saving the above query as a string variable named 'q'
@@ -140,6 +141,14 @@ Rscript
 
 	res1[which(res1$gexpCorr > 0.999),]
 
+	# One interesting thing, is that when the correlation is below 0.5,
+	# many of the gene species showing up are snoRNAs.
+
+	sum(res1$gexpCorr < 0.5)
+  #[1] 960
+	sum(str_detect(pattern="SNOR", string=res1[which(res1$gexpCorr < 0.5),2]))
+  [1] 383
+
 	# let's look at IL25
 	res2 <- query_exec(query_for_IL25, project="isb-cgc-02-0001")
 
@@ -159,13 +168,15 @@ Visualization
 	 This plot shows the correlation between TCGA hg19 and GDC hg38 gene expression data
    where each point is a gene.
 
-.. figure:: query_figs/il25_zoomed_out.jpg
-  :scale: 100
-  :align: center
 
-	This plot shows the expression values for TCGA hg19 and GDC hg38 sources
-	for IL25. We can see that the exceptional correlation (0.999) is caused by
-	an outlier.
+.. figure:: query_figs/il25_zoomed_out.jpg
+   :scale: 100
+   :align: center
+
+	 This plot shows the expression values for TCGA hg19 and GDC hg38 sources
+	 for IL25. We can see that the exceptional correlation (0.999) is caused by
+	 an outlier.
+
 
 .. figure:: query_figs/il25_zoomed_in.jpg
    :scale: 100
@@ -174,7 +185,25 @@ Visualization
 	 This plot is zoomed in, and we can see that the actual relationship is slightly
 	 more fuzzy.
 
-	 
+
+ .. figure:: query_figs/ccl7_zoomed_out.jpg
+    :scale: 100
+    :align: center
+
+ 	  This plot shows the expression values for TCGA hg19 and GDC hg38 sources
+ 	  for CCL7. We can see that (again) the exceptional correlation (0.999) is caused by
+ 	  an outlier.
+
+
+ .. figure:: query_figs/ccl7_zoomed_in.jpg
+    :scale: 100
+    :align: center
+
+ 	  This plot is zoomed in, and we can see that the actual relationship is slightly
+ 	  more fuzzy.
+
+
+
 
 Let us know if you're having trouble! We're here to help.
 
