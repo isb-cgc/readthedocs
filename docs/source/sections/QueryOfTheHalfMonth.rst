@@ -155,6 +155,13 @@ Visualization
    :scale: 100
    :align: center
 
+.. image:: query_figs/il25_zoomed_out.jpg
+  :scale: 100
+  :align: center
+
+.. image:: query_figs/il25_zoomed_in.jpg
+   :scale: 100
+   :align: center
 
 Let us know if you're having trouble! We're here to help.
 
