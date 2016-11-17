@@ -96,6 +96,60 @@ The BigQuery
 	    gexpCorr IS NOT null )
 
 
+Visualizations
+--------------
+
+
+.. figure:: query_figs/correlation_btw_hg19_hg38.jpg
+   :scale: 100
+   :align: center
+
+   This plot shows the correlation between TCGA hg19 and GDC hg38 gene expression data
+   where each point is a gene.
+
+
+.. figure:: query_figs/il25_zoomed_out.jpg
+   :scale: 100
+   :align: center
+
+   This plot shows the expression values for TCGA hg19 and GDC hg38 sources
+   for IL25. We can see that the exceptional correlation (0.999) is caused by
+   an outlier.
+
+
+.. figure:: query_figs/il25_zoomed_in.jpg
+   :scale: 100
+   :align: center
+
+   This plot is zoomed in, and we can see that the actual relationship is slightly
+   more fuzzy.
+
+
+.. figure:: query_figs/ccl7_zoomed_out.jpg
+   :scale: 100
+   :align: center
+
+   This plot shows the expression values for TCGA hg19 and GDC hg38 sources
+   for CCL7. We can see that (again) the exceptional correlation (0.999) is caused by
+   an outlier.
+
+
+.. figure:: query_figs/ccl7_zoomed_in.jpg
+   :scale: 100
+   :align: center
+
+   This plot is zoomed in, and we can see that the actual relationship is slightly
+   more fuzzy.
+
+
+.. figure:: query_figs/lime1_zoomed_out.jpg
+   :scale: 100
+   :align: center
+
+   This plot is zoomed in, and we can see that the actual relationship is slightly
+   more fuzzy.
+
+
 Rscript
 -------
 
@@ -149,58 +203,69 @@ Rscript
 	sum(str_detect(pattern="SNOR", string=res1[which(res1$gexpCorr < 0.5),2]))
   [1] 383
 
+	q <- "
+	  SELECT
+	    hg38.a.sampleID,
+	    hg38.a.geneID,
+	    hg38.b.gene_name,
+	    hg38.a.expFPKM,
+	    hg19.normalized_count
+	  FROM (
+	    SELECT
+	      hg38.a.sampleID,
+	      hg38.a.geneID,
+	      hg38.b.gene_name,
+	      hg38.a.expFPKM,
+	      hg19.normalized_count
+	    FROM (
+	      SELECT
+	        a.sampleID,
+	        a.geneID,
+	        b.gene_name,
+	        a.expFPKM,
+	      FROM (
+	        SELECT
+	          SamplesSubmitterID AS sampleID,
+	          Ensembl_gene_ID AS geneID,
+	          HTSeq__FPKM AS expFPKM
+	        FROM
+	          [isb-cgc:GDC_data_open.TCGA_GeneExpressionQuantification] ) a
+	      JOIN EACH (
+	        SELECT
+	          gene_id,
+	          gene_name
+	        FROM
+	          [isb-cgc:genome_reference.GENCODE_v24]
+	        WHERE
+	          feature='gene' ) b
+	      ON
+	        a.geneID=b.gene_id ) hg38
+	    JOIN EACH (
+	      SELECT
+	        SampleBarcode,
+	        HGNC_gene_symbol,
+	        normalized_count,
+	      FROM
+	        [isb-cgc:tcga_201607_beta.mRNA_UNC_RSEM] ) hg19
+	    ON
+	      hg38.a.sampleID=hg19.SampleBarcode
+	      AND hg38.b.gene_name=hg19.HGNC_gene_symbol )
+	  WHERE
+	    hg38.b.gene_name = 'IL25'
+	  GROUP BY
+	    hg38.a.sampleID,
+	    hg38.a.geneID,
+	    hg38.b.gene_name,
+	    hg38.a.expFPKM,
+	    hg19.normalized_count"
+
+
 	# let's look at IL25
 	res2 <- query_exec(query_for_IL25, project="isb-cgc-02-0001")
 
 	qplot(x=res2$hg19_normalized_count, y=res2$hg38_a_expFPKM, main="IL25")
 
 	qplot(x=res2$hg19_normalized_count, y=res2$hg38_a_expFPKM, main="IL25", xlim=c(0,50), ylim=c(0,2)) + geom_smooth(method="lm")
-
-
-Visualization
--------------
-
-
-.. figure:: query_figs/correlation_btw_hg19_hg38.jpg
-   :scale: 100
-   :align: center
-
-	 This plot shows the correlation between TCGA hg19 and GDC hg38 gene expression data
-   where each point is a gene.
-
-
-.. figure:: query_figs/il25_zoomed_out.jpg
-   :scale: 100
-   :align: center
-
-	 This plot shows the expression values for TCGA hg19 and GDC hg38 sources
-	 for IL25. We can see that the exceptional correlation (0.999) is caused by
-	 an outlier.
-
-
-.. figure:: query_figs/il25_zoomed_in.jpg
-   :scale: 100
-   :align: center
-
-	 This plot is zoomed in, and we can see that the actual relationship is slightly
-	 more fuzzy.
-
-
- .. figure:: query_figs/ccl7_zoomed_out.jpg
-    :scale: 100
-    :align: center
-
- 	  This plot shows the expression values for TCGA hg19 and GDC hg38 sources
- 	  for CCL7. We can see that (again) the exceptional correlation (0.999) is caused by
- 	  an outlier.
-
-
- .. figure:: query_figs/ccl7_zoomed_in.jpg
-    :scale: 100
-    :align: center
-
- 	  This plot is zoomed in, and we can see that the actual relationship is slightly
- 	  more fuzzy.
 
 
 
