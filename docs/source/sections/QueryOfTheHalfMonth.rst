@@ -144,6 +144,7 @@ Rscript
 	res2 <- query_exec(query_for_IL25, project="isb-cgc-02-0001")
 
 	qplot(x=res2$hg19_normalized_count, y=res2$hg38_a_expFPKM, main="IL25")
+
 	qplot(x=res2$hg19_normalized_count, y=res2$hg38_a_expFPKM, main="IL25", xlim=c(0,50), ylim=c(0,2)) + geom_smooth(method="lm")
 
 
@@ -151,17 +152,29 @@ Visualization
 -------------
 
 
-.. image:: query_figs/correlation_btw_hg19_hg38.jpg
+.. figure:: query_figs/correlation_btw_hg19_hg38.jpg
    :scale: 100
    :align: center
 
-.. image:: query_figs/il25_zoomed_out.jpg
+	 This plot shows the correlation between TCGA hg19 and GDC hg38 gene expression data
+   where each point is a gene.
+
+.. figure:: query_figs/il25_zoomed_out.jpg
   :scale: 100
   :align: center
 
-.. image:: query_figs/il25_zoomed_in.jpg
+	This plot shows the expression values for TCGA hg19 and GDC hg38 sources
+	for IL25. We can see that the exceptional correlation (0.999) is caused by
+	an outlier.
+
+.. figure:: query_figs/il25_zoomed_in.jpg
    :scale: 100
    :align: center
+
+	 This plot is zoomed in, and we can see that the actual relationship is slightly
+	 more fuzzy.
+
+	 
 
 Let us know if you're having trouble! We're here to help.
 
