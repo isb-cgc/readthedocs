@@ -7,6 +7,7 @@ Release Notes
     Please Note: We are removing Google Genomics from the user interface. You will still be able to access CCLE open access data in Google Genomics from the command line. We are open to adding Google Genomics controlled data back into the user interface if you have a use case for it. Please feel free to provide `feedback <https://groups.google.com/a/isb-cgc.org/forum/#!newtopic/feedback>`_.
    
     **Known issues in Sprint 13 as of 11/16/2016**
+    
     - Analysis Type : Seq peek Formatting is Elongated 
     - The CCLE data in GUI is not parallel to the CCLE data in BigQuery. 
     - User will occasionally be sent to the Social Network Login page when trying to login. If this occurs, please go the the home page of the Web Application and try again. 
