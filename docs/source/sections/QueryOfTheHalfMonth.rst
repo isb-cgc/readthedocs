@@ -1,17 +1,19 @@
 ***********************
-Query of the Half Month
+Query of the Month Club
 ***********************
 
-The half-month is a two week period of time used in astronomy labeled A-Y.
-Each half-month we'll be adding new and interesting queries. Please let us
-know if you'd like to be featured on the "query-blog"!
+Welcome to the 'Query of the Month Club' where we'll be creating a collection
+of new and interesting queries to demonstrate the powerful combination of
+BigData from the TCGA and BigQuery from Google.
+
+Please let us know if you'd like to be featured on the "query-club"!
 email: dgibbs (at) systemsbiology (dot) org
 
 
-Half-month V, 2016
-##################
+December, 2016
+##############
 
-This half-month's query comes from our own Sheila Reynolds. Thanks Sheila!
+This month's query comes from our own Sheila Reynolds. Thanks Sheila!
 
 Description
 -----------
@@ -95,6 +97,7 @@ The BigQuery
 	  HAVING
 	    gexpCorr IS NOT null )
 
+------------
 
 Visualizations
 --------------
@@ -107,6 +110,7 @@ Visualizations
    This plot shows the correlation between TCGA hg19 and GDC hg38 gene expression data
    where each point is a gene.
 
+------------
 
 .. figure:: query_figs/il25_zoomed_out.jpg
    :scale: 100
@@ -116,6 +120,7 @@ Visualizations
    for IL25. We can see that the exceptional correlation (0.999) is caused by
    an outlier.
 
+------------
 
 .. figure:: query_figs/il25_zoomed_in.jpg
    :scale: 100
@@ -124,6 +129,7 @@ Visualizations
    This plot is zoomed in, and we can see that the actual relationship is slightly
    more fuzzy.
 
+------------
 
 .. figure:: query_figs/ccl7_zoomed_out.jpg
    :scale: 100
@@ -133,6 +139,7 @@ Visualizations
    for CCL7. We can see that (again) the exceptional correlation (0.999) is caused by
    an outlier.
 
+------------
 
 .. figure:: query_figs/ccl7_zoomed_in.jpg
    :scale: 100
@@ -141,6 +148,7 @@ Visualizations
    This plot is zoomed in, and we can see that the actual relationship is slightly
    more fuzzy.
 
+------------
 
 .. figure:: query_figs/lime1_zoomed_out.jpg
    :scale: 100
@@ -149,6 +157,7 @@ Visualizations
    This plot is zoomed in, and we can see that the actual relationship is slightly
    more fuzzy.
 
+------------
 
 Rscript
 -------
@@ -269,6 +278,7 @@ Rscript
 
 
 
+------------
 
 Let us know if you're having trouble! We're here to help.
 
