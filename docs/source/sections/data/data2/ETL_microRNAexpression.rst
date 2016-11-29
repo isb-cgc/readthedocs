@@ -9,12 +9,12 @@ referred to using a combination of the microRNA
 gene name and the unique accession number, eg:
 "hsa-mir-21.MIMAT0000076".  During ETL, this string is split into two
 parts and stored as separate columns in the BigQuery
-\ `table <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.miRNA_expression>`_.
+\ `table <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201607_beta.miRNA_expression>`_.
 The entire matrix is then melted into a flat structure (known as the tidy data format) and loaded
 into the table. 
 
 Only the isoform files matching the pattern
-``%.isoform.quantification.txt`` and containing hg19 data were used. The aliquot barcode
+``%.hg19.mirbase20.isoform.quantification.txt`` and containing hg19 data were used. The aliquot barcode
 information was obtained from the SDRF file associated with the Level-3
 isoform data file.
 

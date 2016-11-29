@@ -2,24 +2,25 @@
 ISB-CGC Web Interface
 *********************
 
-The documentation contained in this section is for the prototype `ISB-CGC web interface <https://isb-cgc.appspot.com>`_.
+The documentation contained in this section is for version 1.0 of the `ISB-CGC web interface <https://isb-cgc.appspot.com/>`_.
 
-Please understand that the currently deployed web-app is an early prototype and our developers are working on a complete overhaul.
-We encourage you to explore the TCGA data that we have made available :ref:`in_BigQuery` tables and to :ref:`contact-us`
-for more information about upcoming releases.
-
-The information in the sections below is also directly accessible from the ISB-CGC web application.  
-After you sign-in, click on the down-arrow next to your name in the upper-right corner and select "Help".
+Over time we will be updating and enhancing this web interface based on your feedback.  
+We welcome your ideas and needs.  Please use this `link <https://groups.google.com/a/isb-cgc.org/forum/#!newtopic/feedback>`_ to provide them.
 
 .. toctree::
    :maxdepth: 1
 
-   webapp/User-Dashboard
-   webapp/Cohorts
-   webapp/Visualizations
-   webapp/SeqPeek
+   webapp/Overview
+   webapp/Gaining-Access-To-TCGA-Contolled-Access-Data
+   webapp/Menu
+   webapp/Workbooks
+   webapp/Gene-Favorites
+   webapp/Variable-Favorites
+   webapp/Saved-Cohorts
+   webapp/project_data_upload
+   webapp/GraphingUserData
    webapp/IGV-Browser
-   webapp/Sharing
-   webapp/General-Permissions
+   webapp/ViewingCohorts
    webapp/releases
+   
 

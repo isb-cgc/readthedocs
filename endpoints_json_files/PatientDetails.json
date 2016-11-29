@@ -1,0 +1,5 @@
+{
+    "aliquots": "List of barcodes of aliquots taken from this participant.",
+    "clinical_data": "The clinical data about the participant.",
+    "samples": "List of barcodes of samples taken from this participant."
+}

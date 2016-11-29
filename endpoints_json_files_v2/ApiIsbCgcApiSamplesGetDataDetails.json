@@ -1,0 +1,25 @@
+{
+    "cloud_storage_path": "Google Cloud Storage path to file.",
+    "DataCenterName": "Short name of the contributing data center, e.g. bcgsc.ca.",
+    "DataCenterType": "Abbreviation of the type of contributing data center, e.g. cgcc.",
+    "DataFileName": "Name of the datafile stored on the DCC file system.",
+    "DataFileNameKey": "Key into the ISB-CGC GCS bucket for this file.",
+    "DataLevel": "Level of the type of data, depending on where it is stored in the DCC directory structure. Data levels are defined by TCGA DCC.",
+    "DatafileUploaded": "Whether the file fit requirements to be uploaded into the project.",
+    "Datatype": "Data type, e.g. Complete Clinical Set, CNV (SNP Array), DNA Methylation, Expression-Protein, Fragment Analysis Results, miRNASeq, Protected Mutations, RNASeq, RNASeqV2, Somatic Mutations, TotalRNASeqV.",
+    "GG_dataset_id": "Google genomics dataset id.",
+    "GG_readgroupset_id": "Google genomics readgroupset id.",
+    "GenomeReference": "Allows a center to associate results with a specific genome build that was used as the basis for analysis, e.g. hg19 (GRCh37)",
+    "Pipeline": "A combination of the center and the platform that can distinguish between two ways of performing the sequencing or assay for the same platform, e.g. bcgsc.ca__miRNASeq.",
+    "Platform": "A platform (within the scope of TCGA) is a vendor-specific technology for assaying or sequencing that could possibly be customized by a GSC or CGCC, e.g. IlluminaHiSeq_miRNASeq.",
+    "Project": "The study for which the data was generated, e.g. TCGA.",
+    "Repository": "A storage location where files are deposited and made available, e.g. DCC, CGHub.",
+    "SDRFFileName": "Name of SDRF file stored on the DCC file system, e.g. bcgsc.ca_KIRC.IlluminaHiSeq_miRNASeq.sdrf.txt",
+    "SampleBarcode": "Sample barcode.",
+    "SecurityProtocol": "An indication of the security protocol necessary to fulfill in order to access the data from the file, e.g. DBGap Protected Access, DBGap Open Access",
+    "platform_full_name": "The full name of the sequencing platform used, e.g. Illumina HiSeq 2000, Ion Torrent PGM, AB SOLiD System 2.0."
+}
+
+
+
+

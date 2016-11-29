@@ -1,8 +1,8 @@
-DNA Copy-Number Segments
-========================
+Copy-Number Segments (DNA)
+==========================
 
 The
-`Copy_Number_segments <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.Copy_Number_segments>`_
+`Copy_Number_segments <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201607_beta.Copy_Number_segments>`_
 table contains one row *per* copy-number segment *per* TCGA aliquot.  
 Each TCGA aliquot is uniquely represented by a
 `TCGA barcode <https://wiki.nci.nih.gov/display/TCGA/TCGA+barcode>`_

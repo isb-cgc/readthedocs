@@ -2,7 +2,7 @@ Biospecimen
 ===========
 
 The 
-`Biospecimen_data <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.Biospecimen_data>`_ 
+`Biospecimen_data <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201607_beta.Biospecimen_data>`_ 
 table contains one row per TCGA sample.  Each TCGA sample is
 uniquely represented by a 
 `TCGA barcode <https://wiki.nci.nih.gov/display/TCGA/TCGA+barcode>`_
@@ -28,13 +28,9 @@ Filters
 -  Samples for which ``is\_ffpe=True`` were removed.
 -  Patients or Samples for which ``Project`` value was *not* ``TCGA`` were removed.
 
-Transforms
-----------
+The following fields were extracted from the ssf XML file: 
 
--  ``pregnancies`` and ``total_number_of_pregnancies`` were merged into a
-   single ``pregnancies`` field. Counts above four are represented as
-   ``4+`` (e.g: [0,1,2,3,4+])
--  ``number\_of\_lymphnodes\_examined`` and ``lymph\_node\_examined\_count`` were
-   merged into a single ``number\_of\_lymphnodes\_examined`` field
-
-
+- ``days\_to\_sample\_procurement``
+- ``tissue\_anatomic\_site``
+- ``tissue\_anatomic\_site\_description``
+- ``tissue\_anatomic\_site``
