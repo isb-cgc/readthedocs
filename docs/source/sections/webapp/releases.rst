@@ -2,6 +2,37 @@
 Release Notes
 *************
 
+*  **November 30, 2016**: `v1.13 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.13>`_
+    
+    NOTE 1: We have removed Google Genomics functionality from the user interface. You will still be able to access CCLE open access data in Google Genomics from the command line. We are open to adding Google Genomics controlled data back into the user interface if you have a use case for it.  Also we are restructuring the handling of multiple Programs of data. Please feel free to provide `feedback <https://groups.google.com/a/isb-cgc.org/forum/#!newtopic/feedback>`_. 
+
+    NOTE 2: There will be a reduced number of releases and features over the next month (or so) while we do some rework required for enabling the distribution of additional data sets and types copied from the NCI GDC.  The new data type is TARGET data, and different analyzed data types are based on the hg38 genome builds.  Stay tuned in likely the early part of 2017.
+
+    **Known issues in Sprint 14 as of 11/30/2016**
+    
+    - Analysis Type : Seq peek Formatting Elongated 
+    - The CCLE data in GUI is not parallel to the CCLE data in BigQuery. 
+    - User will occasionally be sent to the Social Network Login page when trying to login. If this occurs, please go the the home page of the Web Application and try again. 
+    - If the user shares a cohort they do not receive a confirmation email. 
+    - Cannot plot any data if you use CCLE data cohort on a worksheet. 
+    - When a user duplicates a worksheet, then tries to implement the log scale it will not function properly. 
+    - If a researcher leaves the workbooks inactive the page freezes. 
+    - On the existing cohort list page for the delete button, select the blue x does nothing. It should be disabled. 
+    - On the cohort view files page there are capitalization bugs on the Platform filter. 
+    - Swap values is not working properly for the plot settings. 
+    - Some plot setting are saved or retrieved when working with worksheets. 
+    - The set operation for existing cohorts intersection is behaving exceptionally slow.
+
+    **Issues that are resolved in Sprint 14 as of 11/30/2016**
+    
+    Bug Fixes
+    
+    - The user can no longer see BCGSC expression as an option when plotting genes if user does not select center filter on worksheet. 
+    - Worksheets added to an existing workbook now behave the same as the original worksheet.
+    - Cohort set operations no longer performing exceptionally slow.
+
+    
+    
 *  **November 16, 2016**: `v1.12 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.12>`_
 
     Please Note: We are removing Google Genomics from the user interface. You will still be able to access CCLE open access data in Google Genomics from the command line. We are open to adding Google Genomics controlled data back into the user interface if you have a use case for it. Please feel free to provide `feedback <https://groups.google.com/a/isb-cgc.org/forum/#!newtopic/feedback>`_.
