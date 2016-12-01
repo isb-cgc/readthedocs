@@ -302,8 +302,6 @@ If successful, this method returns a response body with the following structure:
 	data_details[].DataLevel, string, "Level of the type of data, depending on where it is stored in the DCC directory structure. Data levels are defined by TCGA DCC."
 	data_details[].Datatype, string, "Data type, e.g. Complete Clinical Set, CNV (SNP Array), DNA Methylation, Expression-Protein, Fragment Analysis Results, miRNASeq, Protected Mutations, RNASeq, RNASeqV2, Somatic Mutations, TotalRNASeqV."
 	data_details[].GenomeReference, string, "Allows a center to associate results with a specific genome build that was used as the basis for analysis, e.g. hg19 (GRCh37)"
-	data_details[].GG_dataset_id, string, "Google genomics dataset id."
-	data_details[].GG_readgroupset_id, string, "Google genomics readgroupset id."
 	data_details[].Pipeline, string, "A combination of the center and the platform that can distinguish between two ways of performing the sequencing or assay for the same platform, e.g. bcgsc.ca__miRNASeq."
 	data_details[].Platform, string, "A platform (within the scope of TCGA) is a vendor-specific technology for assaying or sequencing that could possibly be customized by a GSC or CGCC, e.g. IlluminaHiSeq_miRNASeq."
 	data_details[].platform_full_name, string, "The full name of the sequencing platform used, e.g. Illumina HiSeq 2000, Ion Torrent PGM, AB SOLiD System 2.0."
@@ -314,3 +312,6 @@ If successful, this method returns a response body with the following structure:
 	data_details[].SecurityProtocol, string, "An indication of the security protocol necessary to fulfill in order to access the data from the file, e.g. DBGap Protected Access, DBGap Open Access"
 	data_details_count, integer, "Number of files associated with the sample barcode."
 	patient, string, "Patient barcode."
+
+..  data_details[].GG_dataset_id, string, "Google genomics dataset id."
+..  data_details[].GG_readgroupset_id, string, "Google genomics readgroupset id."
