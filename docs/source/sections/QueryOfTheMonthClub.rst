@@ -121,17 +121,17 @@ The BigQuery
 			hg38.geneID,
 			hg38.gene_name )
 		SELECT
-		gene_id,
-		gene_name,
-		gexpPearsonCorr,
-		gexpSpearmanCorr,
-		(gexpSpearmanCorr-gexpPearsonCorr) AS deltaCorr
+			gene_id,
+			gene_name,
+			gexpPearsonCorr,
+			gexpSpearmanCorr,
+			(gexpSpearmanCorr-gexpPearsonCorr) AS deltaCorr
 		FROM
-		JoinAndCorr
+			JoinAndCorr
 		WHERE
-		IS_NAN(gexpSpearmanCorr) = FALSE
+			IS_NAN(gexpSpearmanCorr) = FALSE
 		ORDER BY
-		gexpSpearmanCorr DESC
+			gexpSpearmanCorr DESC
 
 
 The results of the query were saved to a table, which allowed us to write
@@ -154,7 +154,7 @@ Visualizations
 --------------
 
 
-.. figure:: query_figs/correlation_btw_hg19_hg38.jpg
+.. figure:: query_figs/correlation_btw_hg19_hg38_v2.jpg
    :scale: 100
    :align: center
 
@@ -213,34 +213,39 @@ Visualizations
 Rscript
 -------
 
+Newer bigrquery package versions support using standard SQL, so make sure you're up to date.
+
+
 .. code-block:: r
+
+	library(devtools)
+	devtools::install_github("rstats-db/bigrquery")
 
   library(bigrquery)
   library(ggplot2)
 	library(stringr)
 
-  # after removing the quantiles statement and
 	# saving the above query as a string variable named 'q'
 
-	res1 <- query_exec(q, project='isb-cgc-xx-xyzw')
+	res1 <- query_exec(q, project='isb-cgc-xx-xyzw', useLegacySql = FALSE)
 
 	dim(res1)
 	# [1] 20119     3
 
 	ys <- c(0.5, 0.9, 0.95, 0.99)
-	xs <- c(961, 2927, 6379,16670)
+  ls <- sapply(1:4, function(i) sum(res1$gexpPearsonCorr < ys[i]))
 
-	qplot(x=1:20119, y=sort(res1$gexpCorr)) + geom_line() +
+	qplot(x=1:20119, y=sort(res1$gexpPearsonCorr)) + geom_line() +
   geom_hline(yintercept = ys, col='grey', lty=2) +
-  geom_vline(xintercept = xs, col='grey', lty=2) +
-  annotate(geom="text", label="961", x=961, y=0) +
-  annotate(geom="text", label="2927", x=2927, y=0) +
-  annotate(geom="text", label="6379", x=6379, y=0) +
-  annotate(geom="text", label="16670", x=16670, y=0) +
-  annotate(geom="text", label="50", y=.50, x=0) +
-  annotate(geom="text", label="90", y=.90, x=0) +
-  annotate(geom="text", label="95", y=.95, x=0) +
-  annotate(geom="text", label="99", y=.99, x=0) +
+  geom_vline(xintercept = ls, col='grey', lty=2) +
+  annotate(geom="text", label=ls[1], x=ls[1], y=0) +
+  annotate(geom="text", label=ls[2], x=ls[2], y=0) +
+  annotate(geom="text", label=ls[3], x=ls[3], y=0) +
+  annotate(geom="text", label=ls[4], x=ls[4], y=0) +
+  annotate(geom="text", label="50", y=ys[1], x=0) +
+  annotate(geom="text", label="90", y=ys[2], x=0) +
+  annotate(geom="text", label="95", y=ys[3], x=0) +
+  annotate(geom="text", label="99", y=ys[4], x=0) +
   xlab("20,119 genes sorted by correlation value") +
   ylab("Pearson correlation between hg38.a.expFPKM and hg19.normalized_count") +
   ggtitle("Pearson correlation between hg38.a.expFPKM and hg19.normalized_count") +
@@ -248,20 +253,23 @@ Rscript
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"))
 
+  # As an exercise, you could make the above plot with Spearman's correlations.
+
+
 	# Then let's take a look at a few genes with good and bad correlations.
 	# I did that by modifying the above query. First I removed the quantiles bit,
 	# then I broke up the correlation statement and added the hg38.SampleID
 	# so we'd get a gene expression value for each sample.
 
-	res1[which(res1$gexpCorr > 0.999),]
+	res1[which(res1$gexpPearsonCorr > 0.995),]
 
 	# One interesting thing, is that when the correlation is below 0.5,
 	# many of the gene species showing up are snoRNAs.
 
-	sum(res1$gexpCorr < 0.5)
-  #[1] 960
-	sum(str_detect(pattern="SNOR", string=res1[which(res1$gexpCorr < 0.5),2]))
-  [1] 383
+	sum(res1$gexpPearsonCorr < 0.5)
+  #[1] 918
+	sum(str_detect(pattern="SNOR", string=res1[which(res1$gexpPearsonCorr < 0.5),2]))
+  [1] 370
 
 	q <- "
 	  SELECT
