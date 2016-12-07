@@ -17,18 +17,17 @@ This month's query comes from our own Sheila Reynolds. Thanks Sheila!
 
 Description
 -----------
-Sheila writes, "I wanted to have a look at Michael's new hg38 TCGA gene expression
-data table, based on the newest data from the GDC (coming soon!
-isb-cgc:GDC_data_open.TCGA_GeneExpressionQuantification).
+Sheila writes, "I wanted to have a look at our new hg38 TCGA gene expression
+table which is based on the newest data from the GDC (coming soon!).
 I was thinking about maybe picking one highly-variable gene and then doing a
 scatter-plot of the hg19 vs hg38 data to see how things looked. But once I got
-started I got more and more ambitious. I finally ended up with the following ~50
-line query which computes the correlation between the hg19 and the hg38 expression
-values for each gene, and then calculates deciles across all of the correlation
-coefficients and finally outputs them as a short little table (see below) --
-80% of the correlation coefficients are > 0.92, and the median is nearly 0.97"
+started I got more and more ambitious. I finally ended up with the following query
+which computes the correlation (both Pearson and Spearman's) between the hg19 and
+the hg38 expression values for each gene, and then calculates deciles across all
+of the correlation coefficients and finally outputs them as a short little table
+80% of the correlation coefficients are > 0.84, and the median is 0.93"
 
-The query took a grand total of 33s, and processed 34GB of data.
+The query took a grand total of 28.9s, and processed 34GB of data.
 
 
 The BigQuery
@@ -36,66 +35,118 @@ The BigQuery
 
 .. code-block:: sql
 
-	SELECT
-	  QUANTILES ( gexpCorr, 11 )
-	FROM (
-	  SELECT
-	    hg38.a.geneID,
-	    hg38.b.gene_name,
-	    CORR(hg38.a.expFPKM,hg19.normalized_count) AS gexpCorr
-	  FROM (
-	      # this nearly-outermost SELECT results in the lined-up hg38 and hg19 expression
-	      # for all samples and all genes -- for a total of ~224M rows
-	    SELECT
-	      hg38.a.sampleID,
-	      hg38.a.geneID,
-	      hg38.b.gene_name,
-	      hg38.a.expFPKM,
-	      hg19.normalized_count
-	    FROM (
-	        # from these two SELECTs + JOIN, we get a.sampleID, a.geneID, b.gene_name, and a.expFPKM
-	        # with a total of ~669M rows
-	      SELECT
-	        a.sampleID,
-	        a.geneID,
-	        b.gene_name,
-	        a.expFPKM,
-	      FROM (
-	          # this next bit returns a table that is too large and requires 'allow large results'
-	          # but anyway, it has sampleID, geneID, expFPKM (for 671M rows)
-	        SELECT
-	          SamplesSubmitterID AS sampleID,
-	          Ensembl_gene_ID AS geneID,
-	          HTSeq__FPKM AS expFPKM
-	        FROM
-	          [isb-cgc:GDC_data_open.TCGA_GeneExpressionQuantification] ) a
-	      JOIN EACH (
-	          # this next bit gets ~60k rows of gene_id and gene_name from GENCODE_v24
-	        SELECT
-	          gene_id,
-	          gene_name
-	        FROM
-	          [isb-cgc:genome_reference.GENCODE_v24]
-	        WHERE
-	          feature="gene" ) b
-	      ON
-	        a.geneID=b.gene_id ) hg38
-	    JOIN EACH (
-	        # this select results in ~228M rows of hg19 data ...
-	      SELECT
-	        SampleBarcode,
-	        HGNC_gene_symbol,
-	        normalized_count,
-	      FROM
-	        [isb-cgc:tcga_201607_beta.mRNA_UNC_RSEM] ) hg19
-	    ON
-	      hg38.a.sampleID=hg19.SampleBarcode
-	      AND hg38.b.gene_name=hg19.HGNC_gene_symbol )
-	  GROUP BY
-	    hg38.a.geneID,
-	    hg38.b.gene_name
-	  HAVING
-	    gexpCorr IS NOT null )
+		WITH
+		--
+		-- *GdcGene*
+		-- We start by extracting gene-expression data from the new GDC/hg38-based
+		-- table in the isb-cgc:hg38_data_previews dataset.  For each row, we
+		-- extract simply the SamplesSubmitterID (aka the TCGA sample barcode),
+		-- the Ensembl gene ID (eg ENSG00000182253), and the FPKM value.  The input
+		-- table has ~671M rows and many more fields, but we just need these 3.
+		GdcGene AS (
+		SELECT
+			SamplesSubmitterID AS sampleID,
+			Ensembl_gene_ID AS geneID,
+			HTSeq__FPKM AS expFPKM
+		FROM
+			`isb-cgc.hg38_data_previews.TCGA_GeneExpressionQuantification` ),
+		--
+		-- *GeneRef*
+		-- Next, we're going to get the gene-id to gene-symbol mapping from the GENCODE
+		-- reference table because the GDC table reference above contains only the gene-id
+		-- while the expression data we want to compare that to contains gene symbols.
+		GeneRef AS (
+		SELECT
+			gene_id,
+			gene_name
+		FROM
+			`isb-cgc.genome_reference.GENCODE_v24`
+		WHERE
+			feature="gene" ),
+		--
+		-- *Hg38*
+		-- Now we'll join the two tables above to annotate the GDC expression data with gene-symbols,
+		-- and we'll call it Hg38.  We're also going to create a ranking of the expression values
+		-- so that we can compute a Spearman correlation later on.
+		Hg38 AS (
+		SELECT
+			GdcGene.sampleID,
+			GdcGene.geneID,
+			GeneRef.gene_name,
+			GdcGene.expFPKM,
+			DENSE_RANK() OVER (PARTITION BY GdcGene.geneID ORDER BY GdcGene.expFPKM ASC) AS rankFPKM
+		FROM
+			GdcGene
+		JOIN
+			GeneRef
+		ON
+			GdcGene.geneID = GeneRef.gene_id ),
+		--
+		-- *Hg19*
+		-- Now, we'll get the older hg19-based TCGA gene expression data that was generated
+		-- by UNC using RSEM.  This table has ~228M rows and we're just going to extract
+		-- the sample-barcode, the gene-symbol, the normalized-count, and the platform (since
+			-- this data ws produced on two different platforms and this might be relevant later).
+		-- As above, we will also create ranking of the expression values.
+		Hg19 AS (
+		SELECT
+			SampleBarcode,
+			HGNC_gene_symbol,
+			normalized_count,
+			DENSE_RANK() OVER (PARTITION BY HGNC_gene_symbol ORDER BY normalized_count ASC) AS rankRSEM,
+			Platform
+		FROM
+			`isb-cgc.tcga_201607_beta.mRNA_UNC_RSEM`
+		WHERE
+			HGNC_gene_symbol IS NOT NULL ),
+		--
+		-- *JoinAndCorr*
+		-- Finally, we join the two tables and compute correlations
+		JoinAndCorr AS (
+		SELECT
+			hg38.geneID AS gene_id,
+			hg38.gene_name AS gene_name,
+			CORR(LOG10(hg38.expFPKM+1),
+				LOG10(hg19.normalized_count+1)) AS gexpPearsonCorr,
+			CORR(hg38.rankFPKM,
+				hg19.rankRSEM) AS gexpSpearmanCorr
+		FROM
+			Hg19
+		JOIN
+			Hg38
+		ON
+			hg38.sampleID=hg19.SampleBarcode
+			AND hg38.gene_name=hg19.HGNC_gene_symbol
+		GROUP BY
+			hg38.geneID,
+			hg38.gene_name )
+		SELECT
+		gene_id,
+		gene_name,
+		gexpPearsonCorr,
+		gexpSpearmanCorr,
+		(gexpSpearmanCorr-gexpPearsonCorr) AS deltaCorr
+		FROM
+		JoinAndCorr
+		WHERE
+		IS_NAN(gexpSpearmanCorr) = FALSE
+		ORDER BY
+		gexpSpearmanCorr DESC
+
+
+The results of the query were saved to a table, which allowed us to write
+queries to examine the results over the 20K+ genes.
+
+
+.. code-blocks:: sql
+
+		SELECT
+		  APPROX_QUANTILES ( gexpPearsonCorr, 10 ) AS PearsonQ,
+		  APPROX_QUANTILES ( gexpSpearmanCorr, 10 ) AS SpearmanQ,
+		  APPROX_QUANTILES ( deltaCorr, 10 ) AS deltaQ
+		FROM
+		  `isb-cgc-02-0001.Daves_working_area.hg19_vs_hg38_results`
+
 
 ------------
 
