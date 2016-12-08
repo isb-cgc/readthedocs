@@ -35,106 +35,106 @@ The BigQuery
 
 .. code-block:: sql
 
-		WITH
-		--
-		-- *GdcGene*
-		-- We start by extracting gene-expression data from the new GDC/hg38-based
-		-- table in the isb-cgc:hg38_data_previews dataset.  For each row, we
-		-- extract simply the SamplesSubmitterID (aka the TCGA sample barcode),
-		-- the Ensembl gene ID (eg ENSG00000182253), and the FPKM value.  The input
-		-- table has ~671M rows and many more fields, but we just need these 3.
-		GdcGene AS (
-		SELECT
-			SamplesSubmitterID AS sampleID,
-			Ensembl_gene_ID AS geneID,
-			HTSeq__FPKM AS expFPKM
-		FROM
-			`isb-cgc.hg38_data_previews.TCGA_GeneExpressionQuantification` ),
-		--
-		-- *GeneRef*
-		-- Next, we're going to get the gene-id to gene-symbol mapping from the GENCODE
-		-- reference table because the GDC table reference above contains only the gene-id
-		-- while the expression data we want to compare that to contains gene symbols.
-		GeneRef AS (
-		SELECT
-			gene_id,
-			gene_name
-		FROM
-			`isb-cgc.genome_reference.GENCODE_v24`
-		WHERE
-			feature="gene" ),
-		--
-		-- *Hg38*
-		-- Now we'll join the two tables above to annotate the GDC expression data with gene-symbols,
-		-- and we'll call it Hg38.  We're also going to create a ranking of the expression values
-		-- so that we can compute a Spearman correlation later on.
-		Hg38 AS (
-		SELECT
-			GdcGene.sampleID,
-			GdcGene.geneID,
-			GeneRef.gene_name,
-			GdcGene.expFPKM,
-			DENSE_RANK() OVER (PARTITION BY GdcGene.geneID ORDER BY GdcGene.expFPKM ASC) AS rankFPKM
-		FROM
-			GdcGene
-		JOIN
-			GeneRef
-		ON
-			GdcGene.geneID = GeneRef.gene_id ),
-		--
-		-- *Hg19*
-		-- Now, we'll get the older hg19-based TCGA gene expression data that was generated
-		-- by UNC using RSEM.  This table has ~228M rows and we're just going to extract
-		-- the sample-barcode, the gene-symbol, the normalized-count, and the platform (since
-			-- this data ws produced on two different platforms and this might be relevant later).
-		-- As above, we will also create ranking of the expression values.
-		Hg19 AS (
-		SELECT
-			SampleBarcode,
-			HGNC_gene_symbol,
-			normalized_count,
-			DENSE_RANK() OVER (PARTITION BY HGNC_gene_symbol ORDER BY normalized_count ASC) AS rankRSEM,
-			Platform
-		FROM
-			`isb-cgc.tcga_201607_beta.mRNA_UNC_RSEM`
-		WHERE
-			HGNC_gene_symbol IS NOT NULL ),
-		--
-		-- *JoinAndCorr*
-		-- Finally, we join the two tables and compute correlations
-		JoinAndCorr AS (
-		SELECT
-			hg38.geneID AS gene_id,
-			hg38.gene_name AS gene_name,
-			CORR(LOG10(hg38.expFPKM+1),
-				LOG10(hg19.normalized_count+1)) AS gexpPearsonCorr,
-			CORR(hg38.rankFPKM,
-				hg19.rankRSEM) AS gexpSpearmanCorr
-		FROM
-			Hg19
-		JOIN
-			Hg38
-		ON
-			hg38.sampleID=hg19.SampleBarcode
-			AND hg38.gene_name=hg19.HGNC_gene_symbol
-		GROUP BY
-			hg38.geneID,
-			hg38.gene_name )
-		--
-		-- Lastly, we make one last select
-		-- to get a difference between Pearson and Spearman correlations.
-		SELECT
-			gene_id,
-			gene_name,
-			gexpPearsonCorr,
-			gexpSpearmanCorr,
-			(gexpSpearmanCorr-gexpPearsonCorr) AS deltaCorr
-		FROM
-			JoinAndCorr
-		WHERE
-			IS_NAN(gexpSpearmanCorr) = FALSE
-		ORDER BY
-			gexpSpearmanCorr DESC
+    WITH
+    --
+    -- *GdcGene*
+    -- We start by extracting gene-expression data from the new GDC/hg38-based
+    -- table in the isb-cgc:hg38_data_previews dataset.  For each row, we
+    -- extract simply the SamplesSubmitterID (aka the TCGA sample barcode),
+    -- the Ensembl gene ID (eg ENSG00000182253), and the FPKM value.  The input
+    -- table has ~671M rows and many more fields, but we just need these 3.
+    GdcGene AS (
+    SELECT
+      SamplesSubmitterID AS sampleID,
+      Ensembl_gene_ID AS geneID,
+      HTSeq__FPKM AS expFPKM
+    FROM
+      `isb-cgc.hg38_data_previews.TCGA_GeneExpressionQuantification` ),
+    --
+    -- *GeneRef*
+    -- Next, we're going to get the gene-id to gene-symbol mapping from the GENCODE
+    -- reference table because the GDC table reference above contains only the gene-id
+    -- while the expression data we want to compare that to contains gene symbols.
+    GeneRef AS (
+    SELECT
+      gene_id,
+      gene_name
+    FROM
+      `isb-cgc.genome_reference.GENCODE_v24`
+    WHERE
+      feature="gene" ),
+    --
+    -- *Hg38*
+    -- Now we'll join the two tables above to annotate the GDC expression data with gene-symbols,
+    -- and we'll call it Hg38.  We're also going to create a ranking of the expression values
+    -- so that we can compute a Spearman correlation later on.
+    Hg38 AS (
+    SELECT
+      GdcGene.sampleID,
+      GdcGene.geneID,
+      GeneRef.gene_name,
+      GdcGene.expFPKM,
+      DENSE_RANK() OVER (PARTITION BY GdcGene.geneID ORDER BY GdcGene.expFPKM ASC) AS rankFPKM
+    FROM
+      GdcGene
+    JOIN
+      GeneRef
+    ON
+      GdcGene.geneID = GeneRef.gene_id ),
+    --
+    -- *Hg19*
+    -- Now, we'll get the older hg19-based TCGA gene expression data that was generated
+    -- by UNC using RSEM.  This table has ~228M rows and we're just going to extract
+    -- the sample-barcode, the gene-symbol, the normalized-count, and the platform (since
+      -- this data ws produced on two different platforms and this might be relevant later).
+    -- As above, we will also create ranking of the expression values.
+    Hg19 AS (
+    SELECT
+      SampleBarcode,
+      HGNC_gene_symbol,
+      normalized_count,
+      DENSE_RANK() OVER (PARTITION BY HGNC_gene_symbol ORDER BY normalized_count ASC) AS rankRSEM,
+      Platform
+    FROM
+      `isb-cgc.tcga_201607_beta.mRNA_UNC_RSEM`
+    WHERE
+      HGNC_gene_symbol IS NOT NULL ),
+    --
+    -- *JoinAndCorr*
+    -- Finally, we join the two tables and compute correlations
+    JoinAndCorr AS (
+    SELECT
+      hg38.geneID AS gene_id,
+      hg38.gene_name AS gene_name,
+      CORR(LOG10(hg38.expFPKM+1),
+        LOG10(hg19.normalized_count+1)) AS gexpPearsonCorr,
+      CORR(hg38.rankFPKM,
+        hg19.rankRSEM) AS gexpSpearmanCorr
+    FROM
+      Hg19
+    JOIN
+      Hg38
+    ON
+      hg38.sampleID=hg19.SampleBarcode
+      AND hg38.gene_name=hg19.HGNC_gene_symbol
+    GROUP BY
+      hg38.geneID,
+      hg38.gene_name )
+    --
+    -- Lastly, we make one last select
+    -- to get a difference between Pearson and Spearman correlations.
+    SELECT
+      gene_id,
+      gene_name,
+      gexpPearsonCorr,
+      gexpSpearmanCorr,
+      (gexpSpearmanCorr-gexpPearsonCorr) AS deltaCorr
+    FROM
+      JoinAndCorr
+    WHERE
+      IS_NAN(gexpSpearmanCorr) = FALSE
+    ORDER BY
+      gexpSpearmanCorr DESC
 
 
 The results of the query were saved to a table, which allowed us to write
@@ -143,12 +143,12 @@ queries to examine the results over the 20K+ genes.
 
 .. code-blocks:: sql
 
-		SELECT
-		  APPROX_QUANTILES ( gexpPearsonCorr, 10 ) AS PearsonQ,
-		  APPROX_QUANTILES ( gexpSpearmanCorr, 10 ) AS SpearmanQ,
-		  APPROX_QUANTILES ( deltaCorr, 10 ) AS deltaQ
-		FROM
-		  `isb-cgc-02-0001.Daves_working_area.hg19_vs_hg38_results`
+    SELECT
+      APPROX_QUANTILES ( gexpPearsonCorr, 10 ) AS PearsonQ,
+      APPROX_QUANTILES ( gexpSpearmanCorr, 10 ) AS SpearmanQ,
+      APPROX_QUANTILES ( deltaCorr, 10 ) AS deltaQ
+    FROM
+      `isb-cgc-02-0001.Daves_working_area.hg19_vs_hg38_results`
 
 
 ------------
@@ -220,152 +220,152 @@ Newer bigrquery package versions support using standard SQL, so make sure you're
 
 .. code-block:: r
 
-	library(devtools)
-	devtools::install_github("rstats-db/bigrquery")
+  library(devtools)
+  devtools::install_github("rstats-db/bigrquery")
 
-	library(bigrquery)
-	library(ggplot2)
-	library(stringr)
+  library(bigrquery)
+  library(ggplot2)
+  library(stringr)
 
-	# saving the above query as a string variable named 'q'
+  # saving the above query as a string variable named 'q'
 
-	res1 <- query_exec(q, project='isb-cgc-xx-xyzw', useLegacySql = FALSE)
+  res1 <- query_exec(q, project='isb-cgc-xx-xyzw', useLegacySql = FALSE)
 
-	dim(res1)
-	# [1] 20119     3
+  dim(res1)
+  # [1] 20119     3
 
-	ys <- c(0.5, 0.9, 0.95, 0.99)
-	ls <- sapply(1:4, function(i) sum(res1$gexpPearsonCorr < ys[i]))
+  ys <- c(0.5, 0.9, 0.95, 0.99)
+  ls <- sapply(1:4, function(i) sum(res1$gexpPearsonCorr < ys[i]))
 
-	qplot(x=1:20119, y=sort(res1$gexpPearsonCorr)) + geom_line() +
-	geom_hline(yintercept = ys, col='grey', lty=2) +
-	geom_vline(xintercept = ls, col='grey', lty=2) +
-	annotate(geom="text", label=ls[1], x=ls[1], y=0) +
-	annotate(geom="text", label=ls[2], x=ls[2], y=0) +
-	annotate(geom="text", label=ls[3], x=ls[3], y=0) +
-	annotate(geom="text", label=ls[4], x=ls[4], y=0) +
-	annotate(geom="text", label="50", y=ys[1], x=0) +
-	annotate(geom="text", label="90", y=ys[2], x=0) +
-	annotate(geom="text", label="95", y=ys[3], x=0) +
-	annotate(geom="text", label="99", y=ys[4], x=0) +
-	xlab("20,119 genes sorted by correlation value") +
-	ylab("Pearson correlation between hg38.a.expFPKM and hg19.normalized_count") +
-	ggtitle("Pearson correlation between hg38.a.expFPKM and hg19.normalized_count") +
-	theme_bw() +
-	theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-				panel.background = element_blank(), axis.line = element_line(colour = "black"))
+  qplot(x=1:20119, y=sort(res1$gexpPearsonCorr)) + geom_line() +
+  geom_hline(yintercept = ys, col='grey', lty=2) +
+  geom_vline(xintercept = ls, col='grey', lty=2) +
+  annotate(geom="text", label=ls[1], x=ls[1], y=0) +
+  annotate(geom="text", label=ls[2], x=ls[2], y=0) +
+  annotate(geom="text", label=ls[3], x=ls[3], y=0) +
+  annotate(geom="text", label=ls[4], x=ls[4], y=0) +
+  annotate(geom="text", label="50", y=ys[1], x=0) +
+  annotate(geom="text", label="90", y=ys[2], x=0) +
+  annotate(geom="text", label="95", y=ys[3], x=0) +
+  annotate(geom="text", label="99", y=ys[4], x=0) +
+  xlab("20,119 genes sorted by correlation value") +
+  ylab("Pearson correlation between hg38.a.expFPKM and hg19.normalized_count") +
+  ggtitle("Pearson correlation between hg38.a.expFPKM and hg19.normalized_count") +
+  theme_bw() +
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"))
 
-	# As an exercise, you could make the above plot with Spearman's correlations.
-
-
-	# Then let's take a look at a few genes with good and bad correlations.
-	# I did that by modifying the above query. First I removed the quantiles bit,
-	# then I broke up the correlation statement and added the hg38.SampleID
-	# so we'd get a gene expression value for each sample.
-
-	res1[which(res1$gexpPearsonCorr > 0.995),]
-
-	# One interesting thing, is that when the correlation is below 0.5,
-	# many of the gene species showing up are snoRNAs.
-
-	sum(res1$gexpPearsonCorr < 0.5)
-	#[1] 918
-	sum(str_detect(pattern="SNOR", string=res1[which(res1$gexpPearsonCorr < 0.5),2]))
-	[1] 370
-
-	q <- "
-		SELECT
-			hg38.a.sampleID,
-			hg38.a.geneID,
-			hg38.b.gene_name,
-			hg38.a.expFPKM,
-			hg19.normalized_count
-			FROM (
-				SELECT
-					hg38.a.sampleID,
-					hg38.a.geneID,
-					hg38.b.gene_name,
-					hg38.a.expFPKM,
-					hg19.normalized_count
-				FROM (
-					SELECT
-						a.sampleID,
-						a.geneID,
-						b.gene_name,
-						a.expFPKM,
-					FROM (
-						SELECT
-							SamplesSubmitterID AS sampleID,
-							Ensembl_gene_ID AS geneID,
-							HTSeq__FPKM AS expFPKM
-						FROM
-							[isb-cgc:hg38_data_previews.TCGA_GeneExpressionQuantification] ) a
-				JOIN EACH (
-					SELECT
-						gene_id,
-						gene_name
-					FROM
-						[isb-cgc:genome_reference.GENCODE_v24]
-					WHERE
-						feature='gene' ) b
-					ON
-						a.geneID=b.gene_id ) hg38
-		JOIN EACH (
-			SELECT
-				SampleBarcode,
-				HGNC_gene_symbol,
-				normalized_count,
-			FROM
-				[isb-cgc:tcga_201607_beta.mRNA_UNC_RSEM] ) hg19
-			ON
-				hg38.a.sampleID=hg19.SampleBarcode
-				AND hg38.b.gene_name=hg19.HGNC_gene_symbol )
-		WHERE
-			hg38.b.gene_name = 'CCL7'
-		GROUP BY
-			hg38.a.sampleID,
-			hg38.a.geneID,
-			hg38.b.gene_name,
-			hg38.a.expFPKM,
-			hg19.normalized_count"
+  # As an exercise, you could make the above plot with Spearman's correlations.
 
 
-	# let's look at IL25
-	res4 <- query_exec(q, project="isb-cgc-02-0001")
+  # Then let's take a look at a few genes with good and bad correlations.
+  # I did that by modifying the above query. First I removed the quantiles bit,
+  # then I broke up the correlation statement and added the hg38.SampleID
+  # so we'd get a gene expression value for each sample.
 
-	qplot(x=res2$hg19_normalized_count, y=res2$hg38_a_expFPKM, main="IL25")
+  res1[which(res1$gexpPearsonCorr > 0.995),]
 
-	qplot(x=res2$hg19_normalized_count, y=res2$hg38_a_expFPKM, main="IL25", xlim=c(0,50), ylim=c(0,2)) + geom_smooth(method="lm")
+  # One interesting thing, is that when the correlation is below 0.5,
+  # many of the gene species showing up are snoRNAs.
 
-	# Suppose we have run a few queries for genes LIME1 and CCL7 using the above
-	# query. Then we can merge the two tables.
+  sum(res1$gexpPearsonCorr < 0.5)
+  #[1] 918
+  sum(str_detect(pattern="SNOR", string=res1[which(res1$gexpPearsonCorr < 0.5),2]))
+  [1] 370
 
-	resm <- merge(x=res2, y=res3, by=c("hg38_a_sampleID"))
-	qplot(x=resm$hg19_normalized_count.x, y=resm$hg19_normalized_count.y)
-	qplot(x=resm$hg38_a_expFPKM.x, y=resm$hg38_a_expFPKM.y)
+  q <- "
+    SELECT
+      hg38.a.sampleID,
+      hg38.a.geneID,
+      hg38.b.gene_name,
+      hg38.a.expFPKM,
+      hg19.normalized_count
+      FROM (
+        SELECT
+          hg38.a.sampleID,
+          hg38.a.geneID,
+          hg38.b.gene_name,
+          hg38.a.expFPKM,
+          hg19.normalized_count
+        FROM (
+          SELECT
+            a.sampleID,
+            a.geneID,
+            b.gene_name,
+            a.expFPKM,
+          FROM (
+            SELECT
+              SamplesSubmitterID AS sampleID,
+              Ensembl_gene_ID AS geneID,
+              HTSeq__FPKM AS expFPKM
+            FROM
+              [isb-cgc:hg38_data_previews.TCGA_GeneExpressionQuantification] ) a
+        JOIN EACH (
+          SELECT
+            gene_id,
+            gene_name
+          FROM
+            [isb-cgc:genome_reference.GENCODE_v24]
+          WHERE
+            feature='gene' ) b
+          ON
+            a.geneID=b.gene_id ) hg38
+    JOIN EACH (
+      SELECT
+        SampleBarcode,
+        HGNC_gene_symbol,
+        normalized_count,
+      FROM
+        [isb-cgc:tcga_201607_beta.mRNA_UNC_RSEM] ) hg19
+      ON
+        hg38.a.sampleID=hg19.SampleBarcode
+        AND hg38.b.gene_name=hg19.HGNC_gene_symbol )
+    WHERE
+      hg38.b.gene_name = 'CCL7'
+    GROUP BY
+      hg38.a.sampleID,
+      hg38.a.geneID,
+      hg38.b.gene_name,
+      hg38.a.expFPKM,
+      hg19.normalized_count"
 
 
-	# Perhaps it's a low expressed gene, and that's why we see noise in comparing
-	# hg19 and hg38.
-	q <- "
-	SELECT
-		HGNC_gene_symbol,
-		AVG(normalized_count),
-		Platform
-	FROM
-		`isb-cgc.tcga_201607_beta.mRNA_UNC_RSEM`
-	WHERE
-		HGNC_gene_symbol IS NOT NULL
-	group by
-		HGNC_gene_symbol,
-		Platform"
+  # let's look at IL25
+  res4 <- query_exec(q, project="isb-cgc-02-0001")
 
-	geneAvgs <- query_exec(q, project="isb-cgc-02-0001", useLegacySql=F)
+  qplot(x=res2$hg19_normalized_count, y=res2$hg38_a_expFPKM, main="IL25")
 
-	qplot(data=geneAvgs, f0_, geom="density", xlim=c(-1, 1000)) +
-	geom_vline(xintercept=geneAvgs[geneAvgs$HGNC_gene_symbol == "LIME1",2])
+  qplot(x=res2$hg19_normalized_count, y=res2$hg38_a_expFPKM, main="IL25", xlim=c(0,50), ylim=c(0,2)) + geom_smooth(method="lm")
 
-	# No, not the lowest of low expressed genes.
+  # Suppose we have run a few queries for genes LIME1 and CCL7 using the above
+  # query. Then we can merge the two tables.
+
+  resm <- merge(x=res2, y=res3, by=c("hg38_a_sampleID"))
+  qplot(x=resm$hg19_normalized_count.x, y=resm$hg19_normalized_count.y)
+  qplot(x=resm$hg38_a_expFPKM.x, y=resm$hg38_a_expFPKM.y)
+
+
+  # Perhaps it's a low expressed gene, and that's why we see noise in comparing
+  # hg19 and hg38.
+  q <- "
+  SELECT
+    HGNC_gene_symbol,
+    AVG(normalized_count),
+    Platform
+  FROM
+    `isb-cgc.tcga_201607_beta.mRNA_UNC_RSEM`
+  WHERE
+    HGNC_gene_symbol IS NOT NULL
+  group by
+    HGNC_gene_symbol,
+    Platform"
+
+  geneAvgs <- query_exec(q, project="isb-cgc-02-0001", useLegacySql=F)
+
+  qplot(data=geneAvgs, f0_, geom="density", xlim=c(-1, 1000)) +
+  geom_vline(xintercept=geneAvgs[geneAvgs$HGNC_gene_symbol == "LIME1",2])
+
+  # No, not the lowest of low expressed genes.
 
 ------------
 
