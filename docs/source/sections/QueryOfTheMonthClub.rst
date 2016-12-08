@@ -170,7 +170,7 @@ Visualizations
    :scale: 100
    :align: center
 
-   This plot shows the EFGR log10 expression values for TCGA hg19 and GDC hg38 sources.
+   This plot shows the EFGR log10 expression values for both TCGA hg19 and GDC hg38 sources.
 
 ------------
 
