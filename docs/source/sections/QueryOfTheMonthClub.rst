@@ -208,8 +208,7 @@ Visualizations
    :scale: 100
    :align: center
 
-   This plot is zoomed in, and we can see that the actual relationship is slightly
-   more fuzzy.
+   Actually, only 959 genes have Spearman correlations < 0.5.
 
 ------------
 
@@ -300,7 +299,7 @@ Newer bigrquery package versions support using standard SQL, so make sure you're
 							Ensembl_gene_ID AS geneID,
 							HTSeq__FPKM AS expFPKM
 						FROM
-							[isb-cgc:GDC_data_open.TCGA_GeneExpressionQuantification] ) a
+							[isb-cgc:hg38_data_previews.TCGA_GeneExpressionQuantification] ) a
 				JOIN EACH (
 					SELECT
 						gene_id,
@@ -322,7 +321,7 @@ Newer bigrquery package versions support using standard SQL, so make sure you're
 				hg38.a.sampleID=hg19.SampleBarcode
 				AND hg38.b.gene_name=hg19.HGNC_gene_symbol )
 		WHERE
-			hg38.b.gene_name = 'IL25'
+			hg38.b.gene_name = 'CCL7'
 		GROUP BY
 			hg38.a.sampleID,
 			hg38.a.geneID,
@@ -332,13 +331,41 @@ Newer bigrquery package versions support using standard SQL, so make sure you're
 
 
 	# let's look at IL25
-	res2 <- query_exec(query_for_IL25, project="isb-cgc-02-0001")
+	res4 <- query_exec(q, project="isb-cgc-02-0001")
 
 	qplot(x=res2$hg19_normalized_count, y=res2$hg38_a_expFPKM, main="IL25")
 
 	qplot(x=res2$hg19_normalized_count, y=res2$hg38_a_expFPKM, main="IL25", xlim=c(0,50), ylim=c(0,2)) + geom_smooth(method="lm")
 
+	# Suppose we have run a few queries for genes LIME1 and CCL7 using the above
+	# query. Then we can merge the two tables.
 
+	resm <- merge(x=res2, y=res3, by=c("hg38_a_sampleID"))
+	qplot(x=resm$hg19_normalized_count.x, y=resm$hg19_normalized_count.y)
+	qplot(x=resm$hg38_a_expFPKM.x, y=resm$hg38_a_expFPKM.y)
+
+
+	# Perhaps it's a low expressed gene, and that's why we see noise in comparing
+	# hg19 and hg38.
+	q <- "
+	SELECT
+		HGNC_gene_symbol,
+		AVG(normalized_count),
+		Platform
+	FROM
+		`isb-cgc.tcga_201607_beta.mRNA_UNC_RSEM`
+	WHERE
+		HGNC_gene_symbol IS NOT NULL
+	group by
+		HGNC_gene_symbol,
+		Platform"
+
+	geneAvgs <- query_exec(q, project="isb-cgc-02-0001", useLegacySql=F)
+
+	qplot(data=geneAvgs, f0_, geom="density", xlim=c(-1, 1000)) +
+	geom_vline(xintercept=geneAvgs[geneAvgs$HGNC_gene_symbol == "LIME1",2])
+
+	# No, not the lowest of low expressed genes.
 
 ------------
 
