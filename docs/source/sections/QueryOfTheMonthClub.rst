@@ -120,6 +120,9 @@ The BigQuery
 		GROUP BY
 			hg38.geneID,
 			hg38.gene_name )
+		--
+		-- Lastly, we make one last select
+		-- to get a difference between Pearson and Spearman correlations.
 		SELECT
 			gene_id,
 			gene_name,
