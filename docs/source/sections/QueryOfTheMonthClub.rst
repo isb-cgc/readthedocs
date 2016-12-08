@@ -86,7 +86,7 @@ The BigQuery
     -- Now, we'll get the older hg19-based TCGA gene expression data that was generated
     -- by UNC using RSEM.  This table has ~228M rows and we're just going to extract
     -- the sample-barcode, the gene-symbol, the normalized-count, and the platform (since
-      -- this data ws produced on two different platforms and this might be relevant later).
+    -- this data ws produced on two different platforms and this might be relevant later).
     -- As above, we will also create ranking of the expression values.
     Hg19 AS (
     SELECT
@@ -166,49 +166,13 @@ Visualizations
 
 ------------
 
-.. figure:: query_figs/il25_zoomed_out.jpg
+.. figure:: query_figs/efgr_hg19_vs_hg38.jpg
    :scale: 100
    :align: center
 
-   This plot shows the expression values for TCGA hg19 and GDC hg38 sources
-   for IL25. We can see that the exceptional correlation (0.999) is caused by
-   an outlier.
+   This plot shows the EFGR log10 expression values for TCGA hg19 and GDC hg38 sources.
 
 ------------
-
-.. figure:: query_figs/il25_zoomed_in.jpg
-   :scale: 100
-   :align: center
-
-   This plot is zoomed in, and we can see that the actual relationship is slightly
-   more fuzzy.
-
-------------
-
-.. figure:: query_figs/ccl7_zoomed_out.jpg
-   :scale: 100
-   :align: center
-
-   This plot shows the expression values for TCGA hg19 and GDC hg38 sources
-   for CCL7. We can see that (again) the exceptional correlation (0.999) is caused by
-   an outlier.
-
-------------
-
-.. figure:: query_figs/ccl7_zoomed_in.jpg
-   :scale: 100
-   :align: center
-
-   This plot is zoomed in, and we can see that the actual relationship is slightly
-   more fuzzy.
-
-------------
-
-.. figure:: query_figs/lime1_zoomed_out.jpg
-   :scale: 100
-   :align: center
-
-   Only 918 genes have Spearman correlations < 0.5, and 370 are snoRNAs.
 
 ------------
 
@@ -255,117 +219,60 @@ Newer bigrquery package versions support using standard SQL, so make sure you're
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"))
 
+
   # As an exercise, you could make the above plot with Spearman's correlations.
 
 
-  # Then let's take a look at a few genes with good and bad correlations.
-  # I did that by modifying the above query. First I removed the quantiles bit,
-  # then I broke up the correlation statement and added the hg38.SampleID
-  # so we'd get a gene expression value for each sample.
-
-  res1[which(res1$gexpPearsonCorr > 0.995),]
-
-  # One interesting thing, is that when the correlation is below 0.5,
-  # many of the gene species showing up are snoRNAs.
-
-  sum(res1$gexpPearsonCorr < 0.5)
-  #[1] 918
-  sum(str_detect(pattern="SNOR", string=res1[which(res1$gexpPearsonCorr < 0.5),2]))
-  [1] 370
+  # Then let's take a look at one of our favorite genes, EGFR.
 
   q <- "
+    WITH
+    --
+    Hg38 AS (
     SELECT
-      hg38.a.sampleID,
-      hg38.a.geneID,
-      hg38.b.gene_name,
-      hg38.a.expFPKM,
-      hg19.normalized_count
-      FROM (
-        SELECT
-          hg38.a.sampleID,
-          hg38.a.geneID,
-          hg38.b.gene_name,
-          hg38.a.expFPKM,
-          hg19.normalized_count
-        FROM (
-          SELECT
-            a.sampleID,
-            a.geneID,
-            b.gene_name,
-            a.expFPKM,
-          FROM (
-            SELECT
-              SamplesSubmitterID AS sampleID,
-              Ensembl_gene_ID AS geneID,
-              HTSeq__FPKM AS expFPKM
-            FROM
-              [isb-cgc:hg38_data_previews.TCGA_GeneExpressionQuantification] ) a
-        JOIN EACH (
-          SELECT
-            gene_id,
-            gene_name
-          FROM
-            [isb-cgc:genome_reference.GENCODE_v24]
-          WHERE
-            feature='gene' ) b
-          ON
-            a.geneID=b.gene_id ) hg38
-    JOIN EACH (
-      SELECT
-        SampleBarcode,
-        HGNC_gene_symbol,
-        normalized_count,
-      FROM
-        [isb-cgc:tcga_201607_beta.mRNA_UNC_RSEM] ) hg19
-      ON
-        hg38.a.sampleID=hg19.SampleBarcode
-        AND hg38.b.gene_name=hg19.HGNC_gene_symbol )
+      SamplesSubmitterID AS sampleID,
+      Ensembl_gene_ID AS geneID,
+      HTSeq__FPKM AS expFPKM
+    FROM
+      `isb-cgc.hg38_data_previews.TCGA_GeneExpressionQuantification`
     WHERE
-      hg38.b.gene_name = 'CCL7'
+      Ensembl_gene_ID = 'ENSG00000146648'),
+    --
+    Hg19 AS (
+    SELECT
+      SampleBarcode,
+      HGNC_gene_symbol,
+      normalized_count,
+      Platform
+    FROM
+      `isb-cgc.tcga_201607_beta.mRNA_UNC_RSEM`
+    WHERE
+      HGNC_gene_symbol = 'EGFR' )
+    --
+    -- *Join and Get Expr*
+    SELECT
+      hg38.geneID AS gene_id,
+      hg19.HGNC_gene_symbol AS gene_name,
+      LOG10(hg38.expFPKM+1) as Log10_hg38,
+      LOG10(hg19.normalized_count+1) AS Log10_hg19
+    FROM
+      Hg19
+    JOIN
+      Hg38
+    ON
+      hg38.sampleID=hg19.SampleBarcode
     GROUP BY
-      hg38.a.sampleID,
-      hg38.a.geneID,
-      hg38.b.gene_name,
-      hg38.a.expFPKM,
-      hg19.normalized_count"
+      gene_id,
+      gene_name,
+      Log10_hg38,
+      Log10_hg19"
 
+  result <- query_exec(q, project="isb-cgc-02-0001", useLegacySql=F)
 
-  # let's look at IL25
-  res4 <- query_exec(q, project="isb-cgc-02-0001")
+  qplot(data=result, x=Log10_hg19, y=Log10_hg38, main="EGFR, hg19 vs hg38", xlab="Log10 hg19", ylab="Log10 hg38")
 
-  qplot(x=res2$hg19_normalized_count, y=res2$hg38_a_expFPKM, main="IL25")
-
-  qplot(x=res2$hg19_normalized_count, y=res2$hg38_a_expFPKM, main="IL25", xlim=c(0,50), ylim=c(0,2)) + geom_smooth(method="lm")
-
-  # Suppose we have run a few queries for genes LIME1 and CCL7 using the above
-  # query. Then we can merge the two tables.
-
-  resm <- merge(x=res2, y=res3, by=c("hg38_a_sampleID"))
-  qplot(x=resm$hg19_normalized_count.x, y=resm$hg19_normalized_count.y)
-  qplot(x=resm$hg38_a_expFPKM.x, y=resm$hg38_a_expFPKM.y)
-
-
-  # Perhaps it's a low expressed gene, and that's why we see noise in comparing
-  # hg19 and hg38.
-  q <- "
-  SELECT
-    HGNC_gene_symbol,
-    AVG(normalized_count),
-    Platform
-  FROM
-    `isb-cgc.tcga_201607_beta.mRNA_UNC_RSEM`
-  WHERE
-    HGNC_gene_symbol IS NOT NULL
-  group by
-    HGNC_gene_symbol,
-    Platform"
-
-  geneAvgs <- query_exec(q, project="isb-cgc-02-0001", useLegacySql=F)
-
-  qplot(data=geneAvgs, f0_, geom="density", xlim=c(-1, 1000)) +
-  geom_vline(xintercept=geneAvgs[geneAvgs$HGNC_gene_symbol == "LIME1",2])
-
-  # No, not the lowest of low expressed genes.
+  # As an exercise to the reader, try plotting some other genes. Maybe genes
+  # with both high and low correlations. What do you find?
 
 ------------
 
