@@ -17,9 +17,10 @@ Comparing the TCGA hg19 and GDC hg38 gene expression data.
 
 Description
 -----------
-This query compares gene expression builds from the TCGA hg19 RSEM and the
-new GDC hg38 FPKM (table coming soon!). Rather than look at one gene at
-a time, it's easy (and fast!) to look across all genes simultaneously.
+This query compares two gene expression builds. The first, from the TCGA, used
+the RSEM quantification method with the hg19 reference. The second is the
+new GDC data, quantified with the HTSeq method on the hg38 reference.
+Rather than look at one gene at a time, it's easy (and fast!) to look across all genes simultaneously.
 The following query includes gene reference tables and computes both
 Pearson and Spearman's correlation for each gene. After saving the results in a new
 table, we calculates deciles across all of the correlation coefficients and
@@ -46,7 +47,7 @@ The BigQuery
     SELECT
       SamplesSubmitterID AS sampleID,
       Ensembl_gene_ID AS geneID,
-      HTSeq__FPKM AS expFPKM
+      HTSeq__FPKM AS HTSeq_FPKM
     FROM
       `isb-cgc.hg38_data_previews.TCGA_GeneExpressionQuantification` ),
     --
@@ -61,7 +62,7 @@ The BigQuery
     FROM
       `isb-cgc.genome_reference.GENCODE_v24`
     WHERE
-      feature="gene" ),
+      feature='gene' ),
     --
     -- *Hg38*
     -- Now we'll join the two tables above to annotate the GDC expression data with gene-symbols,
@@ -72,8 +73,8 @@ The BigQuery
       GdcGene.sampleID,
       GdcGene.geneID,
       GeneRef.gene_name,
-      GdcGene.expFPKM,
-      DENSE_RANK() OVER (PARTITION BY GdcGene.geneID ORDER BY GdcGene.expFPKM ASC) AS rankFPKM
+      GdcGene.HTSeq_FPKM,
+      DENSE_RANK() OVER (PARTITION BY GdcGene.geneID ORDER BY GdcGene.HTSeq_FPKM ASC) AS rankHTSeq
     FROM
       GdcGene
     JOIN
@@ -91,7 +92,7 @@ The BigQuery
     SELECT
       SampleBarcode,
       HGNC_gene_symbol,
-      normalized_count,
+      normalized_count as RSEM_FPKM,
       DENSE_RANK() OVER (PARTITION BY HGNC_gene_symbol ORDER BY normalized_count ASC) AS rankRSEM,
       Platform
     FROM
@@ -105,9 +106,9 @@ The BigQuery
     SELECT
       hg38.geneID AS gene_id,
       hg38.gene_name AS gene_name,
-      CORR(LOG10(hg38.expFPKM+1),
-        LOG10(hg19.normalized_count+1)) AS gexpPearsonCorr,
-      CORR(hg38.rankFPKM,
+      CORR(LOG10(hg38.HTSeq_FPKM+1),
+        LOG10(hg19.RSEM_FPKM+1)) AS gexpPearsonCorr,
+      CORR(hg38.rankHTSeq,
         hg19.rankRSEM) AS gexpSpearmanCorr
     FROM
       Hg19
@@ -240,8 +241,8 @@ Newer bigrquery package versions support using standard SQL, so make sure you're
     SELECT
       SamplesSubmitterID AS sampleID,
       Ensembl_gene_ID AS geneID,
-      DENSE_RANK() OVER (PARTITION BY Ensembl_gene_ID ORDER BY HTSeq__FPKM ASC) AS rankFPKM,
-      HTSeq__FPKM AS expFPKM
+      DENSE_RANK() OVER (PARTITION BY Ensembl_gene_ID ORDER BY HTSeq__FPKM ASC) AS rankHTSeq,
+      HTSeq__FPKM AS HTseq_FPKM
     FROM
       `isb-cgc.hg38_data_previews.TCGA_GeneExpressionQuantification`
     WHERE
@@ -251,7 +252,7 @@ Newer bigrquery package versions support using standard SQL, so make sure you're
     SELECT
       SampleBarcode,
       HGNC_gene_symbol,
-      normalized_count as expRSEM,
+      normalized_count as RSEM_FPKM,
       DENSE_RANK() OVER (PARTITION BY HGNC_gene_symbol ORDER BY normalized_count ASC) AS rankRSEM,
       Platform
     FROM
@@ -263,10 +264,10 @@ Newer bigrquery package versions support using standard SQL, so make sure you're
     SELECT
       hg38.geneID AS gene_id,
       hg19.HGNC_gene_symbol AS gene_name,
-      LOG10(hg38.expFPKM+1) as Log10_hg38_FPKM,
-      LOG10(hg19.expRSEM+1) AS Log10_hg19_RSEM,
+      LOG10(hg38.HTseq_FPKM+1) as Log10_hg38_HTSeq,
+      LOG10(hg19.RSEM_FPKM+1) AS Log10_hg19_RSEM,
       rankRSEM,
-      rankFPKM
+      rankHTSeq
     FROM
       Hg19
     JOIN
@@ -276,16 +277,16 @@ Newer bigrquery package versions support using standard SQL, so make sure you're
     GROUP BY
       gene_id,
       gene_name,
-      Log10_hg38_FPKM,
+      Log10_hg38_HTSeq,
       Log10_hg19_RSEM,
       rankRSEM,
-      rankFPKM"
+      rankHTSeq"
 
   result <- query_exec(q, project="isb-cgc-02-abcd", useLegacySql=F)
 
-  qplot(data=result, x=Log10_hg19_RSEM, y=Log10_hg38_FPKM, main="EGFR, hg19 vs hg38", xlab="Log10 RSEM hg19", ylab="Log10 FPKM hg38")
+  qplot(data=result, x=Log10_hg19_RSEM, y=Log10_hg38_HTSeq, main="EGFR, hg19 vs hg38, Pearson's = 0.93", xlab="Log10 RSEM hg19", ylab="Log10 HTSeq hg38")
 
-  qplot(data=result, x=rankRSEM, y=rankFPKM, main="EGFR, hg19 vs hg38", xlab="Rank RSEM hg19", ylab="Rank FPKM hg38")
+  qplot(data=result, x=rankRSEM, y=rankHTSeq, main="EGFR, hg19 vs hg38, Spearman's = 0.96", xlab="Rank RSEM hg19", ylab="Rank HTSeq hg38")
 
   # As an exercise to the reader, try plotting some other genes. Maybe genes
   # with both high and low correlations. What do you find?
