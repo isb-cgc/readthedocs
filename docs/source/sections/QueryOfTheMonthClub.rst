@@ -166,7 +166,7 @@ Visualizations
 
 ------------
 
-.. figure:: query_figs/egfr_hg19_vs_hg38.jpg
+.. figure:: query_figs/egfr_hg19_vs_hg38_.jpg
    :scale: 100
    :align: center
 
