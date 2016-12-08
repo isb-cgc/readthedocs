@@ -17,13 +17,13 @@ Comparing the TCGA hg19 and GDC hg38 gene expression data.
 
 Description
 -----------
-This query compares two gene expression builds. The first, from the TCGA, used
-the RSEM quantification method with the hg19 reference. The second is the
+This query compares two gene expression builds. The first, from the TCGA, is
+quantified using the RSEM method, on the hg19 reference. The second is the
 new GDC data, quantified with the HTSeq method on the hg38 reference.
 Rather than look at one gene at a time, it's easy (and fast!) to look across all genes simultaneously.
 The following query includes gene reference tables and computes both
-Pearson and Spearman's correlation for each gene. After saving the results in a new
-table, we calculates deciles across all of the correlation coefficients and
+Pearson and Spearman's correlations for each gene. After saving the results in a new
+table, we calculate deciles across all of the correlation coefficients and
 output a short summary table. We find that about 80% of the correlation
 coefficients are > 0.84, and the median is 0.93.
 The query took a grand total of 28.9s, and processed 34GB of data. As an example,
