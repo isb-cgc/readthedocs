@@ -13,21 +13,20 @@ email: dgibbs (at) systemsbiology (dot) org
 December, 2016
 ##############
 
-This month's query comes from our own Sheila Reynolds. Thanks Sheila!
+Comparing the TCGA hg19 and GDC hg38 gene expression data.
 
 Description
 -----------
-Sheila writes, "I wanted to have a look at our new hg38 TCGA gene expression
-table which is based on the newest data from the GDC (coming soon!).
-I was thinking about maybe picking one highly-variable gene and then doing a
-scatter-plot of the hg19 vs hg38 data to see how things looked. But once I got
-started I got more and more ambitious. I finally ended up with the following query
-which computes the correlation (both Pearson and Spearman's) between the hg19 and
-the hg38 expression values for each gene, and then calculates deciles across all
-of the correlation coefficients and finally outputs them as a short little table
-80% of the correlation coefficients are > 0.84, and the median is 0.93"
-
-The query took a grand total of 28.9s, and processed 34GB of data.
+This query compares gene expression builds from the TCGA hg19 RSEM and the
+new GDC hg38 FPKM (table coming soon!). Rather than look at one gene at
+a time, it's easy (and fast!) to look across all genes simultaneously.
+The following query includes gene reference tables and computes both
+Pearson and Spearman's correlation for each gene. After saving the results in a new
+table, we calculates deciles across all of the correlation coefficients and
+output a short summary table. We find that about 80% of the correlation
+coefficients are > 0.84, and the median is 0.93.
+The query took a grand total of 28.9s, and processed 34GB of data. As an example,
+we look at the expression data for EGFR. See the SQL and R code below.
 
 
 The BigQuery
@@ -174,6 +173,15 @@ Visualizations
 
 ------------
 
+.. figure:: query_figs/egfr_hg19_vs_hg38_ranked.jpg
+   :scale: 100
+   :align: center
+
+   This plot shows the ranked EFGR expression values for both TCGA hg19 and GDC hg38 sources.
+
+------------
+
+
 ------------
 
 Rscript
@@ -193,7 +201,7 @@ Newer bigrquery package versions support using standard SQL, so make sure you're
 
   # saving the above query as a string variable named 'q'
 
-  res1 <- query_exec(q, project='isb-cgc-xx-xyzw', useLegacySql = FALSE)
+  res1 <- query_exec(q, project='isb-cgc-02-abcd', useLegacySql = FALSE)
 
   dim(res1)
   # [1] 20119     3
@@ -232,6 +240,7 @@ Newer bigrquery package versions support using standard SQL, so make sure you're
     SELECT
       SamplesSubmitterID AS sampleID,
       Ensembl_gene_ID AS geneID,
+      DENSE_RANK() OVER (PARTITION BY Ensembl_gene_ID ORDER BY HTSeq__FPKM ASC) AS rankFPKM,
       HTSeq__FPKM AS expFPKM
     FROM
       `isb-cgc.hg38_data_previews.TCGA_GeneExpressionQuantification`
@@ -242,7 +251,8 @@ Newer bigrquery package versions support using standard SQL, so make sure you're
     SELECT
       SampleBarcode,
       HGNC_gene_symbol,
-      normalized_count,
+      normalized_count as expRSEM,
+      DENSE_RANK() OVER (PARTITION BY HGNC_gene_symbol ORDER BY normalized_count ASC) AS rankRSEM,
       Platform
     FROM
       `isb-cgc.tcga_201607_beta.mRNA_UNC_RSEM`
@@ -253,8 +263,10 @@ Newer bigrquery package versions support using standard SQL, so make sure you're
     SELECT
       hg38.geneID AS gene_id,
       hg19.HGNC_gene_symbol AS gene_name,
-      LOG10(hg38.expFPKM+1) as Log10_hg38,
-      LOG10(hg19.normalized_count+1) AS Log10_hg19
+      LOG10(hg38.expFPKM+1) as Log10_hg38_FPKM,
+      LOG10(hg19.expRSEM+1) AS Log10_hg19_RSEM,
+      rankRSEM,
+      rankFPKM
     FROM
       Hg19
     JOIN
@@ -264,12 +276,16 @@ Newer bigrquery package versions support using standard SQL, so make sure you're
     GROUP BY
       gene_id,
       gene_name,
-      Log10_hg38,
-      Log10_hg19"
+      Log10_hg38_FPKM,
+      Log10_hg19_RSEM,
+      rankRSEM,
+      rankFPKM"
 
-  result <- query_exec(q, project="isb-cgc-02-0001", useLegacySql=F)
+  result <- query_exec(q, project="isb-cgc-02-abcd", useLegacySql=F)
 
-  qplot(data=result, x=Log10_hg19, y=Log10_hg38, main="EGFR, hg19 vs hg38", xlab="Log10 hg19", ylab="Log10 hg38")
+  qplot(data=result, x=Log10_hg19_RSEM, y=Log10_hg38_FPKM, main="EGFR, hg19 vs hg38", xlab="Log10 RSEM hg19", ylab="Log10 FPKM hg38")
+
+  qplot(data=result, x=rankRSEM, y=rankFPKM, main="EGFR, hg19 vs hg38", xlab="Rank RSEM hg19", ylab="Rank FPKM hg38")
 
   # As an exercise to the reader, try plotting some other genes. Maybe genes
   # with both high and low correlations. What do you find?
