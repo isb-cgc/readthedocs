@@ -208,7 +208,7 @@ Visualizations
    :scale: 100
    :align: center
 
-   Actually, only 959 genes have Spearman correlations < 0.5.
+   Only 918 genes have Spearman correlations < 0.5, and 370 are snoRNAs.
 
 ------------
 
