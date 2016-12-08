@@ -221,8 +221,8 @@ Newer bigrquery package versions support using standard SQL, so make sure you're
 	library(devtools)
 	devtools::install_github("rstats-db/bigrquery")
 
-  library(bigrquery)
-  library(ggplot2)
+	library(bigrquery)
+	library(ggplot2)
 	library(stringr)
 
 	# saving the above query as a string variable named 'q'
@@ -233,27 +233,27 @@ Newer bigrquery package versions support using standard SQL, so make sure you're
 	# [1] 20119     3
 
 	ys <- c(0.5, 0.9, 0.95, 0.99)
-  ls <- sapply(1:4, function(i) sum(res1$gexpPearsonCorr < ys[i]))
+	ls <- sapply(1:4, function(i) sum(res1$gexpPearsonCorr < ys[i]))
 
 	qplot(x=1:20119, y=sort(res1$gexpPearsonCorr)) + geom_line() +
-  geom_hline(yintercept = ys, col='grey', lty=2) +
-  geom_vline(xintercept = ls, col='grey', lty=2) +
-  annotate(geom="text", label=ls[1], x=ls[1], y=0) +
-  annotate(geom="text", label=ls[2], x=ls[2], y=0) +
-  annotate(geom="text", label=ls[3], x=ls[3], y=0) +
-  annotate(geom="text", label=ls[4], x=ls[4], y=0) +
-  annotate(geom="text", label="50", y=ys[1], x=0) +
-  annotate(geom="text", label="90", y=ys[2], x=0) +
-  annotate(geom="text", label="95", y=ys[3], x=0) +
-  annotate(geom="text", label="99", y=ys[4], x=0) +
-  xlab("20,119 genes sorted by correlation value") +
-  ylab("Pearson correlation between hg38.a.expFPKM and hg19.normalized_count") +
-  ggtitle("Pearson correlation between hg38.a.expFPKM and hg19.normalized_count") +
-  theme_bw() +
-  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-        panel.background = element_blank(), axis.line = element_line(colour = "black"))
+	geom_hline(yintercept = ys, col='grey', lty=2) +
+	geom_vline(xintercept = ls, col='grey', lty=2) +
+	annotate(geom="text", label=ls[1], x=ls[1], y=0) +
+	annotate(geom="text", label=ls[2], x=ls[2], y=0) +
+	annotate(geom="text", label=ls[3], x=ls[3], y=0) +
+	annotate(geom="text", label=ls[4], x=ls[4], y=0) +
+	annotate(geom="text", label="50", y=ys[1], x=0) +
+	annotate(geom="text", label="90", y=ys[2], x=0) +
+	annotate(geom="text", label="95", y=ys[3], x=0) +
+	annotate(geom="text", label="99", y=ys[4], x=0) +
+	xlab("20,119 genes sorted by correlation value") +
+	ylab("Pearson correlation between hg38.a.expFPKM and hg19.normalized_count") +
+	ggtitle("Pearson correlation between hg38.a.expFPKM and hg19.normalized_count") +
+	theme_bw() +
+	theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+				panel.background = element_blank(), axis.line = element_line(colour = "black"))
 
-  # As an exercise, you could make the above plot with Spearman's correlations.
+	# As an exercise, you could make the above plot with Spearman's correlations.
 
 
 	# Then let's take a look at a few genes with good and bad correlations.
@@ -267,65 +267,65 @@ Newer bigrquery package versions support using standard SQL, so make sure you're
 	# many of the gene species showing up are snoRNAs.
 
 	sum(res1$gexpPearsonCorr < 0.5)
-  #[1] 918
+	#[1] 918
 	sum(str_detect(pattern="SNOR", string=res1[which(res1$gexpPearsonCorr < 0.5),2]))
-  [1] 370
+	[1] 370
 
 	q <- "
-	  SELECT
-	    hg38.a.sampleID,
-	    hg38.a.geneID,
-	    hg38.b.gene_name,
-	    hg38.a.expFPKM,
-	    hg19.normalized_count
-	  FROM (
-	    SELECT
-	      hg38.a.sampleID,
-	      hg38.a.geneID,
-	      hg38.b.gene_name,
-	      hg38.a.expFPKM,
-	      hg19.normalized_count
-	    FROM (
-	      SELECT
-	        a.sampleID,
-	        a.geneID,
-	        b.gene_name,
-	        a.expFPKM,
-	      FROM (
-	        SELECT
-	          SamplesSubmitterID AS sampleID,
-	          Ensembl_gene_ID AS geneID,
-	          HTSeq__FPKM AS expFPKM
-	        FROM
-	          [isb-cgc:GDC_data_open.TCGA_GeneExpressionQuantification] ) a
-	      JOIN EACH (
-	        SELECT
-	          gene_id,
-	          gene_name
-	        FROM
-	          [isb-cgc:genome_reference.GENCODE_v24]
-	        WHERE
-	          feature='gene' ) b
-	      ON
-	        a.geneID=b.gene_id ) hg38
-	    JOIN EACH (
-	      SELECT
-	        SampleBarcode,
-	        HGNC_gene_symbol,
-	        normalized_count,
-	      FROM
-	        [isb-cgc:tcga_201607_beta.mRNA_UNC_RSEM] ) hg19
-	    ON
-	      hg38.a.sampleID=hg19.SampleBarcode
-	      AND hg38.b.gene_name=hg19.HGNC_gene_symbol )
-	  WHERE
-	    hg38.b.gene_name = 'IL25'
-	  GROUP BY
-	    hg38.a.sampleID,
-	    hg38.a.geneID,
-	    hg38.b.gene_name,
-	    hg38.a.expFPKM,
-	    hg19.normalized_count"
+		SELECT
+			hg38.a.sampleID,
+			hg38.a.geneID,
+			hg38.b.gene_name,
+			hg38.a.expFPKM,
+			hg19.normalized_count
+			FROM (
+				SELECT
+					hg38.a.sampleID,
+					hg38.a.geneID,
+					hg38.b.gene_name,
+					hg38.a.expFPKM,
+					hg19.normalized_count
+				FROM (
+					SELECT
+						a.sampleID,
+						a.geneID,
+						b.gene_name,
+						a.expFPKM,
+					FROM (
+						SELECT
+							SamplesSubmitterID AS sampleID,
+							Ensembl_gene_ID AS geneID,
+							HTSeq__FPKM AS expFPKM
+						FROM
+							[isb-cgc:GDC_data_open.TCGA_GeneExpressionQuantification] ) a
+				JOIN EACH (
+					SELECT
+						gene_id,
+						gene_name
+					FROM
+						[isb-cgc:genome_reference.GENCODE_v24]
+					WHERE
+						feature='gene' ) b
+					ON
+						a.geneID=b.gene_id ) hg38
+		JOIN EACH (
+			SELECT
+				SampleBarcode,
+				HGNC_gene_symbol,
+				normalized_count,
+			FROM
+				[isb-cgc:tcga_201607_beta.mRNA_UNC_RSEM] ) hg19
+			ON
+				hg38.a.sampleID=hg19.SampleBarcode
+				AND hg38.b.gene_name=hg19.HGNC_gene_symbol )
+		WHERE
+			hg38.b.gene_name = 'IL25'
+		GROUP BY
+			hg38.a.sampleID,
+			hg38.a.geneID,
+			hg38.b.gene_name,
+			hg38.a.expFPKM,
+			hg19.normalized_count"
 
 
 	# let's look at IL25
