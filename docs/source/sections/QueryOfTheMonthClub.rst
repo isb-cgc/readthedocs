@@ -42,7 +42,8 @@ want to *loop* over all of the genes, computing one correlation at a time becaus
 *cost* of a BigQuery query depends primarily on the amount of data scanned during the
 query, and since the data for *all* genes across *all* TCGA samples are in a *single*
 table, if you were to loop over 10,000 genes running one query per gene, your costs would
-go *up* by a factor of 10,000!
+go *up* by a factor of 10,000! As we show below, BigQuery computes across all the genes
+at once (one of its benefits), and thus keeps the costs low.
 
 In addition to using the two gene-expression data tables, our SQL query also
 uses the GENCODE_v22 table (one of many tables in the **isb-cgc.genome_reference** dataset)
@@ -55,7 +56,9 @@ The result is a table with 20,021 rows -- one for each gene, with the Ensembl ge
 identifier, the gene symbol, the Pearson and Spearman correlation coefficients,
 and the difference between the two.  The table has also been sorted by the
 Spearman coefficient, in descending order.  This query executes in less than
-one minute and processes a total of 34 GB of data.
+one minute and processes a total of 34 GB of data. This is a great example of how cloud
+computing can significantly enhance analytic capabilities beyond running large analytic
+bioinformatics pipelines quickly!
 
 Back in June, Google
 `announced <https://cloud.google.com/blog/big-data/2016/06/bigquery-111-now-with-standard-sql-iam-and-partitioned-tables>`_
