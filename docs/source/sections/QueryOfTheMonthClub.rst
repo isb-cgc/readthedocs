@@ -72,7 +72,7 @@ the expression data for EGFR in R
 (see below for the SQL and R code).
 
 
-The BigQuery
+BigQuery SQL
 ------------
 
 .. code-block:: sql
@@ -231,13 +231,11 @@ the change in the genome build.
 This plot shows the ranked EGFR expression, with the hg19 RSEM values on the x-axis
 and the hg38 HTSeq values on the y-axis.
 
-------------
 
 
-------------
 
-Rscript
--------
+R Script
+--------
 
 Note that the latest version of the bigrquery package supports standard SQL, so make sure you're up to date.
 
