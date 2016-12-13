@@ -346,14 +346,9 @@ Let us know if you're having trouble! We're here to help.
 
 **Additional Resources:**
 
-`ISB-CGC documentation <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/index.html>`_
-
-What's Next?
-############
-
-Check out our `examples-R <https://github.com/isb-cgc/examples-R>`_ 
-github repo containing introductions to data types and ideas
-for different analysis.
-
-You may also want to look at our :ref:`R-workshop` tutorial material.
+- ISB-CGC `examples-R <https://github.com/isb-cgc/examples-R>`_ github repo
+- ISB-CGC :ref:`R-workshop` workshop material
+- BigQuery web UI `quickstart <https://cloud.google.com/bigquery/quickstart-web-ui>`_
+- BigQuery 101 `video <https://www.youtube.com/watch?v=kKBnFsNWwYM>`_
+- Fun with a Petabyte: Pushing the limits of Google BigQuery `video <https://www.youtube.com/watch?v=6Nv18xmJirs>`_
 
