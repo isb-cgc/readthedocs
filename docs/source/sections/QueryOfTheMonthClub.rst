@@ -213,7 +213,7 @@ represents one gene.
 
 ------------
 
-.. figure:: query_figs/egfr_hg19_vs_hg38_v2_.jpg
+.. figure:: query_figs/egfr_hg19_vs_hg38_v2.jpg
    :scale: 100
    :align: center
 
