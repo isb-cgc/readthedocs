@@ -4,7 +4,7 @@ Query of the Month Club
 
 Welcome to the 'Query of the Month Club' where we'll be creating a collection
 of new and interesting queries to demonstrate the powerful combination of
-BigData from the TCGA and BigQuery from Google.  
+BigData from the TCGA and BigQuery from Google.
 
 Please let us know if you'd like to be featured on the "query-club"!
 email: dgibbs (at) systemsbiology (dot) org
@@ -22,53 +22,53 @@ Description
 
 This is exactly the type of question that the ISB-CGC resources and the BigQuery engine
 were made to answer.  In a single SQL query, we will compare two sets of gene-level
-expression estimates based on RNA-Seq data.  
+expression estimates based on RNA-Seq data.
 The first set consists of the hg19-based
 `RSEM <http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-12-323>`_
 normalized gene-level
-expression values previously available from the TCGA DCC and now available in 
+expression values previously available from the TCGA DCC and now available in
 an easy-to-use table in BigQuery (and also from the
 `GDC Legacy Archive <https://gdc-portal.nci.nih.gov/legacy-archive>`_).
-The second set was produced by the 
+The second set was produced by the
 `GDC mRNA Analysis Pipeline <https://gdc-docs.nci.nih.gov/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/>`_
 which includes a STAR alignment to hg38, and gene expression quantification using
-`HTSeq <http://www-huber.embl.de/HTSeq/doc/overview.html>`_ 
-(with annotation based on 
+`HTSeq <http://www-huber.embl.de/HTSeq/doc/overview.html>`_
+(with annotation based on
 `GENCODE v22 <http://www.gencodegenes.org/releases/22.html>`_).
 
 Rather than look at one gene at a time, it's easy (and fast!) to compute correlations
 for all genes simultaneously.  Note that this is done in a *single* query.  You do **not**
 want to *loop* over all of the genes, computing one correlation at a time because the
 *cost* of a BigQuery query depends primarily on the amount of data scanned during the
-query, and since the data for *all* genes across *all* TCGA samples are in a *single* 
+query, and since the data for *all* genes across *all* TCGA samples are in a *single*
 table, if you were to loop over 10,000 genes running one query per gene, your costs would
 go *up* by a factor of 10,000!
 
 In addition to using the two gene-expression data tables, our SQL query also
 uses the GENCODE_v22 table (one of many tables in the **isb-cgc.genome_reference** dataset)
-to map from the HGNC gene symbol (used in the older hg19 expression table) to the 
+to map from the HGNC gene symbol (used in the older hg19 expression table) to the
 Ensembl gene identifier (used in the new hg38 expression table).
 
 The query below performs both
 Pearson and Spearman correlations for each gene.
-The result is a table with 20,021 rows -- one for each gene, with the Ensembl gene 
-identifier, the gene symbol, the Pearson and Spearman correlation coefficients, 
+The result is a table with 20,021 rows -- one for each gene, with the Ensembl gene
+identifier, the gene symbol, the Pearson and Spearman correlation coefficients,
 and the difference between the two.  The table has also been sorted by the
 Spearman coefficient, in descending order.  This query executes in less than
 one minute and processes a total of 34 GB of data.
 
-Back in June, Google 
+Back in June, Google
 `announced <https://cloud.google.com/blog/big-data/2016/06/bigquery-111-now-with-standard-sql-iam-and-partitioned-tables>`_
 full support for Standard SQL in BigQuery.  The query below makes use of Standard SQL,
 so if you want to try running this query yourself by cutting-and-pasting it into the
-`BigQuery web UI <https://bigquery.cloud.google.com>`_ you'll need to go into the 
-**Show Options** section and uncheck the "Use Legacy SQL" box.  If you're used to 
+`BigQuery web UI <https://bigquery.cloud.google.com>`_ you'll need to go into the
+**Show Options** section and uncheck the "Use Legacy SQL" box.  If you're used to
 using Legacy SQL, one small change you'll need to make right away is in how
 you refer to tables: rather than ``[isb-cgc:genome_reference.GENCODE_v22]`` for
 example, you will instead write ``isb-cgc.genome_reference.GENCODE_v22`` inside single-quotes.
 
 As a concrete example of what these data look like, we created plots of
-the expression data for EGFR in R 
+the expression data for EGFR in R
 (see below for the SQL and R code).
 
 
@@ -178,10 +178,10 @@ The BigQuery
     ORDER BY
       gexpSpearmanCorr DESC
 
-The results of any BigQuery query executed in the BigQuery web UI can easily be saved 
+The results of any BigQuery query executed in the BigQuery web UI can easily be saved
 to a table in case you want to perform follow-up queries on the result.  For example
 we might want to ask what the distribution of the correlation coefficients produced
-by the preceding query look like.  We can ask BigQuery to compute the deciles 
+by the preceding query look like.  We can ask BigQuery to compute the deciles
 on the saved results like this:
 
 .. code-block:: sql
@@ -203,17 +203,17 @@ Visualizations
 --------------
 
 
-.. figure:: query_figs/correlation_btw_hg19_hg38_v2.jpg
+.. figure:: query_figs/correlation_btw_hg19_hg38_v3.jpg
    :scale: 100
    :align: center
 
-This plot shows the cumulative distribution of the Pearson correlation between 
-the hg19 RSEM expression and the hg38 HTSeq expression data.  Each point 
+This plot shows the cumulative distribution of the Pearson correlation between
+the hg19 RSEM expression and the hg38 HTSeq expression data.  Each point
 represents one gene.
 
 ------------
 
-.. figure:: query_figs/egfr_hg19_vs_hg38_.jpg
+.. figure:: query_figs/egfr_hg19_vs_hg38_v2_.jpg
    :scale: 100
    :align: center
 
@@ -224,7 +224,7 @@ the change in the genome build.
 
 ------------
 
-.. figure:: query_figs/egfr_hg19_vs_hg38_ranked.jpg
+.. figure:: query_figs/egfr_hg19_vs_hg38_ranked_v2.jpg
    :scale: 100
    :align: center
 
@@ -255,13 +255,11 @@ Note that the latest version of the bigrquery package supports standard SQL, so 
 
   res1 <- query_exec(q, project='isb-cgc-02-abcd', useLegacySql = FALSE)
 
-  dim(res1)
-  # [1] 20119     3
-
+  n <-  dim(res1)[1]
   ys <- c(0.5, 0.9, 0.95, 0.99)
   ls <- sapply(1:4, function(i) sum(res1$gexpPearsonCorr < ys[i]))
 
-  qplot(x=1:20119, y=sort(res1$gexpPearsonCorr)) + geom_line() +
+  qplot(x=1:n, y=sort(res1$gexpPearsonCorr)) + geom_line() +
   geom_hline(yintercept = ys, col='grey', lty=2) +
   geom_vline(xintercept = ls, col='grey', lty=2) +
   annotate(geom="text", label=ls[1], x=ls[1], y=0) +
@@ -272,9 +270,9 @@ Note that the latest version of the bigrquery package supports standard SQL, so 
   annotate(geom="text", label="90", y=ys[2], x=0) +
   annotate(geom="text", label="95", y=ys[3], x=0) +
   annotate(geom="text", label="99", y=ys[4], x=0) +
-  xlab("20,119 genes sorted by correlation value") +
-  ylab("Pearson correlation between hg38.a.expFPKM and hg19.normalized_count") +
-  ggtitle("Pearson correlation between hg38.a.expFPKM and hg19.normalized_count") +
+  xlab("> 20K genes sorted by correlation value") +
+  ylab("Pearson correlation between \nhg38.a.expFPKM and hg19.normalized_count") +
+  ggtitle("Pearson correlation between \nhg38.a.expFPKM and hg19.normalized_count") +
   theme_bw() +
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black"))
@@ -353,4 +351,3 @@ Let us know if you're having trouble! We're here to help.
 - BigQuery web UI `quickstart <https://cloud.google.com/bigquery/quickstart-web-ui>`_
 - BigQuery 101 `video <https://www.youtube.com/watch?v=kKBnFsNWwYM>`_
 - Fun with a Petabyte: Pushing the limits of Google BigQuery `video <https://www.youtube.com/watch?v=6Nv18xmJirs>`_
-
