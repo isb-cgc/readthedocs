@@ -4,7 +4,7 @@ Query of the Month Club
 
 Welcome to the 'Query of the Month Club' where we'll be creating a collection
 of new and interesting queries to demonstrate the powerful combination of
-BigData from the TCGA and BigQuery from Google.
+BigData from the TCGA and BigQuery from Google.  
 
 Please let us know if you'd like to be featured on the "query-club"!
 email: dgibbs (at) systemsbiology (dot) org
@@ -13,21 +13,63 @@ email: dgibbs (at) systemsbiology (dot) org
 December, 2016
 ##############
 
-Comparing the TCGA hg19 and GDC hg38 gene expression data.
+The ISB-CGC team is starting to add the new hg38-based TCGA data available from the
+`GDC Data Portal <https://gdc-portal.nci.nih.gov/>`_ and one of the first obvious questions
+might be: how does the new hg38 expression data compare to the hg19 data?
 
 Description
 -----------
-This query compares two gene expression builds. The first, from the TCGA, is
-quantified using the RSEM method, on the hg19 reference. The second is the
-new GDC data, quantified with the HTSeq method on the hg38 reference.
-Rather than look at one gene at a time, it's easy (and fast!) to look across all genes simultaneously.
-The following query includes gene reference tables and computes both
-Pearson and Spearman's correlations for each gene. After saving the results in a new
-table, we calculate deciles across all of the correlation coefficients and
-output a short summary table. We find that about 80% of the correlation
-coefficients are > 0.84, and the median is 0.93.
-The query took a grand total of 28.9s, and processed 34GB of data. As an example,
-we look at the expression data for EGFR. See the SQL and R code below.
+
+This is exactly the type of question that the ISB-CGC resources and the BigQuery engine
+were made to answer.  In a single SQL query, we will compare two sets of gene-level
+expression estimates based on RNA-Seq data.  
+The first set consists of the hg19-based
+`RSEM <http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-12-323>_`
+normalized gene-level
+expression values previously available from the TCGA DCC and now available in 
+an easy-to-use table in BigQuery (and also from the
+`GDC Legacy Archive <https://gdc-portal.nci.nih.gov/legacy-archive>`_).
+The second set was produced by the 
+`GDC mRNA Analysis Pipeline <https://gdc-docs.nci.nih.gov/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/>`_
+which includes a STAR alignment to hg38, and gene expression quantification using
+`HTSeq <http://www-huber.embl.de/HTSeq/doc/overview.html>`_ 
+(with annotation based on 
+`GENCODE v22 <http://www.gencodegenes.org/releases/22.html`_).
+
+Rather than look at one gene at a time, it's easy (and fast!) to compute correlations
+for all genes simultaneously.  Note that this is done in a *single* query.  You do **not**
+want to *loop* over all of the genes, computing one correlation at a time because the
+*cost* of a BigQuery query depends primarily on the amount of data scanned during the
+query, and since the data for *all* genes across *all* TCGA samples are in a *single* 
+table, if you were to loop over 10,000 genes running one query per gene, your costs would
+be 10,000 *higher*!
+
+In addition to using the two gene-expression data tables, our SQL query also
+uses the GENCODE_v22 table (one of many tables in the **isb-cgc.genome_reference** dataset)
+to map from the HGNC gene symbol (used in the older hg19 expression table) to the 
+Ensembl gene identifier (used in the new hg38 expression table).
+
+The query below performs both
+Pearson and Spearman correlations for each gene.
+The result is a table with 20,021 rows -- one for each gene, with the Ensembl gene 
+identifier, the gene symbol, the Pearson and Spearman correlation coefficients, 
+and the difference between the two.  The table has also been sorted by the
+Spearman coefficient, in descending order.  This query executes in less than
+one minute and processes a total of 34 GB of data.
+
+Back in June, Google 
+`announced <https://cloud.google.com/blog/big-data/2016/06/bigquery-111-now-with-standard-sql-iam-and-partitioned-tables>`_
+full support for Standard SQL in BigQuery.  The query below makes use of Standard SQL,
+so if you want to try running this query yourself by cutting-and-pasting it into the
+`BigQuery web UI <https://bigquery.cloud.google.com>`_ you'll need to go into the 
+**Show Options** section and uncheck the "Use Legacy SQL" box.  If you're used to 
+using Legacy SQL, one small change you'll need to make right away is in how
+you refer to tables: rather than ``[isb-cgc:genome_reference.GENCODE_v22]`` for
+example, you will instead write ``\`[isb-cgc.genome_reference.GENCODE_v22\```.
+
+As a concrete example of what these data look like, we created plots of
+the expression data for EGFR in R 
+(see below for the SQL and R code).
 
 
 The BigQuery
@@ -60,7 +102,7 @@ The BigQuery
       gene_id,
       gene_name
     FROM
-      `isb-cgc.genome_reference.GENCODE_v24`
+      `isb-cgc.genome_reference.GENCODE_v22`
     WHERE
       feature='gene' ),
     --
@@ -136,10 +178,11 @@ The BigQuery
     ORDER BY
       gexpSpearmanCorr DESC
 
-
-The results of the query were saved to a table, which allowed us to write
-queries to examine the results over the 20K+ genes.
-
+The results of any BigQuery query executed in the BigQuery web UI can easily be saved 
+to a table in case you want to perform follow-up queries on the result.  For example
+we might want to ask what the distribution of the correlation coefficients produced
+by the preceding query look like.  We can ask BigQuery to compute the deciles 
+on the saved results like this:
 
 .. code-blocks:: sql
 
@@ -148,10 +191,13 @@ queries to examine the results over the 20K+ genes.
       APPROX_QUANTILES ( gexpSpearmanCorr, 10 ) AS SpearmanQ,
       APPROX_QUANTILES ( deltaCorr, 10 ) AS deltaQ
     FROM
-      `isb-cgc-02-0001.Daves_working_area.hg19_vs_hg38_results`
+      `<<insert your results table name here>>`
 
+This query tells us that 80% of genes have a Pearson correlation >= 0.84 and a
+Spearman correlation >= 0.88, and that 80% of the time the difference between
+these two correlations is between -0.012 and +0.098.  The median Pearson
+correlation is nearly 0.93 and the median Spearman correlation is nearly 0.96.
 
-------------
 
 Visualizations
 --------------
@@ -170,7 +216,7 @@ Visualizations
    :scale: 100
    :align: center
 
-   This plot shows the EFGR log10 expression values for both TCGA hg19 and GDC hg38 sources.
+   This plot shows the EGFR log10 expression values for both TCGA hg19 and GDC hg38 sources.
 
 ------------
 
@@ -178,7 +224,7 @@ Visualizations
    :scale: 100
    :align: center
 
-   This plot shows the ranked EFGR expression values for both TCGA hg19 and GDC hg38 sources.
+   This plot shows the ranked EGFR expression values for both TCGA hg19 and GDC hg38 sources.
 
 ------------
 
@@ -188,7 +234,7 @@ Visualizations
 Rscript
 -------
 
-Newer bigrquery package versions support using standard SQL, so make sure you're up to date.
+Note that the latest version of the bigrquery package supports standard SQL, so make sure you're up to date.
 
 
 .. code-block:: r
@@ -288,8 +334,8 @@ Newer bigrquery package versions support using standard SQL, so make sure you're
 
   qplot(data=result, x=rankRSEM, y=rankHTSeq, main="EGFR, hg19 vs hg38, Spearman's = 0.96", xlab="Rank RSEM hg19", ylab="Rank HTSeq hg38")
 
-  # As an exercise to the reader, try plotting some other genes. Maybe genes
-  # with both high and low correlations. What do you find?
+  # As an exercise, try plotting some other genes. Maybe genes
+  # with both high and low correlations. What do you notice?
 
 ------------
 
@@ -311,3 +357,5 @@ https://github.com/isb-cgc/examples-R
    :maxdepth: 1
 
    workshop/Workshop_R_tut
+
+
