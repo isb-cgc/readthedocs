@@ -34,7 +34,7 @@ The second set was produced by the
 which includes a STAR alignment to hg38, and gene expression quantification using
 `HTSeq <http://www-huber.embl.de/HTSeq/doc/overview.html>`_ 
 (with annotation based on 
-`GENCODE v22 <http://www.gencodegenes.org/releases/22.html`_).
+`GENCODE v22 <http://www.gencodegenes.org/releases/22.html>`_).
 
 Rather than look at one gene at a time, it's easy (and fast!) to compute correlations
 for all genes simultaneously.  Note that this is done in a *single* query.  You do **not**
