@@ -218,7 +218,9 @@ represents one gene.
    :align: center
 
 This plot shows the EGFR log10 expression, with the hg19 RSEM values on the x-axis and
-the hg38 HTSeq values on the y-axis.
+the hg38 HTSeq values on the y-axis.  Note that overall, the difference between the RSEM
+and HTSeq methods may have a more significant impact on the expression values than
+the change in the genome build.
 
 ------------
 
