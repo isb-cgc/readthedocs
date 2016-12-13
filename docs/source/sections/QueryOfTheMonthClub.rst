@@ -24,7 +24,7 @@ This is exactly the type of question that the ISB-CGC resources and the BigQuery
 were made to answer.  In a single SQL query, we will compare two sets of gene-level
 expression estimates based on RNA-Seq data.  
 The first set consists of the hg19-based
-`RSEM <http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-12-323>_`
+`RSEM <http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-12-323>`_
 normalized gene-level
 expression values previously available from the TCGA DCC and now available in 
 an easy-to-use table in BigQuery (and also from the
@@ -42,7 +42,7 @@ want to *loop* over all of the genes, computing one correlation at a time becaus
 *cost* of a BigQuery query depends primarily on the amount of data scanned during the
 query, and since the data for *all* genes across *all* TCGA samples are in a *single* 
 table, if you were to loop over 10,000 genes running one query per gene, your costs would
-be 10,000 *higher*!
+go *up* by a factor of 10,000!
 
 In addition to using the two gene-expression data tables, our SQL query also
 uses the GENCODE_v22 table (one of many tables in the **isb-cgc.genome_reference** dataset)
@@ -65,7 +65,7 @@ so if you want to try running this query yourself by cutting-and-pasting it into
 **Show Options** section and uncheck the "Use Legacy SQL" box.  If you're used to 
 using Legacy SQL, one small change you'll need to make right away is in how
 you refer to tables: rather than ``[isb-cgc:genome_reference.GENCODE_v22]`` for
-example, you will instead write ``\`[isb-cgc.genome_reference.GENCODE_v22\```.
+example, you will instead write ``isb-cgc.genome_reference.GENCODE_v22`` inside single-quotes.
 
 As a concrete example of what these data look like, we created plots of
 the expression data for EGFR in R 
@@ -184,7 +184,7 @@ we might want to ask what the distribution of the correlation coefficients produ
 by the preceding query look like.  We can ask BigQuery to compute the deciles 
 on the saved results like this:
 
-.. code-blocks:: sql
+.. code-block:: sql
 
     SELECT
       APPROX_QUANTILES ( gexpPearsonCorr, 10 ) AS PearsonQ,
@@ -193,7 +193,7 @@ on the saved results like this:
     FROM
       `<<insert your results table name here>>`
 
-This query tells us that 80% of genes have a Pearson correlation >= 0.84 and a
+The result of the above query shows that 80% of genes have a Pearson correlation >= 0.84 and a
 Spearman correlation >= 0.88, and that 80% of the time the difference between
 these two correlations is between -0.012 and +0.098.  The median Pearson
 correlation is nearly 0.93 and the median Spearman correlation is nearly 0.96.
@@ -207,8 +207,9 @@ Visualizations
    :scale: 100
    :align: center
 
-   This plot shows the correlation between TCGA hg19 and GDC hg38 gene expression data
-   where each point is a gene.
+This plot shows the cumulative distribution of the Pearson correlation between 
+the hg19 RSEM expression and the hg38 HTSeq expression data.  Each point 
+represents one gene.
 
 ------------
 
@@ -216,7 +217,8 @@ Visualizations
    :scale: 100
    :align: center
 
-   This plot shows the EGFR log10 expression values for both TCGA hg19 and GDC hg38 sources.
+This plot shows the EGFR log10 expression, with the hg19 RSEM values on the x-axis and
+the hg38 HTSeq values on the y-axis.
 
 ------------
 
@@ -224,7 +226,8 @@ Visualizations
    :scale: 100
    :align: center
 
-   This plot shows the ranked EGFR expression values for both TCGA hg19 and GDC hg38 sources.
+This plot shows the ranked EGFR expression, with the hg19 RSEM values on the x-axis
+and the hg38 HTSeq values on the y-axis.
 
 ------------
 
@@ -348,14 +351,9 @@ Let us know if you're having trouble! We're here to help.
 What's Next?
 ############
 
-Check out our github repo containing introductions to data types and ideas
+Check out our `examples-R <https://github.com/isb-cgc/examples-R>`_ 
+github repo containing introductions to data types and ideas
 for different analysis.
 
-https://github.com/isb-cgc/examples-R
-
-.. toctree::
-   :maxdepth: 1
-
-   workshop/Workshop_R_tut
-
+You may also want to look at our :ref:`R-workshop` tutorial material.
 
