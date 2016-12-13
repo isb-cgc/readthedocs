@@ -1,8 +1,8 @@
+.. _R-workshop:
+
 ***************
 Analysis with R
 ***************
-
-.. _R-workshop:
 
 Differential gene expression associated with HPV integration
 ############################################################
