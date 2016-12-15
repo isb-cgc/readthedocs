@@ -1,0 +1,12 @@
+{
+  "aliquots": "List of barcodes of aliquots taken from this participant.",
+  "biospecimen_data": "Biospecimen data about the sample.",
+  "data_details": "List of information about each file associated with the sample barcode.",
+  "data_details_count": "Number of files associated with the sample barcode.",
+  "error": "Deprecated.",
+  "patient": "Participant barcode."
+}
+
+
+
+

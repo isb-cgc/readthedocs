@@ -1,0 +1,4 @@
+{
+    "count": "Number of cohorts returned. If no cohort_id is specified in the request, this will be the number of cohorts that the user has READER or OWNER permission on.",
+    "items": "List of cohorts."
+}

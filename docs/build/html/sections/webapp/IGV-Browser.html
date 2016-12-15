@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Integrative Genomics Viewer &mdash; ISB Cancer Genomics Cloud 1.0.0 documentation</title>
+    <title>Integrative Genomics Viewer (IGV) &mdash; ISB Cancer Genomics Cloud 1.0.0 documentation</title>
     
     <link rel="stylesheet" href="../../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -26,9 +26,9 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/custom.js"></script>
     <link rel="top" title="ISB Cancer Genomics Cloud 1.0.0 documentation" href="../../index.html" />
-    <link rel="up" title="Web Interface" href="../Web-UI.html" />
-    <link rel="next" title="Sharing Cohorts and Visualizations" href="Sharing.html" />
-    <link rel="prev" title="SeqPeek" href="SeqPeek.html" /> 
+    <link rel="up" title="ISB-CGC Web Interface" href="../Web-UI.html" />
+    <link rel="next" title="Release Notes" href="releases.html" />
+    <link rel="prev" title="Saved Cohorts" href="Saved-Cohorts.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -38,13 +38,13 @@
           <a href="../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="Sharing.html" title="Sharing Cohorts and Visualizations"
+          <a href="releases.html" title="Release Notes"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="SeqPeek.html" title="SeqPeek"
+          <a href="Saved-Cohorts.html" title="Saved Cohorts"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../index.html">ISB Cancer Genomics Cloud 1.0.0 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="../Web-UI.html" accesskey="U">Web Interface</a> &raquo;</li> 
+          <li class="nav-item nav-item-1"><a href="../Web-UI.html" accesskey="U">ISB-CGC Web Interface</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -53,16 +53,30 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="integrative-genomics-viewer">
-<h1>Integrative Genomics Viewer<a class="headerlink" href="#integrative-genomics-viewer" title="Permalink to this headline">¶</a></h1>
-<p><strong>Important:</strong>  Improved integration of the IGV browser and the ISB-CGC BigQuery data tables is coming soon!  Specifically
-the IGV browser will be able to access the <em>high-level</em> molecular data in the ISB-CGC BigQuery tables as well
-the <em>low-level</em> sequence data via the GA4GH API.</p>
+  <div class="section" id="integrative-genomics-viewer-igv">
+<h1>Integrative Genomics Viewer (IGV)<a class="headerlink" href="#integrative-genomics-viewer-igv" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="accessing-the-igv-browser">
 <h2>Accessing the IGV Browser<a class="headerlink" href="#accessing-the-igv-browser" title="Permalink to this headline">¶</a></h2>
-<p>To access IGV, go to the cohort file list page. The file listing table includes a column labelled “IGV”. For
-those files that also have a ReadGroupSet ID in Google Genomics, a green check mark will appear in the column. Clicking
-on that link will take you to the IGV browser with the appropriate dataset and readgroupset preselected.</p>
+<p>To access IGV, go to the cohort file list page (through the &#8220;View Files&#8221; link at the top of the page). The file listing table includes a column labelled &#8220;IGV&#8221;.</p>
+<p>For those files that also have a ReadGroupSet ID in Google Genomics, a &#8220;GA4GH&#8221; label with a checkbox will appear in the column.  For those files that are available in cloud storage, a &#8220;Cloud Storage&#8221; label witha checkbox will appear in the column.  You can selecting the files you want to view at the same time in the IGV viewer through selecting the relevant checkboxes on possibly multiple pages of files.  Once you have selected the appropriate files to view in the IGV viewer, pressing the &#8220;Launch IGV&#8221; button will launch the IGV viewer.</p>
+<p>NOTE:  You will only be able to view controlled access sequence files if you have <a class="reference external" href="Gaining-Access-To-TCGA-Contolled-Access-Data.html">logged in as a registered dbGaP authorized user</a>.</p>
+<p>(&#8220;ReadGroupSet&#8221; is a GA4GH term for a group of aligned DNA- or RNA-seq reads,
+typically from a single sample or a single BAM file.
+For the CCLE and TCGA datasets hosted by the ISB-CGC, each ReadGroupSet corresponds to a single BAM file which
+in turn corresponds to the aligned DNA- or RNA-seq reads from a single sample. IGV can also view BAM files (with associated BAM Index Files) that are stored on a Google Drive.  These are the type of files that are being viewed with the link &#8220;Cloud Storage&#8221;.).</p>
+</div>
+<div class="section" id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this headline">¶</a></h2>
+<p>The copyright to the Integrative Genomics Viewer is held by the Broad Institute, and the software has been
+released under the MIT License.  For more information about IGV please see the
+<a class="reference external" href="http://www.broadinstitute.org/software/igv/home">IGV home page</a> or the
+<a class="reference external" href="https://github.com/igvteam/igv">IGV github repo</a>.</p>
+<p>We are grateful to the IGV team for their assistance in integrating IGV into the ISB-CGC web-app.</p>
+<p>Robinson J T, Thorvaldsdottir H, Winckler W, Guttman M, Lander E S, Getz G &amp; Mesirov J P, <em>Integrative genomics viewer</em>,
+<a class="reference external" href="http://www.nature.com/nbt/journal/v29/n1/abs/nbt.1754.html">Nature Biotechnology 29, 24-26 (2011)</a>.</p>
+<p>Thorvaldsdottir H, Robinson J T, Mesirov J P,
+<em>Integrative Genomics Viewer (IGV): high-performance genomics data visualization and exploration</em>,
+<a class="reference external" href="http://bib.oxfordjournals.org/content/14/2/178.full?keytype=ref&amp;%2520ijkey=qTgjFwbRBAzRZWC">Briefings in Bioinformatics 14, 178-192 (2013)</a>.</p>
 <hr class="docutils" />
 <div class="isbcgcfooter container">
 Have feedback or corrections?  You can file an issue <a class="reference external" href="https://github.com/isb-cgc/readthedocs/issues">here</a> or email us at <a class="reference external" href="mailto:feedback&#37;&#52;&#48;isb-cgc&#46;org">feedback<span>&#64;</span>isb-cgc<span>&#46;</span>org</a>.</div>
@@ -77,18 +91,19 @@ Have feedback or corrections?  You can file an issue <a class="reference externa
         <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Integrative Genomics Viewer</a><ul>
+<li><a class="reference internal" href="#">Integrative Genomics Viewer (IGV)</a><ul>
 <li><a class="reference internal" href="#accessing-the-igv-browser">Accessing the IGV Browser</a></li>
+<li><a class="reference internal" href="#acknowledgements">Acknowledgements</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="SeqPeek.html"
-                        title="previous chapter">SeqPeek</a></p>
+  <p class="topless"><a href="Saved-Cohorts.html"
+                        title="previous chapter">Saved Cohorts</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="Sharing.html"
-                        title="next chapter">Sharing Cohorts and Visualizations</a></p>
+  <p class="topless"><a href="releases.html"
+                        title="next chapter">Release Notes</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -120,18 +135,18 @@ Have feedback or corrections?  You can file an issue <a class="reference externa
           <a href="../../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="Sharing.html" title="Sharing Cohorts and Visualizations"
+          <a href="releases.html" title="Release Notes"
              >next</a> |</li>
         <li class="right" >
-          <a href="SeqPeek.html" title="SeqPeek"
+          <a href="Saved-Cohorts.html" title="Saved Cohorts"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../index.html">ISB Cancer Genomics Cloud 1.0.0 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="../Web-UI.html" >Web Interface</a> &raquo;</li> 
+          <li class="nav-item nav-item-1"><a href="../Web-UI.html" >ISB-CGC Web Interface</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &copy; Copyright 2015, the ISB-CGC team.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.
     </div>
   </body>
 </html>
