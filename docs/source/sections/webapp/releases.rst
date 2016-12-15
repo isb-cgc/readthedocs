@@ -1,6 +1,6 @@
-*************
-Release Notes
-*************
+*********************
+Web-App Release Notes
+*********************
 
 *  **November 30, 2016**: `v1.13 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.13>`_
     
