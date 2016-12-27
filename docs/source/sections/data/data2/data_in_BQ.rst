@@ -11,6 +11,7 @@ please see our `github repositories <https://github.com/isb-cgc>`_.
 Note that dbGaP authorization is **not** required to access these tables!
 
 This `introductory tutorial <https://github.com/isb-cgc/examples-Python/blob/master/notebooks/The%20ISB-CGC%20open-access%20TCGA%20tables%20in%20BigQuery.ipynb>`_
+(in the form of an IPython notebook) 
 gives a great overview of all of the tables and pointers on how to get started exploring them.  
 Be sure to check it out!
 
@@ -74,19 +75,19 @@ BigQuery Datasets and Tables
 Data made available by the ISB-CGC through BigQuery is organized into several *open-access* 
 datasets, where a dataset is made up of multiple tables.  
 Datasets are uniquely identified based on the project name and the dataset name, separated by a colon, 
-*eg* ``isb-cgc:tcga_201510_alpha``.  Tables are uniquely identified by appending the table name,
-preceded by a period, *eg* ``isb-cgc:tcga_201510_alpha.Clinical_data``.
+*eg* ``isb-cgc:tcga_201607_beta``.  Tables are uniquely identified by appending the table name,
+preceded by a period, *eg* ``isb-cgc:tcga_201607_beta.Clinical_data``.
 The following sections describe each of the major datasets that are currently publicly-accessible, 
 and the tables that each one contains.
 
 TCGA Data and Metadata
 ======================
 
-- `isb-cgc:tcga_201510_alpha <https://bigquery.cloud.google.com/dataset/isb-cgc:tcga_201510_alpha>`_: 
+- `isb-cgc:tcga_201607_beta <https://bigquery.cloud.google.com/dataset/isb-cgc:tcga_201607_beta>`_: 
   This dataset contains one table for each of the major datatypes and/or platforms, is based on 
-  all available data at the TCGA DCC in October, 2015, and is the same data used by our 
-  Web App and APIs. (An updated set of tables will be released in 
-  July or August of 2016.)  All tables include one or more of the following identifiers which can be 
+  all available data at the TCGA DCC in July, 2016, and is the same data used by our 
+  Web App and APIs.  
+  All tables include one or more of the following identifiers which can be 
   used for performing cross-table JOINs: ``ParticipantBarcode``, ``SampleBarcode``, and ``AliquotBarcode``.  
   In addition, most tables contain a ``Study`` field which contains the tumor-type abbreviation 
   (*eg* LUAD, BRCA, *etc*). (The table ordering below is alphabetical, since that is the order 
@@ -96,21 +97,21 @@ TCGA Data and Metadata
 
 .. 
 
-  + `Annotations <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.Annotations>`_: 
+  + `Annotations <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201607_beta.Annotations>`_: 
     This table contains annotations and related information obtained from the 
     `TCGA Annotations Manager <https://wiki.nci.nih.gov/display/TCGA/TCGA+Annotations+Manager+User's+Guide>`_
     (formerly available at the TCGA DCC).
 
 ..  
 
-  + `Biospecimen_data <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.Biospecimen_data>`_: 
+  + `Biospecimen_data <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201607_beta.Biospecimen_data>`_: 
     This table is a *sample-centric* table, and contains one row of information for each of the (over 23,000) 
     TCGA samples.  Any given field in this table may be ``null`` for many samples, depending on the 
     sample-type or the tumor-type.
 
 ..  
 
-  + `Clinical_data <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.Clinical_data>`_: 
+  + `Clinical_data <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201607_beta.Clinical_data>`_: 
     This table is a *patient-centric* table, and contains one row of information for each of the 
     (over 11,000) patients who graciously donated samples to the TCGA project.  Any given field in 
     this table may be ``null`` for many patients, depending on tumor-type or data-availability.  
@@ -118,7 +119,7 @@ TCGA Data and Metadata
 
 ..  
 
-  + `Copy_Number_segments <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.Copy_Number_segments>`_: 
+  + `Copy_Number_segments <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201607_beta.Copy_Number_segments>`_: 
     This table contains all available Copy Number segmentation data across all TCGA samples.  
     Each row in the table describes a single copy-number segment for a single aliquot.  
     The fields ``Chromosome``, ``Start``, and ``End`` specify the chromosomal coordinates (1-based) 
@@ -129,7 +130,7 @@ TCGA Data and Metadata
 
 ..  
 
-  + `DNA_Methylation_betas <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.DNA_Methylation_betas>`_: 
+  + `DNA_Methylation_betas <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201607_beta.DNA_Methylation_betas>`_: 
     This table contains **all** of the DNA methlyation data for all TCGA samples assayed on either the 
     HumanMethylation 27k or 450k platforms.  Please note that this is a very **large** table 
     (with close to 4 billion rows), so query it with caution -- a *single* query will cost *your* GCP project $2-3.  
@@ -139,7 +140,7 @@ TCGA Data and Metadata
 
 ..  
 
-  + `miRNA_expression <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.miRNA_expression>`_: 
+  + `miRNA_expression <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201607_beta.miRNA_expression>`_: 
     This table contains "mature microRNA" expression estimates based on the "premature miRNA" Level-3 data files.  
     (This transform was performed using a 
     `perl script <https://github.com/isb-cgc/ISB-CGC-data-proc/blob/master/tcga_etl_pipeline/feature_matrix/expression_matrix_mimat.pl>`_ 
@@ -150,7 +151,7 @@ TCGA Data and Metadata
 
 ..  
 
-  + `mRNA_BCGSC_HiSeq_RPKM <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.mRNA_BCGSC_HiSeq_RPKM>`_: 
+  + `mRNA_BCGSC_HiSeq_RPKM <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201607_beta.mRNA_BCGSC_HiSeq_RPKM>`_: 
     This table contains gene expression data from samples that were originally processed at BCGSC on the Illumina 
     HiSeq platform.  The gene expression estimates are based on the BCGSC pipeline and are in RPKM.  Note that 
     only about 900 TCGA samples were processed in this way.  Most of the mRNA gene expression data was instead 
@@ -158,7 +159,7 @@ TCGA Data and Metadata
 
 ..  
 
-  + `mRNA_UNC_HiSeq_RSEM <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM>`_: 
+  + `mRNA_UNC_HiSeq_RSEM <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201607_beta.mRNA_UNC_HiSeq_RSEM>`_: 
     This table contains gene expression data from the ~10,000 samples assayed on the Illumina HiSeq platform and 
     processed through the UNC "RNASeqV2" RSEM pipeline.  Each row in this table contains the RSEM expression 
     estimate for a single gene in a single aliquot.  The gene symbol can be found in the fields 
@@ -168,7 +169,7 @@ TCGA Data and Metadata
 
 ..  
 
-  + `Protein_RPPA_data <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.Protein_RPPA_data>`_: 
+  + `Protein_RPPA_data <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201607_beta.Protein_RPPA_data>`_: 
     This table contains protein expression quantification estimates based on the RPPA (reverse phase protein array) 
     platform.  Note that only a subset (~70%) of the TCGA tumor samples were assayed on this platform.  This 
     technology uses antibodies which bind (sometimes non-specifically) to the target protein.  In certain cases, 
@@ -179,7 +180,7 @@ TCGA Data and Metadata
 
 ..  
 
-  + `Somatic_Mutation_calls <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.Somatic_Mutation_calls>`_: 
+  + `Somatic_Mutation_calls <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201607_beta.Somatic_Mutation_calls>`_: 
     This table contains all somatic mutations called across all TCGA tumor samples, based on aggregating all 
     of the MAF files available when this table was created.  Each mutation call was annotated using 
     `Oncotator <https://www.broadinstitute.org/cancer/cga/oncotator>`_, 
@@ -259,25 +260,29 @@ Reference Data
   here, with links to the view in the BigQuery web UI.  Each table should include a description
   and reference to the original information source.
 
-  + `GENCODE_r19 <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.GENCODE_r19>`_ 
+  + `GENCODE_r19 <https://bigquery.cloud.google.com/table/isb-cgc:genome_reference.GENCODE_r19>`_ 
 
-  + `GENCODE_r24 <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.GENCODE_r24>`_ 
+  + `GENCODE_r24 <https://bigquery.cloud.google.com/table/isb-cgc:genome_reference.GENCODE_r24>`_ 
 
-  + `GO_Annotations <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.GO_Annotations>`_ 
+  + `GO_Annotations <https://bigquery.cloud.google.com/table/isb-cgc:genome_reference.GO_Annotations>`_ 
 
-  + `GO_Ontology <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.GO_Ontology>`_ 
+  + `GO_Ontology <https://bigquery.cloud.google.com/table/isb-cgc:genome_reference.GO_Ontology>`_ 
 
-  + `mirBase_v20 <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.mirBase_v20>`_ 
+  + `mirBase_v21 <https://bigquery.cloud.google.com/table/isb-cgc:genome_reference.mirBase_v21>`_ 
 
-  + `miRTarBase <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.miRTarBase>`_ 
+  + `miRTarBase <https://bigquery.cloud.google.com/table/isb-cgc:genome_reference.miRTarBase>`_ 
 
-  + `miRBase2Reactome <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.miRBase2Reactome>`_ 
+  + `miRBase2Reactome <https://bigquery.cloud.google.com/table/isb-cgc:genome_reference.miRBase2Reactome>`_ 
 
-  + `Ensembl2Reactome <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.Ensembl2Reactome>`_ 
+  + `Ensembl2Reactome <https://bigquery.cloud.google.com/table/isb-cgc:genome_reference.Ensembl2Reactome>`_ 
 
-  + `Ensembl2Reactome_plusN <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.Ensembl2Reactome_plusN>`_ 
+  + `Ensembl2Reactome_plusN <https://bigquery.cloud.google.com/table/isb-cgc:genome_reference.Ensembl2Reactome_plusN>`_ 
 
-  + `Kaviar_160113_Public_hg19 <https://bigquery.cloud.google.com/table/isb-cgc:tcga_seq_metadata.Kaviar_160113_Public_hg19>`_ 
+  + `Kaviar_160204_Public_hg19 <https://bigquery.cloud.google.com/table/isb-cgc:genome_reference.Kaviar_160204_Public_hg19>`_ 
+
+  + `Kaviar_160204_Public_hg38 <https://bigquery.cloud.google.com/table/isb-cgc:genome_reference.Kaviar_160204_Public_hg38>`_ 
+
+  + `liftOver_hg19_to_hg38 <https://bigquery.cloud.google.com/table/isb-cgc:genome_reference.liftOver_hg19_to_hg38>`_ 
 
 ..  
     
@@ -331,8 +336,8 @@ ETL Details for TCGA Data
 #########################
 
 The open-access TCGA data has been uploaded into a set of consistent tables
-in the publicly-accessible BigQuery dataset called ``isb-cgc:tcga_201510_alpha``,
-`tables <https://bigquery.cloud.google.com/dataset/isb-cgc:tcga_201510_alpha>`_
+in the publicly-accessible BigQuery dataset called ``isb-cgc:tcga_201607_beta``,
+`tables <https://bigquery.cloud.google.com/dataset/isb-cgc:tcga_201607_beta>`_
 which can be accessed
 via the BigQuery web interface (by anyone with an active GCP project).
 

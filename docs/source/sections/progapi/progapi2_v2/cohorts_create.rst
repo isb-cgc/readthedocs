@@ -4,11 +4,52 @@ Creates and saves a cohort. Takes a JSON object in the request body to use as th
 
 **Example**::
 
-	python isb_curl.py "https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts/create?name={COHORT NAME}" -H "Content-Type: application/json" -d '{"Study": ["UCS", "CESC"], "age_at_initial_pathologic_diagnosis_lte": "60"}'
+	python isb_curl.py "https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts/create?name={COHORT NAME}" -H "Content-Type: application/json" -d '{"Study": ["UCS", "CESC"], "age_at_initial_pathologic_diagnosis_lte": 60}'
 
 **API explorer example**:
 
 Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/isb_cgc_api.cohorts.create?name=COHORT%20NAME%20HERE&resource=%257B%250A++%2522Study%2522%253A+%250A++%255B%2522UCS%2522%250A++%255D%250A%257D&/>`_ to see this endpoint in Google's API explorer.
+
+**Python API Client Example**::
+
+	from googleapiclient.discovery import build
+	from oauth2client.client import OAuth2WebServerFlow
+	from oauth2client import tools
+	from oauth2client.file import Storage
+	import httplib2
+	import os
+
+	CLIENT_ID = '907668440978-0ol0griu70qkeb6k3gnn2vipfa5mgl60.apps.googleusercontent.com'
+	CLIENT_SECRET = 'To_WJH7-1V-TofhNGcEqmEYi'
+	EMAIL_SCOPE = 'https://www.googleapis.com/auth/userinfo.email'
+	DEFAULT_STORAGE_FILE = os.path.join(os.path.expanduser('~'), '.isb_credentials')
+
+	def get_credentials():
+		oauth_flow_args = ['--noauth_local_webserver']
+		storage = Storage(DEFAULT_STORAGE_FILE)
+		credentials = storage.get()
+		if not credentials or credentials.invalid:
+			flow = OAuth2WebServerFlow(CLIENT_ID, CLIENT_SECRET, EMAIL_SCOPE)
+			flow.auth_uri = flow.auth_uri.rstrip('/') + '?approval_prompt=force'
+			credentials = tools.run_flow(flow, storage, tools.argparser.parse_args(oauth_flow_args))
+		return credentials
+
+	def get_authorized_service():
+		api = 'isb_cgc_api'
+		version = 'v2'
+		site = 'https://api-dot-isb-cgc.appspot.com'
+		discovery_url = '%s/_ah/api/discovery/v1/apis/%s/%s/rest' % (site, api, version)
+		credentials = get_credentials()
+		http = credentials.authorize(httplib2.Http())
+		if credentials.access_token_expired or credentials.invalid:
+			credentials.refresh(http)
+		authorized_service = build(api, version, discoveryServiceUrl=discovery_url, http=http)
+		return authorized_service
+
+	service = get_authorized_service()
+	body = {'Study': ['BRCA', 'UCS'], 'age_at_initial_pathologic_diagnosis_gte': 90}
+	data = service.cohorts().create(name=name, body=body).execute()
+
 
 **Request**
 
@@ -61,7 +102,12 @@ In the request body, supply a metadata resource with the following properties:
     "avg_percent_tumor_nuclei_gte": number,
     "avg_percent_tumor_nuclei_lte": number,
     "batch_number": [integer],
+    "batch_number_gte": integer,
+    "batch_number_lte": integer,
     "bcr": [string],
+    "BMI": [number],
+    "BMI_gte": number,
+    "BMI_lte": number,
     "clinical_M": [string],
     "clinical_N": [string],
     "clinical_stage": [string],
@@ -83,6 +129,9 @@ In the request body, supply a metadata resource with the following properties:
     "days_to_last_followup": [integer],
     "days_to_last_followup_gte": integer,
     "days_to_last_followup_lte": integer,
+    "days_to_last_known_alive": [integer],
+    "days_to_last_known_alive_gte": integer,
+    "days_to_last_known_alive_lte": integer,
     "days_to_submitted_specimen_dx": [integer],
     "days_to_submitted_specimen_dx_gte": integer,
     "days_to_submitted_specimen_dx_lte": integer,
@@ -200,6 +249,7 @@ In the request body, supply a metadata resource with the following properties:
     "SampleTypeCode": [string],
     "Study": [string],
     "tobacco_smoking_history": [string],
+    "TSSCode": [string],
     "tumor_tissue_site": [string],
     "tumor_type": [string],
     "vital_status": [string],
@@ -245,7 +295,12 @@ In the request body, supply a metadata resource with the following properties:
 	avg_percent_tumor_nuclei_gte,number,"Optional. "
 	avg_percent_tumor_nuclei_lte,number,"Optional. "
 	batch_number[],list,"Optional. "
+	batch_number_gte,integer,"Optional. "
+	batch_number_lte,integer,"Optional. "
 	bcr[],list,"Optional. Possible values include: 'Nationwide Children's Hospital', 'Washington University'."
+	BMI[],list,"Optional. "
+	BMI_gte,number,"Optional. "
+	BMI_lte,number,"Optional. "
 	clinical_M[],list,"Optional. Possible values include: 'M0', 'M1', 'M1a', 'M1b', 'M1c', 'MX'."
 	clinical_N[],list,"Optional. Possible values include: 'N0', 'N1', 'N2', 'N2a', 'N2b', 'N2c', 'N3', 'NX'."
 	clinical_stage[],list,"Optional. Possible values include: 'Stage I', 'Stage IA', 'Stage IA1', 'Stage IA2', 'Stage IB', 'Stage IB1', 'Stage IB2', 'Stage IC', 'Stage II', 'Stage IIA', 'Stage IIA1', 'Stage IIA2', 'Stage IIB', 'Stage IIC', 'Stage III', 'Stage IIIA', 'Stage IIIB', 'Stage IIIC', 'Stage IIIC1', 'Stage IIIC2', 'Stage IS', 'Stage IV', 'Stage IVA', 'Stage IVB', 'Stage IVC'."
@@ -267,6 +322,9 @@ In the request body, supply a metadata resource with the following properties:
 	days_to_last_followup[],list,"Optional. "
 	days_to_last_followup_gte,integer,"Optional. "
 	days_to_last_followup_lte,integer,"Optional. "
+	days_to_last_known_alive[],list,"Optional. "
+	days_to_last_known_alive_gte,integer,"Optional. "
+	days_to_last_known_alive_lte,integer,"Optional. "
 	days_to_submitted_specimen_dx[],list,"Optional. "
 	days_to_submitted_specimen_dx_gte,integer,"Optional. "
 	days_to_submitted_specimen_dx_lte,integer,"Optional. "
@@ -384,6 +442,7 @@ In the request body, supply a metadata resource with the following properties:
 	SampleTypeCode[],list,"Optional. "
 	Study[],list,"Optional. Possible values include: 'ACC', 'BLCA', 'BRCA', 'CESC', 'CHOL', 'COAD', 'DLBC', 'ESCA', 'GBM', 'HNSC', 'KICH', 'KIRC', 'KIRP', 'LAML', 'LCLL', 'LGG', 'LIHC', 'LUAD', 'LUSC', 'MESO', 'MM', 'OV', 'PAAD', 'PCPG', 'PRAD', 'READ', 'SARC', 'SKCM', 'STAD', 'TGCT', 'THCA', 'THYM', 'UCEC', 'UCS', 'UVM'."
 	tobacco_smoking_history[],list,"Optional. Possible values include: 'Current Reformed Smoker, Duration Not Specified', 'Current reformed smoker for < or = 15 years', 'Current reformed smoker for > 15 years', 'Current smoker', 'Lifelong Non-smoker'."
+	TSSCode[],list,"Optional. "
 	tumor_tissue_site[],list,"Optional. "
 	tumor_type[],list,"Optional. Possible values include: 'Primary', 'Type 1', 'Type 2'."
 	vital_status[],list,"Optional. Possible values include: 'Alive', 'Dead'."

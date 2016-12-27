@@ -40,23 +40,24 @@ On the left side, from top to bottom we have:
 
 3.  **Job History** A list of past jobs (*eg* copying or creating tables).
 
-4.  **Your Project Datasets** Click the little blue triangle to create a new dataet or change projects.
+4.  **Your Project Datasets** Click the little blue triangle to create a new dataset or change projects.  
 
 5.  **isb-cgc** Publicly accessible ISB-CGC curated datasets (including TCGA and reference data sources).
 
 6.  **More data!** Other added datasets will appear here (for example, the **genomics-public-data**, **silver-wall-555**, *etc*).
 
-**Note**: if you do not see the **isb-cgc** datasets, you need to add them to your "view" by clicking on the blue arrow next to your project name at the top of the left side-bar, select "Switch to Project", then "Display Project...", and enter "isb-cgc" (without quotes) in the text box labeled "Project ID".  All ISB-CGC public BigQuery datasets and tables will now be visible in the left side-bar of the BigQuery web interface.
+**Note**: if you do not see the **isb-cgc** datasets, you need to add them to your "view" by clicking on the blue arrow next to your project name at the top of the left side-bar, select "Switch to Project", then "Display Project...", and enter "isb-cgc" (without quotes) in the text box labeled "Project ID".  All ISB-CGC public BigQuery datasets and tables will now be visible in the left side-bar of the BigQuery web interface.  Do the same for other public datasets, such as the Tute Genomics annotation table which is owned by a project named "silver-wall-555".
 
 Querying: Lists, Joins, and Subqueries
 --------------------------------------
 
-BigQueries are very similar to regular SQL, but with some differences.
+BigQueries are very similar to regular SQL, but with some differences.  (Note: you can now `enable standard SQL <https://cloud.google.com/bigquery/sql-reference/enabling-standard-sql>`_ in BigQuery.)
 
 Typically, we select some variables (aka "fields") from one or more tables, filter on some criteria,
 and occasionally aggregate the results (such as taking an average).
 
-Here, we want the barcodes for all patients in the CESC and HNSC
+In this first simple example, we are asking for the
+barcodes for all patients in the CESC and HNSC
 studies, with an associated "primary solid tumor" sample. Note the use of the **IN** keyword.
 
 .. code-block:: sql
@@ -72,10 +73,10 @@ studies, with an associated "primary solid tumor" sample. Note the use of the **
 	  AND SampleType = 'Primary solid Tumor'
 
 Go ahead and cut and paste the above query directly into the New Query box,
-and then click on the red **Run Query** button.
+and then click the red **Run Query** button.
 
-Next, let's suppose we want to add some biospecimen data. To do this we
-join the clinical and biospecimen tables. Note the use of **JOIN ... ON**.
+Next, let's suppose we want to bring in some information that is available in the Clinical_data table.
+To do this we need to JOIN the clinical and biospecimen tables using the SQL **... JOIN ... ON ...** construct.
 
 .. code-block:: sql
 
@@ -120,7 +121,7 @@ If you're really paying attention, you might notice that the first query returne
 835 participant and sample barcodes.  In a few cases, the Biospecimen_data table
 contains information about samples that have no associated information in the Clinical_data
 table, and the "JOIN" operation is by default an *INNER* JOIN which returns only the
-intersection of the two tables being joined.
+*intersection* of the two tables being joined.
 
 Another way to work with multiple tables is by using subqueries.
 In the example below, we have an *inner* query (the middle
@@ -204,7 +205,7 @@ You can get an "Explanation" showing how the query was broken into multiple Stag
 the number of input and outputs from each stage, and the amount of time spent
 reading, computing, *etc*.  In addition, you can Download or Save the Results in various ways,
 including as a new BigQuery Table.
-If your query will return a large number of results, you may need to click on the
+If your query will return a large number of results, you may need to click the
 **Show Options** button to the right of the **Run Query** button and specific a
 "Destination Table" and then turn on the "Allow Large Results" option.
 
@@ -241,57 +242,39 @@ With summary tables, we can even compute statistics like a ChiSq.
 	  n DESC
 
 
-Liftover to hg38
-================
+LiftOver from hg19 to hg38
+==========================
 
 Suppose you want to work with the newer hg38 reference. We can use BigQuery to
-perform the liftover on methylation probe annotation.
+perform the liftOver operation on the methylation probe coordinates using a 
+simple JOIN query.  (This query takes approx 25s and produces an output table
+with one row for each of the input rows in the input annotation table.)
 
 .. code-block:: sql
 
-	SELECT
-	  AddressA_ID,
-	  AddressB_ID,
-	  AlleleA_ProbeSeq,
-	  AlleleB_ProbeSeq,
-	  CHR,
-	  Chromosome_36,
-	  Color_Channel,
-	  Coordinate_36,
-	  DHS,
-	  DMR,
-	  Enhancer,
-	  Forward_Sequence,
-	  Genome_Build,
-	  HMM_Island,
-	  IlmnID,
-	  Infinium_Design_Type,
-	  MAPINFO,
-	  Methyl27_Loci,
-	  Name,
-	  Next_Base,
-	  Phantom,
-	  Probe_SNPs,
-	  Probe_SNPs_10,
-	  Random_Loci,
-	  Regulatory_Feature_Group,
-	  Regulatory_Feature_Name,
-	  Relation_to_UCSC_CpG_Island SourceSeq,
-	  UCSC_CpG_Islands_Name,
-	  UCSC.RefGene_Group,
-	  UCSC.RefGene_Accession,
-	  UCSC.RefGene_Name,
-	  liftover.hg38_Chr AS Chromosome_38,
-	  liftover.hg38_Pos AS Coordinate_38
-	FROM (
-	  SELECT
-	    *
-	  FROM
-	    [isb-cgc:platform_reference.methylation_annotation]
-	  WHERE
-	    CHR='17') AS meth
-	JOIN EACH [isb-cgc:genome_reference.liftover_hg19Tohg38] AS liftover
-	ON
-	  meth.CHR = liftover.hg19_Chr
-	  AND meth.MAPINFO = liftover.hg19_Pos
-	LIMIT 10
+    SELECT
+      a.probeID AS Illumina_probeID,
+      a.hg19_chr AS hg19_chr,
+      a.hg19_pos AS hg19_pos,
+      b.hg38_chr AS hg38_chr,
+      b.hg38_pos AS hg38_pos
+    FROM (
+      SELECT
+        IlmnID AS probeID,
+        CHR AS hg19_chr,
+        MAPINFO AS hg19_pos
+      FROM
+        [isb-cgc:platform_reference.methylation_annotation] ) a
+    LEFT OUTER JOIN EACH (
+      SELECT
+        LTRIM(hg19_ref,"chr") AS hg19_chr,
+        hg19_pos,
+        LTRIM(hg38_ref,"chr") AS hg38_chr,
+        hg38_pos
+      FROM
+        [isb-cgc:genome_reference.liftOver_hg19_to_hg38] ) b
+    ON
+      a.hg19_chr=b.hg19_chr
+      AND a.hg19_pos=b.hg19_pos
+
+
