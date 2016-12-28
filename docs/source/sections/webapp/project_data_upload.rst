@@ -147,11 +147,11 @@ To start an entirely new project, users should click on the **Upload Project Dat
 **Project description and file selection**
 
 
-Clicking on the **Next** button brings up a form where users will select which bucket and BigQuery dataset the file upload should use.  These buckets and datasets were registered_ according to the proccess above.  The **Platform** and **Pipeline** fields can contain any useful description a user wishes to provide.
+Clicking on the **Next** button brings up a form where users will select which bucket and BigQuery dataset the file upload should use.  These buckets and datasets were registered_ according to the process above.  The **Platform** and **Pipeline** fields can contain any useful description a user wishes to provide.
 
 .. image:: Mouse_bucket_and_dataset.png
 
-Lastly, the user should click on the **Upload Data** button to start the process.  Users will first see a page with a message indicating their data is being processed.  Refresh the screen occasionally until either the final page is displayed or an error is shown indicating a problem with loading the file. Your data is being loaded inot the BigQuery table you specified earlier for this data set.
+Lastly, the user should click on the **Upload Data** button to start the process.  Users will first see a page with a message indicating their data is being processed.  Refresh the screen occasionally until either the final page is displayed or an error is shown indicating a problem with loading the file. Your data is being loaded into the BigQuery table you specified earlier for this data set.
 
 .. image:: Mouse_processing.png
 
@@ -187,7 +187,7 @@ High level data files usually represent some level of data analysis as opposed t
 
 Low Level Files for API Access
 -------------------------------
-Files uploaded as low-level files for API access will not be usable in the Webapp, but rather will appear in the users Google Storage Bucket.  This feature is intended for files like BAM or VCF files that contain more raw data.
+Files uploaded as low-level files for API access will not be usable in the Webapp, but rather will appear in the user's Google Storage Bucket.  This feature is intended for files like BAM or VCF files that contain more raw data.
 
 File Type
 ----------
