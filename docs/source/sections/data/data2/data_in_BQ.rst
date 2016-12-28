@@ -93,7 +93,7 @@ TCGA Data and Metadata
   (*eg* LUAD, BRCA, *etc*). (The table ordering below is alphabetical, since that is the order 
   you will see if you view this dataset using the 
   `BigQuery web UI <https://bigquery.cloud.google.com/welcome>`_.  
-  To view this dataset in the web UI, click on the link at the begining of this paragraph.) 
+  To view this dataset in the web UI, click on the link at the beginning of this paragraph.) 
 
 .. 
 
