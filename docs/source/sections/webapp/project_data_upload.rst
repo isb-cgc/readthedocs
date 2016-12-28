@@ -31,7 +31,7 @@ The Project Data Upload uses a number of pre-defined file formats to get data in
 
 * Gene Expression
 
-  The Gene Expression matrix file has two required column:
+  The Gene Expression matrix file has two required columns:
   
   * **Name**: This is the accession number for the gene 
   * **Description**: This is the gene symbol for the gene
@@ -49,10 +49,10 @@ The Project Data Upload uses a number of pre-defined file formats to get data in
 
 * microRNA
 
-  There is one required and one optional column for micorRNA:
+  There is one required and one optional column for microRNA:
   
   * **miRNA_ID** is required and is generally the ID for the miRNA_ID
-  * **miRNA_name** is optional and can be used to provide alternative names for the miRNA.  If not present, the BigQUery data table will have **null** in this column
+  * **miRNA_name** is optional and can be used to provide alternative names for the miRNA.  If not present, the BigQuery data table will have **null** in this column
   
   +------------+-------------+----------+-----------+-----------+
   | miRNA_ID   | miRNA_name  | Barcode 1| Barcode 2 |Barcode N  |
