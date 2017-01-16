@@ -10,6 +10,53 @@ reference data tables have also been created, others are hosted by Google Genomi
 and suggestions for more are welcome at feedback@isb-cgc.org.
 
 
+Genome Reference Data
+=====================
+
+Reference data that describes or annotates the human (or other) genome(s) is described in this section.  
+Reference data hosted by the ISB-CGC in BigQuery tables are available in the ``isb-cgc:genome_reference`` 
+`dataset <https://bigquery.cloud.google.com/dataset/isb-cgc:genome_reference>`_.  Tables based on 
+gene-sets such as Ensembl and GENCODE can be used to find the genomic coordinates and identifiers
+for genes of interest, in order to perform queries that join tables with gene-symbol based data
+to tables with genomic-coordinate based data or tables that use other gene identifiers, for example.
+
+For additional details about each of these tables, please use the `BigQuery web UI <https://bigquery.cloud.google.com>`_ 
+to access each of these tables and look at the information on the **Details** page.  (Look for the Details button
+between the Schema and Preview buttons, beneath the table name.)
+
+  * **Ensembl**
+     - GRCh37 : Release 75, the final build of the Ensembl_ gene-set mapped to GRCh37
+     - GRCh38 : Release 87, the most recent Ensembl_ gene-set mapped to GRCh38
+
+  * **GENCODE**
+     - GRCh37 : Release 19, the final build of the GENCODE_ gene-set mapped to GRCH37
+     - GRCh38 : Releases 22, 23, and 24 from GENCODE_ are all available (because the TCGA data has been reprocessed by at least one center using each of these three different releases) 
+
+  * **Gene Ontology Consortium** : Tables based on GO_ annotations and the GO_ ontology.
+
+  * **Kaviar** : The latest hg19- and hg38-based Kaviar_ databases are available.  Kaviar_ is a compilation of SNVs, indels, and complex variants observed in humans, designed to facilitate testing for the novelty and frequency of observed variants.
+
+  * **liftOver_hg19_to_hg38** : This table provides a mapping of each hg19 position to the corresponding position in hg38, and can be used to perform a liftOver_ operation in BigQuery
+
+  * **miRBase**
+     - GRCh37 : The human portion of version 20 of the miRBase_ database.
+     - GRCh38 : The human portion of version 21 of the miRBase_ database.
+
+  * **miRTarBase** The recently updated miRTarBase_ database (release 6.1)
+
+  * **Reactome**
+     - Ensembl2Reactome
+     - miRBase2Reactome
+
+.. _liftOver: https://genome.ucsc.edu/cgi-bin/hgLiftOver
+.. _GO: http://www.geneontology.org/
+.. _Ensembl: http://uswest.ensembl.org/index.html
+.. _GENCODE: https://www.gencodegenes.org/releases/
+.. _Kaviar: http://db.systemsbiology.net/kaviar/
+.. _miRBase: http://www.mirbase.org/
+.. _miRTarBase: http://nar.oxfordjournals.org/content/early/2015/11/19/nar.gkv1258.long
+
+
 Platform Reference Data
 =======================
 
@@ -30,22 +77,6 @@ to see hosted in BigQuery tables, please let us know at feedback@isb-cgc.org.
 
   * **Genome-Wide SNP Array**
     - The technical documentation for the Affymetrix Genome-Wide Human SNP Array 6.0 array can be found `here <http://www.affymetrix.com/catalog/131533/AFFY/Genome-Wide+Human+SNP+Array+6.0#1_3>`_
-
-
-Genome Reference Data
-=====================
-
-Reference data that describes or annotates the human (or other) genome(s) is described in this section.  
-Reference data hosted by the ISB-CGC in BigQuery tables are available in the ``isb-cgc:genome_reference`` 
-dataset.
-
-  * **GENCODE**  Release 19, the final build of the GENCODE geneset mapped to GRCh37 has been uploaded as a BigQuery table called ``GENCODE_r19``.  This table can be used to find the genomic coordinates for a gene of interest in combination with queries against molecular tables such as the TCGA copy-number data. 
-
-  * **miRBase** The human portion of version 20 of the miRBase database has been uploaded as a BigQuery table called ``miRBase_v20``.  This database can be used to map between MIMAT accession IDs, miR names, and mature miR names.  The miR sequence cal also be retrieved from this table. 
-
-  * **miRTarBase** The recently updated miRTarBase_ database (release 6.1) is available as a BigQuery table: isb-cgc:genome_reference.miRTarBase
-
-.. _miRTarBase: http://nar.oxfordjournals.org/content/early/2015/11/19/nar.gkv1258.long
 
 
 Other Reference Data Sources
