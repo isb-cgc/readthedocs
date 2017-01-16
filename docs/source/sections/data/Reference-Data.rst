@@ -73,6 +73,8 @@ to see hosted in BigQuery tables, please let us know at feedback@isb-cgc.org.
 
     - Each CpG locus is uniquely identified as described in this `technical note <http://www.illumina.com/content/dam/illumina-marketing/documents/products/technotes/technote_cpg_loci_identification.pdf>`_ and this unique identifier can be used to look up and cross-reference data between the TCGA DNA methylation data table and the platform annotation table. 
 
+    - The original Illumina-provided CpG coordinates have been *"lifted over"* from hg19 to hg38
+
 .. _Illumina: www.illumina.com
 
   * **Genome-Wide SNP Array**
