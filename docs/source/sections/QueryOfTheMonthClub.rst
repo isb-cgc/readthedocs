@@ -43,17 +43,13 @@ Data Tables
 You can get familiar with the data sources by opening the BigQuery web interface
 and taking a preview of the tables.
 
-isb-cgc.tcga_cohorts.BRCA
-Curated cohort table for TCGA BRCA study:  1087 unique patients and 2236 unique samples.
+- isb-cgc.tcga_cohorts.BRCA ... Curated cohort table for TCGA BRCA study:  1087 unique patients and 2236 unique samples.
 
-isb-cgc.genome_reference.GENCODE_v19
-This table is based on release 19 of the GENCODE reference gene set.  Note that these annotations are based on the hg19/GRCh37 reference genome.
+- isb-cgc.genome_reference.GENCODE_v19 ... This table is based on release 19 of the GENCODE reference gene set.  Note that these annotations are based on the hg19/GRCh37 reference genome.
 
-isb-cgc.tcga_201607_beta.mRNA_UNC_HiSeq_RSEM]
-This table contains all mRNA expression data produced by the UNC-LCCC (Lineberger Comprehensive Cancer Center) using the Illumina HiSeq platform and processed through their RNSseqV2 / RSEM pipeline.
+- isb-cgc.tcga_201607_beta.mRNA_UNC_HiSeq_RSEM ... This table contains all mRNA expression data produced by the UNC-LCCC (Lineberger Comprehensive Cancer Center) using the Illumina HiSeq platform and processed through their RNSseqV2 / RSEM pipeline.
 
-isb-cgc.tcga_201607_beta.Copy_Number_segments
-This table contains one row for each copy-number segment identified for each TCGA aliquot. Affymetrix SNP6 data is used in making the calls.
+- isb-cgc.tcga_201607_beta.Copy_Number_segments ... This table contains one row for each copy-number segment identified for each TCGA aliquot. Affymetrix SNP6 data is used in making the calls.
 
 Legacy SQL
 -----------
