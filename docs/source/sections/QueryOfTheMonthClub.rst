@@ -14,17 +14,46 @@ email: dgibbs (at) systemsbiology (dot) org
 January, 2016
 #############
 
-This month we'll be comparing standard SQL and legacy SQL. The task is going to be
-computing correlation between copy number variants and gene expression over
-all genes. The difficulty lies in the fact that the copy number caller segments
-the genome into a 'blocks' with a given value. Put another way, the copy number
-data is a series of segments with a chromosome, start point, end point, and a value
-that indicates whether a duplication or deletion event (or none) has taken place.
-Our gene expression data, on the other hand, has no location data. So the first
-task is to join the gene expression data to genome locations, which can then be
-joined to the copy number segments. But searching for overlapping segments can
-get tricky! Let's see what happens below.
+This month we'll be comparing standard SQL and legacy SQL. It's possible to write
+queries using either form, but as we'll see, using standard SQL can improve
+readability. In order to 'activate' standard SQL in the web browser, just under the
+'New Query' text window, click the 'Show Options' button, and towards the bottom of the
+options you'll find the 'Use Legacy SQL' check box.
 
+To use R and bigrquery to execute
+standard SQL, you'll need to make sure you're using the most up-to-date
+version of the R package. I would recommend installing it from the github page
+using devtools. Please see `bigrquery <https://github.com/rstats-db/bigrquery>`_ for more information
+on installation. The important bit, is that there's now a parameter called 'useLegacySql'.
+
+The task will be to compute correlations between copy number variants and gene expression, over
+all genes, using only BRCA samples. The copy number data is expressed in a series
+of segments, each with a chromosome, start-point, end-point, and value
+indicating whether a duplication or deletion event (or neither) has taken place.
+One could imagine that a copy number duplicated gene would also have higher expression levels.
+However, our gene expression data has no location information, making it
+necessary to join the genomic locations from an appropriate reference.
+The resulting annotated expression table can then be joined to the copy number segments.
+But computing the overlap of DNA segments and genes locations can get tricky!
+Below we show two different ways of accomplishing the task.
+
+Data Tables
+-----------
+
+You can get familiar with the data sources by opening the BigQuery web interface
+and taking a preview of the tables.
+
+isb-cgc.tcga_cohorts.BRCA
+Curated cohort table for TCGA BRCA study:  1087 unique patients and 2236 unique samples.
+
+isb-cgc.genome_reference.GENCODE_v19
+This table is based on release 19 of the GENCODE reference gene set.  Note that these annotations are based on the hg19/GRCh37 reference genome.
+
+isb-cgc.tcga_201607_beta.mRNA_UNC_HiSeq_RSEM]
+This table contains all mRNA expression data produced by the UNC-LCCC (Lineberger Comprehensive Cancer Center) using the Illumina HiSeq platform and processed through their RNSseqV2 / RSEM pipeline.
+
+isb-cgc.tcga_201607_beta.Copy_Number_segments
+This table contains one row for each copy-number segment identified for each TCGA aliquot. Affymetrix SNP6 data is used in making the calls.
 
 Legacy SQL
 -----------
