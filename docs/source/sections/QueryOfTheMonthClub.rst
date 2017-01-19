@@ -56,9 +56,17 @@ Legacy SQL
 
 .. code-block:: sql
 
-    ## and paste this next bit into the "UDF Editor" window
+    # This query makes use of a legacy UDF or user defined function.
+    # Paste this next bit into the "UDF Editor" window.
+
+    # Also, note that in legacy SQL we use '#' as a comment char
+    # and surround our table names in square brackets.
+    # these will change when we move to standard SQL.
 
     function binIntervals(row, emit) {
+      // This is javascript ... here we use '//' for comments  :-)
+      // Legacy UDFs take a single row as input.
+      
       var binSize = 10000;  // Make sure this matches the value in the SQL (if necessary)
       var startBin = Math.floor(row.region_start / binSize);
       var endBin = Math.floor(row.region_end / binSize);
@@ -76,9 +84,9 @@ Legacy SQL
     }
 
     bigquery.defineFunction(
-      'binIntervals',                                // Name of the function exported to SQL
+      'binIntervals',                                          // Name of the function exported to SQL
       ['label', 'value', 'chr', 'region_start', 'region_end'], // Names of input columns
-      [{'name': 'label', 'type': 'string'},           // Output schema
+      [{'name': 'label', 'type': 'string'},                    // Output schema
        {'name': 'value', 'type': 'float'},
        {'name': 'chr',   'type': 'string'},
        {'name': 'region_start', 'type': 'integer'},
@@ -87,9 +95,12 @@ Legacy SQL
       binIntervals                                   // Reference to JavaScript UDF
     );
 
-    ###
+    ### Now the main query begins. ###
 
     SELECT
+      # Legacy SQL starts on the inside, and moves out.
+      # So this select statement is actually the last one,
+      # and where the correlation happens.
       gene,
       chr,
       CORR(avgCNsegMean,avglogExp) AS corr,
@@ -157,12 +168,10 @@ Legacy SQL
                   SampleBarcode
                 FROM
                   [isb-cgc:tcga_cohorts.BRCA] ) ) ) ) AS cnInfo
-
         ON
           ( geneInfo.chr = cnInfo.chr )
           AND ( geneInfo.bin = cnInfo.bin ) ) AS annotCN
       JOIN EACH (
-
         SELECT
           SampleBarcode,
           HGNC_gene_symbol,
@@ -175,7 +184,6 @@ Legacy SQL
             SampleBarcode
           FROM
             [isb-cgc:tcga_cohorts.BRCA] ) ) AS exp
-
       ON
         ( exp.HGNC_gene_symbol = annotCN.gene )
         AND ( exp.SampleBarcode = annotCN.SampleBarcode )
