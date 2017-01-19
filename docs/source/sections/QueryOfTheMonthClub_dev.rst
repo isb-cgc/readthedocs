@@ -11,6 +11,291 @@ email: dgibbs (at) systemsbiology (dot) org
 
 ------------------
 
+January, 2016
+#############
+
+This month we'll be comparing standard SQL and legacy SQL. It's possible to write
+queries using either form, but as we'll see, using standard SQL can improve
+readability. In order to 'activate' standard SQL in the web browser, just under the
+'New Query' text window, click the 'Show Options' button, and towards the bottom of the
+options you'll find the 'Use Legacy SQL' check box.
+
+To use R and bigrquery to execute
+standard SQL, you'll need to make sure you're using the most up-to-date
+version of the R package. I would recommend installing it from the github page
+using devtools. Please see `bigrquery <https://github.com/rstats-db/bigrquery>`_ for more information
+on installation. The important bit, is that there's now a parameter called 'useLegacySql'.
+
+The task will be to compute correlations between copy number variants and gene expression, over
+all genes, using only BRCA samples. The copy number data is expressed in a series
+of segments, each with a chromosome, start-point, end-point, and value
+indicating whether a duplication or deletion event (or neither) has taken place.
+One could imagine that a copy number duplicated gene would also have higher expression levels.
+However, our gene expression data has no location information, making it
+necessary to join the genomic locations from an appropriate reference.
+The resulting annotated expression table can then be joined to the copy number segments.
+But computing the overlap of DNA segments and genes locations can get tricky!
+Below we show two different ways of accomplishing the task.
+
+Data Tables
+-----------
+
+You can get familiar with the data sources by opening the BigQuery web interface
+and taking a preview of the tables.
+
+- isb-cgc.tcga_cohorts.BRCA ... Curated cohort table for TCGA BRCA study:  1087 unique patients and 2236 unique samples.
+
+- isb-cgc.genome_reference.GENCODE_v19 ... This table is based on release 19 of the GENCODE reference gene set.  Note that these annotations are based on the hg19/GRCh37 reference genome.
+
+- isb-cgc.tcga_201607_beta.mRNA_UNC_HiSeq_RSEM ... This table contains all mRNA expression data produced by the UNC-LCCC (Lineberger Comprehensive Cancer Center) using the Illumina HiSeq platform and processed through their RNSseqV2 / RSEM pipeline.
+
+- isb-cgc.tcga_201607_beta.Copy_Number_segments ... This table contains one row for each copy-number segment identified for each TCGA aliquot. Affymetrix SNP6 data is used in making the calls.
+
+Legacy SQL
+-----------
+
+.. code-block:: sql
+
+    # This query makes use of a legacy UDF or 'user defined function'.
+    # Paste this next bit into the "UDF Editor" window if you're using the web interface.
+
+    # Also, note that in legacy SQL we use '#' as a comment char
+    # and surround our table names in square brackets.
+    # these will change when we move to standard SQL.
+
+    function binIntervals(row, emit) {
+      // This is javascript ... here we use '//' for comments  :-)
+      // Legacy UDFs take a single row as input.
+
+      var binSize = 10000;  // Make sure this matches the value in the SQL (if necessary)
+      var startBin = Math.floor(row.region_start / binSize);
+      var endBin = Math.floor(row.region_end / binSize);
+      // Since an interval can span multiple bins, emit
+      // a record for each bin it spans.
+      for(var bin = startBin; bin <= endBin; bin++) {
+        emit({label: row.label,
+              value: row.value,
+              chr: row.chr,
+              region_start: row.region_start,
+              region_end: row.region_end,
+              bin: bin,
+             });
+      }
+    }
+
+    bigquery.defineFunction(
+      'binIntervals',                                          // Name of the function exported to SQL
+      ['label', 'value', 'chr', 'region_start', 'region_end'], // Names of input columns
+      [{'name': 'label', 'type': 'string'},                    // Output schema
+       {'name': 'value', 'type': 'float'},
+       {'name': 'chr',   'type': 'string'},
+       {'name': 'region_start', 'type': 'integer'},
+       {'name': 'region_end',   'type': 'integer'},
+       {'name': 'bin',   'type': 'integer'}],
+      binIntervals                                   // Reference to JavaScript UDF
+    );
+
+    ### Now the main query begins. ###
+
+    SELECT
+      # Legacy SQL starts on the inside, and moves out.
+      # So this select statement is actually the last one,
+      # and where the correlation happens.
+      gene,
+      chr,
+      CORR(avgCNsegMean,avglogExp) AS corr,
+      COUNT(*) AS n
+    FROM (
+      SELECT
+        annotCN.gene AS gene,
+        annotCN.chr AS chr,
+        annotCN.SampleBarcode AS SampleBarcode,
+        AVG(annotCN.CNsegMean) AS avgCNsegMean,
+        AVG(exp.logExp) AS avgLogExp
+      FROM (
+        SELECT
+          geneInfo.gene AS gene,
+          geneInfo.chr AS chr,
+          geneInfo.region_start AS gene_start,
+          geneInfo.region_end AS gene_end,
+          geneInfo.bin AS bin,
+          cnInfo.SampleBarcode AS SampleBarcode,
+          cnInfo.Segment_Mean AS CNsegMean,
+          cnInfo.region_start AS cn_start,
+          cnInfo.region_end AS cn_end
+        FROM (
+          SELECT
+            label AS gene,
+            chr,
+            region_start,
+            region_end,
+            bin
+          FROM ( binIntervals (
+
+            ## GENEINFO
+              SELECT
+                gene_name AS label,
+                FLOAT(start) AS value,
+                LTRIM(seq_name,"chr") AS chr,
+                start AS region_start,
+                END AS region_end
+              FROM
+                [isb-cgc:genome_reference.GENCODE_v19]
+              WHERE
+                feature="gene"
+                AND gene_status="KNOWN" ) ) ) AS geneInfo
+
+        JOIN EACH (
+          SELECT
+            label AS SampleBarcode,
+            value AS Segment_Mean,
+            chr,
+            region_start,
+            region_end,
+            bin
+          FROM ( binIntervals (
+              SELECT
+                SampleBarcode AS label,
+                Segment_Mean AS value,
+                Chromosome AS chr,
+                start AS region_start,
+                END AS region_end
+              FROM
+                [isb-cgc:tcga_201607_beta.Copy_Number_segments]
+              WHERE
+                SampleBarcode IN (
+                SELECT
+                  SampleBarcode
+                FROM
+                  [isb-cgc:tcga_cohorts.BRCA] ) ) ) ) AS cnInfo
+        ON
+          ( geneInfo.chr = cnInfo.chr )
+          AND ( geneInfo.bin = cnInfo.bin ) ) AS annotCN
+      JOIN EACH (
+        SELECT
+          SampleBarcode,
+          HGNC_gene_symbol,
+          LOG2(normalized_count+1) AS logExp
+        FROM
+          [isb-cgc:tcga_201607_beta.mRNA_UNC_HiSeq_RSEM]
+        WHERE
+          SampleBarcode IN (
+          SELECT
+            SampleBarcode
+          FROM
+            [isb-cgc:tcga_cohorts.BRCA] ) ) AS exp
+      ON
+        ( exp.HGNC_gene_symbol = annotCN.gene )
+        AND ( exp.SampleBarcode = annotCN.SampleBarcode )
+      GROUP BY
+        gene,
+        chr,
+        SampleBarcode )
+    GROUP BY
+      gene,
+      chr
+    HAVING
+      corr IS NOT NULL
+    ORDER BY
+      corr DESC
+
+
+
+Standard SQL
+------------
+.. code-block:: sql
+
+    WITH
+      geneInfo AS (
+        SELECT
+          gene_name AS gene,
+          LTRIM(seq_name,"chr") AS chr,
+          `start` as region_start,
+          `end`   as region_end
+        FROM
+          `isb-cgc.genome_reference.GENCODE_v19`
+        WHERE
+          feature="gene"
+          AND gene_status="KNOWN"),
+
+    cnInfo AS(
+      SELECT
+        SampleBarcode,
+        Segment_Mean,
+        Chromosome AS chr,
+        `start` AS region_start,
+        `end`   AS region_end
+      FROM
+        `isb-cgc.tcga_201607_beta.Copy_Number_segments`
+      WHERE
+        SampleBarcode IN (
+        SELECT
+          SampleBarcode
+        FROM
+          `isb-cgc.tcga_cohorts.BRCA` )),
+
+    gexp AS (
+      SELECT
+        SampleBarcode,
+        HGNC_gene_symbol,
+        AVG(LOG(normalized_count+1,2)) AS logExp
+      FROM
+        `isb-cgc.tcga_201607_beta.mRNA_UNC_HiSeq_RSEM`
+      WHERE
+        SampleBarcode IN (
+        SELECT
+          SampleBarcode
+        FROM
+          `isb-cgc.tcga_cohorts.BRCA` )
+      GROUP BY
+        SampleBarcode,
+        HGNC_gene_symbol),
+
+    cnAnnot AS (
+      SELECT
+        geneInfo.gene AS gene,
+        geneInfo.chr AS chr,
+        geneInfo.region_start AS gene_start,
+        geneInfo.region_end AS gene_end,
+        cnInfo.SampleBarcode AS SampleBarcode,
+        AVG(cnInfo.Segment_Mean) AS Avg_CNsegMean
+      FROM
+      cnInfo JOIN geneInfo
+      ON
+        (geneInfo.chr = cnInfo.chr)
+      WHERE
+      (cnInfo.region_start BETWEEN geneInfo.region_start AND geneInfo.region_end) OR
+      (cnInfo.region_end   BETWEEN geneInfo.region_start AND geneInfo.region_end) OR
+      (cnInfo.region_start < geneInfo.region_start AND cnInfo.region_end > geneInfo.region_end)
+      GROUP BY
+        gene,
+        chr,
+        gene_start,
+        gene_end,
+        SampleBarcode
+    ),
+    bigJoin AS (
+      SELECT
+        cnAnnot.gene AS gene,
+        cnAnnot.chr AS chr,
+        corr(cnAnnot.Avg_CNsegMean,gexp.logExp) AS corr_cn_gexp,
+        count(*) as n
+      FROM
+        cnAnnot join gexp
+      ON
+        ( gexp.HGNC_gene_symbol = cnAnnot.gene )
+        AND ( gexp.SampleBarcode = cnAnnot.SampleBarcode )
+      GROUP BY
+        gene,
+        chr
+    )
+
+    select *
+    from bigJoin
+
+
+------------------
+
 December, 2016
 ##############
 
