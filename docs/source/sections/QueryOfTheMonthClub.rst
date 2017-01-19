@@ -30,6 +30,7 @@ Legacy SQL
 -----------
 
 .. code-block:: sql
+
     ## and paste this next bit into the "UDF Editor" window
 
     function binIntervals(row, emit) {
@@ -168,7 +169,7 @@ Legacy SQL
 
 
 Standard SQL
------------
+------------
 .. code-block:: sql
 
     WITH
