@@ -360,7 +360,6 @@ R script
 ------------
 
 .. figure:: query_figs/jan_results.png
-   :scale: 100
    :align: center
 
 This plot shows the correlations found using the Legacy SQL solution (y-axis) compared
