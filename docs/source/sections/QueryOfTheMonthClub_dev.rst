@@ -61,50 +61,15 @@ Legacy SQL
 .. code-block:: sql
 
     # This query makes use of a legacy UDF or 'user defined function'.
-    # Paste this next bit into the "UDF Editor" window if you're using the web interface.
+    # To define UDFs in R, we need to define it 'inline'.
+    # for another example see:
+    # https://github.com/googlegenomics/bigquery-examples/blob/master/pgp/sql/schema-comparisons/missingness-udf.sql
 
     # Also, note that in legacy SQL we use '#' as a comment char
     # and surround our table names in square brackets.
     # these will change when we move to standard SQL.
 
-    function binIntervals(row, emit) {
-      // This is javascript ... here we use '//' for comments  :-)
-      // Legacy UDFs take a single row as input.
-
-      var binSize = 10000;  // Make sure this matches the value in the SQL (if necessary)
-      var startBin = Math.floor(row.region_start / binSize);
-      var endBin = Math.floor(row.region_end / binSize);
-      // Since an interval can span multiple bins, emit
-      // a record for each bin it spans.
-      for(var bin = startBin; bin <= endBin; bin++) {
-        emit({label: row.label,
-              value: row.value,
-              chr: row.chr,
-              region_start: row.region_start,
-              region_end: row.region_end,
-              bin: bin,
-             });
-      }
-    }
-
-    bigquery.defineFunction(
-      'binIntervals',                                          // Name of the function exported to SQL
-      ['label', 'value', 'chr', 'region_start', 'region_end'], // Names of input columns
-      [{'name': 'label', 'type': 'string'},                    // Output schema
-       {'name': 'value', 'type': 'float'},
-       {'name': 'chr',   'type': 'string'},
-       {'name': 'region_start', 'type': 'integer'},
-       {'name': 'region_end',   'type': 'integer'},
-       {'name': 'bin',   'type': 'integer'}],
-      binIntervals                                   // Reference to JavaScript UDF
-    );
-
-    ### Now the main query begins. ###
-
     SELECT
-      # Legacy SQL starts on the inside, and moves out.
-      # So this select statement is actually the last one,
-      # and where the correlation happens.
       gene,
       chr,
       CORR(avgCNsegMean,avglogExp) AS corr,
@@ -134,20 +99,47 @@ Legacy SQL
             region_start,
             region_end,
             bin
-          FROM ( binIntervals (
+          FROM js (  # This User-defined function bins the genome making the join possible.
 
-            ## GENEINFO
-              SELECT
+              (SELECT
                 gene_name AS label,
                 FLOAT(start) AS value,
-                LTRIM(seq_name,"chr") AS chr,
+                LTRIM(seq_name,\"chr\") AS chr,
                 start AS region_start,
                 END AS region_end
               FROM
                 [isb-cgc:genome_reference.GENCODE_v19]
               WHERE
-                feature="gene"
-                AND gene_status="KNOWN" ) ) ) AS geneInfo
+                feature=\"gene\"
+                AND gene_status=\"KNOWN\" ),
+
+                label, value, chr, region_start, region_end,
+
+                \"[{'name': 'label', 'type': 'string'},   // Output schema
+                 {'name': 'value', 'type': 'float'},
+                 {'name': 'chr',   'type': 'string'},
+                 {'name': 'region_start', 'type': 'integer'},
+                 {'name': 'region_end',   'type': 'integer'},
+                 {'name': 'bin',   'type': 'integer'}]\",
+
+                 \"function binIntervals(row, emit) {
+                   // This is javascript ... here we use '//' for comments
+                   // Legacy UDFs take a single row as input.
+                   var binSize = 10000;  // Make sure this matches the value in the SQL (if necessary)
+                   var startBin = Math.floor(row.region_start / binSize);
+                   var endBin = Math.floor(row.region_end / binSize);
+                   // Since an interval can span multiple bins, emit
+                   // a record for each bin it spans.
+                   for(var bin = startBin; bin <= endBin; bin++) {
+                     emit({label: row.label,
+                           value: row.value,
+                           chr: row.chr,
+                           region_start: row.region_start,
+                           region_end: row.region_end,
+                           bin: bin,
+                          });
+                   }
+                }\")) AS geneInfo
 
         JOIN EACH (
           SELECT
@@ -157,8 +149,8 @@ Legacy SQL
             region_start,
             region_end,
             bin
-          FROM ( binIntervals (
-              SELECT
+          FROM ( js (
+              (SELECT
                 SampleBarcode AS label,
                 Segment_Mean AS value,
                 Chromosome AS chr,
@@ -171,7 +163,36 @@ Legacy SQL
                 SELECT
                   SampleBarcode
                 FROM
-                  [isb-cgc:tcga_cohorts.BRCA] ) ) ) ) AS cnInfo
+                  [isb-cgc:tcga_cohorts.BRCA] ) ),
+
+              label,value,chr,region_start,region_end,
+
+              \"[{'name': 'label', 'type': 'string'},
+                {'name': 'value', 'type': 'float'},
+                {'name': 'chr',   'type': 'string'},
+                {'name': 'region_start', 'type': 'integer'},
+                {'name': 'region_end',   'type': 'integer'},
+                {'name': 'bin',   'type': 'integer'}]\",
+
+               \"function binIntervals(row, emit) {
+                 // This is javascript ... here we use '//' for comments
+                 // Legacy UDFs take a single row as input.
+                 var binSize = 10000;  // Make sure this matches the value in the SQL (if necessary)
+                 var startBin = Math.floor(row.region_start / binSize);
+                 var endBin = Math.floor(row.region_end / binSize);
+                 // Since an interval can span multiple bins, emit
+                 // a record for each bin it spans.
+                 for(var bin = startBin; bin <= endBin; bin++) {
+                   emit({label: row.label,
+                         value: row.value,
+                         chr: row.chr,
+                         region_start: row.region_start,
+                         region_end: row.region_end,
+                         bin: bin,
+                        });
+                 }
+              }\"
+            ) ) ) AS cnInfo
         ON
           ( geneInfo.chr = cnInfo.chr )
           AND ( geneInfo.bin = cnInfo.bin ) ) AS annotCN
@@ -213,14 +234,14 @@ Standard SQL
       geneInfo AS (
         SELECT
           gene_name AS gene,
-          LTRIM(seq_name,"chr") AS chr,
+          LTRIM(seq_name,'chr') AS chr,
           `start` as region_start,
           `end`   as region_end
         FROM
           `isb-cgc.genome_reference.GENCODE_v19`
         WHERE
-          feature="gene"
-          AND gene_status="KNOWN"),
+          feature='gene'
+          AND gene_status='KNOWN'),
 
     cnInfo AS(
       SELECT
@@ -296,6 +317,54 @@ Standard SQL
 
     select *
     from bigJoin
+
+
+R script
+########
+
+.. code-block:: r
+
+  # Here, we're going to execute the two above queries, and see how
+  # the correlations compare.
+
+  library(bigrquery)
+  library(ggplot2)
+
+  q_legacy <- " ... first query above"
+
+  q_std <- " ... second query from above ..."
+
+  legacy_res <- query_exec(q_legacy, project="isb-cgc-02-0001", useLegacySql=T)
+
+  std_res <- query_exec(q_std, project="isb-cgc-02-0001", useLegacySql=F)
+
+  res0 <- merge(legacy_res, std_res, by="gene")
+
+  dim(res0)
+  #[1] 18574     7
+
+  dim(std_res)
+  #[1] 18775     4
+
+  dim(legacy_res)
+  #[1] 18564     4
+
+  table(res0$n.x == res0$n.y)
+
+  #FALSE  TRUE
+  #  589 17985
+
+  qplot(data=res0, x=corr_cn_gexp, y=corr, main="CN and Expr correlation in BRCA",
+        xlab="Standard SQL", ylab="Legacy SQL")
+
+------------
+
+.. figure:: query_figs/jan_results.png
+   :scale: 100
+   :align: center
+
+This plot shows the correlations found using the Legacy SQL solution (y-axis) compared
+to the correlations found using the Standard SQL solution (x-axis).
 
 
 ------------------
