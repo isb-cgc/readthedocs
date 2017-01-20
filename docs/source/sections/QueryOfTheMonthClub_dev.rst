@@ -111,7 +111,8 @@ Legacy SQL
                 [isb-cgc:genome_reference.GENCODE_v19]
               WHERE
                 feature=\"gene\"
-                AND gene_status=\"KNOWN\" ),
+                AND gene_status=\"KNOWN\"
+                AND source=\"HAVANA\"),
 
                 label, value, chr, region_start, region_end,
 
@@ -241,7 +242,8 @@ Standard SQL
           `isb-cgc.genome_reference.GENCODE_v19`
         WHERE
           feature='gene'
-          AND gene_status='KNOWN'),
+          AND gene_status='KNOWN'
+          AND source = 'HAVANA'),
 
     cnInfo AS(
       SELECT
@@ -340,22 +342,18 @@ R script
 
   res0 <- merge(legacy_res, std_res, by="gene")
 
-  dim(res0)
-  #[1] 18574     7
-
   dim(std_res)
-  #[1] 18775     4
+  #[1] 18447     4
 
   dim(legacy_res)
-  #[1] 18564     4
+  #[1] 18424     4
 
-  table(res0$n.x == res0$n.y)
-
-  #FALSE  TRUE
-  #  589 17985
+  dim(res0)
+  #[1] 18424     7
 
   qplot(data=res0, x=corr_cn_gexp, y=corr, main="CN and Expr correlation in BRCA",
         xlab="Standard SQL", ylab="Legacy SQL")
+
 
 ------------
 
@@ -365,7 +363,6 @@ R script
 
 This plot shows the correlations found using the Legacy SQL solution (y-axis) compared
 to the correlations found using the Standard SQL solution (x-axis).
-
 
 ------------------
 
