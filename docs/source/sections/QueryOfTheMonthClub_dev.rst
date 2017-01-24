@@ -15,8 +15,10 @@ January, 2016
 #############
 
 This month we'll be comparing standard SQL and legacy SQL. It's possible to write
-queries using either form, but as we'll see, using standard SQL can improve
-readability. In order to 'activate' standard SQL in the web browser, just under the
+queries using either form, but as we'll see, using standard SQL can easier to write
+and improve readability.
+
+In order to 'activate' standard SQL in the web browser, just under the
 'New Query' text window, click the 'Show Options' button, and towards the bottom of the
 options you'll find the 'Use Legacy SQL' check box.
 
@@ -24,14 +26,15 @@ To use R and bigrquery to execute
 standard SQL, you'll need to make sure you're using the most up-to-date
 version of the R package. I would recommend installing it from the github page
 using devtools. Please see `bigrquery <https://github.com/rstats-db/bigrquery>`_ for more information
-on installation. The important bit, is that there's now a parameter called 'useLegacySql'.
+on installation. The important bit: there's now a parameter called 'useLegacySql'.
 
 The task will be to compute correlations between copy number variants and gene expression, over
 all genes, using only BRCA samples. The copy number data is expressed in a series
 of segments, each with a chromosome, start-point, end-point, and value
 indicating whether a duplication or deletion event (or neither) has taken place.
 One could imagine that a copy number duplicated gene would also have higher expression levels.
-However, our gene expression data has no location information, making it
+
+The difficulty is that our gene expression data has no location information, making it
 necessary to join the genomic locations from an appropriate reference.
 The resulting annotated expression table can then be joined to the copy number segments.
 But computing the overlap of DNA segments and genes locations can get tricky!
@@ -62,27 +65,39 @@ Legacy SQL
 
     # This query makes use of a legacy UDF or 'user defined function'.
     # To define UDFs in R, we need to define it 'inline'.
-    # for another example see:
+    # For another example of inline definitions, see:
     # https://github.com/googlegenomics/bigquery-examples/blob/master/pgp/sql/schema-comparisons/missingness-udf.sql
 
-    # Also, note that in legacy SQL we use '#' as a comment char
-    # and surround our table names in square brackets.
-    # these will change when we move to standard SQL.
+    # Big legacy SQL queries grow like onions, they start in the center,
+    # and grow in layers, until the outer-most select statement returns the result.
+    # And like onions, they will make you cry.
 
     SELECT
+      # Here's the final select statement, computing Pearson's correlation
+      # on the avgCNsegMean, the copy number mean for a particular gene
+      # and avglogExp, the average expression for the same gene.
       gene,
       chr,
       CORR(avgCNsegMean,avglogExp) AS corr,
       COUNT(*) AS n
     FROM (
+
       SELECT
+        # This is the select statement on the joined CN and expr tables,
+        # where averages are computed on copy number and expression.
         annotCN.gene AS gene,
         annotCN.chr AS chr,
         annotCN.SampleBarcode AS SampleBarcode,
         AVG(annotCN.CNsegMean) AS avgCNsegMean,
         AVG(exp.logExp) AS avgLogExp
       FROM (
+
         SELECT
+          # This is the select statement that annotates the CN segments via binning.
+          # To annotate the segments, the CN segment start and end positions are binned,
+          # as well as the gene reference information.
+          # The bins provide a sort of grid that can be used for aligning the segments
+          # to gene locations.
           geneInfo.gene AS gene,
           geneInfo.chr AS chr,
           geneInfo.region_start AS gene_start,
@@ -126,9 +141,11 @@ Legacy SQL
                  \"function binIntervals(row, emit) {
                    // This is javascript ... here we use '//' for comments
                    // Legacy UDFs take a single row as input.
+                   // and return a row.. can be a different number of columns.
                    var binSize = 10000;  // Make sure this matches the value in the SQL (if necessary)
                    var startBin = Math.floor(row.region_start / binSize);
                    var endBin = Math.floor(row.region_end / binSize);
+
                    // Since an interval can span multiple bins, emit
                    // a record for each bin it spans.
                    for(var bin = startBin; bin <= endBin; bin++) {
@@ -143,7 +160,10 @@ Legacy SQL
                 }\")) AS geneInfo
 
         JOIN EACH (
+          # This is the join between the binned CNs, and the binned gene reference. #
+
           SELECT
+            # This is the select statement that bins the gene reference information
             label AS SampleBarcode,
             value AS Segment_Mean,
             chr,
@@ -197,8 +217,13 @@ Legacy SQL
         ON
           ( geneInfo.chr = cnInfo.chr )
           AND ( geneInfo.bin = cnInfo.bin ) ) AS annotCN
+
       JOIN EACH (
+        # Here's the join between annotated copy number table and the gene expression table.
+
         SELECT
+          # Here we get the gene expression data, and barcodes.
+          # We join on the SampleBarcodes in each table.
           SampleBarcode,
           HGNC_gene_symbol,
           LOG2(normalized_count+1) AS logExp
@@ -231,8 +256,14 @@ Standard SQL
 ------------
 .. code-block:: sql
 
+    # In standard SQL, we define a list of tables, that can build
+    # off earlier definitions, so it's a little more linear.
+
     WITH
+    # This says: "we're going to define a list of tables..."
+
       geneInfo AS (
+        # First table, the gene reference information
         SELECT
           gene_name AS gene,
           LTRIM(seq_name,'chr') AS chr,
@@ -246,6 +277,7 @@ Standard SQL
           AND source = 'HAVANA'),
 
     cnInfo AS(
+      # Next the copy number data for BRCA samples, note the sub-query.
       SELECT
         SampleBarcode,
         Segment_Mean,
@@ -262,6 +294,7 @@ Standard SQL
           `isb-cgc.tcga_cohorts.BRCA` )),
 
     gexp AS (
+      # Then we have the gene expression table, logged and averaged
       SELECT
         SampleBarcode,
         HGNC_gene_symbol,
@@ -279,6 +312,8 @@ Standard SQL
         HGNC_gene_symbol),
 
     cnAnnot AS (
+      # Now, using the above tables, we are annotating the copy number segments
+      # by looking at overlapping regions.
       SELECT
         geneInfo.gene AS gene,
         geneInfo.chr AS chr,
@@ -301,7 +336,10 @@ Standard SQL
         gene_end,
         SampleBarcode
     ),
+
     bigJoin AS (
+      # Last table definition, we make a big join between the annotated copy number table
+      # and the gene expression table.
       SELECT
         cnAnnot.gene AS gene,
         cnAnnot.chr AS chr,
@@ -317,6 +355,7 @@ Standard SQL
         chr
     )
 
+    # Finally, let's pull down all the rows!
     select *
     from bigJoin
 
@@ -332,13 +371,15 @@ R script
   library(bigrquery)
   library(ggplot2)
 
+  my_project_id <- "xyz"
+
   q_legacy <- " ... first query above"
 
   q_std <- " ... second query from above ..."
 
-  legacy_res <- query_exec(q_legacy, project="isb-cgc-02-0001", useLegacySql=T)
+  legacy_res <- query_exec(q_legacy, project=my_project_id, useLegacySql=T)
 
-  std_res <- query_exec(q_std, project="isb-cgc-02-0001", useLegacySql=F)
+  std_res <- query_exec(q_std, project=my_project_id, useLegacySql=F)
 
   res0 <- merge(legacy_res, std_res, by="gene")
 
