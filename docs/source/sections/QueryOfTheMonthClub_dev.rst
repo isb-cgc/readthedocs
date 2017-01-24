@@ -15,26 +15,34 @@ January, 2016
 #############
 
 This month we'll be comparing standard SQL and legacy SQL. It's possible to write
-queries using either form, but as we'll see, using standard SQL can easier to write
-and improve readability.
+queries using either form, but as we'll see, using standard SQL can be easier to write
+and improves readability.
 
 In order to 'activate' standard SQL in the web browser, just under the
 'New Query' text window, click the 'Show Options' button, and towards the bottom of the
-options you'll find the 'Use Legacy SQL' check box.
+options you'll find the 'Use Legacy SQL' check box -- uncheck that, and then you can
+'Hide Options' to collapse the options away again.
 
 To use R and bigrquery to execute
 standard SQL, you'll need to make sure you're using the most up-to-date
 version of the R package. I would recommend installing it from the github page
 using devtools. Please see `bigrquery <https://github.com/rstats-db/bigrquery>`_ for more information
-on installation. The important bit: there's now a parameter called 'useLegacySql'.
+on installation. The important bit: there's now support for sending a parameter
+called 'useLegacySql' in the REST calls.
 
-The task will be to compute correlations between copy number variants and gene expression, over
+Our task this month will be to compute correlations between copy number variants and gene expression, over
 all genes, using only BRCA samples. The copy number data is expressed in a series
 of segments, each with a chromosome, start-point, end-point, and value
 indicating whether a duplication or deletion event (or neither) has taken place.
-One could imagine that a copy number duplicated gene would also have higher expression levels.
 
-The difficulty is that our gene expression data has no location information, making it
+Note that the mean copy-number values are not discrete because these data represent
+heterogeneous mixtures of cells -- only a fraction of the cells might include an
+amplification or a deletion, so the 'mean copy-number' value represents the
+effect of the discrete amplifications or deletions of a specific genomic segment,
+averaged over the heterogenous population of cells.
+
+One might hypothesize that a copy number *amplified* gene would have higher expression levels
+than when *not* amplified. However, our gene expression data has no location information, making it
 necessary to join the genomic locations from an appropriate reference.
 The resulting annotated expression table can then be joined to the copy number segments.
 But computing the overlap of DNA segments and genes locations can get tricky!
@@ -52,7 +60,7 @@ and taking a preview of the tables.
 - isb-cgc.genome_reference.GENCODE_v19 ... This table is based on release 19 of the GENCODE reference gene set.  Note that these annotations are based on the hg19/GRCh37 reference genome.
 
 
-- isb-cgc.tcga_201607_beta.mRNA_UNC_HiSeq_RSEM ... This table contains all mRNA expression data produced by the UNC-LCCC (Lineberger Comprehensive Cancer Center) using the Illumina HiSeq platform and processed through their RNSseqV2 / RSEM pipeline.
+- isb-cgc.tcga_201607_beta.mRNA_UNC_HiSeq_RSEM ... This table contains all mRNA expression data produced by the UNC-LCCC (Lineberger Comprehensive Cancer Center) using the Illumina HiSeq platform and processed through their RNASeqV2 / RSEM pipeline.
 
 
 - isb-cgc.tcga_201607_beta.Copy_Number_segments ... This table contains one row for each copy-number segment identified for each TCGA aliquot. Affymetrix SNP6 data is used in making the calls.
