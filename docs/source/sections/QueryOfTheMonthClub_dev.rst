@@ -265,13 +265,13 @@ Standard SQL
 .. code-block:: sql
 
     # In standard SQL, we define a list of tables, that can build
-    # off earlier definitions, so it's a little more linear.
+    # off earlier definitions, so it's a little more linear and modular.
 
     WITH
-    # This says: "we're going to define a list of tables..."
+    # This says: "we're going to define a list of tables WITH which we will perform subsequent SELECTs..."
 
       geneInfo AS (
-        # First table, the gene reference information
+        # First table: the gene reference information
         SELECT
           gene_name AS gene,
           LTRIM(seq_name,'chr') AS chr,
@@ -285,7 +285,7 @@ Standard SQL
           AND source = 'HAVANA'),
 
     cnInfo AS(
-      # Next the copy number data for BRCA samples, note the sub-query.
+      # Second: the copy number data, but only for the BRCA samples (note the sub-query).
       SELECT
         SampleBarcode,
         Segment_Mean,
@@ -302,7 +302,10 @@ Standard SQL
           `isb-cgc.tcga_cohorts.BRCA` )),
 
     gexp AS (
-      # Then we have the gene expression table, logged and averaged
+      # Third: we get the gene expression data, again only for the BRCA samples
+      # included is a LOG() transform as well as an AVG() aggregation function 
+      # which will only be relevant if there are multiple expression values for
+      # a single (gene,sample) pair.
       SELECT
         SampleBarcode,
         HGNC_gene_symbol,
@@ -320,8 +323,10 @@ Standard SQL
         HGNC_gene_symbol),
 
     cnAnnot AS (
-      # Now, using the above tables, we are annotating the copy number segments
-      # by looking at overlapping regions.
+      # Now, we start to re-use previously defined tables.  Here, we annotate
+      # the copy-number segments by JOINing on matching chromosomes and 
+      # looking for overlapping regions between the copy-number segments and
+      # the gene regions previously obtained from the GENCODE_v19 table.
       SELECT
         geneInfo.gene AS gene,
         geneInfo.chr AS chr,
@@ -346,12 +351,13 @@ Standard SQL
     ),
 
     bigJoin AS (
-      # Last table definition, we make a big join between the annotated copy number table
-      # and the gene expression table.
+      # This is essentially the final step: in this last table definition, we make
+      # a big join between the annotated copy-number table with the gene-expression
+      # table and use the built-in CORR() function to compute a Pearson correlation.
       SELECT
         cnAnnot.gene AS gene,
         cnAnnot.chr AS chr,
-        corr(cnAnnot.Avg_CNsegMean,gexp.logExp) AS corr_cn_gexp,
+        CORR(cnAnnot.Avg_CNsegMean,gexp.logExp) AS corr_cn_gexp,
         count(*) as n
       FROM
         cnAnnot join gexp
@@ -411,7 +417,10 @@ R script
    :align: center
 
 This plot shows the correlations found using the Legacy SQL solution (y-axis) compared
-to the correlations found using the Standard SQL solution (x-axis).
+to the correlations found using the Standard SQL solution (x-axis).  Note that an exact
+match between the two methods was not expected because the implementation is not identical.
+The "legacy" solution bins the copy-number segment values into uniform length genomic
+segments, while the "standard" solution takes a simpler approah.
 
 ------------------
 
