@@ -11,7 +11,7 @@ email: dgibbs (at) systemsbiology (dot) org
 
 ------------------
 
-January, 2016
+January, 2017
 #############
 
 This month we'll be comparing standard SQL and legacy SQL. It's possible to write
