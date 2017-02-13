@@ -2,7 +2,15 @@
 COSMIC in BigQuery hosted by ISB-CGC
 *************************************
 
-The COSMIC tables in BigQuery, produced in collaboration with the `Wellcome Trust Sanger Institute <http://www.sanger.ac.uk/>`_, provide a new way to explore and understand the mutations driving cancer.  The availability of COSMIC in BigQuery enables easy integration of this resource with other public datasets in BigQuery, including other open-access datasets made available by the ISB-CGC.
+The COSMIC tables in BigQuery, produced in collaboration with the 
+`Wellcome Trust Sanger Institute <http://www.sanger.ac.uk/>`_, provide 
+a new way to explore and understand the mutations driving cancer.  
+The availability of COSMIC in BigQuery enables easy integration of this 
+resource with other public datasets in BigQuery, including other 
+open-access datasets made available by the ISB-CGC 
+(see `this <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_BQ.html>`_
+and `that <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/Reference-Data.html>`_ 
+for more details on other BigQuery datasets).
 
 Getting Started
 ###############
@@ -116,7 +124,10 @@ Your overall query costs using this less-clever approach, instead of being a few
 would be several hundred dollars!  This latter approach would also take significantly more time.  
 
 As your queries become more complex and you begin to join in other resources such as the 
-ISB-CGC genomic-reference or molecular-data tables, the amount of data processed by a 
+ISB-CGC `genomic-reference <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/Reference-Data.html>`_ 
+or 
+`molecular-data <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_BQ.html>`_ 
+tables, the amount of data processed by a 
 single query may increase into the GB or even TB range.
 
 During this introductory period (for at least the next 6 months), all registered COSMIC 
