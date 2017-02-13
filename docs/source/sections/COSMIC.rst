@@ -136,137 +136,224 @@ There are many public BigQuery datasets containing genomic information, and you
 can combine any of these resources into your SQL queries on the COSMIC tables -- 
 all you need is the name of the table.
   
-In the example query above, the table being queried is isb-cgc.COSMIC.grch37_v80: the first part of the name (isb-cgc) is the Google Cloud Platform (GCP) project name; the second part (COSMIC) is the dataset name; and the third part (grch37_v80) is the table name.
-To add public BigQuery datasets and tables to your "view" in the BigQuery web UI you need to know the name of the GCP project that owns the dataset(s).  To add the publicly accessible ISB-CGC datasets follow these steps:
-click on the blue triangle near the top of the left side-panel of the Big Query web  UI
+In the example query above, the table being queried is ``isb-cgc.COSMIC.grch37_v80``; 
+a complete BigQuery table name has three components:
 
-select "Switch to project" and then "Display project."
+    * the first part of the name (isb-cgc) is the Google Cloud Platform (GCP) project name; 
+    * the second part (COSMIC) is the dataset name; and 
+    * the third part (grch37_v80) is the table name.
 
-in the pop-up window, enter isb-cgc in the Project ID box, and click OK
-You should now be able to see and explore all of the ISB-CGC public datasets, including the COSMIC dataset, if you are a registered COSMIC user.  Clicking on the blue triangle next to a dataset name will open it and show the list of tables in the dataset.  Clicking on a table name will open up information about the table in main panel, where you can view the Schema, Details, or a Preview of the table.
-Additional projects with public BigQuery datasets which you may want to explore (by repeating the process described above) include genomics-public-data, google.com:biggene, and silver-wall-555 (a project made available by Tute Genomics).
+To add public BigQuery datasets and tables to your "view" in the BigQuery web UI you 
+need to know the name of the GCP project that owns the dataset(s).  
+To add the publicly accessible ISB-CGC datasets (project name: ``isb-cgc``)
+follow these steps_.
+
+.. _steps: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html
+
+You should now be able to see and explore all of the ISB-CGC public datasets, including 
+the COSMIC dataset, if you are a registered COSMIC user.  Clicking on the blue triangle 
+next to a dataset name will open it and show the list of tables in the dataset.  Clicking 
+on a table name will open up information about the table in main panel, where you can 
+view the Schema, Details, or a Preview of the table.
+
+Additional projects with public BigQuery datasets which you may want to explore (repeating 
+the same process will add these to your BigQuery side-panel) include genomics-public-data, 
+google.com:biggene, and silver-wall-555 (a project 
+`made available <https://www.tutegenomics.com/news/tute-genomics-shares-genetic-variants-database-on-google-genomics/>`_ 
+by Tute Genomics (now `owned by PierianDx <http://www.businesswire.com/news/home/20161012005241/en/PierianDx-Acquires-Tute-Genomics>`_).
 
 Additional BigQuery Documentation
-The main Google BigQuery documentation can be found here.  
-Legacy SQL vs Standard SQL
-BigQuery introduced support for Standard SQL last year.  The previous version of SQL supported by BigQuery is now known as Legacy SQL.  Note that when you first go to the BigQuery web UI, Legacy SQL will be activated by default and you will need to enable Standard SQL if you want to use Standard SQL.  For simple queries, the same syntax will work in both, except for one important detail which is how you specify the table name.  A simple Standard SQL query might look like:
-SELECT *
-  FROM `isb-cgc.COSMIC.grch37_v80`
-  LIMIT 1000
+#################################
 
-whereas the same query in Legacy SQL requires square brackets around the table name and a colon between the project name and the dataset name, like this:
-SELECT *
-  FROM [isb-cgc:COSMIC.grch37_v80]
-  LIMIT 1000
+The main Google BigQuery documentation can be found `here <https://cloud.google.com/bigquery/docs/>`_.
+
+Legacy SQL vs Standard SQL
+--------------------------
+
+BigQuery introduced support for 
+`Standard SQL <https://cloud.google.com/bigquery/docs/reference/standard-sql/>`_ 
+in 2016.  The previous version of SQL supported by 
+BigQuery is now known as 
+`Legacy SQL <https://cloud.google.com/bigquery/docs/reference/legacy-sql>`_.  
+Note that when you first go to the BigQuery web UI, 
+Legacy SQL will be activated by default and you will need to enable Standard SQL if you want to 
+use Standard SQL.  For simple queries, the same syntax will work in both, except for one 
+important detail which is how you specify the table name.  A simple Standard SQL query might look like:
+
+.. code-block:: sql
+
+    SELECT *
+      FROM `isb-cgc.COSMIC.grch37_v80`
+      LIMIT 1000
+
+whereas the same query in Legacy SQL requires square brackets around the table name and a colon 
+between the project name and the dataset name, like this:
+
+.. code-block:: sql
+
+    SELECT *
+      FROM [isb-cgc:COSMIC.grch37_v80]
+      LIMIT 1000
+
 SQL functions
-Standard SQL includes a large variety of built-in functions and operators including logical and statistical aggregate functions, and mathematical functions, just to name a few.  User-defined functions (UDFs) are also supported and can be used to further extend the types of analyses possible in BigQuery.
+-------------
+
+Standard SQL includes a large variety of built-in 
+`functions and operators <https://cloud.google.com/bigquery/docs/reference/standard-sql/functions-and-operators>`_ 
+including logical and statistical aggregate functions, and mathematical functions, just to name a few.  
+`User-defined functions <https://cloud.google.com/bigquery/docs/reference/standard-sql/user-defined-functions>`_ (UDFs) 
+are also supported and can be used to further extend the types of analyses possible in BigQuery.
+
 Using the bq Command Line Tool
-The bq command line tool is part of the cloud SDK and can be used to interact directly with BigQuery from the command line.  The cloud SDK is easy to install and is available for most operating systems.
+------------------------------
+The bq command line tool is part of the 
+`cloud SDK <https://cloud.google.com/sdk/>`_ and can be used to interact directly 
+with BigQuery from the command line.  The cloud SDK is easy to install and 
+is available for most operating systems.
+
 Using BigQuery from R
-BigQuery can be accessed from R using one of two powerful R packages: bigrquery and dplyr.  Please refer to the documentation provided with these packages for more information.
+---------------------
+BigQuery can be accessed from R using one of two powerful R packages: 
+`bigrquery <https://cran.r-project.org/web/packages/bigrquery/>`_ and 
+`dplyr <https://cran.r-project.org/web/packages/dplyr/>`_.  
+Please refer to the documentation provided with these packages for more information.
+
 Using BigQuery from Python
-BigQuery client libraries are available that let you interact with BigQuery from Python or other languages.  In addition, the experimental pandas.io.gbq module provides a wrapper for Google.s BigQuery analytics web service.
+--------------------------
+BigQuery 
+`client libraries <https://cloud.google.com/bigquery/docs/reference/libraries#client-libraries-install-python>`_ 
+are available that let you interact with BigQuery from Python or other languages.  
+In addition, the experimental 
+`pandas.io.gbq <http://pandas.pydata.org/pandas-docs/stable/io.html#google-bigquery-experimental>`_ 
+module provides a wrapper for Google.s BigQuery analytics web service.
+
 Getting Help
-Aside from the documentation, the best place to look for help using BigQuery and tips and tricks with SQL is StackOverflow.  If you tag your question with google-bigquery     your question will quickly get the attention of Google BigQuery experts.  You may also find that your question has already been asked and answered among the nearly 10,000 questions that have already been asked about BigQuery on StackOverflow. 
+------------
+Aside from the documentation, the best place to look for help using BigQuery and tips 
+and tricks with SQL is 
+`StackOverflow <http://stackoverflow.com/>`_.  If you tag your question with ``google-bigquery``     
+your question will quickly get the attention of Google BigQuery experts.  You may also find 
+that your question has already been asked and answered among the nearly 10,000 questions 
+that have already been asked about BigQuery on StackOverflow. 
+
 More SQL Examples
+#################
+
 Joining COSMIC to the Tute Annotations 
-As mentioned above there is a BigQuery dataset made available by Tute Genomics which contains a single 8.6 billion row table containing annotations for the hg19 reference genome, including a "Tute score" which is a measure of the severity of the variant.  (March 2015 press release)
-This query counts up the number of unique cases in COSMIC associated with frequently-occurring point mutations and then joins that to the Tute table to rank these mutations.  This query also illustrates the use of a few of BigQuery's string functions.  Note that the genomic coordinates in the Tute table are 0-bases while the COSMIC coordinates are 1-based, and this is corrected for in the query.
+--------------------------------------
+As mentioned above, a `BigQuery dataset <https://cloud.google.com/customers/tute-genomics/>`_ 
+made available by Tute Genomics, contains a single 
+8.6 billion row 
+`table <https://bigquery.cloud.google.com/table/silver-wall-555:TuteTable.hg19?tab=details>`_ 
+containing annotations for the hg19 reference genome, including a 
+"Tute score" which is a measure of the severity of the variant.  
+(`March 2015 press release <http://www.bio-itworld.com/2015/3/12/tute-genomics-shares-genetic-variants-database-google-genomics.html>`_).
+
+This next query counts up the number of unique cases in COSMIC associated with 
+frequently-occurring point mutations and then joins that to the Tute table to rank 
+these mutations.  This query also illustrates the use of a few of BigQuery's string 
+functions.  Note that the genomic coordinates in the Tute table are 0-bases while the 
+COSMIC coordinates are 1-based, and this is corrected for in the query.
+
 This query processes 475 GB, takes about 30 seconds, and produces an ordered list of 137 mutations (scroll down to the bottom to see screen shots of the results).  
+
 Estimated query cost:  ($5/TB) x (475 GB / (1000 GB/TB)) = $2.375
-WITH
-  --
-  -- mutCounts
-  -- This first intermediate table includes the number of unique tumours 
-  -- in COSMIC with point-mutations at a given genomic position.  Since the 
-  -- the COSMIC table has a single field called Mutation_genome_position,
-  -- we will want to split this into chromosome, startPos, and endPos.
-  mutCounts AS (
-  SELECT
-    COUNT(DISTINCT(ID_tumour)) AS COSMIC_caseCount,
-    Mutation_CDS AS COSMIC_CDS,
-    SUBSTR(Mutation_CDS,-3,3) AS COSMIC_nucChange,
-    Mutation_AA AS COSMIC_AA,
-    SPLIT(Mutation_genome_position,':')[OFFSET(0)] AS chromosome,
-    CAST(SPLIT(SPLIT(Mutation_genome_position,':')[OFFSET(1)],'-')[OFFSET(0)] AS INT64) AS startPos,
-    CAST(SPLIT(SPLIT(Mutation_genome_position,':')[OFFSET(1)],'-')[OFFSET(1)] AS INT64) AS endPos
-  FROM
-    `isb-cgc.COSMIC.grch37_v80`
-  WHERE
-    Mutation_genome_position IS NOT NULL
-    AND GRCh=37
-    AND SUBSTR(Mutation_CDS,-2,1)='>'
-  GROUP BY
-    Mutation_CDS,
-    Mutation_AA,
-    Mutation_genome_position
-  HAVING
-    COSMIC_caseCount>=100 ),
-  --
-  -- fromTute
-  -- Next, we extract just a few columns from the Tute table, while adjusting the
-  -- 0-based coordinates.
-  fromTute AS (
-  SELECT
-    Chr,
-    (Start+1) AS Start,
-    (`End`+1) AS `End`,
-    Func,
-    Gene,
-    NucleotideChange AS Tute_CDS,
-    SUBSTR(NucleotideChange,-3,3) AS Tute_nucChange,
-    AA AS Tute_AA,
-    cytoBand,
-    TUTE AS Tute_Score
-  FROM
-    `silver-wall-555.TuteTable.hg19`
-  WHERE
-    SUBSTR(NucleotideChange,-2,1)='>'
-  GROUP BY
-    Chr,
-    Start,
-    `End`,
-    Func,
-    Gene,
-    NucleotideChange,
-    AA,
-    cytoBand,
-    TUTE ),
-  --
-  -- join1
-  -- Now we join these two tables by aligning rows where the chromosome, start,
-  -- end, and nucleotide-change are identical.
-  join1 AS (
-  SELECT
-    Gene,
-    Chr,
-    Start,
-    `End`,
-    cytoBand,
-    Func,
-    COSMIC_nucChange AS nucChange,
-    COSMIC_AA,
-    Tute_AA,
-    Tute_Score,
-    COSMIC_caseCount
-  FROM
-    mutCounts
-  JOIN
-    fromTute
-  ON
-    chromosome=Chr
-    AND startPos=Start
-    AND endPos=`End`
-    AND COSMIC_nucChange=Tute_nucChange )
-  --
-  -- Final select on the join result.
-SELECT
-  *
-FROM
-  join1
-ORDER BY
-  Tute_Score DESC,
-  COSMIC_caseCount DESC
+
+.. code-block:: sql
+
+    WITH
+      --
+      -- mutCounts
+      -- This first intermediate table includes the number of unique tumours 
+      -- in COSMIC with point-mutations at a given genomic position.  Since the 
+      -- the COSMIC table has a single field called Mutation_genome_position,
+      -- we will want to split this into chromosome, startPos, and endPos.
+      mutCounts AS (
+      SELECT
+        COUNT(DISTINCT(ID_tumour)) AS COSMIC_caseCount,
+        Mutation_CDS AS COSMIC_CDS,
+        SUBSTR(Mutation_CDS,-3,3) AS COSMIC_nucChange,
+        Mutation_AA AS COSMIC_AA,
+        SPLIT(Mutation_genome_position,':')[OFFSET(0)] AS chromosome,
+        CAST(SPLIT(SPLIT(Mutation_genome_position,':')[OFFSET(1)],'-')[OFFSET(0)] AS INT64) AS startPos,
+        CAST(SPLIT(SPLIT(Mutation_genome_position,':')[OFFSET(1)],'-')[OFFSET(1)] AS INT64) AS endPos
+      FROM
+        `isb-cgc.COSMIC.grch37_v80`
+      WHERE
+        Mutation_genome_position IS NOT NULL
+        AND GRCh=37
+        AND SUBSTR(Mutation_CDS,-2,1)='>'
+      GROUP BY
+        Mutation_CDS,
+        Mutation_AA,
+        Mutation_genome_position
+      HAVING
+        COSMIC_caseCount>=100 ),
+      --
+      -- fromTute
+      -- Next, we extract just a few columns from the Tute table, while adjusting the
+      -- 0-based coordinates.
+      fromTute AS (
+      SELECT
+        Chr,
+        (Start+1) AS Start,
+        (`End`+1) AS `End`,
+        Func,
+        Gene,
+        NucleotideChange AS Tute_CDS,
+        SUBSTR(NucleotideChange,-3,3) AS Tute_nucChange,
+        AA AS Tute_AA,
+        cytoBand,
+        TUTE AS Tute_Score
+      FROM
+        `silver-wall-555.TuteTable.hg19`
+      WHERE
+        SUBSTR(NucleotideChange,-2,1)='>'
+      GROUP BY
+        Chr,
+        Start,
+        `End`,
+        Func,
+        Gene,
+        NucleotideChange,
+        AA,
+        cytoBand,
+        TUTE ),
+      --
+      -- join1
+      -- Now we join these two tables by aligning rows where the chromosome, start,
+      -- end, and nucleotide-change are identical.
+      join1 AS (
+      SELECT
+        Gene,
+        Chr,
+        Start,
+        `End`,
+        cytoBand,
+        Func,
+        COSMIC_nucChange AS nucChange,
+        COSMIC_AA,
+        Tute_AA,
+        Tute_Score,
+        COSMIC_caseCount
+      FROM
+        mutCounts
+      JOIN
+        fromTute
+      ON
+        chromosome=Chr
+        AND startPos=Start
+        AND endPos=`End`
+        AND COSMIC_nucChange=Tute_nucChange )
+      --
+      -- Final select on the join result.
+    SELECT
+      *
+    FROM
+      join1
+    ORDER BY
+      Tute_Score DESC,
+      COSMIC_caseCount DESC
 
 
 ...
