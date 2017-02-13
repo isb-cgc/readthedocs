@@ -255,7 +255,10 @@ these mutations.  This query also illustrates the use of a few of BigQuery's str
 functions.  Note that the genomic coordinates in the Tute table are 0-bases while the 
 COSMIC coordinates are 1-based, and this is corrected for in the query.
 
-This query processes 475 GB, takes about 30 seconds, and produces an ordered list of 137 mutations (scroll down to the bottom to see screen shots of the results).  
+This query processes 475 GB, takes less than one minute, and produces an ordered list of 
+137 mutations.  The most deleterious (based on the Tute score) and most frequently occurring
+mutation in COSMIC is the KCNJ5 L168R mutation, found in aldosterone-producing adenomas 
+(COSMIC id `1684718 <http://cancer.sanger.ac.uk/cosmic/mutation/overview?id=1684718>`_).
 
 Estimated query cost:  ($5/TB) x (475 GB / (1000 GB/TB)) = $2.375
 
@@ -274,6 +277,7 @@ Estimated query cost:  ($5/TB) x (475 GB / (1000 GB/TB)) = $2.375
         Mutation_CDS AS COSMIC_CDS,
         SUBSTR(Mutation_CDS,-3,3) AS COSMIC_nucChange,
         Mutation_AA AS COSMIC_AA,
+        Mutation_ID AS COSMIC_mutID,
         SPLIT(Mutation_genome_position,':')[OFFSET(0)] AS chromosome,
         CAST(SPLIT(SPLIT(Mutation_genome_position,':')[OFFSET(1)],'-')[OFFSET(0)] AS INT64) AS startPos,
         CAST(SPLIT(SPLIT(Mutation_genome_position,':')[OFFSET(1)],'-')[OFFSET(1)] AS INT64) AS endPos
@@ -286,6 +290,7 @@ Estimated query cost:  ($5/TB) x (475 GB / (1000 GB/TB)) = $2.375
       GROUP BY
         Mutation_CDS,
         Mutation_AA,
+        Mutation_ID,
         Mutation_genome_position
       HAVING
         COSMIC_caseCount>=100 ),
@@ -335,7 +340,8 @@ Estimated query cost:  ($5/TB) x (475 GB / (1000 GB/TB)) = $2.375
         COSMIC_AA,
         Tute_AA,
         Tute_Score,
-        COSMIC_caseCount
+        COSMIC_caseCount,
+        COSMIC_mutID
       FROM
         mutCounts
       JOIN
@@ -355,9 +361,9 @@ Estimated query cost:  ($5/TB) x (475 GB / (1000 GB/TB)) = $2.375
       Tute_Score DESC,
       COSMIC_caseCount DESC
 
-
-...
-
-Note that the COSMIC_AA and the Tute_AA columns may not always be identical (although they are for all rows shown above).  Although the genomic coordinates of the variation, and the nucleotide change are required to match (by the JOIN statement in the query), the amino-acid change depends on the specific transcript being used to infer the protein sequence and may therefore be different between the two data sources.
+Note that the COSMIC_AA and the Tute_AA columns may not always be identical.
+Although the genomic coordinates of the variation, and the nucleotide change are required to match 
+(by the JOIN statement in the query), the amino-acid change depends on the specific transcript being 
+used to infer the protein sequence and may therefore be different between the two data sources.
 
 
