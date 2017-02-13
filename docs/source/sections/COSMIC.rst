@@ -7,7 +7,7 @@ The COSMIC tables in BigQuery, produced in collaboration with the `Wellcome Trus
 Getting Started
 ###############
 
-`Register <https://cancer.sanger.ac.uk/cosmic/register>`_ with 
+`Register <https://cancer.sanger.ac.uk/cosmic/register>`_ for access to
 `COSMIC <https://cancer.sanger.ac.uk/cosmic/about>`_:
 
     * if you are already a registered user of COSMIC, you will need to go to `your account <https://cancer.sanger.ac.uk/cosmic/myaccount>`_ page and add a valid "Google identity" in the Google ID box -- when you are signed in to COSMIC, your name in the upper-right corner is a pull-down menu from which you can access your Account Settings;
