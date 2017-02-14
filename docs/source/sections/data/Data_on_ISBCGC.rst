@@ -21,8 +21,8 @@ The sections below describe data available from different Google Cloud technolog
 .. toctree::
    :maxdepth: 1
  
-   data2/data_in_BQ.rst
-   data2/data_in_GCS.rst
-   data2/data_in_GG.rst
+    data2/data_in_BQ.rst
+    data2/data_in_GCS.rst
+    data2/data_in_GG.rst
 
- 
+
