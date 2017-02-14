@@ -12,20 +12,20 @@ Further more some of the data is "open-access" while other data is "controlled-a
 
 The sections below describe data available from different Google Cloud technologies:
 
-.. toctree::
-   :maxdepth: 1
-
-   data2/data_in_BQ.rst
-   data2/data_in_GCS.rst
-   data2/data_in_GG.rst
+## .. toctree::
+##    :maxdepth: 1
+## 
+##    data2/data_in_BQ.rst
+##    data2/data_in_GCS.rst
+##    data2/data_in_GG.rst
 
 For more information about the original data source repository and data access classes (open *vs* controlled),
 please refer to these sections:
 
-.. toctree::
-   :maxdepth: 1
-
-   data2/byAccessClass
-   data2/bySourceRepo
-
-
+## .. toctree::
+##    :maxdepth: 1
+## 
+##    data2/byAccessClass
+##    data2/bySourceRepo
+## 
+## 
