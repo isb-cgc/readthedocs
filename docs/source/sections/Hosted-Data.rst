@@ -17,9 +17,9 @@ of adding data from the TARGET pediatric cancer.  Stay tuned for updates.
 .. toctree::
    :maxdepth: 1
 
+   data/Data_on_ISBCGC
    data/BQ_overview
    data/TCGA-Data
-   data/Data_on_ISBCGC
    data/Reference-Data
    data/Releases-Plus
 

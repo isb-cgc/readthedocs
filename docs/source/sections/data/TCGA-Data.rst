@@ -41,13 +41,6 @@ in these sections:
    data2/TCGA_Data_Security
    data2/TCGA_Access
 
-And finally, links to useful data reports can be found in this final section:
-
-.. toctree::
-   :maxdepth: 1
-
-   data2/TCGA_Reports
-
 Historically, the data being hosted by the ISB-CGC was obtained from two former TCGA data
 repositories:
 
@@ -60,4 +53,20 @@ aligned to the hg19 human reference genome is available from the GDC's
 `legacy archive <https://gdc-portal.nci.nih.gov/legacy-archive/search/f>`_ 
 while the new "harmonized" data, realigned to hg38 is available from
 the GDC's main `data portal <https://gdc-portal.nci.nih.gov/>`_.
+
+For more information about the original data source repository and data access classes (open *vs* controlled),
+please refer to these sections:
+
+.. toctree::
+      :maxdepth: 1
+
+   data2/byAccessClass
+   data2/bySourceRepo
+
+And finally, links to useful data reports can be found in this final section:
+
+.. toctree::
+   :maxdepth: 1
+
+   data2/TCGA_Reports
 

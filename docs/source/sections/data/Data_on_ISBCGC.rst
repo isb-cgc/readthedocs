@@ -25,13 +25,4 @@ The sections below describe data available from different Google Cloud technolog
    data2/data_in_GCS.rst
    data2/data_in_GG.rst
 
-For more information about the original data source repository and data access classes (open *vs* controlled),
-please refer to these sections:
-
-.. toctree::
-   :maxdepth: 1
- 
-   data2/byAccessClass
-   data2/bySourceRepo
- 
  
