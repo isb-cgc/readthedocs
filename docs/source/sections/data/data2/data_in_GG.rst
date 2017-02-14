@@ -6,7 +6,13 @@ Cancer Data in Google Genomics
 reads and variants using the 
 `GA4GH API <https://media.readthedocs.org/pdf/ga4gh-schemas/latest/ga4gh-schemas.pdf>`_.
 
-At this time, the ISB-CGC is hosting two open-access datasets in Google Genomics containing, respectively,
-the CCLE DNA-Seq and RNA-Seq data.
+At this time, the ISB-CGC is hosting two open-access datasets in Google Genomics containing
+the CCLE DNA-Seq and RNA-Seq data:
 
+    - 1175112317461194900  ccle-dna
+    - 2592944257098811032  ccle-rna
+
+And example python script 
+(`query_ccle_reads.py <https://github.com/isb-cgc/examples-Python/blob/master/python/query_ccle_reads.py>`_) 
+which queries these datasets can be found in our github repo.
 
