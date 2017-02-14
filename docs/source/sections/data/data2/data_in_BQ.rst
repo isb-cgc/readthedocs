@@ -1,6 +1,6 @@
-*********************
-TCGA Data in BigQuery
-*********************
+************************
+Cancer Data in BigQuery
+************************
 
 The information scattered over tens of thousands of XML and TSV files at the DCC is provided in a 
 *much more accessible* form in a series of *open-access* BigQuery tables.  

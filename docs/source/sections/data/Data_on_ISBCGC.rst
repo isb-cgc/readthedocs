@@ -1,8 +1,14 @@
-******************
-Hosted Data Sets
-******************
+********************
+Cancer Program Data 
+********************
 
-The ISB-CGC platform hosts a variety of types of data using different Google Cloud technologies:
+The ISB-CGC platform currently hosts data from three major cancer programs: 
+`TCGA <https://cancergenome.nih.gov/>`_ (The Cancer Genome Atlas), 
+`TARGET <https://ocg.cancer.gov/programs/target>`_ 
+(Therapeutically Applicable Research to Generate Effective Treatments), and 
+`CCLE <http://www.nature.com/nature/journal/v483/n7391/full/nature11003.html>`_ 
+(Cancer Cell Line Encylopedia).
+These large and heterogenous datasets are hosted using different Google Cloud technologies:
 
 * The higher-level, open-access data is available as a series of standardized, curated BigQuery tables.
 * The original data files (as uploaded from the original source repositories) are available in Google Cloud Storage.
