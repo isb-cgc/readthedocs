@@ -19,7 +19,7 @@ of adding data from the TARGET pediatric cancer.  Stay tuned for updates.
 
    data/BQ_overview
    data/TCGA-Data
-   data/TCGA_on_ISBCGC
+   data/Data_on_ISBCGC
    data/Reference-Data
    data/Releases-Plus
 
