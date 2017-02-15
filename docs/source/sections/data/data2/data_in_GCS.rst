@@ -54,8 +54,7 @@ This new functionality allows you to run, for example:
 
    $ ./samtools view gs://isb-cgc-open/ccle/LUSC/DNA-Seq/C836.NCI-H1339.2.bam 7:140453130-140453140
 
-and if you want to access a controlled-access BAM file, you'll need to provide 
-credentials like this first:
+If you want to access a controlled-access BAM file, you'll need to provide credentials first:
 
 .. code-block:: none
 
