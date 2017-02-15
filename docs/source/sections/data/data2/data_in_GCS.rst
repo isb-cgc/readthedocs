@@ -50,13 +50,13 @@ samtools from the github develop branch, see this
 `github pull request <https://github.com/samtools/htslib/pull/446>`_. 
 This new functionality allows you to run, for example:
 
-.. code-block::
+.. code-block:: none
    $ ./samtools view gs://isb-cgc-open/ccle/LUSC/DNA-Seq/C836.NCI-H1339.2.bam 7:140453130-140453140
 
 and if you want to access a controlled-access BAM file, you'll need to provide 
 credentials like this first:
 
-.. code-block::
+.. code-block:: none
    $ export GCS_OAUTH_TOKEN=`gcloud auth application-default print-access-token`
 
 If you run into problems, it's a good idea to verify that you have the correct url and 
@@ -64,7 +64,7 @@ also that you have access to this file by using the
 `gsutil <https://cloud.google.com/storage/docs/gsutil>`_ command-line tool from the 
 `cloud SDK <https://cloud.google.com/sdk/>`_:
 
-.. code-block::
+.. code-block:: none
    $ gsutil ls -l gs://isb-cgc-open/ccle/LUSC/DNA-Seq/C836.NCI-H1339.2.bam
 
 Other Options for BAM-slicing
