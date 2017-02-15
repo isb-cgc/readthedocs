@@ -42,5 +42,84 @@ click on **[+] CREATE INSTANCE**, and:
         + before clicking on the **Create** button (for the VM), click on the bottom line where it says "Equivalent REST or command line" -- you can save this command-line and re-use it later to create the same VM from the command-line rather than repeating this interactive process; it is also a nice record of exactly how the VM was created
         + now click on the **Create** button -- you will see the VM "spinning up" on the VM instances page
 
+Example command-line equivalents to create the disk and the VM (you will need to substitute in your own 
+Google Cloud Platform (GCP) project:
 
+.. code-block:: none
+
+   $ gcloud compute --project <YOUR-PROJECT-ID> disks create "cwl-disk-1" --size "500" --zone "us-central1-c" --type "pd-standard"
+
+   $ gcloud compute --project <YOUR-PROJECT-ID> instances create "cwl-test-1" --zone "us-central1-c" --machine-type "n1-standard-4" --network "default" --maintenance-policy "MIGRATE" --scopes default="https://www.googleapis.com/auth/devstorage.read_only","https://www.googleapis.com/auth/logging.write","https://www.googleapis.com/auth/monitoring.write","https://www.googleapis.com/auth/servicecontrol","https://www.googleapis.com/auth/service.management.readonly","https://www.googleapis.com/auth/trace.append" --disk "name=cwl-disk-1,device-name=cwl-disk-1,mode=rw,boot=no" --image "/ubuntu-os-cloud/ubuntu-1404-trusty-v20161205" --boot-disk-size "10" --boot-disk-type "pd-standard" --boot-disk-device-name "cwl-test-1"
+
+2. Configure the VM
+====================
+
+Now you can ssh to your VM from any command-line where you have the cloud SDK installed.  
+If you don't have the cloud SDK installed on your local machine, you can use the 
+`Cloud Shell <>`_ directly from your browser in the `Cloud Console <>`_.  
+
+.. code-block:: none
+
+   $ gcloud compute --project <YOUR-PROJECT-ID> ssh --zone "us-central1-c" "cwl-test-1"
+
+2.1 Install Packages
+--------------------
+
+Use the following commands to install the necessary packages:
+
+.. code-block:: none
+
+   $ sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+   
+   $ echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" | sudo tee /etc/apt/sources.list.d/docker.list
+   
+   $ sudo aptitude update
+   
+   $ sudo aptitude install apt-transport-https ca-certificates docker-engine htop libffi-dev libssl-dev nodejs python-dev virtualenvwrapper
+
+After this last command, you will need to respond "Yes" to install the new packages.
+
+2.2 Format and Mount the Disk
+-----------------------------
+
+You can see the disks that are attached to your VM by using the following command:
+
+.. code-block:: none
+
+   $ ls /dev/disk/by-id
+
+which should respond with something like:
+
+.. code-block:: none
+
+   google-cwl-disk-1  google-cwl-test-1-part1                 scsi-0Google_PersistentDisk_cwl-test-1
+   google-cwl-test-1  scsi-0Google_PersistentDisk_cwl-disk-1  scsi-0Google_PersistentDisk_cwl-test-1-part1
+
+The first disk listed above (google-cwl-disk-1) is the additional disk that was crated, while the 
+second one (google-cwl-test-1) is the boot disk, with the same name as the VM.  The following
+commands differ slightly from those specified in the GDC README but the result will be the same:
+
+.. code-block:: none
+
+   $ sudo mkfs.ext4 -F -E lazy_itable_init=0,lazy_journal_init=0,discard /dev/disk/by-id/google-cwl-disk-1
+   $ sudo mkdir -p /mnt/SCRATCH
+   $ sudo mount -o discard,defaults /dev/disk/by-id/google-cwl-disk-1 /mnt/SCRATCH
+   $ sudo chmod 777 /mnt/SCRATCH
+
+You can now verify that the disk has been properly mounted using the ``df -h`` command:
+
+.. code-block:: none
+
+   $ df -h
+
+   File system      Size    Used    Avail    Use%    Mounted on
+   /dev/sdb         493G     70M     467G      1%    /mnt/SCRATCH
+
+and as you can see, close to 500G of space is available mounted as /mnt/SCRATCH.
+
+3. Run the DNA-Seq workflow
+===========================
+
+4. Additional Information
+=========================
 
