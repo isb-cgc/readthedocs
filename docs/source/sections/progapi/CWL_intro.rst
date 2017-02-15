@@ -163,12 +163,99 @@ A few more install commands and you'll be ready to go:
 3.1 Clone the GDC github repo
 -----------------------------
 
+You should now be in your home directory, in the (cwl) virtualenv.  Clone the GDC dna-seq-cwl repo:
+
+.. code-block:: none
+
+   (cwl)$ git clone https://github.com/NCI-GDC/gdc-dnaseq-cwl.git
+
+Now you will have a subdirectory called ``gdc-dnaseq-cwl`` in your home directory, containing
+the GDC DNA-Seq harmonization workflow.  The main workflow is in the CWL file 
+``~/gdc-dnaseq-cwl/workflows/dnaseq/transform.cwl``.
+
 3.2 Load Reference and Input Data Files
 ---------------------------------------
+
+The DNA-Seq workflow requires some reference data files that can be obtained from the GDC.  
+These include the dbsnp vcf (3 GB), the reference genome (835 MB), and the bwa indexed genome (3.2 GB).  
+(Uploading these to your VM disk should take 5-10 minutes.) 
+
+.. code-block:: none
+
+   (cwl)$ mkdir /mnt/SCRATCH/hg38_reference
+   (cwl)$ cd /mnt/SCRATCH/hg38_reference
+   (cwl)$ wget https://gdc-api.nci.nih.gov/data/4ba1c087-ec80-47c4-a9d5-e9bb9933fef4 -O dbsnp_144.hg38.vcf.gz
+   (cwl)$ wget https://gdc-api.nci.nih.gov/data/62f23fad-0f24-43fb-8844-990d531947cf
+   (cwl)$ tar xvf 62f23fad-0f24-43fb-8844-990d531947cf
+   (cwl)$ wget https://gdc-api.nci.nih.gov/data/964cbdac-1043-4fae-b068-c3a65d992f6b
+   (cwl)$ tar xvf 964cbdac-1043-4fae-b068-c3a65d992f6b
+
+Finally, let's copy a small example BAM file (300 MB) from the 1000G repository:
+
+.. code-block:: none
+
+   (cwl)$ cd /mnt/SCRATCH
+   (cwl)$ wget ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/phase3/data/NA12878/alignment/NA12878.chrom20.ILLUMINA.bwa.CEU.low_coverage.20121211.bam
+
+At this point you could also obtain a bam file either from the GDC or from one of the
+ISB-CGC Cloud Storage buckets.
 
 3.3 Run DNA-Seq CWL workflow
 ----------------------------
 
-4. Additional Information
-=========================
+Now we're ready to run the workflow using the CWL-runner **cwltool**.  The input file that we just copied
+to our VM disk is in ``/mnt/SCRATCH/alignment/NA12878.chrom20.ILLUMINA.bwa.CEU.low_coverage.20121211.bam``.
+Let's create a sub-directory for the processed results:
+
+.. code-block:: none
+
+   (cwl)$ mkdir /mnt/SCRATCH/NA12878.chrom20.ILLUMINA.bwa.CEU.low_coverage.20121211
+   (cwl)$ cd /mnt/SCRATCH/NA12878.chrom20.ILLUMINA.bwa.CEU.low_coverage.20121211
+   (cwl)$ mkdir tmp cache
+   (cwl)$ nohup cwltool --debug --tmpdir-prefix tmp/ --cachedir cache/ \
+            ~/gdc-dnaseq-cwl/workflows/dnaseq/transform.cwl \
+            ~/gdc-dnaseq-cwl/workflows/dnaseq/NA12878.chrom20.ILLUMINA.bwa.CEU.low_coverage.20121211.json &
+
+While that is running, you can go back to the Cloud Console, to the Compute Engine > VM instances 
+page, and click on the name of this VM.  This will take you to a page describing this specific VM,
+and you can see a trace of CPU utilization, and other metrics.
+
+Let's also take a closer look at the ``cwltool`` command used above.  
+You can find more details at the 
+`cwltool github repo <https://github.com/common-workflow-language/cwltool>`_
+and at `commonwl.org <http://www.commonwl.org/v1.0/CommandLineTool.html>`_.
+The basic form of the cwltool command is:
+
+.. code-block:: none
+
+   $ cwltool [tool-or-workflow-description] [input-job-settings]
+
+Looking at the way cwltool was invoked above, we see that the ``tool-or-workflow-description``
+is in ``~/gdc-dnaseq-cwl/workflows/dnaseq/transform.cwl`` and the ``input-job-settings``
+are in ``~/gdc-dnaseq-cwl/workflows/dnaseq/NA12878.chrom20.ILLUMINA.bwa.CEU.low_coverage.20121211.json``.
+Let's have a closer look at those, starting with the smaller input-job-settings JSON document.
+It defines three objects, each of which is of class "File", with a specified "path", *eg*:
+
+.. code-block:: none
+
+   "bam_path": {
+       "class": "File",
+       "path": "/mnt/SCRATCH/NA12878.chrom20.ILLUMINA.bwa.CEU.low_coverage.20121211.bam"
+   }
+
+and it also specifies a "thread_count" value (8), and a "uuid".  You can see these inputs 
+defined near the top of the CWL document 
+(`transform.cwl <https://github.com/NCI-GDC/gdc-dnaseq-cwl/blob/master/workflows/dnaseq/transform.cwl>`_).
+
+3.4 Run-time and Compute-costs
+-------------------------------
+
+This sample task takes about 2 hours to run.  The costs associated with running this task are:
+2 hours of GCE VM time plus 2 hours of persistent disk time 
+(`GCE pricing details <https://cloud.google.com/compute/pricing>`_), 
+which comes to approximately $0.400 for the VM and $0.056 for the persistent disks,
+for a total of **$0.456**.  
+(The n1-standard-4 VM chosen above costs $0.200 per hour, and the disk costs, 
+at $0.040 per GB per month for standard provisioned space, were computed as
+510 GB x $0.040 per GB per month x 2 hours / 730 hours per month.)
 
