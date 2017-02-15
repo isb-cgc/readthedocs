@@ -56,7 +56,8 @@ Google Cloud Platform (GCP) project:
 
 Now you can ssh to your VM from any command-line where you have the cloud SDK installed.  
 If you don't have the cloud SDK installed on your local machine, you can use the 
-`Cloud Shell <>`_ directly from your browser in the `Cloud Console <>`_.  
+`Cloud Shell <https://cloud.google.com/shell/docs/>`_ directly from your browser in the 
+`Cloud Console <https://console.cloud.google.com>`_.  
 
 .. code-block:: none
 
@@ -117,8 +118,56 @@ You can now verify that the disk has been properly mounted using the ``df -h`` c
 
 and as you can see, close to 500G of space is available mounted as /mnt/SCRATCH.
 
+2.3 Prepare Docker and CWL
+--------------------------
+
+These next sets of commands will get you ready to run docker on this VM.  You will need to 
+log out and log back in a couple of times to force certain changes to take effect.
+
+.. code-block:: none
+
+   $ mkdir /mnt/SCRATCH/docker
+   $ sudo bash -c 'echo DOCKER_OPTS=\"-g /mnt/SCRATCH/docker/\" >> /etc/default/docker'
+   $ sudo gpasswd -a ${USER} docker
+   $ sudo service docker restart
+   $ exit
+
+The last command will log you out of your VM, so you will need to log back in using the same
+``gcloud ssh`` command you used before.  Once you're back on the VM:
+
+.. code-block:: none
+
+   $ echo "source /usr/share/virtualenvwrapper/virtualenvwrapper.sh" >> ~/.bashrc
+   $ exit
+
+Sign back in again, and then create a "virtualenv" called "cwl".  This will change your
+command-line prompt to indicate that you are in a new environment:
+
+.. code-block:: none
+
+   $ mkvirtualenv --python /usr/bin/python2 cwl
+   (cwl) $
+
+A few more install commands and you'll be ready to go:
+
+.. code-block:: none
+
+   (cwl)$ pip install --upgrade pip
+   (cwl)$ pip install 'requests[security]' --no-cache-dir
+   (cwl)$ wget https://github.com/NCI-GDC/cwltool/archive/1.0_gdc_g.tar.gz
+   (cwl)$ pip install 1.0_gdc_g.tar.gz --no-cache-dir
+
 3. Run the DNA-Seq workflow
 ===========================
+
+3.1 Clone the GDC github repo
+-----------------------------
+
+3.2 Load Reference and Input Data Files
+---------------------------------------
+
+3.3 Run DNA-Seq CWL workflow
+----------------------------
 
 4. Additional Information
 =========================
