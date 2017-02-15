@@ -18,6 +18,24 @@ These two steps are required before the user's
 Google identity is added to the access control list (ACL) for the controlled data.  
 At this time, this access must be renewed every 24 hours.
 
+
+Current Summary of Data Available in GCS
+========================================
+
++----------+--------------+--------------+--------------+
++  Format  +   Data Type  +  # of Files  +  Total Size  +
++----------+--------------+--------------+--------------+
++  BAM     +  DNA-Seq     +     73487    +   1407 TB    +
++          +  RNA-Seq     +     47818    +    216 TB    +
++----------+--------------+--------------+--------------+
++  FASTQ   +  RNA-Seq     +     13207    +     91 TB    +
++----------+--------------+--------------+--------------+
++  CEL     +  DNA (SNP6)  +     22529    +      1.6 TB  +
++----------+--------------+--------------+--------------+
++  VCF     +  DNA-Seq     +     47319    +      0.5 TB  +
++----------+--------------+--------------+--------------+
+
+
 Working with data in GCS
 ========================
 
