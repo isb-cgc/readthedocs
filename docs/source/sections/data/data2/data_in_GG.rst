@@ -26,7 +26,7 @@ you can try the
 `genomics.reads.search <https://developers.google.com/apis-explorer/#search/genomics/genomics/v1/genomics.reads.search?_h=1&resource=%257B%250A++%2522readGroupSetIds%2522%253A+%250A++%255B%2522CJKPhaq1GhDg3NH1jJbu6JcB%2522%250A++%255D%252C%250A++%2522referenceName%2522%253A+%25227%2522%252C%250A++%2522start%2522%253A+%2522140453133%2522%252C%250A++%2522end%2522%253A+%2522140453137%2522%250A%257D&>`_ 
 API call with the following information in the request body:
 
-.. code-block::
+.. code-block:: javascript
 
    {
       "readGroupSetIds": ["CJKPhaq1GhDg3NH1jJbu6JcB"],
