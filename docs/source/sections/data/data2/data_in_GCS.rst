@@ -19,8 +19,8 @@ Google identity is added to the access control list (ACL) for the controlled dat
 At this time, this access must be renewed every 24 hours.
 
 
-Current Summary of Data Available in GCS
-========================================
+Summary of Data Available in GCS
+================================
 
 +----------+--------------+--------------+--------------+
 +  Format  +   Data Type  +  # of Files  +  Total Size  +
