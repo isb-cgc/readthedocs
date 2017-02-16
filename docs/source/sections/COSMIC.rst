@@ -44,7 +44,7 @@ that the Google ID you have provided is a valid Google account.  If you are stil
 to run the sample query given below, please contact us at feedback@isb-cgc.org.
 
     * `login <https://accounts.google.com/Login>`_ to your Google account (`Chrome <https://www.google.com/chrome/browser/desktop/index.html>`_ is the preferred browser);
-    * go to the `BigQuery web UI <bigquery.cloud.google.com>`_  --  if you see a welcome screen inviting you to **Create a Project** then your ISB-CGC registration process is not yet complete;
+    * go to the `BigQuery web UI <https://bigquery.cloud.google.com>`_  --  if you see a welcome screen inviting you to **Create a Project** then your ISB-CGC registration process is not yet complete;
     * click on the big red **COMPOSE QUERY** button in the upper left corner;
     * click on the **Show Options**  button below the **New Query** text-box;
     * un-check the **Use Legacy SQL** check-box (the bottom-most "option");
