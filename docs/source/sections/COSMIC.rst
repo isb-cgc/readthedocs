@@ -382,6 +382,143 @@ table on the fly, and then use it in a follow-up **SELECT**:
    ORDER BY
      n DESC
 
+**4. Joining COSMIC and Kaviar tables in BigQuery**
+
+Now let's try something a bit more complicated!
+
+`Kaviar <http://db.systemsbiology.net/kaviar/>`_ is a large database
+of known variants which is also available in BigQuery, hosted by the ISB-CGC.
+In the complex query below, we will extract a subset of commonly observed
+mutations in cancer from COSMIC and then see how many of them have also
+been observed in "normal" genomes 
+(Kaviar excludes cancer genomes but includes some data from cell lines 
+and individuals affected by disease.)
+
+.. code-block:: sql
+
+   WITH
+     --
+     -- *COSMIC_t1*
+     -- Our first subquery intermediate table extracts just the sample-name, nucleotide-change
+     -- and genomic coordinates from the COSMIC table for all single-nucleotide mutations.
+     -- The resulting intermediate table contains ~3.7M rows
+     COSMIC_t1 AS ( SELECT
+       -- some of the TCGA identifiers are 12-characters long and some 15 -- this CASE statement
+       -- just strips off the additional 3 characters from the longer identifiers
+       (CASE
+           WHEN (Sample_name LIKE 'TCGA-%' AND CHAR_LENGTH(Sample_name)>12) THEN SUBSTR(Sample_name,1,12)
+           ELSE Sample_name END) AS Sample_name,
+       -- here we split off just the nucleotide-change, eg "G>T"
+       SUBSTR(Mutation_CDS,-3,3) AS COSMIC_nucChange,
+       -- here we're splitting up the genomic coordinate into it's three component parts:
+       SPLIT(Mutation_genome_position,':')[OFFSET(0)] AS chr,
+       CAST(SPLIT(SPLIT(Mutation_genome_position,':')[OFFSET(1)],'-')[OFFSET(0)] AS INT64) AS startPos,
+       CAST(SPLIT(SPLIT(Mutation_genome_position,':')[OFFSET(1)],'-')[OFFSET(1)] AS INT64) AS endPos
+     FROM
+       `isb-cgc.COSMIC.grch37_v80`
+     WHERE
+       Mutation_genome_position IS NOT NULL
+       AND GRCh=37
+       AND SUBSTR(Mutation_CDS,-2,1)='>'
+     GROUP BY
+       Sample_name,
+       Mutation_CDS,
+       Mutation_genome_position ),
+     --
+     -- *COSMIC_t2*
+     -- Next, we want to count up how frequently these mutations have been observed, and keep
+     -- only those mutations that are observed in at least 100 samples in COSMIC: this brings
+     -- our number of "interesting" mutations down to just 167, with caseCounts ranging from
+     -- over 40,000 down to 100.
+     COSMIC_t2 AS (
+     SELECT
+       COUNT(*) AS caseCounts,
+       COSMIC_nucChange,
+       chr,
+       startPos,
+       endPos
+     FROM
+       COSMIC_t1
+     GROUP BY
+       COSMIC_nucChange,
+       chr,
+       startPos,
+       endPos
+     HAVING
+       caseCounts>=100 ),
+     --
+     -- *fromKaviar*
+     -- Now we want to bring the Kaviar database into our analysis: we're going to extract most of the
+     -- columns from the Kaviar table, while adjusting the 0-based coordinates and keeping only the
+     -- single-nucleotide variants that were seen at least 10 times.
+     -- The resulting intermediate table has ~33.5M rows.
+     fromKaviar AS (
+     SELECT
+       reference_name AS chr,
+       (start_pos+1) AS startPos,
+       (end_pos+0) AS endPos,
+       reference_bases,
+       alternate_bases,
+       MAX(AC) AS AC,
+       MAX(AF) AS AF,
+       MAX(AN) AS AN
+     FROM
+       `isb-cgc.genome_reference.Kaviar_160204_Public_hg19`
+     WHERE
+       (end_pos-start_pos)=1
+       AND CHAR_LENGTH(reference_bases)=1
+       AND CHAR_LENGTH(alternate_bases)=1
+     GROUP BY
+       reference_name,
+       start_pos,
+       end_pos,
+       reference_bases,
+       alternate_bases
+     HAVING
+       AC>=10 ),
+     --
+     -- *join1*
+     -- Now we're going to join the table of frequent COSMIC variants to the intermediate Kaviar table,
+     -- requring that the genomic coordinates and the nucleotides match.
+     join1 AS (
+     SELECT
+       c.caseCounts AS caseCounts,
+       c.COSMIC_nucChange AS COSMIC_nucChange,
+       c.chr AS chr,
+       c.startPos AS startPos,
+       c.endPos AS endPos,
+       k.AC AS Kaviar_AC,
+       k.AF AS Kaviar_AF,
+       k.AN AS Kaviar_AN
+     FROM
+       COSMIC_t2 c
+     JOIN
+       fromKaviar k
+     ON
+       c.chr=k.chr
+       AND c.startPos=k.startPos
+       AND c.endPos=k.endPos
+       -- just in case the reference and the alternate have been swapped,
+       -- we check for both kinds of matches:
+       AND ( (reference_bases=SUBSTR(c.COSMIC_nucChange,1,1)
+           AND alternate_bases=SUBSTR(c.COSMIC_nucChange,3,1))
+         OR (reference_bases=SUBSTR(c.COSMIC_nucChange,3,1)
+           AND alternate_bases=SUBSTR(c.COSMIC_nucChange,1,1)) ) )
+     --
+     -- Our final step will just be to sort the results of the JOIN operation above.
+     -- We're down to 9 mutations which, for the most part occur frequently in COSMIC
+     -- and quite rarely in Kaviar.
+   SELECT
+     *
+   FROM
+     join1
+   ORDER BY
+     caseCounts DESC,
+     Kaviar_AF DESC
+
+.. image:: COSMIC-Kaviar-sql-01.png
+   :scale: 75 %
+   :align: right
 
 **Stay-tuned, more examples coming soon!**
 
