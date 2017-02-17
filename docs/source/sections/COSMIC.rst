@@ -288,6 +288,16 @@ Note that all of these examples are in "Standard SQL", so make sure that you hav
 
 |
 |
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
 
 **2. What other information is available about these KRAS mutant tumours?**
 
