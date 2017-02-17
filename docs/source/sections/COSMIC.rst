@@ -3,7 +3,7 @@ COSMIC in BigQuery hosted by ISB-CGC
 *************************************
 
 .. image:: COSMIC.png
-   :scale: 20 %
+   :scale: 30 %
    :align: right
 
 The COSMIC tables in BigQuery, produced in collaboration with the 
@@ -14,7 +14,7 @@ resource with other public datasets in BigQuery, including other
 open-access datasets made available by the ISB-CGC 
 (see `this <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_BQ.html>`_
 and `that <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/Reference-Data.html>`_ 
-for more details on other BigQuery datasets).
+for more details on other publicly accessible BigQuery datasets).
 
 Getting Started
 ###############
@@ -278,12 +278,60 @@ Note that all of these examples are in "Standard SQL" so make sure that you have
      COUNT(DISTINCT(ID_sample)) AS numSamples,
      COUNT(DISTINCT(ID_tumour)) AS numTumours
    FROM
-     `isb-cgc.COSMIC.grch37_v79`
+     `isb-cgc.COSMIC.grch37_v80`
    WHERE
      Gene_name="KRAS"
 
+**2. What other information is available about these KRAS mutant tumours?**
 
+This next query also illustrates usage of the **WITH** construct to create an intermediate
+table on the fly, and then use it in a follow-up **SELECT**:
 
-Stay-tuned, more examples coming soon!
+.. code-block:: sql
 
+   WITH
+     t1 AS (
+     SELECT
+       ID_tumour,
+       Primary_site,
+       Primary_histology,
+       Mutation_AA,
+       Mutation_Description,
+       FATHMM_prediction,
+       Sample_source
+     FROM
+       `isb-cgc.COSMIC.grch37_v80`
+     WHERE
+       Gene_name="KRAS"
+     GROUP BY
+       ID_tumour,
+       Primary_site,
+       Primary_histology,
+       Mutation_AA,
+       Mutation_Description,
+       FATHMM_prediction,
+       Sample_source )
+   SELECT
+     COUNT(*) AS n,
+     Primary_site,
+     Primary_histology,
+     Mutation_AA,
+     Mutation_Description,
+     FATHMM_prediction,
+     Sample_source
+   FROM
+     t1
+   GROUP BY
+     Primary_site,
+     Primary_histology,
+     Mutation_AA,
+     Mutation_Description,
+     FATHMM_prediction,
+     Sample_source
+   ORDER BY
+     n DESC
+
+**Stay-tuned, more examples coming soon!**
+
+If you have a specific use-case that you need help with, feel free to contact us!
 
