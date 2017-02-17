@@ -291,6 +291,7 @@ You can simply copy-and-paste any of the SQL queries on this page into the
 shown here shows the query in the "New Query" box, and the results 
 down below.  Just click on the "RUN QUERY" button to run the query.  
 Notice the green check-mark indicating that the query looks good.
+
 |
 |
 |
@@ -303,7 +304,8 @@ Notice the green check-mark indicating that the query looks good.
 
 **2. What other information is available about these KRAS mutant tumours?**
 
-This next query also illustrates usage of the **WITH** construct to create an intermediate
+In addition to answering the question above, 
+this next query also illustrates usage of the **WITH** construct to create an intermediate
 table on the fly, and then use it in a follow-up **SELECT**:
 
 .. code-block:: sql
