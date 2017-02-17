@@ -168,10 +168,8 @@ on a table name will open up information about the table in main panel, where yo
 view the Schema, Details, or a Preview of the table.
 
 Additional projects with public BigQuery datasets which you may want to explore (repeating 
-the same process will add these to your BigQuery side-panel) include genomics-public-data, 
-google.com:biggene, and silver-wall-555 (a project 
-`made available <https://www.tutegenomics.com/news/tute-genomics-shares-genetic-variants-database-on-google-genomics/>`_ 
-by Tute Genomics (now `owned by PierianDx <http://www.businesswire.com/news/home/20161012005241/en/PierianDx-Acquires-Tute-Genomics>`_).
+the same process will add these to your BigQuery side-panel) include genomics-public-data and
+google.com:biggene.
 
 Additional BigQuery Documentation
 #################################
@@ -250,131 +248,6 @@ that have already been asked about BigQuery on StackOverflow.
 More SQL Examples
 #################
 
-Joining COSMIC to the Tute Annotations 
---------------------------------------
-As mentioned above, a `BigQuery dataset <https://cloud.google.com/customers/tute-genomics/>`_ 
-made available by Tute Genomics, contains a single 
-8.6 billion row 
-`table <https://bigquery.cloud.google.com/table/silver-wall-555:TuteTable.hg19?tab=details>`_ 
-containing annotations for the hg19 reference genome, including a 
-"Tute score" which is a measure of the severity of the variant.  
-(`March 2015 press release <http://www.bio-itworld.com/2015/3/12/tute-genomics-shares-genetic-variants-database-google-genomics.html>`_).
-
-This next query counts up the number of unique cases in COSMIC associated with 
-frequently-occurring point mutations and then joins that to the Tute table to rank 
-these mutations.  This query also illustrates the use of a few of BigQuery's string 
-functions.  Note that the genomic coordinates in the Tute table are 0-bases while the 
-COSMIC coordinates are 1-based, and this is corrected for in the query.
-
-This query processes 475 GB, takes less than one minute, and produces an ordered list of 
-137 mutations.  The most deleterious (based on the Tute score) and most frequently occurring
-mutation in COSMIC is the KCNJ5 L168R mutation, found in aldosterone-producing adenomas 
-(COSMIC id `1684718 <http://cancer.sanger.ac.uk/cosmic/mutation/overview?id=1684718>`_).
-
-Estimated query cost:  ($5/TB) x (475 GB / (1000 GB/TB)) = $2.375
-
-.. code-block:: sql
-
-    WITH
-      --
-      -- mutCounts
-      -- This first intermediate table includes the number of unique tumours 
-      -- in COSMIC with point-mutations at a given genomic position.  Since the 
-      -- the COSMIC table has a single field called Mutation_genome_position,
-      -- we will want to split this into chromosome, startPos, and endPos.
-      mutCounts AS (
-      SELECT
-        COUNT(DISTINCT(ID_tumour)) AS COSMIC_caseCount,
-        Mutation_CDS AS COSMIC_CDS,
-        SUBSTR(Mutation_CDS,-3,3) AS COSMIC_nucChange,
-        Mutation_AA AS COSMIC_AA,
-        Mutation_ID AS COSMIC_mutID,
-        SPLIT(Mutation_genome_position,':')[OFFSET(0)] AS chromosome,
-        CAST(SPLIT(SPLIT(Mutation_genome_position,':')[OFFSET(1)],'-')[OFFSET(0)] AS INT64) AS startPos,
-        CAST(SPLIT(SPLIT(Mutation_genome_position,':')[OFFSET(1)],'-')[OFFSET(1)] AS INT64) AS endPos
-      FROM
-        `isb-cgc.COSMIC.grch37_v80`
-      WHERE
-        Mutation_genome_position IS NOT NULL
-        AND GRCh=37
-        AND SUBSTR(Mutation_CDS,-2,1)='>'
-      GROUP BY
-        Mutation_CDS,
-        Mutation_AA,
-        Mutation_ID,
-        Mutation_genome_position
-      HAVING
-        COSMIC_caseCount>=100 ),
-      --
-      -- fromTute
-      -- Next, we extract just a few columns from the Tute table, while adjusting the
-      -- 0-based coordinates.
-      fromTute AS (
-      SELECT
-        Chr,
-        (Start+1) AS Start,
-        (`End`+1) AS `End`,
-        Func,
-        Gene,
-        NucleotideChange AS Tute_CDS,
-        SUBSTR(NucleotideChange,-3,3) AS Tute_nucChange,
-        AA AS Tute_AA,
-        cytoBand,
-        TUTE AS Tute_Score
-      FROM
-        `silver-wall-555.TuteTable.hg19`
-      WHERE
-        SUBSTR(NucleotideChange,-2,1)='>'
-      GROUP BY
-        Chr,
-        Start,
-        `End`,
-        Func,
-        Gene,
-        NucleotideChange,
-        AA,
-        cytoBand,
-        TUTE ),
-      --
-      -- join1
-      -- Now we join these two tables by aligning rows where the chromosome, start,
-      -- end, and nucleotide-change are identical.
-      join1 AS (
-      SELECT
-        Gene,
-        Chr,
-        Start,
-        `End`,
-        cytoBand,
-        Func,
-        COSMIC_nucChange AS nucChange,
-        COSMIC_AA,
-        Tute_AA,
-        Tute_Score,
-        COSMIC_caseCount,
-        COSMIC_mutID
-      FROM
-        mutCounts
-      JOIN
-        fromTute
-      ON
-        chromosome=Chr
-        AND startPos=Start
-        AND endPos=`End`
-        AND COSMIC_nucChange=Tute_nucChange )
-      --
-      -- Final select on the join result.
-    SELECT
-      *
-    FROM
-      join1
-    ORDER BY
-      Tute_Score DESC,
-      COSMIC_caseCount DESC
-
-Note that the COSMIC_AA and the Tute_AA columns may not always be identical.
-Although the genomic coordinates of the variation, and the nucleotide change are required to match 
-(by the JOIN statement in the query), the amino-acid change depends on the specific transcript being 
-used to infer the protein sequence and may therefore be different between the two data sources.
+Stay-tuned, more examples coming soon!
 
 
