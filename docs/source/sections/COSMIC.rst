@@ -3,7 +3,7 @@ COSMIC in BigQuery hosted by ISB-CGC
 *************************************
 
 .. image:: COSMIC.png
-   :scale: 30 %
+   :scale: 40 %
    :align: right
 
 The COSMIC tables in BigQuery, produced in collaboration with the 
@@ -268,9 +268,9 @@ More SQL Examples
 #################
 
 Let's start with a few simple examples to explore some of the available fields in these COSMIC tables.  
-Note that all of these examples are in "Standard SQL" so make sure that you have enabled it.
+Note that all of these examples are in "Standard SQL", so make sure that you have enabled it.
 
-**1. How many mutations have been observed across KRAS?**
+**1. How many mutations have been observed in KRAS?**
 
 .. code-block:: sql
 
@@ -330,6 +330,41 @@ table on the fly, and then use it in a follow-up **SELECT**:
      Sample_source
    ORDER BY
      n DESC
+
+**3. What are the most frequently observed mutations and how often do they occur?**
+
+.. code-block:: sql
+
+   WITH
+     t1 AS (
+     SELECT
+       ID_tumour,
+       Gene_name,
+       Mutation_AA,
+       Mutation_Description
+     FROM
+       `isb-cgc.COSMIC.grch37_v80`
+     GROUP BY
+       ID_tumour,
+       Gene_name,
+       Mutation_AA,
+       Mutation_Description )
+   SELECT
+     COUNT(*) AS n,
+     Gene_name,
+     Mutation_AA,
+     Mutation_Description
+   FROM
+     t1
+   GROUP BY
+     Gene_name,
+     Mutation_AA,
+     Mutation_Description
+   HAVING
+     n >=1000
+   ORDER BY
+     n DESC
+
 
 **Stay-tuned, more examples coming soon!**
 
