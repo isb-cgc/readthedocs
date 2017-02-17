@@ -9,7 +9,7 @@ are all now available in the ISB-CGC open-access Google Cloud Storage (GCS) buck
 `gs://isb-cgc-open/ <https://console.cloud.google.com/storage/browser/isb-cgc-open/>`_.
 
 Metadata for these files can be found in BigQuery, in the ISB-CGC metadata 
-`dataset <https://bigquery.cloud.google.com/dataset/isb-cgc:metadata>_`.
+`dataset <https://bigquery.cloud.google.com/dataset/isb-cgc:metadata>`_.
 
 Radiology Images
 ################
@@ -19,14 +19,18 @@ Over 1.4 million radiology image files in
 grouped together into over 20,000 zip files are available in Google Cloud Storage (GCS).
 Each zip file may contain hundreds of images, or just a single image.
 
+.. |br| raw:: html
+
+<br />
 The BigQuery metadata table, ``isb-cgc.metadata.TCGA_radiology_images`` contains
-the full urls to these zip files, *eg* 
+the full urls to these zip files, *eg* |br| 
 ``gs://isb-cgc-open/TCIA/images/TCGA-GBM/TCGA-06-5413/TCIA.image.1.3.6.1.4.1.14519.5.2.1.4591.4001.275342915307453440215680715165.zip``, 
-and the unzipped files can also be found in folders with the same names, *eg*:
+and the unzipped files can also be found in folders with the same names, *eg*: |br|
 ``gs://isb-cgc-open/TCIA/images/TCGA-GBM/TCGA-06-5413/TCIA.image.1.3.6.1.4.1.14519.5.2.1.4591.4001.275342915307453440215680715165/*.dcm``.
 The metadata table also includes the patient identifier in TCGA "barcode" format,
 *eg* TCGA-06-5413 (which is also part of the GCS url).  Other information available in the
 table includes the body part examined, image modality, patient age, etc.
+<br \>
 
 Pathology Images
 ################
