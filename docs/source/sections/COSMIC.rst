@@ -286,9 +286,11 @@ Note that all of these examples are in "Standard SQL", so make sure that you hav
    WHERE
      Gene_name="KRAS"
 
-|
-|
-|
+You can simply copy-and-paste any of the SQL queries on this page into the 
+`BigQuery web UI  <https://bigquery.cloud.google.com>`_ .  The screen-shot
+shown here shows the query in the "New Query" box, and the results 
+down below.  Just click on the "RUN QUERY" button to run the query.  
+Notice the green check-mark indicating that the query looks good.
 |
 |
 |
@@ -517,8 +519,18 @@ and individuals affected by disease.)
      Kaviar_AF DESC
 
 .. image:: COSMIC-Kaviar-sql-01.png
-   :scale: 75 %
-   :align: right
+   :scale: 100 %
+
+You can also click on the "Explanation" button to see diagnostic information about
+the completed query's execution plan.  This feature is similar to the EXPLAIN 
+statement available in some other query engines.  You can often use this information
+to improve query performance.
+
+.. image:: COSMIC-Kaviar-sql-02.png
+   :scale: 100 %
+
+|
+|
 
 **Stay-tuned, more examples coming soon!**
 
