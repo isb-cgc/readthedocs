@@ -2,6 +2,10 @@
 COSMIC in BigQuery hosted by ISB-CGC
 *************************************
 
+.. image:: COSMIC.png
+   :scale: 50 %
+   :align: right
+
 The COSMIC tables in BigQuery, produced in collaboration with the 
 `Wellcome Trust Sanger Institute <http://www.sanger.ac.uk/>`_, provide 
 a new way to explore and understand the mutations driving cancer.  
@@ -16,7 +20,7 @@ Getting Started
 ###############
 
 `Register <https://cancer.sanger.ac.uk/cosmic/register>`_ for access to
-`COSMIC <https://cancer.sanger.ac.uk/cosmic/about>`_:
+`COSMIC <https://cancer.sanger.ac.uk/cosmic/about>`_ in `BigQuery <https://cloud.google.com/bigquery/what-is-bigquery>`_:
 
     * if you are already a registered user of COSMIC, you will need to go to `your account <https://cancer.sanger.ac.uk/cosmic/myaccount>`_ page and add a valid "Google identity" in the Google ID box -- when you are signed in to COSMIC, your name in the upper-right corner is a pull-down menu from which you can access your Account Settings;
     * if the Email Address that you initially used when registering for COSMIC is already a valid Google identity, you may simply re-enter the same email address into the Google ID box;
@@ -93,7 +97,9 @@ About the COSMIC BigQuery Tables
 The COSMIC BigQuery tables are based on the "CosmicMutantExport" files downloaded from the 
 `Sanger ftp site <http://cancer.sanger.ac.uk/cosmic/download>`_.  
 This file is a tab-separated table containing all COSMIC point mutations 
-from targeted and genome-wide screens.  The ISB-CGC COSMIC dataset in BigQuery currently 
+from targeted and genome-wide screens.  The ISB-CGC 
+`COSMIC dataset <https://bigquery.cloud.google.com/dataset/isb-cgc:COSMIC>`_ 
+in BigQuery currently 
 includes the latest COSMIC release (v80) as well as the previous release (v79) for both 
 GRCh37 and GRCh38.
 
