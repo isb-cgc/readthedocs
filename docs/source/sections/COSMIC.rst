@@ -22,7 +22,7 @@ Getting Started
 `Register <https://cancer.sanger.ac.uk/cosmic/register>`_ for access to
 `COSMIC <https://cancer.sanger.ac.uk/cosmic/about>`_ in `BigQuery <https://cloud.google.com/bigquery/what-is-bigquery>`_:
 
-    * if you are already a registered user of COSMIC, you will need to go to `your account <https://cancer.sanger.ac.uk/cosmic/myaccount>`_ page and add a valid "Google identity" in the Google ID box -- when you are signed in to COSMIC, your name in the upper-right corner is a pull-down menu from which you can access your Account Settings;
+    * if you are already a registered user of COSMIC, you will need to go to `your account <https://cancer.sanger.ac.uk/cosmic/myaccount>`_ page and add a valid "Google identity" in the Google ID box: when you are signed in to COSMIC, your name in the upper-right corner is a pull-down menu from which you can access your Account Settings;
     * if the Email Address that you initially used when registering for COSMIC is already a valid Google identity, you may simply re-enter the same email address into the Google ID box;
     * if you are not sure whether your institutional (or other) email address is a Google identity, you can check by entering it in the Google `password-assistance page <https://accounts.google.com/ForgotPasswd>`_; or by asking your IT staff;
     * if you are not currently a registered COSMIC user, you will first need to `register <https://cancer.sanger.ac.uk/cosmic/register>`_, agree to the Terms and Conditions, and supply a valid Google identity in the Google ID box;
@@ -221,10 +221,23 @@ are also supported and can be used to further extend the types of analyses possi
 
 Using the bq Command Line Tool
 ------------------------------
-The bq command line tool is part of the 
+The **bq** command line tool is part of the 
 `cloud SDK <https://cloud.google.com/sdk/>`_ and can be used to interact directly 
 with BigQuery from the command line.  The cloud SDK is easy to install and 
-is available for most operating systems.
+is available for most operating systems.  You can use **bq** to create and upload
+your own tables into BigQuery, and you can run queries at the command-line like
+this:
+
+.. code-block:: none
+
+   bq query --allow_large_results \
+            --destination_table="myproj:dataset:query_output" \
+            --nouse_legacy_sql \
+            --nodry_run \
+            "$(cat myQuery.sql)"
+
+(where myQuery.sql is a plain-text file containing the SQL, and the destination
+table is in an existing BigQuery dataset in your project).
 
 Using BigQuery from R
 ---------------------
@@ -253,6 +266,23 @@ that have already been asked about BigQuery on StackOverflow.
 
 More SQL Examples
 #################
+
+Let's start with a few simple examples to explore some of the available fields in these COSMIC tables.  
+Note that all of these examples are in "Standard SQL" so make sure that you have enabled it.
+
+**1. How many mutations have been observed across KRAS?**
+
+.. code-block:: sql
+
+   SELECT
+     COUNT(DISTINCT(ID_sample)) AS numSamples,
+     COUNT(DISTINCT(ID_tumour)) AS numTumours
+   FROM
+     `isb-cgc.COSMIC.grch37_v79`
+   WHERE
+     Gene_name="KRAS"
+
+
 
 Stay-tuned, more examples coming soon!
 
