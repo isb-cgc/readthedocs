@@ -273,7 +273,7 @@ Note that all of these examples are in "Standard SQL", so make sure that you hav
 **1. How many mutations have been observed in KRAS?**
 
 .. image:: COSMIC-sql-01.png
-   :scale: 100 %
+   :scale: 75 %
    :align: right
 
 .. code-block:: sql
