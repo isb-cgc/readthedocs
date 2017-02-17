@@ -3,7 +3,7 @@ COSMIC in BigQuery hosted by ISB-CGC
 *************************************
 
 .. image:: COSMIC.png
-   :scale: 10 %
+   :scale: 20 %
    :align: right
 
 The COSMIC tables in BigQuery, produced in collaboration with the 
