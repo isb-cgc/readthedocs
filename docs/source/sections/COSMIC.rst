@@ -195,6 +195,10 @@ Legacy SQL will be activated by default and you will need to enable Standard SQL
 use Standard SQL.  For simple queries, the same syntax will work in both, except for one 
 important detail which is how you specify the table name.  A simple Standard SQL query might look like:
 
+.. image:: COSMIC-sql-01.png
+   :scale: 30 %
+   :align: right
+
 .. code-block:: sql
 
     SELECT *
