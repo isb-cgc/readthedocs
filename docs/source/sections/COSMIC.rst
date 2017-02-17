@@ -286,6 +286,9 @@ Note that all of these examples are in "Standard SQL", so make sure that you hav
    WHERE
      Gene_name="KRAS"
 
+|
+|
+
 **2. What other information is available about these KRAS mutant tumours?**
 
 This next query also illustrates usage of the **WITH** construct to create an intermediate
