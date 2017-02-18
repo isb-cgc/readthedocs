@@ -277,12 +277,13 @@ More SQL Examples
 
 Let's start with a few simple examples to get some practice using BigQuery, and to 
 explore some of the available fields in these COSMIC tables.  
-Note that all of these examples are in "Standard SQL", so make sure that you have that enabled.
-(See instructions above regarding un-checking the "Legacy SQL" box in the BigQuery web UI.)
 
 .. image:: COSMIC-sql-01.png
    :scale: 75 %
    :align: right
+
+Note that all of these examples are in "Standard SQL", so make sure that you have that enabled.
+(See instructions above regarding un-checking the "Legacy SQL" box in the BigQuery web UI.)
 
 **1. How many mutations have been observed in KRAS?**
 
@@ -302,8 +303,6 @@ shown here shows the query in the "New Query" box, and the results
 down below.  Just click on the "RUN QUERY" button to run the query.  
 Notice the green check-mark indicating that the query looks good.
 
-|
-|
 |
 |
 
