@@ -51,7 +51,7 @@ to run the sample query given below, please contact us at feedback@isb-cgc.org.
     * go to the `BigQuery web UI <https://bigquery.cloud.google.com>`_  --  if you see a welcome screen inviting you to **Create a Project** then your ISB-CGC registration process is not yet complete;
 
 .. image:: COSMIC-sql-00.png
-   :scale: 80 %
+   :scale: 90 %
    :align: right
 ..
 
