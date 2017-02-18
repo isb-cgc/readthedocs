@@ -59,7 +59,7 @@ to run the sample query given below, please contact us at feedback@isb-cgc.org.
     * to execute the query, click on **RUN QUERY** !       
 
 .. image:: COSMIC-sql-00.png
-   :scale: 40 %
+   :scale: 80 %
    :align: right
 
 .. code-block:: sql
