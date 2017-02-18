@@ -95,6 +95,14 @@ to run the sample query given below, please contact us at feedback@isb-cgc.org.
       Gene_name,
       ratio DESC
 
+|
+|
+|
+|
+|
+|
+|
+
 About the COSMIC BigQuery Tables
 ################################
 
