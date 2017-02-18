@@ -299,8 +299,6 @@ Notice the green check-mark indicating that the query looks good.
 |
 |
 |
-|
-|
 
 **2. What other information is available about these KRAS mutant tumours?**
 
@@ -521,7 +519,7 @@ and individuals affected by disease.)
      Kaviar_AF DESC
 
 .. image:: COSMIC-Kaviar-sql-01.png
-   :scale: 100 %
+   :scale: 75 %
 
 You can also click on the "Explanation" button to see diagnostic information about
 the completed query's execution plan.  This feature is similar to the EXPLAIN 
@@ -529,7 +527,7 @@ statement available in some other query engines.  You can often use this informa
 to improve query performance.
 
 .. image:: COSMIC-Kaviar-sql-02.png
-   :scale: 100 %
+   :scale: 75 %
 
 |
 |
