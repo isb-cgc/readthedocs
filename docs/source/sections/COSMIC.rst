@@ -548,8 +548,8 @@ and individuals affected by disease.)
      --
      -- In our final step, we will join the results of the earlier join with the
      -- Ensembl reference information obtained above.
-     -- We're down to 9 mutations which, for the most part occur frequently in COSMIC
-     -- and quite rarely in Kaviar.
+     -- We're down to just a handful of mutations which, for the most part occur 
+     -- frequently in COSMIC and quite rarely in Kaviar.
    SELECT
      caseCounts,
      nucChange,
@@ -571,6 +571,14 @@ and individuals affected by disease.)
    ORDER BY
      caseCounts DESC,
      Kaviar_AF DESC
+
+Our final result includes only 8 mutations that are found relatively frequently
+in COSMIC and are also found (though generally rarely) in Kaviar.  Notice the
+frequently-mutated gene 
+`PRSS3 <http://grch37-cancer.sanger.ac.uk/cosmic/gene/analysis?ln=PRSS3>`_ 
+(which encodes a trypsinogen, which is a member of the trypsin family of serine proteases),
+and the major histocompatibility gene
+`HLA-A <http://grch37-cancer.sanger.ac.uk/cosmic/gene/analysis?ln=HLA-A>`_.
 
 .. image:: COSMIC-Kaviar-sql-01.png
    :scale: 75 %
