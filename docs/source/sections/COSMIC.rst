@@ -577,7 +577,7 @@ Our final result includes only 8 mutations that are found relatively frequently
 in COSMIC and are also found (though generally rarely) in Kaviar.  Notice the
 frequently-mutated gene 
 `PRSS3 <http://grch37-cancer.sanger.ac.uk/cosmic/gene/analysis?ln=PRSS3>`_ 
-(which encodes a a member of the trypsin family of serine proteases),
+(which encodes a member of the trypsin family of serine proteases),
 and the major histocompatibility gene
 `HLA-A <http://grch37-cancer.sanger.ac.uk/cosmic/gene/analysis?ln=HLA-A>`_.
 
