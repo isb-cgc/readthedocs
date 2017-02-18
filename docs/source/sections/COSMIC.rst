@@ -32,7 +32,7 @@ Once you have completed these steps, ISB-CGC will obtain the Google identity tha
 A few important notes:
 
     * When you register with COSMIC, you create a password for your COSMIC account -- which is associated with whatever email address you provided.  This password is your COSMIC password, please avoid reusing any other password.
-    * If you are not sure what a "Google ID" is, it is the name associated wth a  "Google account"  -- this includes any gmail address.  If you do not already have a Google account, you can create one.
+    * If you are not sure what a "Google ID" is, it is the name associated wth a  "Google account"  -- this includes any gmail address.  If you do not already have a Google account, you can `create one <https://accounts.google.com/SignUp?hl=en>`_.
     * If you mistype your Google ID, or enter a string that is not a valid Google ID, you will not be able to access the COSMIC tables in BigQuery.  Google IDs are not being automatically verified at this time, so please double-check that the Google ID you provided is correct.  
     * Avoid using an alias: *eg* the base account tb@mylab.org might have a longer-form alias like thomas.brown@mylab.org -- please enter the 'base' name;
 
