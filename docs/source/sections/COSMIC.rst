@@ -149,12 +149,14 @@ tables, the amount of data processed by a
 single query may increase into the GB or even TB range.
 
 During this introductory period (for at least the next 6 months), all registered COSMIC 
-users will be added to the isb-cgc-cosmic Google Cloud Platform (GCP) project so that 
-they will be able to perform exploratory queries at no cost to the user.  
+users will be added to the ``isb-cgc-cosmic`` Google Cloud Platform (GCP) project so that 
+they will be able to perform exploratory queries at no cost.  
 (These costs will be paid by ISB-CGC, again with funding from NCI.)  Please note that 
 users who perform large numbers of queries and incur significant costs will be 
-removed from the isb-cgc-cosmic GCP project and will be required to create their own 
-GCP projects prior to performing additional queries.  (All new GCP users are welcome 
+removed from the ``isb-cgc-cosmic`` GCP project and will be required to create their own 
+GCP projects prior to performing additional queries.  If you want to be able to 
+upload your own data to BigQuery or save the results of your queries as new BigQuery tables,
+you will need to have your own GCP project.  (All new GCP users are welcome 
 to take advantage of the Google `free trial <https://cloud.google.com/free-trial/>`_ 
 which includes up to $300 in funding to be used over a period of 60 days.)
 
@@ -584,7 +586,7 @@ Our final result includes only 8 mutations that are found relatively frequently
 in COSMIC and are also found (though generally rarely) in Kaviar.  Notice the
 frequently-mutated gene 
 `PRSS3 <http://grch37-cancer.sanger.ac.uk/cosmic/gene/analysis?ln=PRSS3>`_ 
-(which encodes a trypsinogen, which is a member of the trypsin family of serine proteases),
+(which encodes a a member of the trypsin family of serine proteases),
 and the major histocompatibility gene
 `HLA-A <http://grch37-cancer.sanger.ac.uk/cosmic/gene/analysis?ln=HLA-A>`_.
 
