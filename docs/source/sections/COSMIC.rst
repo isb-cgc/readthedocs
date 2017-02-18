@@ -58,6 +58,10 @@ to run the sample query given below, please contact us at feedback@isb-cgc.org.
     * once you do have the green circle, you can click on it to see a message like: "Valid: This query will process 131 MB when run."
     * to execute the query, click on **RUN QUERY** !       
 
+.. image:: COSMIC-sql-00.png
+   :scale: 40 %
+   :align: right
+
 .. code-block:: sql
 
     WITH
