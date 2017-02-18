@@ -396,9 +396,17 @@ table on the fly, and then use it in a follow-up **SELECT**:
    ORDER BY
      n DESC
 
-**4. Joining COSMIC and Kaviar tables in BigQuery**
+**4. Joining COSMIC to Kaviar and Ensembl -- all in BigQuery!**
 
-Now let's try something a bit more complicated!
+Now let's try something a bit more complicated!  We're going to query the COSMIC database
+and then join the intermediate results with the 
+`Kaviar <http://db.systemsbiology.net/kaviar/>`_ table and the 
+`Ensembl <http://grch37.ensembl.org/Homo_sapiens/Info/Index>`_ gene-set.  
+(Note that since
+most of the available TCGA data is based on GRCH37/hg19, we're still frequently using
+those older reference sources, but newer gene-sets are also available in the ISB-CGC
+`genome_reference dataset <https://bigquery.cloud.google.com/dataset/isb-cgc:genome_reference>`_ 
+in BigQuery.
 
 `Kaviar <http://db.systemsbiology.net/kaviar/>`_ is a large database
 of known variants which is also 
