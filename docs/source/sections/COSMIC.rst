@@ -401,7 +401,9 @@ table on the fly, and then use it in a follow-up **SELECT**:
 Now let's try something a bit more complicated!
 
 `Kaviar <http://db.systemsbiology.net/kaviar/>`_ is a large database
-of known variants which is also available in BigQuery, hosted by the ISB-CGC.
+of known variants which is also 
+`available <https://bigquery.cloud.google.com/table/isb-cgc:genome_reference.Kaviar_160204_Public_hg19>`_ 
+in BigQuery, hosted by the ISB-CGC.
 In the complex query below, we will extract a subset of commonly observed
 mutations in cancer from COSMIC and then see how many of them have also
 been observed in "normal" genomes 
@@ -497,7 +499,7 @@ and individuals affected by disease.)
      join1 AS (
      SELECT
        c.caseCounts AS caseCounts,
-       c.COSMIC_nucChange AS COSMIC_nucChange,
+       c.COSMIC_nucChange AS nucChange,
        c.chr AS chr,
        c.startPos AS startPos,
        c.endPos AS endPos,
@@ -517,15 +519,55 @@ and individuals affected by disease.)
        AND ( (reference_bases=SUBSTR(c.COSMIC_nucChange,1,1)
            AND alternate_bases=SUBSTR(c.COSMIC_nucChange,3,1))
          OR (reference_bases=SUBSTR(c.COSMIC_nucChange,3,1)
-           AND alternate_bases=SUBSTR(c.COSMIC_nucChange,1,1)) ) )
+           AND alternate_bases=SUBSTR(c.COSMIC_nucChange,1,1)) ) ),
      --
-     -- Our final step will just be to sort the results of the JOIN operation above.
+     -- *Ensembl*
+     -- Before we finish, we want to also pull in some information from Ensembl,
+     -- so we're going to select a few columns from the Ensembl_GRCh37_75 table
+     -- (also publicly available in BigQuery).  This subquery will create a
+     -- table with information about ~132k exons:
+     Ensembl AS (
+     SELECT
+       gene_name,
+       exon_id,
+       seq_name,
+       start,
+       `end`
+     FROM
+       `isb-cgc.genome_reference.Ensembl_GRCh37_75`
+     WHERE
+       exon_number IS NOT NULL
+       AND feature="exon"
+       AND transcript_source="ensembl"
+     GROUP BY
+       gene_name,
+       exon_id,
+       seq_name,
+       start,
+       `end` )
+     --
+     -- In our final step, we will join the results of the earlier join with the
+     -- Ensembl reference information obtained above.
      -- We're down to 9 mutations which, for the most part occur frequently in COSMIC
      -- and quite rarely in Kaviar.
    SELECT
-     *
+     caseCounts,
+     nucChange,
+     chr,
+     startPos AS pos,
+     Kaviar_AC,
+     Kaviar_AF,
+     Kaviar_AN,
+     gene_name,
+     exon_id
    FROM
-     join1
+     join1 j
+   JOIN
+     Ensembl r
+   ON
+     j.chr=r.seq_name
+     AND r.start<=j.startPos
+     AND r.`end`>=j.endPos
    ORDER BY
      caseCounts DESC,
      Kaviar_AF DESC
