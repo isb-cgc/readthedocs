@@ -239,8 +239,8 @@ The **bq** command line tool is part of the
 `cloud SDK <https://cloud.google.com/sdk/>`_ and can be used to interact directly 
 with BigQuery from the command line.  The cloud SDK is easy to install and 
 is available for most operating systems.  You can use **bq** to create and upload
-your own tables into BigQuery, and you can run queries at the command-line like
-this:
+your own tables into BigQuery (if you have your own GCP project), 
+and you can run queries at the command-line like this:
 
 .. code-block:: none
 
@@ -267,7 +267,7 @@ BigQuery
 are available that let you interact with BigQuery from Python or other languages.  
 In addition, the experimental 
 `pandas.io.gbq <http://pandas.pydata.org/pandas-docs/stable/io.html#google-bigquery-experimental>`_ 
-module provides a wrapper for Google.s BigQuery analytics web service.
+module provides a wrapper for BigQuery.
 
 Getting Help
 ------------
@@ -281,14 +281,16 @@ that have already been asked about BigQuery on StackOverflow.
 More SQL Examples
 #################
 
-Let's start with a few simple examples to explore some of the available fields in these COSMIC tables.  
-Note that all of these examples are in "Standard SQL", so make sure that you have enabled it.
-
-**1. How many mutations have been observed in KRAS?**
+Let's start with a few simple examples to get some practice using BigQuery, and to 
+explore some of the available fields in these COSMIC tables.  
+Note that all of these examples are in "Standard SQL", so make sure that you have that enabled.
+(See instructions above regarding un-checking the "Legacy SQL" box in the BigQuery web UI.)
 
 .. image:: COSMIC-sql-01.png
    :scale: 75 %
    :align: right
+
+**1. How many mutations have been observed in KRAS?**
 
 .. code-block:: sql
 
@@ -398,6 +400,7 @@ table on the fly, and then use it in a follow-up **SELECT**:
    ORDER BY
      n DESC
 
+.. _CKE_query:
 **4. Joining COSMIC to Kaviar and Ensembl -- all in BigQuery!**
 
 Now let's try something a bit more complicated!  We're going to query the COSMIC database
