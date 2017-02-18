@@ -303,8 +303,6 @@ shown here shows the query in the "New Query" box, and the results
 down below.  Just click on the "RUN QUERY" button to run the query.  
 Notice the green check-mark indicating that the query looks good.
 
-|
-|
 
 **2. What other information is available about these KRAS mutant tumours?**
 
