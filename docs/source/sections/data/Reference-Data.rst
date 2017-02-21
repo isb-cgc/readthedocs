@@ -39,8 +39,8 @@ between the Schema and Preview buttons, beneath the table name.)
   * **liftOver_hg19_to_hg38** : This table provides a mapping of each hg19 position to the corresponding position in hg38, and can be used to perform a liftOver_ operation in BigQuery
 
   * **miRBase**
-     - GRCh37 : The human portion of version 20 of the miRBase_ database.
-     - GRCh38 : The human portion of version 21 of the miRBase_ database.
+     - GRCh37 : The human portion of version 20 of the miRBase_ database; including genomic coordinates for human microRNAs.
+     - GRCh38 : The human portion of version 21 of the miRBase_ database; including genomic coordinates for human microRNAs.
 
   * **miRTarBase** The recently updated miRTarBase_ database (release 6.1)
 
