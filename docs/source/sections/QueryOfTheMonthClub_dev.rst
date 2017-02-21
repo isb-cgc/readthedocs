@@ -82,13 +82,6 @@ Next, we're going to get complicated(!), and compute clusters using a K-means
 algorithm implemented in javascript as a UDF!
 
 
-------------
-
-.. figure:: query_figs/kmeans_plot.jpg
-   :scale: 75
-   :align: center
-
-
 ------------------
 
 January, 2017
