@@ -290,7 +290,7 @@ Then let's visualize the resulting clusters!
 
 ------------
 
-.. figure:: query_figs/kmeans_plot.png
+.. figure:: query_figs/kmeans_plot.jpg
    :scale: 75
    :align: center
 
