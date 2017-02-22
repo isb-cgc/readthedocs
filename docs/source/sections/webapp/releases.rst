@@ -108,7 +108,7 @@ Release Notes
     - You can now create a new cohort from the menu bar. 
     - Variables menu bar is displayed similar to the rest of the favorites variables. 
     - On the dashboard, all create new buttons/links are identical. 
-    - Owner of what is shared is now the only person who can add or remove others. 
+    - Owner of what is shared either a workbook or a cohort is able to remove multiple viewers. Viewers are also able to remove themselves. 
     - Removed BCGSC gene expression from the UI gene specification selection for plot analysis. 
 
 
