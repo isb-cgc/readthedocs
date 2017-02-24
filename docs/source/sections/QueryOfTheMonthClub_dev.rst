@@ -21,7 +21,7 @@ This month, we explore user defined functions or UDFs. BigQuery allows
 us to define special functions using javascript. These functions are defined as
 part of the SQL and then called within the query.
 
-`The Google UDF docs.`<https://cloud.google.com/bigquery/docs/reference/standard-sql/user-defined-functions>_
+`The Google UDF docs.<https://cloud.google.com/bigquery/docs/reference/standard-sql/user-defined-functions>`_
 
 UDFs take a set of parameters, and return a value. They are strongly typed functions,
 which means that we need to define the types of inputs and outputs. For example,
@@ -98,7 +98,7 @@ remember to open the options and unclick the 'Use Legacy SQL' button.
 Next, we're going to get complicated(!), and estimate clusters assignments
 using a K-means algorithm, implemented in javascript, as a UDF!
 
-`Here's the wikipedia link about K-means clustering.`<https://en.wikipedia.org/wiki/K-means_clustering>_
+`Here's the wikipedia link about K-means clustering.<https://en.wikipedia.org/wiki/K-means_clustering>`_
 
 In performing clustering, we're going to assign each of the BRCA sample to a cluster
 depending on the expression of two genes ESR1 and EGFR. This is an iterative process
@@ -341,8 +341,8 @@ a csv file, and read it into R.
 
 ------------
 
-.. figure:: query_figs/kmeans_plot.jpg
-   :scale: 75
+.. figure:: query_figs/kmeans_plot.png
+   :scale: 25
    :align: center
 
 
