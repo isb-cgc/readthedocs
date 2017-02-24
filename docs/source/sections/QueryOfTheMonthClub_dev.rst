@@ -289,7 +289,7 @@ updating the cluster center points.
     barcode,
     esr1,
     egfr,
-    kMeans(esr1, egfr) AS cluster
+    kMeans(esr1, egfr, 200.0, 2.0) AS cluster
   FROM
     arrayTable
     --
