@@ -25,15 +25,13 @@ part of the SQL and then called within the query.
 
 UDFs take a set of parameters, and return a value. They are strongly typed functions,
 which means that we need to define the types of inputs and outputs. For example,
-we might have FLOAT64 and BOOL as inputs and return a STRING. See the google
+we might have FLOAT64 and BOOL input types and return a STRING. See the google
 docs for the complete list of available types.
 
 In our first example, we'll define two new functions. The first classifies a sample
 as having larger expression value than a given parameter. And second, a function
-that glues three strings together. Then in the SQL, we will call both functions.
-
+that glues three strings together. Then, in the SQL query we call both functions.
 These initial queries will be starting points in a more complicated example below.
-
 
 These queries are using Standard SQL, to if you're in the web interface,
 remember to open the options and unclick the 'Use Legacy SQL' button.
@@ -41,7 +39,7 @@ remember to open the options and unclick the 'Use Legacy SQL' button.
 .. code-block:: sql
 
   CREATE TEMPORARY FUNCTION
-    -- First we tell BQ that we're defining a function.
+                                      -- First we tell BQ that we're defining a function.
 
     BiggerThan (x FLOAT64, y FLOAT64) -- then we give it a function name and input types
     RETURNS BOOL                      -- we also need to tell BQ what the return type is
@@ -52,11 +50,11 @@ remember to open the options and unclick the 'Use Legacy SQL' button.
     """;
 
   CREATE TEMPORARY FUNCTION
-    Combiner (x STRING, y STRING, z STRING)  -- next function takes 3 strings
+    Combiner (x STRING, y STRING, z STRING)  -- This function takes 3 strings
     RETURNS STRING                           -- and returns a string
     LANGUAGE js AS """
 
-    return (x + "_" + y + "_" + z);          // we use javascript functions here.
+    return (x + "_" + y + "_" + z);          // The javascript '+' joins strings.
 
   """;
     --
@@ -100,17 +98,24 @@ remember to open the options and unclick the 'Use Legacy SQL' button.
 Next, we're going to get complicated(!), and estimate clusters assignments
 using a K-means algorithm, implemented in javascript, as a UDF!
 
-`Here's the wikipedia link about K-means clustering.<https://en.wikipedia.org/wiki/K-means_clustering>`_
+`Here's the wikipedia link about K-means clustering.`<https://en.wikipedia.org/wiki/K-means_clustering>_
 
-In clustering, we're going to assign each of the BRCA sample to a cluster
-depending on the expression of two genes ESR1 and EGFR.
+In performing clustering, we're going to assign each of the BRCA sample to a cluster
+depending on the expression of two genes ESR1 and EGFR. This is an iterative process
+that starts with two random cluster centers, and we optimize in each iteration
+by updating the sample labels (what cluster they're assigned to), and then
+updating the cluster center points.
 
 .. code-block:: sql
 
   CREATE TEMPORARY FUNCTION
 
-    kMeans(x ARRAY<FLOAT64>, y ARRAY<FLOAT64>,
-           iterations FLOAT64, k FLOAT64)
+    -- In this function, we're going to be working on arrays of values.
+
+    kMeans(x ARRAY<FLOAT64>,  -- ESR1 gene expression
+           y ARRAY<FLOAT64>,  -- EGFR gene expression
+           iterations FLOAT64,  -- the number of iterations
+           k FLOAT64)           -- the number of clusters
 
     RETURNS ARRAY<FLOAT64>
 
