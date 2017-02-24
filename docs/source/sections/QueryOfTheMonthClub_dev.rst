@@ -31,16 +31,19 @@ that glues three strings together. Then in the SQL, we will call both functions.
 These initial queries will be starting points in a more complicated example below.
 
 
+These queries are using Standard SQL, to if you're in the web interface,
+remember to open the options and unclick the 'Use Legacy SQL' button.
+
 .. code-block:: sql
 
   CREATE TEMPORARY FUNCTION
     -- First we tell BQ that we're defining a function.
 
     BiggerThan (x FLOAT64, y FLOAT64) -- then we give it a function name and input types
-    RETURNS BOOL                     -- we also need to tell BQ what the return type is
+    RETURNS BOOL                      -- we also need to tell BQ what the return type is
     LANGUAGE js AS """
 
-      return (x > y);                -- this is the body of the function.
+      return (x > y);                 // this is the body of the function.
 
     """;
 
@@ -49,7 +52,7 @@ These initial queries will be starting points in a more complicated example belo
     RETURNS STRING                           -- and returns a string
     LANGUAGE js AS """
 
-    return (x + "_" + y + "_" + z);          -- we use javascript functions here.
+    return (x + "_" + y + "_" + z);          // we use javascript functions here.
 
   """;
     --
@@ -90,20 +93,22 @@ These initial queries will be starting points in a more complicated example belo
 
 
 
-Next, we're going to get complicated(!), and compute clusters using a K-means
-algorithm implemented in javascript as a UDF!
+Next, we're going to get complicated(!), and estimate clusters assignments
+using a K-means algorithm, implemented in javascript, as a UDF!
 
+`Here's the wikipedia link about K-means clustering.<https://en.wikipedia.org/wiki/K-means_clustering>`_
 
 .. code-block:: sql
 
   CREATE TEMPORARY FUNCTION
+
     kMeans(x ARRAY<FLOAT64>,
       y ARRAY<FLOAT64>)
     RETURNS ARRAY<FLOAT64>
     LANGUAGE js AS """
   'use strict'
 
-  // heavily borrowing from https://github.com/NathanEpstein/clusters //
+  // *heavily borrowing from https://github.com/NathanEpstein/clusters* //
 
   function sumOfSquareDiffs(oneVector, anotherVector) {
     var squareDiffs = oneVector.map(function(component, i) {
