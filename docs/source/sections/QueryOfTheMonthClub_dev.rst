@@ -111,27 +111,31 @@ updating the cluster center points.
   CREATE TEMPORARY FUNCTION
 
     -- In this function, we're going to be working on arrays of values.
+    -- we're also going to define a set of functions 'inside' the kMeans.
+
+    -- *heavily borrowing from https://github.com/NathanEpstein/clusters* --
 
     kMeans(x ARRAY<FLOAT64>,  -- ESR1 gene expression
            y ARRAY<FLOAT64>,  -- EGFR gene expression
            iterations FLOAT64,  -- the number of iterations
            k FLOAT64)           -- the number of clusters
 
-    RETURNS ARRAY<FLOAT64>
+    RETURNS ARRAY<FLOAT64>  -- returns the cluster assignments
 
     LANGUAGE js AS """
-  'use strict'
+    'use strict'
 
-  // *heavily borrowing from https://github.com/NathanEpstein/clusters* //
 
-  function sumOfSquareDiffs(oneVector, anotherVector) {
-    var squareDiffs = oneVector.map(function(component, i) {
-      return Math.pow(component - anotherVector[i], 2);
-    });
-    return squareDiffs.reduce(function(a, b) { return a + b }, 0);
-  };
+    function sumOfSquareDiffs(oneVector, anotherVector) {
+      // the sum of squares error //
+      var squareDiffs = oneVector.map(function(component, i) {
+        return Math.pow(component - anotherVector[i], 2);
+      });
+      return squareDiffs.reduce(function(a, b) { return a + b }, 0);
+    };
 
   function mindex(array) {
+    // returns the index to the minimum value in the array
     var min = array.reduce(function(a, b) {
       return Math.min(a, b);
     });
@@ -139,10 +143,14 @@ updating the cluster center points.
   };
 
   function sumVectors(a, b) {
+    // The map function gets used frequently in javascript
     return a.map(function(val, i) { return val + b[i] });
   };
 
   function averageLocation(points) {
+    // Take all the points assigned to a cluster
+    // and find the averge center point.
+    // This gets used to update the cluster centroids.
     var zeroVector = points[0].location.map(function() { return 0 });
     var locations = points.map(function(point) { return point.location });
     var vectorSum = locations.reduce(function(a, b) { return sumVectors(a, b) }, zeroVector);
@@ -150,6 +158,7 @@ updating the cluster center points.
   };
 
   function Point(location) {
+    // A point object, each sample is represented as a point //
     var self = this;
     this.location = location;
     this.label = 1;
@@ -163,6 +172,7 @@ updating the cluster center points.
 
 
   function Centroid(initialLocation, label) {
+    // The cluster centroids //
     var self = this;
     this.location = initialLocation;
     this.label = label;
@@ -175,11 +185,9 @@ updating the cluster center points.
   };
 
 
-  var k = 2;
-  var iterations = 200;
   var data = [];
 
-  // make our data list
+  // Our data list is list of lists. The small list being each (x,y) point
   for (var i = 0; i < x.length; i++) {
     data.push([x[i],y[i]])
   }
@@ -188,7 +196,7 @@ updating the cluster center points.
   var points = data.map(function(vector) { return new Point(vector) });
 
 
-  // intialize centroids randomly
+  // intialize centroids
   var centroids = [];
   for (var i = 0; i < k; i++) {
     centroids.push(new Centroid(points[i % points.length].location, i));
@@ -201,7 +209,7 @@ updating the cluster center points.
     centroids.forEach(function(centroid) { centroid.updateLocation(points) });
   };
 
-  // return points and centroids
+  // return the cluster labels.
   var labels = []
   for (var i = 0; i < points.length; i++) {
     labels.push(points[i].label)
@@ -210,6 +218,9 @@ updating the cluster center points.
   return labels;
 
   """;
+  --
+  --
+  --
   WITH
     gene1 AS (
     SELECT
