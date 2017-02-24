@@ -21,7 +21,7 @@ This month, we explore user defined functions or UDFs. BigQuery allows
 us to define special functions using javascript. These functions are defined as
 part of the SQL and then called within the query.
 
-`The Google UDF docs.<https://cloud.google.com/bigquery/docs/reference/standard-sql/user-defined-functions>`_
+`The Google UDF docs.`<https://cloud.google.com/bigquery/docs/reference/standard-sql/user-defined-functions>_
 
 UDFs take a set of parameters, and return a value. They are strongly typed functions,
 which means that we need to define the types of inputs and outputs. For example,
