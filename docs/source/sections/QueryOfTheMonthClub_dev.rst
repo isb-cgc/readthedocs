@@ -219,9 +219,17 @@ updating the cluster center points.
 
   """;
   --
+  -- *** In this query, we create two subtables, one for each gene of
+  --     interest, then create a set of arrays in joining the two tables.
+  --     We call the UDF using the arrays, and get a result back
+  --     made of arrays.
   --
+  --     Due to a technical issue we save the table of arrays to
+  --     to a personal dataset, then unpack it. ***
   --
   WITH
+    -- gene1, the first subtable
+    --
     gene1 AS (
     SELECT
       ROW_NUMBER() OVER() row_number,
@@ -239,6 +247,8 @@ updating the cluster center points.
       AliquotBarcode,
       gene_id_1),
     --
+    -- gene2, the second subtable
+    --
     gene2 AS (
     SELECT
       AliquotBarcode AS barcode2,
@@ -255,20 +265,16 @@ updating the cluster center points.
       AliquotBarcode,
       HGNC_gene_symbol),
     --
+    -- Then we create a table of arrays
+    -- and join the two gene tables.
+    -- ** We need to make sure all the arrays are constructed using the same index. **
+    --
     arrayTable AS (
     SELECT
-      ARRAY_AGG(m1.row_number
-      ORDER BY
-        m1.barcode1) AS arrayn,
-      ARRAY_AGG(m1.barcode1
-      ORDER BY
-        m1.barcode1) AS barcode,
-      ARRAY_AGG(count1
-      ORDER BY
-        m1.barcode1) AS esr1,
-      ARRAY_AGG(count2
-      ORDER BY
-        m1.barcode1) AS egfr
+      ARRAY_AGG(m1.row_number ORDER BY m1.barcode1) AS arrayn,
+      ARRAY_AGG(m1.barcode1 ORDER BY m1.barcode1) AS barcode,
+      ARRAY_AGG(count1 ORDER BY m1.barcode1) AS esr1,
+      ARRAY_AGG(count2 ORDER BY m1.barcode1) AS egfr
     FROM
       gene1 AS m1
     JOIN
@@ -276,34 +282,36 @@ updating the cluster center points.
     ON
       m1.barcode1 = m2.barcode2 )
     --
+    -- Now we call the k-means UDF.
+    --
   SELECT
     arrayn,
     barcode,
     esr1,
     egfr,
-    kMeans(esr1,
-      egfr) AS cluster
+    kMeans(esr1, egfr) AS cluster
   FROM
     arrayTable
     --
-  -- save the resulting table to a personal dataset
+    -- save the resulting table to a personal dataset
 
 
 We need to save the above results to an intermediate table. I would recommend
 making yourself a dataset just for this purpose. The results from the above query
-put everything in one row of arrays. It's a little tricky to unpack the arrays into
-rows. That's what we'll do next.
+is *one* row of arrays. It's a little tricky to unpack the arrays into
+rows, which is what we'll do next.
 
 .. code-block:: sql
 
   --
-  -- then we unpack the arrays
+  -- Unpacking the arrays is tricky because, you're not
+  -- guaranteed that each array will have the same index,
+  -- unless specified.
   --
 
   With
   resultTable AS
   (select * from `isb-cgc-02-0001.Daves_working_area.kmeans_genes`)
-
 
   SELECT
     index row_idx,
@@ -321,12 +329,13 @@ rows. That's what we'll do next.
     index
 
 
-
-Then let's visualize the resulting clusters!
+Let's visualize the resulting clusters! Save the cluster assignments to
+a csv file, and read it into R.
 
 .. code-block:: R
 
-  res0 <- read.table("Downloads/results-20170221-132952.csv", sep=",", header=T, stringsAsFactors=F)
+  library(ggplot2)
+  res0 <- read.table("results-from-the-k-means.csv", sep=",", header=T, stringsAsFactors=F)
   qplot(data=res0, x=EGFR, y=ESR1, col=as.factor(Cluster))
 
 
