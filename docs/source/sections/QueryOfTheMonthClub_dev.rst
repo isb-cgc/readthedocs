@@ -11,7 +11,11 @@ email: dgibbs (at) systemsbiology (dot) org
 
 
 ------------------
+
+
 February, 2017
+##############
+
 
 This month, we explore user defined functions or UDFs. BigQuery allows
 us to define special functions using javascript. These functions are defined as
@@ -98,13 +102,18 @@ using a K-means algorithm, implemented in javascript, as a UDF!
 
 `Here's the wikipedia link about K-means clustering.<https://en.wikipedia.org/wiki/K-means_clustering>`_
 
+In clustering, we're going to assign each of the BRCA sample to a cluster
+depending on the expression of two genes ESR1 and EGFR.
+
 .. code-block:: sql
 
   CREATE TEMPORARY FUNCTION
 
-    kMeans(x ARRAY<FLOAT64>,
-      y ARRAY<FLOAT64>)
+    kMeans(x ARRAY<FLOAT64>, y ARRAY<FLOAT64>,
+           iterations FLOAT64, k FLOAT64)
+
     RETURNS ARRAY<FLOAT64>
+
     LANGUAGE js AS """
   'use strict'
 
