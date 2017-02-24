@@ -13,38 +13,49 @@ email: dgibbs (at) systemsbiology (dot) org
 ------------------
 February, 2017
 
-This month we're going to explore user defined functions or UDFs. BigQuery allows
-us to define special functions using javascript.
+This month, we explore user defined functions or UDFs. BigQuery allows
+us to define special functions using javascript. These functions are defined as
+part of the SQL and then called within the query.
 
-Link to Google docs:
+`The Google UDF docs.<https://cloud.google.com/bigquery/docs/reference/standard-sql/user-defined-functions>`_
 
-UDFs take a set of parameters, and return a value. For our first example, we'll
-create a new column that classifies a sample as having larger expression value than
-a given parameter. Of course, we could do something similar in SQL, but it's
-a good place to start. We'll also use these initial queries as starting points in
-a more complicated example below.
+UDFs take a set of parameters, and return a value. They are strongly typed functions,
+which means that we need to define the types of inputs and outputs. For example,
+we might have FLOAT64 and BOOL as inputs and return a STRING. See the google
+docs for the complete list of available types.
+
+In our first example, we'll define two new functions. The first classifies a sample
+as having larger expression value than a given parameter. And second, a function
+that glues three strings together. Then in the SQL, we will call both functions.
+
+These initial queries will be starting points in a more complicated example below.
 
 
 .. code-block:: sql
 
   CREATE TEMPORARY FUNCTION
-    BiggerThan(x FLOAT64,
-      y FLOAT64)
-    RETURNS BOOL
+    -- First we tell BQ that we're defining a function.
+
+    BiggerThan (x FLOAT64, y FLOAT64) -- then we give it a function name and input types
+    RETURNS BOOL                     -- we also need to tell BQ what the return type is
     LANGUAGE js AS """
 
-      return (x > y);
+      return (x > y);                -- this is the body of the function.
 
     """;
+
   CREATE TEMPORARY FUNCTION
-    Combiner(x STRING,
-      y STRING,
-      z STRING)
-    RETURNS STRING
+    Combiner (x STRING, y STRING, z STRING)  -- next function takes 3 strings
+    RETURNS STRING                           -- and returns a string
     LANGUAGE js AS """
-    return (x + "_" + y + "_" + z);
+
+    return (x + "_" + y + "_" + z);          -- we use javascript functions here.
+
   """;
     --
+    --  Now we're ready to use the UDFs in a query.
+    --  Using Standard SQL, we'll define a subtable with the expression
+    --  of the ESR1 gene in the BRCA cohort.
     --
   WITH
     gene1 AS (
@@ -68,12 +79,12 @@ a more complicated example below.
       code1)
     --
     --
+    -- Now we can call our functions,
+    -- processing the subtable.
+    --
   SELECT
-    Combiner(barcode1,
-      study1,
-      code1),
-    BiggerThan(count1,
-      5.1)
+    Combiner(barcode1, study1, code1),
+    BiggerThan(count1, 5.1)
   FROM
     gene1
 
