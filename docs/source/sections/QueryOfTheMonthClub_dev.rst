@@ -18,57 +18,60 @@ February, 2017
 
 
 This month, we explore user defined functions or UDFs. BigQuery allows
-us to define special functions using javascript. These functions are defined as
+you to define custom functions, things that you can't easily do in standard SQL, using JavaScript. 
+These functions are defined as
 part of the SQL and then called within the query.
-
-`The Google UDF docs.<https://cloud.google.com/bigquery/docs/reference/standard-sql/user-defined-functions>`_
 
 UDFs take a set of parameters, and return a value. They are strongly typed functions,
 which means that we need to define the types of inputs and outputs. For example,
-we might have FLOAT64 and BOOL input types and return a STRING. See the google
-docs for the complete list of available types.
+we might have FLOAT64 and BOOL input types and return a STRING. 
+See the official 
+`Google documentation <https://cloud.google.com/bigquery/docs/reference/standard-sql/user-defined-functions>`_
+for the complete list of available types.
 
 In our first example, we'll define two new functions. The first classifies a sample
-as having larger expression value than a given parameter. And second, a function
+as having a higher expression value than a given input level. And second, a function
 that glues three strings together. Then, in the SQL query we call both functions.
-These initial queries will be starting points in a more complicated example below.
+These initial queries will be starting points for a more complicated example below.
 
-These queries are using Standard SQL, to if you're in the web interface,
-remember to open the options and unclick the 'Use Legacy SQL' button.
+These queries use *Standard* SQL, to if you're in the web interface,
+remember to open the options and uncheck the 'Use Legacy SQL' button.
 
 .. code-block:: sql
 
+  -- this next line tells BigQuery that a UDF is coming
   CREATE TEMPORARY FUNCTION
-                                      -- First we tell BQ that we're defining a function.
-
-    BiggerThan (x FLOAT64, y FLOAT64) -- then we give it a function name and input types
-    RETURNS BOOL                      -- we also need to tell BQ what the return type is
+    -- followed by the function name and parameter names/types:
+    BiggerThan (x FLOAT64, y FLOAT64)
+    -- and then the return type
+    RETURNS BOOL
+    -- and the language
     LANGUAGE js AS """
-
-      return (x > y);                 // this is the body of the function.
-
+      // careful to use this delimiter for comments inside the function
+      return (x > y);
     """;
 
+  -- now let's create another function that takes 3 input strings
+  -- combines them, using underscores and returns a single string:
   CREATE TEMPORARY FUNCTION
-    Combiner (x STRING, y STRING, z STRING)  -- This function takes 3 strings
-    RETURNS STRING                           -- and returns a string
+    Combiner (x STRING, y STRING, z STRING)
+    RETURNS STRING
     LANGUAGE js AS """
-
-    return (x + "_" + y + "_" + z);          // The javascript '+' joins strings.
-
+      return (x + "_" + y + "_" + z);
   """;
-    --
-    --  Now we're ready to use the UDFs in a query.
-    --  Using Standard SQL, we'll define a subtable with the expression
-    --  of the ESR1 gene in the BRCA cohort.
-    --
+
+  --
+  -- Now that we've defined our two UDFs, we can use them.
+  -- But first we're going to create an intermediate table
+  -- with the expression of ESR1 in the BRCA samples:
+  --
   WITH
     gene1 AS (
     SELECT
       AliquotBarcode AS barcode1,
       Study AS study1,
       SampleTypeLetterCode AS code1,
-      HGNC_gene_symbol AS gene_id_1,
+      HGNC_gene_symbol AS gene_id1,
       AVG(LOG(normalized_count+1, 2)) AS count1
     FROM
       `isb-cgc.tcga_201607_beta.mRNA_UNC_RSEM`
@@ -79,32 +82,33 @@ remember to open the options and unclick the 'Use Legacy SQL' button.
       AND normalized_count >= 0
     GROUP BY
       AliquotBarcode,
-      gene_id_1,
+      gene_id1,
       study1,
       code1)
-    --
-    --
-    -- Now we can call our functions,
-    -- processing the subtable.
-    --
+
+  --
+  --
+  -- Now we can call our functions,
+  -- processing the subtable.
+  --
   SELECT
-    Combiner(barcode1, study1, code1),
-    BiggerThan(count1, 5.1)
+    Combiner(barcode1, study1, code1) AS cString,
+    BiggerThan(count1, 5.1) AS overExp
   FROM
     gene1
 
+OK, so that was just warm-up, and obviously what was being done with
+the UDFs could have been done in SQL as well.  But now we're going to
+do something a bit more complicated(!), and estimate cluster assignments
+using a K-means algorithm 
+(`wikipedia <https://en.wikipedia.org/wiki/K-means_clustering>`_), 
+implemented in JavaScript, as a UDF!
 
-
-Next, we're going to get complicated(!), and estimate clusters assignments
-using a K-means algorithm, implemented in javascript, as a UDF!
-
-`Here's the wikipedia link about K-means clustering.<https://en.wikipedia.org/wiki/K-means_clustering>`_
-
-In performing clustering, we're going to assign each of the BRCA sample to a cluster
-depending on the expression of two genes ESR1 and EGFR. This is an iterative process
-that starts with two random cluster centers, and we optimize in each iteration
-by updating the sample labels (what cluster they're assigned to), and then
-updating the cluster center points.
+We're going to try to cluster each BRCA sample based on the expression of
+two genes: ESR1 and EGFR.  This type of clustering is implemented as an iterative process
+that starts with two random cluster centers.  In each iteration, each sample is labeled
+according to the nearest cluster-center, and then we recompute the locations of the
+cluster centers.
 
 .. code-block:: sql
 
@@ -143,7 +147,7 @@ updating the cluster center points.
   };
 
   function sumVectors(a, b) {
-    // The map function gets used frequently in javascript
+    // The map function gets used frequently in JavaScript
     return a.map(function(val, i) { return val + b[i] });
   };
 
@@ -234,7 +238,7 @@ updating the cluster center points.
     SELECT
       ROW_NUMBER() OVER() row_number,
       AliquotBarcode AS barcode1,
-      HGNC_gene_symbol AS gene_id_1,
+      HGNC_gene_symbol AS gene_id1,
       AVG(LOG(normalized_count+1, 2)) AS count1
     FROM
       `isb-cgc.tcga_201607_beta.mRNA_UNC_RSEM`
@@ -245,14 +249,14 @@ updating the cluster center points.
       AND normalized_count >= 0
     GROUP BY
       AliquotBarcode,
-      gene_id_1),
+      gene_id1),
     --
     -- gene2, the second subtable
     --
     gene2 AS (
     SELECT
       AliquotBarcode AS barcode2,
-      HGNC_gene_symbol AS gene_id_2,
+      HGNC_gene_symbol AS gene_id2,
       AVG(LOG(normalized_count+1, 2)) AS count2
     FROM
       `isb-cgc.tcga_201607_beta.mRNA_UNC_RSEM`
@@ -484,7 +488,7 @@ Legacy SQL
                  {'name': 'bin',   'type': 'integer'}]\",
 
                  \"function binIntervals(row, emit) {
-                   // This is javascript ... here we use '//' for comments
+                   // This is JavaScript ... here we use '//' for comments
                    // Legacy UDFs take a single row as input.
                    // and return a row.. can be a different number of columns.
                    var binSize = 10000;  // Make sure this matches the value in the SQL (if necessary)
@@ -541,7 +545,7 @@ Legacy SQL
                 {'name': 'bin',   'type': 'integer'}]\",
 
                \"function binIntervals(row, emit) {
-                 // This is javascript ... here we use '//' for comments
+                 // This is JavaScript ... here we use '//' for comments
                  // Legacy UDFs take a single row as input.
                  var binSize = 10000;  // Make sure this matches the value in the SQL (if necessary)
                  var startBin = Math.floor(row.region_start / binSize);
