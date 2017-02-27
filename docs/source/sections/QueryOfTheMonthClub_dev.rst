@@ -320,7 +320,7 @@ and run the query and automatically save the outputs as shown below.
    wget -O $qFile http://bit.ly/2mn1R5D
    
    ## before you can run this you will need to modify
-   ## the destination table to be in a projet and dataset
+   ## the destination table to be in a project and dataset
    ## that you have write-access to, 
    ## eg:  dTable="isb-cgc:scratch_dataset.kMeans_out"
    dTable="YOUR_PROJECT:DATASET_NAME.TMP_TABLE"
@@ -339,7 +339,7 @@ The results of the kMeans query is *one* row of arrays.
 It's a little tricky to unpack the arrays into rows, which is what the next query does.
 (Again you'll need to edit it to select from the intermediate table you created 
 in the previous step.  Remember that in Standard SQL, the delimiter between the
-project name and the dataset name is just a '.' whereas the **bq** command-line
+project name and the dataset name is just a '.' whereas the bq command-line
 requres a ':' as a separator.)
 
 .. code-block:: sql
