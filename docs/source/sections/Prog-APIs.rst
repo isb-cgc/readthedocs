@@ -15,7 +15,10 @@ are provided in our github repositories, also described below.
 .. toctree::
    :maxdepth: 1
 
+   progapi/SysModel
    progapi/Tutorials
    progapi/Programmatic-API
    progapi/Compute-Engine
+   webapp/ViewingCohorts
+   progapi/CWL_intro
 

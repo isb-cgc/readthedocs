@@ -1,8 +1,8 @@
-Somatic Mutations
-=================
+Somatic Mutations (DNA)
+=======================
 
 The 
-`Somatic Mutations table <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.Somatic_Mutation_calls>`_
+`Somatic Mutations table <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201607_beta.Somatic_Mutation_calls>`_
 in BigQuery contains somatic mutation calls collected from the open-access 
 `MAF <https://wiki.nci.nih.gov/display/TCGA/Mutation+Annotation+Format+(MAF)+Specification>`_ 
 files from 30 tumor types.
