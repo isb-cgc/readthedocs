@@ -27,7 +27,9 @@ which means that we need to define the types of inputs and outputs. For example,
 we might have FLOAT64 and BOOL input types and return a STRING. 
 See the official 
 `Google documentation <https://cloud.google.com/bigquery/docs/reference/standard-sql/user-defined-functions>`_
-for the complete list of available types.
+for the complete list of available types.  (Note in particular that there is
+no INT64 type, so you will need to use either FLOAT64 or STRING when
+working with integers, depending on your needs.)
 
 In our first example, we'll define two new functions. The first classifies a sample
 as having a higher expression value than a given input level. And second, a function
@@ -300,41 +302,71 @@ cluster centers.
     -- save the resulting table to a personal dataset
 
 
-We need to save the above results to an intermediate table. I would recommend
-making yourself a dataset just for this purpose. The results from the above query
-is *one* row of arrays. It's a little tricky to unpack the arrays into
-rows, which is what we'll do next.
+We need to save the above results to an intermediate table.  You will
+need to have a dataset that you have write-access to in BigQuery
+to do this.  For your convenience, we've saved the query above as
+a public `gist <https://gist.github.com/smrgit/c80fd361603f8a7efa5d0444757c990b>`_ 
+and also created a bitly link to it.  Rather than pasting the entire
+script into the BigQuery web UI, you can us the **bq** command line 
+(part of the `cloud SDK <https://cloud.google.com/sdk/>`_)
+and run the query and automatically save the outputs as shown below.
+
+.. code-block:: none
+
+   #!/bin/bash
+   
+   qFile="kMeans_in_BQ.sql"
+   ## get the lengthy query from the bitly link, and rename
+   wget -O $qFile http://bit.ly/2mn1R5D
+   
+   ## before you can run this you will need to modify
+   ## the destination table to be in a projet and dataset
+   ## that you have write-access to, 
+   ## eg:  dTable="isb-cgc:scratch_dataset.kMeans_out"
+   dTable="YOUR_PROJECT:DATASET_NAME.TMP_TABLE"
+   
+   ## run the query using the 'bq' command line tool
+   ## not all of the options are strictly necessary -- with
+   ## the exception of "nouse_legacy_sql"
+   bq query --allow_large_results \
+            --destination_table=$dTable \
+            --replace \
+            --nouse_legacy_sql \
+            --nodry_run \
+            "$(cat $qFile)" > /dev/null
+
+The results of the kMeans query is *one* row of arrays. 
+It's a little tricky to unpack the arrays into rows, which is what the next query does.
+(Again you'll need to edit it to select from the intermediate table you created 
+in the previous step.  Remember that in Standard SQL, the delimiter between the
+project name and the dataset name is just a '.' whereas the **bq** command-line
+requres a ':' as a separator.)
 
 .. code-block:: sql
 
-  --
-  -- Unpacking the arrays is tricky because, you're not
-  -- guaranteed that each array will have the same index,
-  -- unless specified.
-  --
+   WITH
+     resultTable AS (
+     SELECT
+       *
+     FROM
+       `YOUR_PROJECT.DATASET_NAME.TMP_TABLE` )
+   SELECT
+     index row_idx,
+     barcode[OFFSET(index_offset)] AS AliquotBarcode,
+     esr1[OFFSET(index_offset)] AS ESR1,
+     egfr[OFFSET(index_offset)] AS EGFR,
+     cluster[OFFSET(index_offset)] AS Cluster
+   FROM
+     resultTable,
+     UNNEST(resultTable.arrayn) AS index
+   WITH
+   OFFSET
+     index_offset
+   ORDER BY
+     index
 
-  With
-  resultTable AS
-  (select * from `isb-cgc-02-0001.Daves_working_area.kmeans_genes`)
-
-  SELECT
-    index row_idx,
-    barcode[OFFSET(index_offset)] AS AliquotBarcode,
-    esr1[OFFSET(index_offset)] AS ESR1,
-    egfr[OFFSET(index_offset)] AS EGFR,
-    cluster[OFFSET(index_offset)] AS Cluster
-  FROM
-    resultTable,
-    UNNEST(resultTable.arrayn) AS index
-  WITH
-  OFFSET
-    index_offset
-  ORDER BY
-    index
-
-
-Let's visualize the resulting clusters! Save the cluster assignments to
-a csv file, and read it into R.
+Finall let's visualize the resulting clusters! 
+Save the cluster assignments to a csv file, and read it into R.
 
 .. code-block:: R
 
