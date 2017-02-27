@@ -155,8 +155,9 @@ TCGA Data and Metadata
 ..  
    
 - `isb-cgc:tcga_seq_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:tcga_seq_metadata>`_: 
-  This dataset contains several tables that provide metadata associated with TCGA *sequence* data files.  
-  In alphabetical order by name, these tables are:
+  This dataset contains several tables that provide metadata associated with TCGA *sequence* data files. 
+  The important common identifiers to link these tables back to other information is the ``CGHubAnalysisID``
+  (which sometimes may be written ``CGHub_analysisID``).  In alphabetical order by name, these tables are:
 
 ..  
 
@@ -199,7 +200,10 @@ TCGA Data and Metadata
     `example <https://storage.cloud.google.com/isb-cgc-open/tcga-qc/BRCA/DNA/WXS/BI/ILLUMINA/0004c5c4-a571-4eb2-93ab-58cd1cc24cc4-TCGA_MC3.TCGA-GM-A3XG-01A-31D-A243-09_fastqc.html>`_).  
     (As mentioned above, although these summary statistics and associated metrics describe 
     *controlled-access* data files, they are themselves considered *open-access* data.)
-    (Note that a similar table based on running Picard across all TCGA bam files will be available in July or August 2016.)
+
+  + additional tables containing various Picard-derived metrics are also available -- all of these tables
+    contain the CGHub analysis ID as a common identifier which can be used to identify which case
+    or sample a particular set of metrics are associated with.
 
 ETL Details for TCGA Data
 #########################
