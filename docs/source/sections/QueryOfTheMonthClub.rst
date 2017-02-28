@@ -9,6 +9,379 @@ BigData from the TCGA and BigQuery from Google.
 Please let us know if you'd like to be featured on the "query-club"!
 email: dgibbs (at) systemsbiology (dot) org
 
+
+------------------
+
+
+February, 2017
+##############
+
+
+This month, we explore user defined functions or UDFs. BigQuery allows
+you to define custom functions, things that you can't easily do in standard SQL, using JavaScript. 
+These functions are defined as
+part of the SQL and then called within the query.
+
+UDFs take a set of parameters, and return a value. They are strongly typed functions,
+which means that we need to define the types of inputs and outputs. For example,
+we might have FLOAT64 and BOOL input types and return a STRING. 
+See the official 
+`Google documentation <https://cloud.google.com/bigquery/docs/reference/standard-sql/user-defined-functions>`_
+for the complete list of available types.  (Note in particular that there is
+no INT64 type, so you will need to use either FLOAT64 or STRING when
+working with integers, depending on your needs.)
+
+In our first example, we'll define two new functions. The first classifies a sample
+as having a higher expression value than a given input level. And second, a function
+that glues three strings together. Then, in the SQL query we call both functions.
+These initial queries will be starting points for a more complicated example below.
+
+These queries use *Standard* SQL, to if you're in the web interface,
+remember to open the options and uncheck the 'Use Legacy SQL' button.
+
+.. code-block:: sql
+
+  -- this next line tells BigQuery that a UDF is coming
+  CREATE TEMPORARY FUNCTION
+    -- followed by the function name and parameter names/types:
+    BiggerThan (x FLOAT64, y FLOAT64)
+    -- and then the return type
+    RETURNS BOOL
+    -- and the language
+    LANGUAGE js AS """
+      // careful to use this delimiter for comments inside the function
+      return (x > y);
+    """;
+
+  -- now let's create another function that takes 3 input strings
+  -- combines them, using underscores and returns a single string:
+  CREATE TEMPORARY FUNCTION
+    Combiner (x STRING, y STRING, z STRING)
+    RETURNS STRING
+    LANGUAGE js AS """
+      return (x + "_" + y + "_" + z);
+  """;
+
+  --
+  -- Now that we've defined our two UDFs, we can use them.
+  -- But first we're going to create an intermediate table
+  -- with the expression of ESR1 in the BRCA samples:
+  --
+  WITH
+    gene1 AS (
+    SELECT
+      AliquotBarcode AS barcode1,
+      Study AS study1,
+      SampleTypeLetterCode AS code1,
+      HGNC_gene_symbol AS gene_id1,
+      AVG(LOG(normalized_count+1, 2)) AS count1
+    FROM
+      `isb-cgc.tcga_201607_beta.mRNA_UNC_RSEM`
+    WHERE
+      Study = 'BRCA'
+      AND SampleTypeLetterCode = 'TP'
+      AND HGNC_gene_symbol = 'ESR1'
+      AND normalized_count >= 0
+    GROUP BY
+      AliquotBarcode,
+      gene_id1,
+      study1,
+      code1)
+
+  --
+  --
+  -- Now we can call our functions,
+  -- processing the subtable.
+  --
+  SELECT
+    Combiner(barcode1, study1, code1) AS cString,
+    BiggerThan(count1, 5.1) AS overExp
+  FROM
+    gene1
+
+OK, so that was just warm-up, and obviously what was being done with
+the UDFs could have been done in SQL as well.  But now we're going to
+do something a bit more complicated(!), and estimate cluster assignments
+using a K-means algorithm 
+(`wikipedia <https://en.wikipedia.org/wiki/K-means_clustering>`_), 
+implemented in JavaScript, as a UDF!
+
+We're going to try to cluster each BRCA sample based on the expression of
+two genes: ESR1 and EGFR.  This type of clustering is implemented as an iterative process
+that starts with two random cluster centers.  In each iteration, each sample is labeled
+according to the nearest cluster-center, and then we recompute the locations of the
+cluster centers.
+
+.. code-block:: sql
+
+  CREATE TEMPORARY FUNCTION
+
+    -- In this function, we're going to be working on arrays of values.
+    -- we're also going to define a set of functions 'inside' the kMeans.
+
+    -- *heavily borrowing from https://github.com/NathanEpstein/clusters* --
+
+    kMeans(x ARRAY<FLOAT64>,  -- ESR1 gene expression
+           y ARRAY<FLOAT64>,  -- EGFR gene expression
+           iterations FLOAT64,  -- the number of iterations
+           k FLOAT64)           -- the number of clusters
+
+    RETURNS ARRAY<FLOAT64>  -- returns the cluster assignments
+
+    LANGUAGE js AS """
+    'use strict'
+
+
+    function sumOfSquareDiffs(oneVector, anotherVector) {
+      // the sum of squares error //
+      var squareDiffs = oneVector.map(function(component, i) {
+        return Math.pow(component - anotherVector[i], 2);
+      });
+      return squareDiffs.reduce(function(a, b) { return a + b }, 0);
+    };
+
+  function mindex(array) {
+    // returns the index to the minimum value in the array
+    var min = array.reduce(function(a, b) {
+      return Math.min(a, b);
+    });
+    return array.indexOf(min);
+  };
+
+  function sumVectors(a, b) {
+    // The map function gets used frequently in JavaScript
+    return a.map(function(val, i) { return val + b[i] });
+  };
+
+  function averageLocation(points) {
+    // Take all the points assigned to a cluster
+    // and find the averge center point.
+    // This gets used to update the cluster centroids.
+    var zeroVector = points[0].location.map(function() { return 0 });
+    var locations = points.map(function(point) { return point.location });
+    var vectorSum = locations.reduce(function(a, b) { return sumVectors(a, b) }, zeroVector);
+    return vectorSum.map(function(val) { return val / points.length });
+  };
+
+  function Point(location) {
+    // A point object, each sample is represented as a point //
+    var self = this;
+    this.location = location;
+    this.label = 1;
+    this.updateLabel = function(centroids) {
+      var distancesSquared = centroids.map(function(centroid) {
+        return sumOfSquareDiffs(self.location, centroid.location);
+      });
+      self.label = mindex(distancesSquared);
+    };
+  };
+
+
+  function Centroid(initialLocation, label) {
+    // The cluster centroids //
+    var self = this;
+    this.location = initialLocation;
+    this.label = label;
+    this.updateLocation = function(points) {
+      var pointsWithThisCentroid = points.filter(function(point) { return point.label == self.label });
+      if (pointsWithThisCentroid.length > 0) {
+        self.location = averageLocation(pointsWithThisCentroid);
+      }
+    };
+  };
+
+
+  var data = [];
+
+  // Our data list is list of lists. The small list being each (x,y) point
+  for (var i = 0; i < x.length; i++) {
+    data.push([x[i],y[i]])
+  }
+
+  // initialize point objects with data
+  var points = data.map(function(vector) { return new Point(vector) });
+
+
+  // intialize centroids
+  var centroids = [];
+  for (var i = 0; i < k; i++) {
+    centroids.push(new Centroid(points[i % points.length].location, i));
+  };
+
+
+  // update labels and centroid locations until convergence
+  for (var iter = 0; iter < iterations; iter++) {
+    points.forEach(function(point) { point.updateLabel(centroids) });
+    centroids.forEach(function(centroid) { centroid.updateLocation(points) });
+  };
+
+  // return the cluster labels.
+  var labels = []
+  for (var i = 0; i < points.length; i++) {
+    labels.push(points[i].label)
+  }
+
+  return labels;
+
+  """;
+  --
+  -- *** In this query, we create two subtables, one for each gene of
+  --     interest, then create a set of arrays in joining the two tables.
+  --     We call the UDF using the arrays, and get a result back
+  --     made of arrays.
+  --
+  --     Due to a technical issue we save the table of arrays to
+  --     to a personal dataset, then unpack it. ***
+  --
+  WITH
+    -- gene1, the first subtable
+    --
+    gene1 AS (
+    SELECT
+      ROW_NUMBER() OVER() row_number,
+      AliquotBarcode AS barcode1,
+      HGNC_gene_symbol AS gene_id1,
+      AVG(LOG(normalized_count+1, 2)) AS count1
+    FROM
+      `isb-cgc.tcga_201607_beta.mRNA_UNC_RSEM`
+    WHERE
+      Study = 'BRCA'
+      AND SampleTypeLetterCode = 'TP'
+      AND HGNC_gene_symbol = 'ESR1'
+      AND normalized_count >= 0
+    GROUP BY
+      AliquotBarcode,
+      gene_id1),
+    --
+    -- gene2, the second subtable
+    --
+    gene2 AS (
+    SELECT
+      AliquotBarcode AS barcode2,
+      HGNC_gene_symbol AS gene_id2,
+      AVG(LOG(normalized_count+1, 2)) AS count2
+    FROM
+      `isb-cgc.tcga_201607_beta.mRNA_UNC_RSEM`
+    WHERE
+      Study = 'BRCA'
+      AND SampleTypeLetterCode = 'TP'
+      AND HGNC_gene_symbol = 'EGFR'
+      AND normalized_count >= 0
+    GROUP BY
+      AliquotBarcode,
+      HGNC_gene_symbol),
+    --
+    -- Then we create a table of arrays
+    -- and join the two gene tables.
+    -- ** We need to make sure all the arrays are constructed using the same index. **
+    --
+    arrayTable AS (
+    SELECT
+      ARRAY_AGG(m1.row_number ORDER BY m1.barcode1) AS arrayn,
+      ARRAY_AGG(m1.barcode1 ORDER BY m1.barcode1) AS barcode,
+      ARRAY_AGG(count1 ORDER BY m1.barcode1) AS esr1,
+      ARRAY_AGG(count2 ORDER BY m1.barcode1) AS egfr
+    FROM
+      gene1 AS m1
+    JOIN
+      gene2 AS m2
+    ON
+      m1.barcode1 = m2.barcode2 )
+    --
+    -- Now we call the k-means UDF.
+    --
+  SELECT
+    arrayn,
+    barcode,
+    esr1,
+    egfr,
+    kMeans(esr1, egfr, 200.0, 2.0) AS cluster
+  FROM
+    arrayTable
+    --
+    -- save the resulting table to a personal dataset
+
+
+We need to save the above results to an intermediate table.  You will
+need to have a dataset that you have write-access to in BigQuery
+to do this.  For your convenience, we've saved the query above as
+a public `gist <https://gist.github.com/smrgit/c80fd361603f8a7efa5d0444757c990b>`_ 
+and also created a bitly link to it.  Rather than pasting the entire
+script into the BigQuery web UI, you can us the **bq** command line 
+(part of the `cloud SDK <https://cloud.google.com/sdk/>`_)
+and run the query and automatically save the outputs as shown below.
+
+.. code-block:: none
+
+   #!/bin/bash
+   
+   qFile="kMeans_in_BQ.sql"
+   ## get the lengthy query from the bitly link, and rename
+   wget -O $qFile http://bit.ly/2mn1R5D
+   
+   ## before you can run this you will need to modify
+   ## the destination table to be in a project and dataset
+   ## that you have write-access to, 
+   ## eg:  dTable="isb-cgc:scratch_dataset.kMeans_out"
+   dTable="YOUR_PROJECT:DATASET_NAME.TMP_TABLE"
+   
+   ## run the query using the 'bq' command line tool
+   ## not all of the options are strictly necessary -- with
+   ## the exception of "nouse_legacy_sql"
+   bq query --allow_large_results \
+            --destination_table=$dTable \
+            --replace \
+            --nouse_legacy_sql \
+            --nodry_run \
+            "$(cat $qFile)" > /dev/null
+
+The results of the kMeans query is *one* row of arrays. 
+It's a little tricky to unpack the arrays into rows, which is what the next query does.
+(Again you'll need to edit it to select from the intermediate table you created 
+in the previous step.  Remember that in Standard SQL, the delimiter between the
+project name and the dataset name is just a '.' whereas the bq command-line
+requres a ':' as a separator.)
+
+.. code-block:: sql
+
+   WITH
+     resultTable AS (
+     SELECT
+       *
+     FROM
+       `YOUR_PROJECT.DATASET_NAME.TMP_TABLE` )
+   SELECT
+     index row_idx,
+     barcode[OFFSET(index_offset)] AS AliquotBarcode,
+     esr1[OFFSET(index_offset)] AS ESR1,
+     egfr[OFFSET(index_offset)] AS EGFR,
+     cluster[OFFSET(index_offset)] AS Cluster
+   FROM
+     resultTable,
+     UNNEST(resultTable.arrayn) AS index
+   WITH
+   OFFSET
+     index_offset
+   ORDER BY
+     index
+
+Finall let's visualize the resulting clusters! 
+Save the cluster assignments to a csv file, and read it into R.
+
+.. code-block:: R
+
+  library(ggplot2)
+  res0 <- read.table("results-from-the-k-means.csv", sep=",", header=T, stringsAsFactors=F)
+  qplot(data=res0, x=EGFR, y=ESR1, col=as.factor(Cluster))
+
+
+------------
+
+.. figure:: query_figs/kmeans_plot.png
+   :scale: 25
+   :align: center
+
+
 ------------------
 
 January, 2017
@@ -147,7 +520,7 @@ Legacy SQL
                  {'name': 'bin',   'type': 'integer'}]\",
 
                  \"function binIntervals(row, emit) {
-                   // This is javascript ... here we use '//' for comments
+                   // This is JavaScript ... here we use '//' for comments
                    // Legacy UDFs take a single row as input.
                    // and return a row.. can be a different number of columns.
                    var binSize = 10000;  // Make sure this matches the value in the SQL (if necessary)
@@ -204,7 +577,7 @@ Legacy SQL
                 {'name': 'bin',   'type': 'integer'}]\",
 
                \"function binIntervals(row, emit) {
-                 // This is javascript ... here we use '//' for comments
+                 // This is JavaScript ... here we use '//' for comments
                  // Legacy UDFs take a single row as input.
                  var binSize = 10000;  // Make sure this matches the value in the SQL (if necessary)
                  var startBin = Math.floor(row.region_start / binSize);
@@ -303,7 +676,7 @@ Standard SQL
 
     gexp AS (
       # Third: we get the gene expression data, again only for the BRCA samples
-      # included is a LOG() transform as well as an AVG() aggregation function 
+      # included is a LOG() transform as well as an AVG() aggregation function
       # which will only be relevant if there are multiple expression values for
       # a single (gene,sample) pair.
       SELECT
@@ -324,7 +697,7 @@ Standard SQL
 
     cnAnnot AS (
       # Now, we start to re-use previously defined tables.  Here, we annotate
-      # the copy-number segments by JOINing on matching chromosomes and 
+      # the copy-number segments by JOINing on matching chromosomes and
       # looking for overlapping regions between the copy-number segments and
       # the gene regions previously obtained from the GENCODE_v19 table.
       SELECT
