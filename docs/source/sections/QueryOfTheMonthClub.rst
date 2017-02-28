@@ -36,8 +36,8 @@ as having a higher expression value than a given input level. And second, a func
 that glues three strings together. Then, in the SQL query we call both functions.
 These initial queries will be starting points for a more complicated example below.
 
-These queries use *Standard* SQL, to if you're in the web interface,
-remember to open the options and uncheck the 'Use Legacy SQL' button.
+These queries use *Standard* SQL, so if you're in the web interface,
+remember to open the options panel and uncheck the 'Use Legacy SQL' button.
 
 .. code-block:: sql
 
