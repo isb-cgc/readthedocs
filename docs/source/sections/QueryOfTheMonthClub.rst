@@ -60,7 +60,7 @@ remember to open the options panel and uncheck the 'Use Legacy SQL' button.
     RETURNS STRING
     LANGUAGE js AS """
       return (x + "_" + y + "_" + z);
-  """;
+    """;
 
   --
   -- Now that we've defined our two UDFs, we can use them.
