@@ -250,7 +250,7 @@ Now, let's see that distance matrix in R!
    :scale: 25
    :align: center
 
-   Heatmap of pairwise distances, using pheatmap default clustering.
+   Fig2. Heatmap of pairwise distances, using pheatmap default clustering.
 
 -------------
 
@@ -258,7 +258,7 @@ Now, let's see that distance matrix in R!
    :scale: 25
    :align: center
 
-   Heatmap of pairwise distances, using the dendsort library.
+   Fig3. Heatmap of pairwise distances, using the dendsort library.
 
 -------------
 
@@ -266,7 +266,7 @@ Now, let's see that distance matrix in R!
    :scale: 25
    :align: center
 
-   Ordering the samples after singular value decomposition.
+   Fig4. Ordering the samples after singular value decomposition.
 
 -------------
 
