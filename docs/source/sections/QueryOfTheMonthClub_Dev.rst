@@ -16,13 +16,14 @@ March, 2017
 ###########
 
 This month we are going to compute a pairwise distance matrix and visualize
-it with a heatmap in R. Many methods, such as clustering, depend on having a
+it with heatmaps in R. Many methods, such as clustering, depend on having a
 distance matrix, and although I would not recommend using BigQuery to download
-large tables, for smaller feature sets, we can .. .
+large tables, for smaller feature sets this works well.
 
-In this example, we will be selecting primary tumor samples from the BRCA cohort
-along with a list of the top 50 variable miRNAs, computing disancce between miRNA
-species within this cohort.
+In this example, we will be selecting primary tumor samples from both BRCA
+and STAD cohorts, along with a list of the top 50 variable miRNAs,
+Then we'll compute a pairwise distance metric on samples. The distance will
+be based on Spearman's correlation.
 
 As usual, we are going to use using standard SQL, so make sure to select that
 option.
@@ -166,7 +167,7 @@ Now, let's see that distance matrix in R!
 
   q <- "The Query From Above"
 
-  corrs <- query_exec(q, project="isb-cgc-02-0001", useLegacySql=F)
+  corrs <- query_exec(q, project="YOUR PROJECT ID", useLegacySql=F)
 
   # Use bigrquery to get the results or export the results to cloud storage and
   # download them like so.
@@ -180,7 +181,7 @@ Now, let's see that distance matrix in R!
   mat <- xtabs(sampleDistance~SampleA+SampleB, data=corrs)
   # or tidyr::spread(data=corrs, key=SampleA, value=sampleDistance, fill=0)
 
-  dim(mat) # 49 x 49
+  dim(mat) # 99 x 99
 
   # Make the matrix symmetric.
   mat2 <- mat + t(mat)
@@ -201,7 +202,7 @@ Now, let's see that distance matrix in R!
 
   # If we want to make two groups, then we cut the dendrogram
   # leaving two branches.
-  cas <- cutree(tree=hclust(as.dist(mat2)), k=2)
+  cas <- cutree(tree=hc, k=2)
 
   # Then we can use our cluster labels to annotate the heatmap.
   annotMat <- data.frame(cluster=cas)
