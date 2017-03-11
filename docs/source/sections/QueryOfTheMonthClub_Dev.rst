@@ -234,11 +234,15 @@ Now, let's see that distance matrix in R!
    :scale: 25
    :align: center
 
+   Dendrogram showing the sample-wise relationships based on miRNA expression.
+
 -------------
 
 .. figure:: query_figs/brca_vs_stad_heatmap.png
    :scale: 25
    :align: center
+
+   Heatmap of pairwise distances, using pheatmap default clustering.
 
 -------------
 
@@ -246,11 +250,15 @@ Now, let's see that distance matrix in R!
    :scale: 25
    :align: center
 
+   Heatmap of pairwise distances, using the dendsort library.
+
 -------------
 
 .. figure:: query_figs/brca_vs_stad_heatmap_3.png
    :scale: 25
    :align: center
+
+   Ordering the samples after singular value decomposition.
 
 -------------
 
