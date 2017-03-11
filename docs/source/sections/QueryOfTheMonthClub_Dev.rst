@@ -198,6 +198,8 @@ Now, let's see that distance matrix in R!
   dend <- as.dendrogram(hc)
   labels_colors(dend) <- studyMat[labels(dend), "color"]
   dend <- set(dend, "labels_cex", 0.5)
+
+  ## Fig1 ##
   plot(dend, main="BRCA in clue and STAD in red")
 
   # If we want to make two groups, then we cut the dendrogram
@@ -213,11 +215,15 @@ Now, let's see that distance matrix in R!
 
   # And we can plot cluster assignments on a heatmap
   # to see how hclust-default and pheatmap-defaults compare.
+
+  ## Fig2 ##
   pheatmap(mat2, fontsize=6, annotation=annotMat[,-1])
 
   # Or we can use the dendsort library (from pheatmap examples)
   library(dendsort)
   callback = function(hc, ...){dendsort(hc)}
+
+  ## Fig3 ##
   pheatmap(mat2, fontsize=6, annotation=annotMat[,-1], clustering_callback = callback)
 
   # Modify ordering of the clusters using clustering callback option
@@ -226,6 +232,7 @@ Now, let's see that distance matrix in R!
       dend = reorder(as.dendrogram(hc), wts = sv)
       as.hclust(dend)
   }
+  ## Fig4 ##
   pheatmap(mat2, clustering_callback = callback, annotation=annotMat[,-1],
       fontsize_row=4, fontsize_col=4, border_color=NA)
 
@@ -235,7 +242,7 @@ Now, let's see that distance matrix in R!
    :scale: 25
    :align: center
 
-   Dendrogram showing the sample-wise relationships based on miRNA expression.
+   Fig1. Dendrogram showing the sample-wise relationships based on miRNA expression.
 
 -------------
 
