@@ -25,7 +25,7 @@ and STAD cohorts, along with a list of the top 50 variable miRNAs,
 Then we'll compute a pairwise distance metric on samples. The distance will
 be based on Spearman's correlation.
 
-As usual, we are going to use using standard SQL, so make sure to select that
+As usual, we are going to be using standard SQL, so make sure to select that
 option.
 
 .. code-block:: sql
@@ -170,7 +170,7 @@ Now, let's see that distance matrix in R!
   corrs <- query_exec(q, project="YOUR PROJECT ID", useLegacySql=F)
 
   # Use bigrquery to get the results or export the results to cloud storage and
-  # download them like so.
+  # download them like so:
   # gcs_url <- "gs://MY-BUCKET/MY-FILE.csv"
   # corrs <- read.csv(pipe(sprintf("gsutil cat %s", gcs_url)))
 
