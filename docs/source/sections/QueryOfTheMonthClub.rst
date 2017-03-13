@@ -15,13 +15,13 @@ email: dgibbs (at) systemsbiology (dot) org
 March, 2017
 ###########
 
-This month we are going to compute a pairwise distance matrix and visualize
-it with heatmaps in R. Many methods, such as clustering, depend on having a
+This month we're going to compute a pairwise distance matrix and visualize
+it using a heatmap in R. Many methods, such as clustering, depend on having a
 distance matrix, and although I would not recommend using BigQuery to download
-large tables, for smaller feature sets this works well.
+large tables, this works well for smaller feature sets (10s-100s).
 
 In this example, we will be selecting primary tumor samples from both BRCA
-and STAD cohorts, along with a list of the top 50 variable miRNAs,
+and STAD cohorts, along with a list of the top 50 most variable miRNAs.
 Then we'll compute a pairwise distance metric on samples. The distance will
 be based on Spearman's correlation.
 
