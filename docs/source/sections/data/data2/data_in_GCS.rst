@@ -71,7 +71,7 @@ This new functionality allows you to run, for example:
 
 .. code-block:: none
 
-   $ ./samtools view gs://isb-cgc-open/ccle/LUSC/DNA-Seq/C836.NCI-H1339.2.bam 7:140453130-140453140
+   $ ./samtools view gs://isb-cgc-open/NCI-GDC/legacy/CCLE/CCLE-LUSC/WXS/Aligned_reads/0a109993-2d5b-4251-bcab-9da4a611f2b1/C836.Calu-3.2.bam 7:140453130-140453140
 
 If you want to access a controlled-access BAM file, you'll need to provide credentials first:
 
@@ -86,7 +86,7 @@ also that you have access to this file by using the
 
 .. code-block:: none
 
-   $ gsutil ls -l gs://isb-cgc-open/ccle/LUSC/DNA-Seq/C836.NCI-H1339.2.bam
+   $ gsutil ls -l gs://isb-cgc-open/NCI-GDC/legacy/CCLE/CCLE-LUSC/WXS/Aligned_reads/0a109993-2d5b-4251-bcab-9da4a611f2b1/C836.Calu-3.2.bam
 
 Other Options for BAM-slicing
 -----------------------------
