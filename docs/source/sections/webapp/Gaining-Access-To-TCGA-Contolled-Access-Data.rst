@@ -92,8 +92,8 @@ still be signed in to your browser, so you may want to also sign out of the brow
    :scale: 50
    :align: center
 
-Extending Your Access by 24 hours From Now
-------------------------------------------
+Extending Your Access by 24 hours 
+-----------------------------------
 Once you have received permission to view controlled access data, your user login page will look 
 like the screenshot below. If you need to extend your access to controlled data for another 24 
 hours from now (*eg* if you have a compute job which is using these Google credientials to access 
