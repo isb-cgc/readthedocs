@@ -61,12 +61,12 @@ BAM-slicing in the Cloud
 
 BAM files can vary in size from close to 1 TB down to 1 MB, and frequently a researcher
 is only interested in extracting a small slice of the entire sequence.  This is referred
-to as "BAM-slicing" and the latest version of the 
+to as "BAM-slicing" and the latest release (`1.4 <https://github.com/samtools/htslib/releases/tag/1.4>`_) of the 
 `htslib library <https://github.com/samtools/htslib>`_ adds the capability to 
 perform BAM-slicing directly on BAM files in GCS to widely used tools such as
-`samtools <https://github.com/samtools/samtools>`_.  For details on how to build
-samtools from the github develop branch, see this 
-`github pull request <https://github.com/samtools/htslib/pull/446>`_. 
+`samtools <https://github.com/samtools/samtools>`_.  
+(You will need to build with ``--enable-libcurl``
+to enable support for access to data both in GCS and S3.)
 This new functionality allows you to run, for example:
 
 .. code-block:: none
