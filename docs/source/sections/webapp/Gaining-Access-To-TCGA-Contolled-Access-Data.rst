@@ -131,8 +131,9 @@ NOTES:
 
 Requirements for Registering a Google Cloud Project Service Account
 --------------------------------------------------------------------
-To be able to register your Google Cloud Poject and at least one service account to access controlled data the following must all be true:
+To be able to register your GCP Project and at least one service account to access controlled data the following must all be true:
 
+- you must be an **owner** of the GCP project (because you will need to add an ISB-CGC service account as a new projet member)
 - at any time, ALL members of the project MUST be authorized to use the data set (*ie* be a registered dbGaP "PI" or "downloader") (see dbGap Data Access `Request Portal <http://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login>`_, and `Understanding Data Security <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/data/data2/TCGA_Data_Security.html>`_ for more details).
 - all members of the project have signed in to the ISB-CGC Web App *at least once*
 - all members of the project have authenticated via the NIH login page and thereby linked their NIH identity to their Google identity
