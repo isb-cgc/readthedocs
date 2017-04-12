@@ -12,30 +12,290 @@ email: dgibbs (at) systemsbiology (dot) org
 
 ------------------
 
+March, 2017
+###########
+
+This month we are going to compute a pairwise distance matrix and visualize
+it with heatmaps in R. Many methods, such as clustering, depend on having a
+distance matrix, and although I would not recommend using BigQuery to download
+large tables, for smaller feature sets this works well.
+
+In this example, we will be selecting primary tumor samples from both BRCA
+and STAD cohorts, along with a list of the top 50 variable miRNAs,
+Then we'll compute a pairwise distance metric on samples. The distance will
+be based on Spearman's correlation.
+
+As usual, we are going to be using standard SQL, so make sure to select that
+option.
+
+.. code-block:: sql
+
+  WITH
+    --
+    -- *sample_lists*
+    -- First, start by defining the list of BRCA TP samples.
+    -- (TP == tumor, primary)
+    --
+    brca_sample_list AS (
+    SELECT
+      SampleBarcode
+    FROM
+      `isb-cgc.tcga_201607_beta.Biospecimen_data`
+    WHERE
+      SampleTypeLetterCode='TP'
+      AND Study='BRCA'
+    LIMIT
+      50),
+    --
+    -- Then let's create a list of STAD samples.
+    --
+    stad_sample_list AS (
+    SELECT
+      SampleBarcode
+    FROM
+      `isb-cgc.tcga_201607_beta.Biospecimen_data`
+    WHERE
+      SampleTypeLetterCode='TP'
+      AND Study='STAD'
+    LIMIT
+      50),
+    --
+    -- Now, we are going to merge the two sample tables using a UNION ALL.
+    --
+    sample_list AS (
+    select * from stad_sample_list
+    UNION ALL
+    select * from brca_sample_list
+    ),
+    --
+    -- *miRNA_list*
+    -- Next, we define the miRNAs of interest. We order the miRNAs by standard
+    -- deviation, then take the top 50. Notice we select value from the
+    -- subset defined above.
+    --
+    miRNA_list AS (
+    SELECT
+      mirna_accession,
+      STDDEV(normalized_count) AS sigma_count
+    FROM
+      `isb-cgc.tcga_201607_beta.miRNA_Expression`
+    WHERE
+      SampleBarcode IN (
+      SELECT
+        SampleBarcode
+      FROM
+        sample_list )
+    GROUP BY
+      mirna_accession
+    ORDER BY
+      sigma_count DESC
+    LIMIT
+      50 ),
+    --
+    -- *miRNA_data*
+    -- Now that we have the sample_list and the mirna_list, we can select our
+    -- data of interest from the larger miRNA_Expression table.
+    --
+    miRNA_data AS (
+    SELECT
+      SampleBarcode,
+      Study,
+      mirna_id,
+      mirna_accession,
+      LOG10(normalized_count+1) AS log10_count
+    FROM
+      `isb-cgc.tcga_201607_beta.miRNA_Expression`
+    WHERE
+      SampleBarcode IN (
+      SELECT
+        SampleBarcode
+      FROM
+        sample_list )
+      AND mirna_accession IN (
+      SELECT
+        mirna_accession
+      FROM
+        miRNA_list ) ),
+    --
+    -- *pairs*
+    -- Now, we JOIN the miRNA_data matrix with *itself*, creating all possible pairs of samples
+    -- (excluding self-comparisons which are unnecessary) combined with a dense-ranking of
+    -- the miRNA expression values. By computing the Pearson correlation on ranks, we
+    -- end up with Spearman's correlation!
+    --
+    pairs AS (
+    SELECT
+      lhs.mirna_id,
+      lhs.mirna_accession,
+      lhs.SampleBarcode AS SampleA,
+      rhs.SampleBarcode AS SampleB,
+      lhs.Study AS StudyA,
+      rhs.Study as StudyB,
+      DENSE_RANK() OVER (PARTITION BY lhs.mirna_accession ORDER BY lhs.log10_count ASC) AS ExpA,
+      DENSE_RANK() OVER (PARTITION BY rhs.mirna_accession ORDER BY rhs.log10_count ASC) AS ExpB
+    FROM
+      miRNA_data AS lhs
+    JOIN
+      miRNA_data AS rhs
+    ON
+      lhs.mirna_accession=rhs.mirna_accession
+      AND lhs.SampleBarcode < rhs.SampleBarcode )
+    --
+    -- **Finally**, we compute the pairwise distance between each pair of samples.
+    --
+  SELECT
+    SampleA,
+    SampleB,
+    StudyA,
+    StudyB,
+    COUNT(mirna_accession) AS numObs,
+    (1.-CORR(ExpA, ExpB))  AS sampleDistance
+  FROM
+    pairs
+  GROUP BY
+    SampleA,StudyA,
+    SampleB,StudyB
+  ORDER BY
+    sampleDistance ASC
+
+
+Now, let's see that distance matrix in R!
+
+.. code-block:: R
+
+  library(bigrquery) # make sure it's a recent version with the useLegacySql param!#
+
+  q <- "The Query From Above"
+
+  corrs <- query_exec(q, project="YOUR PROJECT ID", useLegacySql=F)
+
+  # Use bigrquery to get the results or export the results to cloud storage and
+  # download them like so:
+  # gcs_url <- "gs://MY-BUCKET/MY-FILE.csv"
+  # corrs <- read.csv(pipe(sprintf("gsutil cat %s", gcs_url)))
+
+  library(dplyr)
+  library(ggplot2)
+  library(pheatmap)
+
+  mat <- xtabs(sampleDistance~SampleA+SampleB, data=corrs)
+  # or tidyr::spread(data=corrs, key=SampleA, value=sampleDistance, fill=0)
+
+  dim(mat) # 99 x 99
+
+  # Make the matrix symmetric.
+  mat2 <- mat + t(mat)
+
+  # Let's make an annotation matrix for cancer type
+  studyMat <- unique(corrs[,c("StudyA", "SampleA")])
+  studyMat$color <- ifelse(studyMat$Study == "BRCA", "blue", "red")
+  rownames(studyMat) <- studyMat$SampleA
+
+  # We can show the distances between samples as a dendrogram
+  # install.packages("dendextend")
+  library(dendextend)
+  hc <- hclust(as.dist(mat2), method="ward.D2")
+  dend <- as.dendrogram(hc)
+  labels_colors(dend) <- studyMat[labels(dend), "color"]
+  dend <- set(dend, "labels_cex", 0.5)
+
+  ## Fig1 ##
+  plot(dend, main="BRCA in clue and STAD in red")
+
+  # If we want to make two groups, then we cut the dendrogram
+  # leaving two branches.
+  cas <- cutree(tree=hc, k=2)
+
+  # Then we can use our cluster labels to annotate the heatmap.
+  annotMat <- data.frame(cluster=cas)
+  annotMat$SampleID <- names(cas)
+  rownames(annotMat) <- names(cas)
+  annotMat <- merge(x=annotMat, by.x="SampleID", y=studyMat, by.y="SampleA")
+  rownames(annotMat) <- annotMat$SampleID
+
+  # And we can plot cluster assignments on a heatmap
+  # to see how hclust-default and pheatmap-defaults compare.
+
+  ## Fig2 ##
+  pheatmap(mat2, fontsize=6, annotation=annotMat[,-1])
+
+  # Or we can use the dendsort library (from pheatmap examples)
+  library(dendsort)
+  callback = function(hc, ...){dendsort(hc)}
+
+  ## Fig3 ##
+  pheatmap(mat2, fontsize=6, annotation=annotMat[,-1], clustering_callback = callback)
+
+  # Modify ordering of the clusters using clustering callback option
+  callback = function(hc, mat){
+      sv = svd(t(mat))$v[,1]
+      dend = reorder(as.dendrogram(hc), wts = sv)
+      as.hclust(dend)
+  }
+  ## Fig4 ##
+  pheatmap(mat2, clustering_callback = callback, annotation=annotMat[,-1],
+      fontsize_row=4, fontsize_col=4, border_color=NA)
+
+------------
+
+.. figure:: query_figs/brca_vs_stad_dendrogram.png
+   :scale: 25
+   :align: center
+
+   Fig1. Dendrogram showing the sample-wise relationships based on miRNA expression.
+
+-------------
+
+.. figure:: query_figs/brca_vs_stad_heatmap.png
+   :scale: 25
+   :align: center
+
+   Fig2. Heatmap of pairwise distances, using pheatmap default clustering.
+
+-------------
+
+.. figure:: query_figs/brca_vs_stad_heatmap_2.png
+   :scale: 25
+   :align: center
+
+   Fig3. Heatmap of pairwise distances, using the dendsort library.
+
+-------------
+
+.. figure:: query_figs/brca_vs_stad_heatmap_3.png
+   :scale: 25
+   :align: center
+
+   Fig4. Ordering the samples after singular value decomposition.
+
+-------------
+
 
 February, 2017
 ##############
 
 
 This month, we explore user defined functions or UDFs. BigQuery allows
-you to define custom functions, things that you can't easily do in standard SQL, using JavaScript. 
+you to define custom functions, things that you can't easily do in standard SQL, using JavaScript.
 These functions are defined as
 part of the SQL and then called within the query.
 
 UDFs take a set of parameters, and return a value. They are strongly typed functions,
 which means that we need to define the types of inputs and outputs. For example,
-we might have FLOAT64 and BOOL input types and return a STRING. 
-See the official 
+we might have FLOAT64 and BOOL input types and return a STRING.
+See the official
 `Google documentation <https://cloud.google.com/bigquery/docs/reference/standard-sql/user-defined-functions>`_
-for the complete list of available types.
+for the complete list of available types.  (Note in particular that there is
+no INT64 type, so you will need to use either FLOAT64 or STRING when
+working with integers, depending on your needs.)
 
 In our first example, we'll define two new functions. The first classifies a sample
 as having a higher expression value than a given input level. And second, a function
 that glues three strings together. Then, in the SQL query we call both functions.
 These initial queries will be starting points for a more complicated example below.
 
-These queries use *Standard* SQL, to if you're in the web interface,
-remember to open the options and uncheck the 'Use Legacy SQL' button.
+These queries use *Standard* SQL, so if you're in the web interface,
+remember to open the options panel and uncheck the 'Use Legacy SQL' button.
 
 .. code-block:: sql
 
@@ -58,7 +318,7 @@ remember to open the options and uncheck the 'Use Legacy SQL' button.
     RETURNS STRING
     LANGUAGE js AS """
       return (x + "_" + y + "_" + z);
-  """;
+    """;
 
   --
   -- Now that we've defined our two UDFs, we can use them.
@@ -100,8 +360,8 @@ remember to open the options and uncheck the 'Use Legacy SQL' button.
 OK, so that was just warm-up, and obviously what was being done with
 the UDFs could have been done in SQL as well.  But now we're going to
 do something a bit more complicated(!), and estimate cluster assignments
-using a K-means algorithm 
-(`wikipedia <https://en.wikipedia.org/wiki/K-means_clustering>`_), 
+using a K-means algorithm
+(`wikipedia <https://en.wikipedia.org/wiki/K-means_clustering>`_),
 implemented in JavaScript, as a UDF!
 
 We're going to try to cluster each BRCA sample based on the expression of
@@ -300,41 +560,71 @@ cluster centers.
     -- save the resulting table to a personal dataset
 
 
-We need to save the above results to an intermediate table. I would recommend
-making yourself a dataset just for this purpose. The results from the above query
-is *one* row of arrays. It's a little tricky to unpack the arrays into
-rows, which is what we'll do next.
+We need to save the above results to an intermediate table.  You will
+need to have a dataset that you have write-access to in BigQuery
+to do this.  For your convenience, we've saved the query above as
+a public `gist <https://gist.github.com/smrgit/c80fd361603f8a7efa5d0444757c990b>`_
+and also created a bitly link to it.  Rather than pasting the entire
+script into the BigQuery web UI, you can us the **bq** command line
+(part of the `cloud SDK <https://cloud.google.com/sdk/>`_)
+and run the query and automatically save the outputs as shown below.
+
+.. code-block:: none
+
+   #!/bin/bash
+
+   qFile="kMeans_in_BQ.sql"
+   ## get the lengthy query from the bitly link, and rename
+   wget -O $qFile http://bit.ly/2mn1R5D
+
+   ## before you can run this you will need to modify
+   ## the destination table to be in a project and dataset
+   ## that you have write-access to,
+   ## eg:  dTable="isb-cgc:scratch_dataset.kMeans_out"
+   dTable="YOUR_PROJECT:DATASET_NAME.TMP_TABLE"
+
+   ## run the query using the 'bq' command line tool
+   ## not all of the options are strictly necessary -- with
+   ## the exception of "nouse_legacy_sql"
+   bq query --allow_large_results \
+            --destination_table=$dTable \
+            --replace \
+            --nouse_legacy_sql \
+            --nodry_run \
+            "$(cat $qFile)" > /dev/null
+
+The results of the kMeans query is *one* row of arrays.
+It's a little tricky to unpack the arrays into rows, which is what the next query does.
+(Again you'll need to edit it to select from the intermediate table you created
+in the previous step.  Remember that in Standard SQL, the delimiter between the
+project name and the dataset name is just a '.' whereas the bq command-line
+requres a ':' as a separator.)
 
 .. code-block:: sql
 
-  --
-  -- Unpacking the arrays is tricky because, you're not
-  -- guaranteed that each array will have the same index,
-  -- unless specified.
-  --
+   WITH
+     resultTable AS (
+     SELECT
+       *
+     FROM
+       `YOUR_PROJECT.DATASET_NAME.TMP_TABLE` )
+   SELECT
+     index row_idx,
+     barcode[OFFSET(index_offset)] AS AliquotBarcode,
+     esr1[OFFSET(index_offset)] AS ESR1,
+     egfr[OFFSET(index_offset)] AS EGFR,
+     cluster[OFFSET(index_offset)] AS Cluster
+   FROM
+     resultTable,
+     UNNEST(resultTable.arrayn) AS index
+   WITH
+   OFFSET
+     index_offset
+   ORDER BY
+     index
 
-  With
-  resultTable AS
-  (select * from `isb-cgc-02-0001.Daves_working_area.kmeans_genes`)
-
-  SELECT
-    index row_idx,
-    barcode[OFFSET(index_offset)] AS AliquotBarcode,
-    esr1[OFFSET(index_offset)] AS ESR1,
-    egfr[OFFSET(index_offset)] AS EGFR,
-    cluster[OFFSET(index_offset)] AS Cluster
-  FROM
-    resultTable,
-    UNNEST(resultTable.arrayn) AS index
-  WITH
-  OFFSET
-    index_offset
-  ORDER BY
-    index
-
-
-Let's visualize the resulting clusters! Save the cluster assignments to
-a csv file, and read it into R.
+Finall let's visualize the resulting clusters!
+Save the cluster assignments to a csv file, and read it into R.
 
 .. code-block:: R
 
@@ -350,7 +640,7 @@ a csv file, and read it into R.
    :align: center
 
 
-------------------
+-------------
 
 January, 2017
 #############
