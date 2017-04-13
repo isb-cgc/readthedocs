@@ -39,7 +39,7 @@ Cohort Filters
 The panel in the center of the screen, with four tabs called "TCGA DATA", "CCLE DATA", "TARGET DATA", and "USER DATA" will allow to create a cohort between data programs in the system and data that you have uploaded. The  TCGA, CCLE, and TARGET DATA tab has three tabs called "CASE", "DATA TYPE", and "MOLECULAR"  which allow you to apply filters to the cohorts your are creating using ISB-CGC hosted data. For the USER DATA tab, there is one tab called "PROJECTS & STUDIES" which allow you to filter by the projects or studies you have uploaded to the system. Below are the details of each tab.
 
 
-TCGA Donor Tab
+TCGA Case Tab
 ^^^^^^^^^^^^^^
 
     * Program (Selecting this filter will add all samples pertaining to program)
@@ -78,29 +78,31 @@ Molecular Tab
 
     * Gene Mutation Status (creating a cohort based on the presence of a mutation (of various types) in a gene)
     
-Projects & Studies Tab
-^^^^^^^^^^^^^^^^^^^^^^^
+Programs & Projects Tab
+^^^^^^^^^^^^^^^^^^^^^^^^
+    * User Program
     * User Project
-    * User Study
 
 
 
 Save As New Cohort Button
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Push this button if you wish to save the cohort based on the filters you have set.  You will be asked for a cohort name and the selected filters will be displayed.  Enter the name (any text) and push the "Create Cohort" button.
+Push this button if you wish to save the cohort based on the filters you have set.  You will be asked for a cohort name and the selected filters will be displayed.  Enter the name (any text) and push the "Create Cohort" button. 
+
+**NOTE:** When working with multiple programs you will see a yellow notification box stating, "Your cohort contains samples from multiple programs. Please note that filters will only apply to samples from the program indicated by the tab they were chosen on - they will not apply to samples from other programs in this cohort." 
 
 Selected Filters Panel
 ^^^^^^^^^^^^^^^^^^^^^^
 
-This is where selected filters are shown so there is an easy way to see what filters have been selected.
+This is where selected filters are shown for each program so there is an easy way to see what filters have been selected.  You have to tooggle between program tabs to see the filters selected for each program.
 
-If you have not saved the cohort yet, clicking on “Clear All” will remove all selected filters.  Also, if you have not saved the cohort yet, selecting an X beside a single filter will remove that filter.  If you have saved the cohort, the X is not present as this function is disabled in saved cohorts (to add back to an existing cohort, you can use set operations - see below).
+If you have not saved the cohort yet, clicking on “Clear All” will remove all selected filters for that program.  Also, if you have not saved the cohort yet, selecting an X beside a single filter will remove that filter.  If you have saved the cohort, the X is not present as this function is disabled in saved cohorts (to add back to an existing cohort, you can use set operations - see below).
 
 Details Panel
 ^^^^^^^^^^^^^
 
-This panel shows the Total Number of Samples and Total Number of Participants in a cohort that is actively being created.  If there is a small "timer" icon, the calculation is taking place - the results should appear soon.
+This panel shows the Total Number of Samples and Total Number of Cases in a cohort that is actively being created with the filters that have been selected.  If there is a small "timer" icon, the calculation is taking place - the results should appear soon.
 
 Clinical Features Panel
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -108,7 +110,7 @@ Clinical Features Panel
 This panel shows a list of images (called "treemaps") that give a high level breakdown of the selected samples for a 
 handful of features:
 
-* Study
+* Disease Type
 * Vital Status
 * Sample Type
 * Tumor Tissue Site
