@@ -274,16 +274,16 @@ Look for how the 'array' gets used.
   --
 
 
-====================  ======  ==========  ====================  ======  ==========  ============  ==========  =============
-barcode1              study1  geneCount1           barcode2     study2  geneCount2  intersection  gene_union  jaccard_index
-====================  ======  ==========  ====================  ======  ==========  ============  ==========  =============
-TCGA-06-5416-01A-01D  GBM     3500        TCGA-IB-7651-01A-11D  PAAD    3969        1180          6289        0.187629193
-TCGA-AG-A002-01A-01W  READ    3055        TCGA-F5-6814-01A-31D  READ    2647        892           4810        0.185446985
-TCGA-DU-6392-01A-11D  LGG     3198        TCGA-IB-7651-01A-11D  PAAD    3969        1087          6080        0.178782894
-TCGA-06-5416-01A-01D  GBM     3500        TCGA-AG-A002-01A-01W  READ    3055        986           5569        0.177051535
-TCGA-2W-A8YY-01A-11D  CESC    3255        TCGA-IB-7651-01A-11D  PAAD    3969        1077          6147        0.175207418
-TCGA-AG-A002-01A-01W  READ    3055        TCGA-CA-6717-01A-11D  COAD    2649        844           4860        0.173662551
-====================  ======  ==========  ====================  ======  ==========  ============  ==========  =============
+================  ======  ==========  ================  ======  ==========  ============  ==========  =============
+barcode1          study1  geneCount1        barcode2    study2  geneCount2  intersection  gene_union  jaccard_index
+================  ======  ==========  ================  ======  ==========  ============  ==========  =============
+TCGA-06-5416-01A  GBM     3500        TCGA-IB-7651-01A  PAAD    3969        1180          6289        0.187629193
+TCGA-AG-A002-01A  READ    3055        TCGA-F5-6814-01A  READ    2647        892           4810        0.185446985
+TCGA-DU-6392-01A  LGG     3198        TCGA-IB-7651-01A  PAAD    3969        1087          6080        0.178782894
+TCGA-06-5416-01A  GBM     3500        TCGA-AG-A002-01A  READ    3055        986           5569        0.177051535
+TCGA-2W-A8YY-01A  CESC    3255        TCGA-IB-7651-01A  PAAD    3969        1077          6147        0.175207418
+TCGA-AG-A002-01A  READ    3055        TCGA-CA-6717-01A  COAD    2649        844           4860        0.173662551
+================  ======  ==========  ================  ======  ==========  ============  ==========  =============
 
 ------------
 
@@ -496,6 +496,7 @@ So, like above, we will focus on the most common type of variant, the Missense.
 
 * TCGA sample is from COAD.
 
+============  ==========  ============  ============               ==================   ==========  ============  ==========  =======
 tcgaSample    geneCount1  cosmicSample  Primary_site               Primary_histology    geneCount2  intersection  gene_union  jaccard
 ============  ==========  ============  ============               ==================   ==========  ============  ==========  =======
 TCGA-CA-6718  1018        YUKLAB        skin                       malignant_melanoma   4203        340           3918        0.08677
@@ -506,9 +507,13 @@ TCGA-CA-6718  1018        YUWAND        skin                       malignant_mel
 TCGA-CA-6718  1018        YURUS         skin                       malignant_melanoma   936         124           1687        0.07350
 TCGA-CA-6718  1018        UD-SCC-2      upper_aerodigestive_tract  carcinoma  cell-line 4490        191           2692        0.07095
 TCGA-CA-6718  1018        WSU-HN6       upper_aerodigestive_tract  carcinoma  cell-line 4727        192           2817        0.06815
+============  ==========  ============  ============               ==================   ==========  ============  ==========  =======
 
 
-Cool! Some of the COSMIC samples are close to the tissue type!
+Cool! Some of the COSMIC samples are close to the COAD tissue type! Looks like
+there's some noise, but overall the mutation signature may be useful.
+
+Thanks for joining us this month!
 
 
 ------------------
