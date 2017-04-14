@@ -60,19 +60,9 @@ variants are present.
     n DESC
 
 
-=====  =====  =======
-  A      B    A and B
-=====  =====  =======
-False  False  False
-True   False  False
-False  True   False
-True   True   True
-=====  =====  =======
-
-
-===  =================================   =======
-Row  Consequence                         n
-===  =================================   =======
+===  ==================================  =======
+Row          Consequence                    n
+===  ==================================  =======
 1    missense_variant                    1921717
 2    synonymous_variant                  781567
 3    3_prime_UTR_variant                 253582
@@ -88,7 +78,7 @@ Row  Consequence                         n
 13   start_lost                          2718
 14   stop_lost                           2038
 15   stop_retained_variant               1077
-===  ==================================  ========
+===  ==================================  =======
 
 
 For the sake of simplicity, we're going to focus on the most common type of
