@@ -496,18 +496,18 @@ So, like above, we will focus on the most common type of variant, the Missense.
 
 * TCGA sample is from COAD.
 
-============  ==========  ============  ============               ==================   ==========  ============  ==========  =======
-tcgaSample    geneCount1  cosmicSample  Primary_site               Primary_histology    geneCount2  intersection  gene_union  jaccard
-============  ==========  ============  ============               ==================   ==========  ============  ==========  =======
-TCGA-CA-6718  1018        YUKLAB        skin                       malignant_melanoma   4203        340           3918        0.08677
-TCGA-CA-6718  1018        YULAN         skin                       malignant_melanoma   2296        209           2712        0.07706
-TCGA-CA-6718  1018        sysucc-311T   large_intestine            carcinoma            5403        383           5011        0.07643
-TCGA-CA-6718  1018        YUKAT         skin                       malignant_melanoma   6684        434           5786        0.07500
-TCGA-CA-6718  1018        YUWAND        skin                       malignant_melanoma   1826        172           2312        0.07439
-TCGA-CA-6718  1018        YURUS         skin                       malignant_melanoma   936         124           1687        0.07350
-TCGA-CA-6718  1018        UD-SCC-2      upper_aerodigestive_tract  carcinoma  cell-line 4490        191           2692        0.07095
-TCGA-CA-6718  1018        WSU-HN6       upper_aerodigestive_tract  carcinoma  cell-line 4727        192           2817        0.06815
-============  ==========  ============  ============               ==================   ==========  ============  ==========  =======
+============  ==========  ============  =========================  ====================   ==========  ============  ==========  =======
+tcgaSample    geneCount1  cosmicSample  Primary_site               Primary_histology      geneCount2  intersection  gene_union  jaccard
+============  ==========  ============  =========================  ====================   ==========  ============  ==========  =======
+TCGA-CA-6718  1018        YUKLAB        skin                       malignant_melanoma     4203        340           3918        0.08677
+TCGA-CA-6718  1018        YULAN         skin                       malignant_melanoma     2296        209           2712        0.07706
+TCGA-CA-6718  1018        sysucc-311T   large_intestine            carcinoma              5403        383           5011        0.07643
+TCGA-CA-6718  1018        YUKAT         skin                       malignant_melanoma     6684        434           5786        0.07500
+TCGA-CA-6718  1018        YUWAND        skin                       malignant_melanoma     1826        172           2312        0.07439
+TCGA-CA-6718  1018        YURUS         skin                       malignant_melanoma     936         124           1687        0.07350
+TCGA-CA-6718  1018        UD-SCC-2      upper_aerodigestive_tract  carcinoma  cell-line   4490        191           2692        0.07095
+TCGA-CA-6718  1018        WSU-HN6       upper_aerodigestive_tract  carcinoma  cell-line   4727        192           2817        0.06815
+============  ==========  ============  =========================  ====================   ==========  ============  ==========  =======
 
 
 Cool! Some of the COSMIC samples are close to the COAD tissue type! Looks like
