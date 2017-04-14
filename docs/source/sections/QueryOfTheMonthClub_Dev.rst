@@ -175,13 +175,11 @@ Row  Study  N_genes
 In order to avoid mutation overlaps due to simply having a large number of
 mutations, we'll remove UCEC from our sample pairings.
 
-OK, let's compute! Look for how the 'array' gets used.
+OK, let's compute a Jaccard index between all the TCGA samples!
+Look for how the 'array' gets used.
 
 .. code-block:: sql
 
-  --
-  --
-  -- Now let's compute a Jaccard index between all the TCGA samples.
   --
   -- First we need each sample in the MC3 table to have the Sample_Barcode (16 characters long) for annotation,
   -- and we need to have one gene entry per sample. We get that by using the Group by function.
