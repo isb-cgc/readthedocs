@@ -175,6 +175,8 @@ Row  Study  N_genes
 In order to avoid mutation overlaps due to simply having a large number of
 mutations, we'll remove UCEC from our sample pairings.
 
+------------------
+
 OK, let's compute a Jaccard index between all the TCGA samples!
 Look for how the 'array' gets used.
 
@@ -193,12 +195,12 @@ Look for how the 'array' gets used.
     FROM
       `isb-cgc.hg19_data_previews.MC3_Somatic_Mutation_calls`
     WHERE
-    Variant_Type = 'SNP'
-    AND Consequence = 'missense_variant'
-    AND biotype = 'protein_coding'
-    AND swissprot != 'null'
-    AND REGEXP_CONTAINS(PolyPhen, 'damaging')
-    AND REGEXP_CONTAINS(SIFT, 'deleterious')
+      Variant_Type = 'SNP'
+      AND Consequence = 'missense_variant'
+      AND biotype = 'protein_coding'
+      AND swissprot != 'null'
+      AND REGEXP_CONTAINS(PolyPhen, 'damaging')
+      AND REGEXP_CONTAINS(SIFT, 'deleterious')
     GROUP BY
       Tumor_Sample_Barcode,
       Hugo_Symbol),
@@ -272,18 +274,232 @@ Look for how the 'array' gets used.
   --
 
 
-============================  ======  ==========  ============================  ======  ==========  ============  ==========  =============
-barcode1                      study1  geneCount1           barcode2             study2  geneCount2  intersection  gene_union  jaccard_index
-============================  ======  ==========  ============================  ======  ==========  ============  ==========  =============
-TCGA-06-5416-01A-01D-1486-08  GBM     3500        TCGA-IB-7651-01A-11D-2154-08  PAAD    3969        1180          6289        0.187629193
-TCGA-AG-A002-01A-01W-A00K-09  READ    3055        TCGA-F5-6814-01A-31D-1924-10  READ    2647        892           4810        0.185446985
-TCGA-DU-6392-01A-11D-1705-08  LGG     3198        TCGA-IB-7651-01A-11D-2154-08  PAAD    3969        1087          6080        0.178782894
-TCGA-06-5416-01A-01D-1486-08  GBM     3500        TCGA-AG-A002-01A-01W-A00K-09  READ    3055        986           5569        0.177051535
-TCGA-2W-A8YY-01A-11D-A37N-09  CESC    3255        TCGA-IB-7651-01A-11D-2154-08  PAAD    3969        1077          6147        0.175207418
-TCGA-AG-A002-01A-01W-A00K-09  READ    3055        TCGA-CA-6717-01A-11D-1835-10  COAD    2649        844           4860        0.173662551
-============================  ======  ==========  ============================  ======  ==========  ============  ==========  =============
+====================  ======  ==========  ====================  ======  ==========  ============  ==========  =============
+barcode1              study1  geneCount1           barcode2     study2  geneCount2  intersection  gene_union  jaccard_index
+====================  ======  ==========  ====================  ======  ==========  ============  ==========  =============
+TCGA-06-5416-01A-01D  GBM     3500        TCGA-IB-7651-01A-11D  PAAD    3969        1180          6289        0.187629193
+TCGA-AG-A002-01A-01W  READ    3055        TCGA-F5-6814-01A-31D  READ    2647        892           4810        0.185446985
+TCGA-DU-6392-01A-11D  LGG     3198        TCGA-IB-7651-01A-11D  PAAD    3969        1087          6080        0.178782894
+TCGA-06-5416-01A-01D  GBM     3500        TCGA-AG-A002-01A-01W  READ    3055        986           5569        0.177051535
+TCGA-2W-A8YY-01A-11D  CESC    3255        TCGA-IB-7651-01A-11D  PAAD    3969        1077          6147        0.175207418
+TCGA-AG-A002-01A-01W  READ    3055        TCGA-CA-6717-01A-11D  COAD    2649        844           4860        0.173662551
+====================  ======  ==========  ====================  ======  ==========  ============  ==========  =============
 
 
+Those unions look high to me.  Let's double check them.
+
+.. code-block:: sql
+
+  --
+  --
+  WITH
+    g1 AS (
+    SELECT
+      Hugo_Symbol
+    FROM
+      `isb-cgc.hg19_data_previews.MC3_Somatic_Mutation_calls`
+    WHERE
+      Variant_Type = 'SNP'
+      AND Consequence = 'missense_variant'
+      AND biotype = 'protein_coding'
+      AND swissprot != 'null'
+      AND REGEXP_CONTAINS(PolyPhen, 'damaging')
+      AND REGEXP_CONTAINS(SIFT, 'deleterious')
+      AND Tumor_Sample_Barcode = 'TCGA-06-5416-01A-01D-1486-08'
+    GROUP BY
+      Hugo_Symbol),
+  --
+  --
+  --
+    g2 AS (
+    SELECT
+      Hugo_Symbol
+    FROM
+      `isb-cgc.hg19_data_previews.MC3_Somatic_Mutation_calls`
+    WHERE
+      Variant_Type = 'SNP'
+      AND Consequence = 'missense_variant'
+      AND biotype = 'protein_coding'
+      AND swissprot != 'null'
+      AND REGEXP_CONTAINS(PolyPhen, 'damaging')
+      AND REGEXP_CONTAINS(SIFT, 'deleterious')
+      AND Tumor_Sample_Barcode = 'TCGA-IB-7651-01A-11D-2154-08'
+    GROUP BY
+      Hugo_Symbol)
+  --
+  -- First the intersection
+  --
+  SELECT
+    count( distinct a.Hugo_Symbol )
+  FROM
+    g1 AS a
+  JOIN
+    g2 AS b
+  ON
+    a.Hugo_Symbol = b.Hugo_Symbol
+
+    --
+    -- Then the union.
+    --
+  SELECT
+    count( distinct Hugo_Symbol )
+  FROM
+    (select * from  g1
+       union all
+     select * from g2)
+  --
+  -- And we get 1180 for the intersection and 6289 for the union, which is what
+  -- we were expecting given the first row in the above results.
+  --
+
+------------------
+
+------------------
+
+
+Next we'll turn our attention to the COSMIC catalog. We will select a single
+sample, and perform the same Jaccard index across all samples in COSMIC
+(removing TCGA samples in COSMIC), and see what comes up.  The sample I selected
+comes from the COAD study (Colon Adenocarcinoma).
+
+Similar to the MC3 table, variant have different annotations. Let's take
+a look at what types of variants are present.
+
+.. code-block:: sql
+
+  --
+  -- What kind of mutations are found in COSMIC?
+  --
+  SELECT
+    Mutation_Description,
+    count(1 )
+  FROM
+    `isb-cgc.COSMIC.grch37_v80`
+  group by
+    Mutation_Description
+
+
+===  ============================  =========
+Row  Mutation_Description            n
+===  ============================  =========
+1    Substitution - Missense       3115431
+2    Substitution - coding silent  1017162
+3    Substitution - Nonsense       204293
+4    Unknown                       167135
+5    Deletion - Frameshift         113237
+6    Insertion - Frameshift        51345
+7    Deletion - In frame           37833
+8    Insertion - In frame          24870
+9    Complex - deletion inframe    3212
+10   Nonstop extension             2751
+11   Whole gene deletion           2308
+===  ============================  =========
+
+So, like above, we will focus on the most common type of variant, the Missense.
+
+.. code-block:: sql
+
+  --
+  -- First we'll select a single TCGA sample, with filters similar to the above.
+  --
+  WITH
+  --
+  tcgaSample AS (
+  SELECT
+    Tumor_Sample_Barcode,
+    ARRAY_AGG(Hugo_Symbol) as geneArray
+  FROM
+    `isb-cgc.hg19_data_previews.MC3_Somatic_Mutation_calls`
+  WHERE
+    Tumor_Sample_Barcode = 'TCGA-CA-6718-01A-11D-1835-10'
+    AND Variant_Type = 'SNP'
+    AND Consequence = 'missense_variant'
+    AND biotype = 'protein_coding'
+    AND swissprot != 'null'
+    AND REGEXP_CONTAINS(PolyPhen, 'damaging')
+    AND REGEXP_CONTAINS(SIFT, 'deleterious')
+  GROUP BY
+    Tumor_Sample_Barcode),
+  --
+  -- Then we'll create a sub-table of COSMIC samples, sans TCGA.
+  --
+  cosmicSample AS (
+      select
+        Sample_name,
+        Primary_site,
+        Primary_histology,
+        Sample_source,
+        ARRAY_AGG(Gene_name) as geneArray
+      from
+        `isb-cgc.COSMIC.grch37_v80`
+      where
+        STARTS_WITH(Sample_name, "TCGA") = False
+        AND Mutation_Description = 'Substitution - Missense'
+      group by
+        Sample_name,
+        Primary_site,
+        Primary_histology,
+        Sample_source
+  ),
+
+  --
+  -- Next we can perform our set operations on the arrays.
+  --
+  setOpsTable AS (
+  SELECT
+    a.Tumor_Sample_Barcode AS tcgaSample,
+    b.Sample_name AS cosmicSample,
+    b.Primary_site,
+    b.Primary_histology,
+    b.Sample_source,
+    ARRAY_LENGTH(a.geneArray) AS length1,
+    ARRAY_LENGTH(b.geneArray) AS length2,
+    (SELECT COUNT(1) FROM UNNEST(a.geneArray) AS ga JOIN UNNEST(b.geneArray) AS gb ON ga = gb) AS gene_intersection,
+    (SELECT COUNT(DISTINCT gx) FROM UNNEST(ARRAY_CONCAT(a.geneArray,b.geneArray)) AS gx) AS gene_union
+    FROM tcgaSample AS a
+    JOIN cosmicSample AS b
+    ON
+    a.Tumor_Sample_Barcode < b.Sample_name
+  )
+  --
+  -- And build our final results.
+  --
+  SELECT
+    tcgaSample,
+    length1 AS geneCount1,
+    cosmicSample,
+    Primary_site,
+    Primary_histology,
+    Sample_source,
+    length2 AS geneCount2,
+    gene_intersection AS intersection,
+    gene_union,
+    (gene_intersection / gene_union) AS jaccard_index
+  FROM
+    setOpsTable
+  WHERE
+    (gene_intersection / gene_union) > 0.05
+    AND gene_intersection > 5
+    AND gene_union > 5
+  order by
+    jaccard_index DESC
+
+
+* TCGA sample is from COAD.
+
+tcgaSample    geneCount1  cosmicSample  Primary_site               Primary_histology    geneCount2  intersection  gene_union  jaccard
+============  ==========  ============  ============               ==================   ==========  ============  ==========  =======
+TCGA-CA-6718  1018        YUKLAB        skin                       malignant_melanoma   4203        340           3918        0.08677
+TCGA-CA-6718  1018        YULAN         skin                       malignant_melanoma   2296        209           2712        0.07706
+TCGA-CA-6718  1018        sysucc-311T   large_intestine            carcinoma            5403        383           5011        0.07643
+TCGA-CA-6718  1018        YUKAT         skin                       malignant_melanoma   6684        434           5786        0.07500
+TCGA-CA-6718  1018        YUWAND        skin                       malignant_melanoma   1826        172           2312        0.07439
+TCGA-CA-6718  1018        YURUS         skin                       malignant_melanoma   936         124           1687        0.07350
+TCGA-CA-6718  1018        UD-SCC-2      upper_aerodigestive_tract  carcinoma  cell-line 4490        191           2692        0.07095
+TCGA-CA-6718  1018        WSU-HN6       upper_aerodigestive_tract  carcinoma  cell-line 4727        192           2817        0.06815
+
+
+Cool! Some of the COSMIC samples are close to the tissue type!
 
 
 ------------------
