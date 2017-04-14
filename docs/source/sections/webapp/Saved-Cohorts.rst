@@ -38,41 +38,115 @@ Cohort Filters
 --------------
 The panel in the center of the screen, with four tabs called "TCGA DATA", "CCLE DATA", "TARGET DATA", and "USER DATA" will allow to create a cohort between data programs in the system and data that you have uploaded. The  TCGA, CCLE, and TARGET DATA tab has three tabs called "CASE", "DATA TYPE", and "MOLECULAR"  which allow you to apply filters to the cohorts your are creating using ISB-CGC hosted data. For the USER DATA tab, there is one tab called "PROJECTS & STUDIES" which allow you to filter by the projects or studies you have uploaded to the system. Below are the details of each tab.
 
+**Please Note:** Selecting the program filter will add all samples pertaining to program. Also there is a mouse over feature that will display the disease long name if it's part of the TCGA dataset.
 
-TCGA Case Tab
-^^^^^^^^^^^^^^
+TCGA DATA
+**********
+   +-----------------------+----------------------------+
+   | Cases Tab             | Data Type Tab              |
+   +=======================+============================+
+   |   Program             | mRNA Gene Quantification   |
+   +-----------------------+----------------------------+
+   | Project Short Name    |Copy Number Segment Masked  |
+   +-----------------------+----------------------------+
+   | Disease Code          | DNA Methylation Beta       |
+   +-----------------------+----------------------------+
+   | Vital Status          | miRNA Gene Quantification  |
+   +-----------------------+----------------------------+
+   | Gender                | miRNA Isoform              |  
+   |                       | Quantification             |
+   +-----------------------+----------------------------+
+   | Age At Diagnosis      | Biospecimen                |
+   +-----------------------+----------------------------+
+   |Sample Type            | Clinical                   |
+   +-----------------------+----------------------------+
+   | Tumor Tissue Type     | Somatic Mutation           |
+   +-----------------------+----------------------------+
+   | Histological Type     |                            |
+   +-----------------------+----------------------------+
+   | Pathologic Stage      |                            |
+   +-----------------------+----------------------------+
+   | Tumor Status          |                            |
+   +-----------------------+----------------------------+
+   | New Tumor After       |                            |
+   | Initial Treatment     |                            |
+   +-----------------------+----------------------------+
+   | Histological Grade    |                            |
+   +-----------------------+----------------------------+
+   | BMI (Body Mass Index) |                            |
+   +-----------------------+----------------------------+
+   | HPV Status            |                            |
+   +-----------------------+----------------------------+
+   | Residual Tumor        |                            |
+   +-----------------------+----------------------------+
+   | Tobacco Smoking       |                            |
+   | History               |                            |
+   +-----------------------+----------------------------+
+   | ICD-10                |                            |
+   +-----------------------+----------------------------+
+   | ICD-O-3 Site          |                            |
+   +-----------------------+----------------------------+
+   | ICD-O-3 Site Histology|                            |
+   +-----------------------+----------------------------+
 
-    * Program (Selecting this filter will add all samples pertaining to program)
-    * Project Short Name (mouse over feature will display disease name if it is part of the TCGA dataset)
-    * Disease Code
-    * Vital Status
-    * Gender
-    * Age At Diagnosis
-    * Sample Type
-    * Tumor Tissue Site
-    * Histological Type
-    * Pathologic Stage
-    * Tumor Status
-    * New Tumor Event After Initial Treatment
-    * Histological Grade
-    * BMI (Body Mass Index)
-    * HPV Status
-    * Residual Tumor
-    * Tobacco Smoking History
-    * ICD-10
-    * ICD-O-3 Site
-    * ICD-O-3 Histology
+CCLE DATA
+**********
+   +-----------------------+----------------------------+
+   | Cases Tab             | Data Type Tab              |
+   +=======================+============================+
+   |   Program             | mRNA Gene Quantification   |
+   +-----------------------+----------------------------+
+   | Project Short Name    |Copy Number Segment Masked  |
+   +-----------------------+----------------------------+
+   | Disease Code          | DNA Methylation Beta       |
+   +-----------------------+----------------------------+
+   | Sample Type           | miRNA Gene Quantification  |
+   +-----------------------+----------------------------+
+   | Gender                | miRNA Isoform              |  
+   |                       | Quantification             |
+   +-----------------------+----------------------------+
+   | Site Primary          | Biospecimen                |
+   +-----------------------+----------------------------+
+   | Histology             | Clinical                   |
+   +-----------------------+----------------------------+
+   | Hist SubType          | Somatic Mutation           |
+   +-----------------------+----------------------------+
 
-Data Type Tab
-^^^^^^^^^^^^^
+TARGET DATA
+************
+   +-----------------------+----------------------------+
+   | Cases Tab             | Data Type Tab              |
+   +=======================+============================+
+   |   Program             | mRNA Gene Quantification   |
+   +-----------------------+----------------------------+
+   | Project Short Name    |Copy Number Segment Masked  |
+   +-----------------------+----------------------------+
+   | Disease Code          | DNA Methylation Beta       |
+   +-----------------------+----------------------------+
+   | Gender                | miRNA Gene Quantification  |
+   +-----------------------+----------------------------+
+   | Race                  | miRNA Isoform              |  
+   |                       | Quantification             |
+   +-----------------------+----------------------------+
+   | Ethnicity             | Biospecimen                |
+   +-----------------------+----------------------------+
+   | WBC at Diagnosis      | Clinical                   |
+   +-----------------------+----------------------------+
+   | Year of Diagnosis     | Somatic Mutation           |
+   +-----------------------+----------------------------+
+   | Event Free Survival   |                            |
+   +-----------------------+----------------------------+
+   | Days to Birth         |                            |
+   +-----------------------+----------------------------+
+   | Age at Diagnosis      |                            |
+   +-----------------------+----------------------------+
+   | Vital Status          |                            |
+   +-----------------------+----------------------------+
+   | Overall Survival      |                            |
+   +-----------------------+----------------------------+
+   | Days to Death         |                            |
+   +-----------------------+----------------------------+
 
-    * DNA Sequencing
-    * RNA Sequencing
-    * miRNA Sequencing
-    * Protein
-    * SNP Copy Number
-    * DNA Methylation
-    
 Molecular Tab
 ^^^^^^^^^^^^^
 
