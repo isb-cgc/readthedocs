@@ -10,6 +10,70 @@ Please let us know if you'd like to be featured on the "query-club"!
 email: dgibbs (at) systemsbiology (dot) org
 
 
+
+------------------
+
+April, 2017
+###########
+
+In this month's query, we are going to look at two new data sources. The first
+is the MC3 somatic mutation table, and the second is the COSMIC mutation
+catalog. The overall goal will be to compute a similarity metric in terms of
+overlapping mutations across samples. First we'll look at pairwise similarity
+among TCGA samples, then we'll pick a single TCGA sample and search for a
+matching COSMIC sample.
+
+The MC3 table comes from the Pan-Cancer effort, a multi-center project aiming
+to analyze 33 types of cancer together. The somatic mutations table was the
+product of finding a consensus between several different analysis sites, using
+a number of different methods. The result is a very robust set of mutation calls.
+
+The COSMIC (the Catalogue Of Somatic Mutations In Cancer) data comes from the
+Wellcome Trust Sanger Institue and represents the "the world's largest and most
+comprehensive resource for exploring the impact of somatic mutations in human
+cancer. (http://cancer.sanger.ac.uk/cosmic)"
+
+To compute a similarity score between any two samples, we're going to use the
+Jaccard index, which takes the intersection and divides by the union, so that
+samples with no overlap in mutations will have a Jaccard index of 0, while
+samples with some overlap will have a Jaccard index between 0 and 1.
+
+Let's get started with the MC3 table. In tables of mutations, often times
+they're annotated with the predictied effect of the mutation. This might be a
+change in the amino acid sequence (non-synonomous), or introduce a new stop
+codon (stop insert), or no predicted change at all (synonomous). In this work
+we're going to focus on single nucleotide mutations (SNPs). Lets see what kind of
+variants are present.
+
+.. code-block:: sql
+
+  SELECT
+    Consequence,
+    count (1) AS n
+  FROM
+    `isb-cgc.hg19_data_previews.MC3_Somatic_Mutation_calls`
+  WHERE
+    Variant_Type = 'SNP'
+  GROUP BY
+    Consequence
+  ORDER BY
+    n DESC
+
+
+|    Row  Consequence          n
+|    1    missense_variant     1921717
+|    2    synonymous_variant   781567
+|    3    3_prime_UTR_variant  253582
+|    4    stop_gained          156769
+|    5    intron_variant       86347
+|    6    5_prime_UTR_variant  77070
+|    7    non_coding_transcript_exon_variant  46761
+|    8    splice_acceptor_variant  29658
+|    9    downstream_gene_variant  19048
+|    10   splice_donor_variant     18240
+
+
+
 ------------------
 
 March, 2017
