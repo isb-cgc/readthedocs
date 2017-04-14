@@ -71,6 +71,95 @@ variants are present.
 |    8    splice_acceptor_variant  29658
 |    9    downstream_gene_variant  19048
 |    10   splice_donor_variant     18240
+|    11   splice_region_variant    15232
+|    12   upstream_gene_variant    14990
+|    13   start_lost               2718
+|    14   stop_lost                2038
+|    15   stop_retained_variant    1077
+
+
+For the sake of simplicity, we're going to focus on the most common type of
+variant, the mssense_variant which alters the chain of amino acids, forming
+proteins and potentially having a functional impact.
+
+Another question we might ask, is how are variants distributed across the
+tissue types (Studies).
+
+.. code-block:: sql
+
+  --
+  -- First we filter the variants according to our question...
+  -- namely, we are interested in SNPs that might have an effect
+  -- on the protein coding and potetially have some biological effect.
+  -- Towards that last point, we use two fields PolyPhen and SIFT, that
+  -- make predictions on the effect of the variant.
+  --
+  WITH
+    firstMC3 AS (
+    SELECT
+      Tumor_Sample_Barcode,
+      SUBSTR(Tumor_Sample_Barcode, 1, 16) AS Sample_Barcode,
+      Hugo_Symbol
+    FROM
+      `isb-cgc.hg19_data_previews.MC3_Somatic_Mutation_calls`
+    WHERE
+      Variant_Type = 'SNP'
+      AND Consequence = 'missense_variant'
+      AND biotype = 'protein_coding'
+      AND swissprot != 'null'
+      AND REGEXP_CONTAINS(PolyPhen, 'damaging')
+      AND REGEXP_CONTAINS(SIFT, 'deleterious')
+    GROUP BY
+      Tumor_Sample_Barcode,
+      Hugo_Symbol),
+    --
+    -- Then we can annotate the MC3 table with sample information, like what
+    -- Study (the tissue type) the sample comes from.
+    --
+    annotMC3 AS (
+    SELECT
+      a.Tumor_Sample_Barcode,
+      a.Hugo_Symbol,
+      b.Study
+    FROM
+      firstMC3 AS a
+    JOIN
+      `isb-cgc.tcga_201607_beta.Biospecimen_data` AS b
+    ON
+      a.Sample_Barcode = b.SampleBarcode
+    WHERE
+      b.SampleTypeLetterCode = 'TP'
+    GROUP BY
+      a.Tumor_Sample_Barcode,
+      a.Hugo_Symbol,
+      b.Study )
+    --
+    -- Finally we count up genes that contain variants.
+    --
+  SELECT
+    Study,
+    COUNT( DISTINCT Hugo_Symbol ) as N_genes
+  FROM
+    annotMC3
+  GROUP BY
+    Study
+  ORDER BY
+    N_genes DESC
+
+
+
+The results show us that UCEC has almost 3 times the next highest count!
+
+|  Row	Study	N_genes
+|  1	  UCEC	156859
+|  2	  LUAD	53044
+|  3	  COAD	50993
+|  4	  LUSC	44260
+|  5	  STAD	44229
+|  6	  BLCA	31913
+|  7	  BRCA	25072
+|  8	  HNSC	24579
+|  ...  ..    ...
 
 
 
