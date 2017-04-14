@@ -285,6 +285,15 @@ TCGA-2W-A8YY-01A-11D  CESC    3255        TCGA-IB-7651-01A-11D  PAAD    3969    
 TCGA-AG-A002-01A-01W  READ    3055        TCGA-CA-6717-01A-11D  COAD    2649        844           4860        0.173662551
 ====================  ======  ==========  ====================  ======  ==========  ============  ==========  =============
 
+------------
+
+.. figure:: query_figs/april_plot2.png
+   :scale: 25
+   :align: center
+
+   Fig1. The colored points belong to one selected sample.
+
+-------------
 
 Those unions look high to me.  Let's double check them.
 
