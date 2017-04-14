@@ -152,17 +152,19 @@ tissue types (Studies).
 
 The results show us that UCEC has almost 3 times the next highest count!
 
-|  Row	Study	N_genes
-|  1	  UCEC	156859
-|  2	  LUAD	53044
-|  3	  COAD	50993
-|  4	  LUSC	44260
-|  5	  STAD	44229
-|  6	  BLCA	31913
-|  7	  BRCA	25072
-|  8	  HNSC	24579
-|  ...  ..    ...
-
+=== ===== =======
+Row	Study	N_genes
+=== ===== =======
+1	  UCEC	156859
+2	  LUAD	53044
+3	  COAD	50993
+4	  LUSC	44260
+5	  STAD	44229
+6	  BLCA	31913
+7	  BRCA	25072
+8	  HNSC	24579
+...  ..    ...
+=== ===== =======
 
 
 ------------------
