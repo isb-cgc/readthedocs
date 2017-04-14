@@ -60,25 +60,26 @@ variants are present.
     n DESC
 
 
-    ===  =================================   =======
-    Row  Consequence                         n
-    ===  =================================   =======
-    1    missense_variant                    1921717
-    2    synonymous_variant                  781567
-    3    3_prime_UTR_variant                 253582
-    4    stop_gained                         156769
-    5    intron_variant                      86347
-    6    5_prime_UTR_variant                 77070
-    7    non_coding_transcript_exon_variant  46761
-    8    splice_acceptor_variant             29658
-    9    downstream_gene_variant             19048
-    10   splice_donor_variant                18240
-    11   splice_region_variant               15232
-    12   upstream_gene_variant               14990
-    13   start_lost                          2718
-    14   stop_lost                           2038
-    15   stop_retained_variant               1077
-    ===  ==================================  ========
+===  =================================   =======
+Row  Consequence                         n
+===  =================================   =======
+1    missense_variant                    1921717
+2    synonymous_variant                  781567
+3    3_prime_UTR_variant                 253582
+4    stop_gained                         156769
+5    intron_variant                      86347
+6    5_prime_UTR_variant                 77070
+7    non_coding_transcript_exon_variant  46761
+8    splice_acceptor_variant             29658
+9    downstream_gene_variant             19048
+10   splice_donor_variant                18240
+11   splice_region_variant               15232
+12   upstream_gene_variant               14990
+13   start_lost                          2718
+14   stop_lost                           2038
+15   stop_retained_variant               1077
+===  ==================================  ========
+
 
 For the sake of simplicity, we're going to focus on the most common type of
 variant, the mssense_variant which alters the chain of amino acids, forming
@@ -153,19 +154,19 @@ tissue types (Studies).
 The results show us that UCEC has almost 3 times the next highest count!
 
 
-    ===  =====  =======
-    Row  Study  N_genes
-    ===  =====  =======
-    1	   UCEC    156859
-    2	   LUAD    53044
-    3	   COAD    50993
-    4	   LUSC    44260
-    5	   STAD    44229
-    6	   BLCA    31913
-    7	   BRCA    25072
-    8	   HNSC    24579
-    ...  ..      ...
-    ===  =====   =======
+===  =====  =======
+Row  Study  N_genes
+===  =====  =======
+1	   UCEC    156859
+2	   LUAD    53044
+3	   COAD    50993
+4	   LUSC    44260
+5	   STAD    44229
+6	   BLCA    31913
+7	   BRCA    25072
+8	   HNSC    24579
+...  ..      ...
+===  =====   =======
 
 
 ------------------
