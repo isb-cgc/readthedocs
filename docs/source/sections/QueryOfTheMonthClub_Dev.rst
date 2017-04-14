@@ -82,10 +82,11 @@ Row          Consequence                    n
 
 
 For the sake of simplicity, we're going to focus on the most common type of
-variant, the mssense_variant which alters the chain of amino acids, forming
-proteins and potentially having a functional impact.
+variant, the missense_variant which potentially can have a functional impact
+through altering the amino acid chain.
 
-Another question we might ask, is how are variants distributed across the
+
+Another question we might ask regards how variants distributed across the
 tissue types (Studies).
 
 .. code-block:: sql
@@ -93,9 +94,9 @@ tissue types (Studies).
   --
   -- First we filter the variants according to our question...
   -- namely, we are interested in SNPs that might have an effect
-  -- on the protein coding and potetially have some biological effect.
-  -- Towards that last point, we use two fields PolyPhen and SIFT, that
-  -- make predictions on the effect of the variant.
+  -- on the protein coding and potentially have some biological effect.
+  -- Towards that last point, we make use of two fields, PolyPhen and SIFT,
+  -- both of which make predictions on the effect of the variant.
   --
   WITH
     firstMC3 AS (
@@ -116,8 +117,9 @@ tissue types (Studies).
       Tumor_Sample_Barcode,
       Hugo_Symbol),
     --
-    -- Then we can annotate the MC3 table with sample information, like what
-    -- Study (the tissue type) the sample comes from.
+    -- Then we can annotate the MC3 table with sample information, for example,
+    -- what Study (the tissue type) the sample comes from. We also want to make
+    -- sure we're only looking at primary tumors ('TP').
     --
     annotMC3 AS (
     SELECT
@@ -137,7 +139,7 @@ tissue types (Studies).
       a.Hugo_Symbol,
       b.Study )
     --
-    -- Finally we count up genes that contain variants.
+    -- Finally we count up genes contained for each tissue type.
     --
   SELECT
     Study,
@@ -151,22 +153,139 @@ tissue types (Studies).
 
 
 
-The results show us that UCEC has almost 3 times the next highest count!
+Wow! The results show us that UCEC (Uterine Corpus Endometrial Carcinoma)
+has almost 3 times the next highest count!
 
 
 ===  =====  =======
 Row  Study  N_genes
 ===  =====  =======
-1	   UCEC   156859
-2	   LUAD   53044
-3	   COAD   50993
-4	   LUSC   44260
-5	   STAD   44229
-6	   BLCA   31913
-7	   BRCA   25072
-8	   HNSC   24579
+1     UCEC   156859
+2     LUAD   53044
+3     COAD   50993
+4     LUSC   44260
+5     STAD   44229
+6     BLCA   31913
+7     BRCA   25072
+8     HNSC   24579
 .    ....   .....
 ===  =====  =======
+
+
+In order to avoid mutation overlaps due to simply having a large number of
+mutations, we'll remove UCEC from our sample pairings.
+
+OK, let's compute! Look for how the 'array' gets used.
+
+.. code-block:: sql
+
+  --
+  --
+  -- Now let's compute a Jaccard index between all the TCGA samples.
+  --
+  -- First we need each sample in the MC3 table to have the Sample_Barcode (16 characters long) for annotation,
+  -- and we need to have one gene entry per sample. We get that by using the Group by function.
+  --
+  WITH
+    firstMC3 AS (
+    SELECT
+      Tumor_Sample_Barcode,
+      SUBSTR(Tumor_Sample_Barcode, 1, 16) AS Sample_Barcode,
+      Hugo_Symbol
+    FROM
+      `isb-cgc.hg19_data_previews.MC3_Somatic_Mutation_calls`
+    WHERE
+    Variant_Type = 'SNP'
+    AND Consequence = 'missense_variant'
+    AND biotype = 'protein_coding'
+    AND swissprot != 'null'
+    AND REGEXP_CONTAINS(PolyPhen, 'damaging')
+    AND REGEXP_CONTAINS(SIFT, 'deleterious')
+    GROUP BY
+      Tumor_Sample_Barcode,
+      Hugo_Symbol),
+  --
+  -- Then we can annotate the MC3 table with sample information, like what Study (the tissue type) the sample comes from.
+  -- We are also creating an array of gene symbols. In each row, we will have an array.
+  --
+  annotMC3 AS (
+  SELECT
+    a.Tumor_Sample_Barcode,
+    a.Sample_Barcode,
+    ARRAY_AGG(a.Hugo_Symbol) as geneArray,
+    b.Study
+  FROM
+    firstMC3 AS a
+  JOIN
+    `isb-cgc.tcga_201607_beta.Biospecimen_data` AS b
+  ON
+    a.Sample_Barcode = b.SampleBarcode
+  WHERE
+    b.SampleTypeLetterCode = 'TP'
+    AND b.Study != 'UCEC'
+  group by
+    a.Tumor_Sample_Barcode,
+    a.Sample_Barcode,
+    b.Study
+  ),
+  --
+  -- Next we can perform our set operations on the arrays.
+  -- We compute both intersection and unions using the gene arrays.
+  --
+  setOpsTable AS (
+  SELECT
+    a.Tumor_Sample_Barcode AS barcode1,
+    a.Study AS study1,
+    ARRAY_LENGTH(a.geneArray) AS length1,
+    b.Tumor_Sample_Barcode AS barcode2,
+    b.Study AS study2,
+    ARRAY_LENGTH(b.geneArray) AS length2,
+    (SELECT COUNT(1) FROM UNNEST(a.geneArray) AS ga JOIN UNNEST(b.geneArray) AS gb ON ga = gb) AS gene_intersection,
+    (SELECT COUNT(DISTINCT gx) FROM UNNEST(ARRAY_CONCAT(a.geneArray,b.geneArray)) AS gx) AS gene_union
+  FROM
+    annotMC3 AS a
+  JOIN
+    annotMC3 AS b
+  ON
+    a.Tumor_Sample_Barcode < b.Tumor_Sample_Barcode )
+  --
+  -- Lastly, we use our set operations to compute the Jaccard,
+  -- and do a little filtering, removing pairs with very low similarity.
+  --
+  SELECT
+    barcode1,
+    study1,
+    length1 AS geneCount1,
+    barcode2,
+    study2,
+    length2 AS geneCount2,
+    gene_intersection AS intersection,
+    gene_union,
+    (gene_intersection / gene_union) AS jaccard_index
+  FROM
+    setOpsTable
+  WHERE
+    (gene_intersection / gene_union) > 0.1
+    AND gene_intersection > 10
+    AND gene_union > 10
+  order by
+    jaccard_index DESC
+  --
+  --
+
+
+============================  ======  ==========  ============================  ======  ==========  ============  ==========  =============
+barcode1                      study1  geneCount1           barcode2             study2  geneCount2  intersection  gene_union  jaccard_index
+============================  ======  ==========  ============================  ======  ==========  ============  ==========  =============
+TCGA-06-5416-01A-01D-1486-08  GBM     3500        TCGA-IB-7651-01A-11D-2154-08  PAAD    3969        1180          6289        0.187629193
+TCGA-AG-A002-01A-01W-A00K-09  READ    3055        TCGA-F5-6814-01A-31D-1924-10  READ    2647        892           4810        0.185446985
+TCGA-DU-6392-01A-11D-1705-08  LGG     3198        TCGA-IB-7651-01A-11D-2154-08  PAAD    3969        1087          6080        0.178782894
+TCGA-06-5416-01A-01D-1486-08  GBM     3500        TCGA-AG-A002-01A-01W-A00K-09  READ    3055        986           5569        0.177051535
+TCGA-2W-A8YY-01A-11D-A37N-09  CESC    3255        TCGA-IB-7651-01A-11D-2154-08  PAAD    3969        1077          6147        0.175207418
+TCGA-AG-A002-01A-01W-A00K-09  READ    3055        TCGA-CA-6717-01A-11D-1835-10  COAD    2649        844           4860        0.173662551
+============================  ======  ==========  ============================  ======  ==========  ============  ==========  =============
+
+
 
 
 ------------------
