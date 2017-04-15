@@ -17,33 +17,36 @@ April, 2017
 ###########
 
 In this month's query, we are going to look at two new data sources. The first
-is the MC3 somatic mutation table, and the second is the COSMIC mutation
-catalog. The overall goal will be to compute a similarity metric in terms of
-overlapping mutations across samples. First we'll look at pairwise similarity
-among TCGA samples, then we'll pick a single TCGA sample and search for a
+is the MC3 somatic mutation table, and the second is the 
+`COSMIC mutation database <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/COSMIC.html>`_.
+The objective is to compute a similarity metric based on 
+overlapping mutations between samples. First we'll look at pairwise similarity
+among TCGA samples, and then we'll pick a single TCGA sample and search for a
 matching COSMIC sample.
 
-The MC3 table comes from the Pan-Cancer effort, a multi-center project aiming
-to analyze 33 types of cancer together. The somatic mutations table was the
-product of finding a consensus between several different analysis sites, using
-a number of different methods. The result is a very robust set of mutation calls.
+The MC3 table comes from the TCGA Pan-Cancer effort, a multi-center project aiming
+to analyze all 33 TCGA tumor-types together. This somatic mutation calls table is
+based on the unified call set recently published by the TCGA Network.
+(For more details or the original source file, please 
+`check Synapse <https://www.synapse.org/#!Synapse:syn7214402/wiki/405297>`_.)
 
-The COSMIC (the Catalogue Of Somatic Mutations In Cancer) data comes from the
-Wellcome Trust Sanger Institue and represents the "the world's largest and most
-comprehensive resource for exploring the impact of somatic mutations in human
-cancer. (http://cancer.sanger.ac.uk/cosmic)"
+The COSMIC 
+(`Catalogue Of Somatic Mutations In Cancer <http://cancer.sanger.ac.uk/cosmic>`_) 
+data comes from the Wellcome Trust Sanger Institue and represents the 
+*"the world's largest and most comprehensive resource for exploring the impact of somatic mutations in human cancer"*. 
 
-To compute a similarity score between any two samples, we're going to use the
-Jaccard index, which takes the intersection and divides by the union, so that
+To compute a similarity score between any two samples, we'll use the
+Jaccard index, in which the intersection is divided by the union, so that
 samples with no overlap in mutations will have a Jaccard index of 0, while
 samples with some overlap will have a Jaccard index between 0 and 1.
 
-Let's get started with the MC3 table. In tables of mutations, often times
-they're annotated with the predictied effect of the mutation. This might be a
+We'll start with the MC3 table -- which includes the predicted effect
+of each mutation call.  The mutation might result in a
 change in the amino acid sequence (non-synonomous), or introduce a new stop
-codon (stop insert), or no predicted change at all (synonomous). In this work
-we're going to focus on single nucleotide mutations (SNPs). Lets see what kind of
-variants are present.
+codon (stop insert), or no amino-acid change (synonomous). In this work
+we're going to focus on single nucleotide polymorphisms (SNPs). 
+
+First, lets see what kind of "consequences" are present in this table:
 
 .. code-block:: sql
 
@@ -82,94 +85,61 @@ Row          Consequence                    n
 
 
 For the sake of simplicity, we're going to focus on the most common type of
-variant, the missense_variant which potentially can have a functional impact
-through altering the amino acid chain.
+variant, the missense_variant which is more likely to have a functional impact
+through an alteration of the amino acid sequence.
 
 
-Another question we might ask regards how variants distributed across the
-tissue types (Studies).
+Another question we might ask is: how are variants distributed across the
+tumor types (aka "studies" or "projects" within TCGA).
 
 .. code-block:: sql
 
-  --
-  -- First we filter the variants according to our question...
-  -- namely, we are interested in SNPs that might have an effect
-  -- on the protein coding and potentially have some biological effect.
-  -- Towards that last point, we make use of two fields, PolyPhen and SIFT,
-  -- both of which make predictions on the effect of the variant.
-  --
-  WITH
-    firstMC3 AS (
-    SELECT
-      Tumor_Sample_Barcode,
-      SUBSTR(Tumor_Sample_Barcode, 1, 16) AS Sample_Barcode,
-      Hugo_Symbol
-    FROM
-      `isb-cgc.hg19_data_previews.MC3_Somatic_Mutation_calls`
-    WHERE
-      Variant_Type = 'SNP'
-      AND Consequence = 'missense_variant'
-      AND biotype = 'protein_coding'
-      AND swissprot != 'null'
-      AND REGEXP_CONTAINS(PolyPhen, 'damaging')
-      AND REGEXP_CONTAINS(SIFT, 'deleterious')
-    GROUP BY
-      Tumor_Sample_Barcode,
-      Hugo_Symbol),
-    --
-    -- Then we can annotate the MC3 table with sample information, for example,
-    -- what Study (the tissue type) the sample comes from. We also want to make
-    -- sure we're only looking at primary tumors ('TP').
-    --
-    annotMC3 AS (
-    SELECT
-      a.Tumor_Sample_Barcode,
-      a.Hugo_Symbol,
-      b.Study
-    FROM
-      firstMC3 AS a
-    JOIN
-      `isb-cgc.tcga_201607_beta.Biospecimen_data` AS b
-    ON
-      a.Sample_Barcode = b.SampleBarcode
-    WHERE
-      b.SampleTypeLetterCode = 'TP'
-    GROUP BY
-      a.Tumor_Sample_Barcode,
-      a.Hugo_Symbol,
-      b.Study )
-    --
-    -- Finally we count up genes contained for each tissue type.
-    --
+WITH
+  firstMC3 AS (
   SELECT
-    Study,
-    COUNT( DISTINCT Hugo_Symbol ) as N_genes
+    project_short_name,
+    case_barcode,
+    Hugo_Symbol
   FROM
-    annotMC3
+    `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
+  WHERE
+    Variant_Type = 'SNP'
+    AND Consequence = 'missense_variant'
+    AND biotype = 'protein_coding'
+    AND swissprot != 'null'
+    AND REGEXP_CONTAINS(PolyPhen, 'damaging')
+    AND REGEXP_CONTAINS(SIFT, 'deleterious')
   GROUP BY
-    Study
-  ORDER BY
-    N_genes DESC
+    project_short_name,
+    case_barcode,
+    Hugo_Symbol )
+SELECT
+  project_short_name,
+  COUNT(*) AS N_genes
+FROM
+  firstMC3
+GROUP BY
+  project_short_name
+ORDER BY
+  n DESC
 
 
+Wow! The very high mutation counts for SKCM (melanoma) and LUAD
+(lung adenocarcinoma) may not be surprising, but the high mutation
+rate in endometial cancer (UCEC) may be less well known.
 
-Wow! The results show us that UCEC (Uterine Corpus Endometrial Carcinoma)
-has almost 3 times the next highest count!
 
-
-===  =====  =======
-Row  Study  N_genes
-===  =====  =======
-1     UCEC   156859
-2     LUAD   53044
-3     COAD   50993
-4     LUSC   44260
-5     STAD   44229
-6     BLCA   31913
-7     BRCA   25072
-8     HNSC   24579
-.    ....   .....
-===  =====  =======
+===  ==================  =======
+Row  project_short_name  N_genes
+===  ==================  =======
+1       TCGA-UCEC         156877
+2       TCGA-SKCM         112324
+3       TCGA-LUAD          53119
+4       TCGA-COAD          51072
+5       TCGA-LUSC          44260
+6       TCGA-STAD          44229
+.       .........          .....
+===  ==================  =======
 
 
 In order to avoid mutation overlaps due to simply having a large number of
@@ -182,108 +152,109 @@ Look for how the 'array' gets used.
 
 .. code-block:: sql
 
+WITH
+  -- first we're going to extract just the project names, cases, and gene symbols,
+  -- using the "GROUP BY" to make sure we only count one mutation per gene per case
   --
-  -- First we need each sample in the MC3 table to have the Sample_Barcode (16 characters long) for annotation,
-  -- and we need to have one gene entry per sample. We get that by using the Group by function.
-  --
-  WITH
-    firstMC3 AS (
-    SELECT
-      Tumor_Sample_Barcode,
-      SUBSTR(Tumor_Sample_Barcode, 1, 16) AS Sample_Barcode,
-      Hugo_Symbol
-    FROM
-      `isb-cgc.hg19_data_previews.MC3_Somatic_Mutation_calls`
-    WHERE
-      Variant_Type = 'SNP'
-      AND Consequence = 'missense_variant'
-      AND biotype = 'protein_coding'
-      AND swissprot != 'null'
-      AND REGEXP_CONTAINS(PolyPhen, 'damaging')
-      AND REGEXP_CONTAINS(SIFT, 'deleterious')
-    GROUP BY
-      Tumor_Sample_Barcode,
-      Hugo_Symbol),
-  --
-  -- Then we can annotate the MC3 table with sample information, like what Study (the tissue type) the sample comes from.
-  -- We are also creating an array of gene symbols. In each row, we will have an array.
-  --
-  annotMC3 AS (
+  -- we'll also exclude some of the very frequently mutated tumor-types from this
+  -- analysis, though it would be interesting to leave them in too
+  firstMC3 AS (
   SELECT
-    a.Tumor_Sample_Barcode,
-    a.Sample_Barcode,
-    ARRAY_AGG(a.Hugo_Symbol) as geneArray,
-    b.Study
+    project_short_name,
+    case_barcode,
+    Hugo_Symbol
   FROM
-    firstMC3 AS a
-  JOIN
-    `isb-cgc.tcga_201607_beta.Biospecimen_data` AS b
-  ON
-    a.Sample_Barcode = b.SampleBarcode
+    `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
   WHERE
-    b.SampleTypeLetterCode = 'TP'
-    AND b.Study != 'UCEC'
-  group by
-    a.Tumor_Sample_Barcode,
-    a.Sample_Barcode,
-    b.Study
-  ),
-  --
-  -- Next we can perform our set operations on the arrays.
-  -- We compute both intersection and unions using the gene arrays.
-  --
+    Variant_Type = 'SNP'
+    AND Consequence = 'missense_variant'
+    AND biotype = 'protein_coding'
+    AND REGEXP_CONTAINS(PolyPhen, 'damaging')
+    AND REGEXP_CONTAINS(SIFT, 'deleterious')
+    AND project_short_name <> "TCGA-UCEC"
+    AND project_short_name <> "TCGA-SKCM"
+    AND project_short_name <> "TCGA-LUAD"
+    AND project_short_name <> "TCGA-LUSC"
+  GROUP BY
+    project_short_name,
+    case_barcode,
+    Hugo_Symbol ),
+  -- next we transform resulting table using the ARRAY_AGG function
+  -- to create a list of mutated genes for each case
+  arrayMC3 AS (
+  SELECT
+    project_short_name,
+    case_barcode,
+    ARRAY_AGG(Hugo_Symbol) AS geneArray
+  FROM
+    firstMC3
+  GROUP BY
+    project_short_name,
+    case_barcode ),
+  -- now we can do some "set operations" on these gene-lists:  a self-join
+  -- of the previously created table with itself will allow for a pairwise
+  -- pairwise comparison (notice the inequality in the JOIN ... ON clause)
   setOpsTable AS (
   SELECT
-    a.Tumor_Sample_Barcode AS barcode1,
-    a.Study AS study1,
+    a.case_barcode AS case1,
+    a.project_short_name AS study1,
     ARRAY_LENGTH(a.geneArray) AS length1,
-    b.Tumor_Sample_Barcode AS barcode2,
-    b.Study AS study2,
+    b.case_barcode AS case2,
+    b.project_short_name AS study2,
     ARRAY_LENGTH(b.geneArray) AS length2,
-    (SELECT COUNT(1) FROM UNNEST(a.geneArray) AS ga JOIN UNNEST(b.geneArray) AS gb ON ga = gb) AS gene_intersection,
-    (SELECT COUNT(DISTINCT gx) FROM UNNEST(ARRAY_CONCAT(a.geneArray,b.geneArray)) AS gx) AS gene_union
+    (
+    SELECT
+      COUNT(1)
+    FROM
+      UNNEST(a.geneArray) AS ga
+    JOIN
+      UNNEST(b.geneArray) AS gb
+    ON
+      ga = gb) AS gene_intersection,
+    (
+    SELECT
+      COUNT(DISTINCT gx)
+    FROM
+      UNNEST(ARRAY_CONCAT(a.geneArray,b.geneArray)) AS gx) AS gene_union
   FROM
-    annotMC3 AS a
+    arrayMC3 AS a
   JOIN
-    annotMC3 AS b
+    arrayMC3 AS b
   ON
-    a.Tumor_Sample_Barcode < b.Tumor_Sample_Barcode )
-  --
-  -- Lastly, we use our set operations to compute the Jaccard,
-  -- and do a little filtering, removing pairs with very low similarity.
-  --
-  SELECT
-    barcode1,
-    study1,
-    length1 AS geneCount1,
-    barcode2,
-    study2,
-    length2 AS geneCount2,
-    gene_intersection AS intersection,
-    gene_union,
-    (gene_intersection / gene_union) AS jaccard_index
-  FROM
-    setOpsTable
-  WHERE
-    (gene_intersection / gene_union) > 0.1
-    AND gene_intersection > 10
-    AND gene_union > 10
-  order by
-    jaccard_index DESC
-  --
-  --
+    a.case_barcode < b.case_barcode )
+  -- and finally, we can compute the Jaccard index, and
+  -- do a little bit of filtering and then output a list of
+  -- pairs, sorted based on the Jaccard index:
+SELECT
+  case1,
+  study1,
+  length1 AS geneCount1,
+  case2,
+  study2,
+  case2 AS geneCount2,
+  gene_intersection,
+  gene_union,
+  (gene_intersection / gene_union) AS jaccard_index
+FROM
+  setOpsTable
+WHERE
+  (gene_intersection / gene_union) > 0.05
+  AND gene_intersection > 10
+ORDER BY
+  jaccard_index DESC
 
 
-================  ======  ==========  ================  ======  ==========  ============  ==========  =============
-barcode1          study1  geneCount1        barcode2    study2  geneCount2  intersection  gene_union  jaccard_index
-================  ======  ==========  ================  ======  ==========  ============  ==========  =============
-TCGA-06-5416-01A  GBM     3500        TCGA-IB-7651-01A  PAAD    3969        1180          6289        0.187629193
-TCGA-AG-A002-01A  READ    3055        TCGA-F5-6814-01A  READ    2647        892           4810        0.185446985
-TCGA-DU-6392-01A  LGG     3198        TCGA-IB-7651-01A  PAAD    3969        1087          6080        0.178782894
-TCGA-06-5416-01A  GBM     3500        TCGA-AG-A002-01A  READ    3055        986           5569        0.177051535
-TCGA-2W-A8YY-01A  CESC    3255        TCGA-IB-7651-01A  PAAD    3969        1077          6147        0.175207418
-TCGA-AG-A002-01A  READ    3055        TCGA-CA-6717-01A  COAD    2649        844           4860        0.173662551
-================  ======  ==========  ================  ======  ==========  ============  ==========  =============
+============  =========  ==========  ============  =========  ==========  ============  ==========  =============
+   case1       study1    geneCount1     case2        study2   geneCount2  intersection  gene_union  jaccard_index
+============  =========  ==========  ============  =========  ==========  ============  ==========  =============
+TCGA-06-5416  TCGA-GBM     3593      TCGA-IB-7651  TCGA-PAAD    4083          1216          6460     0.188235
+TCGA-AG-A002  TCGA-READ    3140      TCGA-F5-6814  TCGA-READ    2716           916          4940     0.185425
+TCGA-DU-6392  TCGA-LGG     3277      TCGA-IB-7651  TCGA-PAAD    4083          1111          6249     0.177788
+TCGA-06-5416  TCGA-GBM     3593      TCGA-AG-A002  TCGA-READ    3140          1012          5721     0.176892
+TCGA-AG-A002  TCGA-READ    3140      TCGA-CA-6717  TCGA-COAD    2725           875          4990     0.175351
+TCGA-2W-A8YY  TCGA-CESC    3345      TCGA-IB-7651  TCGA-PAAD    4083          1106          6322     0.174945
+TCGA-AG-A002  TCGA-READ    3140      TCGA-IB-7651  TCGA-PAAD    4083          1051          6172     0.170285
+============  =========  ==========  ============  =========  ==========  ============  ==========  =============
 
 ------------
 
