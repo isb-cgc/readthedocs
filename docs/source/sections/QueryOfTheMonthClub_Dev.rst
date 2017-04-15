@@ -94,34 +94,34 @@ tumor types (aka "studies" or "projects" within TCGA).
 
 .. code-block:: sql
 
-WITH
-  firstMC3 AS (
+  WITH
+    firstMC3 AS (
+    SELECT
+      project_short_name,
+      case_barcode,
+      Hugo_Symbol
+    FROM
+      `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
+    WHERE
+      Variant_Type = 'SNP'
+      AND Consequence = 'missense_variant'
+      AND biotype = 'protein_coding'
+      AND swissprot != 'null'
+      AND REGEXP_CONTAINS(PolyPhen, 'damaging')
+      AND REGEXP_CONTAINS(SIFT, 'deleterious')
+    GROUP BY
+      project_short_name,
+      case_barcode,
+      Hugo_Symbol )
   SELECT
     project_short_name,
-    case_barcode,
-    Hugo_Symbol
+    COUNT(*) AS N_genes
   FROM
-    `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
-  WHERE
-    Variant_Type = 'SNP'
-    AND Consequence = 'missense_variant'
-    AND biotype = 'protein_coding'
-    AND swissprot != 'null'
-    AND REGEXP_CONTAINS(PolyPhen, 'damaging')
-    AND REGEXP_CONTAINS(SIFT, 'deleterious')
+    firstMC3
   GROUP BY
-    project_short_name,
-    case_barcode,
-    Hugo_Symbol )
-SELECT
-  project_short_name,
-  COUNT(*) AS N_genes
-FROM
-  firstMC3
-GROUP BY
-  project_short_name
-ORDER BY
-  n DESC
+    project_short_name
+  ORDER BY
+    n DESC
 
 
 Wow! The very high mutation counts for SKCM (melanoma) and LUAD
@@ -152,96 +152,96 @@ Look for how the 'array' gets used.
 
 .. code-block:: sql
 
-WITH
-  -- first we're going to extract just the project names, cases, and gene symbols,
-  -- using the "GROUP BY" to make sure we only count one mutation per gene per case
-  --
-  -- we'll also exclude some of the very frequently mutated tumor-types from this
-  -- analysis, though it would be interesting to leave them in too
-  firstMC3 AS (
-  SELECT
-    project_short_name,
-    case_barcode,
-    Hugo_Symbol
-  FROM
-    `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
-  WHERE
-    Variant_Type = 'SNP'
-    AND Consequence = 'missense_variant'
-    AND biotype = 'protein_coding'
-    AND REGEXP_CONTAINS(PolyPhen, 'damaging')
-    AND REGEXP_CONTAINS(SIFT, 'deleterious')
-    AND project_short_name <> "TCGA-UCEC"
-    AND project_short_name <> "TCGA-SKCM"
-    AND project_short_name <> "TCGA-LUAD"
-    AND project_short_name <> "TCGA-LUSC"
-  GROUP BY
-    project_short_name,
-    case_barcode,
-    Hugo_Symbol ),
-  -- next we transform resulting table using the ARRAY_AGG function
-  -- to create a list of mutated genes for each case
-  arrayMC3 AS (
-  SELECT
-    project_short_name,
-    case_barcode,
-    ARRAY_AGG(Hugo_Symbol) AS geneArray
-  FROM
-    firstMC3
-  GROUP BY
-    project_short_name,
-    case_barcode ),
-  -- now we can do some "set operations" on these gene-lists:  a self-join
-  -- of the previously created table with itself will allow for a pairwise
-  -- pairwise comparison (notice the inequality in the JOIN ... ON clause)
-  setOpsTable AS (
-  SELECT
-    a.case_barcode AS case1,
-    a.project_short_name AS study1,
-    ARRAY_LENGTH(a.geneArray) AS length1,
-    b.case_barcode AS case2,
-    b.project_short_name AS study2,
-    ARRAY_LENGTH(b.geneArray) AS length2,
-    (
+  WITH
+    -- first we're going to extract just the project names, cases, and gene symbols,
+    -- using the "GROUP BY" to make sure we only count one mutation per gene per case
+    --
+    -- we'll also exclude some of the very frequently mutated tumor-types from this
+    -- analysis, though it would be interesting to leave them in too
+    firstMC3 AS (
     SELECT
-      COUNT(1)
+      project_short_name,
+      case_barcode,
+      Hugo_Symbol
     FROM
-      UNNEST(a.geneArray) AS ga
+      `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
+    WHERE
+      Variant_Type = 'SNP'
+      AND Consequence = 'missense_variant'
+      AND biotype = 'protein_coding'
+      AND REGEXP_CONTAINS(PolyPhen, 'damaging')
+      AND REGEXP_CONTAINS(SIFT, 'deleterious')
+      AND project_short_name <> "TCGA-UCEC"
+      AND project_short_name <> "TCGA-SKCM"
+      AND project_short_name <> "TCGA-LUAD"
+      AND project_short_name <> "TCGA-LUSC"
+    GROUP BY
+      project_short_name,
+      case_barcode,
+      Hugo_Symbol ),
+    -- next we transform resulting table using the ARRAY_AGG function
+    -- to create a list of mutated genes for each case
+    arrayMC3 AS (
+    SELECT
+      project_short_name,
+      case_barcode,
+      ARRAY_AGG(Hugo_Symbol) AS geneArray
+    FROM
+      firstMC3
+    GROUP BY
+      project_short_name,
+      case_barcode ),
+    -- now we can do some "set operations" on these gene-lists:  a self-join
+    -- of the previously created table with itself will allow for a pairwise
+    -- pairwise comparison (notice the inequality in the JOIN ... ON clause)
+    setOpsTable AS (
+    SELECT
+      a.case_barcode AS case1,
+      a.project_short_name AS study1,
+      ARRAY_LENGTH(a.geneArray) AS length1,
+      b.case_barcode AS case2,
+      b.project_short_name AS study2,
+      ARRAY_LENGTH(b.geneArray) AS length2,
+      (
+      SELECT
+        COUNT(1)
+      FROM
+        UNNEST(a.geneArray) AS ga
+      JOIN
+        UNNEST(b.geneArray) AS gb
+      ON
+        ga = gb) AS gene_intersection,
+      (
+      SELECT
+        COUNT(DISTINCT gx)
+      FROM
+        UNNEST(ARRAY_CONCAT(a.geneArray,b.geneArray)) AS gx) AS gene_union
+    FROM
+      arrayMC3 AS a
     JOIN
-      UNNEST(b.geneArray) AS gb
+      arrayMC3 AS b
     ON
-      ga = gb) AS gene_intersection,
-    (
-    SELECT
-      COUNT(DISTINCT gx)
-    FROM
-      UNNEST(ARRAY_CONCAT(a.geneArray,b.geneArray)) AS gx) AS gene_union
+      a.case_barcode < b.case_barcode )
+    -- and finally, we can compute the Jaccard index, and
+    -- do a little bit of filtering and then output a list of
+    -- pairs, sorted based on the Jaccard index:
+  SELECT
+    case1,
+    study1,
+    length1 AS geneCount1,
+    case2,
+    study2,
+    case2 AS geneCount2,
+    gene_intersection,
+    gene_union,
+    (gene_intersection / gene_union) AS jaccard_index
   FROM
-    arrayMC3 AS a
-  JOIN
-    arrayMC3 AS b
-  ON
-    a.case_barcode < b.case_barcode )
-  -- and finally, we can compute the Jaccard index, and
-  -- do a little bit of filtering and then output a list of
-  -- pairs, sorted based on the Jaccard index:
-SELECT
-  case1,
-  study1,
-  length1 AS geneCount1,
-  case2,
-  study2,
-  case2 AS geneCount2,
-  gene_intersection,
-  gene_union,
-  (gene_intersection / gene_union) AS jaccard_index
-FROM
-  setOpsTable
-WHERE
-  (gene_intersection / gene_union) > 0.05
-  AND gene_intersection > 10
-ORDER BY
-  jaccard_index DESC
+    setOpsTable
+  WHERE
+    (gene_intersection / gene_union) > 0.05
+    AND gene_intersection > 10
+  ORDER BY
+    jaccard_index DESC
 
 
 ============  =========  ==========  ============  =========  ==========  ============  ==========  =============
