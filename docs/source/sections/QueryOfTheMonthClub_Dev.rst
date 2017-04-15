@@ -262,7 +262,8 @@ TCGA-AG-A002  TCGA-READ    3140      TCGA-IB-7651  TCGA-PAAD    4083          10
    :scale: 25
    :align: center
 
-   Fig1. The colored points belong to one selected sample.
+   Fig1. Each dot represents a pair of cases and the associated Jaccard index.  The blue points
+show the pairs that involve the case TCGA-06-5416.
 
 -------------
 
