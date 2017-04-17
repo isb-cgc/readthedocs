@@ -182,14 +182,24 @@ Clinical Features Panel
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 This panel shows a list of images (called "treemaps") that give a high level breakdown of the selected samples for a 
-handful of features:
+handful of features for the selected program:
 
-* Disease Type
-* Vital Status
-* Sample Type
-* Tumor Tissue Site
-* Gender
-* Age at Initial Pathologic Diagnosis
+   +------------------------------+------------------------------+---------------------------------+
+   | TCGA Clinical Features Panel | CCLE Clinical Features Panel | TARGET Clinical Features Panel  |
+   +==============================+==============================+=================================+
+   | Disease Type                 | Disease Type                 | Disease Type                    |
+   +------------------------------+------------------------------+---------------------------------+
+   | Vital Status                 | Gender                       | Vital Status                    |
+   +------------------------------+------------------------------+---------------------------------+
+   | Sample Type                  | Site Primary                 | Gender                          |
+   +------------------------------+------------------------------+---------------------------------+
+   | Tumor Tissue Type            | Histology                    | Age At Diagnosis                |
+   +------------------------------+------------------------------+---------------------------------+
+   | Gender                       | Histological SubType         |                                 |
+   +------------------------------+------------------------------+---------------------------------+
+   | Age At Initial Pathologic    |                              |                                 |
+   | Diagnosis                    |                              |                                 |
+   +------------------------------+------------------------------+---------------------------------+
 
 By using the “Show More” button, you can see the last two tree maps.  Mousing over an image shows the details of each specific section of the image and the number of samples associated with it.
 
