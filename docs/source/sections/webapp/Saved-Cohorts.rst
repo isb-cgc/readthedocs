@@ -216,7 +216,7 @@ Click "Okay" to complete the set operation and create the new cohort.
 
 Cohort Details Page
 -------------------
-The cohort details page displays the details of a specific cohort.  On that page the title of that cohort will be displayed at the top of the page.
+The cohort details page displays the details of a specific cohort.  The title of the cohort is displayed at the top of the page.
 
 From the "SAVED COHORTS" tab you can:
 
