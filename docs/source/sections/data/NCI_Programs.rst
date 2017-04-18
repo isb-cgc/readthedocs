@@ -23,9 +23,9 @@ these individual, large-scale programs.
 .. toctree::
    :maxdepth: 1
  
-   data2/TCGA_top.rst
-   data2/TARGET_top.rst
-   data2/CCLE_top.rst
-   data2/CGCI_top.rst
+   TCGA_top.rst
+   TARGET_top.rst
+   CCLE_top.rst
+   CGCI_top.rst
 
 
