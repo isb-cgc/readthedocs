@@ -113,6 +113,8 @@ tumor types (aka "studies" or "projects" within TCGA).
       project_short_name,
       case_barcode,
       Hugo_Symbol )
+  --
+  --
   SELECT
     project_short_name,
     COUNT(*) AS N_genes
@@ -121,7 +123,7 @@ tumor types (aka "studies" or "projects" within TCGA).
   GROUP BY
     project_short_name
   ORDER BY
-    n DESC
+    N_genes DESC
 
 
 Wow! The very high mutation counts for SKCM (melanoma) and LUAD
@@ -171,10 +173,14 @@ Look for how the 'array' gets used.
       AND biotype = 'protein_coding'
       AND REGEXP_CONTAINS(PolyPhen, 'damaging')
       AND REGEXP_CONTAINS(SIFT, 'deleterious')
-      AND project_short_name <> "TCGA-UCEC"
-      AND project_short_name <> "TCGA-SKCM"
-      AND project_short_name <> "TCGA-LUAD"
-      AND project_short_name <> "TCGA-LUSC"
+      AND project_short_name IN ('TCGA-PAAD', 'TCGA-GBM', 'TCGA-LGG')
+      -- We could remove the above line to compute using all samples,
+      -- but to speed things up, let's just look at 3 studies.
+      --
+      -- AND project_short_name <> "TCGA-UCEC"
+      -- AND project_short_name <> "TCGA-SKCM"
+      -- AND project_short_name <> "TCGA-LUAD"
+      -- AND project_short_name <> "TCGA-LUSC"
     GROUP BY
       project_short_name,
       case_barcode,
@@ -238,7 +244,7 @@ Look for how the 'array' gets used.
   FROM
     setOpsTable
   WHERE
-    (gene_intersection / gene_union) > 0.05
+    (gene_intersection / gene_union) > 0.1
     AND gene_intersection > 10
   ORDER BY
     jaccard_index DESC
@@ -421,7 +427,6 @@ So, like above, we will focus on the most common type of variant, the Missense.
         Primary_histology,
         Sample_source
   ),
-
   --
   -- Next we can perform our set operations on the arrays.
   --
