@@ -1,5 +1,5 @@
 ************************
-Cancer Data in BigQuery
+Data in BigQuery
 ************************
 
 The information scattered over tens of thousands of XML and TSV files in two separate archives at the 
