@@ -54,7 +54,7 @@ First, lets see what kind of "consequences" are present in this table:
     Consequence,
     count (1) AS n
   FROM
-    `isb-cgc.hg19_data_previews.MC3_Somatic_Mutation_calls`
+    `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
   WHERE
     Variant_Type = 'SNP'
   GROUP BY
@@ -277,7 +277,7 @@ Those unions look high to me.  Let's double check them.
     SELECT
       Hugo_Symbol
     FROM
-      `isb-cgc.hg19_data_previews.MC3_Somatic_Mutation_calls`
+      `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
     WHERE
       Variant_Type = 'SNP'
       AND Consequence = 'missense_variant'
@@ -295,7 +295,7 @@ Those unions look high to me.  Let's double check them.
     SELECT
       Hugo_Symbol
     FROM
-      `isb-cgc.hg19_data_previews.MC3_Somatic_Mutation_calls`
+      `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
     WHERE
       Variant_Type = 'SNP'
       AND Consequence = 'missense_variant'
@@ -389,7 +389,7 @@ So, like above, we will focus on the most common type of variant, the Missense.
     Tumor_Sample_Barcode,
     ARRAY_AGG(Hugo_Symbol) as geneArray
   FROM
-    `isb-cgc.hg19_data_previews.MC3_Somatic_Mutation_calls`
+    `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
   WHERE
     Tumor_Sample_Barcode = 'TCGA-CA-6718-01A-11D-1835-10'
     AND Variant_Type = 'SNP'
