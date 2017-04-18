@@ -17,9 +17,9 @@ April, 2017
 ###########
 
 In this month's query, we are going to look at two new data sources. The first
-is the MC3 somatic mutation table, and the second is the 
+is the MC3 somatic mutation table, and the second is the
 `COSMIC mutation database <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/COSMIC.html>`_.
-The objective is to compute a similarity metric based on 
+The objective is to compute a similarity metric based on
 overlapping mutations between samples. First we'll look at pairwise similarity
 among TCGA samples, and then we'll pick a single TCGA sample and search for a
 matching COSMIC sample.
@@ -27,13 +27,13 @@ matching COSMIC sample.
 The MC3 table comes from the TCGA Pan-Cancer effort, a multi-center project aiming
 to analyze all 33 TCGA tumor-types together. This somatic mutation calls table is
 based on the unified call set recently published by the TCGA Network.
-(For more details or the original source file, please 
+(For more details or the original source file, please
 `check Synapse <https://www.synapse.org/#!Synapse:syn7214402/wiki/405297>`_.)
 
-The COSMIC 
-(`Catalogue Of Somatic Mutations In Cancer <http://cancer.sanger.ac.uk/cosmic>`_) 
-data comes from the Wellcome Trust Sanger Institue and represents the 
-*"the world's largest and most comprehensive resource for exploring the impact of somatic mutations in human cancer"*. 
+The COSMIC
+(`Catalogue Of Somatic Mutations In Cancer <http://cancer.sanger.ac.uk/cosmic>`_)
+data comes from the Wellcome Trust Sanger Institue and represents the
+*"the world's largest and most comprehensive resource for exploring the impact of somatic mutations in human cancer"*.
 
 To compute a similarity score between any two samples, we'll use the
 Jaccard index, in which the intersection is divided by the union, so that
@@ -44,7 +44,7 @@ We'll start with the MC3 table -- which includes the predicted effect
 of each mutation call.  The mutation might result in a
 change in the amino acid sequence (non-synonomous), or introduce a new stop
 codon (stop insert), or no amino-acid change (synonomous). In this work
-we're going to focus on single nucleotide polymorphisms (SNPs). 
+we're going to focus on single nucleotide polymorphisms (SNPs).
 
 First, lets see what kind of "consequences" are present in this table:
 
@@ -54,7 +54,7 @@ First, lets see what kind of "consequences" are present in this table:
     Consequence,
     count (1) AS n
   FROM
-    `isb-cgc.hg19_data_previews.MC3_Somatic_Mutation_calls`
+    `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
   WHERE
     Variant_Type = 'SNP'
   GROUP BY
@@ -262,8 +262,7 @@ TCGA-AG-A002  TCGA-READ    3140      TCGA-IB-7651  TCGA-PAAD    4083          10
    :scale: 25
    :align: center
 
-   Fig1. Each dot represents a pair of cases and the associated Jaccard index.  The blue points
-show the pairs that involve the case TCGA-06-5416.
+   Fig1. Each dot represents a pair of cases and the associated Jaccard index.  The blue points show the pairs that involve the case TCGA-06-5416.
 
 -------------
 
@@ -278,7 +277,7 @@ Those unions look high to me.  Let's double check them.
     SELECT
       Hugo_Symbol
     FROM
-      `isb-cgc.hg19_data_previews.MC3_Somatic_Mutation_calls`
+      `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
     WHERE
       Variant_Type = 'SNP'
       AND Consequence = 'missense_variant'
@@ -296,7 +295,7 @@ Those unions look high to me.  Let's double check them.
     SELECT
       Hugo_Symbol
     FROM
-      `isb-cgc.hg19_data_previews.MC3_Somatic_Mutation_calls`
+      `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
     WHERE
       Variant_Type = 'SNP'
       AND Consequence = 'missense_variant'
@@ -390,7 +389,7 @@ So, like above, we will focus on the most common type of variant, the Missense.
     Tumor_Sample_Barcode,
     ARRAY_AGG(Hugo_Symbol) as geneArray
   FROM
-    `isb-cgc.hg19_data_previews.MC3_Somatic_Mutation_calls`
+    `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
   WHERE
     Tumor_Sample_Barcode = 'TCGA-CA-6718-01A-11D-1835-10'
     AND Variant_Type = 'SNP'
@@ -468,18 +467,18 @@ So, like above, we will focus on the most common type of variant, the Missense.
 
 * TCGA sample is from COAD.
 
-============  ==========  ============  =========================  ====================   ==========  ============  ==========  =======
-tcgaSample    geneCount1  cosmicSample  Primary_site               Primary_histology      geneCount2  intersection  gene_union  jaccard
-============  ==========  ============  =========================  ====================   ==========  ============  ==========  =======
-TCGA-CA-6718  1018        YUKLAB        skin                       malignant_melanoma     4203        340           3918        0.08677
-TCGA-CA-6718  1018        YULAN         skin                       malignant_melanoma     2296        209           2712        0.07706
-TCGA-CA-6718  1018        sysucc-311T   large_intestine            carcinoma              5403        383           5011        0.07643
-TCGA-CA-6718  1018        YUKAT         skin                       malignant_melanoma     6684        434           5786        0.07500
-TCGA-CA-6718  1018        YUWAND        skin                       malignant_melanoma     1826        172           2312        0.07439
-TCGA-CA-6718  1018        YURUS         skin                       malignant_melanoma     936         124           1687        0.07350
-TCGA-CA-6718  1018        UD-SCC-2      upper_aerodigestive_tract  carcinoma  cell-line   4490        191           2692        0.07095
-TCGA-CA-6718  1018        WSU-HN6       upper_aerodigestive_tract  carcinoma  cell-line   4727        192           2817        0.06815
-============  ==========  ============  =========================  ====================   ==========  ============  ==========  =======
+============  ==========  ============  =========================  ==========  ============  ==========  =======
+tcgaSample    geneCount1  cosmicSample  Primary_site               geneCount2  intersection  gene_union  jaccard
+============  ==========  ============  =========================  ==========  ============  ==========  =======
+TCGA-CA-6718  1018        YUKLAB        skin                       4203        340           3918        0.08677
+TCGA-CA-6718  1018        YULAN         skin                       2296        209           2712        0.07706
+TCGA-CA-6718  1018        sysucc-311T   large_intestine            5403        383           5011        0.07643
+TCGA-CA-6718  1018        YUKAT         skin                       6684        434           5786        0.07500
+TCGA-CA-6718  1018        YUWAND        skin                       1826        172           2312        0.07439
+TCGA-CA-6718  1018        YURUS         skin                       936         124           1687        0.07350
+TCGA-CA-6718  1018        UD-SCC-2      upper_aerodigestive_tract  4490        191           2692        0.07095
+TCGA-CA-6718  1018        WSU-HN6       upper_aerodigestive_tract  4727        192           2817        0.06815
+============  ==========  ============  =========================  ==========  ============  ==========  =======
 
 
 Cool! Some of the COSMIC samples are close to the COAD tissue type! Looks like
