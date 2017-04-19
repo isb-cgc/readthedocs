@@ -113,35 +113,19 @@ in the `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:
 
 - `GDCfileID_to_GCSurl <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.GDCfileID_to_GCSurl>`_: is the table to use to determine whether and where a particular GDC file is available in Google Cloud Storage (GCS).  Between the two GDC archives (legacy and current), there are over one million files.  Of these, over 500000 files, totaling over 1700 TB, are available in ISB-CGC buckets in GCS, while roughly 570000 files, totaling over 600 TB are not.  This `SQL query <https://gist.github.com/smrgit/b7177d455a04c1bf70a2d910223c9000>`_, for example, can be used to get summaries of the GDC data that is available in GCS (sorted according to the total size in TB):
 
-   =======   ==========   =======  ======   =============
-   dbName      access     program     n     total_size_TB
-   =======   ==========   =======  ======   =============
-   legacy    controlled   TCGA     177490      1132.2
-   current   controlled   TCGA      44402       451.9
-   legacy    controlled   TARGET     6763        63.0
-   legacy    open         CCLE       1273        22.8
-   current   controlled   TARGET     1459        15.6
-   legacy    open         null      22874        13.0
-   legacy    open         TCGA     230319         4.7
-   current   open         TCGA      22475         0.001
-   =======   ==========   =======  ======   =============
+.. figure:: figs/GDCdata-in-GCS.png
+   :scale: 80
+   :align: center
+
+..
 
    or conversely, GDC data that is *not* available in GCS (again, sorted according to the total size in TB):
 
-   =======   ==========   =======  ======   =============
-   dbName      access     program     n     total_size_TB
-   =======   ==========   =======  ======   =============
-   legacy    controlled   TARGET     3361       617.0
-   legacy    controlled   TCGA     131654        45.6
-   legacy    open         null      38156        16.7
-   legacy    open         TCGA     178601         2.8
-   legacy    controlled   null      15367         2.5
-   current   controlled   TARGET     2281         1.6
-   current   open         TCGA     112520         1.4
-   current   controlled   TCGA      89144         0.08
-   current   open         TARGET     2443         0.0009
-   legacy    open         TARGET       30         0.000003
-   =======   ==========   =======  ======   =============
+.. figure:: figs/GDCdata-not-in-GCS.png
+   :scale: 80
+   :align: center
+
+..
 
    Let's take a closer look
    (`SQL <https://gist.github.com/smrgit/f2eca7b6009598b543d6bfaf4205efa3>`_)
