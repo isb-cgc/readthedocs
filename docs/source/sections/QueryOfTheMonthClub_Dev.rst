@@ -144,12 +144,9 @@ Row  project_short_name  N_genes
 ===  ==================  =======
 
 
-In order to avoid mutation overlaps due to simply having a large number of
-mutations, we'll remove UCEC from our sample pairings.
-
 ------------------
 
-OK, let's compute a Jaccard index between all the TCGA samples!
+OK, let's compute a Jaccard index across all samples in a few selected tumor-specific projects.
 Look for how the 'array' gets used.
 
 .. code-block:: sql
@@ -176,11 +173,6 @@ Look for how the 'array' gets used.
       AND project_short_name IN ('TCGA-PAAD', 'TCGA-GBM', 'TCGA-LGG')
       -- We could remove the above line to compute using all samples,
       -- but to speed things up, let's just look at 3 studies.
-      --
-      -- AND project_short_name <> "TCGA-UCEC"
-      -- AND project_short_name <> "TCGA-SKCM"
-      -- AND project_short_name <> "TCGA-LUAD"
-      -- AND project_short_name <> "TCGA-LUSC"
     GROUP BY
       project_short_name,
       case_barcode,
