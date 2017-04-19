@@ -18,6 +18,7 @@ of adding data from the TARGET pediatric cancer.  Stay tuned for updates.
    :maxdepth: 2
 
    data/NCI_Programs
+   data/GDC_top
    data/Data_on_ISBCGC
    data/Reference-Data
    data/Releases-Plus
