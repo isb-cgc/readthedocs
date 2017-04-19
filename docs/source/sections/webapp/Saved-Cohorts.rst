@@ -231,12 +231,12 @@ From the "SAVED COHORTS" tab you can:
 
 ISB-CGC DATA and USER DATA tab
 --------------------------------
-Both tabs are displayed  and can be selected. The corresponding panels on each tab will display data on either ISB-CGC data or user uploaded data with cohorts that you created or shared with you. 
+Both tabs are displayed and can be selected. The corresponding panels on each tab will display data on either ISB-CGC data or user uploaded data with cohorts that you created or shared with you. 
 
 Current Filters Panel
 ----------------------
 
-This panel displays current filters that have been used on the cohort or any of its ancestors. These cannot be modified.  To add additional filters to this list use the Edit button.
+This panel displays current filters that have been used on the cohort or any of its ancestors. If you have selected multiple These cannot be modified.  To add additional filters to this list use the Edit button.
 
 Details Panel
 -------------
@@ -245,17 +245,31 @@ This panel displays the Internal ISB-CGC Cohort ID (the identifier you use to pr
 provided multiple samples.
 This panel also displays "Your Permissions" which can be either owner or reader, as well as revision history.  If you have edited the cohort, the filters that were used to originally create the cohort are displayed under the "Creation Filters" label, the newly applied filters since original creation are displayed under the "Applied Filters" label.
 
+TCGA DATA, CCLE DATA, TARGET DATA and USER DATA Tabs
+-----------------------------------------------------
+Selecting any program tab will be enabled if you have selected filters for that program.  By selecting the tab you will displayed the Clinical Features panel and the Data File Availibility panels for the program selected. 
+
 Clinical Features Panel
 -----------------------
 
-This panel shows a list of treemaps that give a high level break of the samples for a handful of features:
+This panel shows a list of treemaps that give a high level break of the samples for a handful of features for the program view selected:
 
-* Study
-* Vital Status
-* Sample Type
-* Tumor Tissue Site
-* Gender
-* Age at Initial Pathologic Diagnosis
+   +------------------------------+------------------------------+---------------------------------+------------------------------------+
+   | TCGA Clinical Features Panel | CCLE Clinical Features Panel | TARGET Clinical Features Panel  | USER DATA Programs & Projects Panel|
+   +==============================+==============================+=================================+====================================+
+   | Disease Type                 | Disease Type                 | Disease Type                    | Program                            |
+   +------------------------------+------------------------------+---------------------------------+------------------------------------+
+   | Vital Status                 | Gender                       | Vital Status                    | Project                            |
+   +------------------------------+------------------------------+---------------------------------+------------------------------------+
+   | Sample Type                  | Site Primary                 | Gender                          |                                    |
+   +------------------------------+------------------------------+---------------------------------+------------------------------------+
+   | Tumor Tissue Type            | Histology                    | Age At Diagnosis                |                                    |
+   +------------------------------+------------------------------+---------------------------------+------------------------------------+
+   | Gender                       | Histological SubType         |                                 |                                    |
+   +------------------------------+------------------------------+---------------------------------+------------------------------------+
+   | Age At Initial Pathologic    |                              |                                 |                                    |
+   | Diagnosis                    |                              |                                 |                                    |
+   +------------------------------+------------------------------+---------------------------------+------------------------------------+
 
 Data File Availability Panel
 -----------------------
@@ -273,12 +287,12 @@ View Files Page
 ---------------
 
 "View Files" takes you to a new page where you can view the complete list of data files associated with your current the cohort.
-The file list page provides a paginated list of files available with all samples in the cohort. Here, "available" refers
-to files that have been uploaded to the ISB-CGC Google Cloud Project, including both controlled and open access data. 
+ The file list page provides a paginated list of files available with all samples in the cohort. Here, "available" refers
+to files that have been uploaded to the ISB-CGC Google Cloud Project, including both controlled access and open access data.  
 You can use the "Previous Page" and "Next Page" buttons to see more values in the list.
 
-You may filter on these files if you are only interested in a specific data type and platform. Selecting a filter will
-update the associated list. The numbers next to the platform refers to the number of files available for that platform.
+You can filter by Genomic Build either HG19 or HG38 and view which platforms and files are availible for the build selected.  You may also filter on these files if you are only interested in a specific data type and platform.  Selecting a filter will
+update the associated list.  The numbers next to the platform refers to the number of files available for that platform.
 
 If there are files that contain read-level data, you will be able to select files to view in the IGV 
 viewer by selecting check boxes beside the viewer and selecting "Launch IGV" button.  Only if you have authenticated 
@@ -291,6 +305,7 @@ To download a list of files that are part of this cohort, select the link in the
 download process of all the files available for the cohort, taking into account the selected Platform filters. The file
 contains the following information for each file:
 
+* Program
 * Sample Barcode
 * Platform
 * Pipeline
