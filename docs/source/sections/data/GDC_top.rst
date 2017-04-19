@@ -25,17 +25,19 @@ Cloud Platform.
 In order to help users determine which data at the GDC is available on the
 ISB-CGC platform, we have created a set of metadata tables in BigQuery
 (based on `GDC Data Release 5.0 <https://docs.gdc.cancer.gov/Data/Release_Notes/Data_Release_Notes/>`_)
-in the `**isb-cgc:GDC_metadata** <https://bigquery.cloud.google.com/dataset/isb-cgc:GDC_metadata>`_:
+in the `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:GDC_metadata>`_ dataset:
 
-- rel5_caseData
+- `rel5_caseData <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel5_caseData>`_:  contains a complete list of all
+17268 cases
+existing
 
-- rel5_current_fileData
+- `rel5_current_fileData <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel5_current_fileData>`_:
 
-- rel5_legacy_fileData
+- `rel5_legacy_fileData <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel5_legacy_fileData>`_:
 
-- rel5_aliquot2caseIDmap
+- `rel5_aliquot2caseIDmap <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel5_aliquot2caseIDmap>`_:
 
-- rel5_slide2caseIDmap
+- `rel5_slide2caseIDmap <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel5_slide2caseIDmap>`_:
 
-- GDCfielID_to_GCSurl
+- `GDCfileID_to_GCSurl <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.GDCfileID_to_GCSurl>`_:
 
