@@ -148,8 +148,19 @@ in the `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:
    `Data in BigQuery <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_BQ.html>`_ 
    section.
 
-   If there are files at the GDC that you would like us to host in ISB-CGC buckets,
-   please let us know!
+   Conversely, let's take a look at data that is *not* available in GCS, but is not of
+   the ``TXT`` or ``TSV`` type which would be amenable to putting into BigQuery tables:
+
+.. figure:: figs/20rows-not-in-GCS.png
+   :scale: 80
+   :align: center
 
 ..
+
+   The single largest category of data at the GDC which is not currently available in any ISB-CGC
+   buckets consists of the legacy TARGET whole-genome-sequence BAM files (~600 TB).  Our 
+   priority will be to upload the missing TARGET data from the "current" archive soon, but please
+   let us know if there are any important categories of data at the GDC which you would 
+   like to see hosted in ISB-CGC buckets.
+
 
