@@ -242,17 +242,13 @@ Look for how the 'array' gets used.
     jaccard_index DESC
 
 
-============  =========  ==========  ============  =========  ==========  ============  ==========  =============
-   case1       study1    geneCount1     case2        study2   geneCount2  intersection  gene_union  jaccard_index
-============  =========  ==========  ============  =========  ==========  ============  ==========  =============
-TCGA-06-5416  TCGA-GBM     3593      TCGA-IB-7651  TCGA-PAAD    4083          1216          6460     0.188235
-TCGA-AG-A002  TCGA-READ    3140      TCGA-F5-6814  TCGA-READ    2716           916          4940     0.185425
-TCGA-DU-6392  TCGA-LGG     3277      TCGA-IB-7651  TCGA-PAAD    4083          1111          6249     0.177788
-TCGA-06-5416  TCGA-GBM     3593      TCGA-AG-A002  TCGA-READ    3140          1012          5721     0.176892
-TCGA-AG-A002  TCGA-READ    3140      TCGA-CA-6717  TCGA-COAD    2725           875          4990     0.175351
-TCGA-2W-A8YY  TCGA-CESC    3345      TCGA-IB-7651  TCGA-PAAD    4083          1106          6322     0.174945
-TCGA-AG-A002  TCGA-READ    3140      TCGA-IB-7651  TCGA-PAAD    4083          1051          6172     0.170285
-============  =========  ==========  ============  =========  ==========  ============  ==========  =============
+------------
+
+.. figure:: query_figs/april_table1.png
+   :scale: 25
+   :align: center
+
+-------------
 
 ------------
 
@@ -462,20 +458,16 @@ So, like above, we will focus on the most common type of variant, the Missense.
     jaccard_index DESC
 
 
+
 * TCGA sample is from COAD.
 
-============  ==========  ============  =========================  ==========  ============  ==========  =======
-tcgaSample    geneCount1  cosmicSample  Primary_site               geneCount2  intersection  gene_union  jaccard
-============  ==========  ============  =========================  ==========  ============  ==========  =======
-TCGA-CA-6718  1018        YUKLAB        skin                       4203        340           3918        0.08677
-TCGA-CA-6718  1018        YULAN         skin                       2296        209           2712        0.07706
-TCGA-CA-6718  1018        sysucc-311T   large_intestine            5403        383           5011        0.07643
-TCGA-CA-6718  1018        YUKAT         skin                       6684        434           5786        0.07500
-TCGA-CA-6718  1018        YUWAND        skin                       1826        172           2312        0.07439
-TCGA-CA-6718  1018        YURUS         skin                       936         124           1687        0.07350
-TCGA-CA-6718  1018        UD-SCC-2      upper_aerodigestive_tract  4490        191           2692        0.07095
-TCGA-CA-6718  1018        WSU-HN6       upper_aerodigestive_tract  4727        192           2817        0.06815
-============  ==========  ============  =========================  ==========  ============  ==========  =======
+------------
+
+.. figure:: query_figs/april_table2.png
+   :scale: 25
+   :align: center
+
+-------------
 
 
 Cool! Some of the COSMIC samples are close to the COAD tissue type! Looks like
