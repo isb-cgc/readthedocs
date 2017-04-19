@@ -63,10 +63,3 @@ please refer to these sections:
    data2/byAccessClass
    data2/bySourceRepo
 
-And finally, links to useful data reports can be found in this final section:
-
-.. toctree::
-   :maxdepth: 1
-
-   data2/TCGA_Reports
-
