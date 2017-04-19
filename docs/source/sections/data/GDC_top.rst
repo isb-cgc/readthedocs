@@ -57,10 +57,31 @@ program_name   numCases   totLegacyFiles   totCurrentFiles
    CCLE            950          1273                0
 ============   ========   ==============   ===============
 
+(Note that some files contain data from *multiple* cases, and these types of files will be counted multiple times in the above query on this case-oriented table, resulting in an over-count of the number of unique files.)
 
-- `rel5_current_fileData <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel5_current_fileData>`_:
 
-- `rel5_legacy_fileData <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel5_legacy_fileData>`_:
+- `rel5_current_fileData <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel5_current_fileData>`_: contains a complete list of the 274724 files in the current archive (268541 TCGA files and 6183 TARGET files)
+
+.. code-block:: sql
+
+   SELECT
+     program_name,
+     experimental_strategy,
+     data_category,
+     data_format,
+     data_type,
+     COUNT(*) AS numFiles,
+     SUM(file_size)/1000000000 AS totFileSize_GB
+   FROM
+     [isb-cgc:GDC_metadata.rel5_current_fileData]
+   GROUP BY
+     1, 2, 3, 4, 5
+   ORDER BY
+     totFileSize_GB DESC
+
+results of this query can be viewed `here <https://docs.google.com/spreadsheets/d/1GOGPnRpmHn8iGfMabUpC5MZfxOXvcfqq8aVBBve5r9c/edit?usp=sharing>`_. The top three rows in the result are the TCGA WXS, TCGA RNA-Seq, and TARGET WXS BAM files, which total approx 350 TB, 100 TB, and 10 TB respectively.
+
+- `rel5_legacy_fileData <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel5_legacy_fileData>`_: contains a complete list of the 805907 files in the legacy archive (718064 TCGA files, 10154 TARGET files, 1273 CCLE files, and 76416 files which are not linked to a program -- 15386 of these are controlled-access files with the TCGA dbGaP identifier, and the remaining 61030 open-access files include ~17k coverage WIG files, ~12k diagnostic SVS images, ~11k clinical/biospecimen xml files).  The results of the same query as above (but directed at this table) can be viewed `here <https://docs.google.com/spreadsheets/d/1DoyyazK2scq3usp9m48R2-Fc-DJ2aWTVy2-XafNxr3Q/edit?usp=sharing>`_.  The top two rows in the result are the TARGET and TCGA WGS BAM files, totaling over 600 TB and 500 TB respectively. 
 
 - `rel5_aliquot2caseIDmap <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel5_aliquot2caseIDmap>`_:
 
