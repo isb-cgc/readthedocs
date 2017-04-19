@@ -151,7 +151,7 @@ in the `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:
    `here <https://docs.google.com/spreadsheets/d/1tnD2sjXjYIQut5KJXfPJlVKmDJL1SJd5155u0e1litI/edit?usp=sharing>`_, but the first few rows look like this:
 
 .. figure:: figs/10rows-not-in-GCS.png
-   :scale: 50
+   :scale: 80
    :align: center
 
 ..
