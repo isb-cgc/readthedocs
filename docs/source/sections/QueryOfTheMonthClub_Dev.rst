@@ -245,7 +245,7 @@ Look for how the 'array' gets used.
 ------------
 
 .. figure:: query_figs/april_table1.png
-   :scale: 25
+   :scale: 50
    :align: center
 
 -------------
@@ -464,7 +464,7 @@ So, like above, we will focus on the most common type of variant, the Missense.
 ------------
 
 .. figure:: query_figs/april_table2.png
-   :scale: 25
+   :scale: 50
    :align: center
 
 -------------
