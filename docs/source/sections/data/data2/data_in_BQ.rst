@@ -32,6 +32,11 @@ and the tables that each one contains.  For additional details regarding the ETL
 and load) process for each of these data types, please refer to the data-type specific details
 below.
 
+For a more visual overview of the contents of BigQuery and how they relate to one another,
+you might find this 
+`view <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/BQ_overview.html>`_ 
+useful.
+
 
 TCGA Clinical, Biospecimen and Molecular Data
 =============================================
