@@ -48,12 +48,15 @@ in the `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:
    ORDER BY
      numCases DESC
 
+
 ============   ========   ==============   ===============
 program_name   numCases   totLegacyFiles   totCurrentFiles
 ============   ========   ==============   ===============
 TCGA           11315      4000803          351699
 TARGET          5003        19042           12491
 CCLE             950         1273               0
+============   ========   ==============   ===============
+
 
 - `rel5_current_fileData <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel5_current_fileData>`_:
 
