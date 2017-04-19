@@ -148,11 +148,24 @@ in the `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:
    at the large number of open-access files that are *not* available 
    in GCS, looking specifically at files where the ``data_format`` is either ``TXT`` or ``TSV``
    and see what types of data that represents.  The complete results of this query can be found
-   `here <https://docs.google.com/spreadsheets/d/1tnD2sjXjYIQut5KJXfPJlVKmDJL1SJd5155u0e1litI/edit?usp=sharing>`_, but the first few rows look like this:
+   `here <https://docs.google.com/spreadsheets/d/1tnD2sjXjYIQut5KJXfPJlVKmDJL1SJd5155u0e1litI/edit?usp=sharing>`_, 
+   but the first few rows look like this:
 
 .. figure:: figs/10rows-not-in-GCS.png
    :scale: 80
    :align: center
+
+..
+
+   Much of this type of data is provided by ISB-CGC in BigQuery tables rather than
+   the raw flat files, where the data is more easily explored using Standard SQL
+   backed a massively-parallel analytics engine and also accessible from R or Python.
+   Fore more details, please see our 
+   `Data in BigQuery <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_BQ.html>`_ 
+   section.
+
+   If there are files at the GDC that you would like us to host in ISB-CGC buckets,
+   please let us know!
 
 ..
 
