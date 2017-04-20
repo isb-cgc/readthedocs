@@ -265,7 +265,7 @@ Those unions look high to me.  Let's double check them.
       AND swissprot != 'null'
       AND REGEXP_CONTAINS(PolyPhen, 'damaging')
       AND REGEXP_CONTAINS(SIFT, 'deleterious')
-      AND sample_barcode_tumor = 'TCGA-06-5416-01A'
+      AND case_barcode = 'TCGA-06-5416'
     GROUP BY
       Hugo_Symbol),
   --
@@ -283,7 +283,7 @@ Those unions look high to me.  Let's double check them.
       AND swissprot != 'null'
       AND REGEXP_CONTAINS(PolyPhen, 'damaging')
       AND REGEXP_CONTAINS(SIFT, 'deleterious')
-      AND sample_barcode_tumor = 'TCGA-IB-7651-01A'
+      AND case_barcode = 'TCGA-IB-7651'
     GROUP BY
       Hugo_Symbol)
   --
@@ -330,11 +330,12 @@ Let's take a look at what types of variants are present.
   --
   SELECT
     Mutation_Description,
-    count(1 )
+    count(1) AS n
   FROM
     `isb-cgc.COSMIC.grch37_v80`
-  group by
+  GROUP BY
     Mutation_Description
+  ORDER BY n DESC
 
 
 ===  ============================  =========
@@ -350,7 +351,7 @@ Row  Mutation_Description            n
 8    Insertion - In frame          24870
 9    Complex - deletion inframe    3212
 10   Nonstop extension             2751
-11   Whole gene deletion           2308
+...  ...                           ...
 ===  ============================  =========
 
 So, like above, we will focus on the most common type of variant, the Missense.
