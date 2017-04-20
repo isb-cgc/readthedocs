@@ -143,8 +143,6 @@ Row  project_short_name  N_genes
 ===  ==================  =======
 
 
-------------------
-
 OK, let's compute a Jaccard index across all samples in a few selected tumor-specific projects.
 Look for how the 'array' gets used.
 
@@ -241,23 +239,24 @@ Look for how the 'array' gets used.
     jaccard_index DESC
 
 
-------------
+The top 5 results from the above query surprisingly find the highest similarity 
+between a GBM (glioblastoma) sample and PAAD (pancreatic adenocarcinoma) sample.
+The net highest similarity is between a LGG (lower-grade glioma) sample and the
+same PAAD sample.  (Recall that our query above had, somewhat randomly, chosen
+only GBM, LGG, and PAAD tumor-specific projects.)
+
 
 .. figure:: query_figs/april_table1.png
    :scale: 50
    :align: center
 
--------------
-
-------------
 
 .. figure:: query_figs/april_plot2.png
    :scale: 25
    :align: center
 
-   Fig1. Each dot represents a pair of cases and the associated Jaccard index.  The blue points show the pairs that involve the case TCGA-06-5416.
+   Fig1. Each dot represents a pair of cases and the associated Jaccard index.  The blue points show the pairs that involve the GBM case TCGA-06-5416.
 
--------------
 
 Those unions look high to me.  Let's double check them.
 
@@ -325,18 +324,15 @@ Those unions look high to me.  Let's double check them.
   -- we were expecting given the first row in the above results.
   --
 
-------------------
-
-------------------
-
 
 Next we'll turn our attention to the COSMIC catalog. We will select a single
 sample, and perform the same Jaccard index across all samples in COSMIC
-(removing TCGA samples in COSMIC), and see what comes up.  The sample I selected
-comes from the COAD study (Colon Adenocarcinoma).
+(removing TCGA samples in COSMIC), and see what comes up.  
+The sample we've selected for this next analysis is from the COAD project 
+(Colon Adenocarcinoma).
 
-Similar to the MC3 table, variant have different annotations. Let's take
-a look at what types of variants are present.
+Similar to the MC3 table, variants in COSMIC have been annotated.
+Let's take a look at what types of variants are present.
 
 .. code-block:: sql
 

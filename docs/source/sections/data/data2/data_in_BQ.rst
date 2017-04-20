@@ -172,10 +172,17 @@ A set of
 `reference data <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/Reference-Data.html>`_ 
 tables have also been created in BigQuery which you may find helpful when analyzing the TCGA data.
 
-Additional TCGA Metadata
+
+TARGET Clinical, Biospecimen and Molecular Data
+=============================================
+
+The TARGET data will be organized in parallel fashion to the TCGA data and will be coming soon.
+
+
+Additional Metadata
 ========================
 
-Additional metadata related to TCGA is organized into the following datasets:
+Additional related metadata is organized into the following datasets:
 
 - `isb-cgc:metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:metadata>`_:
   This dataset currently contains two tables which contain metadata about two additional
@@ -211,8 +218,8 @@ Additional metadata related to TCGA is organized into the following datasets:
   and 69 BRCA aliquots.
 
 
-ETL Details for TCGA Data
-#########################
+ETL (Extract, Transform, Load) Details 
+=======================================
 
 The data in the BigQuery tables is generally identical to the information that
 can also be obtained from the NCI-GDC, but for users
@@ -247,8 +254,8 @@ formatting and data curation:
    data archive) was parsed to find the correct association between the
    aliquot barcode and the Level-3 data file(s).
 
-Data-Type Specific ETL
-======================
+Data-Type Specific ETL Details
+******************************
 
 .. toctree::
    :maxdepth: 1

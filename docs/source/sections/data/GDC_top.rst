@@ -157,6 +157,8 @@ in the `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:
 
 ..
 
+   (Note that the figure above includes only the top 20 categories of data, grouped by the fields
+   shown and sorted according to total data set size in TB.)
    The single largest category of data at the GDC which is not currently available in any ISB-CGC
    buckets consists of the legacy TARGET whole-genome-sequence BAM files (~600 TB).  Our 
    priority will be to upload the missing TARGET data from the "current" archive soon, but please
