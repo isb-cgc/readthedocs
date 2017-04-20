@@ -262,7 +262,6 @@ Those unions look high to me.  Let's double check them.
       Variant_Type = 'SNP'
       AND Consequence = 'missense_variant'
       AND biotype = 'protein_coding'
-      AND swissprot != 'null'
       AND REGEXP_CONTAINS(PolyPhen, 'damaging')
       AND REGEXP_CONTAINS(SIFT, 'deleterious')
       AND sample_barcode_tumor = 'TCGA-06-5416-01A-01D-1486-08'
@@ -280,7 +279,6 @@ Those unions look high to me.  Let's double check them.
       Variant_Type = 'SNP'
       AND Consequence = 'missense_variant'
       AND biotype = 'protein_coding'
-      AND swissprot != 'null'
       AND REGEXP_CONTAINS(PolyPhen, 'damaging')
       AND REGEXP_CONTAINS(SIFT, 'deleterious')
       AND sample_barcode_tumor = 'TCGA-IB-7651-01A-11D-2154-08'
@@ -297,10 +295,9 @@ Those unions look high to me.  Let's double check them.
     g2 AS b
   ON
     a.Hugo_Symbol = b.Hugo_Symbol
-
-    --
-    -- Then the union.
-    --
+  --
+  -- Then the union.
+  --
   SELECT
     count( distinct Hugo_Symbol )
   FROM
@@ -308,7 +305,7 @@ Those unions look high to me.  Let's double check them.
        union all
      select * from g2)
   --
-  -- And we get 1180 for the intersection and 6289 for the union, which is what
+  -- And we get 1216 for the intersection and 6460 for the union, which is what
   -- we were expecting given the first row in the above results.
   --
 
