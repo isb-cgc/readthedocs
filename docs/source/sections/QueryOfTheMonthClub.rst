@@ -65,17 +65,17 @@ First, lets see what kind of "consequences" are present in this table:
 ===  ==================================  =======
 Row          Consequence                    n
 ===  ==================================  =======
-1    missense_variant                    1921717
-2    synonymous_variant                  781567
+1    missense_variant                    1921705
+2    synonymous_variant                  781564
 3    3_prime_UTR_variant                 253582
-4    stop_gained                         156769
+4    stop_gained                         156768
 5    intron_variant                      86347
-6    5_prime_UTR_variant                 77070
+6    5_prime_UTR_variant                 77069
 7    non_coding_transcript_exon_variant  46761
 8    splice_acceptor_variant             29658
 9    downstream_gene_variant             19048
-10   splice_donor_variant                18240
-11   splice_region_variant               15232
+10   splice_donor_variant                18239
+11   splice_region_variant               15231
 12   upstream_gene_variant               14990
 13   start_lost                          2718
 14   stop_lost                           2038
@@ -265,7 +265,7 @@ Those unions look high to me.  Let's double check them.
       AND swissprot != 'null'
       AND REGEXP_CONTAINS(PolyPhen, 'damaging')
       AND REGEXP_CONTAINS(SIFT, 'deleterious')
-      AND sample_barcode_tumor = 'TCGA-06-5416-01A-01D-1486-08'
+      AND sample_barcode_tumor = 'TCGA-06-5416-01A'
     GROUP BY
       Hugo_Symbol),
   --
@@ -283,7 +283,7 @@ Those unions look high to me.  Let's double check them.
       AND swissprot != 'null'
       AND REGEXP_CONTAINS(PolyPhen, 'damaging')
       AND REGEXP_CONTAINS(SIFT, 'deleterious')
-      AND sample_barcode_tumor = 'TCGA-IB-7651-01A-11D-2154-08'
+      AND sample_barcode_tumor = 'TCGA-IB-7651-01A'
     GROUP BY
       Hugo_Symbol)
   --
@@ -298,20 +298,21 @@ Those unions look high to me.  Let's double check them.
   ON
     a.Hugo_Symbol = b.Hugo_Symbol
 
-    --
-    -- Then the union.
-    --
+  UNION ALL
+
+  --
+  -- Then the union.
+  --
   SELECT
     count( distinct Hugo_Symbol )
   FROM
     (select * from  g1
        union all
      select * from g2)
-  --
-  -- And we get 1180 for the intersection and 6289 for the union, which is what
-  -- we were expecting given the first row in the above results.
-  --
 
+
+The above query should return 1180 (intersection) and 6289 (union), which is
+what we were expecting given the first row in the previous set of results.
 
 Next we'll turn our attention to the COSMIC catalog. We will select a single
 sample, and perform the same Jaccard index across all samples in COSMIC
