@@ -286,10 +286,10 @@ Those unions look high to me.  Let's double check them.
       Hugo_Symbol)
 
   --
-  -- First the intersection
+  -- First the intersection,
   --
   SELECT
-    count( distinct a.Hugo_Symbol )
+    count ( distinct a.Hugo_Symbol ) AS n
   FROM
     g1 AS a
   JOIN
@@ -300,17 +300,20 @@ Those unions look high to me.  Let's double check them.
   UNION ALL
 
   --
-  -- Then the union.
+  -- then the union.
   --
   SELECT
-    count( distinct Hugo_Symbol )
+    count ( distinct Hugo_Symbol ) AS n
   FROM
     (select * from  g1
        union all
      select * from g2)
 
+  ORDER BY n
+
 The above query returns 1216 (intersection) and 6460 (union), which is
 what we were expecting given the first row in the previous set of results.
+
 
 Next we'll turn our attention to the COSMIC catalog. We will select a single
 sample, and perform the same Jaccard index across all samples in COSMIC
