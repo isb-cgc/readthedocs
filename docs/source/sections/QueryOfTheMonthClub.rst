@@ -12,6 +12,471 @@ email: dgibbs (at) systemsbiology (dot) org
 
 ------------------
 
+April, 2017
+###########
+
+In this month's query, we are going to look at two new data sources. The first
+is the MC3 somatic mutation table, and the second is the
+`COSMIC mutation database <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/COSMIC.html>`_.
+The objective is to compute a similarity metric based on
+overlapping mutations between samples. First we'll look at pairwise similarity
+among TCGA samples, and then we'll pick a single TCGA sample and search for a
+matching COSMIC sample.
+
+The MC3 table comes from the TCGA Pan-Cancer effort, a multi-center project aiming
+to analyze all 33 TCGA tumor-types together. This somatic mutation calls table is
+based on the unified call set recently published by the TCGA Network.
+(For more details or the original source file, please
+`check Synapse <https://www.synapse.org/#!Synapse:syn7214402/wiki/405297>`_.)
+
+The COSMIC
+(`Catalogue Of Somatic Mutations In Cancer <http://cancer.sanger.ac.uk/cosmic>`_)
+data comes from the Wellcome Trust Sanger Institue and represents the
+*"the world's largest and most comprehensive resource for exploring the impact of somatic mutations in human cancer"*.
+
+To compute a similarity score between any two samples, we'll use the
+Jaccard index, in which the intersection is divided by the union, so that
+samples with no overlap in mutations will have a Jaccard index of 0, while
+samples with some overlap will have a Jaccard index between 0 and 1.
+
+We'll start with the MC3 table -- which includes the predicted effect
+of each mutation call.  The mutation might result in a
+change in the amino acid sequence (non-synonomous), or introduce a new stop
+codon (stop insert), or no amino-acid change (synonomous). In this work
+we're going to focus on single nucleotide polymorphisms (SNPs).
+
+First, lets see what kind of "consequences" are present in this table:
+
+.. code-block:: sql
+
+  SELECT
+    Consequence,
+    count (1) AS n
+  FROM
+    `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
+  WHERE
+    Variant_Type = 'SNP'
+  GROUP BY
+    Consequence
+  ORDER BY
+    n DESC
+
+
+===  ==================================  =======
+Row          Consequence                    n
+===  ==================================  =======
+1    missense_variant                    1921717
+2    synonymous_variant                  781567
+3    3_prime_UTR_variant                 253582
+4    stop_gained                         156769
+5    intron_variant                      86347
+6    5_prime_UTR_variant                 77070
+7    non_coding_transcript_exon_variant  46761
+8    splice_acceptor_variant             29658
+9    downstream_gene_variant             19048
+10   splice_donor_variant                18240
+11   splice_region_variant               15232
+12   upstream_gene_variant               14990
+13   start_lost                          2718
+14   stop_lost                           2038
+15   stop_retained_variant               1077
+===  ==================================  =======
+
+
+For the sake of simplicity, we're going to focus on the most common type of
+variant, the missense_variant which is more likely to have a functional impact
+through an alteration of the amino acid sequence.
+
+
+Another question we might ask is: how are variants distributed across the
+tumor types (aka "studies" or "projects" within TCGA).
+
+.. code-block:: sql
+
+  WITH
+    firstMC3 AS (
+    SELECT
+      project_short_name,
+      case_barcode,
+      Hugo_Symbol
+    FROM
+      `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
+    WHERE
+      Variant_Type = 'SNP'
+      AND Consequence = 'missense_variant'
+      AND biotype = 'protein_coding'
+      AND swissprot != 'null'
+      AND REGEXP_CONTAINS(PolyPhen, 'damaging')
+      AND REGEXP_CONTAINS(SIFT, 'deleterious')
+    GROUP BY
+      project_short_name,
+      case_barcode,
+      Hugo_Symbol )
+  --
+  --
+  SELECT
+    project_short_name,
+    COUNT(*) AS N_genes
+  FROM
+    firstMC3
+  GROUP BY
+    project_short_name
+  ORDER BY
+    N_genes DESC
+
+
+Wow! The very high mutation counts for SKCM (melanoma) and LUAD
+(lung adenocarcinoma) may not be surprising, but the high mutation
+rate in endometial cancer (UCEC) may be less well known.
+
+
+===  ==================  =======
+Row  project_short_name  N_genes
+===  ==================  =======
+1       TCGA-UCEC         156877
+2       TCGA-SKCM         112324
+3       TCGA-LUAD          53119
+4       TCGA-COAD          51072
+5       TCGA-LUSC          44260
+6       TCGA-STAD          44229
+.       .........          .....
+===  ==================  =======
+
+
+------------------
+
+OK, let's compute a Jaccard index across all samples in a few selected tumor-specific projects.
+Look for how the 'array' gets used.
+
+.. code-block:: sql
+
+  WITH
+    -- first we're going to extract just the project names, cases, and gene symbols,
+    -- using the "GROUP BY" to make sure we only count one mutation per gene per case
+    --
+    -- we'll also exclude some of the very frequently mutated tumor-types from this
+    -- analysis, though it would be interesting to leave them in too
+    firstMC3 AS (
+    SELECT
+      project_short_name,
+      case_barcode,
+      Hugo_Symbol
+    FROM
+      `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
+    WHERE
+      Variant_Type = 'SNP'
+      AND Consequence = 'missense_variant'
+      AND biotype = 'protein_coding'
+      AND REGEXP_CONTAINS(PolyPhen, 'damaging')
+      AND REGEXP_CONTAINS(SIFT, 'deleterious')
+      AND project_short_name IN ('TCGA-PAAD', 'TCGA-GBM', 'TCGA-LGG')
+      -- We could remove the above line to compute using all samples,
+      -- but to speed things up, let's just look at 3 studies.
+    GROUP BY
+      project_short_name,
+      case_barcode,
+      Hugo_Symbol ),
+    -- next we transform resulting table using the ARRAY_AGG function
+    -- to create a list of mutated genes for each case
+    arrayMC3 AS (
+    SELECT
+      project_short_name,
+      case_barcode,
+      ARRAY_AGG(Hugo_Symbol) AS geneArray
+    FROM
+      firstMC3
+    GROUP BY
+      project_short_name,
+      case_barcode ),
+    -- now we can do some "set operations" on these gene-lists:  a self-join
+    -- of the previously created table with itself will allow for a pairwise
+    -- pairwise comparison (notice the inequality in the JOIN ... ON clause)
+    setOpsTable AS (
+    SELECT
+      a.case_barcode AS case1,
+      a.project_short_name AS study1,
+      ARRAY_LENGTH(a.geneArray) AS length1,
+      b.case_barcode AS case2,
+      b.project_short_name AS study2,
+      ARRAY_LENGTH(b.geneArray) AS length2,
+      (
+      SELECT
+        COUNT(1)
+      FROM
+        UNNEST(a.geneArray) AS ga
+      JOIN
+        UNNEST(b.geneArray) AS gb
+      ON
+        ga = gb) AS gene_intersection,
+      (
+      SELECT
+        COUNT(DISTINCT gx)
+      FROM
+        UNNEST(ARRAY_CONCAT(a.geneArray,b.geneArray)) AS gx) AS gene_union
+    FROM
+      arrayMC3 AS a
+    JOIN
+      arrayMC3 AS b
+    ON
+      a.case_barcode < b.case_barcode )
+    -- and finally, we can compute the Jaccard index, and
+    -- do a little bit of filtering and then output a list of
+    -- pairs, sorted based on the Jaccard index:
+  SELECT
+    case1,
+    study1,
+    length1 AS geneCount1,
+    case2,
+    study2,
+    case2 AS geneCount2,
+    gene_intersection,
+    gene_union,
+    (gene_intersection / gene_union) AS jaccard_index
+  FROM
+    setOpsTable
+  WHERE
+    (gene_intersection / gene_union) > 0.1
+    AND gene_intersection > 10
+  ORDER BY
+    jaccard_index DESC
+
+
+------------
+
+.. figure:: query_figs/april_table1.png
+   :scale: 50
+   :align: center
+
+-------------
+
+------------
+
+.. figure:: query_figs/april_plot2.png
+   :scale: 25
+   :align: center
+
+   Fig1. Each dot represents a pair of cases and the associated Jaccard index.  The blue points show the pairs that involve the case TCGA-06-5416.
+
+-------------
+
+Those unions look high to me.  Let's double check them.
+
+.. code-block:: sql
+
+  --
+  --
+  WITH
+    g1 AS (
+    SELECT
+      Hugo_Symbol
+    FROM
+      `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
+    WHERE
+      Variant_Type = 'SNP'
+      AND Consequence = 'missense_variant'
+      AND biotype = 'protein_coding'
+      AND swissprot != 'null'
+      AND REGEXP_CONTAINS(PolyPhen, 'damaging')
+      AND REGEXP_CONTAINS(SIFT, 'deleterious')
+      AND Tumor_Sample_Barcode = 'TCGA-06-5416-01A-01D-1486-08'
+    GROUP BY
+      Hugo_Symbol),
+  --
+  --
+  --
+    g2 AS (
+    SELECT
+      Hugo_Symbol
+    FROM
+      `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
+    WHERE
+      Variant_Type = 'SNP'
+      AND Consequence = 'missense_variant'
+      AND biotype = 'protein_coding'
+      AND swissprot != 'null'
+      AND REGEXP_CONTAINS(PolyPhen, 'damaging')
+      AND REGEXP_CONTAINS(SIFT, 'deleterious')
+      AND Tumor_Sample_Barcode = 'TCGA-IB-7651-01A-11D-2154-08'
+    GROUP BY
+      Hugo_Symbol)
+  --
+  -- First the intersection
+  --
+  SELECT
+    count( distinct a.Hugo_Symbol )
+  FROM
+    g1 AS a
+  JOIN
+    g2 AS b
+  ON
+    a.Hugo_Symbol = b.Hugo_Symbol
+
+    --
+    -- Then the union.
+    --
+  SELECT
+    count( distinct Hugo_Symbol )
+  FROM
+    (select * from  g1
+       union all
+     select * from g2)
+  --
+  -- And we get 1180 for the intersection and 6289 for the union, which is what
+  -- we were expecting given the first row in the above results.
+  --
+
+------------------
+
+------------------
+
+
+Next we'll turn our attention to the COSMIC catalog. We will select a single
+sample, and perform the same Jaccard index across all samples in COSMIC
+(removing TCGA samples in COSMIC), and see what comes up.  The sample I selected
+comes from the COAD study (Colon Adenocarcinoma).
+
+Similar to the MC3 table, variant have different annotations. Let's take
+a look at what types of variants are present.
+
+.. code-block:: sql
+
+  --
+  -- What kind of mutations are found in COSMIC?
+  --
+  SELECT
+    Mutation_Description,
+    count(1 )
+  FROM
+    `isb-cgc.COSMIC.grch37_v80`
+  group by
+    Mutation_Description
+
+
+===  ============================  =========
+Row  Mutation_Description            n
+===  ============================  =========
+1    Substitution - Missense       3115431
+2    Substitution - coding silent  1017162
+3    Substitution - Nonsense       204293
+4    Unknown                       167135
+5    Deletion - Frameshift         113237
+6    Insertion - Frameshift        51345
+7    Deletion - In frame           37833
+8    Insertion - In frame          24870
+9    Complex - deletion inframe    3212
+10   Nonstop extension             2751
+11   Whole gene deletion           2308
+===  ============================  =========
+
+So, like above, we will focus on the most common type of variant, the Missense.
+
+.. code-block:: sql
+
+  --
+  -- First we'll select a single TCGA sample, with filters similar to the above.
+  --
+  WITH
+  --
+  tcgaSample AS (
+  SELECT
+    Tumor_Sample_Barcode,
+    ARRAY_AGG(Hugo_Symbol) as geneArray
+  FROM
+    `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
+  WHERE
+    Tumor_Sample_Barcode = 'TCGA-CA-6718-01A-11D-1835-10'
+    AND Variant_Type = 'SNP'
+    AND Consequence = 'missense_variant'
+    AND biotype = 'protein_coding'
+    AND swissprot != 'null'
+    AND REGEXP_CONTAINS(PolyPhen, 'damaging')
+    AND REGEXP_CONTAINS(SIFT, 'deleterious')
+  GROUP BY
+    Tumor_Sample_Barcode),
+  --
+  -- Then we'll create a sub-table of COSMIC samples, sans TCGA.
+  --
+  cosmicSample AS (
+      select
+        Sample_name,
+        Primary_site,
+        Primary_histology,
+        Sample_source,
+        ARRAY_AGG(Gene_name) as geneArray
+      from
+        `isb-cgc.COSMIC.grch37_v80`
+      where
+        STARTS_WITH(Sample_name, "TCGA") = False
+        AND Mutation_Description = 'Substitution - Missense'
+      group by
+        Sample_name,
+        Primary_site,
+        Primary_histology,
+        Sample_source
+  ),
+  --
+  -- Next we can perform our set operations on the arrays.
+  --
+  setOpsTable AS (
+  SELECT
+    a.Tumor_Sample_Barcode AS tcgaSample,
+    b.Sample_name AS cosmicSample,
+    b.Primary_site,
+    b.Primary_histology,
+    b.Sample_source,
+    ARRAY_LENGTH(a.geneArray) AS length1,
+    ARRAY_LENGTH(b.geneArray) AS length2,
+    (SELECT COUNT(1) FROM UNNEST(a.geneArray) AS ga JOIN UNNEST(b.geneArray) AS gb ON ga = gb) AS gene_intersection,
+    (SELECT COUNT(DISTINCT gx) FROM UNNEST(ARRAY_CONCAT(a.geneArray,b.geneArray)) AS gx) AS gene_union
+    FROM tcgaSample AS a
+    JOIN cosmicSample AS b
+    ON
+    a.Tumor_Sample_Barcode < b.Sample_name
+  )
+  --
+  -- And build our final results.
+  --
+  SELECT
+    tcgaSample,
+    length1 AS geneCount1,
+    cosmicSample,
+    Primary_site,
+    Primary_histology,
+    Sample_source,
+    length2 AS geneCount2,
+    gene_intersection AS intersection,
+    gene_union,
+    (gene_intersection / gene_union) AS jaccard_index
+  FROM
+    setOpsTable
+  WHERE
+    (gene_intersection / gene_union) > 0.05
+    AND gene_intersection > 5
+    AND gene_union > 5
+  order by
+    jaccard_index DESC
+
+
+
+* TCGA sample is from COAD.
+
+------------
+
+.. figure:: query_figs/april_table2.png
+   :scale: 50
+   :align: center
+
+-------------
+
+
+Cool! Some of the COSMIC samples are close to the COAD tissue type! Looks like
+there's some noise, but overall the mutation signature may be useful.
+
+Thanks for joining us this month!
+
+
+------------------
+
 March, 2017
 ###########
 
@@ -25,7 +490,7 @@ and STAD cohorts, along with a list of the top 50 most variable miRNAs.
 Then we'll compute a pairwise distance metric on samples. The distance will
 be based on Spearman's correlation.
 
-As usual, we are going to use using standard SQL, so make sure to select that
+As usual, we are going to be using standard SQL, so make sure to select that
 option.
 
 .. code-block:: sql
