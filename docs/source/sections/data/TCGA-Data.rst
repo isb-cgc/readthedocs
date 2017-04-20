@@ -10,7 +10,7 @@ Storage (GCS_) and in BigQuery_.
 .. _BigQuery: https://cloud.google.com/bigquery/
 
 The ISB-CGC platform is one of NCI's 
-`Cancer Genomics Cloud Pilots <https://cbiit.nci.nih.gov/ncip/nci-cancer-genomics-cloud-pilots>`_ 
+`Cancer Genomics Cloud Pilots <https://cbiit.nci.nih.gov/ncip/nci-cancer-genomics-cloud-pilots/nci-cloud-initiative>`_ 
 and our mission is to host the TCGA data in the cloud so that researchers around the world 
 may work with the data without needing 
 to download and store the data at their own local institutions.
