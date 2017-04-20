@@ -197,20 +197,8 @@ Look for how the 'array' gets used.
       b.case_barcode AS case2,
       b.project_short_name AS study2,
       ARRAY_LENGTH(b.geneArray) AS length2,
-      (
-      SELECT
-        COUNT(1)
-      FROM
-        UNNEST(a.geneArray) AS ga
-      JOIN
-        UNNEST(b.geneArray) AS gb
-      ON
-        ga = gb) AS gene_intersection,
-      (
-      SELECT
-        COUNT(DISTINCT gx)
-      FROM
-        UNNEST(ARRAY_CONCAT(a.geneArray,b.geneArray)) AS gx) AS gene_union
+      (SELECT COUNT(1) FROM UNNEST(a.geneArray) AS ga JOIN UNNEST(b.geneArray) AS gb ON ga = gb) AS gene_intersection,
+      (SELECT COUNT(DISTINCT gx) FROM UNNEST(ARRAY_CONCAT(a.geneArray,b.geneArray)) AS gx) AS gene_union
     FROM
       arrayMC3 AS a
     JOIN
@@ -380,7 +368,7 @@ So, like above, we will focus on the most common type of variant, the Missense.
   FROM
     `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
   WHERE
-    sample_barcode_tumor = 'TCGA-CA-6718-01A-11D-1835-10'
+    sample_barcode_tumor = 'TCGA-CA-6718-01A'
     AND Variant_Type = 'SNP'
     AND Consequence = 'missense_variant'
     AND biotype = 'protein_coding'
@@ -446,7 +434,7 @@ So, like above, we will focus on the most common type of variant, the Missense.
   FROM
     setOpsTable
   WHERE
-    (gene_intersection / gene_union) > 0.05
+    (gene_intersection / gene_union) > 0.00
     AND gene_intersection > 5
     AND gene_union > 5
   order by
