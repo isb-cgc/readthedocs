@@ -16,7 +16,7 @@ centers (*eg* the TCGA-DCC and CGHub), is available in the
 `"harmonized" <https://gdc.cancer.gov/about-data/gdc-data-harmonization>`_ 
 data set (re-aligned to GRCh38/hg38 and re-processed by the GDC) is available
 at the main `Data Portal <https://portal.gdc.cancer.gov/>`_.  (We will generally
-refer to the harmonized/default archive available fromthe main GDC Data Portal
+refer to the harmonized/default archive available from the main GDC Data Portal
 as the "current" archive.)
 
 The ISB-CGC is hosting much of this data (both "legacy" and "harmonized" in

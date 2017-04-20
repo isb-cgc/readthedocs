@@ -65,17 +65,17 @@ First, lets see what kind of "consequences" are present in this table:
 ===  ==================================  =======
 Row          Consequence                    n
 ===  ==================================  =======
-1    missense_variant                    1921717
-2    synonymous_variant                  781567
+1    missense_variant                    1921705
+2    synonymous_variant                  781564
 3    3_prime_UTR_variant                 253582
-4    stop_gained                         156769
+4    stop_gained                         156768
 5    intron_variant                      86347
-6    5_prime_UTR_variant                 77070
+6    5_prime_UTR_variant                 77069
 7    non_coding_transcript_exon_variant  46761
 8    splice_acceptor_variant             29658
 9    downstream_gene_variant             19048
-10   splice_donor_variant                18240
-11   splice_region_variant               15232
+10   splice_donor_variant                18239
+11   splice_region_variant               15231
 12   upstream_gene_variant               14990
 13   start_lost                          2718
 14   stop_lost                           2038
@@ -264,7 +264,7 @@ Those unions look high to me.  Let's double check them.
       AND biotype = 'protein_coding'
       AND REGEXP_CONTAINS(PolyPhen, 'damaging')
       AND REGEXP_CONTAINS(SIFT, 'deleterious')
-      AND sample_barcode_tumor = 'TCGA-06-5416-01A-01D-1486-08'
+      AND case_barcode = 'TCGA-06-5416'
     GROUP BY
       Hugo_Symbol),
   --
@@ -281,7 +281,7 @@ Those unions look high to me.  Let's double check them.
       AND biotype = 'protein_coding'
       AND REGEXP_CONTAINS(PolyPhen, 'damaging')
       AND REGEXP_CONTAINS(SIFT, 'deleterious')
-      AND sample_barcode_tumor = 'TCGA-IB-7651-01A-11D-2154-08'
+      AND case_barcode = 'TCGA-IB-7651'
     GROUP BY
       Hugo_Symbol)
   --
@@ -310,6 +310,9 @@ Those unions look high to me.  Let's double check them.
   --
 
 
+The above query should return 1180 (intersection) and 6289 (union), which is
+what we were expecting given the first row in the previous set of results.
+
 Next we'll turn our attention to the COSMIC catalog. We will select a single
 sample, and perform the same Jaccard index across all samples in COSMIC
 (removing TCGA samples in COSMIC), and see what comes up.
@@ -326,11 +329,12 @@ Let's take a look at what types of variants are present.
   --
   SELECT
     Mutation_Description,
-    count(1 )
+    count(1) AS n
   FROM
     `isb-cgc.COSMIC.grch37_v80`
-  group by
+  GROUP BY
     Mutation_Description
+  ORDER BY n DESC
 
 
 ===  ============================  =========
@@ -346,7 +350,7 @@ Row  Mutation_Description            n
 8    Insertion - In frame          24870
 9    Complex - deletion inframe    3212
 10   Nonstop extension             2751
-11   Whole gene deletion           2308
+...  ...                           ...
 ===  ============================  =========
 
 So, like above, we will focus on the most common type of variant, the Missense.

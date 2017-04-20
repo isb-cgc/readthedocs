@@ -10,7 +10,7 @@ has invested in the production and analysis of several large datasets.
 The ISB-CGC platform is funded by NCI in an effort to make these
 data more accessible and usable.
 
-The initial goal of the `ISB-CGC <https://www.isb-cgc.org>`_ was
+The initial goal of the `ISB-CGC <http://www.isb-cgc.org>`_ was
 to host the data produced by `The Cancer Genome Atlas <https://cancergenome.nih.gov/abouttcga>`_ program.
 We are now expanding to host data from `TARGET <https://ocg.cancer.gov/programs/target>`_ 
 (a pediatric cancer program), and will in
