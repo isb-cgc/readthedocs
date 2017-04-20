@@ -284,6 +284,7 @@ Those unions look high to me.  Let's double check them.
       AND case_barcode = 'TCGA-IB-7651'
     GROUP BY
       Hugo_Symbol)
+
   --
   -- First the intersection
   --
@@ -295,6 +296,9 @@ Those unions look high to me.  Let's double check them.
     g2 AS b
   ON
     a.Hugo_Symbol = b.Hugo_Symbol
+
+  UNION ALL
+
   --
   -- Then the union.
   --
@@ -304,13 +308,8 @@ Those unions look high to me.  Let's double check them.
     (select * from  g1
        union all
      select * from g2)
-  --
-  -- And we get 1216 for the intersection and 6460 for the union, which is what
-  -- we were expecting given the first row in the above results.
-  --
 
-
-The above query should return 1180 (intersection) and 6289 (union), which is
+The above query returns 1216 (intersection) and 6460 (union), which is
 what we were expecting given the first row in the previous set of results.
 
 Next we'll turn our attention to the COSMIC catalog. We will select a single
@@ -442,8 +441,7 @@ So, like above, we will focus on the most common type of variant, the Missense.
     jaccard_index DESC
 
 
-
-* TCGA sample is from COAD.
+Recall that the TCGA-CA-6718-01A sample is from the COAD (colon adenocarcinoma) TCGA project.
 
 ------------
 
