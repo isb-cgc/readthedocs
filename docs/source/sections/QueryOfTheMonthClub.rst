@@ -239,7 +239,7 @@ Look for how the 'array' gets used.
     jaccard_index DESC
 
 
-The top 5 results from the above query surprisingly find the highest similarity 
+The top 5 results from the above query surprisingly find the highest similarity
 between a GBM (glioblastoma) sample and PAAD (pancreatic adenocarcinoma) sample.
 The net highest similarity is between a LGG (lower-grade glioma) sample and the
 same PAAD sample.  (Recall that our query above had, somewhat randomly, chosen
@@ -277,7 +277,7 @@ Those unions look high to me.  Let's double check them.
       AND swissprot != 'null'
       AND REGEXP_CONTAINS(PolyPhen, 'damaging')
       AND REGEXP_CONTAINS(SIFT, 'deleterious')
-      AND Tumor_Sample_Barcode = 'TCGA-06-5416-01A-01D-1486-08'
+      AND sample_barcode_tumor = 'TCGA-06-5416-01A-01D-1486-08'
     GROUP BY
       Hugo_Symbol),
   --
@@ -295,7 +295,7 @@ Those unions look high to me.  Let's double check them.
       AND swissprot != 'null'
       AND REGEXP_CONTAINS(PolyPhen, 'damaging')
       AND REGEXP_CONTAINS(SIFT, 'deleterious')
-      AND Tumor_Sample_Barcode = 'TCGA-IB-7651-01A-11D-2154-08'
+      AND sample_barcode_tumor = 'TCGA-IB-7651-01A-11D-2154-08'
     GROUP BY
       Hugo_Symbol)
   --
@@ -327,8 +327,8 @@ Those unions look high to me.  Let's double check them.
 
 Next we'll turn our attention to the COSMIC catalog. We will select a single
 sample, and perform the same Jaccard index across all samples in COSMIC
-(removing TCGA samples in COSMIC), and see what comes up.  
-The sample we've selected for this next analysis is from the COAD project 
+(removing TCGA samples in COSMIC), and see what comes up.
+The sample we've selected for this next analysis is from the COAD project
 (Colon Adenocarcinoma).
 
 Similar to the MC3 table, variants in COSMIC have been annotated.
@@ -375,12 +375,12 @@ So, like above, we will focus on the most common type of variant, the Missense.
   --
   tcgaSample AS (
   SELECT
-    Tumor_Sample_Barcode,
+    sample_barcode_tumor,
     ARRAY_AGG(Hugo_Symbol) as geneArray
   FROM
     `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
   WHERE
-    Tumor_Sample_Barcode = 'TCGA-CA-6718-01A-11D-1835-10'
+    sample_barcode_tumor = 'TCGA-CA-6718-01A-11D-1835-10'
     AND Variant_Type = 'SNP'
     AND Consequence = 'missense_variant'
     AND biotype = 'protein_coding'
@@ -388,7 +388,7 @@ So, like above, we will focus on the most common type of variant, the Missense.
     AND REGEXP_CONTAINS(PolyPhen, 'damaging')
     AND REGEXP_CONTAINS(SIFT, 'deleterious')
   GROUP BY
-    Tumor_Sample_Barcode),
+    sample_barcode_tumor),
   --
   -- Then we'll create a sub-table of COSMIC samples, sans TCGA.
   --
@@ -415,7 +415,7 @@ So, like above, we will focus on the most common type of variant, the Missense.
   --
   setOpsTable AS (
   SELECT
-    a.Tumor_Sample_Barcode AS tcgaSample,
+    a.sample_barcode_tumor AS tcgaSample,
     b.Sample_name AS cosmicSample,
     b.Primary_site,
     b.Primary_histology,
@@ -427,7 +427,7 @@ So, like above, we will focus on the most common type of variant, the Missense.
     FROM tcgaSample AS a
     JOIN cosmicSample AS b
     ON
-    a.Tumor_Sample_Barcode < b.Sample_name
+    a.sample_barcode_tumor < b.Sample_name
   )
   --
   -- And build our final results.
