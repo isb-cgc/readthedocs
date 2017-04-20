@@ -9,7 +9,1087 @@ BigData from the TCGA and BigQuery from Google.
 Please let us know if you'd like to be featured on the "query-club"!
 email: dgibbs (at) systemsbiology (dot) org
 
+
 ------------------
+
+April, 2017
+###########
+
+In this month's query, we are going to look at two new data sources. The first
+is the MC3 somatic mutation table, and the second is the
+`COSMIC mutation database <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/COSMIC.html>`_.
+The objective is to compute a similarity metric based on
+overlapping mutations between samples. First we'll look at pairwise similarity
+among TCGA samples, and then we'll pick a single TCGA sample and search for a
+matching COSMIC sample.
+
+The MC3 table comes from the TCGA Pan-Cancer effort, a multi-center project aiming
+to analyze all 33 TCGA tumor-types together. This somatic mutation calls table is
+based on the unified call set recently published by the TCGA Network.
+(For more details or the original source file, please
+`check Synapse <https://www.synapse.org/#!Synapse:syn7214402/wiki/405297>`_.)
+
+The COSMIC
+(`Catalogue Of Somatic Mutations In Cancer <http://cancer.sanger.ac.uk/cosmic>`_)
+data comes from the Wellcome Trust Sanger Institue and represents the
+*"the world's largest and most comprehensive resource for exploring the impact of somatic mutations in human cancer"*.
+
+To compute a similarity score between any two samples, we'll use the
+Jaccard index, in which the intersection is divided by the union, so that
+samples with no overlap in mutations will have a Jaccard index of 0, while
+samples with some overlap will have a Jaccard index between 0 and 1.
+
+We'll start with the MC3 table -- which includes the predicted effect
+of each mutation call.  The mutation might result in a
+change in the amino acid sequence (non-synonomous), or introduce a new stop
+codon (stop insert), or no amino-acid change (synonomous). In this work
+we're going to focus on single nucleotide polymorphisms (SNPs).
+
+First, lets see what kind of "consequences" are present in this table:
+
+.. code-block:: sql
+
+  SELECT
+    Consequence,
+    count (1) AS n
+  FROM
+    `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
+  WHERE
+    Variant_Type = 'SNP'
+  GROUP BY
+    Consequence
+  ORDER BY
+    n DESC
+
+
+===  ==================================  =======
+Row          Consequence                    n
+===  ==================================  =======
+1    missense_variant                    1921717
+2    synonymous_variant                  781567
+3    3_prime_UTR_variant                 253582
+4    stop_gained                         156769
+5    intron_variant                      86347
+6    5_prime_UTR_variant                 77070
+7    non_coding_transcript_exon_variant  46761
+8    splice_acceptor_variant             29658
+9    downstream_gene_variant             19048
+10   splice_donor_variant                18240
+11   splice_region_variant               15232
+12   upstream_gene_variant               14990
+13   start_lost                          2718
+14   stop_lost                           2038
+15   stop_retained_variant               1077
+===  ==================================  =======
+
+
+For the sake of simplicity, we're going to focus on the most common type of
+variant, the missense_variant which is more likely to have a functional impact
+through an alteration of the amino acid sequence.
+
+
+Another question we might ask is: how are variants distributed across the
+tumor types (aka "studies" or "projects" within TCGA).
+
+.. code-block:: sql
+
+  WITH
+    firstMC3 AS (
+    SELECT
+      project_short_name,
+      case_barcode,
+      Hugo_Symbol
+    FROM
+      `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
+    WHERE
+      Variant_Type = 'SNP'
+      AND Consequence = 'missense_variant'
+      AND biotype = 'protein_coding'
+      AND swissprot != 'null'
+      AND REGEXP_CONTAINS(PolyPhen, 'damaging')
+      AND REGEXP_CONTAINS(SIFT, 'deleterious')
+    GROUP BY
+      project_short_name,
+      case_barcode,
+      Hugo_Symbol )
+  --
+  --
+  SELECT
+    project_short_name,
+    COUNT(*) AS N_genes
+  FROM
+    firstMC3
+  GROUP BY
+    project_short_name
+  ORDER BY
+    N_genes DESC
+
+
+Wow! The very high mutation counts for SKCM (melanoma) and LUAD
+(lung adenocarcinoma) may not be surprising, but the high mutation
+rate in endometial cancer (UCEC) may be less well known.
+
+
+===  ==================  =======
+Row  project_short_name  N_genes
+===  ==================  =======
+1       TCGA-UCEC         156877
+2       TCGA-SKCM         112324
+3       TCGA-LUAD          53119
+4       TCGA-COAD          51072
+5       TCGA-LUSC          44260
+6       TCGA-STAD          44229
+.       .........          .....
+===  ==================  =======
+
+
+OK, let's compute a Jaccard index across all samples in a few selected tumor-specific projects.
+Look for how the 'array' gets used.
+
+.. code-block:: sql
+
+  WITH
+    -- first we're going to extract just the project names, cases, and gene symbols,
+    -- using the "GROUP BY" to make sure we only count one mutation per gene per case
+    --
+    -- we'll also exclude some of the very frequently mutated tumor-types from this
+    -- analysis, though it would be interesting to leave them in too
+    firstMC3 AS (
+    SELECT
+      project_short_name,
+      case_barcode,
+      Hugo_Symbol
+    FROM
+      `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
+    WHERE
+      Variant_Type = 'SNP'
+      AND Consequence = 'missense_variant'
+      AND biotype = 'protein_coding'
+      AND REGEXP_CONTAINS(PolyPhen, 'damaging')
+      AND REGEXP_CONTAINS(SIFT, 'deleterious')
+      AND project_short_name IN ('TCGA-PAAD', 'TCGA-GBM', 'TCGA-LGG')
+      -- We could remove the above line to compute using all samples,
+      -- but to speed things up, let's just look at 3 studies.
+    GROUP BY
+      project_short_name,
+      case_barcode,
+      Hugo_Symbol ),
+    -- next we transform resulting table using the ARRAY_AGG function
+    -- to create a list of mutated genes for each case
+    arrayMC3 AS (
+    SELECT
+      project_short_name,
+      case_barcode,
+      ARRAY_AGG(Hugo_Symbol) AS geneArray
+    FROM
+      firstMC3
+    GROUP BY
+      project_short_name,
+      case_barcode ),
+    -- now we can do some "set operations" on these gene-lists:  a self-join
+    -- of the previously created table with itself will allow for a pairwise
+    -- pairwise comparison (notice the inequality in the JOIN ... ON clause)
+    setOpsTable AS (
+    SELECT
+      a.case_barcode AS case1,
+      a.project_short_name AS study1,
+      ARRAY_LENGTH(a.geneArray) AS length1,
+      b.case_barcode AS case2,
+      b.project_short_name AS study2,
+      ARRAY_LENGTH(b.geneArray) AS length2,
+      (SELECT COUNT(1) FROM UNNEST(a.geneArray) AS ga JOIN UNNEST(b.geneArray) AS gb ON ga = gb) AS gene_intersection,
+      (SELECT COUNT(DISTINCT gx) FROM UNNEST(ARRAY_CONCAT(a.geneArray,b.geneArray)) AS gx) AS gene_union
+    FROM
+      arrayMC3 AS a
+    JOIN
+      arrayMC3 AS b
+    ON
+      a.case_barcode < b.case_barcode )
+    -- and finally, we can compute the Jaccard index, and
+    -- do a little bit of filtering and then output a list of
+    -- pairs, sorted based on the Jaccard index:
+  SELECT
+    case1,
+    study1,
+    length1 AS geneCount1,
+    case2,
+    study2,
+    case2 AS geneCount2,
+    gene_intersection,
+    gene_union,
+    (gene_intersection / gene_union) AS jaccard_index
+  FROM
+    setOpsTable
+  WHERE
+    (gene_intersection / gene_union) > 0.1
+    AND gene_intersection > 10
+  ORDER BY
+    jaccard_index DESC
+
+
+The top 5 results from the above query surprisingly find the highest similarity
+between a GBM (glioblastoma) sample and PAAD (pancreatic adenocarcinoma) sample.
+The net highest similarity is between a LGG (lower-grade glioma) sample and the
+same PAAD sample.  (Recall that our query above had, somewhat randomly, chosen
+only GBM, LGG, and PAAD tumor-specific projects.)
+
+
+.. figure:: query_figs/april_table1.png
+   :scale: 50
+   :align: center
+
+
+.. figure:: query_figs/april_plot2.png
+   :scale: 25
+   :align: center
+
+   Fig1. Each dot represents a pair of cases and the associated Jaccard index.  The blue points show the pairs that involve the GBM case TCGA-06-5416.
+
+
+Those unions look high to me.  Let's double check them.
+
+.. code-block:: sql
+
+  --
+  --
+  WITH
+    g1 AS (
+    SELECT
+      Hugo_Symbol
+    FROM
+      `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
+    WHERE
+      Variant_Type = 'SNP'
+      AND Consequence = 'missense_variant'
+      AND biotype = 'protein_coding'
+      AND swissprot != 'null'
+      AND REGEXP_CONTAINS(PolyPhen, 'damaging')
+      AND REGEXP_CONTAINS(SIFT, 'deleterious')
+      AND sample_barcode_tumor = 'TCGA-06-5416-01A-01D-1486-08'
+    GROUP BY
+      Hugo_Symbol),
+  --
+  --
+  --
+    g2 AS (
+    SELECT
+      Hugo_Symbol
+    FROM
+      `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
+    WHERE
+      Variant_Type = 'SNP'
+      AND Consequence = 'missense_variant'
+      AND biotype = 'protein_coding'
+      AND swissprot != 'null'
+      AND REGEXP_CONTAINS(PolyPhen, 'damaging')
+      AND REGEXP_CONTAINS(SIFT, 'deleterious')
+      AND sample_barcode_tumor = 'TCGA-IB-7651-01A-11D-2154-08'
+    GROUP BY
+      Hugo_Symbol)
+  --
+  -- First the intersection
+  --
+  SELECT
+    count( distinct a.Hugo_Symbol )
+  FROM
+    g1 AS a
+  JOIN
+    g2 AS b
+  ON
+    a.Hugo_Symbol = b.Hugo_Symbol
+
+    --
+    -- Then the union.
+    --
+  SELECT
+    count( distinct Hugo_Symbol )
+  FROM
+    (select * from  g1
+       union all
+     select * from g2)
+  --
+  -- And we get 1180 for the intersection and 6289 for the union, which is what
+  -- we were expecting given the first row in the above results.
+  --
+
+
+Next we'll turn our attention to the COSMIC catalog. We will select a single
+sample, and perform the same Jaccard index across all samples in COSMIC
+(removing TCGA samples in COSMIC), and see what comes up.
+The sample we've selected for this next analysis is from the COAD project
+(Colon Adenocarcinoma).
+
+Similar to the MC3 table, variants in COSMIC have been annotated.
+Let's take a look at what types of variants are present.
+
+.. code-block:: sql
+
+  --
+  -- What kind of mutations are found in COSMIC?
+  --
+  SELECT
+    Mutation_Description,
+    count(1 )
+  FROM
+    `isb-cgc.COSMIC.grch37_v80`
+  group by
+    Mutation_Description
+
+
+===  ============================  =========
+Row  Mutation_Description            n
+===  ============================  =========
+1    Substitution - Missense       3115431
+2    Substitution - coding silent  1017162
+3    Substitution - Nonsense       204293
+4    Unknown                       167135
+5    Deletion - Frameshift         113237
+6    Insertion - Frameshift        51345
+7    Deletion - In frame           37833
+8    Insertion - In frame          24870
+9    Complex - deletion inframe    3212
+10   Nonstop extension             2751
+11   Whole gene deletion           2308
+===  ============================  =========
+
+So, like above, we will focus on the most common type of variant, the Missense.
+
+.. code-block:: sql
+
+  --
+  -- First we'll select a single TCGA sample, with filters similar to the above.
+  --
+  WITH
+  --
+  tcgaSample AS (
+  SELECT
+    sample_barcode_tumor,
+    ARRAY_AGG(Hugo_Symbol) as geneArray
+  FROM
+    `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
+  WHERE
+    sample_barcode_tumor = 'TCGA-CA-6718-01A'
+    AND Variant_Type = 'SNP'
+    AND Consequence = 'missense_variant'
+    AND biotype = 'protein_coding'
+    AND swissprot != 'null'
+    AND REGEXP_CONTAINS(PolyPhen, 'damaging')
+    AND REGEXP_CONTAINS(SIFT, 'deleterious')
+  GROUP BY
+    sample_barcode_tumor),
+  --
+  -- Then we'll create a sub-table of COSMIC samples, sans TCGA.
+  --
+  cosmicSample AS (
+      select
+        Sample_name,
+        Primary_site,
+        Primary_histology,
+        Sample_source,
+        ARRAY_AGG(Gene_name) as geneArray
+      from
+        `isb-cgc.COSMIC.grch37_v80`
+      where
+        STARTS_WITH(Sample_name, "TCGA") = False
+        AND Mutation_Description = 'Substitution - Missense'
+      group by
+        Sample_name,
+        Primary_site,
+        Primary_histology,
+        Sample_source
+  ),
+  --
+  -- Next we can perform our set operations on the arrays.
+  --
+  setOpsTable AS (
+  SELECT
+    a.sample_barcode_tumor AS tcgaSample,
+    b.Sample_name AS cosmicSample,
+    b.Primary_site,
+    b.Primary_histology,
+    b.Sample_source,
+    ARRAY_LENGTH(a.geneArray) AS length1,
+    ARRAY_LENGTH(b.geneArray) AS length2,
+    (SELECT COUNT(1) FROM UNNEST(a.geneArray) AS ga JOIN UNNEST(b.geneArray) AS gb ON ga = gb) AS gene_intersection,
+    (SELECT COUNT(DISTINCT gx) FROM UNNEST(ARRAY_CONCAT(a.geneArray,b.geneArray)) AS gx) AS gene_union
+    FROM tcgaSample AS a
+    JOIN cosmicSample AS b
+    ON
+    a.sample_barcode_tumor < b.Sample_name
+  )
+  --
+  -- And build our final results.
+  --
+  SELECT
+    tcgaSample,
+    length1 AS geneCount1,
+    cosmicSample,
+    Primary_site,
+    Primary_histology,
+    Sample_source,
+    length2 AS geneCount2,
+    gene_intersection AS intersection,
+    gene_union,
+    (gene_intersection / gene_union) AS jaccard_index
+  FROM
+    setOpsTable
+  WHERE
+    (gene_intersection / gene_union) > 0.00
+    AND gene_intersection > 5
+    AND gene_union > 5
+  order by
+    jaccard_index DESC
+
+
+
+* TCGA sample is from COAD.
+
+------------
+
+.. figure:: query_figs/april_table2.png
+   :scale: 50
+   :align: center
+
+-------------
+
+
+Cool! Some of the COSMIC samples are close to the COAD tissue type! Looks like
+there's some noise, but overall the mutation signature may be useful.
+
+Thanks for joining us this month!
+
+
+------------------
+
+March, 2017
+###########
+
+This month we're going to compute a pairwise distance matrix and visualize
+it using a heatmap in R. Many methods, such as clustering, depend on having a
+distance matrix, and although I would not recommend using BigQuery to download
+large tables, this works well for smaller feature sets (10s-100s).
+
+In this example, we will be selecting primary tumor samples from both BRCA
+and STAD cohorts, along with a list of the top 50 most variable miRNAs.
+Then we'll compute a pairwise distance metric on samples. The distance will
+be based on Spearman's correlation.
+
+As usual, we are going to be using standard SQL, so make sure to select that
+option.
+
+.. code-block:: sql
+
+  WITH
+    --
+    -- *sample_lists*
+    -- First, start by defining the list of BRCA TP samples.
+    -- (TP == tumor, primary)
+    --
+    brca_sample_list AS (
+    SELECT
+      SampleBarcode
+    FROM
+      `isb-cgc.tcga_201607_beta.Biospecimen_data`
+    WHERE
+      SampleTypeLetterCode='TP'
+      AND Study='BRCA'
+    LIMIT
+      50),
+    --
+    -- Then let's create a list of STAD samples.
+    --
+    stad_sample_list AS (
+    SELECT
+      SampleBarcode
+    FROM
+      `isb-cgc.tcga_201607_beta.Biospecimen_data`
+    WHERE
+      SampleTypeLetterCode='TP'
+      AND Study='STAD'
+    LIMIT
+      50),
+    --
+    -- Now, we are going to merge the two sample tables using a UNION ALL.
+    --
+    sample_list AS (
+    select * from stad_sample_list
+    UNION ALL
+    select * from brca_sample_list
+    ),
+    --
+    -- *miRNA_list*
+    -- Next, we define the miRNAs of interest. We order the miRNAs by standard
+    -- deviation, then take the top 50. Notice we select value from the
+    -- subset defined above.
+    --
+    miRNA_list AS (
+    SELECT
+      mirna_accession,
+      STDDEV(normalized_count) AS sigma_count
+    FROM
+      `isb-cgc.tcga_201607_beta.miRNA_Expression`
+    WHERE
+      SampleBarcode IN (
+      SELECT
+        SampleBarcode
+      FROM
+        sample_list )
+    GROUP BY
+      mirna_accession
+    ORDER BY
+      sigma_count DESC
+    LIMIT
+      50 ),
+    --
+    -- *miRNA_data*
+    -- Now that we have the sample_list and the mirna_list, we can select our
+    -- data of interest from the larger miRNA_Expression table.
+    --
+    miRNA_data AS (
+    SELECT
+      SampleBarcode,
+      Study,
+      mirna_id,
+      mirna_accession,
+      LOG10(normalized_count+1) AS log10_count
+    FROM
+      `isb-cgc.tcga_201607_beta.miRNA_Expression`
+    WHERE
+      SampleBarcode IN (
+      SELECT
+        SampleBarcode
+      FROM
+        sample_list )
+      AND mirna_accession IN (
+      SELECT
+        mirna_accession
+      FROM
+        miRNA_list ) ),
+    --
+    -- *pairs*
+    -- Now, we JOIN the miRNA_data matrix with *itself*, creating all possible pairs of samples
+    -- (excluding self-comparisons which are unnecessary) combined with a dense-ranking of
+    -- the miRNA expression values. By computing the Pearson correlation on ranks, we
+    -- end up with Spearman's correlation!
+    --
+    pairs AS (
+    SELECT
+      lhs.mirna_id,
+      lhs.mirna_accession,
+      lhs.SampleBarcode AS SampleA,
+      rhs.SampleBarcode AS SampleB,
+      lhs.Study AS StudyA,
+      rhs.Study as StudyB,
+      DENSE_RANK() OVER (PARTITION BY lhs.mirna_accession ORDER BY lhs.log10_count ASC) AS ExpA,
+      DENSE_RANK() OVER (PARTITION BY rhs.mirna_accession ORDER BY rhs.log10_count ASC) AS ExpB
+    FROM
+      miRNA_data AS lhs
+    JOIN
+      miRNA_data AS rhs
+    ON
+      lhs.mirna_accession=rhs.mirna_accession
+      AND lhs.SampleBarcode < rhs.SampleBarcode )
+    --
+    -- **Finally**, we compute the pairwise distance between each pair of samples.
+    --
+  SELECT
+    SampleA,
+    SampleB,
+    StudyA,
+    StudyB,
+    COUNT(mirna_accession) AS numObs,
+    (1.-CORR(ExpA, ExpB))  AS sampleDistance
+  FROM
+    pairs
+  GROUP BY
+    SampleA,StudyA,
+    SampleB,StudyB
+  ORDER BY
+    sampleDistance ASC
+
+
+Now, let's see that distance matrix in R!
+
+.. code-block:: R
+
+  library(bigrquery) # make sure it's a recent version with the useLegacySql param!#
+
+  q <- "The Query From Above"
+
+  corrs <- query_exec(q, project="YOUR PROJECT ID", useLegacySql=F)
+
+  # Use bigrquery to get the results or export the results to cloud storage and
+  # download them like so.
+  # gcs_url <- "gs://MY-BUCKET/MY-FILE.csv"
+  # corrs <- read.csv(pipe(sprintf("gsutil cat %s", gcs_url)))
+
+  library(dplyr)
+  library(ggplot2)
+  library(pheatmap)
+
+  mat <- xtabs(sampleDistance~SampleA+SampleB, data=corrs)
+  # or tidyr::spread(data=corrs, key=SampleA, value=sampleDistance, fill=0)
+
+  dim(mat) # 99 x 99
+
+  # Make the matrix symmetric.
+  mat2 <- mat + t(mat)
+
+  # Let's make an annotation matrix for cancer type
+  studyMat <- unique(corrs[,c("StudyA", "SampleA")])
+  studyMat$color <- ifelse(studyMat$Study == "BRCA", "blue", "red")
+  rownames(studyMat) <- studyMat$SampleA
+
+  # We can show the distances between samples as a dendrogram
+  # install.packages("dendextend")
+  library(dendextend)
+  hc <- hclust(as.dist(mat2), method="ward.D2")
+  dend <- as.dendrogram(hc)
+  labels_colors(dend) <- studyMat[labels(dend), "color"]
+  dend <- set(dend, "labels_cex", 0.5)
+
+  ## Fig1 ##
+  plot(dend, main="BRCA in clue and STAD in red")
+
+  # If we want to make two groups, then we cut the dendrogram
+  # leaving two branches.
+  cas <- cutree(tree=hc, k=2)
+
+  # Then we can use our cluster labels to annotate the heatmap.
+  annotMat <- data.frame(cluster=cas)
+  annotMat$SampleID <- names(cas)
+  rownames(annotMat) <- names(cas)
+  annotMat <- merge(x=annotMat, by.x="SampleID", y=studyMat, by.y="SampleA")
+  rownames(annotMat) <- annotMat$SampleID
+
+  # And we can plot cluster assignments on a heatmap
+  # to see how hclust-default and pheatmap-defaults compare.
+
+  ## Fig2 ##
+  pheatmap(mat2, fontsize=6, annotation=annotMat[,-1])
+
+  # Or we can use the dendsort library (from pheatmap examples)
+  library(dendsort)
+  callback = function(hc, ...){dendsort(hc)}
+
+  ## Fig3 ##
+  pheatmap(mat2, fontsize=6, annotation=annotMat[,-1], clustering_callback = callback)
+
+  # Modify ordering of the clusters using clustering callback option
+  callback = function(hc, mat){
+      sv = svd(t(mat))$v[,1]
+      dend = reorder(as.dendrogram(hc), wts = sv)
+      as.hclust(dend)
+  }
+  ## Fig4 ##
+  pheatmap(mat2, clustering_callback = callback, annotation=annotMat[,-1],
+      fontsize_row=4, fontsize_col=4, border_color=NA)
+
+------------
+
+.. figure:: query_figs/brca_vs_stad_dendrogram.png
+   :scale: 25
+   :align: center
+
+   Fig1. Dendrogram showing the sample-wise relationships based on miRNA expression.
+
+-------------
+
+.. figure:: query_figs/brca_vs_stad_heatmap.png
+   :scale: 25
+   :align: center
+
+   Fig2. Heatmap of pairwise distances, using pheatmap default clustering.
+
+-------------
+
+.. figure:: query_figs/brca_vs_stad_heatmap_2.png
+   :scale: 25
+   :align: center
+
+   Fig3. Heatmap of pairwise distances, using the dendsort library.
+
+-------------
+
+.. figure:: query_figs/brca_vs_stad_heatmap_3.png
+   :scale: 25
+   :align: center
+
+   Fig4. Ordering the samples after singular value decomposition.
+
+-------------
+
+
+February, 2017
+##############
+
+
+This month, we explore user defined functions or UDFs. BigQuery allows
+you to define custom functions, things that you can't easily do in standard SQL, using JavaScript.
+These functions are defined as
+part of the SQL and then called within the query.
+
+UDFs take a set of parameters, and return a value. They are strongly typed functions,
+which means that we need to define the types of inputs and outputs. For example,
+we might have FLOAT64 and BOOL input types and return a STRING.
+See the official
+`Google documentation <https://cloud.google.com/bigquery/docs/reference/standard-sql/user-defined-functions>`_
+for the complete list of available types.  (Note in particular that there is
+no INT64 type, so you will need to use either FLOAT64 or STRING when
+working with integers, depending on your needs.)
+
+In our first example, we'll define two new functions. The first classifies a sample
+as having a higher expression value than a given input level. And second, a function
+that glues three strings together. Then, in the SQL query we call both functions.
+These initial queries will be starting points for a more complicated example below.
+
+These queries use *Standard* SQL, so if you're in the web interface,
+remember to open the options panel and uncheck the 'Use Legacy SQL' button.
+
+.. code-block:: sql
+
+  -- this next line tells BigQuery that a UDF is coming
+  CREATE TEMPORARY FUNCTION
+    -- followed by the function name and parameter names/types:
+    BiggerThan (x FLOAT64, y FLOAT64)
+    -- and then the return type
+    RETURNS BOOL
+    -- and the language
+    LANGUAGE js AS """
+      // careful to use this delimiter for comments inside the function
+      return (x > y);
+    """;
+
+  -- now let's create another function that takes 3 input strings
+  -- combines them, using underscores and returns a single string:
+  CREATE TEMPORARY FUNCTION
+    Combiner (x STRING, y STRING, z STRING)
+    RETURNS STRING
+    LANGUAGE js AS """
+      return (x + "_" + y + "_" + z);
+    """;
+
+  --
+  -- Now that we've defined our two UDFs, we can use them.
+  -- But first we're going to create an intermediate table
+  -- with the expression of ESR1 in the BRCA samples:
+  --
+  WITH
+    gene1 AS (
+    SELECT
+      AliquotBarcode AS barcode1,
+      Study AS study1,
+      SampleTypeLetterCode AS code1,
+      HGNC_gene_symbol AS gene_id1,
+      AVG(LOG(normalized_count+1, 2)) AS count1
+    FROM
+      `isb-cgc.tcga_201607_beta.mRNA_UNC_RSEM`
+    WHERE
+      Study = 'BRCA'
+      AND SampleTypeLetterCode = 'TP'
+      AND HGNC_gene_symbol = 'ESR1'
+      AND normalized_count >= 0
+    GROUP BY
+      AliquotBarcode,
+      gene_id1,
+      study1,
+      code1)
+
+  --
+  --
+  -- Now we can call our functions,
+  -- processing the subtable.
+  --
+  SELECT
+    Combiner(barcode1, study1, code1) AS cString,
+    BiggerThan(count1, 5.1) AS overExp
+  FROM
+    gene1
+
+OK, so that was just warm-up, and obviously what was being done with
+the UDFs could have been done in SQL as well.  But now we're going to
+do something a bit more complicated(!), and estimate cluster assignments
+using a K-means algorithm
+(`wikipedia <https://en.wikipedia.org/wiki/K-means_clustering>`_),
+implemented in JavaScript, as a UDF!
+
+We're going to try to cluster each BRCA sample based on the expression of
+two genes: ESR1 and EGFR.  This type of clustering is implemented as an iterative process
+that starts with two random cluster centers.  In each iteration, each sample is labeled
+according to the nearest cluster-center, and then we recompute the locations of the
+cluster centers.
+
+.. code-block:: sql
+
+  CREATE TEMPORARY FUNCTION
+
+    -- In this function, we're going to be working on arrays of values.
+    -- we're also going to define a set of functions 'inside' the kMeans.
+
+    -- *heavily borrowing from https://github.com/NathanEpstein/clusters* --
+
+    kMeans(x ARRAY<FLOAT64>,  -- ESR1 gene expression
+           y ARRAY<FLOAT64>,  -- EGFR gene expression
+           iterations FLOAT64,  -- the number of iterations
+           k FLOAT64)           -- the number of clusters
+
+    RETURNS ARRAY<FLOAT64>  -- returns the cluster assignments
+
+    LANGUAGE js AS """
+    'use strict'
+
+
+    function sumOfSquareDiffs(oneVector, anotherVector) {
+      // the sum of squares error //
+      var squareDiffs = oneVector.map(function(component, i) {
+        return Math.pow(component - anotherVector[i], 2);
+      });
+      return squareDiffs.reduce(function(a, b) { return a + b }, 0);
+    };
+
+  function mindex(array) {
+    // returns the index to the minimum value in the array
+    var min = array.reduce(function(a, b) {
+      return Math.min(a, b);
+    });
+    return array.indexOf(min);
+  };
+
+  function sumVectors(a, b) {
+    // The map function gets used frequently in JavaScript
+    return a.map(function(val, i) { return val + b[i] });
+  };
+
+  function averageLocation(points) {
+    // Take all the points assigned to a cluster
+    // and find the averge center point.
+    // This gets used to update the cluster centroids.
+    var zeroVector = points[0].location.map(function() { return 0 });
+    var locations = points.map(function(point) { return point.location });
+    var vectorSum = locations.reduce(function(a, b) { return sumVectors(a, b) }, zeroVector);
+    return vectorSum.map(function(val) { return val / points.length });
+  };
+
+  function Point(location) {
+    // A point object, each sample is represented as a point //
+    var self = this;
+    this.location = location;
+    this.label = 1;
+    this.updateLabel = function(centroids) {
+      var distancesSquared = centroids.map(function(centroid) {
+        return sumOfSquareDiffs(self.location, centroid.location);
+      });
+      self.label = mindex(distancesSquared);
+    };
+  };
+
+
+  function Centroid(initialLocation, label) {
+    // The cluster centroids //
+    var self = this;
+    this.location = initialLocation;
+    this.label = label;
+    this.updateLocation = function(points) {
+      var pointsWithThisCentroid = points.filter(function(point) { return point.label == self.label });
+      if (pointsWithThisCentroid.length > 0) {
+        self.location = averageLocation(pointsWithThisCentroid);
+      }
+    };
+  };
+
+
+  var data = [];
+
+  // Our data list is list of lists. The small list being each (x,y) point
+  for (var i = 0; i < x.length; i++) {
+    data.push([x[i],y[i]])
+  }
+
+  // initialize point objects with data
+  var points = data.map(function(vector) { return new Point(vector) });
+
+
+  // intialize centroids
+  var centroids = [];
+  for (var i = 0; i < k; i++) {
+    centroids.push(new Centroid(points[i % points.length].location, i));
+  };
+
+
+  // update labels and centroid locations until convergence
+  for (var iter = 0; iter < iterations; iter++) {
+    points.forEach(function(point) { point.updateLabel(centroids) });
+    centroids.forEach(function(centroid) { centroid.updateLocation(points) });
+  };
+
+  // return the cluster labels.
+  var labels = []
+  for (var i = 0; i < points.length; i++) {
+    labels.push(points[i].label)
+  }
+
+  return labels;
+
+  """;
+  --
+  -- *** In this query, we create two subtables, one for each gene of
+  --     interest, then create a set of arrays in joining the two tables.
+  --     We call the UDF using the arrays, and get a result back
+  --     made of arrays.
+  --
+  --     Due to a technical issue we save the table of arrays to
+  --     to a personal dataset, then unpack it. ***
+  --
+  WITH
+    -- gene1, the first subtable
+    --
+    gene1 AS (
+    SELECT
+      ROW_NUMBER() OVER() row_number,
+      AliquotBarcode AS barcode1,
+      HGNC_gene_symbol AS gene_id1,
+      AVG(LOG(normalized_count+1, 2)) AS count1
+    FROM
+      `isb-cgc.tcga_201607_beta.mRNA_UNC_RSEM`
+    WHERE
+      Study = 'BRCA'
+      AND SampleTypeLetterCode = 'TP'
+      AND HGNC_gene_symbol = 'ESR1'
+      AND normalized_count >= 0
+    GROUP BY
+      AliquotBarcode,
+      gene_id1),
+    --
+    -- gene2, the second subtable
+    --
+    gene2 AS (
+    SELECT
+      AliquotBarcode AS barcode2,
+      HGNC_gene_symbol AS gene_id2,
+      AVG(LOG(normalized_count+1, 2)) AS count2
+    FROM
+      `isb-cgc.tcga_201607_beta.mRNA_UNC_RSEM`
+    WHERE
+      Study = 'BRCA'
+      AND SampleTypeLetterCode = 'TP'
+      AND HGNC_gene_symbol = 'EGFR'
+      AND normalized_count >= 0
+    GROUP BY
+      AliquotBarcode,
+      HGNC_gene_symbol),
+    --
+    -- Then we create a table of arrays
+    -- and join the two gene tables.
+    -- ** We need to make sure all the arrays are constructed using the same index. **
+    --
+    arrayTable AS (
+    SELECT
+      ARRAY_AGG(m1.row_number ORDER BY m1.barcode1) AS arrayn,
+      ARRAY_AGG(m1.barcode1 ORDER BY m1.barcode1) AS barcode,
+      ARRAY_AGG(count1 ORDER BY m1.barcode1) AS esr1,
+      ARRAY_AGG(count2 ORDER BY m1.barcode1) AS egfr
+    FROM
+      gene1 AS m1
+    JOIN
+      gene2 AS m2
+    ON
+      m1.barcode1 = m2.barcode2 )
+    --
+    -- Now we call the k-means UDF.
+    --
+  SELECT
+    arrayn,
+    barcode,
+    esr1,
+    egfr,
+    kMeans(esr1, egfr, 200.0, 2.0) AS cluster
+  FROM
+    arrayTable
+    --
+    -- save the resulting table to a personal dataset
+
+
+We need to save the above results to an intermediate table.  You will
+need to have a dataset that you have write-access to in BigQuery
+to do this.  For your convenience, we've saved the query above as
+a public `gist <https://gist.github.com/smrgit/c80fd361603f8a7efa5d0444757c990b>`_
+and also created a bitly link to it.  Rather than pasting the entire
+script into the BigQuery web UI, you can us the **bq** command line
+(part of the `cloud SDK <https://cloud.google.com/sdk/>`_)
+and run the query and automatically save the outputs as shown below.
+
+.. code-block:: none
+
+   #!/bin/bash
+
+   qFile="kMeans_in_BQ.sql"
+   ## get the lengthy query from the bitly link, and rename
+   wget -O $qFile http://bit.ly/2mn1R5D
+
+   ## before you can run this you will need to modify
+   ## the destination table to be in a project and dataset
+   ## that you have write-access to,
+   ## eg:  dTable="isb-cgc:scratch_dataset.kMeans_out"
+   dTable="YOUR_PROJECT:DATASET_NAME.TMP_TABLE"
+
+   ## run the query using the 'bq' command line tool
+   ## not all of the options are strictly necessary -- with
+   ## the exception of "nouse_legacy_sql"
+   bq query --allow_large_results \
+            --destination_table=$dTable \
+            --replace \
+            --nouse_legacy_sql \
+            --nodry_run \
+            "$(cat $qFile)" > /dev/null
+
+The results of the kMeans query is *one* row of arrays.
+It's a little tricky to unpack the arrays into rows, which is what the next query does.
+(Again you'll need to edit it to select from the intermediate table you created
+in the previous step.  Remember that in Standard SQL, the delimiter between the
+project name and the dataset name is just a '.' whereas the bq command-line
+requres a ':' as a separator.)
+
+.. code-block:: sql
+
+   WITH
+     resultTable AS (
+     SELECT
+       *
+     FROM
+       `YOUR_PROJECT.DATASET_NAME.TMP_TABLE` )
+   SELECT
+     index row_idx,
+     barcode[OFFSET(index_offset)] AS AliquotBarcode,
+     esr1[OFFSET(index_offset)] AS ESR1,
+     egfr[OFFSET(index_offset)] AS EGFR,
+     cluster[OFFSET(index_offset)] AS Cluster
+   FROM
+     resultTable,
+     UNNEST(resultTable.arrayn) AS index
+   WITH
+   OFFSET
+     index_offset
+   ORDER BY
+     index
+
+Finall let's visualize the resulting clusters!
+Save the cluster assignments to a csv file, and read it into R.
+
+.. code-block:: R
+
+  library(ggplot2)
+  res0 <- read.table("results-from-the-k-means.csv", sep=",", header=T, stringsAsFactors=F)
+  qplot(data=res0, x=EGFR, y=ESR1, col=as.factor(Cluster))
+
+
+------------
+
+.. figure:: query_figs/kmeans_plot.png
+   :scale: 25
+   :align: center
+
+
+-------------
 
 January, 2017
 #############
@@ -147,7 +1227,7 @@ Legacy SQL
                  {'name': 'bin',   'type': 'integer'}]\",
 
                  \"function binIntervals(row, emit) {
-                   // This is javascript ... here we use '//' for comments
+                   // This is JavaScript ... here we use '//' for comments
                    // Legacy UDFs take a single row as input.
                    // and return a row.. can be a different number of columns.
                    var binSize = 10000;  // Make sure this matches the value in the SQL (if necessary)
@@ -204,7 +1284,7 @@ Legacy SQL
                 {'name': 'bin',   'type': 'integer'}]\",
 
                \"function binIntervals(row, emit) {
-                 // This is javascript ... here we use '//' for comments
+                 // This is JavaScript ... here we use '//' for comments
                  // Legacy UDFs take a single row as input.
                  var binSize = 10000;  // Make sure this matches the value in the SQL (if necessary)
                  var startBin = Math.floor(row.region_start / binSize);
@@ -303,7 +1383,7 @@ Standard SQL
 
     gexp AS (
       # Third: we get the gene expression data, again only for the BRCA samples
-      # included is a LOG() transform as well as an AVG() aggregation function 
+      # included is a LOG() transform as well as an AVG() aggregation function
       # which will only be relevant if there are multiple expression values for
       # a single (gene,sample) pair.
       SELECT
@@ -324,7 +1404,7 @@ Standard SQL
 
     cnAnnot AS (
       # Now, we start to re-use previously defined tables.  Here, we annotate
-      # the copy-number segments by JOINing on matching chromosomes and 
+      # the copy-number segments by JOINing on matching chromosomes and
       # looking for overlapping regions between the copy-number segments and
       # the gene regions previously obtained from the GENCODE_v19 table.
       SELECT

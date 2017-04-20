@@ -5,7 +5,7 @@ Data Releases and Future Plans
 Release Notes
 #############
 
-* February 20, 2017: in collaboration with the Sanger Institute, the COSMIC database is now available in BigQuery (registered users only)
+* February 20, 2017: in collaboration with the Sanger Institute, the `COSMIC database <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/COSMIC.html>`_ is now available in BigQuery (registered users only)
 
 * February 5, 2017: genomic coordinates (in GFF3 format) for human microRNAs added for miRBase v20 and v21 to the **isb-cgc:genome_reference** BigQuery dataset
 
