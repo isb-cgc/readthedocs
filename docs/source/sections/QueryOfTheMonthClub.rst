@@ -284,34 +284,36 @@ Those unions look high to me.  Let's double check them.
       AND case_barcode = 'TCGA-IB-7651'
     GROUP BY
       Hugo_Symbol)
+
   --
-  -- First the intersection
+  -- First the intersection,
   --
   SELECT
-    count( distinct a.Hugo_Symbol )
+    count ( distinct a.Hugo_Symbol ) AS n
   FROM
     g1 AS a
   JOIN
     g2 AS b
   ON
     a.Hugo_Symbol = b.Hugo_Symbol
+
+  UNION ALL
+
   --
-  -- Then the union.
+  -- then the union.
   --
   SELECT
-    count( distinct Hugo_Symbol )
+    count ( distinct Hugo_Symbol ) AS n
   FROM
     (select * from  g1
        union all
      select * from g2)
-  --
-  -- And we get 1216 for the intersection and 6460 for the union, which is what
-  -- we were expecting given the first row in the above results.
-  --
 
+  ORDER BY n
 
-The above query should return 1180 (intersection) and 6289 (union), which is
+The above query returns 1216 (intersection) and 6460 (union), which is
 what we were expecting given the first row in the previous set of results.
+
 
 Next we'll turn our attention to the COSMIC catalog. We will select a single
 sample, and perform the same Jaccard index across all samples in COSMIC
@@ -373,7 +375,7 @@ So, like above, we will focus on the most common type of variant, the Missense.
     AND Variant_Type = 'SNP'
     AND Consequence = 'missense_variant'
     AND biotype = 'protein_coding'
-    AND swissprot != 'null'
+    AND SWISSPROT IS NOT NULL
     AND REGEXP_CONTAINS(PolyPhen, 'damaging')
     AND REGEXP_CONTAINS(SIFT, 'deleterious')
   GROUP BY
@@ -472,7 +474,7 @@ So, like above, we will focus on the most common type of variant, the Missense.
     jaccard_index DESC
 
 
-* TCGA sample is from COAD.
+Recall that the TCGA-CA-6718-01A sample is from the COAD (colon adenocarcinoma) TCGA project.
 
 ------------
 
