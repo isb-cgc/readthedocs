@@ -257,7 +257,7 @@ only GBM, LGG, and PAAD tumor-specific projects.)
 
 
 .. figure:: query_figs/april_plot2.png
-   :scale: 25
+   :scale: 30
    :align: center
 
    Fig1. Each dot represents a pair of cases and the associated Jaccard index.  The blue points show the pairs that involve the GBM case TCGA-06-5416.
@@ -459,20 +459,8 @@ So, like above, we will focus on the most common type of variant, the Missense.
       b.Sample_source,
       ARRAY_LENGTH(a.geneArray) AS length1,
       ARRAY_LENGTH(b.geneArray) AS length2,
-      (
-      SELECT
-        COUNT(1)
-      FROM
-        UNNEST(a.geneArray) AS ga
-      JOIN
-        UNNEST(b.geneArray) AS gb
-      ON
-        ga = gb) AS gene_intersection,
-      (
-      SELECT
-        COUNT(DISTINCT gx)
-      FROM
-        UNNEST(ARRAY_CONCAT(a.geneArray,b.geneArray)) AS gx) AS gene_union
+      (SELECT COUNT(1) FROM UNNEST(a.geneArray) AS ga JOIN UNNEST(b.geneArray) AS gb ON ga = gb) AS gene_intersection,
+      (SELECT COUNT(DISTINCT gx) FROM UNNEST(ARRAY_CONCAT(a.geneArray,b.geneArray)) AS gx) AS gene_union
     FROM
       tcgaSampleArray AS a
     JOIN
