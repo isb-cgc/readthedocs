@@ -105,7 +105,7 @@ tumor types (aka "studies" or "projects" within TCGA).
       Variant_Type = 'SNP'
       AND Consequence = 'missense_variant'
       AND biotype = 'protein_coding'
-      AND swissprot != 'null'
+      AND SWISSPROT IS NOT NULL
       AND REGEXP_CONTAINS(PolyPhen, 'damaging')
       AND REGEXP_CONTAINS(SIFT, 'deleterious')
     GROUP BY
@@ -365,7 +365,7 @@ So, like above, we will focus on the most common type of variant, the Missense.
   tcgaSample AS (
   SELECT
     sample_barcode_tumor,
-    ARRAY_AGG(Hugo_Symbol) as geneArray
+    Hugo_Symbol
   FROM
     `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
   WHERE
@@ -377,28 +377,57 @@ So, like above, we will focus on the most common type of variant, the Missense.
     AND REGEXP_CONTAINS(PolyPhen, 'damaging')
     AND REGEXP_CONTAINS(SIFT, 'deleterious')
   GROUP BY
-    sample_barcode_tumor),
+    sample_barcode_tumor,
+    Hugo_Symbol),
   --
   -- Then we'll create a sub-table of COSMIC samples, sans TCGA.
   --
   cosmicSample AS (
-      select
-        Sample_name,
-        Primary_site,
-        Primary_histology,
-        Sample_source,
-        ARRAY_AGG(Gene_name) as geneArray
-      from
-        `isb-cgc.COSMIC.grch37_v80`
-      where
-        STARTS_WITH(Sample_name, "TCGA") = False
-        AND Mutation_Description = 'Substitution - Missense'
-      group by
-        Sample_name,
-        Primary_site,
-        Primary_histology,
-        Sample_source
-  ),
+  SELECT
+    Sample_name,
+    Primary_site,
+    Primary_histology,
+    Sample_source,
+    Gene_name
+  FROM
+    `isb-cgc.COSMIC.grch37_v80`
+  WHERE
+    STARTS_WITH(Sample_name, "TCGA") = FALSE
+    AND Mutation_Description = 'Substitution - Missense'
+  GROUP BY
+    Sample_name,
+    Primary_site,
+    Primary_histology,
+    Sample_source,
+    Gene_name ),
+  --
+  -- Then we make the array of genes for the TCGA sample.
+  --
+  tcgaSampleArray AS (
+  SELECT
+    sample_barcode_tumor,
+    ARRAY_AGG(Hugo_Symbol) AS geneArray
+  FROM
+    tcgaSample
+  GROUP BY
+    sample_barcode_tumor ),
+  --
+  -- Then we make the array of genes for each cosmic sample.
+  --
+  cosmicSampleArray AS (
+  SELECT
+    Sample_name,
+    Primary_site,
+    Primary_histology,
+    Sample_source,
+    ARRAY_AGG(Gene_name) AS geneArray
+  FROM
+    cosmicSample
+  GROUP BY
+    Sample_name,
+    Primary_site,
+    Primary_histology,
+    Sample_source ),
   --
   -- Next we can perform our set operations on the arrays.
   --
@@ -413,11 +442,12 @@ So, like above, we will focus on the most common type of variant, the Missense.
     ARRAY_LENGTH(b.geneArray) AS length2,
     (SELECT COUNT(1) FROM UNNEST(a.geneArray) AS ga JOIN UNNEST(b.geneArray) AS gb ON ga = gb) AS gene_intersection,
     (SELECT COUNT(DISTINCT gx) FROM UNNEST(ARRAY_CONCAT(a.geneArray,b.geneArray)) AS gx) AS gene_union
-    FROM tcgaSample AS a
-    JOIN cosmicSample AS b
-    ON
-    a.sample_barcode_tumor < b.Sample_name
-  )
+  FROM
+    tcgaSampleArray AS a
+  JOIN
+    cosmicSampleArray AS b
+  ON
+    a.sample_barcode_tumor < b.Sample_name )
   --
   -- And build our final results.
   --
@@ -438,9 +468,8 @@ So, like above, we will focus on the most common type of variant, the Missense.
     (gene_intersection / gene_union) > 0.00
     AND gene_intersection > 5
     AND gene_union > 5
-  order by
+  ORDER BY
     jaccard_index DESC
-
 
 
 * TCGA sample is from COAD.
