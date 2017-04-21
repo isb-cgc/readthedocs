@@ -149,11 +149,9 @@ Look for how the 'array' gets used.
 .. code-block:: sql
 
   WITH
+    --
     -- first we're going to extract just the project names, cases, and gene symbols,
     -- using the "GROUP BY" to make sure we only count one mutation per gene per case
-    --
-    -- we'll also exclude some of the very frequently mutated tumor-types from this
-    -- analysis, though it would be interesting to leave them in too
     firstMC3 AS (
     SELECT
       project_short_name,
@@ -165,8 +163,8 @@ Look for how the 'array' gets used.
       Variant_Type = 'SNP'
       AND Consequence = 'missense_variant'
       AND biotype = 'protein_coding'
-      AND REGEXP_CONTAINS(PolyPhen, 'damaging')
-      AND REGEXP_CONTAINS(SIFT, 'deleterious')
+      AND ( REGEXP_CONTAINS(PolyPhen, 'damaging')
+        OR REGEXP_CONTAINS(SIFT, 'deleterious') )
       AND project_short_name IN ('TCGA-PAAD', 'TCGA-GBM', 'TCGA-LGG')
       -- We could remove the above line to compute using all samples,
       -- but to speed things up, let's just look at 3 studies.
@@ -174,18 +172,20 @@ Look for how the 'array' gets used.
       project_short_name,
       case_barcode,
       Hugo_Symbol ),
+    --
     -- next we transform resulting table using the ARRAY_AGG function
     -- to create a list of mutated genes for each case
     arrayMC3 AS (
     SELECT
       project_short_name,
       case_barcode,
-      ARRAY_AGG(Hugo_Symbol) AS geneArray
+      ARRAY_AGG(DISTINCT Hugo_Symbol) AS geneArray
     FROM
       firstMC3
     GROUP BY
       project_short_name,
       case_barcode ),
+    --
     -- now we can do some "set operations" on these gene-lists:  a self-join
     -- of the previously created table with itself will allow for a pairwise
     -- pairwise comparison (notice the inequality in the JOIN ... ON clause)
@@ -197,14 +197,27 @@ Look for how the 'array' gets used.
       b.case_barcode AS case2,
       b.project_short_name AS study2,
       ARRAY_LENGTH(b.geneArray) AS length2,
-      (SELECT COUNT(1) FROM UNNEST(a.geneArray) AS ga JOIN UNNEST(b.geneArray) AS gb ON ga = gb) AS gene_intersection,
-      (SELECT COUNT(DISTINCT gx) FROM UNNEST(ARRAY_CONCAT(a.geneArray,b.geneArray)) AS gx) AS gene_union
+      (
+      SELECT
+        COUNT(1)
+      FROM
+        UNNEST(a.geneArray) AS ga
+      JOIN
+        UNNEST(b.geneArray) AS gb
+      ON
+        ga = gb) AS gene_intersection,
+      (
+      SELECT
+        COUNT(DISTINCT gx)
+      FROM
+        UNNEST(ARRAY_CONCAT(a.geneArray,b.geneArray)) AS gx) AS gene_union
     FROM
       arrayMC3 AS a
     JOIN
       arrayMC3 AS b
     ON
       a.case_barcode < b.case_barcode )
+    --
     -- and finally, we can compute the Jaccard index, and
     -- do a little bit of filtering and then output a list of
     -- pairs, sorted based on the Jaccard index:
@@ -359,100 +372,112 @@ So, like above, we will focus on the most common type of variant, the Missense.
 
 .. code-block:: sql
 
-  --
-  -- First we'll select a single TCGA sample, with filters similar to the above.
-  --
+    --
+    -- First we'll select a single TCGA sample, with filters similar to the above.
+    --
   WITH
-  --
-  tcgaSample AS (
-  SELECT
-    sample_barcode_tumor,
-    Hugo_Symbol
-  FROM
-    `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
-  WHERE
-    sample_barcode_tumor = 'TCGA-CA-6718-01A'
-    AND Variant_Type = 'SNP'
-    AND Consequence = 'missense_variant'
-    AND biotype = 'protein_coding'
-    AND SWISSPROT IS NOT NULL
-    AND REGEXP_CONTAINS(PolyPhen, 'damaging')
-    AND REGEXP_CONTAINS(SIFT, 'deleterious')
-  GROUP BY
-    sample_barcode_tumor,
-    Hugo_Symbol),
-  --
-  -- Then we'll create a sub-table of COSMIC samples, sans TCGA.
-  --
-  cosmicSample AS (
-  SELECT
-    Sample_name,
-    Primary_site,
-    Primary_histology,
-    Sample_source,
-    Gene_name
-  FROM
-    `isb-cgc.COSMIC.grch37_v80`
-  WHERE
-    STARTS_WITH(Sample_name, "TCGA") = FALSE
-    AND Mutation_Description = 'Substitution - Missense'
-  GROUP BY
-    Sample_name,
-    Primary_site,
-    Primary_histology,
-    Sample_source,
-    Gene_name ),
-  --
-  -- Then we make the array of genes for the TCGA sample.
-  --
-  tcgaSampleArray AS (
-  SELECT
-    sample_barcode_tumor,
-    ARRAY_AGG(Hugo_Symbol) AS geneArray
-  FROM
-    tcgaSample
-  GROUP BY
-    sample_barcode_tumor ),
-  --
-  -- Then we make the array of genes for each cosmic sample.
-  --
-  cosmicSampleArray AS (
-  SELECT
-    Sample_name,
-    Primary_site,
-    Primary_histology,
-    Sample_source,
-    ARRAY_AGG(Gene_name) AS geneArray
-  FROM
-    cosmicSample
-  GROUP BY
-    Sample_name,
-    Primary_site,
-    Primary_histology,
-    Sample_source ),
-  --
-  -- Next we can perform our set operations on the arrays.
-  --
-  setOpsTable AS (
-  SELECT
-    a.sample_barcode_tumor AS tcgaSample,
-    b.Sample_name AS cosmicSample,
-    b.Primary_site,
-    b.Primary_histology,
-    b.Sample_source,
-    ARRAY_LENGTH(a.geneArray) AS length1,
-    ARRAY_LENGTH(b.geneArray) AS length2,
-    (SELECT COUNT(1) FROM UNNEST(a.geneArray) AS ga JOIN UNNEST(b.geneArray) AS gb ON ga = gb) AS gene_intersection,
-    (SELECT COUNT(DISTINCT gx) FROM UNNEST(ARRAY_CONCAT(a.geneArray,b.geneArray)) AS gx) AS gene_union
-  FROM
-    tcgaSampleArray AS a
-  JOIN
-    cosmicSampleArray AS b
-  ON
-    a.sample_barcode_tumor < b.Sample_name )
-  --
-  -- And build our final results.
-  --
+    --
+    tcgaSample AS (
+    SELECT
+      sample_barcode_tumor,
+      Hugo_Symbol
+    FROM
+      `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
+    WHERE
+      sample_barcode_tumor = 'TCGA-CA-6718-01A'
+      AND Variant_Type = 'SNP'
+      AND Consequence = 'missense_variant'
+      AND biotype = 'protein_coding'
+      AND ( REGEXP_CONTAINS(PolyPhen, 'damaging')
+        OR REGEXP_CONTAINS(SIFT, 'deleterious') )
+    GROUP BY
+      sample_barcode_tumor,
+      Hugo_Symbol),
+    --
+    -- Then we'll create a sub-table of COSMIC samples, sans TCGA.
+    --
+    cosmicSample AS (
+    SELECT
+      Sample_name,
+      Primary_site,
+      Primary_histology,
+      Sample_source,
+      Gene_name
+    FROM
+      `isb-cgc.COSMIC.grch37_v80`
+    WHERE
+      STARTS_WITH(Sample_name, "TCGA") = FALSE
+      AND Mutation_Description = 'Substitution - Missense'
+      AND FATHMM_prediction = "PATHOGENIC"
+    GROUP BY
+      Sample_name,
+      Primary_site,
+      Primary_histology,
+      Sample_source,
+      Gene_name ),
+    --
+    -- Then we make the array of genes for the TCGA sample.
+    --
+    tcgaSampleArray AS (
+    SELECT
+      sample_barcode_tumor,
+      ARRAY_AGG(DISTINCT Hugo_Symbol) AS geneArray
+    FROM
+      tcgaSample
+    GROUP BY
+      sample_barcode_tumor ),
+    --
+    -- Then we make the array of genes for each cosmic sample.
+    --
+    cosmicSampleArray AS (
+    SELECT
+      Sample_name,
+      Primary_site,
+      Primary_histology,
+      Sample_source,
+      ARRAY_AGG(DISTINCT Gene_name) AS geneArray
+    FROM
+      cosmicSample
+    GROUP BY
+      Sample_name,
+      Primary_site,
+      Primary_histology,
+      Sample_source ),
+    --
+    -- Next we can perform our set operations on the arrays.
+    --
+    setOpsTable AS (
+    SELECT
+      a.sample_barcode_tumor AS tcgaSample,
+      b.Sample_name AS cosmicSample,
+      b.Primary_site,
+      b.Primary_histology,
+      b.Sample_source,
+      ARRAY_LENGTH(a.geneArray) AS length1,
+      ARRAY_LENGTH(b.geneArray) AS length2,
+      (
+      SELECT
+        COUNT(1)
+      FROM
+        UNNEST(a.geneArray) AS ga
+      JOIN
+        UNNEST(b.geneArray) AS gb
+      ON
+        ga = gb) AS gene_intersection,
+      (
+      SELECT
+        COUNT(DISTINCT gx)
+      FROM
+        UNNEST(ARRAY_CONCAT(a.geneArray,b.geneArray)) AS gx) AS gene_union
+    FROM
+      tcgaSampleArray AS a
+    JOIN
+      cosmicSampleArray AS b
+    ON
+      a.sample_barcode_tumor < b.Sample_name )
+    --
+    -- And build our final results.
+    --
   SELECT
     tcgaSample,
     length1 AS geneCount1,
