@@ -252,7 +252,7 @@ only GBM, LGG, and PAAD tumor-specific projects.)
 
 
 .. figure:: query_figs/april_table1.png
-   :scale: 50
+   :scale: 100
    :align: center
 
 
@@ -508,7 +508,7 @@ Recall that the TCGA-CA-6718-01A sample is from the COAD (colon adenocarcinoma) 
 ------------
 
 .. figure:: query_figs/april_table2.png
-   :scale: 50
+   :scale: 100
    :align: center
 
 -------------
