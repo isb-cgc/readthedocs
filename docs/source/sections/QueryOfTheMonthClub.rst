@@ -197,6 +197,8 @@ Look for how the 'array' gets used.
       b.case_barcode AS case2,
       b.project_short_name AS study2,
       ARRAY_LENGTH(b.geneArray) AS length2,
+      -- 
+      -- here's the intersection
       (
       SELECT
         COUNT(1)
@@ -206,6 +208,8 @@ Look for how the 'array' gets used.
         UNNEST(b.geneArray) AS gb
       ON
         ga = gb) AS gene_intersection,
+      --
+      -- and here's the union
       (
       SELECT
         COUNT(DISTINCT gx)
@@ -227,7 +231,7 @@ Look for how the 'array' gets used.
     length1 AS geneCount1,
     case2,
     study2,
-    case2 AS geneCount2,
+    length2 AS geneCount2,
     gene_intersection,
     gene_union,
     (gene_intersection / gene_union) AS jaccard_index
@@ -275,8 +279,8 @@ Those unions look high to me.  Let's double check them.
       Variant_Type = 'SNP'
       AND Consequence = 'missense_variant'
       AND biotype = 'protein_coding'
-      AND REGEXP_CONTAINS(PolyPhen, 'damaging')
-      AND REGEXP_CONTAINS(SIFT, 'deleterious')
+      AND (REGEXP_CONTAINS(PolyPhen, 'damaging')
+        OR REGEXP_CONTAINS(SIFT, 'deleterious'))
       AND case_barcode = 'TCGA-06-5416'
     GROUP BY
       Hugo_Symbol),
@@ -292,8 +296,8 @@ Those unions look high to me.  Let's double check them.
       Variant_Type = 'SNP'
       AND Consequence = 'missense_variant'
       AND biotype = 'protein_coding'
-      AND REGEXP_CONTAINS(PolyPhen, 'damaging')
-      AND REGEXP_CONTAINS(SIFT, 'deleterious')
+      AND (REGEXP_CONTAINS(PolyPhen, 'damaging')
+         OR REGEXP_CONTAINS(SIFT, 'deleterious'))
       AND case_barcode = 'TCGA-IB-7651'
     GROUP BY
       Hugo_Symbol)
@@ -310,7 +314,7 @@ Those unions look high to me.  Let's double check them.
   ON
     a.Hugo_Symbol = b.Hugo_Symbol
 
-  UNION ALL
+  UNION ALL -- to bring the intersection and union queries together
 
   --
   -- then the union.
@@ -324,7 +328,7 @@ Those unions look high to me.  Let's double check them.
 
   ORDER BY n
 
-The above query returns 1216 (intersection) and 6460 (union), which is
+The above query returns 2277 (intersection) and 8821 (union), which is
 what we were expecting given the first row in the previous set of results.
 
 
@@ -504,7 +508,7 @@ Recall that the TCGA-CA-6718-01A sample is from the COAD (colon adenocarcinoma) 
 ------------
 
 .. figure:: query_figs/april_table2.png
-   :scale: 100
+   :scale: 50
    :align: center
 
 -------------
