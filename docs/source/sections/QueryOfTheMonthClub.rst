@@ -197,7 +197,7 @@ Look for how the 'array' gets used.
       b.case_barcode AS case2,
       b.project_short_name AS study2,
       ARRAY_LENGTH(b.geneArray) AS length2,
-      -- 
+      --
       -- here's the intersection
       (
       SELECT
@@ -502,7 +502,7 @@ Recall that the TCGA-CA-6718-01A sample is from the COAD (colon adenocarcinoma) 
 -------------
 
 
-Cool! Some of the COSMIC samples are close to the COAD tissue type! Looks like
+Cool! The top COSMIC hit is similar to the COAD tissue type (colon)! Looks like
 there's some noise, but overall the mutation signature may be useful.
 
 Thanks for joining us this month!
