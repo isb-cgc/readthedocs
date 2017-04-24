@@ -502,7 +502,7 @@ Recall that the TCGA-CA-6718-01A sample is from the COAD (colon adenocarcinoma) 
 -------------
 
 
-Cool -- the top COSMIC (non-TCGA) hit is from the same tumor type!
+Cool -- the top COSMIC (non-TCGA) hit is from a very similar tumor type!
 The other close matches are all from melanoma, a cancer with a very high
 mutation rate which might result in "noisy" associations at this level.
 
