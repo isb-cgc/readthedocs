@@ -142,7 +142,7 @@ To start an entirely new program, users should click on the **Upload Program Dat
 
 **NOTE:** You can upload multiple files in a single step.  The **Type** drop-down should be used to indicate what data type the file represents.  If the data type is one of the choices besides **Other**, the file will have to conform to the specifications listed at the top of this page_.  For a more complete description of the options on this page, see the `Data Upload Page Components`_ section.
 
-.. image:: MouseProject.png
+.. image:: MouseProject.PNG
 
 **Project description and file selection**
 
@@ -153,7 +153,7 @@ Clicking on the **Next** button brings up a form where users will select which b
 
 Lastly, the user should click on the **Upload Data** button to start the process.  Users will first see a page with a message indicating their data is being processed.  Refresh the screen occasionally until either the final page is displayed or an error is shown indicating a problem with loading the file. Your data is being loaded into the BigQuery table you specified earlier for this data set.
 
-.. image:: Mouse_processing.png
+.. image:: Mouse_processing.PNG
 
 Correcting Data Uploaded As Other
 ---------------------------------
@@ -161,7 +161,7 @@ If your data does not fit into any of the existing pre-defined matrix formats, t
 
 In the example shown below, the automated process has identified two columns as potentially containing Sample Barcodes and has further misidentified a column containing decimal data (numeric float values) as containing categorical (text) data.  The user will need to correct both instances so there is only one Sample Barcode column and define the expression data as decimal.
 
-.. image:: OtherExample.png
+.. image:: OtherExample.PNG
 
 A New Project For An Existing Program
 ------------------------------------
