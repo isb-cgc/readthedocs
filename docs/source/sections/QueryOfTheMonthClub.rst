@@ -502,8 +502,17 @@ Recall that the TCGA-CA-6718-01A sample is from the COAD (colon adenocarcinoma) 
 -------------
 
 
-Cool! The top COSMIC hit is similar to the COAD tissue type (colon)! Looks like
-there's some noise, but overall the mutation signature may be useful.
+Cool -- the top COSMIC (non-TCGA) hit is from the same tumor type!
+The other close matches are all from melanoma, a cancer with a very high
+mutation rate which might result in "noisy" associations at this level.
+
+Since the two mutation tables that we are comparing here (TCGA MC3 and COSMIC) use different
+scores for assessing the implications of each somatic mutation, another idea would be 
+to integrate the 
+`Tute Genomics <https://en.wikipedia.org/wiki/Tute_Genomics>`_ 
+`hg19 annotation table <https://bigquery.cloud.google.com/table/silver-wall-555:TuteTable.hg19?pli=1&tab=schema>`_
+so that a single score can be used
+in assessing the intersection of mutated genes between two cancer samples.
 
 Thanks for joining us this month!
 
