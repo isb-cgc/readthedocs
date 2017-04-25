@@ -167,7 +167,7 @@ A New Project For An Existing Program
 ------------------------------------
 Adding a new project to an existing program follows the same steps as creating a new program.  However, instead of filling out the new program information fields, users should click on the **A New Project For An Existing Program** tab and select an existing program from the drop-down menu.  All other steps for describing and uploading the file will remain the same.
 
-  .. image:: MouseExisting.png
+  .. image:: MouseExisting.PNG
 
 
 
