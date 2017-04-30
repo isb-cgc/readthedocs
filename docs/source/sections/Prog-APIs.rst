@@ -22,5 +22,5 @@ are provided in our github repositories, also described below.
    progapi/Programmatic-API
    progapi/Compute-Engine
    webapp/ViewingCohorts
-   progapi/CWL_top
+   progapi/workflows_top
 
