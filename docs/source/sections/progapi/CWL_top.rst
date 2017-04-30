@@ -14,7 +14,7 @@ which wraps many of the individual steps required to create a GCE disk, spin up
 a GCE VM, mount and format the disk, *etc*.
 
 .. toctree::
-      :maxdepth: 1
+   :maxdepth: 1
 
    CWL_intro
    CWL_script

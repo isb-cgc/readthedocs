@@ -36,7 +36,7 @@ and WDL (`Workflow Description Language <https://software.broadinstitute.org/wdl
 which are further described in the sections below.
 
 .. toctree::
-      :maxdepth: 1
+   :maxdepth: 1
 
    CWL_top
    WDL_top
