@@ -2,9 +2,6 @@
 Workflows
 *********
 
-What is a workflow?
-+++++++++++++++++++
-
 The concept of a workflow was 
 `defined <http://www.aiai.ed.ac.uk/project/wfmc/ARCHIVE/DOCS/glossary/glossary.html>`_ 
 about 20 years ago by the 
