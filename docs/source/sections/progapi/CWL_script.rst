@@ -15,22 +15,23 @@ The basic prerequisites to be able to run this example are:
    * you have the Cloud SDK installed 
 
 There are three scripts in the github repo:
-   * cwl_runner.sh is the main bash script which takes care of most of the steps described in this `tutorial <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/CWL_intro.html>`_;
-   * cwl_startup.sh is the VM startup script which will automatically be run as soon as the VM spins up;
-   * cwl_shutdown.sh is the VM shutdown script which takes care of final steps such as copying stdout and stderr to GCS;
+   * ``cwl_runner.sh`` is the main bash script which takes care of most of the steps described in this `tutorial <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/CWL_intro.html>`_;
+   * ``cwl_startup.sh`` is the VM startup script which will automatically be run as soon as the VM spins up;
+   * ``cwl_shutdown.sh`` is the VM shutdown script which takes care of final steps such as copying stdout and stderr to GCS;
 
 
 The main script,
 `cwl_runner.sh <https://raw.githubusercontent.com/googlegenomics/pipelines-api-examples/master/cwl_runner/cwl_runner.sh>`_,
-is the only one that you will invoke directly.  It has several different options, but the only 
-required ones are:
-   * --workflow-file PATH:  the absolute path to the CWL workflow document;
-   * --settings-file PATH:  the absolute path to the JSON settings file;
-   * --output GCS_PATH:  the output location in GS where all outputs and logs will be copied after the workflow completes.
+is the only one that you will invoke directly.  It has several different options (which you can learn
+more about by using the ``--help`` option), but the only required ones are:
+   * ``--workflow-file PATH``:  the absolute path to the CWL workflow document;
+   * ``--settings-file PATH``:  the absolute path to the JSON settings file;
+   * ``--output GCS_PATH``:  the output location in GCS where all outputs and logs will be copied after the workflow completes.
 
-The script then invokes two **gcloud compute** commands:
-   * gcloud compute disks create: to create a persistent disk in the (optionally user-specified) zone, of (optionally user-specified) size;
-   * gcloud compute instances create:  to create a virtual machine (VM), in the same zone as the disk, with the previously created disk attached, with the (optionally user-specified) machine type.
+The script then invokes two ``gcloud compute`` commands (``gcloud`` is part of the 
+`cloud SDK <https://cloud.google.com/sdk/>`_:
+   * ``gcloud compute disks create``: to create a persistent disk in the (optionally user-specified) zone, of (optionally user-specified) size;
+   * ``gcloud compute instances create``:  to create a virtual machine (VM), in the same zone as the disk, with the previously created disk attached, with the (optionally user-specified) machine type.
 
 If the user specifies, the VM can be a 
 `preemptible <https://cloud.google.com/compute/docs/instances/preemptible>`_ 
@@ -38,7 +39,7 @@ VM, which can be a good way to minimize compute costs, under the right circumsta
 
 The other information that the VM needs is passed in as 
 `metadata <https://cloud.google.com/compute/docs/storing-retrieving-metadata>`_.
-Metadata is stored as ``key:value`` pairs.  There is a default set of metadata
+Metadata is stored as key:value pairs.  There is a default set of metadata
 entries that every VM has access to, and 
 `custom metadata <https://cloud.google.com/compute/docs/storing-retrieving-metadata#custom>`_
 can also be set when a VM is created.  This metadata will be available to the VM from 
@@ -57,12 +58,12 @@ The following metadata keys are specified by the cwl_runner script and will be a
     * status-file
     * keep-alive
 
-The cwl_runner script invoked by the user will write three script files to the output GCS-path
-provided:
-    * cwl_runner-<OPERATION-ID>.sh
-    * cwl_startup-<OPERATION-ID>.sh
-    * cwl_shutdown-<OPERATION-ID>.sh
-and will run the ``disk create`` command, followed by the ``instances create`` command.
+The cwl_runner script invoked by the user will create a random ``OPERATION-ID`` and
+write three script files to the output GCS-path provided:
+    * ``cwl_runner-<OPERATION-ID>.sh``
+    * ``cwl_startup-<OPERATION-ID>.sh``
+    * ``cwl_shutdown-<OPERATION-ID>.sh``
+and will run the ``gcloud compute disks create`` command, followed by the ``gcloud compute instances create`` command.
 
 In this case, the "startup" script will take care of pretty much everything we want this
 particular VM to do:
@@ -80,12 +81,12 @@ have the Cloud SDK installed, with your GCS bucket name instead of ``MY-BUCKET``
 
 .. code-block:: none
 
-./cwl_runner.sh \
-  --workflow-file gs://genomics-public-data/cwl-examples/gdc-dnaseq-cwl/workflows/dnaseq/transform.cwl \
-  --settings-file gs://genomics-public-data/cwl-examples/gdc-dnaseq-cwl/input/gdc-dnaseq-input.json \
-  --input-recursive gs://genomics-public-data/cwl-examples/gdc-dnaseq-cwl \
-  --output gs://MY-BUCKET/pipelines-api-examples \
-  --machine-type n1-standard-4
+   ./cwl_runner.sh \
+     --workflow-file gs://genomics-public-data/cwl-examples/gdc-dnaseq-cwl/workflows/dnaseq/transform.cwl \
+     --settings-file gs://genomics-public-data/cwl-examples/gdc-dnaseq-cwl/input/gdc-dnaseq-input.json \
+     --input-recursive gs://genomics-public-data/cwl-examples/gdc-dnaseq-cwl \
+     --output gs://MY-BUCKET/pipelines-api-examples \
+     --machine-type n1-standard-4
 
 
 In this example, the JSON settings file specifies 5 items:
