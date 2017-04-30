@@ -1,11 +1,6 @@
-***************************
-Getting Started with CWL
-***************************
-
-The `Common Workflow Language <http://www.commonwl.org/>`_ (CWL) is emerging as a standard
-for defining and sharing bioinformatic workflows, and the 
-`NCI-GDC <https://gdc.cancer.gov/>`_ is planning to release all of its 
-standardized workflows in this format.
+**************************************
+Running a GDC DNA-Seq (CWL) workflow
+**************************************
 
 In this section, 
 we will guide you through the steps to run the GDC's DNA-Seq harmonization workflow
