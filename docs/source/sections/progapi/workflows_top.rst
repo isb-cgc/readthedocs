@@ -1,6 +1,6 @@
-*********
-Workflows
-*********
+******************
+Running Workflows
+******************
 
 The concept of a workflow was 
 `defined <http://www.aiai.ed.ac.uk/project/wfmc/ARCHIVE/DOCS/glossary/glossary.html>`_ 
