@@ -7,7 +7,7 @@ for defining and sharing bioinformatic workflows, and the
 `NCI-GDC <https://gdc.cancer.gov/>`_ is planning to release all of its 
 standardized workflows in this format.
 
-In the sections below, we present a tutorial on running a sample GDC workflow with
+In the sections below, we present a tutorial on running a sample NCI-GDC workflow with
 step-by-step instructions to run it on a sample input BAM file using a Google Compute Engine
 (GCE) VM.  The second section describes how to use a convenient "helper-script" 
 called cwl_runner (available on github)

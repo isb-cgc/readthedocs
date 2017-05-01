@@ -14,20 +14,20 @@ So-called "legacy" data that the NCI-GDC "inherited" from previous data coordina
 centers (*eg* the TCGA-DCC and CGHub), is available in the 
 `Legacy Archive <https://portal.gdc.cancer.gov/legacy-archive/search/f>`_, while a 
 `"harmonized" <https://gdc.cancer.gov/about-data/gdc-data-harmonization>`_ 
-data set (re-aligned to GRCh38/hg38 and re-processed by the GDC) is available
+data set (re-aligned to GRCh38/hg38 and re-processed by the NCI-GDC) is available
 at the main `Data Portal <https://portal.gdc.cancer.gov/>`_.  (We will generally
-refer to the harmonized/default archive available from the main GDC Data Portal
+refer to the harmonized/default archive available from the main NCI-GDC Data Portal
 as the "current" archive.)
 
 The ISB-CGC is hosting much of this data (both "legacy" and "harmonized" in
 Google Cloud Storage (GCS), meaning that you may *not* need to download any
-data from the GDC if you're planning on running your analyses on the Google
+data from the NCI-GDC if you're planning on running your analyses on the Google
 Cloud Platform.  These tables can be previewed and queried conveniently and
 interactively from the `BigQuery web UI <https://bigquery.cloud.google.com>`_
 or from scripting languages such as **R** and **Python**, or from the command-line using the 
 `cloud SDK <https://cloud.google.com/sdk/>`_ utility **bq**.
 
-In order to help users determine which data at the GDC is available on the
+In order to help users determine which data at the NCI-GDC is available on the
 ISB-CGC platform, we have created a set of metadata tables in BigQuery
 (based on `GDC Data Release 5.0 <https://docs.gdc.cancer.gov/Data/Release_Notes/Data_Release_Notes/>`_)
 in the `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:GDC_metadata>`_ dataset:
@@ -91,7 +91,7 @@ in the `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:
 
 ..
 
-- `rel5_aliquot2caseIDmap <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel5_aliquot2caseIDmap>`_: is a "helper" table in case you need to be able to map between identifiers at different levels.  A total of 164911 unique aliquots are identified in this table.  The intrinsic hierarchy is program > project > case > sample > portion > analyte > aliquot.  We use the term "barcode" where the GDC uses the term "submitter id", "gdc_id" for the GDC's uuid-style identifier.  If a portion was not further divided into analytes or if an analyte was not further divided into aliquots, some of the fields in this table may simply have the string "NA".  For example, this query for a single TCGA case will return 24 rows of results for 2 unique samples, 1 portion from each sample, 5 analytes from the tumor sample and 3 analytes from the blood-normal sample, and finally 24 unique aliquots total.
+- `rel5_aliquot2caseIDmap <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel5_aliquot2caseIDmap>`_: is a "helper" table in case you need to be able to map between identifiers at different levels.  A total of 164911 unique aliquots are identified in this table.  The intrinsic hierarchy is program > project > case > sample > portion > analyte > aliquot.  We use the term "barcode" where the NCI-GDC uses the term "submitter id", "gdc_id" for the NCI-GDC's uuid-style identifier.  If a portion was not further divided into analytes or if an analyte was not further divided into aliquots, some of the fields in this table may simply have the string "NA".  For example, this query for a single TCGA case will return 24 rows of results for 2 unique samples, 1 portion from each sample, 5 analytes from the tumor sample and 3 analytes from the blood-normal sample, and finally 24 unique aliquots total.
 
 
 .. code-block:: sql
@@ -111,7 +111,7 @@ in the `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:
 
 ..
 
-- `GDCfileID_to_GCSurl <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.GDCfileID_to_GCSurl>`_: is the table to use to determine whether and where a particular GDC file is available in Google Cloud Storage (GCS).  Between the two GDC archives (legacy and current), there are over one million files.  Of these, over 500000 files, totaling over 1700 TB, are available in ISB-CGC buckets in GCS, while roughly 570000 files, totaling over 600 TB are not.  This `SQL query <https://gist.github.com/smrgit/b7177d455a04c1bf70a2d910223c9000>`_, for example, can be used to get summaries of the GDC data that is available in GCS (sorted according to the total size in TB):
+- `GDCfileID_to_GCSurl <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.GDCfileID_to_GCSurl>`_: is the table to use to determine whether and where a particular NCI-GDC file is available in Google Cloud Storage (GCS).  Between the two NCI-GDC archives (legacy and current), there are over one million files.  Of these, over 500000 files, totaling over 1700 TB, are available in ISB-CGC buckets in GCS, while roughly 570000 files, totaling over 600 TB are not.  This `SQL query <https://gist.github.com/smrgit/b7177d455a04c1bf70a2d910223c9000>`_, for example, can be used to get summaries of the NCI-GDC data that is available in GCS (sorted according to the total size in TB):
 
 .. figure:: figs/GDCdata-in-GCS.png
    :scale: 80
@@ -119,7 +119,7 @@ in the `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:
 
 ..
 
-   or conversely, GDC data that is *not* available in GCS (again, sorted according to the total size in TB):
+   or conversely, NCI-GDC data that is *not* available in GCS (again, sorted according to the total size in TB):
 
 .. figure:: figs/GDCdata-not-in-GCS.png
    :scale: 80
@@ -159,10 +159,10 @@ in the `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:
 
    (Note that the figure above includes only the top 20 categories of data, grouped by the fields
    shown and sorted according to total data set size in TB.)
-   The single largest category of data at the GDC which is not currently available in any ISB-CGC
+   The single largest category of data at the NCI-GDC which is not currently available in any ISB-CGC
    buckets consists of the legacy TARGET whole-genome-sequence BAM files (~600 TB).  Our 
    priority will be to upload the missing TARGET data from the "current" archive soon, but please
-   let us know if there are any important categories of data at the GDC which you would 
+   let us know if there are any important categories of data at the NCI-GDC which you would 
    like to see hosted in ISB-CGC buckets.
 
 

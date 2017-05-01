@@ -52,7 +52,7 @@ performing cross-table JOINs: ``case_barcode``, ``sample_barcode``, and ``aliquo
 ``AliquotBarcode``.)  In addition, most tables also containa a ``project_short_name`` field
 (formerly called ``Study``, *eg* TCGA-LUAD, TCGA-BRCA, *etc*).
 
-(Note that in an attempt to be consistent with the GDC terminology, what we used to call a 
+(Note that in an attempt to be consistent with the NCI-GDC terminology, what we used to call a 
 *project* is now called a *program* (*eg* TCGA, TARGET, CCLE, *etc*), while what was
 formerly known as a *study* is now called a *project* (and has also been prepended with the
 *program* name, so that ``LUAD`` has become ``TCGA-LUAD``, *etc*).
@@ -194,7 +194,7 @@ Additional related metadata is organized into the following datasets:
 
 - `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:GDC_metadata>`_:
   This dataset contains several tables which contain metadata describing the cases and
-  files at the GDC, in both the legacy and the current data archives.
+  files at the NCI-GDC, in both the legacy and the current data archives.
 
 
 - `isb-cgc:tcga_seq_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:tcga_seq_metadata>`_:

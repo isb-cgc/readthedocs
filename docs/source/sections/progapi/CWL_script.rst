@@ -1,5 +1,5 @@
 **************************************
-The cwl_runner script
+The cwl_runner "helper" script
 **************************************
 
 The cwl_runner script can be found on github in the **googlegenomics/pipelines-api-examples** repository, in the 

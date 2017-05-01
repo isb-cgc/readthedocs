@@ -49,10 +49,10 @@ repositories:
 
 As of June 2016, the official data repository for all TCGA and other NCI CCG data is
 the `NCI Genomic Data Commons <https://gdc.cancer.gov/>`_.  The original TCGA data,
-aligned to the hg19 human reference genome is available from the GDC's 
+aligned to the hg19 human reference genome is available from the NCI-GDC's 
 `legacy archive <https://gdc-portal.nci.nih.gov/legacy-archive/search/f>`_ 
 while the new "harmonized" data, realigned to hg38 is available from
-the GDC's main `data portal <https://gdc-portal.nci.nih.gov/>`_.
+the NCI-GDC's main `data portal <https://gdc-portal.nci.nih.gov/>`_.
 
 For more information about the original data source repository and data access classes (open *vs* controlled),
 please refer to these sections:

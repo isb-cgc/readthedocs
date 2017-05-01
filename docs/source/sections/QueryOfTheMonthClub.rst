@@ -1635,7 +1635,7 @@ BigQuery SQL
     WITH
     --
     -- *GdcGene*
-    -- We start by extracting gene-expression data from the new GDC/hg38-based
+    -- We start by extracting gene-expression data from the new NCI-GDC/hg38-based
     -- table in the isb-cgc:hg38_data_previews dataset.  For each row, we
     -- extract simply the SamplesSubmitterID (aka the TCGA sample barcode),
     -- the Ensembl gene ID (eg ENSG00000182253), and the FPKM value.  The input
@@ -1650,7 +1650,7 @@ BigQuery SQL
     --
     -- *GeneRef*
     -- Next, we're going to get the gene-id to gene-symbol mapping from the GENCODE
-    -- reference table because the GDC table reference above contains only the gene-id
+    -- reference table because the NCI-GDC table reference above contains only the gene-id
     -- while the expression data we want to compare that to contains gene symbols.
     GeneRef AS (
     SELECT
@@ -1662,7 +1662,7 @@ BigQuery SQL
       feature='gene' ),
     --
     -- *Hg38*
-    -- Now we'll join the two tables above to annotate the GDC expression data with gene-symbols,
+    -- Now we'll join the two tables above to annotate the NCI-GDC expression data with gene-symbols,
     -- and we'll call it Hg38.  We're also going to create a ranking of the expression values
     -- so that we can compute a Spearman correlation later on.
     Hg38 AS (

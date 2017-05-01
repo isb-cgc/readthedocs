@@ -1,8 +1,8 @@
 TCGA Data by Source Repository
 ##############################
 
-TCGA Data at the GDC
-====================
+TCGA Data at the NCI-GDC
+========================
 
 In July 2016, both the DCC and CGHub were shut down.  The official repository for all
 NCI datasets, including the TCGA data is now the NCI `Genomic Data Commons <https://gdc.nci.nih.gov/>`_.
