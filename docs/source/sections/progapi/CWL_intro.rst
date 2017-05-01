@@ -19,7 +19,7 @@ click on **[+] CREATE INSTANCE**, and:
 
     - set Name (*eg* cwl-test-1)
     - set Zone (*eg* us-central1-c)
-    - set Machine type (eg 4 vCPUs with 15 GB memory)
+    - set Machine type (*eg* 4 vCPUs with 15 GB memory)
     - Change the boot disk to Ubuntu 14.04 LTS with 10 GB standard persistent disk (note that the boot disk will be named the same as the VM, *ie* cwl-test-1)
     - leave the Identity and API access box as is (with "Compute Engine default service account" and "Allow default access" selected)
     - expand the "Management, disk, networking, SSH keys section":
