@@ -19,7 +19,7 @@ GGP can be "called" using command-line interface (part of the Cloud SDK ``gcloud
 or as a web service API that can be called programmatically.
 When using GGP from the command-line, each task is defined in a YAML (or JSON) file.
 
-The Google documentation can be found
+The Google documentation for the "Genomics Pipelines" can be found
 `here <https://cloud.google.com/genomics/v1alpha2/pipelines>`_
 and on `readthedocs <https://googlegenomics.readthedocs.io/en/latest/use_cases/run_pipelines_in_the_cloud/index.html>`_,
 and there are numerous easy-to-follow examples on github
