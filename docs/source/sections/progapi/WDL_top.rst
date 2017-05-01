@@ -1,5 +1,5 @@
 *****************************************
-The Worfklow Description Language (WDL)
+The Workflow Description Language (WDL)
 *****************************************
 
 The `Workflow Description Language <https://software.broadinstitute.org/wdl/>`_ (WDL) 
