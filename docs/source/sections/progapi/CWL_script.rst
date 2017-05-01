@@ -59,7 +59,7 @@ The following metadata keys are specified by the cwl_runner script and will be a
     * keep-alive
 
 The cwl_runner script invoked by the user will create a random ``OPERATION-ID`` and
-write three script files to the output GCS-path provided:
+write three script files to the specified output location in GCS:
     * ``cwl_runner-<OPERATION-ID>.sh``
     * ``cwl_startup-<OPERATION-ID>.sh``
     * ``cwl_shutdown-<OPERATION-ID>.sh``
@@ -76,8 +76,11 @@ particular VM to do:
     * outputs are copied from local disk out to GCS
     * the VM is shut down (using the command ``gcloud compute instances delete``) unless the ``--keep-alive`` option was set
 
+(Note that the option to use *rabix* as the executor does not appear to work at this time,
+and an `issue <https://github.com/googlegenomics/pipelines-api-examples/issues/61>`_ has been filed on github.)
+
 Following the example provided on github, you can invoke cwl_runner from the command-line (anywhere where you
-have the Cloud SDK installed, with your GCS bucket name instead of ``MY-BUCKET`` below):
+have the Cloud SDK installed, with your GCS bucket and optional folder name instead of ``MY-BUCKET/my-work-folder`` below):
 
 .. code-block:: none
 
@@ -85,7 +88,7 @@ have the Cloud SDK installed, with your GCS bucket name instead of ``MY-BUCKET``
      --workflow-file gs://genomics-public-data/cwl-examples/gdc-dnaseq-cwl/workflows/dnaseq/transform.cwl \
      --settings-file gs://genomics-public-data/cwl-examples/gdc-dnaseq-cwl/input/gdc-dnaseq-input.json \
      --input-recursive gs://genomics-public-data/cwl-examples/gdc-dnaseq-cwl \
-     --output gs://MY-BUCKET/pipelines-api-examples \
+     --output gs://MY-BUCKET/my-work-folder \
      --machine-type n1-standard-4
 
 
@@ -96,4 +99,9 @@ In this example, the JSON settings file specifies 5 items:
     * thread_count
     * uuid
 
+For more details on machine-types, please see the Google documentation on 
+`predefined machine types <https://cloud.google.com/compute/docs/machine-types#predefined_machine_types>`_
+and if you find that none of those quite fit your requirements you
+may be interested in using one of the available 
+`custom machine types <https://cloud.google.com/compute/docs/machine-types#custom_machine_types>`_.
 
