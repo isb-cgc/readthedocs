@@ -32,9 +32,15 @@ CWL (`Common Workflow Language <http://www.commonwl.org/>`_)
 and WDL (`Workflow Description Language <https://software.broadinstitute.org/wdl/>`_)
 which are further described in the sections below.
 
+Additionally, the ISB-CGC-pipelines framework has been developed to facilitate running
+single step tasks at scale, for example: running FastQC over tens of thousands of FastQ
+files.
+
 .. toctree::
    :maxdepth: 1
 
    CWL_top
    WDL_top
+   ISB_pipelines_top
+
 
