@@ -1,5 +1,5 @@
 **************************************
-Running a GDC DNA-Seq (CWL) workflow
+Running a GDC DNA-Seq workflow
 **************************************
 
 In this section, 
