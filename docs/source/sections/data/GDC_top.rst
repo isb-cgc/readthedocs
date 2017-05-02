@@ -7,9 +7,9 @@ The `NCI's Genomic Data Commons <https://gdc.cancer.gov/>`_
 unified data repository that enables data sharing across cancer genomic studies in 
 support of precision medicine.
 
-The `GDC Data Portal <https://portal.gdc.cancer.gov/>`_ allows users to search for
+The `NCI-GDC Data Portal <https://portal.gdc.cancer.gov/>`_ allows users to search for
 and download data directly via your web browser or using the 
-`GDC Data Transfer Tool <https://gdc.cancer.gov/access-data/gdc-data-transfer-tool>`_.
+`NCI-GDC Data Transfer Tool <https://gdc.cancer.gov/access-data/gdc-data-transfer-tool>`_.
 So-called "legacy" data that the NCI-GDC "inherited" from previous data coordinating
 centers (*eg* the TCGA-DCC and CGHub), is available in the 
 `Legacy Archive <https://portal.gdc.cancer.gov/legacy-archive/search/f>`_, while a 
@@ -29,7 +29,7 @@ or from scripting languages such as **R** and **Python**, or from the command-li
 
 In order to help users determine which data at the NCI-GDC is available on the
 ISB-CGC platform, we have created a set of metadata tables in BigQuery
-(based on `GDC Data Release 5.0 <https://docs.gdc.cancer.gov/Data/Release_Notes/Data_Release_Notes/>`_)
+(based on `NCI-GDC Data Release 5.0 <https://docs.gdc.cancer.gov/Data/Release_Notes/Data_Release_Notes/>`_)
 in the `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:GDC_metadata>`_ dataset:
 
 - `rel5_caseData <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel5_caseData>`_:  contains a complete list of all 17268 cases existing in either the legacy or current archives.  The following query, for example will return a count of the number of cases by program, together with the number of data files for those cases in the two archives:

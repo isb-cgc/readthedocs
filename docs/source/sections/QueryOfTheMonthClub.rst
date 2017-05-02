@@ -1566,7 +1566,7 @@ December, 2016
 ##############
 
 The ISB-CGC team is starting to add the new hg38-based TCGA data available from the
-`GDC Data Portal <https://gdc-portal.nci.nih.gov/>`_ and one of the first obvious questions
+`NCI-GDC Data Portal <https://gdc-portal.nci.nih.gov/>`_ and one of the first obvious questions
 might be: how does the new hg38 expression data compare to the hg19 data?
 
 Description
@@ -1580,9 +1580,9 @@ The first set consists of the hg19-based
 normalized gene-level
 expression values previously available from the TCGA DCC and now available in
 an easy-to-use table in BigQuery (and also from the
-`GDC Legacy Archive <https://gdc-portal.nci.nih.gov/legacy-archive>`_).
+`NCI-GDC Legacy Archive <https://gdc-portal.nci.nih.gov/legacy-archive>`_).
 The second set was produced by the
-`GDC mRNA Analysis Pipeline <https://gdc-docs.nci.nih.gov/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/>`_
+`NCI-GDC mRNA Analysis Pipeline <https://gdc-docs.nci.nih.gov/Data/Bioinformatics_Pipelines/Expression_mRNA_Pipeline/>`_
 which includes a STAR alignment to hg38, and gene expression quantification using
 `HTSeq <http://www-huber.embl.de/HTSeq/doc/overview.html>`_
 (with annotation based on

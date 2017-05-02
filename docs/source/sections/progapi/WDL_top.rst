@@ -3,10 +3,10 @@ The Workflow Description Language (WDL)
 *****************************************
 
 The `Workflow Description Language <https://software.broadinstitute.org/wdl/>`_ (WDL) 
-is an alternate to CWL which 
-is in use at the Broad Institute.  It is supported by a powerful workflow execution engine
-called `Cromwell <https://github.com/broadinstitute/cromwell>`_.
-Cromwell supports multiple "backends" such as GridEngine, HTCondor, Spark,
+which is in use at the Broad Institute, is an alternative to CWL.
+It is supported by a powerful workflow execution engine
+called `Cromwell <https://github.com/broadinstitute/cromwell>`_, which 
+includes multiple "backends" such as GridEngine, HTCondor, Spark,
 the Google "Pipelines API" (formerly known as JES, *ie* "Job Execution Service", aka GGP),
 and the new GA4GH TES (*ie* "Task Execution Service").
 
