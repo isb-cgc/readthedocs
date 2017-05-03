@@ -19,7 +19,7 @@ Cohort Creation Page
 ====================
 
 Using the provided list of filters on the left hand side, you can select the attributes and features
-that you are interested in either frm ISB-CGC data or the User Data tab.  Note that the TCGA project is selected by default as this is the dataset that the majority of researchers are familiar with.  TCGA data is the first program to be displayed next, to it is CCLE and TARGET data tabs. You are able to create a cohort with multiple program filters.  CCLE (The Cancer Cell Line Encyclopedia) data - is open access data set that can be used to view sequence data with the IGV viewer without having dbGaP permissions.
+that you are interested in either from ISB-CGC data or the User Data tab.  Note that the TCGA project is selected by default as this is the dataset that the majority of researchers are familiar with.  TCGA data is the first program to be displayed next, to it is CCLE and TARGET data tabs. You are able to create a cohort with multiple program filters.  CCLE (The Cancer Cell Line Encyclopedia) data - is open access data set that can be used to view sequence data with the IGV viewer without having dbGaP permissions.
 
 By clicking on a feature, the field will expand and provide you with additional filtering options.
 For example, when you click on "Vital Status", it expands and provides a list containing "Alive", "Dead", and
@@ -121,7 +121,7 @@ Push this button if you wish to save the cohort based on the filters you have se
 Selected Filters Panel
 ^^^^^^^^^^^^^^^^^^^^^^
 
-This is where selected filters are shown for each program so there is an easy way to see what filters have been selected.  You have to tooggle between program tabs to see the filters selected for each program.
+This is where selected filters are shown for each program so there section to see what filters have been selected.  You have to toggle between program tabs to see the filters selected for each program.
 
 If you have not saved the cohort yet, clicking on “Clear All” will remove all selected filters for that program.  Also, if you have not saved the cohort yet, selecting an X beside a single filter will remove that filter.  If you have saved the cohort, the X is not present as this function is disabled in saved cohorts (to add back to an existing cohort, you can use set operations - see below).
 
@@ -156,7 +156,7 @@ handful of features for the selected program:
 By using the “Show More” button, you can see the last two tree maps.  Mousing over an image shows the details of each specific section of the image and the number of samples associated with it.
 
 Data File Availability Panel
-^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This panel shows a parallel sets graph of available data files for the selected samples in the cohort. The large headers over
 the vertical bars are data types. Each data type (vertical bar) is subdivided according to the different platforms
@@ -257,12 +257,12 @@ This panel also displays "Your Permissions" which can be either owner or reader,
 
 TCGA DATA, CCLE DATA, TARGET DATA and USER DATA Tabs
 -----------------------------------------------------
-Selecting any program tab will be enabled if you have selected filters for that program.  By selecting the tab you will displayed the Clinical Features panel and the Data File Availibility panels for the program selected. 
+Selecting any program tab will be enabled if you have selected filters for that program.  By selecting the tab you will display the Clinical Features panel and the Data File Availability panels for the program selected. 
 
 Clinical Features Panel
 -----------------------
 
-This panel shows a list of treemaps that give a high level break of the samples for a handful of features for the program view selected:
+This panel shows a list of tree maps that give a high level break of the samples for a handful of features for the program view selected:
 
    +------------------------------+------------------------------+---------------------------------+------------------------------------+
    | TCGA Clinical Features Panel | CCLE Clinical Features Panel | TARGET Clinical Features Panel  | USER DATA Programs & Projects Panel|
@@ -301,7 +301,7 @@ View Files Page
 to files that have been uploaded to the ISB-CGC Google Cloud Project, including both controlled access and open access data.  
 You can use the "Previous Page" and "Next Page" buttons to see more values in the list.
 
-You can filter by Genomic Build either HG19 or HG38 and view which platforms and files are availible for the build selected.  You may also filter on these files if you are only interested in a specific data type and platform.  Selecting a filter will
+You can filter by Genomic Build either HG19 or HG38 and view which platforms and files are available for the build selected.  You may also filter on these files if you are only interested in a specific data type and platform.  Selecting a filter will
 update the associated list.  The numbers next to the platform refers to the number of files available for that platform.
 
 If there are files that contain read-level data, you will be able to select files to view in the IGV 
@@ -345,7 +345,7 @@ If you are viewing a cohort you created, then you can delete the cohort using th
 Creating a Cohort from a Visualization
 ======================================
 
-To create a cohort from a visualization, you must be in plot selection mode. If you are in plot selection mode, the
+To create a cohort from visualization, you must be in plot selection mode. If you are in plot selection mode, the
 crosshairs icon in the top right corner of the plot panel should be blue. If it is not, click on it and it should turn
 blue.
 
