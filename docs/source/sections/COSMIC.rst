@@ -25,9 +25,9 @@ many more types of queries -- please explore them at (after registering for acce
     - `isb-cgc:COSMIC_v81_grch37 <https://bigquery.cloud.google.com/dataset/isb-cgc:COSMIC_v81_grch37>`_
 Details about the underlying COSMIC export files used to create these BigQuery tables can be
 found in README files for 
-`grch38 <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/source/sections/cosmic/README-cosmic-grch38.txt>`_ 
+`GRCh38 <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/source/sections/cosmic/README-cosmic-grch38.txt>`_ 
 and 
-`grch37 <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/source/sections/cosmic/README-cosmic-grch37.txt>`_.
+`GRCh37 <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/source/sections/cosmic/README-cosmic-grch37.txt>`_.
 
 Getting Started
 ###############
