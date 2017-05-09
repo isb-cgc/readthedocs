@@ -16,6 +16,16 @@ open-access datasets made available by the ISB-CGC
 and `that <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/Reference-Data.html>`_ 
 for more details on other publicly accessible BigQuery datasets).
 
+**COSMIC Release v81 update**: Two new BigQuery datasets now contain *all* of the tables
+available for download from the `COSMIC ftp site <sftp-cancer.sanger.ac.uk>`_ 
+(not just the "Mutant" table which was
+included in the v80 dataset).  The availability of these additional tables will support 
+many more types of queries -- please explore them at:
+    - `isb-cgc:COSMIC_v81_grch38 <https://bigquery.cloud.google.com/dataset/isb-cgc:COSMIC_v81_grch38>`_
+    - `isb-cgc:COSMIC_v81_grch37 <https://bigquery.cloud.google.com/dataset/isb-cgc:COSMIC_v81_grch37>`_
+Details about the underlying COSMIC export files used to create these BigQuery tables can be
+found in README files for grch38 and grch37.
+
 Getting Started
 ###############
 
