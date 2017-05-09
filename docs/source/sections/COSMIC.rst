@@ -19,7 +19,7 @@ for more details on other publicly accessible BigQuery datasets).
 **COSMIC Release v81 update**: Two new BigQuery datasets now contain *all* of the tables
 available for download from the `COSMIC ftp site <sftp-cancer.sanger.ac.uk>`_ 
 (not just the "Mutant" table which was
-included in the v80 dataset).  The availability of these additional tables will support 
+included for the v80 release).  The availability of these additional tables will support 
 many more types of queries -- please explore them at (after registering for access as described below):
     - `isb-cgc:COSMIC_v81_grch38 <https://bigquery.cloud.google.com/dataset/isb-cgc:COSMIC_v81_grch38>`_
     - `isb-cgc:COSMIC_v81_grch37 <https://bigquery.cloud.google.com/dataset/isb-cgc:COSMIC_v81_grch37>`_
