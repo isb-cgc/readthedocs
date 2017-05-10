@@ -32,6 +32,12 @@ and on `readthedocs <https://googlegenomics.readthedocs.io/en/latest/use_cases/r
 and there are numerous easy-to-follow examples on github
 `here <https://github.com/googlegenomics/pipelines-api-examples>`_.
 
+You can use `wdl_runner <https://github.com/googlegenomics/pipelines-api-examples/tree/master/wdl_runner>`_
+to run a WDL workflow using Cromwell+GGP on the Google Cloud.  Documentation can be found on
+`github <https://github.com/googlegenomics/pipelines-api-examples/blob/master/wdl_runner/README.md>`_
+and you can run a GATK workflow by following this Google Genomics
+`documentation <https://cloud.google.com/genomics/v1alpha2/gatk>`_.
+
 GA4GH Task Execution Service
 ++++++++++++++++++++++++++++
 
