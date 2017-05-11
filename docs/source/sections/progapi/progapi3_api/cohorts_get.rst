@@ -4,11 +4,11 @@ Returns information about a specific cohort the user has READER or OWNER permiss
 
 **Example**::
 
-	python isb_curl.py https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/cohorts/{COHORT ID}
+	python isb_curl.py https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v3/cohorts/{COHORT ID}
 
 **API explorer example**:
 
-Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_ccle_api/v3/isb_cgc_ccle_api.cohorts.get?cohort_id=1&/>`_ to see this endpoint in Google's API explorer.
+Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v3/isb_cgc_api.cohorts.get?cohort_id=1&/>`_ to see this endpoint in Google's API explorer.
 
 **Python API Client Example**::
 
@@ -35,7 +35,7 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2
 		return credentials
 
 	def get_authorized_service():
-		api = 'isb_cgc_ccle_api'
+		api = 'isb_cgc_api'
 		version = 'v3'
 		site = 'https://api-dot-isb-cgc.appspot.com'
 		discovery_url = '%s/_ah/api/discovery/v1/apis/%s/%s/rest' % (site, api, version)
@@ -54,7 +54,7 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2
 
 HTTP request::
 
-	GET https://mvm-api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/cohorts/{cohort_id}
+	GET https://mvm-api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v3/cohorts/{cohort_id}
 
 **Parameters**
 

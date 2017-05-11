@@ -1,14 +1,14 @@
-cohorts().cloud_storage_file_paths()
-#####################################
-Takes a cohort id as a required parameter and returns cloud storage paths to files associated with all the samples in that cohort, up to a default limit of 10,000 files. Authentication is required. User must have READER or OWNER permissions on the cohort.
+cohorts().delete()
+###################
+Deletes a cohort. User must have owner permissions on the cohort.
 
 **Example**::
 
-	python isb_curl.py https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/cohorts/{COHORT ID}/cloud_storage_file_paths
+	python isb_curl.py https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v3/cohorts/{COHORT ID} -X DELETE
 
 **API explorer example**:
 
-Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_ccle_api/v3/isb_cgc_ccle_api.cohorts.cloud_storage_file_paths?cohort_id=1&limit=10&/>`_ to see this endpoint in Google's API explorer.
+Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v3/isb_cgc_api.cohorts.delete?cohort_id=COHORT%20ID%20HERE&/>`_ to see this endpoint in Google's API explorer.
 
 **Python API Client Example**::
 
@@ -35,7 +35,7 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2
 		return credentials
 
 	def get_authorized_service():
-		api = 'isb_cgc_ccle_api'
+		api = 'isb_cgc_api'
 		version = 'v3'
 		site = 'https://api-dot-isb-cgc.appspot.com'
 		discovery_url = '%s/_ah/api/discovery/v1/apis/%s/%s/rest' % (site, api, version)
@@ -47,14 +47,14 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2
 		return authorized_service
 
 	service = get_authorized_service()
-	data = service.cohorts().cloud_storage_file_paths(cohort_id=1).execute()
+	data = service.cohorts().delete(cohort_id={YOUR_COHORT_ID}).execute()
 
 
 **Request**
 
 HTTP request::
 
-	GET https://mvm-api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/cohorts/{cohort_id}/cloud_storage_file_paths
+	DELETE https://mvm-api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v3/cohorts/{cohort_id}
 
 **Parameters**
 
@@ -62,15 +62,7 @@ HTTP request::
 	:header: "**Parameter name**", "**Value**", "**Description**"
 	:widths: 50, 10, 50
 
-	analysis_workflow_type,string,"Optional. "
 	cohort_id,string,"Required. "
-	data_category,string,"Optional. "
-	data_format,string,"Optional. "
-	data_type,string,"Optional. "
-	experimental_strategy,string,"Optional. "
-	genomic_build,string,"Optional. "
-	limit,string,"Optional. "
-	platform,string,"Optional. "
 
 
 **Response**
@@ -80,13 +72,11 @@ If successful, this method returns a response body with the following structure:
 .. code-block:: javascript
 
   {
-    "cloud_storage_file_paths": [string],
-    "count": integer
+    "message": string
   }
 
 .. csv-table::
 	:header: "**Parameter name**", "**Value**", "**Description**"
 	:widths: 50, 10, 50
 
-	cloud_storage_file_paths[], list, "List of Google Cloud Storage paths of files associated with the cohort."
-	count, integer, "Number of Google Cloud Storage paths returned for the cohort."
+	message, string, "Indicates success or failure of cohort deletion."

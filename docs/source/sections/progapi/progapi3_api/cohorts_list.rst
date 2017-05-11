@@ -4,11 +4,11 @@ Returns information about cohorts a user has either READER or OWNER permission o
 
 **Example**::
 
-	$ python isb_curl.py https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_tcga_api/v3/cohorts
+	$ python isb_curl.py https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v3/cohorts
 
 **API explorer example**:
 
-Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_tcga_api/v3/isb_cgc_tcga_api.cohorts.list?/>`_ to see this endpoint in Google's API explorer.
+Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v3/isb_cgc_api.cohorts.list?/>`_ to see this endpoint in Google's API explorer.
 
 **Python API Client Example**::
 
@@ -35,7 +35,7 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2
 		return credentials
 
 	def get_authorized_service():
-		api = 'isb_cgc_tcga_api'
+		api = 'isb_cgc_api'
 		version = 'v3'
 		site = 'https://api-dot-isb-cgc.appspot.com'
 		discovery_url = '%s/_ah/api/discovery/v1/apis/%s/%s/rest' % (site, api, version)
@@ -54,7 +54,7 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2
 
 HTTP request::
 
-	GET https://mvm-api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_tcga_api/v3/cohorts
+	GET https://mvm-api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v3/cohorts
 
 **Parameters**
 
@@ -100,6 +100,7 @@ If successful, this method returns a response body with the following structure:
 	count, integer, "Number of cohorts the user has OWNER or READER permission on."
 	items[], list, "List of details about each cohort."
 	items[].case_count, integer, "Total count of unique case barcodes in the cohort."
+	items[].cases[], list, "List of case barcodes in the cohort."
 	items[].comments, string, "Comments on the cohort."
 	items[].email, string, "Email of user."
 	items[].filters[], list, "List of filters applied to create cohort, if any."
@@ -111,5 +112,6 @@ If successful, this method returns a response body with the following structure:
 	items[].parent_id[], list, "List of id's of cohorts that this cohort was derived from, if any."
 	items[].permission, string, "User permissions on cohort: READER or OWNER."
 	items[].sample_count, integer, "Total count of unique sample barcodes in the cohort."
+	items[].samples[], list, "List of sample barcodes in the cohort."
 	items[].source_notes, string, "Notes on the source of the cohort."
 	items[].source_type, string, "Type of cohort source."

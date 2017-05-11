@@ -122,7 +122,7 @@ def get_next_parameter_javascript_row(message_class_name, started_string, level=
     started_string += (level+2)*JS_SPACE + '}'
     return started_string
 
-def get_next_property_table_row(message_class_name, started_string, level='', program = '', resource_name=None, method_name=None):
+def get_next_property_table_row(message_class_name, started_string, level='', resource_name=None, method_name=None):
     '''
     change name to get next response table row?
     Recursive function returning csv formatting of restructured text.
@@ -161,7 +161,6 @@ def get_next_property_table_row(message_class_name, started_string, level='', pr
             started_string = get_next_property_table_row(next_message_class,
                                                          started_string,
                                                          level=level,
-                                                         program = program,
                                                          resource_name=resource_name,
                                                          method_name=method_name)
             # go up one level i.e. truncate at next to last dot
@@ -179,7 +178,6 @@ def get_next_property_table_row(message_class_name, started_string, level='', pr
                 started_string = get_next_property_table_row(next_message_class,
                                                              started_string,
                                                              level=level,
-                                                             program=program,
                                                              resource_name=resource_name,
                                                              method_name=method_name)
                 # go up one level i.e. truncate at next to last dot
@@ -214,9 +212,9 @@ def write_rst_file_header(resource, method, endpoint, program):
     description = method_json['description']
     http_method = method_json['httpMethod']
     file_name = resource + '_' + method
-    example_contents_json = get_json_file_contents('examples_{}_v3'.format(program.lower()))
-    api_explorer_example_contents_json = get_json_file_contents('api_explorer_examples_{}_v3'.format(program.lower()))
-    python_example_contents_json = get_json_file_contents('python_examples_{}_v3'.format(program.lower()))
+    example_contents_json = get_json_file_contents('examples{}_v3'.format(program.lower()))
+    api_explorer_example_contents_json = get_json_file_contents('api_explorer_examples{}_v3'.format(program.lower()))
+    python_example_contents_json = get_json_file_contents('python_examples{}_v3'.format(program.lower()))
     example_text = ''
     if example_contents_json.get(file_name):
         example_text = '\n\n**Example**::\n\n\t' + example_contents_json[file_name] % (endpoint)
@@ -335,7 +333,7 @@ def write_rst_file_request_body(resource, method, program):
     csv_header = get_csv_table_heading()
     allowed_values = {}
     if method in ['preview', 'create'] and resource == 'cohorts':
-        with open(JSON_FILE_DIRECTORY + '/allowed_values_v3_%s.json' % program, 'r') as f:
+        with open(JSON_FILE_DIRECTORY + '/allowed_values_v3%s.json' % program, 'r') as f:
             contents = f.read()
         allowed_values = json.loads(contents)
     csv_body = get_next_parameter_table_row(message_class_properties,
@@ -347,7 +345,7 @@ def write_rst_file_request_body(resource, method, program):
     with open(DEV_DOCUMENTATION_DIRECTORY_PATH + file_name, 'a+') as f:
         f.write(request_body_text)
 
-def write_rst_file_response_section(program, resource, method):
+def write_rst_file_response_section(resource, method):
     '''
     write javascript code block of response body properties
     and rst table from csv table of response body properties
@@ -366,7 +364,7 @@ def write_rst_file_response_section(program, resource, method):
                                                           resource_name=resource,
                                                           method_name=method)
         csv_header = get_csv_table_heading()
-        csv_body = get_next_property_table_row(response_body_message_class_name, '', program=program, resource_name=resource, method_name=method)
+        csv_body = get_next_property_table_row(response_body_message_class_name, '', resource_name=resource, method_name=method)
         response_body_text = '**Response**\n\n{}{}{}\n\n{}\n{}'.format(
             response_desc, js_block_header, js_block_body, csv_header, csv_body)
     with open(DEV_DOCUMENTATION_DIRECTORY_PATH + file_name, 'a+') as f:
@@ -384,7 +382,7 @@ def write_rst_file_exceptions_section(resource, method):
         f.write(exceptions_text)
 
 def main():
-    for endpoint, program in zip(('isb_cgc_ccle_api', 'isb_cgc_target_api', 'isb_cgc_tcga_api'), ('CCLE', 'TARGET', 'TCGA')):
+    for endpoint, program in zip(('isb_cgc_api', 'isb_cgc_ccle_api', 'isb_cgc_target_api', 'isb_cgc_tcga_api'), ('', '_CCLE', '_TARGET', '_TCGA')):
         set_endpoint_info(endpoint)
         resource_list = [resource for resource in RESP_JSON['resources'].keys()]
         file_name_list = [resource + '_' + method
@@ -399,7 +397,7 @@ def main():
                 write_rst_file_header(resource, method, endpoint, program)
                 write_rst_file_path_parameters(resource, method)
                 write_rst_file_request_body(resource, method, program)
-                write_rst_file_response_section(program, resource, method)
+                write_rst_file_response_section(resource, method)
                 # write_rst_file_exceptions_section(resource, method)
 
 if __name__ == '__main__':
