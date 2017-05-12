@@ -27,9 +27,9 @@
         "legacy"
     ],
     "gender": [
-        "F",
-        "M",
-        "U"
+        "Female",
+        "Male",
+        "Undefined"
     ],
     "histology": [
         "carcinoid-endocrine_tumour",
