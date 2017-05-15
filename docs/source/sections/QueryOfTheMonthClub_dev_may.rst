@@ -16,19 +16,20 @@ May, 2017
 ###########
 
 This month we are going to extend the query from April and focus on estimating the
-distance between samples based shared mutations in pathways. To clarify, we want to know, given
+distance between samples based on shared mutations in pathways. To clarify, we want to know, given
 a particular pathway, such as the WNT signaling pathway, whether two samples
 share deleterious mutations within that pathway. In April, we were comparing samples
-based on shared mutations, but in considering all genes simultaneously, so we had
+based on shared mutations, but in considering all genes simultaneously, we had
 some pretty low Jaccard indices. Here, we hope that we can get more specificity
 if we narrow our search to cancer related pathways.
 
 New for this month, we have a whole host of new BigQuery tables from `COSMIC<http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/COSMIC.html>`_ .
 
-For our query, we downloaded pathways from `WikiPathways<http://data.wikipathways.org/current/gmt/wikipathways-20170410-gmt-Homo_sapiens.gmt>`_ .
-These are gene sets, where each line represents a pathway and contains a list
-of genes taking part in the pathway. This file contains 381 pathways. Each line starts with
-a pathway name, and then has a list of genes starting in column 4. I wrote a small
+For our query, we downloaded pathways from 
+`WikiPathways<http://data.wikipathways.org/current/gmt/wikipathways-20170410-gmt-Homo_sapiens.gmt>`_ .
+These are gene sets, where each row represents a pathway and contains a list
+of the genes in that pathway. This file contains 381 pathways. Each row starts with
+a pathway name, and has a list of genes starting in column 4. I wrote a small
 python script to parse .gmt files to 'tidy' (format) them up, which is required for
 uploading to BigQuery. Then with this file, I used the BQ web interface uploader.
 
@@ -112,11 +113,11 @@ in this pathway.
    :align: center
 
 
-So we have a lot of variants being in this pathway.
+So there are quite a few variants found in this pathway.
 Let's find out a little more information about them.
 I'm going to replace the last 'select' statement of the above query
 to look at the returned rows. Also, similar to last month,
-we're going to look at a small set of cancer types to ensure the queries come back quickly.
+we're going to look at a small subset of cancer types to ensure the queries come back quickly.
 
 
 .. code-block:: sql
@@ -410,7 +411,7 @@ So, for this particular pathway, the Jaccard indices are not spectacular.
 But(!), what we really want is to look at *all* pathways simultaneously.
 Then for any given pair of samples, we could rank the mutation overlap by pathway.
 To do that, instead of selecting a pathway in the first subtable... we build a
-table containing all pathways, and join on that down the query.
+table containing all pathways, and join on that furhter down in the query.
 
 Just note, this is a longer running query (takes about 2 minutes).
 
