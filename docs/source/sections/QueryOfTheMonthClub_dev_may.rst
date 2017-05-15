@@ -535,7 +535,7 @@ Just note, this is a longer running query (takes about 2 minutes).
     jaccard_index DESC
 
 
-.. figure:: query_figs/may_cosmic_1.png
+.. figure:: query_figs/may_5.png
    :scale: 85
    :align: center
 
