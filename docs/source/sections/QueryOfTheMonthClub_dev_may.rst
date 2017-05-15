@@ -266,18 +266,13 @@ So, it's very interesting that we are getting samples from GBM (brain) and PAAD
 Notch signaling pathway was been implciated in both of these cancer types.
 
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4283135/
+
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4621772/
 
 
-Let's try a pathway that's associated with BRCA (breast) and see what we get.
 
-How about the 'Integrated Breast Cancer Pathway'?  We replace the named pathway
-in the initial pathGenes sub-table.
-
-
-I guess the 'integrated Breast Cancer Pathway' is not neccessarily very specific
-to tissue type. Now we'll move on to the COSMIC data.
-
+Now we'll move on to the COSMIC data, where we will compare a GBM sample
+to various non-TCGA samples in COSMIC.
 
 .. code-block:: sql
 
@@ -409,10 +404,14 @@ to tissue type. Now we'll move on to the COSMIC data.
     jaccard_index DESC
 
 
+.. figure:: query_figs/may_cosmic_1.png
+   :scale: 50
+   :align: center
 
-
-But(!), what we really want is to look at *all* pathways simultaneously. To do
-that, instead of selecting a pathway in the first subtable... we build a
+So, for this particular pathway, the Jaccard indices are not spectacular.
+But(!), what we really want is to look at *all* pathways simultaneously.
+Then for any given pair of samples, we could rank the mutation overlap by pathway.
+To do that, instead of selecting a pathway in the first subtable... we build a
 table containing all pathways, and join on that down the query.
 
 Just note, this is a longer running query (takes about 2 minutes).
@@ -498,22 +497,14 @@ Just note, this is a longer running query (takes about 2 minutes).
       ARRAY_LENGTH(b.geneArray) AS length2,
       --
       -- here's the intersection
-      (
-      SELECT
-        COUNT(1)
-      FROM
-        UNNEST(a.geneArray) AS ga
-      JOIN
-        UNNEST(b.geneArray) AS gb
-      ON
-        ga = gb) AS gene_intersection,
+      (SELECT
+        COUNT(1) FROM UNNEST(a.geneArray) AS ga JOIN UNNEST(b.geneArray) AS gb ON ga = gb)
+          AS gene_intersection,
       --
       -- and here's the union
-      (
-      SELECT
-        COUNT(DISTINCT gx)
-      FROM
-        UNNEST(ARRAY_CONCAT(a.geneArray,b.geneArray)) AS gx) AS gene_union
+      (SELECT
+        COUNT(DISTINCT gx) FROM UNNEST(ARRAY_CONCAT(a.geneArray,b.geneArray)) AS gx)
+          AS gene_union
     FROM
       arrayMC3 AS a
     JOIN
@@ -540,12 +531,22 @@ Just note, this is a longer running query (takes about 2 minutes).
   FROM
     setOpsTable
   WHERE
-    (gene_intersection / gene_union) > 0.01
-    AND gene_intersection > 1
+    (gene_intersection / gene_union) > 0.3
+    AND gene_intersection > 10
   ORDER BY
     jaccard_index DESC
 
 
+.. figure:: query_figs/may_cosmic_1.png
+   :scale: 50
+   :align: center
+
+
+OK! Now we've got some pretty decent overlaps. We now have a way to search for
+similarities among groups of samples based on functionally based shared mutation
+profiles.
+
+It's possible that this query could be
 
 
 
