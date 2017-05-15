@@ -15,37 +15,39 @@ email: dgibbs (at) systemsbiology (dot) org
 May, 2017
 ###########
 
-This month we are going to extend the query from April and focus on measuring the
-distance between samples based on pathways. To clarify, we want to know, given
+This month we are going to extend the query from April and focus on estimating the
+distance between samples based shared mutations in pathways. To clarify, we want to know, given
 a particular pathway, such as the WNT signaling pathway, whether two samples
 share deleterious mutations within that pathway. In April, we were comparing samples
-based on shared muataions, but were considering all genes simultaneously. Here we
-hope that we can get more specificity if we narrow our search to cancer related
-pathways.
+based on shared mutations, but in considering all genes simultaneously, so we had
+some pretty low Jaccard indices. Here, we hope that we can get more specificity
+if we narrow our search to cancer related pathways.
 
-New for this month, we have a whole host of tables from COSMIC.
+New for this month, we have a whole host of new BigQuery tables from COSMIC.
 http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/COSMIC.html
 
-First we down loaded pathways from WikiPathways (http://data.wikipathways.org/current/gmt/wikipathways-20170410-gmt-Homo_sapiens.gmt)
-these are actually gene sets, where each line represents a pathway and contains a list
+For our query, we downloaded pathways from WikiPathways
+(http://data.wikipathways.org/current/gmt/wikipathways-20170410-gmt-Homo_sapiens.gmt)
+these are gene sets, where each line represents a pathway and contains a list
 of genes taking part in the pathway. This file contains 381 pathways. Each line starts with
 a pathway name, and then has a list of genes starting in column 4. I wrote a small
-python script () to parse .gmt files to get it in the 'tidy' format, required for
+python script to parse .gmt files to 'tidy' (format) them up, which is required for
 uploading to BigQuery. Then with this file, I used the BQ web interface uploader.
-To upload a table, clicking the '+' symbol next to a dataset (I set up a dataset to be my personal working
-space) brings up the 'Create Table' interface. For smaller files, we can upload it directly,
-whereas with larger files, we need to move it to cloud storage first. Then we give it a table
-name, and with luck, we can just click the 'Automatically detect' schema check box. I've
-been having really good luck with it, but you can run into trouble if the 'top' of a column
-looks like an interger, but far down in the column, the actual type is a 'string'.
-At any rate, I've created a table with a column listing the pathway name, and
-columns listing the genes associated with the pathway. I used the org.Hs.eg.db
+
+To upload a table, clicking the '+' symbol next to a dataset
+reveals the 'Create Table' interface. For smaller files, we can upload it directly,
+whereas with larger files, we need to move it to cloud storage first. After giving it a table
+name, and with some luck, we can just click the 'Automatically detect' schema check box.
+I've been having good luck with it, but you might run into trouble if the 'top' of a column
+looks like an integer, but the actual type is a 'string'.
+
+I've created a table with a column listing the pathway name, and a second
+column listing the genes associated with the pathway. I used the org.Hs.eg.db
 human database of gene identifiers found in bioconductor to map the gene IDs to a few often
 used variants.
 
-
-For this analysis, I will select a few pathways that are well known and often important in cancer
-processes.
+For this analysis, first I will select a few pathways that are well known and often important in cancer
+processes, then we'll move to using all pathways.
 
 .. code-block:: sql
 
@@ -105,6 +107,11 @@ in this pathway.
     project_short_name
   ORDER BY
     N_vars DESC
+
+
+.. figure:: query_figs/may_1.png
+   :scale: 50
+   :align: center
 
 
 So we have more variants being reported than genes in the pathway, hopefully that's
