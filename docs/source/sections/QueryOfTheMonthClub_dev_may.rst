@@ -25,7 +25,7 @@ if we narrow our search to cancer related pathways.
 
 New for this month, we have a whole host of new BigQuery tables from `COSMIC<http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/COSMIC.html>`_ .
 
-For our query, we downloaded pathways from 
+For our query, we downloaded pathways from
 `WikiPathways<http://data.wikipathways.org/current/gmt/wikipathways-20170410-gmt-Homo_sapiens.gmt>`_ .
 These are gene sets, where each row represents a pathway and contains a list
 of the genes in that pathway. This file contains 381 pathways. Each row starts with
@@ -545,7 +545,112 @@ OK! Now we've got some pretty decent overlaps. We now have a way to search for
 similarities among groups of samples based on functionally based shared mutation
 profiles.
 
-It's possible that this query could be
+Now, what if we looked at the overlap on the pathway level?
+
+.. code-block:: sql
+
+  WITH
+    --
+    -- Then we're going to extract just the project names, cases, and gene symbols,
+    -- using the "GROUP BY" to make sure we only count one mutation per gene per case
+    -- and we'll just take genes that are in the pathway.
+    --
+    vars AS (
+    SELECT
+      mc3.project_short_name,
+      mc3.case_barcode,
+      mc3.Hugo_Symbol,
+      wikip.pathway
+    FROM
+      `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3` as mc3
+    join
+      `isb-cgc.QotM.WikiPathways_20170425_Annotated` as wikip
+    ON
+      mc3.Hugo_Symbol = wikip.Symbol
+    WHERE
+      mc3.Variant_Type = 'SNP'
+      AND mc3.Consequence = 'missense_variant'
+      AND mc3.biotype = 'protein_coding'
+      AND ( REGEXP_CONTAINS(mc3.PolyPhen, 'damaging')
+        OR REGEXP_CONTAINS(mc3.SIFT, 'deleterious') )
+      AND mc3.project_short_name IN ('TCGA-BRCA')
+      -- We could remove the above line to compute using all samples,
+      -- but to speed things up, let's just look at 3 studies.
+    GROUP BY
+      mc3.project_short_name,
+      mc3.case_barcode,
+      mc3.Hugo_Symbol,
+      wikip.pathway),
+    --
+    -- Next we transform resulting table using the ARRAY_AGG function
+    -- to create a list of mutated genes for each case
+    --
+    arrayPath AS (
+    SELECT
+      project_short_name,
+      case_barcode,
+      ARRAY_AGG(DISTINCT pathway) AS pathArray
+    FROM
+      vars
+    GROUP BY
+      project_short_name,
+      case_barcode ),
+
+   --
+    -- Now we can do some "set operations" on these gene-lists:  a self-join
+    -- of the previously created table with itself will allow for a pairwise
+    -- pairwise comparison (notice the inequality in the JOIN ... ON clause)
+    --
+    setOpsTable AS (
+    SELECT
+      a.case_barcode AS case1,
+      a.project_short_name AS study1,
+      ARRAY_LENGTH(a.pathArray) AS length1,
+      b.case_barcode AS case2,
+      b.project_short_name AS study2,
+      ARRAY_LENGTH(b.pathArray) AS length2,
+      --
+      -- here's the intersection
+      (SELECT
+        COUNT(1) FROM
+          UNNEST(a.pathArray) AS ga JOIN UNNEST(b.pathArray) AS gb ON ga = gb)
+            AS path_intersection,
+      --
+      -- and here's the union
+      (SELECT
+        COUNT(DISTINCT gx) FROM
+          UNNEST(ARRAY_CONCAT(a.pathArray,b.pathArray)) AS gx)
+            AS path_union
+    FROM
+      arrayPath AS a
+    JOIN
+      arrayPath AS b
+    ON
+      a.case_barcode < b.case_barcode )
+    --
+
+    --
+    -- and finally, we can compute the Jaccard index, and
+    -- do a little bit of filtering and then output a list of
+    -- pairs, sorted based on the Jaccard index:
+  SELECT
+    case1,
+    study1,
+    length1 AS pathCount1,
+    case2,
+    study2,
+    length2 AS pathCount2,
+    path_intersection,
+    path_union,
+    (path_intersection / path_union) AS jaccard_index
+  FROM
+    setOpsTable
+  WHERE
+    (path_intersection / path_union) > 0.1
+    AND path_intersection > 1
+  ORDER BY
+    jaccard_index DESC
+
 
 
 
