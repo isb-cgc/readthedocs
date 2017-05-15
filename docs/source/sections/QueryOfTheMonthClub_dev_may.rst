@@ -403,7 +403,7 @@ to various non-TCGA samples in COSMIC.
 
 
 .. figure:: query_figs/may_cosmic_1.png
-   :scale: 50
+   :scale: 85
    :align: center
 
 So, for this particular pathway, the Jaccard indices are not spectacular.
@@ -536,7 +536,7 @@ Just note, this is a longer running query (takes about 2 minutes).
 
 
 .. figure:: query_figs/may_cosmic_1.png
-   :scale: 50
+   :scale: 85
    :align: center
 
 
