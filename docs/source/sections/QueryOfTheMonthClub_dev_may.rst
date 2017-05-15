@@ -136,7 +136,7 @@ we're going to look at a small set of cancer types to ensure the queries come ba
     gene_count dESC
 
 
-.. figure:: query_figs/may_2.png
+.. figure:: query_figs/may_2_2.png
    :scale: 50
    :align: center
 
@@ -146,6 +146,7 @@ than others. In COAD, FBXW7 is mutated more than twice as often as the next
 most mutated gene, NOTCH1. Both of these genes are well known among cancer
 researchers.
 
+OK, let's compute a Jaccard index based on this pathway!
 
 .. code-block:: sql
 
@@ -218,22 +219,14 @@ researchers.
       ARRAY_LENGTH(b.geneArray) AS length2,
       --
       -- here's the intersection
-      (
-      SELECT
-        COUNT(1)
-      FROM
-        UNNEST(a.geneArray) AS ga
-      JOIN
-        UNNEST(b.geneArray) AS gb
-      ON
-        ga = gb) AS gene_intersection,
+      (SELECT
+        COUNT(1) FROM UNNEST(a.geneArray) AS ga JOIN UNNEST(b.geneArray) AS gb ON ga = gb)
+          AS gene_intersection,
       --
       -- and here's the union
-      (
-      SELECT
-        COUNT(DISTINCT gx)
-      FROM
-        UNNEST(ARRAY_CONCAT(a.geneArray,b.geneArray)) AS gx) AS gene_union
+      (SELECT
+        COUNT(DISTINCT gx) FROM UNNEST(ARRAY_CONCAT(a.geneArray,b.geneArray)) AS gx)
+          AS gene_union
     FROM
       arrayMC3 AS a
     JOIN
@@ -261,6 +254,11 @@ researchers.
     AND gene_intersection > 5
   ORDER BY
     jaccard_index DESC
+
+
+.. figure:: query_figs/may_3.png
+   :scale: 50
+   :align: center
 
 
 So, it's very interesting that we are getting samples from GBM (brain) and PAAD
