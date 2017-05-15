@@ -23,12 +23,12 @@ based on shared mutations, but in considering all genes simultaneously, so we ha
 some pretty low Jaccard indices. Here, we hope that we can get more specificity
 if we narrow our search to cancer related pathways.
 
-New for this month, we have a whole host of new BigQuery tables from COSMIC.
-http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/COSMIC.html
+New for this month, we have a whole host of new BigQuery tables from `COSMIC
+<http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/COSMIC.html>`_.
 
-For our query, we downloaded pathways from WikiPathways
-(http://data.wikipathways.org/current/gmt/wikipathways-20170410-gmt-Homo_sapiens.gmt)
-these are gene sets, where each line represents a pathway and contains a list
+For our query, we downloaded pathways from `WikiPathways
+ <http://data.wikipathways.org/current/gmt/wikipathways-20170410-gmt-Homo_sapiens.gmt>`_.
+These are gene sets, where each line represents a pathway and contains a list
 of genes taking part in the pathway. This file contains 381 pathways. Each line starts with
 a pathway name, and then has a list of genes starting in column 4. I wrote a small
 python script to parse .gmt files to 'tidy' (format) them up, which is required for
@@ -114,11 +114,12 @@ in this pathway.
    :align: center
 
 
-So we have more variants being reported than genes in the pathway, hopefully that's
-because genes are found mutated repeatedly within a cancer type.  Let's check,
-I'm going to replace the last portion of the above query, to look at the returned
-rows. Also, similar to last month, we're going to look at a small set of cancer
-types to ensure the queries come back quickly.
+So we have a lot of variants being in this pathway.
+Let's find out a little more information about them.
+I'm going to replace the last 'select' statement of the above query
+to look at the returned rows. Also, similar to last month,
+we're going to look at a small set of cancer types to ensure the queries come back quickly.
+
 
 .. code-block:: sql
 
@@ -135,12 +136,15 @@ types to ensure the queries come back quickly.
     gene_count dESC
 
 
+.. figure:: query_figs/may_2.png
+   :scale: 50
+   :align: center
 
-So that's right, the counts represent that some genes are mutated more often
+
+These counts show that some genes are mutated more often
 than others. In COAD, FBXW7 is mutated more than twice as often as the next
 most mutated gene, NOTCH1. Both of these genes are well known among cancer
 researchers.
-
 
 
 .. code-block:: sql
