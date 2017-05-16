@@ -538,7 +538,7 @@ Just note, this is a longer running query (takes about 2 minutes).
 
 
 .. figure:: query_figs/may_5.png
-   :scale: 30
+   :scale: 50
    :align: center
 
 
