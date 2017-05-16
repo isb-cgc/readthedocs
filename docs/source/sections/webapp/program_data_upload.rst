@@ -203,4 +203,4 @@ File Format Requirements
 -------------------------
 All files must be tab delimited and meet the formatting requirements described in `Files and File Formats`_.
 
-.. image:: MouseProjectAnnotated.png
+.. image:: MouseProjectAnnotated.PNG
