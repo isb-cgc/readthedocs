@@ -23,10 +23,11 @@ based on shared mutations, but in considering all genes simultaneously, we had
 some pretty low Jaccard indices. Here, we hope that we can get more specificity
 if we narrow our search to cancer related pathways.
 
-New for this month, we have a whole host of new BigQuery tables from `COSMIC<http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/COSMIC.html>`_ .
+New for this month, we have a whole host of new BigQuery tables from 
+`COSMIC <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/COSMIC.html>`_.
 
 For our query, we downloaded pathways from
-`WikiPathways<http://data.wikipathways.org/current/gmt/wikipathways-20170410-gmt-Homo_sapiens.gmt>`_ .
+`WikiPathways <http://data.wikipathways.org/current/gmt/wikipathways-20170410-gmt-Homo_sapiens.gmt>`_.
 These are gene sets, where each row represents a pathway and contains a list
 of the genes in that pathway. This file contains 381 pathways. Each row starts with
 a pathway name, and has a list of genes starting in column 4. I wrote a small
