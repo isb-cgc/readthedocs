@@ -573,7 +573,7 @@ Now, what if we looked at the overlap on the pathway level?
       AND mc3.biotype = 'protein_coding'
       AND ( REGEXP_CONTAINS(mc3.PolyPhen, 'damaging')
         OR REGEXP_CONTAINS(mc3.SIFT, 'deleterious') )
-      AND mc3.project_short_name IN ('TCGA-BRCA')
+      AND mc3.project_short_name IN ('TCGA-BRCA', 'TCGA-GBM')
       -- We could remove the above line to compute using all samples,
       -- but to speed things up, let's just look at 3 studies.
     GROUP BY
@@ -646,12 +646,57 @@ Now, what if we looked at the overlap on the pathway level?
   FROM
     setOpsTable
   WHERE
-    (path_intersection / path_union) > 0.1
-    AND path_intersection > 1
+    (path_intersection / path_union) > 0.8
+    AND path_intersection > 10
   ORDER BY
     jaccard_index DESC
 
 
+.. figure:: query_figs/may_brca_pathways_jaccard.png
+   :scale: 85
+   :align: center
+
+.. figure:: query_figs/may_brca_pathways_jaccard_2.png
+  :scale: 85
+  :align: center
+
+
+Wow, those are some excellent jaccard indices!  Considering that we started
+with just over 300 pathways, we have samples perfectly or nearly perfectly
+in agreement.
+
+
+Then let's see how the samples are associating on a tissue level.  I'm going to add
+this query to the end of the above query, to tabulate how often study1 and study2
+are the same tissue or different tissues (between BRCA and GBM).
+
+
+SELECT
+  table_cell,
+  COUNT(*) AS n
+FROM (
+  SELECT (
+    CASE
+      WHEN study1 = 'TCGA-BRCA' AND study2 = 'TCGA-BRCA' THEN 'BRCA-BRCA'
+      WHEN study1 = 'TCGA-BRCA' AND study2 = 'TCGA-GBM' THEN 'BRCA-GBM'
+      WHEN study1 = 'TCGA-GBM' AND study2 = 'TCGA-BRCA' THEN 'GBM-BRCA'
+      WHEN study1 = 'TCGA-GBM' AND study2 = 'TCGA-GBM' THEN 'GBM-GBM'
+      ELSE 'None'
+    END ) AS table_cell
+  FROM
+    jtable )
+GROUP BY
+  table_cell
+ORDER BY
+  n DESC
+
+.. figure:: query_figs/may_brca_jaccard_table.png
+  :scale: 85
+  :align: center
+
+So, we see that the really high Jaccard indices are coming (mostly) from
+BRCA-BRCA sample comparisons. I hope you found this a useful exercise and can find
+ways of using it in your own work.
 
 
 ================
