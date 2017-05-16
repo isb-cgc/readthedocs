@@ -23,7 +23,7 @@ based on shared mutations, but in considering all genes simultaneously, we had
 some pretty low Jaccard indices. Here, we hope that we can get more specificity
 if we narrow our search to cancer related pathways.
 
-New for this month, we have a whole host of new BigQuery tables from 
+New for this month, we have a whole host of new BigQuery tables from
 `COSMIC <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/COSMIC.html>`_.
 
 For our query, we downloaded pathways from
@@ -435,7 +435,7 @@ Just note, this is a longer running query (takes about 2 minutes).
     --
     -- Then we're going to extract just the project names, cases, and gene symbols,
     -- using the "GROUP BY" to make sure we only count one mutation per gene per case
-    -- and we'll just take genes that are in the pathway.
+    -- and we'll join to the above pathway table.
     --
     firstVars AS (
     SELECT
@@ -538,7 +538,7 @@ Just note, this is a longer running query (takes about 2 minutes).
 
 
 .. figure:: query_figs/may_5.png
-   :scale: 50
+   :scale: 30
    :align: center
 
 
@@ -552,9 +552,8 @@ Now, what if we looked at the overlap on the pathway level?
 
   WITH
     --
-    -- Then we're going to extract just the project names, cases, and gene symbols,
-    -- using the "GROUP BY" to make sure we only count one mutation per gene per case
-    -- and we'll just take genes that are in the pathway.
+    -- First we'll join the filtered somatic mutation table to the
+    -- table of pathways.
     --
     vars AS (
     SELECT
@@ -584,7 +583,8 @@ Now, what if we looked at the overlap on the pathway level?
       wikip.pathway),
     --
     -- Next we transform resulting table using the ARRAY_AGG function
-    -- to create a list of mutated genes for each case
+    -- to create a list of pathways for each case, where each pathway
+    -- contains at least one mutated gene.
     --
     arrayPath AS (
     SELECT
@@ -597,8 +597,8 @@ Now, what if we looked at the overlap on the pathway level?
       project_short_name,
       case_barcode ),
 
-   --
-    -- Now we can do some "set operations" on these gene-lists:  a self-join
+    --
+    -- Now we can do some "set operations" on these pathway-lists:  a self-join
     -- of the previously created table with itself will allow for a pairwise
     -- pairwise comparison (notice the inequality in the JOIN ... ON clause)
     --
@@ -653,7 +653,7 @@ Now, what if we looked at the overlap on the pathway level?
     jaccard_index DESC
 
 
-.. figure:: query_figs/may_brca_pathways_jaccard.png
+.. figure:: query_figs/may_brca_pathway_jaccard.png
    :scale: 85
    :align: center
 
