@@ -137,7 +137,7 @@ we're going to look at a small subset of cancer types to ensure the queries come
 
 
 .. figure:: query_figs/may_2_2.png
-   :scale: 100
+   :scale: 75
    :align: center
 
 
