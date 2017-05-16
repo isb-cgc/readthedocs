@@ -669,27 +669,29 @@ in agreement.
 
 Then let's see how the samples are associating on a tissue level.  I'm going to add
 this query to the end of the above query, to tabulate how often study1 and study2
-are the same tissue or different tissues (between BRCA and GBM).
+agree regarding tissue of origin (between BRCA and GBM).
 
 
-SELECT
-  table_cell,
-  COUNT(*) AS n
-FROM (
-  SELECT (
-    CASE
-      WHEN study1 = 'TCGA-BRCA' AND study2 = 'TCGA-BRCA' THEN 'BRCA-BRCA'
-      WHEN study1 = 'TCGA-BRCA' AND study2 = 'TCGA-GBM' THEN 'BRCA-GBM'
-      WHEN study1 = 'TCGA-GBM' AND study2 = 'TCGA-BRCA' THEN 'GBM-BRCA'
-      WHEN study1 = 'TCGA-GBM' AND study2 = 'TCGA-GBM' THEN 'GBM-GBM'
-      ELSE 'None'
-    END ) AS table_cell
-  FROM
-    jtable )
-GROUP BY
-  table_cell
-ORDER BY
-  n DESC
+.. code-block:: sql
+
+  SELECT
+    table_cell,
+    COUNT(*) AS n
+  FROM (
+    SELECT (
+      CASE
+        WHEN study1 = 'TCGA-BRCA' AND study2 = 'TCGA-BRCA' THEN 'BRCA-BRCA'
+        WHEN study1 = 'TCGA-BRCA' AND study2 = 'TCGA-GBM' THEN 'BRCA-GBM'
+        WHEN study1 = 'TCGA-GBM' AND study2 = 'TCGA-BRCA' THEN 'GBM-BRCA'
+        WHEN study1 = 'TCGA-GBM' AND study2 = 'TCGA-GBM' THEN 'GBM-GBM'
+        ELSE 'None'
+      END ) AS table_cell
+    FROM
+      jtable )
+  GROUP BY
+    table_cell
+  ORDER BY
+    n DESC
 
 .. figure:: query_figs/may_brca_jaccard_table.png
   :scale: 85
