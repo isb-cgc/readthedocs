@@ -55,7 +55,7 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2
 
 HTTP request::
 
-	POST https://mvm-api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_target_api/v3/cohorts/create
+	POST https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_target_api/v3/cohorts/create
 
 **Parameters**
 

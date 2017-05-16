@@ -30,7 +30,7 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https://api-d
 
 HTTP request::
 
-	GET https://mvm-api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_tcga_api/v3/aliquots/{aliquot_barcode}/annotations
+	GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_tcga_api/v3/aliquots/{aliquot_barcode}/annotations
 
 **Parameters**
 
