@@ -9,7 +9,7 @@
     "disease_code": "The short name for the type of disease",
     "endpoint_type": "Which type of GDC Case API was used, either legacy or current",
     "summary_file_count": "The count of files associated with the sample",
-    "age_at_initial_pathologic_diagnosis": "Age at which a condition or disease was first diagnosed in years.",
+    "age_at_diagnosis": "Age at which a condition or disease was first diagnosed in years.",
     "age_began_smoking_in_years": "Age began smoking cigarettes expressed in number of years since birth.",
     "anatomic_neoplasm_subdivision": "Text term to describe the spatial location, subdivisions and/or anatomic site name of a tumor.",
     "avg_percent_lymphocyte_infiltration": "Average in the series of numeric values to represent the percentage of lymphocyte infiltration in a malignant tumor sample or specimen.",

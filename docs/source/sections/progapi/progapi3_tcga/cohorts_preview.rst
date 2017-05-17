@@ -4,11 +4,11 @@ Takes a JSON object of filters in the request body and returns a "preview" of th
 
 **Example**::
 
-	curl "https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_tcga_api/v3/cohorts/preview?Study=UCS&Study=CESC&age_at_initial_pathologic_diagnosis_lte=20"
+	curl "https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_tcga_api/v3/cohorts/preview?program_short_name=TCGA-UCS&program_short_name=TCGA-CESC&age_at_diagnosis_lte=20"
 
 **API explorer example**:
 
-Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_tcga_api/v3/isb_cgc_tcga_api.cohorts.preview?resource=%257B%250A++%2522Study%2522%253A+%250A++%255B%2522BRCA%2522%252C%2522UCS%2522%250A++%255D%252C%250A++%2522age_at_initial_pathologic_diagnosis_lte%2522%253A+%252230%2522%250A%257D&/>`_ to see this endpoint in Google's API explorer.
+Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_tcga_api/v3/isb_cgc_tcga_api.cohorts.preview?resource=%257B%250A++%2522program_short_name%2522%253A+%250A++%255B%2522TCGA-BRCA%2522%252C%2522TCGA-UCS%2522%250A++%255D%252C%250A++%2522age_at_diagnosis_lte%2522%253A+%252230%2522%250A%257D&/>`_ to see this endpoint in Google's API explorer.
 
 **Python API Client Example**::
 
@@ -23,7 +23,7 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2
 		return build(api, version, discoveryServiceUrl=discovery_url, http=httplib2.Http())
 
 	service = get_unauthorized_service()
-	body = {'program_short_name': ['BRCA', 'UCS'], 'age_at_initial_pathologic_diagnosis_gte': 90}
+	body = {'program_short_name': ['TCGA-BRCA', 'TCGA-UCS'], 'age_at_diagnosis_gte': 90}
 	data = service.cohorts().preview(**body).execute()
 
 
@@ -39,9 +39,9 @@ HTTP request::
 	:header: "**Parameter name**", "**Value**", "**Description**"
 	:widths: 50, 10, 50
 
-	age_at_initial_pathologic_diagnosis,integer,"Optional. "
-	age_at_initial_pathologic_diagnosis_gte,integer,"Optional. "
-	age_at_initial_pathologic_diagnosis_lte,integer,"Optional. "
+	age_at_diagnosis,integer,"Optional. "
+	age_at_diagnosis_gte,integer,"Optional. "
+	age_at_diagnosis_lte,integer,"Optional. "
 	age_began_smoking_in_years,integer,"Optional. "
 	age_began_smoking_in_years_gte,integer,"Optional. "
 	age_began_smoking_in_years_lte,integer,"Optional. "

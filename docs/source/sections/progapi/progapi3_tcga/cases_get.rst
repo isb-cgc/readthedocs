@@ -50,7 +50,7 @@ If successful, this method returns a response body with the following structure:
   {
     "aliquots": [string],
     "clinical_data": {
-      "age_at_initial_pathologic_diagnosis": integer,
+      "age_at_diagnosis": integer,
       "age_began_smoking_in_years": integer,
       "anatomic_neoplasm_subdivision": string,
       "avg_percent_lymphocyte_infiltration": number,
@@ -166,7 +166,7 @@ If successful, this method returns a response body with the following structure:
 
 	aliquots[], list, "List of barcodes of aliquots taken from this patient."
 	clinical_data, nested object, "The clinical data about the patient."
-	clinical_data.age_at_initial_pathologic_diagnosis, integer, "Age at which a condition or disease was first diagnosed in years."
+	clinical_data.age_at_diagnosis, integer, "Age at which a condition or disease was first diagnosed in years."
 	clinical_data.age_began_smoking_in_years, integer, "Age began smoking cigarettes expressed in number of years since birth."
 	clinical_data.anatomic_neoplasm_subdivision, string, "Text term to describe the spatial location, subdivisions and/or anatomic site name of a tumor."
 	clinical_data.avg_percent_lymphocyte_infiltration, number, "Average in the series of numeric values to represent the percentage of lymphocyte infiltration in a malignant tumor sample or specimen."

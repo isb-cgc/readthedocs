@@ -4,11 +4,11 @@ Takes a JSON object of filters in the request body and returns a "preview" of th
 
 **Example**::
 
-	curl "https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/cohorts/preview?Study=UCS&Study=CESC&age_at_initial_pathologic_diagnosis_lte=20"
+	curl "https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/cohorts/preview?program_short_name=CCLE-BLCA&program_short_name=CCLE-LUSC&gender=Male"
 
 **API explorer example**:
 
-Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_ccle_api/v3/isb_cgc_ccle_api.cohorts.preview?resource=%257B%250A++%2522Study%2522%253A+%250A++%255B%2522BRCA%2522%252C%2522UCS%2522%250A++%255D%252C%250A++%2522age_at_initial_pathologic_diagnosis_lte%2522%253A+%252230%2522%250A%257D&/>`_ to see this endpoint in Google's API explorer.
+Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_ccle_api/v3/isb_cgc_ccle_api.cohorts.preview?resource=%257B%250A++%2522program_short_name%2522%253A+%250A++%255B%2522CCLE-BLCA%2522%252C%2522CCLE-LUSC%2522%250A++%255D%252C%250A++%2522age_at_initial_pathologic_diagnosis_lte%2522%253A+%252230%2522%250A%257D&/>`_ to see this endpoint in Google's API explorer.
 
 **Python API Client Example**::
 
@@ -23,7 +23,7 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2
 		return build(api, version, discoveryServiceUrl=discovery_url, http=httplib2.Http())
 
 	service = get_unauthorized_service()
-	body = {'program_short_name': ['BRCA', 'UCS'], 'age_at_initial_pathologic_diagnosis_gte': 90}
+	body = {'program_short_name': ['CCLE-BLCA', 'CCLE-LUSC'], 'gender': Male}
 	data = service.cohorts().preview(**body).execute()
 
 

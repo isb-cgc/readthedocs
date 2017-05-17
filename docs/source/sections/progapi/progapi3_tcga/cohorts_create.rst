@@ -4,7 +4,7 @@ Creates and saves a cohort. Takes a JSON object in the request body to use as th
 
 **Example**::
 
-	python isb_curl.py "https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_tcga_api/v3/cohorts/create?name={COHORT NAME}" -H "Content-Type: application/json" -d '{"Study": ["UCS", "CESC"], "age_at_initial_pathologic_diagnosis_lte": 60}'
+	python isb_curl.py "https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_tcga_api/v3/cohorts/create?name={COHORT NAME}" -H "Content-Type: application/json" -d '{"program_short_name": ["TCGA-UCS", "TCGA-CESC"], "age_at_diagnosis_lte": 60}'
 
 **API explorer example**:
 
@@ -47,7 +47,7 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2
 		return authorized_service
 
 	service = get_authorized_service()
-	body = {'program_short_name': ['BRCA', 'UCS'], 'age_at_initial_pathologic_diagnosis_gte': 90}
+	body = {'program_short_name': ['TCGA-BRCA', 'TCGA-UCS'], 'age_at_diagnosis_gte': 90}
 	data = service.cohorts().create(name=name, body=body).execute()
 
 
@@ -73,9 +73,9 @@ In the request body, supply a metadata resource with the following properties:
 .. code-block:: javascript
 
   {
-    "age_at_initial_pathologic_diagnosis": [integer],
-    "age_at_initial_pathologic_diagnosis_gte": integer,
-    "age_at_initial_pathologic_diagnosis_lte": integer,
+    "age_at_diagnosis": [integer],
+    "age_at_diagnosis_gte": integer,
+    "age_at_diagnosis_lte": integer,
     "age_began_smoking_in_years": [integer],
     "age_began_smoking_in_years_gte": integer,
     "age_began_smoking_in_years_lte": integer,
@@ -283,9 +283,9 @@ In the request body, supply a metadata resource with the following properties:
 	:header: "**Parameter name**", "**Value**", "**Description**"
 	:widths: 50, 10, 50
 
-	age_at_initial_pathologic_diagnosis[],list,"Optional. "
-	age_at_initial_pathologic_diagnosis_gte,integer,"Optional. "
-	age_at_initial_pathologic_diagnosis_lte,integer,"Optional. "
+	age_at_diagnosis[],list,"Optional. "
+	age_at_diagnosis_gte,integer,"Optional. "
+	age_at_diagnosis_lte,integer,"Optional. "
 	age_began_smoking_in_years[],list,"Optional. "
 	age_began_smoking_in_years_gte,integer,"Optional. "
 	age_began_smoking_in_years_lte,integer,"Optional. "

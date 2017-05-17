@@ -4,7 +4,7 @@ Creates and saves a cohort. Takes a JSON object in the request body to use as th
 
 **Example**::
 
-	python isb_curl.py "https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_target_api/v3/cohorts/create?name={COHORT NAME}" -H "Content-Type: application/json" -d '{"Study": ["UCS", "CESC"], "age_at_initial_pathologic_diagnosis_lte": 60}'
+	python isb_curl.py "https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_target_api/v3/cohorts/create?name={COHORT NAME}" -H "Content-Type: application/json" -d '{"program_short_name": ["TARGET-ALL-P2", "TARGET-RT"], "age_at_diagnosis_lte": 60}'
 
 **API explorer example**:
 
@@ -47,7 +47,7 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2
 		return authorized_service
 
 	service = get_authorized_service()
-	body = {'program_short_name': ['BRCA', 'UCS'], 'age_at_initial_pathologic_diagnosis_gte': 90}
+	body = {'program_short_name': ['TARGET-ALL-P2', 'TARGET-RT'], 'age_at_diagnosis_gte': 90}
 	data = service.cohorts().create(name=name, body=body).execute()
 
 
