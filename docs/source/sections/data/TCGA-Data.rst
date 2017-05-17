@@ -58,7 +58,7 @@ For more information about the original data source repository and data access c
 please refer to these sections:
 
 .. toctree::
-      :maxdepth: 1
+   :maxdepth: 1
 
    data2/byAccessClass
    data2/bySourceRepo
