@@ -37,28 +37,28 @@ Common Filter List by Program
    | Disease Code          | Project Short Name           | Days to Last Follow |
    |                       |                              | Up                  |
    +-----------------------+------------------------------+---------------------+
-   | Vital Status          | Site Primary                 | Gender              |
+   | Age at Diagnosis      | Site Primary                 | Gender              |
    +-----------------------+------------------------------+---------------------+
-   | Ethnicity             | Histology                    | Days to Last Known  |
+   | Vital Status          | Histology                    | Days to Last Known  |
    |                       |                              | Alive               |
    +-----------------------+------------------------------+---------------------+
-   | Person Neoplasm       | Histological SubType         | Sample Type         |
+   | Ethnicity             | Histological SubType         | Sample Type         |
+   +-----------------------+------------------------------+---------------------+
+   | Person Neoplasm       | Program                      | Project Short Name  |
    | Cancer Status         |                              |                     |
    +-----------------------+------------------------------+---------------------+
-   | Sample Type           | Program                      | Project Short Name  |
+   | Sample Type           |                              | Disease Code        |
    +-----------------------+------------------------------+---------------------+
-   | Menopause Status      |                              | Disease Code        |
+   | Menopause Status      |                              | Race                |
    +-----------------------+------------------------------+---------------------+
-   | Histological Type     |                              | Race                |
+   | Histological Type     |                              | Days to Birth       |
    +-----------------------+------------------------------+---------------------+
-   | BMI (Body Mass Index) |                              | Days to Birth       |
+   | BMI (Body Mass Index) |                              | Program             |
    +-----------------------+------------------------------+---------------------+
-   | Tobacco Smoking       |                              | Program             |
-   | History               |                              |                     | 
+   | Tobacco Smoking       |                              | Ethnicity           |
+   | History               |                              |                     |
    +-----------------------+------------------------------+---------------------+
-   | Pathologic Stage      |                              | Ethnicity           |
-   +-----------------------+------------------------------+---------------------+
-   |                       |                              |                     |
+   | Pathologic Stage      |                              |                     |
    +-----------------------+------------------------------+---------------------+  
    | HPV Status            |                              |                     | 
    +-----------------------+------------------------------+---------------------+
