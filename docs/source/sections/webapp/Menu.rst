@@ -71,7 +71,7 @@ The Menu bar's purpose is to supply quick and common links for application-speci
       * Favorite(s) Saved
       * Programs (Previously Uploaded and Saved) 
       
-      - *Select Variables for a New Workbook* - This sub-menu has two features:
+    - *Select Variables for a New Workbook* - This sub-menu has two features:
       
       * Apply to New Worksheet - Select a Favorite(s) variables from the list shown of stored Favorites to Analyze 
       * Add (+) Apply New Variable List - Basically navigates back to the **Create Variables Favorite** (See description above)  
