@@ -42,7 +42,7 @@ The Menu bar's purpose is to supply quick and common links for application-speci
 
  * **GENES & miRNA** - From this Menu selection you can **Manage Gene and miRNA Favorites**, **Create Gene and miRNA Favorite(s)** or **Select Genes and miRNAs for a New Workbook**. 
 
-      For additional details, see `Read the Docs - Gene & miRNA Favorites <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/webapp/Gene-and-miRNA-Favorites>`_. Each of these categories provide a quick link to additional application-specific functions / features such as:
+      For additional details, see `Read the Docs - Gene & miRNA Favorites <Gene-and-miRNA-Favorites.html>`_. Each of these categories provide a quick link to additional application-specific functions / features such as:
 
     - *Manage Gene & miRNA Favorites* - Here you can:
     
