@@ -13,8 +13,8 @@ Variable Favorites List Creation page
 Using the provided list of filters on the left hand side, you can select the attributes and features
 that you are interested in.
 
-By clicking on a feature, the field will expand and provide you with additional filtering options in the Data Types section.
-For example, when to select the TCGA tab you see a common filters section. You can select filters that are most recently used by others.  If you select the Gender filter, this will cause the filter(s) to appear in the Selected Filter panel panel and visualizations on the page will be updated to reflect that the current variable favorites list that has been filtered by clinical feature. 
+By clicking on a program, the field will expand and provide you with additional filtering options in the Data Types section.
+For example, when to select the TCGA tab you see a common filters section. The common filters section is shared across programs, so if the common filter is selected in one program it will be selected for all programs. 
 
 
 Variable Favorites Filter 
@@ -85,8 +85,7 @@ This filter allows the user to add selected variables from existing variable Fav
 
 Clinical Filter Feature Search
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This filter allows the user to search by any clinical feature that is present in the most recent data upload. 
-
+This filter allows the user to search by any clinical feature in a given program that is present in the most recent data upload for that program. 
 
 User Uploaded Programs Filter
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -94,7 +93,7 @@ This filter allows you to select by filters that you have uploaded using the upl
 
 Selected Filters Panel
 ^^^^^^^^^^^^^^^^^^^^^^
-This is where the filters you have selected are shown on the right panel for clear verifcation of what has been selected for analysis. Clicking "Clear All" will remove all selected filters. 
+This is where the filters you have selected are shown on the right panel for clear verification of what has been selected for analysis. Clicking "Clear All" will remove all selected filters. 
 
 
 Editing a Variable Favorites List
