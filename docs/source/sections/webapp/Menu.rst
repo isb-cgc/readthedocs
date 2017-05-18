@@ -22,7 +22,7 @@ The Menu bar's purpose is to supply quick and common links for application-speci
 
        * Edit or delete a Saved Program
        * Start a New Workbook
-       * Create a new Program
+       * Create a New Program
     - *Upload Program Data* - Here you can:
      
         * Create a new program for analysis. To create a new program you provide a name for program, name for your project, and attach files that meet our Data Type requirements. Please see `Program Upload <>`_ for more information on data type accepted by the ISB-CGC. 
