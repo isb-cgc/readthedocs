@@ -162,7 +162,7 @@ other additional information for each table, preview its contents, *etc*.
 
 
 - `isb-cgc:TCGA_hg38_data_v0 <https://bigquery.cloud.google.com/dataset/isb-cgc:TCGA_hg38_data_v0>`_:
-  This dataset will by and large mirror the ``TCGA_hg19_data_v0`` dataset, and is based on the GRCh38/hg38 data
+  This dataset by and large mirrors the ``TCGA_hg19_data_v0`` dataset, and is based on the GRCh38/hg38 data
   now available from the NCI-GDC.  In some cases the new data has been realigned to the new genome (in the case
   of any DNAseq or miRNA/mRNAseq based data), or the coordinates have been "lifted over" from hg19 to hg38
   (in the case of probe/array-based data such as the SNP6/copy-number and the DNA Methylation data).

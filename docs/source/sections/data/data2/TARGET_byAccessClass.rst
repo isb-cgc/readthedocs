@@ -16,8 +16,8 @@ in BigQuery
 -----------
 
 The information scattered over thousands of XLSX and TSV files at the GDC is provided in 
-a *much more accessible* form in
-a series of BigQuery tables.
+a *much more accessible* form in a series of `
+`BigQuery tables <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_BQ.html#target-clinical-biospecimen-and-molecular-data>`_.
 
 Controlled-Access TARGET Data
 ===============================
