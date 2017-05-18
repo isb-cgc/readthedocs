@@ -174,10 +174,61 @@ tables have also been created in BigQuery which you may find helpful when analyz
 
 
 TARGET Clinical, Biospecimen and Molecular Data
-=============================================
+=================================================
 
-The TARGET data will be organized in parallel fashion to the TCGA data and will be coming soon.
+The TARGET data is organized into two separate datasets: **TARGET_bioclin_v0** contains clinical
+and other metadata; and **TARGET_hg38_data_v0** contains 
+the GRCh38/hg38-based data now available at the NCI-GDC.
 
+All of the tables include one or more of the following identifiers which can be used for 
+performing cross-table JOINs: ``case_barcode``, ``sample_barcode``, and ``aliquot_barcode``.
+In addition, most tables also containa a ``project_short_name`` field
+(formerly called ``Study``, *eg* TARGET-AML, *etc*).
+
+Each dataset and table described below is linked directly the corresponding view in the
+`BigQuery web UI <https://bigquery.cloud.google.com>`_ where you can see the schema and 
+other additional information for each table, preview its contents, *etc*.
+
+- `isb-cgc:TARGET_bioclin_v0 <https://bigquery.cloud.google.com/dataset/isb-cgc:TARGET_bioclin_v0>`_:
+
+..
+
+  + `Clinical <https://bigquery.cloud.google.com/dataset/isb-cgc:TARGET_bioclin_v0.Clinical>`_:
+    This table is contains one row for each TARGET case (aka patient or participant) with *any* 
+    available clinical information -- over 5,000 cases are represented.  Note that most 
+    of these cases do not *yet* have molecular data available in BigQuery.
+  
+..
+
+  + `Biospecimen <https://bigquery.cloud.google.com/dataset/isb-cgc:TARGET_bioclin_v0.Biospecimen>`_:
+    This table is a *sample-centric* table, and contains one row of information for each of the (over 7,000) 
+    TARGET samples.
+
+..
+
+- `isb-cgc:TARGET_hg38_data_v0 <https://bigquery.cloud.google.com/dataset/isb-cgc:TARGET_hg38_data_v0>`_:
+  This dataset will by and large mirror the ``TARGET_hg38_data_v0`` dataset, and is based on the GRCh38/hg38 data
+  now available from the NCI-GDC.  In some cases the new data has been realigned to the new genome (in the case
+  of any DNAseq or miRNA/mRNAseq based data), or the coordinates have been "lifted over" from hg19 to hg38
+  (in the case of probe/array-based data such as the SNP6/copy-number and the DNA Methylation data).
+
+..
+
+  + `miRNAseq_Expression <https://bigquery.cloud.google.com/table/isb-cgc:TARGET_hg38_data_v0.miRNAseq_Expression>`_: 
+    This table contains **all** of the miRNAseq stem-loop expression data *currently available* from the NCI-GDC.
+    
+
+  + `miRNAseq_Isoform_Expression <https://bigquery.cloud.google.com/table/isb-cgc:TARGET_hg38_data_v0.miRNAseq_Isoform_Expression>`_: 
+    This table contains **all** of the miRNAseq isoform-level expression (aka isomiR) data *currently available* from the NCI-GDC.
+    
+
+  + `RNAseq_Gene_Expression <https://bigquery.cloud.google.com/table/isb-cgc:TARGET_hg38_data_v0.RNAseq_Gene_Expression>`_: 
+    This table contains gene expression data from 481 samples (434 cases).
+    Each row in this table contains the HTSeq expression 
+    estimates for a single gene in a single aliquot.  The gene symbol can be found in the field
+    ``gene_name`` and the Ensembl ID can be found in the ``Ensembl_gene_id`` and ``Ensembl_gene_id_v`` fields.
+
+..
 
 Additional Metadata
 ========================
