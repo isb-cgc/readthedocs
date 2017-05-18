@@ -44,16 +44,16 @@ The Menu bar's purpose is to supply quick and common links for application-speci
 
       For additional details, see `Read the Docs - Gene Favorites(needs update) <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/webapp/Gene-Favorites.html>`_. Each of these categories provide a quick link to additional application-specific functions / features such as:
 
-    - *Manage Gene  and miRNA Favorites* - Here you can:
+    - *Manage Gene & miRNA Favorites* - Here you can:
     
       * Edit or Delete a Saved Gene and miRNA Favorite(s) 
       * Start a New Workbook
       * Create a New Gene and miRNA Favorites 
-    - *Create Gene and miRNA Favorite* - Here you can:
+    - *Create Gene & miRNA Favorite* - Here you can:
 
-      * Create a Gene and miRNA Favorite for Analysis. To Create a New Gene and miRNA Favorite - You provide a name and select the Gene and/or miRNA. You can upload a stored Gene and miRNA List or type in Gene name  or miRNA (**Note:** This will auto fill as you type in Gene name or miRNA name). To aid in Gene selection, you can access the HGNC portal (Hugo Gene Nomenclature Committee) via the "**View Gene Identifiers**" link under this Menu selection. Also, to aid in miRNA selection, you can access the miRBASE via the "**View miRNA Identifier**" link next to the View Gene Identifiers link. 
+      * Create a Gene & miRNA Favorite for Analysis. To Create a New Gene and miRNA Favorite - You provide a name and select the Gene and/or miRNA. You can upload a stored Gene and miRNA List or type in Gene name  or miRNA (**Note:** This will auto fill as you type in Gene name or miRNA name). To aid in Gene selection, you can access the HGNC portal (Hugo Gene Nomenclature Committee) via the "**View Gene Identifiers**" link under this Menu selection. Also, to aid in miRNA selection, you can access the miRBASE via the "**View miRNA Identifier**" link next to the View Gene Identifiers link. 
       * Save or Cancel a new creation. 
-    - *Select Genes and miRNA for a New Workbook* - This sub-menu has two feature:
+    - *Select Genes & miRNA for a New Workbook* - This sub-menu has two features:
       
       * Apply to New Analysis - Select a Favorite(s) Gene and miRNA from the list shown of stored Favorites to Analyze 
       * Add (+) Apply to New Analysis - Basically navigates back to the **Create Gene and miRNA Favorite** (See description above)  
