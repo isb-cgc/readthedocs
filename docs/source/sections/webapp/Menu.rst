@@ -42,7 +42,7 @@ The Menu bar's purpose is to supply quick and common links for application-speci
 
  * **GENES & miRNA** - From this Menu selection you can **Manage Gene and miRNA Favorites**, **Create Gene and miRNA Favorite(s)** or **Select Genes and miRNAs for a New Workbook**. 
 
-      For additional details, see `Read the Docs - Gene & miRNA Favorites <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/webapp/Gene-and-miRNA-Favorites.html>`_. Each of these categories provide a quick link to additional application-specific functions / features such as:
+      For additional details, see `Read the Docs - Gene & miRNA Favorites <Gene-and-miRNA-Favorites.html>`_. Each of these categories provide a quick link to additional application-specific functions / features such as:
 
     - *Manage Gene & miRNA Favorites* - Here you can:
     
@@ -58,7 +58,7 @@ The Menu bar's purpose is to supply quick and common links for application-speci
       * Apply to New Analysis - Select a Favorite(s) Gene and miRNA from the list shown of stored Favorites to Analyze 
       * Add (+) Apply to New Analysis - Basically navigates back to the **Create Gene and miRNA Favorite** (See description above)  
 
- * **VARIABLES** -  This sub-menu allows you to **Manage Variables Favorite** or **Create New Favorite** (see descriptions below) For additional details, see `Read the Docs - Variable Favorites. <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/webapp/Variable-Favorites.html>`_  
+ * **VARIABLES** -  This sub-menu allows you to **Manage Variables Favorite** or **Create New Favorite** (see descriptions below) For additional details, see `Read the Docs - Variable Favorites. <Variable-Favorites.html>`_  
     - *Manage Favorite Variable(s) Lists* - Shows your saved Variables as Favorites:
 
       * Edit 
@@ -76,7 +76,7 @@ The Menu bar's purpose is to supply quick and common links for application-speci
       * Apply to New Worksheet - Select a Favorite(s) variables from the list shown of stored Favorites to Analyze 
       * Add (+) Apply New Variable List - Basically navigates back to the **Create Variables Favorite** (See description above)  
   
- * **COHORTS** - Here you can **Manage Saved Cohorts**, select **Public Cohorts** and **Select Cohorts for a New Workbook** or **Create your First Cohort** if it's empty. For additional details, see `Read the Docs - Cohort Favorites <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/webapp/Saved-Cohorts.html>`_.
+ * **COHORTS** - Here you can **Manage Saved Cohorts**, select **Public Cohorts** and **Select Cohorts for a New Workbook** or **Create your First Cohort** if it's empty. For additional details, see `Read the Docs - Cohort Favorites <Saved-Cohorts.html>`_.
 
     - *Manage Saved Cohorts* - There are two tabs here 
 
