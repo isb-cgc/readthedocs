@@ -245,9 +245,8 @@ and 2) select the "refresh" icon beside the service account (see screenshot belo
    :scale: 50
    :align: center
 
-************************************************
 Your Responsibilities 
-************************************************
+---------------------
 
 You should think about securing controlled data within the context of your GCP project in the same way 
 that you would think about securing controlled data that you might download to a file-server or 
