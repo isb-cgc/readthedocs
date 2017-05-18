@@ -40,7 +40,7 @@ The Menu bar's purpose is to supply quick and common links for application-speci
     - *SeqPeek*
     - *Browse All Analyses*
 
- * **GENES AND miRNA** - From this Menu selection you can **Manage Gene and miRNA Favorites**, **Create Gene and miRNA Favorite(s)** or **Select Genes and miRNAs for a New Workbook**. 
+ * **GENES & miRNA** - From this Menu selection you can **Manage Gene and miRNA Favorites**, **Create Gene and miRNA Favorite(s)** or **Select Genes and miRNAs for a New Workbook**. 
 
       For additional details, see `Read the Docs - Gene Favorites(needs update) <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/webapp/Gene-Favorites.html>`_. Each of these categories provide a quick link to additional application-specific functions / features such as:
 
