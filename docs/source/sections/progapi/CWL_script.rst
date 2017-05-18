@@ -72,12 +72,9 @@ particular VM to do:
     * folders are created for workflow inputs and outputs
     * input files are copied from GCS to local disk
     * the workflow and settings files are copied from GCS to local disk
-    * the executor (either cwltool or rabix) is invoked to run the workflow
+    * the executor (cwltool) is invoked to run the workflow
     * outputs are copied from local disk out to GCS
     * the VM is shut down (using the command ``gcloud compute instances delete``) unless the ``--keep-alive`` option was set
-
-(Note that the option to use *rabix* as the executor does not appear to work at this time,
-and an `issue <https://github.com/googlegenomics/pipelines-api-examples/issues/61>`_ has been filed on github.)
 
 Following the example provided on github, you can invoke cwl_runner from the command-line (anywhere where you
 have the Cloud SDK installed, with your GCS bucket and optional folder name instead of ``MY-BUCKET/my-work-folder`` below):
