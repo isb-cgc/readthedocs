@@ -17,7 +17,7 @@ The Menu bar's purpose is to supply quick and common links for application-speci
      - *Saved* - Displays all your saved workbooks and allows you to edit, duplicate or delete the workbook;
      - *Create a New Workbook* - Quick Link to Workbook Creation, where you can select the data source
      
- * **Programs** - These are shortcuts to the programs you have created if you uploaded your own data.
+ * **PROGRAMS** - These are shortcuts to the programs you have created if you uploaded your own data.
     - *Saved Programs* - Here you Can: 
 
        * Edit or delete a Saved Program
