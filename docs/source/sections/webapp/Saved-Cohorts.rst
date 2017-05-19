@@ -64,7 +64,7 @@ The panel in the center of the screen, with four tabs called "TCGA DATA", "CCLE 
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
    | Histological Type     |miRNA Gene Quantification     |                     | Ethnicity             |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Pathologic Stage      |mRNA Isoform Quantification   |                     | WBC at Diagnosi       |                             |
+   | Pathologic Stage      |mRNA Isoform Quantification   |                     | WBC at Diagnosis      |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
    | Person Neoplasm       |                              |                     |                       |                             |
    | Cancer Status         | Genotypes                    |                     | Year of Diagnosis     |                             |
