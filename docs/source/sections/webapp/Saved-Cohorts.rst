@@ -1,3 +1,4 @@
+
 *******************
 Saved Cohorts
 *******************
@@ -49,37 +50,37 @@ The panel in the center of the screen, with four tabs called "TCGA DATA", "CCLE 
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
    | Project Short Name    | Somatic Mutation             | Project Short Name  | Project Short Name    |miRNA Isoform Quantification |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Disease Code          | Copy Number Segment Masked   |   Disease Code      | Disease Code          | miRNA Gene Quantification   |
+   | Disease Code          | Copy Number Segment Masked   | Disease Code        | Disease Code          | miRNA Gene Quantification   |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Vital Status          | mRNA Gene Quantification     | Sample Type         | Gender                | Aligned Reads               |
+   | Vital Status          | mRNA Gene Quantification     | Gender              | Vital Status          | Aligned Reads               |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Gender                | DNA Variation VCF            | Gender              | Race                  | miRNA Isoform               |
-   |                       |                              |                     |                       | Quantification              |
+   | Gender                | DNA Variation VCF            | Sample Type         | Gender                |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Age at Diagnosis      | Aligned Reads                | Site Primary        | Ethnicity             |                             |
+   | Age at Diagnosis      | Aligned Reads                | Site Primary        | Age at Diagnosis      |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Sample Type           | Protein Quantification       | Histology           | WBC At Diagnosis      |                             |
+   | Sample Type           | Protein Quantification       | Histology           | Sample Type           |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Tumor Tissue Site     |miRNA Isoform Quantification  | Histological        | Year Of Diagnosis     |                             |
+   | Tumor Tissue Site     |miRNA Isoform Quantification  | Histological        | Race                  |                             |
    |                       |                              | SubType             |                       |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Histological Type     |miRNA Gene Quantification     |                     | Event Free Survival   |                             |
+   | Histological Type     |miRNA Gene Quantification     |                     | Ethnicity             |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Pathologic Stage      |mRNA Isoform Quantification   |                     | Days to Birth         |                             |
+   | Pathologic Stage      |mRNA Isoform Quantification   |                     | WBC at Diagnosi       |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
    | Person Neoplasm       |                              |                     |                       |                             |
-   | Cancer Status         | Genotypes                    |                     | Age At Diagnosis      |                             |
+   | Cancer Status         | Genotypes                    |                     | Year of Diagnosis     |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Neoplasm Histologic   | DNA Methylation Beta         |                     | Vital Status          |                             |
+   | Neoplasm Histologic   | DNA Methylation Beta         |                     | Event Free Survival   |                             |
    | Grade                 |                              |                     |                       |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | BMI (Body Mass Index) |                              |                     | Overall Survival      |                             |
+   | BMI (Body Mass Index) |                              |                     | Days to Last Followup |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | HPV Status            |                              |                     | Days to Death         |                             |
+   | HPV Status            |                              |                     | Days to Last Known    |                             |
+   |                       |                              |                     | Alive                 |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Residual Tumor        |                              |                     |                       |                             |
+   | Residual Tumor        |                              |                     | Days to Birth         |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Tobacco Smoking       |                              |                     |                       |                             |
+   | Tobacco Smoking       |                              |                     | Days to Death         |                             |
    | History               |                              |                     |                       |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
    | Race                  |                              |                     |                       |                             |
