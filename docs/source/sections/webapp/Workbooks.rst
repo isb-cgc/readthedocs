@@ -22,8 +22,8 @@ To create a **workbook** from Your Dashboard, click on the **“Create a New Wor
 
 **Note:** If you wish to use your own data in graphing, please review the documentations on `how to upload your own data`_ and on `how to graph your own data`_.  Using your own data uses a slightly different approach than is described here.
 
-.. _how to upload your own data: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html
-.. _how to graph your own data: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/GraphingUserData.html
+.. _how to upload your own data: program_data_upload.html
+.. _how to graph your own data: GraphingUserData.html
 
 1. From the Workbook creation panel you will first select one of six analysis types (i.e., Bar chart, Histogram, Scatter Plot, Violin Plot, Cubby Hole Plot or SeqPeek). 
 
@@ -49,7 +49,7 @@ To create a **workbook** from Your Dashboard, click on the **“Create a New Wor
 
 2. You will then select **Genes and miRNAs or Variables** (or, optionally both)
 
-  * **Genes and miRNAs** - This will display previously created “Gene and miRNA Favorites” which can be “Applied to Analysis" (see `Gene and miRNA Favorites <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/webapp/Gene-and-miRNA-Favorites.html>`_ for details) or you can apply / create a “New Gene and miRNA List”).
+  * **Genes and miRNAs** - This will display previously created “Gene and miRNA Favorites” which can be “Applied to Analysis" (see `Gene and miRNA Favorites <Gene-and-miRNA-Favorites.html>`_ for details) or you can apply / create a “New Gene and miRNA List”).
 
 
 You begin by naming the data set (Gene Type or Project Specific); the Gene and miRNA list you create here will automatically be added to your Gene and miRNA Favorites list and can be selected for additional analysis later.
@@ -60,7 +60,7 @@ To aid in Gene selection, you can access the HGNC portal (Hugo Gene Nomenclature
 
  This allows you to focus on specific results or queries.
 
-  * **Variables** - (this will display previously created “Variable Favorites” which can be “Applied to Analysis" (see `Variable Favorites <http://test>`_ for details) or you can apply / create a “New Variable List”).
+  * **Variables** - (this will display previously created “Variable Favorites” which can be “Applied to Analysis" (see `Variable Favorites <Variable-Favorites.html>`_ for details) or you can apply / create a “New Variable List”).
 
 
 You begin by naming the new Variable; the Variable you create here will automatically be added to your Variable Favorites list and can be applied to other analysis later.
@@ -82,7 +82,7 @@ By clicking 'Cohorts' or the '+' symbol you will be directed to the Cohorts tabl
    :scale: 50
    :align: center
 
-Once completed you can proceed.  The user can also add multiple Cohorts to the worksheet if desired. More information about Cohorts can be found here (link to `Cohorts documentation <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html>`_).
+Once completed you can proceed.  The user can also add multiple Cohorts to the worksheet if desired. More information about Cohorts can be found here (link to `Cohorts documentation <Saved-Cohorts.html>`_).
 
 4. Select **Edit Analysis Settings** - This will trigger the Plot setting displaying the applicable x & y axis settings (i.e. Categorical or Numerical based on analysis type selected). Depending on the analysis type selected (i.e., Bar chart, Histogram, Scatter Plot, Violin Plot, Cubby Hole Plot, or SeqPeek) additional specifications may appear for selection.
 
