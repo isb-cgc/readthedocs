@@ -20,20 +20,22 @@ distance between samples based on shared mutations in pathways. To clarify, we w
 a particular pathway, such as the WNT signaling pathway, whether two samples
 share deleterious mutations within that pathway. In April, we were comparing samples
 based on shared mutations, but in considering all genes simultaneously, we had
-some pretty low Jaccard indices. Here, we hope that we can get more specificity
-if we narrow our search to cancer related pathways.
+some pretty low Jaccard indices.
+
+A second goal will be to create a set of pathways, for each sample, where pathways
+contain at least one potentially harmful mutation. Then we will again estimate the
+distance between samples based on the set of (potentially) altered pathways.
 
 New for this month, we have a whole host of new BigQuery tables from
 `COSMIC <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/COSMIC.html>`_.
 
-For our query, we downloaded pathways from
+For our query this month, we downloaded 381 pathways from
 `WikiPathways <http://data.wikipathways.org/current/gmt/wikipathways-20170410-gmt-Homo_sapiens.gmt>`_.
-These are gene sets, where each row represents a pathway and contains a list
-of the genes in that pathway. This file contains 381 pathways. Each row starts with
-a pathway name, and has a list of genes starting in column 4. I wrote a small
-python script to parse .gmt files to 'tidy' (format) them up, which is required for
-uploading to BigQuery. Then with this file, I used the BQ web interface uploader.
+In the BQ table, each row contains a pathway and a gene associated with that pathway.
 
+For this portion of the work, I wrote a small python script to parse .gmt files to
+output a 'tidy' (format), which is required for
+uploading to BigQuery. Then with this file, I used the BQ web interface uploader.
 To upload a table, clicking the '+' symbol next to a dataset
 reveals the 'Create Table' interface. For smaller files, we can upload it directly,
 whereas with larger files, we need to move it to cloud storage first. After giving it a table
@@ -43,11 +45,12 @@ looks like an integer, but the actual type is a 'string'.
 
 I've created a table with a column listing the pathway name, and a second
 column listing the genes associated with the pathway. I used the org.Hs.eg.db
-human database of gene identifiers found in bioconductor to map the gene IDs to a few often
+human database of gene identifiers found in Bioconductor to map the gene IDs to a few often
 used variants.
 
 For this analysis, first I will select a few pathways that are well known and often important in cancer
-processes, then we'll move to using all pathways.
+processes, then we'll move to using all pathways. And towards the end, we'll look at all pathways and all
+studies!
 
 .. code-block:: sql
 
