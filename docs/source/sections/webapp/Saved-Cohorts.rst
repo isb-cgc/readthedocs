@@ -19,7 +19,7 @@ Cohort Creation Page
 ====================
 
 Using the provided list of filters on the left hand side, you can select the attributes and features
-that you are interested in either from ISB-CGC data or the User Data tab.  Note that the TCGA project is selected by default as this is the dataset that the majority of researchers are familiar with.  TCGA data is the first program to be displayed next, to it is CCLE and TARGET data tabs. You are able to create a cohort with multiple program filters.  CCLE (The Cancer Cell Line Encyclopedia) data - is open access data set that can be used to view sequence data with the IGV viewer without having dbGaP permissions.
+that you are interested in either from ISB-CGC data or the User Data tab.  TCGA Data is the first program to be displayed, next to it is CCLE and TARGET Data tabs. You are able to create a cohort with multiple program filters.  CCLE (The Cancer Cell Line Encyclopedia) data - is open access data set that can be used to view sequence data with the IGV viewer without having dbGaP permissions.
 
 By clicking on a feature, the field will expand and provide you with additional filtering options.
 For example, when you click on "Vital Status", it expands and provides a list containing "Alive", "Dead", and
@@ -34,66 +34,64 @@ have been selected.
 Individual selections in a filter are "ORed" together, meaning if any of the selected conditions are met they will be in the filter.  Filters are "ANDed" together, meaning that selecting two filters means that the cases and samples are created based on both filters being executed.  There may be cases where you have 0 cases and samples, because the combination of filters you have chosen are ALL not present (AND function).
 
 
-Cohort Filters
---------------
-The panel in the center of the screen, with four tabs called "TCGA DATA", "CCLE DATA", "TARGET DATA", and "USER DATA" will allow to create a cohort between data programs in the system and data that you have uploaded. The  TCGA, CCLE, and TARGET DATA tab has three tabs called "CASE", "DATA TYPE", and "MOLECULAR"  which allow you to apply filters to the cohorts your are creating using ISB-CGC hosted data. For the USER DATA tab, there is one tab called "PROJECTS & STUDIES" which allow you to filter by the projects or studies you have uploaded to the system. Below are the details of each tab.
+Program Selection Panel
+-----------------------
+The panel in the center of the screen, with four tabs called "TCGA DATA", "CCLE DATA", "TARGET DATA", and "USER DATA" will allow to create a cohort between data programs in the system and data that you have uploaded. The  TCGA, CCLE, and TARGET DATA tab each have three tabs called "CASE", "DATA TYPE", and "MOLECULAR"  which allow you to apply filters to the cohorts your are creating using ISB-CGC hosted data. For the USER DATA tab, there is one tab called "PROJECTS & STUDIES" which allow you to filter by the projects or studies you have uploaded to the system. Below are the details of each tab.
 
-**Please Note:** Selecting the program filter will add all samples pertaining to program. Also there is a mouse over feature that will display the disease long name if it's part of the TCGA dataset.
+**Please Note:** Selecting the program filter will add all samples pertaining to program. Also there is a mouse over feature that will display the disease code long name if it's part of the TCGA dataset.
 
 
           
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
    | TCGA Cases Tab        | TCGA Data Type Tab           | CCLE Cases Tab      | TARGET Cases Tab      | TARGET Data Type Tab        |
    +=======================+==============================+=====================+=======================+=============================+
-   |   Program             | Pathology Image              | Program             | Program               | mRNA Gene Quantification    |
+   | Program               | Pathology Image              | Program             | Program               | mRNA Gene Quantification    |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
    | Project Short Name    | Somatic Mutation             | Project Short Name  | Project Short Name    |miRNA Isoform Quantification |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Disease Code          | Copy Number Segment Masked   |   Disease Code      | Disease Code          | miRNA Gene Quantification   |
+   | Disease Code          | Copy Number Segment Masked   | Disease Code        | Disease Code          | miRNA Gene Quantification   |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   |Sample Type            | mRNA Gene Quantification     | Sample Type         | Gender                | Aligned Reads               |
+   | Vital Status          | mRNA Gene Quantification     | Gender              | Vital Status          | Aligned Reads               |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Tumor Tissue Type     | DNA Variation VCF            | Gender              | Race                  | miRNA Isoform               |
-   |                       |                              |                     |                       | Quantification              |
+   | Gender                | DNA Variation VCF            | Sample Type         | Gender                |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Gender                | Aligned Reads                | Site Primary        | Ethnicity             |                             |
+   | Age at Diagnosis      | Aligned Reads                | Site Primary        | Age at Diagnosis      |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Race                  | Protein Quantification       | Histology           | WBC At Diagnosis      |                             |
+   | Sample Type           | Protein Quantification       | Histology           | Sample Type           |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Ethnicity             |miRNA Isoform Quantification  | Histological        | Year Of Diagnosis     |                             |
+   | Tumor Tissue Site     |miRNA Isoform Quantification  | Histological        | Race                  |                             |
    |                       |                              | SubType             |                       |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Year of Diagnosis     |miRNA Gene Quantification     |                     | Event Free Survival   |                             |
+   | Histological Type     |miRNA Gene Quantification     |                     | Ethnicity             |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Residual Tumor        |mRNA Isoform Quantification   |                     | Days to Birth         |                             |
+   | Pathologic Stage      |mRNA Isoform Quantification   |                     | WBC at Diagnosi       |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Neoplasm Histologic   |                              |                     |                       |                             |
-   | Grade                 | Genotypes                    |                     | Age At Diagnosis      |                             |
+   | Person Neoplasm       |                              |                     |                       |                             |
+   | Cancer Status         | Genotypes                    |                     | Year of Diagnosis     |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Vital Status          | DNA Methylation Beta         |                     | Vital Status          |                             |
-   |                       |                              |                     |                       |                             |
+   | Neoplasm Histologic   | DNA Methylation Beta         |                     | Event Free Survival   |                             |
+   | Grade                 |                              |                     |                       |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Person Neoplasm       |                              |                     | Overall Survival      |                             |
-   | Cancer Status         |                              |                     |                       |                             |
+   | BMI (Body Mass Index) |                              |                     | Days to Last Followup |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Menopause Status      |                              |                     | Days to Death         |                             |
+   | HPV Status            |                              |                     | Days to Last Known    |                             |
+   |                       |                              |                     | Alive                 |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Histological SubType  |                              |                     |                       |                             |
+   | Residual Tumor        |                              |                     | Days to Birth         |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | BMI (Body Mass Index) |                              |                     |                       |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Tobacco Smoking       |                              |                     |                       |                             |
+   | Tobacco Smoking       |                              |                     | Days to Death         |                             |
    | History               |                              |                     |                       |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Pathlogic Stage       |                              |                     |                       |                             |
+   | Race                  |                              |                     |                       |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | HPV Status            |                              |                     |                       |                             |
+   | Ethnicity             |                              |                     |                       |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Age At Initial        |                              |                     |                       |                             |
-   | Pathlogic Diagnosis   |                              |                     |                       |                             | 
+   | Year of Diagnosis     |                              |                     |                       |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Days to Last Known    |                              |                     |                       |                             |
-   | Alive                 |                              |                     |                       |                             |
+   | Menopause Status      |                              |                     |                       |                             |
+   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
+   | Days to Last          |                              |                     |                       |                             |
+   | Known Alive           |                              |                     |                       |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
    | Preservation Method   |                              |                     |                       |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
@@ -145,9 +143,9 @@ handful of features for the selected program:
    +------------------------------+------------------------------+---------------------------------+
    | Sample Type                  | Site Primary                 | Gender                          |
    +------------------------------+------------------------------+---------------------------------+
-   | Tumor Tissue Type            | Histology                    | Age At Diagnosis                |
+   | Tumor Tissue Site            | Histology                    | Sample Type                     |
    +------------------------------+------------------------------+---------------------------------+
-   | Gender                       | Histological SubType         |                                 |
+   | Gender                       | Histological SubType         | Age At Diagnosis                |
    +------------------------------+------------------------------+---------------------------------+
    | Age At Initial Pathologic    |                              |                                 |
    | Diagnosis                    |                              |                                 |
@@ -210,7 +208,7 @@ button, a dialogue box will appear. Now you may do one of the following:
 The intersect and union operations can take any number of cohorts and in any order.
 The complement operation requires that there be a base cohort, from which the other cohorts will be subtracted from.
 
-**Note:** To combine the User uploaded data and the ISB-CGC data, use the Set Operations function. This is possible since the list of barcodes is what is used to create the set operation. For example, to make a cohort of user data samples and ISB-CGC curated samples, Set Union must be used, and to filter user data which is an extension of TCGA samples, Set Intersection must be used.
+**Note:** To combine the User uploaded data and the ISB-CGC data, use the Set Operations function. This is possible since the list of barcodes is what is used to create the set operation. For example, to make a cohort of user data samples and ISB-CGC curated samples, Set Union must be used, and to filter user data which is an extension of TCGA or TARGET samples, Set Intersection must be used.
 
 
 The figure below shows what the results of the set operations will be (represented by I for Intersect, U for Union, and C for Complement).  There are two types of sets shown, those that overlap (on the left) and those that are nested (on the right).  For the last row (complement operations), the "Subtracted" area is removed from the "Base" area to result in the Complement (C). 
@@ -267,15 +265,15 @@ This panel shows a list of tree maps that give a high level break of the samples
    +------------------------------+------------------------------+---------------------------------+------------------------------------+
    | TCGA Clinical Features Panel | CCLE Clinical Features Panel | TARGET Clinical Features Panel  | USER DATA Programs & Projects Panel|
    +==============================+==============================+=================================+====================================+
-   | Disease Type                 | Disease Type                 | Disease Type                    | Program                            |
+   | Disease Code                 | Disease Code                 | Disease Code                    | Program                            |
    +------------------------------+------------------------------+---------------------------------+------------------------------------+
    | Vital Status                 | Gender                       | Vital Status                    | Project                            |
    +------------------------------+------------------------------+---------------------------------+------------------------------------+
    | Sample Type                  | Site Primary                 | Gender                          |                                    |
    +------------------------------+------------------------------+---------------------------------+------------------------------------+
-   | Tumor Tissue Type            | Histology                    | Age At Diagnosis                |                                    |
+   | Tumor Tissue Site            | Histology                    | Sample Type                     |                                    |
    +------------------------------+------------------------------+---------------------------------+------------------------------------+
-   | Gender                       | Histological SubType         |                                 |                                    |
+   | Gender                       | Histological SubType         | Age At Diagnosis                |                                    |
    +------------------------------+------------------------------+---------------------------------+------------------------------------+
    | Age At Initial Pathologic    |                              |                                 |                                    |
    | Diagnosis                    |                              |                                 |                                    |
@@ -365,4 +363,3 @@ Copying a cohort can only be done from the cohort details page of the cohort you
 When you are looking at the cohort you wish to copy, select Duplicate from the top menu.
 
 This will take you to a new copy of the cohort.
-
