@@ -265,15 +265,15 @@ This panel shows a list of tree maps that give a high level break of the samples
    +------------------------------+------------------------------+---------------------------------+------------------------------------+
    | TCGA Clinical Features Panel | CCLE Clinical Features Panel | TARGET Clinical Features Panel  | USER DATA Programs & Projects Panel|
    +==============================+==============================+=================================+====================================+
-   | Disease Type                 | Disease Type                 | Disease Type                    | Program                            |
+   | Disease Code                 | Disease Code                 | Disease Code                    | Program                            |
    +------------------------------+------------------------------+---------------------------------+------------------------------------+
    | Vital Status                 | Gender                       | Vital Status                    | Project                            |
    +------------------------------+------------------------------+---------------------------------+------------------------------------+
    | Sample Type                  | Site Primary                 | Gender                          |                                    |
    +------------------------------+------------------------------+---------------------------------+------------------------------------+
-   | Tumor Tissue Type            | Histology                    | Age At Diagnosis                |                                    |
+   | Tumor Tissue Site            | Histology                    | Sample Type                     |                                    |
    +------------------------------+------------------------------+---------------------------------+------------------------------------+
-   | Gender                       | Histological SubType         |                                 |                                    |
+   | Gender                       | Histological SubType         | Age At Diagnosis                |                                    |
    +------------------------------+------------------------------+---------------------------------+------------------------------------+
    | Age At Initial Pathologic    |                              |                                 |                                    |
    | Diagnosis                    |                              |                                 |                                    |
