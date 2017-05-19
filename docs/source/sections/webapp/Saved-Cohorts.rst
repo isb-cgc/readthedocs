@@ -45,55 +45,53 @@ The panel in the center of the screen, with four tabs called "TCGA DATA", "CCLE 
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
    | TCGA Cases Tab        | TCGA Data Type Tab           | CCLE Cases Tab      | TARGET Cases Tab      | TARGET Data Type Tab        |
    +=======================+==============================+=====================+=======================+=============================+
-   |   Program             | Pathology Image              | Program             | Program               | mRNA Gene Quantification    |
+   | Program               | Pathology Image              | Program             | Program               | mRNA Gene Quantification    |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
    | Project Short Name    | Somatic Mutation             | Project Short Name  | Project Short Name    |miRNA Isoform Quantification |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
    | Disease Code          | Copy Number Segment Masked   |   Disease Code      | Disease Code          | miRNA Gene Quantification   |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   |Sample Type            | mRNA Gene Quantification     | Sample Type         | Gender                | Aligned Reads               |
+   | Vital Status          | mRNA Gene Quantification     | Sample Type         | Gender                | Aligned Reads               |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Tumor Tissue Type     | DNA Variation VCF            | Gender              | Race                  | miRNA Isoform               |
+   | Gender                | DNA Variation VCF            | Gender              | Race                  | miRNA Isoform               |
    |                       |                              |                     |                       | Quantification              |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Gender                | Aligned Reads                | Site Primary        | Ethnicity             |                             |
+   | Age at Diagnosis      | Aligned Reads                | Site Primary        | Ethnicity             |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Race                  | Protein Quantification       | Histology           | WBC At Diagnosis      |                             |
+   | Sample Type           | Protein Quantification       | Histology           | WBC At Diagnosis      |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Ethnicity             |miRNA Isoform Quantification  | Histological        | Year Of Diagnosis     |                             |
+   | Tumor Tissue Site     |miRNA Isoform Quantification  | Histological        | Year Of Diagnosis     |                             |
    |                       |                              | SubType             |                       |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Year of Diagnosis     |miRNA Gene Quantification     |                     | Event Free Survival   |                             |
+   | Histological Type     |miRNA Gene Quantification     |                     | Event Free Survival   |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Residual Tumor        |mRNA Isoform Quantification   |                     | Days to Birth         |                             |
+   | Pathologic Stage      |mRNA Isoform Quantification   |                     | Days to Birth         |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Neoplasm Histologic   |                              |                     |                       |                             |
-   | Grade                 | Genotypes                    |                     | Age At Diagnosis      |                             |
+   | Person Neoplasm       |                              |                     |                       |                             |
+   | Cancer Status         | Genotypes                    |                     | Age At Diagnosis      |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Vital Status          | DNA Methylation Beta         |                     | Vital Status          |                             |
-   |                       |                              |                     |                       |                             |
+   | Neoplasm Histologic   | DNA Methylation Beta         |                     | Vital Status          |                             |
+   | Grade                 |                              |                     |                       |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Person Neoplasm       |                              |                     | Overall Survival      |                             |
-   | Cancer Status         |                              |                     |                       |                             |
+   | BMI (Body Mass Index) |                              |                     | Overall Survival      |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Menopause Status      |                              |                     | Days to Death         |                             |
+   | HPV Status            |                              |                     | Days to Death         |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Histological SubType  |                              |                     |                       |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | BMI (Body Mass Index) |                              |                     |                       |                             |
+   | Residual Tumor        |                              |                     |                       |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
    | Tobacco Smoking       |                              |                     |                       |                             |
    | History               |                              |                     |                       |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Pathlogic Stage       |                              |                     |                       |                             |
+   | Race                  |                              |                     |                       |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | HPV Status            |                              |                     |                       |                             |
+   | Ethnicity             |                              |                     |                       |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Age At Initial        |                              |                     |                       |                             |
-   | Pathlogic Diagnosis   |                              |                     |                       |                             | 
+   | Year of Diagnosis     |                              |                     |                       |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Days to Last Known    |                              |                     |                       |                             |
-   | Alive                 |                              |                     |                       |                             |
+   | Menopause Status      |                              |                     |                       |                             |
+   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
+   | Days to Last          |                              |                     |                       |                             |
+   | Known Alive           |                              |                     |                       |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
    | Preservation Method   |                              |                     |                       |                             |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
@@ -365,4 +363,3 @@ Copying a cohort can only be done from the cohort details page of the cohort you
 When you are looking at the cohort you wish to copy, select Duplicate from the top menu.
 
 This will take you to a new copy of the cohort.
-
