@@ -156,6 +156,8 @@ By using the “Show More” button, you can see the last two tree maps.  Mousin
 Data File Availability Panel
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+NOTE: this function is now available only when editing a created cohort.  To access this function, please create the cohort and edit it as described below.
+
 This panel shows a parallel sets graph of available data files for the selected samples in the cohort. The large headers over
 the vertical bars are data types. Each data type (vertical bar) is subdivided according to the different platforms
 that were used to generate this type of data (with "NA" indicating samples for which this data type is not available).
