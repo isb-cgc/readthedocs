@@ -697,7 +697,7 @@ agree regarding tissue of origin (between BRCA and GBM).
     n DESC
 
 .. figure:: query_figs/may_brca_jaccard_table.png
-  :scale: 50
+  :scale: 85
   :align: center
 
 So, we see that the really high Jaccard indices are coming (mostly) from
@@ -716,7 +716,7 @@ among the results.  We see some tissue types are most similar to only that type
 of tissue, whereas other tissue types share patterns of disrupted pathways.
 
 .. figure:: query_figs/all_tcga_jaccard_by_pathways_log_counts.png
-  :scale: 50
+  :scale: 85
   :align: center
 
 
