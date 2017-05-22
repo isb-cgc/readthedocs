@@ -696,7 +696,7 @@ agree regarding tissue of origin (between BRCA and GBM).
   ORDER BY
     n DESC
 
-.. figure:: query_figs/all_tcga_jaccard_by_pathways_log_counts.png
+.. figure:: query_figs/may_brca_jaccard_table.png
   :scale: 50
   :align: center
 
@@ -715,8 +715,9 @@ the results into R, I created a heatmap showing how many TCGA study pairs were
 among the results.  We see some tissue types are most similar to only that type
 of tissue, whereas other tissue types share patterns of disrupted pathways.
 
-
-
+.. figure:: query_figs/all_tcga_jaccard_by_pathways_log_counts.png
+  :scale: 50
+  :align: center
 
 
 ================
