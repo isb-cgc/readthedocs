@@ -696,13 +696,27 @@ agree regarding tissue of origin (between BRCA and GBM).
   ORDER BY
     n DESC
 
-.. figure:: query_figs/may_brca_jaccard_table.png
-  :scale: 85
+.. figure:: query_figs/all_tcga_jaccard_by_pathways_log_counts.png
+  :scale: 50
   :align: center
 
 So, we see that the really high Jaccard indices are coming (mostly) from
-BRCA-BRCA sample comparisons. I hope you found this a useful exercise and can find
-ways of using it in your own work.
+BRCA-BRCA sample comparisons.
+
+With one additional change to the above query we can query across all TCGA studies
+rather than just a few.  The change involves removing the
+"mc3.project_short_name IN ('TCGA-BRCA', 'TCGA-GBM')" conditional. This is a
+good trick that works in many cases. By removing the conditional, instead of
+querying on just a few, we query across all studies, letting each sample be
+paired with every other. Doing this, and setting the Jaccard index threshold
+to 0.5, we get > 800K rows of results back, where each sample pair is
+compared on the similarity of their potentially disrupted pathways. Bringing
+the results into R, I created a heatmap showing how many TCGA study pairs were
+among the results.  We see some tissue types are most similar to only that type
+of tissue, whereas other tissue types share patterns of disrupted pathways.
+
+
+
 
 
 ================
