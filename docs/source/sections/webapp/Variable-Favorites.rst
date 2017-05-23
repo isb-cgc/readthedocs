@@ -14,27 +14,71 @@ Using the provided list of filters on the left hand side, you can select the att
 that you are interested in.
 
 By clicking on a feature, the field will expand and provide you with additional filtering options in the Data Types section.
-For example, when you click on “Gene Expression”, it expands and provides the user  filters to choose from. The platform filter list the options "Illumina GA" and "Illumina HiSeq" as options to choose from. The center filter will display the options "BCGSC" and "UNC" to choose from. Once you choose an option for all filters then the Select Feature will be enabled and display a list on Gene Expression variables to choose from "AADACL4 mRNA (Illumina GA, BCGSC RPKM)" Selecting one or more of these will cause the filter(s) to appear in the Selected Filters 
-panel and visualizations on the page will be updated to reflect that the current variable favorites list that has been filtered by Gene Expression platform and center. 
+For example, when to select the TCGA tab you see a common filters section. You can select filters that are most recently used by others.  If you select the Gender filter, this will cause the filter(s) to appear in the Selected Filter panel panel and visualizations on the page will be updated to reflect that the current variable favorites list that has been filtered by clinical feature. 
 
-Variable Favorite Filters
--------------------------
-Common Filters List
-^^^^^^^^^^^^^^^^^^^
-    * Vital Status
-    * Gender
-    * Age At Diagnosis
-    * Tumor Tissue Site
-    * Histological Type
-    * Other Diagnosis
-    * Tumor Status
-    * New Tumor Event After Initial Treatment
-    * Histological Grade
-    * Residual Tumor
-    * Tobacco Smoking History
-    * ICD-10
-    * ICD-O-3 Site
-    * ICD-O-3 Histology
+
+Variable Favorites Filter 
+--------------------------
+
+Common Filter List by Program 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   +-----------------------+------------------------------+---------------------+
+   | TCGA Common  Filter   | CCLE Common  Filter List     | TARGET Common       |
+   | List                  |                              | Filter List         |
+   +=======================+==============================+=====================+
+   | Year of Diagnosis     | Gender                       | WBC at              |
+   |                       |                              | Diagnosis           | 
+   +-----------------------+------------------------------+---------------------+
+   | Residual Tumor        | Disease Code                 | Year of Diagnosis   |
+   +-----------------------+------------------------------+---------------------+
+   | Neoplasm Histologic   | Sample Type                  | Event Free Survival |
+   | Grade                 |                              |                     |
+   +-----------------------+------------------------------+---------------------+
+   | Disease Code          | Project Short Name           | Days to Last Follow |
+   |                       |                              | Up                  |
+   +-----------------------+------------------------------+---------------------+
+   | Vital Status          | Site Primary                 | Gender              |
+   +-----------------------+------------------------------+---------------------+
+   | Ethnicity             | Histology                    | Days to Last Known  |
+   |                       |                              | Alive               |
+   +-----------------------+------------------------------+---------------------+
+   | Person Neoplasm       | Histological SubType         | Sample Type         |
+   | Cancer Status         |                              |                     |
+   +-----------------------+------------------------------+---------------------+
+   | Sample Type           | Program                      | Project Short Name  |
+   +-----------------------+------------------------------+---------------------+
+   | Menopause Status      |                              | Disease Code        |
+   +-----------------------+------------------------------+---------------------+
+   | Histological Type     |                              | Race                |
+   +-----------------------+------------------------------+---------------------+
+   | BMI (Body Mass Index) |                              | Days to Birth       |
+   +-----------------------+------------------------------+---------------------+
+   | Tobacco Smoking       |                              | Program             |
+   | History               |                              |                     | 
+   +-----------------------+------------------------------+---------------------+
+   | Pathologic Stage      |                              | Ethnicity           |
+   +-----------------------+------------------------------+---------------------+
+   | HPV Status            |                              |                     | 
+   +-----------------------+------------------------------+---------------------+
+   | Program               |                              |                     |
+   +-----------------------+------------------------------+---------------------+
+   | Gender                |                              |                     |
+   +-----------------------+------------------------------+---------------------+
+   | Age at Inital         |                              |                     |
+   | Pathologic Diagnosis  |                              |                     |
+   +-----------------------+------------------------------+---------------------+
+   | Days to Last Known    |                              |                     |
+   | Alive                 |                              |                     |
+   +-----------------------+------------------------------+---------------------+
+   | Preservation Method   |                              |                     |
+   +-----------------------+------------------------------+---------------------+
+   | Project Short Name    |                              |                     |
+   +-----------------------+------------------------------+---------------------+
+   | Race                  |                              |                     |
+   +-----------------------+------------------------------+---------------------+
+   | Tumor Tissue Site     |                              |                     |
+   +-----------------------+------------------------------+---------------------+
+
 
 Favorites Filter
 ^^^^^^^^^^^^^^^^
@@ -44,13 +88,10 @@ Clinical Filter Feature Search
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 This filter allows the user to search by any clinical feature that is present in the most recent data upload. 
 
-miRNA Expression Filter
-^^^^^^^^^^^^^^^^^^^^^^^
-This filter allows the user to search by miRNA name filter, platform filter, and value filter for any miRNA expressions present in our system.
 
-User Uploaded Projects Filter
+User Uploaded Programs Filter
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This filter allows you to select by filters that you have uploaded using the upload data functionality. It's seperated by studies within your projects, a drop down list will display the features that are assocaited.
+This filter allows you to select by filters that you have uploaded using the upload data functionality. It's seperated by projects within your program, a drop down list will display the features that are assocaited.
 
 Selected Filters Panel
 ^^^^^^^^^^^^^^^^^^^^^^

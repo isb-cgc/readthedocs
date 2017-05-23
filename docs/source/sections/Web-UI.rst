@@ -14,10 +14,10 @@ We welcome your ideas and needs.  Please use this `link <https://groups.google.c
    webapp/Gaining-Access-To-TCGA-Contolled-Access-Data
    webapp/Menu
    webapp/Workbooks
-   webapp/Gene-Favorites
+   webapp/Gene-and-miRNA-Favorites
    webapp/Variable-Favorites
    webapp/Saved-Cohorts
-   webapp/project_data_upload
+   webapp/program_data_upload
    webapp/GraphingUserData
    webapp/IGV-Browser
    webapp/ViewingCohorts
