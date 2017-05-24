@@ -26,7 +26,7 @@ A second goal will be to create a set of pathways, for each sample, where pathwa
 contain at least one potentially harmful mutation. Then we will again estimate the
 distance between samples based on the set of (potentially) altered pathways.
 
-New for this month, we have a whole host of new BigQuery tables from
+New for this month, we also have a whole host of new BigQuery tables from
 `COSMIC <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/COSMIC.html>`_.
 
 For our query this month, we downloaded 381 pathways from
@@ -113,7 +113,7 @@ in this pathway.
 
 
 .. figure:: query_figs/may_1.png
-   :scale: 50
+   :scale: 30
    :align: center
 
 
@@ -260,7 +260,7 @@ OK, let's compute a Jaccard index based on this pathway!
 
 
 .. figure:: query_figs/may_3.png
-   :scale: 50
+   :scale: 40
    :align: center
 
 
@@ -415,7 +415,7 @@ So, for this particular pathway, the Jaccard indices are not spectacular.
 But(!), what we really want is to look at *all* pathways simultaneously.
 Then for any given pair of samples, we could rank the mutation overlap by pathway.
 To do that, instead of selecting a pathway in the first subtable... we build a
-table containing all pathways, and join on that furhter down in the query.
+table containing all pathways, and join on that further down in the query.
 
 Just note, this is a longer running query (takes about 2 minutes).
 
@@ -541,7 +541,7 @@ Just note, this is a longer running query (takes about 2 minutes).
 
 
 .. figure:: query_figs/may_5.png
-   :scale: 50
+   :scale: 40
    :align: center
 
 
@@ -549,7 +549,8 @@ OK! Now we've got some pretty decent overlaps. We now have a way to search for
 similarities among groups of samples based on functionally based shared mutation
 profiles.
 
-Now, what if we looked at the overlap on the pathway level?
+Turning this question around a little bit, 
+what if we looked at the overlap on the pathway level instead?
 
 .. code-block:: sql
 
@@ -670,7 +671,7 @@ with just over 300 pathways, we have samples perfectly or nearly perfectly
 in agreement.
 
 
-Then let's see how the samples are associating on a tissue level.  I'm going to add
+Next, let's see how the samples are associating on a tissue level.  I'm going to add
 this query to the end of the above query, to tabulate how often study1 and study2
 agree regarding tissue of origin (between BRCA and GBM).
 
@@ -705,7 +706,7 @@ BRCA-BRCA sample comparisons.
 
 With one additional change to the above query we can query across all TCGA studies
 rather than just a few.  The change involves removing the
-"mc3.project_short_name IN ('TCGA-BRCA', 'TCGA-GBM')" conditional. This is a
+``mc3.project_short_name IN ('TCGA-BRCA', 'TCGA-GBM')`` conditional. This is a
 good trick that works in many cases. By removing the conditional, instead of
 querying on just a few, we query across all studies, letting each sample be
 paired with every other. Doing this, and setting the Jaccard index threshold
