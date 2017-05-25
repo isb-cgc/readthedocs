@@ -9,10 +9,15 @@ word Menu again.
 The **MENU** bar is a graphical control element which contains application navigational drop downs (sub-links). 
 The Menu bar's purpose is to supply quick and common links for application-specific functions / features such as: 
 
+
+ * **DASHBOARD** - This link takes you to *Your Dashboard* main page.
+
  * **WORKBOOKS** - Workbooks store the Analyses you create -- and their related data.  You can create worksheets as you explore and analyze selected underlying data (i.e. Genes, Variables and Cohorts – further explained later).  From the "Workbook" link you can quick link to the following:
      - *Recent* - Displays your created workbooks and allow quick navigation to them;
      - *Saved* - Displays all your saved workbooks and allows you to edit, duplicate or delete the workbook;
-     - *Create a New Workbook* - Quick Link to Workbook Creation, where you can select the data source;
+     - *Create a New Workbook* - Quick Link to Workbook Creation, where you can select the data source
+     
+ * **Projects** - These are shortcuts to the projects you have created if you uploaded your own data.
 
  * **ANALYSES** - From here you can Create, Edit Details, Duplicate, Delete, or Share Analyses. You can use a specific analysis type to create a new workbook customized with the specific data (Genes, Variables, Cohorts) you have selected.  The plot types that you can select from include:
     - *Bar Chart*

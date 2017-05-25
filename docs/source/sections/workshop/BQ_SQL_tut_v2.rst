@@ -44,9 +44,9 @@ On the left side, from top to bottom we have:
 
 5.  **isb-cgc** Publicly accessible ISB-CGC curated datasets (including TCGA and reference data sources).
 
-6.  **More data!** Other added datasets will appear here (for example, the **genomics-public-data**, **silver-wall-555**, *etc*).
+6.  **More data!** Other added datasets will appear here (for example, the **genomics-public-data**, *etc*).
 
-**Note**: if you do not see the **isb-cgc** datasets, you need to add them to your "view" by clicking on the blue arrow next to your project name at the top of the left side-bar, select "Switch to Project", then "Display Project...", and enter "isb-cgc" (without quotes) in the text box labeled "Project ID".  All ISB-CGC public BigQuery datasets and tables will now be visible in the left side-bar of the BigQuery web interface.  Do the same for other public datasets, such as the Tute Genomics annotation table which is owned by a project named "silver-wall-555".
+**Note**: if you do not see the **isb-cgc** datasets, you need to add them to your "view" by clicking on the blue arrow next to your project name at the top of the left side-bar, select "Switch to Project", then "Display Project...", and enter "isb-cgc" (without quotes) in the text box labeled "Project ID".  All ISB-CGC public BigQuery datasets and tables will now be visible in the left side-bar of the BigQuery web interface.  You can repeat this process for other public datasets.
 
 Querying: Lists, Joins, and Subqueries
 --------------------------------------
