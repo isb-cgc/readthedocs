@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 samples().get()
 ################
 Given a sample barcode (of length 16, *eg* TCGA-B9-7268-01A), this endpoint returns all available "biospecimen" information about this sample, the associated case barcode, a list of associated aliquots, and a list of "data_details" blocks describing each of the data files associated with this sample
@@ -972,4 +971,3 @@ If successful, this method returns a response body with the following structure:
 	data_details[].sample_gdc_id, string, "The GDC assigned id for the sample"
 	data_details[].sample_type, string, "The sample type, e.g. '01', '10', '11'"
 	data_details_count, integer, "Number of files associated with the sample barcode."
->>>>>>> 772be49469b0c80d5c612a48e914684c6a244d2e
