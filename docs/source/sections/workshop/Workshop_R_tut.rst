@@ -1,3 +1,5 @@
+.. _R-workshop:
+
 ***************
 Analysis with R
 ***************

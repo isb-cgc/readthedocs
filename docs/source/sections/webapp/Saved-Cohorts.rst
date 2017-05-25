@@ -19,7 +19,7 @@ Cohort Creation Page
 ====================
 
 Using the provided list of filters on the left hand side, you can select the attributes and features
-that you are interested in.  Note that the TCGA project is selected by default as this is the dataset that the majority of researchers are familiar with.  CCLE (The Cancer Cell Line Encyclopedia) data is also available if desired - this is open access data set that can be used to view sequence data with the IGV viewer without having dbGaP permissions.
+that you are interested in either frm ISB-CGC data or the User Data tab.  Note that the TCGA project is selected by default as this is the dataset that the majority of researchers are familiar with.  CCLE (The Cancer Cell Line Encyclopedia) data is also available if desired - this is open access data set that can be used to view sequence data with the IGV viewer without having dbGaP permissions.
 
 By clicking on a feature, the field will expand and provide you with additional filtering options.
 For example, when you click on "Vital Status", it expands and provides a list containing "Alive", "Dead", and
@@ -33,9 +33,11 @@ have been selected.
 
 Individual selections in a filter are "ORed" together, meaning if any of the selected conditions are met they will be in the filter.  Filters are "ANDed" together, meaning that selecting two filters means that the participants and samples are created based on both filters being executed.  There may be cases where you have 0 participants and samples, because the combination of filters you have chosen are ALL not present (AND function).
 
+
 Cohort Filters
 --------------
-The panel on the left of the screen, with three tabs called "DONOR", "DATA TYPE", and "MOLECULAR" allow you to apply filters to the cohorts your are creating.  Below are the details of each tab.
+The panel on the left of the screen, with two tabs called "ISB-CGC DATA" and "USER DATA" will allow to create a cohort between data in the system and data that you have uploaded. The  ISB-CGC DATA tab has three tabs called "DONOR", "DATA TYPE", and "MOLECULAR"  which allow you to apply filters to the cohorts your are creating using ISB-CGC hosted data. For the USER DATA tab, there is one tab called "PROJECTS & STUDIES" which allow you to filter by the projects or studies you have uploaded to the system. Below are the details of each tab.
+
 
 Donor Tab
 ^^^^^^^^^
@@ -48,7 +50,6 @@ Donor Tab
     * Sample Type
     * Tumor Tissue Site
     * Histological Type
-    * Prior Diagnosis
     * Pathologic Stage
     * Tumor Status
     * New Tumor Event After Initial Treatment
@@ -75,6 +76,13 @@ Molecular Tab
 ^^^^^^^^^^^^^
 
     * Gene Mutation Status (creating a cohort based on the presence of a mutation (of various types) in a gene)
+    
+Projects & Studies Tab
+^^^^^^^^^^^^^^^^^^^^^^^
+    * User Project
+    * User Study
+
+
 
 Save As New Cohort Button
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -108,10 +116,10 @@ handful of features:
 
 By using the “Show More” button, you can see the last two tree maps.  Mousing over an image shows the details of each specific section of the image and the number of samples associated with it.
 
-Data Availability Panel
+Data File Availability Panel
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-This panel shows a parallel sets graph of available data for the selected samples in the cohort. The large headers over
+This panel shows a parallel sets graph of available data files for the selected samples in the cohort. The large headers over
 the vertical bars are data types. Each data type (vertical bar) is subdivided according to the different platforms
 that were used to generate this type of data (with "NA" indicating samples for which this data type is not available).
 Each sample in the current cohort is represented by a single line that "flows" horizontally from left to right,
@@ -122,6 +130,12 @@ two platforms.
 
 You can also reorder the vertical categories by dragging the headers left and right and reorder the
 platforms by dragging the platform names up and down.
+
+Projects & Studies Panel
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This panel displays a list of images (called "treemaps") similar to the clinical features panel, but can only be found when the User Data tab is selected. This panel displays a high level breakdown of the projects and studies you have uploaded to the system. Another similarity to the clinical features panel hovering over the image will show details of the specific section of the image and the number of samples associated with it. 
+
 
 Operations on Cohorts
 #####################
@@ -157,11 +171,17 @@ button, a dialogue box will appear. Now you may do one of the following:
 The intersect and union operations can take any number of cohorts and in any order.
 The complement operation requires that there be a base cohort, from which the other cohorts will be subtracted from.
 
+**Note:** To combine the User uploaded data and the ISB-CGC data, use the Set Operations function. This is possible since the list of barcodes is what is used to create the set operation. For example, to make a cohort of user data samples and ISB-CGC curated samples, Set Union must be used, and to filter user data which is an extension of TCGA samples, Set Intersection must be used.
+
+
 The figure below shows what the results of the set operations will be (represented by I for Intersect, U for Union, and C for Complement).  There are two types of sets shown, those that overlap (on the left) and those that are nested (on the right).  For the last row (complement operations), the "Subtracted" area is removed from the "Base" area to result in the Complement (C). 
+
 
 .. image:: SetOperations.PNG
    :scale: 50
    :align: center
+
+
 
 Click "Okay" to complete the set operation and create the new cohort.
 
@@ -174,11 +194,15 @@ From the "SAVED COHORTS" tab you can:
 * New Workbook: Pushing this button creates a New Workbook using the cohort
 * Edit: Pushing this button makes the filters panel appear. And filters selected will be additive to any filters that have already been selected. To return to the previous view, you must either save any NEW selected filters (with the "Save Changes" button), or choose to cancel adding any new filters (by clicking the "cancel" link).
 * Comments: Pushing "Comments" will cause the Comments panel to appear. Here anyone who can see this cohort can comment on it. Comments are shared with anyone who can view this cohort.  They are ordered by newest on the bottom.  Selecting the "X" on the Comments panel will close the panel.  Any user who owns or has had a cohort shared with them can comment on it.
-* Duplicate: Making a copy will create a copy of this cohort with the same list of samples and patients and make you the owner of the copy.  This is how you create a copy of a another researchers cohort that they have shared with you (note: if they later change their cohort,  your cohort will not be updated, it will remain the same as it was at the time you duplicated it).
+* Duplicate: Making a copy will create a copy of this cohort with the same list of samples and patients and make you the owner of the copy.  This is how you create a copy of another researchers cohort that they have shared with you (note: If they later change their cohort, your cohort will not be updated, it will remain the same as it was at the time you duplicated it).
 * Delete: Allows you to delete this cohort (if you confirm by clicking the second delete button presented)
 * View Files: Allows you to view the list of files associated with this cohort (see details below)
 * Download IDs: Provides a list of sample and participant IDs in the cohort
 * Share: A dialogue box appears and the user is prompted to select registered users to share the cohort with.
+
+ISB-CGC DATA and USER DATA tab
+--------------------------------
+Both tabs are displayed  and can be selected. The corresponding panels on each tab will display data on either ISB-CGC data or user uploaded data with cohorts that you created or shared with you. 
 
 Current Filters Panel
 ----------------------
@@ -188,9 +212,9 @@ This panel displays current filters that have been used on the cohort or any of 
 Details Panel
 -------------
 
-This panel displays the Internal ISB-CGC Cohort ID (the identifier you use to programatically use this cohort through our `APIs <../progapi/Programmatic-API.html#id4>`_ ), and the number of samples and participants in this cohort. The number of samples may be larger than the number of participants because some participants may have
+This panel displays the Internal ISB-CGC Cohort ID (the identifier you use to programmatically use this cohort through our `APIs <../progapi/Programmatic-API.html#id4>`_ ), and the number of samples and participants in this cohort. The number of samples may be larger than the number of participants because some participants may have
 provided multiple samples.
-This panel also displays "Your Permissions" which can be either owner or reader, as well as revision history.  If you have edited the cohort, the fiters that were used to originally create the cohort are displayed under the "Creation Filters" label, the newly applied filters since original creation are displayed under the "Applied Filters" label.
+This panel also displays "Your Permissions" which can be either owner or reader, as well as revision history.  If you have edited the cohort, the filters that were used to originally create the cohort are displayed under the "Creation Filters" label, the newly applied filters since original creation are displayed under the "Applied Filters" label.
 
 Clinical Features Panel
 -----------------------
@@ -204,14 +228,13 @@ This panel shows a list of treemaps that give a high level break of the samples 
 * Gender
 * Age at Initial Pathologic Diagnosis
 
-Data Availability Panel
+Data File Availability Panel
 -----------------------
-This panel shows a parallel sets graph of available data for the selected samples in the cohort. The large headers over
+This panel shows a parallel sets graph of available data files for the selected samples in the cohort. The large headers over
 the vertical bars are data types. Each vertical bar may be broken up to represent different platforms used to generate
 that type of data (and "NA" for samples for which that data type is not available).
-The sets of lines that "flow" from left to right indicate the number of samples for which each type of data is
-available. If you 
-hover over a horizontal segment between two bars, you will see the number of samples that have both those data
+The sets of lines that "flow" from left to right indicate the number of samples for which each type of data files are
+available. If you hover over a horizontal segment between two bars, you will see the number of samples that have both those data
 type platforms. You can also reorder the vertical categories by dragging the headers left and right and reorder the
 platforms by dragging the platform names up and down.
 
