@@ -1,5 +1,5 @@
 ##############################
-Cancer Data in Cloud Storage
+Data in Cloud Storage
 ##############################
 
 At this time, all controlled-access data files are stored in Google Cloud Storage (GCS) 

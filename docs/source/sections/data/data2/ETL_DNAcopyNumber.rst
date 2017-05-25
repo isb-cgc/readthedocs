@@ -1,4 +1,4 @@
-Copy-Number Segments (DNA)
+DNA Copy-Number Segments 
 ==========================
 
 The
