@@ -4,3 +4,7 @@ docs/source/sections/progapi/progapi2_develop
 .project
 .pydevproject
 docs_test
+<<<<<<< HEAD
+=======
+docs/source/sections/progapi/progapi2_develop
+>>>>>>> 772be49469b0c80d5c612a48e914684c6a244d2e
