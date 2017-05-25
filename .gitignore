@@ -1,3 +1,6 @@
 # *.json
 docs/source/sections/progapi/progapi2_develop
 **/.DS_Store
+.project
+.pydevproject
+docs_test
