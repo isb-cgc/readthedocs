@@ -2,6 +2,14 @@
 Programmatic Interfaces
 ***********************
 
+
+..  code-block:: none
+
+    The changes needed to support multiple programs have rendered the V1 and V2 APIs non-functional 
+    and therefore users must migrage all API calls to the V3 version.  Note that this usually means 
+    just a minor adjustment to the URL.  Also note that some of the examples in the github repository
+    may still reference the V1 or V2 API.
+
 Programmatic access to molecular data and metadata within the ISB-CGC platform
 uses a combination of ISB-CGC APIs and Google APIs, as illustrated by the
 `block diagram <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/_images/new-block-three-p.png>`_
@@ -62,14 +70,18 @@ Endpoints are simple https GET or PUT requests, *eg*:
 
 .. code-block:: none
 
-        GET https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/patient_details?patient_barcode=TCGA-B9-7268
-        GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/patients/TCGA-B9-7268
+        V3 TCGA - GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_tcga_api/v3/cases/TCGA-B9-7268
+        V3 TARGET - GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_target_api/v3/cases/TARGET-20-PABLDZ
+        V3 CCLE - GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/cases/FU-OV-1
+        
+        V1 (deprecated) - GET https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/patient_details?patient_barcode=TCGA-B9-7268
+        V2 (deprecated) - GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/patients/TCGA-B9-7268
 
-The first GET command above illustrates the usage in the (deprecated but still available) cohort API v1,
-and the second GET command shows the usage for the new v2 API.
+The first three GET commands above illustrates the usage with the new program-specific V3 endpoints.  The V1 and V2 examples are presented so users can see the difference in calls and aid in the transition to V3.  
+
 The url (without the "GET" command) can also be pasted directly into your browser, like
-`this <https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/patient_details?patient_barcode=TCGA-B9-7268>`_
-or `this <https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/patients/TCGA-B9-7268>`_.
+`this <https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_tcga_api/v3/cases/TCGA-B9-7268>`_
+or `this <https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/cases/FU-OV-1>`_.
 Packages are available in most languages to allow you to easily perform https GET and PUT requests, such as the
 `httr <https://cran.r-project.org/web/packages/httr/index.html>`_ package for R,
 and the Python `requests <http://docs.python-requests.org/en/master/>`_ library.
@@ -167,47 +179,60 @@ which returns a list of the user's previously created cohorts.
 Documentation for these functions can be found in the ISB-CGC github repo, 
 `Examples-R <https://github.com/isb-cgc/examples-R>`_ under 'API Endpoints Interface'.
 
-ISB-CGC API (v2)
+ISB-CGC API (v3)
 =================
 
-The endpoints have been reorganized and are bundled into the new
-`ISB-CGC API v2 <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_api/v2/>`_.
-Details for each of these endpoints can be found below:
+The endpoints have been reorganized to support the multiple programs that now have data in the ISB-CGC.  These endpoints are now organized into four different sections:  TCGA, CCLE, TARGET and common endpoints.
+Details for each of these enpoints can be found below:
 
 .. toctree::
    :maxdepth: 1
+   
+   progapi3_api/cohorts_cloud_storage_file_paths.rst
+   progapi3_api/cohorts_delete.rst
+   progapi3_api/cohorts_get.rst
+   progapi3_api/cohorts_list.rst
+   
+   
+**TCGA Endpoints**
+ 
+ .. toctree::
+    :maxdepth: 1
+    
+    progapi3_tcga/cohorts_preview.rst
+    progapi3_tcga/cohorts_create.rst
+    progapi3_tcga/cases_get.rst
+    progapi3_tcga/samples_cloud_storage_file_paths.rst
+    progapi3_tcga/samples_get.rst
+    progapi3_tcga/users_get.rst
+    progapi3_tcga/aliquots_annotations.rst
+    progapi3_tcga/cases_annotations.rst
+    progapi3_tcga/samples_annotations.rst
+   
+   
+**TARGET Endpoints**
+  
+ .. toctree::
+    :maxdepth: 1
+    
+    progapi3_target/cohorts_preview.rst
+    progapi3_target/cohorts_create.rst
+    progapi3_target/cases_get.rst
+    progapi3_target/samples_cloud_storage_file_paths.rst
+    progapi3_target/samples_get.rst
+    progapi3_target/users_get.rst
+    
+    
+**CCLE Endpoints**
+  
+ .. toctree::
+    :maxdepth: 1
+    
+    progapi3_ccle/cohorts_preview.rst
+    progapi3_ccle/cohorts_create.rst
+    progapi3_ccle/cases_get.rst
+    progapi3_ccle/samples_cloud_storage_file_paths.rst
+    progapi3_ccle/samples_get.rst
+    progapi3_ccle/users_get.rst
 
-   progapi2_v2/cohorts_cloud_storage_file_paths.rst
-   progapi2_v2/cohorts_create.rst
-   progapi2_v2/cohorts_delete.rst
-   progapi2_v2/cohorts_get.rst
-   progapi2_v2/cohorts_list.rst
-   progapi2_v2/cohorts_preview.rst
-   progapi2_v2/patients_get.rst
-   progapi2_v2/samples_cloud_storage_file_paths.rst
-   progapi2_v2/samples_get.rst
-   progapi2_v2/users_get.rst
-
-Cohort API Details (v1)
-=======================
-
-The Cohort API bundles the following cohort-related endpoints.  For each endpoint,
-the following sections provide detailed documentation including an example request,
-descriptions of all parameters, the form of the response, and whether or not authorization is required.
-
-**NOTE:** The API has been recently reorganized and version 2 is described above.
-Both versions are currently available, but v1 will eventually be deprecated.
-
-.. toctree::
-   :maxdepth: 1
-
-   progapi2/cohort_patients_samples_list.rst
-   progapi2/cohorts_list.rst
-   progapi2/datafilenamekey_list_from_cohort.rst
-   progapi2/datafilenamekey_list_from_sample.rst
-   progapi2/delete_cohort.rst
-   progapi2/patient_details.rst
-   progapi2/preview_cohort.rst
-   progapi2/sample_details.rst
-   progapi2/save_cohort.rst
 

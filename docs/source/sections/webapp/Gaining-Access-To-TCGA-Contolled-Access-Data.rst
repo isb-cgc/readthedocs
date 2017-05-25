@@ -245,45 +245,9 @@ and 2) select the "refresh" icon beside the service account (see screenshot belo
    :scale: 50
    :align: center
 
-Available TCGA Data: Open- and Controlled-Access
-================================================
-
-Open Access Data 
-----------------
-
-All of the open-access data hosted by the ISB-CGC is immediately accessible to all users, without
-NIH authentication or dbGaP authorization required.  These open-access data can be explored
-both through the Web Application and through the `Programmatic User Interface <../Prog-APIs.rst>`_.  
-For additional details about all hosted data sets, please see this `section <../Hosted-Data.rst>`_.
-
-The **Open-Access** TCGA data hosted by the ISB-CGC Platform includes:
-
-• Clinical (de-identified) and Biospecimen data: these data were originally provided in XML files (Level-1) by the DCC;
-• Somatic mutation data: these data were originally provided in MAF files (Level-2) by the DCC;
-• DNA copy-number segments: these data were originally provided as segmentation files (Level-3) by the DCC;
-• DNA methylation data: these data were originally provided as TSV files (Level-3) by the DCC;
-• Gene (mRNA) expression data: these data were originally provided as TSV files (Level-3) by the DCC;
-• microRNA expression data: these data were originally provided as TSV files (Level-3) by the DCC;
-• Protein expression data: these data were origially provided as TSV files (Level-3) by the DCC; and
-• TCGA Annotations data: annotations were obtained from the TCGA Annotations Manager
-
-Controlled-Access Data
-----------------------
-
-Controlled-access data is accessible only to users who have been authenticated by NIH
-and whose dbGaP authorization has been verified.
-
-The **Controlled-Access** TCGA data hosted by the ISB-CGC Platform includes:
-
-• SNP array CEL files: these Level-1 data files were provided by the DCC and include over 22,000 files for both tumor and matched-normal samples;
-• VCF files: these Level-2 data files were provided by the DCC and include over 15,000 files produced by several different centers (primarily Broad and BCGSC);
-• MAF files: these *protected* mutation files (Level-2) were provided by the DCC (note that these files were not generated uniformly for all tumor types);
-• DNA-seq BAM files: these Level-1 data files were provided by CGHub (roughly 90% of these BAM files containe exome data, the remaining 10% contain whole-genome data);
-• mRNA- and microRNA-seq BAM and/or FASTQ files: these Level-1 data files were provided by CGHub;
-• finally, BAM index (BAI) files are available for all BAM files;
-
 Your Responsibilities 
 ---------------------
+
 You should think about securing controlled data within the context of your GCP project in the same way 
 that you would think about securing controlled data that you might download to a file-server or 
 compute-cluster at your own institution. Your responsibilities for data protection are the same in a 
