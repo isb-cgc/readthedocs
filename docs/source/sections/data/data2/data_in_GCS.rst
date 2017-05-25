@@ -1,5 +1,5 @@
 ##############################
-Cancer Data in Cloud Storage
+Data in Cloud Storage
 ##############################
 
 At this time, all controlled-access data files are stored in Google Cloud Storage (GCS) 
@@ -61,17 +61,17 @@ BAM-slicing in the Cloud
 
 BAM files can vary in size from close to 1 TB down to 1 MB, and frequently a researcher
 is only interested in extracting a small slice of the entire sequence.  This is referred
-to as "BAM-slicing" and the latest version of the 
+to as "BAM-slicing" and the latest release (`1.4 <https://github.com/samtools/htslib/releases/tag/1.4>`_) of the 
 `htslib library <https://github.com/samtools/htslib>`_ adds the capability to 
 perform BAM-slicing directly on BAM files in GCS to widely used tools such as
-`samtools <https://github.com/samtools/samtools>`_.  For details on how to build
-samtools from the github develop branch, see this 
-`github pull request <https://github.com/samtools/htslib/pull/446>`_. 
+`samtools <https://github.com/samtools/samtools>`_.  
+(You will need to build with ``--enable-libcurl``
+to enable support for access to data both in GCS and S3.)
 This new functionality allows you to run, for example:
 
 .. code-block:: none
 
-   $ ./samtools view gs://isb-cgc-open/ccle/LUSC/DNA-Seq/C836.NCI-H1339.2.bam 7:140453130-140453140
+   $ ./samtools view gs://isb-cgc-open/NCI-GDC/legacy/CCLE/CCLE-LUSC/WXS/Aligned_reads/0a109993-2d5b-4251-bcab-9da4a611f2b1/C836.Calu-3.2.bam 7:140453130-140453140
 
 If you want to access a controlled-access BAM file, you'll need to provide credentials first:
 
@@ -86,7 +86,7 @@ also that you have access to this file by using the
 
 .. code-block:: none
 
-   $ gsutil ls -l gs://isb-cgc-open/ccle/LUSC/DNA-Seq/C836.NCI-H1339.2.bam
+   $ gsutil ls -l gs://isb-cgc-open/NCI-GDC/legacy/CCLE/CCLE-LUSC/WXS/Aligned_reads/0a109993-2d5b-4251-bcab-9da4a611f2b1/C836.Calu-3.2.bam
 
 Other Options for BAM-slicing
 -----------------------------
