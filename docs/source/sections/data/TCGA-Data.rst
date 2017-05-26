@@ -16,12 +16,16 @@ may work with the data without needing
 to download and store the data at their own local institutions.
 
 The vast majority (over 99%) of this **petabyte** of data consists of low-level sequence data, 
-currently stored as files in Google Cloud Storage.  Over the course of the TCGA project, 
+currently stored as files in Google Cloud Storage (see figure below).  Over the course of the TCGA project, 
 this low-level (*"Level 1"*) data has been processed through a set of standardized pipelines and 
 the the resulting high-level (*"Level 3"*) data is frequently the data that is used
 in most downstream analyses.  The ISB-CGC platform aims to make these different types of data 
 accessible to the widest possible variety of users within the cancer research community, 
 using the most appropriate Google Cloud Platform technologies.
+
+.. image:: TCGASizeandComplexity.PNG
+   :scale: 50
+   :align: center
 
 More details about the TCGA data-generating platforms, data-types, and levels and can be found in the sections below:
 
