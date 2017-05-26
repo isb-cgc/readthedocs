@@ -37,10 +37,10 @@ Contents
 
    sections/About-ISB-CGC
    sections/Hosted-Data
-   sections/Prog-APIs
    sections/Web-UI
    sections/QuicklinksOneTable
    sections/DIYWorkshop
+   sections/Prog-APIs
    sections/FAQ
    sections/Support
 

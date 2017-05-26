@@ -25,8 +25,11 @@ The data files described above are available to all ISB-CGC users in an open-acc
 in BigQuery
 -----------
 
-The information scattered over tens of thousands of XML and TSV files at the DCC is provided in a *much more accessible* form in
-a series of BigQuery tables.  For more details, including tutorials and code examples in 
+The information scattered over tens of thousands of XML and TSV files at the DCC is provided in a 
+*much more accessible* form in a series of 
+`BigQuery tables <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_BQ.html#tcga-clinical-biospecimen-and-molecular-data>`_.  
+
+For more details, including tutorials and code examples in 
 `Python <https://github.com/isb-cgc/examples-Python>`_ or 
 `R <https://github.com/isb-cgc/examples-R>`_, please see our `github repositories <https://github.com/isb-cgc>`_.
 
@@ -60,10 +63,4 @@ Upon successful authentication, the users's dbGaP authorization will be verified
 Google identity is added to the access control list (ACL) for the controlled data.  At this time, this access must be renewed
 every 24 hours.
 
-in Google Genomics
-------------------
-
-In the future, BAM and VCF data will also be available in other forms in order to allow other modes of data
-access (*eg* using the GA4GH API).  This will open up new, faster, more "cloud-aware" approaches to working with these data
-(as illustrated by some of these Google Genomics `Cookbooks <https://googlegenomics.readthedocs.org/en/latest/sections/analyze_data.html>`_).
 

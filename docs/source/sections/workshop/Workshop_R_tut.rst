@@ -1,3 +1,5 @@
+.. _R-workshop:
+
 ***************
 Analysis with R
 ***************
@@ -36,7 +38,7 @@ be necessary to complete the code.
 
     main_cloud_project = "isb-cgc"
     my_cloud_project   = "your_project_id"
-    tcga_data_set      = "tcga_201510_alpha"
+    tcga_data_set      = "tcga_201607_beta"
 
 First query
 ===========
@@ -54,7 +56,7 @@ BigQuery tables. Additionally, we're going to BYOD "Bring your own data".
 
 	study=c('CESC','HNSC')
 
-	clinical_table = "[isb-cgc:tcga_201510_alpha.Clinical_data]"
+	clinical_table = "[isb-cgc:tcga_201607_beta.Clinical_data]"
 
 Constructing Queries
 ====================
@@ -166,7 +168,7 @@ Next, with those offen affected genes, we will query gene expression data.
 	  HGNC_gene_symbol,
 	  AVG(normalized_count) as mean_expression
 	FROM
-	  [isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM]
+	  [isb-cgc:tcga_201607_beta.mRNA_UNC_HiSeq_RSEM]
 	WHERE
 	  Study IN ('CESC','HNSC')
 	  AND SampleTypeLetterCode = 'TP'
@@ -217,7 +219,7 @@ for that, and retrieve it as a data.frame.
 	  HGNC_gene_symbol,
 	  normalized_count
 	FROM
-	  [isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM]
+	  [isb-cgc:tcga_201607_beta.mRNA_UNC_HiSeq_RSEM]
 	WHERE
 	  Study IN ('CESC','HNSC')
 	  AND SampleTypeLetterCode = 'TP'
@@ -299,7 +301,7 @@ Please see: https://cloud.google.com/bigquery/query-reference
 	  HGNC_gene_symbol,
 	  normalized_count
 	FROM
-	  [isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM]
+	  [isb-cgc:tcga_201607_beta.mRNA_UNC_HiSeq_RSEM]
 	WHERE
 	  Study = 'CESC'
 	  AND SampleTypeLetterCode = 'TP'
@@ -307,7 +309,7 @@ Please see: https://cloud.google.com/bigquery/query-reference
 	  SELECT
 	    ParticipantBarcode
 	  FROM
-	    [isb-cgc:tcga_201510_alpha.Clinical_data]
+	    [isb-cgc:tcga_201607_beta.Clinical_data]
 	  WHERE
 	    hpv_status = 'Positive' )
 	  AND HGNC_gene_symbol IN (
@@ -338,7 +340,7 @@ Now lets make a small change, and get gene expression for subjects that are hpv 
 	  HGNC_gene_symbol,
 	  normalized_count
 	FROM
-	  [isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM]
+	  [isb-cgc:tcga_201607_beta.mRNA_UNC_HiSeq_RSEM]
 	WHERE
 	  Study = 'CESC'
 	  AND SampleTypeLetterCode = 'TP'
@@ -346,7 +348,7 @@ Now lets make a small change, and get gene expression for subjects that are hpv 
 	  SELECT
 	    ParticipantBarcode
 	  FROM
-	    [isb-cgc:tcga_201510_alpha.Clinical_data]
+	    [isb-cgc:tcga_201607_beta.Clinical_data]
 	  WHERE
 	    hpv_status = 'Negative' )
 	  AND HGNC_gene_symbol IN (
@@ -393,7 +395,7 @@ Please see: https://cloud.google.com/bigquery/query-reference
 	    POW(STDDEV(LOG2(normalized_count+1)),2) AS sy2,
 	    COUNT(ParticipantBarcode) AS ny
 	  FROM
-	    [isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM]
+	    [isb-cgc:tcga_201607_beta.mRNA_UNC_HiSeq_RSEM]
 	  WHERE
 	    Study = 'CESC'
 	    AND SampleTypeLetterCode = 'TP'
@@ -403,7 +405,7 @@ Please see: https://cloud.google.com/bigquery/query-reference
 	    SELECT
 	      ParticipantBarcode
 	    FROM
-	      [isb-cgc:tcga_201510_alpha.Clinical_data]
+	      [isb-cgc:tcga_201607_beta.Clinical_data]
 	    WHERE
 	      hpv_status = 'Positive' )
 	    AND HGNC_gene_symbol IN (
@@ -431,7 +433,7 @@ Please see: https://cloud.google.com/bigquery/query-reference
 	    POW(STDDEV(LOG2(normalized_count+1)),2) AS sx2,
 	    COUNT(ParticipantBarcode) AS nx
 	  FROM
-	    [isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM]
+	    [isb-cgc:tcga_201607_beta.mRNA_UNC_HiSeq_RSEM]
 	  WHERE
 	    Study = 'CESC'
 	    AND SampleTypeLetterCode = 'TP'
@@ -439,7 +441,7 @@ Please see: https://cloud.google.com/bigquery/query-reference
 	    SELECT
 	      ParticipantBarcode
 	    FROM
-	      [isb-cgc:tcga_201510_alpha.Clinical_data]
+	      [isb-cgc:tcga_201607_beta.Clinical_data]
 	    WHERE
 	      hpv_status = 'Negative' )
 	    AND HGNC_gene_symbol IN (

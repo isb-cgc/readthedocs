@@ -31,7 +31,7 @@ Below are the list of ISB-CGC hosted data sets that can be accessed once you hav
 
  This dataset contains platform reference tables that have been compiled by the ISB-CGC team from publicly available sources.  Specifically, these tables are used as additional annotation for data from results provided by instrumentation used in the TCGA project to collect data.
 
-* **isb-cgc:tcga_201510_alpha**
+* **isb-cgc:tcga_201607_beta**
 
  This set of BigQuery tables was produced by the ISB-CGC project, based on the open-access TCGA data available at the TCGA Data Portal as of October 2015.  For more information, see `here for more details <https://github.com/isb-cgc/examples-Python/blob/master/notebooks/The%20ISB-CGC%20open-access%20TCGA%20tables%20in%20BigQuery.ipynb>`_ or e-mail info@isb-cgc.org .
 
@@ -39,7 +39,7 @@ Below are the list of ISB-CGC hosted data sets that can be accessed once you hav
 
  This dataset contains individual "cohort" tables for each of the TCGA tumor types, as well as a single table in which all of these tables have been concatenated.  To be included in this list, there must be at least some molecular data available for each sample, and there must not be any disqualifying annotations for either the patient or the sample.
 
- These cohort tables were created based on the isb-cgc:tcga_201510_alpha dataset and are provided as a resource to the research community by the ISB-CGC.
+ These cohort tables were created based on the isb-cgc:tcga_201607_beta dataset and are provided as a resource to the research community by the ISB-CGC.
 
 * **isb-cgc:tcga_seq_metadata**
 
@@ -68,7 +68,7 @@ Getting information from one table
     SELECT
       ParticipantBarcode, Study, original_gene_symbol, HGNC_gene_symbol, gene_id
     FROM
-      [isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM]
+      [isb-cgc:tcga_201607_beta.mRNA_UNC_HiSeq_RSEM]
     WHERE
       original_gene_symbol = 'ARID1B'
     AND
@@ -99,7 +99,7 @@ the type of mutation
       mutation.ParticipantBarcode,
       mutation.Variant_Type
     FROM
-      [isb-cgc:tcga_201510_alpha.Somatic_Mutation_calls] AS mutation
+      [isb-cgc:tcga_201607_beta.Somatic_Mutation_calls] AS mutation
     WHERE
       mutation.Hugo_Symbol = 'CDKN2A'
       AND Study = 'BLCA'
@@ -115,7 +115,7 @@ the type of mutation
    
 We now have the list of patients that have a mutation in the CDKN2A gene and the type of mutation.
 
-Notice that we have named the "isb-cgc:tcga_201510_alpha.Somatic_Mutation_calls" table "mutation" using the AS statement.  This is useful for easier reading and composing of complex queries.
+Notice that we have named the "isb-cgc:tcga_201607_beta.Somatic_Mutation_calls" table "mutation" using the AS statement.  This is useful for easier reading and composing of complex queries.
 
 Stage 2
 *******
@@ -136,7 +136,7 @@ Bringing in the patient data from the ISB-CGC TCGA Clinical table so that we can
         mutation.ParticipantBarcode,
         mutation.Variant_Type
       FROM
-        [isb-cgc:tcga_201510_alpha.Somatic_Mutation_calls] AS mutation
+        [isb-cgc:tcga_201607_beta.Somatic_Mutation_calls] AS mutation
       WHERE
         mutation.Hugo_Symbol = 'CDKN2A'
         AND Study = 'BLCA'
@@ -147,7 +147,7 @@ Bringing in the patient data from the ISB-CGC TCGA Clinical table so that we can
         mutation.ParticipantBarcode,
         ) AS patient_list /* end patient_list */
     JOIN
-      [isb-cgc:tcga_201510_alpha.Clinical_data] AS clinical
+      [isb-cgc:tcga_201607_beta.Clinical_data] AS clinical
     ON
       patient_list.ParticipantBarcode = clinical.ParticipantBarcode
   
@@ -191,7 +191,7 @@ Show the gene expression levels for the 4 genes of interest, and order them by p
           mutation.ParticipantBarcode,
           mutation.Variant_Type
         FROM
-          [isb-cgc:tcga_201510_alpha.Somatic_Mutation_calls] AS mutation
+          [isb-cgc:tcga_201607_beta.Somatic_Mutation_calls] AS mutation
         WHERE
           mutation.Hugo_Symbol = 'CDKN2A'
           AND Study = 'BLCA'
@@ -202,11 +202,11 @@ Show the gene expression levels for the 4 genes of interest, and order them by p
           mutation.ParticipantBarcode,
           ) AS patient_list /* end patient_list */
       INNER JOIN
-        [isb-cgc:tcga_201510_alpha.Clinical_data] AS clinical
+        [isb-cgc:tcga_201607_beta.Clinical_data] AS clinical
       ON
         patient_list.ParticipantBarcode = clinical.ParticipantBarcode /* end clinical annotation */ ) AS clinical_info
     INNER JOIN
-      [isb-cgc:tcga_201510_alpha.mRNA_UNC_HiSeq_RSEM] AS genex
+      [isb-cgc:tcga_201607_beta.mRNA_UNC_HiSeq_RSEM] AS genex
     ON
       genex.ParticipantBarcode = patient_list.ParticipantBarcode
     WHERE

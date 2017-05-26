@@ -1,8 +1,8 @@
-Methylation (DNA)
-=================
+DNA Methylation 
+====================
 
 The 
-`DNA Methylation <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201510_alpha.DNA_Methylation_betas>`_
+`DNA Methylation <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201607_beta.DNA_Methylation_betas>`_
 table contains one row per CpG probe and TCGA aliquot.
 Each TCGA aliquot is uniquely represented by a
 `TCGA barcode <https://wiki.nci.nih.gov/display/TCGA/TCGA+barcode>`_
@@ -39,4 +39,6 @@ In addition:
 - any CpG probes for which the Level-3 ``Beta_Value`` is NA or NULL, are left out
 - only the ``Probe_Id`` and ``Beta_Value`` fields from the Level-3 data files are stored in the BigQuery table
 
+Since the DNA_Methylation_betas table is so large, we also provide chromosome-specific
+tables that can be used for faster queries.
 

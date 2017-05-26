@@ -4,7 +4,7 @@ import json
 import sys
 import os
 
-JSON_FILE_DIRECTORY = 'endpoints_json_files'
+JSON_FILE_DIRECTORY = 'endpoints_json_files_v2'
 
 
 try:
@@ -18,131 +18,6 @@ except:
 DEV_DOCUMENTATION_DIRECTORY_PATH = 'docs/source/sections/progapi/progapi2_develop/'
 BASE_URL = RESP_JSON['baseUrl']
 JS_SPACE = '  '
-
-# biospecimen_data in sample_details only has the following fields from MetadataItem
-SAMPLE_DETAILS_BIOSPECIMEN_DATA_FIELDS = [
-    'avg_percent_lymphocyte_infiltration',
-    'avg_percent_monocyte_infiltration',
-    'avg_percent_necrosis',
-    'avg_percent_neutrophil_infiltration',
-    'avg_percent_normal_cells',
-    'avg_percent_stromal_cells',
-    'avg_percent_tumor_cells',
-    'avg_percent_tumor_nuclei',
-    'batch_number',
-    'bcr',
-    'days_to_collection',
-    'max_percent_lymphocyte_infiltration',
-    'max_percent_monocyte_infiltration',
-    'max_percent_necrosis',
-    'max_percent_neutrophil_infiltration',
-    'max_percent_normal_cells',
-    'max_percent_stromal_cells',
-    'max_percent_tumor_cells',
-    'max_percent_tumor_nuclei',
-    'min_percent_lymphocyte_infiltration',
-    'min_percent_monocyte_infiltration',
-    'min_percent_necrosis',
-    'min_percent_neutrophil_infiltration',
-    'min_percent_normal_cells',
-    'min_percent_stromal_cells',
-    'min_percent_tumor_cells',
-    'min_percent_tumor_nuclei',
-    'ParticipantBarcode',
-    'Project',
-    'SampleBarcode',
-    'Study'
-]
-
-# clinical_data in patient_details only has the following fields for MetadataItem
-PATIENT_DETAILS_CLINICAL_DATA_FIELDS = [
-    'age_at_initial_pathologic_diagnosis',
-    'anatomic_neoplasm_subdivision',
-    'batch_number',
-    'bcr',
-    'clinical_M',
-    'clinical_N',
-    'clinical_stage',
-    'clinical_T',
-    'colorectal_cancer',
-    'country',
-    'days_to_birth',
-    'days_to_death',
-    'days_to_initial_pathologic_diagnosis',
-    'days_to_last_followup',
-    'days_to_submitted_specimen_dx',
-    'Study',
-    'ethnicity',
-    'frozen_specimen_anatomic_site',
-    'gender',
-    'height',
-    'histological_type',
-    'history_of_colon_polyps',
-    'history_of_neoadjuvant_treatment',
-    'history_of_prior_malignancy',
-    'hpv_calls',
-    'hpv_status',
-    'icd_10',
-    'icd_o_3_histology',
-    'icd_o_3_site',
-    'lymphatic_invasion',
-    'lymphnodes_examined',
-    'lymphovascular_invasion_present',
-    'menopause_status',
-    'mononucleotide_and_dinucleotide_marker_panel_analysis_status',
-    'mononucleotide_marker_panel_analysis_status',
-    'neoplasm_histologic_grade',
-    'new_tumor_event_after_initial_treatment',
-    'number_of_lymphnodes_examined',
-    'number_of_lymphnodes_positive_by_he',
-    'ParticipantBarcode',
-    'pathologic_M',
-    'pathologic_N',
-    'pathologic_stage',
-    'pathologic_T',
-    'person_neoplasm_cancer_status',
-    'pregnancies',
-    'primary_neoplasm_melanoma_dx',
-    'primary_therapy_outcome_success',
-    'prior_dx',
-    'Project',
-    'psa_value',
-    'race',
-    'residual_tumor',
-    'tobacco_smoking_history',
-    'tumor_tissue_site',
-    'tumor_type',
-    'weiss_venous_invasion',
-    'vital_status',
-    'weight',
-    'year_of_initial_pathologic_diagnosis'
-]
-
-
-def get_index_of_nth_uppercase_char(a_string, n):
-    '''
-    Used to find the index of the nth uppercase letter in a string.
-    Intended to find the third uppercase letter in a schema name,
-    e.g. get_index_of_uppercase('ApiMetadataMetadataItem', 3) returns 11
-    or None if there is no third uppercase letter
-    '''
-    count = 0
-    i = 0
-    # [letter for letter in a_string if letter.isupper()][n]
-    for letter in a_string:
-        if letter.isupper():
-            count += 1
-        if count == n:
-            return i
-        i += 1
-    return None
-
-
-def get_message_class_list():
-    message_class_list = []
-    for message_class in RESP_JSON['schemas'].keys():
-        message_class_list.append(message_class)
-    return sorted(message_class_list, key=lambda s: s[get_index_of_nth_uppercase_char(s, 3):].lower())
 
 
 def get_methods_list():
@@ -180,16 +55,6 @@ def get_next_parameter_javascript_row(message_class_name, started_string, level=
     todo: figure out tab spaces w nested objects vs lists of nested objects
     '''
     message_class_properties = RESP_JSON['schemas'][message_class_name]['properties']
-
-    # only allow certain fields for patient_details and sample_details methods
-    if method_name == 'patient_details' and message_class_name == 'ApiMetadataMetadataItem':
-        allowed_keys = set(PATIENT_DETAILS_CLINICAL_DATA_FIELDS).intersection(message_class_properties)
-        cleaned_message_class_properties = {k:message_class_properties[k] for k in allowed_keys}
-        message_class_properties = cleaned_message_class_properties
-    elif method_name == 'sample_details' and message_class_name == 'ApiMetadataMetadataItem':
-        allowed_keys = set(SAMPLE_DETAILS_BIOSPECIMEN_DATA_FIELDS).intersection(message_class_properties.keys())
-        cleaned_message_class_properties = {k:message_class_properties[k] for k in allowed_keys}
-        message_class_properties = cleaned_message_class_properties
 
     sorted_message_class_properties = list(sorted(message_class_properties.iteritems(),
                                                   key=lambda s: s[0].lower()))
@@ -257,22 +122,10 @@ def get_next_property_table_row(message_class_name, started_string, level='', re
     '''
     message_class_properties = RESP_JSON['schemas'][message_class_name]['properties']
 
-    # only allow certain fields for patient_details and sample_details methods
-    if method_name == 'patient_details' and message_class_name == 'ApiMetadataMetadataItem':
-        allowed_keys = set(PATIENT_DETAILS_CLINICAL_DATA_FIELDS).intersection(message_class_properties)
-        cleaned_message_class_properties = {k:message_class_properties[k] for k in allowed_keys}
-        message_class_propertiesdescription_filename = cleaned_message_class_properties
-    elif method_name == 'sample_details' and message_class_name == 'ApiMetadataMetadataItem':
-        allowed_keys = set(SAMPLE_DETAILS_BIOSPECIMEN_DATA_FIELDS).intersection(message_class_properties.keys())
-        cleaned_message_class_properties = {k:message_class_properties[k] for k in allowed_keys}
-        message_class_properties = cleaned_message_class_properties
-
     sorted_message_class_properties = list(sorted(message_class_properties.iteritems(),
                                                   key=lambda s: s[0].lower()))
 
-    description_filename = message_class_name[get_index_of_nth_uppercase_char(message_class_name, 5):] + '.json'
-
-
+    description_filename = message_class_name + '.json'
     with open(JSON_FILE_DIRECTORY + '/' + description_filename, 'r+') as f:
         description_contents = f.read()
         description_json = json.loads(description_contents)
@@ -335,9 +188,9 @@ def create_new_rst_file(method_name):
 
 def get_json_file_contents(file_name):
     with open(JSON_FILE_DIRECTORY + '/' + file_name + '.json', 'r') as f:
-        example_contents = f.read()
+        contents = f.read()
 
-    return json.loads(example_contents)
+    return json.loads(contents)
 
 
 def write_rst_file_header(resource, method):
@@ -357,6 +210,7 @@ def write_rst_file_header(resource, method):
 
     example_contents_json = get_json_file_contents('examples_v2')
     api_explorer_example_contents_json = get_json_file_contents('api_explorer_examples_v2')
+    python_example_contents_json = get_json_file_contents('python_examples_v2')
 
     example_text = ''
     if example_contents_json.get(file_name):
@@ -367,6 +221,21 @@ def write_rst_file_header(resource, method):
         api_explorer_example_text = "\n\n**API explorer example**:\n\nClick `here <{}/>`_ " \
                                     "to see this endpoint in Google's API explorer.".format(
             api_explorer_example_contents_json[file_name])
+
+    python_example_text = ''
+    if python_example_contents_json.get(file_name):
+        python_example_text += '\n\n**Python API Client Example**::\n\n'
+        if (resource == 'cohorts' and method != 'preview') or resource == 'users':  # authentication required
+            python_example_text += python_example_contents_json['authorized_imports'] + '\n\n' \
+                                   + python_example_contents_json['auth_globals'] + '\n\n' \
+                                   + python_example_contents_json['get_credentials'] + '\n\n' \
+                                   + python_example_contents_json['get_authorized_service'] + '\n\n'
+        else:
+            python_example_text += python_example_contents_json['unauthorized_imports'] + '\n\n' \
+                                   + python_example_contents_json['get_unauthorized_service'] + '\n\n'
+        python_example_text += python_example_contents_json[file_name]
+
+    # print python_example_text
 
     # write title, e.g.
     # cohorts().create()
@@ -386,6 +255,9 @@ def write_rst_file_header(resource, method):
 
     # write api explorer example
     header_text += api_explorer_example_text
+
+    # write python example
+    header_text += python_example_text + '\n'
 
     # write http request, e.g.
     # GET https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/datafilenamekey_list_from_cohort
@@ -521,16 +393,31 @@ def write_rst_file_response_section(resource, method):
         f.write(response_body_text)
 
 
+def write_rst_file_exceptions_section(resource, method):
+    '''
+    document exceptions thrown for each api method
+    '''
+    exceptions_json = get_json_file_contents('exceptions_v2')
+    file_name = resource + '_' + method + '.rst'
+
+    exceptions_text = '\n\n\n**Exceptions thrown**::\n\n\t'
+    exceptions_text += exceptions_json[resource + '_' + method]
+
+    with open(DEV_DOCUMENTATION_DIRECTORY_PATH + file_name, 'a+') as f:
+        f.write(exceptions_text)
 
 def main():
 
     resource_list = [resource for resource in RESP_JSON['resources'].keys()]
     file_name_list = [resource + '_' + method
+                      for resource in RESP_JSON['resources'].keys()
                       for method in RESP_JSON['resources'][resource]['methods'].keys()
-                      for resource in RESP_JSON['resources'].keys()]
+                      ]
 
     for file_name in file_name_list:
         create_new_rst_file(file_name)
+
+
 
     for resource in resource_list:
         for method in RESP_JSON['resources'][resource]['methods'].keys():
@@ -538,6 +425,7 @@ def main():
             write_rst_file_path_parameters(resource, method)
             write_rst_file_request_body(resource, method)
             write_rst_file_response_section(resource, method)
+            # write_rst_file_exceptions_section(resource, method)
 
 
 if __name__ == '__main__':
