@@ -84,6 +84,9 @@ to see hosted in BigQuery tables, please let us know at feedback@isb-cgc.org.
 Other Reference Data Sources
 ############################
 
+In collaboration with the Wellcome Trust Sanger Institute, the ISB-CGC is hosting the 
+`COSMIC database <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/COSMIC.html>`_.
+
 Google Genomics maintains a list of 
 `publicly available datasets <http://googlegenomics.readthedocs.org/en/latest/use_cases/discover_public_data/index.html>`_, 
 including **Reference Genomes**, 

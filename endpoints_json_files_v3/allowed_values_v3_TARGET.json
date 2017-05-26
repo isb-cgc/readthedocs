@@ -1,0 +1,89 @@
+{
+    "disease_code": [
+        "ALL",
+        "AML",
+        "CCSK",
+        "NBL",
+        "OS",
+        "RT",
+        "WT"
+    ],
+    "endpoint_type": [
+        "current",
+        "legacy"
+    ],
+    "ethnicity": [
+        "Hispanic or Latino",
+        "Not Hispanic or Latino"
+    ],
+    "first_event": [
+        "Censored",
+        "Death",
+        "Death without remission",
+        "Event",
+        "Induction failure",
+        "Progression",
+        "Relapse",
+        "Second Malignant Neoplasm"
+    ],
+    "gender": [
+        "Female",
+        "Male"
+    ],
+    "program_name": [
+        "TARGET"
+    ],
+    "project_short_name": [
+        "TARGET-ALL-P1",
+        "TARGET-ALL-P2",
+        "TARGET-AML",
+        "TARGET-CCSK",
+        "TARGET-NBL",
+        "TARGET-OS",
+        "TARGET-RT",
+        "TARGET-WT"
+    ],
+    "race": [
+        "American Indian or Alaska Native",
+        "Asian",
+        "Black or African American",
+        "Native Hawaiian or other Pacific Islander",
+        "Other",
+        "White"
+    ],
+    "vital_status": [
+        "alive",
+        "dead"
+    ],
+    "sample_type": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "06",
+        "08",
+        "09",
+        "10",
+        "11",
+        "13",
+        "14",
+        "15",
+        "20",
+        "40",
+        "41",
+        "42",
+        "50",
+        "60"
+    ],
+    "tumor_code": [
+        "00",
+        "10",
+        "20",
+        "21",
+        "30",
+        "40",
+        "50",
+        "51",
+        "52"
+    ]
+}
