@@ -87,6 +87,8 @@ Web-App Release Notes
     - When working with workbooks, if you select the delete confirmation button multiple times while the page is loading you will be sent to an error page. 
     - When working on a scatter plot the Tobacco Smoking being used as the Legend is displayed in numerical values when it should be displayed as categorical values. 
     - The character limit for a workbook title name is currently inactive, if you exceed the possible limit you will be sent to an error page. 
+    - The Data File Availability Panel for program CCLE in currently inactive when on the cohort details page and also editing a cohort with CCLE data. 
+    - On the File List page you currently unable to access the bam files  for the IGV Browser associated to build hg38 when working with TCGA data.
 
 
     **Issues that are resolved in Sprint 15 as of 02/26/2017**
