@@ -19,7 +19,7 @@ Important Information
 
 * All workshop attendees will be provided with temporary credentials to a GCP project, but if you already have access to a GCP project you will be able to follow along using that project. 
  
-* We encourage everyone who has not already taken advantage of the `60-day free trial <https://cloud.google.com/free-trial/>`_ offered by Google to do so.  This offer provides you with your own personal GCP project and $300 in "cloud credits" for 60 days.  (You will need to provide a credit card, but no charges will be billed to it without your consent.)
+* We encourage everyone who has not already taken advantage of the `free trial <https://cloud.google.com/free/>`_ offered by Google to do so.  This offer provides you with your own personal GCP project and $300 in "cloud credits" to be used over the course of one year.  (You will need to provide a credit card, but no charges will be billed to it without your consent.)
 
 * Please note that some of the workshop examples will require that you have "Owner" privileges to a GCP project.  The temporary credentials mentioned above will only include "Editor" privileges.
 
