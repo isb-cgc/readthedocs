@@ -178,7 +178,9 @@ Documentation for these functions can be found in the ISB-CGC github repo,
 ISB-CGC API (v3)
 =================
 
-The endpoints have been reorganized to support the multiple programs that now have data in the ISB-CGC.  These endpoints are now organized into four different sections:  TCGA, CCLE, TARGET and common endpoints. **Please Note:** For the create.cohort API for all programs require the user to select inbetween the brackets to view the possible filter(s) for cohort being built.
+The endpoints have been reorganized to support the multiple programs that now have data in the ISB-CGC.  These endpoints are now organized into four different sections:  TCGA, CCLE, TARGET and common endpoints. 
+
+**Please Note:** For the create.cohort API for all programs require the user to select inbetween the brackets to view the possible filter(s) for cohort being built.
 
 Details for each of these enpoints can be found below:
 
