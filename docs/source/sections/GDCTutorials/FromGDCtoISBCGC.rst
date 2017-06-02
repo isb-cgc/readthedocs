@@ -23,9 +23,11 @@ Output from  GDC
 
 GDC has two different outputs for users once they've finished doing their selections, the file manifest and the case table export.  In the example shown below, various filters were set to produce a cohort of 83 cases from the three TCGA kidney cancers and that cohort has 1,790 files on hand at the GDC.
 
-..image:: GDC Set Creation.png
+.. image:: GDCSetCreation.png
   
 A file manifest can be dowloaded simply by clicking on the *Download Manifest button*.  To create a list of the cases, swith to the Cases tab and click on the Export Table JSON button.
+
+.. image:: FileManifestButton.png
   
 Using BigQuery
 ==============
@@ -35,12 +37,19 @@ The rest of this tutorial assumes that the user is familiar with using the BigQu
 Importing a GDC File Manifest into ISB-CGC
 ===========================================
   
-The easiest way to make a GDC File manifest useful is to import it into BigQuery as its own table.  One way of keeping your file manifests organized is to create a project specifically for the tables created to hold the manifests.
+The easiest way to make a GDC File manifest useful is to import it into BigQuery as its own table.  One way of keeping your file manifests organized is to create a data set specifically for the tables created to hold the manifests.  New data sets can be created by clicking on the down arrow to the right of your project name in BigQuery.
   
   Creating a table from a GDC file manifest is remarkably easy:
    * On the right of the data set, click on the down arrow and select *Create new table*
+   
+   .. image:: CreateTable1.png
+   
    * In the resulting screen, select your manifest file, set the File format to *CSV* if it isn't already (tab delimited will work with this setting)
    * Have BigQuery automatically create the schema by checking the *Automatically detect* box for Schema
    * Click on the *Create Tabe* button
    
+   .. image:: BQ-CreateFileManifestTable.png
+   
 Once the process is complete, you should have a table with contents similar to what is shown below.
+
+.. image:: BQ-FileManifestTable.png
