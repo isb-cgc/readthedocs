@@ -10,7 +10,7 @@ The table below describes the four user spending tiers.
 +----------+--------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
 | **Tier** | **Amount**         | **Description**                                                                                                                                     | **Requirements / Expectations**                                                                                  |
 +==========+====================+=====================================================================================================================================================+==================================================================================================================+
-|   **1**  | $300               | Google `60-day free trial <https://cloud.google.com/free-trial/>`_ is available for new Google Cloud Platform (GCP) users                           | If you cannot use the Google free-trial, please `request a GCP project <../Support.html#request-gcp>`_           |
+|   **1**  | $300               | Google `free trial <https://cloud.google.com/free/>`_ is available for new Google Cloud Platform (GCP) users                           | If you cannot use the Google free trial, please `request a GCP project <../Support.html#request-gcp>`_           |
 +----------+--------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
 |   **2**  | $1,000             | Available after initial new user credit has been depleted                                                                                           | Provide details about project goals, expected costs, *etc*, and provide feedback to ISB-CGC team                 |
 +----------+--------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
@@ -44,6 +44,6 @@ Google Cloud Storage or BigQuery, it will be the researcher's responsibility to 
 transfer this data user-funded GCP project.
 
 Note also that if you take advantage of the Google free-trial program, we **cannot** 
-reimburse you for costs incurred after the free-trial is over if you have chosen to 
-upgrade to a paid account.  All ISB-CGC provided "cloud credits" must be used within
-ISB-CGC *provided* GCP projects.
+reimburse you for costs incurred after the $300 in Google-provided credits have been used,
+if you have chosen to upgrade to a paid account.  
+All ISB-CGC provided "cloud credits" must be used within ISB-CGC *provided* GCP projects.

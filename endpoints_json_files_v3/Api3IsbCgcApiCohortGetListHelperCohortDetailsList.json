@@ -1,0 +1,4 @@
+{
+  "count": "Number of cohorts the user has OWNER or READER permission on.",
+  "items": "List of details about each cohort."
+}

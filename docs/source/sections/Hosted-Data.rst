@@ -15,11 +15,11 @@ The original mission of the ISB-CGC was to host the TCGA dataset.  We are now in
 of adding data from the TARGET pediatric cancer.  Stay tuned for updates.
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
+   data/NCI_Programs
+   data/GDC_top
    data/Data_on_ISBCGC
-   data/BQ_overview
-   data/TCGA-Data
    data/Reference-Data
    data/Releases-Plus
 

@@ -10,7 +10,7 @@ Storage (GCS_) and in BigQuery_.
 .. _BigQuery: https://cloud.google.com/bigquery/
 
 The ISB-CGC platform is one of NCI's 
-`Cancer Genomics Cloud Pilots <https://cbiit.nci.nih.gov/ncip/nci-cancer-genomics-cloud-pilots>`_ 
+`Cancer Genomics Cloud Pilots <https://cbiit.nci.nih.gov/ncip/nci-cancer-genomics-cloud-pilots/nci-cloud-initiative>`_ 
 and our mission is to host the TCGA data in the cloud so that researchers around the world 
 may work with the data without needing 
 to download and store the data at their own local institutions.
@@ -44,29 +44,22 @@ in these sections:
 Historically, the data being hosted by the ISB-CGC was obtained from two former TCGA data
 repositories:
 
-* **TCGA DCC**: the TCGA Data Coordinating Center which provides a `Data Portal <https://tcga-data.nci.nih.gov/tcga/>`_ from which users may download open-access or controlled-access data.  This portal provides access to all TCGA data *except* for the low-level sequence data. 
+* **TCGA DCC**: the TCGA Data Coordinating Center which provides a `Data Portal <https://tcga-data.nci.nih.gov/docs/publications/tcga/>`_ from which users may download open-access or controlled-access data.  This portal provides access to all TCGA data *except* for the low-level sequence data. 
 * **CGHub**:  the `Cancer Genomics Hub <https://cghub.ucsc.edu>`_ is NCI's current secure data repository for all TCGA BAM and FASTQ sequence data files.
 
 As of June 2016, the official data repository for all TCGA and other NCI CCG data is
 the `NCI Genomic Data Commons <https://gdc.cancer.gov/>`_.  The original TCGA data,
-aligned to the hg19 human reference genome is available from the GDC's 
+aligned to the hg19 human reference genome is available from the NCI-GDC's 
 `legacy archive <https://gdc-portal.nci.nih.gov/legacy-archive/search/f>`_ 
 while the new "harmonized" data, realigned to hg38 is available from
-the GDC's main `data portal <https://gdc-portal.nci.nih.gov/>`_.
+the NCI-GDC's main `data portal <https://gdc-portal.nci.nih.gov/>`_.
 
 For more information about the original data source repository and data access classes (open *vs* controlled),
 please refer to these sections:
 
 .. toctree::
-      :maxdepth: 1
+   :maxdepth: 1
 
    data2/byAccessClass
    data2/bySourceRepo
-
-And finally, links to useful data reports can be found in this final section:
-
-.. toctree::
-   :maxdepth: 1
-
-   data2/TCGA_Reports
 

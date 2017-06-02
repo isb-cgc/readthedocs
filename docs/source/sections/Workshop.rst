@@ -32,11 +32,11 @@ Everyone should have their own GCP project set up **before** the day of the work
 We will also add everyone to a temporary "workshop" GCP project.
 
 We'd like to encourage you to take advantage of the 
-`60-day free trial <https://cloud.google.com/free-trial/>`_ offered by Google.
+`free trial <https://cloud.google.com/free/>`_ offered by Google.
 If you have already used this one-time offer (or there is some other reason you cannot use it)
 let us know and we will set you up with an
 ISB-CGC provided (and funded) project.  (We'll also be happy to do that for
-you after you use the $300/60-day free trial.)
+you after you use the $300 free trial.)
 
 **When you send us your Google identity, please let us know if you already have 
 your own GCP project.**
