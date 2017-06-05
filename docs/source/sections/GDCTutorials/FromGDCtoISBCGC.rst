@@ -37,4 +37,4 @@ The rest of this tutorial assumes that the user is familiar with using the BigQu
  
  * `Importing a GDC File Manifest <ImportGDCFileManifest.html>`__
  * `Importing a GDC Case List <ImportGDCCaseDownload.html>`__
- * Creating an ISB-CGC Cohort from a GDC Case List
+ * `Creating an ISB-CGC Cohort from a GDC Case List <ISB-CGC_Cohort_from_GDC_Cases.html>`__
