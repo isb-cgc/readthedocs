@@ -23,30 +23,31 @@ There are really only two steps to creating a cohort from the GDC case file:
 The Python script shown below performs both of those tasks:
 
 .. code-block:: python
-#!/usr/bin/python
-#Create ISB-CGC cohorts from a GDC Case file
 
-from oauth2client.client import OAuth2WebServerFlow
-from oauth2client import tools
-from oauth2client.file import Storage
-from googleapiclient.discovery import build
-from googleapiclient.errors import HttpError
-import os
-import argparse
-import httplib2
-import json
+  #!/usr/bin/python
+  #Create ISB-CGC cohorts from a GDC Case file
 
-# the CLIENT_ID for the ISB-CGC site
-CLIENT_ID = '907668440978-0ol0griu70qkeb6k3gnn2vipfa5mgl60.apps.googleusercontent.com'
-# The google-specified 'installed application' OAuth pattern
-CLIENT_SECRET = 'To_WJH7-1V-TofhNGcEqmEYi'
-# The google defined scope for authorization
-EMAIL_SCOPE = 'https://www.googleapis.com/auth/userinfo.email'
-# where a default credentials file will be stored for use by the endpoints
-DEFAULT_STORAGE_FILE = os.path.join(os.path.expanduser("~"), '.isb_credentials')
+  from oauth2client.client import OAuth2WebServerFlow
+  from oauth2client import tools
+  from oauth2client.file import Storage
+  from googleapiclient.discovery import build
+  from googleapiclient.errors import HttpError
+  import os
+  import argparse
+  import httplib2
+  import json
+
+  # the CLIENT_ID for the ISB-CGC site
+  CLIENT_ID = '907668440978-0ol0griu70qkeb6k3gnn2vipfa5mgl60.apps.googleusercontent.com'
+  # The google-specified 'installed application' OAuth pattern
+  CLIENT_SECRET = 'To_WJH7-1V-TofhNGcEqmEYi'
+  # The google defined scope for authorization
+  EMAIL_SCOPE = 'https://www.googleapis.com/auth/userinfo.email'
+  # where a default credentials file will be stored for use by the endpoints
+  DEFAULT_STORAGE_FILE = os.path.join(os.path.expanduser("~"), '.isb_credentials')
 
 
-def get_credentials(credFile):
+  def get_credentials(credFile):
 	oauth_flow_args = ['--noauth_local_webserver']
 	if credFile is None:
 		storage = Storage(DEFAULT_STORAGE_FILE)
@@ -61,7 +62,7 @@ def get_credentials(credFile):
 	return credentials
    
 
-def get_authorized_service(api, version, site, credentials):
+  def get_authorized_service(api, version, site, credentials):
     discovery_url = '%s/_ah/api/discovery/v1/apis/%s/%s/rest' % (site, api, version)
     http = credentials.authorize(httplib2.Http())
     if credentials.access_token_expired or credentials.invalid:
@@ -69,7 +70,7 @@ def get_authorized_service(api, version, site, credentials):
     authorized_service = build(api, version, discoveryServiceUrl=discovery_url, http=http)
     return authorized_service
     
-def parseGDCCase(filename):
+  def parseGDCCase(filename):
 	inputfile = open(filename,'r')
 	data = json.load(inputfile)
 	uuids = []
@@ -79,14 +80,14 @@ def parseGDCCase(filename):
 	
 	return uuids
 	
-def cohortsCreate(service, name, body):
+  def cohortsCreate(service, name, body):
 	try:
 		data = service.cohorts().create(name=name, body=body).execute()
 		return data
 	except HttpError as exception:
 		raise exception
     
-def main(args):
+  def main(args):
 	#Main variables
 	api = "isb_cgc_tcga_api"
 	version = "v3"
@@ -107,7 +108,7 @@ def main(args):
 		print exception
 
     
-if __name__ == "__main__":
+  if __name__ == "__main__":
 	parser = argparse.ArgumentParser()
 	parser.add_argument("-c", "--credentialsfile", nargs = '?', const = None , help="File to use for credentials, will default to ~/.isb_credentials if left blank")
 	parser.add_argument("-i", "--inputfile", required = True, help = "GDC Case JSON file")
