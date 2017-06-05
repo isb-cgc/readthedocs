@@ -35,5 +35,5 @@ Using BigQuery
   
 The rest of this tutorial assumes that the user is familiar with using the BigQuery interface and can write some basic SQL statements.  If you need an introduction to BigQuery, visit our `tutorial <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/bigqueryGUI/WalkthroughOfGoogleBigQuery.html?highlight=bigquery>`__
  
- * Importing a GDC File Manifest
- * Importing a GDC Case List
+ * `Importing a GDC File Manifest <ImportGDCFileManifest.html>`__
+ * `Importing a GDC Case List <ImportGDCCaseDownload.html>`__
