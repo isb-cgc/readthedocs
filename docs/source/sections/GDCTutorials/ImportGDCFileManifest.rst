@@ -3,7 +3,7 @@ Importing a GDC File Manifest into ISB-CGC
   
 The easiest way to make a GDC File manifest useful is to import it into BigQuery as its own table.  One way of keeping your file manifests organized is to create a data set specifically for the tables created to hold the manifests.  New data sets can be created by clicking on the down arrow to the right of your project name in BigQuery.
   
- Creating a table from a GDC file manifest is remarkably easy:
+Creating a table from a GDC file manifest is remarkably easy:
  
 * On the right of the data set, click on the down arrow and select *Create new table*
    
