@@ -20,17 +20,15 @@ Once the process is complete, you should have a table with contents similar to w
 
 So now that you have a table containing the GDC file identifiers, the next step is to find the locations for the files on the ISB-CGC system.  To help with that task, ISB-CGC maintains a BiqQuery table that contains the GDC file identifier and the Google bucket location for the file (GDCfileID_to_GSCurl).  So to add the Google bucket location to our GDC information can be done via a very simple SQL query:
 
-```
-
- SELECT
-  gdc.*, isb.file_gcs_url
- FROM
-  `cgc-05-0016.GDC_Import.GDC_Kidney_File_manifest` as gdc,
-  `isb-cgc.GDC_metadata.GDCfileID_to_GCSurl` as isb
- WHERE
-  gdc.id = isb.file_gdc_id
-  
-```
+    ```
+        SELECT
+          gdc.*, isb.file_gcs_url
+        FROM
+           `cgc-05-0016.GDC_Import.GDC_Kidney_File_manifest` as gdc,
+           `isb-cgc.GDC_metadata.GDCfileID_to_GCSurl` as isb
+        WHERE
+           gdc.id = isb.file_gdc_id 
+    ```
 
 This query will return the table shown in the figure below and, as with any BiqQuery result, you can either export it as a file or save it as a new table in BigQuery.
 
