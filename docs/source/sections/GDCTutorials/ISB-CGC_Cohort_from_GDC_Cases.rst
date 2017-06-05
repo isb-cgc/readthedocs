@@ -17,8 +17,9 @@ Creating the Cohort
 ===================
 
 There are really only two steps to creating a cohort from the GDC case file:
- 1) Parse the GDC case identifiers from the JSON file you downloaded from the GDC
- 2) Pass the GDC case identifiers to the ISB-CGC cohorts.create() API endpoint along with a name for the cohort
+
+1) Parse the GDC case identifiers from the JSON file you downloaded from the GDC
+2) Pass the GDC case identifiers to the ISB-CGC cohorts.create() API endpoint along with a name for the cohort
  
 We have a Python script in our `github repository <https://github.com/isb-cgc/examples-Python/tree/master/python>`__ that performs both of those tasks but we'll pull a couple of snippets to discuss here.
 
@@ -43,10 +44,11 @@ Using the create.cohorts API
 ++++++++++++++++++++++++++++
 
 Creating the cohorts using the Google Python library involves a few steps:
- * Authorize using your credentials
- * Use the Google library to create an authorized service
- * Format the GDC Case id list into a query for the APIs
- * use the authorized service to create the cohort
+
+* Authorize using your credentials
+* Use the Google library to create an authorized service
+* Format the GDC Case id list into a query for the APIs
+* use the authorized service to create the cohort
  
  The first two steps (authorization and creating a service) have numerous examples in the ISB-CGC github repository and we won't repeat them here.
  
