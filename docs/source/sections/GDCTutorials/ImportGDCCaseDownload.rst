@@ -111,3 +111,5 @@ Once the process is finished, there will be a new table with the information obt
   bio.case_gdc_id = gdc.tcga_case_id
   
 Once this query is complete, simply save the results as a new table and you now have your GDC case list availble to you in BigQuery.
+
+.. image:: FinalCaseTable.png
