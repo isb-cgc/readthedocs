@@ -10,7 +10,9 @@ As we did with the file manifest, in this tutorial we'll look at how to bring th
 Converting JSON to tab delimited
 ================================
 
-Let's start by looking at the data that GDC has provided::
+Let's start by looking at the data that GDC has provided:
+
+.. code-block:: javascript
 
   {
     "project": {
@@ -56,11 +58,11 @@ Let's start by looking at the data that GDC has provided::
   }
 
 
-For our purposes, the data in the "summary" section can be ignored.  Since ISB-CGC doesn't store all the files from GDC, having the file count stored in a table doesn't do much good.  So what is useful is the Project ID, Primary Site, Case ID and Gender.  Those can be easily parsed out and put into a tab-delimited file with a simple Python script::
+For our purposes, the data in the "summary" section can be ignored.  Since ISB-CGC doesn't store all the files from GDC, having the file count stored in a table doesn't do much good.  So what is useful is the Project ID, Primary Site, Case ID and Gender.  Those can be easily parsed out and put into a tab-delimited file with a simple Python script:
+
+.. code-block:: python
 
   #! /usr/bin/python
-  # This is a utility to take the Case JSON file downloaded from GDC and convert it to tab so it can be uploaded to BigQuery
-
   import json
   import argparse
 
@@ -86,3 +88,4 @@ For our purposes, the data in the "summary" section can be ignored.  Since ISB-C
 	parser.add_argument("-o", "--outputfile", required = True, help = "File to save")
 	args = parser.parse_args()
 	main(args)
+
