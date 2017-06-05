@@ -14,9 +14,9 @@ Differences between GDC and ISB-CGC
 
 Since the GDC is mostly aimed at storing data and the ISB-CGC is aimed at making use of that data there are some differences between the two that you need to understand before starting:
 
-  * While the ISB-CGC does have all the *data* from the GDC, it doesn't have all the *files* from the GDC.  This is because we've stored the anaylzed data ("Level 3") in BigQuery tables rather than as files.  In fact, the only files stored at ISB-CGC are the raw, "Level 1" files.  So unless you plan on re-analyzing data from scratch, you can dive straight into BigQuery.
-  * GDC file manifests can be directly imported into BigQuery
-  * GDC case manifests aren't directly importable into ISB-CGC. A bit of manipulation needs to happen to make them useful in ISB-CGC.
+* While the ISB-CGC does have all the *data* from the GDC, it doesn't have all the *files* from the GDC.  This is because we've stored the anaylzed data ("Level 3") in BigQuery tables rather than as files.  In fact, the only files stored at ISB-CGC are the raw, "Level 1" files.  So unless you plan on re-analyzing data from scratch, you can dive straight into BigQuery.
+* GDC file manifests can be directly imported into BigQuery
+* GDC case manifests aren't directly importable into ISB-CGC. A bit of manipulation needs to happen to make them useful in ISB-CGC.
   
 Output from  GDC
 =================
@@ -35,6 +35,6 @@ Using BigQuery
   
 The rest of this tutorial assumes that the user is familiar with using the BigQuery interface and can write some basic SQL statements.  If you need an introduction to BigQuery, visit our `tutorial <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/bigqueryGUI/WalkthroughOfGoogleBigQuery.html?highlight=bigquery>`__
  
- * `Importing a GDC File Manifest <ImportGDCFileManifest.html>`__
- * `Importing a GDC Case List <ImportGDCCaseDownload.html>`__
- * `Creating an ISB-CGC Cohort from a GDC Case List <ISB-CGC_Cohort_from_GDC_Cases.html>`__
+* `Importing a GDC File Manifest <ImportGDCFileManifest.html>`__
+* `Importing a GDC Case List <ImportGDCCaseDownload.html>`__
+* `Creating an ISB-CGC Cohort from a GDC Case List <ISB-CGC_Cohort_from_GDC_Cases.html>`__
