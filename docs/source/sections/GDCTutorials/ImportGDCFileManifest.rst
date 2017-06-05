@@ -32,6 +32,8 @@ So now that you have a table containing the GDC file identifiers, the next step 
 
 This query will return the table shown in the figure below and, as with any BiqQuery result, you can either export it as a file or save it as a new table in BigQuery.
 
+.. image:: BQ-UpdatedFileManifest.png
+
 *But WAIT!  The GDC file manifest has 1790 files, but your query results only have 445 files! Where are the rest of the files?*
 
 As was mentioned above, while ISB-CGC does have all TCGA data, it does not have all TCGA files.  In the GDC file list, many of the files are analyzed data files ("Level 3") and rather than store thousands of resutls files, ISB-CGC instead stores the data from those files in BigQuery tables.  By doing this, ISB-CGC saves users the step of creating their own tables of results, you can just use the tables that ISB-CGC provides.  ISB-CGC does store raw data files ("Level 1") like .bam files, and those are the files that were returned by the query.
