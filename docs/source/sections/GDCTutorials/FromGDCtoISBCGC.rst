@@ -3,7 +3,7 @@ Moving from GDC to ISB-CGC
 ===========================
 
 If you've been using the National Cancer Institute's `Genomic Data Commons Portal 
-<https://portal.gdc.cancer.gov/>`_ you've probably discovered that while you can identify patients and files that might be interesting, you have to download them to your own system in order to actually do anything with them.
+<https://portal.gdc.cancer.gov/>`_ you've probably discovered that while you can identify patients and files that might be interesting, the analysis options are limited and you need to download files to your own system in order to do anything unique.
 
 But isn't the point of having data on the cloud that you shouldn't have to download anything?
 
@@ -53,3 +53,21 @@ The easiest way to make a GDC File manifest useful is to import it into BigQuery
 Once the process is complete, you should have a table with contents similar to what is shown below.
 
 .. image:: BQ-FileManifestTable.png
+
+So now that you have a table containing the GDC file identifiers, the next step is to find the locations for the files on the ISB-CGC system.  To help with that task, ISB-CGC maintains a BiqQuery table that contains the GDC file identifier and the Google bucket location for the file (GDCfileID_to_GSCurl).  So to add the Google bucket location to our GDC information can be done via a very simple SQL query:
+
+```
+ SELECT
+  gdc.*, isb.file_gcs_url
+ FROM
+  `cgc-05-0016.GDC_Import.GDC_Kidney_File_manifest` as gdc,
+  `isb-cgc.GDC_metadata.GDCfileID_to_GCSurl` as isb
+ WHERE
+  gdc.id = isb.file_gdc_id
+```
+
+This query will return the table shown in the figure below and, as with any BiqQuery result, you can either export it as a file or save it as a new table in BigQuery.
+
+*But WAIT!  The GDC file manifest has 1790 files, but your query results only have 445 files! Where are the rest of the files?*
+
+As was mentioned above, while ISB-CGC does have all TCGA data, it does not have all TCGA files.  In the GDC file list, many of the files are analyzed data files ("Level 3") and rather than store thousands of resutls files, ISB-CGC instead stores the data from those files in BigQuery tables.  By doing this, ISB-CGC saves users the step of creating their own tables of results, you can just use the tables that ISB-CGC provides.  ISB-CGC does store raw data files ("Level 1") like .bam files, and those are the files that were returned by the query.
