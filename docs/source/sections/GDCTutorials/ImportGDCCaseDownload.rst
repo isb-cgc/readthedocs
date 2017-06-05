@@ -1,10 +1,9 @@
 Importing a GDC Case List into ISB-CGC
 ======================================
 
-
 In addition to the file manifest, GDC also allows users to export case lists from your searches as shown in the image below:
 
-  .. image:: CaseExport.png
+.. image:: CaseExport.png
   
 As we did with the file manifest, in this tutorial we'll look at how to bring that case list into BigQuery and create a table that you can use as the basis for analyzing data in the ISB-CGC system.  In this case, the GDC file is in JSON format, and while BigQuery does understand JSON there are special characteristics that BigQuery needs that unfortunately are not provided by the GDC file.  So to get around the incompatibility, the first step is to convert the JSON into something that BigQuery can understand.
 
@@ -13,7 +12,6 @@ Converting JSON to tab delimited
 
 Let's start by looking at the data that GDC has provided:
 
-```
   {
     "project": {
       "project_id": "TCGA-LIHC", 
@@ -56,7 +54,42 @@ Let's start by looking at the data that GDC has provided:
       ]
     }
   }
-  ```
-  
-  
+
+
+For our purposes, the data in the "summary" section can be ignored.  Since ISB-CGC doesn't store all the files from GDC, having the file count stored in a table doesn't do much good.  So what is useful is the Project ID, Primary Site, Case ID and Gender.  Those can be easily parsed out and put into a tab-delimited file with a simple Python script:
+
+.. code:: python
+#! /usr/bin/python
+#
+# This is a utility to take the Case JSON file downloaded from GDC and convert it to tab so it can be uploaded to BigQuery
+
+import json
+import argparse
+
+
+def main(args):
+	inputfile = open(args.inputfile,'r')
+	outputfile = open(args.outputfile,'w')
+	
+	header = "project_short_name\tprimary_site\tgdc_case_id\tgender\n"
+	outputfile.write(header)
+	
+	data = json.load(inputfile)
+	
+	for entry in data:
+		project = entry['project']['project_id']
+		site = entry['project']['primary_site']
+		case = entry['case_id']
+		gender = entry['demographic']['gender']
+		
+		outputfile.write(("%s\t%s\t%s\t%s\n") % (project,site,case,gender))
+	
+	
+if __name__ == "__main__":
+	parser = argparse.ArgumentParser()
+	parser.add_argument("-i", "--inputfile", required = True, help = "JSON file from GDC")
+	parser.add_argument("-o", "--outputfile", required = True, help = "File to save")
+	args = parser.parse_args()
+	
+	main(args)
 
