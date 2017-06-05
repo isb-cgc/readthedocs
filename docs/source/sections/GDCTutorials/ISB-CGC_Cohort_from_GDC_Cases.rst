@@ -50,11 +50,11 @@ Creating the cohorts using the Google Python library involves a few steps:
 * Format the GDC Case id list into a query for the APIs
 * use the authorized service to create the cohort
  
- The first two steps (authorization and creating a service) have numerous examples in the ISB-CGC github repository and we won't repeat them here.
+The first two steps (authorization and creating a service) have numerous examples in the ISB-CGC github repository and we won't repeat them here.
  
- Formatting the case ID list is very straight forward:
+Formatting the case ID list is very straight forward:
  
- .. code-block:: python
+.. code-block:: python
  
   query = {"case_gdc_id" : uuids}
   
