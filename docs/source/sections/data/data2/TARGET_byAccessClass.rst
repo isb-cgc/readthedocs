@@ -6,9 +6,9 @@ Open-Access TARGET Data
 
 The open-access TARGET data hosted by the ISB-CGC Platform includes:
 
-* Clinical (de-identified) and Biospecimen data: these data were originally provided in XML files (Level-1) by the DCC;
-* Gene (mRNA) expression data:  these data were originally provided as TSV files (Level-3) by the DCC;
-* microRNA expression data:  these data were originally provided as TSV files (Level-3) by the DCC;
+* Clinical (de-identified) and Biospecimen data: these data were originally provided in XML files (Level-1) by the TARGET DCC;
+* Gene (mRNA) expression data:  these data were originally provided as TSV files (Level-3) by the TARGET DCC;
+* microRNA expression data:  these data were originally provided as TSV files (Level-3) by the TARGET DCC;
 
 .. _in_BigQuery:
 

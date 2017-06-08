@@ -164,8 +164,8 @@ removed from the ``isb-cgc-cosmic`` GCP project and will be required to create t
 GCP projects prior to performing additional queries.  If you want to be able to 
 upload your own data to BigQuery or save the results of your queries as new BigQuery tables,
 you will need to have your own GCP project.  (All new GCP users are welcome 
-to take advantage of the Google `free trial <https://cloud.google.com/free-trial/>`_ 
-which includes up to $300 in funding to be used over a period of 60 days.)
+to take advantage of the Google `free trial <https://cloud.google.com/free/>`_ 
+which includes up to $300 in funding to be used over a period of one year.)
 
 Additional Public BigQuery Datasets
 ###################################
