@@ -5,7 +5,7 @@ This example is a little more difficult than the previous two since it involves 
 
 Pre-requisites
 ==============
-There are a couple of libraries that will make it much easier to use the ISB-CGC APIs (which are dervied from Google's APIs)
+There are a couple of libraries that will make it much easier to use the ISB-CGC APIs (which are derived from Google's APIs)
 
 * `Google API Client Library for Python <https://developers.google.com/api-client-library/python/>`__
 
@@ -21,7 +21,7 @@ There are really only two steps to creating a cohort from the GDC case file:
 1) Parse the GDC case identifiers from the JSON file you downloaded from the GDC
 2) Pass the GDC case identifiers to the ISB-CGC cohorts.create() API endpoint along with a name for the cohort
  
-We have a Python script in our `github repository <https://github.com/isb-cgc/examples-Python/tree/master/python>`__ that performs both of those tasks but we'll pull a couple of snippets to discuss here.
+We have a Python script in our github repository called `gdcCase2Cohort.py <https://github.com/isb-cgc/examples-Python/tree/master/python>`__ that performs both of those tasks but we'll pull a couple of snippets to discuss here.
 
 Parsing GDC JSON
 ++++++++++++++++
@@ -38,7 +38,8 @@ Parsing GDC JSON
 	
  	return uuids
   
-This routine is acually very simple to understand.  It opens the JSON file and uses the Python json library to turn the file into a JSON object Python can use and then it loops through all of the cases in the file and parses out the case id for each.  The collected case IDs are then returned to the caller.
+  
+This routine is actually very simple to understand.  It opens the JSON file and uses the Python json library to turn the file into a JSON object Python can use and then it loops through all of the cases in the file and parses out the case id for each.  The collected case IDs are then returned to the caller.
 
 Using the create.cohorts API
 ++++++++++++++++++++++++++++
@@ -48,7 +49,7 @@ Creating the cohorts using the Google Python library involves a few steps:
 * Authorize using your credentials
 * Use the Google library to create an authorized service
 * Format the GDC Case id list into a query for the APIs
-* use the authorized service to create the cohort
+* Use the authorized service to create the cohort
  
 The first two steps (authorization and creating a service) have numerous examples in the ISB-CGC github repository and we won't repeat them here.
  
@@ -70,3 +71,10 @@ Essentially you just need to assign the list of case IDs to the "case_gdc_id" ke
 		raise exception
 
 If there have been no errors, the new cohort will be visible in both the cohorts.list() API endpoint and in the ISB-CGC Webapp
+
+Links to other GDC tutorial pages:
+++++++++++++++++++++++++++++++++++
+
+* `Introduction to Moving from GDC to ISB-CGC <FromGDCtoISBCGC.html>`__
+* `Importing a GDC File Manifest <ImportGDCFileManifest.html>`__
+* `Importing a GDC Case List <ImportGDCCaseDownload.html>`__
