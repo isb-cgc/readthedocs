@@ -57,4 +57,4 @@ Links to other GDC tutorial pages:
 ++++++++++++++++++++++++++++++++++
 * `Introduction to Moving from GDC to ISB-CGC <FromGDCtoISBCGC.html>`__
 * `Importing a GDC Case List into ISB-CGC <ImportGDCCaseDownload.html>`__
-* `Creating an ISB-CGC Cohort from a GDC Case JSON file <ISB-CGC_Cohort_from_GDC_Case.html>`__
+* `Creating an ISB-CGC Cohort from a GDC Case JSON file <ISB-CGC_Cohort_from_GDC_Cases.html>`__
