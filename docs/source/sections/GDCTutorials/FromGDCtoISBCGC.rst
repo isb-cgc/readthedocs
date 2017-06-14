@@ -34,7 +34,7 @@ A file manifest can be downloaded simply by clicking on the *Download Manifest b
 Using BigQuery
 ==============
   
-The rest of this tutorial (described in the three separate pages linked below) assumes that the user is familiar with using the BigQuery interface and can write some basic SQL statements.  If you need an introduction to BigQuery, visit our `tutorial <progapi/bigqueryGUI/WalkthroughOfGoogleBigQuery.html>`__
+The rest of this tutorial (described in the three separate pages linked below) assumes that the user is familiar with using the BigQuery interface and can write some basic SQL statements.  If you need an introduction to BigQuery, visit our `tutorial <../progapi/bigqueryGUI/WalkthroughOfGoogleBigQuery.html>`__
  
 * `Importing a GDC File Manifest <ImportGDCFileManifest.html>`__
 * `Importing a GDC Case List <ImportGDCCaseDownload.html>`__
