@@ -38,9 +38,9 @@ Contents
    sections/About-ISB-CGC
    sections/Hosted-Data
    sections/Web-UI
-   sections/QuicklinksOneTable
-   sections/DIYWorkshop
    sections/Prog-APIs
+   sections/QuicklinksOneTable
+   sections/TutorialsAndDIYWorkshop
    sections/FAQ
    sections/Support
 

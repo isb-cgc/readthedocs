@@ -25,7 +25,7 @@ data from the NCI-GDC if you're planning on running your analyses on the Google
 Cloud Platform.  These tables can be previewed and queried conveniently and
 interactively from the `BigQuery web UI <https://bigquery.cloud.google.com>`_
 or from scripting languages such as **R** and **Python**, or from the command-line using the 
-`cloud SDK <https://cloud.google.com/sdk/>`_ utility **bq**.
+`cloud SDK <https://cloud.google.com/sdk/>`_ utility **bq**.  If you have used the NCI-GDC portal to create cohorts or filelists, you can follow `these tutorials <../GDCTutorials/FromGDCtoISBCGC.html>`__ to bring that information into ISB-CGC for use
 
 In order to help users determine which data at the NCI-GDC is available on the
 ISB-CGC platform, we have created a set of metadata tables in BigQuery
