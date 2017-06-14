@@ -19,7 +19,7 @@ Upon signing in with a Google account identity, you will be presented with the f
    :align: center
    
 This is your personal *Dashboard* where your compute engine (A), Google APIs(C), App Engine(D), BigQuery, and Cloud Storage (F) components are readily accessible. Google also provides documentation for additional information if needed (E). Additional documentation describing how to use each component of this user interface are provided in the individual subsections of this documentation.
-We encourage you to try the risk free trial for 60 days(H). Once you have a GCP project, you will have access to all of the products and services that make up the Google Cloud.
+We encourage you to try the risk free trial(H). Once you have a GCP project, you will have access to all of the products and services that make up the Google Cloud.
 
 Google products and services may also be accessed through (G). Scroll down to BigQuery and open it (see screenshot below).
 

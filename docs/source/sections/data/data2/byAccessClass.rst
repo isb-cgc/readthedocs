@@ -25,8 +25,11 @@ The data files described above are available to all ISB-CGC users in an open-acc
 in BigQuery
 -----------
 
-The information scattered over tens of thousands of XML and TSV files at the DCC is provided in a *much more accessible* form in
-a series of BigQuery tables.  For more details, including tutorials and code examples in 
+The information scattered over tens of thousands of XML and TSV files at the DCC is provided in a 
+*much more accessible* form in a series of 
+`BigQuery tables <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_BQ.html#tcga-clinical-biospecimen-and-molecular-data>`_.  
+
+For more details, including tutorials and code examples in 
 `Python <https://github.com/isb-cgc/examples-Python>`_ or 
 `R <https://github.com/isb-cgc/examples-R>`_, please see our `github repositories <https://github.com/isb-cgc>`_.
 
