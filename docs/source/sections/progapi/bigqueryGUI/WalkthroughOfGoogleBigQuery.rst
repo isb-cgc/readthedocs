@@ -14,6 +14,7 @@ Also to add ISB-CGC data to your BigQuery platform please refer to the documenta
 ISB-CGC Data Sets in BigQuery
 *****************************
 ISB-CGC maintains multiple `data sets in BigQuery <../../data/data2/data_in_BQ.html>`__ including:
+
 * `TCGA clinical, biospecimen and molecular data <../../data/data2/data_in_BQ.html#tcga-clinical-biospecimen-and-molecular-data>`__
 * `TARGET clinical, biospecimen and molecular data <../../data/data2/data_in_BQ.html#target-clinical-biospecimen-and-molecular-data>`__
 * `A wide variety of related metadata <../../data/data2/data_in_BQ.html#additional-metadata>`__
