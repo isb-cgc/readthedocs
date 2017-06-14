@@ -58,7 +58,7 @@ Let's start by looking at the data that GDC has provided:
   }
 
 
-For our purposes, the data in the "summary" section can be ignored.  Since ISB-CGC doesn't store all the files from GDC, having the file count stored in a table doesn't do much good.  So what is useful is the Project ID, Primary Site, Case ID and Gender.  Those can be easily parsed out and put into a tab-delimited file with a simple Python script:
+For our purposes, the data in the "summary" section can be ignored.  Since ISB-CGC doesn't store all the files from GDC, having the file count stored in a table doesn't do us much good.  So what are useful are the Project ID, Primary Site, Case ID and Gender.  Those can be easily parsed out and put into a tab-delimited file with a simple Python script:
 
 .. code-block:: python
 
@@ -92,13 +92,17 @@ For our purposes, the data in the "summary" section can be ignored.  Since ISB-C
 
 Once the tab-delimited file has been created the next step is to upload the information to a new BigQuery table.  As with the file manifest example, the first step is to create a new table:
 
+
 .. image:: CreateTable1.png
 
-While we could allow BigQuery to automatically determine the names of the columns, it is also possible to provide those names yourself in case you wish to customize the names.  That process is outlines in the figure below:
+
+While we could allow BigQuery to automatically determine the names of the columns, it is also possible to provide those names yourself in case you wish to customize the names.  That process is outlined in the figure below:
+
 
 .. image:: CustomColumnNames.png
 
-Once the process is finished, there will be a new table with the information obtained from the GDC.  However, there is one additional issue that needs to be handled.  The JSON file dowloaded from the GDC contains the case UUID, but not the case barcode.  Since many people are more comfortable using barcodes (and the ISB-CGC system largely uses them), it would be a good idea to modify our table to include both the case and sample barcode.  Fortunately, ISB-CGC has a BigQuery table that contains all of the biospecimen information for TCGA, so finding the additional information requires a simple SQL query:
+
+Once the process is finished, there will be a new table with the information obtained from the GDC.  However, there is one additional issue that needs to be handled.  The JSON file downloaded from the GDC contains the case UUID, but not the case barcode.  Since many people are more comfortable using barcodes (and the ISB-CGC system largely uses them), it would be a good idea to modify our table to include both the case and sample barcode.  Fortunately, ISB-CGC has a BigQuery table that contains all of the biospecimen information for TCGA, so finding the additional information requires a simple SQL query:
 
 .. code-block:: sql
 
@@ -110,6 +114,15 @@ Once the process is finished, there will be a new table with the information obt
  WHERE
   bio.case_gdc_id = gdc.tcga_case_id
   
-Once this query is complete, simply save the results as a new table and you now have your GDC case list availble to you in BigQuery.
+  
+Once this query is complete, simply save the results as a new table and you now have your GDC case list available to you in BigQuery.
 
 .. image:: FinalCaseTable.png
+
+
+Links to other GDC tutorial pages:
+++++++++++++++++++++++++++++++++++
+
+* `Introduction to Moving from GDC to ISB-CGC <FromGDCtoISBCGC.html>`__
+* `Importing a GDC File Manifest <ImportGDCFileManifest.html>`__
+* `Creating an ISB-CGC Cohort from a GDC Case JSON file <ISB-CGC_Cohort_from_GDC_Case.html>`__
