@@ -1,3 +1,7 @@
+**************************
+Tutorials and DIY Workshop
+**************************
+
 The links on this page connect to tutorials and other helpful pages created by the ISB-CGC team:
 
 * `DIY Workshop <DIYWorkshop.html>`__
