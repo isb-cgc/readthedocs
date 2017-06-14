@@ -23,7 +23,7 @@ Output from  GDC
 
 GDC has two different outputs for users once they've finished doing their selections, the file manifest and the case table export.  In the example shown below, various filters were set to produce a cohort of 83 cases from the three TCGA kidney cancers and that cohort has 1,790 files on hand at the GDC:
 
-.. image:: GDCSetCreation.png
+.. image:: GDCSetCreation2.png
 
   
   
