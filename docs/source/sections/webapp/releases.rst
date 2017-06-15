@@ -6,13 +6,13 @@ Web-App Release Notes
 
 **Please Note:**
 
-    NOTE 1:A number of TCGA and CCLE case IDs shown below will have been removed from all cohorts since they are no longer available from NCI’s Genomics Data Commons, and ISB-CGC is trying to mirror that data as much as possible.
+    NOTE 1: A number of TCGA and CCLE case IDs shown below will have been removed from all cohorts since they are no longer available from NCI’s Genomics Data Commons, and ISB-CGC is trying to mirror that data as closely as possible.
  
     TCGA cases: TCGA-33-4579, TCGA-35-3621, TCGA-66-2746, TCGA-66-2747, TCGA-66-2750, TCGA-66-2751, TCGA-66-2752, TCGA-AN-A0FE, TCGA-AN-A0FG, TCGA-BH-A0B2, TCGA-BR-4186, TCGA-BR-4190, TCGA-BR-4194, TCGA-BR-4195, TCGA-BR-4196, TCGA-BR-4197, TCGA-BR-4199, TCGA-BR-4200, TCGA-BR-4205, TCGA-BR-4259, TCGA-BR-4260, TCGA-BR-4261, TCGA-BR-4263, TCGA-BR-4264, TCGA-BR-4265, TCGA-BR-4266, TCGA-BR-4270, TCGA-BR-4271, TCGA-BR-4272, TCGA-BR-4273, TCGA-BR-4274, TCGA-BR-4276, TCGA-BR-4277, TCGA-BR-4278, TCGA-BR-4281, TCGA-BR-4282, TCGA-BR-4283, TCGA-BR-4284, TCGA-BR-4285, TCGA-BR-4286, TCGA-BR-4288, TCGA-BR-4291, TCGA-BR-4298, TCGA-BR-4375, TCGA-BR-4376, TCGA-DM-A286, TCGA-E2-A1IP, TCGA-F4-6857, TCGA-GN-A261, TCGA-O2-A5IC, TCGA-PN-A8M9
  
     CCLE cases: LS123, LS1034
  
-    NOTE 2: The number of cases and samples when viewed in the User Interface as compared to the BigQuery tables vary across all three projects (TCGA, TARGET, and CCLE).  This is because the user interface reflects the data available at the Genomic Data Commons, whereas data in BigQuery reflects either (for TCGA and CCLE) data at the original TCGA data coordinating center supplemented with Genomic Data Commons Data, or for TARGET, data received from the TARGET data coordinating center, not the Genomic Data Commons.
+    NOTE 2: The number of cases and samples when viewed in the User Interface as compared to the BigQuery tables vary across all three projects (TCGA, TARGET, and CCLE).  This is because the user interface reflects the data available at the Genomic Data Commons, whereas data in BigQuery reflects either data at the original TCGA data coordinating center supplemented with Genomic Data Commons Data (for TCGA and CCLE), or for TARGET, data received from the TARGET data coordinating center, not the Genomic Data Commons.
  
     NOTE 3: We have removed Google Genomics functionality from the user interface. You will still be able to access CCLE open access data in Google Genomics from the command line. We are open to adding Google Genomics controlled data back into the user interface if you have a use case for it.  Also we are restructuring the handling of multiple Programs of data. Please feel free to provide `feedback <https://groups.google.com/a/isb-cgc.org/forum/#!newtopic/feedback>`_. 
  
@@ -21,10 +21,10 @@ Web-App Release Notes
     **Known Issues in Sprint 16 as of 06/14/2017**
  
       - Analysis Type : Seq peek Formatting Elongated on occasion 
-      - The CCLE data in GUI is not parallel to the CCLE data in BigQuery. 
+      - The CCLE data in the Webapp is not exactly the same as the CCLE data in BigQuery. 
       - If the user shares a cohort neither the owner nor the person who was granted access to cohort will receive a confirmation email. 
-      - Cannot plot any data if you use a CCLE data cohort on a worksheet.
-      - When a user duplicates a worksheet, then tries to implement the log scale it will not function properly. 
+      - Users cannot plot any data from a CCLE cohort on a worksheet.
+      - In the Webapp, the log scale on graphs does not function properly for duplicated worksheets. 
       - On the existing cohorts table list page, the confirmation delete ‘blue x’ button does not remove selected cohort if you select another option e.g Set Operation. The same issue can be found in reverse if you select the ‘blue x’ on the confirmation page for  set operation you can then select the delete button and see the cohort on the confirmation panel.
       - Swap values is not working properly for the plot settings. 
       - The set operation for existing cohorts complement is behaving exceptionally slow. 
@@ -44,7 +44,7 @@ Web-App Release Notes
      - You will be returned a more detailed error message when uploading your own user data.
      - On the Data Availability section on the cohort details page now displays the HG38 somatic mutation information for program TCGA.
      
-     Big Fixes
+     Bug Fixes
      
      - There is now a 2000 character limit for the workbook title section. 
      - When selecting the cohort link to complete analysis section on a worksheet will send you to the existing cohort list table page. 
