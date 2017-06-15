@@ -11,9 +11,9 @@ Accessing the IGV Browser from the Web Application
 
 To access IGV, first select a cohort and then go to the cohort file list page (through the "View Files" link at the top of the page).
 
-.. image:: Cohort.png
+.. image:: cohort.PNG
 
-The resulting file list can be filtered using the Platforms listed on the left.  Any file that can be displayed in the IGV Browser will have a "Cloud Storage" (for files available via Google Cloud Storage) checkbox in the IGV column on the right side of the file table.  Note that many files viewable in IGV may require that the user have dbGaP authorization to view controlled access data.  If the user has been authenticated and authorized through the user details page, the user will be able to select files.  Otherwise the cursor will be disabled when the user hovers over a checkbox.  Open source data such as the CCLE project do not require dbGaP authorization and can be viewed by any authenticated user.
+The resulting file list can be filtered using the build either HG19 or HG38 and the Platforms listed on the left.  Any file that can be displayed in the IGV Browser will have a "Cloud Storage" (for files available via Google Cloud Storage) checkbox in the IGV column on the right side of the file table.  Note that many files viewable in IGV may require that the user have dbGaP authorization to view controlled access data.  If the user has been authenticated and authorized through the user details page, the user will be able to select files.  Otherwise the cursor will be disabled when the user hovers over a checkbox.  Open source data such as the CCLE project do not require dbGaP authorization and can be viewed by any authenticated user.
 
 Once a maximum of five files have been selected, they can be viewed in the IGV Browser by clicking on the "Launch IGV" button in the upper right of the window
 

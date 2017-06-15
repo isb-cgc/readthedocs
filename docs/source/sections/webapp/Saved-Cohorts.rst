@@ -2,7 +2,7 @@
 Saved Cohorts
 *******************
 
-Cohorts are a way of creating custom groupings of the samples and/or participants that you are 
+Cohorts are an way of creating custom groupings of the samples and/or cases that you are 
 interested in analyzing further.  You may frequently re-use a cohort in multiple analyses.  Creating a "saved cohort" allows you to do this.  If you have any existing saved cohorts, they will appear here for you to view, edit and share (see below for details).
 
 Creating and saving a cohort
@@ -19,7 +19,7 @@ Cohort Creation Page
 ====================
 
 Using the provided list of filters on the left hand side, you can select the attributes and features
-that you are interested in either frm ISB-CGC data or the User Data tab.  Note that the TCGA project is selected by default as this is the dataset that the majority of researchers are familiar with.  CCLE (The Cancer Cell Line Encyclopedia) data is also available if desired - this is open access data set that can be used to view sequence data with the IGV viewer without having dbGaP permissions.
+that you are interested in either from ISB-CGC data or the User Data tab.  TCGA Data is the first program to be displayed, next to it is CCLE and TARGET Data tabs. You are able to create a cohort with multiple program filters.  CCLE (The Cancer Cell Line Encyclopedia) data - is open access data set that can be used to view sequence data with the IGV viewer without having dbGaP permissions.
 
 By clicking on a feature, the field will expand and provide you with additional filtering options.
 For example, when you click on "Vital Status", it expands and provides a list containing "Alive", "Dead", and
@@ -31,93 +31,132 @@ The numbers beside the selectable
 filter values reflect the number of samples that have that attribute based on all other filters that
 have been selected.
 
-Individual selections in a filter are "ORed" together, meaning if any of the selected conditions are met they will be in the filter.  Filters are "ANDed" together, meaning that selecting two filters means that the participants and samples are created based on both filters being executed.  There may be cases where you have 0 participants and samples, because the combination of filters you have chosen are ALL not present (AND function).
+Individual selections in a filter are "ORed" together, meaning if any of the selected conditions are met they will be in the filter.  Filters are "ANDed" together, meaning that selecting two filters means that the cases and samples are created based on both filters being executed.  There may be cases where you have 0 cases and samples, because the combination of filters you have chosen are ALL not present (AND function).
 
 
-Cohort Filters
---------------
-The panel on the left of the screen, with two tabs called "ISB-CGC DATA" and "USER DATA" will allow to create a cohort between data in the system and data that you have uploaded. The  ISB-CGC DATA tab has three tabs called "DONOR", "DATA TYPE", and "MOLECULAR"  which allow you to apply filters to the cohorts your are creating using ISB-CGC hosted data. For the USER DATA tab, there is one tab called "PROJECTS & STUDIES" which allow you to filter by the projects or studies you have uploaded to the system. Below are the details of each tab.
+Program Selection Panel
+-----------------------
+The panel in the center of the screen, with four tabs called "TCGA DATA", "CCLE DATA", "TARGET DATA", and "USER DATA" will allow to create a cohort between data programs in the system and data that you have uploaded. The  TCGA, CCLE, and TARGET DATA tab each have three tabs called "CASE", "DATA TYPE", and "MOLECULAR"  which allow you to apply filters to the cohorts your are creating using ISB-CGC hosted data. For the USER DATA tab, there is one tab called "PROJECTS & STUDIES" which allow you to filter by the projects or studies you have uploaded to the system. Below are the details of each tab.
+
+**Please Note:** Selecting the program filter will add all samples pertaining to program. Also there is a mouse over feature that will display the disease code long name if it's part of the TCGA dataset.
 
 
-Donor Tab
-^^^^^^^^^
-
-    * Public Projects (TCGA is selected as default)
-    * Public Studies (mouse over feature will display disease name if it is part of the TCGA dataset)
-    * Vital Status
-    * Gender
-    * Age At Diagnosis
-    * Sample Type
-    * Tumor Tissue Site
-    * Histological Type
-    * Pathologic Stage
-    * Tumor Status
-    * New Tumor Event After Initial Treatment
-    * Histological Grade
-    * BMI (Body Mass Index)
-    * HPV Status
-    * Residual Tumor
-    * Tobacco Smoking History
-    * ICD-10
-    * ICD-O-3 Site
-    * ICD-O-3 Histology
-
-Data Type Tab
-^^^^^^^^^^^^^
-
-    * DNA Sequencing
-    * RNA Sequencing
-    * miRNA Sequencing
-    * Protein
-    * SNP Copy Number
-    * DNA Methylation
-    
+          
+   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
+   | TCGA Cases Tab        | TCGA Data Type Tab           | CCLE Cases Tab      | TARGET Cases Tab      | TARGET Data Type Tab        |
+   +=======================+==============================+=====================+=======================+=============================+
+   | Program               | Pathology Image              | Program             | Program               | mRNA Gene Quantification    |
+   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
+   | Project Short Name    | Somatic Mutation             | Project Short Name  | Project Short Name    |miRNA Isoform Quantification |
+   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
+   | Disease Code          | Copy Number Segment Masked   | Disease Code        | Disease Code          | miRNA Gene Quantification   |
+   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
+   | Vital Status          | mRNA Gene Quantification     | Gender              | Vital Status          | Aligned Reads               |
+   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
+   | Gender                | DNA Variation VCF            | Sample Type         | Gender                |                             |
+   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
+   | Age at Diagnosis      | Aligned Reads                | Site Primary        | Age at Diagnosis      |                             |
+   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
+   | Sample Type           | Protein Quantification       | Histology           | Sample Type           |                             |
+   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
+   | Tumor Tissue Site     |miRNA Isoform Quantification  | Histological        | Race                  |                             |
+   |                       |                              | SubType             |                       |                             |
+   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
+   | Histological Type     |miRNA Gene Quantification     |                     | Ethnicity             |                             |
+   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
+   | Pathologic Stage      |mRNA Isoform Quantification   |                     | WBC at Diagnosis      |                             |
+   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
+   | Person Neoplasm       |                              |                     |                       |                             |
+   | Cancer Status         | Genotypes                    |                     | Year of Diagnosis     |                             |
+   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
+   | Neoplasm Histologic   | DNA Methylation Beta         |                     | Event Free Survival   |                             |
+   | Grade                 |                              |                     |                       |                             |
+   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
+   | BMI (Body Mass Index) |                              |                     | Days to Last Followup |                             |
+   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
+   | HPV Status            |                              |                     | Days to Last Known    |                             |
+   |                       |                              |                     | Alive                 |                             |
+   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
+   | Residual Tumor        |                              |                     | Days to Birth         |                             |
+   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
+   | Tobacco Smoking       |                              |                     | Days to Death         |                             |
+   | History               |                              |                     |                       |                             |
+   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
+   | Race                  |                              |                     |                       |                             |
+   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
+   | Ethnicity             |                              |                     |                       |                             |
+   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
+   | Year of Diagnosis     |                              |                     |                       |                             |
+   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
+   | Menopause Status      |                              |                     |                       |                             |
+   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
+   | Days to Last          |                              |                     |                       |                             |
+   | Known Alive           |                              |                     |                       |                             |
+   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
+   | Preservation Method   |                              |                     |                       |                             |
+   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
+   
+   
 Molecular Tab
 ^^^^^^^^^^^^^
 
     * Gene Mutation Status (creating a cohort based on the presence of a mutation (of various types) in a gene)
     
-Projects & Studies Tab
-^^^^^^^^^^^^^^^^^^^^^^^
+Programs & Projects Tab
+^^^^^^^^^^^^^^^^^^^^^^^^
+    * User Program
     * User Project
-    * User Study
 
 
 
 Save As New Cohort Button
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Push this button if you wish to save the cohort based on the filters you have set.  You will be asked for a cohort name and the selected filters will be displayed.  Enter the name (any text) and push the "Create Cohort" button.
+Push this button if you wish to save the cohort based on the filters you have set.  You will be asked for a cohort name and the selected filters will be displayed.  Enter the name (any text) and push the "Create Cohort" button. 
+
+**NOTE:** When working with multiple programs you will see a yellow notification box stating, "Your cohort contains samples from multiple programs. Please note that filters will only apply to samples from the program indicated by the tab they were chosen on - they will not apply to samples from other programs in this cohort." 
 
 Selected Filters Panel
 ^^^^^^^^^^^^^^^^^^^^^^
 
-This is where selected filters are shown so there is an easy way to see what filters have been selected.
+This is where selected filters are shown for each program so there section to see what filters have been selected.  You have to toggle between program tabs to see the filters selected for each program.
 
-If you have not saved the cohort yet, clicking on “Clear All” will remove all selected filters.  Also, if you have not saved the cohort yet, selecting an X beside a single filter will remove that filter.  If you have saved the cohort, the X is not present as this function is disabled in saved cohorts (to add back to an existing cohort, you can use set operations - see below).
+If you have not saved the cohort yet, clicking on “Clear All” will remove all selected filters for that program.  Also, if you have not saved the cohort yet, selecting an X beside a single filter will remove that filter.  If you have saved the cohort, the X is not present as this function is disabled in saved cohorts (to add back to an existing cohort, you can use set operations - see below).
 
 Details Panel
 ^^^^^^^^^^^^^
 
-This panel shows the Total Number of Samples and Total Number of Participants in a cohort that is actively being created.  If there is a small "timer" icon, the calculation is taking place - the results should appear soon.
+This panel shows the Total Number of Samples and Total Number of Cases in a cohort that is actively being created with the filters that have been selected.  If there is a small "timer" icon, the calculation is taking place - the results should appear soon.
 
 Clinical Features Panel
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 This panel shows a list of images (called "treemaps") that give a high level breakdown of the selected samples for a 
-handful of features:
+handful of features for the selected program:
 
-* Study
-* Vital Status
-* Sample Type
-* Tumor Tissue Site
-* Gender
-* Age at Initial Pathologic Diagnosis
+   +------------------------------+------------------------------+---------------------------------+
+   | TCGA Clinical Features Panel | CCLE Clinical Features Panel | TARGET Clinical Features Panel  |
+   +==============================+==============================+=================================+
+   | Disease Code                 | Disease Code                 | Disease Code                    |
+   +------------------------------+------------------------------+---------------------------------+
+   | Vital Status                 | Gender                       | Vital Status                    |
+   +------------------------------+------------------------------+---------------------------------+
+   | Sample Type                  | Site Primary                 | Gender                          |
+   +------------------------------+------------------------------+---------------------------------+
+   | Tumor Tissue Site            | Histology                    | Sample Type                     |
+   +------------------------------+------------------------------+---------------------------------+
+   | Gender                       | Histological SubType         | Age At Diagnosis                |
+   +------------------------------+------------------------------+---------------------------------+
+   | Age At Initial Pathologic    |                              |                                 |
+   | Diagnosis                    |                              |                                 |
+   +------------------------------+------------------------------+---------------------------------+
 
 By using the “Show More” button, you can see the last two tree maps.  Mousing over an image shows the details of each specific section of the image and the number of samples associated with it.
 
 Data File Availability Panel
-^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+NOTE: this function is now available only when editing a created cohort.  To access this function, please create the cohort and edit it as described below.
 
 This panel shows a parallel sets graph of available data files for the selected samples in the cohort. The large headers over
 the vertical bars are data types. Each data type (vertical bar) is subdivided according to the different platforms
@@ -131,7 +170,7 @@ two platforms.
 You can also reorder the vertical categories by dragging the headers left and right and reorder the
 platforms by dragging the platform names up and down.
 
-Projects & Studies Panel
+Programs & Projects Panel
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This panel displays a list of images (called "treemaps") similar to the clinical features panel, but can only be found when the User Data tab is selected. This panel displays a high level breakdown of the projects and studies you have uploaded to the system. Another similarity to the clinical features panel hovering over the image will show details of the specific section of the image and the number of samples associated with it. 
@@ -171,7 +210,7 @@ button, a dialogue box will appear. Now you may do one of the following:
 The intersect and union operations can take any number of cohorts and in any order.
 The complement operation requires that there be a base cohort, from which the other cohorts will be subtracted from.
 
-**Note:** To combine the User uploaded data and the ISB-CGC data, use the Set Operations function. This is possible since the list of barcodes is what is used to create the set operation. For example, to make a cohort of user data samples and ISB-CGC curated samples, Set Union must be used, and to filter user data which is an extension of TCGA samples, Set Intersection must be used.
+**Note:** To combine the User uploaded data and the ISB-CGC data, use the Set Operations function. This is possible since the list of barcodes is what is used to create the set operation. For example, to make a cohort of user data samples and ISB-CGC curated samples, Set Union must be used, and to filter user data which is an extension of TCGA or TARGET samples, Set Intersection must be used.
 
 
 The figure below shows what the results of the set operations will be (represented by I for Intersect, U for Union, and C for Complement).  There are two types of sets shown, those that overlap (on the left) and those that are nested (on the right).  For the last row (complement operations), the "Subtracted" area is removed from the "Base" area to result in the Complement (C). 
@@ -187,46 +226,60 @@ Click "Okay" to complete the set operation and create the new cohort.
 
 Cohort Details Page
 -------------------
-The cohort details page displays the details of a specific cohort.  On that page the title of that cohort will be displayed at the top of the page.
+The cohort details page displays the details of a specific cohort.  The title of the cohort is displayed at the top of the page.
 
 From the "SAVED COHORTS" tab you can:
 
 * New Workbook: Pushing this button creates a New Workbook using the cohort
 * Edit: Pushing this button makes the filters panel appear. And filters selected will be additive to any filters that have already been selected. To return to the previous view, you must either save any NEW selected filters (with the "Save Changes" button), or choose to cancel adding any new filters (by clicking the "cancel" link).
 * Comments: Pushing "Comments" will cause the Comments panel to appear. Here anyone who can see this cohort can comment on it. Comments are shared with anyone who can view this cohort.  They are ordered by newest on the bottom.  Selecting the "X" on the Comments panel will close the panel.  Any user who owns or has had a cohort shared with them can comment on it.
-* Duplicate: Making a copy will create a copy of this cohort with the same list of samples and patients and make you the owner of the copy.  This is how you create a copy of another researchers cohort that they have shared with you (note: If they later change their cohort, your cohort will not be updated, it will remain the same as it was at the time you duplicated it).
+* Duplicate: Making a copy will create a copy of this cohort with the same list of samples and cases and make you the owner of the copy.  This is how you create a copy of another researchers cohort that they have shared with you (note: If they later change their cohort, your cohort will not be updated, it will remain the same as it was at the time you duplicated it).
 * Delete: Allows you to delete this cohort (if you confirm by clicking the second delete button presented)
 * View Files: Allows you to view the list of files associated with this cohort (see details below)
-* Download IDs: Provides a list of sample and participant IDs in the cohort
+* Download IDs: Provides a list of sample and cases IDs in the cohort
 * Share: A dialogue box appears and the user is prompted to select registered users to share the cohort with.
 
 ISB-CGC DATA and USER DATA tab
 --------------------------------
-Both tabs are displayed  and can be selected. The corresponding panels on each tab will display data on either ISB-CGC data or user uploaded data with cohorts that you created or shared with you. 
+Both tabs are displayed and can be selected. The corresponding panels on each tab will display data on either ISB-CGC data or user uploaded data with cohorts that you created or shared with you. 
 
 Current Filters Panel
 ----------------------
 
-This panel displays current filters that have been used on the cohort or any of its ancestors. These cannot be modified.  To add additional filters to this list use the Edit button.
+This panel displays current filters that have been used on the cohort or any of its ancestors. If you have selected multiple These cannot be modified.  To add additional filters to this list use the Edit button.
 
 Details Panel
 -------------
 
-This panel displays the Internal ISB-CGC Cohort ID (the identifier you use to programmatically use this cohort through our `APIs <../progapi/Programmatic-API.html#id4>`_ ), and the number of samples and participants in this cohort. The number of samples may be larger than the number of participants because some participants may have
+This panel displays the Internal ISB-CGC Cohort ID (the identifier you use to programmatically use this cohort through our `APIs <../progapi/Programmatic-API.html#id4>`_ ), and the number of samples and cases in this cohort. The number of samples may be larger than the number of cases because some cases may have
 provided multiple samples.
 This panel also displays "Your Permissions" which can be either owner or reader, as well as revision history.  If you have edited the cohort, the filters that were used to originally create the cohort are displayed under the "Creation Filters" label, the newly applied filters since original creation are displayed under the "Applied Filters" label.
+
+TCGA DATA, CCLE DATA, TARGET DATA and USER DATA Tabs
+-----------------------------------------------------
+Selecting any program tab will be enabled if you have selected filters for that program.  By selecting the tab you will display the Clinical Features panel and the Data File Availability panels for the program selected. 
 
 Clinical Features Panel
 -----------------------
 
-This panel shows a list of treemaps that give a high level break of the samples for a handful of features:
+This panel shows a list of tree maps that give a high level break of the samples for a handful of features for the program view selected:
 
-* Study
-* Vital Status
-* Sample Type
-* Tumor Tissue Site
-* Gender
-* Age at Initial Pathologic Diagnosis
+   +------------------------------+------------------------------+---------------------------------+------------------------------------+
+   | TCGA Clinical Features Panel | CCLE Clinical Features Panel | TARGET Clinical Features Panel  | USER DATA Programs & Projects Panel|
+   +==============================+==============================+=================================+====================================+
+   | Disease Code                 | Disease Code                 | Disease Code                    | Program                            |
+   +------------------------------+------------------------------+---------------------------------+------------------------------------+
+   | Vital Status                 | Gender                       | Vital Status                    | Project                            |
+   +------------------------------+------------------------------+---------------------------------+------------------------------------+
+   | Sample Type                  | Site Primary                 | Gender                          |                                    |
+   +------------------------------+------------------------------+---------------------------------+------------------------------------+
+   | Tumor Tissue Site            | Histology                    | Sample Type                     |                                    |
+   +------------------------------+------------------------------+---------------------------------+------------------------------------+
+   | Gender                       | Histological SubType         | Age At Diagnosis                |                                    |
+   +------------------------------+------------------------------+---------------------------------+------------------------------------+
+   | Age At Initial Pathologic    |                              |                                 |                                    |
+   | Diagnosis                    |                              |                                 |                                    |
+   +------------------------------+------------------------------+---------------------------------+------------------------------------+
 
 Data File Availability Panel
 -----------------------
@@ -244,12 +297,12 @@ View Files Page
 ---------------
 
 "View Files" takes you to a new page where you can view the complete list of data files associated with your current the cohort.
-The file list page provides a paginated list of files available with all samples in the cohort. Here, "available" refers
-to files that have been uploaded to the ISB-CGC Google Cloud Project, including both controlled and open access data. 
+ The file list page provides a paginated list of files available with all samples in the cohort. Here, "available" refers
+to files that have been uploaded to the ISB-CGC Google Cloud Project, including both controlled access and open access data.  
 You can use the "Previous Page" and "Next Page" buttons to see more values in the list.
 
-You may filter on these files if you are only interested in a specific data type and platform. Selecting a filter will
-update the associated list. The numbers next to the platform refers to the number of files available for that platform.
+You can filter by Genomic Build either HG19 or HG38 and view which platforms and files are available for the build selected.  You may also filter on these files if you are only interested in a specific data type and platform.  Selecting a filter will
+update the associated list.  The numbers next to the platform refers to the number of files available for that platform.
 
 If there are files that contain read-level data, you will be able to select files to view in the IGV 
 viewer by selecting check boxes beside the viewer and selecting "Launch IGV" button.  Only if you have authenticated 
@@ -262,6 +315,7 @@ To download a list of files that are part of this cohort, select the link in the
 download process of all the files available for the cohort, taking into account the selected Platform filters. The file
 contains the following information for each file:
 
+* Program
 * Sample Barcode
 * Platform
 * Pipeline
@@ -291,7 +345,7 @@ If you are viewing a cohort you created, then you can delete the cohort using th
 Creating a Cohort from a Visualization
 ======================================
 
-To create a cohort from a visualization, you must be in plot selection mode. If you are in plot selection mode, the
+To create a cohort from visualization, you must be in plot selection mode. If you are in plot selection mode, the
 crosshairs icon in the top right corner of the plot panel should be blue. If it is not, click on it and it should turn
 blue.
 
@@ -311,4 +365,3 @@ Copying a cohort can only be done from the cohort details page of the cohort you
 When you are looking at the cohort you wish to copy, select Duplicate from the top menu.
 
 This will take you to a new copy of the cohort.
-
