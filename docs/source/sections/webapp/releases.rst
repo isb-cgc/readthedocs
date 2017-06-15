@@ -2,6 +2,60 @@
 Web-App Release Notes
 *********************
 
+* **June 14, 2017**
+
+**Please Note:**
+
+    NOTE 1: A number of TCGA and CCLE case IDs shown below will have been removed from all cohorts since they are no longer available from NCI’s Genomics Data Commons, and ISB-CGC is trying to mirror that data as closely as possible.
+ 
+    TCGA cases: TCGA-33-4579, TCGA-35-3621, TCGA-66-2746, TCGA-66-2747, TCGA-66-2750, TCGA-66-2751, TCGA-66-2752, TCGA-AN-A0FE, TCGA-AN-A0FG, TCGA-BH-A0B2, TCGA-BR-4186, TCGA-BR-4190, TCGA-BR-4194, TCGA-BR-4195, TCGA-BR-4196, TCGA-BR-4197, TCGA-BR-4199, TCGA-BR-4200, TCGA-BR-4205, TCGA-BR-4259, TCGA-BR-4260, TCGA-BR-4261, TCGA-BR-4263, TCGA-BR-4264, TCGA-BR-4265, TCGA-BR-4266, TCGA-BR-4270, TCGA-BR-4271, TCGA-BR-4272, TCGA-BR-4273, TCGA-BR-4274, TCGA-BR-4276, TCGA-BR-4277, TCGA-BR-4278, TCGA-BR-4281, TCGA-BR-4282, TCGA-BR-4283, TCGA-BR-4284, TCGA-BR-4285, TCGA-BR-4286, TCGA-BR-4288, TCGA-BR-4291, TCGA-BR-4298, TCGA-BR-4375, TCGA-BR-4376, TCGA-DM-A286, TCGA-E2-A1IP, TCGA-F4-6857, TCGA-GN-A261, TCGA-O2-A5IC, TCGA-PN-A8M9
+ 
+    CCLE cases: LS123, LS1034
+ 
+    NOTE 2: The number of cases and samples when viewed in the User Interface as compared to the BigQuery tables vary across all three projects (TCGA, TARGET, and CCLE).  This is because the user interface reflects the data available at the Genomic Data Commons, whereas data in BigQuery reflects either data at the original TCGA data coordinating center supplemented with Genomic Data Commons Data (for TCGA and CCLE), or for TARGET, data received from the TARGET data coordinating center, not the Genomic Data Commons.
+ 
+    NOTE 3: We have removed Google Genomics functionality from the user interface. You will still be able to access CCLE open access data in Google Genomics from the command line. We are open to adding Google Genomics controlled data back into the user interface if you have a use case for it.  Also we are restructuring the handling of multiple Programs of data. Please feel free to provide `feedback <https://groups.google.com/a/isb-cgc.org/forum/#!newtopic/feedback>`_. 
+ 
+    NOTE 4: For TARGET data the clinical and Gene Expression files themselves are available in the system. The bam files will be available soon! 
+   
+    **Known Issues in Sprint 16 as of 06/14/2017**
+ 
+      - Analysis Type : Seq peek Formatting Elongated on occasion 
+      - The CCLE data in the Webapp is not exactly the same as the CCLE data in BigQuery.  
+      - Users cannot plot any data from a CCLE cohort on a worksheet.
+      - In the Webapp, the log scale on graphs does not function properly for duplicated worksheets. 
+      - On the existing cohorts table list page, the confirmation delete ‘blue x’ button does not remove selected cohort if you select another option e.g Set Operation. The same issue can be found in reverse if you select the ‘blue x’ on the confirmation page for  set operation you can then select the delete button and see the cohort on the confirmation panel.
+      - Swap values is not working properly for the plot settings. 
+      - The set operation for existing cohorts complement is behaving exceptionally slow. 
+      - A duplication of the exact cohort happens when you select the confirmation multiple times while the page is loading working with Set Operations.
+      - When working with a new worksheet or a duplicate worksheet with workbooks for categorical features e.g bar chart you can select the log option. The log option only applies to numerical options. 
+      - When working with workbooks, if you select the delete confirmation button multiple times while the page is loading you will be sent to an error page. 
+      - You currently cannot plot user uploaded data when working with workbooks. 
+      - When plotting, certain values will be displayed as numerical when it should be a categorical value e.g Tobacco Smoking History.
+      - On the IGV browser when working with TCGA data build hg38 you get a No feature found with name “efgr” at the bottom of the iGV browser page. 
+      - On the cohort creation page for TCGA data the filters disease code and project short name NA is an option which is not a valid disease.
+      
+    **Issues that have been resolved in sprint 16 as of 06/14/2017**
+
+     New Enhancements
+
+     - You will be returned a more detailed error message when uploading your own user data.
+     - On the Data Availability section on the cohort details page now displays the HG38 somatic mutation information for program TCGA.
+     
+     Bug Fixes
+     
+     - There is now a 2000 character limit for the workbook title section. 
+     - When selecting the cohort link to complete analysis section on a worksheet will send you to the existing cohort list table page. 
+     - Latency issues when working with the cohort creation page have been resolved.
+     - When working with TCGA data the IGV browser will not give you a 401 or a 404 error. 
+     - The mouse over feature will display the long name for disease code and project short name for all programs.
+     - On the cohort creation page you can now filter with the HG38 somatic mutation data  by gene for program TCGA using the Molecular tab. 
+     - On the IGV Browser when working with TCGA genomic build hg38 you will no longer get  a 404 error. 
+     - On the cohort creation page when working with User Data tab, the left filter panel sorts the other filter. 
+     - Cohorts created with API specific filters are now accessible to access by their cohort details page. 
+     - You are now able to plot miRNA data with genomic build hg38 for TARGET data. 
+      
+
 *  **May 25, 2017**:
     In collaboration with the GDC we now have TARGET pediatric cancer data available for analysis in the user interface.  You are now able to create cohorts and plot analysis with information from TARGET, TCGA, and CCLE data. 
  
