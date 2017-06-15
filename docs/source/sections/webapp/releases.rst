@@ -32,7 +32,6 @@ Web-App Release Notes
       - When working with workbooks, if you select the delete confirmation button multiple times while the page is loading you will be sent to an error page. 
       - You currently cannot plot user uploaded data when working with workbooks. 
       - When plotting, certain values will be displayed as numerical when it should be a categorical value e.g Tobacco Smoking History.
-      - Cannot plot user uploaded data when working with workbooks. 
       - On the IGV browser when working with TCGA data build hg38 you get a No feature found with name “efgr” at the bottom of the iGV browser page. 
       - On the cohort creation page for TCGA data the filters disease code and project short name NA is an option which is not a valid disease.
       
