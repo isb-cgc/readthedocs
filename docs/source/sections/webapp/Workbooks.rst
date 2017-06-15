@@ -113,7 +113,7 @@ Please Note: When selecting a gene or miRNA for either the x-axis or y-axis vari
    :scale: 50
    :align: center
 
-**Edit Details** - This function allows the user to edit the name of the worksheet and also give a brief description on the worksheet being used for analysis. You can also change the build from HG19 to HG38 using this feature. Changing the build allows to graph data from etiehr builds. 
+**Edit Details** - This function allows the user to edit the name of the worksheet and also give a brief description on the worksheet being used for analysis. You can also change the build from HG19 to HG38 using this feature. Changing the build allows to graph data from either builds. 
 
 **Duplicate** - This function allows the user to create a duplicate worksheet in the workbook for further analysis and comparison.
 
