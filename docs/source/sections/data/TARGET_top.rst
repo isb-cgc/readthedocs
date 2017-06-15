@@ -18,7 +18,7 @@ Some of this data has been re-processed and is available on the main
 `GDC Data Portal <https://portal.gdc.cancer.gov/search/s?facetTab=cases&filters=%7B%22op%22:%22and%22,%22content%22:%5B%7B%22op%22:%22in%22,%22content%22:%7B%22field%22:%22cases.project.program.name%22,%22value%22:%5B%22TARGET%22%5D%7D%7D%5D%7D>`_.
 This newer dataset so far includes 6183 files representing 3236 cases, and totaling over 17 TB.
 Over half of the files (3740) are controlled-access files, including BAM, VCF, and MAF file types, 
-baesd on WXS, RNA-seq, and miRNA-seq data.
+based on WXS, RNA-seq, and miRNA-seq data.
 The remaining 2443 open-access files, include RNA-seq and miRNA-seq quantification,
 as well as clinical and biospecimen supplement files.
 
