@@ -21,8 +21,7 @@ Web-App Release Notes
     **Known Issues in Sprint 16 as of 06/14/2017**
  
       - Analysis Type : Seq peek Formatting Elongated on occasion 
-      - The CCLE data in the Webapp is not exactly the same as the CCLE data in BigQuery. 
-      - If the user shares a cohort neither the owner nor the person who was granted access to cohort will receive a confirmation email. 
+      - The CCLE data in the Webapp is not exactly the same as the CCLE data in BigQuery.  
       - Users cannot plot any data from a CCLE cohort on a worksheet.
       - In the Webapp, the log scale on graphs does not function properly for duplicated worksheets. 
       - On the existing cohorts table list page, the confirmation delete ‘blue x’ button does not remove selected cohort if you select another option e.g Set Operation. The same issue can be found in reverse if you select the ‘blue x’ on the confirmation page for  set operation you can then select the delete button and see the cohort on the confirmation panel.
