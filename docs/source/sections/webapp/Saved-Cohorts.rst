@@ -99,8 +99,7 @@ The panel in the center of the screen, with four tabs called "TCGA DATA", "CCLE 
    
 Molecular Tab
 ^^^^^^^^^^^^^
-
-    * Gene Mutation Status (creating a cohort based on the presence of a mutation (of various types) in a gene)
+    * Gene Mutation Status (creating a cohort based on the presence of a mutation (of various types) in a gene)  You can also filter by different genomic builds and hence different BigQuery Tables.  The two BigQuery tables you can select from are *TCGA_hg19_data_v0:Somatic_Mutation_MC3* and *TCGA_hg38_data_v0:Somatic_Mutation*. 
     
 Programs & Projects Tab
 ^^^^^^^^^^^^^^^^^^^^^^^^
