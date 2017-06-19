@@ -1,4 +1,4 @@
-QBiospecimen
+Biospecimen
 ===========
 
 The 
