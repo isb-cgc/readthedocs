@@ -1,17 +1,12 @@
-***************************
-Getting Started with CWL
-***************************
-
-The `Common Workflow Language <http://www.commonwl.org/>`_ (CWL) is emerging as a standard
-for defining and sharing bioinformatic workflows, and the 
-`NCI-GDC <https://gdc.cancer.gov/>`_ is planning to release all of its 
-standardized workflows in this format.
+**************************************
+Running the NCI-GDC DNA-Seq workflow
+**************************************
 
 In this section, 
-we will guide you through the steps to run the GDC's DNA-Seq harmonization workflow
+we will guide you through the steps to run the NCI-GDC's DNA-Seq harmonization workflow
 on Google Compute Engine.  This workflow is available on github 
 `here <https://github.com/NCI-GDC/gdc-dnaseq-cwl>`_.
-The instructions here are based on the GDC's 
+The instructions here are based on the NCI-GDC's 
 `README <https://github.com/NCI-GDC/gdc-dnaseq-cwl/blob/master/README.md>`_ 
 and have been customized to run on GCE.
 
@@ -24,7 +19,7 @@ click on **[+] CREATE INSTANCE**, and:
 
     - set Name (*eg* cwl-test-1)
     - set Zone (*eg* us-central1-c)
-    - set Machine type (eg 4 vCPUs with 15 GB memory)
+    - set Machine type (*eg* 4 vCPUs with 15 GB memory)
     - Change the boot disk to Ubuntu 14.04 LTS with 10 GB standard persistent disk (note that the boot disk will be named the same as the VM, *ie* cwl-test-1)
     - leave the Identity and API access box as is (with "Compute Engine default service account" and "Allow default access" selected)
     - expand the "Management, disk, networking, SSH keys section":
@@ -98,7 +93,7 @@ which should respond with something like:
 
 The first disk listed above (google-cwl-disk-1) is the additional disk that was crated, while the 
 second one (google-cwl-test-1) is the boot disk, with the same name as the VM.  The following
-commands differ slightly from those specified in the GDC README but the result will be the same:
+commands differ slightly from those specified in the NCI-GDC README but the result will be the same:
 
 .. code-block:: none
 
@@ -160,23 +155,23 @@ A few more install commands and you'll be ready to go:
 3. Run the DNA-Seq workflow
 ===========================
 
-3.1 Clone the GDC github repo
------------------------------
+3.1 Clone the NCI-GDC github repo
+---------------------------------
 
-You should now be in your home directory, in the (cwl) virtualenv.  Clone the GDC dna-seq-cwl repo:
+You should now be in your home directory, in the (cwl) virtualenv.  Clone the NCI-GDC dna-seq-cwl repo:
 
 .. code-block:: none
 
    (cwl)$ git clone https://github.com/NCI-GDC/gdc-dnaseq-cwl.git
 
 Now you will have a subdirectory called ``gdc-dnaseq-cwl`` in your home directory, containing
-the GDC DNA-Seq harmonization workflow.  The main workflow is in the CWL file 
+the NCI-GDC DNA-Seq harmonization workflow.  The main workflow is in the CWL file 
 ``~/gdc-dnaseq-cwl/workflows/dnaseq/transform.cwl``.
 
 3.2 Load Reference and Input Data Files
 ---------------------------------------
 
-The DNA-Seq workflow requires some reference data files that can be obtained from the GDC.  
+The DNA-Seq workflow requires some reference data files that can be obtained from the NCI-GDC.  
 These include the dbsnp vcf (3 GB), the reference genome (835 MB), and the bwa indexed genome (3.2 GB).  
 (Uploading these to your VM disk should take 5-10 minutes.) 
 
@@ -197,7 +192,7 @@ Finally, let's copy a small example BAM file (300 MB) from the 1000G repository:
    (cwl)$ cd /mnt/SCRATCH
    (cwl)$ wget ftp://ftp-trace.ncbi.nih.gov/1000genomes/ftp/phase3/data/NA12878/alignment/NA12878.chrom20.ILLUMINA.bwa.CEU.low_coverage.20121211.bam
 
-At this point you could also obtain a bam file either from the GDC or from one of the
+At this point you could also obtain a bam file either from the NCI-GDC or from one of the
 ISB-CGC Cloud Storage buckets.
 
 3.3 Run DNA-Seq CWL workflow

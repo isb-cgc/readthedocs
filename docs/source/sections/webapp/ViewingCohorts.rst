@@ -3,7 +3,7 @@ Viewing and using cohorts in the Webapp and API
 ***********************************************
 Cohorts are one of the central concepts that researchers use when analyzing large datasets.  As has been discussed elsewhere in the documentation, cohorts can be created either in the Webapp or via the ISB-CGC REST API.  What may not be as clear is that cohorts created by one of the systems can be viewed and used in the other.  In other words, you can create a cohort using the API and use it in the webapp or you can create a cohort in the webapp and use it in the API.  This can give researchers significant flexibility in creating and sharing their cohorts.  
 
-It should be noted that the details of how to use the APIs can differ significantly depending on how users access the REST APIs.  The examples given here are assuming users only have access to a console and not a higher-level language like Python where the APIs can be used more programatically.
+It should be noted that the details of how to use the APIs can differ significantly depending on how users access the REST APIs.  The examples given here are assuming users only have access to a console and not a higher-level language like Python where the APIs can be used more programatically.  Additionally, the examples shown here are using the TCGA endpoint, but exactly the same functionality is avialable for TARGET and CCLE using the endpoints specific to those programs.
 
 Related documents:
 
@@ -37,22 +37,24 @@ Creating Cohorts
 
 In the following example, the first query creates a cohort of patients from the UCS and CESC studies who were 20 years old or younger at the time of diagnosis.  Since this query is run against the **preview** endpoint, no cohort is actually created, only the results shown in Figure 3 are returned. ::
 
-                https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts/preview?Study=UCS&Study=CESC&age_at_initial_pathologic_diagnosis_lte=20
+                https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_tcga_api/v3/cohorts/preview?age_at_initial_pathologic_diagnosis_lte=20&project_short_name=TCGA-UCS&project_short_name=TCGA-CESC
   
-.. image:: Fig3-PreviewExample.png
+.. code-block:: none
+
+  https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_tcga_api/v3/cohorts/preview?age_at_initial_pathologic_diagnosis_lte=20&project_short_name=TCGA-UCS&project_short_name=TCGA-CESC
 
 *Figure 3: Using Google API Explorer to preview creating a cohort*
 
 Due to the need for authentication and cohort naming, actually creating the cohort requires some modifications of the preview query.  First, the *name* attribute needs to be specified with the name users will see in both the Webapp and in the **cohorts().list()** endpoint.::
 
-    https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/cohorts/create?name={COHORT NAME}
+    https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_tcga_api/v3/cohorts/create?name={COHORT NAME}
   
 Additionally a JSON object containing the query needs to be created. ::
 
-    {"Study": ["UCS", "CESC"], "age_at_initial_pathologic_diagnosis_lte": 20}
+    {"Study": ["TCGA-UCS", "TCGA-CESC"], "age_at_initial_pathologic_diagnosis_lte": 20}
 
 The commands above will create a cohort via the API
 
 .. _Creating cohorts using the Webapp: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html
-.. _cohorts().preview(): http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/progapi2_v2/cohorts_preview.html
-.. _cohorts().create(): http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/progapi2_v2/cohorts_create.html
+.. _cohorts().preview(): http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/progapi3_tcga/cohorts_preview.html
+.. _cohorts().create(): http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/progapi3_tcga/cohorts_create.html
