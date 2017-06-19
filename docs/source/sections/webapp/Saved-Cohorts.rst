@@ -304,7 +304,7 @@ You can filter by Genomic Build either HG19 or HG38 and view which platforms and
 update the associated list.  The numbers next to the platform refers to the number of files available for that platform.
 
 If there are files that contain read-level data are displayed in the IGV column, you will be able to select files to view in the IGV 
-viewer by selecting check boxes beside the viewer and selecting "Launch IGV" button.  The term "cloud storage" represents there are bam files associated to the sample in Google Cloud Storage for ISB-CGC.  Only if you have authenticated 
+viewer by selecting check boxes beside the viewer and selecting "Launch IGV" button.  The term "cloud storage" represents there are bam files associated to the sample in Google Cloud Storage for ISB-CGC that can be viewed in IGV browser.  Only if you have authenticated 
 as a dbGaP authorized user will you be able to select controlled access files to view in the IGV viewer (CCLE data does not require authorization to view the sequence data in the IGV viewer).
 
 Download File List as CSV
