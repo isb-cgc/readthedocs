@@ -86,6 +86,10 @@ web-based authentication and must therefore be done from within the ISB-CGC web-
 authenticated to NIH via the web-app, and your dbGaP authorization has been verified, the Google 
 identity associated with your account will have access to the controlled-data for 24 hours.
 
+Data Content
+############
+**I get a different number of samples in BigQuery than I do with the same query in the Webapp.  Why?**  Older programs like TCGA have both legacy data (data from the original program) and harmonized data (data run through the Genomics Data Commons).  The Webapp primarily uses harmonized data where BigQuery contains both legacy and harmonized data.  In addition, some cases and samples have been removed from the Webapp if annotation suggest the data from those caases or samples are incorrect, misleading or from cases of uncertain origin.  Most of these cases and samples are still in BigQuery and users are encouraged to check the annotations tables.
+
 Python Users
 ############
 **I want to write python scripts that access the TCGA data hosted by the ISB-CGC.  Do you have some 
