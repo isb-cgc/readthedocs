@@ -12,7 +12,7 @@ process, sub-level field names were prefixed with the parent name, separated by
 an underscore.  These names were then abbreviated to shorter names,
 as specified in the table below.
 Please refer directly to BigQuery for the table 
-`schema <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_bioclin_v0.Annotations>`__
+`schema <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_bioclin_v0.Annotations>`__.
 
 
 +------------------------------------------------------------------------------+----------------------------+
