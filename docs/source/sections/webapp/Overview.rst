@@ -18,9 +18,7 @@ Upon signing in with a Google account identity, you will be presented with the f
    :scale: 50
    :align: center
 
-This is your personal "Dashboard" where your Analyses, Gene Lists, Variable Lists, Cohorts, are readily accessible.  
-You can also create new Sample Analyses with various chart types through the Sample Analyses section.  
-Additional documentation describing how to use each component of this user interface are provided in the individual subsections of this documentation.
+This is your personal "Dashboard" where your Analyses, Gene and miRNA Lists, Variable Lists, Cohorts, and Saved Programs are readily accessible.  Additional documentation describing how to use each component of this user interface are provided in the individual subsections of this documentation.
 
 Multiple Sample Analyses can be grouped into Workbooks (and saved for later use, editing, and sharing).  
 Workbooks are used to group together multiple related analyses, and can be used for sharing groups of 

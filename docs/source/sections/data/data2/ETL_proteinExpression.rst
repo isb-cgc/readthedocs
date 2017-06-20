@@ -1,5 +1,5 @@
-Protein (RPPA)
-==============
+Protein Expression (RPPA)
+=========================
 
 The raw protein data file contains just two columns: The "Composite Element REF", which corresponds to the third column in the antibody
 annotation file, and the estimated expression value for that particular

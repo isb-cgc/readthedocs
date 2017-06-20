@@ -13,42 +13,14 @@ Also to add ISB-CGC data to your BigQuery platform please refer to the documenta
 *****************************
 ISB-CGC Data Sets in BigQuery
 *****************************
-Below are the list of ISB-CGC hosted data sets that can be accessed once you have linked your platform to the ISB-CGC project.
+ISB-CGC maintains multiple `data sets in BigQuery <../../data/data2/data_in_BQ.html>`__ including:
 
-* **isb-cgc:ccle_201602_alpha**
- 
- This dataset has been created and curated by the ISB-CGC project to be used in conjunction with the TCGA and other datasets currently hosted by the ISB-CGC.  For more information about the ISB-CGC, please see our documentation on `readthedocs.   <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/>`_
+* `TCGA clinical, biospecimen and molecular data <../../data/data2/data_in_BQ.html#tcga-clinical-biospecimen-and-molecular-data>`__
+* `TARGET clinical, biospecimen and molecular data <../../data/data2/data_in_BQ.html#target-clinical-biospecimen-and-molecular-data>`__
+* `A wide variety of related metadata <../../data/data2/data_in_BQ.html#additional-metadata>`__
 
- This specific dataset contains data from the Broad-Novartis Cancer Cell Line Encyclopedia (CCLE) project and is being redistributed with permission from the Broad Institute.
- 
- Neither the CCLE project nor the Broad institute are responsible for any errors that may have been made when creating these tables.  For more information about the CCLE project and to access the original datasets, please refer to the `CCLE website.  <http://www.broadinstitute.org/ccle/home>`_
+With the exception of the COSMIC mutation data, all data in BigQuery is open for general use.
 
-* **isb-cgc:genome_reference**
-
- This dataset contains reference tables that have been compiled by the ISB-CGC team from publicly available sources.  Please see each table for details about the source of the information contained in that table.
-
-* **isb-cgc:platform_reference**
-
- This dataset contains platform reference tables that have been compiled by the ISB-CGC team from publicly available sources.  Specifically, these tables are used as additional annotation for data from results provided by instrumentation used in the TCGA project to collect data.
-
-* **isb-cgc:tcga_201607_beta**
-
- This set of BigQuery tables was produced by the ISB-CGC project, based on the open-access TCGA data available at the TCGA Data Portal as of October 2015.  For more information, see `here for more details <https://github.com/isb-cgc/examples-Python/blob/master/notebooks/The%20ISB-CGC%20open-access%20TCGA%20tables%20in%20BigQuery.ipynb>`_ or e-mail info@isb-cgc.org .
-
-* **isb-cgc:tcga_cohorts**
-
- This dataset contains individual "cohort" tables for each of the TCGA tumor types, as well as a single table in which all of these tables have been concatenated.  To be included in this list, there must be at least some molecular data available for each sample, and there must not be any disqualifying annotations for either the patient or the sample.
-
- These cohort tables were created based on the isb-cgc:tcga_201607_beta dataset and are provided as a resource to the research community by the ISB-CGC.
-
-* **isb-cgc:tcga_seq_metadata**
-
- This dataset contains metadata and FastQC metrics for thousands of TCGA DNA-seq and RNA-seq data files:
- 
- * CGHub_Manifest table contains metadata for all TCGA files at CGHub as of April 27th, 2016
- * GCS_listing_27apr2016 table contains metadata for all TCGA files hosted by ISB-CGC in GCS
- * RNAseq_FastQC table contains metrics derived from FastQC runs on the RNAseq data files, including urls to the FastQC html reports that you can cut and paste directly into your browser
- * WXS_FastQC table contains metrics derived from FastQC runs on the exome DNAseq data files
 
 
 ************************

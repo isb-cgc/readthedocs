@@ -1,0 +1,23 @@
+{
+  "unauthorized_imports": "\tfrom googleapiclient.discovery import build\n\timport httplib2",
+  "authorized_imports": "\tfrom googleapiclient.discovery import build\n\tfrom oauth2client.client import OAuth2WebServerFlow\n\tfrom oauth2client import tools\n\tfrom oauth2client.file import Storage\n\timport httplib2\n\timport os",
+  "get_unauthorized_service": "\tdef get_unauthorized_service():\n\t\tapi = '{0}'\n\t\tversion = 'v3'\n\t\tsite = 'https://api-dot-isb-cgc.appspot.com'\n\t\tdiscovery_url = '%s/_ah/api/discovery/v1/apis/%s/%s/rest' % (site, api, version)\n\t\treturn build(api, version, discoveryServiceUrl=discovery_url, http=httplib2.Http())",
+  "get_credentials": "\tdef get_credentials():\n\t\toauth_flow_args = ['--noauth_local_webserver']\n\t\tstorage = Storage(DEFAULT_STORAGE_FILE)\n\t\tcredentials = storage.get()\n\t\tif not credentials or credentials.invalid:\n\t\t\tflow = OAuth2WebServerFlow(CLIENT_ID, CLIENT_SECRET, EMAIL_SCOPE)\n\t\t\tflow.auth_uri = flow.auth_uri.rstrip('/') + '?approval_prompt=force'\n\t\t\tcredentials = tools.run_flow(flow, storage, tools.argparser.parse_args(oauth_flow_args))\n\t\treturn credentials",
+  "get_authorized_service": "\tdef get_authorized_service():\n\t\tapi = '{0}'\n\t\tversion = 'v3'\n\t\tsite = 'https://api-dot-isb-cgc.appspot.com'\n\t\tdiscovery_url = '%s/_ah/api/discovery/v1/apis/%s/%s/rest' % (site, api, version)\n\t\tcredentials = get_credentials()\n\t\thttp = credentials.authorize(httplib2.Http())\n\t\tif credentials.access_token_expired or credentials.invalid:\n\t\t\tcredentials.refresh(http)\n\t\tauthorized_service = build(api, version, discoveryServiceUrl=discovery_url, http=http)\n\t\treturn authorized_service",
+  "auth_globals": "\tCLIENT_ID = '907668440978-0ol0griu70qkeb6k3gnn2vipfa5mgl60.apps.googleusercontent.com'\n\tCLIENT_SECRET = 'To_WJH7-1V-TofhNGcEqmEYi'\n\tEMAIL_SCOPE = 'https://www.googleapis.com/auth/userinfo.email'\n\tDEFAULT_STORAGE_FILE = os.path.join(os.path.expanduser('~'), '.isb_credentials')",
+  "aliquots_annotations": "\tservice = get_unauthorized_service()\n\tdata = service.aliquots().annotations(aliquot_barcode='TARGET-10-DCC001-03A-01R').execute()",
+  "cohorts_cloud_storage_file_paths": "\tservice = get_authorized_service()\n\tdata = service.cohorts().cloud_storage_file_paths(cohort_id=1).execute()",
+  "cohorts_delete": "\tservice = get_authorized_service()\n\tdata = service.cohorts().delete(cohort_id={YOUR_COHORT_ID}).execute()",
+  "cohorts_create": "\tservice = get_authorized_service()\n\tbody = {'program_short_name': ['TARGET-ALL-P1', 'TARGET-RT'], 'age_at_diagnosis_gte': 90}\n\tdata = service.cohorts().create(name=name, body=body).execute()",
+  "cohorts_get": "\tservice = get_authorized_service()\n\tdata = service.cohorts().get(cohort_id=1).execute()",
+  "cohorts_googlegenomics": "\tservice = get_authorized_service()\n\tdata = service.cohorts().googlegenomics(cohort_id=1).execute()",
+  "cohorts_list": "\tservice = get_authorized_service()\n\tdata = service.cohorts().list().execute()",
+  "cohorts_preview": "\tservice = get_unauthorized_service()\n\tbody = {'program_short_name': ['TARGET-ALL-P1', 'TARGET-RT'], 'age_at_diagnosis_gte': 90}\n\tdata = service.cohorts().preview(**body).execute()",
+  "cases_annotations": "\tservice = get_unauthorized_service()\n\tdata = service.cases().annotations(sample_barcode='TARGET-10-DCC001-03A').execute()",
+  "cases_get": "\tservice = get_unauthorized_service()\n\tdata = service.cases().get(case_barcode='TARGET-10-DCC001').execute()",
+  "samples_annotations": "\tservice = get_unauthorized_service()\n\tdata = service.samples().annotations(sample_barcode='TARGET-10-DCC001-03A').execute()",
+  "samples_cloud_storage_file_paths": "\tservice = get_unauthorized_service()\n\tdata = service.samples().cloud_storage_file_paths(sample_barcode='TARGET-10-DCC001-03A').execute()",
+  "samples_get": "\tservice = get_unauthorized_service()\n\tdata = service.samples().get(sample_barcode='TARGET-10-DCC001-03A').execute()",
+  "samples_googlegenomics": "\tservice = get_unauthorized_service()\n\tdata = service.samples().googlegenomics(sample_barcode='TARGET-10-DCC001-03A').execute()",
+  "users_get": "\tservice = get_authorized_service()\n\tdata = service.users().get().execute()"
+}
