@@ -1,0 +1,18 @@
+{
+    "annotation_gdc_id": "Id assigned by the GDC to the annotation",
+    "annotation_submitter_id": "Id assigned to the annotation by the TCGA",
+    "aliquot_barcode": "Aliquot barcode.",
+    "case_barcode": "Case barcode.",
+    "case_gdc_id": "Id assigned by the GDC to the case",
+    "sample_barcode": "Sample barcode.",
+    "project_short_name": "The project id, e.g. 'TCGA-BRCA', 'TCGA-OV'.",
+    "program_name": "The program name, e.g. 'TCGA' (the only program with annotations)",
+    "endpoint_type": "Which type of GDC Annotation API was used, either legacy or current ",
+    "category": "Annotation category name, e.g. 'Acceptable treatment for TCGA tumor'.",
+    "classification": "Annotation classification, .e.g 'CenterNotification', 'Notification', 'Observation', or 'Redaction'.",
+    "notes": "Notes on the annotation",
+    "entity_barcode": "The TCGA barcode that the annottion is associated with",
+    "entity_type": "Entity type, e.g. 'Case', 'Aliquot', 'Analyte', 'Portion'', 'Slide', or 'Sample'.",
+    "entity_gdc_id": "Id assigned by the GDC to the entity",
+    "status": "Status of the annotation, e.g. 'Approved', 'Rescinded'"
+}
