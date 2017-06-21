@@ -34,7 +34,8 @@ Web-App Release Notes
       - When plotting, certain values will be displayed as numerical when it should be a categorical value e.g Tobacco Smoking History.
       - On the IGV browser when working with TCGA data build hg38 you get a No feature found with name “efgr” at the bottom of the iGV browser page. 
       - On the cohort creation page for TCGA data the filters disease code and project short name NA is an option which is not a valid disease.
-      - The mouse over feature is currently disabled for program TARGET with disease code ALL
+      - The mouse over feature is currently disabled for program TARGET with disease code ALL.
+      - The sharing feature for Workbooks, Cohorts, and User Uploaded Programs is currently disabled. 
       
     **Issues that have been resolved in sprint 16 as of 06/14/2017**
 
