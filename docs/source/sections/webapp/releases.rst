@@ -2,7 +2,7 @@
 Web-App Release Notes
 *********************
 
-* **June 14, 2017**
+* **June 14, 2017**: `v3.1 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.1>`_
 
 **Please Note:**
 
