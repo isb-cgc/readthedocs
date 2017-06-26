@@ -11,7 +11,9 @@ into BigQuery tables that are open to the public. Additional tables have been
 added to open up new analysis options.
 
 In this tutorial, we will show you how you can begin to work with these tables
-from the Google BigQuery Web UI.  **Note** that in order to use BigQuery,
+from the Google BigQuery Web UI. 
+
+**Note** that in order to use BigQuery,
 you *must* have access to (*ie* be a member of) a GCP project.
 
 Helpful BigQuery links
