@@ -57,19 +57,19 @@ Typically, we select some variables (aka "fields") from one or more tables, filt
 and occasionally aggregate the results (such as taking an average).
 
 In this first simple example, we are asking for the
-barcodes for all patients in the CESC and HNSC
-studies, with an associated "primary solid tumor" sample. Note the use of the **IN** keyword.
+barcodes for all casess in the CESC and HNSC
+diseases, with an associated "primary solid tumor" sample. Note the use of the **IN** keyword.
 
 .. code-block:: sql
 
 	SELECT
-	  Study,
-	  ParticipantBarcode,
+	  project_short_name,
+	  case_barcode,
 	  SampleType
 	FROM
-	  [isb-cgc:tcga_201607_beta.Biospecimen_data]
+	  [isb-cgc:TCGA_bioclin_v0.Biospecimen]
 	WHERE
-	  Study IN ('CESC', 'HNSC')
+	  project_short_name IN ('TCGA-CESC', 'TCGA-HNSC')
 	  AND SampleType = 'Primary solid Tumor'
 
 Go ahead and cut and paste the above query directly into the New Query box,
@@ -81,35 +81,35 @@ To do this we need to JOIN the clinical and biospecimen tables using the SQL **.
 .. code-block:: sql
 
 		SELECT
-		  b.ParticipantBarcode,
+		  b.case_barcode,
 		  a.SampleBarcode,
-		  a.Study,
+		  a.project_short_name,
 		  a.SampleType,
 		  a.avg_percent_tumor_cells,
 		  b.hpv_status
 		FROM (
 		  SELECT
-		    ParticipantBarcode,
+		    case_barcode,
 		    SampleBarcode,
-		    Study,
+		    project_short_name,
 		    SampleType,
 		    avg_percent_tumor_cells
 		  FROM
-		    [isb-cgc:tcga_201607_beta.Biospecimen_data]
+		    [isb-cgc:TCGA_bioclin_v0.Biospecimen]
 		  WHERE
-		    Study IN ('CESC',
-		      'HNSC')
+		    project_short_name IN ('TCGA-CESC',
+		      'TCGA-HNSC')
 		    AND SampleType='Primary solid Tumor' ) AS a
 		JOIN (
 		  SELECT
-		    ParticipantBarcode,
+		    case_barcode,
 		    hpv_status
 		  FROM
-		    [isb-cgc:tcga_201607_beta.Clinical_data] ) AS b
+		    [isb-cgc:TCGA_bioclin_v0.Clinical] ) AS b
 		ON
-		  a.ParticipantBarcode = b.ParticipantBarcode
+		  a.case_barcode = b.case_barcode
 		GROUP BY
-		  b.ParticipantBarcode,
+		  b.case_barcode,
 		  a.SampleBarcode,
 		  a.Study,
 		  a.SampleType,
@@ -117,7 +117,7 @@ To do this we need to JOIN the clinical and biospecimen tables using the SQL **.
 		  b.hpv_status
 
 If you're really paying attention, you might notice that the first query returned
-836 participant barcodes from the Biospecimen_data table, but the second one returned only
+836 case barcodes from the Biospecimen_data table, but the second one returned only
 835 participant and sample barcodes.  In a few cases, the Biospecimen_data table
 contains information about samples that have no associated information in the Clinical_data
 table, and the "JOIN" operation is by default an *INNER* JOIN which returns only the
@@ -135,26 +135,26 @@ and then finally we sort by n.
 .. code-block:: sql
 
 	SELECT
-	  Study,
+	  project_short_name,
 	  SampleType,
 	  AVG(avg_percent_tumor_cells) AS avgPctTumor,
 	  COUNT(*) AS n
 	FROM
-	  [isb-cgc:tcga_201607_beta.Biospecimen_data]
+	  [isb-cgc:TCGA_bioclin_v0.Biospecimen]
 	WHERE
-	  ParticipantBarcode IN (
+	  case_barcode IN (
 
 	  SELECT
-	    ParticipantBarcode
+	    case_barcode
 	  FROM
-	    [isb-cgc:tcga_201607_beta.Clinical_data]
+	    [isb-cgc:TCGA_bioclin_v0.Clinical]
 	  WHERE
 	    hpv_status = 'Positive'
-	    AND Study IN ('CESC', 'HNSC')
+	    AND project_short_name IN ('TCGA-CESC', 'TCGA-HNSC')
 
           )
 	GROUP BY
-	  Study,
+	  project_short_name,
 	  SampleType
 	ORDER BY
 	  n DESC
@@ -173,21 +173,21 @@ clinical table.
 .. code-block:: sql
 
     SELECT
-      ParticipantBarcode,
-      Study,
+      case_barcode,
+      project_short_name,
       gender,
       country,
       number_pack_years_smoked,
       (number_pack_years_smoked - mu) / sd AS z
     FROM
-      [isb-cgc:tcga_201607_beta.Clinical_data] AS a
+      [isb-cgc:TCGA_bioclin_v0.Clinical] AS a
     JOIN (
       SELECT
         vital_status,
         AVG(number_pack_years_smoked) AS mu,
         STDDEV(number_pack_years_smoked) AS sd
       FROM
-        [isb-cgc:tcga_201607_beta.Clinical_data]
+        [isb-cgc:TCGA_bioclin_v0.Clinical]
       WHERE
         vital_status = 'Alive'
       GROUP BY
@@ -230,9 +230,9 @@ With summary tables, we can even compute statistics like a ChiSq.
               ELSE 'None'
             END ) AS table_cell,
 	  FROM
-	    [isb-cgc:tcga_201607_beta.Clinical_data]
+	    [isb-cgc:TCGA_bioclin_v0.Clinical]
 	  WHERE
-	    Study IN ('CESC',
+	    project_short_name IN ('TCGA-CESC',
 	      'HNSC')
 	  HAVING
 	    table_cell <> 'None' )
