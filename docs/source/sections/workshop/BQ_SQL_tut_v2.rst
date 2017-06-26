@@ -67,12 +67,12 @@ diseases, with an associated "primary solid tumor" sample. Note the use of the *
 	SELECT
 	  project_short_name,
 	  case_barcode,
-	  SampleType
+	  Sample_Type_name
 	FROM
 	  [isb-cgc:TCGA_bioclin_v0.Biospecimen]
 	WHERE
 	  project_short_name IN ('TCGA-CESC', 'TCGA-HNSC')
-	  AND SampleType = 'Primary solid Tumor'
+	  AND Sample_Type_name = 'Primary solid Tumor'
 
 Go ahead and cut and paste the above query directly into the New Query box,
 and then click the red **Run Query** button.
@@ -84,24 +84,24 @@ To do this we need to JOIN the clinical and biospecimen tables using the SQL **.
 
 		SELECT
 		  b.case_barcode,
-		  a.SampleBarcode,
+		  a.Sample_Barcode,
 		  a.project_short_name,
-		  a.SampleType,
+		  a.Sample_Type_name,
 		  a.avg_percent_tumor_cells,
 		  b.hpv_status
 		FROM (
 		  SELECT
 		    case_barcode,
-		    SampleBarcode,
+		    Sample_Barcode,
 		    project_short_name,
-		    SampleType,
+		    Sample_Type_name,
 		    avg_percent_tumor_cells
 		  FROM
 		    [isb-cgc:TCGA_bioclin_v0.Biospecimen]
 		  WHERE
 		    project_short_name IN ('TCGA-CESC',
 		      'TCGA-HNSC')
-		    AND SampleType='Primary solid Tumor' ) AS a
+		    AND Sample_Type_name='Primary solid Tumor' ) AS a
 		JOIN (
 		  SELECT
 		    case_barcode,
@@ -112,12 +112,13 @@ To do this we need to JOIN the clinical and biospecimen tables using the SQL **.
 		  a.case_barcode = b.case_barcode
 		GROUP BY
 		  b.case_barcode,
-		  a.SampleBarcode,
-		  a.Study,
-		  a.SampleType,
+		  a.Sample_Barcode,
+		  a.project_short_name,
+		  a.Sample_Type_name,
 		  a.avg_percent_tumor_cells,
 		  b.hpv_status
-
+		  
+		  
 If you're really paying attention, you might notice that the first query returned
 836 case barcodes from the Biospecimen_data table, but the second one returned only
 835 participant and sample barcodes.  In a few cases, the Biospecimen_data table
@@ -138,7 +139,7 @@ and then finally we sort by n.
 
 	SELECT
 	  project_short_name,
-	  SampleType,
+	  Sample_Type_name,
 	  AVG(avg_percent_tumor_cells) AS avgPctTumor,
 	  COUNT(*) AS n
 	FROM
@@ -157,7 +158,7 @@ and then finally we sort by n.
           )
 	GROUP BY
 	  project_short_name,
-	  SampleType
+	  Sample_Type_name
 	ORDER BY
 	  n DESC
 
