@@ -74,7 +74,7 @@ and Matplotlib.  See our examples-Python_ repository on github.
 **Google Genomics** provides tools for storing, processing, exploring, and sharing DNA sequence
 reads, reference-based alignments, and variant calls, using Google's infrastructure.  An extensive
 Cookbook_ here on Read the Docs as well as an ever-growing set of examples on github_ showcase
-some of the tools at your disposal.
+some of the tools at your disposal.  Note that currently, only CCLE data is stored in Google Genomics
 
 .. _Cookbook: https://googlegenomics.readthedocs.org/en/latest/
 .. _github: https://github.com/googlegenomics

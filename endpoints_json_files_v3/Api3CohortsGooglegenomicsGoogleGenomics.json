@@ -1,0 +1,5 @@
+{
+    "GG_dataset_id": "Google Genomics dataset id for the sample.",
+    "GG_readgroupset_id": "Google Genomics readgroupset id for the sample.",
+    "SampleBarcode": "Sample barcode."
+}
