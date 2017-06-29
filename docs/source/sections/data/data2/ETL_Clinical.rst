@@ -2,7 +2,7 @@ Clinical
 ========
 
 The
-`Clinical <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201607_beta.Clinical>`_
+`Clinical <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_bioclin_v0.Clinical>`_
 table contains one row per TCGA participant (aka patient or donor).  
 Each TCGA participant is uniquely represented by a
 `TCGA barcode <https://wiki.nci.nih.gov/display/TCGA/TCGA+barcode>`_

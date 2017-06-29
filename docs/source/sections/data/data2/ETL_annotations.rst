@@ -9,33 +9,28 @@ API <https://wiki.nci.nih.gov/display/TCGA/TCGA+Annotations+Web+Service+User's+G
 The deeply nested JSON file was first flattened, and then a subset of the 
 fields were selected to be loaded into the BigQuery table.  In the flattening
 process, sub-level field names were prefixed with the parent name, separated by
-an underscore.  These names were then abbreviated to shorter names,
-as specified in the table below.
+an underscore.  These names have now been updated to reflect their names in the Genome Data Commons (GDC) Annotations API.
 Please refer directly to BigQuery for the table 
-`schema <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201607_beta.Annotations>`__
+`schema <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_bioclin_v0.Annotations>`__
 
 +------------------------------------------------------------------------------+----------------------------+
 | Original field name                                                          | New field name             |
 +==============================================================================+============================+
-| annotationCategory\_annotationClassification\_annotationClassificationName   | annotationClassification   |
+| annotationCategory\_annotationClassification\_annotationClassificationName   | classification             |
 +------------------------------------------------------------------------------+----------------------------+
-| annotationCategory\_categoryId                                               | annotationCategoryId       |
+| annotationCategory\_categoryName                                             | category                   |
 +------------------------------------------------------------------------------+----------------------------+
-| annotationCategory\_categoryName                                             | annotationCategoryName     |
+| items\_disease\_abbreviation                                                 | project_short_name         |
 +------------------------------------------------------------------------------+----------------------------+
-| id                                                                           | annotationId               |
+| items\_item                                                                  | entity_barcode             |
 +------------------------------------------------------------------------------+----------------------------+
-| items\_disease\_abbreviation                                                 | Study                      |
+| items\_itemType\_itemTypeName                                                | entity_type                |
 +------------------------------------------------------------------------------+----------------------------+
-| items\_item                                                                  | itemBarcode                |
+| notes\_noteText                                                              | notes                      |
 +------------------------------------------------------------------------------+----------------------------+
-| items\_itemType\_itemTypeName                                                | itemTypeName               |
+| notes\_dateAdded                                                             | date_created               |
 +------------------------------------------------------------------------------+----------------------------+
-| notes\_noteText                                                              | annotationNoteText         |
-+------------------------------------------------------------------------------+----------------------------+
-| notes\_dateAdded                                                             | dateAdded                  |
-+------------------------------------------------------------------------------+----------------------------+
-| notes\_dateEdited                                                            | dateEdited                 |
+| notes\_dateEdited                                                            | date_edited                |
 +------------------------------------------------------------------------------+----------------------------+
 
 Sample and Participant barcodes are filled in (*ie* not null) whenever the
