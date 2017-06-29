@@ -2,7 +2,7 @@ Annotations
 ===========
 
 The TCGA Annotations BigQuery
-`table <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201607_beta.Annotations>`__
+`table <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_bioclin_v0.Annotations>`__
 was created based on the contents of the JSON file obtained from the TCGA
 Annotation manager `Web Service
 API <https://wiki.nci.nih.gov/display/TCGA/TCGA+Annotations+Web+Service+User's+Guide>`__.
