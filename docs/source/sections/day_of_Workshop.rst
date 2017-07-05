@@ -1,5 +1,5 @@
 ****************
-ISB-CGC Workshop 
+ISB-CGC Workshop
 ****************
 
 This information is currently intended for attendees of the August 2nd workshop at ISB.
@@ -59,10 +59,10 @@ As soon as you've found a seat and opened up your laptop, please do the followin
 
 .. code-block:: sql
 
-   SELECT COUNT(*) AS n, Study, Gender
-   FROM [isb-cgc:tcga_201607_beta.Clinical_data]
-   GROUP BY Gender, Study
-   ORDER BY n DESC, Study, Gender
+  SELECT COUNT(*) AS n, project_short_name , gender
+  FROM [isb-cgc:TCGA_bioclin_v0.Clinical]
+  GROUP BY gender , project_short_name
+  ORDER BY n DESC, project_short_name , gender
 
 Workshop Outline & Links
 ########################
@@ -70,7 +70,7 @@ Workshop Outline & Links
 ISB Cancer Genomics Cloud (ISB-CGC)
 ===================================
 
-* **Introductions, Overview** *etc* 
+* **Introductions, Overview** *etc*
 
   + `Introduction to the ISB-CGC Platform <https://github.com/isb-cgc/readthedocs/raw/master/docs/include/workshop-intro-Aug2016.pdf>`_
   + `A Quick Tour of the Google Cloud Console <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_Console.pdf>`_
@@ -100,10 +100,10 @@ ISB Cancer Genomics Cloud (ISB-CGC)
 
 * **Computing in the Cloud**
 
-  + Useful References: `Cloud SDK cheat sheet <https://docs.google.com/document/d/1ZZTsjHzQClA0gZyOhlBav-I4XQhW81Yx980qvgy_jr8/edit?usp=sharing>`_ 
+  + Useful References: `Cloud SDK cheat sheet <https://docs.google.com/document/d/1ZZTsjHzQClA0gZyOhlBav-I4XQhW81Yx980qvgy_jr8/edit?usp=sharing>`_
   + Introduction to GCE (Google Compute Engine) (`slides <https://docs.google.com/presentation/d/13ORIDboGC27uCMf_C9w9WIi0cK9tGO7cqgp6vwA2miE/edit?usp=sharing>`_)
   + Google Genomics "Pipelines" Service (`slides <https://docs.google.com/presentation/d/1_rRvlhNuA0_SQuO2SOru7ttjPvzlygW3ALILcQ-JEjg/edit?usp=sharing>`_)
-  + ISB-CGC Pipelines Framework (`slides <https://docs.google.com/presentation/d/1akqoZImzei2D47O8rcWrcEzsWPYxUtL-2-eUdiBzzgo/edit?usp=sharing>`_, `github <https://github.com/isb-cgc/ISB-CGC-pipelines>`_) 
+  + ISB-CGC Pipelines Framework (`slides <https://docs.google.com/presentation/d/1akqoZImzei2D47O8rcWrcEzsWPYxUtL-2-eUdiBzzgo/edit?usp=sharing>`_, `github <https://github.com/isb-cgc/ISB-CGC-pipelines>`_)
 
 ..
 
@@ -138,5 +138,3 @@ Quickstart Tutorials and Other Useful Links
 * `An Introduction to BigQuery <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_BigQuery.pdf>`_
 * `An Introduction to Cloud Datalab <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_Cloud_Datalab.pdf>`_
 * `An Introduction to Cloud Shell <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_Cloud_Shell.pdf>`_
-
-
