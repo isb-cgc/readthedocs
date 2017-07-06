@@ -1,13 +1,17 @@
 DNA Copy-Number Segments 
 ==========================
 
-The Copy Number Seqments BigQuery table HG19 data comes from the legacy arcihves from the DCC, 
-`Copy_Number_segments HG19 <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.Copy_Number_Segment_Masked>`_
-table contains one row *per* copy-number segment *per* TCGA aliquot.  The Copy Number Seqments BigQuery table HG38 data is pulled from the GDC, andcan be accessed  `Copy_Number_segments HG38 <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg38_data_v0.Copy_Number_Segment_Masked>`_.
+The
+`Copy_Number_segments <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.Copy_Number_Segment_Masked>`_
+table contains one row *per* copy-number segment *per* TCGA aliquot.  
 Each TCGA aliquot is uniquely represented by a
 `TCGA barcode <https://wiki.nci.nih.gov/display/TCGA/TCGA+barcode>`_
 of length 24, *eg* ``TCGA-04-1517-01A-01D-0533-01``.  (For more information on how TCGA barcodes
 were created and how to *"read"* a TCGA barcode, click on the preceding link.)
+
+There is also a GDC 
+`Copy_Number_segments <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg38_data_v0.Copy_Number_Segment_Masked>`_
+table that has been reprocessed against the HG38 genomic build.
 
 Platform
 --------
