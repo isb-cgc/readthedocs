@@ -54,9 +54,9 @@ BigQuery tables. Additionally, we're going to BYOD "Bring your own data".
 
 .. code-block:: r
 
-	study=c('CESC','HNSC')
+	project_short_name=c('TCGA-CESC','TCGA-HNSC')
 
-	clinical_table = "[isb-cgc:tcga_201607_beta.Clinical_data]"
+	clinical_table = "[isb-cgc:TCGA_bioclin_v0.Clinical]"
 
 Constructing Queries
 ====================
@@ -68,9 +68,9 @@ In the next code block is an example of how to do that.
 
 .. code-block:: r
 
-	sqlQuery = paste("SELECT ParticipantBarcode, Study, hpv_calls, hpv_status ",
+	sqlQuery = paste("SELECT case_barcode, project_short_name, hpv_calls, hpv_status ",
 	                 "FROM ", clinical_table,
-	                 " WHERE Study in (",paste(shQuote(study),collapse = ','),")",sep="")
+	                 " WHERE project_short_name in (",paste(shQuote(project_short_name),collapse = ','),")",sep="")
 
 	sqlQuery
 
@@ -85,7 +85,7 @@ In the next code block is an example of how to do that.
 	stopifnot((is.na(hpv_table$hpv_calls) && hpv_table$hpv_status=="Negative") || !is.na(hpv_table$hpv_calls))
 
 	# Let's explore the cohort
-	ggplot(data=hpv_table, aes(x=hpv_status, fill=Study)) + geom_bar(stat="count", position=position_dodge())
+	ggplot(data=hpv_table, aes(x=hpv_status, fill=project_short_name)) + geom_bar(stat="count", position=position_dodge())
 
 Uploading Data
 ==============
@@ -145,7 +145,7 @@ integration in CESC and HNSC tumors.
 	FROM
 	  [isb-cgc-04-0030:workspace.ncomms3513_s3]
 	WHERE
-	  Cancer IN ('CESC','HNSC')
+	  Cancer IN ('TCGA-CESC','TCGA-HNSC')
 	  AND Overlapping_genes <> 'Intergenic'
 	GROUP BY
 	  Cancer,
@@ -168,9 +168,9 @@ Next, with those offen affected genes, we will query gene expression data.
 	  HGNC_gene_symbol,
 	  AVG(normalized_count) as mean_expression
 	FROM
-	  [isb-cgc:tcga_201607_beta.mRNA_UNC_HiSeq_RSEM]
+	  [isb-cgc:TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM]
 	WHERE
-	  Study IN ('CESC','HNSC')
+	  project_short_name IN ('TCGA-CESC','TCGA-HNSC')
 	  AND SampleTypeLetterCode = 'TP'
 	  AND HGNC_gene_symbol IN (
 	    SELECT
@@ -178,7 +178,7 @@ Next, with those offen affected genes, we will query gene expression data.
 	    FROM
 	      [isb-cgc-04-0030:workspace.ncomms3513_s3]
 	    WHERE
-	      Cancer IN ('CESC','HNSC')
+	      Cancer IN ('TCGA-CESC','TCGA-HNSC')
 	      AND Overlapping_genes <> 'Intergenic'
 	    GROUP BY
 	      HGNC_gene_symbol )
@@ -192,15 +192,15 @@ Next, with those offen affected genes, we will query gene expression data.
 	mean_affected_genes = query_exec(query, project = my_cloud_project)
 
 	# we'll create some more meaningful x-axis labels
-	mean_affected_genes$xlabel <- paste0(mean_affected_genes$Study, "_", mean_affected_genes$HGNC_gene_symbol)
+	mean_affected_genes$xlabel <- paste0(mean_affected_genes$project_short_name, "_", mean_affected_genes$HGNC_gene_symbol)
 
 	# Now we can visualize it.
 	qplot(data=mean_affected_genes,
 	      x=factor(x = xlabel, ordered = T, levels = xlabel),
 	      y=mean_expression,
-	      col=Study) +
+	      col=project_short_name) +
 	      theme(axis.text.x = element_text(angle = 90, hjust = 1, size=4)) +
-	      xlab("Study_Gene")
+	      xlab("project_short_name_Gene")
 
 
 Computing Statistics
@@ -213,15 +213,15 @@ for that, and retrieve it as a data.frame.
 
 	sqlQuery = "
 	SELECT
-	  ParticipantBarcode,
+	  case_barcode,
 	  SampleBarcode,
-	  Study,
+	  project_short_name,
 	  HGNC_gene_symbol,
 	  normalized_count
 	FROM
-	  [isb-cgc:tcga_201607_beta.mRNA_UNC_HiSeq_RSEM]
+	  [isb-cgc:TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM]
 	WHERE
-	  Study IN ('CESC','HNSC')
+	  project_short_name IN ('TCGA-CESC','TCGA-HNSC')
 	  AND SampleTypeLetterCode = 'TP'
 	  AND HGNC_gene_symbol IN (
 	  SELECT
@@ -229,7 +229,7 @@ for that, and retrieve it as a data.frame.
 	  FROM
 	    [your-project-id:workspace.ncomms3513_s3]
 	  WHERE
-	    Cancer IN ('CESC','HNSC')
+	    Cancer IN ('TCGA-CESC','TCGA-HNSC')
 	    AND Overlapping_genes <> 'Intergenic'
 	  GROUP BY
 	    HGNC_gene_symbol )
@@ -241,9 +241,9 @@ for that, and retrieve it as a data.frame.
 	head(gexp_affected_genes)
 
 	# a couple different ways to look at the results
-	#qplot(data=gexp_affected_genes, x=Study, y=normalized_count, col=HGNC_gene_symbol, geom="boxplot")
-	#qplot(data=gexp_affected_genes, x=Study, y=log2(normalized_count), col=HGNC_gene_symbol, geom="boxplot")
-	qplot(data=gexp_affected_genes, x=log2(normalized_count+1), col=HGNC_gene_symbol, geom="density") + facet_wrap(~ Study)
+	#qplot(data=gexp_affected_genes, x=project_short_name, y=normalized_count, col=HGNC_gene_symbol, geom="boxplot")
+	#qplot(data=gexp_affected_genes, x=project_short_name, y=log2(normalized_count), col=HGNC_gene_symbol, geom="boxplot")
+	qplot(data=gexp_affected_genes, x=log2(normalized_count+1), col=HGNC_gene_symbol, geom="density") + facet_wrap(~ project_short_name)
 
 Not all the samples listed in the clinical data have gene expression data, however.
 Let's filter the hpv_table to match the samples to those in gexp_affected_genes
@@ -255,7 +255,7 @@ Let's filter the hpv_table to match the samples to those in gexp_affected_genes
 	require(broom,quietly = TRUE) || install.packages('broom',verbose = FALSE)
 
 	# let's get rid of 'indeterminate' samples
-	hpv_table = dplyr::filter(hpv_table, hpv_status != "Indeterminate", ParticipantBarcode %in% gexp_affected_genes$ParticipantBarcode)
+	hpv_table = dplyr::filter(hpv_table, hpv_status != "Indeterminate", case_barcode %in% gexp_affected_genes$case_barcode)
 
 T-tests
 =======
@@ -264,11 +264,11 @@ Now, we are going to perform t.tests on expression by hpv_status and study.
 
 .. code-block:: r
 
-	gxps <- merge(x=gexp_affected_genes, y=hpv_table, by=c("Study","ParticipantBarcode"))
+	gxps <- merge(x=gexp_affected_genes, y=hpv_table, by=c("project_short_name","case_barcode"))
 
-	# Performing a t-test between hpv+ and hpv- by study and gene
+	# Performing a t-test between hpv+ and hpv- by project_short_name and gene
 	res0 <- gxps %>%
-	group_by(Study, HGNC_gene_symbol) %>%
+	group_by(project_short_name, HGNC_gene_symbol) %>%
 	do(tidy(t.test(log2(normalized_count+1) ~ hpv_status, data=.))) %>%
 	ungroup() %>%
 	arrange(desc(statistic))
@@ -277,10 +277,10 @@ Now, we are going to perform t.tests on expression by hpv_status and study.
 	top5 <- select(top_n(res0, 5, statistic), Study, HGNC_gene_symbol)
 
 	# Let's subset the data by the top 5 results...
-	res1 <- merge(x=top5, y=gxps) %>% mutate( Study_Gene = paste0(Study, "_", HGNC_gene_symbol))
+	res1 <- merge(x=top5, y=gxps) %>% mutate( project_short_name_Gene = paste0(project_short_name, "_", HGNC_gene_symbol))
 
 	# now we can plot the results...
-	ggplot(res1, aes(x=Study_Gene, y=log2(normalized_count+1), fill=hpv_status)) + geom_boxplot()
+	ggplot(res1, aes(x=project_short_name_Gene, y=log2(normalized_count+1), fill=hpv_status)) + geom_boxplot()
 
 
 Making BigQueries
@@ -295,21 +295,21 @@ Please see: https://cloud.google.com/bigquery/query-reference
 
 	sqlQuery = "
 	SELECT
-	  ParticipantBarcode,
+	  case_barcode,
 	  SampleBarcode,
-	  Study,
+	  project_short_name, 
 	  HGNC_gene_symbol,
 	  normalized_count
 	FROM
-	  [isb-cgc:tcga_201607_beta.mRNA_UNC_HiSeq_RSEM]
+	  [isb-cgc:TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM]
 	WHERE
-	  Study = 'CESC'
+	  project_short_name = 'TCGA-CESC'
 	  AND SampleTypeLetterCode = 'TP'
-	  AND ParticipantBarcode IN (
+	  AND case_barcode IN (
 	  SELECT
-	    ParticipantBarcode
+	    case_barcode
 	  FROM
-	    [isb-cgc:tcga_201607_beta.Clinical_data]
+	    [isb-cgc:TCGA_bioclin_v0.Clinical]
 	  WHERE
 	    hpv_status = 'Positive' )
 	  AND HGNC_gene_symbol IN (
@@ -318,7 +318,7 @@ Please see: https://cloud.google.com/bigquery/query-reference
 	  FROM
 	    [isb-cgc-04-0002:testVarsha.ncomms3513_s3]
 	  WHERE
-	    Cancer = 'CESC'
+	    Cancer = 'TCGA-CESC'
 	    AND Overlapping_genes <> 'Intergenic'
 	  GROUP BY
 	    HGNC_gene_symbol )
@@ -334,21 +334,21 @@ Now lets make a small change, and get gene expression for subjects that are hpv 
 
 	sqlQuery = "
 	SELECT
-	  ParticipantBarcode,
+	  case_barcode,
 	  SampleBarcode,
-	  Study,
+	  project_short_name,
 	  HGNC_gene_symbol,
 	  normalized_count
 	FROM
-	  [isb-cgc:tcga_201607_beta.mRNA_UNC_HiSeq_RSEM]
+	  [isb-cgc:TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM]
 	WHERE
-	  Study = 'CESC'
+	  project_short_name = 'TCGA-CESC'
 	  AND SampleTypeLetterCode = 'TP'
 	  AND ParticipantBarcode IN (
 	  SELECT
-	    ParticipantBarcode
+	    case_barcode
 	  FROM
-	    [isb-cgc:tcga_201607_beta.Clinical_data]
+	    [isb-cgc:TCGA_bioclin_v0.Clinical]
 	  WHERE
 	    hpv_status = 'Negative' )
 	  AND HGNC_gene_symbol IN (
@@ -357,7 +357,7 @@ Now lets make a small change, and get gene expression for subjects that are hpv 
 	  FROM
 	    [isb-cgc-04-0030:workspace.ncomms3513_s3]
 	  WHERE
-	    Cancer = 'CESC'
+	    Cancer = 'TCGA-CESC'
 	    AND Overlapping_genes <> 'Intergenic'
 	  GROUP BY
 	    HGNC_gene_symbol )
@@ -377,7 +377,7 @@ Please see: https://cloud.google.com/bigquery/query-reference
 	q <- "
 	SELECT
 	  p.HGNC_gene_symbol AS gene,
-	  p.study AS study,
+	  p.project_short_name AS disease,
 	  p.x AS x,
 	  p.sx2 AS sx2,
 	  p.nx AS nx,
@@ -389,23 +389,23 @@ Please see: https://cloud.google.com/bigquery/query-reference
 
 	  # first the gene expression summaries for hpv+ tumors
 	  SELECT
-	    Study,
+	    project_short_name,
 	    HGNC_gene_symbol,
 	    AVG(LOG2(normalized_count+1)) AS y,
 	    POW(STDDEV(LOG2(normalized_count+1)),2) AS sy2,
-	    COUNT(ParticipantBarcode) AS ny
+	    COUNT(case_barcode) AS ny
 	  FROM
-	    [isb-cgc:tcga_201607_beta.mRNA_UNC_HiSeq_RSEM]
+	    [isb-cgc:TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM]
 	  WHERE
-	    Study = 'CESC'
+	    project_short_name = 'TCGA-CESC'
 	    AND SampleTypeLetterCode = 'TP'
-	    AND ParticipantBarcode IN (
+	    AND case_barcode IN (
 
-		# selecting the patients... could also previously put this in a table
+		# selecting the cases... could also previously put this in a table
 	    SELECT
-	      ParticipantBarcode
+	      case_barcode
 	    FROM
-	      [isb-cgc:tcga_201607_beta.Clinical_data]
+	      [isb-cgc:TCGA_bioclin_v0.Clinical]
 	    WHERE
 	      hpv_status = 'Positive' )
 	    AND HGNC_gene_symbol IN (
@@ -420,28 +420,28 @@ Please see: https://cloud.google.com/bigquery/query-reference
 	    GROUP BY
 	      HGNC_gene_symbol )
 	  GROUP BY
-	    Study,
+	    project_short_name,
 	    HGNC_gene_symbol) AS o
 
 	JOIN (
 
 	  # Then we get the gene expression summaries from hpv-
 	  SELECT
-	    Study,
+	    project_short_name,
 	    HGNC_gene_symbol,
 	    AVG(LOG2(normalized_count+1)) AS x,
 	    POW(STDDEV(LOG2(normalized_count+1)),2) AS sx2,
-	    COUNT(ParticipantBarcode) AS nx
+	    COUNT(case_barcode) AS nx
 	  FROM
-	    [isb-cgc:tcga_201607_beta.mRNA_UNC_HiSeq_RSEM]
+	    [isb-cgc:TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM]
 	  WHERE
-	    Study = 'CESC'
+	    project_short_name = 'TCGA-CESC'
 	    AND SampleTypeLetterCode = 'TP'
-	    AND ParticipantBarcode IN (
+	    AND case_barcode IN (
 	    SELECT
-	      ParticipantBarcode
+	      case_barcode
 	    FROM
-	      [isb-cgc:tcga_201607_beta.Clinical_data]
+	      [isb-cgc:TCGA_bioclin_v0.Clinical]
 	    WHERE
 	      hpv_status = 'Negative' )
 	    AND HGNC_gene_symbol IN (
@@ -456,14 +456,14 @@ Please see: https://cloud.google.com/bigquery/query-reference
 	    GROUP BY
 	      HGNC_gene_symbol )
 	  GROUP BY
-	    Study,
+	    project_short_name,
 	    HGNC_gene_symbol) AS p
 	ON
 	  p.HGNC_gene_symbol = o.HGNC_gene_symbol
-	  AND p.Study = o.Study
+	  AND p.project_short_name = o.project_short_name
 	GROUP BY
 	  gene,
-	  Study,
+	  project_short_name,
 	  x,
 	  sx2,
 	  nx,

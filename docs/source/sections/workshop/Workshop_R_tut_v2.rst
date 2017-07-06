@@ -93,20 +93,20 @@ The general structure of the query is going to be:
       SELECT
         *
       FROM
-        [isb-cgc:tcga_201607_beta.mRNA_UNC_RSEM]
+        [isb-cgc:TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM]
       WHERE
         HGNC_gene_symbol IN ('APLN','CCL26','IL19','IL37')
-        AND Study = 'COAD'
+        AND project_short_name = 'TCGA-COAD'
         AND SampleTypeLetterCode = 'TP'
       ) AS a
     JOIN (
       SELECT
         *
       FROM
-        [isb-cgc:tcga_201607_beta.mRNA_UNC_RSEM]
+        [isb-cgc:TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM]
       WHERE
         HGNC_gene_symbol IN ('APLN','CCL26','IL19','IL37')
-        AND Study = 'COAD'
+        AND project_short_name = 'TCGA-COAD'
         AND SampleTypeLetterCode = 'TP'
       ) AS b
     ON
@@ -164,7 +164,7 @@ coefficient of variance.
       HGNC_gene_symbol,
       STDDEV(normalized_count+1) / AVG(normalized_count+1) AS cv
     FROM
-      [isb-cgc:tcga_201607_beta.mRNA_UNC_RSEM]
+      [isb-cgc:TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM]
     WHERE
       HGNC_gene_symbol IN (
       SELECT
@@ -173,7 +173,7 @@ coefficient of variance.
         [isb-cgc:genome_reference.GO_Annotations]
       WHERE
         GO_ID = 'GO:0006955')
-      AND Study = 'BRCA'
+      AND project_short_name = 'TCGA-BRCA'
       AND SampleTypeLetterCode = 'TP'
     GROUP BY
       HGNC_gene_symbol
@@ -241,8 +241,8 @@ HERE I'm using my cohort #4, but change this to whatever you have saved.
     names(my_barcodes)
 
 The object returned from barcodes_from_cohort is again a list, this time with
-elements 'cohort_id', 'sample_count', 'patient_count', 'patients', and 'samples'.
-The patients and samples elements are also lists, but lists of patients or sample barcodes.
+elements 'cohort_id', 'sample_count', 'case_count', 'cases', and 'samples'.
+The cases and samples elements are also lists, but lists of cases or sample barcodes.
 
 .. code-block:: r
 
@@ -274,7 +274,7 @@ But also we can incorporate long lists of samples or genes into a query.
       SELECT
         *
       FROM
-        [isb-cgc:tcga_201607_beta.mRNA_UNC_HiSeq_RSEM]
+        [isb-cgc:TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM]
       WHERE
         HGNC_gene_symbol IN ", sqf(genes), "
         AND SampleBarcode IN ", sqf(samples), "
@@ -284,7 +284,7 @@ But also we can incorporate long lists of samples or genes into a query.
       SELECT
         *
       FROM
-        [isb-cgc:tcga_201607_beta.mRNA_UNC_HiSeq_RSEM]
+        [isb-cgc:TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM]
       WHERE
         HGNC_gene_symbol IN ", sqf(genes), "
         AND SampleBarcode IN ", sqf(samples), "

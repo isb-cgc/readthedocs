@@ -46,10 +46,6 @@ can be used to see details about each endpoint, and also provides a convenient i
 to test an endpoint through your web browser.
 Following the link in the previous sentence will take you to a page with a list of APIs, in which each
 API consists of a set of functionally-related endpoints.  Together, these individual APIs make up the **ISB-CGC API**.
-In order to see the individual endpoints within a single API, click on the API name, such as the
-`cohort API v1 <https://apis-explorer.appspot.com/apis-explorer/?base=https://api-dot-isb-cgc.appspot.com/_ah/api#p/cohort_api/v1/>`_
-or the just-released
-`ISB-CGC API v2 <https://apis-explorer.appspot.com/apis-explorer/?base=https://api-dot-isb-cgc.appspot.com/_ah/api#p/isb_cgc_api/v2/>`_.
 (Note that not all of these APIs are intended for direct use by end-users:
 some are intended for use only by the ISB-CGC Web-App, as described in the information on the 
 first APIs Explorer page mentioned above.)
@@ -182,8 +178,13 @@ Documentation for these functions can be found in the ISB-CGC github repo,
 ISB-CGC API (v3)
 =================
 
-The endpoints have been reorganized to support the multiple programs that now have data in the ISB-CGC.  These endpoints are now organized into four different sections:  TCGA, CCLE, TARGET and common endpoints.
+The endpoints have been reorganized to support the multiple programs that now have data in the ISB-CGC.  These endpoints are now organized into four different sections:  TCGA, CCLE, TARGET and common endpoints. 
+
+**Please Note:** For the create.cohort API for all programs require the user to select inbetween the brackets to view the possible filter(s) for cohort being built.
+
 Details for each of these enpoints can be found below:
+
+**Universal Endpoints**
 
 .. toctree::
    :maxdepth: 1

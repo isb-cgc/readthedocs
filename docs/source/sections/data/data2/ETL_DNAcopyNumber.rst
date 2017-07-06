@@ -27,7 +27,7 @@ methods, and protocols used to produce the Level-1, Level-2, and Level-3 data.
 
 ETL Details
 -----------
-Each Level-3 data archive contains 4 output files per sample assayed: two based on the hg18 reference, and two based on the hg19 reference. 
+Each Level-3 data archive contains 4 output files per sample assayed: two based on the hg18 reference, and two based on the hg19 reference for the TCGA HG19 data table.  
 The BigQuery table is populated only with the files ending with ``nocnv\_hg19.seg.txt``. 
 The ``num_probes`` and ``segment_mean`` fields in the raw files are sometimes represented using
 Exponential Scientific Notation (*eg* 8.7E+07) 

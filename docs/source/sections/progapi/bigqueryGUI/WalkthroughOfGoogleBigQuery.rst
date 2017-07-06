@@ -13,42 +13,14 @@ Also to add ISB-CGC data to your BigQuery platform please refer to the documenta
 *****************************
 ISB-CGC Data Sets in BigQuery
 *****************************
-Below are the list of ISB-CGC hosted data sets that can be accessed once you have linked your platform to the ISB-CGC project.
+ISB-CGC maintains multiple `data sets in BigQuery <../../data/data2/data_in_BQ.html>`__ including:
 
-* **isb-cgc:ccle_201602_alpha**
- 
- This dataset has been created and curated by the ISB-CGC project to be used in conjunction with the TCGA and other datasets currently hosted by the ISB-CGC.  For more information about the ISB-CGC, please see our documentation on `readthedocs.   <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/>`_
+* `TCGA clinical, biospecimen and molecular data <../../data/data2/data_in_BQ.html#tcga-clinical-biospecimen-and-molecular-data>`__
+* `TARGET clinical, biospecimen and molecular data <../../data/data2/data_in_BQ.html#target-clinical-biospecimen-and-molecular-data>`__
+* `A wide variety of related metadata <../../data/data2/data_in_BQ.html#additional-metadata>`__
 
- This specific dataset contains data from the Broad-Novartis Cancer Cell Line Encyclopedia (CCLE) project and is being redistributed with permission from the Broad Institute.
- 
- Neither the CCLE project nor the Broad institute are responsible for any errors that may have been made when creating these tables.  For more information about the CCLE project and to access the original datasets, please refer to the `CCLE website.  <http://www.broadinstitute.org/ccle/home>`_
+With the exception of the COSMIC mutation data, all data in BigQuery is open for general use.
 
-* **isb-cgc:genome_reference**
-
- This dataset contains reference tables that have been compiled by the ISB-CGC team from publicly available sources.  Please see each table for details about the source of the information contained in that table.
-
-* **isb-cgc:platform_reference**
-
- This dataset contains platform reference tables that have been compiled by the ISB-CGC team from publicly available sources.  Specifically, these tables are used as additional annotation for data from results provided by instrumentation used in the TCGA project to collect data.
-
-* **isb-cgc:tcga_201607_beta**
-
- This set of BigQuery tables was produced by the ISB-CGC project, based on the open-access TCGA data available at the TCGA Data Portal as of October 2015.  For more information, see `here for more details <https://github.com/isb-cgc/examples-Python/blob/master/notebooks/The%20ISB-CGC%20open-access%20TCGA%20tables%20in%20BigQuery.ipynb>`_ or e-mail info@isb-cgc.org .
-
-* **isb-cgc:tcga_cohorts**
-
- This dataset contains individual "cohort" tables for each of the TCGA tumor types, as well as a single table in which all of these tables have been concatenated.  To be included in this list, there must be at least some molecular data available for each sample, and there must not be any disqualifying annotations for either the patient or the sample.
-
- These cohort tables were created based on the isb-cgc:tcga_201607_beta dataset and are provided as a resource to the research community by the ISB-CGC.
-
-* **isb-cgc:tcga_seq_metadata**
-
- This dataset contains metadata and FastQC metrics for thousands of TCGA DNA-seq and RNA-seq data files:
- 
- * CGHub_Manifest table contains metadata for all TCGA files at CGHub as of April 27th, 2016
- * GCS_listing_27apr2016 table contains metadata for all TCGA files hosted by ISB-CGC in GCS
- * RNAseq_FastQC table contains metrics derived from FastQC runs on the RNAseq data files, including urls to the FastQC html reports that you can cut and paste directly into your browser
- * WXS_FastQC table contains metrics derived from FastQC runs on the exome DNAseq data files
 
 
 ************************
@@ -66,13 +38,13 @@ Getting information from one table
 .. code-block:: sql
 
     SELECT
-      ParticipantBarcode, Study, original_gene_symbol, HGNC_gene_symbol, gene_id
+      case_barcode, project_short_name, original_gene_symbol, HGNC_gene_symbol, gene_id
     FROM
-      [isb-cgc:tcga_201607_beta.mRNA_UNC_HiSeq_RSEM]
+      [isb-cgc:TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM]
     WHERE
       original_gene_symbol = 'ARID1B'
     AND
-      STUDY = 'THCA' LIMIT 100
+      project_short_name = 'TCGA-THCA' LIMIT 100
   
 .. image:: BigQueryExample1Query.PNG
    :scale: 50
@@ -96,18 +68,18 @@ the type of mutation
 .. code-block:: sql
 
     SELECT
-      mutation.ParticipantBarcode,
+      mutation.case_barcode,
       mutation.Variant_Type
     FROM
-      [isb-cgc:tcga_201607_beta.Somatic_Mutation_calls] AS mutation
+      [isb-cgc:TCGA_hg19_data_v0.Somatic_Mutation_DCC] AS mutation
     WHERE
       mutation.Hugo_Symbol = 'CDKN2A'
-      AND Study = 'BLCA'
+      AND project_short_name = 'TCGA-BLCA'
     GROUP BY
-      mutation.ParticipantBarcode,
+      mutation.case_barcode,
       mutation.Variant_Type
     ORDER BY
-      mutation.ParticipantBarcode
+      mutation.case_barcode
 
 .. image:: BigQueryExample2Query.PNG
    :scale: 50
@@ -115,7 +87,7 @@ the type of mutation
    
 We now have the list of patients that have a mutation in the CDKN2A gene and the type of mutation.
 
-Notice that we have named the "isb-cgc:tcga_201607_beta.Somatic_Mutation_calls" table "mutation" using the AS statement.  This is useful for easier reading and composing of complex queries.
+Notice that we have named the "isb-cgc:TCGA_hg19_data_v0.Somatic_Mutation_DCC" table "mutation" using the AS statement.  This is useful for easier reading and composing of complex queries.
 
 Stage 2
 *******
@@ -124,32 +96,32 @@ Bringing in the patient data from the ISB-CGC TCGA Clinical table so that we can
 .. code-block:: sql
 
     SELECT
-      patient_list.mutation.ParticipantBarcode AS ParticipantBarcode,
-      patient_list.mutation.Variant_Type AS Variant_Type,
+      case_list.mutation.case_barcode AS case_barcode,
+      case_list.mutation.Variant_Type AS Variant_Type,
       clinical.gender,
       clinical.vital_status,
       clinical.days_to_death
     FROM
-      /* this will get the unique list of patients having the TP53 gene mutation in BRCA patients*/ (
+      /* this will get the unique list of cases having the TP53 gene mutation in BRCA cases*/ (
       
       SELECT
-        mutation.ParticipantBarcode,
+        mutation.case_barcode,
         mutation.Variant_Type
       FROM
-        [isb-cgc:tcga_201607_beta.Somatic_Mutation_calls] AS mutation
+        [isb-cgc:TCGA_hg19_data_v0.Somatic_Mutation_DCC] AS mutation
       WHERE
         mutation.Hugo_Symbol = 'CDKN2A'
-        AND Study = 'BLCA'
+        AND project_short_name = 'TCGA-BLCA'
       GROUP BY
-        mutation.ParticipantBarcode,
+        mutation.case_barcode,
         mutation.Variant_Type
       ORDER BY
-        mutation.ParticipantBarcode,
-        ) AS patient_list /* end patient_list */
+        mutation.case_barcode,
+        ) AS case_list /* end case_list */
     JOIN
-      [isb-cgc:tcga_201607_beta.Clinical_data] AS clinical
+      [isb-cgc:TCGA_bioclin_v0.Clinical] AS clinical
     ON
-      patient_list.ParticipantBarcode = clinical.ParticipantBarcode
+      case_list.case_barcode = clinical.case_barcode
   
 .. image:: BigQueryExample3Query.PNG
    :scale: 50
@@ -157,65 +129,65 @@ Bringing in the patient data from the ISB-CGC TCGA Clinical table so that we can
    
 We now have combined information from two tables through a join.  Notice in particular the join syntax, 
 and the fact that
-for the join (inner join by default), the fields that are identiical between the mutation table and the clinical table is "ParticipantBarcode".  
+for the join (inner join by default), the fields that are identiical between the mutation table and the clinical table is "case_barcode".  
 
 Stage 3
 *******
-Show the gene expression levels for the 4 genes of interest, and order them by patient id (Participant Barcode) and gene name (HGNC_gene_symbol).  
+Show the gene expression levels for the 4 genes of interest, and order them by case id (Case Barcode) and gene name (HGNC_gene_symbol).  
   
 .. code-block:: sql
 
     SELECT
-      genex.ParticipantBarcode AS ParticipantBarcode,
-      genex.SampleBarcode AS SampleBarcode,
-      genex.AliquotBarcode AS AliquotBarcode,
+      genex.case_barcode AS case_barcode,
+      genex.sample_barcode AS sample_barcode,
+      genex.aliquot_barcode AS aliquot_barcode,
       genex.HGNC_gene_symbol AS HGNC_gene_symbol,
-      patient_list.Variant_Type AS Variant_Type,
+      case_list.Variant_Type AS Variant_Type,
       genex.gene_id AS gene_id,
       genex.normalized_count AS normalized_count,
-      genex.Study AS Study,
+      genex.project_short_name AS project_short_name,
       clinical_info.clinical.gender AS gender,
       clinical_info.clinical.vital_status AS vital_status,
       clinical_info.clinical.days_to_death AS days_to_death
-    FROM ( /* This will get the clinical information for the patients*/
+    FROM ( /* This will get the clinical information for the cases*/
       SELECT
-        patient_list.mutation.Variant_Type AS Variant_Type,
-        patient_list.mutation.ParticipantBarcode AS ParticipantBarcode,
+        case_list.mutation.Variant_Type AS Variant_Type,
+        case_list.mutation.case_barcode AS case_barcode,
         clinical.gender,
         clinical.vital_status,
         clinical.days_to_death
       FROM
-        /* this will get the unique list of patients having the CDKN2A gene mutation in bladder cancer BLCA patients*/ (
+        /* this will get the unique list of casess having the CDKN2A gene mutation in bladder cancer BLCA cases*/ (
         
         SELECT
-          mutation.ParticipantBarcode,
+          mutation.case_barcode,
           mutation.Variant_Type
         FROM
-          [isb-cgc:tcga_201607_beta.Somatic_Mutation_calls] AS mutation
+          [isb-cgc:TCGA_hg19_data_v0.Somatic_Mutation_DCC] AS mutation
         WHERE
           mutation.Hugo_Symbol = 'CDKN2A'
-          AND Study = 'BLCA'
+          AND project_short_name = 'TCGA-BLCA'
         GROUP BY
-          mutation.ParticipantBarcode,
+          mutation.case_barcode,
           mutation.Variant_Type
         ORDER BY
-          mutation.ParticipantBarcode,
-          ) AS patient_list /* end patient_list */
+          mutation.case_barcode,
+          ) AS case_list /* end case_list */
       INNER JOIN
-        [isb-cgc:tcga_201607_beta.Clinical_data] AS clinical
+        [isb-cgc:TCGA_bioclin_v0.Clinical] AS clinical
       ON
-        patient_list.ParticipantBarcode = clinical.ParticipantBarcode /* end clinical annotation */ ) AS clinical_info
+        case_list.case_barcode = clinical.case_barcode /* end clinical annotation */ ) AS clinical_info
     INNER JOIN
-      [isb-cgc:tcga_201607_beta.mRNA_UNC_HiSeq_RSEM] AS genex
+      [isb-cgc:TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM] AS genex
     ON
-      genex.ParticipantBarcode = patient_list.ParticipantBarcode
+      genex.case_barcode = case_list.case_barcode
     WHERE
       genex.HGNC_gene_symbol IN ('MDM2',
         'TP53',
         'CDKN1A',
         'CCNE1')
     ORDER BY
-      ParticipantBarcode,
+      case_barcode,
       HGNC_gene_symbol
 
 .. image:: BigQueryExample4Query.PNG
@@ -226,7 +198,7 @@ We have now gotten all the data together in one table for further analysis.
 
 Note that the final join surrounds the previous join top and bottom.  This is common method of doing joins.
 
-You can either download the results from a query in either CV or JSON format, or save it for further analysis in Google BigQuery by the "Save as Table" button.  As the next section describes, large queries continuing to combine multiple tables in a gene query may be limited by cost and resources, saving results as intermediate tables is a solution to these issues.
+You can either download the results from a query in either CSV or JSON format, or save it for further analysis in Google BigQuery by the "Save as Table" button.  As the next section describes, large queries continuing to combine multiple tables in a gene query may be limited by cost and resources, saving results as intermediate tables is a solution to these issues.
 
 *********************************************
 Saving Query Results in other BigQuery Tables

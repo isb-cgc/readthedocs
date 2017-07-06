@@ -70,11 +70,11 @@ In order to make use of all of the data, tools, and functionality described in t
 you will also need your own GCP project.
 
 We'd like to encourage you to take advantage of the 
-`60-day free trial <https://cloud.google.com/free-trial/>`_ offered by Google.
+`free trial <https://cloud.google.com/free/>`_ offered by Google.
 If you have already used this one-time offer (or there is some other reason you cannot use it)
 please see the information `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Support.html>`_
 about requesting an ISB-CGC provided (and funded) project.  (We'll also be happy to do that for
-you *after* you use the $300/60-day free trial.)
+you *after* you use the $300 Google credit / free trial.)
 
 Google Cloud Platform Console
 -----------------------------

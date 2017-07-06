@@ -99,8 +99,7 @@ The panel in the center of the screen, with four tabs called "TCGA DATA", "CCLE 
    
 Molecular Tab
 ^^^^^^^^^^^^^
-
-    * Gene Mutation Status (creating a cohort based on the presence of a mutation (of various types) in a gene)
+    * Gene Mutation Status (creating a cohort based on the presence of a mutation (of various types) in a gene)  You can also filter by different genomic builds and hence different BigQuery Tables.  The two BigQuery tables you can select from are *TCGA_hg19_data_v0:Somatic_Mutation_MC3* and *TCGA_hg38_data_v0:Somatic_Mutation*. 
     
 Programs & Projects Tab
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -304,8 +303,8 @@ You can use the "Previous Page" and "Next Page" buttons to see more values in th
 You can filter by Genomic Build either HG19 or HG38 and view which platforms and files are available for the build selected.  You may also filter on these files if you are only interested in a specific data type and platform.  Selecting a filter will
 update the associated list.  The numbers next to the platform refers to the number of files available for that platform.
 
-If there are files that contain read-level data, you will be able to select files to view in the IGV 
-viewer by selecting check boxes beside the viewer and selecting "Launch IGV" button.  Only if you have authenticated 
+If there are files that contain read-level data are displayed in the IGV column, you will be able to select files to view in the IGV 
+viewer by selecting check boxes beside the viewer and selecting "Launch IGV" button.  The term "cloud storage" represents there are bam files associated to the sample in Google Cloud Storage for ISB-CGC that can be viewed in IGV browser.  Only if you have authenticated 
 as a dbGaP authorized user will you be able to select controlled access files to view in the IGV viewer (CCLE data does not require authorization to view the sequence data in the IGV viewer).
 
 Download File List as CSV

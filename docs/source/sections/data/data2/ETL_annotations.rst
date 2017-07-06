@@ -11,26 +11,34 @@ fields were selected to be loaded into the BigQuery table.  In the flattening
 process, sub-level field names were prefixed with the parent name, separated by
 an underscore.  These names have now been updated to reflect their names in the Genome Data Commons (GDC) Annotations API.
 Please refer directly to BigQuery for the table 
-`schema <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_bioclin_v0.Annotations>`__
+`schema <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_bioclin_v0.Annotations>`__.
 
 +------------------------------------------------------------------------------+----------------------------+
 | Original field name                                                          | New field name             |
 +==============================================================================+============================+
-| annotationCategory\_annotationClassification\_annotationClassificationName   | classification             |
+| items\_disease\_abbreviation                                                 | project_short_name         |
++------------------------------------------------------------------------------+----------------------------+
+| items_item                                                                   | entity_barcode             |
++------------------------------------------------------------------------------+----------------------------+
+| items_itemType_itemTypeName                                                  | entity_type                |
 +------------------------------------------------------------------------------+----------------------------+
 | annotationCategory\_categoryName                                             | category                   |
 +------------------------------------------------------------------------------+----------------------------+
-| items\_disease\_abbreviation                                                 | project_short_name         |
-+------------------------------------------------------------------------------+----------------------------+
-| items\_item                                                                  | entity_barcode             |
-+------------------------------------------------------------------------------+----------------------------+
-| items\_itemType\_itemTypeName                                                | entity_type                |
+| annotationCategory\_annotationClassification\_annotationClassificationName   | classification             |
 +------------------------------------------------------------------------------+----------------------------+
 | notes\_noteText                                                              | notes                      |
 +------------------------------------------------------------------------------+----------------------------+
-| notes\_dateAdded                                                             | date_created               |
+| notes_dateAdded                                                              | date_created               |
 +------------------------------------------------------------------------------+----------------------------+
 | notes\_dateEdited                                                            | date_edited                |
++------------------------------------------------------------------------------+----------------------------+
+| not available                                                                | case_gdc_id                |
++------------------------------------------------------------------------------+----------------------------+
+| not available                                                                | case_barcode               |
++------------------------------------------------------------------------------+----------------------------+
+| not available                                                                | sample_barcode             |
++------------------------------------------------------------------------------+----------------------------+
+| not available                                                                | aliqout_barcode            |
 +------------------------------------------------------------------------------+----------------------------+
 
 Sample and Participant barcodes are filled in (*ie* not null) whenever the
