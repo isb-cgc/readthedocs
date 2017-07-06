@@ -57,7 +57,7 @@ BigQuery
 
   - GDC metadata for files https://gdc.cancer.gov/
   - genome references
-  - tcga_201607_beta
+  - tcga_hg19_data_v0
 
     - methylation by chr
     - joined RNA-seq tables (mRNA_UNC_RSEM)

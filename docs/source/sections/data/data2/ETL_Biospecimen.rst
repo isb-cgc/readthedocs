@@ -2,7 +2,7 @@ Biospecimen
 ===========
 
 The 
-`Biospecimen_data <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201607_beta.Biospecimen_data>`_ 
+`Biospecimen_data <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_bioclin_v0.Biospecimen>`_ 
 table contains one row per TCGA sample.  Each TCGA sample is
 uniquely represented by a 
 `TCGA barcode <https://wiki.nci.nih.gov/display/TCGA/TCGA+barcode>`_

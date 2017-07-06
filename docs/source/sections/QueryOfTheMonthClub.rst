@@ -9,6 +9,25 @@ BigData from the TCGA and BigQuery from Google.
 Please let us know if you'd like to be featured on the "query-club"!
 email: dgibbs (at) systemsbiology (dot) org
 
+** Important Changes to Datasets **
+###################################
+
+Recently, we have moved to a new version of the TCGA data, to align with the data found
+at the GDC's new website. `NCI-GDC Data Portal <https://gdc-portal.nci.nih.gov/>`_
+
+
+The older data set, tcga_201607_beta, has been replace by three new datasets.
+TCGA_bioclin_v0 (clinical and sample quality), and TCGA_hg19_data_v0 and TCGA_hg38_data_v0
+(molecular data).
+
+
+As a result, some commonly used column names have changed.
+"Study" is now "project_short_name" and "PAAD" is now "TCGA-PAAD".
+"ParticipantBarcode" is now "case_barcode". "SampleBarcode" is now "sample_barcode".
+ "AliquotBarcode" is now "aliquot_barcode"
+
+
+Older Queries of the Month will need to be revised accordingly. Thank you!
 
 ------------------
 
@@ -549,7 +568,7 @@ OK! Now we've got some pretty decent overlaps. We now have a way to search for
 similarities among groups of samples based on functionally based shared mutation
 profiles.
 
-Turning this question around a little bit, 
+Turning this question around a little bit,
 what if we looked at the overlap on the pathway level instead?
 
 .. code-block:: sql

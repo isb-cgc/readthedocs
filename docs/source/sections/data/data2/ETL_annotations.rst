@@ -2,7 +2,7 @@ Annotations
 ===========
 
 The TCGA Annotations BigQuery
-`table <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201607_beta.Annotations>`__
+`table <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_bioclin_v0.Annotations>`__
 was created based on the contents of the JSON file obtained from the TCGA
 Annotation manager `Web Service
 API <https://wiki.nci.nih.gov/display/TCGA/TCGA+Annotations+Web+Service+User's+Guide>`__.
@@ -12,33 +12,38 @@ process, sub-level field names were prefixed with the parent name, separated by
 an underscore.  These names were then abbreviated to shorter names,
 as specified in the table below.
 Please refer directly to BigQuery for the table 
-`schema <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201607_beta.Annotations>`__
+`schema <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_bioclin_v0.Annotations>`__.
+
 
 +------------------------------------------------------------------------------+----------------------------+
 | Original field name                                                          | New field name             |
 +==============================================================================+============================+
-| annotationCategory\_annotationClassification\_annotationClassificationName   | annotationClassification   |
+| items\_disease\_abbreviation                                                 | project_short_name         |
 +------------------------------------------------------------------------------+----------------------------+
-| annotationCategory\_categoryId                                               | annotationCategoryId       |
+| items_item                                                                   | entity_barcode             |
 +------------------------------------------------------------------------------+----------------------------+
-| annotationCategory\_categoryName                                             | annotationCategoryName     |
+| items_itemType_itemTypeName                                                  | entity_type                |
 +------------------------------------------------------------------------------+----------------------------+
-| id                                                                           | annotationId               |
+| annotationCategory\_categoryName                                             | category                   |
 +------------------------------------------------------------------------------+----------------------------+
-| items\_disease\_abbreviation                                                 | Study                      |
+| annotationCategory\_annotationClassification\_annotationClassificationName   | Classification             |
 +------------------------------------------------------------------------------+----------------------------+
-| items\_item                                                                  | itemBarcode                |
+| notes\_noteText                                                              | notes                      |
 +------------------------------------------------------------------------------+----------------------------+
-| items\_itemType\_itemTypeName                                                | itemTypeName               |
+| notes_dateAdded                                                              | date_created               |
 +------------------------------------------------------------------------------+----------------------------+
-| notes\_noteText                                                              | annotationNoteText         |
+| notes\_dateEdited                                                            | date_edited                |
 +------------------------------------------------------------------------------+----------------------------+
-| notes\_dateAdded                                                             | dateAdded                  |
+| not available                                                                | case_gdc_id                |
 +------------------------------------------------------------------------------+----------------------------+
-| notes\_dateEdited                                                            | dateEdited                 |
+| not available                                                                | case_barcode               |
++------------------------------------------------------------------------------+----------------------------+
+| not available                                                                | sample_barcode             |
++------------------------------------------------------------------------------+----------------------------+
+| not available                                                                | aliqout_barcode            |
 +------------------------------------------------------------------------------+----------------------------+
 
-Sample and Participant barcodes are filled in (*ie* not null) whenever the
+Sample and Cases barcodes are filled in (*ie* not null) whenever the
 "itemBarcode" is at least 16 or 12 characters long, respectively.  For example, a
 "Shipped Portion" would result in a filled in "ParticipantBarcode" and
 "SampleBarcode" fields. Please note, however, that the annotation applies *only* to the item
