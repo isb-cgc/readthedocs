@@ -39,6 +39,13 @@ or your own personal project) and the ISB-CGC is your Google identity
 Access to all ISB-CGC hosted data is controlled using access control lists (ACLs) which define the
 permissions attached to each dataset, bucket, or object.
 
+**Why do I add the service account 907668440978-oskt05du3ao083cke14641u35deokgjj@developer.gserviceaccount.com to my Google Cloud Project?**
+
+This service account is needed  in your Google Cloud Project to verify that all users of your Google Cloud Project have the same access rights to protected data as you do.
+
+**What service account do I use on the Register a Service Account page to be able to gain access to protected data?**
+
+
 **Why can't I re-authorized my Service Account on my Google Cloud Projct?**
 
 Your service account may have its permissions revoked (because, for example, the 7-day limit has expired, or you have added a member to the
