@@ -41,18 +41,20 @@ permissions attached to each dataset, bucket, or object.
 
 **Why do I add the service account 907668440978-oskt05du3ao083cke14641u35deokgjj@developer.gserviceaccount.com to my Google Cloud Project?**
 
-This service account is needed  in your Google Cloud Project to verify that all users of your Google Cloud Project have the same access rights to protected data as you do.
+This service account is needed  in your Google Cloud Project for the ISB-CGC project to be able to automatically verify that all users of your Google Cloud Project have the same appropriate access rights to the protected data that has been reuested for the project.
 
 **What service account do I use on the Register a Service Account page to be able to gain access to protected data?**
 
-On the Register a Service account page you are asked to input a service account ID.  You need to go to the IAM and Admin page which can be found in your console for you Google Cloud Project to find the correct service account.  The service account you would like to use is named, "Compute Engine default service account".  Please input that service account in the Reegister a service account page.
+On the Register a Service account page you are asked to input a service account ID.  You need to go to the IAM and Admin page which can be found in your console for you Google Cloud Project to find the correct service account.  The service account you would like to use is named, "Compute Engine default service account".  Please input that service account in the Register a service account page. *Please DO NOT use the service account 907668440978-oskt05du3ao083cke14641u35deokgjj@developer.gserviceaccount.com (you will be prevented from using this account by our software and an error message will be sent indicating this).* 
 
-**Why can't I re-authorized my Service Account on my Google Cloud Projct?**
+**Why can't I re-authorized my Service Account on my Google Cloud Project?**
 
-Your service account may have its permissions revoked (because, for example, the 7-day limit has expired, or you have added a member to the
-GCP who is not authorized to use that controlled data or has not logged into the ISB-CGC UI and authenticated using their dbGaP
+Your service account may have had its permissions revoked (because, for example, the 7-day limit has expired, or you have added a member to the GCP who is not authorized to use that controlled data or has not logged into the ISB-CGC UI and authenticated using their dbGaP
 credentials). If permissions were revoked because an unauthorized user was added to the project, the Google Cloud Project owner will be sent
-an email specifying the Service Account, GCP Project, and user which resulted in the access being revoked. If the user has not logged into the ISB-CGC interface and or has not authenticated.  You will be given a red error message when attempting to refresh using the refresh wheel.  To see which new user hasn't logged in or authenticated you can go to the Register a Service Account page and see which user it is with the table presented for which dataset selected. 
+an email specifying the Service Account, GCP Project, and user which resulted in the access being revoked. If the user has not logged into the ISB-CGC interface and or has not authenticated, you will be given a red error message saying, "There was an error in processing your service account. Please try again." when attempting to refresh using the refresh wheel.  To see which new user hasn't logged in or authenticated, please go to the Register a Service Account page and see which user it is within the table for which the dataset is not selected and there are X's in the Registered and Has NIH Identity.
+
+
+Ensure that the user has 1)Logged into the ISB-CGC user interface and 2) Has registered their NIH Identity with their user interface identity.
 
 To reauthorize the service account 1) remedy the problem that resulted in access being denied, and 2) select the "refresh" icon beside the
 service account.
