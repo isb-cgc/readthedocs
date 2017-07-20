@@ -45,6 +45,7 @@ This service account is needed  in your Google Cloud Project to verify that all 
 
 **What service account do I use on the Register a Service Account page to be able to gain access to protected data?**
 
+On the Register a Service account page you are asked to input a service account ID.  You need to go to the IAM and Admin page which can be found in your console for you Google Cloud Project to find the correct service account.  The service account you would like to use is named, "Compute Engine default service account".  Please input that service account in the Reegister a service account page.
 
 **Why can't I re-authorized my Service Account on my Google Cloud Projct?**
 
