@@ -55,7 +55,7 @@ credentials). If permissions were revoked because an unauthorized user was added
 an email specifying the Service Account, GCP Project, and user which resulted in the access being revoked. If the user has not logged into the ISB-CGC interface and or has not authenticated.  You will be given a red error message when attempting to refresh using the refresh wheel.  To see which new user hasn't logged in or authenticated you can go to the Register a Service Account page and see which user it is with the table presented for which dataset selected. 
 
 To reauthorize the service account 1) remedy the problem that resulted in access being denied, and 2) select the "refresh" icon beside the
-service account
+service account.
 
 Data Access
 ###########
