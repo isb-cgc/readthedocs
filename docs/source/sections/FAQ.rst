@@ -53,6 +53,9 @@ Your service account may have had its permissions revoked (because, for example,
 credentials). If permissions were revoked because an unauthorized user was added to the project, the Google Cloud Project owner will be sent
 an email specifying the Service Account, GCP Project, and user which resulted in the access being revoked. If the user has not logged into the ISB-CGC interface and or has not authenticated, you will be given a red error message saying, "There was an error in processing your service account. Please try again." when attempting to refresh using the refresh wheel.  To see which new user hasn't logged in or authenticated, please go to the Register a Service Account page and see which user it is within the table for which the dataset is not selected and there are X's in the Registered and Has NIH Identity.
 
+.. image:: authorizedtable.PNG
+   :scale: 50
+   :align: center
 
 Ensure that the user has 1)Logged into the ISB-CGC user interface and 2) Has registered their NIH Identity with their user interface identity.
 
