@@ -85,7 +85,6 @@ The general structure of the query is going to be:
 .. code-block:: r
 
     q <- "
-<<<<<<< HEAD
 	SELECT
 	  a.gene_name AS gene1,
 	  b.gene_name AS gene2,
@@ -118,38 +117,6 @@ The general structure of the query is going to be:
 	GROUP BY
 	  gene1,
 	  gene2"
-=======
-    SELECT
-      a.HGNC_gene_symbol as gene1,
-      b.HGNC_gene_symbol as gene2,
-      CORR(a.normalized_count, b.normalized_count) as corr
-    FROM (
-      SELECT
-        *
-      FROM
-        [isb-cgc:TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM]
-      WHERE
-        HGNC_gene_symbol IN ('APLN','CCL26','IL19','IL37')
-        AND project_short_name = 'TCGA-COAD'
-        AND SampleTypeLetterCode = 'TP'
-      ) AS a
-    JOIN (
-      SELECT
-        *
-      FROM
-        [isb-cgc:TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM]
-      WHERE
-        HGNC_gene_symbol IN ('APLN','CCL26','IL19','IL37')
-        AND project_short_name = 'TCGA-COAD'
-        AND SampleTypeLetterCode = 'TP'
-      ) AS b
-    ON
-      a.AliquotBarcode = b.AliquotBarcode
-      AND a.Platform = b.Platform
-    GROUP BY
-      gene1,
-      gene2"
->>>>>>> a8bfd6fc3d0aa0af5fe6f0b81485658690f4956c
 
     corrs <- query_exec(q,my_cloud_project)
 
@@ -195,7 +162,6 @@ coefficient of variance.
 .. code-block:: r
 
     q <- "
-<<<<<<< HEAD
 	SELECT
 	  gene_name,
 	  STDDEV(HTSeq__FPKM+1) / AVG(HTSeq__FPKM+1) AS cv
@@ -216,29 +182,6 @@ coefficient of variance.
 	  cv DESC
 	LIMIT
 	  50"
-=======
-    SELECT
-      HGNC_gene_symbol,
-      STDDEV(normalized_count+1) / AVG(normalized_count+1) AS cv
-    FROM
-      [isb-cgc:TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM]
-    WHERE
-      HGNC_gene_symbol IN (
-      SELECT
-        DB_Object_Symbol
-      FROM
-        [isb-cgc:genome_reference.GO_Annotations]
-      WHERE
-        GO_ID = 'GO:0006955')
-      AND project_short_name = 'TCGA-BRCA'
-      AND SampleTypeLetterCode = 'TP'
-    GROUP BY
-      HGNC_gene_symbol
-    ORDER BY
-      cv DESC
-    LIMIT
-      50"
->>>>>>> a8bfd6fc3d0aa0af5fe6f0b81485658690f4956c
 
     result <- query_exec(q, my_cloud_project)
     genes <- result$HGNC_gene_symbol
@@ -332,11 +275,7 @@ But also we can incorporate long lists of samples or genes into a query.
       SELECT
         *
       FROM
-<<<<<<< HEAD
         `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
-=======
-        [isb-cgc:TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM]
->>>>>>> a8bfd6fc3d0aa0af5fe6f0b81485658690f4956c
       WHERE
         gene_name IN ", sqf(genes), "
         AND sample_barcode IN ", sqf(samples), "
@@ -345,11 +284,7 @@ But also we can incorporate long lists of samples or genes into a query.
       SELECT
         *
       FROM
-<<<<<<< HEAD
         `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
-=======
-        [isb-cgc:TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM]
->>>>>>> a8bfd6fc3d0aa0af5fe6f0b81485658690f4956c
       WHERE
         gene_name IN ", sqf(genes), "
         AND sample_barcode IN ", sqf(samples), "
