@@ -145,7 +145,7 @@ integration in CESC and HNSC tumors.
 	FROM
 	  `isb-cgc-04-0030.workspace.ncomms3513_s3`
 	WHERE
-	  Cancer IN ('CESC','HNSC')
+	  Cancer IN ('TCGA-CESC','TCGA-HNSC')
 	  AND Overlapping_genes <> 'Intergenic'
 	GROUP BY
 	  Cancer,
@@ -177,7 +177,7 @@ Next, with those offen affected genes, we will query gene expression data.
 	    FROM
 	      `isb-cgc-04-0030.workspace.ncomms3513_s3`
 	    WHERE
-	      Cancer IN ('CESC','HNSC')
+	      Cancer IN ('TCGA-CESC','TCGA-HNSC')
 	      AND Overlapping_genes <> 'Intergenic'
 	    GROUP BY
 	      gene_name )
@@ -227,7 +227,7 @@ for that, and retrieve it as a data.frame.
 	  FROM
 	    `isb-cgc-04-0030.workspace.ncomms3513_s3`
 	  WHERE
-	    Cancer IN ('CESC','HNSC')
+	    Cancer IN ('TCGA-CESC','TCGA-HNSC')
 	    AND Overlapping_genes <> 'Intergenic'
 	  GROUP BY
 	    gene_name )
@@ -264,7 +264,7 @@ Now, we are going to perform t.tests on expression by hpv_status and study.
 
 	gxps <- merge(x=gexp_affected_genes, y=hpv_table, by=c("project_short_name","case_barcode"))
 
-	# Performing a t-test between hpv+ and hpv- by study and gene
+	# Performing a t-test between hpv+ and hpv- by project_short_name and gene
 	res0 <- gxps %>%
 	group_by(project_short_name, gene_name) %>%
 	do(tidy(t.test(log2(HTSeq__FPKM+1) ~ hpv_status, data=.))) %>%
@@ -275,10 +275,10 @@ Now, we are going to perform t.tests on expression by hpv_status and study.
 	top5 <- select(top_n(res0, 5, statistic), project_short_name, gene_name)
 
 	# Let's subset the data by the top 5 results...
-	res1 <- merge(x=top5, y=gxps) %>% mutate( project_short_name_Gene = paste0(project_short_name, "_", gene_name))
+	res1 <- merge(x=top5, y=gxps) %>% mutate( Project_Gene = paste0(project_short_name, "_", gene_name))
 
 	# now we can plot the results...
-	ggplot(res1, aes(x=project_short_name_Gene, y=log2(HTSeq__FPKM+1), fill=hpv_status)) + geom_boxplot()
+	ggplot(res1, aes(x=Project_Gene, y=log2(HTSeq__FPKM+1), fill=hpv_status)) + geom_boxplot()
 
 
 Making BigQueries
@@ -315,7 +315,7 @@ Please see: https://cloud.google.com/bigquery/query-reference
 	  FROM
 	    `isb-cgc-04-0030.workspace.ncomms3513_s3`
 	  WHERE
-	    Cancer = 'CESC'
+	    Cancer = 'TCGA-CESC'
 	    AND Overlapping_genes <> 'Intergenic'
 	  GROUP BY
 	    gene_name )
@@ -353,7 +353,7 @@ Now lets make a small change, and get gene expression for subjects that are hpv 
 	  FROM
 	    `isb-cgc-04-0030.workspace.ncomms3513_s3`
 	  WHERE
-	    Cancer = 'CESC'
+	    Cancer = 'TCGA-CESC'
 	    AND Overlapping_genes <> 'Intergenic'
 	  GROUP BY
 	    gene_name )

@@ -2,7 +2,7 @@
 Web-App Release Notes
 *********************
 
-* **June 14, 2017**
+* **June 14, 2017**: `v3.1 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.1>`_
 
 **Please Note:**
 
@@ -34,6 +34,8 @@ Web-App Release Notes
       - When plotting, certain values will be displayed as numerical when it should be a categorical value e.g Tobacco Smoking History.
       - On the IGV browser when working with TCGA data build hg38 you get a No feature found with name “efgr” at the bottom of the iGV browser page. 
       - On the cohort creation page for TCGA data the filters disease code and project short name NA is an option which is not a valid disease.
+      - The mouse over feature is currently disabled for program TARGET with disease code ALL.
+      - The sharing feature for Workbooks, Cohorts, and User Uploaded Programs is currently disabled. 
       
     **Issues that have been resolved in sprint 16 as of 06/14/2017**
 
@@ -56,7 +58,7 @@ Web-App Release Notes
      - You are now able to plot miRNA data with genomic build hg38 for TARGET data. 
       
 
-*  **May 25, 2017**:
+*  **May 25, 2017**: `v3.0 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.0>`_
     In collaboration with the GDC we now have TARGET pediatric cancer data available for analysis in the user interface.  You are now able to create cohorts and plot analysis with information from TARGET, TCGA, and CCLE data. 
  
     In addition, we have  replaced the previous APIs with a new version that supports  the new user interface.
