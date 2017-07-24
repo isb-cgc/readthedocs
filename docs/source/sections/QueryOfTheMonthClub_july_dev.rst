@@ -78,13 +78,13 @@ Let's start with a easy one:
 
 ::
 
-  Row	Infinium_Design_Type	f0_
-  1	  I	                    135501
-  2	  II	                  350076
+  Row Infinium_Design_Type  f0_
+  1   I                     135501
+  2   II                    350076
 
 
 Why does that matter? Well, the array was actually a blend of two different
-technologies. This `paper <https://www.ncbi.nlm.nih.gov/pubmed/22126295>_`
+technologies. This `paper <https://www.ncbi.nlm.nih.gov/pubmed/22126295>`_
 shows that the performance of the two probes is very different, and that type II
 probes appear to be less useful than the type I probes. Unfortunate, considering
 how many more type II probe exist compared to type I.
@@ -97,7 +97,7 @@ we can get a list of functionally related genes.
 .. code-block:: sql
 
   SELECT
-    DISTINCT(Symbol)
+    DISTINCT(Symbol) as gene_symbol
   FROM
     `isb-cgc.QotM.WikiPathways_20170425_Annotated`
   WHERE
@@ -190,11 +190,85 @@ To get around that, we are going to FLATTEN the table using UNNEST.
   8	  ELFN1	        5'UTR
 
 
-That's more like it!
+That's more like it! Probably don't want those 'null' values, but now we can write our final query.
+
+.. code-block:: sql
+
+  WITH
+    -- first we'll UNNEST our probes
+    --
+    probes AS (
+    SELECT
+      RefGene_Name,
+      RefGene_Group,
+      Infinium_Design_Type
+    FROM
+      `isb-cgc.platform_reference.methylation_annotation`,
+      UNNEST(UCSC) ),
+    --
+    -- Then we'll select genes taking part in our pathway of interest
+    --
+    genes AS (
+    SELECT
+      DISTINCT(Symbol) AS gene_symbol
+    FROM
+      `isb-cgc.QotM.WikiPathways_20170425_Annotated`
+    WHERE
+      pathway = 'Oxidative Damage' ),
+    --
+    -- We can join the unnested table to our table of genes.
+    --
+    join_table AS (
+    SELECT
+      genes.gene_symbol,
+      probes.RefGene_Group,
+      probes.Infinium_Design_Type
+    FROM
+      probes
+    JOIN
+      genes
+    ON
+      genes.gene_symbol = probes.RefGene_Name
+    GROUP BY
+      genes.gene_symbol,
+      probes.RefGene_Group,
+      probes.Infinium_Design_Type )
+  --
+  -- And summarize on the probe type.
+  --
+  SELECT
+    Infinium_Design_Type,
+    COUNT(Infinium_Design_Type),
+    RefGene_Group
+  FROM
+    join_table
+  GROUP BY
+    RefGene_Group,
+    Infinium_Design_Type
+
+::
+
+    Row	Infinium_Design_Type	type_count	RefGene_Group
+    1	  I	                    3	          3'UTR
+    2	  I	                    17	        TSS1500
+    3	  I	                    20	        TSS200
+    4	  I	                    20	        Body
+    5	  I	                    20	        1stExon
+    6	  I	                    23	        5'UTR
+    7	  II	                  25	        5'UTR
+    8	  II	                  25	        1stExon
+    9	  II	                  29	        TSS200
+    10	II	                  31	        3'UTR
+    11	II	                  38	        TSS1500
+    12	II	                  39	        Body
 
 
+OK! So, this pathway is covered by probes of both types, and we do see more
+of the type II probes (which lack in performance), but there's also a good
+number of type I probes that should remain useful.
 
-
+So, in summary, when using the ISB-CGC tables, you probably won't run into too many
+RECORD data types, but if you do, now you'll be prepared. Thanks for reading!
 
 
 May, 2017
