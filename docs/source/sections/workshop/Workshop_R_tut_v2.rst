@@ -118,7 +118,7 @@ The general structure of the query is going to be:
 	  gene1,
 	  gene2"
 
-    corrs <- query_exec(q,my_cloud_project)
+    corrs <- query_exec(q,my_cloud_project, use_legacy_sql=F)
 
     # transform to a matrix, and give it rownames
     library(tidyr)
@@ -153,7 +153,7 @@ immune response.
     WHERE
       GO_ID = 'GO:0006955'"
 
-    query_exec(q, my_cloud_project)
+    query_exec(q, my_cloud_project, use_legacy_sql=F)
 
 
 That query returns 472 genes. But let's suppose we want the top 50 by
@@ -183,7 +183,7 @@ coefficient of variance.
 	LIMIT
 	  50"
 
-    result <- query_exec(q, my_cloud_project)
+    result <- query_exec(q, my_cloud_project, use_legacy_sql=F)
     genes <- result$HGNC_gene_symbol
 
 Now we have a list of genes that we can carry to further analysis.
@@ -295,7 +295,7 @@ But also we can incorporate long lists of samples or genes into a query.
       gene1,
       gene2", sep=" ")
 
-    corrs <- query_exec(q,my_cloud_project)
+    corrs <- query_exec(q,my_cloud_project, use_legacy_sql=F)
 
     # transform to a matrix, and give it rownames
     library(tidyr)
