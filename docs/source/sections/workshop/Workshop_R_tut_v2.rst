@@ -184,7 +184,7 @@ coefficient of variance.
 	  50"
 
     result <- query_exec(q, my_cloud_project, use_legacy_sql=F)
-    genes <- result$HGNC_gene_symbol
+    genes <- result$gene_name
 
 Now we have a list of genes that we can carry to further analysis.
 
@@ -238,7 +238,7 @@ HERE I'm using my cohort #4, but change this to whatever you have saved.
     my_cohort_id <- lapply(my_cohorts$items, function(x) x$id)[[4]]
 
     # then ping the endpoints with the cohort ID
-    my_barcodes <- barcodes_from_cohort(my_cohort_id, my_token)
+    my_barcodes <- cohort_barcodes(my_cohort_id, my_token)
     names(my_barcodes)
 
 The object returned from barcodes_from_cohort is again a list, this time with
