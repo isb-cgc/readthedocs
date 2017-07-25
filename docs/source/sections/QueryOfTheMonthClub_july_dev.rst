@@ -17,38 +17,39 @@ July, 2017
 
 Way back in December we started talking about the new
 `NCI-GDC Data Portal <https://gdc-portal.nci.nih.gov/>`_
-which was including the hg38 alignments. At that time, those were part of the
-isb-cgc:hg38_data_previews. Now they've matured into three data sets:
+which includes the hg38 alignments. At that time, those were part of
+isb-cgc:hg38_data_previews. At this point they've matured into three data sets:
 
 - isb-cgc:TCGA_bioclin_v0
 - isb-cgc:TCGA_hg19_data_v0
 - isb-cgc:TCGA_hg19_data_v0
 
 And, as you'll discover, there's been some changes to the "standard" column
-names that we used previously. This is done to better align with the GDC, and
+names that we used previously. This was done to better align with the GDC, and
 make things more universal across data sources.
 
 For one, barcode column names (and most column names) have become all lower case
-and underscore separated. So AliquotBarcode has become aliquot_barcode. Same with
+and underscore_separated. So 'AliquotBarcode' has become 'aliquot_barcode'. Same with
 SampleBarcode (sample_barcode). However, ParticipantBarcode has become case_barcode.
-A big change comes in changing 'Study' to 'project_short_name'.  So if you're having
-trouble getting a 'old' query to work, make sure the column names haven't changed.
+Also 'Study' is now refered to as 'project_short_name'. So if you're having
+trouble getting a 'old' query to work, make sure the column names haven't changed,
+check whether it's in Legacy SQL or Standard SQL.
 
 As we transition to standard SQL and the new GDC datasets, one question that's
-come up here relates to gene name records. Overall, there's very few data types
-other than STRING, INTEGER, and FLOATs, but occasionally you'll bump into something
+come up around here relates to records. Overall, in the isb-cgc datasets, there's very few data types
+other than STRINGs, INTEGERs, and FLOATs. But occasionally you'll bump into something
 that needs a different query structure, and the RECORD type is one of those.
 One place to find this rare beast is in the methylation probe annotation
-(isb-cgc:platform_reference.methylation_annotation)
+(isb-cgc:platform_reference.methylation_annotation).
 
 Each methylation probe has some genomic location, given as a chromosome and a
-position in nucleotide bases. And a frequent question that arises takes the shape
+position in nucleotide bases. An analytical question that often arises is something like
 "does methylation in this region of the genome affect RNA transcription?". It's
-a good question, and actually can be pretty hard to determine. But we'll focus
-on one of the first things in the analysis, mapping probes to genes.
+a good question, and can actually be pretty hard to determine. But here, we'll focus
+on one of the first steps in the analysis, mapping probes to genes.
 
 In the isb-cgc:platform_reference.methylation_annotation table, we find our
-RECORD, 'UCSC'. If we look in the details of the table (via the web interface)
+RECORD, 'UCSC'. If we look at the details of the table (via the web interface)
 we see that the table has 485,577 rows and has the following description:
 
 ::
@@ -62,7 +63,7 @@ we see that the table has 485,577 rows and has the following description:
 Sounds good! A couple important columns are going to be the IlmnID, which
 is the probe ID (example: cg10232580), and the UCSC RECORD, where we'll find
 the gene symbol, RefGene accession ID, and the portion of the gene the probe is
-closest to (nothing is certain though).
+closest to (approximately).
 
 Let's start with a easy one:
 
@@ -86,8 +87,7 @@ Let's start with a easy one:
 Why does that matter? Well, the array was actually a blend of two different
 technologies. This `paper <https://www.ncbi.nlm.nih.gov/pubmed/22126295>`_
 shows that the performance of the two probes is very different, and that type II
-probes appear to be less useful than the type I probes. Unfortunate, considering
-how many more type II probe exist compared to type I.
+probes appear to be less useful than the type I probes.
 
 Now, let's suppose we are interested in a particular pathway, and we'd like to know
 the distribution of probe types across the pathway genes. Using our previous
@@ -146,25 +146,23 @@ in this instance. Some probes are mapped to multiple RefGene_Accession IDs. For 
 cg10241718 maps to NM_033302, NM_033303, NM_033304, and NM_000680. Interestingly, you
 see this same set as part of the HG-U133A probe annotations (Thanks, genecard-geneannot webservice).
 These are representing four different transcripts of the same gene ADRA1A, the methylation
-probe has the same relationship to three of the isoforms (body), but for one isoform,
-NM_000680, the probe is 3'-UTR, which could change its effect. In light of that, we might want
+probe has the same relationship to three of the isoforms (the gene body), but for one isoform,
+NM_000680, the probe is positioned 3'-UTR, which could change its effect. In light of that, we might want
 to group by gene symbol (mostly the same) and the refgene_group, which tells us the
 relative position of the probe to the gene.
 
 To (finally!) address the problem of RECORDS, we need to check the BigQuery
 `docs <https://cloud.google.com/bigquery/docs/reference/standard-sql/migrating-from-legacy-sql>_`
-So there, we see that the RECORD in Legacy SQL becomes a STRUCT in Standard SQL. In order
+So there, we see that the RECORD in Legacy SQL has becomes a STRUCT in Standard SQL. In order
 to flatten the table, in Legacy SQL we would use FLATTEN, but now, in Standard SQL we are
 going to use UNNEST.
 
-So what's the difference between an ARRAY and a STRUCT.
-
-Well from the docs: an ARRAY is "an ordered list of zero or more elements of non-ARRAY values."
+So what's the difference between an ARRAY and a STRUCT? Well an ARRAY is "an ordered list of zero or more elements of non-ARRAY values."
 and a STRUCT is "Container of ordered fields each with a type..". Hmmm, sounds pretty similar,
-the difference is that a STRUCT can be a collection of different data types (STRINGS and INTs for
+the difference being that a STRUCT can be a collection of different data types (STRINGS and INTs for
 example), while ARRAYs have to be a single data type.
 
-To get around that, we are going to FLATTEN the table using UNNEST.
+To get around that, we are going to flatten the table using UNNEST.
 
 .. code-block:: sql
 
@@ -190,7 +188,7 @@ To get around that, we are going to FLATTEN the table using UNNEST.
   8	  ELFN1	        5'UTR
 
 
-That's more like it! Probably don't want those 'null' values, but now we can write our final query.
+That's more like it! Now we can write our final query.
 
 .. code-block:: sql
 
@@ -265,10 +263,10 @@ That's more like it! Probably don't want those 'null' values, but now we can wri
 
 OK! So, this pathway is covered by probes of both types, and we do see more
 of the type II probes (which lack in performance), but there's also a good
-number of type I probes that should remain useful.
+number of type I probes that should be useful.
 
 So, in summary, when using the ISB-CGC tables, you probably won't run into too many
-RECORD data types, but if you do, now you'll be prepared. Thanks for reading!
+RECORD data types, but if you do, you'll be prepared. Thanks for reading!
 
 
 May, 2017
