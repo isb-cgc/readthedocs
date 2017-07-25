@@ -269,7 +269,7 @@ of the type II probes (which lack in performance), but there's also a good
 number of type I probes that should be useful.
 
 So, in summary, when using the ISB-CGC tables, you probably won't run into too many
-RECORD data types, but if you do, you'll be prepared. Thanks for reading!
+RECORD data types, but if you do, you'll be prepared.
 
 As an exercise for the reader, you might want to try and join the 
 information explored above with the information in the one of the 
