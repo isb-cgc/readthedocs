@@ -17,8 +17,8 @@ July, 2017
 
 Way back in December we started talking about the new
 `NCI-GDC Data Portal <https://gdc-portal.nci.nih.gov/>`_
-which includes the hg38 alignments. At that time, those were part of
-isb-cgc:hg38_data_previews. At this point they've matured into three data sets:
+which includes both hg19 and hg38 alignments. At that time, those were part of
+isb-cgc:hg19_data_previews and isb-cgc:hg38_data_previews. Now, at this point they've matured into three data sets:
 
 - isb-cgc:TCGA_bioclin_v0
 - isb-cgc:TCGA_hg19_data_v0
@@ -35,7 +35,8 @@ Also 'Study' is now refered to as 'project_short_name'. So if you're having
 trouble getting an 'old' query to work, make sure the column names haven't changed,
 and check whether it's in Legacy SQL or Standard SQL.
 
-As we transition to standard SQL and the new GDC datasets, one question that's
+As we `transition to standard SQL <https://cloud.google.com/bigquery/docs/reference/standard-sql/migrating-from-legacy-sql>`_
+and the new GDC datasets, one question that's
 come up around here relates to records. Overall, in the isb-cgc datasets, there's very few data types
 other than STRINGs, INTEGERs, and FLOATs. But occasionally you'll bump into something
 that needs a different query structure, and the RECORD type is one of those.
@@ -87,7 +88,8 @@ Let's start with an easy one:
 
 Why does that matter? Well, the array was actually a blend of two different
 technologies. This `paper <https://www.ncbi.nlm.nih.gov/pubmed/22126295>`_
-shows that the performance of the two probes is very different, and that type II
+and this `paper <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3740789/>`_
+show that the performance of the two probes is very different, and that type II
 probes appear to be less useful than the type I probes.
 
 Now, let's suppose we are interested in a particular pathway, and we'd like to know
@@ -158,9 +160,9 @@ There, we see that the RECORD in Legacy SQL has becomes a STRUCT in Standard SQL
 to flatten the table, in Legacy SQL we would use FLATTEN, but now, in Standard SQL we are
 going to use UNNEST.
 
-So what's the difference between an ARRAY and a STRUCT? 
+So what's the difference between an ARRAY and a STRUCT?
 Well an ARRAY is "an ordered list of zero or more elements of non-ARRAY values,"
-and a STRUCT is a "container of ordered fields each with a type." 
+and a STRUCT is a "container of ordered fields each with a type."
 Hmmm, sounds pretty similar,
 the difference being that a STRUCT can be a collection of different data types (STRINGS and INTs for
 example), while ARRAYs have to be a single data type.
@@ -271,11 +273,11 @@ number of type I probes that should be useful.
 So, in summary, when using the ISB-CGC tables, you probably won't run into too many
 RECORD data types, but if you do, you'll be prepared.
 
-As an exercise for the reader, you might want to try and join the 
-information explored above with the information in the one of the 
-GENCODE tables -- try using the methylation probe coordinates and 
+As an exercise for the reader, you might want to try and join the
+information explored above with the information in the one of the
+GENCODE tables -- try using the methylation probe coordinates and
 the GENCODE gene coordinates to see if the information in the UCSC
-record in the methylation table is completely accurate, or check to 
+record in the methylation table is completely accurate, or check to
 see if there are important differences between hg19/GRCh37 and hg38/Grch38.
 If you come up with some useful queries, feel free to email us and
 we'll feature you on this page!
