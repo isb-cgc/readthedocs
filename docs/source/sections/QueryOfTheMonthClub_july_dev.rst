@@ -247,18 +247,18 @@ That's more like it! Now we can write our final query.
 ::
 
     Row	Infinium_Design_Type	type_count	RefGene_Group
-    1	  I	                    3	          3'UTR
-    2	  I	                    17	        TSS1500
-    3	  I	                    20	        TSS200
-    4	  I	                    20	        Body
-    5	  I	                    20	        1stExon
-    6	  I	                    23	        5'UTR
-    7	  II	                  25	        5'UTR
-    8	  II	                  25	        1stExon
-    9	  II	                  29	        TSS200
-    10	II	                  31	        3'UTR
-    11	II	                  38	        TSS1500
-    12	II	                  39	        Body
+    1   I                     3           3'UTR
+    2   I                     17          TSS1500
+    3   I                     20          TSS200
+    4   I                     20          Body
+    5   I                     20          1stExon
+    6   I                     23          5'UTR
+    7   II                    25          5'UTR
+    8   II                    25          1stExon
+    9   II                    29          TSS200
+    10  II                    31          3'UTR
+    11  II                    38          TSS1500
+    12  II                    39          Body
 
 
 OK! So, this pathway is covered by probes of both types, and we do see more
