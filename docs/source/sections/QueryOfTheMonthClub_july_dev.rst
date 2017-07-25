@@ -71,7 +71,7 @@ Let's start with a easy one:
 
   SELECT
     Infinium_Design_Type,
-    COUNT(Infinium_Design_Type)
+    COUNT(Infinium_Design_Type) as type_count
   FROM
     `isb-cgc.platform_reference.methylation_annotation`
   GROUP BY
@@ -79,7 +79,7 @@ Let's start with a easy one:
 
 ::
 
-  Row Infinium_Design_Type  f0_
+  Row Infinium_Design_Type  type_count
   1   I                     135501
   2   II                    350076
 
@@ -246,7 +246,7 @@ That's more like it! Now we can write our final query.
 
 ::
 
-    Row	Infinium_Design_Type	type_count	RefGene_Group
+    Row	Infinium_Design_Type  type_count  RefGene_Group
     1   I                     3           3'UTR
     2   I                     17          TSS1500
     3   I                     20          TSS200
