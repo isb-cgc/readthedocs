@@ -9,27 +9,279 @@ BigData from the TCGA and BigQuery from Google.
 Please let us know if you'd like to be featured on the "query-club"!
 email: dgibbs (at) systemsbiology (dot) org
 
-** Important Changes to Datasets **
-###################################
-
-Recently, we have moved to a new version of the TCGA data, to align with the data found
-at the GDC's new website. `NCI-GDC Data Portal <https://gdc-portal.nci.nih.gov/>`_
-
-
-The older data set, tcga_201607_beta, has been replace by three new datasets.
-TCGA_bioclin_v0 (clinical and sample quality), and TCGA_hg19_data_v0 and TCGA_hg38_data_v0
-(molecular data).
-
-
-As a result, some commonly used column names have changed.
-"Study" is now "project_short_name" and "PAAD" is now "TCGA-PAAD".
-"ParticipantBarcode" is now "case_barcode". "SampleBarcode" is now "sample_barcode".
- "AliquotBarcode" is now "aliquot_barcode"
-
-
-Older Queries of the Month will need to be revised accordingly. Thank you!
 
 ------------------
+
+July, 2017
+###########
+
+Way back in December we started talking about the new
+`NCI-GDC Data Portal <https://gdc-portal.nci.nih.gov/>`_
+which includes both hg19 and hg38 alignments. At that time, those were part of
+isb-cgc:hg19_data_previews and isb-cgc:hg38_data_previews. Now, at this point they've matured into three data sets:
+
+- isb-cgc:TCGA_bioclin_v0
+- isb-cgc:TCGA_hg19_data_v0
+- isb-cgc:TCGA_hg38_data_v0
+
+And, as you'll discover, there's been some changes to the "standard" column
+names that we used previously. This was done to better align with the GDC, and
+make things more universal across data sources.
+
+For one, barcode column names (and most column names) have become all lower case
+and underscore_separated. So 'AliquotBarcode' has become 'aliquot_barcode'. Same with
+SampleBarcode (sample_barcode). However, ParticipantBarcode has become case_barcode.
+Also 'Study' is now refered to as 'project_short_name'. So if you're having
+trouble getting an 'old' query to work, make sure the column names haven't changed,
+and check whether it's in Legacy SQL or Standard SQL.
+
+As we `transition to standard SQL <https://cloud.google.com/bigquery/docs/reference/standard-sql/migrating-from-legacy-sql>`_
+and the new GDC datasets, one question that's
+come up around here relates to records. Overall, in the isb-cgc datasets, there's very few data types
+other than STRINGs, INTEGERs, and FLOATs. But occasionally you'll bump into something
+that needs a different query structure, and the RECORD type is one of those.
+One place to find this rare beast is in the methylation probe annotation
+(`isb-cgc:platform_reference.methylation_annotation <https://bigquery.cloud.google.com/table/isb-cgc:platform_reference.methylation_annotation>`_).
+
+Each methylation probe has a specified genomic location, given as a chromosome and
+the base position on that chromosome.
+An analytical question that often arises is something like
+"does methylation in this region of the genome affect RNA transcription?". It's
+a good question, and can actually be pretty hard to determine. But here, we'll focus
+on one of the first steps in the analysis, mapping probes to genes.
+
+In the **isb-cgc:platform_reference.methylation_annotation** table schema, we find a
+RECORD called 'UCSC'. If we look at the details of the table (via the web interface)
+we see that the table has 485,577 rows and has the following description:
+
+::
+
+  This table is based on the Illumina DNA methylation platform annotation information
+  found in the file HumanMethylation450_15017482_v.1.2.csv which can be obtained
+  from Illumina.  This information has been loaded into a BigQuery table and made
+  available to the public with permission from Illumina.
+
+
+Sounds good! A couple important columns are going to be the IlmnID, which
+is the probe ID (example: cg10232580), and the UCSC RECORD, where we'll find
+the gene symbol, RefGene accession ID, and the portion of the gene the probe is
+closest to (approximately).
+
+Let's start with an easy one:
+
+.. code-block:: sql
+
+  SELECT
+    Infinium_Design_Type,
+    COUNT(Infinium_Design_Type) as type_count
+  FROM
+    `isb-cgc.platform_reference.methylation_annotation`
+  GROUP BY
+    Infinium_Design_Type
+
+::
+
+  Row Infinium_Design_Type  type_count
+  1   I                     135501
+  2   II                    350076
+
+
+Why does that matter? Well, the array was actually a blend of two different
+technologies. This `paper <https://www.ncbi.nlm.nih.gov/pubmed/22126295>`_
+and this `paper <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3740789/>`_
+show that the performance of the two probes is very different, and that type II
+probes appear to be less useful than the type I probes.
+
+Now, let's suppose we are interested in a particular pathway, and we'd like to know
+the distribution of probe types across the pathway genes. Using our previous
+'Query of the Month' data set (isb-cgc:QotM.WikiPathways_20170425_Annotated),
+we can get a list of functionally related genes.
+
+.. code-block:: sql
+
+  SELECT
+    DISTINCT(Symbol) as gene_symbol
+  FROM
+    `isb-cgc.QotM.WikiPathways_20170425_Annotated`
+  WHERE
+    pathway = 'Oxidative Damage'
+
+and we get 40 genes. So now we're going to join the annotation table, to our
+table of pathway related genes, and get the probe types.
+
+.. code-block:: sql
+
+  WITH
+  pathway AS (
+  SELECT
+    DISTINCT(Symbol) as gene_symbol
+  FROM
+    `isb-cgc.QotM.WikiPathways_20170425_Annotated`
+  WHERE
+    pathway = 'Oxidative Damage'
+    )
+  SELECT
+      Infinium_Design_Type,
+      COUNT(Infinium_Design_Type)
+  FROM
+      `isb-cgc.platform_reference.methylation_annotation` as m
+  JOIN
+      pathway
+  ON
+      pathway.gene_symbol = m.UCSC.RefGene_Name
+  GROUP BY
+    Infinium_Design_Type
+
+
+::
+
+  Query Failed
+  Error: Cannot access field RefGene_Name on a value with type
+  ARRAY<STRUCT<RefGene_Group STRING, RefGene_Accession STRING, RefGene_Name STRING>> at [18:34]
+
+
+What happened?  It's that darned RECORD, which in our error, actually looks to be an
+ARRAY of STRUCTS! We have previously
+used arrays in our queries in past months where we took a list of values and created
+an array to be passed to a JavaScript function. The result of the function gave us
+back an array, and we had to UNNEST it, to get back one row per entry. It's similar
+in this instance. Some probes are mapped to multiple RefGene_Accession IDs. For example,
+cg10241718 maps to NM_033302, NM_033303, NM_033304, and NM_000680. Interestingly, you
+see this same set as part of the HG-U133A probe annotations (Thanks, genecard-geneannot webservice).
+These are representing four different transcripts of the same gene ADRA1A, the methylation
+probe has the same relationship to three of the isoforms (the gene body), but for one isoform,
+NM_000680, the probe is positioned 3'-UTR, which could change its effect. In light of that, we might want
+to group by gene symbol (mostly the same) and the refgene_group, which tells us the
+relative position of the probe to the gene.
+
+To (finally!) address the problem of RECORDS, we need to check the BigQuery
+`docs <https://cloud.google.com/bigquery/docs/reference/standard-sql/migrating-from-legacy-sql>`_
+There, we see that the RECORD in Legacy SQL has becomes a STRUCT in Standard SQL. In order
+to flatten the table, in Legacy SQL we would use FLATTEN, but now, in Standard SQL we are
+going to use UNNEST.
+
+So what's the difference between an ARRAY and a STRUCT?
+Well an ARRAY is "an ordered list of zero or more elements of non-ARRAY values,"
+and a STRUCT is a "container of ordered fields each with a type."
+Hmmm, sounds pretty similar,
+the difference being that a STRUCT can be a collection of different data types (STRINGS and INTs for
+example), while ARRAYs have to be a single data type.
+
+To get around that, we are going to flatten the table using UNNEST.
+
+.. code-block:: sql
+
+  SELECT
+    RefGene_Name,
+    RefGene_Group
+  FROM
+    `isb-cgc.platform_reference.methylation_annotation`,
+    UNNEST(UCSC)
+  LIMIT
+    1000
+
+::
+
+  Row	RefGene_Name	RefGene_Group
+  1	  null	        null
+  2	  null	        null
+  3	  IQCE	        Body
+  4	  IQCE	        Body
+  5	  CRYGN	        3'UTR
+  6	  IQCE	        Body
+  7	  IQCE	        Body
+  8	  ELFN1	        5'UTR
+
+
+That's more like it! Now we can write our final query.
+
+.. code-block:: sql
+
+  WITH
+    -- first we'll UNNEST our probes
+    --
+    probes AS (
+    SELECT
+      RefGene_Name,
+      RefGene_Group,
+      Infinium_Design_Type
+    FROM
+      `isb-cgc.platform_reference.methylation_annotation`,
+      UNNEST(UCSC) ),
+    --
+    -- Then we'll select genes taking part in our pathway of interest
+    --
+    genes AS (
+    SELECT
+      DISTINCT(Symbol) AS gene_symbol
+    FROM
+      `isb-cgc.QotM.WikiPathways_20170425_Annotated`
+    WHERE
+      pathway = 'Oxidative Damage' ),
+    --
+    -- We can join the unnested table to our table of genes.
+    --
+    join_table AS (
+    SELECT
+      genes.gene_symbol,
+      probes.RefGene_Group,
+      probes.Infinium_Design_Type
+    FROM
+      probes
+    JOIN
+      genes
+    ON
+      genes.gene_symbol = probes.RefGene_Name
+    GROUP BY
+      genes.gene_symbol,
+      probes.RefGene_Group,
+      probes.Infinium_Design_Type )
+  --
+  -- And summarize on the probe type.
+  --
+  SELECT
+    Infinium_Design_Type,
+    COUNT(Infinium_Design_Type),
+    RefGene_Group
+  FROM
+    join_table
+  GROUP BY
+    RefGene_Group,
+    Infinium_Design_Type
+
+::
+
+    Row	Infinium_Design_Type  type_count  RefGene_Group
+    1   I                     3           3'UTR
+    2   I                     17          TSS1500
+    3   I                     20          TSS200
+    4   I                     20          Body
+    5   I                     20          1stExon
+    6   I                     23          5'UTR
+    7   II                    25          5'UTR
+    8   II                    25          1stExon
+    9   II                    29          TSS200
+    10  II                    31          3'UTR
+    11  II                    38          TSS1500
+    12  II                    39          Body
+
+
+OK! So, this pathway is covered by probes of both types, and we do see more
+of the type II probes (which lack in performance), but there's also a good
+number of type I probes that should be useful.
+
+So, in summary, when using the ISB-CGC tables, you probably won't run into too many
+RECORD data types, but if you do, you'll be prepared.
+
+As an exercise for the reader, you might want to try and join the
+information explored above with the information in the one of the
+GENCODE tables -- try using the methylation probe coordinates and
+the GENCODE gene coordinates to see if the information in the UCSC
+record in the methylation table is completely accurate, or check to
+see if there are important differences between hg19/GRCh37 and hg38/Grch38.
+If you come up with some useful queries, feel free to email us and
+we'll feature you on this page!
+
 
 May, 2017
 ###########
@@ -1886,7 +2138,7 @@ Save the cluster assignments to a csv file, and read it into R.
 January, 2017
 #############
 
-This month we'll be comparing standard SQL and legacy SQL. It's possible to write
+This month we'll be comparing Standard SQL and Legacy SQL. It's possible to write
 queries using either form, but as we'll see, using standard SQL can be easier to write
 and improves readability.
 
