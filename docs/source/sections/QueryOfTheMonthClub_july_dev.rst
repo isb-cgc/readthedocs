@@ -22,7 +22,7 @@ isb-cgc:hg38_data_previews. At this point they've matured into three data sets:
 
 - isb-cgc:TCGA_bioclin_v0
 - isb-cgc:TCGA_hg19_data_v0
-- isb-cgc:TCGA_hg19_data_v0
+- isb-cgc:TCGA_hg38_data_v0
 
 And, as you'll discover, there's been some changes to the "standard" column
 names that we used previously. This was done to better align with the GDC, and
@@ -32,24 +32,25 @@ For one, barcode column names (and most column names) have become all lower case
 and underscore_separated. So 'AliquotBarcode' has become 'aliquot_barcode'. Same with
 SampleBarcode (sample_barcode). However, ParticipantBarcode has become case_barcode.
 Also 'Study' is now refered to as 'project_short_name'. So if you're having
-trouble getting a 'old' query to work, make sure the column names haven't changed,
-check whether it's in Legacy SQL or Standard SQL.
+trouble getting an 'old' query to work, make sure the column names haven't changed,
+and check whether it's in Legacy SQL or Standard SQL.
 
 As we transition to standard SQL and the new GDC datasets, one question that's
 come up around here relates to records. Overall, in the isb-cgc datasets, there's very few data types
 other than STRINGs, INTEGERs, and FLOATs. But occasionally you'll bump into something
 that needs a different query structure, and the RECORD type is one of those.
 One place to find this rare beast is in the methylation probe annotation
-(isb-cgc:platform_reference.methylation_annotation).
+(`isb-cgc:platform_reference.methylation_annotation <https://bigquery.cloud.google.com/table/isb-cgc:platform_reference.methylation_annotation>`_).
 
-Each methylation probe has some genomic location, given as a chromosome and a
-position in nucleotide bases. An analytical question that often arises is something like
+Each methylation probe has a specified genomic location, given as a chromosome and
+the base position on that chromosome.
+An analytical question that often arises is something like
 "does methylation in this region of the genome affect RNA transcription?". It's
 a good question, and can actually be pretty hard to determine. But here, we'll focus
 on one of the first steps in the analysis, mapping probes to genes.
 
-In the isb-cgc:platform_reference.methylation_annotation table, we find our
-RECORD, 'UCSC'. If we look at the details of the table (via the web interface)
+In the **isb-cgc:platform_reference.methylation_annotation** table schema, we find a
+RECORD called 'UCSC'. If we look at the details of the table (via the web interface)
 we see that the table has 485,577 rows and has the following description:
 
 ::
@@ -65,7 +66,7 @@ is the probe ID (example: cg10232580), and the UCSC RECORD, where we'll find
 the gene symbol, RefGene accession ID, and the portion of the gene the probe is
 closest to (approximately).
 
-Let's start with a easy one:
+Let's start with an easy one:
 
 .. code-block:: sql
 
@@ -140,7 +141,7 @@ table of pathway related genes, and get the probe types.
 What happened?  It's that darned RECORD, which in our error, actually looks to be an
 ARRAY of STRUCTS! We have previously
 used arrays in our queries in past months where we took a list of values and created
-an array to be passed to a javascript function. The result of the function gave us
+an array to be passed to a JavaScript function. The result of the function gave us
 back an array, and we had to UNNEST it, to get back one row per entry. It's similar
 in this instance. Some probes are mapped to multiple RefGene_Accession IDs. For example,
 cg10241718 maps to NM_033302, NM_033303, NM_033304, and NM_000680. Interestingly, you
@@ -152,13 +153,15 @@ to group by gene symbol (mostly the same) and the refgene_group, which tells us 
 relative position of the probe to the gene.
 
 To (finally!) address the problem of RECORDS, we need to check the BigQuery
-`docs <https://cloud.google.com/bigquery/docs/reference/standard-sql/migrating-from-legacy-sql>_`
-So there, we see that the RECORD in Legacy SQL has becomes a STRUCT in Standard SQL. In order
+`docs <https://cloud.google.com/bigquery/docs/reference/standard-sql/migrating-from-legacy-sql>`_
+There, we see that the RECORD in Legacy SQL has becomes a STRUCT in Standard SQL. In order
 to flatten the table, in Legacy SQL we would use FLATTEN, but now, in Standard SQL we are
 going to use UNNEST.
 
-So what's the difference between an ARRAY and a STRUCT? Well an ARRAY is "an ordered list of zero or more elements of non-ARRAY values."
-and a STRUCT is "Container of ordered fields each with a type..". Hmmm, sounds pretty similar,
+So what's the difference between an ARRAY and a STRUCT? 
+Well an ARRAY is "an ordered list of zero or more elements of non-ARRAY values,"
+and a STRUCT is a "container of ordered fields each with a type." 
+Hmmm, sounds pretty similar,
 the difference being that a STRUCT can be a collection of different data types (STRINGS and INTs for
 example), while ARRAYs have to be a single data type.
 
@@ -267,6 +270,15 @@ number of type I probes that should be useful.
 
 So, in summary, when using the ISB-CGC tables, you probably won't run into too many
 RECORD data types, but if you do, you'll be prepared. Thanks for reading!
+
+As an exercise for the reader, you might want to try and join the 
+information explored above with the information in the one of the 
+GENCODE tables -- try using the methylation probe coordinates and 
+the GENCODE gene coordinates to see if the information in the UCSC
+record in the methylation table is completely accurate, or check to 
+see if there are important differences between hg19/GRCh37 and hg38/Grch38.
+If you come up with some useful queries, feel free to email us and
+we'll feature you on this page!
 
 
 May, 2017
@@ -2124,7 +2136,7 @@ Save the cluster assignments to a csv file, and read it into R.
 January, 2017
 #############
 
-This month we'll be comparing standard SQL and legacy SQL. It's possible to write
+This month we'll be comparing Standard SQL and Legacy SQL. It's possible to write
 queries using either form, but as we'll see, using standard SQL can be easier to write
 and improves readability.
 
