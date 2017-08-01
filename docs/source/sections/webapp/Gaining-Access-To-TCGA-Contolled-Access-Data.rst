@@ -168,7 +168,7 @@ Pushing the "Register" button will take you to the next screen:
    
 Select "Register Service Account" from the drop down menu on the left of the GCP you want to add a service account to.  You will be requested to enter your service account ID (see screenshot below).  Addtionally, select the "Yes" checkbox indicating that you will be using the account to access controlled data and select the Controlled Dataset(s) you plan to access.
 
-.. image:: RegisterAServiceAccountFirstScreen.png
+.. image:: RegisterAServiceAccountFirstScreen.PNG
    :scale: 50
    :align: center
    
@@ -180,7 +180,7 @@ Once you click the "Button" at the bottom of the page, you will be presented wit
    
 If all the requirements for registering a service account are met, the account will be registered.  If not, the service account will only be registered for Open Datasets.  The final screen below shows the final registered data set (shown by selecting the drop-down menu beside the service account count highlighted in red).
 
-.. image:: ServiceAcctRegSuccess.PNG
+.. image:: ServiceAcctRegSuccess.png
    :scale: 50
    :align: center
 
