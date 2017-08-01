@@ -28,19 +28,15 @@ Web-App Release Notes
 
  - The sharing feature for Workbooks, Cohorts, and User Uploaded Programs is currently disabled
  - Analysis Type : Seq peek Formatting Elongated on occasion 
- - The CCLE data in GUI is not parallel to the CCLE data in BigQuery. 
- - If the user shares a cohort neither the owner nor the person who was granted access to cohort will receive a confirmation email. 
- - Cannot plot any data if you use a CCLE data cohort on a worksheet. 
- - When a user duplicates a worksheet, then tries to implement the log scale it will not function properly. 
+ - The CCLE data in GUI is not parallel to the CCLE data in BigQuery.  
+ - Cannot plot any data if you use a CCLE data cohort on a worksheet.  
  - On the existing cohorts table list page, the confirmation delete ‘blue x’ button does not remove selected cohort if you select another option e.g Set Operation. The same issue can be found in reverse if you select the ‘blue x’ on the confirmation page for  set operation you can then select the delete button and see the cohort on the confirmation panel.
- - Swap values is not working properly for the plot settings. 
  - The set operation for existing cohorts complement is behaving exceptionally slow. 
  - A duplication of the exact cohort happens when you select the confirmation multiple times while the page is loading working with Set Operations.
  - When working with a new worksheet or a duplicate worksheet with workbooks for categorical features e.g bar chart you can select the log option. The log option only applies to numerical options.
  - When working with workbooks, if you select the delete confirmation button multiple times while the page is loading you will be sent to an error page. 
  - You currently cannot plot user uploaded data when working with workbooks.
  - When plotting, certain values will be displayed as numerical when it should be a categorical value e.g Tobacco Smoking History. 
- - Cannot plot user uploaded data when working with workbooks. 
  - The mouse over feature is currently disabled for program TARGET with disease code ALL.
 
 
