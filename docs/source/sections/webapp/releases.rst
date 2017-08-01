@@ -6,7 +6,7 @@ Web-App Release Notes
 
  **Please Note:** When creating large cohort you will be given a red error message saying, “There was an error saving your cohort; it may not have been saved correctly.”  This issue is planned to be resolved in the next sprint.
 
- Issues that have been resolved in sprint 17 as of 07/25/2017
+ Issues that have been resolved in sprint 17 as of 07/31/2017
 
  New Enhancements
 
@@ -24,7 +24,7 @@ Web-App Release Notes
  - When working with the create a new variable favorites list page, you can now create a variable list using the USER DATA tab. 
 
 
- Known issues in sprint 17 as of 07/25/2017
+ Known issues in sprint 17 as of 07/31/2017
 
  - The sharing feature for Workbooks, Cohorts, and User Uploaded Programs is currently disabled
  - Analysis Type : Seq peek Formatting Elongated on occasion 
@@ -38,6 +38,11 @@ Web-App Release Notes
  - You currently cannot plot user uploaded data when working with workbooks.
  - When plotting, certain values will be displayed as numerical when it should be a categorical value e.g Tobacco Smoking History. 
  - The mouse over feature is currently disabled for program TARGET with disease code ALL.
+ - The cohort.list API endpoint will display the incorrect cases count for cohort listed.
+ - The Download File List as CSV on the File List page downloads the wrong information when genomic build hg38 is selected. 
+ - You are currentyl able to add non-whitelsit characters to edit section for user uploaded data.
+ - You are returned a vague error message on the register a Google Cloud Project page when attempting to register a Google Project you are not assocaited to.
+ 
 
 
 * **June 14, 2017**: `v3.1 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.1>`_
