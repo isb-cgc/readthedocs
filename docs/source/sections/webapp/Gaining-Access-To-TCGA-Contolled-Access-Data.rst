@@ -180,7 +180,7 @@ Once you click the "Button" at the bottom of the page, you will be presented wit
    
 If all the requirements for registering a service account are met, the account will be registered.  If not, the service account will only be registered for Open Datasets.  The final screen below shows the final registered data set (shown by selecting the drop-down menu beside the service account count highlighted in red).
 
-.. image:: ServiceAcctRegSuccess.PNG
+.. image:: ServiceAcctRegSuccess.png
    :scale: 50
    :align: center
 
