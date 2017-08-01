@@ -40,8 +40,8 @@ Web-App Release Notes
  - The mouse over feature is currently disabled for program TARGET with disease code ALL.
  - The cohort.list API endpoint will display the incorrect cases count for cohort listed.
  - The Download File List as CSV on the File List page downloads the wrong information when genomic build hg38 is selected. 
- - You are currentyl able to add non-whitelsit characters to edit section for user uploaded data.
- - You are returned a vague error message on the register a Google Cloud Project page when attempting to register a Google Project you are not assocaited to.
+ - You are currently able to add non-whitelist characters to edit section for user uploaded data.
+ - You are returned a vague error message on the register a Google Cloud Project page when attempting to register a Google Project you are not associated to.
  
 
 
