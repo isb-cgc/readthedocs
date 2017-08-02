@@ -19,8 +19,7 @@ Web-App Release Notes
  - When working with Swap Values button on a worksheet, the log option selected for either axis is now carried over as well when the swap values button is selected. 
  -  On the IGV browser when working with TCGA data build hg38 the interface will no longer return a No feature found with name “efgr” at the bottom of the IGV browser page. 
  -  When working with the cohort.create API endpoint you have the ability to create a large cohort with the barcode filter without a timeout error. 
- - When creating a cohort with the cohort.create API endpoint you can view the list of barcodes from the cohort details page in the ISB-CGC user interface irrelevant of size. 
- - The samples and cases filters have been removed from the cohort.list API endpoint. 
+ - When creating a cohort with the cohort.create API endpoint you can view the list of barcodes from the cohort details page in the ISB-CGC user interface irrelevant of size.  
  - When working with the create a new variable favorites list page, you can now create a variable list using the USER DATA tab. 
 
 
@@ -42,6 +41,7 @@ Web-App Release Notes
  - The Download File List as CSV on the File List page downloads the wrong information when genomic build hg38 is selected. 
  - You are currently able to add non-whitelist characters to edit section for user uploaded data.
  - You are returned a vague error message on the register a Google Cloud Project page when attempting to register a Google Project you are not associated to.
+  - The samples and cases filters have not been removed from the cohort.list API endpoint and are visible as a possible filter.
  
 
 
