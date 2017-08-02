@@ -10,7 +10,6 @@ Web-App Release Notes
 
  New Enhancements
 
- - Service accounts can now be associated with a GCP to access TARGET controlled data.  See documentation for more details.
  - You will be returned a more detailed error message when using invalid characters when working with user data uploading titles. 
  - On the File list page you will are allowed to select only one genomic build at a time for better clarification of which build you will view on the IGV browser.
 
@@ -42,6 +41,7 @@ Web-App Release Notes
  - You are currently able to add non-whitelist characters to edit section for user uploaded data.
  - You are returned a vague error message on the register a Google Cloud Project page when attempting to register a Google Project you are not associated to.
   - The samples and cases filters have not been removed from the cohort.list API endpoint and are visible as a possible filter.
+  - The user.get CCLE program API endpoint will return a 503 internal server error.
  
 
 
