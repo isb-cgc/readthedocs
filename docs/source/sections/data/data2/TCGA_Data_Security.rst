@@ -2,7 +2,7 @@
 Understanding Data Security
 ***************************
 
-Much of the low-level TCGA data (including DNA and RNA reads, and SNP CEL files, for example) are 
+Much of the low-level TCGA and TARGET data (including DNA and RNA reads, and SNP CEL files, for example) are 
 classified as "controlled access data" and are under the control of the 
 `dbGaP <http://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/about.html>`_ 
 Data Access Committee (DAC).

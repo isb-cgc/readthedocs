@@ -1,5 +1,5 @@
 ###############################
-Cancer Data in Google Genomics
+Data in Google Genomics
 ###############################
 
 `Google Genomics <https://cloud.google.com/genomics/>`_ is a database-backed technology that allows users to query 

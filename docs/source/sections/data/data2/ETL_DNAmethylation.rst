@@ -1,9 +1,10 @@
-Methylation (DNA)
-=================
+DNA Methylation 
+====================
 
-The 
-`DNA Methylation <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201607_beta.DNA_Methylation_betas>`_
-table contains one row per CpG probe and TCGA aliquot.
+The DNA Methylation data for  genomic build HG19 
+`DNA Methylation HG19 <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.DNA_Methylation>`_
+table contains one row per CpG probe and TCGA aliquot.  The DNA Methylation data for genomic build HG38 is pulled from the GDC, `DNA Methylation HG38 <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg38_data_v0.DNA_Methylation>`_.
+
 Each TCGA aliquot is uniquely represented by a
 `TCGA barcode <https://wiki.nci.nih.gov/display/TCGA/TCGA+barcode>`_
 of length 24, *eg* ``TCGA-04-1517-01A-01D-0533-01``.  (For more information on how TCGA barcodes
