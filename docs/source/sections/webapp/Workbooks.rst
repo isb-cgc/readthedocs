@@ -92,7 +92,7 @@ The sample workbooks (future Function) is found in the Menu bar under the Workbo
 
 Sharing Workbooks
 -----------------
-This will share the web view of workbooks with users you select by entering the users e-mail.  The User will receive an e-mail message with a link to your shared workbook explaining that (you) wanted to share a workbook with (them) and that you have invited them to join.  
+This will share the web view of workbooks with users you select by entering the users e-mail.  The User will receive an e-mail message with a link to your shared workbook explaining that (you) wanted to share a workbook with (them) and that you have invited them to join.  If the email address you entered in not registered in the database you are promted with a message saying, "The following user emails could not be found; please ask them to log into the site first:(email inupted)."
 
 Manipulation of Workbooks
 -------------------------
