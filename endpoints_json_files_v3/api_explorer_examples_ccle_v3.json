@@ -1,0 +1,17 @@
+{
+  "aliquots_annotations": "https://apis-explorer.appspot.com/apis-explorer/?base=https://api-dot-isb-cgc.appspot.com/_ah/api#p/{0}/v3/{0}.aliquots.annotations?aliquot_barcode=CCLE-LS1034-RNA-08&",
+  "cohorts_create": "https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/{0}/v3/{0}.cohorts.create?name=COHORT%20NAME%20HERE&resource=%257B%250A++%2522project_short_name%2522%253A+%250A++%255B%2522CCLE-BLCA%2522%250A++%255D%250A%257D&",
+  "cohorts_cloud_storage_file_paths": "https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/{0}/v3/{0}.cohorts.cloud_storage_file_paths?cohort_id=1&limit=10&",
+  "cohorts_delete": "https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/{0}/v3/{0}.cohorts.delete?cohort_id=COHORT%20ID%20HERE&",
+  "cohorts_get": "https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/{0}/v3/{0}.cohorts.get?cohort_id=1&",
+  "cohorts_googlegenomics": "https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/{0}/v3/{0}.cohorts.googlegenomics?cohort_id=COHORT%20ID%20HERE&",
+  "cohorts_list": "https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/{0}/v3/{0}.cohorts.list?",
+  "cohorts_preview": "https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/{0}/v3/{0}.cohorts.preview?resource=%257B%250A++%2522project_short_name%2522%253A+%250A++%255B%2522CCLE-BLCA%2522%252C%2522CCLE-LUSC%2522%250A++%255D%252C%250A++%2522gender%2522%253A+%2522Male%2522%250A%257D&",
+  "cases_annotations": "https://apis-explorer.appspot.com/apis-explorer/?base=https://api-dot-isb-cgc.appspot.com/_ah/api#p/{0}/v3/{0}.cases.annotations?case_barcode=1034&",
+  "cases_get": "https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/{0}/v3/{0}.cases.get?case_barcode=1034&",
+  "samples_annotations": "https://apis-explorer.appspot.com/apis-explorer/?base=https://api-dot-isb-cgc.appspot.com/_ah/api#p/{0}/v3/{0}.samples.annotations?sample_barcode=CCLE-LS1034&",
+  "samples_cloud_storage_file_paths": "https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/{0}/v3/{0}.samples.cloud_storage_file_paths?sample_barcode=TCGA-ZH-A8Y6-01A&platform=Genome_Wide_SNP_6&",
+  "samples_get": "https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/{0}/v3/{0}.samples.get?sample_barcode=CCLE-LS1034&",
+  "samples_googlegenomics": "https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/{0}/v3/{0}.samples.googlegenomics?sample_barcode=CCLE-LS1034&",
+  "users_get": "https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/{0}/v3/{0}.users.get?"
+}

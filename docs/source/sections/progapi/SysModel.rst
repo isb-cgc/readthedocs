@@ -2,8 +2,7 @@ Computational System Model
 **************************
 
 There are two primary ways in which users can interact with ISB-CGC data.  The first method is 
-through the ISB-CGC web application, which provides users a convenient web-based interface from 
-which it is easy to create and visualize collections of data hosted by the ISB-CGC.
+through graphical interfaces such as the ISB-CGC web application or the BigQuery web interface, which provides users a convenient web-based interface from which it is easy to create and visualize collections of data hosted by the ISB-CGC.
 
 The second method is through the ISB-CGC programmatic API or through other Google Cloud APIs.  
 The ISB-CGC API provides access to much of the same computational functionality as the 

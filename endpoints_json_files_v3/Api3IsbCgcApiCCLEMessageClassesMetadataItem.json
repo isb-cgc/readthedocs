@@ -1,0 +1,17 @@
+{
+    "case_gdc_id": "The GDC assigned id for the case",
+    "case_barcode": "Case barcode.",
+    "sample_gdc_id": "The GDC assigned id for the sample",
+    "sample_barcode": "The barcode assigned by TCGA to a sample from a Participant.",
+    "sample_type": "The type of the sample tumor or normal tissue cell or blood sample provided by a participant.",
+    "program_name": "Project name, e.g. 'TCGA'.",
+    "project_short_name": "Tumor type abbreviation, e.g. 'BRCA'. ",
+    "disease_code": "The short name for the type of disease",
+    "endpoint_type": "Which type of GDC Case API was used, either legacy or current",
+    "summary_file_count": "The count of files associated with the sample",
+    "gender": "Text designations that identify gender.",
+    "histology": "Text term for the structural pattern of cancer cells used to define a microscopic diagnosis.",
+    "hist_subtype": "Text term for a more specific definition of the histology",
+    "site_primary": "Text term that describes the anatomic site of the tumor or disease.",
+    "source": "The source institution the cell line was obtained from"
+}

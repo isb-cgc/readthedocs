@@ -1,6 +1,15 @@
 TCGA Data by Source Repository
 ##############################
 
+TCGA Data at the NCI-GDC
+========================
+
+In July 2016, both the DCC and CGHub were shut down.  The official repository for all
+NCI datasets, including the TCGA data is now the NCI `Genomic Data Commons <https://gdc.nci.nih.gov/>`_.
+
+Some information about the TCGA data at the DCC and CGHub is preserved below for historical reasons,
+and in case of need.
+
 TCGA Data at the DCC
 ====================
 
@@ -41,14 +50,4 @@ contains the following four columns of information:
 
 The final complete CGHub manifest (downloaded in early July, just before CGHub shut down) is also 
 `available <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/LATEST_MANIFEST.tsv>`_
-
-TCGA Data at the GDC
-====================
-
-In July (2016), both the DCC and CGHub are scheduled to be shut down.  The official repository for all
-NCI datasets, including the TCGA data is now the NCI `Genomic Data Commons <https://gdc.nci.nih.gov/>`_,
-and moving forward, the ISB-CGC will be switching over to using the GDC as the official source repository 
-of all new data, including the new "harmonized" TCGA data, realigned and reprocessed 
-using the GRCh38 assembly (aka hg38).
-
 
