@@ -5,7 +5,7 @@ Feature Alerts
 
 **Feature Alert** : When working with a workbook you can now plot TARGET miRNA genomic build HG38 data! For more 
 information please see the workbooks 
-documentation `here. <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Workbooks.html#creating-and-saving-a-workbook>`_
+documentation `here. <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Workbooks.html#creating-and-saving-a-workbook>`_  *August 9,2017*
  
 **Feature Alert** : When working with cohorts you can now build a cohort using genomic build HG38 somatic mutation data 
 using the molecular tab! For more information please see the molecular tab
