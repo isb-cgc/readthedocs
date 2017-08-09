@@ -27,9 +27,12 @@ Did you Know?
 
 **Did you know** you can now use SeqPeek analysis on a workbook to view TCGA genomic build HG38 analyzed data?  For more information please see the workbooks 
 documentation `here. <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Workbooks.html#creating-and-saving-a-workbook>`_ 
+
+
 **Did you know**  you could use the IGV browser on the ISB-CGC interface to view CCLE bam files without having to log 
 into dbGaP? For more information please see the IGV browser how 
 to page documentation `here. <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/IGV-Browser.html#accessing-the-igv-browser-from-the-web-application>`_
+
 
 **Did you know** you can view TCGA genomic build HG38 bam files using the IGV browser on the ISB-CGC interface? For more information please see the IGV browser how 
 to page documentation `here. <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/IGV-Browser.html#accessing-the-igv-browser-from-the-web-application>`_
