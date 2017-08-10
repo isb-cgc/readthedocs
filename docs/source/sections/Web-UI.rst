@@ -11,7 +11,7 @@ We welcome your ideas and needs.  Please use this `link <https://groups.google.c
    :maxdepth: 1
 
    webapp/Overview
-   webapp/Gaining-Access-To-TCGA-Contolled-Access-Data
+   webapp/Gaining-Access-To-Contolled-Access-Data
    webapp/Menu
    webapp/Workbooks
    webapp/Gene-and-miRNA-Favorites
