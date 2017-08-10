@@ -13,16 +13,18 @@ first be redirected to an NIH login page, and once you have successfully authent
 ISB-CGC will store an association between your NIH identity and your Google identity.
 (Note that this should be a one-to-one association.)
 
-Once you have authenticated, ISB-CGC will check which dataset(s) you have been authorized
-(by dbGaP) to access.  ISB-CGC obtains an updated whitelist for each of the hosted datasets from
+Once you have authenticated, ISB-CGC will check which dataset(s) e.g TCGA controlled data and/or TARGET controlled data you have been
+authorized (by dbGaP) to access.  ISB-CGC obtains an updated whitelist for each of the hosted datasets from
 dbGaP every day.  If you have just recently been granted access by dbGaP, there may be a 24 hour
 delay before you will be able to request access to these data on ISB-CGC.
+
+
 
 Visit `electronic Research Administration (eRA) <http://era.nih.gov>`_ for more information on 
 registering for a NIH eRA account. NIH staff may utilize their NIH log-in. 
 (For additional instructions, please refer to `Data Access Request Instructions <http://www.genome.gov/20019654>`_, 
 dbGap Data Access `Request Portal <http://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login>`_, 
-and `Understanding Data Security <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/data/data2/TCGA_Data_Security.html>`_). 
+and `Understanding Data Security <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/data/data2/TCGA_Data_Security.html>`_).  Please be sure to review the Data Use Certification Agreement for `TCGA controlled data <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000178.v9.p8>`_ and `TARGET controlled data <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000218.v17.p6>`_. 
 
 Once you have authenticated to NIH via the Web App, and your dbGaP authorization has been verified, the 
 Google identity associated with your account will have access to the controlled-data for 24 hours.
