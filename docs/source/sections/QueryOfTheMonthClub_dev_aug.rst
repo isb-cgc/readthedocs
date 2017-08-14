@@ -18,6 +18,8 @@ August, 2017
 This month we have been working on a graphical front-end for BigQuery using
 `R Shiny <https://shiny.rstudio.com/>`_ .
 
+You can find it `here <https://isb-cgc.shinyapps.io/ShinyKaplanMeier/>`_.
+
 Using the R programming language, Shiny is an easy way to produce interactive
 visualizations that can be hosted on the web, making public sharing possible.
 
@@ -108,6 +110,63 @@ code.
     days_to_death,
     vital_status,
     mutation_status
+
+
+**The Shiny App**
+
+
+Now we'll move on to the description of the app. When you create a new Shiny
+project in RStudio, two main files are created: 'ui.R' and 'server.R'.  Additionally,
+I created one more called 'global.R'.  'ui.R' contains the code needed to build
+the html interface. 'server.R' contains the code that responds to the interface, and
+'global.R' contains the functions that build the query, call BigQuery, and
+plot the results.
+
+Starting with the interface found in 'ui.R', the
+`googleAuthR <https://github.com/MarkEdmondson1234/googleAuthR>`_ package was
+used to perform authorization. To do this, first a button is added to the
+interface using googleAuthUI("loginButton").
+
+
+..code-block:: R
+  
+  ui <- fluidPage(
+  # and some header information
+  sidebarPanel(
+    googleAuthUI("loginButton"),
+
+
+The project ID was gathered using the textInput widget, this is done because
+even after logging in, we still need to tell BigQuery what project we'd like
+to bill. Cohorts are selected using the selectInput widget, which is like a
+drop down menu of TCGA studies. And lastly, we have a textInput widget to
+specify the gene symbol. At the bottom of the interface is an actionButton called
+submit that kicks off the work.
+
+
+..code-block:: R
+
+  #
+  textInput("projectid", "Project ID", value = "isb-cgc-xy-abcd", placeholder = "isb-cgc-xy-abcd"),
+  selectInput("cohortid", label = "Cohort",
+                  choices = list(
+                    "TCGA-ACC"="TCGA-ACC",
+                    "TCGA-BLCA"="TCGA-BLCA",
+                    "TCGA-BRCA"="TCGA-BRCA",
+                    "TCGA-CESC"="TCGA-CESC",
+                    "TCGA-CHOL"="TCGA-CHOL",
+                    ## etc ##
+              ),selected = "TCGA-GBM") ,
+  textInput("varname",  "Gene Symbol", value = "IDH1", placeholder = "IDH1"),
+  actionButton(inputId="submit",label = "Submit")
+
+
+In the 'server.R' file, there's one main function called 'server'. Inside that
+function, we get our accessToken by calling the googleAuth module, linked to
+the 'loginButton', and we have a function linked (using eventReactive) to the submit button called
+outputPlot.
+
+
 
 
 ------------------
