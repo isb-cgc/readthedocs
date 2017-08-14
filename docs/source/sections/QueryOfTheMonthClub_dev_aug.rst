@@ -146,25 +146,186 @@ submit that kicks off the work.
 
 .. code-block:: r
 
-  #
-  textInput("projectid", "Project ID", value = "isb-cgc-xy-abcd", placeholder = "isb-cgc-xy-abcd"),
-  selectInput("cohortid", label = "Cohort",
-                  choices = list(
-                    "TCGA-ACC"="TCGA-ACC",
-                    "TCGA-BLCA"="TCGA-BLCA",
-                    "TCGA-BRCA"="TCGA-BRCA",
-                    "TCGA-CESC"="TCGA-CESC",
-                    "TCGA-CHOL"="TCGA-CHOL",
-                    ## etc ##
+  ui <- fluidPage(
+    # excluding layout code like sidebarLayout and panels.
+
+    googleAuthUI("loginButton"),
+
+    textInput("projectid", "Project ID", value = "isb-cgc-xy-abcd", placeholder = "isb-cgc-xy-abcd"),
+
+    selectInput("cohortid", label = "Cohort",
+                    choices = list(
+                      "TCGA-ACC"="TCGA-ACC",
+                      "TCGA-BLCA"="TCGA-BLCA",
+                      "TCGA-BRCA"="TCGA-BRCA",
+                      "TCGA-CESC"="TCGA-CESC",
+                      "TCGA-CHOL"="TCGA-CHOL",
+                      ## etc ##
               ),selected = "TCGA-GBM") ,
-  textInput("varname",  "Gene Symbol", value = "IDH1", placeholder = "IDH1"),
-  actionButton(inputId="submit",label = "Submit")
+
+    textInput("varname",  "Gene Symbol", value = "IDH1", placeholder = "IDH1"),
+
+    actionButton(inputId="submit",label = "Submit")
+
+  )
 
 
 In the 'server.R' file, there's one main function called 'server'. Inside that
-function, we get our accessToken by calling the googleAuth module, linked to
-the 'loginButton', and we have a function linked (using eventReactive) to the submit button called
-outputPlot.
+function, we get our accessToken by calling the googleAuth module, which is
+linked to the 'loginButton', and we have a function linked
+to the submit button called outputPlot, which ends up wrapping our plot function
+in the googleAuthR::with_shiny function, so to make our API calls while
+properly logged in.
+
+
+.. code-block:: r
+
+  server <- function(input, output, session){
+    ## Create access token and render login button
+
+    access_token <- callModule(googleAuth, "loginButton", approval_prompt = "force")
+
+    outputPlot <- eventReactive(input$submit,{
+      ## wrap existing function using googleAuthR::with_shiny
+      ## pass the reactive token using shiny_access_token param
+      project  <- as.character(input$projectid)
+      cohort   <- as.character(input$cohortid)
+      varname  <- input$varname
+
+      if(is.null(access_token())) {
+        errorPlot()
+      } else {
+        with_shiny(f = drawPlot, shiny_access_token = access_token(), project, cohort, varname)
+      }
+    })
+
+    output$plot <- renderPlot({outputPlot()}, width=600, height=500)
+  }
+
+
+The plot is drawn using a model from the
+`survival package https://cran.r-project.org/web/packages/survival/index.html>`_
+and a ggplots style package called
+`ggsurvminer <https://cran.r-project.org/web/packages/survminer/index.html>`_
+
+
+.. code-block:: r
+
+  drawPlot <- function(project, cohort, varname) {
+    #
+    # first make a call to BigQuery, and build the data frame
+    dat <- buildAndRunQuery(varname, project, cohort)
+    #
+    # then we fit our survival model
+    fit <- survfit(Surv(days_to_death, vital_status) ~ mutation_status, data=dat)
+    # can use ylower to constrain the plotting area, but we lose the p-value
+    ylower <- max(0, min(fit$lower))
+    #
+    # finally visualize the survival model using ggsurvplot.
+    survminer::ggsurvplot(fit=fit, data=dat, pval=T, risk.table=T, conf.int=T)
+  }
+
+
+The last portion we'll look at, and maybe the most important, involves the
+call to big query! In the 'buildAndRunQuery' function, we build up the query
+as a long string, then contruct an api function using googleAuthR functions,
+and finally make the API call, and get the results. There are helper functions
+found in the `bigQueryR <http://code.markedmondson.me/bigQueryR/>`_, but I think
+it's instructional to see how the backend works. In future QotM, we will explore
+using bigQueryR.
+
+
+.. code-block:: r
+
+  buildAndRunQuery <- function(varName, aproject, cohort) {
+    #
+    # First we're going to build the string representing the BigQuery #
+    #
+    q <- paste(
+      "
+      WITH
+      clin_table AS (
+        select
+        case_barcode,
+        days_to_death,
+        vital_status
+      from
+        `isb-cgc.TCGA_bioclin_v0.Clinical`
+      WHERE
+        project_short_name = '", cohort,"' ),
+      mut_table AS (
+      SELECT
+      case_barcode,
+      IF ( case_barcode IN (
+        SELECT
+        case_barcode
+        FROM
+        `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation`
+        WHERE
+        SYMBOL = '", varName, "'
+        AND Variant_Classification <> 'Silent'
+        AND Variant_Type = 'SNP'
+        AND IMPACT <> 'LOW'), 'Mutant', 'WT') as mutation_status
+      FROM
+      `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation` )
+    SELECT
+      mut_table.case_barcode,
+      days_to_death,
+      vital_status,
+      mutation_status
+    FROM
+      clin_table
+    JOIN
+      mut_table
+    ON
+      clin_table.case_barcode = mut_table.case_barcode
+    GROUP BY
+      mut_table.case_barcode,
+      days_to_death,
+      vital_status,
+      mutation_status
+      ",
+      sep="")
+
+    # define body for the POST request to the Google BigQuery API
+    body = list(
+      query=q,
+      defaultDataset.projectId=aproject,
+      useLegacySql = F
+    )
+
+    #create a function to make the POST call to Google BigQuery
+    f = gar_api_generator("https://www.googleapis.com/bigquery/v2",
+                          "POST",
+                          path_args = list(projects=aproject, queries=""))
+
+    # call function with body as input argument
+    response = f(the_body=body)
+
+    dat <- data.frame()
+    if(!is.null(response))
+    {
+      # have to construct the data.frame from a list of results.
+      dat = as.data.frame(do.call("rbind",lapply(response$content$rows$f,FUN = t)))
+      colnames(dat) <- c("ID", "days_to_death", "vital_status", "mutation_status")
+
+      # then we need to do a little data-cleaning to get ready for our survival model
+      dat$days_to_death <- as.numeric(as.character(dat$days_to_death))
+      dat$days_to_death[dat$vital_status == 'Alive'] <- max(dat$days_to_death, na.rm=T)
+      dat$vital_status <- ifelse(dat$vital_status == 'Alive', 1, 2)
+      dat$mutation_status <- as.factor(dat$mutation_status)
+    }
+    return(dat)
+  }
+
+
+The resulting plot will show if the two groups, defined by SNP mutation status, have
+significantly different survival rates. In our example, contrary to intuition,
+a mutation in the IDH1 gene, in GBM, actually has a positive effect on survival.
+
+.. figure:: query_figs/august.png
+   :scale: 30
+   :align: center
 
 
 
