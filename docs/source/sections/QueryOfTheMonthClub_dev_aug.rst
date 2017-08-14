@@ -30,17 +30,84 @@ we're going to provide some user interfaces to variables that are inserted into
 the BigQuery (like gene names).
 
 The query is going to look at patient survival, and how survival rates change
-with gene mutations. Therefore we'll be using two tables:
+with gene mutations. Therefore we'll be using two tables and a small set of
+variables:
 
-+isb-cgc:TCGA_bioclin_v0.Clinical for survival data
++ isb-cgc:TCGA_bioclin_v0.Clinical for survival data
     - **days_to_death**: If the patient has died, and this information is available, then
       this field will indicate the number of days, relative to "time zero" (typically
       the day of diagnosis), until death (in the future, ie a positive value).
-
     - **vital_status**: This field is filled in for all but 4 cases and is correct as of
       the last available followup for that individual.  7534 cases were known to still
       be "Alive", while 3622 were "Dead", and 4 were of unknown vital status.
++ isb-cgc:TCGA_hg38_data_v0.Somatic_Mutation for mutation status
+    - **Variant_Classification**: eg Missense_Mutation, Silent, 3'UTR, Intron, etc (18 different values occur in this table)
+    - **Variant_Type**: one of 3 possible values: SNP, DEL, INS
+    - **IMPACT**: one of 4 values: LOW, MODERATE, HIGH, or MODIFIER
 
+What we want the query to do, is in taking a cohort, collect patients into two
+groups, those that have a greater than LOW IMPACT SNP in a particular gene, and
+those that do not have any SNP in that gene. Then we can compare the
+time_to_death between the two groups to assess whether the SNP has some
+potential effect. Many patients are still alive, and for those, the days_to_death
+is modified to be the end of the study (or the max number of days possible.)
+
+Let's take a look at an example query, then we'll see how to build it up in the
+code.
+
+.. code-block:: sql
+
+  -- using Standard SQL --
+  --
+  -- First we build our table of survival times
+  --
+  WITH clin_table AS (
+  SELECT
+    case_barcode,
+    days_to_death,
+    vital_status
+  FROM
+    `isb-cgc.TCGA_bioclin_v0.Clinical`
+  WHERE
+    project_short_name = 'TCGA-GBM' ),
+  --
+  -- Then we can build our table of mutation status.
+  -- We do that by using an If statement with a sub-query.
+  --
+  mut_table AS (
+  SELECT
+    case_barcode,
+    IF ( case_barcode IN (
+      SELECT
+        case_barcode
+      FROM
+        `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation`
+      WHERE
+        SYMBOL = 'IDH1'
+        AND Variant_Classification <> 'Silent'
+        AND Variant_Type = 'SNP'
+        AND IMPACT <> 'LOW'), 'Mutant', 'WT') AS mutation_status
+  FROM
+    `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation` )
+  --
+  -- Finally, we can join those tables.
+  --
+  SELECT
+    mut_table.case_barcode,
+    days_to_death,
+    vital_status,
+    mutation_status
+  FROM
+    clin_table
+  JOIN
+    mut_table
+  ON
+    clin_table.case_barcode = mut_table.case_barcode
+  GROUP BY
+    mut_table.case_barcode,
+    days_to_death,
+    vital_status,
+    mutation_status
 
 
 ------------------
