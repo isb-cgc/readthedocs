@@ -322,12 +322,11 @@ using bigQueryR.
 The resulting plot will show if the two groups, defined by SNP mutation status, have
 significantly different survival rates. In our example, contrary to intuition,
 a mutation in the IDH1 gene, in GBM, actually has a positive effect on survival.
+`More information is found here <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4109985/>`_.
 
 .. figure:: query_figs/august.png
    :scale: 30
    :align: center
-
-
 
 
 ------------------
