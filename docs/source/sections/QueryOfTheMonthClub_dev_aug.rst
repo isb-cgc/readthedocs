@@ -128,8 +128,8 @@ used to perform authorization. To do this, first a button is added to the
 interface using googleAuthUI("loginButton").
 
 
-..code-block:: R
-  
+..code-block:: r
+
   ui <- fluidPage(
   # and some header information
   sidebarPanel(
@@ -144,7 +144,7 @@ specify the gene symbol. At the bottom of the interface is an actionButton calle
 submit that kicks off the work.
 
 
-..code-block:: R
+..code-block:: r
 
   #
   textInput("projectid", "Project ID", value = "isb-cgc-xy-abcd", placeholder = "isb-cgc-xy-abcd"),
