@@ -125,18 +125,8 @@ plot the results.
 Starting with the interface found in 'ui.R', the
 `googleAuthR <https://github.com/MarkEdmondson1234/googleAuthR>`_ package was
 used to perform authorization. To do this, first a button is added to the
-interface using googleAuthUI("loginButton").
-
-
-.. code-block:: r
-
-  ui <- fluidPage(
-  # and some header information
-  sidebarPanel(
-    googleAuthUI("loginButton"),
-
-
-The project ID was gathered using the textInput widget, this is done because
+interface using googleAuthUI("loginButton"). The project ID was collected using
+the textInput widget, this is done because
 even after logging in, we still need to tell BigQuery what project we'd like
 to bill. Cohorts are selected using the selectInput widget, which is like a
 drop down menu of TCGA studies. And lastly, we have a textInput widget to
