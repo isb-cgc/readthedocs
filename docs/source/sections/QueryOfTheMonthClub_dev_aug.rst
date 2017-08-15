@@ -15,7 +15,8 @@ email: dgibbs (at) systemsbiology (dot) org
 August, 2017
 ###########
 
-This month we have been working on a graphical front-end for BigQuery using
+This month we have been working on a small demo application using BigQuery,
+with a graphical front-end built with
 `R Shiny <https://shiny.rstudio.com/>`_ .
 
 You can find it `here <https://isb-cgc.shinyapps.io/MutStatusSurvivalCurves/>`_.
@@ -23,6 +24,7 @@ You can find it `here <https://isb-cgc.shinyapps.io/MutStatusSurvivalCurves/>`_.
 Using the R programming language, Shiny is an easy way to produce interactive
 visualizations that can be hosted on the web.
 
+<<<<<<< HEAD
 Shiny sites are hosted by a shiny server, which you can set up locally or
 use the free shinyapps.io service, which is provided by the same
 company that produces the RStudio (which has a builtin Shiny server for dev work).
@@ -30,29 +32,59 @@ company that produces the RStudio (which has a builtin Shiny server for dev work
 In the past, we've shown how queries can be programmatically built up; here
 we're going to provide a user interface to collect variables that are inserted into
 the BigQuery (like gene names).
+=======
+Shiny apps need to be hosted by a 
+`Shiny Server <https://shiny.rstudio.com/articles/shiny-server.html>`_, 
+and one easy way to have your sites
+hosted is by using the `shinyapps.io <http://www.shinyapps.io/>`_ 
+service, which is provided by the company 
+`RStudio <https://www.rstudio.com/>`_.
+
+In the past, we've shown how queries can be built up programmatically; here
+we're going to provide some user interfaces to variables that will be inserted into
+the SQL (like gene names).
+>>>>>>> b270a3932b33ebb7cb5b778c10e05074ceb2526d
 
 The query is going to look at patient survival, and how survival rates change
 with gene mutations. Therefore we'll be using two tables and a small set of
 variables:
 
+<<<<<<< HEAD
 + isb-cgc:TCGA_bioclin_v0.Clinical for survival data
     - **days_to_last_known_alive**: This field indicates the number of days to the last
       follow up appointment (still alive) or until death, relative to "time zero" (typically
       the day of diagnosis).
+=======
++ `isb-cgc:TCGA_bioclin_v0.Clinical <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_bioclin_v0.Clinical>`_ for survival data
+    - **days_to_death**: If the patient has died, and this information is available, then
+      this field will indicate the number of days, relative to "time zero" (typically
+      the day of diagnosis), until death (in the future, ie a positive value).
+>>>>>>> b270a3932b33ebb7cb5b778c10e05074ceb2526d
     - **vital_status**: This field is filled in for all but 4 cases and is correct as of
       the last available follow up for that individual. Over all TCGA, 7534 cases
       were known to still
       be "Alive", while 3622 were "Dead", and 4 were of unknown vital status.
-+ isb-cgc:TCGA_hg38_data_v0.Somatic_Mutation for mutation status
++ `isb-cgc:TCGA_hg38_data_v0.Somatic_Mutation <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg38_data_v0.Somatic_Mutation>`_ for mutation status
     - **Variant_Classification**: eg Missense_Mutation, Silent, 3'UTR, Intron, etc (18 different values occur in this table)
     - **Variant_Type**: one of 3 possible values: SNP, DEL, INS
     - **IMPACT**: one of 4 values: LOW, MODERATE, HIGH, or MODIFIER
 
+<<<<<<< HEAD
 What we want the query to do, is to collect a cohort of patients into two
 groups, those that have a SNP with some potential effect in a particular gene, and
 those that do not. Then we can compare the
 survival rates between the two groups to assess whether the mutation has some
 potential effect.
+=======
+Starting with a specified cohort of patients, the query will
+divide patients into two groups: 
+those that have a greater than LOW IMPACT SNP in a particular gene, and
+those that do not have any SNP in that gene. Then we will compare 
+survival between the two groups to assess whether the SNP appears to affect outcomes.
+Many patients are still alive, and for those, the days_to_death
+(use days_to_last_known_alive instead ???)
+is modified to be the end of the study (or the max number of days possible.)
+>>>>>>> b270a3932b33ebb7cb5b778c10e05074ceb2526d
 
 Let's take a look at an example query, then we'll see how to build it up in the
 code.
@@ -195,7 +227,7 @@ properly logged in.
 
 
 The plot is drawn using a model from the
-`survival package https://cran.r-project.org/web/packages/survival/index.html>`_
+`survival package <https://cran.r-project.org/web/packages/survival/index.html>`_
 and a ggplots style package called
 `ggsurvminer <https://cran.r-project.org/web/packages/survminer/index.html>`_
 
@@ -216,8 +248,13 @@ and a ggplots style package called
 
 
 The last portion we'll look at, and maybe the most important, involves the
+<<<<<<< HEAD
 call to big query! In the 'buildAndRunQuery' function, we build up the query
 as a long string, then contruct an API function using googleAuthR functions,
+=======
+call to BigQuery! In the 'buildAndRunQuery' function, we build up the query
+as a long string, then construct an API function using googleAuthR functions,
+>>>>>>> b270a3932b33ebb7cb5b778c10e05074ceb2526d
 and finally make the API call, and get the results. There are helper functions
 found in the `bigQueryR <http://code.markedmondson.me/bigQueryR/>`_, but I think
 it's instructional to see how the backend works. In future QotMs, we will explore
@@ -310,7 +347,8 @@ using bigQueryR.
 The resulting plot will show if the two groups, defined by SNP mutation status, have
 significantly different survival rates. In our example, contrary to intuition,
 a mutation in the IDH1 gene, in GBM, actually has a positive effect on survival.
-`More information is found here <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4109985/>`_.
+(See this 2014 `paper <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4109985/>`_ by Cohen *et al* 
+about *IDH1 and IDH2 Mutations in Gliomas* for more information about this.)
 
 .. figure:: query_figs/august.png
    :scale: 100
