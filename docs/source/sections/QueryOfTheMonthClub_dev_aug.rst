@@ -200,7 +200,7 @@ properly logged in.
 
 
 The plot is drawn using a model from the
-`survival package https://cran.r-project.org/web/packages/survival/index.html>`_
+`survival package <https://cran.r-project.org/web/packages/survival/index.html>`_
 and a ggplots style package called
 `ggsurvminer <https://cran.r-project.org/web/packages/survminer/index.html>`_
 
@@ -223,8 +223,8 @@ and a ggplots style package called
 
 
 The last portion we'll look at, and maybe the most important, involves the
-call to big query! In the 'buildAndRunQuery' function, we build up the query
-as a long string, then contruct an api function using googleAuthR functions,
+call to BigQuery! In the 'buildAndRunQuery' function, we build up the query
+as a long string, then construct an API function using googleAuthR functions,
 and finally make the API call, and get the results. There are helper functions
 found in the `bigQueryR <http://code.markedmondson.me/bigQueryR/>`_, but I think
 it's instructional to see how the backend works. In future QotM, we will explore
@@ -318,7 +318,8 @@ using bigQueryR.
 The resulting plot will show if the two groups, defined by SNP mutation status, have
 significantly different survival rates. In our example, contrary to intuition,
 a mutation in the IDH1 gene, in GBM, actually has a positive effect on survival.
-`More information is found here <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4109985/>`_.
+(See this 2014 `paper <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4109985/>`_ by Cohen *et al* 
+about *IDH1 and IDH2 Mutations in Gliomas* for more information about this.)
 
 .. figure:: query_figs/august.png
    :scale: 100
