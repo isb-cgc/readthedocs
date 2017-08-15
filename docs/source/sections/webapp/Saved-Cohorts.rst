@@ -192,7 +192,7 @@ From the "COHORTS" page you can select:
 * Set Operations: Allows you to perform set operations on selected cohorts (see below for details)
 * Share: This will share the web view of the cohorts with users you select by entering the users e-mail. If the email address you entered in
   not registered in the database you are prompted with a message saying, "The following user emails could not be found; please ask them 
-  to log into the site first:(email imputed)."
+  to log into the site first:(email entered)."
 
 Set Operations
 ==============
@@ -240,7 +240,7 @@ From the "SAVED COHORTS" tab you can:
 * Download IDs: Provides a list of sample and cases IDs in the cohort
 * Share: This will share the web view of the cohorts with users you select by entering the users e-mail. If the email address you entered in
   not registered in the database you are prompted with a message saying, "The following user emails could not be found; please ask them to
-  to log into the site first:(email imputed)."
+  to log into the site first:(email entered)."
 
 ISB-CGC DATA and USER DATA tab
 --------------------------------
