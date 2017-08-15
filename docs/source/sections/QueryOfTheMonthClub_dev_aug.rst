@@ -15,7 +15,8 @@ email: dgibbs (at) systemsbiology (dot) org
 August, 2017
 ###########
 
-This month we have been working on a graphical front-end for BigQuery using
+This month we have been working on a small demo application using BigQuery,
+with a graphical front-end built with
 `R Shiny <https://shiny.rstudio.com/>`_ .
 
 You can find it `here <https://isb-cgc.shinyapps.io/MutStatusSurvivalCurves/>`_.
@@ -23,35 +24,40 @@ You can find it `here <https://isb-cgc.shinyapps.io/MutStatusSurvivalCurves/>`_.
 Using the R programming language, Shiny is an easy way to produce interactive
 visualizations that can be hosted on the web, making public sharing possible.
 
-Shiny sites need to have a shiny server, and one easy way to have your sites
-hosted is by using the shinyapps.io service, which is provided by the same
-company that produces the RStudio (has a builtin Shiny server for dev work).
+Shiny apps need to be hosted by a 
+`Shiny Server <https://shiny.rstudio.com/articles/shiny-server.html>`_, 
+and one easy way to have your sites
+hosted is by using the `shinyapps.io <http://www.shinyapps.io/>`_ 
+service, which is provided by the company 
+`RStudio <https://www.rstudio.com/>`_.
 
-In the past, we've shown how queries can be programmatically built up; here
-we're going to provide some user interfaces to variables that are inserted into
-the BigQuery (like gene names).
+In the past, we've shown how queries can be built up programmatically; here
+we're going to provide some user interfaces to variables that will be inserted into
+the SQL (like gene names).
 
 The query is going to look at patient survival, and how survival rates change
 with gene mutations. Therefore we'll be using two tables and a small set of
 variables:
 
-+ isb-cgc:TCGA_bioclin_v0.Clinical for survival data
++ `isb-cgc:TCGA_bioclin_v0.Clinical <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_bioclin_v0.Clinical>`_ for survival data
     - **days_to_death**: If the patient has died, and this information is available, then
       this field will indicate the number of days, relative to "time zero" (typically
       the day of diagnosis), until death (in the future, ie a positive value).
     - **vital_status**: This field is filled in for all but 4 cases and is correct as of
       the last available followup for that individual.  7534 cases were known to still
       be "Alive", while 3622 were "Dead", and 4 were of unknown vital status.
-+ isb-cgc:TCGA_hg38_data_v0.Somatic_Mutation for mutation status
++ `isb-cgc:TCGA_hg38_data_v0.Somatic_Mutation <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg38_data_v0.Somatic_Mutation>`_ for mutation status
     - **Variant_Classification**: eg Missense_Mutation, Silent, 3'UTR, Intron, etc (18 different values occur in this table)
     - **Variant_Type**: one of 3 possible values: SNP, DEL, INS
     - **IMPACT**: one of 4 values: LOW, MODERATE, HIGH, or MODIFIER
 
-What we want the query to do, is in taking a cohort, collect patients into two
-groups, those that have a greater than LOW IMPACT SNP in a particular gene, and
-those that do not have any SNP in that gene. Then we can compare the
-time_to_death between the two groups to assess whether the SNP has some
-potential effect. Many patients are still alive, and for those, the days_to_death
+Starting with a specified cohort of patients, the query will
+divide patients into two groups: 
+those that have a greater than LOW IMPACT SNP in a particular gene, and
+those that do not have any SNP in that gene. Then we will compare 
+survival between the two groups to assess whether the SNP appears to affect outcomes.
+Many patients are still alive, and for those, the days_to_death
+(use days_to_last_known_alive instead ???)
 is modified to be the end of the study (or the max number of days possible.)
 
 Let's take a look at an example query, then we'll see how to build it up in the
