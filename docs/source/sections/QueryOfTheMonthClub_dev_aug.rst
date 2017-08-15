@@ -21,14 +21,14 @@ This month we have been working on a graphical front-end for BigQuery using
 You can find it `here <https://isb-cgc.shinyapps.io/MutStatusSurvivalCurves/>`_.
 
 Using the R programming language, Shiny is an easy way to produce interactive
-visualizations that can be hosted on the web, making public sharing possible.
+visualizations that can be hosted on the web.
 
-Shiny sites need to have a shiny server, and one easy way to have your sites
-hosted is by using the shinyapps.io service, which is provided by the same
-company that produces the RStudio (has a builtin Shiny server for dev work).
+Shiny sites are hosted by a shiny server, which you can set up locally or
+use the free shinyapps.io service, which is provided by the same
+company that produces the RStudio (which has a builtin Shiny server for dev work).
 
 In the past, we've shown how queries can be programmatically built up; here
-we're going to provide some user interfaces to variables that are inserted into
+we're going to provide a user interface to collect variables that are inserted into
 the BigQuery (like gene names).
 
 The query is going to look at patient survival, and how survival rates change
@@ -36,23 +36,23 @@ with gene mutations. Therefore we'll be using two tables and a small set of
 variables:
 
 + isb-cgc:TCGA_bioclin_v0.Clinical for survival data
-    - **days_to_death**: If the patient has died, and this information is available, then
-      this field will indicate the number of days, relative to "time zero" (typically
-      the day of diagnosis), until death (in the future, ie a positive value).
+    - **days_to_last_known_alive**: This field indicates the number of days to the last
+      follow up appointment (still alive) or until death, relative to "time zero" (typically
+      the day of diagnosis).
     - **vital_status**: This field is filled in for all but 4 cases and is correct as of
-      the last available followup for that individual.  7534 cases were known to still
+      the last available follow up for that individual. Over all TCGA, 7534 cases
+      were known to still
       be "Alive", while 3622 were "Dead", and 4 were of unknown vital status.
 + isb-cgc:TCGA_hg38_data_v0.Somatic_Mutation for mutation status
     - **Variant_Classification**: eg Missense_Mutation, Silent, 3'UTR, Intron, etc (18 different values occur in this table)
     - **Variant_Type**: one of 3 possible values: SNP, DEL, INS
     - **IMPACT**: one of 4 values: LOW, MODERATE, HIGH, or MODIFIER
 
-What we want the query to do, is in taking a cohort, collect patients into two
-groups, those that have a greater than LOW IMPACT SNP in a particular gene, and
-those that do not have any SNP in that gene. Then we can compare the
-time_to_death between the two groups to assess whether the SNP has some
-potential effect. Many patients are still alive, and for those, the days_to_death
-is modified to be the end of the study (or the max number of days possible.)
+What we want the query to do, is to collect a cohort of patients into two
+groups, those that have a SNP with some potential effect in a particular gene, and
+those that do not. Then we can compare the
+survival rates between the two groups to assess whether the mutation has some
+potential effect.
 
 Let's take a look at an example query, then we'll see how to build it up in the
 code.
@@ -66,7 +66,7 @@ code.
   WITH clin_table AS (
   SELECT
     case_barcode,
-    days_to_death,
+    days_to_last_known_alive,
     vital_status
   FROM
     `isb-cgc.TCGA_bioclin_v0.Clinical`
@@ -96,7 +96,7 @@ code.
   --
   SELECT
     mut_table.case_barcode,
-    days_to_death,
+    days_to_last_known_alive,
     vital_status,
     mutation_status
   FROM
@@ -107,7 +107,7 @@ code.
     clin_table.case_barcode = mut_table.case_barcode
   GROUP BY
     mut_table.case_barcode,
-    days_to_death,
+    days_to_last_known_alive,
     vital_status,
     mutation_status
 
@@ -115,20 +115,20 @@ code.
 **The Shiny App**
 
 
-Now we'll move on to the description of the app. When you create a new Shiny
+Now we'll move on to the description of the app. When creating a new Shiny
 project in RStudio, two main files are created: 'ui.R' and 'server.R'.  Additionally,
-I created one more called 'global.R'.  'ui.R' contains the code needed to build
-the html interface. 'server.R' contains the code that responds to the interface, and
-'global.R' contains the functions that build the query, call BigQuery, and
+I created one more called 'global.R'. The 'ui.R' file contains the code needed to build
+the html interface, 'server.R' contains the code that responds to the interface, and
+'global.R' contains the functions that build the query, call the BigQuery API, and
 plot the results.
 
 Starting with the interface found in 'ui.R', the
 `googleAuthR <https://github.com/MarkEdmondson1234/googleAuthR>`_ package was
-used to perform authorization. To do this, first a button is added to the
-interface using googleAuthUI("loginButton"). The project ID was collected using
-the textInput widget, this is done because
+used to perform authorization, using the googleAuthUI("loginButton").
+Next, the project ID was collected using
+the textInput widget, we need this because
 even after logging in, we still need to tell BigQuery what project we'd like
-to bill. Cohorts are selected using the selectInput widget, which is like a
+to bill. Then, patient cohorts are selected using the selectInput widget, which is like a
 drop down menu of TCGA studies. And lastly, we have a textInput widget to
 specify the gene symbol. At the bottom of the interface is an actionButton called
 submit that kicks off the work.
@@ -137,7 +137,8 @@ submit that kicks off the work.
 .. code-block:: r
 
   ui <- fluidPage(
-    # excluding layout code like sidebarLayout and panels.
+
+    #!! excluding layout code like sidebarLayout and panels. !!#
 
     googleAuthUI("loginButton"),
 
@@ -162,17 +163,17 @@ submit that kicks off the work.
 
 In the 'server.R' file, there's one main function called 'server'. Inside that
 function, we get our accessToken by calling the googleAuth module, which is
-linked to the 'loginButton', and we have a function linked
-to the submit button called outputPlot, which ends up wrapping our plot function
-in the googleAuthR::with_shiny function, so to make our API calls while
+linked to the 'loginButton'. Also we have a function linked
+to the submit button called outputPlot, which wraps our plot function
+in the googleAuthR::with_shiny function, in order to make our API calls while
 properly logged in.
 
 
 .. code-block:: r
 
   server <- function(input, output, session){
-    ## Create access token and render login button
 
+    ## Create access token and render login button
     access_token <- callModule(googleAuth, "loginButton", approval_prompt = "force")
 
     outputPlot <- eventReactive(input$submit,{
@@ -207,9 +208,7 @@ and a ggplots style package called
     dat <- buildAndRunQuery(varname, project, cohort)
     #
     # then we fit our survival model
-    fit <- survfit(Surv(days_to_death, vital_status) ~ mutation_status, data=dat)
-    # can use ylower to constrain the plotting area, but we lose the p-value
-    ylower <- max(0, min(fit$lower))
+    fit <- survfit(Surv(days_to_last_known_alive, vital_status) ~ mutation_status, data=dat)
     #
     # finally visualize the survival model using ggsurvplot.
     survminer::ggsurvplot(fit=fit, data=dat, pval=T, risk.table=T, conf.int=T)
@@ -218,10 +217,10 @@ and a ggplots style package called
 
 The last portion we'll look at, and maybe the most important, involves the
 call to big query! In the 'buildAndRunQuery' function, we build up the query
-as a long string, then contruct an api function using googleAuthR functions,
+as a long string, then contruct an API function using googleAuthR functions,
 and finally make the API call, and get the results. There are helper functions
 found in the `bigQueryR <http://code.markedmondson.me/bigQueryR/>`_, but I think
-it's instructional to see how the backend works. In future QotM, we will explore
+it's instructional to see how the backend works. In future QotMs, we will explore
 using bigQueryR.
 
 
@@ -300,9 +299,8 @@ using bigQueryR.
       colnames(dat) <- c("ID", "days_to_death", "vital_status", "mutation_status")
 
       # then we need to do a little data-cleaning to get ready for our survival model
-      dat$days_to_death <- as.numeric(as.character(dat$days_to_death))
-      dat$days_to_death[dat$vital_status == 'Alive'] <- max(dat$days_to_death, na.rm=T)
-      dat$vital_status <- ifelse(dat$vital_status == 'Alive', 1, 2)
+      dat$days_to_last_known_alive <- as.numeric(as.character(dat$days_to_last_known_alive))
+      dat$vital_status <- ifelse(dat$vital_status == 'Alive', 0, 1)
       dat$mutation_status <- as.factor(dat$mutation_status)
     }
     return(dat)
