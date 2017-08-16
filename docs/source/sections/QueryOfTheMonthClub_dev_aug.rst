@@ -129,7 +129,7 @@ Next, the GCP project ID is collected using
 the textInput widget, we need this because
 even after logging in, we still need to tell BigQuery which GCP project
 is going to be *billed* for the query.
-(You will need to be a member of at least one GCP project, with permissions to 
+(You will need to be a member of at least one GCP project, with permissions to
 run BigQuery queries.  To find out the ID(s) for GCP project(s) you are a member
 of, you can go to the `Google Cloud Console <https://console.cloud.google.com>`_.)
 Then, patient cohorts are selected using the selectInput widget, which is like a
@@ -146,7 +146,7 @@ submit that kicks off the work.
 
     googleAuthUI("loginButton"),
 
-    textInput("projectid", "Project ID", value = "isb-cgc-xy-abcd", placeholder = "isb-cgc-xy-abcd"),
+    textInput("projectid", "Project ID", value = "your project id", placeholder = "your project id"),
 
     selectInput("cohortid", label = "Cohort",
                     choices = list(
