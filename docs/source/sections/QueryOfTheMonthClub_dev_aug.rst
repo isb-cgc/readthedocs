@@ -237,7 +237,7 @@ using bigQueryR.
       clin_table AS (
         select
         case_barcode,
-        days_to_death,
+        days_to_last_known_alive,
         vital_status
       from
         `isb-cgc.TCGA_bioclin_v0.Clinical`
@@ -260,7 +260,7 @@ using bigQueryR.
       `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation` )
     SELECT
       mut_table.case_barcode,
-      days_to_death,
+      days_to_last_known_alive,
       vital_status,
       mutation_status
     FROM
@@ -271,7 +271,7 @@ using bigQueryR.
       clin_table.case_barcode = mut_table.case_barcode
     GROUP BY
       mut_table.case_barcode,
-      days_to_death,
+      days_to_last_known_alive,
       vital_status,
       mutation_status
       ",
@@ -297,7 +297,7 @@ using bigQueryR.
     {
       # have to construct the data.frame from a list of results.
       dat = as.data.frame(do.call("rbind",lapply(response$content$rows$f,FUN = t)))
-      colnames(dat) <- c("ID", "days_to_death", "vital_status", "mutation_status")
+      colnames(dat) <- c("ID", "days_to_last_known_alive", "vital_status", "mutation_status")
 
       # then we need to do a little data-cleaning to get ready for our survival model
       dat$days_to_last_known_alive <- as.numeric(as.character(dat$days_to_last_known_alive))
