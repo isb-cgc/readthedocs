@@ -18,8 +18,7 @@ August, 2017
 This month we have been working on a small demo application using BigQuery,
 with a graphical front-end built with
 `R Shiny <https://shiny.rstudio.com/>`_ .
-
-You can find it `here <https://isb-cgc.shinyapps.io/MutStatusSurvivalCurves/>`_.
+You can try it out yourself `here <https://isb-cgc.shinyapps.io/MutStatusSurvivalCurves/>`_.
 
 Using the R programming language, Shiny is an easy way to produce interactive
 visualizations that can be hosted on the web.
@@ -36,7 +35,7 @@ The query is going to look at patient survival, and how survival rates change
 with gene mutations. Therefore we'll be using two tables and a small set of
 variables:
 
-+ isb-cgc:TCGA_bioclin_v0.Clinical for survival data
++ `isb-cgc:TCGA_bioclin_v0.Clinical <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_bioclin_v0.Clinical>`_ for survival data
     - **days_to_last_known_alive**: This field indicates the number of days to the last
       follow up appointment (still alive) or until death, relative to "time zero" (typically
       the day of diagnosis).
@@ -126,10 +125,14 @@ plot the results.
 Starting with the interface found in 'ui.R', the
 `googleAuthR <https://github.com/MarkEdmondson1234/googleAuthR>`_ package was
 used to perform authorization, using the googleAuthUI("loginButton").
-Next, the project ID was collected using
+Next, the GCP project ID is collected using
 the textInput widget, we need this because
-even after logging in, we still need to tell BigQuery what project we'd like
-to bill. Then, patient cohorts are selected using the selectInput widget, which is like a
+even after logging in, we still need to tell BigQuery which GCP project
+is going to be *billed* for the query.
+(You will need to be a member of at least one GCP project, with permissions to 
+run BigQuery queries.  To find out the ID(s) for GCP project(s) you are a member
+of, you can go to the `Google Cloud Console <https://console.cloud.google.com>`_.)
+Then, patient cohorts are selected using the selectInput widget, which is like a
 drop down menu of TCGA studies. And lastly, we have a textInput widget to
 specify the gene symbol. At the bottom of the interface is an actionButton called
 submit that kicks off the work.
@@ -318,6 +321,7 @@ about *IDH1 and IDH2 Mutations in Gliomas* for more information about this.)
    :scale: 100
    :align: center
 
+The results for the TCGA-LGG cohort are also quite striking -- go have a look!
 
 ------------------
 
