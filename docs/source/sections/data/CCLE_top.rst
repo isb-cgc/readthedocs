@@ -19,6 +19,6 @@ for additional information.
 An older set of BigQuery tables containing CCLE data are available in the
 ``isb-cgc:ccle_201602_alpha`` 
 `dataset <https://bigquery.cloud.google.com/dataset/isb-cgc:ccle_201602_alpha>`_.
-This data will be updated and reformatted to look more like the newer TCGA
-and TARGET datasets over the next month or two.
+This data will be updated and reformatted to look more like the newer TCGA and TARGET datasets after the GDC formally releases CCLE, to
+optimize usage in the cancer research community.
 
