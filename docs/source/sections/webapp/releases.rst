@@ -21,7 +21,7 @@ Web-App Release Notes
  Bug Fixes
  
  - When creating a large cohort you are no longer returned a red error message.
- - The sharing feature for Workbooks, Cohorts, and User Uploaded Programs has been re-activated.  You must enter a valid email address that is present in the system to share the workbook, cohort, or user uploaded program. If they are not present in our system please feel free to invite to the `ISB-CGC website <https://isb-cgc.appspot.com/>`_.
+ - The sharing feature for Workbooks, Cohorts, and User Uploaded Programs has been re-activated.  You must enter a valid email address that is present in the system to share the workbook, cohort, or user uploaded program. If they are not present in our system please feel free to invite them to the `ISB-CGC website <https://isb-cgc.appspot.com/>`_.
  - When working with a new worksheet or a duplicate worksheet with workbooks for categorical features e.g bar chart, you can no longer select the log option. The log option only applies to numerical options.
  - When working with workbooks, if you select the delete confirmation button multiple times while the page is loading you will be sent to the saved workbooks list table page.
  - Users can plot r uploaded data when working with workbooks when using variables and cohorts from the same files that were uploaded.
