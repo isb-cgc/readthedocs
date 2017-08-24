@@ -190,7 +190,9 @@ From the "COHORTS" page you can select:
 * New Workbook: Pushing this button creates a New Workbook using the selected Cohorts
 * Delete: Allows you to delete selected cohort(s) (if you confirm by clicking the second delete button presented)
 * Set Operations: Allows you to perform set operations on selected cohorts (see below for details)
-* Share: A dialogue box appears and the user is prompted to select users that are registered in the system to share selected cohort(s) with.
+* Share: This will share the web view of the cohorts with users you select by entering the users e-mail. If the email address you entered in
+  not registered in the database you are prompted with a message saying, "The following user emails could not be found; please ask them 
+  to log into the site first:(email entered)."
 
 Set Operations
 ==============
@@ -236,7 +238,9 @@ From the "SAVED COHORTS" tab you can:
 * Delete: Allows you to delete this cohort (if you confirm by clicking the second delete button presented)
 * View Files: Allows you to view the list of files associated with this cohort (see details below)
 * Download IDs: Provides a list of sample and cases IDs in the cohort
-* Share: A dialogue box appears and the user is prompted to select registered users to share the cohort with.
+* Share: This will share the web view of the cohorts with users you select by entering the users e-mail. If the email address you entered in
+  not registered in the database you are prompted with a message saying, "The following user emails could not be found; please ask them to
+  to log into the site first:(email entered)."
 
 ISB-CGC DATA and USER DATA tab
 --------------------------------

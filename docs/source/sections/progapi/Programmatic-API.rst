@@ -234,6 +234,6 @@ Details for each of these enpoints can be found below:
     progapi3_ccle/cases_get.rst
     progapi3_ccle/samples_cloud_storage_file_paths.rst
     progapi3_ccle/samples_get.rst
-    progapi3_ccle/users_get.rst
+   
 
 

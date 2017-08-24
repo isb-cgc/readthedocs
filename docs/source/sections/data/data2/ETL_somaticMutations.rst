@@ -1,3 +1,4 @@
+
 Somatic DNA Mutations 
 =======================
 
@@ -7,14 +8,15 @@ Somatic Mutations tables, `Somatic_Mutation_DCC <https://bigquery.cloud.google.c
 `Somatic_Mutation <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg38_data_v0.Somatic_Mutation>`_
 in BigQuery contain somatic mutation calls collected from the open-access 
 `MAF <https://wiki.nci.nih.gov/display/TCGA/Mutation+Annotation+Format+(MAF)+Specification>`_ 
+
 files from 30 tumor types.
 
 For each MAF file, some
 simple data-cleaning performed, it was then annotated using
-`Oncotator <https://www.broadinstitute.org/cancer/cga/oncotator>`_ 
+`Oncotator <https://www.broadinstitute.org/cancer/cga/oncotator>`_
 and then further processed to remove duplicates before being merged into a single table.
 
-Data-Cleaning 
+Data-Cleaning
 -------------
 
 - Remove any lines where the ``build`` is not ``37``
@@ -58,5 +60,7 @@ of the annotated MAF files using the following rules:
 
 In addition, any exact duplicates (*ie* all fields describing a mutation are the same) in the
 merged file are removed, and the final result uploaded into BigQuery.
+
 The result are tables containing over 5.8 million mutations called on 8435 tumor samples from 8373 patients.
+
 

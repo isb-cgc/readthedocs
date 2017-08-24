@@ -98,7 +98,7 @@ This is where the filters you have selected are shown on the right panel for cle
 
 Editing a Variable Favorites List
 =================================
-**Details of variables favorites list edit page**
+Selecting the edit button from the variable list page or a specific variable details page, you are re-directed to a page where you can add or remove filters from all programs on system and user uploaded data. You are also able to change the title of the variable favortie list from the feature. 
 
 Main Menu
 ---------
