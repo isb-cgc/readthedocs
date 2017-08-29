@@ -221,7 +221,7 @@ Deleting Service Accounts from Google Cloud Projects
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 To delete a service account from an GCP (not allowing it to be used to programmatically access controlled data), push the "trashcan" icon beside the service account (see screenshot below).
 
-.. image:: DeleteServiceAccount.PNG
+.. image:: DeleteServiceAccount.png
    :scale: 50
    :align: center
 
@@ -229,7 +229,7 @@ Extending Your Service Account Access by 7 Days
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Once you have registered a Service Account, you have 7 days before the access is automatically revoked.  To extend the service account access another 7 days (*eg* if your program is still running), select the "refresh" icon beside the service account (see screenshot below).
 
-.. image:: RefreshServiceAccount.PNG
+.. image:: RefreshServiceAccount.png
    :scale: 50
    :align: center
 
@@ -243,7 +243,7 @@ which resulted in the access being revoked.
 To reauthorize the service account 1) remedy the problem that resulted in access being denied,
 and 2) select the "refresh" icon beside the service account (see screenshot below).
 
-.. image:: RefreshServiceAccount.PNG
+.. image:: RefreshServiceAccount.png
    :scale: 50
    :align: center
 
