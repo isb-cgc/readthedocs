@@ -23,7 +23,6 @@ You can try it out yourself `here <https://isb-cgc.shinyapps.io/MutStatusSurviva
 Using the R programming language, Shiny is an easy way to produce interactive
 visualizations that can be hosted on the web.
 
-
 Shiny sites are hosted by a shiny server, which you can set up locally or
 use the free shinyapps.io service, which is provided by the same
 company that produces the RStudio (which has a builtin Shiny server for dev work).
