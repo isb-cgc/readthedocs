@@ -12,6 +12,319 @@ email: dgibbs (at) systemsbiology (dot) org
 
 ------------------
 
+August, 2017
+###########
+
+This month we have been working on a small demo application using BigQuery,
+with a graphical front-end built with
+`R Shiny <https://shiny.rstudio.com/>`_ .
+You can try it out yourself `here <https://isb-cgc.shinyapps.io/MutStatusSurvivalCurves/>`_.
+
+Using the R programming language, Shiny is an easy way to produce interactive
+visualizations that can be hosted on the web.
+
+Shiny sites are hosted by a shiny server, which you can set up locally or
+use the free shinyapps.io service, which is provided by the same
+company that produces the RStudio (which has a builtin Shiny server for dev work).
+
+In the past, we've shown how queries can be programmatically built up; here
+we're going to provide a user interface to collect variables that are inserted into
+the BigQuery (like gene names).
+
+The query is going to look at patient survival, and how survival rates change
+with gene mutations. Therefore we'll be using two tables and a small set of
+variables:
+
++ `isb-cgc:TCGA_bioclin_v0.Clinical <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_bioclin_v0.Clinical>`_ for survival data
+    - **days_to_last_known_alive**: This field indicates the number of days to the last
+      follow up appointment (still alive) or until death, relative to "time zero" (typically
+      the day of diagnosis).
+    - **vital_status**: This field is filled in for all but 4 cases and is correct as of
+      the last available follow up for that individual. Over all TCGA, 7534 cases
+      were known to still
+      be "Alive", while 3622 were "Dead", and 4 were of unknown vital status.
++ `isb-cgc:TCGA_hg38_data_v0.Somatic_Mutation <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg38_data_v0.Somatic_Mutation>`_ for mutation status
+    - **Variant_Classification**: eg Missense_Mutation, Silent, 3'UTR, Intron, etc (18 different values occur in this table)
+    - **Variant_Type**: one of 3 possible values: SNP, DEL, INS
+    - **IMPACT**: one of 4 values: LOW, MODERATE, HIGH, or MODIFIER
+
+What we want the query to do, is to collect a cohort of patients into two
+groups, those that have a SNP with some potential effect in a particular gene, and
+those that do not. Then we can compare the
+survival rates between the two groups to assess whether the mutation has some
+potential effect.
+
+Let's take a look at an example query, then we'll see how to build it up in the
+code.
+
+.. code-block:: sql
+
+  -- using Standard SQL --
+  --
+  -- First we build our table of survival times
+  --
+  WITH clin_table AS (
+  SELECT
+    case_barcode,
+    days_to_last_known_alive,
+    vital_status
+  FROM
+    `isb-cgc.TCGA_bioclin_v0.Clinical`
+  WHERE
+    project_short_name = 'TCGA-GBM' ),
+  --
+  -- Then we can build our table of mutation status.
+  -- We do that by using an If statement with a sub-query.
+  --
+  mut_table AS (
+  SELECT
+    case_barcode,
+    IF ( case_barcode IN (
+      SELECT
+        case_barcode
+      FROM
+        `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation`
+      WHERE
+        SYMBOL = 'IDH1'
+        AND Variant_Classification <> 'Silent'
+        AND Variant_Type = 'SNP'
+        AND IMPACT <> 'LOW'), 'Mutant', 'WT') AS mutation_status
+  FROM
+    `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation` )
+  --
+  -- Finally, we can join those tables.
+  --
+  SELECT
+    mut_table.case_barcode,
+    days_to_last_known_alive,
+    vital_status,
+    mutation_status
+  FROM
+    clin_table
+  JOIN
+    mut_table
+  ON
+    clin_table.case_barcode = mut_table.case_barcode
+  GROUP BY
+    mut_table.case_barcode,
+    days_to_last_known_alive,
+    vital_status,
+    mutation_status
+
+
+**The Shiny App**
+
+
+Now we'll move on to the description of the app. When creating a new Shiny
+project in RStudio, two main files are created: 'ui.R' and 'server.R'.  Additionally,
+I created one more called 'global.R'. The 'ui.R' file contains the code needed to build
+the html interface, 'server.R' contains the code that responds to the interface, and
+'global.R' contains the functions that build the query, call the BigQuery API, and
+plot the results.
+
+Starting with the interface found in 'ui.R', the
+`googleAuthR <https://github.com/MarkEdmondson1234/googleAuthR>`_ package was
+used to perform authorization, using the googleAuthUI("loginButton").
+Next, the GCP project ID is collected using
+the textInput widget, we need this because
+even after logging in, we still need to tell BigQuery which GCP project
+is going to be *billed* for the query.
+(You will need to be a member of at least one GCP project, with permissions to
+run BigQuery queries.  To find out the ID(s) for GCP project(s) you are a member
+of, you can go to the `Google Cloud Console <https://console.cloud.google.com>`_.)
+Then, patient cohorts are selected using the selectInput widget, which is like a
+drop down menu of TCGA studies. And lastly, we have a textInput widget to
+specify the gene symbol. At the bottom of the interface is an actionButton called
+submit that kicks off the work.
+
+
+.. code-block:: r
+
+  ui <- fluidPage(
+
+    #!! excluding layout code like sidebarLayout and panels. !!#
+
+    googleAuthUI("loginButton"),
+
+    textInput("projectid", "Project ID", value = "your project id", placeholder = "your project id"),
+
+    selectInput("cohortid", label = "Cohort",
+                    choices = list(
+                      "TCGA-ACC"="TCGA-ACC",
+                      "TCGA-BLCA"="TCGA-BLCA",
+                      "TCGA-BRCA"="TCGA-BRCA",
+                      "TCGA-CESC"="TCGA-CESC",
+                      "TCGA-CHOL"="TCGA-CHOL",
+                      ## etc ##
+              ),selected = "TCGA-GBM") ,
+
+    textInput("varname",  "Gene Symbol", value = "IDH1", placeholder = "IDH1"),
+
+    actionButton(inputId="submit",label = "Submit")
+
+  )
+
+
+In the 'server.R' file, there's one main function called 'server'. Inside that
+function, we get our accessToken by calling the googleAuth module, which is
+linked to the 'loginButton'. Also we have a function linked
+to the submit button called outputPlot, which wraps our plot function
+in the googleAuthR::with_shiny function, in order to make our API calls while
+properly logged in.
+
+
+.. code-block:: r
+
+  server <- function(input, output, session){
+
+    ## Create access token and render login button
+    access_token <- callModule(googleAuth, "loginButton", approval_prompt = "force")
+
+    outputPlot <- eventReactive(input$submit,{
+      ## wrap existing function using googleAuthR::with_shiny
+      ## pass the reactive token using shiny_access_token param
+      project  <- as.character(input$projectid)
+      cohort   <- as.character(input$cohortid)
+      varname  <- input$varname
+
+      if(is.null(access_token())) {
+        errorPlot()
+      } else {
+        with_shiny(f = drawPlot, shiny_access_token = access_token(), project, cohort, varname)
+      }
+    })
+
+    output$plot <- renderPlot({outputPlot()}, width=600, height=500)
+  }
+
+
+The plot is drawn using a model from the
+`survival package <https://cran.r-project.org/web/packages/survival/index.html>`_
+and a ggplots style package called
+`ggsurvminer <https://cran.r-project.org/web/packages/survminer/index.html>`_
+
+
+.. code-block:: r
+
+  drawPlot <- function(project, cohort, varname) {
+    #
+    # first make a call to BigQuery, and build the data frame
+    dat <- buildAndRunQuery(varname, project, cohort)
+    #
+    # then we fit our survival model
+    fit <- survfit(Surv(days_to_last_known_alive, vital_status) ~ mutation_status, data=dat)
+    #
+    # finally visualize the survival model using ggsurvplot.
+    survminer::ggsurvplot(fit=fit, data=dat, pval=T, risk.table=T, conf.int=T)
+  }
+
+
+The last portion we'll look at, and maybe the most important, involves the
+call to big query! In the 'buildAndRunQuery' function, we build up the query
+as a long string, then contruct an API function using googleAuthR functions,
+and finally make the API call, and get the results. There are helper functions
+found in the `bigQueryR <http://code.markedmondson.me/bigQueryR/>`_, but I think
+it's instructional to see how the backend works. In future QotMs, we will explore
+using bigQueryR.
+
+
+.. code-block:: r
+
+  buildAndRunQuery <- function(varName, aproject, cohort) {
+    #
+    # First we're going to build the string representing the BigQuery #
+    #
+    q <- paste(
+      "
+      WITH
+      clin_table AS (
+        select
+        case_barcode,
+        days_to_last_known_alive,
+        vital_status
+      from
+        `isb-cgc.TCGA_bioclin_v0.Clinical`
+      WHERE
+        project_short_name = '", cohort,"' ),
+      mut_table AS (
+      SELECT
+      case_barcode,
+      IF ( case_barcode IN (
+        SELECT
+        case_barcode
+        FROM
+        `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation`
+        WHERE
+        SYMBOL = '", varName, "'
+        AND Variant_Classification <> 'Silent'
+        AND Variant_Type = 'SNP'
+        AND IMPACT <> 'LOW'), 'Mutant', 'WT') as mutation_status
+      FROM
+      `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation` )
+    SELECT
+      mut_table.case_barcode,
+      days_to_last_known_alive,
+      vital_status,
+      mutation_status
+    FROM
+      clin_table
+    JOIN
+      mut_table
+    ON
+      clin_table.case_barcode = mut_table.case_barcode
+    GROUP BY
+      mut_table.case_barcode,
+      days_to_last_known_alive,
+      vital_status,
+      mutation_status
+      ",
+      sep="")
+
+    # define body for the POST request to the Google BigQuery API
+    body = list(
+      query=q,
+      defaultDataset.projectId=aproject,
+      useLegacySql = F
+    )
+
+    #create a function to make the POST call to Google BigQuery
+    f = gar_api_generator("https://www.googleapis.com/bigquery/v2",
+                          "POST",
+                          path_args = list(projects=aproject, queries=""))
+
+    # call function with body as input argument
+    response = f(the_body=body)
+
+    dat <- data.frame()
+    if(!is.null(response))
+    {
+      # have to construct the data.frame from a list of results.
+      dat = as.data.frame(do.call("rbind",lapply(response$content$rows$f,FUN = t)))
+      colnames(dat) <- c("ID", "days_to_last_known_alive", "vital_status", "mutation_status")
+
+      # then we need to do a little data-cleaning to get ready for our survival model
+      dat$days_to_last_known_alive <- as.numeric(as.character(dat$days_to_last_known_alive))
+      dat$vital_status <- ifelse(dat$vital_status == 'Alive', 0, 1)
+      dat$mutation_status <- as.factor(dat$mutation_status)
+    }
+    return(dat)
+  }
+
+
+The resulting plot will show if the two groups, defined by SNP mutation status, have
+significantly different survival rates. In our example, contrary to intuition,
+a mutation in the IDH1 gene, in GBM, actually has a positive effect on survival.
+(See this 2014 `paper <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4109985/>`_ by Cohen *et al*
+about *IDH1 and IDH2 Mutations in Gliomas* for more information about this.)
+
+.. figure:: query_figs/august.png
+   :scale: 100
+   :align: center
+
+The results for the TCGA-LGG cohort are also quite striking -- go have a look!
+
+------------------
+
 July, 2017
 ###########
 
