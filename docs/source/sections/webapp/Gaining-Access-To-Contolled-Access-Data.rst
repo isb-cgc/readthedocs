@@ -168,7 +168,7 @@ Pushing the "Register" button will take you to the next screen:
    :scale: 50
    :align: center
    
-Select "Register Service Account" from the drop down menu on the left of the GCP you want to add a service account to.  You will be requested to enter your service account ID (see screenshot below).  Addtionally, select the "Yes" checkbox indicating that you will be using the account to access controlled data and select the Controlled Dataset(s) you plan to access.
+Select "Register Service Account" from the drop down menu on the left of the GCP you want to add a service account to.  You will be requested to enter your service account ID (see screenshot below).  Addtionally, select the "Yes" checkbox indicating that you will be using the account to access controlled data and select the Controlled Dataset(s) you plan to access.  Currently you can select either Controlled TCGA data or controlled TARGET data to gain access  to.
 
 .. image:: RegisterAServiceAccountFirstScreen.PNG
    :scale: 50
@@ -221,7 +221,7 @@ Deleting Service Accounts from Google Cloud Projects
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 To delete a service account from an GCP (not allowing it to be used to programmatically access controlled data), push the "trashcan" icon beside the service account (see screenshot below).
 
-.. image:: DeleteServiceAccount.PNG
+.. image:: DeleteServiceAccount.png
    :scale: 50
    :align: center
 
@@ -229,7 +229,7 @@ Extending Your Service Account Access by 7 Days
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Once you have registered a Service Account, you have 7 days before the access is automatically revoked.  To extend the service account access another 7 days (*eg* if your program is still running), select the "refresh" icon beside the service account (see screenshot below).
 
-.. image:: RefreshServiceAccount.PNG
+.. image:: RefreshServiceAccount.png
    :scale: 50
    :align: center
 
@@ -243,7 +243,7 @@ which resulted in the access being revoked.
 To reauthorize the service account 1) remedy the problem that resulted in access being denied,
 and 2) select the "refresh" icon beside the service account (see screenshot below).
 
-.. image:: RefreshServiceAccount.PNG
+.. image:: RefreshServiceAccount.png
    :scale: 50
    :align: center
 
