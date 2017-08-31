@@ -16,7 +16,7 @@ Additionally, you can:
 Creating and Saving a Workbook
 ##############################
 
-From your dashboard, under Sample Analysis you will find the “Saved Workbooks” panel.  This panel displays any previously created and save workbooks and allows you to “Create a New Workbook”. If you do not have any saved workbooks you will see “Saved Workbooks (0)".
+From your dashboard, you will find the “Saved Workbooks” panel.  This panel displays any previously created and saved workbooks.  You can also “Create a New Workbook”. If you do not have any saved workbooks you will see “Saved Workbooks (0)".
 
 To create a **workbook** from Your Dashboard, click on the **“Create a New Workbook”** link in the "Saved Workbooks" panel. This will take you to the workbook creation page.
 
@@ -25,9 +25,9 @@ To create a **workbook** from Your Dashboard, click on the **“Create a New Wor
 .. _how to upload your own data: program_data_upload.html
 .. _how to graph your own data: GraphingUserData.html
 
-1. From the Workbook creation panel you will first select one of six analysis types (i.e., Bar chart, Histogram, Scatter Plot, Violin Plot, Cubby Hole Plot or SeqPeek). 
+1. From the Workbook creation panel you will first select one of six analyses types (i.e., Bar chart, Histogram, Scatter Plot, Violin Plot, Cubby Hole Plot or SeqPeek). 
 
-  * **Analysis Type Description**
+  * **Analyses Type Description**
 
     - **Bar Chart** - This chart is used to plot a single categorical feature for one or more cohorts. It generates vertical lines to represent the type of data being used. The X axis shows categorical information being used while the other y axis,  displays categorical data chosen in the edit analysis settings. 
 
@@ -40,19 +40,17 @@ To create a **workbook** from Your Dashboard, click on the **“Create a New Wor
     - **Cubby Hole Plot** - This chart is used to plot two categorical features. Boxes are colored by their related p-values.
 
     - **SeqPeek** - This visualization shows where somatic mutations have been observed on a linear representation of a specific protein. Each horizontal strip represents the protein, with data from different tumor types (aka cohorts or studies) shown stacked one on top of the other.
-
-    - **Browse All Analyses** - This will direct you to a visual sample of the different analysis types along with a brief description of how to generate each type.
     
-    A researcher now has the option to make the axis logarithmic if the plot can display continuous numerical data for eg. mRNA expression levels.
+    A researcher now has the option to make the axis logarithmic if the plot can display continuous numerical data for eg. mRNA expression levels when working with a histogram, Scatter plot, or a Violin plot analyses.
    
    **Note:** For Violin Plot and Scatter Plot you can select multiple cohorts as your Color By Feature. This will cause the Legend to list all the cohorts that the sample is associated to. Please be aware you'll end up with lots of permutations if you have lots of samples that belong to many different cohorts.
 
 2. You will then select **Genes and miRNAs or Variables** (or, optionally both)
 
-  * **Genes and miRNAs** - This will display previously created “Gene and miRNA Favorites” which can be “Applied to Analysis" (see `Gene and miRNA Favorites <Gene-and-miRNA-Favorites.html>`_ for details) or you can apply / create a “New Gene and miRNA List”).
+  * **Genes and miRNAs** - This will display previously created “Gene and miRNA Favorites” which can be “Applied to Worksheet" (see `Gene and miRNA Favorites <Gene-and-miRNA-Favorites.html>`_ for details) or you can apply / create a “New Gene and miRNA List”).
 
 
-You begin by naming the data set (Gene Type or Project Specific); the Gene and miRNA list you create here will automatically be added to your Gene and miRNA Favorites list and can be selected for additional analysis later.
+You begin by naming the data set (Gene Type, miRNA type, or Project Specific); the Gene and miRNA list you create here will automatically be added to your Gene and miRNA Favorites list and can be selected for additional analysis later.
 
 Next select the Gene(s) and miRNA(s) you’re interested in (you can upload a specific list you’ve previously created/stored, select new Genes and miRNA by typing them into the input box (you will see that Genes and miRNAs will auto-display). If duplicate listings are entered they will be marked for your deletion or automatically dropped when saved. If an error or unknown item is entered it will also be flagged for your attention. 
 
