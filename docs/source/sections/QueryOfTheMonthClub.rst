@@ -18,7 +18,8 @@ August, 2017
 This month we have been working on a small demo application using BigQuery,
 with a graphical front-end built with
 `R Shiny <https://shiny.rstudio.com/>`_ .
-You can try it out yourself `here <https://isb-cgc.shinyapps.io/MutStatusSurvivalCurves/>`_.
+You can try it out yourself `here <https://isb-cgc.shinyapps.io/MutStatusSurvivalCurves/>`_
+and even watch the `video <https://youtu.be/qa2OxQLUhBY>`_.
 
 Using the R programming language, Shiny is an easy way to produce interactive
 visualizations that can be hosted on the web.
