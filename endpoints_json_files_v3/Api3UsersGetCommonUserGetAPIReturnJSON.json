@@ -1,0 +1,4 @@
+{
+    "dbGaP_authorized": "True or false.",
+    "message": "Message indicating the authorization status of the user."
+}

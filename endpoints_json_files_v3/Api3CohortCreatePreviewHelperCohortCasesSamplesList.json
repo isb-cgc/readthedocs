@@ -1,0 +1,6 @@
+{
+    "case_count": "Number of cases in the cohort.",
+    "cases": "List of cases barcodes in the cohort.",
+    "sample_count": "Number of samples in the cohort.",
+    "samples": "List of sample barcodes in the cohort."
+}

@@ -1,0 +1,21 @@
+{
+    "file_gdc_id": "The GDC assigned id for the file",
+    "file_name_key": "Google Cloud Storage path to file.",
+    "file_name": "Name of the datafile stored on the GDC system.",
+    "file_size": "The size of the file",
+    "index_file_name": "For BAM files, the name of its index file",
+    "data_type": "Data type stored in Google Cloud Storage, e.g. 'Clinical Supplement', 'Biospecimen Supplement', 'Aligned reads', 'Genotypes', 'Diagnostic image'",
+    "data_category": "The higher level categorization of the data_type in the file, e.g. 'Biospecimen', 'Clinical', 'Raw sequencing data', 'Simple nucleotide variation'",
+    "experimental_strategy": "The sequencing, array or other strategy used to generate the data file, e.g. 'RNA-Seq', 'WGS', 'Genotyping array'",
+    "data_format": "The format of the data file, e.g. 'BAM', 'BCR XML', 'TXT'",
+    "analysis_workflow_type": "The type of workflow used to generate the data file, e.g. 'BWA-aln', 'STAR 2-Pass', 'BWA with Mark Duplicates and Cocleaning'",
+    "endpoint_type": "The GDC files API the data file information was gottern from, e.g. 'legacy', 'current'",
+    "program_name": "The program for which the data was generated, e.g. 'CCLE', 'TARGET','TCGA'.",
+    "project_short_name": "The id of the project, e.g.  'CCLE-ACC', 'CCLE-UVM', 'TARGET-ALL-P1', ' TARGET-WT', 'TCGA-ACC', 'TCGA-UVM'",
+    "sample_gdc_id": "The GDC assigned id for the sample",
+    "sample_barcode": "Sample barcode.",
+    "sample_type": "The sample type, e.g. '01', '10', '11'",
+    "disease_code": "The disease abbeviation, e.g. 'ACC', 'UVM', 'ALL', 'WT'",
+    "access": "An indication of the security protocol necessary to fulfill in order to access the data from the file, e.g. open, controlled.",
+    "platform": "The sequencing or array platform used, e.g. Illumina HiSeq, Ion Torrent PGM, Affymetrix SNP Array 6.0."
+}
