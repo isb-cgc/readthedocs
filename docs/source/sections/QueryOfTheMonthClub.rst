@@ -24,6 +24,9 @@ and even watch the `video <https://youtu.be/qa2OxQLUhBY>`_.
 Using the R programming language, Shiny is an easy way to produce interactive
 visualizations that can be hosted on the web.
 
+We also have created a tutorial with a complete walkthrough of this months query! You can find the YouTube video by following this `link
+<https://www.youtube.com/watch?v=qa2OxQLUhBY&feature=youtu.be>`_.
+
 Shiny sites are hosted by a shiny server, which you can set up locally or
 use the free shinyapps.io service, which is provided by the same
 company that produces the RStudio (which has a builtin Shiny server for dev work).
