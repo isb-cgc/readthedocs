@@ -85,7 +85,7 @@ This filter allows the user to add selected variables from existing variable Fav
 
 Clinical Filter Feature Search
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This filter allows the user to search by any clinical feature in a given program that is present in the most recent data upload for that program. 
+This filter allows the user to search by any clinical feature in a given program that is present in the most recent data uploaded for that program. 
 
 User Uploaded Programs Filter
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
