@@ -118,6 +118,6 @@ Please Note: When selecting a gene or miRNA for either the x-axis or y-axis vari
 
 Comments Section
 =================
-Any user who owns or has had a cohort shared with them can comment on it. To open comments, use the comments button at the top right and select “Comments”. A sidebar will appear on the right side and any previously created comments will be shown.
+Any user who owns or has had a workbook shared with them can comment on it. To open comments, use the comments button at the top right and select “Comments”. A sidebar will appear on the right side and any previously created comments will be shown.
 
 On the bottom of the comments sidebar, you can create a new comment and save it. It should appear at the bottom of the list of comments.
