@@ -9,3 +9,4 @@ The links on this page connect to tutorials and other helpful pages created by t
 * `R, Python and SQL Tutorials <progapi/Tutorials.html>`__
 * `Moving from GDC to ISB-CGC <GDCTutorials/FromGDCtoISBCGC.html>`__
 * `Viewing and using cohorts in the Webapp and API <webapp/ViewingCohorts.html>`__
+* `Walkthrough of BigQuery <bigqueryGUI/WalkthroughOfGoogleBigQuery.html>`__
