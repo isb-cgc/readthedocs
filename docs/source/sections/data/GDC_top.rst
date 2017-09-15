@@ -29,10 +29,10 @@ or from scripting languages such as **R** and **Python**, or from the command-li
 
 In order to help users determine which data at the NCI-GDC is available on the
 ISB-CGC platform, we have created a set of metadata tables in BigQuery
-(based on `NCI-GDC Data Release 5.0 <https://docs.gdc.cancer.gov/Data/Release_Notes/Data_Release_Notes/>`_)
+(based on `NCI-GDC Data Release 8.0 <https://docs.gdc.cancer.gov/Data/Release_Notes/Data_Release_Notes/>`_)
 in the `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:GDC_metadata>`_ dataset:
 
-- `rel5_caseData <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel5_caseData>`_:  contains a complete list of all 17268 cases existing in either the legacy or current archives.  The following query, for example will return a count of the number of cases by program, together with the number of data files for those cases in the two archives:
+- `rel8_caseData <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel8_caseData>`_:  contains a complete list of all 17268 cases existing in either the legacy or current archives.  The following query, for example will return a count of the number of cases by program, together with the number of data files for those cases in the two archives:
 
 .. code-block:: sql
 
@@ -42,7 +42,7 @@ in the `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:
      SUM(legacy_file_count) AS totLegacyFiles,
      SUM(current_file_count) AS totCurrentFiles
    FROM
-     `isb-cgc.GDC_metadata.rel5_caseData`
+     `isb-cgc.GDC_metadata.rel8_caseData`
    GROUP BY
      program_name
    ORDER BY
@@ -61,7 +61,7 @@ in the `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:
    (Note that some files contain data from *multiple* cases, and these types of files will be counted multiple times in the above query on this case-oriented table, resulting in an over-count of the number of unique files.)
 
 
-- `rel5_current_fileData <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel5_current_fileData>`_: contains a complete list of the 274724 files in the current archive (268541 TCGA files and 6183 TARGET files)
+- `rel8_current_fileData <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel8_current_fileData>`_: contains a complete list of the 274724 files in the current archive (268541 TCGA files and 6183 TARGET files)
 
 .. code-block:: sql
 
@@ -74,7 +74,7 @@ in the `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:
      COUNT(*) AS numFiles,
      SUM(file_size)/1000000000 AS totFileSize_GB
    FROM
-     `isb-cgc.GDC_metadata.rel5_current_fileData`
+     `isb-cgc.GDC_metadata.rel8_current_fileData`
    GROUP BY
      1, 2, 3, 4, 5
    ORDER BY
@@ -87,11 +87,11 @@ in the `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:
    The top three rows in the result are the TCGA WXS, TCGA RNA-Seq, and TARGET WXS BAM files, 
    which total approx 350 TB, 100 TB, and 10 TB respectively.
 
-- `rel5_legacy_fileData <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel5_legacy_fileData>`_: contains a complete list of the 805907 files in the legacy archive (718064 TCGA files, 10154 TARGET files, 1273 CCLE files, and 76416 files which are not currently linked to any program or project -- 15386 of these are controlled-access files with the TCGA dbGaP identifier, and the remaining 61030 open-access files include ~17k coverage WIG files, ~12k diagnostic SVS images, ~11k clinical/biospecimen xml files).  The results of the same query as above (but directed at this table) can be viewed `here <https://docs.google.com/spreadsheets/d/1DoyyazK2scq3usp9m48R2-Fc-DJ2aWTVy2-XafNxr3Q/edit?usp=sharing>`_.  The top two rows in the result are the TARGET and TCGA WGS BAM files, totaling over 600 TB and 500 TB respectively. 
+- `rel8_legacy_fileData <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel8_legacy_fileData>`_: contains a complete list of the 805907 files in the legacy archive (718064 TCGA files, 10154 TARGET files, 1273 CCLE files, and 76416 files which are not currently linked to any program or project -- 15386 of these are controlled-access files with the TCGA dbGaP identifier, and the remaining 61030 open-access files include ~17k coverage WIG files, ~12k diagnostic SVS images, ~11k clinical/biospecimen xml files).  The results of the same query as above (but directed at this table) can be viewed `here <https://docs.google.com/spreadsheets/d/1DoyyazK2scq3usp9m48R2-Fc-DJ2aWTVy2-XafNxr3Q/edit?usp=sharing>`_.  The top two rows in the result are the TARGET and TCGA WGS BAM files, totaling over 600 TB and 500 TB respectively. 
 
 ..
 
-- `rel5_aliquot2caseIDmap <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel5_aliquot2caseIDmap>`_: is a "helper" table in case you need to be able to map between identifiers at different levels.  A total of 164911 unique aliquots are identified in this table.  The intrinsic hierarchy is program > project > case > sample > portion > analyte > aliquot.  We use the term "barcode" where the NCI-GDC uses the term "submitter id", "gdc_id" for the NCI-GDC's uuid-style identifier.  If a portion was not further divided into analytes or if an analyte was not further divided into aliquots, some of the fields in this table may simply have the string "NA".  For example, this query for a single TCGA case will return 24 rows of results for 2 unique samples, 1 portion from each sample, 5 analytes from the tumor sample and 3 analytes from the blood-normal sample, and finally 24 unique aliquots total.
+- `rel8_aliquot2caseIDmap <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel8_aliquot2caseIDmap>`_: is a "helper" table in case you need to be able to map between identifiers at different levels.  A total of 164911 unique aliquots are identified in this table.  The intrinsic hierarchy is program > project > case > sample > portion > analyte > aliquot.  We use the term "barcode" where the NCI-GDC uses the term "submitter id", "gdc_id" for the NCI-GDC's uuid-style identifier.  If a portion was not further divided into analytes or if an analyte was not further divided into aliquots, some of the fields in this table may simply have the string "NA".  For example, this query for a single TCGA case will return 24 rows of results for 2 unique samples, 1 portion from each sample, 5 analytes from the tumor sample and 3 analytes from the blood-normal sample, and finally 24 unique aliquots total.
 
 
 .. code-block:: sql
@@ -99,7 +99,7 @@ in the `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:
    SELECT
      *
    FROM
-     `isb-cgc.GDC_metadata.rel5_aliquot2caseIDmap`
+     `isb-cgc.GDC_metadata.rel8_aliquot2caseIDmap`
    WHERE
      case_barcode="TCGA-23-1029"
    ORDER BY
@@ -107,7 +107,7 @@ in the `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:
 
 ..
 
-- `rel5_slide2caseIDmap <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel5_slide2caseIDmap>`_:  is another very similar "helper" table, but for the tissue slide data.  A total of 18682 slide identifers are included.  In this table the hierarchy is program > project > case > sample > portion > slide.
+- `rel8_slide2caseIDmap <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel8_slide2caseIDmap>`_:  is another very similar "helper" table, but for the tissue slide data.  A total of 18682 slide identifers are included.  In this table the hierarchy is program > project > case > sample > portion > slide.
 
 ..
 
