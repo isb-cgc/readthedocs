@@ -37,14 +37,14 @@ in the `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:
 .. code-block:: sql
 
    SELECT
-     program_name AS program,
+     project__program__name AS program,
      COUNT(*) AS numCases,
      SUM(legacy_file_count) AS totLegacyFiles,
      SUM(current_file_count) AS totCurrentFiles
    FROM
      `isb-cgc.GDC_metadata.rel8_caseData`
    GROUP BY
-     program_name
+     project__program__name
    ORDER BY
      numCases DESC
 
@@ -61,12 +61,12 @@ in the `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:
    (Note that some files contain data from *multiple* cases, and these types of files will be counted multiple times in the above query on this case-oriented table, resulting in an over-count of the number of unique files.)
 
 
-- `rel8_current_fileData <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel8_current_fileData>`_: contains a complete list of the 274724 files in the current archive (268541 TCGA files and 6183 TARGET files)
+- `rel8_fileData_current <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel8_fileData_current>`_: contains a complete list of the 274724 files in the current archive (268541 TCGA files and 6183 TARGET files)
 
 .. code-block:: sql
 
    SELECT
-     program_name,
+     cases__project__program__name AS program_name,
      experimental_strategy,
      data_category,
      data_format,
@@ -74,7 +74,7 @@ in the `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:
      COUNT(*) AS numFiles,
      SUM(file_size)/1000000000 AS totFileSize_GB
    FROM
-     `isb-cgc.GDC_metadata.rel8_current_fileData`
+     `isb-cgc.GDC_metadata.rel8_fileData_current`
    GROUP BY
      1, 2, 3, 4, 5
    ORDER BY
@@ -87,7 +87,7 @@ in the `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:
    The top three rows in the result are the TCGA WXS, TCGA RNA-Seq, and TARGET WXS BAM files, 
    which total approx 350 TB, 100 TB, and 10 TB respectively.
 
-- `rel8_legacy_fileData <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel8_legacy_fileData>`_: contains a complete list of the 805907 files in the legacy archive (718064 TCGA files, 10154 TARGET files, 1273 CCLE files, and 76416 files which are not currently linked to any program or project -- 15386 of these are controlled-access files with the TCGA dbGaP identifier, and the remaining 61030 open-access files include ~17k coverage WIG files, ~12k diagnostic SVS images, ~11k clinical/biospecimen xml files).  The results of the same query as above (but directed at this table) can be viewed `here <https://docs.google.com/spreadsheets/d/1DoyyazK2scq3usp9m48R2-Fc-DJ2aWTVy2-XafNxr3Q/edit?usp=sharing>`_.  The top two rows in the result are the TARGET and TCGA WGS BAM files, totaling over 600 TB and 500 TB respectively. 
+- `rel8_fileData_legacy <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel8_fileData_legacy>`_: contains a complete list of the 805907 files in the legacy archive (718064 TCGA files, 10154 TARGET files, 1273 CCLE files, and 76416 files which are not currently linked to any program or project -- 15386 of these are controlled-access files with the TCGA dbGaP identifier, and the remaining 61030 open-access files include ~17k coverage WIG files, ~12k diagnostic SVS images, ~11k clinical/biospecimen xml files).  The results of the same query as above (but directed at this table) can be viewed `here <https://docs.google.com/spreadsheets/d/1DoyyazK2scq3usp9m48R2-Fc-DJ2aWTVy2-XafNxr3Q/edit?usp=sharing>`_.  The top two rows in the result are the TARGET and TCGA WGS BAM files, totaling over 600 TB and 500 TB respectively. 
 
 ..
 
@@ -111,17 +111,9 @@ in the `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:
 
 ..
 
-- `GDCfileID_to_GCSurl <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.GDCfileID_to_GCSurl>`_: is the table to use to determine whether and where a particular NCI-GDC file is available in Google Cloud Storage (GCS).  Between the two NCI-GDC archives (legacy and current), there are over one million files.  Of these, over 500000 files, totaling over 1700 TB, are available in ISB-CGC buckets in GCS, while roughly 570000 files, totaling over 600 TB are not.  This `SQL query <https://gist.github.com/smrgit/b7177d455a04c1bf70a2d910223c9000>`_, for example, can be used to get summaries of the NCI-GDC data that is available in GCS (sorted according to the total size in TB):
+- `rel8_GDCfileID_to_GCSurl <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel8_GDCfileID_to_GCSurl>`_: is the table to use to determine whether and where a particular NCI-GDC file is available in Google Cloud Storage (GCS).  Between the two NCI-GDC archives (legacy and current), there are over one million files.  Of these, over 500000 files, totaling over 1700 TB, are available in ISB-CGC buckets in GCS.  This `SQL query <https://gist.github.com/smrgit/b7177d455a04c1bf70a2d910223c9000>`_, for example, can be used to get summaries of the NCI-GDC data that is available in GCS (sorted according to the total size in TB):
 
 .. figure:: figs/GDCdata-in-GCS.png
-   :scale: 80
-   :align: center
-
-..
-
-   or conversely, NCI-GDC data that is *not* available in GCS (again, sorted according to the total size in TB):
-
-.. figure:: figs/GDCdata-not-in-GCS.png
    :scale: 80
    :align: center
 
@@ -132,14 +124,7 @@ in the `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:
    at the large number of open-access files that are *not* available 
    in GCS, looking specifically at files where the ``data_format`` is either ``TXT`` or ``TSV``
    and see what types of data that represents.  The complete results of this query can be found
-   `here <https://docs.google.com/spreadsheets/d/1tnD2sjXjYIQut5KJXfPJlVKmDJL1SJd5155u0e1litI/edit?usp=sharing>`_, 
-   but the first few rows look like this:
-
-.. figure:: figs/10rows-not-in-GCS.png
-   :scale: 80
-   :align: center
-
-..
+   `here <https://docs.google.com/spreadsheets/d/1wV1nf5KXTHCMgRxkAWyJ_d4VKhMNjFbDmLyJRzJgMwA/edit?usp=sharing>`_.
 
    Much of this type of data is provided by ISB-CGC in BigQuery tables rather than
    the raw flat files, where the data is more easily explored using Standard SQL
@@ -148,21 +133,15 @@ in the `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:
    `Data in BigQuery <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_BQ.html>`_ 
    section.
 
-   Conversely, let's take a look at data that is *not* available in GCS, but is not of
-   the ``TXT`` or ``TSV`` type which would be amenable to putting into BigQuery tables:
+   Conversely, if we take a `look <https://docs.google.com/spreadsheets/d/1Nmd99sFbZ8GUrumZ4Y831kIqIrxBp3_EmDGaJr7lqKE/edit?usp=sharing>`_ 
+   at data that is *not* available in GCS, and is *not* of
+   the ``TXT`` or ``TSV`` type which would be amenable to putting into BigQuery tables.
+   We find that the single largest category of data at the NCI-GDC which is not currently 
+   available in any ISB-CGC buckets consists "raw" Methylation array data, DNA-Seq coverage (WIG) files,
+   "raw" Protein expression array data, clinical  pathology reports, etc.
+   
+   Please let us know if there are any important data sets at the GDC that you would like to 
+   see made available in ISB-CGC cloud buckets.
 
-.. figure:: figs/20rows-not-in-GCS.png
-   :scale: 80
-   :align: center
-
-..
-
-   (Note that the figure above includes only the top 20 categories of data, grouped by the fields
-   shown and sorted according to total data set size in TB.)
-   The single largest category of data at the NCI-GDC which is not currently available in any ISB-CGC
-   buckets consists of the legacy TARGET whole-genome-sequence BAM files (~600 TB).  Our 
-   priority will be to upload the missing TARGET data from the "current" archive soon, but please
-   let us know if there are any important categories of data at the NCI-GDC which you would 
-   like to see hosted in ISB-CGC buckets.
 
 
