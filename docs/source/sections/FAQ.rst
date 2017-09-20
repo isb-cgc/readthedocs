@@ -64,6 +64,14 @@ service account.
 
 Another reason could be if some users are marked as unable to access datasets they should have access to, make sure they have logged into the system and linked their eRA Commons/NIH Identity to their Google Identity.
 
+**Why would I get an Authorization Failed page on NIH iTrust when attempting to link my Google Account with my NIH identity?**
+
+.. image:: authfailednihItrustpage.PNG
+   :scale: 50
+   :align: center
+
+You can get this page for two reasons it could be because you typed in your password incorrectly. Please select the Click Here to continue link and try to log in again.  Another Reason could be it is time to refresh your NIH identity password.  Please reset your password and try again.  This should allow you to link your NIH Identity to the ISB-CGC user interface. 
+
 Data Access
 ###########
 **Does all TCGA data require dbGaP authorization prior to access?**
