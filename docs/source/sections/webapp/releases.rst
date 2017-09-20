@@ -2,6 +2,15 @@
 Web-App Release Notes
 *********************
 
+* **September 21,2017**
+ **Issues that have been resolved in Sprint 19 as of 09/21/2017**
+ 
+ 
+ New Enhancements
+ 
+ - When plotting, certain values will now be displayed as categorical when before it was displayed as a numerical value e.g Tobacco Smoking History.
+ - 
+
 
 * **August 23, 2017**:
  **Issues that have been resolved in sprint 18 as of 08/23/2017**
