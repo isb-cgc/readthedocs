@@ -62,6 +62,8 @@ Ensure that the user has 1)Logged into the ISB-CGC user interface and 2) Has reg
 To reauthorize the service account 1) remedy the problem that resulted in access being denied, and 2) select the "refresh" icon beside the
 service account.
 
+Another reason could be if some users are marked as unable to access datasets they should have access to, make sure they have logged into the system and linked their eRA Commons/NIH Identity to their Google Identity.
+
 Data Access
 ###########
 **Does all TCGA data require dbGaP authorization prior to access?**
