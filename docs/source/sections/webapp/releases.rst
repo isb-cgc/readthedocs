@@ -3,6 +3,9 @@ Web-App Release Notes
 *********************
 
 * **September 21,2017**
+
+ *Please Note: We need to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.*
+ 
  **Issues that have been resolved in Sprint 19 as of 09/21/2017**
  
  
