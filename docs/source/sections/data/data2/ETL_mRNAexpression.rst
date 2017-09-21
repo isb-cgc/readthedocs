@@ -40,8 +40,6 @@ The original DCC genomic data was reprocessed against the ``HG38`` genomic build
 The ``gene`` string is split into two or three components and stored as separate columns:
 ``original_gene_symbol`` and ``gene_id`` and, if there is a third component, a ``gene_addenda`` column.
 If one component is simply ``?``, that character string is replaced by a ``NULL`` value.
-Finally, the current HGNC approved gene symbol is
-
-`looked up <http://www.genenames.org/help/rest-web-service-help>`_ 
+Finally, the current HGNC approved gene symbol is `looked up <http://www.genenames.org/help/rest-web-service-help>`_ 
 and added as an additional column: ``HGNC_gene_symbol``.
 
