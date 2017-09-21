@@ -42,7 +42,7 @@ Web-App Release Notes
  - A very small amount of bam files for program TARGET currently have the wrong file name and cannot be used with the IGV browser. 
  - When working on Firefox browser a violin plot does not display the data plotted correctly when working on a Worksheet. 
 
-* **August 23, 2017**:
+* **August 23, 2017**: `v3.3 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.3>`_
  **Issues that have been resolved in sprint 18 as of 08/23/2017**
  
  New Enhancements
