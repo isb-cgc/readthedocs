@@ -70,7 +70,7 @@ Another reason could be if some users are marked as unable to access datasets th
    :scale: 50
    :align: center
 
-You can get this page for two reasons it could be because you typed in your password incorrectly. Please select the Click Here to continue link and try to log in again.  Another Reason could be it is time to refresh your NIH identity password.  Please reset your password and try again.  This should allow you to link your NIH Identity to the ISB-CGC user interface. 
+You can get this page for two reasons:  First, if you may have typed in your password incorrectly, please select the Click Here to continue link and try to log in again.  Second, if you have typed your password correctly, it could time to refresh your NIH identity password.  Please reset your password and try again.  This should allow you to link your NIH Identity to the ISB-CGC user interface. 
 
 Data Access
 ###########
