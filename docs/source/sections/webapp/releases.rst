@@ -2,8 +2,47 @@
 Web-App Release Notes
 *********************
 
+* **September 21,2017** `v3.4 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.4>`_
 
-* **August 23, 2017**:
+ *Please Note: We need to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.*
+ 
+ **Issues that have been resolved in Sprint 19 as of 09/21/2017**
+ 
+ 
+ New Enhancements
+ 
+ - When plotting, certain values will now be displayed as categorical when before it was displayed as a numerical value e.g Tobacco Smoking History.
+ - The Homepage has been updated to incorporate links for TARGET and CCLE programs.
+ - The extended list of programs and projects on the new User Uploaded Data creation page is now displayed in alphabetical order.
+ - On the user details page you are now shown a confirmation box when you attempt to unlink the NIH identity account associated to the Google Identity you originally logged in with. 
+ - When working with Workbooks you are now shown a table on the top right hand side of Worksheet which shows what BigQuery tables the information being displayed is from. 
+ - On the Cohort creation page you can now select a filter for your Cohort by selecting an option from the Clinical Features graphs. 
+ - On the user details page, if you attempt to associate you Google Identity to an NIH Identity that is already registered in the system to another Google Account you are given a yellow error message stating which email the NIH Identity is already associated to. 
+ 
+ Bug Fixes
+
+ - When working with Workbooks the log scale graphing option will be saved when a user comes back to the Worksheet at another time. 
+ - On the existing Cohorts table list page, the confirmation delete ‘blue x’ button will now remove a selected Cohort if you select another option e.g Set Operation.
+ - The Google Cloud Project details page refresh wheel and delete icon are now working properly for service accounts.
+ - The Cloud Project details page now lists the authorized datasets active with an associated service account. 
+ - When deleting a User Uploaded program you are now sent to the existing programs list page if you delete the program.  If you delete the project you stay on the program details page. 
+ - The ownership of a Variable list, Gene and miRNa list, and User Uploaded Programs are now verified. This means you can no longer view any existing in system if you are not the original creator.
+ - A confirmation on the Register a Service Account page has been implemented for service accounts when the user attempts to register. 
+ - On the Cohort creation when toggling between the tabs for the different programs, you now cannot switch tabs until the tab on display is loaded. 
+ 
+ **Known issues in sprint 19 as of 09/21/2017**
+ 
+ - Analysis Type : Seq peek Formatting Elongated on occasion 
+ - If the user shares a Cohort neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort. 
+ - CCLE data cannot be plotted when working with workbooks.  ISB-CGC will resolve this functionality after the GDC formally releases CCLE data. 
+ - When a user duplicates a Worksheet, then tries to implement the log scale it will not function properly.
+ - The set operation for existing Cohorts complement is behaving exceptionally slow. 
+ - A duplication of the exact cohort happens when you select the confirmation multiple times while the page is loading working with Set Operations. 
+ - The mouse over feature is currently disabled for program TARGET with disease code ALL.
+ - A very small amount of bam files for program TARGET currently have the wrong file name and cannot be used with the IGV browser. 
+ - When working on Firefox browser a violin plot does not display the data plotted correctly when working on a Worksheet. 
+
+* **August 23, 2017**: `v3.3 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.3>`_
  **Issues that have been resolved in sprint 18 as of 08/23/2017**
  
  New Enhancements

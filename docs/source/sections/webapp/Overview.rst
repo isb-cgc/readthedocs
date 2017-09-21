@@ -10,7 +10,7 @@ The ISB-CGC web application functionality is accessed through a Google account i
 
 You login through the "Sign In" link at the upper right of the initial page (label "A" in the image above).  
 Also on this page are links to project documentation (B), our public GitHub repository (C), 
-a link to provide feedback (D), a link to submit an issue to Github (E), a link to more information about ISB-CGC (F), and our required "Warning Notice" (G) indicating that this is a U.S. Government Sponsored Website and by using it you are accepting the policies associated with its use.
+a link to provide feedback (D), a link to submit an issue to Github (E), and our required "Warning Notice" (F) indicating that this is a U.S. Government Sponsored Website and by using it you are accepting the policies associated with its use.
 
 Upon signing in with a Google account identity, you will be presented with the following page:
 

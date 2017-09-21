@@ -2,7 +2,7 @@
 *******************
 Variable Favorites
 *******************
-A variable Favorites list is a way of creating custom groupings of the samples and/or participants that you are interested in analyzing further. For example, you can create a variable favorites list that span across multiple projects, only contain samples for which certain types of data are available, or focus on specific phenotypic characteristics.
+A variable Favorites list is a way of creating custom groupings of the samples and/or cases that you are interested in analyzing further. For example, you can create a variable favorites list that span across multiple projects, only contain samples for which certain types of data are available, or focus on specific phenotypic characteristics.
 
 Creating and Saving a Variable Favorites List
 ##############################################
@@ -85,7 +85,7 @@ This filter allows the user to add selected variables from existing variable Fav
 
 Clinical Filter Feature Search
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This filter allows the user to search by any clinical feature in a given program that is present in the most recent data upload for that program. 
+This filter allows the user to search by any clinical feature in a given program that is present in the most recent data uploaded for that program. 
 
 User Uploaded Programs Filter
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

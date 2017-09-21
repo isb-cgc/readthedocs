@@ -62,6 +62,16 @@ Ensure that the user has 1)Logged into the ISB-CGC user interface and 2) Has reg
 To reauthorize the service account 1) remedy the problem that resulted in access being denied, and 2) select the "refresh" icon beside the
 service account.
 
+Another reason could be if some users are marked as unable to access datasets they should have access to, make sure they have logged into the system and linked their eRA Commons/NIH Identity to their Google Identity.
+
+**Why would I get an Authorization Failed page on NIH iTrust when attempting to link my Google Account with my NIH identity?**
+
+.. image:: authfailednihItrustpage.PNG
+   :scale: 50
+   :align: center
+
+You can get this page for two reasons:  First, if you may have typed in your password incorrectly, please select the Click Here to continue link and try to log in again.  Second, if you have typed your password correctly, it could time to refresh your NIH identity password.  Please reset your password and try again.  This should allow you to link your NIH Identity to the ISB-CGC user interface. 
+
 Data Access
 ###########
 **Does all TCGA data require dbGaP authorization prior to access?**
