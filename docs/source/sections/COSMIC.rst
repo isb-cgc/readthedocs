@@ -17,7 +17,7 @@ and `that <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/da
 for more details on other publicly accessible BigQuery datasets).
 
 **COSMIC Release v82 update**: Two new BigQuery datasets now contain *all* of the tables
-available for download from the `COSMIC ftp site <sftp-cancer.sanger.ac.uk>`_.
+available for download from the `COSMIC ftp site <http://cancer.sanger.ac.uk/cosmic/download>`_.
 The availability of these additional tables will support 
 many more types of queries -- please explore them at (after registering for access as described below):
     - `isb-cgc:COSMIC_v82_grch38 <https://bigquery.cloud.google.com/dataset/isb-cgc:COSMIC_v82_grch38>`_
