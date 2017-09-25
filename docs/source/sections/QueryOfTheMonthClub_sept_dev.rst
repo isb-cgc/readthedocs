@@ -248,7 +248,7 @@ using the same SQL to create groups as last month.  I've put that query in this
 `github gist <https://gist.github.com/Gibbsdavidl/8a20097aaf8bece8fc586310795b54da>`_.
 
 And additionally, I've put that query into a shiny app, that uses the same layout
-from August.  You can find that `here <www.google.com>`_.
+from August.  You can find that `here <https://isb-cgc.shinyapps.io/mutstatusexpranova/>`_.
 
 ------------------
 
