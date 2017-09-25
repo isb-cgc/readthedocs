@@ -378,7 +378,7 @@ Web-App Release Notes
 
     New Enhancements
 
-    - Introduce user data upload functionality  see documentation `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/project_data_upload.html>`_.
+    - Introduce user data upload functionality  see documentation `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html>`_.
     - More fluid zoom feature when working with analysis worksheets. 
     - Case Sensitivity is now maintained in creating and displaying Workbook names throughout the entire User Interface. 
     - You can now create a new cohort from the menu bar. 
