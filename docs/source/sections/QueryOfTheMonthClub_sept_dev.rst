@@ -47,7 +47,7 @@ using the same SQL as the August query.  I've put that query in this
 
 And you can find the associated shiny app, using the same layout
 from August, where we plot the F distribution and show a comparison of means.
-You can find that `here <www.google.com>`_.
+You can find that `here <https://isb-cgc.shinyapps.io/mutstatusexpranova/>`_.
 
 Let's look at the query:
 
