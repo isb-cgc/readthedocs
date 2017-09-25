@@ -24,7 +24,7 @@ using these three main Google Cloud Platform technologies:
    format, as well as pathology and radiology images (in SVS or DICOM format).
    All controlled-access data is currently only available in GCS -- access
    to these data requires that a user walk through the required 
-   `authentication and authorization steps <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-TCGA-Contolled-Access-Data.html>`_.
+   `authentication and authorization steps <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-Contolled-Access-Data.html>`_.
 
 * `Google Genomics <https://cloud.google.com/genomics/>`_ (GG),
    provides a new way to work with sequence-level data, via the `GA4GH API <http://ga4gh.org/#/>`_.
