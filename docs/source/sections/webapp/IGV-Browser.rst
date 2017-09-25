@@ -34,7 +34,7 @@ To load BAM files from ISB-CGC Google Cloud Storage, use the "File" > "Load from
 
 
 NOTE:
- - You will only be able to view controlled access sequence files if you have `logged in as a registered dbGaP authorized user <Gaining-Access-To-TCGA-Contolled-Access-Data.html>`_.
+ - You will only be able to view controlled access sequence files if you have `logged in as a registered dbGaP authorized user <Gaining-Access-To-Contolled-Access-Data.html>`_.
 
 Acknowledgements
 ----------------
