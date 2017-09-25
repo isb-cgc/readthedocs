@@ -237,7 +237,8 @@ in R.
   Residuals  372 35.576  0.0956
   ---
 
-OK, we see that the F statistic is really high, which makes sense looking
+OK, if you run the above BigQuery, you'll see the same results.
+We see that the F statistic is really high, which makes sense looking
 at the difference in mean expression values across the groups (these
 are log10 expression values).
 
