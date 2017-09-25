@@ -331,7 +331,7 @@ Viewing a Sequence
 
 When available, sequences in a cohort can be viewed using the IGV viewer.  To find those sequences that can be viewed with the IGV viewer, open a cohort and select the "View Files" button at the top of the page.  The files associated with your cohort will be shown, with the last column indicating if the IGV viewer can be used to view the contents of that file.
 This is indicated by a checkbox beside either "GA4GH" and/or "Cloud Storage").  Clicking the "Launch IGV" button will take you to an IGV view of the selected sequence(s) data.  
-Controlled access files will be viewable by sequence ONLY if you have `authenticated as a dbGaP-authorized user <Gaining-Access-To-TCGA-Contolled-Access-Data.html>`_. 
+Controlled access files will be viewable by sequence ONLY if you have `authenticated as a dbGaP-authorized user <Gaining-Access-To-Contolled-Access-Data.html>`_. 
 
 (`more information about Viewing a Sequence in the IGV Viewer <IGV-Browser.html>`_).
 

@@ -378,7 +378,7 @@ Web-App Release Notes
 
     New Enhancements
 
-    - Introduce user data upload functionality  see documentation `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/project_data_upload.html>`_.
+    - Introduce user data upload functionality  see documentation `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html>`_.
     - More fluid zoom feature when working with analysis worksheets. 
     - Case Sensitivity is now maintained in creating and displaying Workbook names throughout the entire User Interface. 
     - You can now create a new cohort from the menu bar. 
@@ -491,7 +491,7 @@ Web-App Release Notes
     - Page becomes elongated when the user builds a Cubby Hole plot. 
     - X-axis name cut off for cubby hole plot  when x-axis has only 3 criteria. 
     - When the user shares a cohort they do not receive a confirmation email. 
-    - User will be spammed with email every one minute when their service account is removed from the ACL control list.  To stop this, please either delete your service account from the ISB-CGC interface, or remove the GCP project member(s) who is (are) not authorized to access the controlled data set. (see documentation `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-TCGA-Contolled-Access-Data.html>`_).  We are planning to reduce the frequency of the notification emails to once per day. 
+    - User will be spammed with email every one minute when their service account is removed from the ACL control list.  To stop this, please either delete your service account from the ISB-CGC interface, or remove the GCP project member(s) who is (are) not authorized to access the controlled data set. (see documentation `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-Contolled-Access-Data.html>`_).  We are planning to reduce the frequency of the notification emails to once per day. 
     - The Legend is displayed elongated when you use multiple cohort for color by feature for violin plot. 
     - When the user selects multiple cohorts for color by feature for scatter plot they do not display in chart. 
     - When the user creates a duplicate worksheet,the bar chart with a gene with specification protein can freeze when selecting an option for the Select Feature. 
@@ -528,7 +528,7 @@ Web-App Release Notes
     **New Functionality Released in this Sprint**
     
     - The researcher can now create a cohort of participants and samples based on the presence of a gene mutation in a specified gene. Look for the new “Molecular” tab when you are creating a cohort.
-    - The bioinformatics programmer now has the ability to associate their Google Cloud Project’s Service Account. This allows the researcher to run computational pipelines from Google Virtual Machines using TCGA Controlled data (e.g. BAM files) for seven days before they have to reauthorize. For more information please select `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-TCGA-Contolled-Access-Data.html>`_.
+    - The bioinformatics programmer now has the ability to associate their Google Cloud Project’s Service Account. This allows the researcher to run computational pipelines from Google Virtual Machines using TCGA Controlled data (e.g. BAM files) for seven days before they have to reauthorize. For more information please select `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-Contolled-Access-Data.html>`_.
     
     
     **Known issues in Sprint 8**
