@@ -491,7 +491,7 @@ Web-App Release Notes
     - Page becomes elongated when the user builds a Cubby Hole plot. 
     - X-axis name cut off for cubby hole plot  when x-axis has only 3 criteria. 
     - When the user shares a cohort they do not receive a confirmation email. 
-    - User will be spammed with email every one minute when their service account is removed from the ACL control list.  To stop this, please either delete your service account from the ISB-CGC interface, or remove the GCP project member(s) who is (are) not authorized to access the controlled data set. (see documentation `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-TCGA-Contolled-Access-Data.html>`_).  We are planning to reduce the frequency of the notification emails to once per day. 
+    - User will be spammed with email every one minute when their service account is removed from the ACL control list.  To stop this, please either delete your service account from the ISB-CGC interface, or remove the GCP project member(s) who is (are) not authorized to access the controlled data set. (see documentation `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-Contolled-Access-Data.html>`_).  We are planning to reduce the frequency of the notification emails to once per day. 
     - The Legend is displayed elongated when you use multiple cohort for color by feature for violin plot. 
     - When the user selects multiple cohorts for color by feature for scatter plot they do not display in chart. 
     - When the user creates a duplicate worksheet,the bar chart with a gene with specification protein can freeze when selecting an option for the Select Feature. 
