@@ -16,19 +16,23 @@ September, 2017
 ###############
 
 Greetings! For September we've implemented a new statistical test: the one-way
-ANOVA! This statistical test is based on comparing the variance within and the
-variance between
-some number of groups. The result of the test lets us know if at least one of
-the groups has a mean value that is different. Although in this example, I'm
+ANOVA. This statistical test can be used to determine whether there is a statistically
+significant difference between the means of two or more independent groups.
+Although in this example, I'm
 only looking at two groups, it would not be difficult to extend this to any
 number of groups, assuming there is a reasonable number of samples within each
 group.
 
-Consider the model y_ij = mu + alpha_i + e_ij, where y_ij is a continuous
-variable over samples j, in groups i, and alpha_i is a constant with e_ij being
-a gaussian error term.
+.. |yij| replace:: y\ :sub:`ij`\
+.. |ai|  replace:: a\ :sub:`i`\
+.. |eij| replace:: e\ :sub:`ij`\
+
+Consider the model |yij| = m + |ai| + |eij|, where |yij| is a continuous
+variable over samples *j*, in groups *i*, and |ai| is a constant for
+group *i*, and |eij| is a gaussian error term with mean 0.
 
 Using this model, we are describing the data as being sampled from groups,
+with each group having a mean value of mu + alpha_i
 each have means centered around mu. In that respect, the variance is moving
 in a single direction, which might explain why the model is called a one-way
 analysis of variance. The null hypothesis is that each of the group means is
