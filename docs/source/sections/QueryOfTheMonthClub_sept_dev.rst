@@ -29,22 +29,22 @@ group.
 
 Consider the model |yij| = m + |ai| + |eij|, where |yij| is a continuous
 variable over samples *j*, in groups *i*, and |ai| is a constant for
-group *i*, and |eij| is a gaussian error term with mean 0.
+each group *i*, and |eij| is a gaussian error term with mean 0.
 
 Using this model, we are describing the data as being sampled from groups,
-with each group having a mean value of mu + alpha_i
-each have means centered around mu. In that respect, the variance is moving
-in a single direction, which might explain why the model is called a one-way
-analysis of variance. The null hypothesis is that each of the group means is
-the same (zero, since they are assumed to sum to zero).
+with each group having a mean value equal to m + |ai|.
+The null hypothesis is that each of the group means is
+the same (*ie* that the |ai| terms are zero), while the alternative hypothesis
+is that at least one of the |ai| terms is *not* zero.
 
-So, to estimate the F statistic, which tests this null model, we're
-going to compute the within-group variance and the between-group variance. To
-remind ourself, sample variance is defined as the sum of squared differences between
+We use the F-test to compare these two hypotheses.  
+To compute the test statistic, we compute the within-group variation and the
+between-group variation.
+Recall that sample variance is defined as the sum of squared differences between
 observations and the mean, divided by the number of samples (normalized).
 
-Before we get into the query, just want to let you know that
-I have also created a specialized version of the below query (as opposed to generalized, ha ha)
+Before we get into the query, please note that you can find
+a specialized version of the below query 
 that compares the expression between individuals with a SNP and without a SNP,
 using the same SQL as the August query.  I've put that query in this
 `github gist <https://gist.github.com/Gibbsdavidl/8a20097aaf8bece8fc586310795b54da>`_.
