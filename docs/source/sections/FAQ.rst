@@ -72,6 +72,12 @@ Another reason could be if some users are marked as unable to access datasets th
 
 You can get this page for two reasons:  First, if you may have typed in your password incorrectly, please select the Click Here to continue link and try to log in again.  Second, if you have typed your password correctly, it could time to refresh your NIH identity password.  Please reset your password by using this link `here <https://public.era.nih.gov/commons>`_ and try again.  This should allow you to link your NIH Identity to the ISB-CGC user interface. 
 
+
+ISB-CGC Web Application
+########################
+**Why do I get a, "Do you want to leave this site?" pop-up box when canceling the edit of a workflow?**
+
+
 Data Access
 ###########
 **Does all TCGA data require dbGaP authorization prior to access?**
