@@ -8,15 +8,15 @@ interested in analyzing further.  You may frequently re-use a cohort in multiple
 Creating and saving a cohort
 ############################
 
-To create a cohort from Your Dashboard, if you do not have a cohort created, click on the "Create Cohort" link in the 
-"Saved Cohorts" panel at the bottom of the page. This will take you to the cohort creation page.
+To create a cohort from Your Dashboard, if you do not have a cohort created, click on the "Filter" or the "Barcodes" links in the 
+"Saved Cohorts" panel at the bottom of the page. The Filter link will take you to the cohort creation page with all filters explained below.  The Barcodes link will send you to a page where you can uplaod samples/cases barcodes and create a cohort from them. Currently you can only upload from three programs TCGA, CCLE, and TARGET. 
 
 If you already have saved cohorts, they will be listed in the "Saved Cohorts" panel.  Click on the "Saved Cohorts" link in that panel and this will take you to a page that displays the details of your saved cohorts.  Alternatively, to go directly to a given cohort, click on its name and you will be taken to the cohort details page of that cohort.
 
-To create a new saved cohort, use the "Create Cohort" link.
+To create a new saved cohort, use the "Create Cohort: Filters / Barcodes" link.
 
-Cohort Creation Page
-====================
+Cohort Creation Filters Page
+============================
 
 Using the provided list of filters on the left hand side, you can select the attributes and features
 that you are interested in either from ISB-CGC data or the User Data tab.  TCGA Data is the first program to be displayed, next to it is CCLE and TARGET Data tabs. You are able to create a cohort with multiple program filters.  CCLE (The Cancer Cell Line Encyclopedia) data - is open access data set that can be used to view sequence data with the IGV viewer without having dbGaP permissions.
