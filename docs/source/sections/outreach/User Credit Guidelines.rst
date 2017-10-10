@@ -10,7 +10,7 @@ The table below describes the four user spending tiers.
 +----------+--------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
 | **Tier** | **Amount**         | **Description**                                                                                                                                     | **Requirements / Expectations**                                                                                  |
 +==========+====================+=====================================================================================================================================================+==================================================================================================================+
-|   **1**  | $300               | Google `60-day free trial <https://cloud.google.com/free-trial/>`_ is available for new Google Cloud Platform (GCP) users                           | If you cannot use the Google free-trial, please `request a GCP project <../Support.html#request-gcp>`_           |
+|   **1**  | $300               | Google `free trial <https://cloud.google.com/free/>`_ is available for new Google Cloud Platform (GCP) users                                        | If you cannot use the Google free trial, please `request a GCP project <../Support.html#request-gcp>`_           |
 +----------+--------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
 |   **2**  | $1,000             | Available after initial new user credit has been depleted                                                                                           | Provide details about project goals, expected costs, *etc*, and provide feedback to ISB-CGC team                 |
 +----------+--------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------+
@@ -30,20 +30,10 @@ researchers are strongly encouraged to make workflows, software, and related doc
 publicly available to benefit the broader research community.  (This could be in the form
 of a bioarxiv manuscript, a blog post, open-source software on github, *etc*.)
 
-The ISB-CGC team also encourages researchers wishing to run large-scale projects to apply for 
-`NIH Commons Credits <https://datascience.nih.gov/BlogCommonsCreditsModelPilot>`_.  
-Information about NIH conformant cloud providers will be forthcoming soon.
-
 Important Notes
 ===============
 
-Since the ISB-CGC is a pilot effort, researchers should have no expectation that data or tools 
-will be maintained after the Cloud Pilots program ends on September 27, 2017.
-If a researcher has used up their allocated "cloud credits", but is still storing data in
-Google Cloud Storage or BigQuery, it will be the researcher's responsibility to arrange to
-transfer this data user-funded GCP project.
-
-Note also that if you take advantage of the Google free-trial program, we **cannot** 
-reimburse you for costs incurred after the free-trial is over if you have chosen to 
-upgrade to a paid account.  All ISB-CGC provided "cloud credits" must be used within
-ISB-CGC *provided* GCP projects.
+Note that if you take advantage of the Google free-trial program, we **cannot** 
+reimburse you for costs incurred after the $300 in Google-provided credits have been used,
+if you have chosen to upgrade to a paid account.  
+All ISB-CGC provided "cloud credits" must be used within ISB-CGC *provided* GCP projects.

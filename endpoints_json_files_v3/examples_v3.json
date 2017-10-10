@@ -1,0 +1,17 @@
+{
+  "aliquots_annotations": "curl https://api-dot-isb-cgc.appspot.com/_ah/api/%s/v3/aliquots/CCLE-LS1034-RNA-08/annotations",
+  "cohorts_create": "python isb_curl.py \"https://api-dot-isb-cgc.appspot.com/_ah/api/%s/v3/cohorts/create?name={COHORT NAME}\" -H \"Content-Type: application/json\" -d '{\"project_short_name\": [\"UCS\", \"CESC\"], \"age_at_diagnosis_lte\": 60}'",
+  "cohorts_cloud_storage_file_paths": "python isb_curl.py https://api-dot-isb-cgc.appspot.com/_ah/api/%s/v3/cohorts/{COHORT ID}/cloud_storage_file_paths",
+  "cohorts_delete": "python isb_curl.py https://api-dot-isb-cgc.appspot.com/_ah/api/%s/v3/cohorts/{COHORT ID} -X DELETE",
+  "cohorts_get": "python isb_curl.py https://api-dot-isb-cgc.appspot.com/_ah/api/%s/v3/cohorts/{COHORT ID}",
+  "cohorts_googlegenomics": "python isb_curl.py https://api-dot-isb-cgc.appspot.com/_ah/api/%s/v3/cohorts/{COHORT ID}/googlegenomics",
+  "cohorts_list": "$ python isb_curl.py https://api-dot-isb-cgc.appspot.com/_ah/api/%s/v3/cohorts",
+  "cohorts_preview": "curl \"https://api-dot-isb-cgc.appspot.com/_ah/api/%s/v3/cohorts/preview?project_short_name=UCS&project_short_name=CESC&age_at_diagnosis_lte=20\"",
+  "cases_annotations": "curl https://api-dot-isb-cgc.appspot.com/_ah/api/%s/v3/cases/1034/annotations",
+  "cases_get": "curl https://api-dot-isb-cgc.appspot.com/_ah/api/%s/v3/cases/1034",
+  "samples_annotations": "curl https://api-dot-isb-cgc.appspot.com/_ah/api/%s/v3/samples/CCLE-LS1034/annotations",
+  "samples_cloud_storage_file_paths": "curl https://api-dot-isb-cgc.appspot.com/_ah/api/%s/v3/samples/CCLE-LS1034/cloud_storage_file_paths",
+  "samples_get": "curl https://api-dot-isb-cgc.appspot.com/_ah/api/%s/v3/samples/CCLE-LS1034",
+  "samples_googlegenomics": "curl https://api-dot-isb-cgc.appspot.com/_ah/api/%s/v3/samples/CCLE-LS1034/googlegenomics",
+  "users_get": "python isb_curl.py https://api-dot-isb-cgc.appspot.com/_ah/api/%s/v3/users"
+}
