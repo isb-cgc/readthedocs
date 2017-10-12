@@ -111,7 +111,7 @@ and you will be taken to your account details page where you can
 verify your dbGaP authorization.  You will be redirected to the NIH iTrust login page and after you
 successfully authenticate you will be brought back to the ISB-CGC web-app.  After you successfully
 authenticate, we will verify that you also have dbGaP authorization for the TCGA controlled-access data. 
-We also ask that you review our section on **Understanding Data Security**.
+We also ask that you review our section on `Understanding Data Security <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/TCGA_Data_Security.html>`_ .
 
 **My professor has dbGaP authorization.  Do I have to have my own authorization too?**
 
