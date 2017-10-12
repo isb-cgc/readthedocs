@@ -23,13 +23,13 @@ Output from  GDC
 
 For the purpose of bringing GDC information into ISB-CGC, GDC has two different outputs to consider once users have finished doing their selections, the file manifest and the case table export.  In the example shown below, various filters were set to produce a cohort of 83 cases from the three TCGA kidney cancers and that cohort has 1,790 files on hand at the GDC.  To download a File Manifest, which we'll use later to find the files in ISB-CGC, you need to click on the *View Files in Repository* button:
 
-.. image:: GDCSetCreation3.png
+.. image:: GDCSetCreation4.png
 
   
   
 Once on the file page, a file manifest can be downloaded simply by clicking on the *Download Manifest* button.  A list of Cases can be created by clicking on the *Cases* tab and then clicking on either the *JSON* or *TSV* button on the uppper right of the table (This can also be done from the previous screen).  Later in this tutorial, we'll use the JSON file to bring the cases into Big Query:
 
-.. image:: FileManifestButton3.png
+.. image:: FileManifestButton4.png
   
 Using BigQuery
 ==============
