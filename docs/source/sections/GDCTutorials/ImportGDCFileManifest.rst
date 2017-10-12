@@ -51,7 +51,7 @@ As was mentioned in the introduction, while ISB-CGC does have all TCGA data, it 
 
 .. hint:: Excuse me but my files list is in JSON format
 
-   It is possible to download a file list from the GDC in JSON format rather than as a tab-delimited text file.  This is done from the      *Files* tab of the results table.  Like we describe for processing the `Case list <ImportGDCCaseDownload.html>`__, BigQuery doesn't      understand the JSON files GDC produces so you would need to write a parser to extract the information you want.  Unless you need some    of the information in the JSON file, the easiest way to load files is via the GDC manifest available from the *Summary* tab.
+   It is possible to download a file list from the GDC in JSON format rather than as a tab-delimited text file.  This is done from the      *Files* tab of any results table.  Like we describe for processing the `Case list <ImportGDCCaseDownload.html>`__, BigQuery doesn't      understand the JSON files GDC produces so you would need to write a parser to extract the information you want.  Unless you need some    of the information in the JSON file, the easiest way to load files is via the GDC file manifest.
 
 Links to other GDC tutorial pages:
 ++++++++++++++++++++++++++++++++++
