@@ -57,7 +57,7 @@ Let's start by looking at the data that GDC has provided.  The data in your JSON
     ], 
     "file_count": 33
   }
-}
+
 
 
 For our purposes, the data in the "summary" section can be ignored.  Since ISB-CGC doesn't store all the files from GDC, having the file count stored in a table doesn't do us much good.  So what are useful are the Project ID, Primary Site, Case ID and Gender.  Those can be easily parsed out and put into a tab-delimited file with a simple Python script:
