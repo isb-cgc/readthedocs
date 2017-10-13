@@ -2,6 +2,38 @@
 Web-App Release Notes
 *********************
 
+* **October 13,2017**
+
+ *Please Note: We need to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.*
+ 
+ **Issues resolved in Sprint 20 as of 10/11/2017**
+ 
+ New Enhancements
+ 
+ - You can now upload sample and case identifiers from programs TCGA, CCLE and TARGET to create a cohort. 
+ - We have begun to allow the addition/removal of a service account with a new button instead of the user having to re-register the service account every time.
+ - For the Set Operations feature when working with cohorts has been enhanced and has become easier to work with. 
+ - For the Set Operation Complement feature you will now create a cohort faster than before.
+ - You will now be displayed mouse over text when working with the New Workbook, Delete, Set Operations, and Share button on the Cohorts list details page.  
+ - The About Us link in the top left of the page has been re-named to Homepage. 
+ 
+ Bug Fixes
+ 
+ - All bam files for the TARGET program are available to be used with the IGV browser. 
+ - On the Cohort creation page, you can now select a filter for your Cohort by selecting an option from the Clinical Feature graphs using Histological Type for program CCLE. 
+ 
+ **Known Issues in Sprint 20 as of 10/12/2017**
+ 
+ - Analysis Type: Seq peek Formatting Elongated on occasion 
+ - If the user shares a Cohort neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort.
+ - CCLE data cannot be plotted when working with workbooks.  ISB-CGC will resolve this functionality after the GDC formally releases CCLE data. 
+ - When a user duplicates a Worksheet, then tries to implement the log scale it will not function properly. 
+ - The set operation for existing Cohorts complement is behaving exceptionally slow.
+ - A duplication of the exact cohort happens when you select the confirmation multiple times while the page is loading working with Set Operations. 
+ - The mouse-over feature is currently disabled for program TARGET with disease code ALL. 
+ - When working on Firefox browser a violin plot does not display the data plotted correctly when working on a Worksheet. 
+
+
 * **September 21,2017** `v3.4 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.4>`_
 
  *Please Note: We need to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.*
