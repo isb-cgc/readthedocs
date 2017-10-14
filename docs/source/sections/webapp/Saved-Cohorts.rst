@@ -8,15 +8,15 @@ interested in analyzing further.  You may frequently re-use a cohort in multiple
 Creating and saving a cohort
 ############################
 
-To create a cohort from Your Dashboard, if you do not have a cohort created, click on the "Create Cohort" link in the 
-"Saved Cohorts" panel at the bottom of the page. This will take you to the cohort creation page.
+To create a cohort from Your Dashboard, if you do not have a cohort created, click on the "Filter" or the "Barcodes" links in the 
+"Saved Cohorts" panel at the bottom of the page. The Filter link will take you to the cohort creation page with all filters explained below.  The Barcodes link will send you to a page where you can uplaod samples/cases barcodes and create a cohort from them. Currently you can only upload from three programs TCGA, CCLE, and TARGET. 
 
 If you already have saved cohorts, they will be listed in the "Saved Cohorts" panel.  Click on the "Saved Cohorts" link in that panel and this will take you to a page that displays the details of your saved cohorts.  Alternatively, to go directly to a given cohort, click on its name and you will be taken to the cohort details page of that cohort.
 
-To create a new saved cohort, use the "Create Cohort" link.
+To create a new saved cohort, use the "Create Cohort: Filters / Barcodes" link.
 
-Cohort Creation Page
-====================
+Cohort Creation Filters Page
+============================
 
 Using the provided list of filters on the left hand side, you can select the attributes and features
 that you are interested in either from ISB-CGC data or the User Data tab.  TCGA Data is the first program to be displayed, next to it is CCLE and TARGET Data tabs. You are able to create a cohort with multiple program filters.  CCLE (The Cancer Cell Line Encyclopedia) data - is open access data set that can be used to view sequence data with the IGV viewer without having dbGaP permissions.
@@ -173,6 +173,62 @@ Programs & Projects Panel
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This panel displays a list of images (called "treemaps") similar to the clinical features panel, but can only be found when the User Data tab is selected. This panel displays a high level breakdown of the projects and studies you have uploaded to the system. Another similarity to the clinical features panel hovering over the image will show details of the specific section of the image and the number of samples associated with it. 
+
+Cohort Creation Barcodes Page
+=============================
+
+This feature will allow you upload or enter your own list of sample or cases barcodes
+from multiple programs.  There is a blue instructions button present on both the upload and Enter tabs.  
+
+Below is an example of what you are provided when the *Instructions* tab is selected.
+
+All entries must contain a valid case barcode or sample barcode, and a valid program short name.
+
+Valid program short names:
+
+  - TCGA
+  - CCLE
+  - TARGET
+
+When only a case barcode is provided, all samples from that case will be included in the cohort. 
+Make a separate entry per sample if only specific samples from a case should be added to the cohort.
+
+Please do not include any column headers. Values may be placed in single or double quotes. Format your entries as follows:
+
+Case Barcode,Sample Barcode,Program Short Name
+
+When omitting either barcode type, please be sure to still include the empty column's delimiter. (See examples below.) You may place an empty quoted value ("" or ''), but this is optional.
+
+ **Example Barcode Set**
+
+ TCGA-N9-A4Q4,,TCGA
+
+ ,TCGA-N7-A4Y8-01A,TCGA
+
+ 'Saos-2','CCLE-Saos-2', 'CCLE'
+
+ 'Hs 863.T', '','CCLE'
+
+ "TARGET-51-PAJLIV",, "TARGET"
+
+ TARGET-51-PAJMFS,"", "TARGET"
+
+ 
+
+Upload Tab
+-----------
+
+This feature allows to upload files with barcodes to create a cohort. The file can be a maximum of 32MB.  Also files must be in tab- or comma-delimited 
+format (TSV or CSV) and have an extension of .txt, .csv, or .tsv.
+After selecting the file and uploading it, the entries will be validated. Any entries which are found to be invalid will be
+listed, and you can choose to omit them and continue with cohort creation, or select
+a new file for verification and upload.
+
+Enter Tab
+---------
+
+This feature will allow you to manually input barcodes for cohort creation.  There is a maximum length of 10000 character for the text box.
+Please use the file upload option if you need to upload more barcodes than will fit in that space.
 
 
 Operations on Cohorts
