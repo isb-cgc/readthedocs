@@ -18,6 +18,8 @@ For October, we're going to dive into using Plotly for visualziation in Shiny
 apps. In particular, we're going to implement an interatictive heatmap using
 heatmaply. To start, here's some important links.
 
+`ISB-CGC Gene Set Correlation Heatmaply! <https://isb-cgc.shinyapps.io/Heatmaply_Gene_Set_Corr/>`_
+
 `Heatmaply <https://cran.r-project.org/web/packages/heatmaply/vignettes/heatmaply.html>`_
 
 `Shiny-Plotly <https://plot.ly/r/shiny-tutorial/>`_
