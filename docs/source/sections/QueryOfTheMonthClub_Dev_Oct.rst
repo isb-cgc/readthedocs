@@ -26,6 +26,11 @@ Exciting highlights include using BigRQuery to make queries from *inside* shiny!
 We do that by using service account authorization. And of course, heatmaply,
 an interactive heatmap that lets you zoom and scroll around.
 
+.. figure:: query_figs/oct_fig1.png
+   :scale: 50
+   :align: center
+
+
 So we'll just jump right into it!
 
 First I'll list out the ui.R code.
@@ -242,6 +247,9 @@ Next we transform that into a matrix using the reshape2 library.
     return(sqdf)
   }
 
+
+With that, we can simply make the call to heatmaply, which is linked back to
+our plotlyOutput in the mainPanel (in the ui.R code).
 
 
 
