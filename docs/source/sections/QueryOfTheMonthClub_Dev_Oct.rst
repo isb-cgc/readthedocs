@@ -22,6 +22,10 @@ heatmaply. Here's the important links.
 `Shiny-Plotly<https://plot.ly/r/shiny-tutorial/>`_
 `Heatmaply <https://cran.r-project.org/web/packages/heatmaply/vignettes/heatmaply.html>`_
 
+Exciting highlights include using BigRQuery to make queries from *inside* shiny!
+We do that by using service account authorization. And of course, heatmaply,
+an interactive heatmap that lets you zoom and scroll around.
+
 So we'll just jump right into it!
 
 First I'll list out the ui.R code.
@@ -86,7 +90,7 @@ Then we can jump over to the server.R file.
       geneNames2 <- getGenes(sethash, input$var2)
       cohort <- input$cohortid
       sql <- buildQuery(geneNames1, geneNames2, cohort)
-      service_token <- set_service_token("data/isb-cgc-bq-bc83824b46ad.json")
+      service_token <- set_service_token("data/my_private_key.json")
       data <- query_exec(sql, project='isb-cgc-bq', useLegacySql = F)
       data
     })
@@ -208,16 +212,12 @@ Then BigQuery SQL is contructed:
   }
 
 
-
-
-
-One exciting difference from last month (well, exciting to me anyway) is that
-we are now authenticating using a service account.
-
-To get that set up, one needs to log into your google cloud console, and follow
+OK, so with that query string constructed, we can make the call to Google BigQuery.
+In order to get authorized, we're using a service account. To get that set up, one needs
+to log into your google cloud console, and follow
 these instructions `(Service account credentials)<https://cloud.google.com/storage/docs/authentication>`_.
 By doing that, you're going to generate a little .json file that contains your
-private key, so don't lose it!
+private key, so don't lose it! Then we can use the bigrquery function set_service_token
 
 
 
