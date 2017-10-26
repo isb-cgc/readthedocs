@@ -217,8 +217,30 @@ In order to get authorized, we're using a service account. To get that set up, o
 to log into your google cloud console, and follow
 these instructions `(Service account credentials)<https://cloud.google.com/storage/docs/authentication>`_.
 By doing that, you're going to generate a little .json file that contains your
-private key, so don't lose it! Then we can use the bigrquery function set_service_token
+private key, so don't lose it! Then we can use the bigrquery function set_service_token,
+providing the path to the json file. Very easy! After that we simply make the
+call using query_exec.
 
+Then, for making the heatmap, we use the renderPlotly function. In that function,
+first we get the summarized data from BigQuery, which returns as a data.frame (bqdf).
+Next we transform that into a matrix using the reshape2 library.
+
+.. code-block:: r
+
+  library(reshape2)
+
+  buildCorMat <- function(bqdf) {
+    # bqdf is a data.frame returned from query_exec
+    # g1 and g2 are gene names
+    # and we have a Spearman correlation
+    meltdf <- melt(bqdf)
+    sqdf <- dcast(meltdf, g1~g2, value.var = "value")
+    # then a bit of tidying up.
+    sqdf[is.na(sqdf)] <- 0
+    rownames(sqdf) <- sqdf[,'g1']
+    sqdf <- sqdf[,-1]
+    return(sqdf)
+  }
 
 
 
