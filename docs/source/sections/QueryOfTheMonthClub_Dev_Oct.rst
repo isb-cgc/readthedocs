@@ -148,7 +148,7 @@ Then BigQuery SQL is contructed:
       "
       WITH
       --
-      --
+      -- first we create a subtable for gene set 1
       --
       cohortExpr1 AS (
         SELECT
@@ -164,7 +164,7 @@ Then BigQuery SQL is contructed:
           AND normalized_count IS NOT NULL
           AND normalized_count > 0),
       --
-      --
+      -- then we create a subtable for gene set 2
       --
       cohortExpr2 AS (
         SELECT
@@ -180,7 +180,9 @@ Then BigQuery SQL is contructed:
           AND normalized_count IS NOT NULL
           AND normalized_count > 0),
       --
-      --
+      -- then we join the two gene expression tables,
+      -- we could get rid of the logexpr fields, but maybe
+      -- they'd prove useful in some other query.
       --
       jtab AS (
         SELECT
@@ -206,7 +208,7 @@ Then BigQuery SQL is contructed:
           cohortExpr2.logexpr,
           cohortExpr2.expr_rank )
       --
-      --
+      -- last, we correlate the RANKs, to get a Spearman correlation.
       --
       SELECT
         g1,
@@ -252,10 +254,12 @@ Next we transform that into a matrix using the reshape2 library.
   }
 
 
-With that, we can simply make the call to heatmaply, which is linked back to
+With that done (building the correlation matrix), we can simply make the call to heatmaply, which is linked back to
 our plotlyOutput in the mainPanel (in the ui.R code).
 
-
+So we've just tied together Shiny, Plotly, Heatmaply, BigQuery into one
+interactive web tool. Got a question about it? Let me know! dgibbs *at*
+systemsbiology *dot* org.
 
 
 ------------------
