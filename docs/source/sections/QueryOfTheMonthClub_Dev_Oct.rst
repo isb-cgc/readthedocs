@@ -22,7 +22,10 @@ heatmaply. Here's the important links.
 `Shiny-Plotly<https://plot.ly/r/shiny-tutorial/>`_
 `Heatmaply <https://cran.r-project.org/web/packages/heatmaply/vignettes/heatmaply.html>`_
 
-So we'll just jump right into it!  First I'll list out the ui.R code.
+So we'll just jump right into it!
+
+First I'll list out the ui.R code.
+----------------------------------
 
 .. code-block:: r
 
@@ -70,6 +73,141 @@ that builds and returns a selectInput object, using the long list of TCGA projec
 Works great and keeps it easy to read.
 
 Then we can jump over to the server.R file.
+-------------------------------------------
+
+.. code-block:: r
+
+  server <- function(input, output, session) {
+
+    # calling BigQuery
+    bq_data <- eventReactive(input$submit, {
+      load("data/gene_set_hash.rda")
+      geneNames1 <- getGenes(sethash, input$var1)
+      geneNames2 <- getGenes(sethash, input$var2)
+      cohort <- input$cohortid
+      sql <- buildQuery(geneNames1, geneNames2, cohort)
+      service_token <- set_service_token("data/isb-cgc-bq-bc83824b46ad.json")
+      data <- query_exec(sql, project='isb-cgc-bq', useLegacySql = F)
+      data
+    })
+
+    output$plot <- renderPlotly({
+      # first make the bigquery
+      bqdf <- bq_data()
+
+      # then build the correlation matrix
+      df <- buildCorMat(bqdf)
+
+      # then get the heatmap options
+      cluster_cols <- as.logical(input$clustercols)
+      cluster_rows <- as.logical(input$clusterrows)
+
+      # color scheme
+      rwb <- colorRampPalette(colors = c("blue", "white", "red"))
+      heatmaply(df,
+                main = 'gene-gene spearman correlations',
+                Colv=cluster_cols, Rowv=cluster_rows,
+                colors = rwb, seriate=input$seriate,
+                hclust_method = input$hclust_method,
+                #labRow = labelsrow, labCol=labelscol,
+                showticklabels = as.logical(input$showlabels),
+                margins = c(150,200,NA,0)) #%>%
+        #layout(xaxis = list(tickangle = 45))
+    })
+
+    output$event <- renderPrint({
+      d <- event_data("plotly_hover")
+      if (is.null(d)) "Hover on a point!" else d
+    })
+  }
+
+So, the first function that's listed is the bq_data function. This function fires
+after the user makes their selections and hits the 'submit' button. I have
+previously taken the ~4000 gene sets, and built a hash (using the awesome hash library)
+that takes the gene set names and returns the gene names. The getGenes functions performs that task.
+Then BigQuery SQL is contructed:
+
+
+.. code-block:: r
+
+  buildQuery <- function(geneNames1, geneNames2, cohort) {
+    q <- paste(
+      "
+      WITH
+      --
+      --
+      --
+      cohortExpr1 AS (
+        SELECT
+          sample_barcode,
+          HGNC_gene_symbol,
+          LOG10( normalized_count +1) AS logexpr,
+          RANK() OVER (PARTITION BY HGNC_gene_symbol ORDER BY normalized_count ASC) AS expr_rank
+        FROM
+          `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
+        WHERE
+          project_short_name = '",cohort ,"'
+          AND HGNC_gene_symbol IN ",geneNames1 ,"
+          AND normalized_count IS NOT NULL
+          AND normalized_count > 0),
+      --
+      --
+      --
+      cohortExpr2 AS (
+        SELECT
+          sample_barcode,
+          HGNC_gene_symbol,
+          LOG10( normalized_count +1) AS logexpr,
+          RANK() OVER (PARTITION BY HGNC_gene_symbol ORDER BY normalized_count ASC) AS expr_rank
+        FROM
+          `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
+        WHERE
+          project_short_name = '",cohort ,"'
+          AND HGNC_gene_symbol IN ",geneNames2 ,"
+          AND normalized_count IS NOT NULL
+          AND normalized_count > 0),
+      --
+      --
+      --
+      jtab AS (
+        SELECT
+          cohortExpr1.sample_barcode,
+          cohortExpr2.sample_barcode,
+          cohortExpr1.HGNC_gene_symbol as g1,
+          cohortExpr2.HGNC_gene_symbol as g2,
+          cohortExpr1.expr_rank as e1,
+          cohortExpr2.expr_rank as e2
+        FROM
+          cohortExpr1
+        JOIN
+          cohortExpr2
+        ON
+          cohortExpr1.sample_barcode = cohortExpr2.sample_barcode
+        GROUP BY
+          cohortExpr1.sample_barcode,
+          cohortExpr2.sample_barcode,
+          cohortExpr1.HGNC_gene_symbol,
+          cohortExpr2.HGNC_gene_symbol,
+          cohortExpr1.logexpr,
+          cohortExpr1.expr_rank,
+          cohortExpr2.logexpr,
+          cohortExpr2.expr_rank )
+      --
+      --
+      --
+      SELECT
+        g1,
+        g2,
+        corr(e1, e2) as spearmans
+      FROM
+        jtab
+      GROUP BY
+        g1,g2
+      ",
+      sep="")
+  }
+
+
 
 
 
