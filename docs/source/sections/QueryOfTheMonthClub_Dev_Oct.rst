@@ -16,18 +16,20 @@ October, 2017
 
 For October, we're going to dive into using Plotly for visualziation in Shiny
 apps. In particular, we're going to implement an interatictive heatmap using
-heatmaply. Here's the important links.
+heatmaply. To start, here's some important links.
 
-`Plotly<https://plot.ly/>`_
-`Shiny-Plotly<https://plot.ly/r/shiny-tutorial/>`_
 `Heatmaply <https://cran.r-project.org/web/packages/heatmaply/vignettes/heatmaply.html>`_
+
+`Shiny-Plotly <https://plot.ly/r/shiny-tutorial/>`_
+
+`bigrquery <https://github.com/r-dbi/bigrquery>`_
 
 Exciting highlights include using BigRQuery to make queries from *inside* shiny!
 We do that by using service account authorization. And of course, heatmaply,
 an interactive heatmap that lets you zoom and scroll around.
 
 .. figure:: query_figs/oct_fig1.png
-   :scale: 50
+   :scale: 70
    :align: center
 
 
@@ -220,7 +222,7 @@ Then BigQuery SQL is contructed:
 OK, so with that query string constructed, we can make the call to Google BigQuery.
 In order to get authorized, we're using a service account. To get that set up, one needs
 to log into your google cloud console, and follow
-these instructions `(Service account credentials)<https://cloud.google.com/storage/docs/authentication>`_.
+these instructions `(Service account credentials) <https://cloud.google.com/storage/docs/authentication>`_.
 By doing that, you're going to generate a little .json file that contains your
 private key, so don't lose it! Then we can use the bigrquery function set_service_token,
 providing the path to the json file. Very easy! After that we simply make the
