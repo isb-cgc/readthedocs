@@ -56,7 +56,7 @@ First I'll list out the ui.R code.
         selectInput("var1", "Gene Set 1", getGeneSets(), selected ="GSE40685_NAIVE_CD4_TCELL_VS_TREG_UP"),
         selectInput("var2", "Gene Set 2", getGeneSets(), selected = "GSE40685_NAIVE_CD4_TCELL_VS_TREG_DN"),
         getTCGAProjs(),
-        #checkboxInput("showlabels", "Show Labels", value=T),
+        checkboxInput("showlabels", "Show Labels", value=T),
         checkboxInput("clustercols", label = "Cluster Columns", value = T),
         checkboxInput("clusterrows", label = "Cluster Rows", value = T),
         selectInput("seriate", "Gene Ordering Method", c("OLO", "GW", "mean", "none"), selected = "GW"),
@@ -144,7 +144,6 @@ Then we can jump over to the server.R file.
                 Colv=cluster_cols, Rowv=cluster_rows,
                 colors = rwb, seriate=input$seriate,
                 hclust_method = input$hclust_method,
-                #labRow = labelsrow, labCol=labelscol,
                 showticklabels = as.logical(input$showlabels),
                 margins = c(150,200,NA,0))
       })
