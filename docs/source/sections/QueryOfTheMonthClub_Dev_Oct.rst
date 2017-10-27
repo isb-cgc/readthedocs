@@ -67,6 +67,19 @@ First I'll list out the ui.R code.
       ),
 
       mainPanel(
+        tags$head(  # thank you BigDataScientist
+          tags$style(
+            HTML(".shiny-notification {
+                 height: 50;
+                 width: 400px;
+                 position:fixed;
+                 top: calc(50% - 50px);;
+                 left: calc(50% - 200px);;
+                 }
+                 "
+              )
+            )
+          ),
         plotlyOutput("plot", height = "600px")
       )
     ),
@@ -84,6 +97,8 @@ in a file (around 4000 gene sets!).
 Another interesting thing is just to define a function, like getTCGAProjs(),
 that builds and returns a selectInput object, using the long list of TCGA projects.
 Works great and keeps it easy to read.
+
+Also notice the use of CSS to change the default `progress bar <https://stackoverflow.com/questions/44043475/adjust-size-of-shiny-progress-bar-and-center-it>`_.
 
 Then we can jump over to the server.R file.
 -------------------------------------------
@@ -105,28 +120,36 @@ Then we can jump over to the server.R file.
     })
 
     output$plot <- renderPlotly({
-      # first make the bigquery
-      bqdf <- bq_data()
 
-      # then build the correlation matrix
-      df <- buildCorMat(bqdf)
+      withProgress(message = 'Working...', value = 0, {
+        incProgress()
 
-      # then get the heatmap options
-      cluster_cols <- as.logical(input$clustercols)
-      cluster_rows <- as.logical(input$clusterrows)
+        # first make the bigquery
+        bqdf <- bq_data()
+        incProgress()
 
-      # color scheme
-      rwb <- colorRampPalette(colors = c("blue", "white", "red"))
-      heatmaply(df,
+        # then build the correlation matrix
+        df <- buildCorMat(bqdf)
+        incProgress()
+
+        # then get the heatmap options
+        cluster_cols <- as.logical(input$clustercols)
+        cluster_rows <- as.logical(input$clusterrows)
+
+        # color scheme
+        incProgress()
+        rwb <- colorRampPalette(colors = c("blue", "white", "red"))
+        heatmaply(df,
                 main = 'gene-gene spearman correlations',
                 Colv=cluster_cols, Rowv=cluster_rows,
                 colors = rwb, seriate=input$seriate,
                 hclust_method = input$hclust_method,
                 #labRow = labelsrow, labCol=labelscol,
                 showticklabels = as.logical(input$showlabels),
-                margins = c(150,200,NA,0)) #%>%
-        #layout(xaxis = list(tickangle = 45))
+                margins = c(150,200,NA,0))
+      })
     })
+
 
     output$event <- renderPrint({
       d <- event_data("plotly_hover")
