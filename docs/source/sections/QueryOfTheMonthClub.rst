@@ -9,6 +9,285 @@ BigData from the TCGA and BigQuery from Google.
 Please let us know if you'd like to be featured on the "query-club"!
 email: dgibbs (at) systemsbiology (dot) org
 
+------------------
+
+October, 2017
+###############
+
+For October, we're going to dive into using Plotly for visualziation in Shiny
+apps. In particular, we're going to implement an interatictive heatmap using
+heatmaply. To start, here's some important links.
+
+`ISB-CGC Gene Set Correlation Heatmaply! <https://isb-cgc.shinyapps.io/Heatmaply_Gene_Set_Corr/>`_
+
+`Heatmaply <https://cran.r-project.org/web/packages/heatmaply/vignettes/heatmaply.html>`_
+
+`The heatmaply paper <https://academic.oup.com/bioinformatics/article/doi/10.1093/bioinformatics/btx657/4562328/heatmaply-an-R-package-for-creating-interactive>`_
+
+`Shiny-Plotly <https://plot.ly/r/shiny-tutorial/>`_
+
+`bigrquery <https://github.com/r-dbi/bigrquery>`_
+
+Exciting highlights include using BigRQuery to make queries from *inside* shiny!
+We do that by using service account authorization. And of course, heatmaply,
+an interactive heatmap that lets you zoom and scroll around.
+
+.. figure:: query_figs/oct_fig1.png
+   :scale: 70
+   :align: center
+
+
+So we'll just jump right into it!
+
+First I'll list out the ui.R code.
+----------------------------------
+
+.. code-block:: r
+
+  library(shiny)
+  library(plotly)
+  library(heatmaply)
+
+
+  source("global.R")
+
+  ui <- fluidPage(
+    titlePanel(title=div(img(src="half_isb_logo.png"), "Immune-related Gene Set Correlation-Heatmaply (MSigDB C7)")),
+    helpText(HTML("<strong>Hit submit to call Google BigQuery. In the heatmap, select an area to zoom.<strong>")),
+    sidebarLayout(
+      sidebarPanel(
+        selectInput("var1", "Gene Set 1", getGeneSets(), selected ="GSE40685_NAIVE_CD4_TCELL_VS_TREG_UP"),
+        selectInput("var2", "Gene Set 2", getGeneSets(), selected = "GSE40685_NAIVE_CD4_TCELL_VS_TREG_DN"),
+        getTCGAProjs(), # returns a selectInput obj
+        checkboxInput("showlabels", "Show Labels", value=T),
+        checkboxInput("clustercols", label = "Cluster Columns", value = T),
+        checkboxInput("clusterrows", label = "Cluster Rows", value = T),
+        selectInput("seriate", "Gene Ordering Method", c("OLO", "GW", "mean", "none"), selected = "GW"),
+        selectInput("hclust_method", "Hclust Method", c("ward.D", "ward.D2", "single",
+                                                        "complete", "average", "mcquitty",
+                                                        "median", "centroid"), selected="ward.D2"),
+        actionButton(inputId="submit",label = "Submit")
+      ),
+
+      mainPanel(
+        tags$head(
+          tags$style(# thanks BigDataScientist @ stackoverflow!
+            HTML(".shiny-notification {
+                 height: 50;
+                 width: 400px;
+                 position:fixed;
+                 top: calc(50% - 50px);;
+                 left: calc(50% - 200px);;
+                 }
+                 "
+              )
+            )
+          ),
+        plotlyOutput("plot", height = "600px")
+      )
+    ),
+    br(),
+    helpText("What's going on here? The genes belonging to two immune-related gene sets are used to compute Spearman correlation on RNA-seq data from a given type of cancer. It's a visualization of the relationship between two gene sets."),
+    helpText("Heatmaply: Tal Galili, Alan O'Callaghan, Jonathan Sidi, Carson Sievert; heatmaply: an R package for creating interactive cluster heatmaps for online publishing, Bioinformatics, , btx657, https://doi.org/10.1093/bioinformatics/btx657"),
+    helpText("Gene sets: Molecular Signatures Database (MSigDB), C7 collection. Subramanian, Tamayo, et al. (2005, PNAS 102, 15545-15550) http://software.broadinstitute.org/gsea/msigdb"),
+    helpText("Made in", a("Shiny", href="http://shiny.rstudio.com/"), " using ", a("google bigquery, bigrquery, heatmaply, and plotly"))
+  )
+
+
+
+So we start up a fluidPage layout, and define a number of controls in the sidebar.
+The gene set selectors get a long list of gene set names that I've captured
+from MSigDB and dumped in a file (around 4000 gene sets!).
+
+Another interesting technique is to define a function, like getTCGAProjs(),
+that builds and returns a selectInput object, using the long list of TCGA projects.
+Works great and keeps the code easy to read.
+
+Also notice the use of CSS to change the default `progress bar <https://stackoverflow.com/questions/44043475/adjust-size-of-shiny-progress-bar-and-center-it>`_.
+
+OK, now we can jump over to the server.R file.
+-------------------------------------------
+
+.. code-block:: r
+
+  server <- function(input, output, session) {
+
+    # calling BigQuery
+    bq_data <- eventReactive(input$submit, {
+      load("data/gene_set_hash.rda")
+      geneNames1 <- getGenes(sethash, input$var1)
+      geneNames2 <- getGenes(sethash, input$var2)
+      cohort <- input$cohortid
+      sql <- buildQuery(geneNames1, geneNames2, cohort)
+      service_token <- set_service_token("data/my_private_key.json")
+      data <- query_exec(sql, project='our_bq_project', useLegacySql = F)
+      data
+    })
+
+    output$plot <- renderPlotly({
+
+      withProgress(message = 'Working...', value = 0, {
+        incProgress()
+
+        # first make the bigquery
+        bqdf <- bq_data()
+        incProgress()
+
+        # then build the correlation matrix
+        df <- buildCorMat(bqdf)
+        incProgress()
+
+        # then get the heatmap options
+        cluster_cols <- as.logical(input$clustercols)
+        cluster_rows <- as.logical(input$clusterrows)
+
+        # color scheme
+        incProgress()
+        rwb <- colorRampPalette(colors = c("blue", "white", "red"))
+        heatmaply(df,
+                main = 'gene-gene spearman correlations',
+                Colv=cluster_cols, Rowv=cluster_rows,
+                colors = rwb, seriate=input$seriate,
+                hclust_method = input$hclust_method,
+                showticklabels = as.logical(input$showlabels),
+                margins = c(150,200,NA,0))
+      })
+    })
+
+
+    output$event <- renderPrint({
+      d <- event_data("plotly_hover")
+      if (is.null(d)) "Hover on a point!" else d
+    })
+  }
+
+So, the first function that's listed is the bq_data function. This function executes
+after the user makes their selection and hits the 'submit' button. I have
+previously taken the ~4000 gene sets, and built a hash (using the awesome hash library)
+that takes gene set names and returns the genes. The getGenes functions performs that task.
+Then BigQuery SQL is then contructed:
+
+
+.. code-block:: r
+
+  buildQuery <- function(geneNames1, geneNames2, cohort) {
+    q <- paste(
+      "
+      WITH
+      --
+      -- first we create a subtable for gene set 1
+      --
+      cohortExpr1 AS (
+        SELECT
+          sample_barcode,
+          HGNC_gene_symbol,
+          LOG10( normalized_count +1) AS logexpr,
+          RANK() OVER (PARTITION BY HGNC_gene_symbol ORDER BY normalized_count ASC) AS expr_rank
+        FROM
+          `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
+        WHERE
+          project_short_name = '",cohort ,"'
+          AND HGNC_gene_symbol IN ",geneNames1 ,"
+          AND normalized_count IS NOT NULL
+          AND normalized_count > 0),
+      --
+      -- then we create a subtable for gene set 2
+      --
+      cohortExpr2 AS (
+        SELECT
+          sample_barcode,
+          HGNC_gene_symbol,
+          LOG10( normalized_count +1) AS logexpr,
+          RANK() OVER (PARTITION BY HGNC_gene_symbol ORDER BY normalized_count ASC) AS expr_rank
+        FROM
+          `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
+        WHERE
+          project_short_name = '",cohort ,"'
+          AND HGNC_gene_symbol IN ",geneNames2 ,"
+          AND normalized_count IS NOT NULL
+          AND normalized_count > 0),
+      --
+      -- then we join the two gene expression tables,
+      -- we could get rid of the logexpr fields, but maybe
+      -- they'd prove useful in some other query.
+      --
+      jtab AS (
+        SELECT
+          cohortExpr1.sample_barcode,
+          cohortExpr2.sample_barcode,
+          cohortExpr1.HGNC_gene_symbol as g1,
+          cohortExpr2.HGNC_gene_symbol as g2,
+          cohortExpr1.expr_rank as e1,
+          cohortExpr2.expr_rank as e2
+        FROM
+          cohortExpr1
+        JOIN
+          cohortExpr2
+        ON
+          cohortExpr1.sample_barcode = cohortExpr2.sample_barcode
+        GROUP BY
+          cohortExpr1.sample_barcode,
+          cohortExpr2.sample_barcode,
+          cohortExpr1.HGNC_gene_symbol,
+          cohortExpr2.HGNC_gene_symbol,
+          cohortExpr1.logexpr,
+          cohortExpr1.expr_rank,
+          cohortExpr2.logexpr,
+          cohortExpr2.expr_rank )
+      --
+      -- last, we correlate the RANKs, to get a Spearman correlation.
+      --
+      SELECT
+        g1,
+        g2,
+        corr(e1, e2) as spearmans
+      FROM
+        jtab
+      GROUP BY
+        g1,g2
+      ",
+      sep="")
+  }
+
+
+OK, so with that query-string constructed, we can make the call to Google BigQuery.
+In order to get authorized, here we're using a service account. To get that set up, one needs
+to log into your google cloud console, and follow
+these instructions `(Service account credentials) <https://cloud.google.com/storage/docs/authentication>`_.
+By doing that, you're going to generate a little .json file that contains your
+private key, don't lose it! Then we can use the bigrquery function set_service_token,
+providing the path to the json file. Very easy! After that we simply make the
+call using query_exec.
+
+Then, to make the heatmap, we use the renderPlotly function. In that function,
+first we get the summarized data from BigQuery, which returns as a data.frame (bqdf),
+and we transform that into a matrix using the reshape2 library.
+
+.. code-block:: r
+
+  library(reshape2)
+
+  buildCorMat <- function(bqdf) {
+    # bqdf is a data.frame returned from query_exec
+    # g1 and g2 are gene names
+    # and we have a Spearman correlation
+    meltdf <- melt(bqdf)
+    sqdf <- dcast(meltdf, g1~g2, value.var = "value")
+    # then a bit of tidying up.
+    sqdf[is.na(sqdf)] <- 0
+    rownames(sqdf) <- sqdf[,'g1']
+    sqdf <- sqdf[,-1]
+    return(sqdf)
+  }
+
+
+With that done (building the correlation matrix), we can simply make the call to heatmaply, which is linked back to
+our plotlyOutput in the mainPanel (in the ui.R code).
+
+So we've just tied together Shiny, Plotly, Heatmaply, BigQuery into one
+interactive web tool. Got a question about it? Let me know! dgibbs *at*
+systemsbiology *dot* org.
+
 
 ------------------
 
@@ -37,14 +316,14 @@ The null hypothesis is that each of the group means is
 the same (*ie* that the |ai| terms are zero), while the alternative hypothesis
 is that at least one of the |ai| terms is *not* zero.
 
-We use the F-test to compare these two hypotheses.  
+We use the F-test to compare these two hypotheses.
 To compute the test statistic, we compute the within-group variation and the
 between-group variation.
 Recall that sample variance is defined as the sum of squared differences between
 observations and the mean, divided by the number of samples (normalized).
 
 Before we get into the query, please note that you can find
-a specialized version of the below query 
+a specialized version of the below query
 that compares the expression between individuals with a SNP and without a SNP,
 using the same SQL as the August query.  I've put that query in this
 `github gist <https://gist.github.com/Gibbsdavidl/8a20097aaf8bece8fc586310795b54da>`_.
