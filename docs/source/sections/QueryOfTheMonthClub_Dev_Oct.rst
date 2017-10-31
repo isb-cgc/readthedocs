@@ -22,6 +22,8 @@ heatmaply. To start, here's some important links.
 
 `Heatmaply <https://cran.r-project.org/web/packages/heatmaply/vignettes/heatmaply.html>`_
 
+`The heatmaply paper <https://academic.oup.com/bioinformatics/article/doi/10.1093/bioinformatics/btx657/4562328/heatmaply-an-R-package-for-creating-interactive>`_
+
 `Shiny-Plotly <https://plot.ly/r/shiny-tutorial/>`_
 
 `bigrquery <https://github.com/r-dbi/bigrquery>`_
@@ -50,12 +52,13 @@ First I'll list out the ui.R code.
   source("global.R")
 
   ui <- fluidPage(
-    titlePanel(title=div(img(src="half_isb_logo.png"), "MSigDB C7 Gene Set Correlation Heatmaply")),
+    titlePanel(title=div(img(src="half_isb_logo.png"), "Immune-related Gene Set Correlation-Heatmaply (MSigDB C7)")),
+    helpText(HTML("<strong>Hit submit to call Google BigQuery. In the heatmap, select an area to zoom.<strong>")),
     sidebarLayout(
       sidebarPanel(
         selectInput("var1", "Gene Set 1", getGeneSets(), selected ="GSE40685_NAIVE_CD4_TCELL_VS_TREG_UP"),
         selectInput("var2", "Gene Set 2", getGeneSets(), selected = "GSE40685_NAIVE_CD4_TCELL_VS_TREG_DN"),
-        getTCGAProjs(),
+        getTCGAProjs(), # returns a selectInput obj
         checkboxInput("showlabels", "Show Labels", value=T),
         checkboxInput("clustercols", label = "Cluster Columns", value = T),
         checkboxInput("clusterrows", label = "Cluster Rows", value = T),
@@ -67,8 +70,8 @@ First I'll list out the ui.R code.
       ),
 
       mainPanel(
-        tags$head(  # thank you BigDataScientist
-          tags$style(
+        tags$head(
+          tags$style(# thanks BigDataScientist @ stackoverflow!
             HTML(".shiny-notification {
                  height: 50;
                  width: 400px;
@@ -84,23 +87,25 @@ First I'll list out the ui.R code.
       )
     ),
     br(),
-    helpText("Gene sets are derived from Molecular Signatures Database (MSigDB), C7 collection. Subramanian, Tamayo, et al. (2005, PNAS 102, 15545-15550) http://software.broadinstitute.org/gsea/msigdb"),
-    helpText("Made in", a("Shiny", href="http://shiny.rstudio.com/"), " using ", a("googleAuthR", href="https://github.com/MarkEdmondson1234/googleAuthR"), " to create ", a("bigQueryR", href="https://github.com/MarkEdmondson1234/bigQueryR")),
-    helpText("....")
+    helpText("What's going on here? The genes belonging to two immune-related gene sets are used to compute Spearman correlation on RNA-seq data from a given type of cancer. It's a visualization of the relationship between two gene sets."),
+    helpText("Heatmaply: Tal Galili, Alan O'Callaghan, Jonathan Sidi, Carson Sievert; heatmaply: an R package for creating interactive cluster heatmaps for online publishing, Bioinformatics, , btx657, https://doi.org/10.1093/bioinformatics/btx657"),
+    helpText("Gene sets: Molecular Signatures Database (MSigDB), C7 collection. Subramanian, Tamayo, et al. (2005, PNAS 102, 15545-15550) http://software.broadinstitute.org/gsea/msigdb"),
+    helpText("Made in", a("Shiny", href="http://shiny.rstudio.com/"), " using ", a("google bigquery, bigrquery, heatmaply, and plotly"))
   )
 
 
-So we start up a fluidPage layout, and define a number of controls in the sidebar.
-The gene set selectors just get a long list of gene set names that I've captured
-in a file (around 4000 gene sets!).
 
-Another interesting thing is just to define a function, like getTCGAProjs(),
+So we start up a fluidPage layout, and define a number of controls in the sidebar.
+The gene set selectors get a long list of gene set names that I've captured
+from MSigDB and dumped in a file (around 4000 gene sets!).
+
+Another interesting technique is to define a function, like getTCGAProjs(),
 that builds and returns a selectInput object, using the long list of TCGA projects.
-Works great and keeps it easy to read.
+Works great and keeps the code easy to read.
 
 Also notice the use of CSS to change the default `progress bar <https://stackoverflow.com/questions/44043475/adjust-size-of-shiny-progress-bar-and-center-it>`_.
 
-Then we can jump over to the server.R file.
+OK, now we can jump over to the server.R file.
 -------------------------------------------
 
 .. code-block:: r
@@ -115,7 +120,7 @@ Then we can jump over to the server.R file.
       cohort <- input$cohortid
       sql <- buildQuery(geneNames1, geneNames2, cohort)
       service_token <- set_service_token("data/my_private_key.json")
-      data <- query_exec(sql, project='isb-cgc-bq', useLegacySql = F)
+      data <- query_exec(sql, project='our_bq_project', useLegacySql = F)
       data
     })
 
@@ -156,11 +161,11 @@ Then we can jump over to the server.R file.
     })
   }
 
-So, the first function that's listed is the bq_data function. This function fires
-after the user makes their selections and hits the 'submit' button. I have
+So, the first function that's listed is the bq_data function. This function executes
+after the user makes their selection and hits the 'submit' button. I have
 previously taken the ~4000 gene sets, and built a hash (using the awesome hash library)
-that takes the gene set names and returns the gene names. The getGenes functions performs that task.
-Then BigQuery SQL is contructed:
+that takes gene set names and returns the genes. The getGenes functions performs that task.
+Then BigQuery SQL is then contructed:
 
 
 .. code-block:: r
@@ -245,18 +250,18 @@ Then BigQuery SQL is contructed:
   }
 
 
-OK, so with that query string constructed, we can make the call to Google BigQuery.
-In order to get authorized, we're using a service account. To get that set up, one needs
+OK, so with that query-string constructed, we can make the call to Google BigQuery.
+In order to get authorized, here we're using a service account. To get that set up, one needs
 to log into your google cloud console, and follow
 these instructions `(Service account credentials) <https://cloud.google.com/storage/docs/authentication>`_.
 By doing that, you're going to generate a little .json file that contains your
-private key, so don't lose it! Then we can use the bigrquery function set_service_token,
+private key, don't lose it! Then we can use the bigrquery function set_service_token,
 providing the path to the json file. Very easy! After that we simply make the
 call using query_exec.
 
-Then, for making the heatmap, we use the renderPlotly function. In that function,
-first we get the summarized data from BigQuery, which returns as a data.frame (bqdf).
-Next we transform that into a matrix using the reshape2 library.
+Then, to make the heatmap, we use the renderPlotly function. In that function,
+first we get the summarized data from BigQuery, which returns as a data.frame (bqdf),
+and we transform that into a matrix using the reshape2 library.
 
 .. code-block:: r
 
