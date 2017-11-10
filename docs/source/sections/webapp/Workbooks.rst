@@ -1,13 +1,13 @@
 Workbooks
 *********
 
-Workbooks store the Analyses you create -- and their related data. Basically, the worksheets you create to conduct analysis based on the source data selected (i.e. Genes, Variables and Cohorts).  Workbooks can be used to:
+Workbooks store the Analyses you create -- and their related data. Basically, the worksheets you create to conduct analysis based on the source data selected (i.e. Genes and miRNAs, Variables and Cohorts).  Workbooks can be used to:
   • Group together multiple related analyses,
   • Share analysis results with specific groups of people,
 
-For example, you can create a workbook (i.e., Study A) which consists of identifying gene mutations and pathways involved in Head and Neck Cancer (and share it with research Group A). 
+For example, you can create a workbook (i.e., Disease A) which consists of identifying gene mutations and pathways involved in Head and Neck Cancer (and share it with research Group A). 
 
-And create another workbook (i.e., Study B) with a different group of researchers (Group B) investigating the average time after diagnosis of death for different lung cancers.  Think of workbooks as virtual "excel spreadsheets" that various related analyses can be created in individual Worksheets (“Tabs” within the spreadsheet) and grouped together in one Workbook (the overall spreadsheet).
+And create another workbook (i.e., Disease B) with a different group of researchers (Group B) investigating the average time after diagnosis of death for different lung cancers.  Think of workbooks as virtual "excel spreadsheets" that various related analyses can be created in individual Worksheets (“Tabs” within the spreadsheet) and grouped together in one Workbook (the overall spreadsheet).
 
 Additionally, you can:
   • Save a workbook for later use, or
@@ -22,8 +22,8 @@ To create a **workbook** from Your Dashboard, click on the **“Create a New Wor
 
 **Note:** If you wish to use your own data in graphing, please review the documentations on `how to upload your own data`_ and on `how to graph your own data`_.  Using your own data uses a slightly different approach than is described here.
 
-.. _how to upload your own data: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/project_data_upload.html
-.. _how to graph your own data: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/GraphingUserData.html
+.. _how to upload your own data: program_data_upload.html
+.. _how to graph your own data: GraphingUserData.html
 
 1. From the Workbook creation panel you will first select one of six analysis types (i.e., Bar chart, Histogram, Scatter Plot, Violin Plot, Cubby Hole Plot or SeqPeek). 
 
@@ -41,38 +41,39 @@ To create a **workbook** from Your Dashboard, click on the **“Create a New Wor
 
     - **SeqPeek** - This visualization shows where somatic mutations have been observed on a linear representation of a specific protein. Each horizontal strip represents the protein, with data from different tumor types (aka cohorts or studies) shown stacked one on top of the other.
 
-    - **Browse All Analyses** - This will direct you to a visual sample of the different analysis types along with a brief description of how to generate each type.
-    
+
     A researcher now has the option to make the axis logarithmic if the plot can display continuous numerical data for eg. mRNA expression levels.
    
    **Note:** For Violin Plot and Scatter Plot you can select multiple cohorts as your Color By Feature. This will cause the Legend to list all the cohorts that the sample is associated to. Please be aware you'll end up with lots of permutations if you have lots of samples that belong to many different cohorts.
 
-2. You will then select **Genes or Variables** (or, optionally both)
+2. You will then select **Genes and miRNAs or Variables** (or, optionally both)
 
-  * **Genes** - This will display previously created “Gene Favorites” which can be “Applied to Analysis" (see `Gene Favorites <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/webapp/Gene-Favorites.html>`_ for details) or you can apply / create a “New Gene List”).
+  * **Genes and miRNAs** - This will display previously created “Gene and miRNA Favorites” which can be “Applied to Analysis" (see `Gene and miRNA Favorites <Gene-and-miRNA-Favorites.html>`_ for details) or you can apply / create a “New Gene and miRNA List”).
 
 
-You begin by naming the data set (Gene Type or Project Specific); the Gene list you create here will automatically be added to your Gene Favorites list and can be selected for additional analysis later.
+You begin by naming the data set (Gene Type or Project Specific); the Gene and miRNA list you create here will automatically be added to your Gene and miRNA Favorites list and can be selected for additional analysis later.
 
-Next select the Gene(s) you’re interested in (you can upload a specific list you’ve previously created/stored, select new Genes by typing them into the input box (you will see that Genes will auto-display). If duplicate listings are entered they will be marked for your deletion or automatically dropped when saved. If an error or unknown item is entered it will also be flagged for your attention. 
+Next select the Gene(s) and miRNA(s) you’re interested in (you can upload a specific list you’ve previously created/stored, select new Genes and miRNA by typing them into the input box (you will see that Genes and miRNAs will auto-display). If duplicate listings are entered they will be marked for your deletion or automatically dropped when saved. If an error or unknown item is entered it will also be flagged for your attention. 
 
-To aid in Gene selection, you can access the HGNC portal (Hugo Gene Nomenclature Committee) via the "`View Gene Identifiers <http://www.genenames.org/>`_
-" link under this Menu selection. This allows you to focus on specific results or queries.
+To aid in Gene selection, you can access the HGNC portal (Hugo Gene Nomenclature Committee) via the "`View Gene Identifiers <http://www.genenames.org/>`_" link under this Menu selection.  To aid in miRNA selection You can also access the miRBase portal via the "`View miRNA Identifiers <http://www.mirbase.org/cgi-bin/mirna_summary.pl?org=hsa>`_" for readily available miRNA identifiers. 
 
-  * **Variables** - (this will display previously created “Variable Favorites” which can be “Applied to Analysis" (see `Variable Favorites <http://test>`_ for details) or you can apply / create a “New Variable List”).
+ This allows you to focus on specific results or queries.
+
+  * **Variables** - (this will display previously created “Variable Favorites” which can be “Applied to Analysis" (see `Variable Favorites <Variable-Favorites.html>`_ for details) or you can apply / create a “New Variable List”).
 
 
 You begin by naming the new Variable; the Variable you create here will automatically be added to your Variable Favorites list and can be applied to other analysis later.
 
-Next you can select variables from four (4) available data sources to incorporate in your Variable-
-  * *Common Variables* (14 options)
-  * *Favorite(s)* (previously created variables which were Saved)
-  * *Clinical* (over 46 options)
-  * *MIRNA* (filter by - miRNA Name, Platform, Value, Feature)
+Next you can select variables from five (5) available data sources to incorporate in your Variables-
+  * *TCGA* - Common (22 options) and clinical search feature
+  * *CCLE* - Common (8 options) and clinical search feature
+  * *TARGET* - Common (16 options) and clinical search feature 
+  * *Favorite(s)* - (Previously created variables which were Saved)
+  * *User Data* - Every program and data variable you have uploaded into system.
 
 Then **“Apply to Worksheet”**
 
-3. Select your **Cohort** - Cohorts allow the user to create custom groupings of the samples and/or participants that can be used for further analysis.
+3. Select your **Cohort** - Cohorts allow the user to create custom groupings of the samples and/or cases that can be used for further analysis.
 
 By clicking 'Cohorts' or the '+' symbol you will be directed to the Cohorts table where the user can either create a new cohort or choose from an existing cohorts. When creating a new cohort, after selecting your criteria you click the "Create Cohort" button. The button will become disabled (dimmed) as the Cohort builds (shown in the image below).  
 
@@ -80,17 +81,14 @@ By clicking 'Cohorts' or the '+' symbol you will be directed to the Cohorts tabl
    :scale: 50
    :align: center
 
-Once completed you can proceed.  The user can also add multiple Cohorts to the worksheet if desired. More information about Cohorts can be found here (link to `Cohorts documentation <http://test>`_).
+Once completed you can proceed.  The user can also add multiple Cohorts to the worksheet if desired. More information about Cohorts can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html>`_.
 
-4. Select **Edit Analysis Settings** - This will trigger the Plot setting displaying the applicable x & y axis settings (i.e. Categorical or Numerical based on analysis type selected). Depending on the analysis type selected (i.e., Bar chart, Histogram, Scatter Plot, Violin Plot, Cubby Hole Plot, or SeqPeek) additional specifications may appear for selection.
+4. Select **Edit Analysis Settings** - This will trigger the Plot setting displaying the applicable x & y axis settings (i.e. Categorical or Numerical based on analysis type selected). Depending on the analysis type selected (e.g., Bar chart, Histogram, Scatter Plot, Violin Plot, Cubby Hole Plot, or SeqPeek) additional specifications may appear for selection.
 
-Sample Workbooks
-----------------
-The sample workbooks (future Function) is found in the Menu bar under the Workbooks tab. This will contain guides for the user to see what is the different functionality of the workbooks are.
 
 Sharing Workbooks
 -----------------
-This will share the web view of workbooks with users you select by entering the users e-mail.  The User will receive an e-mail message with a link to your shared workbook explaining that (you) wanted to share a workbook with (them) and that you have invited them to join.  
+This will share the web view of workbooks with users you select by entering the users e-mail.  The User will receive an e-mail message with a link to your shared workbook explaining that (you) wanted to share a workbook with (them) and that you have invited them to join.  If the email address you entered in not registered in the database you are prompted with a message saying, "The following user emails could not be found; please ask them to log into the site first:(email entered)."
 
 Manipulation of Workbooks
 -------------------------
@@ -101,17 +99,17 @@ Manipulation of Workbooks
 
 **Edit Analysis Settings** - This function allows you to select new Plot Setting for selected analysis type.
 
-Please Note: When selecting a gene for either the x-axis or y-axis variable you be promted with selecting a specification. If you select Gene Expression you have the option of choosing a Platform Filter and a Center Filter. If you select the Methylation specification you can select a CpG Probe Filter, a Platform Filter, a Gene Region Filter, and a CpG Island Region Filter. If you select the Copy Number specification you can choose a Value Filter. If you select the Protein specification you can selelct a Protein Filter. If you select the Mutation specification you select select a Value Filter. 
+Please Note: When selecting a gene or miRNA for either the x-axis or y-axis variable you be prompted with selecting a specification. If you select Gene Expression you have the option of choosing a Select Feature.  If you select the Copy Number specification you can choose a Value Filter. If you select the Protein specification you can selelct a Protein Filter. If you select the Mutation specification you can select a Value Filter. If you select an miRNA expression you can select a select feature.
  
 .. _selectionicon:
 
-**Enable Sample section and Edit Analysis Settings** - Enable Sample Selection(shown in the image below) allows you to select samples from displayed analysis and save that selection to a new Cohort for further drill down analysis. The Edit Analysis Settings allows you to change the variables you wish to use for your analysis(varies by which analysis you choose).
+**Enable Sample section and Edit Analysis Settings** - Enable Sample Selection(shown in the image below) allows you to select samples from displayed analysis and save that selection to a new Cohort for further drill down analysis. The Edit Analysis Settings allows you to change the variables you wish to use for your analysis(varies by which analysis you choose).  Finally, if you select miRNA you can select specification miRNA Expression, you will be prompted to select a feature.
 
 .. image:: edit_analysis_finger.PNG
    :scale: 50
    :align: center
 
-**Edit Details** - This function allows the user to edit the name of the worksheet and also give a brief description on the worksheet being used for analysis.
+**Edit Details** - This function allows the user to edit the name of the worksheet and also give a brief description on the worksheet being used for analysis. You can also change the build from HG19 to HG38 using this feature. Changing the build allows to graph data from either builds. 
 
 **Duplicate** - This function allows the user to create a duplicate worksheet in the workbook for further analysis and comparison.
 
@@ -120,7 +118,6 @@ Please Note: When selecting a gene for either the x-axis or y-axis variable you 
 
 Comments Section
 =================
-Any user who owns or has had a cohort shared with them can comment on it. To open comments, use the comments button at the top right and select “Comments”. A sidebar will appear on the right side and any previously created comments will be shown.
+Any user who owns or has had a workbook shared with them can comment on it. To open comments, use the comments button at the top right and select “Comments”. A sidebar will appear on the right side and any previously created comments will be shown.
 
 On the bottom of the comments sidebar, you can create a new comment and save it. It should appear at the bottom of the list of comments.
-

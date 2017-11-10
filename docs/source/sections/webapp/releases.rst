@@ -2,11 +2,319 @@
 Web-App Release Notes
 *********************
 
-*  **November 30, 2016**: `v1.13 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.13>`_
+* **October 13,2017**
+
+ *Please Note: We need to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.*
+ 
+ **Issues resolved in Sprint 20 as of 10/11/2017**
+ 
+ New Enhancements
+ 
+ - You can now upload sample and case identifiers from programs TCGA, CCLE and TARGET to create a cohort. 
+ - We have begun to allow the addition/removal of a service account with a new button instead of the user having to re-register the service account every time.
+ - For the Set Operations feature when working with cohorts has been enhanced and has become easier to work with. 
+ - For the Set Operation Complement feature you will now create a cohort faster than before.
+ - You will now be displayed mouse over text when working with the New Workbook, Delete, Set Operations, and Share button on the Cohorts list details page.  
+ - The About Us link in the top left of the page has been re-named to Homepage. 
+ 
+ Bug Fixes
+ 
+ - All bam files for the TARGET program are available to be used with the IGV browser. 
+ - On the Cohort creation page, you can now select a filter for your Cohort by selecting an option from the Clinical Feature graphs using Histological Type for program CCLE. 
+ 
+ **Known Issues in Sprint 20 as of 10/12/2017**
+ 
+ - Analysis Type: Seq peek Formatting Elongated on occasion 
+ - If the user shares a Cohort neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort.
+ - CCLE data cannot be plotted when working with workbooks.  ISB-CGC will resolve this functionality after the GDC formally releases CCLE data. 
+ - When a user duplicates a Worksheet, then tries to implement the log scale it will not function properly. 
+ - The set operation for existing Cohorts complement is behaving exceptionally slow.
+ - A duplication of the exact cohort happens when you select the confirmation multiple times while the page is loading working with Set Operations. 
+ - The mouse-over feature is currently disabled for program TARGET with disease code ALL. 
+ - When working on Firefox browser a violin plot does not display the data plotted correctly when working on a Worksheet. 
+
+
+* **September 21,2017** `v3.4 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.4>`_
+
+ *Please Note: We need to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.*
+ 
+ **Issues that have been resolved in Sprint 19 as of 09/21/2017**
+ 
+ 
+ New Enhancements
+ 
+ - When plotting, certain values will now be displayed as categorical when before it was displayed as a numerical value e.g Tobacco Smoking History.
+ - The Homepage has been updated to incorporate links for TARGET and CCLE programs.
+ - The extended list of programs and projects on the new User Uploaded Data creation page is now displayed in alphabetical order.
+ - On the user details page you are now shown a confirmation box when you attempt to unlink the NIH identity account associated to the Google Identity you originally logged in with. 
+ - When working with Workbooks you are now shown a table on the top right hand side of Worksheet which shows what BigQuery tables the information being displayed is from. 
+ - On the Cohort creation page you can now select a filter for your Cohort by selecting an option from the Clinical Features graphs. 
+ - On the user details page, if you attempt to associate you Google Identity to an NIH Identity that is already registered in the system to another Google Account you are given a yellow error message stating which email the NIH Identity is already associated to. 
+ 
+ Bug Fixes
+
+ - When working with Workbooks the log scale graphing option will be saved when a user comes back to the Worksheet at another time. 
+ - On the existing Cohorts table list page, the confirmation delete ‘blue x’ button will now remove a selected Cohort if you select another option e.g Set Operation.
+ - The Google Cloud Project details page refresh wheel and delete icon are now working properly for service accounts.
+ - The Cloud Project details page now lists the authorized datasets active with an associated service account. 
+ - When deleting a User Uploaded program you are now sent to the existing programs list page if you delete the program.  If you delete the project you stay on the program details page. 
+ - The ownership of a Variable list, Gene and miRNa list, and User Uploaded Programs are now verified. This means you can no longer view any existing in system if you are not the original creator.
+ - A confirmation on the Register a Service Account page has been implemented for service accounts when the user attempts to register. 
+ - On the Cohort creation when toggling between the tabs for the different programs, you now cannot switch tabs until the tab on display is loaded. 
+ 
+ **Known issues in sprint 19 as of 09/21/2017**
+ 
+ - Analysis Type : Seq peek Formatting Elongated on occasion 
+ - If the user shares a Cohort neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort. 
+ - CCLE data cannot be plotted when working with workbooks.  ISB-CGC will resolve this functionality after the GDC formally releases CCLE data. 
+ - When a user duplicates a Worksheet, then tries to implement the log scale it will not function properly.
+ - The set operation for existing Cohorts complement is behaving exceptionally slow. 
+ - A duplication of the exact cohort happens when you select the confirmation multiple times while the page is loading working with Set Operations. 
+ - The mouse over feature is currently disabled for program TARGET with disease code ALL.
+ - A very small amount of bam files for program TARGET currently have the wrong file name and cannot be used with the IGV browser. 
+ - When working on Firefox browser a violin plot does not display the data plotted correctly when working on a Worksheet. 
+
+* **August 23, 2017**: `v3.3 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.3>`_
+ **Issues that have been resolved in sprint 18 as of 08/23/2017**
+ 
+ New Enhancements
+ 
+ - Users with NIH-approved access can now view and analyze TARGET (Therapeutically Applicable Research To Generate Effective Treatments) controlled data using service accounts and also on the IGV browser. 
+ - You will be returned a more detailed error message when invalid characters are used  with user data uploading titles.
+ - On the File list page you will be allowed to select only one genomic build at a time for clarity on which build will be used by the IGV browser.
+ - When attempting  to duplicate the registration of your Google Cloud Project you are given an error message saying, “A Google Cloud Project with the id xxx-xxx-xxxx already exists.”
+ - If you attempt to register a service account with the same datasets it already has activated, you will be given an error message saying, “Service account xxxxxxxxxxxx-compute@developer.gserviceaccount.com already exists with these datasets, and so does not need to be registered.”
+ - The Data Use Certification and Agreement covering your access to all controlled data  has been added to the user details page in the interface.
+ - The CCLE user.get API endpoint has been removed from the system due to the fact we do not currently host any controlled CCLE data.
+ - The format of CSV file downloaded with Download IDs button from the cohort details page has been changed to display the case and sample barcodes as two separate columns.
+ - From the User uploaded program detail page, you can now edit the project name and description by selecting the gear option.
+ 
+ Bug Fixes
+ 
+ - When creating a large cohort you are no longer returned a red error message.
+ - The sharing feature for Workbooks, Cohorts, and User Uploaded Programs has been re-activated.  You must enter a valid email address that is present in the system to share the workbook, cohort, or user uploaded program. If they are not present in our system please feel free to invite them to the `ISB-CGC website <https://isb-cgc.appspot.com/>`_.
+ - When working with a new worksheet or a duplicate worksheet with workbooks for categorical features e.g bar chart, you can no longer select the log option. The log option only applies to numerical options.
+ - When working with workbooks, selecting the Delete button multiple times will no longer result in an error, and instead return you to the Workbooks list page after successful deletion of the Workbook.
+ - Users can plot user uploaded data when working with workbooks when using variables and cohorts from the same files that were uploaded.
+ - The cohort.list API endpoint will display the correct cases count for cohorts listed.
+ - The Download File List as CSV on the File List page will download the correct information when genomic build hg38 is selected. 
+ - You are no longer able to add XSS-vulnerable characters to the edit section for user uploaded data.
+ - An improved error message is displayed  when attempting to register a Google Project you are not associated with.  
+ - Making a new Gene and miRNA set from a Workbook will no longer result in lowercase gene and miRNA names. 
+ - The TCGA Sample.get API endpoint will no longer return a response with sample ID duplicates.
+ 
+ **Known issues in sprint 18 as of 08/23/2017**
+ 
+ - Analysis Type : Seq peek Formatting Elongated on occasion
+ - If the user shares a cohort neither the owner nor the person who was granted access to cohort will receive a confirmation email when sharing a cohort.
+ - CCLE data cannot be plotted when working with workbooks.  ISB-CGC will resolve this functionality after the GDC formally releases CCLE data.
+ - When a user duplicates a worksheet, then tries to implement the log scale it will not function properly.  
+ - On the existing cohorts table list page, the confirmation delete ‘blue x’ button does not remove selected cohort if you select another option e.g Set Operation. The same issue can be found in reverse if you select the ‘blue x’ on the confirmation page for  set operation you can then select the delete button and see the cohort on the confirmation panel.
+ - When working with working with workbooks the log option is not working properly for the plot settings. 
+ - The set operation for existing cohorts complement is behaving exceptionally slow. 
+ - A duplication of the exact cohort happens when you select the confirmation multiple times while the page is loading working with Set Operations.
+ - When plotting, certain values will be displayed as numerical when it should be a categorical value e.g Tobacco Smoking History.
+ - The mouse over feature is currently disabled for program TARGET with disease code ALL. 
+
+* **July 31, 2017**: `v3.2 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.2>`_
+
+ **Please Note:** When creating large cohort you will be given a red error message saying, “There was an error saving your cohort; it may not have been saved correctly.”  This issue is planned to be resolved in the next sprint.
+
+ **Issues that have been resolved in sprint 17 as of 07/31/2017**
+
+ New Enhancements
+
+ - You will be returned a more detailed error message when using invalid characters when working with user data uploading titles. 
+ - On the File list page you will are allowed to select only one genomic build at a time for better clarification of which build you will view on the IGV browser.
+
+ Bug Fixes
+
+ - When working with Swap Values button on a worksheet, the log option selected for either axis is now carried over as well when the swap values button is selected. 
+ -  On the IGV browser when working with TCGA data build hg38 the interface will no longer return a No feature found with name “efgr” at the bottom of the IGV browser page. 
+ -  When working with the cohort.create API endpoint you have the ability to create a large cohort with the barcode filter without a timeout error. 
+ - When creating a cohort with the cohort.create API endpoint you can view the list of barcodes from the cohort details page in the ISB-CGC user interface irrelevant of size.  
+ - When working with the create a new variable favorites list page, you can now create a variable list using the USER DATA tab. 
+
+
+ **Known issues in sprint 17 as of 07/31/2017**
+
+ - The sharing feature for Workbooks, Cohorts, and User Uploaded Programs is currently disabled
+ - Analysis Type : Seq peek Formatting Elongated on occasion 
+ - The CCLE data in GUI is not parallel to the CCLE data in BigQuery.  
+ - Cannot plot any data if you use a CCLE data cohort on a worksheet.  
+ - On the existing cohorts table list page, the confirmation delete ‘blue x’ button does not remove selected cohort if you select another option e.g Set Operation. The same issue can be found in reverse if you select the ‘blue x’ on the confirmation page for  set operation you can then select the delete button and see the cohort on the confirmation panel.
+ - The set operation for existing cohorts complement is behaving exceptionally slow. 
+ - A duplication of the exact cohort happens when you select the confirmation multiple times while the page is loading working with Set Operations.
+ - When working with a new worksheet or a duplicate worksheet with workbooks for categorical features e.g bar chart you can select the log option. The log option only applies to numerical options.
+ - When working with workbooks, if you select the delete confirmation button multiple times while the page is loading you will be sent to an error page. 
+ - You currently cannot plot user uploaded data when working with workbooks.
+ - When plotting, certain values will be displayed as numerical when it should be a categorical value e.g Tobacco Smoking History. 
+ - The mouse over feature is currently disabled for program TARGET with disease code ALL.
+ - The cohort.list API endpoint will display the incorrect cases count for cohort listed.
+ - The Download File List as CSV on the File List page downloads the wrong information when genomic build hg38 is selected. 
+ - You are currently able to add non-whitelist characters to edit section for user uploaded data.
+ - You are returned a vague error message on the register a Google Cloud Project page when attempting to register a Google Project you are not associated to.
+ - The samples and cases filters have not been removed from the cohort.list API endpoint and are visible as a possible filter.
+ - The user.get CCLE program API endpoint will return a 503 internal server error.
+ 
+
+
+* **June 14, 2017**: `v3.1 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.1>`_
+
+    **Please Note:**
+
+    NOTE 1: A number of TCGA and CCLE case IDs shown below will have been removed from all cohorts since they are no longer available from NCI’s Genomics Data Commons, and ISB-CGC is trying to mirror that data as closely as possible.
+ 
+    TCGA cases: TCGA-33-4579, TCGA-35-3621, TCGA-66-2746, TCGA-66-2747, TCGA-66-2750, TCGA-66-2751, TCGA-66-2752, TCGA-AN-A0FE, TCGA-AN-A0FG, TCGA-BH-A0B2, TCGA-BR-4186, TCGA-BR-4190, TCGA-BR-4194, TCGA-BR-4195, TCGA-BR-4196, TCGA-BR-4197, TCGA-BR-4199, TCGA-BR-4200, TCGA-BR-4205, TCGA-BR-4259, TCGA-BR-4260, TCGA-BR-4261, TCGA-BR-4263, TCGA-BR-4264, TCGA-BR-4265, TCGA-BR-4266, TCGA-BR-4270, TCGA-BR-4271, TCGA-BR-4272, TCGA-BR-4273, TCGA-BR-4274, TCGA-BR-4276, TCGA-BR-4277, TCGA-BR-4278, TCGA-BR-4281, TCGA-BR-4282, TCGA-BR-4283, TCGA-BR-4284, TCGA-BR-4285, TCGA-BR-4286, TCGA-BR-4288, TCGA-BR-4291, TCGA-BR-4298, TCGA-BR-4375, TCGA-BR-4376, TCGA-DM-A286, TCGA-E2-A1IP, TCGA-F4-6857, TCGA-GN-A261, TCGA-O2-A5IC, TCGA-PN-A8M9
+ 
+    CCLE cases: LS123, LS1034
+ 
+    NOTE 2: The number of cases and samples when viewed in the User Interface as compared to the BigQuery tables vary across all three projects (TCGA, TARGET, and CCLE).  This is because the user interface reflects the data available at the Genomic Data Commons, whereas data in BigQuery reflects either data at the original TCGA data coordinating center supplemented with Genomic Data Commons Data (for TCGA and CCLE), or for TARGET, data received from the TARGET data coordinating center, not the Genomic Data Commons.
+ 
+    NOTE 3: We have removed Google Genomics functionality from the user interface. You will still be able to access CCLE open access data in Google Genomics from the command line. We are open to adding Google Genomics controlled data back into the user interface if you have a use case for it.  Also we are restructuring the handling of multiple Programs of data. Please feel free to provide `feedback <https://groups.google.com/a/isb-cgc.org/forum/#!newtopic/feedback>`_. 
+ 
+    NOTE 4: For TARGET data the clinical and Gene Expression files themselves are available in the system. The bam files will be available soon! 
+   
+    **Known Issues in Sprint 16 as of 06/14/2017**
+ 
+      - Analysis Type : Seq peek Formatting Elongated on occasion 
+      - The CCLE data in the Webapp is not exactly the same as the CCLE data in BigQuery.  
+      - Users cannot plot any data from a CCLE cohort on a worksheet.
+      - In the Webapp, the log scale on graphs does not function properly for duplicated worksheets. 
+      - On the existing cohorts table list page, the confirmation delete ‘blue x’ button does not remove selected cohort if you select another option e.g Set Operation. The same issue can be found in reverse if you select the ‘blue x’ on the confirmation page for  set operation you can then select the delete button and see the cohort on the confirmation panel.
+      - Swap values is not working properly for the plot settings. 
+      - The set operation for existing cohorts complement is behaving exceptionally slow. 
+      - A duplication of the exact cohort happens when you select the confirmation multiple times while the page is loading working with Set Operations.
+      - When working with a new worksheet or a duplicate worksheet with workbooks for categorical features e.g bar chart you can select the log option. The log option only applies to numerical options. 
+      - When working with workbooks, if you select the delete confirmation button multiple times while the page is loading you will be sent to an error page. 
+      - You currently cannot plot user uploaded data when working with workbooks. 
+      - When plotting, certain values will be displayed as numerical when it should be a categorical value e.g Tobacco Smoking History.
+      - On the IGV browser when working with TCGA data build hg38 you get a No feature found with name “efgr” at the bottom of the iGV browser page. 
+      - On the cohort creation page for TCGA data the filters disease code and project short name NA is an option which is not a valid disease.
+      - The mouse over feature is currently disabled for program TARGET with disease code ALL.
+      - The sharing feature for Workbooks, Cohorts, and User Uploaded Programs is currently disabled. 
+      
+    **Issues that have been resolved in sprint 16 as of 06/14/2017**
+
+     New Enhancements
+
+     - You will be returned a more detailed error message when uploading your own user data.
+     - On the Data Availability section on the cohort details page now displays the HG38 somatic mutation information for program TCGA.
+     
+     Bug Fixes
+     
+     - There is now a 2000 character limit for the workbook title section. 
+     - When selecting the cohort link to complete analysis section on a worksheet will send you to the existing cohort list table page. 
+     - Latency issues when working with the cohort creation page have been resolved.
+     - When working with TCGA data the IGV browser will not give you a 401 or a 404 error. 
+     - The mouse over feature will display the long name for disease code and project short name for all programs.
+     - On the cohort creation page you can now filter with the HG38 somatic mutation data  by gene for program TCGA using the Molecular tab. 
+     - On the IGV Browser when working with TCGA genomic build hg38 you will no longer get  a 404 error. 
+     - On the cohort creation page when working with User Data tab, the left filter panel sorts the other filter. 
+     - Cohorts created with API specific filters are now accessible to access by their cohort details page. 
+     - You are now able to plot miRNA data with genomic build hg38 for TARGET data. 
+      
+
+*  **May 25, 2017**: `v3.0 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.0>`_
+    In collaboration with the GDC we now have TARGET pediatric cancer data available for analysis in the user interface.  You are now able to create cohorts and plot analysis with information from TARGET, TCGA, and CCLE data. 
+ 
+    In addition, we have  replaced the previous APIs with a new version that supports  the new user interface.
+ 
+    We have also released the analyzed data types that are based on genome build GRCh38 for TCGA and TARGET data.  GRCh37 (HG19) is also still available for TCGA, TARGET, and CCLE datasets.
+ 
+    Workbooks, cohorts, and variables favorites list created before the data structure migration will still be available for analysis and have been labeled as legacy and version 1.  If you have difficulty using version 1 workbooks, please contact us
+
+    **Please Note:**
+
+    NOTE 1:A number of TCGA and CCLE case IDs shown below will have been removed from all cohorts since they are no longer available from NCI’s Genomics Data Commons, and ISB-CGC is trying to mirror that data as much as possible.
+ 
+    TCGA cases: TCGA-33-4579, TCGA-35-3621, TCGA-66-2746, TCGA-66-2747, TCGA-66-2750, TCGA-66-2751, TCGA-66-2752, TCGA-AN-A0FE, TCGA-AN-A0FG, TCGA-BH-A0B2, TCGA-BR-4186, TCGA-BR-4190, TCGA-BR-4194, TCGA-BR-4195, TCGA-BR-4196, TCGA-BR-4197, TCGA-BR-4199, TCGA-BR-4200, TCGA-BR-4205, TCGA-BR-4259, TCGA-BR-4260, TCGA-BR-4261, TCGA-BR-4263, TCGA-BR-4264, TCGA-BR-4265, TCGA-BR-4266, TCGA-BR-4270, TCGA-BR-4271, TCGA-BR-4272, TCGA-BR-4273, TCGA-BR-4274, TCGA-BR-4276, TCGA-BR-4277, TCGA-BR-4278, TCGA-BR-4281, TCGA-BR-4282, TCGA-BR-4283, TCGA-BR-4284, TCGA-BR-4285, TCGA-BR-4286, TCGA-BR-4288, TCGA-BR-4291, TCGA-BR-4298, TCGA-BR-4375, TCGA-BR-4376, TCGA-DM-A286, TCGA-E2-A1IP, TCGA-F4-6857, TCGA-GN-A261, TCGA-O2-A5IC, TCGA-PN-A8M9
+ 
+    CCLE cases: LS123, LS1034
+ 
+    NOTE 2: The number of cases and samples when viewed in the User Interface as compared to the BigQuery tables vary across all three projects (TCGA, TARGET, and CCLE).  This is because the user interface reflects the data available at the Genomic Data Commons, whereas data in BigQuery reflects either (for TCGA and CCLE) data at the original TCGA data coordinating center supplemented with Genomic Data Commons Data, or for TARGET, data received from the TARGET data coordinating center, not the Genomic Data Commons.
+ 
+    NOTE 3: We have removed Google Genomics functionality from the user interface. You will still be able to access CCLE open access data in Google Genomics from the command line. We are open to adding Google Genomics controlled data back into the user interface if you have a use case for it.  Also we are restructuring the handling of multiple Programs of data. Please feel free to provide `feedback <https://groups.google.com/a/isb-cgc.org/forum/#!newtopic/feedback>`_. 
+ 
+    NOTE 4: For TARGET data the clinical and Gene Expression files themselves are available in the system. The bam files will be available soon! 
+
+    **Known Issues in this Data Structure Migration Sprint as of 05/25/2017**
+
+    - Analysis Type : Seq peek Formatting Elongated on occasion 
+    - The CCLE data in GUI is not parallel to the CCLE data in BigQuery. 
+    - If the user shares a cohort neither the owner nor the person who was granted access to cohort will receive a confirmation email. 
+    - Cannot plot any data if you use a CCLE data cohort on a worksheet.
+    - When a user duplicates a worksheet, then tries to implement the log scale it will not function properly. 
+    - On the existing cohorts table list page, the confirmation delete ‘blue x’ button does not remove selected cohort if you select another option e.g Set Operation. The same issue can be found in reverse if you select the ‘blue x’ on the confirmation page for  set operation you can then select the delete button and see the cohort on the confirmation panel. 
+    - On the cohort view files page there are capitalization bugs on the Platform filter.
+    - Swap values is not working properly for the plot settings. 
+    - The set operation for existing cohorts complement is behaving exceptionally slow. 
+    - A duplication of the exact cohort happens when you select the confirmation multiple times while the page is loading working with Set Operations.
+    - When working with a new worksheet or a duplicate worksheet with workbooks for categorical features e.g bar chart you can select the log option. The log option only applies to numerical options. 
+    - When working with workbooks, if you select the delete confirmation button multiple times while the page is loading you will be sent to an error page.
+    - When working on a scatter plot the Tobacco Smoking being used as the Legend is displayed in numerical values when it should be displayed as categorical values.
+    - The character limit for a workbook title name is currently inactive, if you exceed the possible limit you will be sent to an error page.
+    - You currently cannot plot user uploaded data when working with workbooks. 
+    - Selecting cohort from worksheet “To Complete Analysis” section will send you to a 400 Bad Request error.
+    - You will experience latency issues when working with the create a new cohort page. 
+    - When plotting, certain values will be displayed as numerical when it should be a categorical value e.g Tobacco Smoking History.
+    - The Data File Availability Panel for program CCLE in currently inactive when on the cohort details page and also editing a cohort with CCLE data. 
+    - On the File List page you currently unable to access the bam files  for the IGV Browser associated to build hg38 when working with TCGA data.
+
+    **Issues that are resolved in the data structure migration sprint as of 05/25/2017**
+    
+    New Enhancements
+
+    - You will be returned a more detailed error message when uploading your own user data. 
+    - The user interface now displays the same nomenclature as the Genomic Data Commons (GDC).
+
+    Bug Fixes
+
+    - The user data upload is enabled and users can now upload their own datasets and create cohorts using existing programs and newly uploaded data by the user.
+    - You can now have multiple Google Cloud Projects associated to your account and use only one bucket and dataset on one project with no interference. 
+
+
+*  **April 12, 2017**:
+    Please Note: We are currently having issues viewing bam files using the IGV browser for TCGA and CCLE data. We are working to fix the issue and it should be resolved as soon as possible.
+
+*  **February 26, 2017**: 
     
     NOTE 1: We have removed Google Genomics functionality from the user interface. You will still be able to access CCLE open access data in Google Genomics from the command line. We are open to adding Google Genomics controlled data back into the user interface if you have a use case for it.  Also we are restructuring the handling of multiple Programs of data. Please feel free to provide `feedback <https://groups.google.com/a/isb-cgc.org/forum/#!newtopic/feedback>`_. 
 
-    NOTE 2: There will be a reduced number of releases and features over the next month (or so) while we do some rework required for enabling the distribution of additional data sets and types copied from the NCI GDC.  The new data type is TARGET data, and different analyzed data types are based on the hg38 genome builds.  Stay tuned in likely the early part of 2017.
+    NOTE 2: There will be a reduced number of releases and features over the next month (or so) while we do some rework required for enabling the distribution of additional data sets and types copied from the NCI-GDC.  The new data type is TARGET data, and different analyzed data types are based on the hg38 genome builds.  Stay tuned in likely the early part of 2017.
+  
+    NOTE 3: User data uploads are currently disabled. Any projects you have previously uploaded will continue to be available in your Saved Projects list, and you can continue to work with them, but new data cannot be added at this time.  We are working on bringing this function up again, please stay tuned.
+
+    **Known issues in Sprint 15 as of 02/26/2017**
+    
+    - Analysis Type : Seq peek Formatting Elongated 
+    - The CCLE data in GUI is not parallel to the CCLE data in BigQuery.
+    - If the user shares a cohort neither the owner nor the person who was granted access to cohort will receive a confirmation email.
+    - Cannot plot any data if you use a CCLE data cohort on a worksheet. 
+    - When a user duplicates a worksheet, then tries to implement the log scale it will not function properly. 
+    - On the existing cohorts table list page, the confirmation delete ‘blue x’ button does not remove selected cohort if you select another option e.g Set Operation. The same issue can be found in reverse if you select the ‘blue x’ on the confirmation page for  set operation you can then select the delete button and see the cohort on the confirmation panel. 
+    - On the cohort view files page there are capitalization bugs on the Platform filter. 
+    - Swap values is not working properly for the plot settings.  
+    - The set operation for existing cohorts complement is behaving exceptionally slow. 
+    - A duplication of the exact cohort happens when you select the confirmation multiple times while the page is loading working with Set Operations. 
+    - When working with a new worksheet or a duplicate worksheet with workbooks for categorical features e.g bar chart you can select the log option. The log option only applies to numerical options. 
+    - If multiple Google Cloud Projects are registered through the user interface, it is advised to to add Google buckets and BigQuery datasets to both projects currently. 
+    - When working with workbooks, if you select the delete confirmation button multiple times while the page is loading you will be sent to an error page. 
+    - When working on a scatter plot the Tobacco Smoking being used as the Legend is displayed in numerical values when it should be displayed as categorical values. 
+    - The character limit for a workbook title name is currently inactive, if you exceed the possible limit you will be sent to an error page. 
+    
+
+    **Issues that are resolved in Sprint 15 as of 02/26/2017**
+    
+    Bug Fixes
+    
+    - User will no longer be sent to the Social Network Login page when trying to login. If this occurs, please feel free to send ISB-CGC feedback using this link `feedback <https://groups.google.com/a/isb-cgc.org/forum/#!newtopic/feedback>`_.
+
+*  **November 30, 2016**: `v1.13 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.13>`_
+    
+    NOTE 1: We have removed Google Genomics functionality from the user interface. You will still be able to access CCLE open access data in Google Genomics from the command line. We are open to adding Google Genomics controlled data back into the user interface if you have a use case for it.  Also we are restructuring the handling of multiple Programs of data. Please feel free to provide `here <https://groups.google.com/a/isb-cgc.org/forum/#!newtopic/feedback>`_. 
+
+    NOTE 2: There will be a reduced number of releases and features over the next month (or so) while we do some rework required for enabling the distribution of additional data sets and types copied from the NCI-GDC.  The new data type is TARGET data, and different analyzed data types are based on the hg38 genome builds.  Stay tuned in likely the early part of 2017.
 
     **Known issues in Sprint 14 as of 11/30/2016**
     
@@ -102,13 +410,13 @@ Web-App Release Notes
 
     New Enhancements
 
-    - Introduce user data upload functionality  see documentation `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/project_data_upload.html>`_.
+    - Introduce user data upload functionality  see documentation `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html>`_.
     - More fluid zoom feature when working with analysis worksheets. 
     - Case Sensitivity is now maintained in creating and displaying Workbook names throughout the entire User Interface. 
     - You can now create a new cohort from the menu bar. 
     - Variables menu bar is displayed similar to the rest of the favorites variables. 
     - On the dashboard, all create new buttons/links are identical. 
-    - Owner of what is shared is now the only person who can add or remove others. 
+    - Owner of what is shared either a workbook or a cohort is able to remove multiple viewers. Viewers are also able to remove themselves. 
     - Removed BCGSC gene expression from the UI gene specification selection for plot analysis. 
 
 
@@ -215,7 +523,7 @@ Web-App Release Notes
     - Page becomes elongated when the user builds a Cubby Hole plot. 
     - X-axis name cut off for cubby hole plot  when x-axis has only 3 criteria. 
     - When the user shares a cohort they do not receive a confirmation email. 
-    - User will be spammed with email every one minute when their service account is removed from the ACL control list.  To stop this, please either delete your service account from the ISB-CGC interface, or remove the GCP project member(s) who is (are) not authorized to access the controlled data set. (see documentation `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-TCGA-Contolled-Access-Data.html>`_).  We are planning to reduce the frequency of the notification emails to once per day. 
+    - User will be spammed with email every one minute when their service account is removed from the ACL control list.  To stop this, please either delete your service account from the ISB-CGC interface, or remove the GCP project member(s) who is (are) not authorized to access the controlled data set. (see documentation `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-Contolled-Access-Data.html>`_).  We are planning to reduce the frequency of the notification emails to once per day. 
     - The Legend is displayed elongated when you use multiple cohort for color by feature for violin plot. 
     - When the user selects multiple cohorts for color by feature for scatter plot they do not display in chart. 
     - When the user creates a duplicate worksheet,the bar chart with a gene with specification protein can freeze when selecting an option for the Select Feature. 
@@ -252,7 +560,7 @@ Web-App Release Notes
     **New Functionality Released in this Sprint**
     
     - The researcher can now create a cohort of participants and samples based on the presence of a gene mutation in a specified gene. Look for the new “Molecular” tab when you are creating a cohort.
-    - The bioinformatics programmer now has the ability to associate their Google Cloud Project’s Service Account. This allows the researcher to run computational pipelines from Google Virtual Machines using TCGA Controlled data (e.g. BAM files) for seven days before they have to reauthorize. For more information please select `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-TCGA-Contolled-Access-Data.html>`_.
+    - The bioinformatics programmer now has the ability to associate their Google Cloud Project’s Service Account. This allows the researcher to run computational pipelines from Google Virtual Machines using TCGA Controlled data (e.g. BAM files) for seven days before they have to reauthorize. For more information please select `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-Contolled-Access-Data.html>`_.
     
     
     **Known issues in Sprint 8**
