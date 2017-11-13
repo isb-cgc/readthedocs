@@ -218,11 +218,20 @@ When omitting either barcode type, please be sure to still include the empty col
 Upload Tab
 -----------
 
-This feature allows to upload files with barcodes to create a cohort. The file can be a maximum of 32MB.  Also files must be in tab- or comma-delimited 
-format (TSV or CSV) and have an extension of .txt, .csv, or .tsv.
+This feature allows to upload files with barcodes to create a cohort. Files must be in GDC Data Portal case manifest format, or in comma/tab-delimited case/sample/program format. The file can be a maximum of 32MB.  Also files must be in tab- or comma-delimited 
+format (TSV or CSV) and have an extension of .txt, .csv, or .tsv.  
 After selecting the file and uploading it, the entries will be validated. Any entries which are found to be invalid will be
 listed, and you can choose to omit them and continue with cohort creation, or select
-a new file for verification and upload.
+a new file for verification and upload. 
+
+**GDC Data Portal Case Manifest Files**
+
+GDC Data Portal case manifests can be obtained on the 'Cases' tab of the Exploration section of the data portal `'Cases' tab of the Exploration section of the data portal <https://portal.gdc.cancer.gov/exploration>`_.
+JSON case manifests must have a .json extension, and will be validated against the GDC's JSON schema. The minimum required properties for each entry in the JSON file are the project object and the submitter_id field. The project object must include the project_id property. All other properties will be ignored.
+
+TSV case manifests must have a .tsv extension, and must contain the first 3 columns of the GDC TSV case manifest in the following order: Case UUID, Case ID, Project. Any other columns will be ignored. Do not remove the header row of the TSV case manifest.
+
+Because the GDC Data Portal case manifest entries are cases, all samples from a case will be included in the cohort.
 
 Enter Tab
 ---------
