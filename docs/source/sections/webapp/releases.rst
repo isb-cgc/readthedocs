@@ -20,6 +20,25 @@ Web-App Release Notes
   - On the register a service account page the Compute Engine default service account is automatically added to the enter service ID text box.
   - When creating a new cohort we have implemented a text saying, “Creating cohort...” for instances when creating a new cohort takes a little longer than usual.
   -  We have significantly sped up loading times for the cohorts detail and cohorts table list page for users who have 50 + cohorts which caused slow loading time.
+ 
+ Bug Fixes
+ 
+  - A duplication of the exact cohort will no longer happen when you select the confirmation multiple times while the page is loading working with Set Operations. 
+  - On the cohort details, you can no longer select the clinical feature panel and edit filters without selecting the edit button first. 
+  - On the cohort creation page, you can use the clinical feature panel to select filters when working with the User data upload tab.
+
+ **Known Issues in Sprint 21 as of 11/20/2017**
+  
+  - Analysis Type: Seq peek Formatting Elongated on occasion 
+  - If the user shares a Cohort neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort. 
+  - CCLE data cannot be plotted when working with workbooks.  ISB-CGC will resolve this functionality after the GDC formally releases CCLE data. 
+  - When a user duplicates a Worksheet, then tries to implement the log scale it will not function properly.
+  - The set operation for existing Cohorts complement is behaving exceptionally slow.
+  - The mouse-over feature is currently disabled for program TARGET with disease code ALL.
+  - When working on Firefox browser a violin plot does not display the data plotted correctly when working on a Worksheet. 
+  - When working on a workbook if you add new cohorts to the worksheet the pre-existing cohorts will be de-selected from the worksheet. 
+  - If you have uploaded a lot of data using the User Data Upload feature, it is likely you will experience 502 error page when attempting to create a new variable favorite list. 
+  - When uploading TARGET files using the cohort barcode creation feature from the GDC you may get an invalid barcodes error message and unable to upload all the barcodes. 
 
   
 * **October 13, 2017** `v3.5 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.5>`_
