@@ -5,13 +5,27 @@ Web-App Release Notes
 
 
 * **November 20, 2017**
-
-
-
-* **October 13, 2017** `v3. <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.5>`_
-
- *Please Note: We need to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.*
+  
+  *Please Note: Work is underway to ework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.*
+  
+ **Issues resolved in Sprint 21 as of 11/20/2017**
  
+ New Enhancements
+ 
+  - You can now send a cohort you have created in the web application to a new BigQuery dataset or append an existing table. 
+  - The cohort creation by uploading barcodes feature has been extended to include .JSON and .TSV files from the Genomic Data Commons data portal. 
+  - Created a new API endpoint to be used to return a GCS object URL given a GDC file identifier also known as a UUID.
+  - Updated the registered Google Cloud Project to clearly state if the project’s service accounts are active or not.
+  - You can now enter special characters into the comments section for workbooks and cohorts e.g URL 
+  - On the register a service account page the Compute Engine default service account is automatically added to the enter service ID text box.
+  - When creating a new cohort we have implemented a text saying, “Creating cohort...” for instances when creating a new cohort takes a little longer than usual.
+  -  We have significantly sped up loading times for the cohorts detail and cohorts table list page for users who have 50 + cohorts which caused slow loading time.
+
+  
+* **October 13, 2017** `v3.5 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.5>`_
+  
+ *Please Note: We need to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.*
+  
  **Issues resolved in Sprint 20 as of 10/11/2017**
  
  New Enhancements
