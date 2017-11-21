@@ -37,8 +37,7 @@ Web-App Release Notes
   - The mouse-over feature is currently disabled for program TARGET with disease code ALL.
   - When working on Firefox browser a violin plot does not display the data plotted correctly when working on a Worksheet. 
   - When working on a workbook if you add new cohorts to the worksheet the pre-existing cohorts will be de-selected from the worksheet. 
-  - If you have uploaded a lot of data using the User Data Upload feature, it is likely you will experience 502 error page when attempting to create a new variable favorite list. 
-  - When uploading TARGET files using the cohort barcode creation feature from the GDC you may get an invalid barcodes error message and unable to upload all the barcodes. 
+  - If you have uploaded a lot of data using the User Data Upload feature, it is likely you will experience 502 error page when attempting to create a new variable favorite list.  
 
   
 * **October 13, 2017** `v3.5 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.5>`_
