@@ -27,7 +27,7 @@ We are going to use `dsub<https://github.com/googlegenomics/dsub>`_ to run the s
 which is similar to qsub, the common job scheduler found on many clusters and grids.
 To run each job in parallel, dsub starts up a named docker on a VM,
 copies in data from a google-bucket, runs a script, copies out data to a google-bucket,
-and shuts down.
+and shuts down. (** See below for help on installation on Macs! **)
 
 'Batch mode' is one of the most important dsub features. It allows one to launch many
 jobs with a single command. Batch mode
@@ -39,28 +39,58 @@ another column can have parameters related to the script.
 
 As part of this demonstratation, we will:
 
-1. Generate a 'task matrix', each row describing a job in the google cloud.
-   (cmd_generator.R, task_matrix.txt)
-2. Define a custom R script to process user data.
+1. Define a custom R script to process user data.
    (stan_logistic_regression.R, data/*)
+2. Generate a 'task matrix', each row describing a job in the google cloud.
+   (cmd_generator.R, task_matrix.txt)
 3. Use Google dsub to automatically start up a VM, run a script, and shutdown.
    Please see the 'how_to_dsub.txt' file for instructions.
 
-I searched for 'docker and RStan' and found some docker images.
- https://github.com/jburos/rstan-docker
- https://hub.docker.com/r/jackinovik/rstan-complete/
+
+OK, so first we will take a look at the R code. The way dsub works is that a
+docker image is started up on a VM, and at that time, variables that are defined
+in the 'tasks file' become available as an environment variable. So you can think
+about these like command line arguments, but to get them in the script, we use
+'Sys.getenv()'. The variables enter the script as strings and will need to be
+type cast, depending on the need. The environment variables are set in the
+tasks file as column names. We'll look at that next.
+
+.. code-block:: r
+
+    # get the file name from the env variable.
+    dat <- read.csv(Sys.getenv('DATA_FILE'))
+
+    # stan models take a list of data
+    data_list <- list(y = dat$y, x = dat$x, N = length(dat$y))
+
+    # compiling and producing posterior samples from the model.
+    stan_samples <- stan(model_code = model, data = data_list)
+
+    # use the environment variable as a file name for a plot.
+    png(Sys.getenv('OUTPUT_PLOT'))
+    plot(stan_samples)
+    dev.off()
+
+    # and finally writing out a table
+    write.table(as.data.frame(stan_samples), file=Sys.getenv('OUTPUT_TABLE'), quote=F, row.names=F)
 
 
-The data needs to be available in a google bucket.
+
+It's pretty easy to programmatically construct a tasks file.
+You can find an example of that in 'cmd_generator.R',
+which writes out tab-delimited table with the variables needed in each row.
+Please see these `examples.<https://github.com/googlegenomics/dsub/tree/master/examples/custom_scripts>`_ ::
+
+> --env SAMPLE_ID	--input DATA_FILE	                --output OUTPUT_TABLE	        --output OUTPUT_PLOT
+> 1	                gs://my_bucket/data/data_file_1.csv	gs://my_bucket/stan_table1.txt	gs://my_bucket/stan_plot1.png
+> 2	                gs://my_bucket/data/data_file_2.csv	gs://my_bucket/stan_table2.txt	gs://my_bucket/stan_plot2.png
+> 3	                gs://my_bucket/data/data_file_3.csv	gs://my_bucket/stan_table3.txt	gs://my_bucket/stan_plot3.png
 
 
-Then we can call dsub using a task list, containing all the variables we
-need, including input and output paths. You can find that in 'cmd_generator.R',
-which writes out a table with the variables needed in each row.
-see this example: https://github.com/googlegenomics/dsub/tree/master/examples/custom_scripts
 
-If you're on a mac, there's a conflict with
-the apple system version of the python library 'six',
+
+Now, if you're on a Mac, it can be pretty hard to get dsub installed. It's due to
+a conflict with the apple system version of the python library 'six',
 https://github.com/pypa/pip/issues/3165
 
 
@@ -70,6 +100,15 @@ https://github.com/pypa/pip/issues/3165
 virtualenv dsub_libs
 source dsub_libs/bin/activate
 pip install dsub
+
+I searched for 'docker and RStan' and found some docker images.
+ https://github.com/jburos/rstan-docker
+ https://hub.docker.com/r/jackinovik/rstan-complete/
+
+
+The data needs to be available in a google bucket.
+
+
 
 
 dsub \
