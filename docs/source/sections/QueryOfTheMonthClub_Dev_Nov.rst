@@ -14,42 +14,37 @@ email: dgibbs (at) systemsbiology (dot) org
 November, 2017
 ###############
 This November, we're going to shift topics and talk about running scripts in the cloud.
-While this example is going to use R, it would be just as easy to run a python script.
+In this example we're going to use R, but it would be just as easy to run a python script.
 
 The code can be found `here<https://github.com/Gibbsdavidl/examples-R/tree/master/demos/google_dsub_RStan_example>`_
-
-The script runner is going to be `dsub<https://github.com/googlegenomics/dsub>`_
-which is very similar to qsub, the job scheduler found on many grids.
-For each job in parallel, dsub starts up a named docker on a VM,
-copys over the data, runs a script,
-copys out data, and shuts down.
-
-The really fabulous feature is found in running it in batch mode. Batch mode
-takes a "tasks file" or as I call it, the "task matrix", and reads each row
-as the parameters for a job. So as an example,
-one column can name the location (in a google bucket) of the data,
-another column can name parameters related to the script.
 
 In this example, I'm going to be fitting Bayesian logistic regression models
 using Stan. (http://mc-stan.org/) Each job will process a different file,
 but we could also have each job represent a different set of parameters, all
 processing the same data.
 
+We are going to use `dsub<https://github.com/googlegenomics/dsub>`_ to run the script,
+which is similar to qsub, the common job scheduler found on many clusters and grids.
+To run each job in parallel, dsub starts up a named docker on a VM,
+copies in data from a google-bucket, runs a script, copies out data to a google-bucket,
+and shuts down.
 
-As part of this demonstratation:
+'Batch mode' is one of the most important dsub features. It allows one to launch many
+jobs with a single command. Batch mode
+takes a "tasks file" or as I call it, the "task matrix", and reads each row
+as command line parameters for a job. So for example,
+one column can name the location (in a google bucket) of the data,
+another column can have parameters related to the script.
 
+
+As part of this demonstratation, we will:
 
 1. Generate a 'task matrix', each row describing a job in the google cloud.
    (cmd_generator.R, task_matrix.txt)
-
-
-2. Running a custom R script on user data.
+2. Define a custom R script to process user data.
    (stan_logistic_regression.R, data/*)
-
-
-3. Using the Google dsub to automatically start up a VM, run a script, and shutdown.
+3. Use Google dsub to automatically start up a VM, run a script, and shutdown.
    Please see the 'how_to_dsub.txt' file for instructions.
-
 
 I searched for 'docker and RStan' and found some docker images.
  https://github.com/jburos/rstan-docker
