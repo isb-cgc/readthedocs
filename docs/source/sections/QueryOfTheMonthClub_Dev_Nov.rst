@@ -85,11 +85,11 @@ in my bucket, and I use that link in the script.
 
 Please see these `examples. <https://github.com/googlegenomics/dsub/tree/master/examples/custom_scripts>`_ ::
 
-    --env SAMPLE_ID	    --input DATA_FILE	                --output OUTPUT_TABLE	        --output OUTPUT_PLOT
+    --env SAMPLE_ID     --input DATA_FILE                   --output OUTPUT_TABLE           --output OUTPUT_PLOT
     1	                gs://my_bucket/data/data_file_1.csv	gs://my_bucket/stan_table1.txt	gs://my_bucket/stan_plot1.png
     2	                gs://my_bucket/data/data_file_2.csv	gs://my_bucket/stan_table2.txt	gs://my_bucket/stan_plot2.png
     3	                gs://my_bucket/data/data_file_3.csv	gs://my_bucket/stan_table3.txt	gs://my_bucket/stan_plot3.png
-    
+
 ::
 
 Now, if you're on a Mac, it can be pretty hard to get dsub installed. It's due to
