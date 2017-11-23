@@ -16,14 +16,14 @@ November, 2017
 This November, we're going to shift topics and talk about running scripts in the cloud.
 In this example we're going to use R, but it would be just as easy to run a python script.
 
-The code can be found `here<https://github.com/Gibbsdavidl/examples-R/tree/master/demos/google_dsub_RStan_example>`_
+The code can be found `here <https://github.com/Gibbsdavidl/examples-R/tree/master/demos/google_dsub_RStan_example>`_
 
 In this example, I'm going to be fitting Bayesian logistic regression models
 using Stan. (http://mc-stan.org/) Each job will process a different file,
 but we could also have each job represent a different set of parameters, all
 processing the same data.
 
-We are going to use `dsub<https://github.com/googlegenomics/dsub>`_ to run the script,
+We are going to use `dsub <https://github.com/googlegenomics/dsub>`_ to run the script,
 which is similar to qsub, the common job scheduler found on many clusters and grids.
 To run each job in parallel, dsub starts up a named docker on a VM,
 copies in data from a google-bucket, runs a script, copies out data to a google-bucket,
@@ -76,30 +76,37 @@ tasks file as column names. We'll look at that next.
 
 
 
-It's pretty easy to programmatically construct a tasks file.
-You can find an example of that in 'cmd_generator.R',
-which writes out tab-delimited table with the variables needed in each row.
-Please see these `examples.<https://github.com/googlegenomics/dsub/tree/master/examples/custom_scripts>`_ ::
-
-> --env SAMPLE_ID	--input DATA_FILE	                --output OUTPUT_TABLE	        --output OUTPUT_PLOT
-> 1	                gs://my_bucket/data/data_file_1.csv	gs://my_bucket/stan_table1.txt	gs://my_bucket/stan_plot1.png
-> 2	                gs://my_bucket/data/data_file_2.csv	gs://my_bucket/stan_table2.txt	gs://my_bucket/stan_plot2.png
-> 3	                gs://my_bucket/data/data_file_3.csv	gs://my_bucket/stan_table3.txt	gs://my_bucket/stan_plot3.png
+It's pretty easy to programmatically construct a tasks file. You can find an example
+of that in 'cmd_generator.R', which writes out a tab-delimited table with the variables needed in each row.
+There are essentially three types of parameters: inputs, outputs and environment variables.
+Most importantly, the inputs and outputs need to be links to google buckets. So I've put my data
+in my bucket, and I use that link in the script.
 
 
+Please see these `examples. <https://github.com/googlegenomics/dsub/tree/master/examples/custom_scripts>`_ ::
 
+    --env SAMPLE_ID	    --input DATA_FILE	                --output OUTPUT_TABLE	        --output OUTPUT_PLOT
+    1	                gs://my_bucket/data/data_file_1.csv	gs://my_bucket/stan_table1.txt	gs://my_bucket/stan_plot1.png
+    2	                gs://my_bucket/data/data_file_2.csv	gs://my_bucket/stan_table2.txt	gs://my_bucket/stan_plot2.png
+    3	                gs://my_bucket/data/data_file_3.csv	gs://my_bucket/stan_table3.txt	gs://my_bucket/stan_plot3.png
+    
+::
 
 Now, if you're on a Mac, it can be pretty hard to get dsub installed. It's due to
-a conflict with the apple system version of the python library 'six',
-https://github.com/pypa/pip/issues/3165
+a conflict with the apple version of the 'six' python library,
+see https://github.com/pypa/pip/issues/3165 for more info.
 
 
-(You can do this in a directory of your choosing.)
+To get around this, we can install dsub in a virtual environment.
+
+.. code-block:: bash
+
+    virtualenv dsub_libs
+    source dsub_libs/bin/activate
+    pip install dsub
 
 
-virtualenv dsub_libs
-source dsub_libs/bin/activate
-pip install dsub
+Now we're pretty close at this point. We need to put
 
 I searched for 'docker and RStan' and found some docker images.
  https://github.com/jburos/rstan-docker
