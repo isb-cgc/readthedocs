@@ -69,13 +69,12 @@ to see hosted in BigQuery tables, please let us know at feedback@isb-cgc.org.
  * **DNA Methylation Platform**
     - Most of the DNA Methylation data produced by the TCGA project was obtained using the Illumina Infinium HumanMethylation450 (aka 450k) BeadChip array.  Some of the earlier tumor types were assayed on the older, 27k array.
 
-    - Although additional details can be found at the Illumina_ webpage, we have uploaded the platform annotation information into the BigQuery table ``isb-cgc:platform_reference.methylation_annotation``
+    - Although additional details can be found at the `Illumina <https://www.illumina.com/>`_ webpage, we have uploaded the platform annotation information into the BigQuery table ``isb-cgc:platform_reference.methylation_annotation``
 
     - Each CpG locus is uniquely identified as described in this `technical note <http://www.illumina.com/content/dam/illumina-marketing/documents/products/technotes/technote_cpg_loci_identification.pdf>`_ and this unique identifier can be used to look up and cross-reference data between the TCGA DNA methylation data table and the platform annotation table. 
 
     - The original Illumina-provided CpG coordinates have been *"lifted over"* from hg19 to hg38
 
-.. _Illumina: www.illumina.com
 
   * **Genome-Wide SNP Array**
     - The technical documentation for the Affymetrix Genome-Wide Human SNP Array 6.0 array can be found `here <http://www.affymetrix.com/catalog/131533/AFFY/Genome-Wide+Human+SNP+Array+6.0#1_3>`_
@@ -83,6 +82,9 @@ to see hosted in BigQuery tables, please let us know at feedback@isb-cgc.org.
 
 Other Reference Data Sources
 ############################
+
+In collaboration with the Wellcome Trust Sanger Institute, the ISB-CGC is hosting the 
+`COSMIC database <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/COSMIC.html>`_.
 
 Google Genomics maintains a list of 
 `publicly available datasets <http://googlegenomics.readthedocs.org/en/latest/use_cases/discover_public_data/index.html>`_, 
