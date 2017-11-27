@@ -218,11 +218,20 @@ When omitting either barcode type, please be sure to still include the empty col
 Upload Tab
 -----------
 
-This feature allows to upload files with barcodes to create a cohort. The file can be a maximum of 32MB.  Also files must be in tab- or comma-delimited 
-format (TSV or CSV) and have an extension of .txt, .csv, or .tsv.
+This feature allows to upload files with barcodes to create a cohort. Files must be in GDC Data Portal case manifest format, or in comma/tab-delimited case/sample/program format. The file can be a maximum of 32MB.  Also, files must be in tab- or comma-delimited 
+format (TSV or CSV) and have an extension of .txt, .csv, or .tsv.  
 After selecting the file and uploading it, the entries will be validated. Any entries which are found to be invalid will be
 listed, and you can choose to omit them and continue with cohort creation, or select
-a new file for verification and upload.
+a new file for verification and upload. 
+
+**GDC Data Portal Case Manifest Files**
+
+GDC Data Portal case manifests can be obtained on the 'Cases' tab of the Exploration section of the data portal `'Cases' tab of the Exploration section of the data portal <https://portal.gdc.cancer.gov/exploration>`_.
+JSON case manifests must have a .json extension, and will be validated against the GDC's JSON schema. The minimum required properties for each entry in the JSON file are the project object and the submitter_id field. The project object must include the project_id property. All other properties will be ignored.
+
+TSV case manifests must have a .tsv extension, and must contain the first 3 columns of the GDC TSV case manifest in the following order: Case UUID, Case ID, Project. Any other columns will be ignored. Do not remove the header row of the TSV case manifest.
+
+Because the GDC Data Portal case manifest entries are cases, all samples from a case will be included in the cohort.
 
 Enter Tab
 ---------
@@ -249,6 +258,7 @@ From the "COHORTS" page you can select:
 * Share: This will share the web view of the cohorts with users you select by entering the users e-mail. If the email address you entered in
   not registered in the database you are prompted with a message saying, "The following user emails could not be found; please ask them 
   to log into the site first:(email entered)."
+  
 
 Set Operations
 ==============
@@ -297,6 +307,40 @@ From the "SAVED COHORTS" tab you can:
 * Share: This will share the web view of the cohorts with users you select by entering the users e-mail. If the email address you entered in
   not registered in the database you are prompted with a message saying, "The following user emails could not be found; please ask them to
   to log into the site first:(email entered)."
+* Export to BQ(BigQuery): This will allow you to create a new table or append to an existing table. You must have registered BigQuery dataset with a Google Cloud Project on the registered Google Cloud Projects details page. 
+  If a user wants to export their cohort to a premade table of their own, we require it to have the necessary columns. Here's the schema: 
+  
+  {
+        'fields': [
+            {
+                'name': 'cohort_id',
+                'type': 'INTEGER',
+                'mode': 'REQUIRED'
+            },{
+                'name': 'case_barcode',
+                'type': 'STRING',
+                'mode': 'REQUIRED'
+            },{
+                'name': 'sample_barcode',
+                'type': 'STRING',
+                'mode': 'REQUIRED'
+            },{
+                'name': 'project_short_name',
+                'type': 'STRING',
+                'mode': 'REQUIRED'
+            },{
+                'name': 'date_added',
+                'type': 'TIMESTAMP',
+                'mode': 'REQUIRED'
+            },{
+                'name': 'case_gdc_uuid',
+                'type': 'STRING'
+            }
+        ]
+    }
+  
+  *Note:* You shouldn't ever set UUID to 'required' because sometimes a sample doesn't have a UUID, and the attempt to insert a 'null' will cause the cohort export to fail.
+ 
 
 ISB-CGC DATA and USER DATA tab
 --------------------------------
