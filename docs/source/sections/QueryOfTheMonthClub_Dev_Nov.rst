@@ -98,6 +98,7 @@ see https://github.com/pypa/pip/issues/3165 for more info.
 
 
 To get around this, we can install dsub in a `virtual environment <https://packaging.python.org/guides/installing-using-pip-and-virtualenv/>`_ .
+Make sure you're using the 'bash shell'.
 
 .. code-block:: bash
 
@@ -118,7 +119,7 @@ you need, it's fairly easy to build one. But for this purpose, I searched for
 To run dsub, the command looks like:
 
 .. code-block:: bash
-  
+
   dsub \
     --project isb-cgc-02-0001 \
     --zones "us-west-*" \
