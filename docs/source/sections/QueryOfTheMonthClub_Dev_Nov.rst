@@ -97,7 +97,7 @@ a conflict with the apple version of the 'six' python library,
 see https://github.com/pypa/pip/issues/3165 for more info.
 
 
-To get around this, we can install dsub in a virtual environment.
+To get around this, we can install dsub in a `virtual environment <https://packaging.python.org/guides/installing-using-pip-and-virtualenv/>`_ .
 
 .. code-block:: bash
 
@@ -106,45 +106,45 @@ To get around this, we can install dsub in a virtual environment.
     pip install dsub
 
 
-Now we're pretty close at this point. We need to put
+Now we're pretty close at this point. We need to put our data in a google bucket
+and find a suitable docker image. If you can't find a docker image with everything
+you need, it's fairly easy to build one. But for this purpose, I searched for
+'docker and RStan' and found some docker images.
 
-I searched for 'docker and RStan' and found some docker images.
- https://github.com/jburos/rstan-docker
- https://hub.docker.com/r/jackinovik/rstan-complete/
+* https://github.com/jburos/rstan-docker
 
+* https://hub.docker.com/r/jackinovik/rstan-complete/
 
-The data needs to be available in a google bucket.
-
-
-
-
-dsub \
-  --project isb-cgc-02-0001 \
-  --zones "us-west-*" \
-  --logging gs://gibbs_bucket_nov162016/logs/ \
-  --image jackinovik/rstan-complete \
-  --script ./stan_logistic_regression.R \
-  --tasks task_matrix.txt \
-  --wait
+To run dsub, the command looks like:
 
 
-# OK, it returns saying:
-Job: stan-logis--davidlgibbs--171107-193915-44
-Launched job-id: stan-logis--davidlgibbs--171107-193915-44
-3 task(s)
-To check the status, run:
-  dstat --project isb-cgc-02-0001 --jobs 'stan-logis--davidlgibbs--171107-193915-44' --status '*'
-To cancel the job, run:
-  ddel --project isb-cgc-02-0001 --jobs 'stan-logis--davidlgibbs--171107-193915-44'
-Waiting for job to complete...
-Waiting for: stan-logis--davidlgibbs--171107-193915-44.
-stan-logis--davidlgibbs--171107-193915-44: FAILURE
-[u'Error in job task-2 - code 5: 9: Failed to localize files: failed to copy the following files: "gs://your-google-bucket-name/data_file_2.csv -> /mnt/datadisk/input/gs/your-google-bucket-name/data_file_2.csv (cp failed: gsutil -q -m cp gs://your-google-bucket-name/data_file_2.csv /mnt/datadisk/input/gs/your-google-bucket-name/data_file_2.csv, command failed: BucketNotFoundException: 404 gs://your-google-bucket-name bucket does not exist.\\nCommandException: 1 file/object could not be transferred.\\n)"']
-JobExecutionError: One or more jobs finished with status FAILURE or CANCELED during wait.
+  dsub \
+    --project isb-cgc-02-0001 \
+    --zones "us-west-*" \
+    --logging gs://gibbs_bucket_nov162016/logs/ \
+    --image jackinovik/rstan-complete \
+    --script ./stan_logistic_regression.R \
+    --tasks task_matrix.txt \
+    --wait
 
-# Now, we can check our bucket for the output. If there's a problem, read the logs!
-# DONE!
 
+We simply run that and we get a response...
+
+  Job: stan-logis--davidlgibbs--171107-193915-44
+  Launched job-id: stan-logis--davidlgibbs--171107-193915-44
+  3 task(s)
+  To check the status, run:
+    dstat --project isb-cgc-02-0001 --jobs 'stan-logis--davidlgibbs--171107-193915-44' --status '*'
+  To cancel the job, run:
+    ddel --project isb-cgc-02-0001 --jobs 'stan-logis--davidlgibbs--171107-193915-44'
+  Waiting for job to complete...
+  Waiting for: stan-logis--davidlgibbs--171107-193915-44.
+
+
+Now, we can check if our job's finished using the `dstat` command or simply look in
+our output bucket. If there's a problem, it's manditory to read the logs!
+
+The same procedure would be used to run python or bash scripts.
 
 
 October, 2017
