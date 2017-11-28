@@ -117,7 +117,8 @@ you need, it's fairly easy to build one. But for this purpose, I searched for
 
 To run dsub, the command looks like:
 
-
+.. code-block:: bash
+  
   dsub \
     --project isb-cgc-02-0001 \
     --zones "us-west-*" \
