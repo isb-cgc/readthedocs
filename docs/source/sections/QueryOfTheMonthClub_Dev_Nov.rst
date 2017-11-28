@@ -48,12 +48,12 @@ As part of this demonstratation, we will:
 
 
 OK, so first we will take a look at the R code. The way dsub works is that a
-docker image is started up on a VM, and at that time, variables that are defined
-in the 'tasks file' become available as an environment variable. So you can think
+docker image is started up on a VM, and at that time, variables defined
+in the 'tasks file' become available as environment variables. So you can think
 about these like command line arguments, but to get them in the script, we use
 'Sys.getenv()'. The variables enter the script as strings and will need to be
-type cast, depending on the need. The environment variables are set in the
-tasks file as column names. We'll look at that next.
+type cast, depending on the need. The environment variable names are set in the
+tasks file as column names using `--env`. We'll look at that next.
 
 .. code-block:: r
 
@@ -121,9 +121,9 @@ To run dsub, the command looks like:
 .. code-block:: bash
 
   dsub \
-    --project isb-cgc-02-0001 \
+    --project my-google-project-0001 \
     --zones "us-west-*" \
-    --logging gs://gibbs_bucket_nov162016/logs/ \
+    --logging gs://my_google_bucket/logs/ \
     --image jackinovik/rstan-complete \
     --script ./stan_logistic_regression.R \
     --tasks task_matrix.txt \
@@ -136,9 +136,9 @@ We simply run that and we get a response...::
   Launched job-id: stan-logis--davidlgibbs--171107-193915-44
   3 task(s)
   To check the status, run:
-    dstat --project isb-cgc-02-0001 --jobs 'stan-logis--davidlgibbs--171107-193915-44' --status '*'
+    dstat --project my-google-project-0001 --jobs 'stan-logis--davidlgibbs--171107-193915-44' --status '*'
   To cancel the job, run:
-    ddel --project isb-cgc-02-0001 --jobs 'stan-logis--davidlgibbs--171107-193915-44'
+    ddel --project my-google-project-0001 --jobs 'stan-logis--davidlgibbs--171107-193915-44'
   Waiting for job to complete...
   Waiting for: stan-logis--davidlgibbs--171107-193915-44.
 ::
