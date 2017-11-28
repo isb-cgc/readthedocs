@@ -36,6 +36,7 @@ Web-App Release Notes
   - When working on Firefox browser a violin plot does not display the data plotted correctly when working on a Worksheet. 
   - When working on a workbook if you add new cohorts to the worksheet the pre-existing cohorts will be de-selected from the worksheet. 
   - If you have uploaded a lot of data using the User Data Upload feature, it is likely you will experience 502 error page when attempting to create a new variable favorite list.  
+  - When working with the API endpoints the sample.get for all three programs will return a 503 internal server error.
 
   
 * **October 13, 2017** `v3.5 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.5>`_
