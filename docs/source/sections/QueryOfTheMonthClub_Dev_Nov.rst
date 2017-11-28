@@ -130,7 +130,7 @@ To run dsub, the command looks like:
     --wait
 
 
-We simply run that and we get a response...
+We simply run that and we get a response...::
 
   Job: stan-logis--davidlgibbs--171107-193915-44
   Launched job-id: stan-logis--davidlgibbs--171107-193915-44
@@ -141,7 +141,7 @@ We simply run that and we get a response...
     ddel --project isb-cgc-02-0001 --jobs 'stan-logis--davidlgibbs--171107-193915-44'
   Waiting for job to complete...
   Waiting for: stan-logis--davidlgibbs--171107-193915-44.
-
+::
 
 Now, we can check if our job's finished using the `dstat` command or simply look in
 our output bucket. If there's a problem, it's manditory to read the logs!
