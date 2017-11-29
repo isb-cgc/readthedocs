@@ -50,3 +50,7 @@ with the following caveat.  If an annotation is on the case, then it applies to 
 its samples, if on a sample, to all its portions but does not apply to other samples for that
 case, and so on down to the aliquot, which only applies to that aliquot.
 
+Please note that the TCGA annotations available at the NCI Genomic Data Commons may differ 
+from those found in this BigQuery table.  Please let us know if you have questions or
+concerns about the contents of this table.
+
