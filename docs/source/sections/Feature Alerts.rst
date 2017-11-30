@@ -9,7 +9,7 @@ Feature Alerts
 
 
 .. image:: gdc_upload-1.png
-   :scale: 75
+   :scale: 25
    :align: center
 
 *DATE of tweet?*
@@ -18,5 +18,5 @@ Feature Alerts
 
 
 .. image:: export_to_BQ-1.png
-   :scale: 75
+   :scale: 25
    :align: center
