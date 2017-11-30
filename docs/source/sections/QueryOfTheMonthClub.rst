@@ -27,7 +27,7 @@ processing the same data.
 We are going to use `dsub <https://github.com/googlegenomics/dsub>`_ to run the script,
 which is similar to qsub, the common job scheduler found on many clusters and grids.
 To run each job in parallel, dsub spins up a 
-`GCE VM <https://cloud.google.com/compute/docs/instances/>_`,
+`GCE VM <https://cloud.google.com/compute/docs/instances/>`_,
 starts up a named docker on the VM,
 copies input data from a 
 `GCS bucket <https://cloud.google.com/storage/docs/>`_, 
@@ -152,7 +152,7 @@ We simply run that and we get a response...::
 Now, we can check if our job's finished using the `dstat` command or simply look in
 our output bucket. If there's a problem, it's mandatory to read the logs!
 
-The same procedure would be used to run python or bash scripts.
+The exact same procedure could be used to run python or bash scripts.
 
 
 October, 2017
