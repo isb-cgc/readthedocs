@@ -11,6 +11,150 @@ email: dgibbs (at) systemsbiology (dot) org
 
 ------------------
 
+November, 2017
+###############
+This month, we're going to shift topics and talk about running scripts in the cloud.
+In this example we're going to use R, but it would be just as easy to run a python script.
+
+The code can be found `here <https://github.com/Gibbsdavidl/examples-R/tree/master/demos/google_dsub_RStan_example>`_
+
+In this example, I'm going to be fitting Bayesian logistic regression models
+using `Stan <http://mc-stan.org>`_ (a statistical modeling and computation platform). 
+Each job will process a different file,
+but we could also have each job represent a different set of parameters, all
+processing the same data.
+
+We are going to use `dsub <https://github.com/googlegenomics/dsub>`_ to run the script,
+which is similar to qsub, the common job scheduler found on many clusters and grids.
+To run each job in parallel, dsub spins up a 
+`GCE VM <https://cloud.google.com/compute/docs/instances/>_`,
+starts up a named docker on the VM,
+copies input data from a 
+`GCS bucket <https://cloud.google.com/storage/docs/>`_, 
+runs the specified script, copies the output data back out to a (potentially different) GCS bucket,
+and finally shuts down the VM. (** See below for help on installation on Macs! **)
+
+'Batch mode' is one of the most important dsub features. It allows one to launch many
+jobs with a single command. Batch mode
+takes a "tasks file" or as I call it, the "task matrix", and reads each row
+as command line parameters for a job. So for example,
+one column can name the location (in a google bucket) of the input data,
+another column can have parameters related to the script.
+
+
+As part of this demonstratation, we will:
+
+1. Define a custom R script to process user data.
+   (stan_logistic_regression.R, data/*)
+2. Generate a 'task matrix', each row describing a job in the google cloud.
+   (cmd_generator.R, task_matrix.txt)
+3. Use Google dsub to automatically start up a VM, run a script, and shutdown.
+   Please see the `how_to_dsub.txt <https://github.com/isb-cgc/examples-R/blob/master/demos/google_dsub_RStan_example/how_to_dsub.txt>`_ file for instructions.
+
+
+OK, so first we will take a look at the R code. The way dsub works is that a
+docker image is started up on a VM, and at that time, variables defined
+in the 'tasks file' become available as environment variables. So you can think
+about these like command line arguments, but to get them in the script, we use
+'Sys.getenv()'. The variables enter the script as strings and will need to be
+typecast, depending on the need. The environment variable names are set in the
+tasks file as column names using `--env`. We'll look at that next.
+
+.. code-block:: r
+
+    # get the file name from the env variable.
+    dat <- read.csv(Sys.getenv('DATA_FILE'))
+
+    # stan models take a list of data
+    data_list <- list(y = dat$y, x = dat$x, N = length(dat$y))
+
+    # compiling and producing posterior samples from the model.
+    stan_samples <- stan(model_code = model, data = data_list)
+
+    # use the environment variable as a file name for a plot.
+    png(Sys.getenv('OUTPUT_PLOT'))
+    plot(stan_samples)
+    dev.off()
+
+    # and finally writing out a table
+    write.table(as.data.frame(stan_samples), file=Sys.getenv('OUTPUT_TABLE'), quote=F, row.names=F)
+
+
+
+It's pretty easy to programmatically construct a tasks file. You can find an example
+of that in `cmd_generator.R <https://github.com/isb-cgc/examples-R/blob/master/demos/google_dsub_RStan_example/cmd_generator.R>`_, 
+which writes out a tab-delimited table with the variables needed in each row.
+There are essentially three types of parameters: inputs, outputs, and environment variables.
+Most importantly, the inputs and outputs need to be GCS urls to objects in a bucket. So I've put my data
+in my bucket, and I use that link in the script.
+
+
+Please see these `examples. <https://github.com/googlegenomics/dsub/tree/master/examples/custom_scripts>`_ ::
+
+    --env SAMPLE_ID     --input DATA_FILE                    --output OUTPUT_TABLE           --output OUTPUT_PLOT
+    1                   gs://my_bucket/data/data_file_1.csv  gs://my_bucket/stan_table1.txt  gs://my_bucket/stan_plot1.png
+    2                   gs://my_bucket/data/data_file_2.csv  gs://my_bucket/stan_table2.txt  gs://my_bucket/stan_plot2.png
+    3                   gs://my_bucket/data/data_file_3.csv  gs://my_bucket/stan_table3.txt  gs://my_bucket/stan_plot3.png
+
+::
+
+Now, if you're on a Mac, it can be pretty hard to get dsub installed. It's due to
+a conflict with the apple version of the 'six' python library,
+see https://github.com/pypa/pip/issues/3165 for more info.
+
+
+To get around this, we can install dsub in a `virtual environment <https://packaging.python.org/guides/installing-using-pip-and-virtualenv/>`_ .
+Make sure you're using the 'bash shell'.
+
+.. code-block:: bash
+
+    virtualenv dsub_libs
+    source dsub_libs/bin/activate
+    pip install dsub
+
+
+Now we're pretty close at this point. We need to put our data in a google bucket
+and find a suitable docker image. If you can't find a docker image with everything
+you need, it's fairly easy to build one. But for this purpose, I searched for
+'docker and RStan' and found some docker images.
+
+* https://github.com/jburos/rstan-docker
+
+* https://hub.docker.com/r/jackinovik/rstan-complete/
+
+To run dsub, the command looks like:
+
+.. code-block:: bash
+
+  dsub \
+    --project my-google-project-0001 \
+    --zones "us-west-*" \
+    --logging gs://my_google_bucket/logs/ \
+    --image jackinovik/rstan-complete \
+    --script ./stan_logistic_regression.R \
+    --tasks task_matrix.txt \
+    --wait
+
+
+We simply run that and we get a response...::
+
+  Job: stan-logis--davidlgibbs--171107-193915-44
+  Launched job-id: stan-logis--davidlgibbs--171107-193915-44
+  3 task(s)
+  To check the status, run:
+    dstat --project my-google-project-0001 --jobs 'stan-logis--davidlgibbs--171107-193915-44' --status '*'
+  To cancel the job, run:
+    ddel --project my-google-project-0001 --jobs 'stan-logis--davidlgibbs--171107-193915-44'
+  Waiting for job to complete...
+  Waiting for: stan-logis--davidlgibbs--171107-193915-44.
+::
+
+Now, we can check if our job's finished using the `dstat` command or simply look in
+our output bucket. If there's a problem, it's mandatory to read the logs!
+
+The same procedure would be used to run python or bash scripts.
+
+
 October, 2017
 ###############
 
