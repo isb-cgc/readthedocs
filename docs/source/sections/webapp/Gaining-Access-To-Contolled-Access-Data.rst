@@ -217,6 +217,12 @@ To add additional service accounts to a given GCP reselect the "Register Service
    :scale: 50
    :align: center
 
+
+Adjusting a Service Accounts using the Adjust Service Account page
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To add or remove a controlled dataset from one specific service account from this feature. If you select the plus "+" sign icon next to the trash can (see screenshot below).
+
+
 Deleting Service Accounts from Google Cloud Projects
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 To delete a service account from an GCP (not allowing it to be used to programmatically access controlled data), push the "trashcan" icon beside the service account (see screenshot below).
