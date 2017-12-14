@@ -18,10 +18,38 @@ November_:
 Using dsub to run R script in batch mode on the google cloud.
 
 October_:
-Using plotly for visualziation in Shiny apps.
-We implement an interatictive heatmap using heatmaply
+Using plotly for visualziation in Shiny apps. We implement an interatictive heatmap using heatmaply
 
+September_:
+We implement a new statistical test in BigQuery: the one-way ANOVA.
 
+August_:
+A small demo application using BigQuery as backend for a shiny app.
+
+July_:
+Look at the BigQuery RECORD data type in methylation tables from the GDC.
+
+May_:
+Continued from april: estimating the distance between samples based on shared mutations in pathways.
+
+April_:
+BigQuery compute a similarity metric on overlapping mutations between samples.
+Uses MC3 mutation table and data from COSMIC.
+
+March_:
+BigQuery to compute a pairwise distance matrix and a heatmap in R
+
+February_:
+Using BigQuery, define K-means clustering as a user defined (javascript) function
+
+January_:
+Comparing Standard SQL and Legacy SQL.
+
+December2016_:
+Spearman correlation in BigQuery to compare the new hg38 expression data to the hg19 data
+
+.. _Resources:
+Links to help!
 
 -----------------------
 
@@ -456,6 +484,8 @@ systemsbiology *dot* org.
 
 ------------------
 
+.. _September:
+
 September, 2017
 ###############
 
@@ -699,6 +729,8 @@ And additionally, I've put that query into a shiny app, that uses the same layou
 from August.  You can find that `here <https://isb-cgc.shinyapps.io/mutstatusexpranova/>`_.
 
 ------------------
+
+.. _August:
 
 August, 2017
 ###########
@@ -1014,6 +1046,8 @@ The results for the TCGA-LGG cohort are also quite striking -- go have a look!
 
 ------------------
 
+.. _July:
+
 July, 2017
 ###########
 
@@ -1284,6 +1318,8 @@ see if there are important differences between hg19/GRCh37 and hg38/Grch38.
 If you come up with some useful queries, feel free to email us and
 we'll feature you on this page!
 
+
+.. _May:
 
 May, 2017
 ###########
@@ -1998,7 +2034,7 @@ of tissue, whereas other tissue types share patterns of disrupted pathways.
 
 ================
 
-
+.. _April:
 
 April, 2017
 ###########
@@ -2507,6 +2543,8 @@ Thanks for joining us this month!
 
 ------------------
 
+.. _March:
+
 March, 2017
 ###########
 
@@ -2765,6 +2803,7 @@ Now, let's see that distance matrix in R!
 
 -------------
 
+.. _February:
 
 February, 2017
 ##############
@@ -3136,6 +3175,8 @@ Save the cluster assignments to a csv file, and read it into R.
 
 
 -------------
+
+.. _January:
 
 January, 2017
 #############
@@ -3550,6 +3591,8 @@ segments, while the "standard" solution takes a simpler approah.
 
 ------------------
 
+.. _December2016:
+
 December, 2016
 ##############
 
@@ -3882,6 +3925,8 @@ Note that the latest version of the bigrquery package supports standard SQL, so 
   # with both high and low correlations. What do you notice?
 
 ------------
+
+.. _Resources:
 
 Let us know if you're having trouble! We're here to help.
 
