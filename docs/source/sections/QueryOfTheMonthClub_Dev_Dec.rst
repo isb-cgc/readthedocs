@@ -14,8 +14,11 @@ email: dgibbs (at) systemsbiology (dot) org
 Table of Contents
 =================
 
+December2017_:
+BiqQuery to compare GTEx to TCGA ...
+
 November_:
-Using dsub to run R script in batch mode on the google cloud.
+Run an R (or python) script in batch mode using dsub on the google cloud.
 
 October_:
 Using plotly for visualziation in Shiny apps. We implement an interatictive heatmap using heatmaply
@@ -52,6 +55,124 @@ Spearman correlation in BigQuery to compare the new hg38 expression data to the 
 Links to help!
 
 -----------------------
+
+.. _December2017:
+
+December, 2017
+##############
+
+For December we're getting back to BigQuery. And, wow, we have a good one this month.
+Perhaps you've heard of GTEx? The massive collection of data from X number of healthy
+tissues? Well we've put in the CLOUD!
+
+
+.. code-block:: sql
+  
+  WITH
+    GTEx_top5K AS (
+    SELECT
+      gene_id,
+      gene_description,
+      STDDEV(gene_exp) AS sigmaExp
+    FROM
+      `isb-cgc.GTEx_v7.gene_median_tpm`
+    GROUP BY
+      1,
+      2
+    ORDER BY
+      sigmaExp DESC
+    LIMIT
+      5000 ),
+    TCGA_top5K AS (
+    SELECT
+      HGNC_gene_symbol,
+      STDDEV(normalized_count) AS sigmaExp
+    FROM
+      `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
+    WHERE
+      platform="IlluminaHiSeq"
+      AND HGNC_gene_symbol IS NOT NULL
+    GROUP BY
+      1
+    ORDER BY
+      sigmaExp DESC
+    LIMIT
+      5000 ),
+    geneList AS (
+    SELECT
+      gene_id,
+      HGNC_gene_symbol AS gene_symbol
+    FROM
+      GTEx_top5K
+    JOIN
+      TCGA_top5K
+    ON
+      gene_description=HGNC_gene_symbol ),
+    tcgaData AS (
+    SELECT
+      sample_barcode,
+      project_short_name AS project,
+      HGNC_gene_symbol AS gene_symbol,
+      normalized_count AS expr,
+      DENSE_RANK() OVER (PARTITION BY sample_barcode ORDER BY normalized_count ASC) AS rankExpr
+    FROM
+      `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
+    WHERE
+      platform="IlluminaHiSeq"
+      AND HGNC_gene_symbol IN (
+      SELECT
+        gene_symbol
+      FROM
+        geneList) ),
+    gtexData AS (
+    SELECT
+      SMTSD AS tissueType,
+      gene_description AS gene_symbol,
+      gene_exp AS expr,
+      DENSE_RANK() OVER (PARTITION BY SMTSD ORDER BY gene_exp ASC) AS rankExpr
+    FROM
+      `isb-cgc.GTEx_v7.gene_median_tpm`
+    WHERE
+      gene_description IN (
+      SELECT
+        gene_symbol
+      FROM
+        geneList ) ),
+    j1 AS (
+    SELECT
+      g.tissueType AS GTEx_tissueType,
+      g.gene_symbol,
+      g.rankExpr AS gRank,
+      t.sample_barcode,
+      t.project AS TCGA_project,
+      t.rankExpr AS tRank
+    FROM
+      gtexData g
+    JOIN
+      tcgaData t
+    ON
+      g.gene_symbol=t.gene_symbol ),
+    gtCorr AS (
+    SELECT
+      GTEx_tissueType,
+      sample_barcode,
+      TCGA_project,
+      CORR(gRank,
+        tRank) AS corr
+    FROM
+      j1
+    GROUP BY
+      1,
+      2,
+      3 )
+  SELECT
+    *
+  FROM
+    gtCorr
+  ORDER BY
+    corr DESC
+
+
 
 
 .. _November:
