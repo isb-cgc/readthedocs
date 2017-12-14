@@ -62,12 +62,27 @@ December, 2017
 ##############
 
 For December we're getting back to BigQuery. And, wow, we have a good one this month.
-Perhaps you've heard of `GTEx <https://www.gtexportal.org/home/>`_ ? The massive collection of data from X number of healthy
-tissues? Well we've put in the CLOUD!
+Perhaps you've heard of `The Genotype-Tissue Expression (GTEx) project <https://www.gtexportal.org/home/>`_ ?
+It's a fantastic collection of data; different donors provided a wide range of healthy tissue samples.
 
-GTEx has made available a large collection of 10294 samples that includes expression and
+Previously GTEx has made available this large collection of 10294 samples that includes expression and
 genomic data. You can see the `documentation <https://www.gtexportal.org/home/documentationPage>`_
 for a complete description.
+
+Well... we've put in the CLOUD!
+
+As a first pass, we thought it would be interesting to compare gene expression signatures across
+TCGA and GTEx, to look at the correlation between all pairs of tissue types.
+
+The query does the following:
+* selects most variable genes from each data source
+* builds sub-tables of the expression data
+* ranks the expression data within each sample
+* performs a correlation of the ranks (Spearman's)
+* returns 545,317 rows(!) where each row is a tissue from TCGA and a tissue from GTEx.
+
+
+Amazingly, this query processes 12.7 GB and only takes about 12 seconds! 
 
 
 .. code-block:: sql
@@ -87,6 +102,9 @@ for a complete description.
       sigmaExp DESC
     LIMIT
       5000 ),
+      --
+      --
+      --
     TCGA_top5K AS (
     SELECT
       HGNC_gene_symbol,
@@ -102,6 +120,9 @@ for a complete description.
       sigmaExp DESC
     LIMIT
       5000 ),
+      --
+      --
+      --
     geneList AS (
     SELECT
       gene_id,
@@ -112,6 +133,9 @@ for a complete description.
       TCGA_top5K
     ON
       gene_description=HGNC_gene_symbol ),
+      --
+      --
+      --
     tcgaData AS (
     SELECT
       sample_barcode,
@@ -128,6 +152,9 @@ for a complete description.
         gene_symbol
       FROM
         geneList) ),
+        --
+        --
+        --
     gtexData AS (
     SELECT
       SMTSD AS tissueType,
@@ -142,6 +169,9 @@ for a complete description.
         gene_symbol
       FROM
         geneList ) ),
+        --
+        --
+        --
     j1 AS (
     SELECT
       g.tissueType AS GTEx_tissueType,
@@ -156,19 +186,24 @@ for a complete description.
       tcgaData t
     ON
       g.gene_symbol=t.gene_symbol ),
+      --
+      --
+      --
     gtCorr AS (
     SELECT
       GTEx_tissueType,
       sample_barcode,
       TCGA_project,
-      CORR(gRank,
-        tRank) AS corr
+      CORR(gRank,tRank) AS corr
     FROM
       j1
     GROUP BY
       1,
       2,
       3 )
+      --
+      --
+      --
   SELECT
     *
   FROM
