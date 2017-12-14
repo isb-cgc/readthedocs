@@ -51,7 +51,7 @@ Comparing Standard SQL and Legacy SQL.
 December2016_:
 Spearman correlation in BigQuery to compare the new hg38 expression data to the hg19 data
 
-.. _Resources:
+Resources_:
 Links to help!
 
 -----------------------
@@ -62,12 +62,16 @@ December, 2017
 ##############
 
 For December we're getting back to BigQuery. And, wow, we have a good one this month.
-Perhaps you've heard of GTEx? The massive collection of data from X number of healthy
+Perhaps you've heard of `GTEx <https://www.gtexportal.org/home/>`_ ? The massive collection of data from X number of healthy
 tissues? Well we've put in the CLOUD!
+
+GTEx has made available a large collection of 10294 samples that includes expression and
+genomic data. You can see the `documentation <https://www.gtexportal.org/home/documentationPage>`_
+for a complete description.
 
 
 .. code-block:: sql
-  
+
   WITH
     GTEx_top5K AS (
     SELECT
