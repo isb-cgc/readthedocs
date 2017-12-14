@@ -65,14 +65,18 @@ For December we're getting back to BigQuery. And, wow, we have a good one this m
 Perhaps you've heard of `The Genotype-Tissue Expression (GTEx) project <https://www.gtexportal.org/home/>`_ ?
 It's a fantastic collection of data; different donors provided a wide range of healthy tissue samples.
 
+
 Previously GTEx has made available this large collection of 10294 samples that includes expression and
 genomic data. You can see the `documentation <https://www.gtexportal.org/home/documentationPage>`_
 for a complete description.
 
+
 Well... we've put in the CLOUD!
+
 
 As a first pass, we thought it would be interesting to compare gene expression signatures across
 TCGA and GTEx, to look at the correlation between all pairs of tissue types.
+
 
 The query does the following:
 * selects most variable genes from each data source
@@ -82,7 +86,7 @@ The query does the following:
 * returns 545,317 rows(!) where each row is a tissue from TCGA and a tissue from GTEx.
 
 
-Amazingly, this query processes 12.7 GB and only takes about 12 seconds! 
+Amazingly, this query processes 12.7 GB and only takes about 12 seconds!
 
 
 .. code-block:: sql
