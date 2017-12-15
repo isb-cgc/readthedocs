@@ -7,7 +7,14 @@ of new and interesting queries to demonstrate the powerful combination of
 BigData from the TCGA and BigQuery from Google.
 
 Please let us know if you'd like to be featured on the "query-club"!
-email: dgibbs (at) systemsbiology (dot) org
+
+Query of the Month is produced by:
+
+
+- David L Gibbs (david.gibbs (~at~) systemsbiology (~dot~) org)
+
+- Sheila Reynolds (Sheila.Reynolds (~at~) systemsbiology (~dot~) org)
+
 
 -----------------------
 
@@ -80,11 +87,12 @@ and GTEx tissue samples. See below for visualizations.
 
 
 The query does the following:
-* selects 5K most variable genes from each data source
-* builds sub-tables of the expression data
-* ranks the expression data within each sample
-* performs a correlation of the ranks (Spearman's)
-* returns 545,317 rows(!) where each row is a tissue from TCGA and a tissue from GTEx.
+
+- selects 5K most variable genes from each data source
+- builds sub-tables of the expression data
+- ranks the expression data within each sample
+- performs a correlation of the ranks (Spearman's)
+- returns 545,317 rows(!) where each row is a tissue from TCGA and a tissue from GTEx.
 
 
 Amazingly, this query processes 12.7 GB, takes about 25 seconds, and only cost 6 cents!
@@ -219,7 +227,9 @@ Amazingly, this query processes 12.7 GB, takes about 25 seconds, and only cost 6
 
 So now we'll run the query and perform some visualizations.
 
+
 ..code-block:: r
+
 
   library(bigrquery)
 
