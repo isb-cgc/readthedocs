@@ -251,9 +251,19 @@ So now we'll run the query and perform some visualizations.
 
 
 OK, we have our table of results, where each TCGA samples is paired with a
-GTEx tissue type.
+GTEx tissue type. Let's take a look at how the tissues correspond.
 
 
+.. code-block:: r
+
+  library(dplyr)
+  library(tidyr)
+  library(pheatmap)
+  res1 <- res0 %>% group_by(GTEx_tissueType, TCGA_project) %>% summarize(MeanCorr = median(corr, na.rm=T))
+  res2 <- res2 <- spread(res1, key=GTEx_tissueType, value=MeanCorr)
+  resdf <- as.data.frame(res2)
+  rownames(resdf) <- resdf$TCGA_project
+  pheatmap(resdf[,-1])
 
 .. _November:
 
