@@ -251,8 +251,12 @@ So now we'll run the query and perform some visualizations.
 
 
 OK, we have our table of results, where each TCGA samples is paired with a
-GTEx tissue type. Let's take a look at how the tissues correspond. For one,
-what is the top scoring correlation for each TCGA type (and vice versa)?
+GTEx tissue type. Let's take a look at how the tissues correspond.
+
+For one, what is the top scoring correlation for each TCGA type (and vice versa)?
+We'll group by TCGA tissue type, and within those blocks, pull out the row
+with the maximum correlation.  Then we'll group by GTEx, and within those blocks,
+pull out row containing the maximum correlation.
 
 .. code-block:: r
 
@@ -292,6 +296,28 @@ what is the top scoring correlation for each TCGA type (and vice versa)?
   8                                    Thyroid    TCGA-THCA 0.8927743
   9                         Esophagus - Mucosa    TCGA-HNSC 0.8843076
   10                          Brain - Amygdala     TCGA-LGG 0.8832739
+
+
+The tissue signatures match up very well. We see TCGA tissue types correlating
+most strongly with the most similar GTEx tissue types. There are some differences
+depending on whether we look in blocks by TCGA or GTEx, but 15 match exactly
+from the two tables.
+
+Where do we find unexpected correlations? When grouping by TCGA tissue, TCGA-SKCM
+actually has the highest correlation with Spleen (0.798). TCGA-SKCM is also
+known as "melanoma... a cancer in the type of skin cells called melanocytes" (from the GDC's site).
+To me that was a little unexpected, so let's unpack that a bit.
+
+
+.. code-block:: r
+
+  library(ggplot2)
+
+  skcmCorrs <- res0 %>%
+    filter(TCGA_project == 'TCGA-SKCM') %>%
+      select(GTEx_tissueType, TCGA_project, corr) %>%
+        group_by(TCGA_project)
+
 
 
 
