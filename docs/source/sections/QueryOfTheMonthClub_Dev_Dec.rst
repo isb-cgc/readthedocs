@@ -74,19 +74,20 @@ for a complete description.
 Well... we've put in the CLOUD!
 
 
-As a first pass, we thought it would be interesting to compare gene expression signatures across
-TCGA and GTEx, to look at the correlation between all pairs of tissue types.
+We thought it would be interesting to compare gene expression signatures across
+TCGA and GTEx, to look at the correlation between each TCGA sample (~10K)
+and GTEx tissue samples. See below for visualizations.
 
 
 The query does the following:
-* selects most variable genes from each data source
+* selects 5K most variable genes from each data source
 * builds sub-tables of the expression data
 * ranks the expression data within each sample
 * performs a correlation of the ranks (Spearman's)
 * returns 545,317 rows(!) where each row is a tissue from TCGA and a tissue from GTEx.
 
 
-Amazingly, this query processes 12.7 GB and only takes about 12 seconds!
+Amazingly, this query processes 12.7 GB, takes about 25 seconds, and only cost 6 cents!
 
 
 .. code-block:: sql
@@ -116,7 +117,7 @@ Amazingly, this query processes 12.7 GB and only takes about 12 seconds!
     FROM
       `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
     WHERE
-      platform="IlluminaHiSeq"
+      platform='IlluminaHiSeq'
       AND HGNC_gene_symbol IS NOT NULL
     GROUP BY
       1
@@ -150,7 +151,7 @@ Amazingly, this query processes 12.7 GB and only takes about 12 seconds!
     FROM
       `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
     WHERE
-      platform="IlluminaHiSeq"
+      platform='IlluminaHiSeq'
       AND HGNC_gene_symbol IN (
       SELECT
         gene_symbol
@@ -215,6 +216,32 @@ Amazingly, this query processes 12.7 GB and only takes about 12 seconds!
   ORDER BY
     corr DESC
 
+
+So now we'll run the query and perform some visualizations.
+
+..code-block:: r
+
+  library(bigrquery)
+
+  q <- as.character(_the_query_above_)
+
+  res0 <- query_exec(q, project=__my_project__, use_legacy_sql=F)
+
+  dim(res0)
+  #[1] 545317      4
+
+  head(res0)
+    GTEx_tissueType   sample_barcode TCGA_project      corr
+  1           Liver TCGA-DD-A39V-11A    TCGA-LIHC 0.9213024
+  2           Liver TCGA-DD-A39Z-11A    TCGA-LIHC 0.9189148
+  3           Liver TCGA-DD-A3A1-11A    TCGA-LIHC 0.9176827
+  4           Liver TCGA-FV-A3R2-11A    TCGA-LIHC 0.9153921
+  5           Liver TCGA-DD-A3A5-11A    TCGA-LIHC 0.9149076
+  6           Ovary TCGA-BG-A3PP-11A    TCGA-UCEC 0.9139462
+
+
+OK, we have our table of results, where each TCGA samples is paired with a
+GTEx tissue type.
 
 
 
