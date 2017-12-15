@@ -318,7 +318,19 @@ To me that was a little unexpected, so let's unpack that a bit.
       select(GTEx_tissueType, TCGA_project, corr) %>%
         group_by(TCGA_project)
 
+  qplot(data=skcmCorrs, x=GTEx_tissueType, y=corr, geom="boxplot", col=as.factor(GTEx_tissueType)) +
+    theme(legend.position="none") +
+    theme(axis.text.x=element_text(angle=45, hjust=1))
 
+
+.. figure:: query_figs/GTEx_TCGA_corr_SKCM.png
+   :scale: 70
+   :align: center
+
+So, this is a case where there's not a nice tidy connection to the GTEx samples.
+I would expect the sun exposed skin (blue arrow) would have higher correlations
+than the non-sun-exposed skin and especially a tissue inside our body that *never*
+gets any sun. So a little mystery there.
 
 
 .. code-block:: r
@@ -331,6 +343,13 @@ To me that was a little unexpected, so let's unpack that a bit.
   resdf <- as.data.frame(res2)
   rownames(resdf) <- resdf$TCGA_project
   pheatmap(resdf[,-1])
+
+
+.. figure:: query_figs/GTEx_TCGA_corr_heatmap_median.png
+   :scale: 70
+   :align: center
+
+
 
 .. _November:
 
