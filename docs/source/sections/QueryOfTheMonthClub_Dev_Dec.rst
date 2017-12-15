@@ -228,7 +228,7 @@ Amazingly, this query processes 12.7 GB, takes about 25 seconds, and only cost 6
 So now we'll run the query and perform some visualizations.
 
 
-..code-block:: r
+.. code-block:: r
 
 
   library(bigrquery)
