@@ -251,7 +251,48 @@ So now we'll run the query and perform some visualizations.
 
 
 OK, we have our table of results, where each TCGA samples is paired with a
-GTEx tissue type. Let's take a look at how the tissues correspond.
+GTEx tissue type. Let's take a look at how the tissues correspond. For one,
+what is the top scoring correlation for each TCGA type (and vice versa)?
+
+.. code-block:: r
+
+  library(dplyr)
+  byTCGA <- res0 %>%
+    select(GTEx_tissueType, TCGA_project, corr) %>%
+      group_by(TCGA_project) %>%
+        filter(corr == max(corr))
+
+    byGTEx <- res0 %>%
+      select(GTEx_tissueType, TCGA_project, corr) %>%
+        group_by(GTEx_tissueType) %>%
+          filter(corr == max(corr))
+
+  > data.frame(byTCGA)
+                         GTEx_tissueType TCGA_project      corr
+  1                                Liver    TCGA-LIHC 0.9213024
+  2                                Ovary    TCGA-UCEC 0.9139462
+  3                        Adrenal Gland    TCGA-PCPG 0.9100819
+  4         Brain - Frontal Cortex (BA9)     TCGA-LGG 0.9100485
+  5                                Liver    TCGA-CHOL 0.9089752
+  6         Brain - Frontal Cortex (BA9)     TCGA-GBM 0.9021079
+  7                               Uterus    TCGA-CESC 0.8998127
+  8                              Thyroid    TCGA-THCA 0.8927743
+  9                        Adrenal Gland     TCGA-ACC 0.8871793
+  10                  Esophagus - Mucosa    TCGA-HNSC 0.8843076
+
+  > data.frame(byGTEx)
+                               GTEx_tissueType TCGA_project      corr
+  1                                      Liver    TCGA-LIHC 0.9213024
+  2                                      Ovary    TCGA-UCEC 0.9139462
+  3                              Adrenal Gland    TCGA-PCPG 0.9100819
+  4               Brain - Frontal Cortex (BA9)     TCGA-LGG 0.9100485
+  5                             Brain - Cortex     TCGA-LGG 0.9049930
+  6                                     Uterus    TCGA-CESC 0.8998127
+  7   Brain - Anterior cingulate cortex (BA24)     TCGA-LGG 0.8929013
+  8                                    Thyroid    TCGA-THCA 0.8927743
+  9                         Esophagus - Mucosa    TCGA-HNSC 0.8843076
+  10                          Brain - Amygdala     TCGA-LGG 0.8832739
+
 
 
 .. code-block:: r
