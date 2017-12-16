@@ -359,11 +359,13 @@ To me that was a little unexpected, so let's unpack that a bit.
    :scale: 30
    :align: center
 
-So, this is a case where there's not a nice tidy connection to the GTEx samples.
-I would expect the sun exposed skin (blue arrow) would have higher correlations
-than the non-sun-exposed skin and especially a tissue inside our body that *never*
-gets any sun. So a little mystery there.
+Sheila notes:
+"Regarding the SKCM samples -- if you can split apart the -01 (primary tumor)
+samples from the -06 (metastatic) samples, you might see something interesting --
+the -06 samples come from lymph nodes ... maybe a lymph node is similar to the spleen ???"
 
+Lastly, let's just look at the median correlations between each TCGA and GTEx
+tissue type.
 
 .. code-block:: r
 
@@ -382,6 +384,9 @@ gets any sun. So a little mystery there.
    :align: center
 
 
+Thanks everyone! Hope you learned something this year. See you in 2018!
+
+-Sincerely the ISB-CGC team.
 
 .. _November:
 
