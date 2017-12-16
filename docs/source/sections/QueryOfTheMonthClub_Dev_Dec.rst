@@ -101,6 +101,10 @@ Amazingly, this query processes 12.7 GB, takes about 25 seconds, and only cost 6
 .. code-block:: sql
 
   WITH
+  --
+  -- # First we select the 5,000 most variable genes from GTEx.
+  -- # This is across all tissues.
+  --
     GTEx_top5K AS (
     SELECT
       gene_id,
@@ -116,7 +120,7 @@ Amazingly, this query processes 12.7 GB, takes about 25 seconds, and only cost 6
     LIMIT
       5000 ),
       --
-      --
+      -- # Then we select the most variable 5K genes from TCGA.
       --
     TCGA_top5K AS (
     SELECT
@@ -134,7 +138,7 @@ Amazingly, this query processes 12.7 GB, takes about 25 seconds, and only cost 6
     LIMIT
       5000 ),
       --
-      --
+      -- # next we join the gene symbol tables to get the gene lists.
       --
     geneList AS (
     SELECT
@@ -147,7 +151,7 @@ Amazingly, this query processes 12.7 GB, takes about 25 seconds, and only cost 6
     ON
       gene_description=HGNC_gene_symbol ),
       --
-      --
+      -- # then we rank the gene expression within a sample_barcode.
       --
     tcgaData AS (
     SELECT
@@ -166,7 +170,7 @@ Amazingly, this query processes 12.7 GB, takes about 25 seconds, and only cost 6
       FROM
         geneList) ),
         --
-        --
+        -- # and also rank the GTEx data
         --
     gtexData AS (
     SELECT
@@ -183,7 +187,7 @@ Amazingly, this query processes 12.7 GB, takes about 25 seconds, and only cost 6
       FROM
         geneList ) ),
         --
-        --
+        -- # last table join on TCGA and GTEx ranked gene expression data
         --
     j1 AS (
     SELECT
@@ -200,7 +204,7 @@ Amazingly, this query processes 12.7 GB, takes about 25 seconds, and only cost 6
     ON
       g.gene_symbol=t.gene_symbol ),
       --
-      --
+      -- # and last, we correate on the ranks (Spearman's correlation).
       --
     gtCorr AS (
     SELECT
@@ -250,12 +254,15 @@ So now we'll run the query and perform some visualizations.
   6           Ovary TCGA-BG-A3PP-11A    TCGA-UCEC 0.9139462
 
 
-OK, we have our table of results, where each TCGA samples is paired with a
+OK, now we have our table of results, where each TCGA sample is paired with a
 GTEx tissue type. Let's take a look at how the tissues correspond.
 
-For one, what is the top scoring correlation for each TCGA type (and vice versa)?
-We'll group by TCGA tissue type, and within those blocks, pull out the row
-with the maximum correlation.  Then we'll group by GTEx, and within those blocks,
+Just a note here: it would be a good idea to save the results from this query into a new BigQuery
+table, and continue to query the new table ... but we'll just bring it down and process it locally.
+
+First question: what is the top scoring correlation for each TCGA type (and for each GTEx tissue type)?
+We'll group by TCGA tissue type, and within those groups, pull out the row
+containing the maximum correlation. Then, we'll group by GTEx, and within GTEx-groups,
 pull out row containing the maximum correlation.
 
 .. code-block:: r
@@ -299,8 +306,7 @@ pull out row containing the maximum correlation.
 
 
 
-
-The tissue signatures match up very well. We see TCGA tissue types correlating
+The tissue signatures match up very well across projects! We see TCGA tissue types correlating
 most strongly with the most similar GTEx tissue types. There are some differences
 depending on whether we look in blocks by TCGA or GTEx, but 15 match exactly
 from the two tables.
