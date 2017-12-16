@@ -298,10 +298,36 @@ pull out row containing the maximum correlation.
   10                          Brain - Amygdala     TCGA-LGG 0.8832739
 
 
+
+
 The tissue signatures match up very well. We see TCGA tissue types correlating
 most strongly with the most similar GTEx tissue types. There are some differences
 depending on whether we look in blocks by TCGA or GTEx, but 15 match exactly
 from the two tables.
+
+
+Liver tissue seems to be pretty specific. Let's see how TCGA liver samples correlate
+with GTEx.
+
+.. code-block:: r
+
+  library(ggplot2)
+
+  lihcCorrs <- res0 %>%
+    filter(TCGA_project == 'TCGA-LIHC') %>%
+      select(GTEx_tissueType, TCGA_project, corr) %>%
+        group_by(TCGA_project)
+
+  qplot(data=lihcCorrs, x=GTEx_tissueType, y=corr, geom="boxplot", col=as.factor(GTEx_tissueType)) +
+    theme(legend.position="none") +
+    theme(axis.text.x=element_text(angle=45, hjust=1)) +
+    ggtitle("TCGA-LIHC")
+
+
+.. figure:: query_figs/GTEx_TCGA_corr_LIHC.png
+   :scale: 30
+   :align: center
+
 
 Where do we find unexpected correlations? When grouping by TCGA tissue, TCGA-SKCM
 actually has the highest correlation with Spleen (0.798). TCGA-SKCM is also
@@ -339,7 +365,7 @@ gets any sun. So a little mystery there.
   library(tidyr)
   library(pheatmap)
   res1 <- res0 %>% group_by(GTEx_tissueType, TCGA_project) %>% summarize(MeanCorr = median(corr, na.rm=T))
-  res2 <- res2 <- spread(res1, key=GTEx_tissueType, value=MeanCorr)
+  res2 <- spread(res1, key=GTEx_tissueType, value=MeanCorr)
   resdf <- as.data.frame(res2)
   rownames(resdf) <- resdf$TCGA_project
   pheatmap(resdf[,-1])
