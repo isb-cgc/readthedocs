@@ -324,7 +324,7 @@ To me that was a little unexpected, so let's unpack that a bit.
 
 
 .. figure:: query_figs/GTEx_TCGA_corr_SKCM.png
-   :scale: 70
+   :scale: 30
    :align: center
 
 So, this is a case where there's not a nice tidy connection to the GTEx samples.
@@ -346,7 +346,7 @@ gets any sun. So a little mystery there.
 
 
 .. figure:: query_figs/GTEx_TCGA_corr_heatmap_median.png
-   :scale: 70
+   :scale: 30
    :align: center
 
 
