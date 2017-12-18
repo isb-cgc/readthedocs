@@ -359,10 +359,29 @@ To me that was a little unexpected, so let's unpack that a bit.
    :scale: 30
    :align: center
 
-Sheila notes:
-"Regarding the SKCM samples -- if you can split apart the -01 (primary tumor)
-samples from the -06 (metastatic) samples, you might see something interesting --
-the -06 samples come from lymph nodes ... maybe a lymph node is similar to the spleen ???"
+After mentioning this to Sheila, she remembered that for many of the melanoma samples, there
+a lack of tissue at the primary tumor site, so often times metastatic tissue from the
+lymph was also taken. And, as it turns out, the spleen is very similar to lymph tissue!
+Primary tumor barcodes have a -01 in digits 11 & 12 (not counting dashes),
+where metastatic samples have a -06. So let's label the samples that are metastatic
+samples and see what that looks like.
+
+
+.. code-block:: r
+
+  skcmSpleenRows <- res0 %>% filter(GTEx_tissueType == 'Spleen' & TCGA_project == 'TCGA-SKCM')
+  qplot(data=skcmSpleenRows, x=1:nrow(skcmSpleenRows), y=corr, col=metastatic, pch=metastatic) +
+    xlab("Samples") +
+    ggtitle("SKCM correlation with spleen tissue")
+
+
+.. figure:: query_figs/SKCM_Spleen_corrs.png
+   :scale: 60
+   :align: center
+
+
+So from the plot we see that, indeed, most of the SKCM samples are actually metastatic,
+probably from lymph, and would explain the high correlations with spleen tissue.
 
 Lastly, let's just look at the median correlations between each TCGA and GTEx
 tissue type.
