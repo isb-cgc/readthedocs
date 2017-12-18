@@ -376,7 +376,7 @@ samples and see what that looks like.
 
 
 .. figure:: query_figs/SKCM_Spleen_corrs.png
-   :scale: 60
+   :scale: 30
    :align: center
 
 
