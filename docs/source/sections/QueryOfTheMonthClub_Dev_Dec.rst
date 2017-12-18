@@ -22,7 +22,7 @@ Table of Contents
 =================
 
 December2017_:
-BiqQuery to compare GTEx to TCGA ...
+BiqQuery comparing TCGA samples to GTEx tissues with Spearman correlation.
 
 November_:
 Run an R (or python) script in batch mode using dsub on the google cloud.
@@ -68,13 +68,11 @@ Links to help!
 December, 2017
 ##############
 
-For December we're getting back to BigQuery. And, wow, we have a good one this month.
+For December we're getting back to BigQuery. And, we've got a good one this month.
 Perhaps you've heard of `The Genotype-Tissue Expression (GTEx) project <https://www.gtexportal.org/home/>`_ ?
-It's a fantastic collection of data; different donors provided a wide range of healthy tissue samples.
-
-
-Previously GTEx has made available this large collection of 10294 samples that includes expression and
-genomic data. You can see the `documentation <https://www.gtexportal.org/home/documentationPage>`_
+It's a fantastic collection of data; donors provided a wide range of healthy tissue samples
+that have been used to produce a range of data types, including expression and
+genomics data. You can see the `documentation <https://www.gtexportal.org/home/documentationPage>`_
 for a complete description.
 
 
@@ -82,17 +80,17 @@ Well... we've put in the CLOUD!
 
 
 We thought it would be interesting to compare gene expression signatures across
-TCGA and GTEx, to look at the correlation between each TCGA sample (~10K)
-and GTEx tissue samples. See below for visualizations.
+TCGA and GTEx, and look at the correlation between each TCGA sample (~10K) and GTEx tissue samples.
+See below for R code and visualizations.
 
 
-The query does the following:
+The bigquery below contains the following steps:
 
-- selects 5K most variable genes from each data source
-- builds sub-tables of the expression data
-- ranks the expression data within each sample
-- performs a correlation of the ranks (Spearman's)
-- returns 545,317 rows(!) where each row is a tissue from TCGA and a tissue from GTEx.
+- select the 5K most variable genes from each data source
+- build sub-tables of the expression data
+- rank the expression data within each sample
+- perform a correlation of the ranks (this is Spearman's correlation)
+- return 545,317 rows(!) where each row represents a tissue from TCGA and a tissue from GTEx.
 
 
 Amazingly, this query processes 12.7 GB, takes about 25 seconds, and only cost 6 cents!
@@ -359,11 +357,12 @@ To me that was a little unexpected, so let's unpack that a bit.
    :scale: 30
    :align: center
 
-After mentioning this to Sheila, she remembered that for many of the melanoma samples, there
-a lack of tissue at the primary tumor site, so often times metastatic tissue from the
-lymph was also taken. And, as it turns out, the spleen is very similar to lymph tissue!
-Primary tumor barcodes have a -01 in digits 11 & 12 (not counting dashes),
-where metastatic samples have a -06. So let's label the samples that are metastatic
+
+After mentioning this to Sheila, she remembered that many of the melanoma samples are
+from metastatic tissue, which often is from lymph.
+And, as it turns out, the spleen is very similar to lymph tissue!
+Primary tumor barcodes have an '-01' in digits 11 & 12 (not counting dashes),
+where metastatic samples have a '-06'. So let's label the samples that are metastatic
 samples and see what that looks like.
 
 
@@ -403,7 +402,7 @@ tissue type.
    :align: center
 
 
-Thanks everyone! Hope you learned something this year. See you in 2018!
+Thanks everyone! Hope you learned something this year. I sure did. See you in 2018!
 
 -Sincerely the ISB-CGC team.
 
