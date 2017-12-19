@@ -49,7 +49,7 @@ Table of Contents
 2016
 ++++
 
-- **December** : Spearman correlation in BigQuery to compare the new hg38 expression data to the hg19 data
+- December_: Spearman correlation in BigQuery to compare the new hg38 expression data to the hg19 data
 
 Resources_:
 Links to help!
@@ -72,7 +72,7 @@ for a complete description.
 Well... for this month's query we've put some of this data in the *cloud*!
 
 
-As a demonstration use-case, we thought it would be interesting to compare gene expression signatures between 
+As a demonstration use-case, we thought it would be interesting to compare gene expression signatures between
 TCGA and GTEx, and look at the correlation between each TCGA sample (of which there are over 10,000) and each GTEx tissue type
 (of which there are 53, with the expression data averaged from multiple samples from the same tissue type).
 See below for R code and visualizations.
@@ -354,9 +354,9 @@ To me that was a little unexpected, so let's unpack that a bit.
 
 
 After mentioning this to Sheila, she remembered that many of the melanoma samples are
-metastatic samples taken from lymph nodes, and, 
+metastatic samples taken from lymph nodes, and,
 the spleen, like the lymph nodes, is a secondary or peripheral lymphoid organ.
-Primary tumor sample barcodes are of the form 'TCGA-XY-1234-01' (with the final two digits 
+Primary tumor sample barcodes are of the form 'TCGA-XY-1234-01' (with the final two digits
 indicating the sample type), while metastatic sample barcodes end in '-06'.
 Let's label the points according to the sample type and see what that looks like.
 
@@ -375,7 +375,7 @@ Let's label the points according to the sample type and see what that looks like
 
 
 So from the plot we see that, indeed, most of the SKCM samples are metastatic samples
-taken from lymph nodes, explaining the high correlation that a few of them have with 
+taken from lymph nodes, explaining the high correlation that a few of them have with
 the Spleen tissue-type.
 
 Lastly, let's just look at the median correlations between each TCGA and GTEx
@@ -3936,6 +3936,9 @@ The "legacy" solution bins the copy-number segment values into uniform length ge
 segments, while the "standard" solution takes a simpler approah.
 
 ------------------
+
+.. _December:
+
 
 December, 2016
 ##############
