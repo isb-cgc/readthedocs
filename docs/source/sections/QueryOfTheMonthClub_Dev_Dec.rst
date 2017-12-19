@@ -21,14 +21,11 @@ Query of the Month is produced by:
 Table of Contents
 =================
 
-December2017_:
-BiqQuery comparing TCGA samples to GTEx tissues with Spearman correlation.
+- December2017_: BigQuery comparing TCGA samples to GTEx tissues with Spearman correlation.
 
-November_:
-Run an R (or python) script in batch mode using dsub on the google cloud.
+- November_: Run an R (or python) script in batch mode using dsub on the google cloud.
 
-October_:
-Using plotly for visualziation in Shiny apps. We implement an interatictive heatmap using heatmaply
+- October_: Using plotly for visualziation in Shiny apps. We implement an interatictive heatmap using heatmaply
 
 September_:
 We implement a new statistical test in BigQuery: the one-way ANOVA.
