@@ -49,14 +49,14 @@ Table of Contents
 2016
 ++++
 
-- December2016_: Spearman correlation in BigQuery to compare the new hg38 expression data to the hg19 data
+- **December** : Spearman correlation in BigQuery to compare the new hg38 expression data to the hg19 data
 
 Resources_:
 Links to help!
 
 -----------------------
 
-.. _December2017:
+.. _December:
 
 December, 2017
 ##############
@@ -222,7 +222,7 @@ Amazingly, this query processes 12.7 GB, takes about 10-20 seconds, and only cos
     corr DESC
 
 
-So now we'll run the query and perform some visualizations.
+So now we'll run the query and create some visualizations.
 
 
 .. code-block:: r
@@ -255,7 +255,7 @@ table, and continue to query the new table ... but we'll just bring it down and 
 
 First question: what is the top scoring correlation for each TCGA type (and for each GTEx tissue type)?
 We'll group by TCGA tissue type, and within those groups, pull out the row
-containing the maximum correlation. Then, we'll group by GTEx, and within GTEx-groups,
+containing the maximum correlation. Then, we'll group by GTEx tissue-type, and then for each tissue-type
 pull out row containing the maximum correlation.
 
 .. code-block:: r
@@ -301,12 +301,12 @@ pull out row containing the maximum correlation.
 
 The tissue signatures match up very well across projects! We see TCGA tissue types correlating
 most strongly with the most similar GTEx tissue types. There are some differences
-depending on whether we look in blocks by TCGA or GTEx, but 15 match exactly
+depending on whether we look in blocks by TCGA tumor-type or by GTEx tissue-type, but 15 match exactly
 from the two tables.
 
 
-Liver tissue seems to be pretty specific. Let's see how TCGA liver samples correlate
-with GTEx.
+The "Liver" expression profile in particular seems to be very specific.
+Let's see how TCGA liver samples correlate with GTEx.
 
 .. code-block:: r
 
@@ -329,8 +329,8 @@ with GTEx.
 
 
 Where do we find unexpected correlations? When grouping by TCGA tissue, TCGA-SKCM
-actually has the highest correlation with Spleen (0.798). TCGA-SKCM is also
-known as "melanoma... a cancer in the type of skin cells called melanocytes" (from the GDC's site).
+actually has the highest correlation with Spleen (0.798). SKCM is the abbreviation
+for *melanoma* (**SK**in **C**ancer **M**elanoma) "a cancer in the type of skin cells called melanocytes" (from the GDC's site).
 To me that was a little unexpected, so let's unpack that a bit.
 
 
@@ -354,11 +354,11 @@ To me that was a little unexpected, so let's unpack that a bit.
 
 
 After mentioning this to Sheila, she remembered that many of the melanoma samples are
-from metastatic tissue, which often is from lymph.
-And, as it turns out, the spleen is very similar to lymph tissue!
-Primary tumor barcodes have an '-01' in digits 11 & 12 (not counting dashes),
-where metastatic samples have a '-06'. So let's label the samples that are metastatic
-samples and see what that looks like.
+metastatic samples taken from lymph nodes, and, 
+the spleen, like the lymph nodes, is a secondary or peripheral lymphoid organ.
+Primary tumor sample barcodes are of the form 'TCGA-XY-1234-01' (with the final two digits 
+indicating the sample type), while metastatic sample barcodes end in '-06'.
+Let's label the points according to the sample type and see what that looks like.
 
 
 .. code-block:: r
@@ -374,8 +374,9 @@ samples and see what that looks like.
    :align: center
 
 
-So from the plot we see that, indeed, most of the SKCM samples are actually metastatic,
-probably from lymph, and would explain the high correlations with spleen tissue.
+So from the plot we see that, indeed, most of the SKCM samples are metastatic samples
+taken from lymph nodes, explaining the high correlation that a few of them have with 
+the Spleen tissue-type.
 
 Lastly, let's just look at the median correlations between each TCGA and GTEx
 tissue type.
@@ -2377,9 +2378,7 @@ of tissue, whereas other tissue types share patterns of disrupted pathways.
   :align: center
 
 
-================
-
-================
+------------------
 
 .. _April:
 
@@ -3937,8 +3936,6 @@ The "legacy" solution bins the copy-number segment values into uniform length ge
 segments, while the "standard" solution takes a simpler approah.
 
 ------------------
-
-.. _December2016:
 
 December, 2016
 ##############
