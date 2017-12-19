@@ -21,39 +21,35 @@ Query of the Month is produced by:
 Table of Contents
 =================
 
-- December2017_: BigQuery comparing TCGA samples to GTEx tissues with Spearman correlation.
+2017
+++++
+
+- December_: BigQuery comparing TCGA samples to GTEx tissues with Spearman correlation.
 
 - November_: Run an R (or python) script in batch mode using dsub on the google cloud.
 
 - October_: Using plotly for visualziation in Shiny apps. We implement an interatictive heatmap using heatmaply
 
-September_:
-We implement a new statistical test in BigQuery: the one-way ANOVA.
+- September_: We implement a new statistical test in BigQuery: the one-way ANOVA.
 
-August_:
-A small demo application using BigQuery as backend for a shiny app.
+- August_: A small demo application using BigQuery as backend for a shiny app.
 
-July_:
-Look at the BigQuery RECORD data type in methylation tables from the GDC.
+- July_: Look at the BigQuery RECORD data type in methylation tables from the GDC.
 
-May_:
-Continued from april: estimating the distance between samples based on shared mutations in pathways.
+- May_: Continued from april: estimating the distance between samples based on shared mutations in pathways.
 
-April_:
-BigQuery compute a similarity metric on overlapping mutations between samples.
-Uses MC3 mutation table and data from COSMIC.
+- April_: BigQuery compute a similarity metric on overlapping mutations between samples.  Uses MC3 mutation table and data from COSMIC.
 
-March_:
-BigQuery to compute a pairwise distance matrix and a heatmap in R
+- March_: BigQuery to compute a pairwise distance matrix and a heatmap in R
 
-February_:
-Using BigQuery, define K-means clustering as a user defined (javascript) function
+- February_: Using BigQuery, define K-means clustering as a user defined (javascript) function
 
-January_:
-Comparing Standard SQL and Legacy SQL.
+- January_: Comparing Standard SQL and Legacy SQL.
 
-December2016_:
-Spearman correlation in BigQuery to compare the new hg38 expression data to the hg19 data
+2016
+++++
+
+- December2016_: Spearman correlation in BigQuery to compare the new hg38 expression data to the hg19 data
 
 Resources_:
 Links to help!
@@ -73,24 +69,26 @@ genomics data. You can see the `documentation <https://www.gtexportal.org/home/d
 for a complete description.
 
 
-Well... we've put in the CLOUD!
+Well... for this month's query we've put some of this data in the *cloud*!
 
 
-We thought it would be interesting to compare gene expression signatures across
-TCGA and GTEx, and look at the correlation between each TCGA sample (~10K) and GTEx tissue samples.
+As a demonstration use-case, we thought it would be interesting to compare gene expression signatures between 
+TCGA and GTEx, and look at the correlation between each TCGA sample (of which there are over 10,000) and each GTEx tissue type
+(of which there are 53, with the expression data averaged from multiple samples from the same tissue type).
 See below for R code and visualizations.
 
 
 The bigquery below contains the following steps:
 
 - select the 5K most variable genes from each data source
+- find the intersection of these two lists: this will be the list of ~3200 genes that we'll use in the correlations
 - build sub-tables of the expression data
 - rank the expression data within each sample
-- perform a correlation of the ranks (this is Spearman's correlation)
-- return 545,317 rows(!) where each row represents a tissue from TCGA and a tissue from GTEx.
+- perform an all-by-all correlation of the ranks, between TCGA samples and GTEx tissue types (this is Spearman's correlation)
+- return 545,317 rows(!) where each row represents the correation between one TCGA sample and one GTEx tissue type
 
 
-Amazingly, this query processes 12.7 GB, takes about 25 seconds, and only cost 6 cents!
+Amazingly, this query processes 12.7 GB, takes about 10-20 seconds, and only cost 6 cents!
 
 
 .. code-block:: sql
