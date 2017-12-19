@@ -398,9 +398,9 @@ tissue type.
    :align: center
 
 
-Thanks everyone! Hope you learned something this year. I sure did. See you in 2018!
+Thanks everyone! Hope you learned something this year. We sure did. See you in 2018!
 
--Sincerely the ISB-CGC team.
+Sincerely, the ISB-CGC team.
 
 .. _November:
 
