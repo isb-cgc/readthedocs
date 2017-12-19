@@ -13,7 +13,7 @@ Query of the Month is produced by:
 
 - David L Gibbs (david.gibbs (~at~) systemsbiology (~dot~) org)
 
-- Sheila Reynolds (Sheila.Reynolds (~at~) systemsbiology (~dot~) org)
+- Sheila M Reynolds (sheila.reynolds (~at~) systemsbiology (~dot~) org)
 
 
 -----------------------
@@ -330,7 +330,7 @@ Let's see how TCGA liver samples correlate with GTEx.
 
 Where do we find unexpected correlations? When grouping by TCGA tissue, TCGA-SKCM
 actually has the highest correlation with Spleen (0.798). SKCM is the abbreviation
-for *melanoma* (**SK**in **C**ancer **M**elanoma) "a cancer in the type of skin cells called melanocytes" (from the GDC's site).
+for *melanoma* (SKin Cancer Melanoma) "a cancer in the type of skin cells called melanocytes" (from the GDC's site).
 To me that was a little unexpected, so let's unpack that a bit.
 
 
