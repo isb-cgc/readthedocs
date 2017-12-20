@@ -2,7 +2,7 @@ Clinical
 ========
 
 The
-`Clinical <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201607_beta.Clinical>`_
+`Clinical <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_bioclin_v0.Clinical>`_
 table contains one row per TCGA participant (aka patient or donor).  
 Each TCGA participant is uniquely represented by a
 `TCGA barcode <https://wiki.nci.nih.gov/display/TCGA/TCGA+barcode>`_
@@ -15,7 +15,7 @@ Clinical Feature Selection
 In the first pass, any
 XML features with the tag ``procurement\_status=Completed``
 which were found to exist in at
-least 20% of the participants in any one Study (aka tumor-type) were considered for selection.
+least 20% of the participants in any one Disease (aka tumor-type) were considered for selection.
 A few important features related to smoking, pregnancy, *etc* were added to the
 list during a manual-curation pass. 
 
@@ -23,20 +23,20 @@ Selected fields from the both the clinical,
 auxiliary, ssf, and omf XML files were then extracted and loaded into the BigQuery table.
 
 Additionally, only the most recent follow-up information was included
-(for patients where multiple follow-up sections existed in the
+(for cases where multiple follow-up sections existed in the
 clinical XML file). 
 
 XML Parsing 
 -----------
 
-Each clinical XML file is divided into ``admin`` and ``patient`` blocks, and
+Each clinical XML file is divided into ``admin`` and ``case`` blocks, and
 each of these were processed separately.
 
-While iterating through the patient block of information, all elements
+While iterating through the case block of information, all elements
 (XML tags) and their values were collected.  For ``follow-up`` blocks, only the
 most recent (based on sequence number) sub-block elements were kept.
 
-In the final pass, patient elements and follow-up elements were carefully 
+In the final pass, case elements and follow-up elements were carefully 
 merged with preference given to follow-up elements.
 
 Transforms

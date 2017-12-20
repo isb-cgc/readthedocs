@@ -26,5 +26,5 @@ Other useful Tutorials
 * `Linking your NIH and Google Identities <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-TCGA-Contolled-Access-Data.html?#linking-your-nih-and-google-identities>`_
 * IGV Tutorial (`pdf <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/Intro_to_Webapp_IGV.pdf>`_)
 * SeqPeek Tutorial (`pdf <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/Intro_to_Webapp_SeqPeek.pdf>`_)
-* `DIY Workshop <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DIYWorkshop.html?highlight=workshop>`_ - Please note that the DIY Workshop includes materials and instructions that are not required to use the web application.
+* `DIY Workshop <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DIYWorkshop.html>`_ - Please note that the DIY Workshop includes materials and instructions that are not required to use the web application.
 
