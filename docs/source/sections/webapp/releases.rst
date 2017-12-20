@@ -10,7 +10,7 @@ Web-App Release Notes
  **Issues be resolved in Sprint 22 as of 12/20/2017**
  
  New Enhancements
-  - Using the File list page you can now view tissue image samples using caMicroscope! 
+  - Using the 'View Files' page you can now view TCGA pathology images using caMicroscope! 
   - After logging into dbGaP you are now redirected to the user details page.   
   - Due to recent updates with Google, we have implemented new security requirements when working with the service accounts and attempting the access the controlled data. For more information about new requirements please go `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-Contolled-Access-Data.html#requirements-for-registering-a-google-cloud-project-service-account>`_.  
 
