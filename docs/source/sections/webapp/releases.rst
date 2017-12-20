@@ -3,7 +3,7 @@ Web-App Release Notes
 *********************
 
 
-* **December 20, 2017**
+* **December 20, 2017** `v3.7 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.7>`_
   
  *Please Note: Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.*
  
