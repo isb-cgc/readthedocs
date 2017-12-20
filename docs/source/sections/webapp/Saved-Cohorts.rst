@@ -430,10 +430,18 @@ Viewing a Sequence
 ==================
 
 When available, sequences in a cohort can be viewed using the IGV viewer.  To find those sequences that can be viewed with the IGV viewer, open a cohort and select the "View Files" button at the top of the page.  The files associated with your cohort will be shown, with the last column indicating if the IGV viewer can be used to view the contents of that file.
-This is indicated by a checkbox beside either "GA4GH" and/or "Cloud Storage").  Clicking the "Launch IGV" button will take you to an IGV view of the selected sequence(s) data.  
+This is indicated by a checkbox beside "Cloud Storage").  Clicking the "Launch IGV" button will take you to an IGV view of the selected sequence(s) data.  
 Controlled access files will be viewable by sequence ONLY if you have `authenticated as a dbGaP-authorized user <Gaining-Access-To-Contolled-Access-Data.html>`_. 
 
 (`more information about Viewing a Sequence in the IGV Viewer <IGV-Browser.html>`_).
+
+
+Viewing a Pathology Image
+=========================
+
+When available, pathology images can be viewed using the caMicroscope tool (see more about caMicroscope provide `here <http://imaging.cci.emory.edu/wiki/display/CAMIC/Home>`_ ).  These are the pathology images that are associated with TCGA samples (not all files are currently available, due to some metadata that is not in place at GDC describing the image files.  ISB-CGC is working with GDC to resolve this issue, and more images will be appearing when that issue is resolved).  To find images that can be viewed, open a saved cohort and select the "View Files" button at the top of the page.  The files associated with your cohort will be shown, with the last column indicating if the caMicro viewer can be used to view the contents of that file.  This is indicated by a checkbox beside the word caMicro (HINT: by selecting the "Clinical" platform ONLY the clinical files that have the pathology images associated with them will be displayed.)(HINT 2: using a smaller cohort will provide faster response in creating the list of files available).
+
+A maximum of 5 slides can be viewed at one time.  To view these slides, select the caMicro check-boxes for each sample you want to view.  Then, go to the top of the page, and select the "caMicroscope" tab. The images that have been selected to view are shown. Pressing the "Launch caMicrosope" button launches a new window with individual tabs displaying the image.  To zoom into the image, either click the left button or use your wheel to zoom in.  Use your mouse to move around the image.  To zoom out of the image, shift-slick the left mouse button or use your wheel to zoom out.  Individual tabs with each image can also be launched to compare multiple images by pushing the "Open in new tab" button.
 
 Deleting a cohort
 =================

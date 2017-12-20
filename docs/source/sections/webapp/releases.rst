@@ -2,6 +2,36 @@
 Web-App Release Notes
 *********************
 
+
+* **December 20, 2017** `v3.7 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.7>`_
+  
+ *Please Note: Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.*
+ 
+ **Issues be resolved in Sprint 22 as of 12/20/2017**
+ 
+ New Enhancements
+  - Using the 'View Files' page you can now view TCGA pathology images using caMicroscope! 
+  - After logging into dbGaP you are now redirected to the user details page.   
+  - Due to recent updates with Google, we have implemented new security requirements when working with the service accounts and attempting the access the controlled data. For more information about new requirements please go `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-Contolled-Access-Data.html#requirements-for-registering-a-google-cloud-project-service-account>`_.  
+
+ 
+ Bug Fixes
+  
+  - You will no longer experience a 502 error when trying to create a new variable favorite list if you have uploaded a lot of your own data using the user data upload feature.
+  
+ **Known Issues in Sprint 22 as of 12/20/2017**
+  
+  - Analysis Type: Seq peek Formatting Elongated on occasion 
+  - If the user shares a Cohort neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort. 
+  - CCLE data cannot be plotted when working with workbooks.  ISB-CGC will resolve this functionality after the GDC formally releases CCLE data. 
+  - When a user duplicates a Worksheet, then tries to implement the log scale it will not function properly. 
+  - The set operation for existing Cohorts complement is behaving exceptionally slow.
+  - The mouse-over feature is currently disabled for program TARGET with disease code ALL. 
+  - When working on Firefox browser a violin plot does not display the data plotted correctly when working on a Worksheet. 
+  - When working on a workbook if you add new cohorts to the worksheet the pre-existing cohorts will be de-selected from the worksheet.
+  - If you have uploaded a lot of data using the User Data Upload feature, it is likely you will experience 502 error page when attempting to create a new variable favorite list. 
+  - When uploading TARGET files using the cohort barcode creation feature from the GDC you may get an invalid barcodes error message and unable to upload all the barcodes. 
+ 
 * **November 20, 2017** `v3.6 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.6>`_
   
  *Please Note: Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.*
