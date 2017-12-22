@@ -49,7 +49,7 @@ Table of Contents
 2016
 ++++
 
-- December_: Spearman correlation in BigQuery to compare the new hg38 expression data to the hg19 data
+- December2_: Spearman correlation in BigQuery to compare the new hg38 expression data to the hg19 data
 
 Resources_:
 Links to help!
@@ -3937,7 +3937,7 @@ segments, while the "standard" solution takes a simpler approah.
 
 ------------------
 
-.. _December:
+.. _December2:
 
 
 December, 2016
