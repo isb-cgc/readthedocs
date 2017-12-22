@@ -1,12 +1,12 @@
-***********************
-Query of the Month Club
-***********************
+********************
+Query of the Month 
+********************
 
-Welcome to the 'Query of the Month Club' where we'll be creating a collection
+Welcome to the 'Query of the Month' where we'll be creating a collection
 of new and interesting queries to demonstrate the powerful combination of
 BigData from the TCGA and BigQuery from Google.
 
-Please let us know if you'd like to be featured on the "query-club"!
+Please let us know if you have an idea or a suggestion for our next QotM!
 
 Query of the Month is produced by:
 
@@ -49,7 +49,7 @@ Table of Contents
 2016
 ++++
 
-- December2_: Spearman correlation in BigQuery to compare the new hg38 expression data to the hg19 data
+- December2016_: Spearman correlation in BigQuery to compare the new hg38 expression data to the hg19 data
 
 Resources_:
 Links to help!
@@ -3937,7 +3937,7 @@ segments, while the "standard" solution takes a simpler approah.
 
 ------------------
 
-.. _December2:
+.. _December2016:
 
 
 December, 2016
