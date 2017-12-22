@@ -32,11 +32,11 @@ Table of Contents
 
 - September_: We implement a new statistical test in BigQuery: the one-way ANOVA.
 
-- August_: A small demo application using BigQuery as backend for a shiny app.
+- August_: A small demo application using BigQuery as the backend for a Shiny app.
 
 - July_: Look at the BigQuery RECORD data type in methylation tables from the GDC.
 
-- May_: Continued from april: estimating the distance between samples based on shared mutations in pathways.
+- May_: Continued from April: estimating the distance between samples based on shared mutations in pathways.
 
 - April_: BigQuery compute a similarity metric on overlapping mutations between samples.  Uses MC3 mutation table and data from COSMIC.
 
@@ -569,7 +569,7 @@ heatmaply. To start, here's some important links.
 
 `bigrquery <https://github.com/r-dbi/bigrquery>`_
 
-Exciting highlights include using BigRQuery to make queries from *inside* shiny!
+Exciting highlights include using BigRQuery to make queries from *inside* Shiny!
 We do that by using service account authorization. And of course, heatmaply,
 an interactive heatmap that lets you zoom and scroll around.
 
@@ -871,7 +871,7 @@ that compares the expression between individuals with a SNP and without a SNP,
 using the same SQL as the August query.  I've put that query in this
 `github gist <https://gist.github.com/Gibbsdavidl/8a20097aaf8bece8fc586310795b54da>`_.
 
-And you can find the associated shiny app, using the same layout
+And you can find the associated Shiny app, using the same layout
 from August, where we plot the F distribution and show a comparison of means.
 You can find that `here <https://isb-cgc.shinyapps.io/mutstatusexpranova/>`_.
 
@@ -1073,7 +1073,7 @@ that compares the expression between individuals with a SNP and without a SNP,
 using the same SQL to create groups as last month.  I've put that query in this
 `github gist <https://gist.github.com/Gibbsdavidl/8a20097aaf8bece8fc586310795b54da>`_.
 
-And additionally, I've put that query into a shiny app, that uses the same layout
+And additionally, I've put that query into a Shiny app, that uses the same layout
 from August.  You can find that `here <https://isb-cgc.shinyapps.io/mutstatusexpranova/>`_.
 
 ------------------
@@ -1092,7 +1092,7 @@ and even watch the `video <https://youtu.be/qa2OxQLUhBY>`_.
 Using the R programming language, Shiny is an easy way to produce interactive
 visualizations that can be hosted on the web.
 
-Shiny sites are hosted by a shiny server, which you can set up locally or
+Shiny sites are hosted by a Shiny server, which you can set up locally or
 use the free shinyapps.io service, which is provided by the same
 company that produces the RStudio (which has a builtin Shiny server for dev work).
 
