@@ -4,7 +4,7 @@ Query of the Month
 
 Welcome to the 'Query of the Month' where we'll be creating a collection
 of new and interesting queries to demonstrate the powerful combination of
-BigData from the TCGA and BigQuery from Google.
+BigData from the NCI cancer programs like TCGA, and BigQuery from Google.
 
 Please let us know if you have an idea or a suggestion for our next QotM!
 
