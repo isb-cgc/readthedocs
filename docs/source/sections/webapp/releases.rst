@@ -21,7 +21,7 @@ Web-App Release Notes
   
  **Known Issues in Sprint 22 as of 12/20/2017**
   
-  - Analysis Type: Seq peek Formatting Elongated on occasion 
+  - Analysis Type: Seq Peek formatting elongated on occasion 
   - If the user shares a Cohort neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort. 
   - CCLE data cannot be plotted when working with workbooks.  ISB-CGC will resolve this functionality after the GDC formally releases CCLE data. 
   - When a user duplicates a Worksheet, then tries to implement the log scale it will not function properly. 
@@ -33,8 +33,6 @@ Web-App Release Notes
   - When uploading TARGET files using the cohort barcode creation feature from the GDC you may get an invalid barcodes error message and unable to upload all the barcodes. 
  
 * **November 20, 2017** `v3.6 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.6>`_
-  
- *Please Note: Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.*
   
  **Issues resolved in Sprint 21 as of 11/20/2017**
  
