@@ -28,7 +28,7 @@ Table of Contents
 
 - November_: Run an R (or python) script in batch mode using dsub on the google cloud.
 
-- October_: Using plotly for visualziation in Shiny apps. We implement an interatictive heatmap using heatmaply
+- October_: Using plotly for visualization in Shiny apps. We implement an interatictive heatmap using heatmaply
 
 - September_: We implement a new statistical test in BigQuery: the one-way ANOVA.
 
