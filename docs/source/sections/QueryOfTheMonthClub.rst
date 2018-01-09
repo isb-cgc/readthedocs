@@ -528,6 +528,7 @@ To run dsub, the command looks like:
     --image jackinovik/rstan-complete \
     --script ./stan_logistic_regression.R \
     --tasks task_matrix.txt \
+    --preemptible \
     --wait
 
 
