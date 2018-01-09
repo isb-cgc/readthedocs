@@ -58,6 +58,7 @@ wait 10-15 minutes and then try again. If you are still not successful, please
 `verify <https://accounts.google.com/ForgotPasswd>`_
 that the Google ID you have provided is a valid Google account.  If you are still not able
 to run the sample query given below, please contact us at feedback@isb-cgc.org.
+*Please note that some of the screen-shots on this page may be based on earlier versions of the COSMIC tables, but the sample SQL on this page has been updated (and tested) to query the latest COSMIC tables.*
 
     * `login <https://accounts.google.com/Login>`_ to your Google account (`Chrome <https://www.google.com/chrome/browser/desktop/index.html>`_ is the preferred browser);
     * go to the `BigQuery web UI <https://bigquery.cloud.google.com>`_  --  if you see a welcome screen inviting you to **Create a Project** then your ISB-CGC registration process is not yet complete;
@@ -76,7 +77,6 @@ to run the sample query given below, please contact us at feedback@isb-cgc.org.
     * once you do have the green circle, you can click on it to see a message like: "Valid: This query will process 131 MB when run."
     * to execute the query, click on **RUN QUERY** !       
 
-    * *please note that some of the screen-shots on this page may be based on earlier versions of the COSMIC tables, but the sample SQL on this page has been updated (and tested) to query the latest COSMIC tables*
 
 .. code-block:: sql
 
