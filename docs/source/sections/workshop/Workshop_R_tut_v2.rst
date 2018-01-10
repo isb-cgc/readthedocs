@@ -45,7 +45,7 @@ be necessary to complete the code.
 .. code-block:: r
 
     my_cloud_project   = "your_project_id"
-    tcga_data_set      = "tcga_201607_beta"
+    tcga_data_set      = "TCGA_hg38_data_v0"
 
 First query
 ===========
@@ -85,38 +85,40 @@ The general structure of the query is going to be:
 .. code-block:: r
 
     q <- "
-    SELECT
-      a.HGNC_gene_symbol as gene1,
-      b.HGNC_gene_symbol as gene2,
-      CORR(a.normalized_count, b.normalized_count) as corr
-    FROM (
-      SELECT
-        *
-      FROM
-        [isb-cgc:tcga_201607_beta.mRNA_UNC_RSEM]
-      WHERE
-        HGNC_gene_symbol IN ('APLN','CCL26','IL19','IL37')
-        AND Study = 'COAD'
-        AND SampleTypeLetterCode = 'TP'
-      ) AS a
-    JOIN (
-      SELECT
-        *
-      FROM
-        [isb-cgc:tcga_201607_beta.mRNA_UNC_RSEM]
-      WHERE
-        HGNC_gene_symbol IN ('APLN','CCL26','IL19','IL37')
-        AND Study = 'COAD'
-        AND SampleTypeLetterCode = 'TP'
-      ) AS b
-    ON
-      a.AliquotBarcode = b.AliquotBarcode
-      AND a.Platform = b.Platform
-    GROUP BY
-      gene1,
-      gene2"
+	SELECT
+	  a.gene_name AS gene1,
+	  b.gene_name AS gene2,
+	  CORR(a.HTSeq__FPKM,
+	    b.HTSeq__FPKM) AS corr
+	FROM (
+	  SELECT
+	    *
+	  FROM
+	    `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
+	  WHERE
+	    gene_name IN ('APLN',
+	      'CCL26',
+	      'IL19',
+	      'IL37')
+	    AND project_short_name = 'TCGA-COAD' ) AS a
+	JOIN (
+	  SELECT
+	    *
+	  FROM
+	    `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
+	  WHERE
+	    gene_name IN ('APLN',
+	      'CCL26',
+	      'IL19',
+	      'IL37')
+	    AND project_short_name = 'TCGA-COAD' ) AS b
+	ON
+	  a.aliquot_barcode = b.aliquot_barcode
+	GROUP BY
+	  gene1,
+	  gene2"
 
-    corrs <- query_exec(q,my_cloud_project)
+    corrs <- query_exec(q,my_cloud_project, use_legacy_sql=F)
 
     # transform to a matrix, and give it rownames
     library(tidyr)
@@ -144,14 +146,14 @@ immune response.
 .. code-block:: r
 
     q <- "
-    select
+    SELECT 
       DB_Object_Symbol
-    from
-      [isb-cgc:genome_reference.GO_Annotations]
-    where
+    FROM
+      `isb-cgc.genome_reference.GO_Annotations`
+    WHERE
       GO_ID = 'GO:0006955'"
 
-    query_exec(q, my_cloud_project)
+    query_exec(q, my_cloud_project, use_legacy_sql=F)
 
 
 That query returns 472 genes. But let's suppose we want the top 50 by
@@ -160,30 +162,29 @@ coefficient of variance.
 .. code-block:: r
 
     q <- "
-    SELECT
-      HGNC_gene_symbol,
-      STDDEV(normalized_count+1) / AVG(normalized_count+1) AS cv
-    FROM
-      [isb-cgc:tcga_201607_beta.mRNA_UNC_RSEM]
-    WHERE
-      HGNC_gene_symbol IN (
-      SELECT
-        DB_Object_Symbol
-      FROM
-        [isb-cgc:genome_reference.GO_Annotations]
-      WHERE
-        GO_ID = 'GO:0006955')
-      AND Study = 'BRCA'
-      AND SampleTypeLetterCode = 'TP'
-    GROUP BY
-      HGNC_gene_symbol
-    ORDER BY
-      cv DESC
-    LIMIT
-      50"
+	SELECT
+	  gene_name,
+	  STDDEV(HTSeq__FPKM+1) / AVG(HTSeq__FPKM+1) AS cv
+	FROM
+	  `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
+	WHERE
+	  gene_name IN (
+	  SELECT
+	    DB_Object_Symbol
+	  FROM
+	    `isb-cgc.genome_reference.GO_Annotations`
+	  WHERE
+	    GO_ID = 'GO:0006955')
+	  AND project_short_name = 'TCGA-BRCA'
+	GROUP BY
+	  gene_name
+	ORDER BY
+	  cv DESC
+	LIMIT
+	  50"
 
-    result <- query_exec(q, my_cloud_project)
-    genes <- result$HGNC_gene_symbol
+    result <- query_exec(q, my_cloud_project, use_legacy_sql=F)
+    genes <- result$gene_name
 
 Now we have a list of genes that we can carry to further analysis.
 
@@ -226,8 +227,8 @@ cohorts and the items contains information about the cohorts.
     lapply(my_cohorts$items, function(x) x$name)
 
 Now that we have the cohort IDs, we can collect the various barcodes contained
-in the cohort. These include patient barcodes, sample barcodes, and platform
-specific aliquot barcodes. To do this, we can use the barcodes_from_cohort function.
+in the cohort. These include patient barcodes, sample barcodes, and 
+aliquot barcodes. To do this, we can use the barcodes_from_cohort function.
 
 HERE I'm using my cohort #4, but change this to whatever you have saved.
 
@@ -237,12 +238,12 @@ HERE I'm using my cohort #4, but change this to whatever you have saved.
     my_cohort_id <- lapply(my_cohorts$items, function(x) x$id)[[4]]
 
     # then ping the endpoints with the cohort ID
-    my_barcodes <- barcodes_from_cohort(my_cohort_id, my_token)
+    my_barcodes <- cohort_barcodes(my_cohort_id, my_token)
     names(my_barcodes)
 
 The object returned from barcodes_from_cohort is again a list, this time with
-elements 'cohort_id', 'sample_count', 'patient_count', 'patients', and 'samples'.
-The patients and samples elements are also lists, but lists of patients or sample barcodes.
+elements 'cohort_id', 'sample_count', 'case_count', 'cases', and 'samples'.
+The cases and samples elements are also lists, but lists of cases or sample barcodes.
 
 .. code-block:: r
 
@@ -267,37 +268,34 @@ But also we can incorporate long lists of samples or genes into a query.
 
     q <- paste("
     SELECT
-      a.HGNC_gene_symbol as gene1,
-      b.HGNC_gene_symbol as gene2,
-      CORR(a.normalized_count, b.normalized_count) as corr
+      a.gene_name as gene1,
+      b.gene_name as gene2,
+      CORR(a.HTSeq__FPKM, b.HTSeq__FPKM) as corr
     FROM (
       SELECT
         *
       FROM
-        [isb-cgc:tcga_201607_beta.mRNA_UNC_HiSeq_RSEM]
+        `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
       WHERE
-        HGNC_gene_symbol IN ", sqf(genes), "
-        AND SampleBarcode IN ", sqf(samples), "
-        AND SampleTypeLetterCode = 'TP'
+        gene_name IN ", sqf(genes), "
+        AND sample_barcode IN ", sqf(samples), "
       ) AS a
     JOIN (
       SELECT
         *
       FROM
-        [isb-cgc:tcga_201607_beta.mRNA_UNC_HiSeq_RSEM]
+        `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
       WHERE
-        HGNC_gene_symbol IN ", sqf(genes), "
-        AND SampleBarcode IN ", sqf(samples), "
-        AND SampleTypeLetterCode = 'TP'
+        gene_name IN ", sqf(genes), "
+        AND sample_barcode IN ", sqf(samples), "
       ) AS b
     ON
-      a.AliquotBarcode = b.AliquotBarcode
-      AND a.Platform = b.Platform
+      a.aliquot_barcode = b.aliquot_barcode
     GROUP BY
       gene1,
       gene2", sep=" ")
 
-    corrs <- query_exec(q,my_cloud_project)
+    corrs <- query_exec(q,my_cloud_project, use_legacy_sql=F)
 
     # transform to a matrix, and give it rownames
     library(tidyr)
