@@ -5,7 +5,7 @@ Data Releases and Future Plans
 Release Notes
 #############
 
-* December 19, 2017:  The ISB-CGC cohort metadata has been update to reflect the new and update TARGET gene expression data provided by the GDC in their data 9 release. 
+* December 19, 2017:  The ISB-CGC cohort metadata has been update to reflect the new and update TARGET gene expression data provided by the GDC in their data release 9. 
 
 * December 6, 2017: the GDC release 9 included some updated and new TARGET gene expression data. The BigQuery table **isb-cgc:TARGET_hg38_data_v0.RNAseq_Gene_Expression** has been updated to reflect this. 
   
