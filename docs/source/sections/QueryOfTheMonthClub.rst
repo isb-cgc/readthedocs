@@ -1,18 +1,560 @@
-***********************
-Query of the Month Club
-***********************
+********************
+Query of the Month 
+********************
 
-Welcome to the 'Query of the Month Club' where we'll be creating a collection
+Welcome to the 'Query of the Month' where we'll be creating a collection
 of new and interesting queries to demonstrate the powerful combination of
-BigData from the TCGA and BigQuery from Google.
+BigData from the NCI cancer programs like TCGA, and BigQuery from Google.
 
-Please let us know if you'd like to be featured on the "query-club"!
-email: dgibbs (at) systemsbiology (dot) org
+Please let us know if you have an idea or a suggestion for our next QotM!
 
-------------------
+Query of the Month is produced by:
+
+
+- David L Gibbs (david.gibbs (~at~) systemsbiology (~dot~) org)
+
+- Sheila M Reynolds (sheila.reynolds (~at~) systemsbiology (~dot~) org)
+
+
+-----------------------
+
+Table of Contents
+=================
+
+2017
+++++
+
+- December_: BigQuery comparing TCGA samples to GTEx tissues with Spearman correlation.
+
+- November_: Run an R (or python) script in batch mode using dsub on the google cloud.
+
+- October_: Using plotly for visualization in Shiny apps. We implement an interatictive heatmap using heatmaply
+
+- September_: We implement a new statistical test in BigQuery: the one-way ANOVA.
+
+- August_: A small demo application using BigQuery as the backend for a Shiny app.
+
+- July_: Look at the BigQuery RECORD data type in methylation tables from the GDC.
+
+- May_: Continued from April: estimating the distance between samples based on shared mutations in pathways.
+
+- April_: BigQuery compute a similarity metric on overlapping mutations between samples.  Uses MC3 mutation table and data from COSMIC.
+
+- March_: BigQuery to compute a pairwise distance matrix and a heatmap in R
+
+- February_: Using BigQuery, define K-means clustering as a user defined (javascript) function
+
+- January_: Comparing Standard SQL and Legacy SQL.
+
+2016
+++++
+
+- December2016_: Spearman correlation in BigQuery to compare the new hg38 expression data to the hg19 data
+
+Resources_:
+Links to help!
+
+-----------------------
+
+.. _December:
+
+December, 2017
+##############
+
+For December we're getting back to BigQuery. And, we've got a good one this month.
+Perhaps you've heard of `The Genotype-Tissue Expression (GTEx) project <https://www.gtexportal.org/home/>`_ ?
+It's a fantastic collection of data; donors provided a wide range of healthy tissue samples
+that have been used to produce a range of data types, including expression and
+genomics data. You can see the `documentation <https://www.gtexportal.org/home/documentationPage>`_
+for a complete description.
+
+
+Well... for this month's query we've put some of this data in the *cloud*!
+
+
+As a demonstration use-case, we thought it would be interesting to compare gene expression signatures between
+TCGA and GTEx, and look at the correlation between each TCGA sample (of which there are over 10,000) and each GTEx tissue type
+(of which there are 53, with the expression data averaged from multiple samples from the same tissue type).
+See below for R code and visualizations.
+
+
+The bigquery below contains the following steps:
+
+- select the 5K most variable genes from each data source
+- find the intersection of these two lists: this will be the list of ~3200 genes that we'll use in the correlations
+- build sub-tables of the expression data
+- rank the expression data within each sample
+- perform an all-by-all correlation of the ranks, between TCGA samples and GTEx tissue types (this is Spearman's correlation)
+- return 545,317 rows(!) where each row represents the correation between one TCGA sample and one GTEx tissue type
+
+
+Amazingly, this query processes 12.7 GB, takes about 10-20 seconds, and only cost 6 cents!
+
+
+.. code-block:: sql
+
+  WITH
+  --
+  -- # First we select the 5,000 most variable genes from GTEx.
+  -- # This is across all tissues.
+  --
+    GTEx_top5K AS (
+    SELECT
+      gene_id,
+      gene_description,
+      STDDEV(gene_exp) AS sigmaExp
+    FROM
+      `isb-cgc.GTEx_v7.gene_median_tpm`
+    GROUP BY
+      1,
+      2
+    ORDER BY
+      sigmaExp DESC
+    LIMIT
+      5000 ),
+      --
+      -- # Then we select the most variable 5K genes from TCGA.
+      --
+    TCGA_top5K AS (
+    SELECT
+      HGNC_gene_symbol,
+      STDDEV(normalized_count) AS sigmaExp
+    FROM
+      `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
+    WHERE
+      platform='IlluminaHiSeq'
+      AND HGNC_gene_symbol IS NOT NULL
+    GROUP BY
+      1
+    ORDER BY
+      sigmaExp DESC
+    LIMIT
+      5000 ),
+      --
+      -- # next we join the gene symbol tables to get the gene lists.
+      --
+    geneList AS (
+    SELECT
+      gene_id,
+      HGNC_gene_symbol AS gene_symbol
+    FROM
+      GTEx_top5K
+    JOIN
+      TCGA_top5K
+    ON
+      gene_description=HGNC_gene_symbol ),
+      --
+      -- # then we rank the gene expression within a sample_barcode.
+      --
+    tcgaData AS (
+    SELECT
+      sample_barcode,
+      project_short_name AS project,
+      HGNC_gene_symbol AS gene_symbol,
+      normalized_count AS expr,
+      DENSE_RANK() OVER (PARTITION BY sample_barcode ORDER BY normalized_count ASC) AS rankExpr
+    FROM
+      `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
+    WHERE
+      platform='IlluminaHiSeq'
+      AND HGNC_gene_symbol IN (
+      SELECT
+        gene_symbol
+      FROM
+        geneList) ),
+        --
+        -- # and also rank the GTEx data
+        --
+    gtexData AS (
+    SELECT
+      SMTSD AS tissueType,
+      gene_description AS gene_symbol,
+      gene_exp AS expr,
+      DENSE_RANK() OVER (PARTITION BY SMTSD ORDER BY gene_exp ASC) AS rankExpr
+    FROM
+      `isb-cgc.GTEx_v7.gene_median_tpm`
+    WHERE
+      gene_description IN (
+      SELECT
+        gene_symbol
+      FROM
+        geneList ) ),
+        --
+        -- # last table join on TCGA and GTEx ranked gene expression data
+        --
+    j1 AS (
+    SELECT
+      g.tissueType AS GTEx_tissueType,
+      g.gene_symbol,
+      g.rankExpr AS gRank,
+      t.sample_barcode,
+      t.project AS TCGA_project,
+      t.rankExpr AS tRank
+    FROM
+      gtexData g
+    JOIN
+      tcgaData t
+    ON
+      g.gene_symbol=t.gene_symbol ),
+      --
+      -- # and last, we correate on the ranks (Spearman's correlation).
+      --
+    gtCorr AS (
+    SELECT
+      GTEx_tissueType,
+      sample_barcode,
+      TCGA_project,
+      CORR(gRank,tRank) AS corr
+    FROM
+      j1
+    GROUP BY
+      1,
+      2,
+      3 )
+      --
+      --
+      --
+  SELECT
+    *
+  FROM
+    gtCorr
+  ORDER BY
+    corr DESC
+
+
+So now we'll run the query and create some visualizations.
+
+
+.. code-block:: r
+
+
+  library(bigrquery)
+
+  q <- as.character(_the_query_above_)
+
+  res0 <- query_exec(q, project=__my_project__, use_legacy_sql=F)
+
+  dim(res0)
+  #[1] 545317      4
+
+  head(res0)
+    GTEx_tissueType   sample_barcode TCGA_project      corr
+  1           Liver TCGA-DD-A39V-11A    TCGA-LIHC 0.9213024
+  2           Liver TCGA-DD-A39Z-11A    TCGA-LIHC 0.9189148
+  3           Liver TCGA-DD-A3A1-11A    TCGA-LIHC 0.9176827
+  4           Liver TCGA-FV-A3R2-11A    TCGA-LIHC 0.9153921
+  5           Liver TCGA-DD-A3A5-11A    TCGA-LIHC 0.9149076
+  6           Ovary TCGA-BG-A3PP-11A    TCGA-UCEC 0.9139462
+
+
+OK, now we have our table of results, where each TCGA sample is paired with a
+GTEx tissue type. Let's take a look at how the tissues correspond.
+
+Just a note here: it would be a good idea to save the results from this query into a new BigQuery
+table, and continue to query the new table ... but we'll just bring it down and process it locally.
+
+First question: what is the top scoring correlation for each TCGA type (and for each GTEx tissue type)?
+We'll group by TCGA tissue type, and within those groups, pull out the row
+containing the maximum correlation. Then, we'll group by GTEx tissue-type, and then for each tissue-type
+pull out row containing the maximum correlation.
+
+.. code-block:: r
+
+  library(dplyr)
+  byTCGA <- res0 %>%
+    select(GTEx_tissueType, TCGA_project, corr) %>%
+      group_by(TCGA_project) %>%
+        filter(corr == max(corr))
+
+    byGTEx <- res0 %>%
+      select(GTEx_tissueType, TCGA_project, corr) %>%
+        group_by(GTEx_tissueType) %>%
+          filter(corr == max(corr))
+
+  > data.frame(byTCGA)
+                         GTEx_tissueType TCGA_project      corr
+  1                                Liver    TCGA-LIHC 0.9213024
+  2                                Ovary    TCGA-UCEC 0.9139462
+  3                        Adrenal Gland    TCGA-PCPG 0.9100819
+  4         Brain - Frontal Cortex (BA9)     TCGA-LGG 0.9100485
+  5                                Liver    TCGA-CHOL 0.9089752
+  6         Brain - Frontal Cortex (BA9)     TCGA-GBM 0.9021079
+  7                               Uterus    TCGA-CESC 0.8998127
+  8                              Thyroid    TCGA-THCA 0.8927743
+  9                        Adrenal Gland     TCGA-ACC 0.8871793
+  10                  Esophagus - Mucosa    TCGA-HNSC 0.8843076
+
+  > data.frame(byGTEx)
+                               GTEx_tissueType TCGA_project      corr
+  1                                      Liver    TCGA-LIHC 0.9213024
+  2                                      Ovary    TCGA-UCEC 0.9139462
+  3                              Adrenal Gland    TCGA-PCPG 0.9100819
+  4               Brain - Frontal Cortex (BA9)     TCGA-LGG 0.9100485
+  5                             Brain - Cortex     TCGA-LGG 0.9049930
+  6                                     Uterus    TCGA-CESC 0.8998127
+  7   Brain - Anterior cingulate cortex (BA24)     TCGA-LGG 0.8929013
+  8                                    Thyroid    TCGA-THCA 0.8927743
+  9                         Esophagus - Mucosa    TCGA-HNSC 0.8843076
+  10                          Brain - Amygdala     TCGA-LGG 0.8832739
+
+
+
+The tissue signatures match up very well across projects! We see TCGA tissue types correlating
+most strongly with the most similar GTEx tissue types. There are some differences
+depending on whether we look in blocks by TCGA tumor-type or by GTEx tissue-type, but 15 match exactly
+from the two tables.
+
+
+The "Liver" expression profile in particular seems to be very specific.
+Let's see how TCGA liver samples correlate with GTEx.
+
+.. code-block:: r
+
+  library(ggplot2)
+
+  lihcCorrs <- res0 %>%
+    filter(TCGA_project == 'TCGA-LIHC') %>%
+      select(GTEx_tissueType, TCGA_project, corr) %>%
+        group_by(TCGA_project)
+
+  qplot(data=lihcCorrs, x=GTEx_tissueType, y=corr, geom="boxplot", col=as.factor(GTEx_tissueType)) +
+    theme(legend.position="none") +
+    theme(axis.text.x=element_text(angle=45, hjust=1)) +
+    ggtitle("TCGA-LIHC")
+
+
+.. figure:: query_figs/GTEx_TCGA_corr_LIHC.png
+   :scale: 30
+   :align: center
+
+
+Where do we find unexpected correlations? When grouping by TCGA tissue, TCGA-SKCM
+actually has the highest correlation with Spleen (0.798). SKCM is the abbreviation
+for *melanoma* (SKin Cancer Melanoma) "a cancer in the type of skin cells called melanocytes" (from the GDC's site).
+To me that was a little unexpected, so let's unpack that a bit.
+
+
+.. code-block:: r
+
+  library(ggplot2)
+
+  skcmCorrs <- res0 %>%
+    filter(TCGA_project == 'TCGA-SKCM') %>%
+      select(GTEx_tissueType, TCGA_project, corr) %>%
+        group_by(TCGA_project)
+
+  qplot(data=skcmCorrs, x=GTEx_tissueType, y=corr, geom="boxplot", col=as.factor(GTEx_tissueType)) +
+    theme(legend.position="none") +
+    theme(axis.text.x=element_text(angle=45, hjust=1))
+
+
+.. figure:: query_figs/GTEx_TCGA_corr_SKCM.png
+   :scale: 30
+   :align: center
+
+
+After mentioning this to Sheila, she remembered that many of the melanoma samples are
+metastatic samples taken from lymph nodes, and,
+the spleen, like the lymph nodes, is a secondary or peripheral lymphoid organ.
+Primary tumor sample barcodes are of the form 'TCGA-XY-1234-01' (with the final two digits
+indicating the sample type), while metastatic sample barcodes end in '-06'.
+Let's label the points according to the sample type and see what that looks like.
+
+
+.. code-block:: r
+
+  skcmSpleenRows <- res0 %>% filter(GTEx_tissueType == 'Spleen' & TCGA_project == 'TCGA-SKCM')
+  qplot(data=skcmSpleenRows, x=1:nrow(skcmSpleenRows), y=corr, col=metastatic, pch=metastatic) +
+    xlab("Samples") +
+    ggtitle("SKCM correlation with spleen tissue")
+
+
+.. figure:: query_figs/SKCM_Spleen_corrs.png
+   :scale: 30
+   :align: center
+
+
+So from the plot we see that, indeed, most of the SKCM samples are metastatic samples
+taken from lymph nodes, explaining the high correlation that a few of them have with
+the Spleen tissue-type.
+
+Lastly, let's just look at the median correlations between each TCGA and GTEx
+tissue type.
+
+.. code-block:: r
+
+  library(dplyr)
+  library(tidyr)
+  library(pheatmap)
+  res1 <- res0 %>% group_by(GTEx_tissueType, TCGA_project) %>% summarize(MeanCorr = median(corr, na.rm=T))
+  res2 <- spread(res1, key=GTEx_tissueType, value=MeanCorr)
+  resdf <- as.data.frame(res2)
+  rownames(resdf) <- resdf$TCGA_project
+  pheatmap(resdf[,-1])
+
+
+.. figure:: query_figs/GTEx_TCGA_corr_heatmap_median.png
+   :scale: 30
+   :align: center
+
+
+Thanks everyone! Hope you learned something this year. We sure did. See you in 2018!
+
+Sincerely, the ISB-CGC team.
+
+.. _November:
+
+November, 2017
+##############
+
+
+This month, we're going to shift topics and talk about running scripts in the cloud.
+In this example we're going to use R, but it would be just as easy to run a python script.
+
+The code can be found `here <https://github.com/Gibbsdavidl/examples-R/tree/master/demos/google_dsub_RStan_example>`_
+
+In this example, I'm going to be fitting Bayesian logistic regression models
+using `Stan <http://mc-stan.org>`_ (a statistical modeling and computation platform).
+Each job will process a different file,
+but we could also have each job represent a different set of parameters, all
+processing the same data.
+
+We are going to use `dsub <https://github.com/googlegenomics/dsub>`_ to run the script,
+which is similar to qsub, the common job scheduler found on many clusters and grids.
+To run each job in parallel, dsub spins up a
+`GCE VM <https://cloud.google.com/compute/docs/instances/>`_,
+starts up a named docker on the VM,
+copies input data from a
+`GCS bucket <https://cloud.google.com/storage/docs/>`_,
+runs the specified script, copies the output data back out to a (potentially different) GCS bucket,
+and finally shuts down the VM. (** See below for help on installation on Macs! **)
+
+'Batch mode' is one of the most important dsub features. It allows one to launch many
+jobs with a single command. Batch mode
+takes a "tasks file" or as I call it, the "task matrix", and reads each row
+as command line parameters for a job. So for example,
+one column can name the location (in a google bucket) of the input data,
+another column can have parameters related to the script.
+
+
+As part of this demonstratation, we will:
+
+1. Define a custom R script to process user data.
+   (stan_logistic_regression.R, data/*)
+2. Generate a 'task matrix', each row describing a job in the google cloud.
+   (cmd_generator.R, task_matrix.txt)
+3. Use Google dsub to automatically start up a VM, run a script, and shutdown.
+   Please see the `how_to_dsub.txt <https://github.com/isb-cgc/examples-R/blob/master/demos/google_dsub_RStan_example/how_to_dsub.txt>`_ file for instructions.
+
+
+OK, so first we will take a look at the R code. The way dsub works is that a
+docker image is started up on a VM, and at that time, variables defined
+in the 'tasks file' become available as environment variables. So you can think
+about these like command line arguments, but to get them in the script, we use
+'Sys.getenv()'. The variables enter the script as strings and will need to be
+typecast, depending on the need. The environment variable names are set in the
+tasks file as column names using `--env`. We'll look at that next.
+
+.. code-block:: r
+
+    # get the file name from the env variable.
+    dat <- read.csv(Sys.getenv('DATA_FILE'))
+
+    # stan models take a list of data
+    data_list <- list(y = dat$y, x = dat$x, N = length(dat$y))
+
+    # compiling and producing posterior samples from the model.
+    stan_samples <- stan(model_code = model, data = data_list)
+
+    # use the environment variable as a file name for a plot.
+    png(Sys.getenv('OUTPUT_PLOT'))
+    plot(stan_samples)
+    dev.off()
+
+    # and finally writing out a table
+    write.table(as.data.frame(stan_samples), file=Sys.getenv('OUTPUT_TABLE'), quote=F, row.names=F)
+
+
+
+It's pretty easy to programmatically construct a tasks file. You can find an example
+of that in `cmd_generator.R <https://github.com/isb-cgc/examples-R/blob/master/demos/google_dsub_RStan_example/cmd_generator.R>`_,
+which writes out a tab-delimited table with the variables needed in each row.
+There are essentially three types of parameters: inputs, outputs, and environment variables.
+Most importantly, the inputs and outputs need to be GCS urls to objects in a bucket. So I've put my data
+in my bucket, and I use that link in the script.
+
+
+Please see these `examples. <https://github.com/googlegenomics/dsub/tree/master/examples/custom_scripts>`_ ::
+
+    --env SAMPLE_ID     --input DATA_FILE                    --output OUTPUT_TABLE           --output OUTPUT_PLOT
+    1                   gs://my_bucket/data/data_file_1.csv  gs://my_bucket/stan_table1.txt  gs://my_bucket/stan_plot1.png
+    2                   gs://my_bucket/data/data_file_2.csv  gs://my_bucket/stan_table2.txt  gs://my_bucket/stan_plot2.png
+    3                   gs://my_bucket/data/data_file_3.csv  gs://my_bucket/stan_table3.txt  gs://my_bucket/stan_plot3.png
+
+::
+
+Now, if you're on a Mac, it can be pretty hard to get dsub installed. It's due to
+a conflict with the apple version of the 'six' python library,
+see https://github.com/pypa/pip/issues/3165 for more info.
+
+
+To get around this, we can install dsub in a `virtual environment <https://packaging.python.org/guides/installing-using-pip-and-virtualenv/>`_ .
+Make sure you're using the 'bash shell'.
+
+.. code-block:: bash
+
+    virtualenv dsub_libs
+    source dsub_libs/bin/activate
+    pip install dsub
+
+
+Now we're pretty close at this point. We need to put our data in a google bucket
+and find a suitable docker image. If you can't find a docker image with everything
+you need, it's fairly easy to build one. But for this purpose, I searched for
+'docker and RStan' and found some docker images.
+
+* https://github.com/jburos/rstan-docker
+
+* https://hub.docker.com/r/jackinovik/rstan-complete/
+
+To run dsub, the command looks like:
+
+.. code-block:: bash
+
+  dsub \
+    --project my-google-project-0001 \
+    --zones "us-west-*" \
+    --logging gs://my_google_bucket/logs/ \
+    --image jackinovik/rstan-complete \
+    --script ./stan_logistic_regression.R \
+    --tasks task_matrix.txt \
+    --preemptible \
+    --wait
+
+
+We simply run that and we get a response...::
+
+  Job: stan-logis--davidlgibbs--171107-193915-44
+  Launched job-id: stan-logis--davidlgibbs--171107-193915-44
+  3 task(s)
+  To check the status, run:
+    dstat --project my-google-project-0001 --jobs 'stan-logis--davidlgibbs--171107-193915-44' --status '*'
+  To cancel the job, run:
+    ddel --project my-google-project-0001 --jobs 'stan-logis--davidlgibbs--171107-193915-44'
+  Waiting for job to complete...
+  Waiting for: stan-logis--davidlgibbs--171107-193915-44.
+::
+
+Now, we can check if our job's finished using the `dstat` command or simply look in
+our output bucket. If there's a problem, it's mandatory to read the logs!
+
+The exact same procedure could be used to run python or bash scripts.
+
+
+.. _October:
 
 October, 2017
-###############
+#############
 
 For October, we're going to dive into using Plotly for visualziation in Shiny
 apps. In particular, we're going to implement an interatictive heatmap using
@@ -28,7 +570,7 @@ heatmaply. To start, here's some important links.
 
 `bigrquery <https://github.com/r-dbi/bigrquery>`_
 
-Exciting highlights include using BigRQuery to make queries from *inside* shiny!
+Exciting highlights include using BigRQuery to make queries from *inside* Shiny!
 We do that by using service account authorization. And of course, heatmaply,
 an interactive heatmap that lets you zoom and scroll around.
 
@@ -291,6 +833,8 @@ systemsbiology *dot* org.
 
 ------------------
 
+.. _September:
+
 September, 2017
 ###############
 
@@ -328,7 +872,7 @@ that compares the expression between individuals with a SNP and without a SNP,
 using the same SQL as the August query.  I've put that query in this
 `github gist <https://gist.github.com/Gibbsdavidl/8a20097aaf8bece8fc586310795b54da>`_.
 
-And you can find the associated shiny app, using the same layout
+And you can find the associated Shiny app, using the same layout
 from August, where we plot the F distribution and show a comparison of means.
 You can find that `here <https://isb-cgc.shinyapps.io/mutstatusexpranova/>`_.
 
@@ -530,10 +1074,12 @@ that compares the expression between individuals with a SNP and without a SNP,
 using the same SQL to create groups as last month.  I've put that query in this
 `github gist <https://gist.github.com/Gibbsdavidl/8a20097aaf8bece8fc586310795b54da>`_.
 
-And additionally, I've put that query into a shiny app, that uses the same layout
+And additionally, I've put that query into a Shiny app, that uses the same layout
 from August.  You can find that `here <https://isb-cgc.shinyapps.io/mutstatusexpranova/>`_.
 
 ------------------
+
+.. _August:
 
 August, 2017
 ###########
@@ -547,7 +1093,7 @@ and even watch the `video <https://youtu.be/qa2OxQLUhBY>`_.
 Using the R programming language, Shiny is an easy way to produce interactive
 visualizations that can be hosted on the web.
 
-Shiny sites are hosted by a shiny server, which you can set up locally or
+Shiny sites are hosted by a Shiny server, which you can set up locally or
 use the free shinyapps.io service, which is provided by the same
 company that produces the RStudio (which has a builtin Shiny server for dev work).
 
@@ -849,6 +1395,8 @@ The results for the TCGA-LGG cohort are also quite striking -- go have a look!
 
 ------------------
 
+.. _July:
+
 July, 2017
 ###########
 
@@ -1119,6 +1667,8 @@ see if there are important differences between hg19/GRCh37 and hg38/Grch38.
 If you come up with some useful queries, feel free to email us and
 we'll feature you on this page!
 
+
+.. _May:
 
 May, 2017
 ###########
@@ -1829,11 +2379,9 @@ of tissue, whereas other tissue types share patterns of disrupted pathways.
   :align: center
 
 
-================
+------------------
 
-================
-
-
+.. _April:
 
 April, 2017
 ###########
@@ -2342,6 +2890,8 @@ Thanks for joining us this month!
 
 ------------------
 
+.. _March:
+
 March, 2017
 ###########
 
@@ -2600,6 +3150,7 @@ Now, let's see that distance matrix in R!
 
 -------------
 
+.. _February:
 
 February, 2017
 ##############
@@ -2971,6 +3522,8 @@ Save the cluster assignments to a csv file, and read it into R.
 
 
 -------------
+
+.. _January:
 
 January, 2017
 #############
@@ -3385,6 +3938,9 @@ segments, while the "standard" solution takes a simpler approah.
 
 ------------------
 
+.. _December2016:
+
+
 December, 2016
 ##############
 
@@ -3717,6 +4273,8 @@ Note that the latest version of the bigrquery package supports standard SQL, so 
   # with both high and low correlations. What do you notice?
 
 ------------
+
+.. _Resources:
 
 Let us know if you're having trouble! We're here to help.
 

@@ -218,11 +218,20 @@ When omitting either barcode type, please be sure to still include the empty col
 Upload Tab
 -----------
 
-This feature allows to upload files with barcodes to create a cohort. The file can be a maximum of 32MB.  Also files must be in tab- or comma-delimited 
-format (TSV or CSV) and have an extension of .txt, .csv, or .tsv.
+This feature allows to upload files with barcodes to create a cohort. Files must be in GDC Data Portal case manifest format, or in comma/tab-delimited case/sample/program format. The file can be a maximum of 32MB.  Also, files must be in tab- or comma-delimited 
+format (TSV or CSV) and have an extension of .txt, .csv, or .tsv.  
 After selecting the file and uploading it, the entries will be validated. Any entries which are found to be invalid will be
 listed, and you can choose to omit them and continue with cohort creation, or select
-a new file for verification and upload.
+a new file for verification and upload. 
+
+**GDC Data Portal Case Manifest Files**
+
+GDC Data Portal case manifests can be obtained on the 'Cases' tab of the Exploration section of the data portal `'Cases' tab of the Exploration section of the data portal <https://portal.gdc.cancer.gov/exploration>`_.
+JSON case manifests must have a .json extension, and will be validated against the GDC's JSON schema. The minimum required properties for each entry in the JSON file are the project object and the submitter_id field. The project object must include the project_id property. All other properties will be ignored.
+
+TSV case manifests must have a .tsv extension, and must contain the first 3 columns of the GDC TSV case manifest in the following order: Case UUID, Case ID, Project. Any other columns will be ignored. Do not remove the header row of the TSV case manifest.
+
+Because the GDC Data Portal case manifest entries are cases, all samples from a case will be included in the cohort.
 
 Enter Tab
 ---------
@@ -249,6 +258,7 @@ From the "COHORTS" page you can select:
 * Share: This will share the web view of the cohorts with users you select by entering the users e-mail. If the email address you entered in
   not registered in the database you are prompted with a message saying, "The following user emails could not be found; please ask them 
   to log into the site first:(email entered)."
+  
 
 Set Operations
 ==============
@@ -297,6 +307,40 @@ From the "SAVED COHORTS" tab you can:
 * Share: This will share the web view of the cohorts with users you select by entering the users e-mail. If the email address you entered in
   not registered in the database you are prompted with a message saying, "The following user emails could not be found; please ask them to
   to log into the site first:(email entered)."
+* Export to BQ(BigQuery): This will allow you to create a new table or append to an existing table. You must have registered BigQuery dataset with a Google Cloud Project on the registered Google Cloud Projects details page. 
+  If a user wants to export their cohort to a premade table of their own, we require it to have the necessary columns. Here's the schema: 
+  
+  {
+        'fields': [
+            {
+                'name': 'cohort_id',
+                'type': 'INTEGER',
+                'mode': 'REQUIRED'
+            },{
+                'name': 'case_barcode',
+                'type': 'STRING',
+                'mode': 'REQUIRED'
+            },{
+                'name': 'sample_barcode',
+                'type': 'STRING',
+                'mode': 'REQUIRED'
+            },{
+                'name': 'project_short_name',
+                'type': 'STRING',
+                'mode': 'REQUIRED'
+            },{
+                'name': 'date_added',
+                'type': 'TIMESTAMP',
+                'mode': 'REQUIRED'
+            },{
+                'name': 'case_gdc_uuid',
+                'type': 'STRING'
+            }
+        ]
+    }
+  
+  *Note:* You shouldn't ever set UUID to 'required' because sometimes a sample doesn't have a UUID, and the attempt to insert a 'null' will cause the cohort export to fail.
+ 
 
 ISB-CGC DATA and USER DATA tab
 --------------------------------
@@ -386,10 +430,18 @@ Viewing a Sequence
 ==================
 
 When available, sequences in a cohort can be viewed using the IGV viewer.  To find those sequences that can be viewed with the IGV viewer, open a cohort and select the "View Files" button at the top of the page.  The files associated with your cohort will be shown, with the last column indicating if the IGV viewer can be used to view the contents of that file.
-This is indicated by a checkbox beside either "GA4GH" and/or "Cloud Storage").  Clicking the "Launch IGV" button will take you to an IGV view of the selected sequence(s) data.  
+This is indicated by a checkbox beside "Cloud Storage").  Clicking the "Launch IGV" button will take you to an IGV view of the selected sequence(s) data.  
 Controlled access files will be viewable by sequence ONLY if you have `authenticated as a dbGaP-authorized user <Gaining-Access-To-Contolled-Access-Data.html>`_. 
 
 (`more information about Viewing a Sequence in the IGV Viewer <IGV-Browser.html>`_).
+
+
+Viewing a Pathology Image
+=========================
+
+When available, pathology images can be viewed using the caMicroscope tool (see more about caMicroscope provide `here <http://imaging.cci.emory.edu/wiki/display/CAMIC/Home>`_ ).  These are the pathology images that are associated with TCGA samples (not all files are currently available, due to some metadata that is not in place at GDC describing the image files.  ISB-CGC is working with GDC to resolve this issue, and more images will be appearing when that issue is resolved).  To find images that can be viewed, open a saved cohort and select the "View Files" button at the top of the page.  The files associated with your cohort will be shown, with the last column indicating if the caMicro viewer can be used to view the contents of that file.  This is indicated by a checkbox beside the word caMicro (HINT: by selecting the "Clinical" platform ONLY the clinical files that have the pathology images associated with them will be displayed.)(HINT 2: using a smaller cohort will provide faster response in creating the list of files available).
+
+A maximum of 5 slides can be viewed at one time.  To view these slides, select the caMicro check-boxes for each sample you want to view.  Then, go to the top of the page, and select the "caMicroscope" tab. The images that have been selected to view are shown. Pressing the "Launch caMicrosope" button launches a new window with individual tabs displaying the image.  To zoom into the image, either click the left button or use your wheel to zoom in.  Use your mouse to move around the image.  To zoom out of the image, shift-slick the left mouse button or use your wheel to zoom out.  Individual tabs with each image can also be launched to compare multiple images by pushing the "Open in new tab" button.
 
 Deleting a cohort
 =================

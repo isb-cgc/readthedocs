@@ -182,7 +182,7 @@ The endpoints have been reorganized to support the multiple programs that now ha
 
 **Please Note:** For the create.cohort API for all programs require the user to select inbetween the brackets to view the possible filter(s) for cohort being built.
 
-Details for each of these enpoints can be found below:
+Details for each of these endpoints can be found below:
 
 **Universal Endpoints**
 
