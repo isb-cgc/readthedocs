@@ -8,6 +8,8 @@ This framework was built around the
 and is intended to allow you to run single tasks at scale, allowing you to tailor how and when
 the tasks are submitted, monitor them as they finish etc.
 
+.. note:: With the advent of Google's `dsub <https://cloud.google.com/genomics/v1alpha2/dsub>`_ the ISB-CGC-pipelines framework is deprecated and no longer supported.  
+
 Google Genomics Pipelines
 +++++++++++++++++++++++++
 
