@@ -105,14 +105,26 @@ gene sets, the 'signficant' effect size can get pretty small.
 
 Let's get started.
 
-First we need to create our sample groups. When using the web tool over at
-https://isb-cgc.appspot.com, I see that 1,044 tumor samples from women have
-sequence data available. I get the same number at the GDC's data Portal
-(https://portal.gdc.cancer.gov/projects/TCGA-BRCA).
-
-
 Since this is standard SQL, we'll be naming each subtable, and the full
 query can be constructed by concatenating each of the following sub-queries.
+
+So, which tissue type should we focus on?  Let's query and find out!
+
+.. code-block:: sql
+
+  SELECT
+    project_short_name,
+    count(sample_barcode_tumor)
+  FROM
+    `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
+  WHERE
+    Hugo_Symbol = 'PARP1'
+  GROUP BY
+    project_short_name
+
+The result of that query shows that 73 tumor samples have PARP1 mutations in UCEC,
+followed by COAD with 26 as the next highest. That's a big lead by UCEC, so let's
+focus our work there.
 
 .. code-block:: sql
 
@@ -123,7 +135,7 @@ query can be constructed by concatenating each of the following sub-queries.
     FROM
       `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
     WHERE
-      project_short_name = 'TCGA-BRCA'
+      project_short_name = 'TCGA-UCEC'
     GROUP BY
       1
   )
@@ -142,7 +154,7 @@ Next, for all these samples, we'll want the samples that also have gene expressi
     FROM
       `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
     WHERE
-      project_short_name = 'TCGA-BRCA'
+      project_short_name = 'TCGA-UCEC'
       AND sample_barcode IN
       (select sample_barcode from s1)
     GROUP BY
@@ -190,7 +202,100 @@ theraputics. So let's gather barcodes for tumors with non-silent mutations in PA
     ),
 
 
+This results in 54 tumor samples with non-synonymous PARP1 variants and 485
+samples that do not.
 
+Next we're going to summarize the gene expression within each of these groups.
+This will be used for calulating T-statistics in the next query following this
+one.
+
+For each gene, we'll take the mean, variance, and count of samples.
+
+.. code-block:: sql
+
+    --
+    summaryGrp1 AS (
+      select
+        gene_name as symbol,
+        AVG(LOG10( HTSeq__FPKM_UQ +1)) as genemean,
+        VAR_SAMP(LOG10( HTSeq__FPKM_UQ +1)) as genevar,
+        count(sample_barcode) as genen
+      FROm
+        `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
+      WHERE
+        sample_barcode IN (select sample_barcode FROM grp1)
+        AND gene_name IN (
+          SELECT
+            Symbol as gene_name
+          FROM
+            `isb-cgc.QotM.WikiPathways_20170425_Annotated`
+        )
+      GROUP BY
+        gene_name
+    ),
+    --
+    -- Then summaries for Group 2
+    --
+    summaryGrp2 AS (
+      select
+        gene_name as symbol,
+        AVG(LOG10( HTSeq__FPKM_UQ +1)) as genemean,
+        VAR_SAMP(LOG10( HTSeq__FPKM_UQ +1)) as genevar,
+        count(sample_barcode) as genen
+      FROM
+        `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
+      WHERE
+        sample_barcode IN (select sample_barcode FROM grp2)
+        AND gene_name IN (
+          SELECT
+            Symbol as gene_name
+          FROM
+            `isb-cgc.QotM.WikiPathways_20170425_Annotated`
+        )
+      GROUP BY
+        gene_name
+    ),
+    --
+
+
+This results in two sets of summaries for 4,822 genes. With this, we are ready
+to calculate T-statistics. Here we're going to use a two sample T-test
+assuming independent variance (and that we have enough samples to assume that).
+
+
+.. code-block:: sql
+
+  tStatsPerGene AS (
+  SELECT
+    grp1.symbol as symbol,
+    grp1.genen as grp1_n,
+    grp2.genen AS grp2_n,
+    grp1.genemean AS grp1_mean,
+    grp2.genemean AS grp2_mean,
+    grp1.genemean - grp2.genemean as meandiff,
+    IF ((grp1.genevar > 0
+         AND grp2.genevar > 0
+         AND grp1.genen > 0
+         AND grp2.genen > 0),
+      (grp1.genemean - grp2.genemean) / SQRT( (POW(grp1.genevar,2)/grp1.genen)+ (POW(grp2.genevar,2)/grp2.genen) ),
+      0.0) AS tstat
+  FROM
+    summaryGrp1 as grp1
+    JOIN
+    summaryGrp2 AS grp2
+    ON
+    grp1.symbol = grp2.symbol
+  GROUP BY
+    grp1.symbol,
+    grp1.genemean,
+    grp2.genemean,
+    grp1.genevar,
+    grp2.genevar,
+    grp1.genen,
+    grp2.genen
+  ORDER BY
+    meandiff DESC
+  ),
 
 
 
