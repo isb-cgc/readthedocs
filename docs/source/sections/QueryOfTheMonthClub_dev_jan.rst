@@ -214,6 +214,7 @@ For each gene, we'll take the mean, variance, and count of samples.
 
 .. code-block:: sql
 
+    -- Summaries for Group 1 (with mutation)
     --
     summaryGrp1 AS (
       select
@@ -221,7 +222,7 @@ For each gene, we'll take the mean, variance, and count of samples.
         AVG(LOG10( HTSeq__FPKM_UQ +1)) as genemean,
         VAR_SAMP(LOG10( HTSeq__FPKM_UQ +1)) as genevar,
         count(sample_barcode) as genen
-      FROm
+      FROM
         `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
       WHERE
         sample_barcode IN (select sample_barcode FROM grp1)
@@ -235,7 +236,7 @@ For each gene, we'll take the mean, variance, and count of samples.
         gene_name
     ),
     --
-    -- Then summaries for Group 2
+    -- Summaries for Group 2 (without mutation)
     --
     summaryGrp2 AS (
       select
@@ -304,6 +305,10 @@ below.
     meandiff DESC
   ),
 
+
+.. figure:: query_figs/jan_fig1_tstats.png
+   :scale: 80
+   :align: center
 
 
 
