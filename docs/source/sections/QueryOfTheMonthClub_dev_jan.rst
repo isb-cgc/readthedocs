@@ -306,7 +306,7 @@ below.
   ),
 
 
-.. |logo1| image:: query_figs/jan_fig2_diffs_vs_ts.png1
+.. |logo1| image:: query_figs/jan_fig2_diffs_vs_ts.png
   :scale: 30%
   :align: middle
 .. |logo2| image:: query_figs/jan_fig1_tstats.png
