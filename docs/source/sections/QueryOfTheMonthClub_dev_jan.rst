@@ -306,7 +306,16 @@ below.
   ),
 
 
-<img src="query_figs/jan_fig2_diffs_vs_ts.png" width="300"/> <img src="query_figs/jan_fig1_tstats.png" width="300"/>
+.. |logo1| image:: query_figs/jan_fig2_diffs_vs_ts.png1
+  :scale: 30%
+  :align: middle
+.. |logo2| image:: query_figs/jan_fig1_tstats.png
+  :scale: 30%
+  :align: middle
+
++---------+---------+
+| |logo1| | |logo2| |
++---------+---------+
 
 
 
