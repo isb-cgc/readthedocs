@@ -103,12 +103,7 @@ t-tests, between the two groups, for each gene in the set. The statistic is then
 by the square root of the sample size (number of genes in the set), so with larger
 gene sets, the 'signficant' effect size can get pretty small.
 
-Let's get started.
-
-Since this is standard SQL, we'll be naming each subtable, and the full
-query can be constructed by concatenating each of the following sub-queries.
-
-So, which tissue type should we focus on?  Let's query and find out!
+Let's get started. So, which tissue type should we focus on?  Let's query and find out!
 
 .. code-block:: sql
 
@@ -125,6 +120,12 @@ So, which tissue type should we focus on?  Let's query and find out!
 The result of that query shows that 73 tumor samples have PARP1 mutations in UCEC,
 followed by COAD with 26 as the next highest. That's a big lead by UCEC, so let's
 focus our work there.
+
+
+Here's where our main query will begin. Since this is standard SQL,
+we'll be naming each subtable, and the full
+query can be constructed by concatenating each of the following sub-queries.
+
 
 .. code-block:: sql
 
