@@ -261,6 +261,12 @@ For each gene, we'll take the mean, variance, and count of samples.
 This results in two sets of summaries for 4,822 genes. With this, we are ready
 to calculate T-statistics. Here we're going to use a two sample T-test
 assuming independent variance (and that we have enough samples to assume that).
+The T-stat is found by taking the difference in means (of gene expression between
+our two groups), and normalizing it by measures of variance and sample size.
+Here, we want to keep T-statistics that are zero, which might come from having
+zero variance, because having a T-stat for each gene is important in the gene set
+score, even if it's a zero. To do that, you'll see the use of an IF statement
+below.
 
 
 .. code-block:: sql
