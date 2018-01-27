@@ -301,8 +301,6 @@ below.
     grp2.genevar,
     grp1.genen,
     grp2.genen
-  ORDER BY
-    meandiff DESC
   ),
 
 
@@ -317,10 +315,79 @@ below.
 | |logo1| | |logo2| |
 +---------+---------+
 
+OK! We have a distribution of T statistics. The question is whether there's
+some hidden structure to these values. Are there gene sets with unusually high
+T-statistics? And do these gene sets make any sort of biological sense?
+Let's find out!
+
+Now we are going to integrate in our gene set table. This is as easy as doing
+a table join.
+
+.. code-block:: sql
+
+  geneSetTable AS (
+  SELECT
+    gs.pathway,
+    gs.wikiID,
+    gs.Symbol,
+    st.grp1_n,
+    st.grp2_n,
+    st.grp1_mean,
+    st.grp2_mean,
+    st.meandiff,
+    st.tstat
+  FROM
+    `isb-cgc.QotM.WikiPathways_20170425_Annotated` as gs
+  JOIN
+    tStatsPerGene as st
+  ON
+    st.symbol = gs.symbol
+  GROUP BY
+    gs.pathway,
+    gs.wikiID,
+    gs.Symbol,
+    st.grp1_n,
+    st.grp2_n,
+    st.grp1_mean,
+    st.grp2_mean,
+    st.meandiff,
+    st.tstat
+  )
+
+That's it! For each gene in the pathways (gene sets) table, we have joined in
+the T-statistic comparing our two groups. Now for the gene set score! To
+get this, we're going to simply average up the T's within each pathway, and
+scale the result by the square root of the number of genes. When the number of
+genes gets large (reasonably so), the value approximates a Z-score. In this way
+we could get a p-value and perform multiple testing correction like an FDR.
+
+.. code-block:: sql
+
+  geneSetScores AS (
+  SELECT
+    pathway,
+    wikiID,
+    COUNT(symbol) AS n_genes,
+    AVG(ABS(meandiff)) AS avgAbsDiff,
+    (SQRT(COUNT(symbol))/COUNT(symbol)) * SUM(tstat) AS score
+  FROM
+    geneSetTable
+  GROUP BY
+    pathway,
+    wikiID )
+  --
+  --
+  SELECT
+    *
+  FROM
+    geneSetScores
+  ORDER BY
+    score DESC
 
 
-
-
+.. figure:: query_figs/jan_fig3_results.png
+   :scale: 50
+   :align: center
 
 
 
