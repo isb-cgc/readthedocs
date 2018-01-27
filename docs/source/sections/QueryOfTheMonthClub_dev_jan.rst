@@ -61,7 +61,9 @@ Links to help!
 
 -----------------------
 
+
 .. _January:
+
 
 January, 2018
 ##############
@@ -388,6 +390,28 @@ we could get a p-value and perform multiple testing correction like an FDR.
 .. figure:: query_figs/jan_fig3_results.png
    :scale: 80
    :align: center
+
+
+So, we see that 'Retinoblastoma (RB) in Cancer' is in the top spot with a score
+way above the #2 position. Why might that be?
+Well, PARP1 is involved in DNA damage repair, specifically through the NHEJ mechanism.
+Samples that are deficient in PARP1 are going to have a hard time repairing DNA breaks,
+which makes cancer more likely. In that case, RB1 might need to take up the slack,
+and indeed it's known as a 'tumor suppressor protein'! When DNA is damaged,
+the cell cycle needs to freeze, which happens to be one of RB1's special tricks, and
+probably why we see the next two pathways 'DNA Replication' and 'Cell Cycle'.
+
+For more on this topic see:
+
+Retinoblastoma (RB) in Cancer (Homo sapiens)
+https://www.wikipathways.org/index.php/Pathway:WP2446
+
+RB1 gene
+https://en.wikipedia.org/wiki/Retinoblastoma_protein
+
+Direct involvement of retinoblastoma family proteins in DNA repair by non-homologous end-joining.
+https://www.ncbi.nlm.nih.gov/pubmed/25818292
+
 
 
 
