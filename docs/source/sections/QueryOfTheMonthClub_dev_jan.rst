@@ -310,6 +310,9 @@ below.
    :scale: 80
    :align: center
 
+.. figure:: query_figs/jan_fig2_diffs_vs_ts.png
+  :scale: 80
+  :align: center
 
 
 
