@@ -308,7 +308,7 @@ below.
   :scale: 30%
   :align: middle
 .. |logo2| image:: query_figs/jan_fig1_tstats.png
-  :scale: 30%
+  :scale: 35%
   :align: middle
 
 +---------+---------+
@@ -386,7 +386,7 @@ we could get a p-value and perform multiple testing correction like an FDR.
 
 
 .. figure:: query_figs/jan_fig3_results.png
-   :scale: 50
+   :scale: 80
    :align: center
 
 
