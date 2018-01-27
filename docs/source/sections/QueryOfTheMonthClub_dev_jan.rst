@@ -306,14 +306,14 @@ below.
   ),
 
 
+.. figure:: query_figs/jan_fig2_diffs_vs_ts.png
+    :scale: 30
+    :align: left
+    :width: 50 %
 .. figure:: query_figs/jan_fig1_tstats.png
    :scale: 30
-   :align: center
-
-.. figure:: query_figs/jan_fig2_diffs_vs_ts.png
-  :scale: 30
-  :align: center
-
+   :align: right
+   :width: 50 %
 
 
 
