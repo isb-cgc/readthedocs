@@ -29,27 +29,27 @@ Table of Contents
 2017
 ++++
 
-- December_: BigQuery comparing TCGA samples to GTEx tissues with Spearman correlation.
+- December2017_: BigQuery comparing TCGA samples to GTEx tissues with Spearman correlation.
 
-- November_: Run an R (or python) script in batch mode using dsub on the google cloud.
+- November2017_: Run an R (or python) script in batch mode using dsub on the google cloud.
 
-- October_: Using plotly for visualization in Shiny apps. We implement an interatictive heatmap using heatmaply
+- October2017_: Using plotly for visualization in Shiny apps. We implement an interatictive heatmap using heatmaply
 
-- September_: We implement a new statistical test in BigQuery: the one-way ANOVA.
+- September2017_: We implement a new statistical test in BigQuery: the one-way ANOVA.
 
-- August_: A small demo application using BigQuery as the backend for a Shiny app.
+- August2017_: A small demo application using BigQuery as the backend for a Shiny app.
 
-- July_: Look at the BigQuery RECORD data type in methylation tables from the GDC.
+- July2017_: Look at the BigQuery RECORD data type in methylation tables from the GDC.
 
-- May_: Continued from April: estimating the distance between samples based on shared mutations in pathways.
+- May2017_: Continued from April: estimating the distance between samples based on shared mutations in pathways.
 
-- April_: BigQuery compute a similarity metric on overlapping mutations between samples.  Uses MC3 mutation table and data from COSMIC.
+- April2017_: BigQuery compute a similarity metric on overlapping mutations between samples.  Uses MC3 mutation table and data from COSMIC.
 
-- March_: BigQuery to compute a pairwise distance matrix and a heatmap in R
+- March2017_: BigQuery to compute a pairwise distance matrix and a heatmap in R
 
-- February_: Using BigQuery, define K-means clustering as a user defined (javascript) function
+- February2017_: Using BigQuery, define K-means clustering as a user defined (javascript) function
 
-- January_: Comparing Standard SQL and Legacy SQL.
+- January2017_: Comparing Standard SQL and Legacy SQL.
 
 2016
 ++++
@@ -68,61 +68,63 @@ Links to help!
 January, 2018
 ##############
 
-For January we're going to be implementing a common bioinformatics task, gene set
+This month, we're going to implement a common bioinformatics task: gene set
 scoring. In this procedure, we will compare the <joint> expression of a set of genes
 between two groups.
 
-Gene sets typically are a result stemming from experiments. For example, in
-comparing cell expression with post-treatment expression, a set of genes might be found
-that correctly predicts the groups. Typically, it's thought that the set of genes
-has some shared functional attributes. This is especially the case when we consider
-pathways as gene sets.
+Gene sets frequently result from experiments in which, for example, expression is compared
+between two groups (*e.g.* control and treatment), and the genes that are significantly
+differentially expressed between the two groups form the "gene set".  Given a gene set,
+numerous approaches have been proposed to assign functional interpretations to a 
+particular list of genes.
 
-Here we'll be using the WikiPathways gene sets that I assembled
-for an eariler Query of the Month.
-For our query this month, we downloaded 381 pathways from
+An alternative approach is to consider pathways as gene sets: each gene set will
+therefore be a canonical representation of a biological process compiled by domain experts.
+
+We will use the WikiPathways gene sets that were assembled
+for a previous Query of the Month: 381 pathways were downloaded from
 `WikiPathways <http://data.wikipathways.org/current/gmt/wikipathways-20170410-gmt-Homo_sapiens.gmt>`_.
 In the BQ table, each row contains a pathway and a gene associated with that pathway.
 
-It will be our task to determe which functional set of genes are
-differentially expressed when comparing two groups of samples.
-
-Here, we'll be using the new Data Release 10 (DR10)
-hg38 table of somatic mutations from the NCI Genomic Data Commons.
-
-https://docs.gdc.cancer.gov/Data/Release_Notes/Data_Release_Notes/#data-release-100
+Our task will be to determine which functional set of genes are
+differentially expressed when comparing two groups of samples, 
+using the new hg38 Somatic Mutations table based on  
+`Data Release 10 (DR10) <https://docs.gdc.cancer.gov/Data/Release_Notes/Data_Release_Notes/#data-release-100>`_
+from the NCI Genomic Data Commons.
 
 The BigQuery table at ISB-CGC is found at:
 isb-cgc:TCGA_hg38_data_v0.Somatic_Mutation_DR10
 
-Methodologically, we will be using some work by Rafael A Irrazary (PMID 20048385),
-the paper was called "Gene set enrichment analysis made simple.", and it showed
-that with some simple statistical tests, in most cases, these methods outperfomred
-GSEA, the most popular gene set enrichment method.
+We will implement a method by Rafael A Irrazary *et al* (PMID 20048385),
+from a paper titled "Gene set enrichment analysis made simple."   They propose a simple 
+solution which outperforms a popular and more complex method known as GSEA.
 
-In short, (I'll explain more later), but the gene set score comes from an average of
+In short, (I'll explain more later), the gene set score comes from an average of
 t-tests, between the two groups, for each gene in the set. The statistic is then weighted
-by the square root of the sample size (number of genes in the set), so with larger
+by the square root of the sample size (number of genes in the set), so that with larger
 gene sets, the 'signficant' effect size can get pretty small.
 
-Let's get started. So, which tissue type should we focus on?  Let's query and find out!
+Let's get started. First, which tissue type should we focus on?  Let's choose PARP1 as an
+interesting gene -- it encodes an enzyme involved in DNA damage repair and is also
+the target of some therapeutic drugs -- and use the Somatic Mutation table to choose a cancer type:
 
 .. code-block:: sql
 
   SELECT
     project_short_name,
-    count(sample_barcode_tumor)
+    count(sample_barcode_tumor) AS n
   FROM
     `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
   WHERE
     Hugo_Symbol = 'PARP1'
   GROUP BY
     project_short_name
+  ORDER BY 
+    n DESC
 
 The result of that query shows that 73 tumor samples have PARP1 mutations in UCEC,
 followed by COAD with 26 as the next highest. That's a big lead by UCEC, so let's
 focus our work there.
-
 
 Here's where our main query will begin. Since this is standard SQL,
 we'll be naming each subtable, and the full
@@ -144,9 +146,10 @@ query can be constructed by concatenating each of the following sub-queries.
   )
   SELECT * FROM s1
 
-This query returns 986 sample barcodes, so almost all of the samples had at least
+This query returns 530 tumor sample barcodes, so almost all of the samples had at least
 one somatic mutation. As a reminder, somatic mutations are variants in the DNA
-that are found when comparing the tumor sequence to the 'normal' sequence from blood.
+that are found when comparing the tumor sequence to the 'matched normal' sequence
+(typically from a blood sample, but sometimes from adjacent tissue).
 Next, for all these samples, we'll want the samples that also have gene expression availabe.
 
 .. code-block:: sql
@@ -163,11 +166,10 @@ Next, for all these samples, we'll want the samples that also have gene expressi
     GROUP BY
       1 )
 
-So we have 974 samples that have gene expression and appear in the somatic mutation
+Now we have 526 samples that have gene expression and appear in the somatic mutation
 table. We are interested in partitioning this group into two parts: one with a
-mutation of interest, and one without. For this exercise, let us look at PARP1
-which encodes an enzyme involved in DNA damage repair and also the target of some
-theraputics. So let's gather barcodes for tumors with non-silent mutations in PARP1.
+mutation of interest, and one without. 
+So let's gather barcodes for tumors with non-silent mutations in PARP1.
 
 .. code-block:: sql
 
@@ -415,7 +417,7 @@ https://www.ncbi.nlm.nih.gov/pubmed/25818292
 
 
 
-.. _December:
+.. _December2017:
 
 December, 2017
 ##############
@@ -761,7 +763,7 @@ Thanks everyone! Hope you learned something this year. We sure did. See you in 2
 
 Sincerely, the ISB-CGC team.
 
-.. _November:
+.. _November2017:
 
 November, 2017
 ##############
@@ -910,7 +912,7 @@ our output bucket. If there's a problem, it's mandatory to read the logs!
 The exact same procedure could be used to run python or bash scripts.
 
 
-.. _October:
+.. _October2017:
 
 October, 2017
 #############
@@ -1192,7 +1194,7 @@ systemsbiology *dot* org.
 
 ------------------
 
-.. _September:
+.. _September2017:
 
 September, 2017
 ###############
@@ -1438,7 +1440,7 @@ from August.  You can find that `here <https://isb-cgc.shinyapps.io/mutstatusexp
 
 ------------------
 
-.. _August:
+.. _August2017:
 
 August, 2017
 ###########
@@ -1754,7 +1756,7 @@ The results for the TCGA-LGG cohort are also quite striking -- go have a look!
 
 ------------------
 
-.. _July:
+.. _July2017:
 
 July, 2017
 ###########
@@ -2027,7 +2029,7 @@ If you come up with some useful queries, feel free to email us and
 we'll feature you on this page!
 
 
-.. _May:
+.. _May2017:
 
 May, 2017
 ###########
@@ -2740,7 +2742,7 @@ of tissue, whereas other tissue types share patterns of disrupted pathways.
 
 ------------------
 
-.. _April:
+.. _April2017:
 
 April, 2017
 ###########
@@ -3249,7 +3251,7 @@ Thanks for joining us this month!
 
 ------------------
 
-.. _March:
+.. _March2017:
 
 March, 2017
 ###########
@@ -3509,7 +3511,7 @@ Now, let's see that distance matrix in R!
 
 -------------
 
-.. _February:
+.. _February2017:
 
 February, 2017
 ##############
@@ -3882,7 +3884,7 @@ Save the cluster assignments to a csv file, and read it into R.
 
 -------------
 
-.. _January:
+.. _January2017:
 
 January, 2017
 #############
