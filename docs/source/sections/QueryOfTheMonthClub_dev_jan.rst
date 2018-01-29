@@ -273,7 +273,10 @@ For each gene, we'll take the mean, variance, and count of samples.
     --
 
 
-This results in two sets of summaries for 4,822 genes. With this, we are ready
+This results in two sets of summaries for 4,822 genes.
+(There are 4,962 unique gene symbols in the WikiPathways table, but 140 of them do not 
+match any of the symbols in the TCGA hg38 expression table.)
+With this, we are ready
 to calculate T-statistics. Here we're going to use a two sample T-test
 assuming independent variance (and that we have enough samples to assume that).
 The T-statistic is found by taking the difference in means (of gene expression between
