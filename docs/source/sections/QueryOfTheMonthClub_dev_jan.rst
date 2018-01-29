@@ -103,7 +103,7 @@ We will implement a method found in a paper titled "Gene set enrichment analysis
 solution which outperforms a popular and more complex method known as GSEA.
 
 In short, (I'll explain more later), the gene set score comes from an average of
-T-tests, where the T-statistics come from testing each gene between the two groups.
+T-tests, where the T-statistics come from testing each gene for differential expression between the two groups.
 The statistic is then weighted
 by the square root of the sample size (number of genes in the set), so that with larger
 gene sets, the 'signficant' effect size can get pretty small.
@@ -118,7 +118,7 @@ the target of some therapeutic drugs -- and use the Somatic Mutation table to ch
 
   SELECT
     project_short_name,
-    count(sample_barcode_tumor) AS n
+    COUNT(DISTINCT(sample_barcode_tumor)) AS n
   FROM
     `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
   WHERE
@@ -128,8 +128,8 @@ the target of some therapeutic drugs -- and use the Somatic Mutation table to ch
   ORDER BY
     n DESC
 
-The result of that query shows that 73 tumor samples have PARP1 mutations in UCEC,
-followed by COAD with 26 as the next highest. That's a big lead by UCEC, so let's
+The result of that query shows that 46 tumor samples have PARP1 mutations in UCEC,
+followed by COAD and STAD with 22 each. That's a big lead by UCEC, so let's
 focus our work there.
 
 Here's where our main query will begin. Since this is standard SQL,
@@ -151,11 +151,15 @@ query can be constructed by concatenating each of the following sub-queries.
   )
   SELECT * FROM s1
 
-This query returns 530 tumor sample barcodes, so almost all of the samples had at least
-one somatic mutation. As a reminder, somatic mutations are variants in the DNA
+This query returns 530 tumor sample barcodes with at least one known somatic 
+mutation.  (The TCGA Biospecimen table includes information for a total of 553 UCEC
+tumor samples, but some may have not been sequenced or may have no somatic 
+mutations -- the former being more likely than the latter.)
+Recall that somatic mutations are variants in the DNA
 that are found when comparing the tumor sequence to the 'matched normal' sequence
 (typically from a blood sample, but sometimes from adjacent tissue).
-Next, for all these samples, we'll want the samples that also have gene expression available.
+Next, for all these samples, we'll want to restrict our analysis to samples
+for which we also have mRNA expression data:
 
 .. code-block:: sql
 
@@ -171,8 +175,8 @@ Next, for all these samples, we'll want the samples that also have gene expressi
     GROUP BY
       1 )
 
-Now we have 526 samples that have gene expression and appear in the somatic mutation
-table. We are interested in partitioning this group into two parts: one with a
+Now we have 526 samples for which we have gene expression and somatic mutation calls.
+We are interested in partitioning this group into two parts: one with a
 mutation of interest, and one without.
 So let's gather barcodes for tumors with non-silent mutations in PARP1.
 
@@ -183,41 +187,43 @@ So let's gather barcodes for tumors with non-silent mutations in PARP1.
     --
     grp1 AS (
     SELECT
-      case_barcode
+      sample_barcode_tumor AS sample_barcode
     FROM
       `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
     WHERE
       Hugo_Symbol = 'PARP1'
       AND One_Consequence <> 'synonymous_variant'
-      AND case_barcode IN (
+      AND sample_barcode_tumor IN (
         SELECT
-          case_barcode
+          sample_barcode
         FROM
-          sampleGroup)
+          sampleGroup )
+      GROUP BY sample_barcode 
     ),
     --
     -- group 2 is the rest of the samples
     --
     grp2 AS (
     SELECT
-      case_barcode
+      sample_barcode
     FROM
       sampleGroup
     WHERE
-      case_barcode NOT IN (
+      sample_barcode NOT IN (
         SELECT
-          case_barcode
+          sample_barcode
         FROM
           grp1)
     ),
 
 
-This results in 54 tumor samples with non-synonymous PARP1 variants and 485
-samples that do not.
+This results in 41 tumor samples with non-synonymous PARP1 variants and 485
+samples without.
 
 Next we're going to summarize the gene expression within each of these groups.
-This will be used for calulating T-statistics in the next query following this
-one. For each gene, we'll take the mean, variance, and count of samples.
+This will be used for calulating T-statistics in the following portion of 
+the query we are constructing.
+For each gene, we'll take the mean, variance, and count of samples.
 
 .. code-block:: sql
 
@@ -327,7 +333,7 @@ some hidden structure to these values. Are there gene sets with unusually high
 T-statistics? And do these gene sets make any sort of biological sense?
 Let's find out!
 
-Now we are going to integrate in our gene set table. This is as easy as doing
+Now we are going to integrate our gene set table. This is as easy as doing
 a table join.
 
 .. code-block:: sql
@@ -363,11 +369,11 @@ a table join.
 
 That's it! For each gene in the pathways (gene sets) table, we have joined in
 the T-statistic comparing our two groups. Now for the gene set score! To
-get this, we're going to simply average up the T's within each pathway, and
+get this, we're going to simply average over the T's within each pathway, and
 scale the result by the square root of the number of genes. When the number of
 genes gets large (reasonably so), the value approximates a Z-score. In this way,
 using R for example, we could get a p-value and perform multiple testing correction
-like an FDR.
+in order to control the false discovery rate.
 
 .. code-block:: sql
 
@@ -404,10 +410,11 @@ like an FDR.
 
 So, we see that 'Retinoblastoma (RB) in Cancer' is in the top spot with a score
 way above the #2 position. Why might that be?
-Well, PARP1 is involved in DNA damage repair, specifically through the NHEJ mechanism.
+Well, PARP1 is involved in DNA damage repair, specifically through the 
+non-homologous endjoining (NHEJ) mechanism.
 Samples that are deficient in PARP1 are going to have a hard time repairing DNA breaks,
-which makes cancer more likely. So, RB1 might needed to take up the slack,
-and indeed it's known as a 'tumor suppressor protein'! When DNA is damaged,
+which makes cancer more likely. So, RB1 might need to take up the slack,
+and indeed it's known as a 'tumor suppressor protein': when DNA is damaged,
 the cell cycle needs to freeze, which happens to be one of RB1's special tricks, and
 also probably why we see the next two top ranked pathways 'DNA Replication' and 'Cell Cycle'.
 
@@ -422,8 +429,7 @@ https://en.wikipedia.org/wiki/Retinoblastoma_protein
 Direct involvement of retinoblastoma family proteins in DNA repair by non-homologous end-joining.
 https://www.ncbi.nlm.nih.gov/pubmed/25818292
 
-
-Thanks, and feel free to ask about particular topic! We're happy to
+Thanks, and feel free to ask about a particular topic! We're happy to
 take requests!
 
 
