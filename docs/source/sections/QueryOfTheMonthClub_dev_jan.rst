@@ -403,9 +403,10 @@ in order to control the false discovery rate.
    :scale: 80
    :align: center
 
- .. figure:: query_figs/jan_fig4_scores.png
-    :scale: 80
-    :align: center
+
+.. figure:: query_figs/jan_fig4_scores.png
+  :scale: 30
+  :align: center
 
 
 So, we see that 'Retinoblastoma (RB) in Cancer' is in the top spot with a score
