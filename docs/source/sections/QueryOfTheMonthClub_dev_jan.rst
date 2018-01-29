@@ -75,34 +75,40 @@ between two groups.
 Gene sets frequently result from experiments in which, for example, expression is compared
 between two groups (*e.g.* control and treatment), and the genes that are significantly
 differentially expressed between the two groups form the "gene set".  Given a gene set,
-numerous approaches have been proposed to assign functional interpretations to a 
+numerous approaches have been proposed to assign functional interpretations to a
 particular list of genes.
 
-An alternative approach is to consider pathways as gene sets: each gene set will
+An related approach is to consider pathways as gene sets: each gene set will
 therefore be a canonical representation of a biological process compiled by domain experts.
-
 We will use the WikiPathways gene sets that were assembled
-for a previous Query of the Month: 381 pathways were downloaded from
+for a previous Query of the Month (May2017_). In total, 381 pathways were downloaded from
 `WikiPathways <http://data.wikipathways.org/current/gmt/wikipathways-20170410-gmt-Homo_sapiens.gmt>`_.
 In the BQ table, each row contains a pathway and a gene associated with that pathway.
 
-Our task will be to determine which functional set of genes are
-differentially expressed when comparing two groups of samples, 
-using the new hg38 Somatic Mutations table based on  
+Our task will be to determine which genesets are
+differentially expressed when comparing two groups of samples. We will define
+groups of samples using the new hg38 Somatic Mutations table based on
 `Data Release 10 (DR10) <https://docs.gdc.cancer.gov/Data/Release_Notes/Data_Release_Notes/#data-release-100>`_
 from the NCI Genomic Data Commons.
 
 The BigQuery table at ISB-CGC is found at:
 isb-cgc:TCGA_hg38_data_v0.Somatic_Mutation_DR10
 
-We will implement a method by Rafael A Irrazary *et al* (PMID 20048385),
-from a paper titled "Gene set enrichment analysis made simple."   They propose a simple 
+The BigQuery pathway table is found at:
+isb-cgc:QotM.WikiPathways_20170425_Annotated
+
+
+We will implement a method found in a paper titled "Gene set enrichment analysis made simple"
+(Rafael A Irrazary *et al*, PMID 20048385). They propose a simple
 solution which outperforms a popular and more complex method known as GSEA.
 
 In short, (I'll explain more later), the gene set score comes from an average of
-t-tests, between the two groups, for each gene in the set. The statistic is then weighted
+T-tests, where the T-statistics come from testing each gene between the two groups.
+The statistic is then weighted
 by the square root of the sample size (number of genes in the set), so that with larger
 gene sets, the 'signficant' effect size can get pretty small.
+
+At the end of it, the full query processes 29.8GB in 10.1s and cost ~$0.15.
 
 Let's get started. First, which tissue type should we focus on?  Let's choose PARP1 as an
 interesting gene -- it encodes an enzyme involved in DNA damage repair and is also
@@ -119,7 +125,7 @@ the target of some therapeutic drugs -- and use the Somatic Mutation table to ch
     Hugo_Symbol = 'PARP1'
   GROUP BY
     project_short_name
-  ORDER BY 
+  ORDER BY
     n DESC
 
 The result of that query shows that 73 tumor samples have PARP1 mutations in UCEC,
@@ -129,7 +135,6 @@ focus our work there.
 Here's where our main query will begin. Since this is standard SQL,
 we'll be naming each subtable, and the full
 query can be constructed by concatenating each of the following sub-queries.
-
 
 .. code-block:: sql
 
@@ -150,7 +155,7 @@ This query returns 530 tumor sample barcodes, so almost all of the samples had a
 one somatic mutation. As a reminder, somatic mutations are variants in the DNA
 that are found when comparing the tumor sequence to the 'matched normal' sequence
 (typically from a blood sample, but sometimes from adjacent tissue).
-Next, for all these samples, we'll want the samples that also have gene expression availabe.
+Next, for all these samples, we'll want the samples that also have gene expression available.
 
 .. code-block:: sql
 
@@ -168,13 +173,13 @@ Next, for all these samples, we'll want the samples that also have gene expressi
 
 Now we have 526 samples that have gene expression and appear in the somatic mutation
 table. We are interested in partitioning this group into two parts: one with a
-mutation of interest, and one without. 
+mutation of interest, and one without.
 So let's gather barcodes for tumors with non-silent mutations in PARP1.
 
 .. code-block:: sql
 
     --
-    -- Then the first group has non-synonymous mutations in a NAMED gene
+    -- The first group has non-synonymous mutations in PARP1
     --
     grp1 AS (
     SELECT
@@ -212,9 +217,7 @@ samples that do not.
 
 Next we're going to summarize the gene expression within each of these groups.
 This will be used for calulating T-statistics in the next query following this
-one.
-
-For each gene, we'll take the mean, variance, and count of samples.
+one. For each gene, we'll take the mean, variance, and count of samples.
 
 .. code-block:: sql
 
@@ -267,7 +270,7 @@ For each gene, we'll take the mean, variance, and count of samples.
 This results in two sets of summaries for 4,822 genes. With this, we are ready
 to calculate T-statistics. Here we're going to use a two sample T-test
 assuming independent variance (and that we have enough samples to assume that).
-The T-stat is found by taking the difference in means (of gene expression between
+The T-statistic is found by taking the difference in means (of gene expression between
 our two groups), and normalizing it by measures of variance and sample size.
 Here, we want to keep T-statistics that are zero, which might come from having
 zero variance, because having a T-stat for each gene is important in the gene set
@@ -362,8 +365,9 @@ That's it! For each gene in the pathways (gene sets) table, we have joined in
 the T-statistic comparing our two groups. Now for the gene set score! To
 get this, we're going to simply average up the T's within each pathway, and
 scale the result by the square root of the number of genes. When the number of
-genes gets large (reasonably so), the value approximates a Z-score. In this way
-we could get a p-value and perform multiple testing correction like an FDR.
+genes gets large (reasonably so), the value approximates a Z-score. In this way,
+using R for example, we could get a p-value and perform multiple testing correction
+like an FDR.
 
 .. code-block:: sql
 
@@ -398,10 +402,10 @@ So, we see that 'Retinoblastoma (RB) in Cancer' is in the top spot with a score
 way above the #2 position. Why might that be?
 Well, PARP1 is involved in DNA damage repair, specifically through the NHEJ mechanism.
 Samples that are deficient in PARP1 are going to have a hard time repairing DNA breaks,
-which makes cancer more likely. In that case, RB1 might need to take up the slack,
+which makes cancer more likely. So, RB1 might needed to take up the slack,
 and indeed it's known as a 'tumor suppressor protein'! When DNA is damaged,
 the cell cycle needs to freeze, which happens to be one of RB1's special tricks, and
-probably why we see the next two pathways 'DNA Replication' and 'Cell Cycle'.
+also probably why we see the next two top ranked pathways 'DNA Replication' and 'Cell Cycle'.
 
 For more on this topic see:
 
@@ -415,6 +419,8 @@ Direct involvement of retinoblastoma family proteins in DNA repair by non-homolo
 https://www.ncbi.nlm.nih.gov/pubmed/25818292
 
 
+Thanks, and feel free to ask about particular topic! We're happy to
+take requests!
 
 
 .. _December2017:
