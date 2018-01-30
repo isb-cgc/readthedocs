@@ -64,7 +64,6 @@ Links to help!
 
 .. _January:
 
-
 January, 2018
 ##############
 
@@ -151,9 +150,9 @@ query can be constructed by concatenating each of the following sub-queries.
   )
   SELECT * FROM s1
 
-This query returns 530 tumor sample barcodes with at least one known somatic 
+This query returns 530 tumor sample barcodes with at least one known somatic
 mutation.  (The TCGA Biospecimen table includes information for a total of 553 UCEC
-tumor samples, but some may have not been sequenced or may have no somatic 
+tumor samples, but some may have not been sequenced or may have no somatic
 mutations -- the former being more likely than the latter.)
 Recall that somatic mutations are variants in the DNA
 that are found when comparing the tumor sequence to the 'matched normal' sequence
@@ -198,7 +197,7 @@ So let's gather barcodes for tumors with non-silent mutations in PARP1.
           sample_barcode
         FROM
           sampleGroup )
-      GROUP BY sample_barcode 
+      GROUP BY sample_barcode
     ),
     --
     -- group 2 is the rest of the samples
@@ -221,7 +220,7 @@ This results in 41 tumor samples with non-synonymous PARP1 variants and 485
 samples without.
 
 Next we're going to summarize the gene expression within each of these groups.
-This will be used for calulating T-statistics in the following portion of 
+This will be used for calulating T-statistics in the following portion of
 the query we are constructing.
 For each gene, we'll take the mean, variance, and count of samples.
 
@@ -274,7 +273,7 @@ For each gene, we'll take the mean, variance, and count of samples.
 
 
 This results in two sets of summaries for 4,822 genes.
-(There are 4,962 unique gene symbols in the WikiPathways table, but 140 of them do not 
+(There are 4,962 unique gene symbols in the WikiPathways table, but 140 of them do not
 match any of the symbols in the TCGA hg38 expression table.)
 With this, we are ready
 to calculate T-statistics. Here we're going to use a two sample T-test
@@ -414,7 +413,7 @@ in order to control the false discovery rate.
 
 So, we see that 'Retinoblastoma (RB) in Cancer' is in the top spot with a score
 way above the #2 position. Why might that be?
-Well, PARP1 is involved in DNA damage repair, specifically through the 
+Well, PARP1 is involved in DNA damage repair, specifically through the
 non-homologous endjoining (NHEJ) mechanism.
 Samples that are deficient in PARP1 are going to have a hard time repairing DNA breaks,
 which makes cancer more likely. So, RB1 might need to take up the slack,
@@ -435,7 +434,6 @@ https://www.ncbi.nlm.nih.gov/pubmed/25818292
 
 Thanks, and feel free to ask about a particular topic! We're happy to
 take requests!
-
 
 .. _December2017:
 
