@@ -57,9 +57,11 @@ Table of Contents
 
 - December2016_: Spearman correlation in BigQuery to compare the new hg38 expression data to the hg19 data
 
+Links
++++++
 
-Resources_:
-Links to help!
+Resources_:  Helpful information!
+
 
 -----------------------
 
