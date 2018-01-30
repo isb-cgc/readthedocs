@@ -51,10 +51,12 @@ Table of Contents
 
 - January2017_: Comparing Standard SQL and Legacy SQL.
 
+
 2016
 ++++
 
 - December2016_: Spearman correlation in BigQuery to compare the new hg38 expression data to the hg19 data
+
 
 Resources_:
 Links to help!
