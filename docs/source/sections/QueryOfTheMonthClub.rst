@@ -427,7 +427,7 @@ also probably why we see the next two top ranked pathways 'DNA Replication' and 
 
 For more on this topic see:
 
-  - Retinoblastoma (RB) in Cancer (Homo sapiens) `(Wiki pathway WP2446 <https://www.wikipathways.org/index.php/Pathway:WP2446>`_)
+  - Retinoblastoma (RB) in Cancer (Homo sapiens) (`Wiki pathway WP2446 <https://www.wikipathways.org/index.php/Pathway:WP2446>`_)
   - RB1 gene (`Wikipedia entry <https://en.wikipedia.org/wiki/Retinoblastoma_protein>`_)
   - Direct involvement of retinoblastoma family proteins in DNA repair by non-homologous end-joining. (`Cook et al, 2015 <https://www.ncbi.nlm.nih.gov/pubmed/25818292>`_)
 
