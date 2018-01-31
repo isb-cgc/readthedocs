@@ -1,5 +1,5 @@
 ********************
-Query of the Month 
+Query of the Month
 ********************
 
 Welcome to the 'Query of the Month' where we'll be creating a collection
@@ -21,42 +21,425 @@ Query of the Month is produced by:
 Table of Contents
 =================
 
+2018
+++++
+
+- January_: Gene Set Scoring in BigQuery, using the new hg38 mutation tables.
+
 2017
 ++++
 
-- December_: BigQuery comparing TCGA samples to GTEx tissues with Spearman correlation.
+- December2017_: BigQuery comparing TCGA samples to GTEx tissues with Spearman correlation.
 
-- November_: Run an R (or python) script in batch mode using dsub on the google cloud.
+- November2017_: Run an R (or python) script in batch mode using dsub on the google cloud.
 
-- October_: Using plotly for visualization in Shiny apps. We implement an interatictive heatmap using heatmaply
+- October2017_: Using plotly for visualization in Shiny apps. We implement an interatictive heatmap using heatmaply
 
-- September_: We implement a new statistical test in BigQuery: the one-way ANOVA.
+- September2017_: We implement a new statistical test in BigQuery: the one-way ANOVA.
 
-- August_: A small demo application using BigQuery as the backend for a Shiny app.
+- August2017_: A small demo application using BigQuery as the backend for a Shiny app.
 
-- July_: Look at the BigQuery RECORD data type in methylation tables from the GDC.
+- July2017_: Look at the BigQuery RECORD data type in methylation tables from the GDC.
 
-- May_: Continued from April: estimating the distance between samples based on shared mutations in pathways.
+- May2017_: Continued from April: estimating the distance between samples based on shared mutations in pathways.
 
-- April_: BigQuery compute a similarity metric on overlapping mutations between samples.  Uses MC3 mutation table and data from COSMIC.
+- April2017_: BigQuery compute a similarity metric on overlapping mutations between samples.  Uses MC3 mutation table and data from COSMIC.
 
-- March_: BigQuery to compute a pairwise distance matrix and a heatmap in R
+- March2017_: BigQuery to compute a pairwise distance matrix and a heatmap in R
 
-- February_: Using BigQuery, define K-means clustering as a user defined (javascript) function
+- February2017_: Using BigQuery, define K-means clustering as a user defined (javascript) function
 
-- January_: Comparing Standard SQL and Legacy SQL.
+- January2017_: Comparing Standard SQL and Legacy SQL.
+
 
 2016
 ++++
 
 - December2016_: Spearman correlation in BigQuery to compare the new hg38 expression data to the hg19 data
 
-Resources_:
-Links to help!
+Links
++++++
+
+Resources_:  Helpful information!
+
 
 -----------------------
 
-.. _December:
+
+.. _January:
+
+January, 2018
+##############
+
+This month, we're going to implement a common bioinformatics task: gene set
+scoring. In this procedure, we will compare the <joint> expression of a set of genes
+between two groups.
+
+Gene sets frequently result from experiments in which, for example, expression is compared
+between two groups (*e.g.* control and treatment), and the genes that are significantly
+differentially expressed between the two groups form the "gene set".  Given a gene set,
+numerous approaches have been proposed to assign functional interpretations to a
+particular list of genes.
+
+An related approach is to consider pathways as gene sets: each gene set will
+therefore be a canonical representation of a biological process compiled by domain experts.
+We will use the WikiPathways gene sets that were assembled
+for a previous Query of the Month (May2017_). In total, 381 pathways were downloaded from
+`WikiPathways <http://data.wikipathways.org/current/gmt/wikipathways-20170410-gmt-Homo_sapiens.gmt>`_.
+In the BQ table, each row contains a pathway and a gene associated with that pathway.
+
+Our task will be to determine which genesets are
+differentially expressed when comparing two groups of samples. We will define
+groups of samples using the new hg38 Somatic Mutations table based on
+`Data Release 10 (DR10) <https://docs.gdc.cancer.gov/Data/Release_Notes/Data_Release_Notes/#data-release-100>`_
+from the NCI Genomic Data Commons.
+
+The BigQuery table at ISB-CGC is found at:
+isb-cgc:TCGA_hg38_data_v0.Somatic_Mutation_DR10
+
+The BigQuery pathway table is found at:
+isb-cgc:QotM.WikiPathways_20170425_Annotated
+
+
+We will implement a method found in a paper titled "Gene set enrichment analysis made simple"
+(Rafael A Irrazary *et al*, PMID 20048385). They propose a simple
+solution which outperforms a popular and more complex method known as GSEA.
+
+In short, (I'll explain more later), the gene set score comes from an average of
+T-tests, where the T-statistics come from testing each gene for differential expression between the two groups.
+The statistic is then weighted
+by the square root of the sample size (number of genes in the set), so that with larger
+gene sets, the 'signficant' effect size can get pretty small.
+
+At the end of it, the full query processes 29.8GB in 10.1s and cost ~$0.15.
+
+Let's get started. First, which tissue type should we focus on?  Let's choose PARP1 as an
+interesting gene -- it encodes an enzyme involved in DNA damage repair and is also
+the target of some therapeutic drugs -- and use the Somatic Mutation table to choose a cancer type:
+
+.. code-block:: sql
+
+  SELECT
+    project_short_name,
+    COUNT(DISTINCT(sample_barcode_tumor)) AS n
+  FROM
+    `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
+  WHERE
+    Hugo_Symbol = 'PARP1'
+  GROUP BY
+    project_short_name
+  ORDER BY
+    n DESC
+
+The result of that query shows that 46 tumor samples have PARP1 mutations in UCEC,
+followed by COAD and STAD with 22 each. That's a big lead by UCEC, so let's
+focus our work there.
+
+Here's where our main query will begin. Since this is standard SQL,
+we'll be naming each subtable, and the full
+query can be constructed by concatenating each of the following sub-queries.
+
+.. code-block:: sql
+
+  WITH
+  s1 AS (
+    SELECT
+      sample_barcode_tumor AS sample_barcode
+    FROM
+      `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
+    WHERE
+      project_short_name = 'TCGA-UCEC'
+    GROUP BY
+      1
+  )
+  SELECT * FROM s1
+
+This query returns 530 tumor sample barcodes with at least one known somatic
+mutation.  (The TCGA Biospecimen table includes information for a total of 553 UCEC
+tumor samples, but some may have not been sequenced or may have no somatic
+mutations -- the former being more likely than the latter.)
+Recall that somatic mutations are variants in the DNA
+that are found when comparing the tumor sequence to the 'matched normal' sequence
+(typically from a blood sample, but sometimes from adjacent tissue).
+Next, for all these samples, we'll want to restrict our analysis to samples
+for which we also have mRNA expression data:
+
+.. code-block:: sql
+
+    sampleGroup AS (
+    SELECT
+      sample_barcode
+    FROM
+      `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
+    WHERE
+      project_short_name = 'TCGA-UCEC'
+      AND sample_barcode IN
+      (select sample_barcode from s1)
+    GROUP BY
+      1 )
+
+Now we have 526 samples for which we have gene expression and somatic mutation calls.
+We are interested in partitioning this group into two parts: one with a
+mutation of interest, and one without.
+So let's gather barcodes for tumors with non-silent mutations in PARP1.
+
+.. code-block:: sql
+
+    --
+    -- The first group has non-synonymous mutations in PARP1
+    --
+    grp1 AS (
+    SELECT
+      sample_barcode_tumor AS sample_barcode
+    FROM
+      `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
+    WHERE
+      Hugo_Symbol = 'PARP1'
+      AND One_Consequence <> 'synonymous_variant'
+      AND sample_barcode_tumor IN (
+        SELECT
+          sample_barcode
+        FROM
+          sampleGroup )
+      GROUP BY sample_barcode
+    ),
+    --
+    -- group 2 is the rest of the samples
+    --
+    grp2 AS (
+    SELECT
+      sample_barcode
+    FROM
+      sampleGroup
+    WHERE
+      sample_barcode NOT IN (
+        SELECT
+          sample_barcode
+        FROM
+          grp1)
+    ),
+
+
+This results in 41 tumor samples with non-synonymous PARP1 variants and 485
+samples without.
+
+Next we're going to summarize the gene expression within each of these groups.
+This will be used for calulating T-statistics in the following portion of
+the query we are constructing.
+For each gene, we'll take the mean, variance, and count of samples.
+
+.. code-block:: sql
+
+    -- Summaries for Group 1 (with mutation)
+    --
+    summaryGrp1 AS (
+      select
+        gene_name as symbol,
+        AVG(LOG10( HTSeq__FPKM_UQ +1)) as genemean,
+        VAR_SAMP(LOG10( HTSeq__FPKM_UQ +1)) as genevar,
+        count(sample_barcode) as genen
+      FROM
+        `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
+      WHERE
+        sample_barcode IN (select sample_barcode FROM grp1)
+        AND gene_name IN (
+          SELECT
+            Symbol as gene_name
+          FROM
+            `isb-cgc.QotM.WikiPathways_20170425_Annotated`
+        )
+      GROUP BY
+        gene_name
+    ),
+    --
+    -- Summaries for Group 2 (without mutation)
+    --
+    summaryGrp2 AS (
+      select
+        gene_name as symbol,
+        AVG(LOG10( HTSeq__FPKM_UQ +1)) as genemean,
+        VAR_SAMP(LOG10( HTSeq__FPKM_UQ +1)) as genevar,
+        count(sample_barcode) as genen
+      FROM
+        `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
+      WHERE
+        sample_barcode IN (select sample_barcode FROM grp2)
+        AND gene_name IN (
+          SELECT
+            Symbol as gene_name
+          FROM
+            `isb-cgc.QotM.WikiPathways_20170425_Annotated`
+        )
+      GROUP BY
+        gene_name
+    ),
+    --
+
+
+This results in two sets of summaries for 4,822 genes.
+(There are 4,962 unique gene symbols in the WikiPathways table, but 140 of them do not
+match any of the symbols in the TCGA hg38 expression table.)
+With this, we are ready
+to calculate T-statistics. Here we're going to use a two sample T-test
+assuming independent variance (and that we have enough samples to assume that).
+The T-statistic is found by taking the difference in means (of gene expression between
+our two groups), and normalizing it by measures of variance and sample size.
+Here, we want to keep T-statistics that are zero, which might come from having
+zero variance, because having a T-stat for each gene is important in the gene set
+score, even if it's a zero. To do that, you'll see the use of an IF statement
+below.
+
+
+.. code-block:: sql
+
+  tStatsPerGene AS (
+  SELECT
+    grp1.symbol as symbol,
+    grp1.genen as grp1_n,
+    grp2.genen AS grp2_n,
+    grp1.genemean AS grp1_mean,
+    grp2.genemean AS grp2_mean,
+    grp1.genemean - grp2.genemean as meandiff,
+    IF ((grp1.genevar > 0
+         AND grp2.genevar > 0
+         AND grp1.genen > 0
+         AND grp2.genen > 0),
+      (grp1.genemean - grp2.genemean) / SQRT( (POW(grp1.genevar,2)/grp1.genen)+ (POW(grp2.genevar,2)/grp2.genen) ),
+      0.0) AS tstat
+  FROM
+    summaryGrp1 as grp1
+    JOIN
+    summaryGrp2 AS grp2
+    ON
+    grp1.symbol = grp2.symbol
+  GROUP BY
+    grp1.symbol,
+    grp1.genemean,
+    grp2.genemean,
+    grp1.genevar,
+    grp2.genevar,
+    grp1.genen,
+    grp2.genen
+  ),
+
+
+.. |logo1| image:: query_figs/jan_fig2_diffs_vs_ts.png
+  :scale: 30%
+  :align: middle
+.. |logo2| image:: query_figs/jan_fig1_tstats.png
+  :scale: 35%
+  :align: middle
+
++---------+---------+
+| |logo1| | |logo2| |
++---------+---------+
+
+OK! We have a distribution of T statistics. The question is whether there's
+some hidden structure to these values. Are there gene sets with unusually high
+T-statistics? And do these gene sets make any sort of biological sense?
+Let's find out!
+
+Now we are going to integrate our gene set table. This is as easy as doing
+a table join.
+
+.. code-block:: sql
+
+  geneSetTable AS (
+  SELECT
+    gs.pathway,
+    gs.wikiID,
+    gs.Symbol,
+    st.grp1_n,
+    st.grp2_n,
+    st.grp1_mean,
+    st.grp2_mean,
+    st.meandiff,
+    st.tstat
+  FROM
+    `isb-cgc.QotM.WikiPathways_20170425_Annotated` as gs
+  JOIN
+    tStatsPerGene as st
+  ON
+    st.symbol = gs.symbol
+  GROUP BY
+    gs.pathway,
+    gs.wikiID,
+    gs.Symbol,
+    st.grp1_n,
+    st.grp2_n,
+    st.grp1_mean,
+    st.grp2_mean,
+    st.meandiff,
+    st.tstat
+  )
+
+That's it! For each gene in the pathways (gene sets) table, we have joined in
+the T-statistic comparing our two groups. Now for the gene set score! To
+get this, we're going to simply average over the T's within each pathway, and
+scale the result by the square root of the number of genes. When the number of
+genes gets large (reasonably so), the value approximates a Z-score. In this way,
+using R for example, we could get a p-value and perform multiple testing correction
+in order to control the false discovery rate.
+
+.. code-block:: sql
+
+  geneSetScores AS (
+  SELECT
+    pathway,
+    wikiID,
+    COUNT(symbol) AS n_genes,
+    AVG(ABS(meandiff)) AS avgAbsDiff,
+    (SQRT(COUNT(symbol))/COUNT(symbol)) * SUM(tstat) AS score
+  FROM
+    geneSetTable
+  GROUP BY
+    pathway,
+    wikiID )
+  --
+  --
+  SELECT
+    *
+  FROM
+    geneSetScores
+  ORDER BY
+    score DESC
+
+
+.. figure:: query_figs/jan_fig3_results.png
+   :scale: 80
+   :align: center
+
+
+.. figure:: query_figs/jan_fig4_scores.png
+  :scale: 30
+  :align: center
+
+
+So, we see that 'Retinoblastoma (RB) in Cancer' is in the top spot with a score
+way above the #2 position. Why might that be?
+Well, PARP1 is involved in DNA damage repair, specifically through the
+non-homologous endjoining (NHEJ) mechanism.
+Samples that are deficient in PARP1 are going to have a hard time repairing DNA breaks,
+which makes cancer more likely. So, RB1 might need to take up the slack,
+and indeed it's known as a 'tumor suppressor protein': when DNA is damaged,
+the cell cycle needs to freeze, which happens to be one of RB1's special tricks, and
+also probably why we see the next two top ranked pathways 'DNA Replication' and 'Cell Cycle'.
+
+For more on this topic see:
+
+Retinoblastoma (RB) in Cancer (Homo sapiens)
+https://www.wikipathways.org/index.php/Pathway:WP2446
+
+RB1 gene
+https://en.wikipedia.org/wiki/Retinoblastoma_protein
+
+Direct involvement of retinoblastoma family proteins in DNA repair by non-homologous end-joining.
+https://www.ncbi.nlm.nih.gov/pubmed/25818292
+
+Thanks, and feel free to ask about a particular topic! We're happy to
+take requests!
+
+.. _December2017:
 
 December, 2017
 ##############
@@ -402,7 +785,7 @@ Thanks everyone! Hope you learned something this year. We sure did. See you in 2
 
 Sincerely, the ISB-CGC team.
 
-.. _November:
+.. _November2017:
 
 November, 2017
 ##############
@@ -551,7 +934,7 @@ our output bucket. If there's a problem, it's mandatory to read the logs!
 The exact same procedure could be used to run python or bash scripts.
 
 
-.. _October:
+.. _October2017:
 
 October, 2017
 #############
@@ -833,7 +1216,7 @@ systemsbiology *dot* org.
 
 ------------------
 
-.. _September:
+.. _September2017:
 
 September, 2017
 ###############
@@ -1079,7 +1462,7 @@ from August.  You can find that `here <https://isb-cgc.shinyapps.io/mutstatusexp
 
 ------------------
 
-.. _August:
+.. _August2017:
 
 August, 2017
 ###########
@@ -1395,7 +1778,7 @@ The results for the TCGA-LGG cohort are also quite striking -- go have a look!
 
 ------------------
 
-.. _July:
+.. _July2017:
 
 July, 2017
 ###########
@@ -1668,7 +2051,7 @@ If you come up with some useful queries, feel free to email us and
 we'll feature you on this page!
 
 
-.. _May:
+.. _May2017:
 
 May, 2017
 ###########
@@ -2381,7 +2764,7 @@ of tissue, whereas other tissue types share patterns of disrupted pathways.
 
 ------------------
 
-.. _April:
+.. _April2017:
 
 April, 2017
 ###########
@@ -2890,7 +3273,7 @@ Thanks for joining us this month!
 
 ------------------
 
-.. _March:
+.. _March2017:
 
 March, 2017
 ###########
@@ -3150,7 +3533,7 @@ Now, let's see that distance matrix in R!
 
 -------------
 
-.. _February:
+.. _February2017:
 
 February, 2017
 ##############
@@ -3523,7 +3906,7 @@ Save the cluster assignments to a csv file, and read it into R.
 
 -------------
 
-.. _January:
+.. _January2017:
 
 January, 2017
 #############
