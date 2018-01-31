@@ -59,13 +59,10 @@ compute resources, file I/O, and process execution.
 
 More information on dsub and examples of its usage can be found at:
 
-.. toctree::
-   :maxdepth: 1
-   
-   `Google dsub Documentation <https://cloud.google.com/genomics/v1alpha2/dsub>`_
-   'kallisto example <https://github.com/isb-cgc/ISB-CGC-Examples/tree/master/dsub/kallisto>'_
+   * `Google dsub Documentation <https://cloud.google.com/genomics/v1alpha2/dsub>`_
+   * `kallisto example <https://github.com/isb-cgc/ISB-CGC-Examples/tree/master/dsub/kallisto>`_
 
-Lasly, the (now deprecated) ISB-CGC-pipelines framework was developed to facilitate running
+Lastly, the (now deprecated) ISB-CGC-pipelines framework was developed to facilitate running
 single step tasks at scale, for example: running FastQC over tens of thousands of FastQ
 files.
 
