@@ -6,6 +6,8 @@ Web-App Release Notes
 
  **Please Note:** Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
  
+ **Issues resolved in Sprint 23 as of 02/01/2018**
+ 
  New Enhancements
   - We have enabled DNA methylation data to be used when plotting with genomic build hg38.
   - The cohort view files page has been updated to File Browser. The File Browser page also now has new filters data level, data type, and disease code. A time stamp has also been added to the CSV file that can be downloaded.
@@ -34,13 +36,11 @@ Web-App Release Notes
   - When working on a worksheet the SeqPeek feature is currently not working with certain genes.
   - Certain genes will produce a blank chart with no data on a worksheet when working with a histogram.
 
- **Issues be resolved in Sprint 23 as of 02/01/2018**
-
 * **December 20, 2017** `v3.7 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.7>`_
   
  **Please Note:** Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
  
- **Issues be resolved in Sprint 22 as of 12/20/2017**
+ **Issues resolved in Sprint 22 as of 12/20/2017**
  
  New Enhancements
   - Using the 'View Files' page you can now view TCGA pathology images using caMicroscope! 
