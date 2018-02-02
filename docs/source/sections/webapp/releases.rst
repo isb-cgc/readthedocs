@@ -10,9 +10,9 @@ Web-App Release Notes
  
  New Enhancements
   - We have enabled DNA methylation data to be used when plotting with genomic build hg38.
-  - The cohort view files page has been updated to File Browser. The File Browser page also now has new filters data level, data type, and disease code. A time stamp has also been added to the CSV file that can be downloaded.
-  - The IGV browser and caMicroscope are now more clearly defined and separated on the File Browser page. 1931
-  - When uploading a set of barcodes to create a cohort the error message has been redefined to be more general.
+  - The cohort view files page has been updated to File Browser. The File Browser page also now has new filters data level, data type, disease code, data format, and experimental strategy. A time stamp has also been added to the CSV file that can be downloaded.
+  - The IGV browser and caMicroscope are now more clearly defined and separated on the File Browser page.
+  - When uploading a set of barcodes to create a cohort the error message has been redefined to direct someone to the instructions.
   
  Bug Fixes
   - You can now plot DNA methylation data using genomic build hg19 when working on a worksheet.
@@ -29,7 +29,7 @@ Web-App Release Notes
   - The mouse-over feature is currently disabled for program TARGET with disease code ALL.
   - When working on Firefox browser a violin plot does not display the data plotted correctly when working on a Worksheet.
   - When uploading TARGET files using the cohort barcode creation feature from the GDC you may get an invalid barcodes error message and unable to upload all the barcodes.
-  - When using SeqPeek with data other then TCGA, the BQ table used list will display that only TCGA tables where searched.
+  - SeqPeek can only be plotted with TCGA data, but if a cohort contains no TCGA samples the SeqPeek analysis will still search the TCGA BigQuery tables.
   -  API endpoint samples.get currently down and will return a 503 error for all three programs.
   - Currently unable to use TARGET data with the IGV browser to view .bam files. 
   - When editing the name of a cohort the cancel feature is not working properly. 
