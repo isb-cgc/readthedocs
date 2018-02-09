@@ -21,6 +21,7 @@ Web-App Release Notes
   - When working with a worksheet you are now able to plot gene names that contain periods.
  
  **Known Issues in Sprint 23 as of 02/01/2018**
+  - You cannot make a cohort using the cohort creation filter option on an Internet Explorer browser.
   - Analysis Type: Seq peek Formatting Elongated on occasion.
   - If the user shares a Cohort neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort. 
   - CCLE data cannot be plotted when working with workbooks.  ISB-CGC will resolve this functionality after the GDC formally releases CCLE data.
