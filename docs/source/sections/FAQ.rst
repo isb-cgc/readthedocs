@@ -90,7 +90,7 @@ This is a security feature when working with forms found in most web browsers; i
 
 **Which web browser is recomended to use when working with the site?**
 
-We recomend using Google Chrome browser.  We currently will display a chart slightly off when working with workbooks on a FireFox browser. Also, if you use internet explorer you will be unable to create a cohort when using the cohort filter feature pag at this time.
+We recomend using Google Chrome browser.  We currently will display a chart slightly off when working with workbooks on a FireFox browser. Also, if you use Internet Explorer you will be unable to create a cohort when using the cohort filter feature pag at this time.
 
 Data Access
 ###########
