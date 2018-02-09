@@ -88,6 +88,10 @@ ISB-CGC Web Application
 
 This is a security feature when working with forms found in most web browsers; it lets you know that you may have made some changes which will be lost when you navigate away from the page. If you intend to cancel what you were doing, you can safely ignore it.
 
+**Which web browser is recomended to use when working with the site?**
+
+We recomend using Google Chrome browser.  We currently will display a chart slightly off when working with workbooks on a FireFox browser. Also, if you use internet explorer you will be unable to create a cohort when using the cohort filter feature pag at this time.
+
 Data Access
 ###########
 **Does all TCGA data require dbGaP authorization prior to access?**
