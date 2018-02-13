@@ -16,12 +16,12 @@ open-access datasets made available by the ISB-CGC
 and `that <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/Reference-Data.html>`_ 
 for more details on other publicly accessible BigQuery datasets).
 
-**COSMIC Release v83 update**: Two new BigQuery datasets now contain *all* of the tables
+**COSMIC Release v84 update**: Two new BigQuery datasets now contain *all* of the tables
 available for download from the `COSMIC ftp site <http://cancer.sanger.ac.uk/cosmic/download>`_.
 The availability of these additional tables will support 
 many more types of queries -- please explore them at (after registering for access as described below):
-    - `isb-cgc:COSMIC_v83_grch38 <https://bigquery.cloud.google.com/dataset/isb-cgc:COSMIC_v83_grch38>`_
-    - `isb-cgc:COSMIC_v83_grch37 <https://bigquery.cloud.google.com/dataset/isb-cgc:COSMIC_v83_grch37>`_
+    - `isb-cgc:COSMIC_v84_grch38 <https://bigquery.cloud.google.com/dataset/isb-cgc:COSMIC_v84_grch38>`_
+    - `isb-cgc:COSMIC_v84_grch37 <https://bigquery.cloud.google.com/dataset/isb-cgc:COSMIC_v84_grch37>`_
 Details about the underlying COSMIC export files used to create these BigQuery tables can be
 found in README files for 
 `GRCh38 <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/source/sections/cosmic/README-cosmic-grch38.txt>`_ 
@@ -87,7 +87,7 @@ to run the sample query given below, please contact us at feedback@isb-cgc.org.
         Mutation_AA,
         Gene_name
       FROM
-        `isb-cgc.COSMIC_v83_grch37.Mutant`
+        `isb-cgc.COSMIC_v84_grch37.Mutant`
       GROUP BY
         Mutation_AA,
         Gene_name ),
@@ -163,11 +163,11 @@ There are many public BigQuery datasets containing genomic information, and you
 can combine any of these resources into your SQL queries on the COSMIC tables -- 
 all you need is the name of the table.
   
-In the example query above, the table being queried is ``isb-cgc.COSMIC_v83_grch37.Mutant``; 
+In the example query above, the table being queried is ``isb-cgc.COSMIC_v84_grch37.Mutant``; 
 a complete BigQuery table name has three components:
 
     * the first part of the name (isb-cgc) is the Google Cloud Platform (GCP) project name; 
-    * the second part (COSMIC_v83_grch37) is the dataset name; and 
+    * the second part (COSMIC_v84_grch37) is the dataset name; and 
     * the third part (Mutant) is the table name.
 
 To add public BigQuery datasets and tables to your "view" in the BigQuery web UI you 
@@ -208,7 +208,7 @@ important detail which is how you specify the table name.  A simple Standard SQL
 .. code-block:: sql
 
     SELECT *
-      FROM `isb-cgc.COSMIC.COSMIC_v83_grch37.Mutant`
+      FROM `isb-cgc.COSMIC.COSMIC_v84_grch37.Mutant`
       LIMIT 1000
 
 whereas the same query in Legacy SQL requires square brackets around the table name and a colon 
@@ -217,7 +217,7 @@ between the project name and the dataset name, like this:
 .. code-block:: sql
 
     SELECT *
-      FROM [isb-cgc:COSMIC_v83_grch37.Mutant]
+      FROM [isb-cgc:COSMIC_v84_grch37.Mutant]
       LIMIT 1000
 
 (Although please note that you can use the "Preview" feature in the BigQuery web UI, at no cost, instead of doing a sELECT * which will do a full table scan!)
@@ -297,7 +297,7 @@ Note that all of these examples are in "Standard SQL", so make sure that you hav
      COUNT(DISTINCT(ID_sample)) AS numSamples,
      COUNT(DISTINCT(ID_tumour)) AS numTumours
    FROM
-     `isb-cgc.COSMIC_v83_grch37.Mutant`
+     `isb-cgc.COSMIC_v84_grch37.Mutant`
    WHERE
      Gene_name="KRAS"
 
@@ -327,7 +327,7 @@ table on the fly, and then use it in a follow-up **SELECT**:
        FATHMM_prediction,
        Sample_source
      FROM
-       `isb-cgc.COSMIC_v83_grch37.Mutant`
+       `isb-cgc.COSMIC_v84_grch37.Mutant`
      WHERE
        Gene_name="KRAS"
      GROUP BY
@@ -370,7 +370,7 @@ table on the fly, and then use it in a follow-up **SELECT**:
        Mutation_AA,
        Mutation_Description
      FROM
-       `isb-cgc.COSMIC_v83_grch37.Mutant`
+       `isb-cgc.COSMIC_v84_grch37.Mutant`
      GROUP BY
        ID_tumour,
        Gene_name,
@@ -436,7 +436,7 @@ and individuals affected by disease.)
        CAST(SPLIT(SPLIT(Mutation_genome_position,':')[OFFSET(1)],'-')[OFFSET(0)] AS INT64) AS startPos,
        CAST(SPLIT(SPLIT(Mutation_genome_position,':')[OFFSET(1)],'-')[OFFSET(1)] AS INT64) AS endPos
      FROM
-       `isb-cgc.COSMIC_v83_grch37.Mutant`
+       `isb-cgc.COSMIC_v84_grch37.Mutant`
      WHERE
        Mutation_genome_position IS NOT NULL
        AND GRCh=37
@@ -577,9 +577,9 @@ and individuals affected by disease.)
      caseCounts DESC,
      Kaviar_AF DESC
 
-Our final result includes only 8 mutations that are found relatively frequently
-in COSMIC and are also found (though generally rarely) in Kaviar.  Notice the
-frequently-mutated gene 
+Our final result includes only 17 mutations that are found relatively frequently
+in COSMIC and are also found (though generally rarely) in Kaviar.
+Notice the frequently-mutated gene 
 `PRSS3 <http://grch37-cancer.sanger.ac.uk/cosmic/gene/analysis?ln=PRSS3>`_ 
 (which encodes a member of the trypsin family of serine proteases),
 and the major histocompatibility gene
