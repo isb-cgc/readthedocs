@@ -39,6 +39,15 @@ or your own personal project) and the ISB-CGC is your Google identity
 Access to all ISB-CGC hosted data is controlled using access control lists (ACLs) which define the
 permissions attached to each dataset, bucket, or object.
 
+**What project information do I input on the Register a Google Cloud Project page?**
+
+You will need to input the Google Cloud Prooject ID which can be found on the Dashboard page of the Google Console under Project info.
+
+.. image:: project_info.PNG
+   :scale: 50
+   :align: center
+
+
 **Why do I add the service account 907668440978-oskt05du3ao083cke14641u35deokgjj@developer.gserviceaccount.com to my Google Cloud Project?**
 
 This service account is needed  in your Google Cloud Project for the ISB-CGC project to be able to automatically verify that all users of your Google Cloud Project have the same appropriate access rights to the protected data that has been reuested for the project.
@@ -78,6 +87,10 @@ ISB-CGC Web Application
 **Why do I sometimes get a "Do you want to leave this site?" pop-up box when leaving a page or canceling a workflow edit?**
 
 This is a security feature when working with forms found in most web browsers; it lets you know that you may have made some changes which will be lost when you navigate away from the page. If you intend to cancel what you were doing, you can safely ignore it.
+
+**Which web browser is recomended to use when working with the site?**
+
+We recomend using Google Chrome browser.  We currently will display a chart slightly off when working with workbooks on a FireFox browser. Also, if you use Internet Explorer you will be unable to create a cohort when using the cohort filter feature pag at this time.
 
 Data Access
 ###########

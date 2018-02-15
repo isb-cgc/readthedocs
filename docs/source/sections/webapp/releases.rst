@@ -2,12 +2,46 @@
 Web-App Release Notes
 *********************
 
+* **February 1, 2018** `v3.8 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.8>`_
+
+ **Please Note:** Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
+ 
+ **Issues resolved in Sprint 23 as of 02/01/2018**
+ 
+ New Enhancements
+  - We have enabled DNA methylation data to be used when plotting with genomic build hg38.
+  - The cohort view files page has been updated to File Browser. The File Browser page also now has new filters data level, data type, disease code, data format, and experimental strategy. A time stamp has also been added to the CSV file that can be downloaded.
+  - The IGV browser and caMicroscope are now more clearly defined and separated on the File Browser page.
+  - When uploading a set of barcodes to create a cohort the error message has been redefined to direct someone to the instructions.
+  
+ Bug Fixes
+  - You can now plot DNA methylation data using genomic build hg19 when working on a worksheet.
+  - When registering a service account to controlled data you will no longer receive an error message when certain Google managed service accounts are also on the IAM and Admin page.
+  - On a  worksheet, if you add new cohorts to a worksheet with pre-existing cohorts. Now the older and newly added cohorts are present on the worksheet for analysis.
+  - When working with a worksheet you are now able to plot gene names that contain periods.
+ 
+ **Known Issues in Sprint 23 as of 02/01/2018**
+  - You cannot make a cohort using the cohort creation filter option on an Internet Explorer browser.
+  - Analysis Type: Seq peek Formatting Elongated on occasion.
+  - If the user shares a Cohort neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort. 
+  - CCLE data cannot be plotted when working with workbooks.  ISB-CGC will resolve this functionality after the GDC formally releases CCLE data.
+  - When a user duplicates a Worksheet, then tries to implement the log scale it will not function properly.
+  - The set operation for existing Cohorts complement is behaving exceptionally slow.
+  - The mouse-over feature is currently disabled for program TARGET with disease code ALL.
+  - When working on Firefox browser a violin plot does not display the data plotted correctly when working on a Worksheet.
+  - When uploading TARGET files using the cohort barcode creation feature from the GDC you may get an invalid barcodes error message and unable to upload all the barcodes.
+  - SeqPeek can only be plotted with TCGA data, but if a cohort contains no TCGA samples the SeqPeek analysis will still search the TCGA BigQuery tables.
+  -  API endpoint samples.get currently down and will return a 503 error for all three programs.
+  - Currently unable to use TARGET data with the IGV browser to view .bam files. 
+  - When editing the name of a cohort the cancel feature is not working properly. 
+  - When working on a worksheet the SeqPeek feature is currently not working with certain genes.
+  - Certain genes will produce a blank chart with no data on a worksheet when working with a histogram.
 
 * **December 20, 2017** `v3.7 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.7>`_
   
- *Please Note: Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.*
+ **Please Note:** Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
  
- **Issues be resolved in Sprint 22 as of 12/20/2017**
+ **Issues resolved in Sprint 22 as of 12/20/2017**
  
  New Enhancements
   - Using the 'View Files' page you can now view TCGA pathology images using caMicroscope! 
@@ -69,7 +103,7 @@ Web-App Release Notes
   
 * **October 13, 2017** `v3.5 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.5>`_
   
- *Please Note: We need to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.*
+ **Please Note:** We need to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
   
  **Issues resolved in Sprint 20 as of 10/11/2017**
  
@@ -101,7 +135,7 @@ Web-App Release Notes
 
 * **September 21,2017** `v3.4 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.4>`_
 
- *Please Note: We need to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.*
+ **Please Note:** We need to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
  
  **Issues that have been resolved in Sprint 19 as of 09/21/2017**
  
