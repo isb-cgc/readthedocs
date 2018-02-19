@@ -2,11 +2,11 @@
 Data in Google Genomics
 ###############################
 
-`Google Genomics <https://cloud.google.com/genomics/>`_ is a database-backed technology that allows users to query 
+`Google Genomics <https://cloud.google.com/genomics/>`_ was a database-backed technology that allowed users to query 
 reads and variants using the 
 `GA4GH API <https://media.readthedocs.org/pdf/ga4gh-schemas/latest/ga4gh-schemas.pdf>`_.
 
-**PLEASE NOTE:** Google announced on December 7th, 2017 that the "reads API" has been replaced by the `htsget protocol <http://samtools.github.io/hts-specs/htsget.html>`_ , and the "variants API" has been replaced by htsget and the new open-source `"Variant Transforms" <https://github.com/googlegenomics/gcp-variant-transforms>`_ a tool for uploading variant data directly into BigQuery.
+On December 7th, 2017 Google announced that the "reads API" has been replaced by the `htsget protocol <http://samtools.github.io/hts-specs/htsget.html>`_ , and the "variants API" has been replaced by htsget and the new open-source `"Variant Transforms" <https://github.com/googlegenomics/gcp-variant-transforms>`_ a tool for uploading variant data directly into BigQuery.
 
 At this time, the ISB-CGC is hosting two open-access datasets in Google Genomics containing
 the CCLE DNA-Seq and RNA-Seq data:
