@@ -8,7 +8,7 @@ you may download this `pdf <https://raw.githubusercontent.com/isb-cgc/readthedoc
 Other useful Tutorials
 **********************
 
-* `Linking your NIH and Google Identities <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-TCGA-Contolled-Access-Data.html?#linking-your-nih-and-google-identities>`_
+* `Linking your NIH and Google Identities <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-Contolled-Access-Data.html?#linking-your-nih-and-google-identities>`_
 * IGV Tutorial (`pdf <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/Intro_to_Webapp_IGV.pdf>`_)
 * SeqPeek Tutorial (`pdf <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/Intro_to_Webapp_SeqPeek.pdf>`_)
 

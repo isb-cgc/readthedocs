@@ -13,16 +13,18 @@ first be redirected to an NIH login page, and once you have successfully authent
 ISB-CGC will store an association between your NIH identity and your Google identity.
 (Note that this should be a one-to-one association.)
 
-Once you have authenticated, ISB-CGC will check which dataset(s) you have been authorized
-(by dbGaP) to access.  ISB-CGC obtains an updated whitelist for each of the hosted datasets from
+Once you have authenticated, ISB-CGC will check which dataset(s) e.g TCGA controlled data and/or TARGET controlled data you have been
+authorized (by dbGaP) to access.  ISB-CGC obtains an updated whitelist for each of the hosted datasets from
 dbGaP every day.  If you have just recently been granted access by dbGaP, there may be a 24 hour
 delay before you will be able to request access to these data on ISB-CGC.
+
+
 
 Visit `electronic Research Administration (eRA) <http://era.nih.gov>`_ for more information on 
 registering for a NIH eRA account. NIH staff may utilize their NIH log-in. 
 (For additional instructions, please refer to `Data Access Request Instructions <http://www.genome.gov/20019654>`_, 
 dbGap Data Access `Request Portal <http://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login>`_, 
-and `Understanding Data Security <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/data/data2/TCGA_Data_Security.html>`_). 
+and `Understanding Data Security <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/data/data2/TCGA_Data_Security.html>`_).  Please be sure to review the Data Use Certification Agreement for `TCGA controlled data <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000178.v9.p8>`_ and `TARGET controlled data <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000218.v17.p6>`_. 
 
 Once you have authenticated to NIH via the Web App, and your dbGaP authorization has been verified, the 
 Google identity associated with your account will have access to the controlled-data for 24 hours.
@@ -133,10 +135,17 @@ Requirements for Registering a Google Cloud Project Service Account
 --------------------------------------------------------------------
 To be able to register your GCP Project and at least one service account to access controlled data the following must all be true:
 
-- you must be an **owner** of the GCP project (because you will need to add an ISB-CGC service account as a new projet member)
-- at any time, ALL members of the project MUST be authorized to use the data set (*ie* be a registered dbGaP "PI" or "downloader") (see dbGap Data Access `Request Portal <http://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login>`_, and `Understanding Data Security <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/data/data2/TCGA_Data_Security.html>`_ for more details).
-- all members of the project have signed in to the ISB-CGC Web App *at least once*
-- all members of the project have authenticated via the NIH login page and thereby linked their NIH identity to their Google identity
+- You must be an **owner** of the GCP project (because you will need to add an ISB-CGC service account as a new project member)
+- At any time, ALL members of the project MUST be authorized to use the data set (*ie* be a registered dbGaP "PI" or "downloader") (see dbGap Data Access `Request Portal <http://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login>`_, and `Understanding Data Security <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/data/data2/TCGA_Data_Security.html>`_ for more details).
+- All members of the project have signed in to the ISB-CGC Web App *at least once*
+- All members of the project have authenticated via the NIH login page and thereby linked their NIH identity to their Google identity
+- The GCP project can not be associated with an Organization
+- No Google Groups or other multi-member identifiers (e.g. all authenticated Google users) have been provided with a project role
+- The GCP project must have the ISB-CGC monitoring service account (SA) assigned to an Editor role
+- All SAs with roles in the project must belong to the project, with the exception of the ISB-CGC monitoring SA; this means that all Google-managed SAs with project roles must belong to the project as well
+- The SA you are registering cannot be the ISB-CGC monitoring SA, or SAs from other projects
+- You have not created any keys for any SAs in the project
+- No IDs have been assigned roles on any SAs in the project
 
 If ANY of these requirements are not met, your GCP and ANY associated service accounts will **not** be able to access controlled data.  An automated email will be sent to the GCP project owner(s) if data access is revoked.
 
@@ -154,7 +163,13 @@ Select the "Register a Google Cloud Project" link.  That takes you to the follow
    :scale: 50
    :align: center
    
-Please fill out the form following the instructions that are provided.  You must enter your GCP ID and enable the isb-cgc service account as an editor in your project to move on to the next step.  Once you have completed these steps you will be presented at the bottom of the same page a listing of the members of your GCP you registering (see screenshot below):
+Please fill out the form following the instructions that are provided.  You must enter your GCP ID and enable the isb-cgc service account as an editor in your project to move on to the next step.  
+
+.. image:: project_info.PNG
+   :scale: 50
+   :align: center
+   
+Once you have completed these steps you will be presented at the bottom of the same page a listing of the members of your GCP you registering (see screenshot below):
 
 .. image:: GCPMembers.png
    :scale: 50
@@ -166,9 +181,9 @@ Pushing the "Register" button will take you to the next screen:
    :scale: 50
    :align: center
    
-Select "Register Service Account" from the drop down menu on the left of the GCP you want to add a service account to.  You will be requested to enter your service account ID (see screenshot below).  Addtionally, select the "Yes" checkbox indicating that you will be using the account to access controlled data and select the Controlled Dataset(s) you plan to access.
+Select "Register Service Account" from the drop down menu on the left of the GCP you want to add a service account to.  By default, there will be the Compute Engine Default service account in the Enter the service account ID text box (see screenshot below).  Addtionally, select the "Yes" checkbox indicating that you will be using the account to access controlled data and select the Controlled Dataset(s) you plan to access.  Currently you can select either Controlled TCGA data or controlled TARGET data to gain access  to.
 
-.. image:: RegisterAServiceAccountFirstScreen.png
+.. image:: RegisterAServiceAccountFirstScreen.PNG
    :scale: 50
    :align: center
    
@@ -180,7 +195,7 @@ Once you click the "Button" at the bottom of the page, you will be presented wit
    
 If all the requirements for registering a service account are met, the account will be registered.  If not, the service account will only be registered for Open Datasets.  The final screen below shows the final registered data set (shown by selecting the drop-down menu beside the service account count highlighted in red).
 
-.. image:: ServiceAcctRegSuccess.PNG
+.. image:: ServiceAcctRegSuccess.png
    :scale: 50
    :align: center
 
@@ -215,11 +230,22 @@ To add additional service accounts to a given GCP reselect the "Register Service
    :scale: 50
    :align: center
 
+
+Adjusting a Service Accounts using the Adjust Service Account page
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To add or remove a controlled dataset from one specific service account from this feature. If you select the plus "+" sign icon next to the trash can (see screenshot below).
+
+
+.. image:: AdjustServiceAccount.png
+   :scale: 50
+   :align: center
+
+
 Deleting Service Accounts from Google Cloud Projects
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 To delete a service account from an GCP (not allowing it to be used to programmatically access controlled data), push the "trashcan" icon beside the service account (see screenshot below).
 
-.. image:: DeleteServiceAccount.PNG
+.. image:: DeleteServiceAccount.png
    :scale: 50
    :align: center
 
@@ -227,7 +253,7 @@ Extending Your Service Account Access by 7 Days
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Once you have registered a Service Account, you have 7 days before the access is automatically revoked.  To extend the service account access another 7 days (*eg* if your program is still running), select the "refresh" icon beside the service account (see screenshot below).
 
-.. image:: RefreshServiceAccount.PNG
+.. image:: RefreshServiceAccount.png
    :scale: 50
    :align: center
 
@@ -241,7 +267,7 @@ which resulted in the access being revoked.
 To reauthorize the service account 1) remedy the problem that resulted in access being denied,
 and 2) select the "refresh" icon beside the service account (see screenshot below).
 
-.. image:: RefreshServiceAccount.PNG
+.. image:: RefreshServiceAccount.png
    :scale: 50
    :align: center
 

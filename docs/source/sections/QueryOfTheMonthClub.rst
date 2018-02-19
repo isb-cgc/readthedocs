@@ -1,16 +1,2052 @@
-***********************
-Query of the Month Club
-***********************
+********************
+Query of the Month
+********************
 
-Welcome to the 'Query of the Month Club' where we'll be creating a collection
+Welcome to the 'Query of the Month' where we'll be creating a collection
 of new and interesting queries to demonstrate the powerful combination of
-BigData from the TCGA and BigQuery from Google.
+BigData from the NCI cancer programs like TCGA, and BigQuery from Google.
 
-Please let us know if you'd like to be featured on the "query-club"!
-email: dgibbs (at) systemsbiology (dot) org
+Please let us know if you have an idea or a suggestion for our next QotM!
+
+Query of the Month is produced by:
+
+
+- David L Gibbs (david.gibbs (~at~) systemsbiology (~dot~) org)
+
+- Sheila M Reynolds (sheila.reynolds (~at~) systemsbiology (~dot~) org)
+
+
+-----------------------
+
+Table of Contents
+=================
+
+2018
+++++
+
+- January_: Gene Set Scoring in BigQuery, using the new hg38 mutation tables.
+
+2017
+++++
+
+- December2017_: BigQuery comparing TCGA samples to GTEx tissues with Spearman correlation.
+
+- November2017_: Run an R (or python) script in batch mode using dsub on the google cloud.
+
+- October2017_: Using plotly for visualization in Shiny apps. We implement an interatictive heatmap using heatmaply
+
+- September2017_: We implement a new statistical test in BigQuery: the one-way ANOVA.
+
+- August2017_: A small demo application using BigQuery as the backend for a Shiny app.
+
+- July2017_: Look at the BigQuery RECORD data type in methylation tables from the GDC.
+
+- May2017_: Continued from April: estimating the distance between samples based on shared mutations in pathways.
+
+- April2017_: BigQuery compute a similarity metric on overlapping mutations between samples.  Uses MC3 mutation table and data from COSMIC.
+
+- March2017_: BigQuery to compute a pairwise distance matrix and a heatmap in R
+
+- February2017_: Using BigQuery, define K-means clustering as a user defined (javascript) function
+
+- January2017_: Comparing Standard SQL and Legacy SQL.
+
+
+2016
+++++
+
+- December2016_: Spearman correlation in BigQuery to compare the new hg38 expression data to the hg19 data
+
+Links
++++++
+
+Resources_:  Helpful information!
+
+
+-----------------------
+
+
+.. _January:
+
+January, 2018
+##############
+
+This month, we're going to implement a common bioinformatics task: gene set
+scoring. In this procedure, we will compare the <joint> expression of a set of genes
+between two groups.
+
+Gene sets frequently result from experiments in which, for example, expression is compared
+between two groups (*e.g.* control and treatment), and the genes that are significantly
+differentially expressed between the two groups form the "gene set".  Given a gene set,
+numerous approaches have been proposed to assign functional interpretations to a
+particular list of genes.
+
+An related approach is to consider pathways as gene sets: each gene set will
+therefore be a canonical representation of a biological process compiled by domain experts.
+We will use the WikiPathways gene sets that were assembled
+for a previous Query of the Month (May2017_). In total, 381 pathways were downloaded from
+`WikiPathways <http://data.wikipathways.org/current/gmt/wikipathways-20170410-gmt-Homo_sapiens.gmt>`_.
+In the BQ table, each row contains a pathway and a gene associated with that pathway.
+
+Our task will be to determine which genesets are
+differentially expressed when comparing two groups of samples. We will define
+groups of samples using the new hg38 Somatic Mutations table based on
+`Data Release 10 (DR10) <https://docs.gdc.cancer.gov/Data/Release_Notes/Data_Release_Notes/#data-release-100>`_
+from the NCI Genomic Data Commons.
+
+The BigQuery table at ISB-CGC is found at:
+isb-cgc:TCGA_hg38_data_v0.Somatic_Mutation_DR10
+
+The BigQuery pathway table is found at:
+isb-cgc:QotM.WikiPathways_20170425_Annotated
+
+
+We will implement a method found in a paper titled "Gene set enrichment analysis made simple"
+(Rafael A Irrazary *et al*, PMID 20048385). They propose a simple
+solution which outperforms a popular and more complex method known as GSEA.
+
+In short, (I'll explain more later), the gene set score comes from an average of
+T-tests, where the T-statistics come from testing each gene for differential expression between the two groups.
+The statistic is then weighted
+by the square root of the sample size (number of genes in the set), so that with larger
+gene sets, the 'signficant' effect size can get pretty small.
+
+At the end of it, the full query processes 29.8GB in 10.1s and cost ~$0.15.
+
+Let's get started. First, which tissue type should we focus on?  Let's choose PARP1 as an
+interesting gene -- it encodes an enzyme involved in DNA damage repair and is also
+the target of some therapeutic drugs -- and use the Somatic Mutation table to choose a cancer type:
+
+.. code-block:: sql
+
+  SELECT
+    project_short_name,
+    COUNT(DISTINCT(sample_barcode_tumor)) AS n
+  FROM
+    `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
+  WHERE
+    Hugo_Symbol = 'PARP1'
+  GROUP BY
+    project_short_name
+  ORDER BY
+    n DESC
+
+The result of that query shows that 46 tumor samples have PARP1 mutations in UCEC,
+followed by COAD and STAD with 22 each. That's a big lead by UCEC, so let's
+focus our work there.
+
+Here's where our main query will begin. Since this is standard SQL,
+we'll be naming each subtable, and the full
+query can be constructed by concatenating each of the following sub-queries.
+
+.. code-block:: sql
+
+  WITH
+  s1 AS (
+    SELECT
+      sample_barcode_tumor AS sample_barcode
+    FROM
+      `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
+    WHERE
+      project_short_name = 'TCGA-UCEC'
+    GROUP BY
+      1
+  )
+  SELECT * FROM s1
+
+This query returns 530 tumor sample barcodes with at least one known somatic
+mutation.  (The TCGA Biospecimen table includes information for a total of 553 UCEC
+tumor samples, but some may have not been sequenced or may have no somatic
+mutations -- the former being more likely than the latter.)
+Recall that somatic mutations are variants in the DNA
+that are found when comparing the tumor sequence to the 'matched normal' sequence
+(typically from a blood sample, but sometimes from adjacent tissue).
+Next, for all these samples, we'll want to restrict our analysis to samples
+for which we also have mRNA expression data:
+
+.. code-block:: sql
+
+    sampleGroup AS (
+    SELECT
+      sample_barcode
+    FROM
+      `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
+    WHERE
+      project_short_name = 'TCGA-UCEC'
+      AND sample_barcode IN
+      (select sample_barcode from s1)
+    GROUP BY
+      1 )
+
+Now we have 526 samples for which we have gene expression and somatic mutation calls.
+We are interested in partitioning this group into two parts: one with a
+mutation of interest, and one without.
+So let's gather barcodes for tumors with non-silent mutations in PARP1.
+
+.. code-block:: sql
+
+    --
+    -- The first group has non-synonymous mutations in PARP1
+    --
+    grp1 AS (
+    SELECT
+      sample_barcode_tumor AS sample_barcode
+    FROM
+      `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
+    WHERE
+      Hugo_Symbol = 'PARP1'
+      AND One_Consequence <> 'synonymous_variant'
+      AND sample_barcode_tumor IN (
+        SELECT
+          sample_barcode
+        FROM
+          sampleGroup )
+      GROUP BY sample_barcode
+    ),
+    --
+    -- group 2 is the rest of the samples
+    --
+    grp2 AS (
+    SELECT
+      sample_barcode
+    FROM
+      sampleGroup
+    WHERE
+      sample_barcode NOT IN (
+        SELECT
+          sample_barcode
+        FROM
+          grp1)
+    ),
+
+
+This results in 41 tumor samples with non-synonymous PARP1 variants and 485
+samples without.
+
+Next we're going to summarize the gene expression within each of these groups.
+This will be used for calulating T-statistics in the following portion of
+the query we are constructing.
+For each gene, we'll take the mean, variance, and count of samples.
+
+.. code-block:: sql
+
+    -- Summaries for Group 1 (with mutation)
+    --
+    summaryGrp1 AS (
+      select
+        gene_name as symbol,
+        AVG(LOG10( HTSeq__FPKM_UQ +1)) as genemean,
+        VAR_SAMP(LOG10( HTSeq__FPKM_UQ +1)) as genevar,
+        count(sample_barcode) as genen
+      FROM
+        `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
+      WHERE
+        sample_barcode IN (select sample_barcode FROM grp1)
+        AND gene_name IN (
+          SELECT
+            Symbol as gene_name
+          FROM
+            `isb-cgc.QotM.WikiPathways_20170425_Annotated`
+        )
+      GROUP BY
+        gene_name
+    ),
+    --
+    -- Summaries for Group 2 (without mutation)
+    --
+    summaryGrp2 AS (
+      select
+        gene_name as symbol,
+        AVG(LOG10( HTSeq__FPKM_UQ +1)) as genemean,
+        VAR_SAMP(LOG10( HTSeq__FPKM_UQ +1)) as genevar,
+        count(sample_barcode) as genen
+      FROM
+        `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
+      WHERE
+        sample_barcode IN (select sample_barcode FROM grp2)
+        AND gene_name IN (
+          SELECT
+            Symbol as gene_name
+          FROM
+            `isb-cgc.QotM.WikiPathways_20170425_Annotated`
+        )
+      GROUP BY
+        gene_name
+    ),
+    --
+
+
+This results in two sets of summaries for 4,822 genes.
+(There are 4,962 unique gene symbols in the WikiPathways table, but 140 of them do not
+match any of the symbols in the TCGA hg38 expression table.)
+With this, we are ready
+to calculate T-statistics. Here we're going to use a two sample T-test
+assuming independent variance (and that we have enough samples to assume that).
+The T-statistic is found by taking the difference in means (of gene expression between
+our two groups), and normalizing it by measures of variance and sample size.
+Here, we want to keep T-statistics that are zero, which might come from having
+zero variance, because having a T-stat for each gene is important in the gene set
+score, even if it's a zero. To do that, you'll see the use of an IF statement
+below.
+
+
+.. code-block:: sql
+
+  tStatsPerGene AS (
+  SELECT
+    grp1.symbol as symbol,
+    grp1.genen as grp1_n,
+    grp2.genen AS grp2_n,
+    grp1.genemean AS grp1_mean,
+    grp2.genemean AS grp2_mean,
+    grp1.genemean - grp2.genemean as meandiff,
+    IF ((grp1.genevar > 0
+         AND grp2.genevar > 0
+         AND grp1.genen > 0
+         AND grp2.genen > 0),
+      (grp1.genemean - grp2.genemean) / SQRT( (POW(grp1.genevar,2)/grp1.genen)+ (POW(grp2.genevar,2)/grp2.genen) ),
+      0.0) AS tstat
+  FROM
+    summaryGrp1 as grp1
+    JOIN
+    summaryGrp2 AS grp2
+    ON
+    grp1.symbol = grp2.symbol
+  GROUP BY
+    grp1.symbol,
+    grp1.genemean,
+    grp2.genemean,
+    grp1.genevar,
+    grp2.genevar,
+    grp1.genen,
+    grp2.genen
+  ),
+
+
+.. |logo1| image:: query_figs/jan_fig2_diffs_vs_ts.png
+  :scale: 30%
+  :align: middle
+.. |logo2| image:: query_figs/jan_fig1_tstats.png
+  :scale: 35%
+  :align: middle
+
++---------+---------+
+| |logo1| | |logo2| |
++---------+---------+
+
+OK! We have a distribution of T statistics. The question is whether there's
+some hidden structure to these values. Are there gene sets with unusually high
+T-statistics? And do these gene sets make any sort of biological sense?
+Let's find out!
+
+Now we are going to integrate our gene set table. This is as easy as doing
+a table join.
+
+.. code-block:: sql
+
+  geneSetTable AS (
+  SELECT
+    gs.pathway,
+    gs.wikiID,
+    gs.Symbol,
+    st.grp1_n,
+    st.grp2_n,
+    st.grp1_mean,
+    st.grp2_mean,
+    st.meandiff,
+    st.tstat
+  FROM
+    `isb-cgc.QotM.WikiPathways_20170425_Annotated` as gs
+  JOIN
+    tStatsPerGene as st
+  ON
+    st.symbol = gs.symbol
+  GROUP BY
+    gs.pathway,
+    gs.wikiID,
+    gs.Symbol,
+    st.grp1_n,
+    st.grp2_n,
+    st.grp1_mean,
+    st.grp2_mean,
+    st.meandiff,
+    st.tstat
+  )
+
+That's it! For each gene in the pathways (gene sets) table, we have joined in
+the T-statistic comparing our two groups. Now for the gene set score! To
+get this, we're going to simply average over the T's within each pathway, and
+scale the result by the square root of the number of genes. When the number of
+genes gets large (reasonably so), the value approximates a Z-score. In this way,
+using R for example, we could get a p-value and perform multiple testing correction
+in order to control the false discovery rate.
+
+.. code-block:: sql
+
+  geneSetScores AS (
+  SELECT
+    pathway,
+    wikiID,
+    COUNT(symbol) AS n_genes,
+    AVG(ABS(meandiff)) AS avgAbsDiff,
+    (SQRT(COUNT(symbol))/COUNT(symbol)) * SUM(tstat) AS score
+  FROM
+    geneSetTable
+  GROUP BY
+    pathway,
+    wikiID )
+  --
+  --
+  SELECT
+    *
+  FROM
+    geneSetScores
+  ORDER BY
+    score DESC
+
+
+.. figure:: query_figs/jan_fig3_results.png
+   :scale: 80
+   :align: center
+
+
+.. figure:: query_figs/jan_fig4_scores.png
+  :scale: 30
+  :align: center
+
+
+So, we see that 'Retinoblastoma (RB) in Cancer' is in the top spot with a score
+way above the #2 position. Why might that be?
+Well, PARP1 is involved in DNA damage repair, specifically through the
+non-homologous endjoining (NHEJ) mechanism.
+Samples that are deficient in PARP1 are going to have a hard time repairing DNA breaks,
+which makes cancer more likely. So, RB1 might need to take up the slack,
+and indeed it's known as a 'tumor suppressor protein': when DNA is damaged,
+the cell cycle needs to freeze, which happens to be one of RB1's special tricks, and
+also probably why we see the next two top ranked pathways 'DNA Replication' and 'Cell Cycle'.
+
+For more on this topic see:
+
+  - Retinoblastoma (RB) in Cancer (Homo sapiens) (`Wiki pathway WP2446 <https://www.wikipathways.org/index.php/Pathway:WP2446>`_)
+  - RB1 gene (`Wikipedia entry <https://en.wikipedia.org/wiki/Retinoblastoma_protein>`_)
+  - Direct involvement of retinoblastoma family proteins in DNA repair by non-homologous end-joining. (`Cook et al, 2015 <https://www.ncbi.nlm.nih.gov/pubmed/25818292>`_)
+
+Thanks, and feel free to ask about a particular topic! We're happy to
+take requests!
+
+.. _December2017:
+
+December, 2017
+##############
+
+For December we're getting back to BigQuery. And, we've got a good one this month.
+Perhaps you've heard of `The Genotype-Tissue Expression (GTEx) project <https://www.gtexportal.org/home/>`_ ?
+It's a fantastic collection of data; donors provided a wide range of healthy tissue samples
+that have been used to produce a range of data types, including expression and
+genomics data. You can see the `documentation <https://www.gtexportal.org/home/documentationPage>`_
+for a complete description.
+
+
+Well... for this month's query we've put some of this data in the *cloud*!
+
+
+As a demonstration use-case, we thought it would be interesting to compare gene expression signatures between
+TCGA and GTEx, and look at the correlation between each TCGA sample (of which there are over 10,000) and each GTEx tissue type
+(of which there are 53, with the expression data averaged from multiple samples from the same tissue type).
+See below for R code and visualizations.
+
+
+The bigquery below contains the following steps:
+
+- select the 5K most variable genes from each data source
+- find the intersection of these two lists: this will be the list of ~3200 genes that we'll use in the correlations
+- build sub-tables of the expression data
+- rank the expression data within each sample
+- perform an all-by-all correlation of the ranks, between TCGA samples and GTEx tissue types (this is Spearman's correlation)
+- return 545,317 rows(!) where each row represents the correation between one TCGA sample and one GTEx tissue type
+
+
+Amazingly, this query processes 12.7 GB, takes about 10-20 seconds, and only cost 6 cents!
+
+
+.. code-block:: sql
+
+  WITH
+  --
+  -- # First we select the 5,000 most variable genes from GTEx.
+  -- # This is across all tissues.
+  --
+    GTEx_top5K AS (
+    SELECT
+      gene_id,
+      gene_description,
+      STDDEV(gene_exp) AS sigmaExp
+    FROM
+      `isb-cgc.GTEx_v7.gene_median_tpm`
+    GROUP BY
+      1,
+      2
+    ORDER BY
+      sigmaExp DESC
+    LIMIT
+      5000 ),
+      --
+      -- # Then we select the most variable 5K genes from TCGA.
+      --
+    TCGA_top5K AS (
+    SELECT
+      HGNC_gene_symbol,
+      STDDEV(normalized_count) AS sigmaExp
+    FROM
+      `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
+    WHERE
+      platform='IlluminaHiSeq'
+      AND HGNC_gene_symbol IS NOT NULL
+    GROUP BY
+      1
+    ORDER BY
+      sigmaExp DESC
+    LIMIT
+      5000 ),
+      --
+      -- # next we join the gene symbol tables to get the gene lists.
+      --
+    geneList AS (
+    SELECT
+      gene_id,
+      HGNC_gene_symbol AS gene_symbol
+    FROM
+      GTEx_top5K
+    JOIN
+      TCGA_top5K
+    ON
+      gene_description=HGNC_gene_symbol ),
+      --
+      -- # then we rank the gene expression within a sample_barcode.
+      --
+    tcgaData AS (
+    SELECT
+      sample_barcode,
+      project_short_name AS project,
+      HGNC_gene_symbol AS gene_symbol,
+      normalized_count AS expr,
+      DENSE_RANK() OVER (PARTITION BY sample_barcode ORDER BY normalized_count ASC) AS rankExpr
+    FROM
+      `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
+    WHERE
+      platform='IlluminaHiSeq'
+      AND HGNC_gene_symbol IN (
+      SELECT
+        gene_symbol
+      FROM
+        geneList) ),
+        --
+        -- # and also rank the GTEx data
+        --
+    gtexData AS (
+    SELECT
+      SMTSD AS tissueType,
+      gene_description AS gene_symbol,
+      gene_exp AS expr,
+      DENSE_RANK() OVER (PARTITION BY SMTSD ORDER BY gene_exp ASC) AS rankExpr
+    FROM
+      `isb-cgc.GTEx_v7.gene_median_tpm`
+    WHERE
+      gene_description IN (
+      SELECT
+        gene_symbol
+      FROM
+        geneList ) ),
+        --
+        -- # last table join on TCGA and GTEx ranked gene expression data
+        --
+    j1 AS (
+    SELECT
+      g.tissueType AS GTEx_tissueType,
+      g.gene_symbol,
+      g.rankExpr AS gRank,
+      t.sample_barcode,
+      t.project AS TCGA_project,
+      t.rankExpr AS tRank
+    FROM
+      gtexData g
+    JOIN
+      tcgaData t
+    ON
+      g.gene_symbol=t.gene_symbol ),
+      --
+      -- # and last, we correate on the ranks (Spearman's correlation).
+      --
+    gtCorr AS (
+    SELECT
+      GTEx_tissueType,
+      sample_barcode,
+      TCGA_project,
+      CORR(gRank,tRank) AS corr
+    FROM
+      j1
+    GROUP BY
+      1,
+      2,
+      3 )
+      --
+      --
+      --
+  SELECT
+    *
+  FROM
+    gtCorr
+  ORDER BY
+    corr DESC
+
+
+So now we'll run the query and create some visualizations.
+
+
+.. code-block:: r
+
+
+  library(bigrquery)
+
+  q <- as.character(_the_query_above_)
+
+  res0 <- query_exec(q, project=__my_project__, use_legacy_sql=F)
+
+  dim(res0)
+  #[1] 545317      4
+
+  head(res0)
+    GTEx_tissueType   sample_barcode TCGA_project      corr
+  1           Liver TCGA-DD-A39V-11A    TCGA-LIHC 0.9213024
+  2           Liver TCGA-DD-A39Z-11A    TCGA-LIHC 0.9189148
+  3           Liver TCGA-DD-A3A1-11A    TCGA-LIHC 0.9176827
+  4           Liver TCGA-FV-A3R2-11A    TCGA-LIHC 0.9153921
+  5           Liver TCGA-DD-A3A5-11A    TCGA-LIHC 0.9149076
+  6           Ovary TCGA-BG-A3PP-11A    TCGA-UCEC 0.9139462
+
+
+OK, now we have our table of results, where each TCGA sample is paired with a
+GTEx tissue type. Let's take a look at how the tissues correspond.
+
+Just a note here: it would be a good idea to save the results from this query into a new BigQuery
+table, and continue to query the new table ... but we'll just bring it down and process it locally.
+
+First question: what is the top scoring correlation for each TCGA type (and for each GTEx tissue type)?
+We'll group by TCGA tissue type, and within those groups, pull out the row
+containing the maximum correlation. Then, we'll group by GTEx tissue-type, and then for each tissue-type
+pull out row containing the maximum correlation.
+
+.. code-block:: r
+
+  library(dplyr)
+  byTCGA <- res0 %>%
+    select(GTEx_tissueType, TCGA_project, corr) %>%
+      group_by(TCGA_project) %>%
+        filter(corr == max(corr))
+
+    byGTEx <- res0 %>%
+      select(GTEx_tissueType, TCGA_project, corr) %>%
+        group_by(GTEx_tissueType) %>%
+          filter(corr == max(corr))
+
+  > data.frame(byTCGA)
+                         GTEx_tissueType TCGA_project      corr
+  1                                Liver    TCGA-LIHC 0.9213024
+  2                                Ovary    TCGA-UCEC 0.9139462
+  3                        Adrenal Gland    TCGA-PCPG 0.9100819
+  4         Brain - Frontal Cortex (BA9)     TCGA-LGG 0.9100485
+  5                                Liver    TCGA-CHOL 0.9089752
+  6         Brain - Frontal Cortex (BA9)     TCGA-GBM 0.9021079
+  7                               Uterus    TCGA-CESC 0.8998127
+  8                              Thyroid    TCGA-THCA 0.8927743
+  9                        Adrenal Gland     TCGA-ACC 0.8871793
+  10                  Esophagus - Mucosa    TCGA-HNSC 0.8843076
+
+  > data.frame(byGTEx)
+                               GTEx_tissueType TCGA_project      corr
+  1                                      Liver    TCGA-LIHC 0.9213024
+  2                                      Ovary    TCGA-UCEC 0.9139462
+  3                              Adrenal Gland    TCGA-PCPG 0.9100819
+  4               Brain - Frontal Cortex (BA9)     TCGA-LGG 0.9100485
+  5                             Brain - Cortex     TCGA-LGG 0.9049930
+  6                                     Uterus    TCGA-CESC 0.8998127
+  7   Brain - Anterior cingulate cortex (BA24)     TCGA-LGG 0.8929013
+  8                                    Thyroid    TCGA-THCA 0.8927743
+  9                         Esophagus - Mucosa    TCGA-HNSC 0.8843076
+  10                          Brain - Amygdala     TCGA-LGG 0.8832739
+
+
+
+The tissue signatures match up very well across projects! We see TCGA tissue types correlating
+most strongly with the most similar GTEx tissue types. There are some differences
+depending on whether we look in blocks by TCGA tumor-type or by GTEx tissue-type, but 15 match exactly
+from the two tables.
+
+
+The "Liver" expression profile in particular seems to be very specific.
+Let's see how TCGA liver samples correlate with GTEx.
+
+.. code-block:: r
+
+  library(ggplot2)
+
+  lihcCorrs <- res0 %>%
+    filter(TCGA_project == 'TCGA-LIHC') %>%
+      select(GTEx_tissueType, TCGA_project, corr) %>%
+        group_by(TCGA_project)
+
+  qplot(data=lihcCorrs, x=GTEx_tissueType, y=corr, geom="boxplot", col=as.factor(GTEx_tissueType)) +
+    theme(legend.position="none") +
+    theme(axis.text.x=element_text(angle=45, hjust=1)) +
+    ggtitle("TCGA-LIHC")
+
+
+.. figure:: query_figs/GTEx_TCGA_corr_LIHC.png
+   :scale: 30
+   :align: center
+
+
+Where do we find unexpected correlations? When grouping by TCGA tissue, TCGA-SKCM
+actually has the highest correlation with Spleen (0.798). SKCM is the abbreviation
+for *melanoma* (SKin Cancer Melanoma) "a cancer in the type of skin cells called melanocytes" (from the GDC's site).
+To me that was a little unexpected, so let's unpack that a bit.
+
+
+.. code-block:: r
+
+  library(ggplot2)
+
+  skcmCorrs <- res0 %>%
+    filter(TCGA_project == 'TCGA-SKCM') %>%
+      select(GTEx_tissueType, TCGA_project, corr) %>%
+        group_by(TCGA_project)
+
+  qplot(data=skcmCorrs, x=GTEx_tissueType, y=corr, geom="boxplot", col=as.factor(GTEx_tissueType)) +
+    theme(legend.position="none") +
+    theme(axis.text.x=element_text(angle=45, hjust=1))
+
+
+.. figure:: query_figs/GTEx_TCGA_corr_SKCM.png
+   :scale: 30
+   :align: center
+
+
+After mentioning this to Sheila, she remembered that many of the melanoma samples are
+metastatic samples taken from lymph nodes, and,
+the spleen, like the lymph nodes, is a secondary or peripheral lymphoid organ.
+Primary tumor sample barcodes are of the form 'TCGA-XY-1234-01' (with the final two digits
+indicating the sample type), while metastatic sample barcodes end in '-06'.
+Let's label the points according to the sample type and see what that looks like.
+
+
+.. code-block:: r
+
+  skcmSpleenRows <- res0 %>% filter(GTEx_tissueType == 'Spleen' & TCGA_project == 'TCGA-SKCM')
+  qplot(data=skcmSpleenRows, x=1:nrow(skcmSpleenRows), y=corr, col=metastatic, pch=metastatic) +
+    xlab("Samples") +
+    ggtitle("SKCM correlation with spleen tissue")
+
+
+.. figure:: query_figs/SKCM_Spleen_corrs.png
+   :scale: 30
+   :align: center
+
+
+So from the plot we see that, indeed, most of the SKCM samples are metastatic samples
+taken from lymph nodes, explaining the high correlation that a few of them have with
+the Spleen tissue-type.
+
+Lastly, let's just look at the median correlations between each TCGA and GTEx
+tissue type.
+
+.. code-block:: r
+
+  library(dplyr)
+  library(tidyr)
+  library(pheatmap)
+  res1 <- res0 %>% group_by(GTEx_tissueType, TCGA_project) %>% summarize(MeanCorr = median(corr, na.rm=T))
+  res2 <- spread(res1, key=GTEx_tissueType, value=MeanCorr)
+  resdf <- as.data.frame(res2)
+  rownames(resdf) <- resdf$TCGA_project
+  pheatmap(resdf[,-1])
+
+
+.. figure:: query_figs/GTEx_TCGA_corr_heatmap_median.png
+   :scale: 30
+   :align: center
+
+
+Thanks everyone! Hope you learned something this year. We sure did. See you in 2018!
+
+Sincerely, the ISB-CGC team.
+
+.. _November2017:
+
+November, 2017
+##############
+
+
+This month, we're going to shift topics and talk about running scripts in the cloud.
+In this example we're going to use R, but it would be just as easy to run a python script.
+
+The code can be found `here <https://github.com/Gibbsdavidl/examples-R/tree/master/demos/google_dsub_RStan_example>`_
+
+In this example, I'm going to be fitting Bayesian logistic regression models
+using `Stan <http://mc-stan.org>`_ (a statistical modeling and computation platform).
+Each job will process a different file,
+but we could also have each job represent a different set of parameters, all
+processing the same data.
+
+We are going to use `dsub <https://github.com/googlegenomics/dsub>`_ to run the script,
+which is similar to qsub, the common job scheduler found on many clusters and grids.
+To run each job in parallel, dsub spins up a
+`GCE VM <https://cloud.google.com/compute/docs/instances/>`_,
+starts up a named docker on the VM,
+copies input data from a
+`GCS bucket <https://cloud.google.com/storage/docs/>`_,
+runs the specified script, copies the output data back out to a (potentially different) GCS bucket,
+and finally shuts down the VM. (** See below for help on installation on Macs! **)
+
+'Batch mode' is one of the most important dsub features. It allows one to launch many
+jobs with a single command. Batch mode
+takes a "tasks file" or as I call it, the "task matrix", and reads each row
+as command line parameters for a job. So for example,
+one column can name the location (in a google bucket) of the input data,
+another column can have parameters related to the script.
+
+
+As part of this demonstratation, we will:
+
+1. Define a custom R script to process user data.
+   (stan_logistic_regression.R, data/*)
+2. Generate a 'task matrix', each row describing a job in the google cloud.
+   (cmd_generator.R, task_matrix.txt)
+3. Use Google dsub to automatically start up a VM, run a script, and shutdown.
+   Please see the `how_to_dsub.txt <https://github.com/isb-cgc/examples-R/blob/master/demos/google_dsub_RStan_example/how_to_dsub.txt>`_ file for instructions.
+
+
+OK, so first we will take a look at the R code. The way dsub works is that a
+docker image is started up on a VM, and at that time, variables defined
+in the 'tasks file' become available as environment variables. So you can think
+about these like command line arguments, but to get them in the script, we use
+'Sys.getenv()'. The variables enter the script as strings and will need to be
+typecast, depending on the need. The environment variable names are set in the
+tasks file as column names using `--env`. We'll look at that next.
+
+.. code-block:: r
+
+    # get the file name from the env variable.
+    dat <- read.csv(Sys.getenv('DATA_FILE'))
+
+    # stan models take a list of data
+    data_list <- list(y = dat$y, x = dat$x, N = length(dat$y))
+
+    # compiling and producing posterior samples from the model.
+    stan_samples <- stan(model_code = model, data = data_list)
+
+    # use the environment variable as a file name for a plot.
+    png(Sys.getenv('OUTPUT_PLOT'))
+    plot(stan_samples)
+    dev.off()
+
+    # and finally writing out a table
+    write.table(as.data.frame(stan_samples), file=Sys.getenv('OUTPUT_TABLE'), quote=F, row.names=F)
+
+
+
+It's pretty easy to programmatically construct a tasks file. You can find an example
+of that in `cmd_generator.R <https://github.com/isb-cgc/examples-R/blob/master/demos/google_dsub_RStan_example/cmd_generator.R>`_,
+which writes out a tab-delimited table with the variables needed in each row.
+There are essentially three types of parameters: inputs, outputs, and environment variables.
+Most importantly, the inputs and outputs need to be GCS urls to objects in a bucket. So I've put my data
+in my bucket, and I use that link in the script.
+
+
+Please see these `examples. <https://github.com/googlegenomics/dsub/tree/master/examples/custom_scripts>`_ ::
+
+    --env SAMPLE_ID     --input DATA_FILE                    --output OUTPUT_TABLE           --output OUTPUT_PLOT
+    1                   gs://my_bucket/data/data_file_1.csv  gs://my_bucket/stan_table1.txt  gs://my_bucket/stan_plot1.png
+    2                   gs://my_bucket/data/data_file_2.csv  gs://my_bucket/stan_table2.txt  gs://my_bucket/stan_plot2.png
+    3                   gs://my_bucket/data/data_file_3.csv  gs://my_bucket/stan_table3.txt  gs://my_bucket/stan_plot3.png
+
+::
+
+Now, if you're on a Mac, it can be pretty hard to get dsub installed. It's due to
+a conflict with the apple version of the 'six' python library,
+see https://github.com/pypa/pip/issues/3165 for more info.
+
+
+To get around this, we can install dsub in a `virtual environment <https://packaging.python.org/guides/installing-using-pip-and-virtualenv/>`_ .
+Make sure you're using the 'bash shell'.
+
+.. code-block:: bash
+
+    virtualenv dsub_libs
+    source dsub_libs/bin/activate
+    pip install dsub
+
+
+Now we're pretty close at this point. We need to put our data in a google bucket
+and find a suitable docker image. If you can't find a docker image with everything
+you need, it's fairly easy to build one. But for this purpose, I searched for
+'docker and RStan' and found some docker images.
+
+* https://github.com/jburos/rstan-docker
+
+* https://hub.docker.com/r/jackinovik/rstan-complete/
+
+To run dsub, the command looks like:
+
+.. code-block:: bash
+
+  dsub \
+    --project my-google-project-0001 \
+    --zones "us-west-*" \
+    --logging gs://my_google_bucket/logs/ \
+    --image jackinovik/rstan-complete \
+    --script ./stan_logistic_regression.R \
+    --tasks task_matrix.txt \
+    --preemptible \
+    --wait
+
+
+We simply run that and we get a response...::
+
+  Job: stan-logis--davidlgibbs--171107-193915-44
+  Launched job-id: stan-logis--davidlgibbs--171107-193915-44
+  3 task(s)
+  To check the status, run:
+    dstat --project my-google-project-0001 --jobs 'stan-logis--davidlgibbs--171107-193915-44' --status '*'
+  To cancel the job, run:
+    ddel --project my-google-project-0001 --jobs 'stan-logis--davidlgibbs--171107-193915-44'
+  Waiting for job to complete...
+  Waiting for: stan-logis--davidlgibbs--171107-193915-44.
+::
+
+Now, we can check if our job's finished using the `dstat` command or simply look in
+our output bucket. If there's a problem, it's mandatory to read the logs!
+
+The exact same procedure could be used to run python or bash scripts.
+
+
+.. _October2017:
+
+October, 2017
+#############
+
+For October, we're going to dive into using Plotly for visualziation in Shiny
+apps. In particular, we're going to implement an interatictive heatmap using
+heatmaply. To start, here's some important links.
+
+`ISB-CGC Gene Set Correlation Heatmaply! <https://isb-cgc.shinyapps.io/Heatmaply_Gene_Set_Corr/>`_
+
+`Heatmaply <https://cran.r-project.org/web/packages/heatmaply/vignettes/heatmaply.html>`_
+
+`The heatmaply paper <https://academic.oup.com/bioinformatics/article/doi/10.1093/bioinformatics/btx657/4562328/heatmaply-an-R-package-for-creating-interactive>`_
+
+`Shiny-Plotly <https://plot.ly/r/shiny-tutorial/>`_
+
+`bigrquery <https://github.com/r-dbi/bigrquery>`_
+
+Exciting highlights include using BigRQuery to make queries from *inside* Shiny!
+We do that by using service account authorization. And of course, heatmaply,
+an interactive heatmap that lets you zoom and scroll around.
+
+.. figure:: query_figs/oct_fig1.png
+   :scale: 70
+   :align: center
+
+
+So we'll just jump right into it!
+
+First I'll list out the ui.R code.
+----------------------------------
+
+.. code-block:: r
+
+  library(shiny)
+  library(plotly)
+  library(heatmaply)
+
+
+  source("global.R")
+
+  ui <- fluidPage(
+    titlePanel(title=div(img(src="half_isb_logo.png"), "Immune-related Gene Set Correlation-Heatmaply (MSigDB C7)")),
+    helpText(HTML("<strong>Hit submit to call Google BigQuery. In the heatmap, select an area to zoom.<strong>")),
+    sidebarLayout(
+      sidebarPanel(
+        selectInput("var1", "Gene Set 1", getGeneSets(), selected ="GSE40685_NAIVE_CD4_TCELL_VS_TREG_UP"),
+        selectInput("var2", "Gene Set 2", getGeneSets(), selected = "GSE40685_NAIVE_CD4_TCELL_VS_TREG_DN"),
+        getTCGAProjs(), # returns a selectInput obj
+        checkboxInput("showlabels", "Show Labels", value=T),
+        checkboxInput("clustercols", label = "Cluster Columns", value = T),
+        checkboxInput("clusterrows", label = "Cluster Rows", value = T),
+        selectInput("seriate", "Gene Ordering Method", c("OLO", "GW", "mean", "none"), selected = "GW"),
+        selectInput("hclust_method", "Hclust Method", c("ward.D", "ward.D2", "single",
+                                                        "complete", "average", "mcquitty",
+                                                        "median", "centroid"), selected="ward.D2"),
+        actionButton(inputId="submit",label = "Submit")
+      ),
+
+      mainPanel(
+        tags$head(
+          tags$style(# thanks BigDataScientist @ stackoverflow!
+            HTML(".shiny-notification {
+                 height: 50;
+                 width: 400px;
+                 position:fixed;
+                 top: calc(50% - 50px);;
+                 left: calc(50% - 200px);;
+                 }
+                 "
+              )
+            )
+          ),
+        plotlyOutput("plot", height = "600px")
+      )
+    ),
+    br(),
+    helpText("What's going on here? The genes belonging to two immune-related gene sets are used to compute Spearman correlation on RNA-seq data from a given type of cancer. It's a visualization of the relationship between two gene sets."),
+    helpText("Heatmaply: Tal Galili, Alan O'Callaghan, Jonathan Sidi, Carson Sievert; heatmaply: an R package for creating interactive cluster heatmaps for online publishing, Bioinformatics, , btx657, https://doi.org/10.1093/bioinformatics/btx657"),
+    helpText("Gene sets: Molecular Signatures Database (MSigDB), C7 collection. Subramanian, Tamayo, et al. (2005, PNAS 102, 15545-15550) http://software.broadinstitute.org/gsea/msigdb"),
+    helpText("Made in", a("Shiny", href="http://shiny.rstudio.com/"), " using ", a("google bigquery, bigrquery, heatmaply, and plotly"))
+  )
+
+
+
+So we start up a fluidPage layout, and define a number of controls in the sidebar.
+The gene set selectors get a long list of gene set names that I've captured
+from MSigDB and dumped in a file (around 4000 gene sets!).
+
+Another interesting technique is to define a function, like getTCGAProjs(),
+that builds and returns a selectInput object, using the long list of TCGA projects.
+Works great and keeps the code easy to read.
+
+Also notice the use of CSS to change the default `progress bar <https://stackoverflow.com/questions/44043475/adjust-size-of-shiny-progress-bar-and-center-it>`_.
+
+OK, now we can jump over to the server.R file.
+-------------------------------------------
+
+.. code-block:: r
+
+  server <- function(input, output, session) {
+
+    # calling BigQuery
+    bq_data <- eventReactive(input$submit, {
+      load("data/gene_set_hash.rda")
+      geneNames1 <- getGenes(sethash, input$var1)
+      geneNames2 <- getGenes(sethash, input$var2)
+      cohort <- input$cohortid
+      sql <- buildQuery(geneNames1, geneNames2, cohort)
+      service_token <- set_service_token("data/my_private_key.json")
+      data <- query_exec(sql, project='our_bq_project', useLegacySql = F)
+      data
+    })
+
+    output$plot <- renderPlotly({
+
+      withProgress(message = 'Working...', value = 0, {
+        incProgress()
+
+        # first make the bigquery
+        bqdf <- bq_data()
+        incProgress()
+
+        # then build the correlation matrix
+        df <- buildCorMat(bqdf)
+        incProgress()
+
+        # then get the heatmap options
+        cluster_cols <- as.logical(input$clustercols)
+        cluster_rows <- as.logical(input$clusterrows)
+
+        # color scheme
+        incProgress()
+        rwb <- colorRampPalette(colors = c("blue", "white", "red"))
+        heatmaply(df,
+                main = 'gene-gene spearman correlations',
+                Colv=cluster_cols, Rowv=cluster_rows,
+                colors = rwb, seriate=input$seriate,
+                hclust_method = input$hclust_method,
+                showticklabels = as.logical(input$showlabels),
+                margins = c(150,200,NA,0))
+      })
+    })
+
+
+    output$event <- renderPrint({
+      d <- event_data("plotly_hover")
+      if (is.null(d)) "Hover on a point!" else d
+    })
+  }
+
+So, the first function that's listed is the bq_data function. This function executes
+after the user makes their selection and hits the 'submit' button. I have
+previously taken the ~4000 gene sets, and built a hash (using the awesome hash library)
+that takes gene set names and returns the genes. The getGenes functions performs that task.
+Then BigQuery SQL is then contructed:
+
+
+.. code-block:: r
+
+  buildQuery <- function(geneNames1, geneNames2, cohort) {
+    q <- paste(
+      "
+      WITH
+      --
+      -- first we create a subtable for gene set 1
+      --
+      cohortExpr1 AS (
+        SELECT
+          sample_barcode,
+          HGNC_gene_symbol,
+          LOG10( normalized_count +1) AS logexpr,
+          RANK() OVER (PARTITION BY HGNC_gene_symbol ORDER BY normalized_count ASC) AS expr_rank
+        FROM
+          `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
+        WHERE
+          project_short_name = '",cohort ,"'
+          AND HGNC_gene_symbol IN ",geneNames1 ,"
+          AND normalized_count IS NOT NULL
+          AND normalized_count > 0),
+      --
+      -- then we create a subtable for gene set 2
+      --
+      cohortExpr2 AS (
+        SELECT
+          sample_barcode,
+          HGNC_gene_symbol,
+          LOG10( normalized_count +1) AS logexpr,
+          RANK() OVER (PARTITION BY HGNC_gene_symbol ORDER BY normalized_count ASC) AS expr_rank
+        FROM
+          `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
+        WHERE
+          project_short_name = '",cohort ,"'
+          AND HGNC_gene_symbol IN ",geneNames2 ,"
+          AND normalized_count IS NOT NULL
+          AND normalized_count > 0),
+      --
+      -- then we join the two gene expression tables,
+      -- we could get rid of the logexpr fields, but maybe
+      -- they'd prove useful in some other query.
+      --
+      jtab AS (
+        SELECT
+          cohortExpr1.sample_barcode,
+          cohortExpr2.sample_barcode,
+          cohortExpr1.HGNC_gene_symbol as g1,
+          cohortExpr2.HGNC_gene_symbol as g2,
+          cohortExpr1.expr_rank as e1,
+          cohortExpr2.expr_rank as e2
+        FROM
+          cohortExpr1
+        JOIN
+          cohortExpr2
+        ON
+          cohortExpr1.sample_barcode = cohortExpr2.sample_barcode
+        GROUP BY
+          cohortExpr1.sample_barcode,
+          cohortExpr2.sample_barcode,
+          cohortExpr1.HGNC_gene_symbol,
+          cohortExpr2.HGNC_gene_symbol,
+          cohortExpr1.logexpr,
+          cohortExpr1.expr_rank,
+          cohortExpr2.logexpr,
+          cohortExpr2.expr_rank )
+      --
+      -- last, we correlate the RANKs, to get a Spearman correlation.
+      --
+      SELECT
+        g1,
+        g2,
+        corr(e1, e2) as spearmans
+      FROM
+        jtab
+      GROUP BY
+        g1,g2
+      ",
+      sep="")
+  }
+
+
+OK, so with that query-string constructed, we can make the call to Google BigQuery.
+In order to get authorized, here we're using a service account. To get that set up, one needs
+to log into your google cloud console, and follow
+these instructions `(Service account credentials) <https://cloud.google.com/storage/docs/authentication>`_.
+By doing that, you're going to generate a little .json file that contains your
+private key, don't lose it! Then we can use the bigrquery function set_service_token,
+providing the path to the json file. Very easy! After that we simply make the
+call using query_exec.
+
+Then, to make the heatmap, we use the renderPlotly function. In that function,
+first we get the summarized data from BigQuery, which returns as a data.frame (bqdf),
+and we transform that into a matrix using the reshape2 library.
+
+.. code-block:: r
+
+  library(reshape2)
+
+  buildCorMat <- function(bqdf) {
+    # bqdf is a data.frame returned from query_exec
+    # g1 and g2 are gene names
+    # and we have a Spearman correlation
+    meltdf <- melt(bqdf)
+    sqdf <- dcast(meltdf, g1~g2, value.var = "value")
+    # then a bit of tidying up.
+    sqdf[is.na(sqdf)] <- 0
+    rownames(sqdf) <- sqdf[,'g1']
+    sqdf <- sqdf[,-1]
+    return(sqdf)
+  }
+
+
+With that done (building the correlation matrix), we can simply make the call to heatmaply, which is linked back to
+our plotlyOutput in the mainPanel (in the ui.R code).
+
+So we've just tied together Shiny, Plotly, Heatmaply, BigQuery into one
+interactive web tool. Got a question about it? Let me know! dgibbs *at*
+systemsbiology *dot* org.
 
 
 ------------------
+
+.. _September2017:
+
+September, 2017
+###############
+
+Greetings! For September we've implemented a new statistical test: the one-way
+ANOVA. This statistical test can be used to determine whether there is a statistically
+significant difference between the means of two or more independent groups.
+Although in this example, I'm
+only looking at two groups, it would not be difficult to extend this to any
+number of groups, assuming there is a reasonable number of samples within each
+group.
+
+.. |yij| replace:: y\ :sub:`ij`\
+.. |ai|  replace:: a\ :sub:`i`\
+.. |eij| replace:: e\ :sub:`ij`\
+
+Consider the model |yij| = m + |ai| + |eij|, where |yij| is a continuous
+variable over samples *j*, in groups *i*, and |ai| is a constant for
+each group *i*, and |eij| is a gaussian error term with mean 0.
+
+Using this model, we are describing the data as being sampled from groups,
+with each group having a mean value equal to m + |ai|.
+The null hypothesis is that each of the group means is
+the same (*ie* that the |ai| terms are zero), while the alternative hypothesis
+is that at least one of the |ai| terms is *not* zero.
+
+We use the F-test to compare these two hypotheses.
+To compute the test statistic, we compute the within-group variation and the
+between-group variation.
+Recall that sample variance is defined as the sum of squared differences between
+observations and the mean, divided by the number of samples (normalized).
+
+Before we get into the query, please note that you can find
+a specialized version of the below query
+that compares the expression between individuals with a SNP and without a SNP,
+using the same SQL as the August query.  I've put that query in this
+`github gist <https://gist.github.com/Gibbsdavidl/8a20097aaf8bece8fc586310795b54da>`_.
+
+And you can find the associated Shiny app, using the same layout
+from August, where we plot the F distribution and show a comparison of means.
+You can find that `here <https://isb-cgc.shinyapps.io/mutstatusexpranova/>`_.
+
+Let's look at the query:
+
+.. code-block:: sql
+
+  WITH
+    -- using standard SQL,
+    -- we'll select our cohort and gene expression
+    --
+    cohortExpr AS (
+    SELECT
+      sample_barcode,
+      LOG10(normalized_count) AS expr
+    FROM
+      `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
+    WHERE
+      project_short_name = 'TCGA-BRCA'
+      AND HGNC_gene_symbol = 'TP53'
+      AND normalized_count IS NOT NULL
+      AND normalized_count > 0),
+    --
+    -- And we'll select the variant data for our cohort,
+    -- we're going to be comparing variant types (SNP, DEL, etc)
+    --
+    cohortVar AS (
+    SELECT
+      Variant_Type,
+      sample_barcode_tumor AS sample_barcode
+    FROM
+      `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_MC3`
+    WHERE
+      SYMBOL = 'TP53' ),
+    --
+    -- then we join the expression and variant data using sample barcodes
+    --
+    cohort AS (
+    SELECT
+      cohortExpr.sample_barcode AS sample_barcode,
+      Variant_Type AS group_name,
+      expr
+    FROM
+      cohortExpr
+    JOIN
+      cohortVar
+    ON
+      cohortExpr.sample_barcode = cohortVar.sample_barcode ),
+    --
+    -- First part of the calculation, the grand mean (over everything)
+    --
+    grandMeanTable AS (
+    SELECT
+      AVG(expr) AS grand_mean
+    FROM
+      cohort ),
+    --
+    -- Then we need a mean per group, and we can get a count of samples
+    -- per group.
+    --
+    groupMeansTable AS (
+    SELECT
+      AVG(expr) AS group_mean,
+      group_name,
+      COUNT(sample_barcode) AS n
+    FROM
+      cohort
+    GROUP BY
+      group_name),
+    --
+    -- To get the between-group variance
+    -- we take the difference between the grand mean
+    -- and the means for each group and sum over all samples
+    -- ... a short cut being taking the product with n.
+    -- Later we'll sum over the n_sq_diff
+    --
+    ssBetween AS (
+    SELECT
+      group_name,
+      group_mean,
+      grand_mean,
+      n,
+      n*POW(group_mean - grand_mean,2) AS n_diff_sq
+    FROM
+      groupMeansTable
+    CROSS JOIN
+      grandMeanTable ),
+    --
+    -- Then, to get the variance within each group
+    -- we have to build a table matching up the group mean
+    -- with the values for each group. So we join the group
+    -- means to the values on group name. We are going to
+    -- sum over this table just like ssBetween
+    --
+    ssWithin AS (
+    SELECT
+      a.group_name AS group_name,
+      expr,
+      group_mean,
+      b.n AS n,
+      POW(expr - group_mean, 2) AS s2
+    FROM
+      cohort a
+    JOIN
+      ssBetween b
+    ON
+      a.group_name = b.group_name ),
+    --
+    -- The F stat comes from a ratio, the numerator is
+    -- calculated using the between group variance, and
+    -- dividing by the number of groups (k) minus 1.
+    --
+    numerator AS (
+    SELECT
+      'dummy' AS dummy,
+      SUM(n_diff_sq) / (count(group_name) - 1) AS mean_sq_between
+    FROM
+      ssBetween ),
+    --
+    -- The denominator of the F stat ratio is found using the
+    -- variance within groups. We divide the sum of the within
+    -- group variance and divide it by (n-k).
+    --
+    denominator AS (
+    SELECT
+      'dummy' AS dummy,
+      COUNT(distinct(group_name)) AS k,
+      COUNT(group_name) AS n,
+      SUM(s2)/(COUNT(group_name)-COUNT(distinct(group_name))) AS mean_sq_within
+    FROM
+      ssWithin),
+    --
+    -- Now we're ready to calculate F!
+    --
+    Ftable AS (
+    SELECT
+      n,
+      k,
+      mean_sq_between,
+      mean_sq_within,
+      mean_sq_between / mean_sq_within AS F
+    FROM
+      numerator
+    JOIN
+      denominator
+    ON
+      numerator.dummy = denominator.dummy)
+
+  SELECT
+    *
+  FROM
+    Ftable
+
+OK, so let's check our work. Using the BRCA cohort and TP53 as our gene,
+we have 375 samples with a variant in this gene. We're going to look at
+whether the type of variant is related to the gene expression we observe.
+If we just pull down the data using the 'cohort' subtable (as above), we
+can get a small data frame, which let's us do the standard F stat table
+in R.
+
+.. code-block:: r
+
+  > # dat is the data.frame created by running the above query
+  >
+  > head(dat)
+      sample_barcode group_name     expr
+  1 TCGA-A2-A0T3-01A        DEL 2.623283
+  2 TCGA-A8-A07B-01A        DEL 2.450762
+  3 TCGA-AR-A5QQ-01A        DEL 2.579250
+  4 TCGA-A2-A0YE-01A        DEL 2.298823
+  5 TCGA-C8-A135-01A        DEL 2.744527
+  6 TCGA-A7-A13E-01A        DEL 3.246725
+  >
+  > dat %>% group_by(group_name) %>% summarize(mean=mean(expr), sd=sd(expr))
+  # A tibble: 3 × 3
+    group_name     mean        sd
+        <fctr>    <dbl>     <dbl>
+  1        DEL 2.791941 0.3220669
+  2        INS 2.642215 0.1158877
+  3        SNP 3.218580 0.3129593
+  >
+  >
+  > anova(lm(data=dat, expr~group_name))
+  Analysis of Variance Table
+
+  Response: expr
+              Df Sum Sq Mean Sq F value    Pr(>F)
+  group_name   2 12.460  6.2302  65.147 < 2.2e-16 ***
+  Residuals  372 35.576  0.0956
+  ---
+
+OK, if you run the above BigQuery, you'll see the same results.
+We see that the F statistic is really high, which makes sense looking
+at the difference in mean expression values across the groups (these
+are log10 expression values).
+
+I have created a specialized version of the above test (as opposed to generalized, ha ha)
+that compares the expression between individuals with a SNP and without a SNP,
+using the same SQL to create groups as last month.  I've put that query in this
+`github gist <https://gist.github.com/Gibbsdavidl/8a20097aaf8bece8fc586310795b54da>`_.
+
+And additionally, I've put that query into a Shiny app, that uses the same layout
+from August.  You can find that `here <https://isb-cgc.shinyapps.io/mutstatusexpranova/>`_.
+
+------------------
+
+.. _August2017:
+
+August, 2017
+###########
+
+This month we have been working on a small demo application using BigQuery,
+with a graphical front-end built with
+`R Shiny <https://shiny.rstudio.com/>`_ .
+You can try it out yourself `here <https://isb-cgc.shinyapps.io/MutStatusSurvivalCurves/>`_
+and even watch the `video <https://youtu.be/qa2OxQLUhBY>`_.
+
+Using the R programming language, Shiny is an easy way to produce interactive
+visualizations that can be hosted on the web.
+
+Shiny sites are hosted by a Shiny server, which you can set up locally or
+use the free shinyapps.io service, which is provided by the same
+company that produces the RStudio (which has a builtin Shiny server for dev work).
+
+In the past, we've shown how queries can be programmatically built up; here
+we're going to provide a user interface to collect variables that are inserted into
+the BigQuery (like gene names).
+
+The query is going to look at patient survival, and how survival rates change
+with gene mutations. Therefore we'll be using two tables and a small set of
+variables:
+
++ `isb-cgc:TCGA_bioclin_v0.Clinical <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_bioclin_v0.Clinical>`_ for survival data
+    - **days_to_last_known_alive**: This field indicates the number of days to the last
+      follow up appointment (still alive) or until death, relative to "time zero" (typically
+      the day of diagnosis).
+    - **vital_status**: This field is filled in for all but 4 cases and is correct as of
+      the last available follow up for that individual. Over all TCGA, 7534 cases
+      were known to still
+      be "Alive", while 3622 were "Dead", and 4 were of unknown vital status.
++ `isb-cgc:TCGA_hg38_data_v0.Somatic_Mutation <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg38_data_v0.Somatic_Mutation>`_ for mutation status
+    - **Variant_Classification**: eg Missense_Mutation, Silent, 3'UTR, Intron, etc (18 different values occur in this table)
+    - **Variant_Type**: one of 3 possible values: SNP, DEL, INS
+    - **IMPACT**: one of 4 values: LOW, MODERATE, HIGH, or MODIFIER
+
+What we want the query to do, is to collect a cohort of patients into two
+groups, those that have a SNP with some potential effect in a particular gene, and
+those that do not. Then we can compare the
+survival rates between the two groups to assess whether the mutation has some
+potential effect.
+
+Let's take a look at an example query, then we'll see how to build it up in the
+code.
+
+.. code-block:: sql
+
+  -- using Standard SQL --
+  --
+  -- First we build our table of survival times
+  --
+  WITH clin_table AS (
+  SELECT
+    case_barcode,
+    days_to_last_known_alive,
+    vital_status
+  FROM
+    `isb-cgc.TCGA_bioclin_v0.Clinical`
+  WHERE
+    project_short_name = 'TCGA-GBM' ),
+  --
+  -- Then we can build our table of mutation status.
+  -- We do that by using an If statement with a sub-query.
+  --
+  mut_table AS (
+  SELECT
+    case_barcode,
+    IF ( case_barcode IN (
+      SELECT
+        case_barcode
+      FROM
+        `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation`
+      WHERE
+        SYMBOL = 'IDH1'
+        AND Variant_Classification <> 'Silent'
+        AND Variant_Type = 'SNP'
+        AND IMPACT <> 'LOW'), 'Mutant', 'WT') AS mutation_status
+  FROM
+    `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation` )
+  --
+  -- Finally, we can join those tables.
+  --
+  SELECT
+    mut_table.case_barcode,
+    days_to_last_known_alive,
+    vital_status,
+    mutation_status
+  FROM
+    clin_table
+  JOIN
+    mut_table
+  ON
+    clin_table.case_barcode = mut_table.case_barcode
+  GROUP BY
+    mut_table.case_barcode,
+    days_to_last_known_alive,
+    vital_status,
+    mutation_status
+
+
+**The Shiny App**
+
+
+Now we'll move on to the description of the app. When creating a new Shiny
+project in RStudio, two main files are created: 'ui.R' and 'server.R'.  Additionally,
+I created one more called 'global.R'. The 'ui.R' file contains the code needed to build
+the html interface, 'server.R' contains the code that responds to the interface, and
+'global.R' contains the functions that build the query, call the BigQuery API, and
+plot the results.
+
+Starting with the interface found in 'ui.R', the
+`googleAuthR <https://github.com/MarkEdmondson1234/googleAuthR>`_ package was
+used to perform authorization, using the googleAuthUI("loginButton").
+Next, the GCP project ID is collected using
+the textInput widget, we need this because
+even after logging in, we still need to tell BigQuery which GCP project
+is going to be *billed* for the query.
+(You will need to be a member of at least one GCP project, with permissions to
+run BigQuery queries.  To find out the ID(s) for GCP project(s) you are a member
+of, you can go to the `Google Cloud Console <https://console.cloud.google.com>`_.)
+Then, patient cohorts are selected using the selectInput widget, which is like a
+drop down menu of TCGA studies. And lastly, we have a textInput widget to
+specify the gene symbol. At the bottom of the interface is an actionButton called
+submit that kicks off the work.
+
+
+.. code-block:: r
+
+  ui <- fluidPage(
+
+    #!! excluding layout code like sidebarLayout and panels. !!#
+
+    googleAuthUI("loginButton"),
+
+    textInput("projectid", "Project ID", value = "your project id", placeholder = "your project id"),
+
+    selectInput("cohortid", label = "Cohort",
+                    choices = list(
+                      "TCGA-ACC"="TCGA-ACC",
+                      "TCGA-BLCA"="TCGA-BLCA",
+                      "TCGA-BRCA"="TCGA-BRCA",
+                      "TCGA-CESC"="TCGA-CESC",
+                      "TCGA-CHOL"="TCGA-CHOL",
+                      ## etc ##
+              ),selected = "TCGA-GBM") ,
+
+    textInput("varname",  "Gene Symbol", value = "IDH1", placeholder = "IDH1"),
+
+    actionButton(inputId="submit",label = "Submit")
+
+  )
+
+
+In the 'server.R' file, there's one main function called 'server'. Inside that
+function, we get our accessToken by calling the googleAuth module, which is
+linked to the 'loginButton'. Also we have a function linked
+to the submit button called outputPlot, which wraps our plot function
+in the googleAuthR::with_shiny function, in order to make our API calls while
+properly logged in.
+
+
+.. code-block:: r
+
+  server <- function(input, output, session){
+
+    ## Create access token and render login button
+    access_token <- callModule(googleAuth, "loginButton", approval_prompt = "force")
+
+    outputPlot <- eventReactive(input$submit,{
+      ## wrap existing function using googleAuthR::with_shiny
+      ## pass the reactive token using shiny_access_token param
+      project  <- as.character(input$projectid)
+      cohort   <- as.character(input$cohortid)
+      varname  <- input$varname
+
+      if(is.null(access_token())) {
+        errorPlot()
+      } else {
+        with_shiny(f = drawPlot, shiny_access_token = access_token(), project, cohort, varname)
+      }
+    })
+
+    output$plot <- renderPlot({outputPlot()}, width=600, height=500)
+  }
+
+
+The plot is drawn using a model from the
+`survival package <https://cran.r-project.org/web/packages/survival/index.html>`_
+and a ggplots style package called
+`ggsurvminer <https://cran.r-project.org/web/packages/survminer/index.html>`_
+
+
+.. code-block:: r
+
+  drawPlot <- function(project, cohort, varname) {
+    #
+    # first make a call to BigQuery, and build the data frame
+    dat <- buildAndRunQuery(varname, project, cohort)
+    #
+    # then we fit our survival model
+    fit <- survfit(Surv(days_to_last_known_alive, vital_status) ~ mutation_status, data=dat)
+    #
+    # finally visualize the survival model using ggsurvplot.
+    survminer::ggsurvplot(fit=fit, data=dat, pval=T, risk.table=T, conf.int=T)
+  }
+
+
+The last portion we'll look at, and maybe the most important, involves the
+call to big query! In the 'buildAndRunQuery' function, we build up the query
+as a long string, then contruct an API function using googleAuthR functions,
+and finally make the API call, and get the results. There are helper functions
+found in the `bigQueryR <http://code.markedmondson.me/bigQueryR/>`_, but I think
+it's instructional to see how the backend works. In future QotMs, we will explore
+using bigQueryR.
+
+
+.. code-block:: r
+
+  buildAndRunQuery <- function(varName, aproject, cohort) {
+    #
+    # First we're going to build the string representing the BigQuery #
+    #
+    q <- paste(
+      "
+      WITH
+      clin_table AS (
+        select
+        case_barcode,
+        days_to_last_known_alive,
+        vital_status
+      from
+        `isb-cgc.TCGA_bioclin_v0.Clinical`
+      WHERE
+        project_short_name = '", cohort,"' ),
+      mut_table AS (
+      SELECT
+      case_barcode,
+      IF ( case_barcode IN (
+        SELECT
+        case_barcode
+        FROM
+        `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation`
+        WHERE
+        SYMBOL = '", varName, "'
+        AND Variant_Classification <> 'Silent'
+        AND Variant_Type = 'SNP'
+        AND IMPACT <> 'LOW'), 'Mutant', 'WT') as mutation_status
+      FROM
+      `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation` )
+    SELECT
+      mut_table.case_barcode,
+      days_to_last_known_alive,
+      vital_status,
+      mutation_status
+    FROM
+      clin_table
+    JOIN
+      mut_table
+    ON
+      clin_table.case_barcode = mut_table.case_barcode
+    GROUP BY
+      mut_table.case_barcode,
+      days_to_last_known_alive,
+      vital_status,
+      mutation_status
+      ",
+      sep="")
+
+    # define body for the POST request to the Google BigQuery API
+    body = list(
+      query=q,
+      defaultDataset.projectId=aproject,
+      useLegacySql = F
+    )
+
+    #create a function to make the POST call to Google BigQuery
+    f = gar_api_generator("https://www.googleapis.com/bigquery/v2",
+                          "POST",
+                          path_args = list(projects=aproject, queries=""))
+
+    # call function with body as input argument
+    response = f(the_body=body)
+
+    dat <- data.frame()
+    if(!is.null(response))
+    {
+      # have to construct the data.frame from a list of results.
+      dat = as.data.frame(do.call("rbind",lapply(response$content$rows$f,FUN = t)))
+      colnames(dat) <- c("ID", "days_to_last_known_alive", "vital_status", "mutation_status")
+
+      # then we need to do a little data-cleaning to get ready for our survival model
+      dat$days_to_last_known_alive <- as.numeric(as.character(dat$days_to_last_known_alive))
+      dat$vital_status <- ifelse(dat$vital_status == 'Alive', 0, 1)
+      dat$mutation_status <- as.factor(dat$mutation_status)
+    }
+    return(dat)
+  }
+
+
+The resulting plot will show if the two groups, defined by SNP mutation status, have
+significantly different survival rates. In our example, contrary to intuition,
+a mutation in the IDH1 gene, in GBM, actually has a positive effect on survival.
+(See this 2014 `paper <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4109985/>`_ by Cohen *et al*
+about *IDH1 and IDH2 Mutations in Gliomas* for more information about this.)
+
+.. figure:: query_figs/august.png
+   :scale: 100
+   :align: center
+
+The results for the TCGA-LGG cohort are also quite striking -- go have a look!
+
+------------------
+
+.. _July2017:
+
+July, 2017
+###########
+
+Way back in December we started talking about the new
+`NCI-GDC Data Portal <https://gdc-portal.nci.nih.gov/>`_
+which includes both hg19 and hg38 alignments. At that time, those were part of
+isb-cgc:hg19_data_previews and isb-cgc:hg38_data_previews. Now, at this point they've matured into three data sets:
+
+- isb-cgc:TCGA_bioclin_v0
+- isb-cgc:TCGA_hg19_data_v0
+- isb-cgc:TCGA_hg38_data_v0
+
+And, as you'll discover, there's been some changes to the "standard" column
+names that we used previously. This was done to better align with the GDC, and
+make things more universal across data sources.
+
+For one, barcode column names (and most column names) have become all lower case
+and underscore_separated. So 'AliquotBarcode' has become 'aliquot_barcode'. Same with
+SampleBarcode (sample_barcode). However, ParticipantBarcode has become case_barcode.
+Also 'Study' is now refered to as 'project_short_name'. So if you're having
+trouble getting an 'old' query to work, make sure the column names haven't changed,
+and check whether it's in Legacy SQL or Standard SQL.
+
+As we `transition to standard SQL <https://cloud.google.com/bigquery/docs/reference/standard-sql/migrating-from-legacy-sql>`_
+and the new GDC datasets, one question that's
+come up around here relates to records. Overall, in the isb-cgc datasets, there's very few data types
+other than STRINGs, INTEGERs, and FLOATs. But occasionally you'll bump into something
+that needs a different query structure, and the RECORD type is one of those.
+One place to find this rare beast is in the methylation probe annotation
+(`isb-cgc:platform_reference.methylation_annotation <https://bigquery.cloud.google.com/table/isb-cgc:platform_reference.methylation_annotation>`_).
+
+Each methylation probe has a specified genomic location, given as a chromosome and
+the base position on that chromosome.
+An analytical question that often arises is something like
+"does methylation in this region of the genome affect RNA transcription?". It's
+a good question, and can actually be pretty hard to determine. But here, we'll focus
+on one of the first steps in the analysis, mapping probes to genes.
+
+In the **isb-cgc:platform_reference.methylation_annotation** table schema, we find a
+RECORD called 'UCSC'. If we look at the details of the table (via the web interface)
+we see that the table has 485,577 rows and has the following description:
+
+::
+
+  This table is based on the Illumina DNA methylation platform annotation information
+  found in the file HumanMethylation450_15017482_v.1.2.csv which can be obtained
+  from Illumina.  This information has been loaded into a BigQuery table and made
+  available to the public with permission from Illumina.
+
+
+Sounds good! A couple important columns are going to be the IlmnID, which
+is the probe ID (example: cg10232580), and the UCSC RECORD, where we'll find
+the gene symbol, RefGene accession ID, and the portion of the gene the probe is
+closest to (approximately).
+
+Let's start with an easy one:
+
+.. code-block:: sql
+
+  SELECT
+    Infinium_Design_Type,
+    COUNT(Infinium_Design_Type) as type_count
+  FROM
+    `isb-cgc.platform_reference.methylation_annotation`
+  GROUP BY
+    Infinium_Design_Type
+
+::
+
+  Row Infinium_Design_Type  type_count
+  1   I                     135501
+  2   II                    350076
+
+
+Why does that matter? Well, the array was actually a blend of two different
+technologies. This `paper <https://www.ncbi.nlm.nih.gov/pubmed/22126295>`_
+and this `paper <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3740789/>`_
+show that the performance of the two probes is very different, and that type II
+probes appear to be less useful than the type I probes.
+
+Now, let's suppose we are interested in a particular pathway, and we'd like to know
+the distribution of probe types across the pathway genes. Using our previous
+'Query of the Month' data set (isb-cgc:QotM.WikiPathways_20170425_Annotated),
+we can get a list of functionally related genes.
+
+.. code-block:: sql
+
+  SELECT
+    DISTINCT(Symbol) as gene_symbol
+  FROM
+    `isb-cgc.QotM.WikiPathways_20170425_Annotated`
+  WHERE
+    pathway = 'Oxidative Damage'
+
+and we get 40 genes. So now we're going to join the annotation table, to our
+table of pathway related genes, and get the probe types.
+
+.. code-block:: sql
+
+  WITH
+  pathway AS (
+  SELECT
+    DISTINCT(Symbol) as gene_symbol
+  FROM
+    `isb-cgc.QotM.WikiPathways_20170425_Annotated`
+  WHERE
+    pathway = 'Oxidative Damage'
+    )
+  SELECT
+      Infinium_Design_Type,
+      COUNT(Infinium_Design_Type)
+  FROM
+      `isb-cgc.platform_reference.methylation_annotation` as m
+  JOIN
+      pathway
+  ON
+      pathway.gene_symbol = m.UCSC.RefGene_Name
+  GROUP BY
+    Infinium_Design_Type
+
+
+::
+
+  Query Failed
+  Error: Cannot access field RefGene_Name on a value with type
+  ARRAY<STRUCT<RefGene_Group STRING, RefGene_Accession STRING, RefGene_Name STRING>> at [18:34]
+
+
+What happened?  It's that darned RECORD, which in our error, actually looks to be an
+ARRAY of STRUCTS! We have previously
+used arrays in our queries in past months where we took a list of values and created
+an array to be passed to a JavaScript function. The result of the function gave us
+back an array, and we had to UNNEST it, to get back one row per entry. It's similar
+in this instance. Some probes are mapped to multiple RefGene_Accession IDs. For example,
+cg10241718 maps to NM_033302, NM_033303, NM_033304, and NM_000680. Interestingly, you
+see this same set as part of the HG-U133A probe annotations (Thanks, genecard-geneannot webservice).
+These are representing four different transcripts of the same gene ADRA1A, the methylation
+probe has the same relationship to three of the isoforms (the gene body), but for one isoform,
+NM_000680, the probe is positioned 3'-UTR, which could change its effect. In light of that, we might want
+to group by gene symbol (mostly the same) and the refgene_group, which tells us the
+relative position of the probe to the gene.
+
+To (finally!) address the problem of RECORDS, we need to check the BigQuery
+`docs <https://cloud.google.com/bigquery/docs/reference/standard-sql/migrating-from-legacy-sql>`_
+There, we see that the RECORD in Legacy SQL has becomes a STRUCT in Standard SQL. In order
+to flatten the table, in Legacy SQL we would use FLATTEN, but now, in Standard SQL we are
+going to use UNNEST.
+
+So what's the difference between an ARRAY and a STRUCT?
+Well an ARRAY is "an ordered list of zero or more elements of non-ARRAY values,"
+and a STRUCT is a "container of ordered fields each with a type."
+Hmmm, sounds pretty similar,
+the difference being that a STRUCT can be a collection of different data types (STRINGS and INTs for
+example), while ARRAYs have to be a single data type.
+
+To get around that, we are going to flatten the table using UNNEST.
+
+.. code-block:: sql
+
+  SELECT
+    RefGene_Name,
+    RefGene_Group
+  FROM
+    `isb-cgc.platform_reference.methylation_annotation`,
+    UNNEST(UCSC)
+  LIMIT
+    1000
+
+::
+
+  Row	RefGene_Name	RefGene_Group
+  1	  null	        null
+  2	  null	        null
+  3	  IQCE	        Body
+  4	  IQCE	        Body
+  5	  CRYGN	        3'UTR
+  6	  IQCE	        Body
+  7	  IQCE	        Body
+  8	  ELFN1	        5'UTR
+
+
+That's more like it! Now we can write our final query.
+
+.. code-block:: sql
+
+  WITH
+    -- first we'll UNNEST our probes
+    --
+    probes AS (
+    SELECT
+      RefGene_Name,
+      RefGene_Group,
+      Infinium_Design_Type
+    FROM
+      `isb-cgc.platform_reference.methylation_annotation`,
+      UNNEST(UCSC) ),
+    --
+    -- Then we'll select genes taking part in our pathway of interest
+    --
+    genes AS (
+    SELECT
+      DISTINCT(Symbol) AS gene_symbol
+    FROM
+      `isb-cgc.QotM.WikiPathways_20170425_Annotated`
+    WHERE
+      pathway = 'Oxidative Damage' ),
+    --
+    -- We can join the unnested table to our table of genes.
+    --
+    join_table AS (
+    SELECT
+      genes.gene_symbol,
+      probes.RefGene_Group,
+      probes.Infinium_Design_Type
+    FROM
+      probes
+    JOIN
+      genes
+    ON
+      genes.gene_symbol = probes.RefGene_Name
+    GROUP BY
+      genes.gene_symbol,
+      probes.RefGene_Group,
+      probes.Infinium_Design_Type )
+  --
+  -- And summarize on the probe type.
+  --
+  SELECT
+    Infinium_Design_Type,
+    COUNT(Infinium_Design_Type),
+    RefGene_Group
+  FROM
+    join_table
+  GROUP BY
+    RefGene_Group,
+    Infinium_Design_Type
+
+::
+
+    Row	Infinium_Design_Type  type_count  RefGene_Group
+    1   I                     3           3'UTR
+    2   I                     17          TSS1500
+    3   I                     20          TSS200
+    4   I                     20          Body
+    5   I                     20          1stExon
+    6   I                     23          5'UTR
+    7   II                    25          5'UTR
+    8   II                    25          1stExon
+    9   II                    29          TSS200
+    10  II                    31          3'UTR
+    11  II                    38          TSS1500
+    12  II                    39          Body
+
+
+OK! So, this pathway is covered by probes of both types, and we do see more
+of the type II probes (which lack in performance), but there's also a good
+number of type I probes that should be useful.
+
+So, in summary, when using the ISB-CGC tables, you probably won't run into too many
+RECORD data types, but if you do, you'll be prepared.
+
+As an exercise for the reader, you might want to try and join the
+information explored above with the information in the one of the
+GENCODE tables -- try using the methylation probe coordinates and
+the GENCODE gene coordinates to see if the information in the UCSC
+record in the methylation table is completely accurate, or check to
+see if there are important differences between hg19/GRCh37 and hg38/Grch38.
+If you come up with some useful queries, feel free to email us and
+we'll feature you on this page!
+
+
+.. _May2017:
 
 May, 2017
 ###########
@@ -549,7 +2585,7 @@ OK! Now we've got some pretty decent overlaps. We now have a way to search for
 similarities among groups of samples based on functionally based shared mutation
 profiles.
 
-Turning this question around a little bit, 
+Turning this question around a little bit,
 what if we looked at the overlap on the pathway level instead?
 
 .. code-block:: sql
@@ -721,11 +2757,9 @@ of tissue, whereas other tissue types share patterns of disrupted pathways.
   :align: center
 
 
-================
+------------------
 
-================
-
-
+.. _April2017:
 
 April, 2017
 ###########
@@ -1234,6 +3268,8 @@ Thanks for joining us this month!
 
 ------------------
 
+.. _March2017:
+
 March, 2017
 ###########
 
@@ -1492,6 +3528,7 @@ Now, let's see that distance matrix in R!
 
 -------------
 
+.. _February2017:
 
 February, 2017
 ##############
@@ -1864,10 +3901,12 @@ Save the cluster assignments to a csv file, and read it into R.
 
 -------------
 
+.. _January2017:
+
 January, 2017
 #############
 
-This month we'll be comparing standard SQL and legacy SQL. It's possible to write
+This month we'll be comparing Standard SQL and Legacy SQL. It's possible to write
 queries using either form, but as we'll see, using standard SQL can be easier to write
 and improves readability.
 
@@ -2277,6 +4316,9 @@ segments, while the "standard" solution takes a simpler approah.
 
 ------------------
 
+.. _December2016:
+
+
 December, 2016
 ##############
 
@@ -2609,6 +4651,8 @@ Note that the latest version of the bigrquery package supports standard SQL, so 
   # with both high and low correlations. What do you notice?
 
 ------------
+
+.. _Resources:
 
 Let us know if you're having trouble! We're here to help.
 

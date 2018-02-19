@@ -182,7 +182,7 @@ The endpoints have been reorganized to support the multiple programs that now ha
 
 **Please Note:** For the create.cohort API for all programs require the user to select inbetween the brackets to view the possible filter(s) for cohort being built.
 
-Details for each of these enpoints can be found below:
+Details for each of these endpoints can be found below:
 
 **Universal Endpoints**
 
@@ -234,6 +234,6 @@ Details for each of these enpoints can be found below:
     progapi3_ccle/cases_get.rst
     progapi3_ccle/samples_cloud_storage_file_paths.rst
     progapi3_ccle/samples_get.rst
-    progapi3_ccle/users_get.rst
+   
 
 

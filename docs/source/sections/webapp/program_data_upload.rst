@@ -175,6 +175,14 @@ Data Upload Page Components
 =============================
 This section describes the features found on the Data Upload page.
 
+Sharing User Uploaded Programs
+------------------------------
+
+This will share the web view of your uploaded program with users you select by entering the users e-mail. The User will receive an e-mail
+message with a link to your shared uploaded program explaining that (you) wanted to share a program with (them) and that you have invite
+them to join. If the email address you entered in not registered in the database you are prompted with a message saying, "The following user
+emails could not be found; please ask them to log into the site first:(email entered)."
+
 
 System Data Dictionary Link
 ---------------------------

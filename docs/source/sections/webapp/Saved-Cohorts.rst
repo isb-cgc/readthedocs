@@ -8,15 +8,15 @@ interested in analyzing further.  You may frequently re-use a cohort in multiple
 Creating and saving a cohort
 ############################
 
-To create a cohort from Your Dashboard, if you do not have a cohort created, click on the "Create Cohort" link in the 
-"Saved Cohorts" panel at the bottom of the page. This will take you to the cohort creation page.
+To create a cohort from Your Dashboard, if you do not have a cohort created, click on the "Filter" or the "Barcodes" links in the 
+"Saved Cohorts" panel at the bottom of the page. The Filter link will take you to the cohort creation page with all filters explained below.  The Barcodes link will send you to a page where you can uplaod samples/cases barcodes and create a cohort from them. Currently you can only upload from three programs TCGA, CCLE, and TARGET. 
 
 If you already have saved cohorts, they will be listed in the "Saved Cohorts" panel.  Click on the "Saved Cohorts" link in that panel and this will take you to a page that displays the details of your saved cohorts.  Alternatively, to go directly to a given cohort, click on its name and you will be taken to the cohort details page of that cohort.
 
-To create a new saved cohort, use the "Create Cohort" link.
+To create a new saved cohort, use the "Create Cohort: Filters / Barcodes" link.
 
-Cohort Creation Page
-====================
+Cohort Creation Filters Page
+============================
 
 Using the provided list of filters on the left hand side, you can select the attributes and features
 that you are interested in either from ISB-CGC data or the User Data tab.  TCGA Data is the first program to be displayed, next to it is CCLE and TARGET Data tabs. You are able to create a cohort with multiple program filters.  CCLE (The Cancer Cell Line Encyclopedia) data - is open access data set that can be used to view sequence data with the IGV viewer without having dbGaP permissions.
@@ -99,8 +99,7 @@ The panel in the center of the screen, with four tabs called "TCGA DATA", "CCLE 
    
 Molecular Tab
 ^^^^^^^^^^^^^
-
-    * Gene Mutation Status (creating a cohort based on the presence of a mutation (of various types) in a gene)
+    * Gene Mutation Status (creating a cohort based on the presence of a mutation (of various types) in a gene)  You can also filter by different genomic builds and hence different BigQuery Tables.  The two BigQuery tables you can select from are *TCGA_hg19_data_v0:Somatic_Mutation_MC3* and *TCGA_hg38_data_v0:Somatic_Mutation*. 
     
 Programs & Projects Tab
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -175,6 +174,71 @@ Programs & Projects Panel
 
 This panel displays a list of images (called "treemaps") similar to the clinical features panel, but can only be found when the User Data tab is selected. This panel displays a high level breakdown of the projects and studies you have uploaded to the system. Another similarity to the clinical features panel hovering over the image will show details of the specific section of the image and the number of samples associated with it. 
 
+Cohort Creation Barcodes Page
+=============================
+
+This feature will allow you upload or enter your own list of sample or cases barcodes
+from multiple programs.  There is a blue instructions button present on both the upload and Enter tabs.  
+
+Below is an example of what you are provided when the *Instructions* tab is selected.
+
+All entries must contain a valid case barcode or sample barcode, and a valid program short name.
+
+Valid program short names:
+
+  - TCGA
+  - CCLE
+  - TARGET
+
+When only a case barcode is provided, all samples from that case will be included in the cohort. 
+Make a separate entry per sample if only specific samples from a case should be added to the cohort.
+
+Please do not include any column headers. Values may be placed in single or double quotes. Format your entries as follows:
+
+Case Barcode,Sample Barcode,Program Short Name
+
+When omitting either barcode type, please be sure to still include the empty column's delimiter. (See examples below.) You may place an empty quoted value ("" or ''), but this is optional.
+
+ **Example Barcode Set**
+
+ TCGA-N9-A4Q4,,TCGA
+
+ ,TCGA-N7-A4Y8-01A,TCGA
+
+ 'Saos-2','CCLE-Saos-2', 'CCLE'
+
+ 'Hs 863.T', '','CCLE'
+
+ "TARGET-51-PAJLIV",, "TARGET"
+
+ TARGET-51-PAJMFS,"", "TARGET"
+
+ 
+
+Upload Tab
+-----------
+
+This feature allows to upload files with barcodes to create a cohort. Files must be in GDC Data Portal case manifest format, or in comma/tab-delimited case/sample/program format. The file can be a maximum of 32MB.  Also, files must be in tab- or comma-delimited 
+format (TSV or CSV) and have an extension of .txt, .csv, or .tsv.  
+After selecting the file and uploading it, the entries will be validated. Any entries which are found to be invalid will be
+listed, and you can choose to omit them and continue with cohort creation, or select
+a new file for verification and upload. 
+
+**GDC Data Portal Case Manifest Files**
+
+GDC Data Portal case manifests can be obtained on the 'Cases' tab of the Exploration section of the data portal `'Cases' tab of the Exploration section of the data portal <https://portal.gdc.cancer.gov/exploration>`_.
+JSON case manifests must have a .json extension, and will be validated against the GDC's JSON schema. The minimum required properties for each entry in the JSON file are the project object and the submitter_id field. The project object must include the project_id property. All other properties will be ignored.
+
+TSV case manifests must have a .tsv extension, and must contain the first 3 columns of the GDC TSV case manifest in the following order: Case UUID, Case ID, Project. Any other columns will be ignored. Do not remove the header row of the TSV case manifest.
+
+Because the GDC Data Portal case manifest entries are cases, all samples from a case will be included in the cohort.
+
+Enter Tab
+---------
+
+This feature will allow you to manually input barcodes for cohort creation.  There is a maximum length of 10000 character for the text box.
+Please use the file upload option if you need to upload more barcodes than will fit in that space.
+
 
 Operations on Cohorts
 #####################
@@ -191,7 +255,10 @@ From the "COHORTS" page you can select:
 * New Workbook: Pushing this button creates a New Workbook using the selected Cohorts
 * Delete: Allows you to delete selected cohort(s) (if you confirm by clicking the second delete button presented)
 * Set Operations: Allows you to perform set operations on selected cohorts (see below for details)
-* Share: A dialogue box appears and the user is prompted to select users that are registered in the system to share selected cohort(s) with.
+* Share: This will share the web view of the cohorts with users you select by entering the users e-mail. If the email address you entered in
+  not registered in the database you are prompted with a message saying, "The following user emails could not be found; please ask them 
+  to log into the site first:(email entered)."
+  
 
 Set Operations
 ==============
@@ -237,7 +304,43 @@ From the "SAVED COHORTS" tab you can:
 * Delete: Allows you to delete this cohort (if you confirm by clicking the second delete button presented)
 * View Files: Allows you to view the list of files associated with this cohort (see details below)
 * Download IDs: Provides a list of sample and cases IDs in the cohort
-* Share: A dialogue box appears and the user is prompted to select registered users to share the cohort with.
+* Share: This will share the web view of the cohorts with users you select by entering the users e-mail. If the email address you entered in
+  not registered in the database you are prompted with a message saying, "The following user emails could not be found; please ask them to
+  to log into the site first:(email entered)."
+* Export to BQ(BigQuery): This will allow you to create a new table or append to an existing table. You must have registered BigQuery dataset with a Google Cloud Project on the registered Google Cloud Projects details page. 
+  If a user wants to export their cohort to a premade table of their own, we require it to have the necessary columns. Here's the schema: 
+  
+  {
+        'fields': [
+            {
+                'name': 'cohort_id',
+                'type': 'INTEGER',
+                'mode': 'REQUIRED'
+            },{
+                'name': 'case_barcode',
+                'type': 'STRING',
+                'mode': 'REQUIRED'
+            },{
+                'name': 'sample_barcode',
+                'type': 'STRING',
+                'mode': 'REQUIRED'
+            },{
+                'name': 'project_short_name',
+                'type': 'STRING',
+                'mode': 'REQUIRED'
+            },{
+                'name': 'date_added',
+                'type': 'TIMESTAMP',
+                'mode': 'REQUIRED'
+            },{
+                'name': 'case_gdc_uuid',
+                'type': 'STRING'
+            }
+        ]
+    }
+  
+  *Note:* You shouldn't ever set UUID to 'required' because sometimes a sample doesn't have a UUID, and the attempt to insert a 'null' will cause the cohort export to fail.
+ 
 
 ISB-CGC DATA and USER DATA tab
 --------------------------------
@@ -304,8 +407,8 @@ You can use the "Previous Page" and "Next Page" buttons to see more values in th
 You can filter by Genomic Build either HG19 or HG38 and view which platforms and files are available for the build selected.  You may also filter on these files if you are only interested in a specific data type and platform.  Selecting a filter will
 update the associated list.  The numbers next to the platform refers to the number of files available for that platform.
 
-If there are files that contain read-level data, you will be able to select files to view in the IGV 
-viewer by selecting check boxes beside the viewer and selecting "Launch IGV" button.  Only if you have authenticated 
+If there are files that contain read-level data are displayed in the IGV column, you will be able to select files to view in the IGV 
+viewer by selecting check boxes beside the viewer and selecting "Launch IGV" button.  The term "cloud storage" represents there are bam files associated to the sample in Google Cloud Storage for ISB-CGC that can be viewed in IGV browser.  Only if you have authenticated 
 as a dbGaP authorized user will you be able to select controlled access files to view in the IGV viewer (CCLE data does not require authorization to view the sequence data in the IGV viewer).
 
 Download File List as CSV
@@ -327,10 +430,18 @@ Viewing a Sequence
 ==================
 
 When available, sequences in a cohort can be viewed using the IGV viewer.  To find those sequences that can be viewed with the IGV viewer, open a cohort and select the "View Files" button at the top of the page.  The files associated with your cohort will be shown, with the last column indicating if the IGV viewer can be used to view the contents of that file.
-This is indicated by a checkbox beside either "GA4GH" and/or "Cloud Storage").  Clicking the "Launch IGV" button will take you to an IGV view of the selected sequence(s) data.  
-Controlled access files will be viewable by sequence ONLY if you have `authenticated as a dbGaP-authorized user <Gaining-Access-To-TCGA-Contolled-Access-Data.html>`_. 
+This is indicated by a checkbox beside "Cloud Storage").  Clicking the "Launch IGV" button will take you to an IGV view of the selected sequence(s) data.  
+Controlled access files will be viewable by sequence ONLY if you have `authenticated as a dbGaP-authorized user <Gaining-Access-To-Contolled-Access-Data.html>`_. 
 
 (`more information about Viewing a Sequence in the IGV Viewer <IGV-Browser.html>`_).
+
+
+Viewing a Pathology Image
+=========================
+
+When available, pathology images can be viewed using the caMicroscope tool (see more about caMicroscope provide `here <http://camicroscope.org>`_ ).  These are the pathology images that are associated with TCGA samples (not all files are currently available, due to some metadata that is not in place at GDC describing the image files.  ISB-CGC is working with GDC to resolve this issue, and more images will be appearing when that issue is resolved).  To find images that can be viewed, open a saved cohort and select the "View Files" button at the top of the page.  The files associated with your cohort will be shown, with the last column indicating if the caMicro viewer can be used to view the contents of that file.  This is indicated by a checkbox beside the word caMicro (HINT: by selecting the "Clinical" platform ONLY the clinical files that have the pathology images associated with them will be displayed.)(HINT 2: using a smaller cohort will provide faster response in creating the list of files available).
+
+A maximum of 5 slides can be viewed at one time.  To view these slides, select the caMicro check-boxes for each sample you want to view.  Then, go to the top of the page, and select the "caMicroscope" tab. The images that have been selected to view are shown. Pressing the "Launch caMicrosope" button launches a new window with individual tabs displaying the image.  To zoom into the image, either click the left button or use your wheel to zoom in.  Use your mouse to move around the image.  To zoom out of the image, shift-slick the left mouse button or use your wheel to zoom out.  Individual tabs with each image can also be launched to compare multiple images by pushing the "Open in new tab" button.
 
 Deleting a cohort
 =================
