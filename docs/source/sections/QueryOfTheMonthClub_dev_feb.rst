@@ -24,6 +24,8 @@ Table of Contents
 2018
 ++++
 
+- February_: BioCircos shiny app, showing pairwise correlations within a pathway.
+
 - January_: Gene Set Scoring in BigQuery, using the new hg38 mutation tables.
 
 2017
@@ -64,6 +66,58 @@ Resources_:  Helpful information!
 
 
 -----------------------
+
+
+.. _Febrary:
+
+February, 2018
+##############
+
+.. figure:: query_figs/feb_screenshot1.png
+  :scale: 30
+  :align: center
+
+`ISB-CGC-BioCircos-Shiny <https://isb-cgc.shinyapps.io/ISB-CGC-BioCircos-Shiny/>`_
+
+
+For this entry, we're going to get back to shiny programming and work on the
+skeleton of a BioCircos app. These types of plots show data and relations across
+the genome (typically), but where the genome has been curled into a circle.
+
+The Circos plot was first described in
+`Circos: An information aesthetic for comparative genomics <https://genome.cshlp.org/content/early/2009/07/20/gr.092759.109.full.pdf>`_
+by Krzywinski et al., Genome Research, 2009 (Cited by 3295!). It was really
+aimed at displaying relations between genomic loci. From the paper:
+"Circos uses a circular ideogram layout to facilitate the display of
+relationships between pairs of positions by the use of ribbons". A good example is
+looking at particular genomic rearrangements. But it is also very good at showing
+gene-gene interactions which are often far apart in the genome.
+
+In this example, we're selecting a group of samples, and a pathway which is a
+set of genes, and looking at the correlations that arise among the gene-gene pairs.
+If a pathway is active, we might expect strong correlations between the participating
+genes. The pathways come from `Reactome <https://reactome.org/>`_
+which was supplied by the `Bader Lab <http://baderlab.org/GeneSets>`_
+and can be found in our Query of the Month table, isb-cgc:QotM.Reactome_a1.
+
+There's a few new Shiny things I learned here, so we'll go through the app,
+and see how it works.
+
+.. code-block:: sql
+
+  SELECT
+    project_short_name,
+    COUNT(DISTINCT(sample_barcode_tumor)) AS n
+  FROM
+    `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
+  WHERE
+    Hugo_Symbol = 'PARP1'
+  GROUP BY
+    project_short_name
+  ORDER BY
+    n DESC
+
+
 
 
 .. _January:
@@ -427,14 +481,9 @@ also probably why we see the next two top ranked pathways 'DNA Replication' and 
 
 For more on this topic see:
 
-Retinoblastoma (RB) in Cancer (Homo sapiens)
-https://www.wikipathways.org/index.php/Pathway:WP2446
-
-RB1 gene
-https://en.wikipedia.org/wiki/Retinoblastoma_protein
-
-Direct involvement of retinoblastoma family proteins in DNA repair by non-homologous end-joining.
-https://www.ncbi.nlm.nih.gov/pubmed/25818292
+  - Retinoblastoma (RB) in Cancer (Homo sapiens) (`Wiki pathway WP2446 <https://www.wikipathways.org/index.php/Pathway:WP2446>`_)
+  - RB1 gene (`Wikipedia entry <https://en.wikipedia.org/wiki/Retinoblastoma_protein>`_)
+  - Direct involvement of retinoblastoma family proteins in DNA repair by non-homologous end-joining. (`Cook et al, 2015 <https://www.ncbi.nlm.nih.gov/pubmed/25818292>`_)
 
 Thanks, and feel free to ask about a particular topic! We're happy to
 take requests!
