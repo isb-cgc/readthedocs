@@ -157,6 +157,120 @@ First we'll define the UI.
 
 
 It's a pretty simple layout. We have some user-interface objects on the left, and a plot and tables on the right.
+The code to populate the interface is shown below.
+
+
+.. code-block:: r
+
+  server <- function(input, output, session) {
+
+      # some variables used in the table summary
+      rvar <- reactiveValues(geneCount = 0, edgeCount = 0, edgesTotal = 0, genesTotal = 0)
+
+      # info text
+      output$pageInfo <- renderText(infoTextBlock())
+      # and some text citing the packages we used
+      output$pageOutro <- renderText("Packages used: BioCircos, bigrquery")
+
+      # calling BigQuery
+      bq_data <- eventReactive(input$submit, {
+        withProgress(message = 'Contacting the cloud...', value = 0, {
+          incProgress(1/2, "BigQuerying...")
+          pathname <- input$pathway
+          cohort   <- input$cohort
+          sql      <- buildQuery(pathname, cohort)
+          service_token <- set_service_token("data/our_saved_token.json")
+          data <- query_exec(sql, project='our-project-id', use_legacy_sql = F)
+          data
+        })
+      })
+
+      # filter out the edges by correlation strength
+      filterData <- reactive({
+        bqdf <- bq_data()
+        bqdfFilt <- bqdf[abs(as.numeric(bqdf$spearmans)) > input$corrThershold,]
+        # potentially there are no gene-gene edges after filtering
+        bqdfFilt
+      })
+
+      # update the table summary after filtering the data.
+      checkTable <- observe(
+        {
+        # grab our handles
+        bqdf <- bq_data()
+        bqdfFilt <- filterData()
+        # collect some counts on this data
+        rvar$edgeCount <- nrow(bqdfFilt)
+        rvar$edgeTotal <- nrow(bqdf)
+        rvar$geneTotal <- length( c(unique(bqdf$geneA), unique(bqdf$geneB)) )
+        rvar$geneCount <- length( c(unique(bqdfFilt$geneA), unique(bqdfFilt$geneB)) )
+        if (nrow(bqdf) == 0) {
+          rvar$edgeTotal <- 0
+          rvar$geneCount <- 0
+        }
+        if (nrow(bqdfFilt) == 0) {
+          bqdfFilt <- data.frame(geneA="NA",chrA="NA",startA=0,geneB="NA",chrB="NA",startB=0,spearmans=0)
+          rvar$edgeCount <- 0
+          rvar$geneCount <- 0
+        }
+      })
+
+      # the main plot
+      output$circosPlot <- renderBioCircos({
+
+          # edge positions, From and To
+          bqdfFiltered <- filterData()
+          links_chromosomes_1 <- str_replace_all(bqdfFiltered$chrA, pattern="chr", replacement="")
+          links_chromosomes_2 <- str_replace_all(bqdfFiltered$chrB, pattern="chr", replacement="")
+          links_pos_1 <- bqdfFiltered$startA
+          links_pos_2 <- bqdfFiltered$startB
+          links_corr <- round(bqdfFiltered[,7],2)
+          links_labels = sapply(1:length(links_pos_1), function(i) {
+              paste(bqdfFiltered[i,1],bqdfFiltered[i,4], round(bqdfFiltered[i,7],2), sep=',  ')
+          })
+
+        # start with the base circos-track
+        tracklist = BioCircosBackgroundTrack("myBackgroundTrack",
+                                             minRadius = 0,
+                                             maxRadius = 0.55,
+                                             borderSize = 0,
+                                             fillColors = "#EEFFEE")
+
+        # if there's links to display, add in a link-track to the track-list
+        if (nrow(bqdfFiltered) > 0) {
+          tracklist = tracklist + BioCircosLinkTrack('myLinkTrack',
+                                                     links_chromosomes_1, links_pos_1, links_pos_1 + 50000,
+                                                     links_chromosomes_2, links_pos_2, links_pos_2 + 50000,
+                                                     maxRadius = 0.8, labels=links_labels, displayLabel=FALSE)
+        }
+        
+        # and call the main function with our track-list
+        expr2 <- BioCircos(tracklist, genome = "hg19", yChr = FALSE, chrPad = 0,
+                           displayGenomeBorder = FALSE, genomeTicksDisplay = FALSE, genomeLabelDy = 0,
+                           LINKMouseOverTooltipsHtml01 = "",
+                           LINKMouseOutStrokeWidth=3)
+
+        expr2
+        }, quoted = F)
+
+        # display the table of correlations
+        output$table <- renderTable({
+          filterData();
+          })
+
+        # and the table of table summaries
+        output$textboxinfo <- renderTable({
+          data.frame(Item=c("number of edges shown:", "number of edges total:",
+                            "number of genes shown:", "number of genes total:"),
+                     Count=c(rvar$edgeCount, rvar$edgeTotal,
+                             rvar$geneCount, rvar$geneTotal)
+          )})
+      }
+
+  # Run the application
+  shinyApp(ui = ui, server = server)
+
+
 
 
 The BigQuery data-getting function is very similar to the one used in our
