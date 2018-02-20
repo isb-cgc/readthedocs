@@ -105,20 +105,62 @@ and can be found in our Query of the Month table, isb-cgc:QotM.Reactome_a1.
 There's a few new Shiny things I learned here, so we'll go through the app,
 and see how it works.
 
-.. code-block:: sql
+In this app, there were a few objects that needed to stay in sync. First we have
+the big table of correlations, that's found by contructing a BigQuery using the
+user inputs. That table is filtered using the user-input slider bar, and the
+summary statistics need to be shown in the small table on the right. The filtered
+table is also shown in a table directly under the BioCircos plot.
 
-  SELECT
-    project_short_name,
-    COUNT(DISTINCT(sample_barcode_tumor)) AS n
-  FROM
-    `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
-  WHERE
-    Hugo_Symbol = 'PARP1'
-  GROUP BY
-    project_short_name
-  ORDER BY
-    n DESC
 
+First we'll define the UI.
+
+.. code-block:: r
+
+  library(shiny)
+  library(BioCircos)
+  library(bigrquery)
+  library(stringr)
+  source("global.R")
+
+  ui <- fluidPage(
+
+     # Application title
+     titlePanel("ISB-CGC Query of the Month, Feb 2018"),
+
+     sidebarLayout(
+        sidebarPanel(
+          fluidRow(
+            textOutput('pageInfo'),
+            HTML("<br><br>")
+          ),
+          fluidRow(
+            selectInput("pathway", "Pathway", pathwayNames(), selected ="DNA REPLICATION INITIATION"),
+            getTCGAProjs(), # defined in global.R, returns a selectInput obj.
+            sliderInput('corrThershold', 'correlation thershold',min=0, max=1, value=0.5),
+            actionButton(inputId="submit",label = "Submit")
+          ),
+          fluidRow(
+            HTML("<br><br>"),
+            textOutput('pageOutro')
+          )
+        ),
+
+        mainPanel(
+           BioCircosOutput("circosPlot", width = "100%", height = "500px"),  # MAIN PLOT!
+           fluidRow(
+             column(8, align="center", tableOutput('table')),
+             tableOutput('textboxinfo')
+           )
+        )
+     )
+  )
+
+
+It's a pretty simple layout. We have some user-interface objects on the left, and a plot and tables on the right.
+
+
+The BigQuery data-getting function is very similar to the one used in our
+`October example <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/QueryOfTheMonthClub_dev_feb.html#october-2017>`_
 
 
 
