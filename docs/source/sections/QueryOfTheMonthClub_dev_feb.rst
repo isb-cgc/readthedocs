@@ -243,7 +243,7 @@ The code to populate the interface is shown below.
                                                      links_chromosomes_2, links_pos_2, links_pos_2 + 50000,
                                                      maxRadius = 0.8, labels=links_labels, displayLabel=FALSE)
         }
-        
+
         # and call the main function with our track-list
         expr2 <- BioCircos(tracklist, genome = "hg19", yChr = FALSE, chrPad = 0,
                            displayGenomeBorder = FALSE, genomeTicksDisplay = FALSE, genomeLabelDy = 0,
@@ -271,10 +271,46 @@ The code to populate the interface is shown below.
   shinyApp(ui = ui, server = server)
 
 
-
+That's it! The BigQuery tables are only executed when we make a change to one
+of the drop-down selectors and hit 'submit'. But, in using the observer function,
+the tables are updated whenever the correlation filter is used.
 
 The BigQuery data-getting function is very similar to the one used in our
 `October example <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/QueryOfTheMonthClub_dev_feb.html#october-2017>`_
+the user inputs are pasted into the query-string, and bigrquery::query_exec() is
+used to retrieve the data. We've had a lot of examples of this in the past.
+
+Let's try an looking at an example in some detail.
+
+<MIGHT NEED A BETTER EXAMPLE!>
+
+.. figure:: query_figs/feb_screenshot1.png
+  :scale: 30
+  :align: center
+
+We have selected the Beta-Catenin Phosphorylation Cascade as our gene set.
+Beta-catenin is encoded by the CTNNB1 gene, and it's associated pathway is
+thought to be strongly related to cancer development. "Beta-catenin is regulated
+and destroyed by the beta-catenin destruction complex, and in particular by
+the adenomatous polyposis coli (APC) protein (wikipedia)".
+
+In our table of correlations, we see many negative correlations, which might
+represent negative regulations.
+
+For example, we see the AXIN1-APC link has a spearman's correlation of -0.53.
+AXIN1 is part of the beta-catenin destruction complex, ...
+
+In Wnt signaling, probably facilitates the phosphorylation of CTNNB1 and APC
+
+`From Li et al. <https://www.ncbi.nlm.nih.gov/pubmed/20215423>`_,
+"BRCA1 is an essential caretaker protein in the surveillance of DNA damage, is mutated
+in approximately 50% of all hereditary breast cancer cases, and its expression is
+frequently decreased in sporadic breast cancer. beta-Catenin is a multifunctional
+protein that forms adhesion complex with E-cadherins, alpha-catenin, and actin, and
+plays a central role in Wnt signaling through its nuclear translocation and activation
+of beta-catenin-responsive genes. Although significant progress has been made in understanding
+the Wnt/beta-catenin and BRCA1 signaling cascades, it is not known whether there is a
+link between beta-catenin and BRCA1.".
 
 
 
