@@ -70,8 +70,10 @@ Resources_:  Helpful information!
 
 .. _Febrary:
 
+
 February, 2018
 ##############
+
 
 .. figure:: query_figs/feb_screenshot1.png
   :scale: 30
