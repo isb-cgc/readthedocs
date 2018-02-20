@@ -290,7 +290,23 @@ Let's try an looking at an example in some detail.
 
 We have selected the Beta-Catenin Phosphorylation Cascade as our gene set.
 Beta-catenin is encoded by the CTNNB1 gene, and it's associated pathway is
-thought to be strongly related to cancer development. "Beta-catenin is regulated
+thought to be strongly related to cancer development as it interacts with wnt
+signaling cascades.
+
+`From Li et al. <https://www.ncbi.nlm.nih.gov/pubmed/20215423>`_,
+"BRCA1 is an essential caretaker protein in the surveillance of DNA damage, is mutated
+in approximately 50% of all hereditary breast cancer cases, and its expression is
+frequently decreased in sporadic breast cancer. Beta-Catenin is a multifunctional
+protein that forms adhesion complex with E-cadherins, alpha-catenin, and actin, and
+plays a central role in Wnt signaling through its nuclear translocation and activation
+of beta-catenin-responsive genes. Although significant progress has been made in understanding
+the Wnt/beta-catenin and BRCA1 signaling cascades, it is not known whether there is a
+link between beta-catenin and BRCA1.".
+
+We see PPP2R5E taking part in many of the higher correlations. PPP2R5E
+
+
+"Beta-catenin is regulated
 and destroyed by the beta-catenin destruction complex, and in particular by
 the adenomatous polyposis coli (APC) protein (wikipedia)".
 
@@ -302,15 +318,6 @@ AXIN1 is part of the beta-catenin destruction complex, ...
 
 In Wnt signaling, probably facilitates the phosphorylation of CTNNB1 and APC
 
-`From Li et al. <https://www.ncbi.nlm.nih.gov/pubmed/20215423>`_,
-"BRCA1 is an essential caretaker protein in the surveillance of DNA damage, is mutated
-in approximately 50% of all hereditary breast cancer cases, and its expression is
-frequently decreased in sporadic breast cancer. beta-Catenin is a multifunctional
-protein that forms adhesion complex with E-cadherins, alpha-catenin, and actin, and
-plays a central role in Wnt signaling through its nuclear translocation and activation
-of beta-catenin-responsive genes. Although significant progress has been made in understanding
-the Wnt/beta-catenin and BRCA1 signaling cascades, it is not known whether there is a
-link between beta-catenin and BRCA1.".
 
 
 
