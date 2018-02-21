@@ -39,7 +39,6 @@ As soon as you've found a seat and opened up your laptop, please do the followin
 * if you *do* have your own GCP project, now would be a good time to make sure that you have certain APIs enabled.  (If you don't know how, take a look at `this tutorial <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/enabling_new_APIs.pdf>`_.)  Specifically, you will need these APIs enabled (some may already be enabled by default):
 
       + Google Compute Engine
-      + Google Genomics
       + Google Cloud Logging
       + Google Cloud Pub/Sub
 
@@ -121,7 +120,6 @@ Google Genomics
 ===============
 
   + `Overview <https://cloud.google.com/genomics/>`_
-  + `Sign up <https://cloud.google.com/genomics/#contact-form>`_ to receive the Google Genomics whitepaper
   + `github repositories <https://github.com/googlegenomics>`_
   + `Google Genomics Cookbook <https://googlegenomics.readthedocs.io/en/latest/>`_ with sections on:
 
