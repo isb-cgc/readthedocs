@@ -13,4 +13,4 @@ In 2017, the GA4GH team introduced the **htsget protocol** to allow users to dow
 After analyzing usage of the Variants API, Google found that users primarily used it to import variant data and then export it to BigQuery. To save time and effort, Google created **Variant Transforms**, an open source tool for directly importing VCF data into BigQuery. Variant Transforms and its documentation are published `here <https://github.com/googlegenomics/gcp-variant-transforms>`_. Variant Transforms is more scalable than the legacy Variants API, and it has a robust roadmap with a dedicated Google team.
 
 
-Because of the new APIs described above, ISB-CGC have removed the CCLE DNA-Seq and RNA-Seq data previously hosted in Google Genomics.  Please don't hesitate to reach out to us if there are issues you would like to discuss or get help with.
+Because of the new APIs described above, ISB-CGC have removed the CCLE DNA-Seq and RNA-Seq data previously hosted in Google Genomics.  Please don't hesitate to reach out to us at feedback@isb-cgc.org if there are issues you would like to discuss or get help with.
