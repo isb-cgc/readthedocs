@@ -28,7 +28,6 @@ using these three main Google Cloud Platform technologies:
 
 * `Google Genomics <https://cloud.google.com/genomics/>`_ (GG),
    provides a new way to work with sequence-level data, via the `GA4GH API <http://ga4gh.org/#/>`_.
-   Only the CCLE sequence data is currently hosted here, for users to experiment with.
    If and when the research community shifts away from BAM files towards using
    the GA4GH API, using this technology as our primary data-store may make more sense.
 
