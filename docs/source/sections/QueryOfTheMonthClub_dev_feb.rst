@@ -92,7 +92,7 @@ by Krzywinski et al., Genome Research, 2009 (cited 3,295 times!), and originally
 aimed to display relations between genomic loci. From the paper:
 "Circos uses a circular ideogram layout to facilitate the display of
 relationships between pairs of positions by the use of ribbons". Visualizing
-genomic rearrangements was one of the key uses of the circos plot. But it's also a good way to
+genomic rearrangements was one of the key uses of the circos plot, but it's also a good way to
 visualize gene-gene interactions which are often separated by large genomic distances.
 
 In this example, we will select a group of samples, and a pathway (a set of genes),
@@ -100,7 +100,7 @@ and look at the correlations between pairs of genes.
 If a pathway is active, we might expect strong correlations between the participating
 genes. The pathways come from `Reactome <https://reactome.org/>`_
 which was supplied by the `Bader Lab <http://baderlab.org/GeneSets>`_
-and can be found in our Query of the Month table, isb-cgc:QotM.Reactome_a1.
+and can be found in our Query of the Month table, isb-cgc:QotM.Reactome_a1 (a1 indicates annotation).
 
 For the remainder of this month's episode, we'll go through the app, and see how it works.
 
@@ -305,7 +305,7 @@ such as gene expression levels, is an important and challenging problem. This pa
 Gene Set Enrichment Analysis and Signaling Pathway Impact Analysis, to pathway abnormality analysis in lung
 cancer using microarray gene expression data."
 
-This study corresponds to the Lung Squamous Cell Carcinoma (LUSC) data from the TCGA.
+This study uses the Lung Squamous Cell Carcinoma (LUSC) data from the TCGA.
 In this work, they've performed a gene set enrichment analysis, reporting some high scoring pathways.
 Table 4 has a comparison of two gene set scoring methods, each gene set is ranked by method,
 so we can get a sense of where the agreement lies.
