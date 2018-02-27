@@ -134,6 +134,7 @@ First we'll define the UI.
           fluidRow(
             selectInput("pathway", "Pathway", pathwayNames(), selected ="DNA REPLICATION INITIATION"),
             getTCGAProjs(), # defined in global.R, returns a selectInput obj.
+            sliderInput('numGenes', 'random number of genes',min=0, max=50, value=25),
             sliderInput('corrThershold', 'correlation thershold',min=0, max=1, value=0.5),
             actionButton(inputId="submit",label = "Submit after selecting pathway and cohort",
                          style="color: #ffffff; background-color: #67abe5; border-color: #2e6da4")
@@ -177,7 +178,8 @@ The code to populate the interface is shown below.
           incProgress(1/2, "BigQuerying...")
           pathname <- input$pathway
           cohort   <- input$cohort
-          sql      <- buildQuery(pathname, cohort)
+          n        <- input$numGenes
+          sql      <- buildQuery(pathname, cohort, n)
           service_token <- set_service_token("data/our_saved_token.json")
           data <- query_exec(sql, project='our-project-id', use_legacy_sql = F)
           data
@@ -276,47 +278,47 @@ the tables are updated whenever the correlation filter is used.
 
 The BigQuery data-getting function is very similar to the one used in our
 `October example <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/QueryOfTheMonthClub_dev_feb.html#october-2017>`_
-the user inputs are pasted into the query-string, and bigrquery::query_exec() is
+you can find it `here <https://gist.github.com/Gibbsdavidl/5580a4cb7834e2658613bb7bec07ae49>`_ .
+The user inputs are pasted into the query-string, and bigrquery::query_exec() is
 used to retrieve the data. We've had a lot of examples of this in the past.
 
-Let's try an looking at an example in some detail.
+One fun BigQuery trick is to use RAND() to shuffle the order of rows, followed by a
+LIMIT to get a random sub-sample.
 
-<MIGHT NEED A BETTER EXAMPLE!>
+.. code-block:: sql
+
+  ORDER BY
+    rand()
+  LIMIT
+    N
+
+Let's try an looking at an example in some detail.
 
 .. figure:: query_figs/feb_screenshot1.png
   :scale: 30
   :align: center
 
-We have selected the Beta-Catenin Phosphorylation Cascade as our gene set.
-Beta-catenin is encoded by the CTNNB1 gene, and it's associated pathway is
-thought to be strongly related to cancer development as it interacts with wnt
-signaling cascades.
+`From Cai et al. <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4251186/>`_,
 
-`From Li et al. <https://www.ncbi.nlm.nih.gov/pubmed/20215423>`_,
-"BRCA1 is an essential caretaker protein in the surveillance of DNA damage, is mutated
-in approximately 50% of all hereditary breast cancer cases, and its expression is
-frequently decreased in sporadic breast cancer. Beta-Catenin is a multifunctional
-protein that forms adhesion complex with E-cadherins, alpha-catenin, and actin, and
-plays a central role in Wnt signaling through its nuclear translocation and activation
-of beta-catenin-responsive genes. Although significant progress has been made in understanding
-the Wnt/beta-catenin and BRCA1 signaling cascades, it is not known whether there is a
-link between beta-catenin and BRCA1.".
+"Analyzing biological system abnormalities in cancer patients based on measures of biological entities,
+such as gene expression levels, is an important and challenging problem. This paper applies existing methods,
+Gene Set Enrichment Analysis and Signaling Pathway Impact Analysis, to pathway abnormality analysis in lung
+cancer using microarray gene expression data."
 
-We see PPP2R5E taking part in many of the higher correlations. PPP2R5E
+So let's look at the correlation structure of high ranking gene sets in Lung Squamous Cell Carcinoma (LUSC).
+Table 4 has a comparison of two gene set scoring methods, each gene set is ranked by method,
+so we can get a sense of where the agreement lies.
+The top three pathways mentioned in the discussion are the cell cycle, viral carcinogenesis,
+and p53 signaling pathway.
 
+First, the cell cycle. We have the Reactome Cell Cycle pathway, but it's made up from
+617 genes, which produces way more correlations that BioCircos can display.
+By selecting the pathway, hitting delete, and searching for cycle, I found the
+'TP53 regulates transcription of the cell cycle' pathway, perfect!
 
-"Beta-catenin is regulated
-and destroyed by the beta-catenin destruction complex, and in particular by
-the adenomatous polyposis coli (APC) protein (wikipedia)".
-
-In our table of correlations, we see many negative correlations, which might
-represent negative regulations.
-
-For example, we see the AXIN1-APC link has a spearman's correlation of -0.53.
-AXIN1 is part of the beta-catenin destruction complex, ...
-
-In Wnt signaling, probably facilitates the phosphorylation of CTNNB1 and APC
-
+The top correlations include the gene pairs (CCNB1, AURKA, 0.68). It's an interesting
+pair since Cyclin B1 is strongly related to oncogenesis and AURKA, another kinase
+related to cell cycle, is recently getting `some attention <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5122578/>`_.
 
 
 
