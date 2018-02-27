@@ -320,7 +320,9 @@ Alternately, by selecting the pathway, hitting delete, and searching for cycle, 
 
 The top correlations include the gene pairs (CCNB1, AURKA, 0.68). It's an interesting
 pair since Cyclin B1 is strongly related to oncogenesis and AURKA, another kinase
-related to cell cycle, is recently getting `some attention <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5122578/>`_.
+related to cell cycle, is recently getting `some attention for new theraputics <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5122578/>`_.
+Looking at the table of correlations, it's safe to say that the
+correlated pairs make sense in this context.
 
 An extension to this work would involve producing a distribution of correlations
 through permuations which would give a good background for comparison.
