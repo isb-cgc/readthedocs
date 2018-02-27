@@ -76,7 +76,7 @@ February, 2018
 
 
 .. figure:: query_figs/feb_screenshot1.png
-  :scale: 30
+  :scale: 50
   :align: center
 
 `ISB-CGC-BioCircos-Shiny <https://isb-cgc.shinyapps.io/ISB-CGC-BioCircos-Shiny/>`_
@@ -295,7 +295,7 @@ LIMIT to get a random sub-sample.
 Let's try an looking at an example in some detail.
 
 .. figure:: query_figs/feb_screenshot1.png
-  :scale: 30
+  :scale: 50
   :align: center
 
 `From Cai et al. <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4251186/>`_,
@@ -305,22 +305,29 @@ such as gene expression levels, is an important and challenging problem. This pa
 Gene Set Enrichment Analysis and Signaling Pathway Impact Analysis, to pathway abnormality analysis in lung
 cancer using microarray gene expression data."
 
-So let's look at the correlation structure of high ranking gene sets in Lung Squamous Cell Carcinoma (LUSC).
+This study corresponds to the Lung Squamous Cell Carcinoma (LUSC) data from the TCGA.
+In this work, they've performed a gene set enrichment analysis, reporting some high scoring pathways.
 Table 4 has a comparison of two gene set scoring methods, each gene set is ranked by method,
 so we can get a sense of where the agreement lies.
-The top three pathways mentioned in the discussion are the cell cycle, viral carcinogenesis,
+Let's look at the correlation structure of a couple high ranking gene sets: cell cycle
 and p53 signaling pathway.
 
 First, the cell cycle. We have the Reactome Cell Cycle pathway, but it's made up from
-617 genes, which produces way more correlations that BioCircos can display.
-By selecting the pathway, hitting delete, and searching for cycle, I found the
+617 genes, which produces way more correlations that BioCircos can display. This is an
+interesting, but unsolved, problem regarding having too many gene-pairs.
+Alternately, by selecting the pathway, hitting delete, and searching for cycle, I found the
 'TP53 regulates transcription of the cell cycle' pathway, perfect!
 
 The top correlations include the gene pairs (CCNB1, AURKA, 0.68). It's an interesting
 pair since Cyclin B1 is strongly related to oncogenesis and AURKA, another kinase
 related to cell cycle, is recently getting `some attention <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5122578/>`_.
 
+An extension to this work would involve producing a distribution of correlations
+through permuations which would give a good background for comparison.
 
+That's it for this month. As always, if you have any special requests for queries
+you would like to see or would like to submit a query of the month, please get
+a hold of us! Thanks!
 
 .. _January:
 
