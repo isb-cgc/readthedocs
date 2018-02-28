@@ -2,6 +2,23 @@
 Web-App Release Notes
 *********************
 
+* **February 28, 2018**
+ 
+ **Please Note:** Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
+ 
+  **Issues resolved in Sprint 24 as of 02/28/2018**
+  
+  New Enhancements
+  
+  - On the register a Google Cloud Project you now can only register the project ID. Registering the project name or project number will now result in an error message. Additionally, the GCP Project Name and ID will now both display on the GCP detail and list pages, and refreshing a GCP Project in the Web Application will update the Name if it was changed in the GCP console.
+  - For cohort creation via sets of barcodes, the barcode set (pasted in the text box or uploaded as a file) can now be a simple list of sample or case barcodes separated by newlines, commas, or tabs; the program listing is no longer needed, and you don’t need to supply the barcodes in a distinct columnar format.. The previous 3-column format will continue to work as well.
+  - On a worksheet, if no table is being searched the BQ table(s) used panel becomes inactive.
+  
+ Bug Fixes
+  
+  
+
+ 
 * **February 1, 2018** `v3.8 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.8>`_
 
  **Please Note:** Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
@@ -9,12 +26,14 @@ Web-App Release Notes
  **Issues resolved in Sprint 23 as of 02/01/2018**
  
  New Enhancements
+ 
   - We have enabled DNA methylation data to be used when plotting with genomic build hg38.
   - The cohort view files page has been updated to File Browser. The File Browser page also now has new filters data level, data type, disease code, data format, and experimental strategy. A time stamp has also been added to the CSV file that can be downloaded.
   - The IGV browser and caMicroscope are now more clearly defined and separated on the File Browser page.
   - When uploading a set of barcodes to create a cohort the error message has been redefined to direct someone to the instructions.
   
  Bug Fixes
+ 
   - You can now plot DNA methylation data using genomic build hg19 when working on a worksheet.
   - When registering a service account to controlled data you will no longer receive an error message when certain Google managed service accounts are also on the IAM and Admin page.
   - On a  worksheet, if you add new cohorts to a worksheet with pre-existing cohorts. Now the older and newly added cohorts are present on the worksheet for analysis.
