@@ -132,12 +132,13 @@ First we'll define the UI.
             HTML("<br><br>")
           ),
           fluidRow(
-            selectInput("pathway", "Pathway", pathwayNames(), selected ="DNA REPLICATION INITIATION"),
-            getTCGAProjs(), # defined in global.R, returns a selectInput obj.
-            sliderInput('numGenes', 'random number of genes',min=0, max=50, value=25),
-            sliderInput('corrThershold', 'correlation thershold',min=0, max=1, value=0.5),
+            selectInput("pathway", "Pathway", pathwayNames(), selected ="SIGNALLING TO RAS (18 genes)"),
+            getTCGAProjs(),
+            sliderInput('numGenes', 'random number of genes',min=0, max=50, value=10),
             actionButton(inputId="submit",label = "Submit after selecting pathway and cohort",
-                         style="color: #ffffff; background-color: #67abe5; border-color: #2e6da4")
+                         style="color: #ffffff; background-color: #67abe5; border-color: #2e6da4"),
+            HTML("<br><br>"),
+            sliderInput('corrThershold', 'abs value correlation threshold',min=0, max=1, value=0.33)
           ),
           fluidRow(
             HTML("<br><br>"),
@@ -148,7 +149,7 @@ First we'll define the UI.
         mainPanel(
            BioCircosOutput("circosPlot", width = "100%", height = "500px"),  # MAIN PLOT!
            fluidRow(
-             column(8, align="center", tableOutput('table')),
+             column(8, align="center", div(tableOutput('table'), style = "font-size:80%") ),
              tableOutput('textboxinfo')
            )
         )
@@ -256,8 +257,14 @@ The code to populate the interface is shown below.
 
         # display the table of correlations
         output$table <- renderTable({
-          filterData();
-          })
+          df <- filterData();
+          df$lociA <- str_c(df$chrA, ':', df$startA)
+          df$lociB <- str_c(df$chrB, ':', df$startB)
+          df$corr <- df$spearmans
+          df <- df[, c("geneA","lociA","geneB", "lociB", "corr")]
+          df
+        })
+
 
         # and the table of table summaries
         output$textboxinfo <- renderTable({
