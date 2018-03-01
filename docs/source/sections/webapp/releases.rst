@@ -6,18 +6,30 @@ Web-App Release Notes
  
  **Please Note:** Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
  
-  **Issues resolved in Sprint 24 as of 02/28/2018**
+ **Issues resolved in Sprint 24 as of 02/28/2018**
   
-  New Enhancements
+ New Enhancements
   
   - On the register a Google Cloud Project you now can only register the project ID. Registering the project name or project number will now result in an error message. Additionally, the GCP Project Name and ID will now both display on the GCP detail and list pages, and refreshing a GCP Project in the Web Application will update the Name if it was changed in the GCP console.
   - For cohort creation via sets of barcodes, the barcode set (pasted in the text box or uploaded as a file) can now be a simple list of sample or case barcodes separated by newlines, commas, or tabs; the program listing is no longer needed, and you don’t need to supply the barcodes in a distinct columnar format.. The previous 3-column format will continue to work as well.
   - On a worksheet, if no table is being searched the BQ table(s) used panel becomes inactive.
   
  Bug Fixes
+ 
+  - When editing the name of a cohort the cancel feature is now working properly.
+  - When working on a worksheet the SeqPeek feature will now work with all genes.
+  - All genes can be plotted on a worksheet when working with a histogram.
+  - When registered Service Accounts for controlled data, the Adjust/Register can only be clicked once.
+  - When working with SeqPeek, the BQ table(s) used panel will now refresh every time even if no new data is plotted. 
+  - When a user is removed from their Google project the user interface doesn’t remove the project from their list. Instead, the individual removed will receive error messages saying they are no longer on the project if they try to refresh the project or register the service account. 
+  - On a registered Google Cloud Project page, the refresh button will now properly add and remove users from the project if they are added or removed from the IAM and Admin list on the Google console. 
+  - When working on the Internet Explorer you can again create a cohort using the filter creation page. 
+  - When using the dbGaP eRA authentication you will now be logged out at 24 hours instead of 16 hours. 
+  - For cohort creation when uploading a large set of barcodes you will no longer return a 400 bad request error.
+ 
+ **Known Issues in Sprint 24 as of 02/28/2018**
   
   
-
  
 * **February 1, 2018** `v3.8 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.8>`_
 
