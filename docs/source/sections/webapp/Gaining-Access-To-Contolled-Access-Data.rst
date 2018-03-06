@@ -68,11 +68,7 @@ the current dbGaP whitelist, you will have access to controlled data for 24 hour
    :scale: 50
    :align: center
 
-Once logged in through eRA identification you are re-directed to the user details page and given Warning Notice saying, "WARNING NOTICE
-You are accessing a US Government web site which may contain information that must be protected under the US Privacy Act or other sensitive information and is intended for Government authorized use only. 
-Unauthorized attempts to upload information, change information, or use of this web site may result in disciplinary action, civil, and/or criminal penalties.  Unauthorized users of this website should have no expectation of privacy regarding any communications or data processed by this website.  
-Anyone accessing this website expressly consents to monitoring of their actions and all communications or data transiting or stored on related to this website and is advised that if such monitoring reveals possible evidence of criminal activity, NIH may provide that evidence to law enforcement officials.  
-You are reminded that when accessing controlled information you are bound by the dbGaP DATA USE CERTIFICATION AGREEMENT (DUCA) for each dataset."
+Once logged in through eRA identification you are re-directed to the user details page and given Warning Notice reffering to adviding by the rules and regulations provided by the DUCA Use Agreement.  Please refer to image below.
 
 .. image:: warningNotice.png
    :scale: 50
