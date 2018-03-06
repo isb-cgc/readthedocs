@@ -68,7 +68,7 @@ the current dbGaP whitelist, you will have access to controlled data for 24 hour
    :scale: 50
    :align: center
 
-Once logged in through eRA identification you are re-directed to the user details page and given Warning Notice reffering to adviding by the rules and regulations provided by the DUCA Use Agreement.  Please refer to image below.
+Once logged in through eRA identification you are re-directed to the user details page and given Warning Notice referring to abiding by the rules and regulations provided by the DUCA Use Agreement.  Please refer to image below.
 
 .. image:: warningNotice.png
    :scale: 50
