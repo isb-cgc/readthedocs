@@ -68,6 +68,12 @@ the current dbGaP whitelist, you will have access to controlled data for 24 hour
    :scale: 50
    :align: center
 
+Once logged in through eRA identification you are re-directed to the user details page and given Warning Notice referring to abiding by the rules and regulations provided by the DUCA Use Agreement.  Please refer to image below.
+
+.. image:: warningNotice.png
+   :scale: 50
+   :align: center
+
 Please note: the ISB-CGC system will enforce a one-to-one relationship between NIH identities
 and Google identites.  In other words, a single NIH identity may not be used to attempt to
 gain access to controlled data by multiple, different Google identities.
@@ -163,7 +169,7 @@ Select the "Register a Google Cloud Project" link.  That takes you to the follow
    :scale: 50
    :align: center
    
-Please fill out the form following the instructions that are provided.  You must enter your GCP ID and enable the isb-cgc service account as an editor in your project to move on to the next step.  
+Please fill out the form following the instructions that are provided.  You can "hide" the instructions by selecting the blue Instructions button.  You must enter your GCP ID and enable the isb-cgc service account as an editor in your project to move on to the next step.  
 
 .. image:: project_info.PNG
    :scale: 50
