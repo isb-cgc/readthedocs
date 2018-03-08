@@ -4,7 +4,7 @@ Takes a JSON object of filters in the request body and returns a "preview" of th
 
 **Example**::
 
-	curl "https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_tcga_api/v3/cohorts/preview?program_short_name=TCGA-UCS&program_short_name=TCGA-CESC&age_at_diagnosis_lte=20"
+	curl "https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_tcga_api/v3/isb_cgc_tcga_api.cohorts.preview?_h=4&resource=%257B%250A++%2522Clinical%2522%253A+%250A++%257B%250A++++%2522gender%2522%253A+%250A++++%255B%2522male%2522%250A++++%255D%252C%250A++++%2522vital_status%2522%253A+%250A++++%255B%2522alive%2522%250A++++%255D%250A++%257D%250A%257D&"
 
 **API explorer example**:
 
