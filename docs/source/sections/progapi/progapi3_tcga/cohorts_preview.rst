@@ -23,7 +23,7 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2
 		return build(api, version, discoveryServiceUrl=discovery_url, http=httplib2.Http())
 
 	service = get_unauthorized_service()
-	body = {'gender': ['male'], 'vital_status': ['alive']}
+	body = { 'Clinical' : {'gender': ['male'], 'vital_status': ['alive']} }
 	data = service.cohorts().preview(**body).execute()
 
 
