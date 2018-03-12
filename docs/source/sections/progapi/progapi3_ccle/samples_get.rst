@@ -4,7 +4,7 @@ Given a sample barcode (*eg* CCLE-ACC-MESO-1), this endpoint returns all availab
 
 **Example**::
 
-	curl https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/samples/CCLE-LS1034
+	curl https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/ccle/samples/CCLE-LS1034
 
 **API explorer example**:
 
@@ -30,7 +30,7 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2
 
 HTTP request::
 
-	GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/samples/{sample_barcode}
+	GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/ccle/samples/{sample_barcode}
 
 **Parameters**
 
