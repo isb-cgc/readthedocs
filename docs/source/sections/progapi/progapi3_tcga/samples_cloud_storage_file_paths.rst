@@ -4,7 +4,7 @@ Takes a sample barcode as a required parameter and returns cloud storage paths t
 
 **Example**::
 
-	curl https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_tcga_api/v3/samples/TCGA-W5-AA2O-10A/cloud_storage_file_paths
+	curl https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_tcga_api/v3/tcga/samples/TCGA-W5-AA2O-10A/cloud_storage_file_paths
 
 **API explorer example**:
 
