@@ -2,14 +2,15 @@
 PanCan Atlas in BigQuery hosted by ISB-CGC
 ******************************************
 
-.. image:: pancan1.png
+.. image:: pancan_images/tcga_logo.png
    :scale: 40 %
    :align: right
 
-The PanCan tables in BigQuery, produced in collaboration with the
+The PanCan tables in BigQuery, produced in collaboration with the `TCGA research network
+<https://cancergenome.nih.gov/`_ and the
 `NCI <https://www.cancer.gov/>`_, provide
-a new way to explore and understand the mutations driving cancer.
-The availability of PanCan in BigQuery enables easy integration of this
+a new way to explore and understand the processes driving cancer.
+The availability of PanCan data in BigQuery enables easy integration of this
 resource with other public datasets in BigQuery, including other
 open-access datasets made available by the ISB-CGC
 (see `this <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_BQ.html>`_
@@ -19,22 +20,39 @@ for more details on other publicly accessible BigQuery datasets).
 Getting Started
 ###############
 
-`Register <https://cancer.sanger.ac.uk/PanCan Atlas/register>`_ for access to
-`PanCan Atlas <https://cancer.sanger.ac.uk/PanCan Atlas/about>`_ in `BigQuery <https://cloud.google.com/bigquery/what-is-bigquery>`_:
+`Register a cloud project <https://cloud.google.com/resource-manager/docs/creating-managing-projects>`_ for access to
+ `BigQuery <https://cloud.google.com/bigquery/what-is-bigquery>`_:
 
-    * if you are already a registered user of PanCan Atlas, you will need to go to `your account <https://cancer.sanger.ac.uk/PanCan Atlas/myaccount>`_ page and add a valid "Google identity" in the Google ID box: when you are signed in to PanCan Atlas, your name in the upper-right corner is a pull-down menu from which you can access your Account Settings;
-    * if the Email Address that you initially used when registering for PanCan Atlas is already a valid Google identity, you may simply re-enter the same email address into the Google ID box;
-    * if you are not sure whether your institutional (or other) email address is a Google identity, you can check by entering it in the Google `password-assistance page <https://accounts.google.com/ForgotPasswd>`_; or by asking your IT staff;
-    * if you are not currently a registered PanCan Atlas user, you will first need to `register <https://cancer.sanger.ac.uk/PanCan Atlas/register>`_, agree to the Terms and Conditions, and supply a valid Google identity in the Google ID box;
+Additional Public BigQuery Datasets
+###################################
 
-Once you have completed these steps, ISB-CGC will obtain the Google identity that you provided and you will be given "viewer" access to the PanCan Atlas tables in BigQuery.  You will also be added to an exploratory Google Cloud Platform (GCP) project called isb-cgc-PanCan Atlas which will allow you to run queries at no cost to you.
+ There are many public BigQuery datasets containing genomic information, and you
+ can combine any of these resources into your SQL queries on the PanCan Atlas tables --
+ all you need is the name of the table.
 
-A few important notes:
+ Consider the ``isb-cgc.TCGA_bioclin_v0.Clinical`` table;
+ a complete BigQuery table name has three components:
 
-    * When you register with PanCan Atlas, you create a password for your PanCan Atlas account -- which is associated with whatever email address you provided.  This password is your PanCan Atlas password, please avoid reusing any other password.
-    * If you are not sure what a "Google ID" is, it is the name associated wth a  "Google account"  -- this includes any gmail address.  If you do not already have a Google account, you can `create one <https://accounts.google.com/SignUp?hl=en>`_.
-    * If you mistype your Google ID, or enter a string that is not a valid Google ID, you will not be able to access the PanCan Atlas tables in BigQuery.  Google IDs are not being automatically verified at this time, so please double-check that the Google ID you provided is correct.
-    * Avoid using an alias: *eg* the base account tb@mylab.org might have a longer-form alias like thomas.brown@mylab.org -- please enter the 'base' name;
+     * the first part of the name (isb-cgc) is the Google Cloud Platform (GCP) project name;
+     * the second part (TCGA_bioclin_v0) is the dataset name; and
+     * the third part (Clinical) is the table name.
+
+ To add public BigQuery datasets and tables to your "view" in the BigQuery web UI you
+ need to know the name of the GCP project that owns the dataset(s).
+ To add the publicly accessible ISB-CGC datasets (project name: ``isb-cgc``)
+ follow these steps_.
+
+ .. _steps: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html
+
+ You should now be able to see and explore all of the ISB-CGC public datasets, including
+ the PanCan Atlas dataset, if you are a registered PanCan Atlas user.  Clicking on the blue triangle
+ next to a dataset name will open it and show the list of tables in the dataset. Clicking
+ on a table name will open up information about the table in main panel, where you can
+ view the Schema, Details, or a Preview of the table.
+
+ Additional projects with public BigQuery datasets which you may want to explore (repeating
+ the same process will add these to your BigQuery side-panel) include genomics-public-data and
+ google.com:biggene.
 
 Interactive Web-based Exploration
 #################################
@@ -49,9 +67,9 @@ to run the sample query given below, please contact us at feedback@isb-cgc.org.
 *Please note that some of the screen-shots on this page may be based on earlier versions of the PanCan Atlas tables, but the sample SQL on this page has been updated (and tested) to query the latest PanCan Atlas tables.*
 
     * `login <https://accounts.google.com/Login>`_ to your Google account (`Chrome <https://www.google.com/chrome/browser/desktop/index.html>`_ is the preferred browser);
-    * go to the `BigQuery web UI <https://bigquery.cloud.google.com>`_  --  if you see a welcome screen inviting you to **Create a Project** then your ISB-CGC registration process is not yet complete;
+    * go to the `BigQuery web UI <https://bigquery.cloud.google.com>`_  --  if you see a welcome screen inviting you to **Create a Project** then please do so;
 
-.. image:: PanCan Atlas-sql-00.png
+.. image:: pancan2.png
    :scale: 90 %
    :align: right
 ..
@@ -99,6 +117,7 @@ to run the sample query given below, please contact us at feedback@isb-cgc.org.
       Gene_name,
       ratio DESC
 
+
 BigQuery Usage Costs
 ####################
 
@@ -132,48 +151,12 @@ or
 tables, the amount of data processed by a
 single query may increase into the GB or even TB range.
 
-During this introductory period (for at least the next 6 months), all registered PanCan Atlas
-users will be added to the ``isb-cgc-PanCan Atlas`` Google Cloud Platform (GCP) project so that
-they will be able to perform exploratory queries at no cost.
-(These costs will be paid by ISB-CGC, again with funding from NCI.)  Please note that
-users who perform large numbers of queries and incur significant costs will be
-removed from the ``isb-cgc-PanCan Atlas`` GCP project and will be required to create their own
-GCP projects prior to performing additional queries.  If you want to be able to
+If you want to be able to
 upload your own data to BigQuery or save the results of your queries as new BigQuery tables,
 you will need to have your own GCP project.  (All new GCP users are welcome
 to take advantage of the Google `free trial <https://cloud.google.com/free/>`_
 which includes up to $300 in funding to be used over a period of one year.)
 
-Additional Public BigQuery Datasets
-###################################
-
-There are many public BigQuery datasets containing genomic information, and you
-can combine any of these resources into your SQL queries on the PanCan Atlas tables --
-all you need is the name of the table.
-
-In the example query above, the table being queried is ``isb-cgc.PanCan Atlas_v84_grch37.Mutant``;
-a complete BigQuery table name has three components:
-
-    * the first part of the name (isb-cgc) is the Google Cloud Platform (GCP) project name;
-    * the second part (PanCan Atlas_v84_grch37) is the dataset name; and
-    * the third part (Mutant) is the table name.
-
-To add public BigQuery datasets and tables to your "view" in the BigQuery web UI you
-need to know the name of the GCP project that owns the dataset(s).
-To add the publicly accessible ISB-CGC datasets (project name: ``isb-cgc``)
-follow these steps_.
-
-.. _steps: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html
-
-You should now be able to see and explore all of the ISB-CGC public datasets, including
-the PanCan Atlas dataset, if you are a registered PanCan Atlas user.  Clicking on the blue triangle
-next to a dataset name will open it and show the list of tables in the dataset.  Clicking
-on a table name will open up information about the table in main panel, where you can
-view the Schema, Details, or a Preview of the table.
-
-Additional projects with public BigQuery datasets which you may want to explore (repeating
-the same process will add these to your BigQuery side-panel) include genomics-public-data and
-google.com:biggene.
 
 Additional BigQuery Documentation
 #################################
