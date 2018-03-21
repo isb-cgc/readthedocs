@@ -23,7 +23,7 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2
 		return build(api, version, discoveryServiceUrl=discovery_url, http=httplib2.Http())
 
 	service = get_unauthorized_service()
-	body = { 'Clinical' : {'gender': ['male'], 'vital_status': ['alive']} }
+	body = {'program_short_name': ['TCGA-BRCA', 'TCGA-UCS'], 'age_at_diagnosis_gte': 90}
 	data = service.cohorts().preview(**body).execute()
 
 
