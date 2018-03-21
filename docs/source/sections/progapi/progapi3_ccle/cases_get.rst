@@ -4,7 +4,7 @@ Returns information about a specific case, including a list of samples and aliqu
 
 **Example**::
 
-	curl https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/cases/1034
+	curl https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/ccle/cases/1034
 
 **API explorer example**:
 
@@ -30,7 +30,7 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2
 
 HTTP request::
 
-	GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/cases/{case_barcode}
+	GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/ccle/cases/{case_barcode}
 
 **Parameters**
 
