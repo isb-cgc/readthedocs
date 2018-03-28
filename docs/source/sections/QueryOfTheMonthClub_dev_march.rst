@@ -324,45 +324,45 @@ Then, last, we will query using that sample to determine if it's been classified
 correctly.
 
 
-..code-block:: sql
+.. code-block:: sql
 
-  #
-  # first we'll join the TSP result table, that contains the best pair of genes,
-  # with the expression data for our held out ID.
-  #
-  callTbl AS (
-    SELECT
-      ai AS gene_i,
-      aj AS gene_j,
-      Pa,
-      Pb,
-      b.ID AS ID,
-      b.Phenotype AS Phenotype,
-      Expr
-    FROM
-      PairScore a
-    JOIN
-      `isb-cgc.QotM.tsp_sim_data` b
-    ON
-      b.ID = 'DRRTF'
-      AND (a.ai = b.Gene
-        OR a.aj = b.Gene) )
     #
-    # Then, depending on the gene_a & gene_b comparison,
-    # we make a prediction using the expr. values.
+    # first we'll join the TSP result table, that contains the best pair of genes,
+    # with the expression data for our held out ID.
     #
-    SELECT
-      ID,
-      Phenotype,
-      IF(Pa < Pb,
-         0,
-         1) AS Prediction
-    FROM
-      callTbl
-    GROUP BY
-      ID,
-      Phenotype,
-      Prediction
+    callTbl AS (
+      SELECT
+        ai AS gene_i,
+        aj AS gene_j,
+        Pa,
+        Pb,
+        b.ID AS ID,
+        b.Phenotype AS Phenotype,
+        Expr
+      FROM
+        PairScore a
+      JOIN
+        `isb-cgc.QotM.tsp_sim_data` b
+      ON
+        b.ID = 'DRRTF'
+        AND (a.ai = b.Gene
+          OR a.aj = b.Gene) )
+      #
+      # Then, depending on the gene_a & gene_b comparison,
+      # we make a prediction using the expr. values.
+      #
+      SELECT
+        ID,
+        Phenotype,
+        IF(Pa < Pb,
+           0,
+           1) AS Prediction
+      FROM
+        callTbl
+      GROUP BY
+        ID,
+        Phenotype,
+        Prediction
 
 
 .. figure:: query_figs/march18_pred_1.png
