@@ -278,6 +278,18 @@ OK, let's walk through this TSP query.
       PDiff DESC
 
 
+Running this query returns a table that is ordered by the P difference (the
+pair of genes that best separates the classes in 'rank-space'). As a note,
+I left in the gene names from both tables after the join, just as a sanity
+check.
+
+.. figure:: query_figs/march18_sim_result_1.png
+  :scale: 50
+  :align: center
+
+And we see that genes 'X5' and 'X6' are indeed the 'top pair'. Trailing the
+leading spot, we see other pairs that are composed of one of the two 'top pair'.
+
 But, let's suppose that we want to 'train' the model using a subset of samples.
 In that case we want to pull out a sample, train on the remainder, and then apply
 to the 'test' case.
