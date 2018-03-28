@@ -84,18 +84,19 @@ show the maximum difference in ranking between two user specified groups.
 To describe this more formally, let
 :math:`R_{in}`
 denote the rank of the i-th gene in the n-th sample,
-and consider the rank matrix $R = (R_{ij})$.
+and consider the rank matrix :math:`R = (R_{ij})`
 
 Genes are evaluated in pairs, and scored by their differences in
-the probabilities, P(R_i < R_j ), between class C1 and class C2,
-formally defined as the difference of the following conditional
-probabilities:
+the probabilities, :math:`P(R_i < R_j )`, between class :math:`C1` and
+:math:`class C2`, formally defined as the difference of the following
+conditional probabilities:
 
-Δ_ij = ∣ P(Ri<Rj ∣∣ C1) − P(Ri<Rj ∣∣ C2)  ∣
+.. math::
 
-* within group C1, rank of gene_i is less than gene_j
+  Δ_ij = ∣ P(Ri<Rj ∣∣ C1) − P(Ri<Rj ∣∣ C2)  ∣
 
-Then Δij is used as a criterion to produce a ranking of gene pairs,
+
+Then :math:`Δij` is used as a criterion to produce a ranking of gene pairs,
 and a series of gene pairs is established, determining the order
 in which they are to be subsequently evaluated.
 
