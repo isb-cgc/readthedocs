@@ -6,7 +6,7 @@ PanCan Atlas in BigQuery hosted by ISB-CGC
    :scale: 40 %
    :align: right
 
-The PanCan tables in BigQuery, produced in collaboration with the `TCGA research network
+The PanCan tables in BigQuery, produced in collaboration with the `TCGA research network 
 <https://cancergenome.nih.gov/`_ and the
 `NCI <https://www.cancer.gov/>`_, provide
 a new way to explore and understand the processes driving cancer.
