@@ -142,139 +142,140 @@ The results should show genes 5 & 6 as the best pair for separating groups (y==0
 
 OK, let's walk through this TSP query.
 
-..code-block: sql
+.. code-block:: sql
+    :linenos:
 
-  WITH
-    #
-    # First we'll rank the gene expression data by sample
-    # using the simulated data.
-    #
-    GeneRanks AS (
+    WITH
+      #
+      # First we'll rank the gene expression data by sample
+      # using the simulated data.
+      #
+      GeneRanks AS (
+      SELECT
+        ID,
+        Phenotype,
+        Gene,
+        Expr,
+        RANK() OVER (PARTITION BY ID ORDER BY Expr ) AS ERank
+      FROM
+        `isb-cgc.QotM.tsp_sim_data`
+      GROUP BY
+        ID,
+        Phenotype,
+        Gene,
+        Expr ),
+      #
+      # Then let's prepare to
+      # generate the conditional probability for each
+      # pair of genes within Class 1.
+      #
+      Class1GenePairs AS (
+      SELECT
+        a.Gene AS Genei,
+        b.Gene AS Genej,
+        a.ID AS IDi,
+        b.ID AS IDj,
+        a.ERank AS Eranki,
+        b.ERank AS Erankj
+      FROM
+        GeneRanks a
+      JOIN
+        GeneRanks b
+      ON
+        a.Gene < b.Gene
+        AND a.ID != b.ID
+        AND a.Phenotype = 0
+        AND b.Phenotype = 0
+      GROUP BY
+        a.Gene,
+        b.Gene,
+        a.ID,
+        b.ID,
+        a.ERank,
+        b.ERank ),
+      #
+      # Then, for each pair of genes,
+      # how many times does gene_i have lower rank
+      # than gene_j? That's where the probability comes from.
+      #
+      Class1Probs AS (
+      SELECT
+        Genei,
+        Genej,
+        SUM(CAST(Eranki > -1000 AS INT64)) AS N,  # number of pairs
+        SUM(CAST(Eranki < Erankj AS INT64)) AS P  # pairs with i < j
+      FROM
+        Class1GenePairs
+      WHERE
+        (Genei != Genej)
+      GROUP BY
+        Genei,
+        Genej ),
+      #
+      # Then repeat the process for Class 2.
+      #
+      Class2GenePairs AS (
+      SELECT
+        a.Gene AS Genei,
+        b.Gene AS Genej,
+        a.ID AS IDi,
+        b.ID AS IDj,
+        a.ERank AS Eranki,
+        b.ERank AS Erankj
+      FROM
+        GeneRanks a
+      JOIN
+        GeneRanks b
+      ON
+        a.Gene < b.Gene
+        AND a.ID != b.ID
+        AND a.Phenotype = 1
+        AND b.Phenotype = 1
+      GROUP BY
+        a.Gene,
+        b.Gene,
+        a.ID,
+        b.ID,
+        a.ERank,
+        b.ERank ),
+      #
+      # and get our conditional probabilities
+      #
+      Class2Probs AS (
+      SELECT
+        Genei,
+        Genej,
+        SUM(CAST(Eranki > -1000 AS INT64)) AS N,
+        SUM(CAST(Eranki < Erankj AS INT64)) AS P
+      FROM
+        Class2GenePairs
+      WHERE
+        (Genei != Genej)
+      GROUP BY
+        Genei,
+        Genej )
+      #
+      # and compute differences in conditional probs
+      #
     SELECT
-      ID,
-      Phenotype,
-      Gene,
-      Expr,
-      RANK() OVER (PARTITION BY ID ORDER BY Expr ) AS ERank
+      a.Genei AS ai,
+      a.Genej AS aj,
+      b.Genei AS bi,
+      b.Genej AS bj,
+      a.P AS Pa,
+      a.N AS Na,
+      b.P AS Pb,
+      b.N AS Nb,
+      ABS((a.P / a.N) - (b.P / b.N)) AS PDiff
     FROM
-      `isb-cgc.QotM.tsp_sim_data`
-    GROUP BY
-      ID,
-      Phenotype,
-      Gene,
-      Expr ),
-    #
-    # Then let's prepare to
-    # generate the conditional probability for each
-    # pair of genes within Class 1.
-    #
-    Class1GenePairs AS (
-    SELECT
-      a.Gene AS Genei,
-      b.Gene AS Genej,
-      a.ID AS IDi,
-      b.ID AS IDj,
-      a.ERank AS Eranki,
-      b.ERank AS Erankj
-    FROM
-      GeneRanks a
+      Class1Probs a
     JOIN
-      GeneRanks b
+      Class2Probs b
     ON
-      a.Gene < b.Gene
-      AND a.ID != b.ID
-      AND a.Phenotype = 0
-      AND b.Phenotype = 0
-    GROUP BY
-      a.Gene,
-      b.Gene,
-      a.ID,
-      b.ID,
-      a.ERank,
-      b.ERank ),
-    #
-    # Then, for each pair of genes,
-    # how many times does gene_i have lower rank
-    # than gene_j? That's where the probability comes from.
-    #
-    Class1Probs AS (
-    SELECT
-      Genei,
-      Genej,
-      SUM(CAST(Eranki > -1000 AS INT64)) AS N,  # number of pairs
-      SUM(CAST(Eranki < Erankj AS INT64)) AS P  # pairs with i < j
-    FROM
-      Class1GenePairs
-    WHERE
-      (Genei != Genej)
-    GROUP BY
-      Genei,
-      Genej ),
-    #
-    # Then repeat the process for Class 2.
-    #
-    Class2GenePairs AS (
-    SELECT
-      a.Gene AS Genei,
-      b.Gene AS Genej,
-      a.ID AS IDi,
-      b.ID AS IDj,
-      a.ERank AS Eranki,
-      b.ERank AS Erankj
-    FROM
-      GeneRanks a
-    JOIN
-      GeneRanks b
-    ON
-      a.Gene < b.Gene
-      AND a.ID != b.ID
-      AND a.Phenotype = 1
-      AND b.Phenotype = 1
-    GROUP BY
-      a.Gene,
-      b.Gene,
-      a.ID,
-      b.ID,
-      a.ERank,
-      b.ERank ),
-    #
-    # and get our conditional probabilities
-    #
-    Class2Probs AS (
-    SELECT
-      Genei,
-      Genej,
-      SUM(CAST(Eranki > -1000 AS INT64)) AS N,
-      SUM(CAST(Eranki < Erankj AS INT64)) AS P
-    FROM
-      Class2GenePairs
-    WHERE
-      (Genei != Genej)
-    GROUP BY
-      Genei,
-      Genej )
-    #
-    # and compute differences in conditional probs
-    #
-  SELECT
-    a.Genei AS ai,
-    a.Genej AS aj,
-    b.Genei AS bi,
-    b.Genej AS bj,
-    a.P AS Pa,
-    a.N AS Na,
-    b.P AS Pb,
-    b.N AS Nb,
-    ABS((a.P / a.N) - (b.P / b.N)) AS PDiff
-  FROM
-    Class1Probs a
-  JOIN
-    Class2Probs b
-  ON
-    a.Genei = b.Genei
-    AND a.Genej = b.Genej
-  ORDER BY
-    PDiff DESC
+      a.Genei = b.Genei
+      AND a.Genej = b.Genej
+    ORDER BY
+      PDiff DESC
 
 
 But, let's suppose that we want to 'train' the model using a subset of samples.
@@ -283,30 +284,30 @@ to the 'test' case.
 
 ..code-block: sql
 
-  # would be nice to create a set or list of subsets...
-  # and each group could train the TSP
-  # and test it on those pulled out.
+    # would be nice to create a set or list of subsets...
+    # and each group could train the TSP
+    # and test it on those pulled out.
 
-  WITH
-    #
-    # First we'll rank the gene expression data by sample.
-    #
-    GeneRanks AS (
-    SELECT
-      ID,
-      Phenotype,
-      Gene,
-      Expr,
-      RANK() OVER (PARTITION BY ID ORDER BY Expr ) AS ERank
-    FROM
-      `isb-cgc.QotM.tsp_sim_data`
-    WHERE
-      ID != 'DRRTF'
-    GROUP BY
-      ID,
-      Phenotype,
-      Gene,
-      Expr ),
+    WITH
+      #
+      # First we'll rank the gene expression data by sample.
+      #
+      GeneRanks AS (
+      SELECT
+        ID,
+        Phenotype,
+        Gene,
+        Expr,
+        RANK() OVER (PARTITION BY ID ORDER BY Expr ) AS ERank
+      FROM
+        `isb-cgc.QotM.tsp_sim_data`
+      WHERE
+        ID != 'DRRTF'
+      GROUP BY
+        ID,
+        Phenotype,
+        Gene,
+        Expr ),
 
 
 Then, last, we will query using that sample to determine if it's been classified
@@ -314,16 +315,16 @@ correctly.
 
 ..code-block: sql
 
-  SELECT
-    *
-  FROM
-    PairScore a
-  JOIN
-    `isb-cgc.QotM.tsp_sim_data` b
-  ON
-    b.ID = 'DRRTF'
-    AND (a.ai = b.Gene
-      OR a.aj = b.Gene)
+    SELECT
+      *
+    FROM
+      PairScore a
+    JOIN
+      `isb-cgc.QotM.tsp_sim_data` b
+    ON
+      b.ID = 'DRRTF'
+      AND (a.ai = b.Gene
+        OR a.aj = b.Gene)
 
 
 
