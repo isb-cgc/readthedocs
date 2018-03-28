@@ -81,6 +81,13 @@ using BigQuery.
 The 'Top Scoring Pairs' method, finds a pair of genes that
 show the maximum difference in ranking between two user specified groups.
 
+:math:`a^2 + b^2 = c^2`
+
+.. math::
+
+  α_t(i) = P(O_1, O_2, … O_t, q_t = S_i λ)
+  
+
 To describe this more formally, let
 :math:`R_{in}`
 denote the rank of the i-th gene in the n-th sample,
