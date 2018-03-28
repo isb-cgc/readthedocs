@@ -86,7 +86,7 @@ show the maximum difference in ranking between two user specified groups.
 .. math::
 
   α_t(i) = P(O_1, O_2, … O_t, q_t = S_i λ)
-  
+
 
 To describe this more formally, let
 :math:`R_{in}`
@@ -195,7 +195,7 @@ OK, let's walk through this TSP query.
     #
     # Then, for each pair of genes,
     # how many times does gene_i have lower rank
-    # than gene_j? *That's where the probability comes from.*
+    # than gene_j? That's where the probability comes from.
     #
     Class1Probs AS (
     SELECT
