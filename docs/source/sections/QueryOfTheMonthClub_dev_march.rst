@@ -347,22 +347,22 @@ correctly.
         b.ID = 'DRRTF'
         AND (a.ai = b.Gene
           OR a.aj = b.Gene) )
-      #
-      # Then, depending on the gene_a & gene_b comparison,
-      # we make a prediction using the expr. values.
-      #
-      SELECT
-        ID,
-        Phenotype,
-        IF(Pa < Pb,
-           0,
-           1) AS Prediction
-      FROM
-        callTbl
-      GROUP BY
-        ID,
-        Phenotype,
-        Prediction
+    #
+    # Then, depending on the gene_a & gene_b comparison,
+    # we make a prediction using the expr. values.
+    #
+    SELECT
+      ID,
+      Phenotype,
+      IF(Pa < Pb,
+          0,
+          1) AS Prediction
+    FROM
+      callTbl
+    GROUP BY
+      ID,
+      Phenotype,
+      Prediction
 
 
 .. figure:: query_figs/march18_pred_1.png
