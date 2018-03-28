@@ -131,9 +131,9 @@ First let's produce some simulated data for testing.
   write.table(tidydf, file="sim_for_tsp.tsv", sep='\t', row.names=F, col.names=F, quote=F)
 
 
-The results should show genes 5 & 6 as being best for separating groups (y==0 vs y==1).
+The results should show genes 5 & 6 as the best pair for separating groups (y==0 vs y==1).
 
-OK, let's walk through this query.
+OK, let's walk through this TSP query.
 
 ..code-block: sql
 
@@ -188,7 +188,7 @@ OK, let's walk through this query.
     #
     # Then, for each pair of genes,
     # how many times does gene_i have lower rank
-    # than gene_j? *That's where the probability comes from.
+    # than gene_j? *That's where the probability comes from.*
     #
     Class1Probs AS (
     SELECT
@@ -271,7 +271,8 @@ OK, let's walk through this query.
 
 
 But, let's suppose that we want to 'train' the model using a subset of samples.
-First we want to pull out a sample.
+In that case we want to pull out a sample, train on the remainder, and then apply
+to the 'test' case.
 
 ..code-block: sql
 
@@ -316,6 +317,9 @@ correctly.
     b.ID = 'DRRTF'
     AND (a.ai = b.Gene
       OR a.aj = b.Gene)
+
+
+
 
 
 
