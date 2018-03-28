@@ -168,6 +168,7 @@ OK, let's walk through this TSP query.
       # Then let's prepare to
       # generate the conditional probability for each
       # pair of genes within Class 1.
+      # Calculating the upper triangle here.
       #
       Class1GenePairs AS (
       SELECT
@@ -296,13 +297,10 @@ to the 'test' case.
 
 .. code-block:: sql
 
-    # would be nice to create a set or list of subsets...
-    # and each group could train the TSP
-    # and test it on those pulled out.
-
     WITH
       #
-      # First we'll rank the gene expression data by sample.
+      # Now we pull out a sample (ID: DRRTF)
+      # and use the remaining samples to train the model.
       #
       GeneRanks AS (
       SELECT
@@ -328,8 +326,19 @@ correctly.
 
 ..code-block:: sql
 
+  #
+  # first we'll join the TSP result table, that contains the best pair of genes,
+  # with the expression data for our held out ID.
+  #
+  callTbl AS (
     SELECT
-      *
+      ai AS gene_i,
+      aj AS gene_j,
+      Pa,
+      Pb,
+      b.ID AS ID,
+      b.Phenotype AS Phenotype,
+      Expr
     FROM
       PairScore a
     JOIN
@@ -337,8 +346,28 @@ correctly.
     ON
       b.ID = 'DRRTF'
       AND (a.ai = b.Gene
-        OR a.aj = b.Gene)
+        OR a.aj = b.Gene) )
+    #
+    # Then, depending on the gene_a & gene_b comparison,
+    # we make a prediction using the expr. values.
+    #
+    SELECT
+      ID,
+      Phenotype,
+      IF(Pa < Pb,
+         0,
+         1) AS Prediction
+    FROM
+      callTbl
+    GROUP BY
+      ID,
+      Phenotype,
+      Prediction
 
+
+.. figure:: query_figs/march18_pred_1.png
+  :scale: 50
+  :align: center
 
 
 
