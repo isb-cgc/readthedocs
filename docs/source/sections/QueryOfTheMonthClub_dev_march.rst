@@ -282,6 +282,7 @@ But, let's suppose that we want to 'train' the model using a subset of samples.
 In that case we want to pull out a sample, train on the remainder, and then apply
 to the 'test' case.
 
+
 ..code-block: sql
 
     # would be nice to create a set or list of subsets...
@@ -312,6 +313,7 @@ to the 'test' case.
 
 Then, last, we will query using that sample to determine if it's been classified
 correctly.
+
 
 ..code-block: sql
 
