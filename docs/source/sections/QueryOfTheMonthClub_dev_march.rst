@@ -598,7 +598,7 @@ isb-cgc.QotM.paad_kirp_random_sample_1002.
 
 
 .. figure:: query_figs/march_pred_tcga_1.png
-  :scale: 50
+  :scale: 70
   :align: center
 
 So we see that the best pair of genes for
@@ -614,17 +614,18 @@ is consistent within the two groups. This is a good exercise for the reader.
 You can use the following tables: isb-cgc.QotM.results_1002 and
 isb-cgc.QotM.paad_kirp_result_check
 
-When we see how we did (see table below, 88% accuracy), it's very similar to what we previously
-found, but clearly there's room for improvement.
-Probably changing the way genes are selected would make a difference,
-and perhaps using more samples. Let me know if you give it a try!
-
 ========= ===== ====
 Phenotype FALSE TRUE
 ========= ===== ====
 TCGA-KIRP 5     119
 TCGA-PAAD 54    18
 ========= ===== ====
+
+When we see how we did (see table above, 88% accuracy), it's very similar to what we previously
+found, but clearly there's room for improvement.
+Probably changing the way genes are selected would make a difference,
+and perhaps using more samples. Let me know if you give it a try!
+
 
 
 
