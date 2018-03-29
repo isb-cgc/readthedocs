@@ -24,6 +24,8 @@ Table of Contents
 2018
 ++++
 
+- March_: Machine learning classifer in BigQuery?! Top Scoring Pairs implementation.
+
 - February_: BioCircos shiny app, showing pairwise correlations within a pathway.
 
 - January_: Gene Set Scoring in BigQuery, using the new hg38 mutation tables.
@@ -66,6 +68,565 @@ Resources_:  Helpful information!
 
 
 -----------------------
+
+
+.. _March:
+
+March, 2018
+###########
+
+This month we demonstrate an implementation of a machine learning classifier
+using BigQuery.
+
+The 'Top Scoring Pairs' method, finds a pair of genes that
+show the maximum difference in ranking between two user specified groups.
+Given two genes, and two groups of samples, the ranking of the genes flip-flops
+between the two groups. If gene_i < gene_j in group 1, then gene_i > gene_j in group 2.
+
+To describe this more formally, let
+R_i be a vector of ranks
+denoting the rank of the i-th gene in a given sample.
+
+Genes are evaluated in pairs, and scored by their differences in
+the probabilities, P(R_i < R_j ), between class C1 and
+class C2, formally defined as the difference in the following
+conditional probabilities:
+
+  Δ_ij = ∣ P(Ri < Rj ∣ C1) − P(Ri < Rj ∣ C2)  ∣
+
+
+Then Δ_ij is used as a criterion to produce a ordering on gene pairs.
+
+For reference see `this. <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1989150/>`_
+
+First let's produce some simulated data for testing.
+
+.. code-block:: r
+
+  # phenotype
+  ys <- c(rep(1, 10), rep(0,10))
+
+  # matrix of features
+  xs <- matrix(data=rnorm(n=200), nrow=20)
+
+  # the IDs
+  idstr <- as.character(randomStrings(n=nrow(df), len=5, digits=FALSE,
+                        upperalpha=TRUE,loweralpha=FALSE, unique=TRUE, check=TRUE))
+
+  # the two best genes
+  i <- 5
+  j <- 6
+
+  # create the gene pair
+  xs[ys == 1, i] <- rnorm(n=10, mean=-2)
+  xs[ys == 1, j] <- rnorm(n=10, mean=+2)
+  xs[ys == 0, i] <- rnorm(n=10, mean=+2)
+  xs[ys == 0, j] <- rnorm(n=10, mean=-2)
+  df <- data.frame(IDs=idstr, Y=ys, xs)
+
+  tidydf <- df %>% tidyr::gather(key="Gene", value="Expr", X1,X2,X3,X4,X5,X6,X7,X8,X9,X10)
+
+  write.table(tidydf, file="sim_for_tsp.tsv", sep='\t', row.names=F, col.names=F, quote=F)
+
+
+The results should show genes X5 & X6 as the best pair for separating groups (y==0 vs y==1).
+
+OK, let's walk through this Top Scoring Pairs (TSP) query.
+
+.. code-block:: sql
+    :linenos:
+
+    WITH
+      #
+      # First we'll rank the gene expression data by sample
+      # using the simulated data.
+      #
+      GeneRanks AS (
+      SELECT
+        ID,
+        Phenotype,
+        Gene,
+        Expr,
+        RANK() OVER (PARTITION BY ID ORDER BY Expr ) AS ERank
+      FROM
+        `isb-cgc.QotM.tsp_sim_data`
+      GROUP BY
+        ID,
+        Phenotype,
+        Gene,
+        Expr ),
+      #
+      # Then let's prepare to
+      # generate the conditional probability for each
+      # pair of genes within Class 1.
+      # Calculating the upper triangle here.
+      #
+      Class1GenePairs AS (
+      SELECT
+        a.Gene AS Genei,
+        b.Gene AS Genej,
+        a.ID AS IDi,
+        b.ID AS IDj,
+        a.ERank AS Eranki,
+        b.ERank AS Erankj
+      FROM
+        GeneRanks a
+      JOIN
+        GeneRanks b
+      ON
+        a.Gene < b.Gene
+        AND a.ID = b.ID
+      WHERE
+        a.Phenotype = 1
+        AND b.Phenotype = 1
+      GROUP BY
+        a.Gene,
+        b.Gene,
+        a.ID,
+        b.ID,
+        a.ERank,
+        b.ERank ),
+      #
+      # Then, for each pair of genes,
+      # how many times does gene_i have lower rank
+      # than gene_j? That's where the probability comes from.
+      #
+      Class1Probs AS (
+      SELECT
+        Genei,
+        Genej,
+        SUM(CAST(Eranki > -1000 AS INT64)) AS N,  # number of pairs
+        SUM(CAST(Eranki < Erankj AS INT64)) AS P  # pairs with i < j
+      FROM
+        Class1GenePairs
+      WHERE
+        (Genei != Genej)
+      GROUP BY
+        Genei,
+        Genej ),
+      #
+      # Then repeat the process for Class 2.
+      #
+      Class2GenePairs AS (
+      SELECT
+        a.Gene AS Genei,
+        b.Gene AS Genej,
+        a.ID AS IDi,
+        b.ID AS IDj,
+        a.ERank AS Eranki,
+        b.ERank AS Erankj
+      FROM
+        GeneRanks a
+      JOIN
+        GeneRanks b
+      ON
+        a.Gene < b.Gene
+        AND a.ID = b.ID
+      WHERE
+        a.Phenotype = 1
+        AND b.Phenotype = 1
+      GROUP BY
+        a.Gene,
+        b.Gene,
+        a.ID,
+        b.ID,
+        a.ERank,
+        b.ERank ),
+      #
+      # and get our conditional probabilities
+      #
+      Class2Probs AS (
+      SELECT
+        Genei,
+        Genej,
+        SUM(CAST(Eranki > -1000 AS INT64)) AS N,
+        SUM(CAST(Eranki < Erankj AS INT64)) AS P
+      FROM
+        Class2GenePairs
+      WHERE
+        (Genei != Genej)
+      GROUP BY
+        Genei,
+        Genej )
+      #
+      # and compute differences in conditional probs
+      #
+    SELECT
+      a.Genei AS ai,
+      a.Genej AS aj,
+      b.Genei AS bi,
+      b.Genej AS bj,
+      a.P AS Pa,
+      a.N AS Na,
+      b.P AS Pb,
+      b.N AS Nb,
+      ABS((a.P / a.N) - (b.P / b.N)) AS PDiff
+    FROM
+      Class1Probs a
+    JOIN
+      Class2Probs b
+    ON
+      a.Genei = b.Genei
+      AND a.Genej = b.Genej
+    ORDER BY
+      PDiff DESC
+
+Running this query returns a table that is ordered by the Probability difference
+(the pair of genes that best separates the classes in 'rank-space'). As a note,
+I left in the gene names from both tables after the join,  as a sanity
+check.
+
+.. figure:: query_figs/march18_sim_result_1.png
+  :scale: 50
+  :align: center
+
+And we see that genes 'X5' and 'X6' are indeed the 'top pair'. Trailing the
+leading spot, we see other pairs that are composed of one of the two 'top pair'.
+
+But, let's suppose that we want to 'train' the model using a subset of samples.
+In that case we want to pull out a sample, train on the remainder, and then apply
+to the 'test' case.
+
+.. code-block:: sql
+
+    WITH
+      #
+      # Now we pull out a sample (ID: DRRTF)
+      # and use the remaining samples to train the model.
+      #
+      GeneRanks AS (
+      SELECT
+        ID,
+        Phenotype,
+        Gene,
+        Expr,
+        RANK() OVER (PARTITION BY ID ORDER BY Expr ) AS ERank
+      FROM
+        `isb-cgc.QotM.tsp_sim_data`
+      WHERE
+        ID != 'DRRTF'
+      GROUP BY
+        ID,
+        Phenotype,
+        Gene,
+        Expr ),
+
+
+Then, last, we will query using that sample to determine if it's been classified
+correctly.
+
+
+.. code-block:: sql
+
+    #
+    # first we'll join the TSP result table, that contains the best pair of genes,
+    # with the expression data for our held out ID.
+    #
+    callTbl AS (
+      SELECT
+        ai AS gene_i,
+        aj AS gene_j,
+        Pa,
+        Pb,
+        b.ID AS ID,
+        b.Phenotype AS Phenotype,
+        Expr
+      FROM
+        PairScore a
+      JOIN
+        `isb-cgc.QotM.tsp_sim_data` b
+      ON
+        b.ID = 'DRRTF'
+        AND (a.ai = b.Gene
+          OR a.aj = b.Gene) )
+    #
+    # Then, depending on the gene_a & gene_b comparison,
+    # we make a prediction using the expr. values.
+    #
+    SELECT
+      ID,
+      Phenotype,
+      IF(Pa < Pb,
+          0,
+          1) AS Prediction
+    FROM
+      callTbl
+    GROUP BY
+      ID,
+      Phenotype,
+      Prediction
+
+
+.. figure:: query_figs/march18_pred_1.png
+  :scale: 50
+  :align: center
+
+
+Seems to be working.
+Let's make a few small changes, and apply it to TCGA expression data!
+First we'll create our data set, then we'll apply TSP on it.
+
+.. code-block:: sql
+    :linenos:
+
+    WITH
+    #
+    # To reduce the number of genes we're working with,
+    # first we'll rank the gene expression data by coefficient of variation.
+    # Then we'll be able to take a subset with high variance.
+    # Also we'll filter out some long RNAs, etc.
+    #
+    GeneSelection AS (
+    SELECT
+      gene_name,
+      STDDEV(HTSeq__FPKM_UQ) / AVG(HTSeq__FPKM_UQ) AS CVExpr
+    FROM
+      `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
+    WHERE
+      HTSeq__FPKM_UQ > 0
+      AND REGEXP_CONTAINS(sample_barcode, '-01A')
+      AND (project_short_name = 'TCGA-PAAD'
+       OR project_short_name = 'TCGA-KIRP')
+      AND (NOT (REGEXP_CONTAINS(gene_name, 'MT-')
+          OR REGEXP_CONTAINS(gene_name, 'RN7')
+          OR REGEXP_CONTAINS(gene_name, 'RNU')
+          OR REGEXP_CONTAINS(gene_name, 'SNOR') ) )
+    GROUP BY
+      gene_name
+    ORDER BY
+      CVExpr DESC
+    LIMIT
+      50 ),
+    #
+    #
+    # Then we'll pick a set of random samples from
+    # the biospecimen table. Making sure we get only
+    # primary tumors by filtering barcodes that don't
+    # end with '-01A'.
+    #
+    SampleSelection AS (
+    SELECT
+      project_short_name,
+      sample_barcode
+    FROM
+      `isb-cgc.TCGA_bioclin_v0.Biospecimen`
+    WHERE
+      REGEXP_CONTAINS(sample_barcode, '-01A')
+      AND (project_short_name = 'TCGA-PAAD'
+        OR project_short_name = 'TCGA-KIRP')
+    GROUP BY
+      sample_barcode,
+      project_short_name
+    ORDER BY
+      rand()
+    LIMIT
+      200 ),
+    #
+    #
+    # With genes and samples, we can subset our expression data.
+    #
+    ExprTable AS (
+    SELECT
+      sample_barcode,
+      project_short_name,
+      gene_name AS Gene,
+      HTSeq__FPKM_UQ AS Expr
+    FROM
+      `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
+    WHERE
+      gene_name IN (
+      SELECT
+        gene_name
+      FROM
+        GeneSelection)
+      AND sample_barcode IN (
+      SELECT
+        sample_barcode
+      FROM
+        SampleSelection)
+    GROUP BY
+      sample_barcode,
+      project_short_name,
+      Gene,
+      Expr )
+    #
+    # And we rank the gene expression and create a phenotype variable.
+    #
+    SELECT
+      sample_barcode AS ID,
+      project_short_name,
+      IF(project_short_name = 'TCGA-PAAD',
+        0,
+        1) AS Phenotype,
+      Gene,
+      Expr,
+      RANK() OVER (PARTITION BY sample_barcode ORDER BY Expr ) AS ERank
+    FROM
+      ExprTable
+    GROUP BY
+      ID,
+      project_short_name,
+      Phenotype,
+      Gene,
+      Expr
+
+
+And I'll save that ranked table in the query of the month dataset as
+isb-cgc.QotM.paad_kirp_random_sample_1002.
+
+
+.. code-block:: sql
+    :linenos:
+
+    WITH
+      #
+      # First let's create the table of gene pairs.
+      #
+      Class1GenePairs AS (
+      SELECT
+        a.Gene AS Genei,
+        b.Gene AS Genej,
+        a.ID AS IDa,
+        b.ID AS IDb,
+        a.ERank AS Eranka,
+        b.ERank AS Erankb
+      FROM
+        `isb-cgc.QotM.paad_kirp_random_sample_1002` a
+      JOIN
+        `isb-cgc.QotM.paad_kirp_random_sample_1002` b
+      ON
+        a.Gene < b.Gene
+        AND a.ID = b.ID
+      WHERE
+        a.Phenotype = 0
+        AND b.Phenotype = 0
+      GROUP BY
+        a.Gene,
+        b.Gene,
+        a.ID,
+        b.ID,
+        a.ERank,
+        b.ERank ),
+      #
+      # Then, for each pair of genes,
+      # how many times does gene_i have lower rank
+      # than gene_j? This is how the conditional
+      # probability is calculated.
+      #
+      Class1Probs AS (
+      SELECT
+        Genei,
+        Genej,
+        SUM(CAST(Eranka > -1000 AS INT64)) AS N,
+        SUM(CAST(Eranka < Erankb AS INT64)) AS P
+      FROM
+        Class1GenePairs
+      WHERE
+        (Genei != Genej)
+      GROUP BY
+        Genei,
+        Genej ),
+      #
+      # Then pair up the genes in class2
+      #
+      Class2GenePairs AS (
+      SELECT
+        a.Gene AS Genei,
+        b.Gene AS Genej,
+        a.ID AS IDa,
+        b.ID AS IDb,
+        a.ERank AS Eranka,
+        b.ERank AS Erankb
+      FROM
+        `isb-cgc.QotM.paad_kirp_random_sample_1002` a
+      JOIN
+        `isb-cgc.QotM.paad_kirp_random_sample_1002` b
+      ON
+        a.Gene < b.Gene
+        AND a.ID = b.ID
+      WHERE
+        a.Phenotype = 1
+        AND b.Phenotype = 1
+      GROUP BY
+        a.Gene,
+        b.Gene,
+        a.ID,
+        b.ID,
+        a.ERank,
+        b.ERank ),
+      #
+      # and get our conditional probabilities
+      #
+      Class2Probs AS (
+      SELECT
+        Genei,
+        Genej,
+        SUM(CAST(Eranka > -1000 AS INT64)) AS N,
+        SUM(CAST(Eranka < Erankb AS INT64)) AS P
+      FROM
+        Class2GenePairs
+      WHERE
+        (Genei != Genej)
+      GROUP BY
+        Genei,
+        Genej ),
+      #
+      # and compute differences in conditional probs
+      #
+      Results AS (
+      SELECT
+        a.Genei AS gene_i,  # gene pair #1
+        a.Genej AS gene_j,  # gene pair #2
+        a.P AS Pa,          # number of pairs where gene #1 < gene #2 in group A
+        a.N AS Na,          # total number of pairs
+        b.P AS Pb,          # numbers for group B.
+        b.N AS Nb,
+        ABS((a.P / a.N) - (b.P / b.N)) AS PDiff  # difference in conditional probabilities
+      FROM
+        Class1Probs a
+      JOIN
+        Class2Probs b
+      ON
+        a.Genei = b.Genei
+        AND a.Genej = b.Genej
+      ORDER BY
+        PDiff DESC )
+    SELECT
+      *
+    FROM
+      Results
+
+
+.. figure:: query_figs/march_pred_tcga_1.png
+  :scale: 50
+  :align: center
+
+So we see that the best pair of genes for
+separating these two studies are NKX6-3 and SLC12A3 and
+9/79 PAAD samples had expression ranking where (NKX6-3 < SLC12A3)
+and for KIRP samples 114/117 had a ranking where (NKX6-3 < SLC12A3). So
+it's doing a pretty good job!
+
+Let's check this gene pair with another random set of samples.
+To do that, I'll make another data table, similar to the above method,
+but pull out our top scoring pair of genes. Then check if the rank ordering
+is consistent within the two groups. This is a good exercise for the reader.
+You can use the following tables: isb-cgc.QotM.results_1002 and
+isb-cgc.QotM.paad_kirp_result_check
+
+========= ===== ====
+Phenotype FALSE TRUE
+========= ===== ====
+TCGA-KIRP 5     119
+TCGA-PAAD 54    18
+========= ===== ====
+
+When we see how we did (see table above, 88% accuracy), it's very similar to what we previously
+found, but clearly there's room for improvement.
+Probably changing the way genes are selected would make a difference,
+and perhaps using more samples. Let me know if you give it a try!
+
+
 
 
 .. _February:
