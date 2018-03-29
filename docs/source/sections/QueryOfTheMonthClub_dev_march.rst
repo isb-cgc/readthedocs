@@ -367,7 +367,7 @@ Let's make a few small changes, and apply it to TCGA expression data!
 First we'll create our data set, then we'll apply TSP on it.
 
 .. code-block:: sql
-:linenos:
+  :linenos:
 
   WITH
   #
@@ -476,8 +476,8 @@ isb-cgc.QotM.paad_kirp_random_sample_1002.
 
 
 .. code-block:: sql
-:linenos:
-
+  :linenos:
+  
   WITH
     #
     # First let's create the table of gene pairs.
