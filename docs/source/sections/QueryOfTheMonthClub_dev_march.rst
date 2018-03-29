@@ -625,8 +625,9 @@ is consistent within the two groups. This is a good exercise for the reader.
 You can use the following tables: isb-cgc.QotM.results_1002 and
 isb-cgc.QotM.paad_kirp_result_check
 
-When we see how we did, it's not terrible, but clearly there's room for
-improvement. Probably changing the way genes are selected would make a difference,
+When we see how we did (88% accuracy), it's very similar to what we previously
+found, but clearly there's room for improvement.
+Probably changing the way genes are selected would make a difference,
 and perhaps using more samples. Let me know if you give it a try!
 
 ========= ===== ====
