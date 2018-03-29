@@ -107,7 +107,7 @@ Then :math:`Δij` is used as a criterion to produce a ranking of gene pairs,
 and a series of gene pairs is established, determining the order
 in which they are to be subsequently evaluated.
 
-For reference see `this. <https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-12-375>`_
+For reference see `this. <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1989150/>`_
 
 First let's produce some simulated data for testing.
 
@@ -185,8 +185,9 @@ OK, let's walk through this TSP query.
       ON
         a.Gene < b.Gene
         AND a.ID = b.ID
-        AND a.Phenotype = 0
-        AND b.Phenotype = 0
+      WHERE
+        a.Phenotype = 1
+        AND b.Phenotype = 1
       GROUP BY
         a.Gene,
         b.Gene,
@@ -230,7 +231,8 @@ OK, let's walk through this TSP query.
       ON
         a.Gene < b.Gene
         AND a.ID = b.ID
-        AND a.Phenotype = 1
+      WHERE
+        a.Phenotype = 1
         AND b.Phenotype = 1
       GROUP BY
         a.Gene,
@@ -277,7 +279,6 @@ OK, let's walk through this TSP query.
       AND a.Genej = b.Genej
     ORDER BY
       PDiff DESC
-
 
 Running this query returns a table that is ordered by the P difference (the
 pair of genes that best separates the classes in 'rank-space'). As a note,
@@ -371,6 +372,7 @@ correctly.
 
 
 Let's make a few small changes, and apply it to TCGA expression data!
+First we'll create our data set, then we'll apply TSP on it.
 
 .. code-block:: sql
 
@@ -388,9 +390,9 @@ Let's make a few small changes, and apply it to TCGA expression data!
   FROM
     `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
   WHERE
-    HTSeq__FPKM_UQ > 0 AND
+    HTSeq__FPKM_UQ > 0
     AND REGEXP_CONTAINS(sample_barcode, '-01A')
-    (project_short_name = 'TCGA-PAAD'
+    AND (project_short_name = 'TCGA-PAAD'
      OR project_short_name = 'TCGA-KIRP')
     AND (NOT (REGEXP_CONTAINS(gene_name, 'MT-')
         OR REGEXP_CONTAINS(gene_name, 'RN7')
@@ -453,11 +455,10 @@ Let's make a few small changes, and apply it to TCGA expression data!
     sample_barcode,
     project_short_name,
     Gene,
-    Expr ),
+    Expr )
   #
   # And we rank the gene expression and create a phenotype variable.
   #
-  GeneRanks AS (
   SELECT
     sample_barcode AS ID,
     project_short_name,
@@ -474,106 +475,122 @@ Let's make a few small changes, and apply it to TCGA expression data!
     project_short_name,
     Phenotype,
     Gene,
-    Expr ),
-  #
-  # Then let's generate the conditional probability for each
-  # pair of genes within Class 1
-  #
-  Class1GenePairs AS (
-  SELECT
-    a.Gene AS Genei,
-    b.Gene AS Genej,
-    a.ID AS IDa,
-    b.ID AS IDb,
-    a.ERank AS Eranka,
-    b.ERank AS Erankb
-  FROM
-    GeneRanks a
-  JOIN
-    GeneRanks b
-  ON
-    a.Gene < b.Gene
-    AND a.ID = b.ID
-    AND a.Phenotype = 0
-    AND b.Phenotype = 0
-  GROUP BY
-    a.Gene,
-    b.Gene,
-    a.ID,
-    b.ID,
-    a.ERank,
-    b.ERank ),
-  #
-  # Then, for each pair of genes,
-  # how many times does gene_i have lower rank
-  # than gene_j?
-  #
-  Class1Probs AS (
-  SELECT
-    Genei,
-    Genej,
-    SUM(CAST(Eranka > -1000 AS INT64)) AS N,
-    SUM(CAST(Eranka < Erankb AS INT64)) AS P
-  FROM
-    Class1GenePairs
-  WHERE
-    (Genei != Genej)
-  GROUP BY
-    Genei,
-    Genej ),
-  #
-  # Then pair up the genes in class2
-  #
-  Class2GenePairs AS (
-  SELECT
-    a.Gene AS Genei,
-    b.Gene AS Genej,
-    a.ID AS IDa,
-    b.ID AS IDb,
-    a.ERank AS Eranka,
-    b.ERank AS Erankb
-  FROM
-    GeneRanks a
-  JOIN
-    GeneRanks b
-  ON
-    a.Gene < b.Gene
-    AND a.ID = b.ID
-    AND a.Phenotype = 1
-    AND b.Phenotype = 1
-  GROUP BY
-    a.Gene,
-    b.Gene,
-    a.ID,
-    b.ID,
-    a.ERank,
-    b.ERank ),
-  #
-  # and get our conditional probabilities
-  #
-  Class2Probs AS (
-  SELECT
-    Genei,
-    Genej,
-    SUM(CAST(Eranka > -1000 AS INT64)) AS N,
-    SUM(CAST(Eranka < Erankb AS INT64)) AS P
-  FROM
-    Class2GenePairs
-  WHERE
-    (Genei != Genej)
-  GROUP BY
-    Genei,
-    Genej )
-  #
-  # and compute differences in conditional probs
-  #
-  Results AS (
+    Expr
+
+
+And I'll save that ranked table in the query of the month dataset as
+isb-cgc.QotM.paad_kirp_random_sample_1002.
+
+
+.. code-block:: sql
+
+  WITH
+    #
+    # Then let's generate the conditional probability for each
+    # pair of genes within Class 1
+    #
+    Class1GenePairs AS (
     SELECT
-      a.Genei AS gene_i,  # gene pair #1
-      a.Genej AS gene_j,  # gene pair #2
-      a.P AS Pa,      # number of pairs where gene #1 < gene #2 in group A
-      a.N AS Na,      # total number of pairs
-      b.P AS Pb,      # numbers for group B.
+      a.Gene AS Genei,
+      b.Gene AS Genej,
+      a.ID AS IDa,
+      b.ID AS IDb,
+      a.ERank AS Eranka,
+      b.ERank AS Erankb
+    FROM
+      `isb-cgc.QotM.paad_kirp_random_sample_1002` a
+    JOIN
+      `isb-cgc.QotM.paad_kirp_random_sample_1002` b
+    ON
+      a.Gene < b.Gene
+      AND a.ID = b.ID
+    WHERE
+      a.Phenotype = 0
+      AND b.Phenotype = 0
+    GROUP BY
+      a.Gene,
+      b.Gene,
+      a.ID,
+      b.ID,
+      a.ERank,
+      b.ERank ),
+    #
+    # Then, for each pair of genes,
+    # how many times does gene_i have lower rank
+    # than gene_j?
+    #
+    Class1Probs AS (
+    SELECT
+      Genei,
+      Genej,
+      SUM(CAST(Eranka > -1000 AS INT64)) AS N,
+      SUM(CAST(Eranka < Erankb AS INT64)) AS P
+    FROM
+      Class1GenePairs
+    WHERE
+      (Genei != Genej)
+    GROUP BY
+      Genei,
+      Genej ),
+    #
+    # Then pair up the genes in class2
+    #
+    Class2GenePairs AS (
+    SELECT
+      a.Gene AS Genei,
+      b.Gene AS Genej,
+      a.ID AS IDa,
+      b.ID AS IDb,
+      a.ERank AS Eranka,
+      b.ERank AS Erankb
+    FROM
+      `isb-cgc.QotM.paad_kirp_random_sample_1002` a
+    JOIN
+      `isb-cgc.QotM.paad_kirp_random_sample_1002` b
+    ON
+      a.Gene < b.Gene
+      AND a.ID = b.ID
+    WHERE
+      a.Phenotype = 1
+      AND b.Phenotype = 1
+    GROUP BY
+      a.Gene,
+      b.Gene,
+      a.ID,
+      b.ID,
+      a.ERank,
+      b.ERank ),
+    #
+    # and get our conditional probabilities
+    #
+    Class2Probs AS (
+    SELECT
+      Genei,
+      Genej,
+      SUM(CAST(Eranka > -1000 AS INT64)) AS N,
+      SUM(CAST(Eranka < Erankb AS INT64)) AS P
+    FROM
+      Class2GenePairs
+    WHERE
+      (Genei != Genej)
+    GROUP BY
+      Genei,
+      Genej ),
+    #
+    # and compute differences in conditional probs
+    #
+    Results AS (
+    SELECT
+      a.Genei AS gene_i,
+      # gene pair #1
+      a.Genej AS gene_j,
+      # gene pair #2
+      a.P AS Pa,
+      # number of pairs where gene #1 < gene #2 in group A
+      a.N AS Na,
+      # total number of pairs
+      b.P AS Pb,
+      # numbers for group B.
       b.N AS Nb,
       ABS((a.P / a.N) - (b.P / b.N)) AS PDiff  # difference in conditional probabilities
     FROM
@@ -584,14 +601,45 @@ Let's make a few small changes, and apply it to TCGA expression data!
       a.Genei = b.Genei
       AND a.Genej = b.Genej
     ORDER BY
-      PDiff DESC
-      )
-  select * from Results
+      PDiff DESC )
+  SELECT
+    *
+  FROM
+    Results
 
 
 .. figure:: query_figs/march_pred_tcga_1.png
   :scale: 50
   :align: center
+
+So we see that the best pair of genes for
+separating these two studies are NKX6-3 and SLC12A3 and
+9/79 PAAD samples had expression ranking where (NKX6-3 < SLC12A3)
+and for KIRP samples 114/117 had a ranking where (NKX6-3 < SLC12A3). So
+it's doing a pretty good job!
+
+Let's check this gene pair with another random set of samples.
+To do that, I'll make another data table, similar to the above method,
+but pull out our top scoring pair of genes. Then check if the rank ordering
+is consistent within the two groups. This is a good exercise for the reader.
+You can use the following tables: isb-cgc.QotM.results_1002 and
+isb-cgc.QotM.paad_kirp_result_check
+
+When we see how we did, it's not terrible, but clearly there's room for
+improvement. Probably changing the way genes are selected would make a difference,
+and perhaps using more samples. Let me know if you give it a try!
+
+========= ===== ====
+Phenotype FALSE TRUE
+========= ===== ====
+TCGA-KIRP 5     119
+TCGA-PAAD 54    18
+========= ===== ====
+
+
+
+
+
 
 
 
