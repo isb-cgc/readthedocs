@@ -598,7 +598,7 @@ isb-cgc.QotM.paad_kirp_random_sample_1002.
 
 
 .. figure:: query_figs/march_pred_tcga_1.png
-  :scale: 70
+  :scale: 50
   :align: center
 
 So we see that the best pair of genes for
