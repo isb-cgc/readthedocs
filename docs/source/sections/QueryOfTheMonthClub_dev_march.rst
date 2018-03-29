@@ -24,7 +24,7 @@ Table of Contents
 2018
 ++++
 
-- March_: Machine learning classifer in BigQuery?! Top Scoring Pairs implementation.
+- March_: Machine learning classifier in BigQuery?! Top Scoring Pairs implementation.
 
 - February_: BioCircos shiny app, showing pairwise correlations within a pathway.
 
@@ -88,14 +88,14 @@ R_i be a vector of ranks
 denoting the rank of the i-th gene in a given sample.
 
 Genes are evaluated in pairs, and scored by their differences in
-the probabilities, P(R_i < R_j ), between class C1 and
+the probabilities, P(R_i < R_j), between class C1 and
 class C2, formally defined as the difference in the following
 conditional probabilities:
 
   Δ_ij = ∣ P(Ri < Rj ∣ C1) − P(Ri < Rj ∣ C2)  ∣
 
 
-Then Δ_ij is used as a criterion to produce a ordering on gene pairs.
+Then Δ_ij is used as a criterion to producea n ordering on gene pairs.
 
 For reference see `this. <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1989150/>`_
 
@@ -606,6 +606,15 @@ separating these two studies are NKX6-3 and SLC12A3 and
 9/79 PAAD samples had expression ranking where (NKX6-3 < SLC12A3)
 and for KIRP samples 114/117 had a ranking where (NKX6-3 < SLC12A3). So
 it's doing a pretty good job!
+
+NKX6-3 is from the NKX family of homeodomain proteins that control
+numerous developmental processes.  NKX6-3 is involved in the 
+development of the central nervous system, gastrointestinal tract,
+and pancreas, so it makes sense that most PAAD samples would have
+higher expression of that gene.  SLC12A3, on the other hand, encodes a 
+*"renal thiazide-sensitive sodium-chloride cotransporter that is important for electrolyte homeostasis"* so it makes sense that that gene would be expressed in the 
+KIRP samples.  What we are likely seeing is a difference in the 
+underlying tissues rather than a cancer-related difference.
 
 Let's check this gene pair with another random set of samples.
 To do that, I'll make another data table, similar to the above method,
