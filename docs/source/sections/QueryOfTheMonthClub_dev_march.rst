@@ -129,9 +129,9 @@ First let's produce some simulated data for testing.
   write.table(tidydf, file="sim_for_tsp.tsv", sep='\t', row.names=F, col.names=F, quote=F)
 
 
-The results should show genes 5 & 6 as the best pair for separating groups (y==0 vs y==1).
+The results should show genes X5 & X6 as the best pair for separating groups (y==0 vs y==1).
 
-OK, let's walk through this TSP query.
+OK, let's walk through this Top Scoring Pairs (TSP) query.
 
 .. code-block:: sql
     :linenos:
@@ -271,9 +271,9 @@ OK, let's walk through this TSP query.
     ORDER BY
       PDiff DESC
 
-Running this query returns a table that is ordered by the P difference (the
-pair of genes that best separates the classes in 'rank-space'). As a note,
-I left in the gene names from both tables after the join, just as a sanity
+Running this query returns a table that is ordered by the Probability difference
+(the pair of genes that best separates the classes in 'rank-space'). As a note,
+I left in the gene names from both tables after the join,  as a sanity
 check.
 
 .. figure:: query_figs/march18_sim_result_1.png
@@ -362,6 +362,7 @@ correctly.
   :align: center
 
 
+Seems to be working.
 Let's make a few small changes, and apply it to TCGA expression data!
 First we'll create our data set, then we'll apply TSP on it.
 
