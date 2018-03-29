@@ -80,32 +80,22 @@ using BigQuery.
 
 The 'Top Scoring Pairs' method, finds a pair of genes that
 show the maximum difference in ranking between two user specified groups.
-
-:math:`a^2 + b^2 = c^2`
-
-.. math::
-
-  α_t(i) = P(O_1, O_2, … O_t, q_t = S_i λ)
-
+Given two genes, and two groups of samples, the ranking of the genes flip-flops
+between the two groups. If gene_i < gene_j in group 1, then gene_i > gene_j in group 2.
 
 To describe this more formally, let
-:math:`R_{in}`
-denote the rank of the i-th gene in the n-th sample,
-and consider the rank matrix :math:`R = (R_{ij})`
+R_in be a 'rank matrix'
+denoting the rank of the i-th gene in the n-th sample.
 
 Genes are evaluated in pairs, and scored by their differences in
-the probabilities, :math:`P(R_i < R_j )`, between class :math:`C1` and
-:math:`class C2`, formally defined as the difference of the following
+the probabilities, P(R_i < R_j ), between class C1 and
+class C2, formally defined as the difference in the following
 conditional probabilities:
-
-.. math::
 
   Δ_ij = ∣ P(Ri<Rj ∣∣ C1) − P(Ri<Rj ∣∣ C2)  ∣
 
 
-Then :math:`Δij` is used as a criterion to produce a ranking of gene pairs,
-and a series of gene pairs is established, determining the order
-in which they are to be subsequently evaluated.
+Then Δ_ij is used as a criterion to produce a ordering on gene pairs.
 
 For reference see `this. <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1989150/>`_
 
@@ -120,7 +110,8 @@ First let's produce some simulated data for testing.
   xs <- matrix(data=rnorm(n=200), nrow=20)
 
   # the IDs
-  idstr <- as.character(randomStrings(n=nrow(df), len=5, digits=FALSE, upperalpha=TRUE,loweralpha=FALSE, unique=TRUE, check=TRUE))
+  idstr <- as.character(randomStrings(n=nrow(df), len=5, digits=FALSE,
+                        upperalpha=TRUE,loweralpha=FALSE, unique=TRUE, check=TRUE))
 
   # the two best genes
   i <- 5
@@ -375,6 +366,7 @@ Let's make a few small changes, and apply it to TCGA expression data!
 First we'll create our data set, then we'll apply TSP on it.
 
 .. code-block:: sql
+:linenos:
 
   WITH
   #
@@ -483,6 +475,7 @@ isb-cgc.QotM.paad_kirp_random_sample_1002.
 
 
 .. code-block:: sql
+:linenos:
 
   WITH
     #
