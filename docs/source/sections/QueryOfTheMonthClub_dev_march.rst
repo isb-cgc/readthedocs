@@ -84,15 +84,15 @@ Given two genes, and two groups of samples, the ranking of the genes flip-flops
 between the two groups. If gene_i < gene_j in group 1, then gene_i > gene_j in group 2.
 
 To describe this more formally, let
-R_in be a 'rank matrix'
-denoting the rank of the i-th gene in the n-th sample.
+R_i be a vector of ranks
+denoting the rank of the i-th gene in a given sample.
 
 Genes are evaluated in pairs, and scored by their differences in
 the probabilities, P(R_i < R_j ), between class C1 and
 class C2, formally defined as the difference in the following
 conditional probabilities:
 
-  Δ_ij = ∣ P(Ri<Rj ∣∣ C1) − P(Ri<Rj ∣∣ C2)  ∣
+  Δ_ij = ∣ P(Ri < Rj ∣ C1) − P(Ri < Rj ∣ C2)  ∣
 
 
 Then Δ_ij is used as a criterion to produce a ordering on gene pairs.
@@ -480,8 +480,7 @@ isb-cgc.QotM.paad_kirp_random_sample_1002.
 
   WITH
     #
-    # Then let's generate the conditional probability for each
-    # pair of genes within Class 1
+    # First let's create the table of gene pairs.
     #
     Class1GenePairs AS (
     SELECT
@@ -511,7 +510,8 @@ isb-cgc.QotM.paad_kirp_random_sample_1002.
     #
     # Then, for each pair of genes,
     # how many times does gene_i have lower rank
-    # than gene_j?
+    # than gene_j? This is how the conditional
+    # probability is calculated.
     #
     Class1Probs AS (
     SELECT
@@ -575,16 +575,11 @@ isb-cgc.QotM.paad_kirp_random_sample_1002.
     #
     Results AS (
     SELECT
-      a.Genei AS gene_i,
-      # gene pair #1
-      a.Genej AS gene_j,
-      # gene pair #2
-      a.P AS Pa,
-      # number of pairs where gene #1 < gene #2 in group A
-      a.N AS Na,
-      # total number of pairs
-      b.P AS Pb,
-      # numbers for group B.
+      a.Genei AS gene_i,  # gene pair #1
+      a.Genej AS gene_j,  # gene pair #2
+      a.P AS Pa,          # number of pairs where gene #1 < gene #2 in group A
+      a.N AS Na,          # total number of pairs
+      b.P AS Pb,          # numbers for group B.
       b.N AS Nb,
       ABS((a.P / a.N) - (b.P / b.N)) AS PDiff  # difference in conditional probabilities
     FROM
@@ -619,7 +614,7 @@ is consistent within the two groups. This is a good exercise for the reader.
 You can use the following tables: isb-cgc.QotM.results_1002 and
 isb-cgc.QotM.paad_kirp_result_check
 
-When we see how we did (88% accuracy), it's very similar to what we previously
+When we see how we did (see table below, 88% accuracy), it's very similar to what we previously
 found, but clearly there's room for improvement.
 Probably changing the way genes are selected would make a difference,
 and perhaps using more samples. Let me know if you give it a try!
@@ -630,13 +625,6 @@ Phenotype FALSE TRUE
 TCGA-KIRP 5     119
 TCGA-PAAD 54    18
 ========= ===== ====
-
-
-
-
-
-
-
 
 
 
