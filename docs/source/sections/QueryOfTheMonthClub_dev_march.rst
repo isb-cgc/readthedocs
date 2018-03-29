@@ -367,108 +367,108 @@ Let's make a few small changes, and apply it to TCGA expression data!
 First we'll create our data set, then we'll apply TSP on it.
 
 .. code-block:: sql
-  :linenos:
+    :linenos:
 
-  WITH
-  #
-  # To reduce the number of genes we're working with,
-  # first we'll rank the gene expression data by coefficient of variation.
-  # Then we'll be able to take a subset with high variance.
-  # Also we'll filter out some long RNAs, etc.
-  #
-  GeneSelection AS (
-  SELECT
-    gene_name,
-    STDDEV(HTSeq__FPKM_UQ) / AVG(HTSeq__FPKM_UQ) AS CVExpr
-  FROM
-    `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
-  WHERE
-    HTSeq__FPKM_UQ > 0
-    AND REGEXP_CONTAINS(sample_barcode, '-01A')
-    AND (project_short_name = 'TCGA-PAAD'
-     OR project_short_name = 'TCGA-KIRP')
-    AND (NOT (REGEXP_CONTAINS(gene_name, 'MT-')
-        OR REGEXP_CONTAINS(gene_name, 'RN7')
-        OR REGEXP_CONTAINS(gene_name, 'RNU')
-        OR REGEXP_CONTAINS(gene_name, 'SNOR') ) )
-  GROUP BY
-    gene_name
-  ORDER BY
-    CVExpr DESC
-  LIMIT
-    50 ),
-  #
-  #
-  # Then we'll pick a set of random samples from
-  # the biospecimen table. Making sure we get only
-  # primary tumors by filtering barcodes that don't
-  # end with '-01A'.
-  #
-  SampleSelection AS (
-  SELECT
-    project_short_name,
-    sample_barcode
-  FROM
-    `isb-cgc.TCGA_bioclin_v0.Biospecimen`
-  WHERE
-    REGEXP_CONTAINS(sample_barcode, '-01A')
-    AND (project_short_name = 'TCGA-PAAD'
-      OR project_short_name = 'TCGA-KIRP')
-  GROUP BY
-    sample_barcode,
-    project_short_name
-  ORDER BY
-    rand()
-  LIMIT
-    200 ),
-  #
-  #
-  # With genes and samples, we can subset our expression data.
-  #
-  ExprTable AS (
-  SELECT
-    sample_barcode,
-    project_short_name,
-    gene_name AS Gene,
-    HTSeq__FPKM_UQ AS Expr
-  FROM
-    `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
-  WHERE
-    gene_name IN (
+    WITH
+    #
+    # To reduce the number of genes we're working with,
+    # first we'll rank the gene expression data by coefficient of variation.
+    # Then we'll be able to take a subset with high variance.
+    # Also we'll filter out some long RNAs, etc.
+    #
+    GeneSelection AS (
     SELECT
-      gene_name
+      gene_name,
+      STDDEV(HTSeq__FPKM_UQ) / AVG(HTSeq__FPKM_UQ) AS CVExpr
     FROM
-      GeneSelection)
-    AND sample_barcode IN (
+      `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
+    WHERE
+      HTSeq__FPKM_UQ > 0
+      AND REGEXP_CONTAINS(sample_barcode, '-01A')
+      AND (project_short_name = 'TCGA-PAAD'
+       OR project_short_name = 'TCGA-KIRP')
+      AND (NOT (REGEXP_CONTAINS(gene_name, 'MT-')
+          OR REGEXP_CONTAINS(gene_name, 'RN7')
+          OR REGEXP_CONTAINS(gene_name, 'RNU')
+          OR REGEXP_CONTAINS(gene_name, 'SNOR') ) )
+    GROUP BY
+      gene_name
+    ORDER BY
+      CVExpr DESC
+    LIMIT
+      50 ),
+    #
+    #
+    # Then we'll pick a set of random samples from
+    # the biospecimen table. Making sure we get only
+    # primary tumors by filtering barcodes that don't
+    # end with '-01A'.
+    #
+    SampleSelection AS (
     SELECT
+      project_short_name,
       sample_barcode
     FROM
-      SampleSelection)
-  GROUP BY
-    sample_barcode,
-    project_short_name,
-    Gene,
-    Expr )
-  #
-  # And we rank the gene expression and create a phenotype variable.
-  #
-  SELECT
-    sample_barcode AS ID,
-    project_short_name,
-    IF(project_short_name = 'TCGA-PAAD',
-      0,
-      1) AS Phenotype,
-    Gene,
-    Expr,
-    RANK() OVER (PARTITION BY sample_barcode ORDER BY Expr ) AS ERank
-  FROM
-    ExprTable
-  GROUP BY
-    ID,
-    project_short_name,
-    Phenotype,
-    Gene,
-    Expr
+      `isb-cgc.TCGA_bioclin_v0.Biospecimen`
+    WHERE
+      REGEXP_CONTAINS(sample_barcode, '-01A')
+      AND (project_short_name = 'TCGA-PAAD'
+        OR project_short_name = 'TCGA-KIRP')
+    GROUP BY
+      sample_barcode,
+      project_short_name
+    ORDER BY
+      rand()
+    LIMIT
+      200 ),
+    #
+    #
+    # With genes and samples, we can subset our expression data.
+    #
+    ExprTable AS (
+    SELECT
+      sample_barcode,
+      project_short_name,
+      gene_name AS Gene,
+      HTSeq__FPKM_UQ AS Expr
+    FROM
+      `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
+    WHERE
+      gene_name IN (
+      SELECT
+        gene_name
+      FROM
+        GeneSelection)
+      AND sample_barcode IN (
+      SELECT
+        sample_barcode
+      FROM
+        SampleSelection)
+    GROUP BY
+      sample_barcode,
+      project_short_name,
+      Gene,
+      Expr )
+    #
+    # And we rank the gene expression and create a phenotype variable.
+    #
+    SELECT
+      sample_barcode AS ID,
+      project_short_name,
+      IF(project_short_name = 'TCGA-PAAD',
+        0,
+        1) AS Phenotype,
+      Gene,
+      Expr,
+      RANK() OVER (PARTITION BY sample_barcode ORDER BY Expr ) AS ERank
+    FROM
+      ExprTable
+    GROUP BY
+      ID,
+      project_short_name,
+      Phenotype,
+      Gene,
+      Expr
 
 
 And I'll save that ranked table in the query of the month dataset as
@@ -476,125 +476,125 @@ isb-cgc.QotM.paad_kirp_random_sample_1002.
 
 
 .. code-block:: sql
-  :linenos:
-  
-  WITH
-    #
-    # First let's create the table of gene pairs.
-    #
-    Class1GenePairs AS (
+    :linenos:
+
+    WITH
+      #
+      # First let's create the table of gene pairs.
+      #
+      Class1GenePairs AS (
+      SELECT
+        a.Gene AS Genei,
+        b.Gene AS Genej,
+        a.ID AS IDa,
+        b.ID AS IDb,
+        a.ERank AS Eranka,
+        b.ERank AS Erankb
+      FROM
+        `isb-cgc.QotM.paad_kirp_random_sample_1002` a
+      JOIN
+        `isb-cgc.QotM.paad_kirp_random_sample_1002` b
+      ON
+        a.Gene < b.Gene
+        AND a.ID = b.ID
+      WHERE
+        a.Phenotype = 0
+        AND b.Phenotype = 0
+      GROUP BY
+        a.Gene,
+        b.Gene,
+        a.ID,
+        b.ID,
+        a.ERank,
+        b.ERank ),
+      #
+      # Then, for each pair of genes,
+      # how many times does gene_i have lower rank
+      # than gene_j? This is how the conditional
+      # probability is calculated.
+      #
+      Class1Probs AS (
+      SELECT
+        Genei,
+        Genej,
+        SUM(CAST(Eranka > -1000 AS INT64)) AS N,
+        SUM(CAST(Eranka < Erankb AS INT64)) AS P
+      FROM
+        Class1GenePairs
+      WHERE
+        (Genei != Genej)
+      GROUP BY
+        Genei,
+        Genej ),
+      #
+      # Then pair up the genes in class2
+      #
+      Class2GenePairs AS (
+      SELECT
+        a.Gene AS Genei,
+        b.Gene AS Genej,
+        a.ID AS IDa,
+        b.ID AS IDb,
+        a.ERank AS Eranka,
+        b.ERank AS Erankb
+      FROM
+        `isb-cgc.QotM.paad_kirp_random_sample_1002` a
+      JOIN
+        `isb-cgc.QotM.paad_kirp_random_sample_1002` b
+      ON
+        a.Gene < b.Gene
+        AND a.ID = b.ID
+      WHERE
+        a.Phenotype = 1
+        AND b.Phenotype = 1
+      GROUP BY
+        a.Gene,
+        b.Gene,
+        a.ID,
+        b.ID,
+        a.ERank,
+        b.ERank ),
+      #
+      # and get our conditional probabilities
+      #
+      Class2Probs AS (
+      SELECT
+        Genei,
+        Genej,
+        SUM(CAST(Eranka > -1000 AS INT64)) AS N,
+        SUM(CAST(Eranka < Erankb AS INT64)) AS P
+      FROM
+        Class2GenePairs
+      WHERE
+        (Genei != Genej)
+      GROUP BY
+        Genei,
+        Genej ),
+      #
+      # and compute differences in conditional probs
+      #
+      Results AS (
+      SELECT
+        a.Genei AS gene_i,  # gene pair #1
+        a.Genej AS gene_j,  # gene pair #2
+        a.P AS Pa,          # number of pairs where gene #1 < gene #2 in group A
+        a.N AS Na,          # total number of pairs
+        b.P AS Pb,          # numbers for group B.
+        b.N AS Nb,
+        ABS((a.P / a.N) - (b.P / b.N)) AS PDiff  # difference in conditional probabilities
+      FROM
+        Class1Probs a
+      JOIN
+        Class2Probs b
+      ON
+        a.Genei = b.Genei
+        AND a.Genej = b.Genej
+      ORDER BY
+        PDiff DESC )
     SELECT
-      a.Gene AS Genei,
-      b.Gene AS Genej,
-      a.ID AS IDa,
-      b.ID AS IDb,
-      a.ERank AS Eranka,
-      b.ERank AS Erankb
+      *
     FROM
-      `isb-cgc.QotM.paad_kirp_random_sample_1002` a
-    JOIN
-      `isb-cgc.QotM.paad_kirp_random_sample_1002` b
-    ON
-      a.Gene < b.Gene
-      AND a.ID = b.ID
-    WHERE
-      a.Phenotype = 0
-      AND b.Phenotype = 0
-    GROUP BY
-      a.Gene,
-      b.Gene,
-      a.ID,
-      b.ID,
-      a.ERank,
-      b.ERank ),
-    #
-    # Then, for each pair of genes,
-    # how many times does gene_i have lower rank
-    # than gene_j? This is how the conditional
-    # probability is calculated.
-    #
-    Class1Probs AS (
-    SELECT
-      Genei,
-      Genej,
-      SUM(CAST(Eranka > -1000 AS INT64)) AS N,
-      SUM(CAST(Eranka < Erankb AS INT64)) AS P
-    FROM
-      Class1GenePairs
-    WHERE
-      (Genei != Genej)
-    GROUP BY
-      Genei,
-      Genej ),
-    #
-    # Then pair up the genes in class2
-    #
-    Class2GenePairs AS (
-    SELECT
-      a.Gene AS Genei,
-      b.Gene AS Genej,
-      a.ID AS IDa,
-      b.ID AS IDb,
-      a.ERank AS Eranka,
-      b.ERank AS Erankb
-    FROM
-      `isb-cgc.QotM.paad_kirp_random_sample_1002` a
-    JOIN
-      `isb-cgc.QotM.paad_kirp_random_sample_1002` b
-    ON
-      a.Gene < b.Gene
-      AND a.ID = b.ID
-    WHERE
-      a.Phenotype = 1
-      AND b.Phenotype = 1
-    GROUP BY
-      a.Gene,
-      b.Gene,
-      a.ID,
-      b.ID,
-      a.ERank,
-      b.ERank ),
-    #
-    # and get our conditional probabilities
-    #
-    Class2Probs AS (
-    SELECT
-      Genei,
-      Genej,
-      SUM(CAST(Eranka > -1000 AS INT64)) AS N,
-      SUM(CAST(Eranka < Erankb AS INT64)) AS P
-    FROM
-      Class2GenePairs
-    WHERE
-      (Genei != Genej)
-    GROUP BY
-      Genei,
-      Genej ),
-    #
-    # and compute differences in conditional probs
-    #
-    Results AS (
-    SELECT
-      a.Genei AS gene_i,  # gene pair #1
-      a.Genej AS gene_j,  # gene pair #2
-      a.P AS Pa,          # number of pairs where gene #1 < gene #2 in group A
-      a.N AS Na,          # total number of pairs
-      b.P AS Pb,          # numbers for group B.
-      b.N AS Nb,
-      ABS((a.P / a.N) - (b.P / b.N)) AS PDiff  # difference in conditional probabilities
-    FROM
-      Class1Probs a
-    JOIN
-      Class2Probs b
-    ON
-      a.Genei = b.Genei
-      AND a.Genej = b.Genej
-    ORDER BY
-      PDiff DESC )
-  SELECT
-    *
-  FROM
-    Results
+      Results
 
 
 .. figure:: query_figs/march_pred_tcga_1.png
