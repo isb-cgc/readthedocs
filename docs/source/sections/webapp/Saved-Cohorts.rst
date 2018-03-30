@@ -425,7 +425,7 @@ The file contains the following information for each file:
 Export File List to BigQuery
 ----------------------------
 
-To export the File list to BigQuery, select the button Export to BQ.  You will needto have registered a Google Cloud Project and a BigQuery dataset to be able to export to BigQuery. You can either make a new table or append an existing table.  YOu can also give the table a unique name, if lelf blank we will provide a name for the table. 
+To export the File list to BigQuery, select the button Export to BQ.  You will need to have registered a Google Cloud Project and a BigQuery dataset to be able to export to BigQuery. You can either make a new table or append an existing table.  You can also give the table a unique name if left blank we will provide a name for the table.
 
 The table will contain the following information:
 
