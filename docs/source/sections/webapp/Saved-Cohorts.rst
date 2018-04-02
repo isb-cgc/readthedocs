@@ -396,16 +396,12 @@ platforms by dragging the platform names up and down.
 
 .. _viewfilelist:
 
-View Files Page
+View File Browser Page
 ---------------
 
-"View Files" takes you to a new page where you can view the complete list of data files associated with your current the cohort.
- The file list page provides a paginated list of files available with all samples in the cohort. Here, "available" refers
-to files that have been uploaded to the ISB-CGC Google Cloud Project, including both controlled access and open access data.  
-You can use the "Previous Page" and "Next Page" buttons to see more values in the list.
+"File Browser" takes you to a new page where you can view the complete list of data files associated with your current the cohort.  The file list page provides a paginated list of files available with all samples in the cohort. Here, "available" refers to files that have been uploaded to the ISB-CGC Google Cloud Project, including both controlled access and open access data. You can use the "Previous Page" and "Next Page" buttons to see more values in the list.
 
-You can filter by Genomic Build either HG19 or HG38 and view which platforms and files are available for the build selected.  You may also filter on these files if you are only interested in a specific data type and platform.  Selecting a filter will
-update the associated list.  The numbers next to the platform refers to the number of files available for that platform.
+You can filter by Genomic Build either HG19 or HG38 and view which platforms and files are available for the build selected.  You may also filter on these files if you are only interested in a specific data type, data format, platform, disease code, disease strategy, and/or experimental strategy.  Selecting a filter will update the associated list.  The numbers next to the filter refers to the number of files available for that filter.
 
 If there are files that contain read-level data are displayed in the IGV column, you will be able to select files to view in the IGV 
 viewer by selecting check boxes beside the viewer and selecting "Launch IGV" button.  The term "cloud storage" represents there are bam files associated to the sample in Google Cloud Storage for ISB-CGC that can be viewed in IGV browser.  Only if you have authenticated 
@@ -414,9 +410,9 @@ as a dbGaP authorized user will you be able to select controlled access files to
 Download File List as CSV
 -------------------------
 
-To download a list of files that are part of this cohort, select the link in the upper right on the File Listing panel called "Download File List as CSV". This will begin a
-download process of all the files available for the cohort, taking into account the selected Platform filters. The file
-contains the following information for each file:
+To download a list of files that are part of this cohort, select the button in the upper right on the File Listing panel called "CSV". This will begin a download process of all the files available for the cohort, taking into account the selected filters. 
+
+The file contains the following information for each file:
 
 * Program
 * Sample Barcode
@@ -425,6 +421,29 @@ contains the following information for each file:
 * Data Level
 * File Path to the Cloud Storage Location
 * Access type (open or controlled access)
+
+Export File List to BigQuery
+----------------------------
+
+To export the File list to BigQuery, select the button Export to BQ.  You will need to have registered a Google Cloud Project and a BigQuery dataset to be able to export to BigQuery. You can either make a new table or append an existing table.  You can also give the table a unique name if left blank we will provide a name for the table.
+
+The table will contain the following information:
+
+* cohort_id
+* case_barcode
+* sample_barcode
+* project_short_name
+* date_added
+* build 
+* gdc_file_uuid
+* gdc_case_uuid
+* platform 
+* exp_strategy
+* data_category
+* data_type
+* data_format
+* cloud_storage_location
+
 
 Viewing a Sequence
 ==================
