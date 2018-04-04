@@ -51,7 +51,7 @@ google.com:biggene.
 Interactive Web-based Exploration
 #################################
 
-**NB**:  After going through the registration process described above, there will be a short
+After going through the registration process described above, there will be a short
 delay before your Google identity is granted the necessary access to BigQuery and the PanCan Atlas
 data resources.  If you get an error when running the sample query in this section, please
 wait 10-15 minutes and then try again. If you are still not successful, please
