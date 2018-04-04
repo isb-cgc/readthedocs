@@ -19,8 +19,25 @@ Getting Started
 `Register a cloud project <https://cloud.google.com/resource-manager/docs/creating-managing-projects>`_ for access to
  `BigQuery <https://cloud.google.com/bigquery/what-is-bigquery>`_:
 
-Additional Public BigQuery Datasets
-###################################
+Adding the PanCancer Atlas tables to your workspace
+###################################################
+
+To add public BigQuery datasets and tables to your "view" in the BigQuery web UI you
+need to know the name of the GCP project that owns the dataset(s).
+To add the publicly accessible ISB-CGC datasets (project name: ``pancancer-atlas`` and ``isb-cgc``)
+follow these steps_.
+
+.. _steps: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html
+
+You should now be able to see and explore all of the PanCancer and ISB-CGC public datasets.
+Clicking on the blue triangle next to a dataset name will open it and
+show the list of tables in the dataset. Clicking on a table name will open up
+information about the table in main panel, where you can
+view the Schema, Details, or a Preview of the table.
+
+Additional projects with public BigQuery datasets which you may want to explore (repeating
+the same process will add these to your BigQuery side-panel) include genomics-public-data and
+google.com:biggene.
 
  There are many public BigQuery datasets containing genomic information, and you
  can use any of these resources in your queries -- all you need is the name of the table.
@@ -32,22 +49,6 @@ Additional Public BigQuery Datasets
      * the second part (genomic_reference) is the dataset name; and
      * the third part (SwissProt) is the table name.
 
- To add public BigQuery datasets and tables to your "view" in the BigQuery web UI you
- need to know the name of the GCP project that owns the dataset(s).
- To add the publicly accessible ISB-CGC datasets (project name: ``isb-cgc``)
- follow these steps_.
-
- .. _steps: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html
-
- You should now be able to see and explore all of the ISB-CGC public datasets.
- Clicking on the blue triangle next to a dataset name will open it and
- show the list of tables in the dataset. Clicking on a table name will open up
- information about the table in main panel, where you can
- view the Schema, Details, or a Preview of the table.
-
- Additional projects with public BigQuery datasets which you may want to explore (repeating
- the same process will add these to your BigQuery side-panel) include genomics-public-data and
- google.com:biggene.
 
 Interactive Web-based Exploration
 #################################
