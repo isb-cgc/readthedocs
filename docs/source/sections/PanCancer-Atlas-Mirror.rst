@@ -68,6 +68,7 @@ Ready to query? Great! First see the pancancer-atlas:README, then follow the ste
 * `login <https://accounts.google.com/Login>`_ to your Google account (`Chrome <https://www.google.com/chrome/browser/desktop/index.html>`_ is the preferred browser);
 * go to the `BigQuery web UI <https://bigquery.cloud.google.com>`_  --  if you see a welcome screen inviting you to **Create a Project** then please do so;
 
+Let's query using the MC3 somatic mutation table.
 
 * click on the big red **COMPOSE QUERY** button in the upper left corner;
 * click on the **Show Options**  button below the **New Query** text-box;
@@ -88,7 +89,7 @@ Ready to query? Great! First see the pancancer-atlas:README, then follow the ste
         Hugo_Symbol,
         HGVSc
       FROM
-        `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
+        `pancancer-atlas.Annotated.mc3_v0_2_8_PUBLIC_maf`
       GROUP BY
         Hugo_Symbol,
         HGVSc
@@ -107,9 +108,9 @@ Ready to query? Great! First see the pancancer-atlas:README, then follow the ste
       mutRatios
     WHERE
       CaseCount>=10
-      AND ratio>=0.01
+      AND ratio>=0.2
+      AND HGVSc is not null
     ORDER BY
-      CaseCount,
       ratio DESC
 
 
