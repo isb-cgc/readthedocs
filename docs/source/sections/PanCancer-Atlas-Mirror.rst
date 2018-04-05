@@ -13,6 +13,20 @@ open-access datasets made available by the ISB-CGC
 and `that <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/Reference-Data.html>`_
 for more details on other publicly accessible BigQuery datasets).
 
+README
+######
+
+The Google BigQuery tables mirror the files shared by the PanCancer Atlas initiative on the `GDC <http://gdc.cancer.gov/about-data/publications/pancatlas>`_.
+
+For examples of usage, see `this. <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/PanCan-Atlas-Mirror.html>`_.
+
+Use of the tables in the Filtered dataset is suggested.
+
+The Staging dataset are essentially unmodified uploads of the file data.  The Staging tables are universally annotated as appropriate with ParticipantBarcode, SampleBarcode, AliquotBarcode, SampleTypeLetterCode, SampleType and TCGA Study, and put in Annotated. Then the Annotated tables are filtered using the PanCancer Atlas whitelist. Those filtered tables are found in the Filtered dataset.
+
+An exception is the (public)  *MC3 MAF file*, which is found in the  Annotated dataset
+
+
 Getting Started
 ###############
 
