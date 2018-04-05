@@ -52,13 +52,13 @@ Interactive Web-based Exploration
 #################################
 
 After going through the registration process described above, there will be a short
-delay before your Google identity is granted the necessary access to BigQuery and the PanCan Atlas
+delay before your Google identity is granted the necessary access to BigQuery and the PanCancer Atlas
 data resources.  If you get an error when running the sample query in this section, please
 wait 10-15 minutes and then try again. If you are still not successful, please
 `verify <https://accounts.google.com/ForgotPasswd>`_
 that the Google ID you have provided is a valid Google account.  If you are still not able
 to run the sample query given below, please contact us at feedback@isb-cgc.org.
-*Please note that some of the screen-shots on this page may be based on earlier versions of the PanCan Atlas tables, but the sample SQL on this page has been updated (and tested) to query the latest PanCan Atlas tables.*
+*Please note that some of the screen-shots on this page may be based on earlier versions of the PanCancer Atlas tables, but the sample SQL on this page has been updated (and tested) to query the latest PanCancer Atlas tables.*
 
     * `login <https://accounts.google.com/Login>`_ to your Google account (`Chrome <https://www.google.com/chrome/browser/desktop/index.html>`_ is the preferred browser);
     * go to the `BigQuery web UI <https://bigquery.cloud.google.com>`_  --  if you see a welcome screen inviting you to **Create a Project** then please do so;
@@ -114,8 +114,8 @@ BigQuery Usage Costs
 More details about BigQuery costs can be found in the Google
 `documentation <https://cloud.google.com/bigquery/pricing>`_.
 There are two basic types of costs: storage costs and usage costs.  ISB-CGC is hosting
-these PanCan Atlas tables in BigQuery and is paying for the storage costs (with support from NCI).
-The size of each PanCan Atlas table is less than 1.5 GB and therefore costs less than $0.25 per year to store.
+these PanCancer Atlas tables in BigQuery and is paying for the storage costs (with support from NCI).
+The size of each PanCancer Atlas table is less than 1.5 GB and therefore costs less than $0.25 per year to store.
 
 The main costs associated with using BigQuery are the query costs.  BigQuery is a
 cloud-based massively parallel analytic engine which can scan terabytes of data in seconds.
@@ -241,7 +241,7 @@ More SQL Examples
 #################
 
 Let's start with a few simple examples to get some practice using BigQuery, and to
-explore some of the available fields in these PanCan Atlas tables.
+explore some of the available fields in these PanCancer Atlas tables.
 
 Note that all of these examples are in "Standard SQL", so make sure that you have that enabled.
 (See instructions above regarding un-checking the "Legacy SQL" box in the BigQuery web UI.)
