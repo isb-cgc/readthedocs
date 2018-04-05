@@ -61,7 +61,7 @@ to run the sample query given below, please contact us at feedback@isb-cgc.org.
 Interactive Web-based Exploration
 #################################
 
-Ready to query? Follow the steps below to run your first BigQuery!
+Ready to query? Great! First see the pancancer-atlas:README, then follow the steps below to run your first BigQuery!
 
 *Please note that some of the screen-shots on this page may be based on earlier versions of the PanCancer Atlas tables, but the sample SQL on this page has been updated (and tested) to query the latest PanCancer Atlas tables.*
 
