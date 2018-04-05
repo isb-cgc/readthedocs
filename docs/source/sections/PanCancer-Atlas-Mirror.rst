@@ -16,7 +16,7 @@ for more details on other publicly accessible BigQuery datasets).
 README
 ######
 
-The Google BigQuery tables mirror the files shared by the PanCancer Atlas initiative on the `GDC <http://gdc.cancer.gov/about-data/publications/pancatlas>`_.
+The Google BigQuery tables mirror the files shared by the PanCancer Atlas initiative on the `GDC <https://gdc.cancer.gov/about-data/publications/pancanatlas>`_.
 
 For examples of usage, see `this. <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/PanCan-Atlas-Mirror.html>`_.
 
