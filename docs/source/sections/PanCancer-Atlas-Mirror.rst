@@ -46,8 +46,8 @@ a complete BigQuery table name has three components:
    * the third part (SwissProt) is the table name.
 
 
-Interactive Web-based Exploration
-#################################
+Troubleshooting
+###############
 
 After going through the registration process described above, there will be a short
 delay before your Google identity is granted the necessary access to BigQuery and the PanCancer Atlas
@@ -56,20 +56,27 @@ wait 10-15 minutes and then try again. If you are still not successful, please
 `verify <https://accounts.google.com/ForgotPasswd>`_
 that the Google ID you have provided is a valid Google account.  If you are still not able
 to run the sample query given below, please contact us at feedback@isb-cgc.org.
+
+
+Interactive Web-based Exploration
+#################################
+
+Ready to query? Follow the steps below to run your first BigQuery!
+
 *Please note that some of the screen-shots on this page may be based on earlier versions of the PanCancer Atlas tables, but the sample SQL on this page has been updated (and tested) to query the latest PanCancer Atlas tables.*
 
-    * `login <https://accounts.google.com/Login>`_ to your Google account (`Chrome <https://www.google.com/chrome/browser/desktop/index.html>`_ is the preferred browser);
-    * go to the `BigQuery web UI <https://bigquery.cloud.google.com>`_  --  if you see a welcome screen inviting you to **Create a Project** then please do so;
+* `login <https://accounts.google.com/Login>`_ to your Google account (`Chrome <https://www.google.com/chrome/browser/desktop/index.html>`_ is the preferred browser);
+* go to the `BigQuery web UI <https://bigquery.cloud.google.com>`_  --  if you see a welcome screen inviting you to **Create a Project** then please do so;
 
 
-    * click on the big red **COMPOSE QUERY** button in the upper left corner;
-    * click on the **Show Options**  button below the **New Query** text-box;
-    * un-check the **Use Legacy SQL** check-box (the bottom-most "option");
-    * click on the **Hide Options** button;
-    * paste the sample query below into the New Query text-box;
-    * within a second or two you should see a green circle with a check-mark below the lower-right-corner of the New Query text-box  --  if instead you see a red circle with an exclamation mark, click on it to see what your Syntax Error is;
-    * once you do have the green circle, you can click on it to see a message like: "Valid: This query will process 131 MB when run."
-    * to execute the query, click on **RUN QUERY** !
+* click on the big red **COMPOSE QUERY** button in the upper left corner;
+* click on the **Show Options**  button below the **New Query** text-box;
+* un-check the **Use Legacy SQL** check-box (the bottom-most "option");
+* click on the **Hide Options** button;
+* paste the sample query below into the New Query text-box;
+* within a second or two you should see a green circle with a check-mark below the lower-right-corner of the New Query text-box  --  if instead you see a red circle with an exclamation mark, click on it to see what your Syntax Error is;
+* once you do have the green circle, you can click on it to see a message like: "Valid: This query will process 131 MB when run."
+* to execute the query, click on **RUN QUERY** !
 
 
 .. code-block:: sql
