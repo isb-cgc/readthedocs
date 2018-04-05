@@ -2,7 +2,7 @@
 PanCancer Atlas BigQuery Mirror
 *******************************
 
-The PanCancer BigQuery Mirror -- produced in 
+The PanCancer BigQuery Mirror -- produced in
 collaboration with the `TCGA research network <https://cancergenome.nih.gov/>`_,
 the `GDC <https://gdc.cancer.gov/>`_, and the `NCI <https://www.cancer.gov/>`_ -- provide
 a new way to explore and understand the processes driving cancer.
@@ -16,7 +16,7 @@ for more details on other publicly accessible BigQuery datasets).
 Getting Started
 ###############
 
-`Register a cloud project <https://cloud.google.com/resource-manager/docs/creating-managing-projects>`_ for access to `BigQuery <https://cloud.google.com/bigquery/what-is-bigquery>`_ :
+`Register a cloud project <https://cloud.google.com/resource-manager/docs/creating-managing-projects>`_ for access to `BigQuery <https://cloud.google.com/bigquery/what-is-bigquery>`_ .
 
 Adding the PanCancer Atlas tables to your workspace
 ###################################################
