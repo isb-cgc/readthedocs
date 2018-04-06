@@ -94,16 +94,17 @@ We recomend using Google Chrome browser.  We currently will display a chart slig
 
 **Why did I get a 401 error on the IGV Browser?**
 
-You will see the 401 error only if your popup blocker is enabled for the issb-cgc website.  Please disable the pop-up bockr on the top right hand side of the screen by selecting to always allow pop-ups from ISB-CGC.
+You will see the 401 error only if your popup blocker is enabled for the isb-cgc website.  Please disable the pop-up blocker on the top right-hand side of the screen by selecting to always allow pop-ups from ISB-CGC.
 
 .. image:: 401ErrorIGVBrowser.PNG
    :scale: 50
    :align: center
    
 
-**Does SeqPeek and CNVR plotting does it only work with TCGA data?**
+**Does SeqPeek and CNVR plotting only work with TCGA data?**
 
-We currently have no data assocaited with CNVR or Seqpeek for TARGET or CCLE.  Therefore, SeqPeek and CNVR will only work with TCGA data.
+We currently have no data associated with CNVR or Seqpeek for TARGET or CCLE.  Therefore, SeqPeek and CNVR will only work with TCGA data.
+
 
 Data Access
 ###########
