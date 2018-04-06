@@ -307,7 +307,7 @@ From the "SAVED COHORTS" tab you can:
 * Share: This will share the web view of the cohorts with users you select by entering the users e-mail. If the email address you entered in
   not registered in the database you are prompted with a message saying, "The following user emails could not be found; please ask them to
   to log into the site first:(email entered)."
-* Export to BQ(BigQuery): This will allow you to create a new table or append to an existing table. You must have registered BigQuery dataset with a Google Cloud Project on the registered Google Cloud Projects details page. More information on how to register can BigQuery dataset can be found `here<http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_.
+* Export to BQ(BigQuery): This will allow you to create a new table or append to an existing table. You must have registered BigQuery dataset with a Google Cloud Project on the registered Google Cloud Projects details page. More information on how to register a BigQuery dataset can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_.
   If a user wants to export their cohort to a premade table of their own, we require it to have the necessary columns. Here's the schema: 
   
   {
@@ -425,7 +425,7 @@ The file contains the following information for each file:
 Export File List to BigQuery
 ----------------------------
 
-To export the File list to BigQuery, select the button Export to BQ.  You will need to have registered a Google Cloud Project and a BigQuery dataset to be able to export to BigQuery. More information on how to register a BigQuery Dataset can be found `here<http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_. You can either make a new table or append an existing table.  You can also give the table a unique name if left blank we will provide a name for the table.
+To export the File list to BigQuery, select the button Export to BQ.  You will need to have registered a Google Cloud Project and a BigQuery dataset to be able to export to BigQuery. More information on how to register a BigQuery Dataset can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_. You can either make a new table or append an existing table.  You can also give the table a unique name if left blank we will provide a name for the table.
 
 The table will contain the following information:
 
