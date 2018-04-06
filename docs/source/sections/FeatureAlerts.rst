@@ -11,7 +11,6 @@ Feature Alerts
    :scale: 25
    :align: center
 
-
 *January 10, 2018*
 
 **FeatureAlert:** You can now view TCGA pathology images using caMicroscope on the ISB-CGC website. For more information please go `here. <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html#viewing-a-pathology-image>`_
