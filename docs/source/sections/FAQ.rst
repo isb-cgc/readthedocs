@@ -103,6 +103,7 @@ You will see the 401 error only if your popup blocker is enabled for the issb-cg
 
 **Does SeqPeek and CNVR plotting does it only work with TCGA data?**
 
+We currently have no data assocaited with CNVR or Seqpeek for TARGET or CCLE.  Therefore, SeqPeek and CNVR will only work with TCGA data.
 
 Data Access
 ###########
