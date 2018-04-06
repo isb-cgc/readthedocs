@@ -90,7 +90,21 @@ This is a security feature when working with forms found in most web browsers; i
 
 **Which web browser is recomended to use when working with the site?**
 
-We recomend using Google Chrome browser.  We currently will display a chart slightly off when working with workbooks on a FireFox browser. Also, if you use Internet Explorer you will be unable to create a cohort when using the cohort filter feature pag at this time.
+We recomend using Google Chrome browser.  We currently will display a chart slightly off when working with workbooks on a FireFox browser. 
+
+**Why did I get a 401 error on the IGV Browser?**
+
+You will see the 401 error only if your popup blocker is enabled for the isb-cgc website.  Please disable the pop-up blocker on the top right-hand side of the screen by selecting to always allow pop-ups from ISB-CGC.
+
+.. image:: 401ErrorIGVBrowser.PNG
+   :scale: 50
+   :align: center
+   
+
+**Does SeqPeek and CNVR plotting only work with TCGA data?**
+
+We currently have no data associated with CNVR or Seqpeek for TARGET or CCLE.  Therefore, SeqPeek and CNVR will only work with TCGA data.
+
 
 Data Access
 ###########
