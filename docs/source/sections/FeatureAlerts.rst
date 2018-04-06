@@ -3,7 +3,7 @@ Feature Alerts
 ************************
 
 
-*April 6,2018*
+*April 6, 2018*
 
 **Feature Alert:**  You are now able to Export to BigQuery and entire cohort by genomic build using the File Browser page! For more information please go `here. <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html#export-file-list-to-bigquery>`_
 
@@ -20,7 +20,7 @@ Feature Alerts
    :scale: 25
    :align: center
 
-*December 11,2017*
+*December 11, 2017*
 
 **Feature Alert:** You can now create a cohort by uploading a .JSON or a .TSV file from the Genomic Data Commons(GDC) using the new barcode upload feature! For more information please go `here. <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html#upload-tab>`_
 
@@ -29,7 +29,7 @@ Feature Alerts
    :scale: 25
    :align: center
 
-*December 11,2017*
+*December 11, 2017*
 
 **Feature Alert:** - You can now send a cohort you have created in the web application to a new BigQuery table or append an existing table!  For more information please go `here. <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html#cohort-details-page>`_
 
