@@ -5,7 +5,7 @@ Feature Alerts
 
 *April 6, 2018*
 
-**Feature Alert:**  You are now able to Export to BigQuery an entire cohort by genomic build using the File Browser page! For more information please go `here. <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html#export-file-list-to-bigquery>`_
+**Feature Alert:**  You are now able to BigQuery an entire cohort file manifest by genomic build using the File Browser page! For more information please go `here. <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html#export-file-list-to-bigquery>`_
 
 .. image:: ExportBQTweet-1.png
    :scale: 25
