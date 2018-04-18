@@ -11,3 +11,6 @@ The links on this page connect to tutorials and other helpful pages created by t
 * `Moving from GDC to ISB-CGC <GDCTutorials/FromGDCtoISBCGC.html>`__
 * `Viewing and using cohorts in the Webapp and API <webapp/ViewingCohorts.html>`__
 * `Walkthrough of BigQuery <progapi/bigqueryGUI/WalkthroughOfGoogleBigQuery.html>`__
+* `Using dsub Examples <https://github.com/isb-cgc/ISB-CGC-Examples/tree/master/dsub/kallisto>`__
+
+

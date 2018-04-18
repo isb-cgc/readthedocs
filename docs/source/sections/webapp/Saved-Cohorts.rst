@@ -307,7 +307,7 @@ From the "SAVED COHORTS" tab you can:
 * Share: This will share the web view of the cohorts with users you select by entering the users e-mail. If the email address you entered in
   not registered in the database you are prompted with a message saying, "The following user emails could not be found; please ask them to
   to log into the site first:(email entered)."
-* Export to BQ(BigQuery): This will allow you to create a new table or append to an existing table. You must have registered BigQuery dataset with a Google Cloud Project on the registered Google Cloud Projects details page. 
+* Export to BQ(BigQuery): This will allow you to create a new table or append to an existing table. You must have registered BigQuery dataset with a Google Cloud Project on the registered Google Cloud Projects details page. More information on how to register a BigQuery dataset can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_.
   If a user wants to export their cohort to a premade table of their own, we require it to have the necessary columns. Here's the schema: 
   
   {
@@ -396,16 +396,12 @@ platforms by dragging the platform names up and down.
 
 .. _viewfilelist:
 
-View Files Page
+View File Browser Page
 ---------------
 
-"View Files" takes you to a new page where you can view the complete list of data files associated with your current the cohort.
- The file list page provides a paginated list of files available with all samples in the cohort. Here, "available" refers
-to files that have been uploaded to the ISB-CGC Google Cloud Project, including both controlled access and open access data.  
-You can use the "Previous Page" and "Next Page" buttons to see more values in the list.
+"File Browser" takes you to a new page where you can view the complete list of data files associated with your current the cohort.  The file list page provides a paginated list of files available with all samples in the cohort. Here, "available" refers to files that have been uploaded to the ISB-CGC Google Cloud Project, including both controlled access and open access data. You can use the "Previous Page" and "Next Page" buttons to see more values in the list.
 
-You can filter by Genomic Build either HG19 or HG38 and view which platforms and files are available for the build selected.  You may also filter on these files if you are only interested in a specific data type and platform.  Selecting a filter will
-update the associated list.  The numbers next to the platform refers to the number of files available for that platform.
+You can filter by Genomic Build either HG19 or HG38 and view which platforms and files are available for the build selected.  You may also filter on these files if you are only interested in a specific data type, data format, platform, disease code, disease strategy, and/or experimental strategy.  Selecting a filter will update the associated list.  The numbers next to the filter refers to the number of files available for that filter.
 
 If there are files that contain read-level data are displayed in the IGV column, you will be able to select files to view in the IGV 
 viewer by selecting check boxes beside the viewer and selecting "Launch IGV" button.  The term "cloud storage" represents there are bam files associated to the sample in Google Cloud Storage for ISB-CGC that can be viewed in IGV browser.  Only if you have authenticated 
@@ -414,9 +410,9 @@ as a dbGaP authorized user will you be able to select controlled access files to
 Download File List as CSV
 -------------------------
 
-To download a list of files that are part of this cohort, select the link in the upper right on the File Listing panel called "Download File List as CSV". This will begin a
-download process of all the files available for the cohort, taking into account the selected Platform filters. The file
-contains the following information for each file:
+To download a list of files that are part of this cohort, select the button in the upper right on the File Listing panel called "CSV". This will begin a download process of all the files available for the cohort, taking into account the selected filters. 
+
+The file contains the following information for each file:
 
 * Program
 * Sample Barcode
@@ -425,6 +421,29 @@ contains the following information for each file:
 * Data Level
 * File Path to the Cloud Storage Location
 * Access type (open or controlled access)
+
+Export File List to BigQuery
+----------------------------
+
+To export the File list to BigQuery, select the button Export to BQ.  You will need to have registered a Google Cloud Project and a BigQuery dataset to be able to export to BigQuery. More information on how to register a BigQuery Dataset can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_. You can either make a new table or append an existing table.  You can also give the table a unique name if left blank we will provide a name for the table.
+
+The table will contain the following information:
+
+* cohort_id
+* case_barcode
+* sample_barcode
+* project_short_name
+* date_added
+* build 
+* gdc_file_uuid
+* gdc_case_uuid
+* platform 
+* exp_strategy
+* data_category
+* data_type
+* data_format
+* cloud_storage_location
+
 
 Viewing a Sequence
 ==================
@@ -439,7 +458,7 @@ Controlled access files will be viewable by sequence ONLY if you have `authentic
 Viewing a Pathology Image
 =========================
 
-When available, pathology images can be viewed using the caMicroscope tool (see more about caMicroscope provide `here <http://imaging.cci.emory.edu/wiki/display/CAMIC/Home>`_ ).  These are the pathology images that are associated with TCGA samples (not all files are currently available, due to some metadata that is not in place at GDC describing the image files.  ISB-CGC is working with GDC to resolve this issue, and more images will be appearing when that issue is resolved).  To find images that can be viewed, open a saved cohort and select the "View Files" button at the top of the page.  The files associated with your cohort will be shown, with the last column indicating if the caMicro viewer can be used to view the contents of that file.  This is indicated by a checkbox beside the word caMicro (HINT: by selecting the "Clinical" platform ONLY the clinical files that have the pathology images associated with them will be displayed.)(HINT 2: using a smaller cohort will provide faster response in creating the list of files available).
+When available, pathology images can be viewed using the caMicroscope tool (see more about caMicroscope provide `here <http://camicroscope.org>`_ ).  These are the pathology images that are associated with TCGA samples (not all files are currently available, due to some metadata that is not in place at GDC describing the image files.  ISB-CGC is working with GDC to resolve this issue, and more images will be appearing when that issue is resolved).  To find images that can be viewed, open a saved cohort and select the "View Files" button at the top of the page.  The files associated with your cohort will be shown, with the last column indicating if the caMicro viewer can be used to view the contents of that file.  This is indicated by a checkbox beside the word caMicro (HINT: by selecting the "Clinical" platform ONLY the clinical files that have the pathology images associated with them will be displayed.)(HINT 2: using a smaller cohort will provide faster response in creating the list of files available).
 
 A maximum of 5 slides can be viewed at one time.  To view these slides, select the caMicro check-boxes for each sample you want to view.  Then, go to the top of the page, and select the "caMicroscope" tab. The images that have been selected to view are shown. Pressing the "Launch caMicrosope" button launches a new window with individual tabs displaying the image.  To zoom into the image, either click the left button or use your wheel to zoom in.  Use your mouse to move around the image.  To zoom out of the image, shift-slick the left mouse button or use your wheel to zoom out.  Individual tabs with each image can also be launched to compare multiple images by pushing the "Open in new tab" button.
 
