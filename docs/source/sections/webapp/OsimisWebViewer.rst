@@ -16,4 +16,11 @@ Typically, the viewer loads reduced resolution instance for all series as quickl
 
 When instance images are loaded, you can scroll through the instances using your mouses thumbwheel or equvalent. As you scroll, the grid at the bottom of the screen highlights the instance currently being displayed. Clicking on a rectangle in the grid causes the corresponding instance to be displayed. Finally, the controls in the lower left corner of the main window enable you to single step forward or back through the series, and to cycle throught series repeatedly. A frame rate slider pops up when you hover over the play button. 
 
-A set of buttons to control 
+A set of buttons to control |Ellip| support additional operations.
+
+.. |Ellip| image:: OsimisEllipticalROI.png
+  :align: top
+  
+
+  
+  
