@@ -46,15 +46,28 @@ Of the remaining buttons, some are modal, changing the effect of the cursor drag
 * The **Magnifying Glass** button |glass| is modal. Hovering the cursor over the button displays a pop-up containing two sliders that control the magnification level and size of a virtual magnifying glass. When selected, dragging the cursor with mouse button depressed opens a virtual magnifying glass that displays a magnified rendering of the underlying image in the region of the cursor.
 
 .. |glass| image:: OsimisGlass.png
+
 * The **Length Measurement** button |len| is modal. When selected, the distance in physical units between two points in an image can be measured. To perform a measurement, click the mouse button once with the cursor over some point of interest, and then again over a second point of interest. Alternatively, depress and hold the mouse button while the cursor is over the first point of interest, then release the mouse button while the cursor is over the send point of interest. A line joining the two points and its length are displayed. The line will scale if the image is zoomed in or out.
-   A measurement line can be moved by clicking in it and dragging. To remove a measurement line, drag an endpoint outside of the (sub)viewport.
+
+   A measurement line can be moved by clicking on it and dragging. To remove a measurement line, drag an endpoint outside of the (sub)viewport.
+   
+   A length measurement is only visible on the instance on which it was made. There is currently no support for saving length measurements.
 
 .. |len| image:: OsimisLength.png
 * The **Angle Measurement** button |ang| is modal. When selected, the angle between two lines in an image can be measured. To perform a measurement, click on a point of interest in an image. A pair of lines are displayed. Drag the end points of the lines as needed to form the angle to be measured. The angle between the line is displayed continuously as any endpoint is dragged.
+  
   To remove an angle measurement, drag an endpoint outside of the (sub)viewport.
+  
+  An angle measurement is only visible on the instance on which it was made. There is currently no support for saving angle measurements.  
 
 .. |ang| image:: OsimisAngle.png
+* The **Pixel Probe** button |probe| is modal. When selected, clicking on a point in an instance displays a circle at the probe point, the X and Y location of the pixel relative to the top, left corner of the instance, and the intensity or color of the selected pixel. The intensity of monochrome instances is spcified in both SP and MO coordinates. The color of color instances is specified in RGB coordinates.
 
+  To remove a probe, drag it outside of the (sub)viewport.
+
+  A pixel probe is only visible on the instance on which it was made. There is currently no support for saving pixel probes.  
+
+.. |probe| image:: OsimisPixelProbe.png
 
 
 
