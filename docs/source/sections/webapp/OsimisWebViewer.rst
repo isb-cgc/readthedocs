@@ -49,32 +49,35 @@ Of the remaining buttons, some are modal, changing the effect of the cursor drag
 
 * The **Length Measurement** button |len| is modal. When selected, the distance in physical units between two points in an image can be measured. To perform a measurement, click the mouse button once with the cursor over some point of interest, and then again over a second point of interest. Alternatively, depress and hold the mouse button while the cursor is over the first point of interest, then release the mouse button while the cursor is over the send point of interest. A line joining the two points and its length are displayed. The line will scale if the image is zoomed in or out.
 
-   A measurement line can be moved by clicking on it and dragging. To remove a measurement line, drag an endpoint outside of the (sub)viewport.
-   
-   A length measurement is only visible on the instance on which it was made. There is currently no support for saving length measurements.
+  A measurement line can be moved by clicking on it and dragging. To remove a measurement line, drag an endpoint outside of the (sub)viewport.
+ 
+  A length measurement is only visible on the instance on which it was made. There is currently no support for saving length measurements.
 
 .. |len| image:: OsimisLength.png
 * The **Angle Measurement** button |ang| is modal. When selected, the angle between two lines in an image can be measured. To perform a measurement, click on a point of interest in an image. A pair of lines are displayed. Drag the end points of the lines as needed to form the angle to be measured. The angle between the line is displayed continuously as any endpoint is dragged.
   
-  To remove an angle measurement, drag an endpoint outside of the (sub)viewport.
+  An angle measurement can be moved by clicking on one of the lines and dragging it while holding down the mouse button. To remove an angle measurement, drag an endpoint outside of the (sub)viewport.
   
   An angle measurement is only visible on the instance on which it was made. There is currently no support for saving angle measurements.  
 
 .. |ang| image:: OsimisAngle.png
-* The **Pixel Probe** button |probe| is modal. When selected, clicking on a point in an instance displays a circle at the probe point, the X and Y location of the pixel relative to the top, left corner of the instance, and the intensity or color of the selected pixel. The intensity of monochrome instances is spcified in both SP and MO coordinates. The color of color instances is specified in RGB coordinates.
+* The **Pixel Probe** button |probe| is modal. When selected, clicking on a point in an instance displays a circle at the probe point, the X and Y location of the pixel relative to the top left corner of the instance, and the intensity or color of the selected pixel. The intensity of monochrome instance pixels is specified in both SP and MO coordinates. The value of color instance pixels is specified in RGB coordinates.
 
-  To remove a probe, drag it outside of the (sub)viewport.
+  An pixel probe can be moved by clicking on the probe indicator and dragging it while hold down the mouse button. To remove a probe, drag it outside of the (sub)viewport.
 
   A pixel probe is only visible on the instance on which it was made. There is currently no support for saving pixel probes.  
 
 .. |probe| image:: OsimisPixelProbe.png
+* The **Elliptical ROI** button |eROI| is modal. When selected, click and drag one of the small circles to configure an ellipse around a region of interest. You can drag either of the control circles for this purpose. The area in pixels of the ellipse is displayed near the ellipse. On monotone instances, the mean and standard deviation of the intensities of the pixels within the ellipse are also displayed. 
+  
+  An ellipse can be moved by clicking on the border of the ellipse and dragging it while holding down the mouse button. To remove an ellipse, drag one of its control points outside of the (sub)viewport.
+
+  An elliptical ROI  is only visible on the instance on which it was made. There is currently no support for saving elliptical ROIs.
+  
+.. |eROI| image:: OsimisEllipticalROI.png
 
 
 
-|ellip| support additional operations.
-
-.. |ellip| image:: OsimisEllipticalROI.png
-  :align: top
   
 
   
