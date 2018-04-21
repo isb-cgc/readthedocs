@@ -68,13 +68,32 @@ Of the remaining buttons, some are modal, changing the effect of the cursor drag
   A pixel probe is only visible on the instance on which it was made. There is currently no support for saving pixel probes.  
 
 .. |probe| image:: OsimisPixelProbe.png
-* The **Elliptical ROI** button |eROI| is modal. When selected, click and drag one of the small circles to configure an ellipse around a region of interest. You can drag either of the control circles for this purpose. The area in pixels of the ellipse is displayed near the ellipse. On monotone instances, the mean and standard deviation of the intensities of the pixels within the ellipse are also displayed. 
+* The **Elliptical ROI** button |eROI| is modal. When selected, click and drag one of the small circles to configure an elliptical region of interest. You can drag either of the control circles for this purpose. The area, in pixels, of the ellipse is displayed near the ellipse. On monotone instances, the mean and standard deviation of the intensities of the pixels within the ellipse are also displayed. 
   
-  An ellipse can be moved by clicking on the border of the ellipse and dragging it while holding down the mouse button. To remove an ellipse, drag one of its control points outside of the (sub)viewport.
+  An ellipse can be moved by clicking on its border and dragging it while holding down the mouse button. To remove an elliptical ROI, drag one of its control points outside of the (sub)viewport.
 
   An elliptical ROI  is only visible on the instance on which it was made. There is currently no support for saving elliptical ROIs.
   
 .. |eROI| image:: OsimisEllipticalROI.png
+* The **Rectangle ROI** button |rROI| is modal. When selected, click and drag one of the small circles to configure a rectangular region of interest. You can drag either of the control circles for this purpose. The area, in pixels, of the rectangle is displayed near the rectangle. On monotone instances, the mean and standard deviation of the intensities of the pixels within the rectangle are also displayed. 
+  
+  A rectangle can be moved by clicking on its border and dragging it while holding down the mouse button. To remove a rectangular ROI, drag one of its control points outside of the (sub)viewport.
+
+  A rectangular ROI is only visible on the instance on which it was made. There is currently no support for saving rectangular ROIs.
+  
+.. |rROI| image:: OsimisRectangleROI.png
+* The **Rotate Left** button |left| immediately performs a ninety degree left rotation of the image in the (sub)viewport that has focus.
+
+.. |left| image:: OsimisRotateLeft.png
+* The **Rotate Right** button |right| immediately performs a ninety degree right rotation of the image in the (sub)viewport that has focus.
+
+.. |right| image:: OsimisRotateRight.png
+* The **Flip Horizontally** button |hflip| immediately performs a flip about the Y axis of the image in the (sub)viewport that has focus.
+
+.. |hflip| image:: OsimisFlipHorizontally.png
+* The **Flip Vertically** button |vflip| immediately performs a flip about the X axis of the image in the (sub)viewport that has focus.
+
+.. |vflip| image:: OsimisFlipVertically.png
 
 
 
