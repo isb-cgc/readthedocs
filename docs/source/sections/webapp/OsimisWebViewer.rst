@@ -1,8 +1,12 @@
 Radiology Viewer
 ================
-Radiology images are viewed in an Osimis Web Viewer, a plug-in to the Orthanc image server (Orthanc). The ISB_CGC web application uses an instance of Orthanc to manage radiology files for the purpose of viewing. Currently only DICOM formatted files from TCGA samples are available for viewing. It may be helpful to understand the `DICOM Model of the Real World <http://dicom.nema.org/medical/dicom/current/output/html/part03.html#chapter_7>`_. 
+Radiology images are viewed in an Osimis Web Viewer, a plug-in to the Orthanc Image Server (Orthanc). The ISB_CGC web application uses an instance of Orthanc to manage radiology files for the purpose of viewing. Currently only DICOM formatted files from TCGA samples are available for viewing. It may be helpful to review the `DICOM Model of the Real World <http://dicom.nema.org/medical/dicom/current/output/html/part03.html#chapter_7>`_ to understand the relationship patients DICOM studies, DICOM series and DICOM instances. 
 
-An instance the Osimis Web Viewer is opened in a new tab when a DICOM study is selected in the ISB-CGC web application `File Browser page`_. All the DICOM series which comprise the selected study are shown as thumbnail images on the left side of the page. Note that it can take several seconds for these thumnails to appear.
+An Osimis Web Viewer is opened in a new tab when a DICOM study is selected in the ISB-CGC web application `File Browser page`_. 
+
+.. image:: OsimisPick.png
+
+All the DICOM series which comprise the selected study are shown as thumbnail images on the left side of the page. Note that it can take several seconds for these thumnails to appear.
 
 .. _File Browser page: https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html#view-file-browser-page
 
