@@ -82,16 +82,16 @@ workflows in the Google cloud, starting with workflows defined with CWL.
 There's a lot to explore in this area, and it's hopefully going to be useful
 for people.
 
-We appear to be moving towards a future where bioinformatics tools are rutinely
+We appear to be moving towards a future where bioinformatics tools are routinely
 bundled into runtime containers (like docker), which are somehow 'approved' by the
-research community as being safe and effective, launched in the cloud, processing
-data in the cloud, and writing exports back to the cloud.
+research community as being safe and effective, launched in the cloud, process
+data in the cloud, and writing results to the cloud.
 
-We have some very low level details on
+We previously documented some very low level details on
 `running CWL workflows <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/CWL_intro.html>`_,
-but with some `code <https://github.com/googlegenomics/pipelines-api-examples/tree/master/cwl_runner>`_
- from Google, we've made some updates to the scripts and the
-current working google CWL runner is found in our
+but starting with some `code <https://github.com/googlegenomics/pipelines-api-examples/tree/master/cwl_runner>`_
+from Google, we've made some updates to the scripts, and with them you can (fairly) easily run CWL workflows
+in the cloud. The current working google CWL runner is found in our
 `examples-Compute <https://github.com/isb-cgc/examples-Compute/tree/master/google_cwl_runner>`_
 repo.
 
