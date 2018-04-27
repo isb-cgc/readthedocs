@@ -85,12 +85,13 @@ for people.
 We appear to be moving towards a future where bioinformatics tools are routinely
 bundled into runtime containers (like docker), which are somehow 'approved' by the
 research community as being safe and effective, launched in the cloud, process
-data in the cloud, and writing results to the cloud.
+data in the cloud, and write results to the cloud. Sounds great, but how does one
+do that?
 
 We previously documented some very low level details on
 `running CWL workflows <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/CWL_intro.html>`_,
-but starting with some `code <https://github.com/googlegenomics/pipelines-api-examples/tree/master/cwl_runner>`_
-from Google, we've made some updates to the scripts, and with them you can (fairly) easily run CWL workflows
+but to make things easier, we started with some `code <https://github.com/googlegenomics/pipelines-api-examples/tree/master/cwl_runner>`_
+from Google, made some updates to the scripts, and with them you can (fairly) easily run CWL workflows
 in the cloud. The current working google CWL runner is found in our
 `examples-Compute <https://github.com/isb-cgc/examples-Compute/tree/master/google_cwl_runner>`_
 repo.
