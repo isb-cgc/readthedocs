@@ -194,13 +194,6 @@ To get some data to work on, I moved some bams from the
 `ENCODE project <http://hgdownload.cse.ucsc.edu/goldenPath/hg19/encodeDCC/wgEncodeUwRepliSeq/>`_
 to my bucket's data folder.
 
-Cool trick: directly move a file from the web to your bucket using:
-
-.. code-block:: bash
-
-  wget http://bam1.bam | gsutil -m cp -I gs://my-bucket/bamtobam/data
-
-
 The last thing we need is a settings file. This maps actual file names in our bucket
 and parameter values to variable names found in the CWL.
 The paths are relative to the location to the CWL file. Here's what I used (in the yaml format):
