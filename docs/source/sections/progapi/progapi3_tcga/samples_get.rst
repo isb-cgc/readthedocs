@@ -650,7 +650,7 @@ Given a sample barcode (of length 16, *eg* TCGA-B9-7268-01A), this endpoint retu
 
 **Example**::
 
-	curl https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_tcga_api/v3/samples/TCGA-ZH-A8Y6-1A
+	curl https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_tcga_api/v3/tcga/samples/TCGA-ZH-A8Y6-01A
 
 **API explorer example**:
 
