@@ -169,40 +169,40 @@ What's samtools view doing? Well, if we look in `Aaron Quinlan's github repo <ht
 "The samtools view command is the most versatile tool in the samtools package. It's main function, not surprisingly, is to allow you to convert the binary (i.e., easy for the computer to read and process) alignments in the BAM file view to text-based SAM alignments that are easy for humans to read and process."
 The 'view' command, with the -Shb flags will (-S is depreciated) -h includes the header, -b outputs a bam. This is simply a bam-to-bam workflow.
 
-We will 'view' an input file, named 'filein', and output a file, named 'fileout' (creative huh?). But those are the inputs,
-which I'm giving to samtools. The order of the samtools parameters is controlled by the position, and in the case of
+We will 'view' an input file, named 'filein', and output a file, named 'fileout' (creative huh?). But those are the inputs, or arguments,
+that I'm giving to samtools. The order of the samtools parameters is controlled by the position, and in the case of
 'fileout', I'm attaching a prefix '-o' (the output flag).
 
-We still have the CWL outputs section. This is actually what get's connected up to a workflow made up
-from a series of steps. Here I've called it 'bamsout', and declair the file will be named 'something dot bam' (*.bam).
+We still have the CWL outputs section. This is actually what gets connected up to a workflow (a series of steps).
+Here I've called it 'bamsout', and declare the file will be named 'something dot bam' (*.bam).
 
 OK then, still with me? Next I set up a google bucket with data and output folders. This is also where the CWL files go.
 
 ::
 
-  Buckets/
-    my-workflows/
-      bamtobam/
-        samtools_bamtobam_single_file.cwl
-        data/
-          bam1.bam
-          bam2.bam (etc)
-        outputs/
+      my-bucket/
+          bamtobam/
+              samtools_bamtobam_single_file.cwl
+              data/
+                  bam1.bam
+                  bam2.bam (etc)
+              outputs/
 
 
 To get some data to work on, I moved some bams from the
 `ENCODE project <http://hgdownload.cse.ucsc.edu/goldenPath/hg19/encodeDCC/wgEncodeUwRepliSeq/>`_
 to my bucket's data folder.
 
-Cool trick: diectly move a file from the web to your bucket using:
+Cool trick: directly move a file from the web to your bucket using:
 
 .. code-block:: bash
 
   wget http://bam1.bam | gsutil -m cp -I gs://my-bucket/bamtobam/data
 
 
-The last thing we need is a settings file. This maps actual file names and parameter values to variable names found in the CWL.
-The paths are in relation to the location to the CWL file. Here's what I used (in the yaml format):
+The last thing we need is a settings file. This maps actual file names in our bucket
+and parameter values to variable names found in the CWL.
+The paths are relative to the location to the CWL file. Here's what I used (in the yaml format):
 
 ::
 
@@ -215,9 +215,11 @@ You can see the filein and fileout names match up with what's in the CWL. This
 is important.
 
 Then after cloning our repo (git clone https://github.com/isb-cgc/examples-Compute),
-we can run it! I was running this in a google VM, which made running the script very fast.
-The cwl_runner script sets up a new VM, attaches a disk, copies over the data,
-runs the CWL, copies out the data. Here's the command:
+we can run it!
+The cwl_runner.sh script sets up a new VM, runs the cwl_startup.sh script,
+attaches a disk, copies over the data,
+runs the CWL, copies out the data, and shuts everything down by running the cwl_shutdown.sh script.
+Here's the command:
 
 ::
 
@@ -231,14 +233,14 @@ runs the CWL, copies out the data. Here's the command:
     --keep-alive \
     --preemptible
 
-Notice we can use preemptible machines to save money. So running this reads the bam
+Notice we can use preemptible machines to save money. So running this command reads the bam
 and writes out a new bam, which is found in our bucket after a few minutes.
 
 **debugging**
 
-If something is going wrong (it probably will), there's a few things we can do.
+If something geos wrong (it probably will), there's a few things we can do.
 First, check the logs! The stderr and stdout is copied back to our bucket,
-and within that we can find errors. Commonly (for me) paths are misformed.
+and within those files we can find errors. Commonly (for me) paths can be wrong.
 
 Second, you can try modifying the cwl_startup.sh script to include some print
 statements. I've put in some statements to print out directory listings,
@@ -291,8 +293,8 @@ There's some big differences between this definition and our tool definition.
 For starters we have a new requirements: ScatterFeatureRequirement which
 let's us perform a scatter (process multiple files in parallel).
 
-Then in our input section, we have defined an array of files and strings,
-and in the output section, our array of output files, noting that the
+Then in our input section, we have defined an array of files and strings.
+In the output section, an array of output files, noting that the
 source of these outputs is from step1 (outputSource: step1/bamsout).
 
 The steps section has only a single step. We'll run our previously defined tool,
