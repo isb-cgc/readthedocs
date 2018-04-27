@@ -342,7 +342,7 @@ If all goes well, you should see:
 
 Whew! It's a really steep learning curve, but the payoff is that in two years,
 when you wonder 'how did I do this?', you can look back and easily figure that out
-and probably even run it again.
+and probably (maybe) even run it again.
 
 Next month we'll get into running multiple steps, and perhaps look at another
 CWL runner, Cromwell which will have CWL support very soon. Let me know how it goes!
