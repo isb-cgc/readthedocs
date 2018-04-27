@@ -336,7 +336,7 @@ And again we run it the same way, except, note that we put our tool definition
 
 If all goes well, you should see:
 
-.. figure:: query_figs/apr_fig1_bucket_output.png=
+.. figure:: query_figs/apr_fig1_bucket_output.png
   :scale: 50
   :align: center
 
