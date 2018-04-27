@@ -95,13 +95,13 @@ in the cloud. The current working google CWL runner is found in our
 `examples-Compute <https://github.com/isb-cgc/examples-Compute/tree/master/google_cwl_runner>`_
 repo.
 
-In this example, we'll be working with this `CWL document: transform.cwl <https://github.com/NCI-GDC/gdc-dnaseq-cwl/blob/master/workflows/dnaseq/transform.cwl>`_.
+In this example, we'll be working with `this document: transform.cwl <https://github.com/NCI-GDC/gdc-dnaseq-cwl/blob/master/workflows/dnaseq/transform.cwl>`_.
 
 The CWL workflow has a few sections: requirements, inputs, outputs, and steps.
 The purpose of the workflow is to execute the steps, where each step is a tool
 (also described by a CWL) which has a set of inputs and outputs.
 
-The first step is:
+In transform.cwl, the first step is:
 
 ::
 
@@ -115,14 +115,14 @@ The first step is:
           - id: OUTPUT
 
 
-Let's take a close look at the first step
+Let's look more closely at this first step
 (`samtools_bamtobam.cwl <https://github.com/NCI-GDC/gdc-dnaseq-cwl/blob/master/tools/samtools_bamtobam.cwl>`_)
-and see if we can run it, first on one file, and then on a set of files.
+and see if we can run it; first on one file, and then on a set of files.
 
 
 **single file**
 
-To make the example a little more accessable, I've rewritten the tool CWL,
+To make the example a little more accessible, I've rewritten the CWL,
 as seen below.
 
 ::
@@ -156,16 +156,18 @@ as seen below.
       outputBinding:
         glob: "*.bam"
 
-OK. This is going to run `samtools <http://www.htslib.org/doc/samtools.html>`_, so we've defined this CWL as a CommandLineTool.
+OK, let's start at the top.
+This is going to run `samtools <http://www.htslib.org/doc/samtools.html>`_, so we've defined this CWL as a CommandLineTool.
 
 Then, since this is running in the cloud, we need the tool to be dockerized. I did
 a little searching, and found a `biocontainer <https://biocontainers.pro/>`_ with
-`samtools <https://hub.docker.com/r/biocontainers/samtools/>`_.
+`samtools <https://hub.docker.com/r/biocontainers/samtools/>`_. We let CWL know this is a dockerized
+tool with our DockerRequirement hint.
 
-Next we have  baseCommand, which is a command line command that's broken up by commas.
+Next we have the baseCommand, which is a command line command that's broken up by commas.
 What's samtools view doing? Well, if we look in `Aaron Quinlan's github repo <https://github.com/arq5x/tutorials/blob/master/samtools.md>`_:
 "The samtools view command is the most versatile tool in the samtools package. It's main function, not surprisingly, is to allow you to convert the binary (i.e., easy for the computer to read and process) alignments in the BAM file view to text-based SAM alignments that are easy for humans to read and process."
-The 'view' command, with the -Shb flags will (-S is depreciated) -h includes the header, -b outputs a bam. This is truly, a bam to bam workflow.
+The 'view' command, with the -Shb flags will (-S is depreciated) -h includes the header, -b outputs a bam. This is simply a bam-to-bam workflow.
 
 We will 'view' an input file, named 'filein', and output a file, named 'fileout' (creative huh?). But those are the inputs,
 which I'm giving to samtools. The order of the samtools parameters is controlled by the position, and in the case of
