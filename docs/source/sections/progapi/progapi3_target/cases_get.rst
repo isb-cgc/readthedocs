@@ -4,7 +4,7 @@ Returns information about a specific case, including a list of samples and aliqu
 
 **Example**::
 
-	curl https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_target_api/v3/cases/target/TARGET-10-DCC001
+	curl https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_target_api/v3/target/cases/TARGET-10-DCC001
 
 **API explorer example**:
 
