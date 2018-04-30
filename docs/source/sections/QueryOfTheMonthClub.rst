@@ -24,6 +24,8 @@ Table of Contents
 2018
 ++++
 
+- April_: Running CWL workflows in the cloud.
+
 - March_: Machine learning classifer in BigQuery?! Top Scoring Pairs implementation.
 
 - February_: BioCircos shiny app, showing pairwise correlations within a pathway.
@@ -68,6 +70,276 @@ Resources_:  Helpful information!
 
 
 -----------------------
+
+
+.. _April:
+
+April, 2018
+###########
+
+For the next few months, we're going to be focusing on running
+workflows in the Google cloud, starting with workflows defined with CWL.
+There's a lot to explore in this area, and it's hopefully going to be useful
+for people.
+
+We appear to be moving towards a future where bioinformatics tools are routinely
+bundled into runtime containers (like docker), which are somehow 'approved' by the
+research community as being safe and effective, launched in the cloud, process
+data in the cloud, and write results to the cloud. Sounds great, but how does one
+do that?
+
+We previously documented some very low level details on
+`running CWL workflows <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/CWL_intro.html>`_,
+but to make things easier, we started with some `code <https://github.com/googlegenomics/pipelines-api-examples/tree/master/cwl_runner>`_
+from Google, made some updates to the scripts, and with them you can (fairly) easily run CWL workflows
+in the cloud. The current working google CWL runner is found in our
+`examples-Compute <https://github.com/isb-cgc/examples-Compute/tree/master/google_cwl_runner>`_
+repo.
+
+In this example, we'll be using `a workflow (transform.cwl) <https://github.com/NCI-GDC/gdc-dnaseq-cwl/blob/master/workflows/dnaseq/transform.cwl>`_
+from the GDC that was used to 'harmonize' TCGA data.
+
+The CWL workflow has a few sections: requirements, inputs, outputs, and steps.
+The purpose of the workflow is to execute the steps, where each step is a tool
+(also described by a CWL) which has a set of inputs and outputs.
+
+In transform.cwl, the first step is:
+
+::
+
+    steps:
+      - id: samtools_bamtobam
+        run: ../../tools/samtools_bamtobam.cwl
+        in:
+          - id: INPUT
+            source: bam_path
+        out:
+          - id: OUTPUT
+
+
+Let's look more closely at this first step
+(`samtools_bamtobam.cwl <https://github.com/NCI-GDC/gdc-dnaseq-cwl/blob/master/tools/samtools_bamtobam.cwl>`_)
+and see if we can run it; first on one file, and then on a set of files.
+
+
+**single file**
+
+To make the example a little more accessible, I've rewritten the CWL,
+as seen below.
+
+::
+
+  #!/usr/bin/env cwl-runner
+
+  cwlVersion: v1.0
+
+  class: CommandLineTool
+
+  hints:
+    DockerRequirement:
+      dockerPull: biocontainers/samtools
+
+  baseCommand: [samtools, view, -Shb]
+
+  inputs:
+    filein:
+      type: File
+      inputBinding:
+        position: 1
+    fileout:
+      type: string
+      inputBinding:
+        prefix: -o
+        position: 2
+
+  outputs:
+    bamsout:
+      type: File
+      outputBinding:
+        glob: "*.bam"
+
+OK, let's start at the top.
+This is going to run `samtools <http://www.htslib.org/doc/samtools.html>`_, so we've defined this CWL as a CommandLineTool.
+
+Then, since this is running in the cloud, we need the tool to be dockerized. I did
+a little searching, and found a `biocontainer <https://biocontainers.pro/>`_ with
+`samtools <https://hub.docker.com/r/biocontainers/samtools/>`_. We let CWL know this is a dockerized
+tool with our DockerRequirement hint.
+
+Next we have the baseCommand, which is a command line command that's broken up by commas.
+What's samtools view doing? Well, if we look in `Aaron Quinlan's github repo <https://github.com/arq5x/tutorials/blob/master/samtools.md>`_:
+"The samtools view command is the most versatile tool in the samtools package. It's main function, not surprisingly, is to allow you to convert the binary (i.e., easy for the computer to read and process) alignments in the BAM file view to text-based SAM alignments that are easy for humans to read and process."
+The 'view' command, with the -Shb flags will (-S is depreciated) -h includes the header, -b outputs a bam. This is simply a bam-to-bam workflow.
+
+We will 'view' an input file, named 'filein', and output a file, named 'fileout' (creative huh?). But those are the inputs, or arguments,
+that I'm giving to samtools. The order of the samtools parameters is controlled by the position, and in the case of
+'fileout', I'm attaching a prefix '-o' (the output flag).
+
+We still have the CWL outputs section. This is actually what gets connected up to a workflow (a series of steps).
+Here I've called it 'bamsout', and declare the file will be named 'something dot bam' (*.bam).
+
+OK then, still with me? Next I set up a google bucket with data and output folders. This is also where the CWL files go.
+
+::
+
+      my-bucket/
+          bamtobam/
+              samtools_bamtobam_single_file.cwl
+              data/
+                  bam1.bam
+                  bam2.bam (etc)
+              outputs/
+
+
+To get some data to work on, I moved some bams from the
+`ENCODE project <http://hgdownload.cse.ucsc.edu/goldenPath/hg19/encodeDCC/wgEncodeUwRepliSeq/>`_
+to my bucket's data folder.
+
+The last thing we need is a settings file. This maps actual file names in our bucket
+and parameter values to variable names found in the CWL.
+The paths are relative to the location to the CWL file. Here's what I used (in the yaml format):
+
+::
+
+  filein:
+    class: File
+    path: data/wgEncodeUwRepliSeqBjG1bAlnRep1.bam
+  fileout: samoutput.bam
+
+You can see the filein and fileout names match up with what's in the CWL. This
+is important.
+
+Then after cloning our repo (git clone https://github.com/isb-cgc/examples-Compute),
+we can run it!
+The cwl_runner.sh script sets up a new VM, runs the cwl_startup.sh script,
+attaches a disk, copies over the data,
+runs the CWL, copies out the data, and shuts everything down by running the cwl_shutdown.sh script.
+Here's the command:
+
+::
+
+  ./examples-Compute/google_cwl_runner/cwl_runner.sh \
+    --workflow-file gs://my-bucket/bamtobam/samtools_bamtobam_single_file.cwl \
+    --settings-file gs://my-bucket/bamtobam/bamtobam_params.yml \
+    --input-recursive gs://my-bucket/bamtobam/data \
+    --output gs://isb-cgc-02-0001-workflows/bamtobam/output \
+    --machine-type n1-standard-4 \
+    --zone us-central1-f \
+    --keep-alive \
+    --preemptible
+
+Notice we can use preemptible machines to save money. So running this command reads the bam
+and writes out a new bam, which is found in our bucket after a few minutes.
+
+**debugging**
+
+If something geos wrong (it probably will), there's a few things we can do.
+First, check the logs! The stderr and stdout is copied back to our bucket,
+and within those files we can find errors. Commonly (for me) paths can be wrong.
+
+Second, you can try modifying the cwl_startup.sh script to include some print
+statements. I've put in some statements to print out directory listings,
+which gives you a view into the runtime environment.
+
+Third, towards the bottom of the stderr, you can see the actual command that's run.
+Then, if you use the --keep-alive flag (given to cwl_runner.sh),
+the VM will not shutdown, and you can get in there and try the command and see what
+happens.
+
+**multiple files**
+
+It's much more common to run a tool over a set of files. To do that, we're going
+to take our tool definition above, and write a new workflow that uses it. In
+CWL terms, this is called a 'scatter'. Later we'll perform the 'gather', but for
+now we'll process the files, and write them back to our bucket.
+
+::
+
+  #!/usr/bin/env cwl-runner
+
+  cwlVersion: v1.0
+
+  class: Workflow
+
+  requirements:
+    ScatterFeatureRequirement: {}
+
+  inputs:
+    filein: File[]
+    fileout: string[]
+
+  outputs:
+    bamsout:
+      type: File[]
+      outputSource: step1/bamsout
+
+  steps:
+    step1:
+      run: data/samtools_bamtobam_single_file.cwl
+      scatter: [filein, fileout]
+      scatterMethod: dotproduct
+      in:
+        filein: filein
+        fileout: fileout
+      out:
+        [bamsout]
+
+There's some big differences between this definition and our tool definition.
+For starters we have a new requirements: ScatterFeatureRequirement which
+let's us perform a scatter (process multiple files in parallel).
+
+Then in our input section, we have defined an array of files and strings.
+In the output section, an array of output files, noting that the
+source of these outputs is from step1 (outputSource: step1/bamsout).
+
+The steps section has only a single step. We'll run our previously defined tool,
+as a scatter over files and parameters (the output file name), with scatterMethod
+dotproduct (match up the input and output file names), and we have in: and out:
+names that match up with the tool definition. Very important that names connect
+across the CWL definitions. It has to all fit together like legos.
+
+Our settings file, the yaml, is also different because now we're going to be
+giving it a list of files and output file names. Note the use of 'dictionaries'
+with the curly brackets.
+
+::
+
+  filein:
+    - {class: File, path: data/wgEncodeUwRepliSeqBjG1bAlnRep1.bam}
+    - {class: File, path: data/wgEncodeUwRepliSeqGm12801G1bAlnRep1.bam}
+    - {class: File, path: data/wgEncodeUwRepliSeqGm12878S4AlnRep1.bam}
+  fileout:
+      - wgEncodeUwRepliSeqBjG1bAlnRep1_OUT.bam
+      - wgEncodeUwRepliSeqGm12801G1bAlnRep1_OUT.bam
+      - wgEncodeUwRepliSeqGm12878S4AlnRep1_OUT.bam
+
+
+And again we run it the same way, except, note that we put our tool definition
+**into** the data folder so it gets copied over with the data.
+
+::
+
+  ./pipelines-api-examples/cwl_runner/cwl_runner.sh \
+    --workflow-file gs://isb-cgc-02-0001-workflows/bamtobam/samtools_bamtobam_scatter.cwl \
+    --settings-file gs://isb-cgc-02-0001-workflows/bamtobam/bamtobam_params_scatter.yml \
+    --input-recursive gs://isb-cgc-02-0001-workflows/bamtobam/data \
+    --output gs://isb-cgc-02-0001-workflows/bamtobam/output \
+    --machine-type n1-standard-4 \
+    --zone us-central1-f \
+    --preemptible
+
+
+If all goes well, you should see:
+
+.. figure:: query_figs/apr_fig1_bucket_output.png
+  :scale: 80
+  :align: center
+
+Whew! It's a really steep learning curve, but the payoff is that in two years,
+when you wonder 'how did I do this?', you can look back and easily figure that out
+and probably (maybe) even run it again.
+
+Next month we'll continue our exploration of workflows and workflow runners. Let me know how it goes!
 
 
 .. _March:
