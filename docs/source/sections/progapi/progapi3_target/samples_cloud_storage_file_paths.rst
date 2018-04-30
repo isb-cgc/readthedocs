@@ -8,7 +8,7 @@ Takes a sample barcode as a required parameter and returns cloud storage paths t
 
 **API explorer example**:
 
-Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_target_api/v3/isb_cgc_target_api.samples.cloud_storage_file_paths?sample_barcode=TARGET-10-DCC001-03A&platform=Genome_Wide_SNP_6&/>`_ to see this endpoint in Google's API explorer.
+Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_target_api/v3/isb_cgc_target_api.samples.cloud_storage_file_paths?sample_barcode=TARGET-10-DCC001-03A>`_ to see this endpoint in Google's API explorer.
 
 **Python API Client Example**::
 
