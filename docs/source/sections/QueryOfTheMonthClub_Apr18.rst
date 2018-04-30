@@ -96,7 +96,8 @@ in the cloud. The current working google CWL runner is found in our
 `examples-Compute <https://github.com/isb-cgc/examples-Compute/tree/master/google_cwl_runner>`_
 repo.
 
-In this example, we'll be working with `this document: transform.cwl <https://github.com/NCI-GDC/gdc-dnaseq-cwl/blob/master/workflows/dnaseq/transform.cwl>`_.
+In this example, we'll be using `a workflow (transform.cwl) <https://github.com/NCI-GDC/gdc-dnaseq-cwl/blob/master/workflows/dnaseq/transform.cwl>`_.
+from the GDC that was used to 'harmonize' TCGA data.
 
 The CWL workflow has a few sections: requirements, inputs, outputs, and steps.
 The purpose of the workflow is to execute the steps, where each step is a tool
@@ -338,8 +339,7 @@ Whew! It's a really steep learning curve, but the payoff is that in two years,
 when you wonder 'how did I do this?', you can look back and easily figure that out
 and probably (maybe) even run it again.
 
-Next month we'll get into running multiple steps, and perhaps look at another
-CWL runner, Cromwell which will have CWL support very soon. Let me know how it goes!
+Next month we'll continue our exploration of workflows and workflow runners. Let me know how it goes!
 
 
 .. _March:
