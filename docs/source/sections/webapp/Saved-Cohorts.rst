@@ -199,6 +199,8 @@ Case Barcode,Sample Barcode,Program Short Name
 
 When omitting either barcode type, please be sure to still include the empty column's delimiter. (See examples below.) You may place an empty quoted value ("" or ''), but this is optional.
 
+::
+
  **Example Barcode Set**
 
  TCGA-N9-A4Q4,,TCGA
