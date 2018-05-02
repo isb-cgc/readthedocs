@@ -68,7 +68,7 @@ Of the remaining buttons, some are modal, changing the effect of the cursor drag
 .. |pan| image:: OsimisPanning.png
 * The **Windowing Presets** button |presets| operates both modally and immediately. Hovering the cursor over the button displays a list of windowing presets, one of which can be selected by clicking on it. The selection sets Window Width (WW) and Window Center (WC) values for the (sub)viewport having focus. WW,WC specify a linear conversion from stored pixel values to values to be displayed. See here_ for further information on Window Center and Window Width.
 
-  DICOM instances generally include recommended WW,WC value pairs and these are used by default. Other WW,WC value pairs that may be appropriated for specific cases can be selected on the pop-up. The *Preset #1* selection restores WW,WC to the DICOM setting.
+  DICOM instances generally include WW,WC value pairs and these are used by default. Other WW,WC value pairs that may be appropriated for specific cases can be selected on the pop-up. The *Preset #1* selection restores WW,WC to the DICOM setting.
   
   The Windowing Presets button operates modally when clicked. In this mode, dragging the cursor left or right in a (sub)viewport changes the Window Width value applied to the series in that (sub)viewport. Dragging the cursor up or down in a (sub)viewport changes the Window Center value applied to the series in that (sub)viewport.
 
@@ -78,37 +78,37 @@ Of the remaining buttons, some are modal, changing the effect of the cursor drag
 * The **Magnifying Glass** button |glass| is modal. Hovering the cursor over the button displays a pop-up containing two sliders that control the magnification level and size of a virtual magnifying glass. When selected, dragging the cursor with mouse button depressed opens a virtual magnifying glass that displays a magnified rendering of the underlying image in the region of the cursor.
 
 .. |glass| image:: OsimisGlass.png
-* The **Length Measurement** button |len| is modal. When selected, the distance in physical units between two points in an image can be measured. To perform a measurement, click the mouse button once with the cursor over some point of interest, and then again over a second point of interest. Alternatively, depress and hold the mouse button while the cursor is over the first point of interest, then release the mouse button while the cursor is over the second point of interest. A line joining the two points and its length are displayed. The line will scale if the image is zoomed in or out.
+* The **Length Measurement** button |len| is modal. When selected, the distance in physical units between two points in an instance can be measured. To perform a measurement, click the mouse button once with the cursor over some point of interest, and then again over a second point of interest. Alternatively, depress and hold the mouse button while the cursor is over the first point of interest, then release the mouse button while the cursor is over the second point of interest. A line joining the two points and its length are displayed. The line will scale if the image is zoomed in or out.
 
-  A length measurement can be moved by clicking on it and dragging. To remove a length measurement, drag it or an endpoint outside of the (sub)viewport.
+  A length measurement can be moved by clicking on it and dragging. To remove a length measurement, drag it or an endpoint outside of the extent of instance. Note that if you have "zoomed in" on an instance, its extent may be much larger than the (sub)viewport in which it is displayed. This can make it difficult to drag the measure outside of the extent of the instance. In this case it may be necessary to "zoom out" in order to be able to drag the measure outside of the extent of the instance. 
  
   A length measurement is only visible on the instance on which it was made. There is currently no support for saving length measurements.
 
 .. |len| image:: OsimisLength.png
-* The **Angle Measurement** button |ang| is modal. When selected, the angle between two lines in an image can be measured. To perform a measurement, click on a point of interest in an image. A pair of lines are displayed. Drag the end points of the lines as needed to form the angle to be measured. The angle between the lines is displayed continuously as any endpoint is dragged.
+* The **Angle Measurement** button |ang| is modal. When selected, the angle between two lines in an instance can be measured. To perform a measurement, click on a point of interest in an instance. A pair of lines are displayed. Drag the end points of the lines as needed to form the angle to be measured. The angle between the lines is displayed continuously as any endpoint is dragged.
   
-  An angle measurement can be moved by clicking on one of the lines and dragging it while holding down the mouse button. To remove an angle measurement, drag it or an endpoint outside of the (sub)viewport.
+  An angle measurement can be moved by clicking on one of the lines and dragging it while holding down the mouse button. To remove an angle measurement, drag it or an endpoint outside of the extent of the instance. Note that if you have "zoomed in" on an instance, its extent may be much larger than the (sub)viewport in which it is displayed. This can make it difficult to drag the measure outside of the extent of the instance. In this case it may be necessary to "zoom out" in order to be able to drag the measure outside of the extent of the instance.
   
   An angle measurement is only visible on the instance on which it was made. There is currently no support for saving angle measurements.  
 
 .. |ang| image:: OsimisAngle.png
-* The **Pixel Probe** button |probe| is modal. When selected, clicking on a point in an instance displays a circle at the probe point, the X and Y location of the pixel relative to the top left corner of the instance, and the intensity or color of the selected pixel. The intensity of monochrome instance pixels is specified in both SP and MO coordinates. The value of color instance pixels is specified in RGB coordinates.
+* The **Pixel Probe** button |probe| is modal. When selected, clicking on a point in an instance displays a circle at the probe point, the X and Y location of the pixel relative to the top left corner of the instance, and the intensity or color of the selected pixel. The value of color instance pixels is specified in RGB coordinates. For monochrome instances, both a Stored Pixel value (SP) and a Modality Pixel value (MO) are displayed. The MO values is calculated as ``SP * RescaleSlope + RescaleIntercept``, where RescaleSlope and RescaleIntercept are DICOM values. 
 
-  A pixel probe can be moved by clicking on the probe indicator and dragging it while holding down the mouse button. To remove a probe, drag it outside of the (sub)viewport.
+  A pixel probe can be moved by clicking on the probe indicator and dragging it while holding down the mouse button. To remove a probe, drag it outside of the extent of the instance. Note that if you have "zoomed in" on an instance, its extent may be much larger than the (sub)viewport in which it is displayed. This can make it difficult to drag the measure outside of the extent of the instance. In this case it may be necessary to "zoom out" in order to be able to drag the measure outside of the extent of the instance.
 
   A pixel probe is only visible on the instance on which it was made. There is currently no support for saving pixel probes.  
 
 .. |probe| image:: OsimisPixelProbe.png
-* The **Elliptical ROI** button |eROI| is modal. When selected, click on an instance and drag one of the small circles to configure an elliptical region of interest. You can drag either of the control circles for this purpose. The area, in pixels, of the ellipse is displayed near the ellipse. On monotone instances, the mean and standard deviation of the intensities of the pixels within the ellipse are also displayed. 
+* The **Elliptical ROI** button |eROI| is modal. When selected, click on an instance and drag either of the small circles to configure an elliptical region of interest. You can drag either of the control circles for this purpose. The area, in pixels, of the ellipse is displayed near the ellipse. On monotone instances, the mean and standard deviation of the intensities of the pixels within the ellipse are also displayed. 
   
-  An ellipse can be moved by clicking on its border and dragging it while holding down the mouse button. To remove an elliptical ROI, drag the ellipse or one of its control points outside of the (sub)viewport.
+  An ellipse can be moved by clicking on its border and dragging it while holding down the mouse button. To remove an elliptical ROI, drag the ellipse or one of its control points outside of the extent of the instance. Note that if you have "zoomed in" on an instance, its extent may be much larger than the (sub)viewport in which it is displayed. This can make it difficult to drag the ROI outside of the extent of the instance. In this case it may be necessary to "zoom out" in order to be able to drag the ROI outside of the extent of the instance.
 
   An elliptical ROI is only visible on the instance on which it was made. There is currently no support for saving elliptical ROIs.
   
 .. |eROI| image:: OsimisEllipticalROI.png
 * The **Rectangle ROI** button |rROI| is modal. When selected, click on an instance and drag one of the small circles to configure a rectangular region of interest. You can drag either of the control circles for this purpose. The area, in pixels, of the rectangle is displayed near the rectangle. On monotone instances, the mean and standard deviation of the intensities of the pixels within the rectangle are also displayed. 
   
-  A rectangle can be moved by clicking on its border and dragging it while holding down the mouse button. To remove a rectangular ROI, drag the rectange or one of its control points outside of the (sub)viewport.
+  A rectangle can be moved by clicking on its border and dragging it while holding down the mouse button. To remove a rectangular ROI, drag the rectange or one of its control points outside of the extent of the instance. Note that if you have "zoomed in" on an instance, its extent may be much larger than the (sub)viewport in which it is displayed. This can make it difficult to drag the ROI outside of the extent of the instance. In this case it may be necessary to "zoom out" in order to be able to drag the ROI outside of the extent of the instance.
 
   A rectangular ROI is only visible on the instance on which it was made. There is currently no support for saving rectangular ROIs.
   
