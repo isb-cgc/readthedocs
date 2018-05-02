@@ -390,7 +390,7 @@ platforms by dragging the platform names up and down.
 .. _viewfilelist:
 
 View File Browser Page
-======================
+######################
 
 "File Browser" takes you to a new page where you can view the complete list of data files associated with your current the cohort.  The file list page provides a paginated list of files available with all samples in the cohort. Here, "available" refers to files that have been uploaded to the ISB-CGC Google Cloud Project, including both controlled access and open access data. You can use the "Previous Page" and "Next Page" buttons to see more values in the list.
 
