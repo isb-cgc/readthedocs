@@ -300,7 +300,7 @@ From the "SAVED COHORTS" tab you can:
 * Delete: Allows you to delete this cohort (if you confirm by clicking the second delete button presented)
 * File Browser: Allows you to view the list of files associated with this cohort (see details below)
 * CSV: Provides a list of sample and cases IDs in the cohort
-* BigQuery: This will allow you to create a new table or append to an existing table. You must have registered BigQuery dataset with a Google Cloud Project on the registered Google Cloud Projects details page. More information on how to register a BigQuery dataset can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_.
+* BigQuery: This will allow you to create a new table or append to an existing table. You must have registered a BigQuery dataset with a Google Cloud Project on the registered Google Cloud Projects details page. More information on how to register a BigQuery dataset can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_.
   If a user wants to export their cohort to a premade table of their own, we require it to have the necessary columns. Here's the schema: 
 
 .. code-block:: JSON
@@ -336,7 +336,7 @@ From the "SAVED COHORTS" tab you can:
   
 *Note:* You shouldn't ever set UUID to 'required' because sometimes a sample doesn't have a UUID, and the attempt to insert a 'null' will cause the cohort export to fail.
 
-* GCS: This will save the details of the cohort in a Google Cloud Storage location specified by you
+* GCS: This will save the details of the cohort in a Google Cloud Storage location specified by you. You must have a registered Google Cloud Storage (GCS) object with a Google Cloud Project on the registered Google Cloud Projects details page. More information on how to register a GCS object can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_.
 * Share: This will share the web view of the cohorts with users you select by entering the users e-mail. If the email address you entered in is not registered in the database you are prompted with a message saying, "The following user emails could not be found; please ask them to log into the site first:(email entered)."
  
 Current Filters Panel
