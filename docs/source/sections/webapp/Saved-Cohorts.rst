@@ -335,8 +335,9 @@ From the "SAVED COHORTS" tab you can:
     }
   
 *Note:* You shouldn't ever set UUID to 'required' because sometimes a sample doesn't have a UUID, and the attempt to insert a 'null' will cause the cohort export to fail.
-* Share: This will share the web view of the cohorts with users you select by entering the users e-mail. If the email address you entered in
-  not registered in the database you are prompted with a message saying, "The following user emails could not be found; please ask them to log into the site first:(email entered)."
+
+* GCS: This will save the details of the cohort in a Google Cloud Storage location specified by you
+* Share: This will share the web view of the cohorts with users you select by entering the users e-mail. If the email address you entered in is not registered in the database you are prompted with a message saying, "The following user emails could not be found; please ask them to log into the site first:(email entered)."
  
 Current Filters Panel
 =====================
