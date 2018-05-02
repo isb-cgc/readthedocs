@@ -66,13 +66,13 @@ Of the remaining buttons, some are modal, changing the effect of the cursor drag
 * The **Pan** button |pan| is modal. When selected, dragging the cursor with mouse button depressed causes panning of the series in the (sub)viewport having focus. 
 
 .. |pan| image:: OsimisPanning.png
-* The **Windowing Presets** button |presets| operates both modally and immediately. Hovering the cursor over the button displays a list of windowing presets, one of which can be selected by clicking on it. The selection sets Window Width (WW) and Window Center (WC) values for the (sub)viewport having focus. WW,WC specify a linear conversion from stored pixel values (after any Modality LUT or Rescale Slope and Intercept specified in the IOD have been applied) to values to be displayed. See `here`_ for further information on Window Center and Window Width.
-
-.. _here: http://dicom.nema.org/medical/dicom/current/output/html/part03.html#sect_C.11.2.1.2
+* The **Windowing Presets** button |presets| operates both modally and immediately. Hovering the cursor over the button displays a list of windowing presets, one of which can be selected by clicking on it. The selection sets Window Width (WW) and Window Center (WC) values for the (sub)viewport having focus. WW,WC specify a linear conversion from stored pixel values to values to be displayed. See here_ for further information on Window Center and Window Width.
 
   DICOM instances generally include recommended WW,WC value pairs and these are used by default. Other WW,WC value pairs that may be appropriated for specific cases can be selected on the pop-up. The *Preset #1* selection restores WW,WC to the DICOM setting.
   
   The Windowing Presets button operates modally when clicked. In this mode, dragging the cursor left or right in a (sub)viewport changes the Window Width value applied to the series in that (sub)viewport. Dragging the cursor up or down in a (sub)viewport changes the Window Center value applied to the series in that (sub)viewport.
+
+.. _here: http://dicom.nema.org/medical/dicom/current/output/html/part03.html#sect_C.11.2.1.2
 
 .. |presets| image:: OsimisPresets.png
 * The **Magnifying Glass** button |glass| is modal. Hovering the cursor over the button displays a pop-up containing two sliders that control the magnification level and size of a virtual magnifying glass. When selected, dragging the cursor with mouse button depressed opens a virtual magnifying glass that displays a magnified rendering of the underlying image in the region of the cursor.
