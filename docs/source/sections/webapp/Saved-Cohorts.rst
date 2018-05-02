@@ -339,11 +339,6 @@ From the "SAVED COHORTS" tab you can:
   
 *Note:* You shouldn't ever set UUID to 'required' because sometimes a sample doesn't have a UUID, and the attempt to insert a 'null' will cause the cohort export to fail.
  
-
-ISB-CGC DATA and USER DATA tab
-==============================
-Both tabs are displayed and can be selected. The corresponding panels on each tab will display data on either ISB-CGC data or user uploaded data with cohorts that you created or shared with you. 
-
 Current Filters Panel
 =====================
 
