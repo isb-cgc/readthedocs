@@ -475,7 +475,7 @@ When available, pathology images can be viewed using the caMicroscope tool (see 
 A maximum of 5 slides can be viewed at one time.  To view these slides, select the caMicro check-boxes for each sample you want to view.  Then, go to the top of the page, and select the "caMicroscope" tab. The images that have been selected to view are shown. Pressing the "Launch caMicrosope" button launches a new window with individual tabs displaying the image.  To zoom into the image, either click the left button or use your wheel to zoom in.  Use your mouse to move around the image.  To zoom out of the image, shift-slick the left mouse button or use your wheel to zoom out.  Individual tabs with each image can also be launched to compare multiple images by pushing the "Open in new tab" button.
 
 Deleting a cohort
-=================
+#################
 
 From the "COHORTS" page:
 Select the cohorts that you wish to delete using the checkboxes next to the cohorts. When one or more are selected, the
@@ -485,7 +485,7 @@ From within a cohort:
 If you are viewing a cohort you created, then you can delete the cohort using the delete button on the menu.
 
 Creating a Cohort from a Visualization
-======================================
+######################################
 
 To create a cohort from visualization, you must be in plot selection mode. If you are in plot selection mode, the
 crosshairs icon in the top right corner of the plot panel should be blue. If it is not, click on it and it should turn
@@ -500,7 +500,7 @@ on this when you are ready to create a new cohort.
 Put in a name for you newly selected cohort and click the "Save" button.
 
 Copying a cohort
-================
+################
 
 Copying a cohort can only be done from the cohort details page of the cohort you want to copy.
 
