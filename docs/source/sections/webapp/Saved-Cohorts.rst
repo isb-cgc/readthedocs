@@ -288,7 +288,7 @@ The figure below shows what the results of the set operations will be (represent
 Click "Okay" to complete the set operation and create the new cohort.
 
 Cohort Details Page
--------------------
+===================
 The cohort details page displays the details of a specific cohort.  The title of the cohort is displayed at the top of the page.
 
 From the "SAVED COHORTS" tab you can:
@@ -341,27 +341,27 @@ From the "SAVED COHORTS" tab you can:
  
 
 ISB-CGC DATA and USER DATA tab
---------------------------------
+==============================
 Both tabs are displayed and can be selected. The corresponding panels on each tab will display data on either ISB-CGC data or user uploaded data with cohorts that you created or shared with you. 
 
 Current Filters Panel
-----------------------
+=====================
 
 This panel displays current filters that have been used on the cohort or any of its ancestors. If you have selected multiple These cannot be modified.  To add additional filters to this list use the Edit button.
 
 Details Panel
--------------
+=============
 
 This panel displays the Internal ISB-CGC Cohort ID (the identifier you use to programmatically use this cohort through our `APIs <../progapi/Programmatic-API.html#id4>`_ ), and the number of samples and cases in this cohort. The number of samples may be larger than the number of cases because some cases may have
 provided multiple samples.
 This panel also displays "Your Permissions" which can be either owner or reader, as well as revision history.  If you have edited the cohort, the filters that were used to originally create the cohort are displayed under the "Creation Filters" label, the newly applied filters since original creation are displayed under the "Applied Filters" label.
 
 TCGA DATA, CCLE DATA, TARGET DATA and USER DATA Tabs
------------------------------------------------------
+====================================================
 Selecting any program tab will be enabled if you have selected filters for that program.  By selecting the tab you will display the Clinical Features panel and the Data File Availability panels for the program selected. 
 
 Clinical Features Panel
------------------------
+=======================
 
 This panel shows a list of tree maps that give a high level break of the samples for a handful of features for the program view selected:
 
@@ -383,7 +383,7 @@ This panel shows a list of tree maps that give a high level break of the samples
    +------------------------------+------------------------------+---------------------------------+------------------------------------+
 
 Data File Availability Panel
------------------------
+============================
 This panel shows a parallel sets graph of available data files for the selected samples in the cohort. The large headers over
 the vertical bars are data types. Each vertical bar may be broken up to represent different platforms used to generate
 that type of data (and "NA" for samples for which that data type is not available).
@@ -395,7 +395,7 @@ platforms by dragging the platform names up and down.
 .. _viewfilelist:
 
 View File Browser Page
----------------
+======================
 
 "File Browser" takes you to a new page where you can view the complete list of data files associated with your current the cohort.  The file list page provides a paginated list of files available with all samples in the cohort. Here, "available" refers to files that have been uploaded to the ISB-CGC Google Cloud Project, including both controlled access and open access data. You can use the "Previous Page" and "Next Page" buttons to see more values in the list.
 
@@ -406,7 +406,7 @@ viewer by selecting check boxes beside the viewer and selecting "Launch IGV" but
 as a dbGaP authorized user will you be able to select controlled access files to view in the IGV viewer (CCLE data does not require authorization to view the sequence data in the IGV viewer).
 
 Download File List as CSV
--------------------------
+=========================
 
 To download a list of files that are part of this cohort, select the button in the upper right on the File Listing panel called "CSV". This will begin a download process of all the files available for the cohort, taking into account the selected filters. 
 
@@ -421,7 +421,7 @@ The file contains the following information for each file:
 * Access type (open or controlled access)
 
 Export File List to BigQuery
-----------------------------
+============================
 
 To export the File list to BigQuery, select the button Export to BQ.  You will need to have registered a Google Cloud Project and a BigQuery dataset to be able to export to BigQuery. More information on how to register a BigQuery Dataset can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_. You can either make a new table or append an existing table.  You can also give the table a unique name if left blank we will provide a name for the table.
 
