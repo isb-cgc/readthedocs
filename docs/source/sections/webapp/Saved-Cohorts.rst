@@ -389,10 +389,10 @@ platforms by dragging the platform names up and down.
 
 .. _viewfilelist:
 
-View File Browser Page
-######################
+File Browser Page
+#################
 
-"File Browser" takes you to a new page where you can view the complete list of data files associated with your current the cohort.  The file list page provides a paginated list of files available with all samples in the cohort. Here, "available" refers to files that have been uploaded to the ISB-CGC Google Cloud Project, including both controlled access and open access data. You can use the "Previous Page" and "Next Page" buttons to see more values in the list.
+"File Browser" takes you to a new page where you can view the complete list of data files associated with your current the cohort.  The file list page provides a paginated list of files available with all samples in the cohort. Here, "available" refers to files that have been uploaded to the ISB-CGC Google Cloud Project, including both controlled access and open access data. You can use the "Previous" and "Next", and "#" navigation buttons, and "Show" dropdown to navigate to more values in the list.  The columns are sortable by selecting the column header.
 
 You can filter by Genomic Build either HG19 or HG38 and view which platforms and files are available for the build selected.  You may also filter on these files if you are only interested in a specific data type, data format, platform, disease code, disease strategy, and/or experimental strategy.  Selecting a filter will update the associated list.  The numbers next to the filter refers to the number of files available for that filter.
 
