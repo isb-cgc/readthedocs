@@ -204,18 +204,12 @@ When omitting either barcode type, please be sure to still include the empty col
  **Example Barcode Set**
 
  TCGA-N9-A4Q4,,TCGA
-
  ,TCGA-N7-A4Y8-01A,TCGA
-
  'Saos-2','CCLE-Saos-2', 'CCLE'
-
  'Hs 863.T', '','CCLE'
-
  "TARGET-51-PAJLIV",, "TARGET"
-
  TARGET-51-PAJMFS,"", "TARGET"
 
- 
 
 Upload Tab
 -----------
