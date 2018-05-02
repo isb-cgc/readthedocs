@@ -58,20 +58,5 @@ If successful, this method returns a response body with the following structure(
 	:widths: 50, 10, 50
 
 	aliquots[], list, "List of barcodes of aliquots taken from this patient."
-	clinical_data, nested object, "The clinical data about the patient."
-	clinical_data.case_barcode, string, "Case barcode."
-	clinical_data.case_gdc_id, string, "The GDC assigned id for the case"
-	clinical_data.disease_code, string, "The short name for the type of disease"
-	clinical_data.endpoint_type, string, "Which type of GDC Case API was used, either legacy or current"
-	clinical_data.gender, string, "Text designations that identify gender."
-	clinical_data.hist_subtype, string, "Text term for a more specific definition of the histology"
-	clinical_data.histology, string, "Text term for the structural pattern of cancer cells used to define a microscopic diagnosis."
-	clinical_data.program_name, string, "Project name, e.g. 'TCGA'."
-	clinical_data.project_short_name, string, "Tumor type abbreviation, e.g. 'BRCA'. "
-	clinical_data.sample_barcode, string, "The barcode assigned by TCGA to a sample from a Participant."
-	clinical_data.sample_gdc_id, string, "The GDC assigned id for the sample"
-	clinical_data.sample_type, string, "The type of the sample tumor or normal tissue cell or blood sample provided by a participant."
-	clinical_data.site_primary, string, "Text term that describes the anatomic site of the tumor or disease."
-	clinical_data.source, string, "The source institution the cell line was obtained from"
-	clinical_data.summary_file_count, integer, "The count of files associated with the sample"
+
 	samples[], list, "List of barcodes of samples taken from this patient."
