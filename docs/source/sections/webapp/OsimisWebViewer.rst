@@ -10,16 +10,20 @@ The ISB-CGC web application `File Browser page`_ presents a table of DICOM studi
 
 Clicking on a study in the table opens an Osimis Web Viewer in a new tab: 
 
-.. image:: OsimisViewer.png
+.. image:: OsimisInitialDisplay.png
 
-All the DICOM series which comprise the selected study are shown as thumbnail images on the left side of the page. Note that it can take several seconds for these thumnails to appear.
+All the DICOM series which comprise the selected study are shown as thumbnail images in the Series Selection Panel. Note that it can take several seconds for these thumnails to appear.
 
-By default, the thumbnails are laid out in a grid pattern. This can be changed to a list format by clicking on the **List Display** button |list| above the thumbnails. The list format displays a description of each series. Change back again to the grid pattern by clicking on the **Grid Display** button |grid|. 
-
-To the lower right of each thumbnail is a small blue circle in which is displayed the number of DICOM instances which comprise the corresponding DICOM series. In addition, when your cursor hovers over a thumbnail, the viewer cycles through the instances comprising the series. (Note these low resolution images are loaded in the background and may not be available for cycling immediately after the viewer window opens.)
+By default, the thumbnails are laid out in a grid pattern. This can be changed to a list format by clicking on the **List Display** button |list| above the thumbnails. The list format displays a description of each series. 
 
 .. |list| image:: OsimisList.png
+.. image:: OsimisThumbnailList.png
+
+Change back again to the grid pattern by clicking on the **Grid Display** button |grid|.
+
 .. |grid| image:: OsimisGrid.png
+
+To the lower right of each thumbnail is a small blue circle in which is displayed the number of DICOM instances which comprise the corresponding DICOM series. In addition, when your cursor hovers over a thumbnail, the viewer cycles through the instances comprising the series. (Note these low resolution images are loaded in the background and may not be available for cycling immediately after the viewer window opens.)
 
 To view a larger rendering of a series, drag its thumbnail into the viewport. The first instance of the series is immediately displayed. At the same time, you will notice a grid at the bottom of the viewport, and which is comprised of a series of rectangles corresponding to the instances in the series. The color of the tabs indicates the following:
 
