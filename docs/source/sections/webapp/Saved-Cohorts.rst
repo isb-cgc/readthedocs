@@ -396,9 +396,7 @@ File Browser Page
 
 You can filter by Genomic Build either HG19 or HG38 and view which platforms and files are available for the build selected.  You may also filter on these files if you are only interested in a specific data type, data format, platform, disease code, disease strategy, and/or experimental strategy.  Selecting a filter will update the associated list.  The numbers next to the filter refers to the number of files available for that filter.
 
-If there are files that contain read-level data are displayed in the IGV column, you will be able to select files to view in the IGV 
-viewer by selecting check boxes beside the viewer and selecting "Launch IGV" button.  The term "cloud storage" represents there are bam files associated to the sample in Google Cloud Storage for ISB-CGC that can be viewed in IGV browser.  Only if you have authenticated 
-as a dbGaP authorized user will you be able to select controlled access files to view in the IGV viewer (CCLE data does not require authorization to view the sequence data in the IGV viewer).
+The tabs "IGV" and "Pathology Images" allow you to filter for files that show you respectively read-level sequence data (viewed using the IGV viewer) and pathology images.  Please note: only if you have authenticated as a dbGaP authorized user will you be able to select controlled access files to view in the IGV viewer (CCLE data does not require authorization to view the sequence data in the IGV viewer).  Details of how to view Sequences and Pathology images are provided below.
 
 Download File List as CSV
 =========================
