@@ -58,5 +58,5 @@ If successful, this method returns a response body with the following structure(
 	:widths: 50, 10, 50
 
 	aliquots[], list, "List of barcodes of aliquots taken from this patient."
-
+	clinical_data, nested object, "The clinical data about the patient."
 	samples[], list, "List of barcodes of samples taken from this patient."
