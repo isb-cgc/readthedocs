@@ -43,29 +43,13 @@ HTTP request::
 
 **Response**
 
-If successful, this method returns a response body with the following structure:
+If successful, this method returns a response body with the following structure(CCLE does not have clinical data hence the clinical data would remain blank):
 
 .. code-block:: javascript
 
   {
     "aliquots": [string],
-    "clinical_data": {
-      "case_barcode": string,
-      "case_gdc_id": string,
-      "disease_code": string,
-      "endpoint_type": string,
-      "gender": string,
-      "hist_subtype": string,
-      "histology": string,
-      "program_name": string,
-      "project_short_name": string,
-      "sample_barcode": string,
-      "sample_gdc_id": string,
-      "sample_type": string,
-      "site_primary": string,
-      "source": string,
-      "summary_file_count": integer
-    },
+    "clinical_data": {},
     "samples": [string]
   }
 
