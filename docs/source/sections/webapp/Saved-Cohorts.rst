@@ -416,7 +416,7 @@ The file contains the following information for each file:
 Export File List to BigQuery
 ============================
 
-To export the File list to BigQuery, select the button Export to BQ.  You will need to have registered a Google Cloud Project and a BigQuery dataset to be able to export to BigQuery. More information on how to register a BigQuery Dataset can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_. You can either make a new table or append an existing table.  You can also give the table a unique name if left blank we will provide a name for the table.
+To export the File list to BigQuery, select the button BigQuery.  You will need to have registered a Google Cloud Project and a BigQuery dataset to be able to export to BigQuery. More information on how to register a BigQuery Dataset can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_. You can either make a new table or append an existing table.  You can also give the table a unique name if left blank we will provide a name for the table.
 
 The table will contain the following information:
 
@@ -435,6 +435,27 @@ The table will contain the following information:
 * data_format
 * cloud_storage_location
 
+Export File List to Google Cloud Storage
+========================================
+
+To export the File list to Google Cloud Storage (GCS), select the button GCS.  You will need to have registered a Google Cloud Project and a GCS Object to be able to export to GCS. More information on how to register a GCS Object can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_. You can also give the table a unique name if left blank we will provide a name for the table.
+
+The file will contain the following information:
+
+* cohort_id
+* case_barcode
+* sample_barcode
+* project_short_name
+* date_added
+* build 
+* gdc_file_uuid
+* gdc_case_uuid
+* platform 
+* exp_strategy
+* data_category
+* data_type
+* data_format
+* cloud_storage_location
 
 Viewing a Sequence
 ==================
