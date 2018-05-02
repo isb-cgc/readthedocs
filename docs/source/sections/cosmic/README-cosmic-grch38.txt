@@ -2,7 +2,14 @@
 README, COSMIC COSMIC Download Files
 ====================================
 
-Version 81, 9th May 2017
+Version 83, 7th November 2017
+
+*** Pre-Release ***
+
+Files stored under /cosmic/tmp/pre-release/ on the SFTP server are early access files.
+
+As such they are still undergoing QC and are subject to change at any time before the next official release (v83) on 7th November 2017.
+
 
 ---------------------------
 Classification Information
@@ -13,29 +20,32 @@ Classification Information
 
 [column number:label] Heading                                           Description
 --------------------------------------------------------------------------------------------------------
-[1:A]                 Site_Primary                                       Primary tissue specified in the publication.
-[2:B]                 Site_Subtype1                                      Sub tissue specified in the publication.
-[3:C]                 Site_Subtype2                                      Sub tissue specified in the publication.
-[4:D]                 Site_Subtype3                                      Sub tissue specified in the publication.
-[5:E]                 Histology                                          Primary histology specified in the publication.
-[6:F]                 Hist_Subtype1                                      Sub histology specified in the publication.
-[7:G]                 Hist_Subtype2                                      Sub histology specified in the publication.
-[8:H]                 Hist_Subtype3                                      Sub histology specified in the publication.
-[9:I]                 Site_Primary_COSMIC                                Primary tissue specified in COSMIC.
-[10:J]                Site_Subtype1_COSMIC                               Sub tissue specified in COSMIC.
-[11:K]                Site_Subtype2_COSMIC                               Sub tissue specified in COSMIC.
-[12:L]                Site_Subtype3_COSMIC                               Sub tissue specified in COSMIC.
-[13:M]                Histology_COSMIC                                   Primary histology specified in COSMIC.
-[14:N]                Hist_Subtype1_COSMIC                               Sub histology specified in COSMIC.
-[15:O]                Hist_Subtype2_COSMIC                               Sub histology specified in COSMIC.
-[16:P]                Hist_Subtype3_COSMIC                               Sub histology specified in COSMIC.
+[1:A]                 Cosmic_Phenotype_id                                Unique COSMIC identifier for the classification.
+[2:B]                 Site_Primary                                       Primary tissue specified in the publication.
+[3:C]                 Site_Subtype1                                      Sub tissue specified in the publication.
+[4:D]                 Site_Subtype2                                      Sub tissue specified in the publication.
+[5:E]                 Site_Subtype3                                      Sub tissue specified in the publication.
+[6:F]                 Histology                                          Primary histology specified in the publication.
+[7:G]                 Hist_Subtype1                                      Sub histology specified in the publication.
+[8:H]                 Hist_Subtype2                                      Sub histology specified in the publication.
+[9:I]                 Hist_Subtype3                                      Sub histology specified in the publication.
+[10:J]                Site_Primary_COSMIC                                Primary tissue specified in COSMIC.
+[11:K]                Site_Subtype1_COSMIC                               Sub tissue specified in COSMIC.
+[12:L]                Site_Subtype2_COSMIC                               Sub tissue specified in COSMIC.
+[13:M]                Site_Subtype3_COSMIC                               Sub tissue specified in COSMIC.
+[14:N]                Histology_COSMIC                                   Primary histology specified in COSMIC.
+[15:O]                Hist_Subtype1_COSMIC                               Sub histology specified in COSMIC.
+[16:P]                Hist_Subtype2_COSMIC                               Sub histology specified in COSMIC.
+[17:Q]                Hist_Subtype3_COSMIC                               Sub histology specified in COSMIC.
+[18:R]                NCI code                                           NCI thesaurus code for tumour histological classification. For details see https://ncit.nci.nih.gov
+[19:S]                EFO code                                           Experimental Factor Ontology (EFO), for details see http://www.ebi.ac.uk/efo/
 
 
 
 -------------------------------------------------
 COSMIC Complete Mutation Data (Targeted Screens)
 -------------------------------------------------
- A tab separated table of the complete curated COSMIC dataset (targeted screens) from the current release. It includes all coding point mutations, and the negative data set. [ /cosmic/grch38/cosmic/v81/CosmicCompleteTargetedScreensMutantExport.tsv.gz ] 
+ A tab separated table of the complete curated COSMIC dataset (targeted screens) from the current release. It includes all coding point mutations, and the negative data set. [ /cosmic/grch38/cosmic/v83/CosmicCompleteTargetedScreensMutantExport.tsv.gz ] 
 
   File Description
 
@@ -86,7 +96,7 @@ COSMIC Complete Mutation Data (Targeted Screens)
 --------------------------------------
 COSMIC Mutation Data (Genome Screens)
 --------------------------------------
- A tab separated table of coding point mutations from genome wide screens (including whole exome sequencing). [ /cosmic/grch38/cosmic/v81/CosmicGenomeScreensMutantExport.tsv.gz ] 
+ A tab separated table of coding point mutations from genome wide screens (including whole exome sequencing). [ /cosmic/grch38/cosmic/v83/CosmicGenomeScreensMutantExport.tsv.gz ] 
 
   File Description
 
@@ -136,7 +146,7 @@ COSMIC Mutation Data (Genome Screens)
 ---------------------
 COSMIC Mutation Data
 ---------------------
- A tab separated table of all COSMIC coding point mutations from targeted and genome wide screens from the current release. [ /cosmic/grch38/cosmic/v81/CosmicMutantExport.tsv.gz ] 
+ A tab separated table of all COSMIC coding point mutations from targeted and genome wide screens from the current release. [ /cosmic/grch38/cosmic/v83/CosmicMutantExport.tsv.gz ] 
 
   File Description
 
@@ -188,7 +198,7 @@ COSMIC Mutation Data
 Structural Genomic Reararrangements
 ------------------------------------
 STRUCTURAL VARIANTS
- All structural variants from the current release in a tab separated table. [ /cosmic/grch38/cosmic/v81/CosmicStructExport.tsv.gz ] 
+ All structural variants from the current release in a tab separated table. [ /cosmic/grch38/cosmic/v83/CosmicStructExport.tsv.gz ] 
 
   File Description
 
@@ -214,7 +224,7 @@ STRUCTURAL VARIANTS
 
 
 BREAKPOINTS
- All breakpoint data from the current release in a tab separated table. [ /cosmic/grch38/cosmic/v81/CosmicBreakpointsExport.tsv.gz ] 
+ All breakpoint data from the current release in a tab separated table. [ /cosmic/grch38/cosmic/v83/CosmicBreakpointsExport.tsv.gz ] 
 
   File Description
 
@@ -252,7 +262,7 @@ BREAKPOINTS
 -----------------------
 Complete Fusion Export
 -----------------------
- All gene fusion mutation data from the current release in a tab separated table. [ /cosmic/grch38/cosmic/v81/CosmicFusionExport.tsv.gz ] 
+ All gene fusion mutation data from the current release in a tab separated table. [ /cosmic/grch38/cosmic/v83/CosmicFusionExport.tsv.gz ] 
 
   File Description
 
@@ -278,7 +288,7 @@ Complete Fusion Export
 ------------------------------
 All Mutations in Census Genes
 ------------------------------
- All coding mutations in genes listed in the Cancer Gene Census ( http://cancer.sanger.ac.uk/census ) in a tab separated table. [ /cosmic/grch38/cosmic/v81/CosmicMutantExportCensus.tsv.gz ] 
+ All coding mutations in genes listed in the Cancer Gene Census ( http://cancer.sanger.ac.uk/census ) in a tab separated table. [ /cosmic/grch38/cosmic/v83/CosmicMutantExportCensus.tsv.gz ] 
 
   File Description
 
@@ -323,13 +333,14 @@ All Mutations in Census Genes
 [32:AF]               Id Study                                           Lists the unique Ids of studies that have involved this sample.
 [33:AG]               Sample source,Tumour origin                        Describes where the sample has originated from including the tumour type.
 [35:AI]               Age                                                Age of the sample (if this information is provided with the publications).
+[36:AJ]               Tier                                               1 or 2 [see http://cancer.sanger.ac.uk/census for details or Tier 1 and 2]
 
 
 
 --------------------
 Non coding variants
 --------------------
- A tab separated table of all non-coding mutations from the current release. [ /cosmic/grch38/cosmic/v81/CosmicNCV.tsv.gz ] 
+ A tab separated table of all non-coding mutations from the current release. [ /cosmic/grch38/cosmic/v83/CosmicNCV.tsv.gz ] 
 
   File Description
 
@@ -344,35 +355,34 @@ Non coding variants
 [9:I]                 Histology Subtype 1                                Further histological classification (level 1) of the sample.
 [10:J]                Histology Subtype 2                                Further histological classification (level 2) of the sample.
 [11:K]                Histology Subtype 3                                Further histological classification (level 3) of the sample.
-[12:L]                Genome-wide screen                                 if the entire genome/exome is sequenced.
-[13:M]                Id NCV                                             unique non-coding variant identifier.
-[14:N]                Zygosity                                           Information on whether the mutation was reported to be homozygous , heterozygous or unknown within the sample.
-[15:O]                GRCh                                               The coordinate system used -
+[12:L]                Id NCV                                             unique non-coding variant identifier.
+[13:M]                Zygosity                                           Information on whether the mutation was reported to be homozygous , heterozygous or unknown within the sample.
+[14:N]                GRCh                                               The coordinate system used -
                         * 38 = GRCh38/Hg38
                         * 37 = GRCh37/Hg19
-[16:P]                Genome position                                    The genomic cooridnate of the mutation.
-[17:Q]                Mutation somatic status                            Information on whether the sample was reported to be Confirmed Somatic, Previously Reported or Variant of unknown origin -
+[15:O]                Genome position                                    The genomic cooridnate of the mutation.
+[16:P]                Mutation somatic status                            Information on whether the sample was reported to be Confirmed Somatic, Previously Reported or Variant of unknown origin -
                         * variant of unknown origin = when the mutation is known to be somatic but the tumour was sequenced without a matched normal.
                         * Confirmed Somatic = if the mutation has been confimed to be somatic in the experiment by sequencing both the tumour and a matched normal from the same patient.
                         * Previously observed = when the mutation has been reported as somatic previously but not in current paper.
-[18:R]                WT SEQ                                             wild type sequence.
-[19:S]                MUT SEQ                                            Mutated sequence.
-[20:T]                SNP                                                All the known SNPs are flagged as 'y' defined by the 1000 genomes project, dbSNP and a panel of 378 normal (non-cancer) samples from Sanger CGP sequencing.
-[21:U]                FATHMM_MKL_NON_CODING_SCORE                        FATHMM-MKL non-coding score. A p-value ranging from 0 to 1 where >= 0.7 is functionally significant.
-[22:V]                FATHMM_MKL_NON_CODING_GROUPS                       FATHMM-MKL group classification. More details from http://cancer.sanger.ac.uk/cosmic/analyses.
-[23:W]                FATHMM_MKL_CODING_SCORE                            FATHMM-MKL coding score (p-value ranging from 0 to 1).
-[24:X]                FATHMM_MKL_CODING_GROUPS                           FATHMM-MKL group classification (coding). More details from http://cancer.sanger.ac.uk/cosmic/analyses.
-[25:Y]                Whole Genome Reseq                                 if the enitre genome is sequenced.
-[26:Z]                Whole_Exome                                        if the enitre exome is sequenced.
-[27:AA]               Id Study                                           Lists the unique Ids of studies that have involved this non coding mutation.
-[28:AB]               Pubmed_PMID                                        The PUBMED ID for the paper that the sample was noted in.
+[17:Q]                WT SEQ                                             wild type sequence.
+[18:R]                MUT SEQ                                            Mutated sequence.
+[19:S]                SNP                                                All the known SNPs are flagged as 'y' defined by the 1000 genomes project, dbSNP and a panel of 378 normal (non-cancer) samples from Sanger CGP sequencing.
+[20:T]                FATHMM_MKL_NON_CODING_SCORE                        FATHMM-MKL non-coding score. A p-value ranging from 0 to 1 where >= 0.7 is functionally significant.
+[21:U]                FATHMM_MKL_NON_CODING_GROUPS                       FATHMM-MKL group classification. More details from http://cancer.sanger.ac.uk/cosmic/analyses.
+[22:V]                FATHMM_MKL_CODING_SCORE                            FATHMM-MKL coding score (p-value ranging from 0 to 1).
+[23:W]                FATHMM_MKL_CODING_GROUPS                           FATHMM-MKL group classification (coding). More details from http://cancer.sanger.ac.uk/cosmic/analyses.
+[24:X]                Whole Genome Reseq                                 if the enitre genome is sequenced.
+[25:Y]                Whole_Exome                                        if the enitre exome is sequenced.
+[26:Z]                Id Study                                           Lists the unique Ids of studies that have involved this non coding mutation.
+[27:AA]               Pubmed_PMID                                        The PUBMED ID for the paper that the sample was noted in.
 
 
 
 ---------------------
 Copy Number Variants
 ---------------------
- All copy number abberations from the current release in a tab separated table. For more information on copy number data, please see http://cancer.sanger.ac.uk/cosmic/help/cnv/overview. [ /cosmic/grch38/cosmic/v81/CosmicCompleteCNA.tsv.gz ] 
+ All copy number abberations from the current release in a tab separated table. For more information on copy number data, please see http://cancer.sanger.ac.uk/cosmic/help/cnv/overview. [ /cosmic/grch38/cosmic/v83/CosmicCompleteCNA.tsv.gz ] 
 
   File Description
 
@@ -406,7 +416,7 @@ Copy Number Variants
 ----------------
 Gene Expression
 ----------------
- All gene expression level 3 data from the TCGA portal for the current most release in a tab separated table. Please note : The platform codes currently used to produce the COSMIC gene expression values are: IlluminaGA_RNASeqV2, IlluminaHiSeq_RNASeqV2, AgilentG4502A_07_2, AgilentG4502A_07_3. For more information on the gene expression data, please see  http://cancer.sanger.ac.uk/cosmic/analyses. [ /cosmic/grch38/cosmic/v81/CosmicCompleteGeneExpression.tsv.gz ] 
+ All gene expression level 3 data from the TCGA portal for the current most release in a tab separated table. Please note : The platform codes currently used to produce the COSMIC gene expression values are: IlluminaGA_RNASeqV2, IlluminaHiSeq_RNASeqV2, AgilentG4502A_07_2, AgilentG4502A_07_3. For more information on the gene expression data, please see  http://cancer.sanger.ac.uk/cosmic/analyses. [ /cosmic/grch38/cosmic/v83/CosmicCompleteGeneExpression.tsv.gz ] 
 
   File Description
 
@@ -423,7 +433,7 @@ Gene Expression
 ------------
 Methylation
 ------------
- TCGA Level 3 methylation data from the ICGC portal for the current release in a tab separated table. More information on the methylation data is available from http://cancer.sanger.ac.uk/wgs/analyses. [ /cosmic/grch38/cosmic/v81/CosmicCompleteDifferentialMethylation.tsv.gz ] 
+ TCGA Level 3 methylation data from the ICGC portal for the current release in a tab separated table. More information on the methylation data is available from http://cancer.sanger.ac.uk/wgs/analyses. [ /cosmic/grch38/cosmic/v83/CosmicCompleteDifferentialMethylation.tsv.gz ] 
 
   File Description
 
@@ -457,13 +467,13 @@ Methylation
 -------------------
 Cancer Gene Census
 -------------------
- A list of all cancer census genes from the current release in a comma separated table. The census table is exported from http://cancer.sanger.ac.uk/census and the format is the same. [ /cosmic/grch38/cosmic/v81/cancer_gene_census.csv ] 
+ A list of all cancer census genes from the current release in a comma separated table. The census table is exported from http://cancer.sanger.ac.uk/census and the format is the same. [ /cosmic/grch38/cosmic/v83/cancer_gene_census.csv ] 
 
 
 -----------------------
 COSMIC Sample Features
 -----------------------
- All the features related to a sample from the current release in a tab separated file. [ /cosmic/grch38/cosmic/v81/CosmicSample.tsv.gz ] 
+ All the features related to a sample from the current release in a tab separated file. [ /cosmic/grch38/cosmic/v83/CosmicSample.tsv.gz ] 
 
   File Description
 
@@ -510,7 +520,7 @@ COSMIC Sample Features
 ------------
 COSMIC HGNC
 ------------
- A tab separated table showing the relationship between the Cancer Gene Census, COSMIC ID, Gene Name, HGNC ID and Entrez ID. [ /cosmic/grch38/cosmic/v81/CosmicHGNC.tsv.gz ] 
+ A tab separated table showing the relationship between the Cancer Gene Census, COSMIC ID, Gene Name, HGNC ID and Entrez ID. [ /cosmic/grch38/cosmic/v83/CosmicHGNC.tsv.gz ] 
 
   File Description
 
@@ -529,7 +539,7 @@ COSMIC HGNC
 ----------------------------
 COSMIC Resistance Mutations
 ----------------------------
- A tab separated table listing the details of all mutations in COSMIC which are known to confer drug resistance. [ /cosmic/grch38/cosmic/v81/CosmicResistanceMutations.tsv.gz ] 
+ A tab separated table listing the details of all mutations in COSMIC which are known to confer drug resistance. [ /cosmic/grch38/cosmic/v83/CosmicResistanceMutations.tsv.gz ] 
 
   File Description
 
@@ -558,13 +568,14 @@ COSMIC Resistance Mutations
 [19:S]                Sample Source                                      Describes where the sample has originated from including the tumour type.
 [20:T]                Zygosity                                           Information on whether the mutation was reported to be homozygous , heterozygous or unknown within the sample.
 [21:U]                Genome Coordinates (GRCh37/38)                     The genome location of the mutation (chr:start..end), on the specified genome version.
+[22:V]                Tier                                               1 or 2 [see http://cancer.sanger.ac.uk/census for details or Tier 1 and 2]
 
 
 
 ----------------------------------
 ASCAT Ploidy and Purity Estimates
 ----------------------------------
- A tab separated table listing the ploidy and aberrant cell fraction (purity estimate), for TCGA samples re-analysed using ASCAT. [ /cosmic/grch38/cosmic/v81/ascat_acf_ploidy.tsv ] 
+ A tab separated table listing the ploidy and aberrant cell fraction (purity estimate), for TCGA samples re-analysed using ASCAT. [ /cosmic/grch38/cosmic/v83/ascat_acf_ploidy.tsv ] 
 
   File Description
 
@@ -581,22 +592,22 @@ ASCAT Ploidy and Purity Estimates
 VCF Files (coding and non-coding mutations)
 --------------------------------------------
 CODING MUTATIONS
- VCF file of all coding mutations in the current release. [ /cosmic/grch38/cosmic/v81/VCF/CosmicCodingMuts.vcf.gz ] 
+ VCF file of all coding mutations in the current release. [ /cosmic/grch38/cosmic/v83/VCF/CosmicCodingMuts.vcf.gz ] 
 
 NON-CODING VARIANTS
- VCF file of all non coding mutations in the current release. [ /cosmic/grch38/cosmic/v81/VCF/CosmicNonCodingVariants.vcf.gz ] 
+ VCF file of all non coding mutations in the current release. [ /cosmic/grch38/cosmic/v83/VCF/CosmicNonCodingVariants.vcf.gz ] 
 
 
 -------------------
 Fasta File (genes)
 -------------------
- CDS sequence for all the genes in COSMIC. [ /cosmic/grch38/cosmic/v81/All_COSMIC_Genes.fasta.gz ] 
+ CDS sequence for all the genes in COSMIC. [ /cosmic/grch38/cosmic/v83/All_COSMIC_Genes.fasta.gz ] 
 
 
 -------------------
 COSMIC Transcripts
 -------------------
- A tab separated table listing the gene name and transcript accession for each gene ID. [ /cosmic/grch38/cosmic/v81/CosmicTranscripts.tsv.gz ] 
+ A tab separated table listing the gene name and transcript accession for each gene ID. [ /cosmic/grch38/cosmic/v83/CosmicTranscripts.tsv.gz ] 
 
   File Description
 
@@ -611,6 +622,6 @@ COSMIC Transcripts
 ---------------------
 Oracle Database Dump
 ---------------------
- The oracle database dump of the current release. Please see the help document OracleSchemaDocumentation.pdf for a description of the database schema. [ /cosmic/grch38/cosmic/v81/COSMIC_ORACLE_EXPORT.dmp.gz ] 
+ The oracle database dump of the current release. Please see the help document OracleSchemaDocumentation.pdf for a description of the database schema. [ /cosmic/grch38/cosmic/v83/COSMIC_ORACLE_EXPORT.dmp.gz ] 
 
 

@@ -7,7 +7,7 @@ Programmatic Interfaces
 
     The changes needed to support multiple programs have rendered the V1 and V2 APIs non-functional 
     and therefore users must migrage all API calls to the V3 version.  Note that this usually means 
-    just a minor adjustment to the URL.  Also note that some of the examples in the github repository
+    just a minor adjustment to the URL.  Some of the examples in the github repository
     may still reference the V1 or V2 API.
 
 Programmatic access to molecular data and metadata within the ISB-CGC platform
@@ -66,14 +66,11 @@ Endpoints are simple https GET or PUT requests, *eg*:
 
 .. code-block:: none
 
-        V3 TCGA - GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_tcga_api/v3/cases/TCGA-B9-7268
-        V3 TARGET - GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_target_api/v3/cases/TARGET-20-PABLDZ
-        V3 CCLE - GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/cases/FU-OV-1
+        V3 TCGA - GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_tcga_api/v3/tcga/cases/TCGA-B9-7268
+        V3 TARGET - GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_target_api/v3/target/cases/TARGET-20-PABLDZ
+        V3 CCLE - GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/ccle/cases/FU-OV-1
         
-        V1 (deprecated) - GET https://api-dot-isb-cgc.appspot.com/_ah/api/cohort_api/v1/patient_details?patient_barcode=TCGA-B9-7268
-        V2 (deprecated) - GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v2/patients/TCGA-B9-7268
-
-The first three GET commands above illustrates the usage with the new program-specific V3 endpoints.  The V1 and V2 examples are presented so users can see the difference in calls and aid in the transition to V3.  
+The first three GET commands above illustrates the usage with the new program-specific V3 endpoints.  
 
 The url (without the "GET" command) can also be pasted directly into your browser, like
 `this <https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_tcga_api/v3/cases/TCGA-B9-7268>`_
@@ -138,8 +135,6 @@ from R
 ------
 
 The `Examples-R <https://github.com/isb-cgc/examples-R>`_ (ISBCGCExamples) package contains a number of functions that "wrap" the http endpoints calls, making it easier to access your cohorts and query the database.
-(Note that these wrappers are currently based on the *v1* endpoints and will soon be updated to 
-use the *v2* endpoints.)
 
 **Step 1**: After starting R, and loading the ISBCGCExamples, you can use the R helper script ``isb_init``
 to go through the authentication process:
@@ -182,7 +177,7 @@ The endpoints have been reorganized to support the multiple programs that now ha
 
 **Please Note:** For the create.cohort API for all programs require the user to select inbetween the brackets to view the possible filter(s) for cohort being built.
 
-Details for each of these enpoints can be found below:
+Details for each of these endpoints can be found below:
 
 **Universal Endpoints**
 
@@ -234,6 +229,6 @@ Details for each of these enpoints can be found below:
     progapi3_ccle/cases_get.rst
     progapi3_ccle/samples_cloud_storage_file_paths.rst
     progapi3_ccle/samples_get.rst
-    progapi3_ccle/users_get.rst
+   
 
 

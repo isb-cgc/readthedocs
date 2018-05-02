@@ -15,8 +15,7 @@ and part of our mission is to host the TARGET data in the cloud so that research
 may work with the data without needing 
 to download and store the data at their own local institutions.
 
-The controlled-access data in Google Cloud Storage is not yet available for
-access but will be in June or July of this year.
+TARGET controlled-access data is now available to authorized users in Google Cloud Storage.
 
 The open-access data includes RNA-seq and miRNA-seq expression levels, and is available
 in BigQuery, along with the open-access clinical and biospecimen information.
