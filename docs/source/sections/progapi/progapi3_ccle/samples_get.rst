@@ -92,7 +92,7 @@ If successful, this method returns a response body with the following structure(
 	aliquots[], list, "List of barcodes of aliquots taken from this participant."
 	biospecimen_data, nested object, "Biospecimen data about the sample."
 	case_barcode, string, "Case barcode."
-    case_gdc_id", string, "Case gdc id."
+    case_gdc_id, string, "Case gdc id."
 	data_details[], list, "List of information about each file associated with the sample barcode."
 	data_details[].access, string, "An indication of the security protocol necessary to fulfill in order to access the data from the file, e.g. open, controlled."
 	data_details[].analysis_workflow_type, string, "The type of workflow used to generate the data file, e.g. 'BWA-aln', 'STAR 2-Pass', 'BWA with Mark Duplicates and Cocleaning'"
