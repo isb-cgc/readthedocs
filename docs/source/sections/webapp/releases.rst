@@ -3,6 +3,46 @@ Web-App Release Notes
 *********************
 
 
+
+* **May 3, 2018** 
+ 
+ **Please Note:** Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
+ 
+ **Issues resolved in sprint 26 as of 05/03/2018**
+  
+ New Enhancements
+ 
+  - The export to BigQuery feature has been enhanced to include faster processing time for larger cohorts with e.g 30,000 > samples and 65,000 > file records.
+  - You are now able to export cohort and cohort file manifests to a Google Cloud Storage using either .JSON or .CSV format from the cohort details page and from the File Browser page. 
+  - We have enhanced our instructions associated with buttons to further provide directions to the end-users.  
+  - On the File Browser page it is now possible to change how many entries are displayed at a time, as well as sort columns by clicking on the column header.
+  - Google Cloud Project membership is now automatically updated every six hours.  If you are adding someone new to the project they will be able to use the project after six hours maximum without someone having to log in and manually refresh the project.
+  
+ Bug Fixes
+  - You can no longer share a cohort with yourself (email currently logged into) and cause the file browser page to disable.   
+  - DNA methylation has been re-enabled to be used with hg38 and hg19 data when working with workbooks and plotting. 
+  - Sharing inputs have had their security restrictions tightened. This also includes the registering a service account page. 
+  - On the File Browser page when downloading the file manifest via the CSV button you are no longer able to select a filter while the file is building. 
+  - On the File Browser tab if you toggle between entries pages on the All Files tab it will not affect the IGV tab or Pathology Images tab entries counts display. 
+  - On the File Browser page you can now freely toggle between entries pages with no errors displayed. 
+  - On the File Browser page selecting filters from the left hand side while exploring pages will no longer crash and require you to back or refresh the page to fix. 
+  
+ **Known Issues in Sprint 26 as of 05/03/2018**
+  
+  - Analysis Type: Seq peek Formatting is Elongated on occasion
+  - If the user shares a Cohort, neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort.
+  - CCLE data cannot be plotted when working with workbooks.  ISB-CGC will resolve this functionality after the GDC formally releases CCLE data.
+  - When a user duplicates a Worksheet, then tries to implement the log scale, it will not function properly.
+  - The set operation for existing Cohorts complement is behaving exceptionally slow.
+  - The mouse-over feature is currently disabled for program TARGET with disease code ALL. 
+  - When working on Firefox browser a violin plot does not display the data plotted correctly when working on a Worksheet. 
+  - When uploading TARGET files using the cohort barcode creation feature from the GDC, you may get an invalid barcodes error message and unable to upload all the barcodes. 
+  - API endpoint cohort.creation will include NULL values in sample counts when cohort is created. 
+  - Duplicate entries can be entered for the register a dataset and the register a bucket on the Google cloud project details page.
+  - A cohort with user uploaded data present and public data present in our system e.g TCGA data, the cohort details page for the selected filters panel does not properly display the filters selected. 
+  - On the File Browser page for Diagnostic images there is no GDC file UUID associated to them.
+
+  
 * **April 2, 2018** `v3.10 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.10>`_
  
  **Please Note:** Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
