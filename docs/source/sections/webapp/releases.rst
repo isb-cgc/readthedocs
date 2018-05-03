@@ -24,7 +24,7 @@ Web-App Release Notes
   - Sharing inputs have had their security restrictions tightened. This also includes the registering a service account page. 
   - On the File Browser page when downloading the file manifest via the CSV button you are no longer able to select a filter while the file is building. 
   - On the File Browser tab if you toggle between entries pages on the All Files tab it will not affect the IGV tab or Pathology Images tab entries counts display. 
-  - On the File Browser page you can now freely toggle between entries pages with no errors. 
+  - On the File Browser page you can now freely toggle between entries pages with no errors displayed. 
   - On the File Browser page selecting filters from the left hand side while exploring pages will no longer crash and require you to back or refresh the page to fix. 
   
  **Known Issues in Sprint 26 as of 05/03/2018**
