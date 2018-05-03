@@ -336,7 +336,7 @@ From the "SAVED COHORTS" tab you can:
   
 *Note:* You shouldn't ever set UUID to 'required' because sometimes a sample doesn't have a UUID, and the attempt to insert a 'null' will cause the cohort export to fail.
 
-* GCS: This will save the details of the cohort in a Google Cloud Storage location specified by you. You must have a registered Google Cloud Storage (GCS) object with a Google Cloud Project on the registered Google Cloud Projects details page. More information on how to register a GCS object can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_.  You will be able to select the file format to export into Cloud Storage, either CSV or JSON. 
+* GCS: This will save the details of the cohort in a Google Cloud Storage location specified by you. You must have a registered Google Cloud Storage (GCS) bucket with a Google Cloud Project on the registered Google Cloud Projects details page. More information on how to register a GCS bucket can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_.  You will be able to select the file format to export into Cloud Storage, either CSV or JSON. All files are exported are converted into zip files.  
 * Share: This will share the web view of the cohorts with users you select by entering the users e-mail. If the email address you entered in is not registered in the database you are prompted with a message saying, "The following user emails could not be found; please ask them to log into the site first:(email entered)."
  
 Current Filters Panel
@@ -438,7 +438,7 @@ The table will contain the following information:
 Export File List to Google Cloud Storage
 ========================================
 
-To export the File list to Google Cloud Storage (GCS), select the button GCS.  You will need to have registered a Google Cloud Project and a GCS Object to be able to export to GCS. More information on how to register a GCS Object can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_. You can also give the object a unique name if left blank we will provide a name for the object.
+To export the File list to Google Cloud Storage (GCS), select the button GCS.  You will need to have registered a Google Cloud Project and a GCS Object to be able to export to GCS. More information on how to register a GCS bucket can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_. You can also give the object a unique name if left blank we will provide a name for the bucket. You can either choose to export as  JSON or CSV file and all files exported are converted into zip files.
 
 The file will contain the following information:
 
