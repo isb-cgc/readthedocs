@@ -3,6 +3,33 @@ Web-App Release Notes
 *********************
 
 
+
+* **May 3, 2018** 
+ 
+ **Please Note:** Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
+ 
+ **Issues resolved in sprint 26 as of 05/03/2018**
+ 
+ New Enhancements
+  
+  -The export to BigQuery feature has been enhanced to include quicker processing time for larger cohorts with e.g 30,000 > samples and 65,000 > file records. 
+  - You are now able to export cohort and cohort file manifest to a Google Cloud Storage using either .JSON or .CSV format from the cohort details page and from the File Browser page. 
+  - All instruction buttons will clearly state if instructions are being shown or hidden. This will be seen on the cohort creation - barcode upload page. Also on the Register a Google Cloud Project page. 
+  - On the File Browser page it is now possible to change how many entries are displayed at a time.  You have the option of either 25, 50 , or 100 entries displayed at one time. 
+  - Google Cloud Project membership is now automatically updated every six hours.  If you are adding someone new to the project they will be able to use the project after six hours maximum without someone having to log in and manually refresh the project. 
+  
+ Bug Fixes
+ 
+  - You can no longer share a cohort with yourself(email currently logged into) and cause the file browser page to disable.   
+  - DNA methylation has been re-enabled to be used with hg38 and hg19 data when working with workbooks and plotting. 
+  - Sharing inputs have had their security restrictions tightened. This also includes the registering a service account page.
+  - On the File Browser page when downloading the file manifest via the CSV button you are no longer able to select a filter while the file is building. 
+  - On the File Browser tab if you toggle between entries pages on the All Files tab it will not affect the IGV tab or Pathology Images tab entries counts display. 
+  - On the File Browser page you can now freely toggle between entries pages with no errors. 
+  - On the File Browser page selecting filters from the left hand side while exploring pages will no longer crash and require you to back or refresh the page to fix. 
+
+
+ 
 * **April 2, 2018** `v3.10 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.10>`_
  
  **Please Note:** Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
