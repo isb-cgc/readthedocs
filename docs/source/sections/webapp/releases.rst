@@ -25,9 +25,22 @@ Web-App Release Notes
   - On the File Browser page when downloading the file manifest via the CSV button you are no longer able to select a filter while the file is building. 
   - On the File Browser tab if you toggle between entries pages on the All Files tab it will not affect the IGV tab or Pathology Images tab entries counts display. 
   - On the File Browser page you can now freely toggle between entries pages with no errors. 
- - On the File Browser page selecting filters from the left hand side while exploring pages will no longer crash and require you to back or refresh the page to fix. 
-
- 
+  - On the File Browser page selecting filters from the left hand side while exploring pages will no longer crash and require you to back or refresh the page to fix. 
+  
+ **Known Issues in Sprint 26 as of 05/03/2018**
+  
+  - Analysis Type: Seq peek Formatting is Elongated on occasion
+  - If the user shares a Cohort, neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort.
+  - CCLE data cannot be plotted when working with workbooks.  ISB-CGC will resolve this functionality after the GDC formally releases CCLE data.
+  - When a user duplicates a Worksheet, then tries to implement the log scale, it will not function properly.
+  - The set operation for existing Cohorts complement is behaving exceptionally slow.
+  - The mouse-over feature is currently disabled for program TARGET with disease code ALL. 
+  - When working on Firefox browser a violin plot does not display the data plotted correctly when working on a Worksheet. 
+  - When uploading TARGET files using the cohort barcode creation feature from the GDC, you may get an invalid barcodes error message and unable to upload all the barcodes. 
+  - API endpoint cohort.creation will include NULL values in sample counts when cohort is created. 
+  - Duplicate entries can be entered for the register a dataset and the register a bucket on the Google cloud project details page.
+  - A cohort with user uploaded data present and public data present in our system e.g TCGA data, the cohort details page for the selected filters panel does not properly display the filters selected. 
+  - On the File Browser page for Diagnostic images there is no GDC file UUID associated to them.
 
   
 * **April 2, 2018** `v3.10 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.10>`_
