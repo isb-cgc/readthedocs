@@ -35,7 +35,7 @@ Getting Started
 Adding the PanCancer Atlas tables to your workspace
 ###################################################
 
-To add public BigQuery datasets and tables to your "view" in the BigQuery web UI you
+To add public BigQuery datasets and tables to your "view" in the `BigQuery web UI <https://bigquery.cloud.google.com/queries/pancancer-atlas>`_ you
 need to know the name of the GCP project that owns the dataset(s).
 To add the publicly accessible ISB-CGC datasets (project name: ``pancancer-atlas`` and ``isb-cgc``)
 follow these steps_.
