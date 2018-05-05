@@ -67,6 +67,7 @@ If successful, this method returns a response body with the following structure:
 .. code-block:: javascript
 
   {
+    "dbGaP_allowed": boolean,
     "dbGaP_authorized": boolean,
     "message": string
   }
