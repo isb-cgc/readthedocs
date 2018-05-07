@@ -484,31 +484,30 @@ If successful, this method returns a response body with the following structure:
       "weiss_venous_invasion": string,
       "year_of_initial_pathologic_diagnosis": integer
     },
+    "case_barcode": string,
+    "case_gdc_id": string,
     "data_details": [
       {
-        "cloud_storage_path": string,
-        "DataCenterName": string,
-        "DataCenterType": string,
-        "DataFileName": string,
-        "DataFileNameKey": string,
-        "DatafileUploaded": string,
-        "DataLevel": string,
-        "Datatype": string,
-        "GenomeReference": string,
-        "GG_dataset_id": string,
-        "GG_readgroupset_id": string,
-        "Pipeline": string,
-        "Platform": string,
-        "platform_full_name": string,
-        "Project": string,
-        "Repository": string,
-        "SampleBarcode": string,
-        "SDRFFileName": string,
-        "SecurityProtocol": string
+        "access": string,
+        "data_category": string,
+        "data_format": string,
+        "data_type": string,
+        "disease_code": string,
+        "endpoint_type": string,
+        "file_gdc_id": string,
+        "file_name": string,
+        "file_name_key": string,
+        "file_size": string,
+        "platform": string,
+        "program_name": string,
+        "project_short_name": string,
+        "sample_barcode": string,
+        "sample_gdc_id": string,
+        "sample_type": string
       }
     ],
     "data_details_count": integer,
-    "patient": string
+
   }
 
 .. csv-table::
@@ -621,25 +620,8 @@ If successful, this method returns a response body with the following structure:
 	biospecimen_data.weiss_venous_invasion, string, "The result of an assessment using the Weiss histopathologic criteria."
 	biospecimen_data.year_of_initial_pathologic_diagnosis, integer, "Numeric value to represent the year of an individual's initial pathologic diagnosis of cancer."
 	data_details[], list, "List of information about each file associated with the sample barcode."
-	data_details[].cloud_storage_path, string, "Google Cloud Storage path to file."
-	data_details[].DataCenterName, string, "Short name of the contributing data center, e.g. bcgsc.ca."
-	data_details[].DataCenterType, string, "Abbreviation of the type of contributing data center, e.g. cgcc."
-	data_details[].DataFileName, string, "Name of the datafile stored on the DCC file system."
-	data_details[].DataFileNameKey, string, "Key into the ISB-CGC GCS bucket for this file."
-	data_details[].DatafileUploaded, string, "Whether the file fit requirements to be uploaded into the project."
-	data_details[].DataLevel, string, "Level of the type of data, depending on where it is stored in the DCC directory structure. Data levels are defined by TCGA DCC."
-	data_details[].Datatype, string, "Data type, e.g. Complete Clinical Set, CNV (SNP Array), DNA Methylation, Expression-Protein, Fragment Analysis Results, miRNASeq, Protected Mutations, RNASeq, RNASeqV2, Somatic Mutations, TotalRNASeqV."
-	data_details[].GenomeReference, string, "Allows a center to associate results with a specific genome build that was used as the basis for analysis, e.g. hg19 (GRCh37)"
-	data_details[].Pipeline, string, "A combination of the center and the platform that can distinguish between two ways of performing the sequencing or assay for the same platform, e.g. bcgsc.ca__miRNASeq."
-	data_details[].Platform, string, "A platform (within the scope of TCGA) is a vendor-specific technology for assaying or sequencing that could possibly be customized by a GSC or CGCC, e.g. IlluminaHiSeq_miRNASeq."
-	data_details[].platform_full_name, string, "The full name of the sequencing platform used, e.g. Illumina HiSeq 2000, Ion Torrent PGM, AB SOLiD System 2.0."
-	data_details[].Project, string, "The study for which the data was generated, e.g. TCGA."
-	data_details[].Repository, string, "A storage location where files are deposited and made available, e.g. DCC, CGHub."
-	data_details[].SampleBarcode, string, "Sample barcode."
-	data_details[].SDRFFileName, string, "Name of SDRF file stored on the DCC file system, e.g. bcgsc.ca_KIRC.IlluminaHiSeq_miRNASeq.sdrf.txt"
-	data_details[].SecurityProtocol, string, "An indication of the security protocol necessary to fulfill in order to access the data from the file, e.g. DBGap Protected Access, DBGap Open Access"
 	data_details_count, integer, "Number of files associated with the sample barcode."
-	patient, string, "Patient barcode."
+
 
 ..  data_details[].GG_dataset_id, string, "Google genomics dataset id."
 ..  data_details[].GG_readgroupset_id, string, "Google genomics readgroupset id."
