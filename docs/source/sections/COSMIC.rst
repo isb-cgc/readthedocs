@@ -16,12 +16,12 @@ open-access datasets made available by the ISB-CGC
 and `that <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/Reference-Data.html>`_ 
 for more details on other publicly accessible BigQuery datasets).
 
-**COSMIC Release v84 update**: Two new BigQuery datasets now contain *all* of the tables
+**COSMIC Release v85 update**: Two new BigQuery datasets now contain *all* of the tables
 available for download from the `COSMIC ftp site <http://cancer.sanger.ac.uk/cosmic/download>`_.
 The availability of these additional tables will support 
 many more types of queries -- please explore them at (after registering for access as described below):
-    - `isb-cgc:COSMIC_v84_grch38 <https://bigquery.cloud.google.com/dataset/isb-cgc:COSMIC_v84_grch38>`_
-    - `isb-cgc:COSMIC_v84_grch37 <https://bigquery.cloud.google.com/dataset/isb-cgc:COSMIC_v84_grch37>`_
+    - `isb-cgc:COSMIC_v85_grch38 <https://bigquery.cloud.google.com/dataset/isb-cgc:COSMIC_v85_grch38>`_
+    - `isb-cgc:COSMIC_v85_grch37 <https://bigquery.cloud.google.com/dataset/isb-cgc:COSMIC_v85_grch37>`_
 Details about the underlying COSMIC export files used to create these BigQuery tables can be
 found in README files for 
 `GRCh38 <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/source/sections/cosmic/README-cosmic-grch38.txt>`_ 
@@ -74,7 +74,7 @@ to run the sample query given below, please contact us at feedback@isb-cgc.org.
     * click on the **Hide Options** button;
     * paste the sample query below into the New Query text-box;
     * within a second or two you should see a green circle with a check-mark below the lower-right-corner of the New Query text-box  --  if instead you see a red circle with an exclamation mark, click on it to see what your Syntax Error is;
-    * once you do have the green circle, you can click on it to see a message like: "Valid: This query will process 131 MB when run."
+    * once you do have the green circle, you can click on it to see a message like: "Valid: This query will process 174 MB when run."
     * to execute the query, click on **RUN QUERY** !       
 
 
@@ -87,7 +87,7 @@ to run the sample query given below, please contact us at feedback@isb-cgc.org.
         Mutation_AA,
         Gene_name
       FROM
-        `isb-cgc.COSMIC_v84_grch37.Mutant`
+        `isb-cgc.COSMIC_v85_grch37.Mutant`
       GROUP BY
         Mutation_AA,
         Gene_name ),
@@ -118,7 +118,8 @@ More details about BigQuery costs can be found in the Google
 `documentation <https://cloud.google.com/bigquery/pricing>`_.  
 There are two basic types of costs: storage costs and usage costs.  ISB-CGC is hosting 
 these COSMIC tables in BigQuery and is paying for the storage costs (with support from NCI).  
-The size of each COSMIC table is less than 1.5 GB and therefore costs less than $0.25 per year to store.
+The size of each v85 COSMIC dataset is approximately 24 GB and costs less than $3 per year
+to store once the *long-term storage* discount is applied (90 days after the dataset is initially populated).
 
 The main costs associated with using BigQuery are the query costs.  BigQuery is a 
 cloud-based massively parallel analytic engine which can scan terabytes of data in seconds.  
@@ -126,9 +127,9 @@ Query costs start at $5 (USD) per TB of data scanned, but can be higher for more
 computationally intensive queries (*eg* those that include complex user-defined-functions).
 
 For the sample query above, we saw that clicking on the check-mark in the green circle 
-produced this message: Valid:  This query will process 131 MB when run.
+produced this message: Valid:  This query will process 174 MB when run.
 The cost of this specific query can be estimated using this information: 
-($5/TB) x (131 MB / (1000000 MB/TB)) = $0.000655.  This cost is very (perhaps suprisingly) low, 
+($5/TB) x (174 MB / (1000000 MB/TB)) = $0.00087.  This cost is very (perhaps suprisingly) low, 
 but it is always important to think carefully about your queries and to make them as 
 efficient as possible.  If you want to derive summary information about all ~20,000 genes, 
 for example, you could do that with a single query that might cost a few pennies, or 
@@ -144,9 +145,9 @@ or
 tables, the amount of data processed by a 
 single query may increase into the GB or even TB range.
 
-During this introductory period (for at least the next 6 months), all registered COSMIC 
-users will be added to the ``isb-cgc-cosmic`` Google Cloud Platform (GCP) project so that 
-they will be able to perform exploratory queries at no cost.  
+At this time, all registered COSMIC 
+users are added to the ``isb-cgc-cosmic`` Google Cloud Platform (GCP) project which allows them
+to perform exploratory queries at no cost.  
 (These costs will be paid by ISB-CGC, again with funding from NCI.)  Please note that 
 users who perform large numbers of queries and incur significant costs will be 
 removed from the ``isb-cgc-cosmic`` GCP project and will be required to create their own 
@@ -163,11 +164,11 @@ There are many public BigQuery datasets containing genomic information, and you
 can combine any of these resources into your SQL queries on the COSMIC tables -- 
 all you need is the name of the table.
   
-In the example query above, the table being queried is ``isb-cgc.COSMIC_v84_grch37.Mutant``; 
+In the example query above, the table being queried is ``isb-cgc.COSMIC_v85_grch37.Mutant``; 
 a complete BigQuery table name has three components:
 
     * the first part of the name (isb-cgc) is the Google Cloud Platform (GCP) project name; 
-    * the second part (COSMIC_v84_grch37) is the dataset name; and 
+    * the second part (COSMIC_v85_grch37) is the dataset name; and 
     * the third part (Mutant) is the table name.
 
 To add public BigQuery datasets and tables to your "view" in the BigQuery web UI you 
@@ -208,7 +209,7 @@ important detail which is how you specify the table name.  A simple Standard SQL
 .. code-block:: sql
 
     SELECT *
-      FROM `isb-cgc.COSMIC.COSMIC_v84_grch37.Mutant`
+      FROM `isb-cgc.COSMIC.COSMIC_v85_grch37.Mutant`
       LIMIT 1000
 
 whereas the same query in Legacy SQL requires square brackets around the table name and a colon 
@@ -217,7 +218,7 @@ between the project name and the dataset name, like this:
 .. code-block:: sql
 
     SELECT *
-      FROM [isb-cgc:COSMIC_v84_grch37.Mutant]
+      FROM [isb-cgc:COSMIC_v85_grch37.Mutant]
       LIMIT 1000
 
 (Although please note that you can use the "Preview" feature in the BigQuery web UI, at no cost, instead of doing a sELECT * which will do a full table scan!)
@@ -297,7 +298,7 @@ Note that all of these examples are in "Standard SQL", so make sure that you hav
      COUNT(DISTINCT(ID_sample)) AS numSamples,
      COUNT(DISTINCT(ID_tumour)) AS numTumours
    FROM
-     `isb-cgc.COSMIC_v84_grch37.Mutant`
+     `isb-cgc.COSMIC_v85_grch37.Mutant`
    WHERE
      Gene_name="KRAS"
 
@@ -325,9 +326,9 @@ table on the fly, and then use it in a follow-up **SELECT**:
        Mutation_AA,
        Mutation_Description,
        FATHMM_prediction,
-       Sample_source
+       Sample_Type
      FROM
-       `isb-cgc.COSMIC_v84_grch37.Mutant`
+       `isb-cgc.COSMIC_v85_grch37.Mutant`
      WHERE
        Gene_name="KRAS"
      GROUP BY
@@ -337,7 +338,7 @@ table on the fly, and then use it in a follow-up **SELECT**:
        Mutation_AA,
        Mutation_Description,
        FATHMM_prediction,
-       Sample_source )
+       Sample_Type )
    SELECT
      COUNT(*) AS n,
      Primary_site,
@@ -345,7 +346,7 @@ table on the fly, and then use it in a follow-up **SELECT**:
      Mutation_AA,
      Mutation_Description,
      FATHMM_prediction,
-     Sample_source
+     Sample_Type
    FROM
      t1
    GROUP BY
@@ -354,7 +355,7 @@ table on the fly, and then use it in a follow-up **SELECT**:
      Mutation_AA,
      Mutation_Description,
      FATHMM_prediction,
-     Sample_source
+     Sample_Type
    ORDER BY
      n DESC
 
@@ -370,7 +371,7 @@ table on the fly, and then use it in a follow-up **SELECT**:
        Mutation_AA,
        Mutation_Description
      FROM
-       `isb-cgc.COSMIC_v84_grch37.Mutant`
+       `isb-cgc.COSMIC_v85_grch37.Mutant`
      GROUP BY
        ID_tumour,
        Gene_name,
@@ -436,7 +437,7 @@ and individuals affected by disease.)
        CAST(SPLIT(SPLIT(Mutation_genome_position,':')[OFFSET(1)],'-')[OFFSET(0)] AS INT64) AS startPos,
        CAST(SPLIT(SPLIT(Mutation_genome_position,':')[OFFSET(1)],'-')[OFFSET(1)] AS INT64) AS endPos
      FROM
-       `isb-cgc.COSMIC_v84_grch37.Mutant`
+       `isb-cgc.COSMIC_v85_grch37.Mutant`
      WHERE
        Mutation_genome_position IS NOT NULL
        AND GRCh=37
