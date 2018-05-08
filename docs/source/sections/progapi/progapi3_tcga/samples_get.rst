@@ -164,7 +164,8 @@ If successful, this method returns a response body with the following structure:
       "year_of_diagnosis": integer,
       "year_of_tobacco_smoking_onset": integer
     },
-    "case": string,
+    "case_barcode": string,
+    "case_gdc_id": string,
     "data_details": [
       {
         "access": string,
@@ -303,7 +304,8 @@ If successful, this method returns a response body with the following structure:
 	biospecimen_data.weight, integer, "The weight of the patient measured in kilograms."
 	biospecimen_data.year_of_diagnosis, integer, "Numeric value to represent the year of an individual's initial pathologic diagnosis of cancer."
 	biospecimen_data.year_of_tobacco_smoking_onset, integer, "The year in which the participant began smoking."
-	case, string, "Case barcode."
+	case_barcode, string, "Case barcode."
+    case_gdc_id, string, "Case gdc id."
 	data_details[], list, "List of information about each file associated with the sample barcode."
 	data_details[].access, string, "An indication of the security protocol necessary to fulfill in order to access the data from the file, e.g. open, controlled."
 	data_details[].analysis_workflow_type, string, "The type of workflow used to generate the data file, e.g. 'BWA-aln', 'STAR 2-Pass', 'BWA with Mark Duplicates and Cocleaning'"
