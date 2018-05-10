@@ -2726,8 +2726,15 @@ to the submit button called outputPlot, which wraps our plot function
 in the googleAuthR::with_shiny function, in order to make our API calls while
 properly logged in.
 
+See this `help <http://code.markedmondson.me/googleAuthR/articles/troubleshooting.html>`_ on authorization.
 
 .. code-block:: r
+
+
+  options("googleAuthR.scopes.selected" = c("https://www.googleapis.com/auth/bigquery"))
+  options("googleAuthR.webapp.client_id" = "get_this_from_your_cloud_console_under_Credentials_OAuth 2.0 client IDs.apps.googleusercontent.com")
+  options("googleAuthR.webapp.client_secret" = "get_from_cloud_console")
+
 
   server <- function(input, output, session){
 
