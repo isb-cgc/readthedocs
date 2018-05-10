@@ -185,7 +185,6 @@ Google Genomics
 ---------------
 
   + `Overview <https://cloud.google.com/genomics/>`_
-  + `Sign up <https://cloud.google.com/genomics/#contact-form>`_ to receive the Google Genomics whitepaper
   + `github repositories <https://github.com/googlegenomics>`_
   + `Google Genomics Cookbook <https://googlegenomics.readthedocs.io/en/latest/>`_ with sections on:
 

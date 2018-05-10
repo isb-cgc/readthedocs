@@ -4,11 +4,11 @@ Takes a sample barcode as a required parameter and returns cloud storage paths t
 
 **Example**::
 
-	curl https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/samples/CCLE-LS1034/cloud_storage_file_paths
+	curl https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/ccle/samples/CCLE-LS1034/cloud_storage_file_paths
 
 **API explorer example**:
 
-Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_ccle_api/v3/isb_cgc_ccle_api.samples.cloud_storage_file_paths?sample_barcode=TCGA-ZH-A8Y6-01A&platform=Genome_Wide_SNP_6&/>`_ to see this endpoint in Google's API explorer.
+Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_ccle_api/v3/isb_cgc_ccle_api.samples.cloud_storage_file_paths?sample_barcode=CCLE-LS1034>`_ to see this endpoint in Google's API explorer.
 
 **Python API Client Example**::
 
@@ -30,7 +30,7 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2
 
 HTTP request::
 
-	GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/samples/{sample_barcode}/cloud_storage_file_paths
+	GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/ccle/samples/{sample_barcode}/cloud_storage_file_paths
 
 **Parameters**
 

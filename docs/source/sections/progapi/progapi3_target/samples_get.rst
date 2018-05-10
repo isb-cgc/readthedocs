@@ -4,7 +4,7 @@ Given a sample barcode (of length 20-22, *eg* TARGET-51-PALFYG-01A), this endpoi
 
 **Example**::
 
-	curl https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_target_api/v3/samples/TARGET-10-DCC001-03A
+	curl https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_target_api/v3/target/samples/TARGET-10-DCC001-03A
 
 **API explorer example**:
 
@@ -30,7 +30,7 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2
 
 HTTP request::
 
-	GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_target_api/v3/samples/{sample_barcode}
+	GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_target_api/v3/target/samples/{sample_barcode}
 
 **Parameters**
 
