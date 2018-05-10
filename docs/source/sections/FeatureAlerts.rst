@@ -3,6 +3,15 @@ Feature Alerts
 ************************
 
 
+
+*May 10, 2018*
+
+**Feature Alert:**  You are now able to export to Google Cloud Storage an entire cohort file manifest by genomic build using the File Browser page Export to GCS feature! For more information please go `here. <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html#export-file-list-to-google-cloud-storage>`_
+
+.. image:: export_to_gcs_feature.png
+   :scale: 25
+   :align: center
+
 *April 6, 2018*
 
 **Feature Alert:**  You are now able to BigQuery an entire cohort file manifest by genomic build using the File Browser page Export to BQ feature! For more information please go `here. <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html#export-file-list-to-bigquery>`_
