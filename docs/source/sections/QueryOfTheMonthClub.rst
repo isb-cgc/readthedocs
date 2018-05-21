@@ -11,9 +11,9 @@ Please let us know if you have an idea or a suggestion for our next QotM!
 Query of the Month is produced by:
 
 
-- David L Gibbs (david.gibbs (~at~) systemsbiology (~dot~) org)
+- David L Gibbs (david.gibbs@systemsbiology.org)
 
-- Sheila M Reynolds (sheila.reynolds (~at~) systemsbiology (~dot~) org)
+- Sheila M Reynolds (sheila.reynolds@systemsbiology.org)
 
 
 -----------------------
