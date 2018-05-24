@@ -19,7 +19,7 @@ Release Notes
 
 * January 4, 2017: Ensembl gene-set releases 75 (GRCh37) and 87 (GRCh38) are now also available in the **isb-cgc:genome_reference** BigQuery dataset.
 
-* November 16, 2016: TCGA proteomics data from the `CPTAC <https://cptac-data-portal.georgetown.edu/cptacPublic/>`_ (Phase II) is now available in `Google Cloud Storage <https://console.cloud.google.com/storage/browser/isb-cgc-open/CPTAC/Phase_II>`_
+* November 16, 2016: TCGA proteomics data from the `CPTAC <https://cptac-data-portal.georgetown.edu/cptacPublic/>`_ (Phase II) is now available in `Google Cloud Storage <https://console.cloud.google.com/storage/browser/isb-cptac-open/Phase_II>`_
 
 * November 14, 2016: TCGA radiology and tissue slide images are now available in Google Cloud Storage!  This includes radiology images (DICOM files) from the `Cancer Imaging Archive <http://www.cancerimagingarchive.net/>`_ (TCIA) and tissue slide images from the `NCI-GDC data portal <https://gdc-portal.nci.nih.gov/legacy-archive/search/f?filters=%7B%22op%22:%22and%22,%22content%22:%5B%7B%22op%22:%22in%22,%22content%22:%7B%22field%22:%22files.data_type%22,%22value%22:%5B%22Tissue%20slide%20image%22%5D%7D%7D%5D%7D>`_ (SVS files).
 
