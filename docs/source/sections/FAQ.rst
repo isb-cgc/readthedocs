@@ -102,6 +102,15 @@ You will see the 401 error only if your popup blocker is enabled for the isb-cgc
    :align: center
    
 
+**Why does the web browser crash if too many IGV Browser tabs are opened at once?**
+
+The web browser will be caused to crash when too many IGV Browser tabs are open due to the memory intensive nature of loading bam files.  When working with the IGV Browser please be mindful of having multiple tabs open of the IGV Browser since this is unavoidable at this time.
+
+.. image:: IGVBrowserCrash.png
+   :scale: 50
+   :align: center
+   
+
 **Does SeqPeek and CNVR plotting only work with TCGA data?**
 
 We currently have no data associated with CNVR or Seqpeek for TARGET or CCLE.  Therefore, SeqPeek and CNVR will only work with TCGA data.
