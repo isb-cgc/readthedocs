@@ -106,7 +106,7 @@ Each of these is defined as a CWL tool, and together they make a workflow.
 
 ::
 
-	 #!/usr/bin/env cwl-runner
+	#samtools_stats_tool.cwl 
 
 	cwlVersion: v1.0
 	class: CommandLineTool
@@ -130,6 +130,102 @@ Each of these is defined as a CWL tool, and together they make a workflow.
 
 	stdout: $(inputs.filein.path.split('/').pop() + '.stats')
 
+
+This tool definition is going to compute a set of different statistics for each bam file.
+The statistic-type is delineated by a column label. 
+An interesting thing here, is that the standard output, usually printed to the screen, 
+is captured and saved using the input file name where '.bam' is replace with '.stats',
+and the output looks for that '.stats' with the file glob.
+
+
+The next tool is going to parse out our statistic of interest.
+
+
+::
+	#grep_tool.cwl 
+
+	cwlVersion: v1.0
+
+	class: CommandLineTool
+
+	baseCommand: grep
+
+	arguments:
+	  - "--with-filename"
+	  - "^GCF"
+
+	inputs:
+	  input_file:
+	    type: File
+	    inputBinding:
+	      position: 1
+
+	outputs:
+	  grepout:
+	    type: stdout
+
+
+This is a very general tool that could be applied in many settings... since it's just grep!
+Grep is a pattern matching tool, so each line of text that starts with 'GCF' is printed. Also
+we're going to add the input file name to each line. Then later on we know where this result came from.
+Interesting thing here: since we don't explicitly define the file name for the standard output,
+the name is random. We can let the workflow runner worry about it.
+
+
+The next tool wraps the cut command.
+
+::
+
+ 	#cut_tool.cwl 
+
+	cwlVersion: v1.0
+
+	class: CommandLineTool
+
+	baseCommand: cut
+	arguments:
+	  - "-d "
+	  - "-f"
+	  - "1,5-"
+
+	inputs:
+	  input_file:
+	    type: File
+	    inputBinding:
+	      position: 1
+	    
+	outputs:
+	  cutout:
+	    type: stdout
+
+
+Here, we define some 'arguments' to the baseCommand. '-d ' sets the delimiter to white space,
+ '-f 1,5-' says we want fields (-f) 1, and 5+.  Column 1 is the file name, and the stat of interest
+ appears in columns 5 and beyond.  Again we don't define any file names for the output.
+
+
+ Lastly, we are going to gather all the results.
+
+ ::
+ 	#cat_tool.cwl 
+
+	cwlVersion: v1.0
+
+	class: CommandLineTool
+
+	baseCommand: cat
+
+	inputs:
+	  filein:
+	    type: File[]
+	    inputBinding:
+	      position: 1
+
+	outputs:
+	  catout:
+	    type: stdout
+
+	stdout: final_output.txt
 
 
 
