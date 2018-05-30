@@ -212,7 +212,7 @@ appears in columns 5 and beyond.  Again we don't define any file names for the o
 Lastly, we are going to gather all the results.
 
 ::
-	
+
 	#cat_tool.cwl 
 
 	cwlVersion: v1.0
@@ -310,6 +310,37 @@ You will notice, that we only define an array of bam files as inputs to the work
 the intermediates are carried through without explicitly naming them. Inputs to the middle steps
 point to the outputs of previous steps (step1/statsout -> step2).
 
+To run this, we use the google_cwl_runner found `here <https://github.com/isb-cgc/examples-Compute>_`.
+
+I made a working folder in my google bucket called 'workflow-1', and two additional folders within,
+'data' and 'output'. I put the bam files and the cwl tool definitions into 'data' and I put the workflow 
+file in the top level of my working folder.
+
+::
+
+	./examples-Compute/google_cwl_runner/cwl_runner.sh \
+	     --workflow-file gs://my-bucket/workflow-1/scatter_gather_pipeline.cwl \
+	     --settings-file gs://my-bucket/workflow-1/scatter_gather_pipeline.yml \
+	     --input-recursive gs://my-bucket/workflow-1/data \
+	     --output gs://my-bucket/workflow-1/output \
+	     --machine-type n1-standard-4 \
+	     --zone us-west1-a \
+	     --preemptible
+
+
+Running this command prints out some google cloud commands to check on the status of the job, and 
+when it's finished we have logs for stderr, stdout, and status. Additionally we get the cwl_startup.sh,
+cwl_runner.sh, and cwl_shutdown.sh scripts for your perusal.
+
+But most importantly(!), we get our single output file containing the binned GC content, which looks 
+like:
+
+
+.. figure:: query_figs/gc_content_final_output.png
+  :scale: 50
+  :align: center
+
+Thanks for reading!  Let us know if you have questions or comments!
 
 
 .. _April:
