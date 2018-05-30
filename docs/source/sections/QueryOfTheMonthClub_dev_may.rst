@@ -102,10 +102,11 @@ The plan:
 
 Each of these is defined as a CWL tool, and together they make a workflow.
 
- The first three steps of the workflow are considered scatter operations, and the 
- last is the gather, where the outputs are combined.
+The first three steps of the workflow are considered scatter operations, and the 
+last is the gather, where the outputs are combined.
 
- Let's look at the first tool:
+Let's look at the first tool:
+
 
 ::
 
@@ -145,6 +146,7 @@ The next tool is going to parse out our statistic of interest.
 
 
 ::
+	
 	#grep_tool.cwl 
 
 	cwlVersion: v1.0
@@ -178,7 +180,7 @@ the name is random. We can let the workflow runner worry about it.
 The next tool wraps the cut command.
 
 ::
-
+	
  	#cut_tool.cwl 
 
 	cwlVersion: v1.0
@@ -203,14 +205,15 @@ The next tool wraps the cut command.
 
 
 Here, we define some 'arguments' to the baseCommand. '-d ' sets the delimiter to white space,
- '-f 1,5-' says we want fields (-f) 1, and 5+.  Column 1 is the file name, and the stat of interest
- appears in columns 5 and beyond.  Again we don't define any file names for the output.
+'-f 1,5-' says we want fields (-f) 1, and 5+.  Column 1 is the file name, and the stat of interest
+appears in columns 5 and beyond.  Again we don't define any file names for the output.
 
 
- Lastly, we are going to gather all the results.
+Lastly, we are going to gather all the results.
 
- ::
- 	#cat_tool.cwl 
+::
+	
+	#cat_tool.cwl 
 
 	cwlVersion: v1.0
 
@@ -245,7 +248,7 @@ using the google cwl runner.
 The main workflow:
 
 ::
-
+	
 	#!/usr/bin/env cwl-runner
 
 	cwlVersion: v1.0
