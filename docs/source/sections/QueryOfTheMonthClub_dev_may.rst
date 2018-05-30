@@ -86,6 +86,9 @@ with CWL. Last time, we performed the 'scatter', where one applies a tool to a l
 of files. This time, we'll complete the paradigm by performing a 'gather' to collate 
 the results of the scatter.
 
+Specifically, we're going to bin the sequence reads by GC content for each file,
+then we can make a plot of GC content by read counts.
+
 The plan:
 
 - compute some statistics over a list of bam files with samtools
@@ -228,6 +231,81 @@ Here, we define some 'arguments' to the baseCommand. '-d ' sets the delimiter to
 	stdout: final_output.txt
 
 
+Important to note that in the cat tool, we have defined the input to be an array of files.
+That's like 'cat file.a file.b file.c'. And here we *do* define the output file name. 
+
+
+OK! Let's work these tools into a flow.
+
+Important note: I developed all these tools on my local machine with small test cases. When I was ready to test on the google cloud, 
+the only change I made was adding the docker hint (see below), and moving tool definitions (the cwl files) data into a bucket. Then
+using the google cwl runner.
+
+
+The main workflow:
+
+::
+
+	#!/usr/bin/env cwl-runner
+
+	cwlVersion: v1.0
+	class: Workflow
+
+	requirements:
+	  ScatterFeatureRequirement: {}
+
+	hints:
+	  DockerRequirement:
+	    dockerPull: biocontainers/samtools
+
+	inputs:
+	  filein: File[]
+
+	outputs:
+	  pipeline_result:
+	    type: File
+	    outputSource: step4/catout
+
+	steps:
+
+	  step1:
+	    run: data/samtools_stats_tool.cwl
+	    scatter: [filein]
+	    scatterMethod: dotproduct
+	    in:
+	      filein: filein
+	    out:
+	      [statsout]
+
+	  step2:
+	    run: data/grep_tool.cwl
+	    scatter: [input_file]
+	    scatterMethod: dotproduct
+	    in:
+	      input_file: step1/statsout
+	    out:
+	      [grepout]
+
+	  step3:
+	    run: data/cut_tool.cwl
+	    scatter: [input_file]
+	    scatterMethod: dotproduct
+	    in:
+	      input_file: step2/grepout
+	    out:
+	      [cutout]
+
+	  step4:
+	    run: data/cat_tool.cwl
+	    in:
+	      filein: step3/cutout
+	    out:
+	      [catout]
+
+
+You will notice, that we only define an array of bam files as inputs to the workflow (File[]), 
+the intermediates are carried through without explicitly naming them. Inputs to the middle steps
+point to the outputs of previous steps (step1/statsout -> step2).
 
 
 
