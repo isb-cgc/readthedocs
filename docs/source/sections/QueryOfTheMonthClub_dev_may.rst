@@ -79,15 +79,17 @@ Resources_:  Helpful information!
 May, 2018
 #########
 
-Processing bam files using CWL 'scatter and gather'.
+**Processing bam files using CWL 'scatter and gather'**
 
-In this edition of the QotM, we're going to continue exploring running workflows 
-with CWL. Last time, we performed the 'scatter', where one applies a tool to a list
-of files. This time, we'll complete the paradigm by performing a 'gather' to collate 
-the results of the scatter.
+In this edition, we're going to continue our exploration of using CWL to run workflows on the Google cloud. 
+Last time, we performed a 'scatter', where a tool is applied to a list of files. 
+This time, we'll complete the paradigm by performing a 'gather' to collate 
+the results of a scatter. Additionally, we will propegate the scatter through a series of steps.
 
-Specifically, we're going to bin the sequence reads by GC content for each file,
-then we can make a plot of GC content by read counts.
+Specifically, for a list of files, we're going to bin sequence reads by GC content, producing a single
+output file that we can use to make a plot.
+
+The tools are found in this `docker image <https://hub.docker.com/r/biocontainers/samtools/>_`
 
 The plan:
 
@@ -138,7 +140,7 @@ Let's look at the first tool:
 This tool definition is going to compute a set of different statistics for each bam file.
 The statistic-type is delineated by a column label. 
 An interesting thing here, is that the standard output, usually printed to the screen, 
-is captured and saved using the input file name where '.bam' is replace with '.stats',
+is captured and saved using the input file name with '.stats' added on,
 and the output looks for that '.stats' with the file glob.
 
 
@@ -309,6 +311,17 @@ The main workflow:
 You will notice, that we only define an array of bam files as inputs to the workflow (File[]), 
 the intermediates are carried through without explicitly naming them. Inputs to the middle steps
 point to the outputs of previous steps (step1/statsout -> step2).
+
+And we need to define our input files (scatter_gather_pipeline.yml):
+
+::
+
+	filein:
+	  - {class: File, path: data/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam}
+	  - {class: File, path: data/wgEncodeUwRepliSeqBjG1bAlnRep1.bam}
+	  - {class: File, path: data/wgEncodeUwRepliSeqBjG2AlnRep1.bam}
+
+
 
 To run this, we use the google_cwl_runner found `here <https://github.com/isb-cgc/examples-Compute>_`.
 
