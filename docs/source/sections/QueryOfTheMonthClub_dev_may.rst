@@ -332,8 +332,21 @@ Running this command prints out some google cloud commands to check on the statu
 when it's finished we have logs for stderr, stdout, and status. Additionally we get the cwl_startup.sh,
 cwl_runner.sh, and cwl_shutdown.sh scripts for your perusal.
 
-But most importantly(!), we get our single output file containing the binned GC content, which looks 
-like:
+But most importantly(!), we get our single output file containing the binned GC content (shown below).
+The first column is the file name that produced the result, the second column is the percent GC,
+and the last column is the number of reads.
+
+::
+
+	/long.tmp.path/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam.stats:GCF	1.26	22
+	/long.tmp.path/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam.stats:GCF	4.02	66
+	/long.tmp.path/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam.stats:GCF	6.78	232
+	/long.tmp.path/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam.stats:GCF	9.55	349
+	/long.tmp.path/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam.stats:GCF	12.31	647
+	/long.tmp.path/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam.stats:GCF	15.08	1413
+	/long.tmp.path/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam.stats:GCF	17.84	3473
+	/long.tmp.path/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam.stats:GCF	20.60	7676
+	/long.tmp.path/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam.stats:GCF	23.37	15064
 
 
 .. figure:: query_figs/gc_content_final_output.png
