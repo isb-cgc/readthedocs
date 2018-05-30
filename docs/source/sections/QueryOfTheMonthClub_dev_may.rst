@@ -102,10 +102,10 @@ The plan:
 - use cat to gather the outputs into a single file
 
 
-Each of these is defined as a CWL tool, and together they make a workflow.
+Each of these steps is defined as a CWL tool, and together they make a workflow.
 
 The first three steps of the workflow are considered scatter operations, and the 
-last is the gather, where the outputs are combined.
+last is the gather, where outputs are combined.
 
 Let's look at the first tool:
 
@@ -137,14 +137,15 @@ Let's look at the first tool:
 	stdout: $(inputs.filein.path.split('/').pop() + '.stats')
 
 
-This tool definition is going to compute a set of different statistics for each bam file.
+This tool definition is going to compute several different statistics for each bam file.
 The statistic-type is delineated by a column label. 
 An interesting thing here, is that the standard output, usually printed to the screen, 
 is captured and saved using the input file name with '.stats' added on,
-and the output looks for that '.stats' with the file glob.
+and the output looks for that '.stats' with the file glob. We want to hold onto the file
+name to use as a label in the final results.
 
 
-The next tool is going to parse out our statistic of interest.
+The next tool is going to parse out our statistic of interest, the GC content.
 
 
 ::
@@ -172,11 +173,11 @@ The next tool is going to parse out our statistic of interest.
 	    type: stdout
 
 
-This is a very general tool that could be applied in many settings... since it's just grep!
+This is a very general tool that could be applied in many settings... it's just grep!
 Grep is a pattern matching tool, so each line of text that starts with 'GCF' is printed. Also
-we're going to add the input file name to each line. Then later on we know where this result came from.
-Interesting thing here: since we don't explicitly define the file name for the standard output,
-the name is random. We can let the workflow runner worry about it.
+we're going to add the input file name to each line (--with-filename). 
+Interesting thing here: since we don't explicitly define the file name for the standard output (stdout),
+the file name is random. We can let the workflow runner worry about it.
 
 
 The next tool wraps the cut command.
@@ -206,9 +207,9 @@ The next tool wraps the cut command.
 	    type: stdout
 
 
-Here, we define some 'arguments' to the baseCommand. '-d ' sets the delimiter to white space,
-'-f 1,5-' says we want fields (-f) 1, and 5+.  Column 1 is the file name, and the stat of interest
-appears in columns 5 and beyond.  Again we don't define any file names for the output.
+Here, we define some 'arguments' to the baseCommand. The '-d ' sets the delimiter to white space,
+'-f 1,5-' says we want fields (-f) 1, and 5+.  Column 1 is the file name, and the stats of interest
+appear in columns 5 and beyond.  Again we don't define any file names for the output.
 
 
 Lastly, we are going to gather all the results.
@@ -236,15 +237,15 @@ Lastly, we are going to gather all the results.
 	stdout: final_output.txt
 
 
-Important to note that in the cat tool, we have defined the input to be an array of files.
-That's like 'cat file.a file.b file.c'. And here we *do* define the output file name. 
+It's important to note that in the cat tool, we have defined the input to be an array of files.
+The command becomes 'cat file.a file.b file.c'. And here we *do* define the output file name. 
 
 
 OK! Let's work these tools into a flow.
 
 Important note: I developed all these tools on my local machine with small test cases. When I was ready to test on the google cloud, 
-the only change I made was adding the docker hint (see below), and moving tool definitions (the cwl files) data into a bucket. Then
-using the google cwl runner.
+the only change I made was adding the docker hint (DockerRequirement, see below), and moving tool definitions (the cwl files) data into a bucket. It was surprisingly easy to move
+from the local environment to the cloud.
 
 
 The main workflow:
@@ -341,7 +342,7 @@ file in the top level of my working folder.
 	     --preemptible
 
 
-Running this command prints out some google cloud commands to check on the status of the job, and 
+Running this command prints out some google cloud commands to enable us to check on the status of the job, and 
 when it's finished we have logs for stderr, stdout, and status. Additionally we get the cwl_startup.sh,
 cwl_runner.sh, and cwl_shutdown.sh scripts for your perusal.
 
@@ -360,6 +361,7 @@ and the last column is the number of reads.
 	/long.tmp.path/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam.stats:GCF	17.84	3473
 	/long.tmp.path/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam.stats:GCF	20.60	7676
 	/long.tmp.path/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam.stats:GCF	23.37	15064
+	...
 
 
 .. figure:: query_figs/gc_content_final_output.png
