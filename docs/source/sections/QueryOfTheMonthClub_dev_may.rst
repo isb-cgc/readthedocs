@@ -82,9 +82,9 @@ May, 2018
 **Processing bam files using CWL 'scatter and gather'**
 
 In this edition, we're going to continue our exploration of using CWL to run workflows on the Google cloud. 
-Last time, we performed a 'scatter', where a tool is applied to a list of files. 
+Last time, we performed a 'scatter' operation, where a tool is applied to a list of files. 
 This time, we'll complete the paradigm by performing a 'gather' to collate 
-the results of a scatter. Additionally, we will propegate the scatter through a series of steps.
+the results of a scatter. Additionally, we will propagate the scatter through a series of steps.
 
 Specifically, for a list of files, we're going to bin sequence reads by GC content, producing a single
 output file that we can use to make a plot.
@@ -244,8 +244,8 @@ The command becomes 'cat file.a file.b file.c'. And here we *do* define the outp
 OK! Let's work these tools into a flow.
 
 Important note: I developed all these tools on my local machine with small test cases. When I was ready to test on the google cloud, 
-the only change I made was adding the docker hint (DockerRequirement, see below), and moving tool definitions (the cwl files) data into a bucket. It was surprisingly easy to move
-from the local environment to the cloud.
+the only change I made was adding the docker hint (DockerRequirement, see below), and moving tool definitions (the cwl files) data into a bucket. 
+It was surprisingly easy to move from the local environment to the cloud.
 
 
 The main workflow:
