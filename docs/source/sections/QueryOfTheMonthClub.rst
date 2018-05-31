@@ -24,6 +24,8 @@ Table of Contents
 2018
 ++++
 
+- May_: Processing bam files using CWL 'scatter and gather'.
+
 - April_: Running CWL workflows in the cloud.
 
 - March_: Machine learning classifer in BigQuery?! Top Scoring Pairs implementation.
@@ -70,6 +72,303 @@ Resources_:  Helpful information!
 
 
 -----------------------
+
+
+.. _May:
+
+May, 2018
+#########
+
+**Processing bam files using CWL 'scatter and gather'**
+
+In this edition, we're going to continue our exploration of using CWL to run workflows on the Google cloud. 
+Last time, we performed a 'scatter' operation, where a tool is applied to a list of files. 
+This time, we'll complete the paradigm by performing a 'gather' to collate 
+the results of a scatter. Additionally, we will propagate the scatter through a series of steps.
+
+Specifically, for a list of files, we're going to bin sequence reads by GC content, producing a single
+output file that we can use to make a plot.
+
+The tools are found in this `docker image <https://hub.docker.com/r/biocontainers/samtools/>_`
+
+The plan:
+
+- compute some statistics over a list of bam files with samtools
+
+- use grep to parse out a portion of the stats output
+
+- use cut to select some columns from the output
+
+- use cat to gather the outputs into a single file
+
+
+Each of these steps is defined as a CWL tool, and together they make a workflow.
+
+The first three steps of the workflow are considered scatter operations, and the 
+last is the gather, where outputs are combined.
+
+Let's look at the first tool:
+
+
+::
+
+	#samtools_stats_tool.cwl 
+
+	cwlVersion: v1.0
+	class: CommandLineTool
+
+	baseCommand: [samtools, stats]
+
+	requirements:
+	  - class: InlineJavascriptRequirement
+
+	inputs:
+	  filein:
+	    type: File
+	    inputBinding:
+	      position: 1
+
+	outputs:
+	  statsout:
+	    type: File
+	    outputBinding:
+	      glob: "*.stats"
+
+	stdout: $(inputs.filein.path.split('/').pop() + '.stats')
+
+
+This tool definition is going to compute several different statistics for each bam file.
+The statistic-type is delineated by a column label. 
+An interesting thing here, is that the standard output, usually printed to the screen, 
+is captured and saved using the input file name with '.stats' added on,
+and the output looks for that '.stats' with the file glob. We want to hold onto the file
+name to use as a label in the final results.
+
+
+The next tool is going to parse out our statistic of interest, the GC content.
+
+
+::
+	
+	#grep_tool.cwl 
+
+	cwlVersion: v1.0
+
+	class: CommandLineTool
+
+	baseCommand: grep
+
+	arguments:
+	  - "--with-filename"
+	  - "^GCF"
+
+	inputs:
+	  input_file:
+	    type: File
+	    inputBinding:
+	      position: 1
+
+	outputs:
+	  grepout:
+	    type: stdout
+
+
+This is a very general tool that could be applied in many settings... it's just grep!
+Grep is a pattern matching tool, so each line of text that starts with 'GCF' is printed. Also
+we're going to add the input file name to each line (--with-filename). 
+Interesting thing here: since we don't explicitly define the file name for the standard output (stdout),
+the file name is random. We can let the workflow runner worry about it.
+
+
+The next tool wraps the cut command.
+
+::
+	
+ 	#cut_tool.cwl 
+
+	cwlVersion: v1.0
+
+	class: CommandLineTool
+
+	baseCommand: cut
+	arguments:
+	  - "-d "
+	  - "-f"
+	  - "1,5-"
+
+	inputs:
+	  input_file:
+	    type: File
+	    inputBinding:
+	      position: 1
+	    
+	outputs:
+	  cutout:
+	    type: stdout
+
+
+Here, we define some 'arguments' to the baseCommand. The '-d ' sets the delimiter to white space,
+'-f 1,5-' says we want fields (-f) 1, and 5+.  Column 1 is the file name, and the stats of interest
+appear in columns 5 and beyond.  Again we don't define any file names for the output.
+
+
+Lastly, we are going to gather all the results.
+
+::
+
+	#cat_tool.cwl 
+
+	cwlVersion: v1.0
+
+	class: CommandLineTool
+
+	baseCommand: cat
+
+	inputs:
+	  filein:
+	    type: File[]
+	    inputBinding:
+	      position: 1
+
+	outputs:
+	  catout:
+	    type: stdout
+
+	stdout: final_output.txt
+
+
+It's important to note that in the cat tool, we have defined the input to be an array of files.
+The command becomes 'cat file.a file.b file.c'. And here we *do* define the output file name. 
+
+
+OK! Let's work these tools into a flow.
+
+Important note: I developed all these tools on my local machine with small test cases. When I was ready to test on the google cloud, 
+the only change I made was adding the docker hint (DockerRequirement, see below), and moving tool definitions (the cwl files) data into a bucket. 
+It was surprisingly easy to move from the local environment to the cloud.
+
+
+The main workflow:
+
+::
+	
+	#!/usr/bin/env cwl-runner
+
+	cwlVersion: v1.0
+	class: Workflow
+
+	requirements:
+	  ScatterFeatureRequirement: {}
+
+	hints:
+	  DockerRequirement:
+	    dockerPull: biocontainers/samtools
+
+	inputs:
+	  filein: File[]
+
+	outputs:
+	  pipeline_result:
+	    type: File
+	    outputSource: step4/catout
+
+	steps:
+
+	  step1:
+	    run: data/samtools_stats_tool.cwl
+	    scatter: [filein]
+	    scatterMethod: dotproduct
+	    in:
+	      filein: filein
+	    out:
+	      [statsout]
+
+	  step2:
+	    run: data/grep_tool.cwl
+	    scatter: [input_file]
+	    scatterMethod: dotproduct
+	    in:
+	      input_file: step1/statsout
+	    out:
+	      [grepout]
+
+	  step3:
+	    run: data/cut_tool.cwl
+	    scatter: [input_file]
+	    scatterMethod: dotproduct
+	    in:
+	      input_file: step2/grepout
+	    out:
+	      [cutout]
+
+	  step4:
+	    run: data/cat_tool.cwl
+	    in:
+	      filein: step3/cutout
+	    out:
+	      [catout]
+
+
+You will notice, that we only define an array of bam files as inputs to the workflow (File[]), 
+the intermediates are carried through without explicitly naming them. Inputs to the middle steps
+point to the outputs of previous steps (step1/statsout -> step2).
+
+And we need to define our input files (scatter_gather_pipeline.yml):
+
+::
+
+	filein:
+	  - {class: File, path: data/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam}
+	  - {class: File, path: data/wgEncodeUwRepliSeqBjG1bAlnRep1.bam}
+	  - {class: File, path: data/wgEncodeUwRepliSeqBjG2AlnRep1.bam}
+
+
+
+To run this, we use the google_cwl_runner found `here <https://github.com/isb-cgc/examples-Compute>_`.
+
+I made a working folder in my google bucket called 'workflow-1', and two additional folders within,
+'data' and 'output'. I put the bam files and the cwl tool definitions into 'data' and I put the workflow 
+file in the top level of my working folder.
+
+::
+
+	./examples-Compute/google_cwl_runner/cwl_runner.sh \
+	     --workflow-file gs://my-bucket/workflow-1/scatter_gather_pipeline.cwl \
+	     --settings-file gs://my-bucket/workflow-1/scatter_gather_pipeline.yml \
+	     --input-recursive gs://my-bucket/workflow-1/data \
+	     --output gs://my-bucket/workflow-1/output \
+	     --machine-type n1-standard-4 \
+	     --zone us-west1-a \
+	     --preemptible
+
+
+Running this command prints out some google cloud commands to enable us to check on the status of the job, and 
+when it's finished we have logs for stderr, stdout, and status. Additionally we get the cwl_startup.sh,
+cwl_runner.sh, and cwl_shutdown.sh scripts for your perusal.
+
+But most importantly(!), we get our single output file containing the binned GC content (shown below).
+The first column is the file name that produced the result, the second column is the percent GC,
+and the last column is the number of reads.
+
+::
+
+	/long.tmp.path/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam.stats:GCF	1.26	22
+	/long.tmp.path/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam.stats:GCF	4.02	66
+	/long.tmp.path/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam.stats:GCF	6.78	232
+	/long.tmp.path/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam.stats:GCF	9.55	349
+	/long.tmp.path/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam.stats:GCF	12.31	647
+	/long.tmp.path/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam.stats:GCF	15.08	1413
+	/long.tmp.path/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam.stats:GCF	17.84	3473
+	/long.tmp.path/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam.stats:GCF	20.60	7676
+	/long.tmp.path/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam.stats:GCF	23.37	15064
+	...
+
+
+.. figure:: query_figs/gc_content_final_output.png
+  :scale: 50
+  :align: center
+
+Thanks for reading!  Let us know if you have questions or comments!
 
 
 .. _April:
