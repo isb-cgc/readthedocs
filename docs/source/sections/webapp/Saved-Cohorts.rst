@@ -107,7 +107,7 @@ Molecular Tab
           
           NOTE 1: If you use AND and do not see the data you are expecting in the filter, try OR instead.  AND is a more restrictive criteria requiring all filters to be met, OR is less restrictive, requiring only one criteria to be met for the data to appear.
           
-          NOTE 2: Please add in your saved cohort title the term AND or OR for the combination you used, as the type of combination used does not currently appear in the summary of filters used after save the cohort.  We are working on a fix for this.
+          NOTE 2: Please add in your saved cohort title the term AND or OR for the combination you used, as the type of combination used in your cohort does not currently appear in the summary of filters in a saved cohort.  We are working on this.
           
           You can also filter by different genomic builds and hence different BigQuery Tables.  The two BigQuery tables you can select from are *TCGA_hg19_data_v0:Somatic_Mutation_MC3* and *TCGA_hg38_data_v0:Somatic_Mutation*. 
 
