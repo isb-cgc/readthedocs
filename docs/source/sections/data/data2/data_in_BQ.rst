@@ -27,7 +27,7 @@ Datasets in BigQuery are uniquely identified based on the Google Cloud Platform 
 *eg* ``isb-cgc:TCGA_bioclin_v0``.  Tables are uniquely identified by appending the table name,
 preceded by a period, *eg* ``isb-cgc:TCGA_bioclin_v0.Clinical``.
 
-You can use the Google BigQuery graphical interface to query the BigQuery datasets.  To view and use these datasets, please see this `tutorial <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_BigQuery.pdf>`_ or this `page <text>`_.
+You can use the Google BigQuery graphical interface to query the BigQuery datasets.  To view and use these datasets, please see this `tutorial <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_BigQuery.pdf>`_ or this `page <progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_.
 
 The following sections describe each of the major datasets that are currently publicly-accessible, 
 and the tables that each one contains.  For additional details regarding the ETL (extract, transform,
