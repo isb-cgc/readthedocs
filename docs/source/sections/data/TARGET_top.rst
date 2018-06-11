@@ -15,7 +15,7 @@ which contains over 10,000 files for over 5,000 cases.
 Virtually all of this data is low-level (and controlled-access) sequence data 
 (including 1702 RNA-seq files, 765 miRNA-seq, with the remainder being WXS or WGS DNA-seq BAMs).
 Some of this data has been re-processed and is available on the main 
-`GDC Data Portal <https://portal.gdc.cancer.gov/search/s?facetTab=cases&filters=%7B%22op%22:%22and%22,%22content%22:%5B%7B%22op%22:%22in%22,%22content%22:%7B%22field%22:%22cases.project.program.name%22,%22value%22:%5B%22TARGET%22%5D%7D%7D%5D%7D>`_.
+`GDC Data Portal <https://portal.gdc.cancer.gov/projects?filters=~%28op~%27and~content~%28~%28op~%27in~content~%28field~%27projects.program.name~value~%28~%27TARGET%29%29%29%29%29>`_.
 This newer dataset so far includes 6183 files representing 3236 cases, and totaling over 17 TB.
 Over half of the files (3740) are controlled-access files, including BAM, VCF, and MAF file types, 
 based on WXS, RNA-seq, and miRNA-seq data.

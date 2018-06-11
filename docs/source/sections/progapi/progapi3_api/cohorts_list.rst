@@ -1,6 +1,6 @@
 cohorts().list()
 #################
-Returns information about cohorts a user has either READER or OWNER permission on. Authentication is required. Optionally takes a cohort id as a parameter to only list information about one cohort.
+Returns information about cohorts a user has either READER or OWNER permission on. Authentication is required.
 
 **Example**::
 
@@ -71,7 +71,6 @@ If successful, this method returns a response body with the following structure:
     "items": [
       {
         "case_count": integer,
-        "cases": [string],
         "comments": string,
         "email": string,
         "filters": [
@@ -86,7 +85,6 @@ If successful, this method returns a response body with the following structure:
         "parent_id": [string],
         "permission": string,
         "sample_count": integer,
-        "samples": [string],
         "source_notes": string,
         "source_type": string
       }
@@ -100,7 +98,6 @@ If successful, this method returns a response body with the following structure:
 	count, integer, "Number of cohorts the user has OWNER or READER permission on."
 	items[], list, "List of details about each cohort."
 	items[].case_count, integer, "Total count of unique case barcodes in the cohort."
-	items[].cases[], list, "List of case barcodes in the cohort."
 	items[].comments, string, "Comments on the cohort."
 	items[].email, string, "Email of user."
 	items[].filters[], list, "List of filters applied to create cohort, if any."
@@ -112,6 +109,5 @@ If successful, this method returns a response body with the following structure:
 	items[].parent_id[], list, "List of id's of cohorts that this cohort was derived from, if any."
 	items[].permission, string, "User permissions on cohort: READER or OWNER."
 	items[].sample_count, integer, "Total count of unique sample barcodes in the cohort."
-	items[].samples[], list, "List of sample barcodes in the cohort."
 	items[].source_notes, string, "Notes on the source of the cohort."
 	items[].source_type, string, "Type of cohort source."

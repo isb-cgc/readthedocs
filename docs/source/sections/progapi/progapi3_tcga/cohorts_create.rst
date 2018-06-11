@@ -4,11 +4,10 @@ Creates and saves a cohort. Takes a JSON object in the request body to use as th
 
 **Example**::
 
-	python isb_curl.py "https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_tcga_api/v3/cohorts/create?name={COHORT NAME}" -H "Content-Type: application/json" -d '{"program_short_name": ["TCGA-UCS", "TCGA-CESC"], "age_at_diagnosis_lte": 60}'
-
+	python isb_curl.py "https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_tcga_api/v3/cohorts/create?name={COHORT NAME}" -H "Content-Type: application/json" -d '{"program_short_name": ["TCGA-UCS", "TCGA-CESC"], "age_at_diagnosis_lte": 60}"
 **API explorer example**:
 
-Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_tcga_api/v3/isb_cgc_tcga_api.cohorts.create?name=COHORT%20NAME%20HERE&resource=%257B%250A++%2522Study%2522%253A+%250A++%255B%2522UCS%2522%250A++%255D%250A%257D&/>`_ to see this endpoint in Google's API explorer.
+Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_tcga_api/v3/isb_cgc_tcga_api.cohorts.create?name=TCGA-male-vital-status-alive&_h=1&resource=%257B%250A++%2522Clinical%2522%253A+%250A++%257B%250A++++%2522gender%2522%253A+%250A++++%255B%2522male%2522%250A++++%255D%252C%250A++++%2522vital_status%2522%253A+%250A++++%255B%2522alive%2522%250A++++%255D%250A++%257D%250A%257D&>`_ to see this endpoint in Google's API explorer.
 
 **Python API Client Example**::
 

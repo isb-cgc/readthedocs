@@ -41,8 +41,7 @@ To create a **workbook** from Your Dashboard, click on the **“Create a New Wor
 
     - **SeqPeek** - This visualization shows where somatic mutations have been observed on a linear representation of a specific protein. Each horizontal strip represents the protein, with data from different tumor types (aka cohorts or studies) shown stacked one on top of the other.
 
-    - **Browse All Analyses** - This will direct you to a visual sample of the different analysis types along with a brief description of how to generate each type.
-    
+
     A researcher now has the option to make the axis logarithmic if the plot can display continuous numerical data for eg. mRNA expression levels.
    
    **Note:** For Violin Plot and Scatter Plot you can select multiple cohorts as your Color By Feature. This will cause the Legend to list all the cohorts that the sample is associated to. Please be aware you'll end up with lots of permutations if you have lots of samples that belong to many different cohorts.
@@ -74,7 +73,7 @@ Next you can select variables from five (5) available data sources to incorporat
 
 Then **“Apply to Worksheet”**
 
-3. Select your **Cohort** - Cohorts allow the user to create custom groupings of the samples and/or participants that can be used for further analysis.
+3. Select your **Cohort** - Cohorts allow the user to create custom groupings of the samples and/or cases that can be used for further analysis.
 
 By clicking 'Cohorts' or the '+' symbol you will be directed to the Cohorts table where the user can either create a new cohort or choose from an existing cohorts. When creating a new cohort, after selecting your criteria you click the "Create Cohort" button. The button will become disabled (dimmed) as the Cohort builds (shown in the image below).  
 
@@ -82,17 +81,14 @@ By clicking 'Cohorts' or the '+' symbol you will be directed to the Cohorts tabl
    :scale: 50
    :align: center
 
-Once completed you can proceed.  The user can also add multiple Cohorts to the worksheet if desired. More information about Cohorts can be found here (link to `Cohorts documentation <Saved-Cohorts.html>`_).
+Once completed you can proceed.  The user can also add multiple Cohorts to the worksheet if desired. More information about Cohorts can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html>`_.
 
-4. Select **Edit Analysis Settings** - This will trigger the Plot setting displaying the applicable x & y axis settings (i.e. Categorical or Numerical based on analysis type selected). Depending on the analysis type selected (i.e., Bar chart, Histogram, Scatter Plot, Violin Plot, Cubby Hole Plot, or SeqPeek) additional specifications may appear for selection.
+4. Select **Edit Analysis Settings** - This will trigger the Plot setting displaying the applicable x & y axis settings (i.e. Categorical or Numerical based on analysis type selected). Depending on the analysis type selected (e.g., Bar chart, Histogram, Scatter Plot, Violin Plot, Cubby Hole Plot, or SeqPeek) additional specifications may appear for selection.
 
-Sample Workbooks
-----------------
-The sample workbooks (future Function) is found in the Menu bar under the Workbooks tab. This will contain guides for the user to see what is the different functionality of the workbooks are.
 
 Sharing Workbooks
 -----------------
-This will share the web view of workbooks with users you select by entering the users e-mail.  The User will receive an e-mail message with a link to your shared workbook explaining that (you) wanted to share a workbook with (them) and that you have invited them to join.  
+This will share the web view of workbooks with users you select by entering the users e-mail.  The User will receive an e-mail message with a link to your shared workbook explaining that (you) wanted to share a workbook with (them) and that you have invited them to join.  If the email address you entered in not registered in the database you are prompted with a message saying, "The following user emails could not be found; please ask them to log into the site first:(email entered)."
 
 Manipulation of Workbooks
 -------------------------
@@ -103,7 +99,7 @@ Manipulation of Workbooks
 
 **Edit Analysis Settings** - This function allows you to select new Plot Setting for selected analysis type.
 
-Please Note: When selecting a gene or miRNA for either the x-axis or y-axis variable you be prompted with selecting a specification. If you select Gene Expression you have the option of choosing a Platform Filter and a Center Filter. If you select the Methylation specification you can select a CpG Probe Filter, a Platform Filter, a Gene Region Filter, and a CpG Island Region Filter. If you select the Copy Number specification you can choose a Value Filter. If you select the Protein specification you can selelct a Protein Filter. If you select the Mutation specification you select select a Value Filter. 
+Please Note: When selecting a gene or miRNA for either the x-axis or y-axis variable you be prompted with selecting a specification. If you select Gene Expression you have the option of choosing a Select Feature.  If you select the Copy Number specification you can choose a Value Filter. If you select the Protein specification you can selelct a Protein Filter. If you select the Mutation specification you can select a Value Filter. If you select an miRNA expression you can select a select feature.
  
 .. _selectionicon:
 
@@ -113,7 +109,7 @@ Please Note: When selecting a gene or miRNA for either the x-axis or y-axis vari
    :scale: 50
    :align: center
 
-**Edit Details** - This function allows the user to edit the name of the worksheet and also give a brief description on the worksheet being used for analysis.
+**Edit Details** - This function allows the user to edit the name of the worksheet and also give a brief description on the worksheet being used for analysis. You can also change the build from HG19 to HG38 using this feature. Changing the build allows to graph data from either builds. 
 
 **Duplicate** - This function allows the user to create a duplicate worksheet in the workbook for further analysis and comparison.
 
@@ -122,6 +118,6 @@ Please Note: When selecting a gene or miRNA for either the x-axis or y-axis vari
 
 Comments Section
 =================
-Any user who owns or has had a cohort shared with them can comment on it. To open comments, use the comments button at the top right and select “Comments”. A sidebar will appear on the right side and any previously created comments will be shown.
+Any user who owns or has had a workbook shared with them can comment on it. To open comments, use the comments button at the top right and select “Comments”. A sidebar will appear on the right side and any previously created comments will be shown.
 
 On the bottom of the comments sidebar, you can create a new comment and save it. It should appear at the bottom of the list of comments.
