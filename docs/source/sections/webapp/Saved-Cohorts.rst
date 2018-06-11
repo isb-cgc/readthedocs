@@ -105,7 +105,7 @@ Molecular Tab
     
           This is currently only available for TCGA data.  To combine multiple gene filters, select AND (requires all filters to be met for the data to be filtered) or OR (at least one criteria needs to be met for the data to be displayed).
           
-          NOTE 1: if you use AND and do not see the data you are expecting in the filter, try OR instead.  AND is a more restrictive criteria requiring all filters to be met, OR is less restrictive, requiring only one criteria to be met for the data to appear.
+          NOTE 1: If you use AND and do not see the data you are expecting in the filter, try OR instead.  AND is a more restrictive criteria requiring all filters to be met, OR is less restrictive, requiring only one criteria to be met for the data to appear.
           
           NOTE 2: Please add in your saved cohort title the term AND or OR for the combination you used, as the type of combination used does not currently appear in the summary of filters used after save the cohort.  We are working on a fix for this.
           
