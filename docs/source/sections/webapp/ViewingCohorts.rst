@@ -16,7 +16,7 @@ Related documents:
 
 Listing Cohorts
 ===============
-Any cohort you've previously created can be seen using either the Webapp or the API.  In the Webapp, cohorts can be viewed both on the front page of the app as well as on the Cohorts page as shown in Figure 1.
+Any cohort you've previously created can be seen using either the Webapp or the API.  In the Webapp, cohorts can be viewed both on the front page of the app as well as on the Cohorts page as shown in Figure 1.  For ease of use, there is A) a shortcut to go to a cohort's "File browser" page (A in the top diagram), and B) a "Collapse/Expand" arrow (B in the top diagram) to collapse or expand a long list of items in your lists as needed. 
 
 .. image:: Fig1-WebappCohorts.png
 
