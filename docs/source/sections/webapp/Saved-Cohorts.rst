@@ -38,7 +38,7 @@ Program Selection Panel
 -----------------------
 The panel in the center of the screen, with four tabs called "TCGA DATA", "CCLE DATA", "TARGET DATA", and "USER DATA" will allow to create a cohort between data programs in the system and data that you have uploaded. The  TCGA, CCLE, and TARGET DATA tab each have three tabs called "CASE", "DATA TYPE", and "MOLECULAR"  which allow you to apply filters to the cohorts your are creating using ISB-CGC hosted data. For the USER DATA tab, there is one tab called "PROJECTS & STUDIES" which allow you to filter by the projects or studies you have uploaded to the system. Below are the details of each tab.
 
-**Please Note:** Selecting the program filter will add all samples pertaining to program. Also there is a mouse over feature that will display the disease code long name if it's part of the TCGA dataset.
+**Please Note:** Selecting the program filter will add all samples pertaining to program. Also there is a mouse over feature that will display the disease code long name if it's part of the TCGA, CCLE, or TARGET dataset.
 
 
           
@@ -99,8 +99,18 @@ The panel in the center of the screen, with four tabs called "TCGA DATA", "CCLE 
    
 Molecular Tab
 ^^^^^^^^^^^^^
-    * Gene Mutation Status (creating a cohort based on the presence of a mutation (of various types) in a gene)  You can also filter by different genomic builds and hence different BigQuery Tables.  The two BigQuery tables you can select from are *TCGA_hg19_data_v0:Somatic_Mutation_MC3* and *TCGA_hg38_data_v0:Somatic_Mutation*. 
+    * Gene Mutation Status (creating a cohort based on the presence of a mutation (of various types) in a gene or genes).
     
+    ..
+    
+          This is currently only available for TCGA data.  To combine multiple gene filters, select AND (requires all filters to be met for the data to be filtered) or OR (at least one criteria needs to be met for the data to be displayed).
+          
+          NOTE 1: If you use AND and do not see the data you are expecting in the filter, try OR instead.  AND is a more restrictive criteria requiring all filters to be met, OR is less restrictive, requiring only one criteria to be met for the data to appear.
+          
+          NOTE 2: Please add in your saved cohort title the term AND or OR for the combination you used, as the type of combination used in your cohort does not currently appear in the summary of filters in a saved cohort.  We are working on this.
+          
+          You can also filter by different genomic builds and hence different BigQuery Tables.  The two BigQuery tables you can select from are *TCGA_hg19_data_v0:Somatic_Mutation_MC3* and *TCGA_hg38_data_v0:Somatic_Mutation*. 
+
 Programs & Projects Tab
 ^^^^^^^^^^^^^^^^^^^^^^^^
     * User Program
@@ -392,33 +402,48 @@ platforms by dragging the platform names up and down.
 File Browser Page
 #################
 
-"File Browser" takes you to a new page where you can view the complete list of data files associated with your current the cohort.  The file list page provides a paginated list of files available with all samples in the cohort. Here, "available" refers to files that have been uploaded to the ISB-CGC Google Cloud Project, including both controlled access and open access data. You can use the "Previous" and "Next", and "#" navigation buttons, and "Show" dropdown to navigate to more values in the list.  The columns are sortable by selecting the column header.
+"File Browser" takes you to a new page where you can view the complete list of data files associated with your current the cohort.  The file list page provides a paginated list of files available with all samples in the cohort. Here, "available" refers to files that have been uploaded to the ISB-CGC Google Cloud Project, including both controlled access and open access data. You can use "Show", "Page", "Previous" and "Next" navigation tools to navigate to more values in the list.  The columns are sortable by selecting the column header.  You can select a subset of the default columns to show by using the "Choose Columns to Display" tool.
 
 You can filter by Genomic Build either HG19 or HG38 and view which platforms and files are available for the build selected.  You may also filter on these files if you are only interested in a specific data type, data format, platform, disease code, disease strategy, and/or experimental strategy.  Selecting a filter will update the associated list.  The numbers next to the filter refers to the number of files available for that filter.
 
-The tabs "IGV" and "Pathology Images" allow you to filter for files that show you respectively read-level sequence data (viewed using the IGV viewer) and pathology images.  Please note: only if you have authenticated as a dbGaP authorized user will you be able to select controlled access files to view in the IGV viewer (CCLE data does not require authorization to view the sequence data in the IGV viewer).  Details of how to view Sequences and Pathology images are provided below.
+The tabs "IGV", "Pathology Images" and "Radiology Images" allow you to filter for files that show you respectively read-level sequence data (viewed using the IGV viewer), pathology images, and radiology images.  Please note: only if you have authenticated as a dbGaP authorized user will you be able to select controlled access files to view in the IGV viewer (CCLE data does not require authorization to view the sequence data in the IGV viewer).  Details of how to view Sequences, and Pathology and Radiology images are provided below.
 
 Download File List as CSV
 =========================
 
-To download a list of files that are part of this cohort, select the button in the upper right on the File Listing panel called "CSV". This will begin a download process of all the files available for the cohort, taking into account the selected filters. 
+To download a list of files that are part of this cohort, select the button in the upper right on the File Listing panel (on all tabs) called "CSV". This will begin a download process of all the files available for the cohort, taking into account the selected filters. 
 
 The file contains the following information for each file:
 
-* Program
-* Sample Barcode
-* Platform
-* Pipeline
-* Data Level
-* File Path to the Cloud Storage Location
-* Access type (open or controlled access)
+   +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
+   | All Files Tab                           | IGV Tab                                  | Pathology Images Tab                    | Radiology Images Tab                    |
+   +=========================================+==========================================+=========================================+=========================================+
+   | Program                                 | Sample Barcode                           | Sample Barcode                          | Sample Barcode                          |
+   +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
+   | Sample Barcode                          | Program                                  | Program                                 | Program                                 |
+   +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
+   | Platform                                | Platform                                 | Platform                                | Platform                                |
+   +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
+   | Pipeline                                | Experimental Strategy                    | Experimental Strategy                   | Experimental Strategy                   |
+   +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
+   | Data Level                              | Data Category                            | Data Category                           | Data Category                           |
+   +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
+   | File Path to the Cloud Storage Location | Data Type                                | Data Type                               | Data Type                               |
+   +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
+   | Access type (open or controlled access) | Data Format                              | Data Format                             | Data Format                             |
+   +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
+   |                                         | File Path to the Cloud Storage Location  | File Path to the Cloud Storage Location | File Path to the Cloud Storage Location |
+   +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
+   |                                         | Access type (open or controlled access)  | Access type (open or controlled access) | Access type (open or controlled access) |
+   +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
+
 
 Export File List to BigQuery
 ============================
 
 To export the File list to BigQuery, select the button BigQuery.  You will need to have registered a Google Cloud Project and a BigQuery dataset to be able to export to BigQuery. More information on how to register a BigQuery Dataset can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_. You can either make a new table or append an existing table.  You can also give the table a unique name if left blank we will provide a name for the table.
 
-The table will contain the following information:
+The table will contain the following information (for each of the data type tabs):
 
 * cohort_id
 * case_barcode
@@ -440,28 +465,27 @@ Export File List to Google Cloud Storage
 
 To export the File list to Google Cloud Storage (GCS), select the button GCS.  You will need to have registered a Google Cloud Project and a GCS Object to be able to export to GCS. More information on how to register a GCS bucket can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_. You can also give the object a unique name if left blank we will provide a name for the bucket. You can either choose to export as  JSON or CSV file and all files exported are converted into zip files.
 
-The file will contain the following information:
+The file will contain the following information (for each of the data type tabs):
 
-* cohort_id
-* case_barcode
 * sample_barcode
-* project_short_name
-* date_added
-* build 
-* gdc_file_uuid
-* gdc_case_uuid
-* platform 
-* exp_strategy
-* data_category
-* data_type
-* data_format
+* case_barcode
 * cloud_storage_location
+* platform
+* data_type
+* data_category 
+* exp_strategy
+* data_format
+* gdc_file_uuid 
+* gdc_case_uuid
+* project_short_name
+* cohort_id
+* build
+* date_added
 
 Viewing a Sequence
 ==================
 
-When available, sequences in a cohort can be viewed using the IGV viewer.  To find those sequences that can be viewed with the IGV viewer, open a cohort and select the "View Files" button at the top of the page.  The files associated with your cohort will be shown, with the last column indicating if the IGV viewer can be used to view the contents of that file.
-This is indicated by a checkbox beside "Cloud Storage").  Clicking the "Launch IGV" button will take you to an IGV view of the selected sequence(s) data.  
+When available, sequences in a cohort can be viewed using the IGV viewer.  To find those sequences that can be viewed with the IGV viewer, open a cohort and select the "View Files" button at the top of the page.  The files associated with your cohort will be shown, a tab displaying the files that can be viewed with the IGV viewer.  Selecting the check-box in the "View" column (for a maximum of 5 files) and the "Launch IGV" button in the upper window will take you to an IGV view of the selected sequence(s) data.  
 Controlled access files will be viewable by sequence ONLY if you have `authenticated as a dbGaP-authorized user <Gaining-Access-To-Contolled-Access-Data.html>`_. 
 
 (`more information about Viewing a Sequence in the IGV Viewer <IGV-Browser.html>`_).
