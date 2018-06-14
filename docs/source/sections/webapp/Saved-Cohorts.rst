@@ -411,17 +411,32 @@ The tabs "IGV", "Pathology Images" and "Radiology Images" allow you to filter fo
 Download File List as CSV
 =========================
 
-To download a list of files that are part of this cohort, select the button in the upper right on the File Listing panel called "CSV". This will begin a download process of all the files available for the cohort, taking into account the selected filters. 
+To download a list of files that are part of this cohort, select the button in the upper right on the File Listing panel (on all tabs) called "CSV". This will begin a download process of all the files available for the cohort, taking into account the selected filters. 
 
 The file contains the following information for each file:
 
-* Program
-* Sample Barcode
-* Platform
-* Pipeline
-* Data Level
-* File Path to the Cloud Storage Location
-* Access type (open or controlled access)
+   +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
+   | All Files Tab                           | IGV Tab                                  | Pathology Images Tab                    | Radiology Images Tab                    |
+   +=========================================+==========================================+=========================================+=========================================+
+   | Program                                 | Sample Barcode                           | Sample Barcode                          | Sample Barcode                          |
+   +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
+   | Sample Barcode                          | Program                                  | Program                                 | Program                                 |
+   +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
+   | Platform                                | Platform                                 | Platform                                | Platform                                |
+   +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
+   | Pipeline                                | Experimental Strategy                    | Experimental Strategy                   | Experimental Strategy                   |
+   +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
+   | Data Level                              | Data Category                            | Data Category                           | Data Category                           |
+   +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
+   | File Path to the Cloud Storage Location | Data Type                                | Data Type                               | Data Type                               |
+   +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
+   | Access type (open or controlled access) | Data Format                              | Data Format                             | Data Format                             |
+   +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
+   |                                         | File Path to the Cloud Storage Location  | File Path to the Cloud Storage Location | File Path to the Cloud Storage Location |
+   +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
+   |                                         | Access type (open or controlled access)  | Access type (open or controlled access) | Access type (open or controlled access) |
+   +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
+
 
 Export File List to BigQuery
 ============================
