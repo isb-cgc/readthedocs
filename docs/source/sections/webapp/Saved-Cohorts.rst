@@ -467,20 +467,20 @@ To export the File list to Google Cloud Storage (GCS), select the button GCS.  Y
 
 The file will contain the following information:
 
-* cohort_id
-* case_barcode
 * sample_barcode
-* project_short_name
-* date_added
-* build 
-* gdc_file_uuid
-* gdc_case_uuid
-* platform 
-* exp_strategy
-* data_category
-* data_type
-* data_format
+* case_barcode
 * cloud_storage_location
+* platform
+* data_type
+* data_category 
+* exp_strategy
+* data_format
+* gdc_file_uuid 
+* gdc_case_uuid
+* project_short_name
+* cohort_id
+* build
+* date_added
 
 Viewing a Sequence
 ==================
