@@ -443,7 +443,7 @@ Export File List to BigQuery
 
 To export the File list to BigQuery, select the button BigQuery.  You will need to have registered a Google Cloud Project and a BigQuery dataset to be able to export to BigQuery. More information on how to register a BigQuery Dataset can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_. You can either make a new table or append an existing table.  You can also give the table a unique name if left blank we will provide a name for the table.
 
-The table will contain the following information:
+The table will contain the following information (for each of the data type tabs):
 
 * cohort_id
 * case_barcode
