@@ -416,27 +416,16 @@ To download a list of files that are part of this cohort, select the button in t
 
 The file contains the following information for each file:
 
-   +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
-   | All Files Tab                           | IGV Tab                                  | Pathology Images Tab                    | Radiology Images Tab                    |
-   +=========================================+==========================================+=========================================+=========================================+
-   | Program                                 | Sample Barcode                           | Sample Barcode                          | Sample Barcode                          |
-   +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
-   | Sample Barcode                          | Program                                  | Program                                 | Program                                 |
-   +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
-   | Platform                                | Platform                                 | Platform                                | Platform                                |
-   +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
-   | Pipeline                                | Experimental Strategy                    | Experimental Strategy                   | Experimental Strategy                   |
-   +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
-   | Data Level                              | Data Category                            | Data Category                           | Data Category                           |
-   +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
-   | File Path to the Cloud Storage Location | Data Type                                | Data Type                               | Data Type                               |
-   +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
-   | Access type (open or controlled access) | Data Format                              | Data Format                             | Data Format                             |
-   +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
-   | File Path to the Cloud Storage Location | File Path to the Cloud Storage Location  | File Path to the Cloud Storage Location | File Path to the Cloud Storage Location |
-   +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
-   | Access type (open or controlled access) | Access type (open or controlled access)  | Access type (open or controlled access) | Access type (open or controlled access) |
-   +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
+* Sample Barcode
+* Program
+* Platform
+* Experimental Strategy 
+* Data Category
+* Data Type
+* Data Format
+* File Path to the Cloud Storage Location 
+* Access Type (open or controlled access)
+
 
 Export File List to BigQuery
 ============================
