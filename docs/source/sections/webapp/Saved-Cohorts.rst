@@ -389,6 +389,7 @@ This panel shows a list of tree maps that give a high level break of the samples
 
 Data File Availability Panel
 ============================
+
 This panel shows a parallel sets graph of available data files for the selected samples in the cohort. The large headers over
 the vertical bars are data types. Each vertical bar may be broken up to represent different platforms used to generate
 that type of data (and "NA" for samples for which that data type is not available).
@@ -432,11 +433,10 @@ The file contains the following information for each file:
    +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
    | Access type (open or controlled access) | Data Format                              | Data Format                             | Data Format                             |
    +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
-   |                                         | File Path to the Cloud Storage Location  | File Path to the Cloud Storage Location | File Path to the Cloud Storage Location |
+   | File Path to the Cloud Storage Location | File Path to the Cloud Storage Location  | File Path to the Cloud Storage Location | File Path to the Cloud Storage Location |
    +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
-   |                                         | Access type (open or controlled access)  | Access type (open or controlled access) | Access type (open or controlled access) |
+   | Access type (open or controlled access) | Access type (open or controlled access)  | Access type (open or controlled access) | Access type (open or controlled access) |
    +-----------------------------------------+------------------------------------------+-----------------------------------------+-----------------------------------------+
-
 
 Export File List to BigQuery
 ============================
