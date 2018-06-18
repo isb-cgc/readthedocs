@@ -25,7 +25,7 @@ Web-App Release Notes
    
    - When working on Firefox browser a violin plot will display the data plotted correctly when working on a Worksheet.
    - A cohort with user uploaded data present and public data present in our system e.g TCGA data, the cohort details page for the selected filters panel will sort the filters by their appropriate program. 
-   - On the cohort creation - barcode upload a type-o in resulting cohorts counts has been addressed. The correct information is now displayed. 
+   - On the cohort creation - barcode upload page the 'Samples' and 'Cases' column headers were sometimes swapped. This has been corrected. 
    - When trying to reload a stored Seq-Peek plot from a Workbook the previous gene selection is stored and the plot will automatically be loaded. 
    - On the File Browser IGV Browser tab when switching genomic builds the view column selection option will be disabled.
   
