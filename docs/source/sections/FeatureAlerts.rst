@@ -9,12 +9,12 @@ Feature Alerts
 
 .. image:: Pathology_TCGA_FD_A3B6.png
    :scale: 25
-   :align: left
+   :align: center
 
 
 .. image:: FD-A3B6-CT-Pelvis_smaller.gif
    :scale: 25
-   :align: right
+   :align: center
 
 
 *May 10, 2018*
