@@ -7,9 +7,14 @@ Feature Alerts
 
 **Feature Alert:**  Log into the @ISB_CGC web app and check out our new image viewers!  Look at #TCGA #Radiology and #Histology images from the same patient, powered by #caMicroscope and Orthanc @orthancserver . #TCIA #cancerimaging #tsid #imaging  #quantitativeimaging  #FOAMrad .  Now you can see and use the depth of the TCGA dataset, using the Google Cloud @GCPCloud!! Thank you to all our collaborators.  Try them out: `Pathology Images <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html#viewing-a-pathology-image>`_ and `Radiology Images <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/OsimisWebViewer.html>`_
 
+.. image:: Pathology_TCGA_FD_A3B6.png
+   :scale: 25
+   :align: left
+
+
 .. image:: FD-A3B6-CT-Pelvis_smaller.gif
    :scale: 25
-   :align: center
+   :align: right
 
 
 *May 10, 2018*
