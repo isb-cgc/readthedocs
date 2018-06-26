@@ -2,7 +2,7 @@ Biospecimen
 ===========
 
 The 
-`Biospecimen_data <https://bigquery.cloud.google.com/table/isb-cgc:tcga_201607_beta.Biospecimen_data>`_ 
+`Biospecimen <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_bioclin_v0.Biospecimen>`_ 
 table contains one row per TCGA sample.  Each TCGA sample is
 uniquely represented by a 
 `TCGA barcode <https://wiki.nci.nih.gov/display/TCGA/TCGA+barcode>`_
@@ -15,7 +15,7 @@ XML Parsing
 The TCGA data at the DCC exists in XML files which have been uploaded into
 Google Cloud Storage.
 Selected fields from these XML files
-were then extracted and loaded into the “Biospecimen_data” table in BigQuery.
+were then extracted and loaded into the "Biospecimen" table in BigQuery.
 
 Some of the biospecimen values in the XML files are available on a per-slide
 and/or per-portion basis, and these have been aggregated and averaged.
