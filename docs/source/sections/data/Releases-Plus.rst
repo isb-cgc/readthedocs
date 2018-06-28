@@ -5,10 +5,36 @@ Data Releases and Future Plans
 Release Notes
 #############
 
+* June 4, 2018: metadata tables for GDC data release 11 are now available in BigQuery
+
+* May 8, 2018: the gnomAD database (release 2.0.2, dated October 2017) is now available in BigQuery! **isb-cgc:genome_reference.gnomAD_20171003_GRCh37**
+
+* April 30, 2018: recently released (2018-04-01) ClinVar VCFs are now available in BigQuery! **isb-cgc:genome_reference.ClinVar_20180401_GRCh37** and **isb-cgc:genome_reference.ClinVar_20180401_GRCh38** also available is dbSNP build 151 (announced 2018-04-24): **isb-cgc:genome_reference.dbSNP_b151_GRCh37p13_All** 
+
+* February 22, 2018: a `genenames_mapping <https://bigquery.cloud.google.com/table/isb-cgc:genome_reference.genenames_mapping?pli=1&tab=schema>`_ table has been added to our numerous reference sources in BigQuery to simplify mapping between HGNC IDs, HGNC symbols, Entrez Gene IDs, Ensembl Gene IDs, Pubme IDs, and RefSeq IDs!
+
+* January 9, 2018: metadata tables for GDC data release 10 are now available in BigQuery
+
+* May 8, 2018: release 85 of the COSMIC database is now available in BigQuery
+
+* February 13, 2018: release 84 of the COSMIC database is now available in BigQuery
+
 * December 19, 2017:  The ISB-CGC cohort metadata has been update to reflect the new and update TARGET gene expression data provided by the GDC in their data release 9. 
 
 * December 6, 2017: the GDC release 9 included some updated and new TARGET gene expression data. The BigQuery table **isb-cgc:TARGET_hg38_data_v0.RNAseq_Gene_Expression** has been updated to reflect this. 
-  
+
+* November 7, 2017: release 83 of the COSMIC database is now available in BigQuery
+
+* November 3, 2017: metadata tables for GDC data release 9 are now available in BigQuery
+
+* August 3, 2017: release 82 of the COSMIC database is  now available in BigQuery
+
+* May 9, 2017: release 81 of the COSMIC database is now available in BigQuery
+
+* May 5, 2017: a table mapping between UniProtKB accessions and identifiers has been added to our reference dataset: **isb-cgc:genome_reference.UniProtKB_idmapping**
+
+* April 10, 2017: We have re-organized our TCGA clinical, biospecimen, and molecular data into new datasets in BigQuery -- please find them at `isb-cgc:TCGA_bioclin_v0 <https://bigquery.cloud.google.com/dataset/isb-cgc:TCGA_bioclin_v0?pli=1>`_, `isb-cgc:TCGA_hg19_data_v0 <https://bigquery.cloud.google.com/dataset/isb-cgc:TCGA_hg19_data_v0?pli=1>`_, and  `isb-cgc:TCGA_hg38_data_v0 <https://bigquery.cloud.google.com/dataset/isb-cgc:TCGA_hg38_data_v0?pli=1>`_.  The hg19 data can also be found in the GDC's `legacy archive <https://portal.gdc.cancer.gov/legacy-archive/search/f>`_, while the hg38 data is available at the `GDC data portal <https://portal.gdc.cancer.gov/>`_.
+
 * February 20, 2017: in collaboration with the Sanger Institute, the `COSMIC database <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/COSMIC.html>`_ is now available in BigQuery (registered users only)
 
 * February 5, 2017: genomic coordinates (in GFF3 format) for human microRNAs added for miRBase v20 and v21 to the **isb-cgc:genome_reference** BigQuery dataset
