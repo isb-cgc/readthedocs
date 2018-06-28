@@ -9,11 +9,11 @@ Release Notes
 
 * May 8, 2018: the gnomAD database (release 2.0.2, dated October 2017) is now available in BigQuery! **isb-cgc:genome_reference.gnomAD_20171003_GRCh37**
 
-* April 30, 2018: recently released (2018-04-01) ClinVar VCFs are now available in BigQuery! **isb-cgc:genome_reference.ClinVar_20180401_GRCh37** and **isb-cgc:genome_reference.ClinVar_20180401_GRCh38** also available is dbSNP build 151 (announced 2018-04-24): **isb-cgc:genome_reference.dbSNP_b151_GRCh37p13_All** 
+* April 30, 2018: recently released (2018-04-01) ClinVar VCFs are now available in BigQuery! two new tables (**ClinVar_20180401_GRCh37** and **ClinVar_20180401_GRCh38**) can be found in our genome_reference dataset; also available is dbSNP build 151 (announced 2018-04-24): **isb-cgc:genome_reference.dbSNP_b151_GRCh37p13_All** 
 
 * February 22, 2018: a `genenames_mapping <https://bigquery.cloud.google.com/table/isb-cgc:genome_reference.genenames_mapping?pli=1&tab=schema>`_ table has been added to our numerous reference sources in BigQuery to simplify mapping between HGNC IDs, HGNC symbols, Entrez Gene IDs, Ensembl Gene IDs, Pubme IDs, and RefSeq IDs!
 
-* January 9, 2018: metadata tables for GDC data release 10 are now available in BigQuery
+* June 9, 2018: metadata tables for GDC data release 10 are now available in BigQuery
 
 * May 8, 2018: release 85 of the COSMIC database is now available in BigQuery
 
