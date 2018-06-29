@@ -27,13 +27,21 @@ Release Notes
 
 * November 3, 2017: metadata tables for GDC data release 9 are now available in BigQuery
 
+* October 30, 2017: the 'harmonized' hg38 TCGA VCF files (raw and annotated) are now available in the ISB-CGC controlled-data repository in Google Cloud Storage 
+
+* August 30, 2017: hg38 TARGET VCF files (raw and annotated) are now available in the ISB-CGC controlled-data repository in Google Cloud Storage
+
 * August 3, 2017: release 82 of the COSMIC database is  now available in BigQuery
+
+* June 30, 2017: hg19 and hg38 TARGET WXS, RNA-Seq, and miRNA-Seq BAM files are now available in the ISB-CGC controlled-data repository in Google Cloud Storage
 
 * May 9, 2017: release 81 of the COSMIC database is now available in BigQuery
 
 * May 5, 2017: a table mapping between UniProtKB accessions and identifiers has been added to our reference dataset: **isb-cgc:genome_reference.UniProtKB_idmapping**
 
 * April 10, 2017: We have re-organized our TCGA clinical, biospecimen, and molecular data into new datasets in BigQuery -- please find them at `isb-cgc:TCGA_bioclin_v0 <https://bigquery.cloud.google.com/dataset/isb-cgc:TCGA_bioclin_v0?pli=1>`_, `isb-cgc:TCGA_hg19_data_v0 <https://bigquery.cloud.google.com/dataset/isb-cgc:TCGA_hg19_data_v0?pli=1>`_, and  `isb-cgc:TCGA_hg38_data_v0 <https://bigquery.cloud.google.com/dataset/isb-cgc:TCGA_hg38_data_v0?pli=1>`_.  The hg19 data can also be found in the GDC's `legacy archive <https://portal.gdc.cancer.gov/legacy-archive/search/f>`_, while the hg38 data is available at the `GDC data portal <https://portal.gdc.cancer.gov/>`_.
+
+* March 30, 2017: the 'harmonized' hg38 TCGA miRNA-Seq BAM files from the initial GDC data release are now available in the ISB-CGC controlled-data repository in Google Cloud Storage
 
 * February 20, 2017: in collaboration with the Sanger Institute, the `COSMIC database <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/COSMIC.html>`_ is now available in BigQuery (registered users only)
 
@@ -44,6 +52,8 @@ Release Notes
 * January 10, 2017: **miRBase_v20** table added to the **isb-cgc:genome_reference** BigQuery dataset
 
 * January 4, 2017: Ensembl gene-set releases 75 (GRCh37) and 87 (GRCh38) are now also available in the **isb-cgc:genome_reference** BigQuery dataset.
+
+* December 30, 2016: the 'harmonized' hg38 TCGA WXS BAM files and RNA-Seq BAM files from the initial GDC data release (1.0), as well as the legacy hg19 TCGA 'Level 2' Genome-Wide SNP6 array genotype files ('birdseed') files are now available in the ISB-CGC controlled-data repository in Google Cloud Storage
 
 * November 16, 2016: TCGA proteomics data from the `CPTAC <https://cptac-data-portal.georgetown.edu/cptacPublic/>`_ (Phase II) is now available in `Google Cloud Storage <https://console.cloud.google.com/storage/browser/isb-cptac-open/Phase_II>`_
 
