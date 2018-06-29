@@ -24,6 +24,8 @@ Table of Contents
 2018
 ++++
 
+- June_: Processing bam files using WDL 'scatter and gather'.
+
 - May_: Processing bam files using CWL 'scatter and gather'.
 
 - April_: Running CWL workflows in the cloud.
@@ -72,6 +74,66 @@ Resources_:  Helpful information!
 
 
 -----------------------
+
+
+.. _June:
+
+June, 2018
+#########
+
+**Processing bam files using WDL 'scatter and gather'**
+
+In the last two editions, we've described a multi-step workflow for generating statistics from bam files using the
+common workflow language (CWL). This month, we've translated the example to WDL (workflow description language) 
+and moved to executing the workflow using Cromwell, a 'workflow management system' that can operate in the Google cloud.
+
+So again, starting with a collection of bam files, we're going to bin sequence reads by GC content, and produce a single
+output file that we can use to make a plot.
+
+Using the same `dockerized tools as last time (tool reuse!) <https://hub.docker.com/r/biocontainers/samtools/>_`.
+
+
+The plan:
+
+- compute some statistics over a list of bam files with samtools
+
+- use grep to parse out a portion of the stats output
+
+- use cut to select some columns from the output
+
+- use cat to gather the outputs into a single file
+
+
+Each of these steps is now defined as a WDL task, and together they make a workflow.
+
+
+Let's look at the first task:
+
+
+::
+	
+	task samtools_stats_tool {
+	    File filein
+	    String filename
+
+	    runtime {
+	      docker: "biocontainers/samtools"
+	    }
+	    command {
+	        samtools stats ${filein} > ${filename}_gc_stats.txt
+	    }
+	    output {
+	         File statsout = "${filename}_gc_stats.txt"
+	    }
+	}
+
+
+In this task, we have two input parameters, a file and a string. Then we define the runtime environment (AKA the docker image). 
+This is followed by the actual command we would use in running the job. If the command needs to be split across multiple lines,
+just use the '\' to end each line (just like in a terminal). Notice we reference the parameters with a ${}. Last we have the output
+of the task, setting an output variable that can be referenced in other tasks.
+
+
 
 
 .. _May:
