@@ -164,7 +164,7 @@ The next three tasks follow this same form: input parameters (usually a file), r
 	    }
 
 	    command {
-	      cut -d '/' -f 13- ${cutin} > cut_out.txt
+	      cut -d '/' -f 9- ${cutin} > cut_out.txt
 	    }
 
 	    output {
