@@ -269,6 +269,14 @@ I placed the bamfile list 'bamfiles.txt'.
   :align: center
 
 
+At this point, we're almost ready to run!  But first we need to deal with authorization.  So, to do that, 
+all the instructions for 'Configuring a Google Project' need to be followed `here <http://cromwell.readthedocs.io/en/develop/tutorials/PipelinesApi101/>_`.
+Make sure you can run the hello.wdl example.
+
+
+
+
+
 .. _May:
 
 May, 2018
