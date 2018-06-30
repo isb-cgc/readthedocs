@@ -193,6 +193,81 @@ The stats tool, grep tool, and cut tool all take a single file, while the cat to
 Additionally, in this case, the output of the grep was different than when running the workflow in CWL, so the cut tool command
 changed to account for that.
 
+The next 'task' for *us* is to take these task-definitions and connect them together into a workflow. In this example, I've got a 
+tab separated file that has two columns. The first column has google bucket paths to bam files, and the second column labels the 
+file (see below). That said, the input parameter to the workflow, is just telling the workflow where the list of bam files is.
+
+::
+
+	workflow gcStats {
+
+	    File inputSamplesFile
+	    Array[Array[String]] inputSamples = read_tsv(inputSamplesFile)
+
+	    scatter (sample in inputSamples) {
+	     call samtools_stats_tool {
+	       input:
+	         filein=sample[0],
+	         filename=sample[1]
+	       }
+	     }
+
+	     scatter (statout in samtools_stats_tool.statsout) {
+	      call grep_tool {
+	        input:
+	          grepin = statout
+	      }
+	     }
+
+	     scatter (grepped in grep_tool.grepout) {
+	       call cut_tool {
+	            input: 
+	              cutin = grepped
+	       }
+	     }
+
+	     call cat_tool {
+	       input: 
+	         filesin = cut_tool.cuttoolout
+	     }
+
+	} # end workflow
+
+
+In calling the first tool, we perform a scatter operation over input files. For the next tools, we perform scatter operations over the previous
+tools outputs. The last tool (the cat tool) gets an array of files as an input. 
+
+The task definitions and the workflow are placed into the same file, here named 'gcstats.wdl' because we're producting stats related to the gc content.
+
+
+The list of bam files is stored in a file named 'bamfiles.txt'. Below is the file listing.
+
+::
+
+	gs://daves-cromwell-bucket/bamfiles/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam	bam1
+	gs://daves-cromwell-bucket/bamfiles/wgEncodeUwRepliSeqBjG1bAlnRep1.bam	bam2
+	gs://daves-cromwell-bucket/bamfiles/wgEncodeUwRepliSeqBjG2AlnRep1.bam	bam3
+	gs://daves-cromwell-bucket/bamfiles/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam	bam4
+
+
+The workflow input then refers to the list of bam files. This file is named 'gcstats.input'
+
+::
+	
+	{
+		"gcStats.inputSamplesFile": "gs://daves-cromwell-bucket/bamfiles.txt"
+	}
+
+
+Then, a new bucket was created which will serve as the root for the cromwell execution. In that bucket,
+'daves-cromwell-bucket', I created another folder called 'bamfiles' and placed the data. In the root
+I placed the bamfile list 'bamfiles.txt'.
+
+
+.. figure:: query_figs/june_fig1.png
+  :scale: 50
+  :align: center
+
 
 .. _May:
 
