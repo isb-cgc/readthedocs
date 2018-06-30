@@ -88,10 +88,10 @@ common workflow language (CWL). This month, we've translated the example to `WDL
 and moved to executing the workflow using `Cromwell <http://cromwell.readthedocs.io/en/develop/>`_ , a 'workflow management system' that can operate in the Google cloud.
 
 So again, starting with a collection of bam files, we're going to bin sequence reads by GC content, and produce a single
-output file that we can use to make a plot.
+output file summarizing all the input files.
 
-Using the same `dockerized tools as last time (tool reuse!) <https://hub.docker.com/r/biocontainers/samtools/>_` , we're 
-going to be using Cromwell to run the workflows. You can find installation instructions `here <http://cromwell.readthedocs.io/en/develop/>_`.
+Using the same `dockerized tools as last time (tool reuse!) <https://hub.docker.com/r/biocontainers/samtools/>`_ , we're 
+going to be using Cromwell to run the workflows. You can find installation instructions `here <http://cromwell.readthedocs.io/en/develop/>`_.
 Also install 'womtool', availble in the same location as cromwell.
 
 
