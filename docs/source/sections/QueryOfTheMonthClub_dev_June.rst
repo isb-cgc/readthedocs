@@ -313,6 +313,17 @@ The output of the tasks in organized (under an unreadable folder name) by name:
   :align: center
 
 
+And if we look inside our cat_tool folder, we see the final output file. Cool.
+
+
+.. figure:: query_figs/june_fig4.png
+  :scale: 50
+  :align: center
+
+
+
+
+
 
 
 .. _May:
