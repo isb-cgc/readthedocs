@@ -299,7 +299,7 @@ FINALLY, now we're ready to run with this command:
 	java -Dconfig.file=google.conf -jar cromwell-32.jar run gcstats.wdl -i gcstats.inputs
 
 
-This command starts up a VM in the google cloud, runs the tasks in parallel, and writes the output to your bucket.
+This command starts up a VM in the Google cloud, runs the tasks in parallel, and writes the output to your bucket.
 The resulting directory 'cromwell-execution' looks like this:
 
 
@@ -308,7 +308,7 @@ The resulting directory 'cromwell-execution' looks like this:
   :align: center
 
 
-The output of the tasks in organized (under an unreadable folder name) by name:
+The take outputs are organized (under an unreadable folder name) by name:
 
 .. figure:: query_figs/june_fig3.png
   :scale: 50
