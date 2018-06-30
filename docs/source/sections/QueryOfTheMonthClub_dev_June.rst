@@ -301,7 +301,14 @@ This command starts up VMs in the google cloud, runs the tasks in parallel, and 
 The resulting directory 'cromwell-execution' looks like this:
 
 
-.. figure:: query_figs/june_fig1.png
+.. figure:: query_figs/june_fig2.png
+  :scale: 50
+  :align: center
+
+
+The output of the tasks in organized (under an unreadable folder name) by name:
+
+.. figure:: query_figs/june_fig3.png
   :scale: 50
   :align: center
 
