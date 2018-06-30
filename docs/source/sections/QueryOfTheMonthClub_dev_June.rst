@@ -321,8 +321,8 @@ And if we look inside our cat_tool folder, we see the final output file. Cool.
   :align: center
 
 
-
-
+That's it! We've run a multi-step workflow, with steps in parallel, written in WDL, and run with Cromwell in the
+google cloud. Not too bad, right?  Were you able to run your own workflow?  Let us know!
 
 
 
