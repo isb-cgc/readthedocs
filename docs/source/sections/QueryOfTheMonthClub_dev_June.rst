@@ -85,7 +85,7 @@ June, 2018
 
 In the last two editions, we've described a multi-step workflow for generating statistics from bam files using the
 common workflow language (CWL). This month, we've translated the example to `WDL (workflow description language) <https://software.broadinstitute.org/wdl/>`_
-and moved to executing the workflow using `Cromwell <http://cromwell.readthedocs.io/en/develop/>`_ , a 'workflow management system' that can operate in the Google cloud.
+and moved to executing the workflow using `Cromwell <http://cromwell.readthedocs.io/en/develop/>`_, a 'workflow management system' that can operate in the Google cloud.
 
 So again, starting with a collection of bam files, we're going to bin sequence reads by GC content, and produce a single
 output file summarizing all the input files.
@@ -101,7 +101,7 @@ The plan:
 
 - use grep to parse out a portion of the stats output
 
-- use cut to select some columns from the output
+- use cut to process columns from the output
 
 - use cat to gather the outputs into a single file
 
@@ -130,12 +130,12 @@ Let's look at the first task:
 	}
 
 
-In this task, we have two input parameters, a file and a string. Then we define the runtime environment (AKA the docker image). 
+In this task, we have two input parameters, a file and a string. Then, we define the runtime environment (AKA the docker image). 
 This is followed by the actual command we would use in running the job. If the command needs to be split across multiple lines,
-just use the '\' to end each line (just like in a terminal). Notice we reference the parameters with a ${}. Last we have the output
-of the task, setting an output variable that can be referenced in other tasks.
+just use the '\' to end each line (just like in a terminal). Notice we reference the parameters with a ${}. We are reading ${filein} and writing to ${filename}. 
+Last, we have the output of the task, setting an output variable to be referenced in other tasks.
 
-The next three tasks follow this form: input parameters (usually a file), runtime definition, command, and output. Here's what it lookks like:
+The next three tasks follow this same form: input parameters (usually a file), runtime definition, command, and output. Here's what they look like:
 
 ::
 
