@@ -84,13 +84,15 @@ June, 2018
 **Processing bam files using WDL 'scatter and gather'**
 
 In the last two editions, we've described a multi-step workflow for generating statistics from bam files using the
-common workflow language (CWL). This month, we've translated the example to WDL (workflow description language) 
+common workflow language (CWL). This month, we've translated the example to `WDL (workflow description language) <https://software.broadinstitute.org/wdl/>`_
 and moved to executing the workflow using Cromwell, a 'workflow management system' that can operate in the Google cloud.
 
 So again, starting with a collection of bam files, we're going to bin sequence reads by GC content, and produce a single
 output file that we can use to make a plot.
 
-Using the same `dockerized tools as last time (tool reuse!) <https://hub.docker.com/r/biocontainers/samtools/>_`.
+Using the same `dockerized tools as last time (tool reuse!) <https://hub.docker.com/r/biocontainers/samtools/>_`, we're 
+going to be using Cromwell to run the workflows. You can find installation instructions `here <http://cromwell.readthedocs.io/en/develop/>_`.
+
 
 
 The plan:
@@ -270,8 +272,10 @@ I placed the bamfile list 'bamfiles.txt'.
 
 
 At this point, we're almost ready to run!  But first we need to deal with authorization.  So, to do that, 
-all the instructions for 'Configuring a Google Project' need to be followed `here <http://cromwell.readthedocs.io/en/develop/tutorials/PipelinesApi101/>_`.
-Make sure you can run the hello.wdl example.
+all the instructions for 'Configuring a Google Project' need to be followed 
+`here <http://cromwell.readthedocs.io/en/develop/tutorials/PipelinesApi101/>_`.  That configuration is saved 
+in a file named 'google.conf'. Make sure you can run the 'hello.wdl' example.
+
 
 
 
