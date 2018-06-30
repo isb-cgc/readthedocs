@@ -83,7 +83,7 @@ June, 2018
 
 **Processing bam files using WDL, scatter, and Cromwell**
 
-In the last two editions, we've described a multi-step workflow for generating statistics from bam files using the
+In the last two editions, we've described a multi-step workflow for generating statistics from bam files (from ENCODE) using the
 common workflow language (CWL). This month, we've translated the example to `WDL (workflow description language) <https://software.broadinstitute.org/wdl/>`_
 and moved to executing the workflow using `Cromwell <http://cromwell.readthedocs.io/en/develop/>`_, a 'workflow management system' that can operate in the Google cloud.
 
@@ -192,18 +192,19 @@ The next three tasks follow this same form: input parameters (usually a file), r
 
 
 The stats tool, grep tool, and cut tool all take a single file, while the cat tool (as you might expect) takes an array of files. 
-Additionally, in this case, the output of the grep was different than when running the workflow in CWL, so the cut tool command
+Additionally, in this case, the output of grep was different compared to running the workflow in CWL, so the cut tool command
 changed to account for that.
 
 The next 'task' for *us* is to take these task-definitions and connect them together into a workflow. In this example, I've got a 
-tab separated file that has two columns. The first column has google bucket paths to bam files, and the second column labels the 
-file (see below). That said, the input parameter to the workflow, is just telling the workflow where the list of bam files is.
+tab separated file with two columns. The first column has google bucket paths to bam files, and the second column is a  
+file label (see below). That said, the input parameter to the workflow, is just telling the workflow where the list of bam files is.
 
 ::
 
 	workflow gcStats {
 
 	    File inputSamplesFile
+
 	    Array[Array[String]] inputSamples = read_tsv(inputSamplesFile)
 
 	    scatter (sample in inputSamples) {
@@ -236,15 +237,16 @@ file (see below). That said, the input parameter to the workflow, is just tellin
 	} # end workflow
 
 
-In calling the first tool, we perform a scatter operation over input files. For the next tools, we perform scatter operations over the previous
-tools outputs. The last tool (the cat tool) gets an array of files as an input. 
+In calling the first tool, we perform a scatter operation over input files. For the next tools, we perform scatter operations over the previously 
+called tool outputs. The last tool (the cat tool) gets an array of files as an input, and concatenates them. 
 
-The task definitions and the workflow are placed into the same file, here named 'gcstats.wdl' because we're producting stats related to 
-the gc content. We can validate the workflow by calling:
+The task definitions and the workflow are placed into the same file, here named 'gcstats.wdl'. We can validate the workflow by calling:
 
 ::
 
 	java -jar womtool-32.jar validate gcstats.wdl
+
+If it's valid, there's no errors reported.
 
 
 The list of bam files is stored in a file named 'bamfiles.txt'. Below is the file listing.
@@ -274,7 +276,7 @@ After it's filled in, the file looks like:
 	}
 
 
-Then, a new bucket was created which will serve as the root for the cromwell execution. In that bucket,
+Then, a new bucket was created which serves as the root for the cromwell execution. In that bucket,
 'daves-cromwell-bucket', I created another folder called 'bamfiles' and placed the data. In the root
 I placed the bamfile list 'bamfiles.txt'.
 
@@ -284,20 +286,20 @@ I placed the bamfile list 'bamfiles.txt'.
   :align: center
 
 
-At this point, we're almost ready to run!  But first we need to deal with authorization.  So, to do that, 
+We're almost ready to run!  But first we need to deal with authorization.  So, to do that, 
 all the instructions for 'Configuring a Google Project' need to be followed 
-`here <http://cromwell.readthedocs.io/en/develop/tutorials/PipelinesApi101/>_`. That configuration is saved 
+`here <http://cromwell.readthedocs.io/en/develop/tutorials/PipelinesApi101/>`_. That configuration is saved 
 in a file named 'google.conf'. Make sure you can run the 'hello.wdl' example.
 
 
-FINALLY we're ready to run with this command:
+FINALLY, now we're ready to run with this command:
 
 ::
 	
 	java -Dconfig.file=google.conf -jar cromwell-32.jar run gcstats.wdl -i gcstats.inputs
 
 
-This command starts up VMs in the google cloud, runs the tasks in parallel, and writes the output to your bucket.
+This command starts up a VM in the google cloud, runs the tasks in parallel, and writes the output to your bucket.
 The resulting directory 'cromwell-execution' looks like this:
 
 
