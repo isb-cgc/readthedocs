@@ -92,7 +92,7 @@ output file that we can use to make a plot.
 
 Using the same `dockerized tools as last time (tool reuse!) <https://hub.docker.com/r/biocontainers/samtools/>_`, we're 
 going to be using Cromwell to run the workflows. You can find installation instructions `here <http://cromwell.readthedocs.io/en/develop/>_`.
-
+Also install 'womtool', availble in the same location as cromwell.
 
 
 The plan:
@@ -239,7 +239,12 @@ file (see below). That said, the input parameter to the workflow, is just tellin
 In calling the first tool, we perform a scatter operation over input files. For the next tools, we perform scatter operations over the previous
 tools outputs. The last tool (the cat tool) gets an array of files as an input. 
 
-The task definitions and the workflow are placed into the same file, here named 'gcstats.wdl' because we're producting stats related to the gc content.
+The task definitions and the workflow are placed into the same file, here named 'gcstats.wdl' because we're producting stats related to 
+the gc content. We can validate the workflow by calling:
+
+::
+
+	java -jar womtool-32.jar validate gcstats.wdl
 
 
 The list of bam files is stored in a file named 'bamfiles.txt'. Below is the file listing.
@@ -252,7 +257,15 @@ The list of bam files is stored in a file named 'bamfiles.txt'. Below is the fil
 	gs://daves-cromwell-bucket/bamfiles/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam	bam4
 
 
-The workflow input then refers to the list of bam files. This file is named 'gcstats.input'
+The workflow input then refers to the list of bam files. This file is named 'gcstats.input'.
+A template for the json input can be generated, and filled in using this command:
+
+::
+	
+	java -jar womtool-32.jar inputs gcstats.wdl  > gcstats.inputs
+
+
+After it's filled in, the file looks like:
 
 ::
 	
@@ -273,10 +286,24 @@ I placed the bamfile list 'bamfiles.txt'.
 
 At this point, we're almost ready to run!  But first we need to deal with authorization.  So, to do that, 
 all the instructions for 'Configuring a Google Project' need to be followed 
-`here <http://cromwell.readthedocs.io/en/develop/tutorials/PipelinesApi101/>_`.  That configuration is saved 
+`here <http://cromwell.readthedocs.io/en/develop/tutorials/PipelinesApi101/>_`. That configuration is saved 
 in a file named 'google.conf'. Make sure you can run the 'hello.wdl' example.
 
 
+FINALLY we're ready to run with this command:
+
+::
+	
+	java -Dconfig.file=google.conf -jar cromwell-32.jar run gcstats.wdl -i gcstats.inputs
+
+
+This command starts up VMs in the google cloud, runs the tasks in parallel, and writes the output to your bucket.
+The resulting directory 'cromwell-execution' looks like this:
+
+
+.. figure:: query_figs/june_fig1.png
+  :scale: 50
+  :align: center
 
 
 
