@@ -24,6 +24,8 @@ Table of Contents
 2018
 ++++
 
+- June_: Processing bam files using WDL 'scatter and gather'.
+
 - May_: Processing bam files using CWL 'scatter and gather'.
 
 - April_: Running CWL workflows in the cloud.
@@ -72,6 +74,258 @@ Resources_:  Helpful information!
 
 
 -----------------------
+
+
+.. _June:
+
+June, 2018
+#########
+
+**Processing bam files using WDL, scatter, and Cromwell**
+
+In the last two editions, we've described a multi-step workflow for generating statistics from bam files (from ENCODE) using the
+common workflow language (CWL). This month, we've translated the example to `WDL (workflow description language) <https://software.broadinstitute.org/wdl/>`_
+and moved to executing the workflow using `Cromwell <http://cromwell.readthedocs.io/en/develop/>`_, a 'workflow management system' that can operate in the Google cloud.
+
+So again, starting with a collection of bam files, we're going to bin sequence reads by GC content, and produce a single
+output file summarizing all the input files.
+
+Using the same `dockerized tools as last time (tool reuse!) <https://hub.docker.com/r/biocontainers/samtools/>`_ , we're 
+going to be using Cromwell to run the workflows. You can find installation instructions `here <http://cromwell.readthedocs.io/en/develop/>`_.
+Also install 'womtool', availble in the same location as cromwell.
+
+
+The plan:
+
+- compute some statistics over a list of bam files with samtools
+
+- use grep to parse out a portion of the stats output
+
+- use cut to process columns from the output
+
+- use cat to gather the outputs into a single file
+
+
+Each of these steps is now defined as a WDL task, and together they make a workflow.
+
+
+Let's look at the first task:
+
+
+::
+	
+	task samtools_stats_tool {
+	    File filein
+	    String filename
+
+	    runtime {
+	      docker: "biocontainers/samtools"
+	    }
+	    command {
+	        samtools stats ${filein} > ${filename}_gc_stats.txt
+	    }
+	    output {
+	         File statsout = "${filename}_gc_stats.txt"
+	    }
+	}
+
+
+In this task, we have two input parameters, a file and a string. Then, we define the runtime environment (AKA the docker image). 
+This is followed by the actual command we would use in running the job. If the command needs to be split across multiple lines,
+just use the '\' to end each line (just like in a terminal). Notice we reference the parameters with a ${}. We are reading ${filein} and writing to ${filename}. 
+Last, we have the output of the task, setting an output variable to be referenced in other tasks.
+
+The next three tasks follow this same form: input parameters (usually a file), runtime definition, command, and output. Here's what they look like:
+
+::
+
+	task grep_tool {
+	    File grepin
+
+	    runtime {
+	      docker: "biocontainers/samtools"
+	    }
+	    
+	    command {
+	        grep --with-filename '^GCF' ${grepin} > grep_out.txt
+	    }
+
+	    output {
+	        File grepout = "grep_out.txt"
+	    }
+	}
+
+
+	task cut_tool {
+	    File cutin
+
+	    runtime {
+	      docker: "biocontainers/samtools"
+	    }
+
+	    command {
+	      cut -d '/' -f 9- ${cutin} > cut_out.txt
+	    }
+
+	    output {
+	        File cuttoolout = "cut_out.txt"
+	    }    
+
+	}
+
+
+	task cat_tool {
+	    Array[File] filesin
+
+	    runtime {
+	      docker: "biocontainers/samtools"
+	    }
+
+	    command {
+	        cat ${sep=" " filesin} > final_gc_stats_out.txt
+	    }
+
+	    output {
+	        File finalfile = "final_gc_stats_out.txt"
+	    }
+	}
+
+
+The stats tool, grep tool, and cut tool all take a single file, while the cat tool (as you might expect) takes an array of files. 
+Additionally, in this case, the output of grep was different compared to running the workflow in CWL, so the cut tool command
+changed to account for that.
+
+The next 'task' for *us* is to take these task-definitions and connect them together into a workflow. In this example, I've got a 
+tab separated file with two columns. The first column has google bucket paths to bam files, and the second column is a  
+file label (see below). That said, the input parameter to the workflow, is just telling the workflow where the list of bam files is.
+
+::
+
+	workflow gcStats {
+
+	    File inputSamplesFile
+
+	    Array[Array[String]] inputSamples = read_tsv(inputSamplesFile)
+
+	    scatter (sample in inputSamples) {
+	     call samtools_stats_tool {
+	       input:
+	         filein=sample[0],
+	         filename=sample[1]
+	       }
+	     }
+
+	     scatter (statout in samtools_stats_tool.statsout) {
+	      call grep_tool {
+	        input:
+	          grepin = statout
+	      }
+	     }
+
+	     scatter (grepped in grep_tool.grepout) {
+	       call cut_tool {
+	            input: 
+	              cutin = grepped
+	       }
+	     }
+
+	     call cat_tool {
+	       input: 
+	         filesin = cut_tool.cuttoolout
+	     }
+
+	} # end workflow
+
+
+In calling the first tool, we perform a scatter operation over input files. For the next tools, we perform scatter operations over the previously 
+called tool outputs. The last tool (the cat tool) gets an array of files as an input, and concatenates them. 
+
+The task definitions and the workflow are placed into the same file, here named 'gcstats.wdl'. We can validate the workflow by calling:
+
+::
+
+	java -jar womtool-32.jar validate gcstats.wdl
+
+If it's valid, there's no errors reported.
+
+
+The list of bam files is stored in a file named 'bamfiles.txt'. Below is the file listing.
+
+::
+
+	gs://daves-cromwell-bucket/bamfiles/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam	bam1
+	gs://daves-cromwell-bucket/bamfiles/wgEncodeUwRepliSeqBjG1bAlnRep1.bam	bam2
+	gs://daves-cromwell-bucket/bamfiles/wgEncodeUwRepliSeqBjG2AlnRep1.bam	bam3
+	gs://daves-cromwell-bucket/bamfiles/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam	bam4
+
+
+The workflow input then refers to the list of bam files. This file is named 'gcstats.input'.
+A template for the json input can be generated, and filled in using this command:
+
+::
+	
+	java -jar womtool-32.jar inputs gcstats.wdl  > gcstats.inputs
+
+
+After it's filled in, the file looks like:
+
+::
+	
+	{
+		"gcStats.inputSamplesFile": "gs://daves-cromwell-bucket/bamfiles.txt"
+	}
+
+
+Then, a new bucket was created which serves as the root for the cromwell execution. In that bucket,
+'daves-cromwell-bucket', I created another folder called 'bamfiles' and placed the data. In the root
+I placed the bamfile list 'bamfiles.txt'.
+
+
+.. figure:: query_figs/june_fig1.png
+  :scale: 50
+  :align: center
+
+
+We're almost ready to run!  But first we need to deal with authorization.  So, to do that, 
+all the instructions for 'Configuring a Google Project' need to be followed 
+`here <http://cromwell.readthedocs.io/en/develop/tutorials/PipelinesApi101/>`_. That configuration is saved 
+in a file named 'google.conf'. Make sure you can run the 'hello.wdl' example.
+
+
+FINALLY, now we're ready to run with this command:
+
+::
+	
+	java -Dconfig.file=google.conf -jar cromwell-32.jar run gcstats.wdl -i gcstats.inputs
+
+
+This command starts up a VM in the Google cloud, runs the tasks in parallel, and writes the output to your bucket.
+The resulting directory 'cromwell-execution' looks like this:
+
+
+.. figure:: query_figs/june_fig2.png
+  :scale: 50
+  :align: center
+
+
+The take outputs are organized (under an unreadable folder name) by name:
+
+.. figure:: query_figs/june_fig3.png
+  :scale: 50
+  :align: center
+
+
+And if we look inside our cat_tool folder, we see the final output file. Cool.
+
+
+.. figure:: query_figs/june_fig4.png
+  :scale: 50
+  :align: center
+
+
+That's it! We've run a multi-step workflow, with steps in parallel, written in WDL, and run with Cromwell in the
+google cloud. Not too bad, right?  Were you able to run your own workflow?  Let us know!
+
 
 
 .. _May:
