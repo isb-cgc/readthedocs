@@ -48,6 +48,7 @@ You will need to input the Google Cloud Prooject ID which can be found on the Da
    :align: center
 
 
+
 **Why do I add the service account 907668440978-oskt05du3ao083cke14641u35deokgjj@developer.gserviceaccount.com to my Google Cloud Project?**
 
 This service account is needed  in your Google Cloud Project for the ISB-CGC project to be able to automatically verify that all users of your Google Cloud Project have the same appropriate access rights to the protected data that has been reuested for the project.
@@ -97,6 +98,15 @@ We recomend using Google Chrome browser.  We currently will display a chart slig
 You will see the 401 error only if your popup blocker is enabled for the isb-cgc website.  Please disable the pop-up blocker on the top right-hand side of the screen by selecting to always allow pop-ups from ISB-CGC.
 
 .. image:: 401ErrorIGVBrowser.PNG
+   :scale: 50
+   :align: center
+   
+
+**Why does the web browser crash if too many IGV Browser tabs are opened at once?**
+
+The web browser will be caused to crash when too many IGV Browser tabs are open due to the memory intensive nature of loading bam files.  When working with the IGV Browser please be mindful of having multiple tabs open of the IGV Browser.
+
+.. image:: IGVBrowserCrash.png
    :scale: 50
    :align: center
    
