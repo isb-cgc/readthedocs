@@ -8,7 +8,7 @@ Takes a JSON object of filters in the request body and returns a "preview" of th
 
 **API explorer example**:
 
-Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_ccle_api/v3/isb_cgc_ccle_api.cohorts.preview?resource=%257B%250A++%2522program_short_name%2522%253A+%250A++%255B%2522CCLE-BLCA%2522%252C%2522CCLE-LUSC%2522%250A++%255D%252C%250A++%2522age_at_initial_pathologic_diagnosis_lte%2522%253A+%252230%2522%250A%257D&/>`_ to see this endpoint in Google's API explorer.
+Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#s/isb_cgc_ccle_api/v3/isb_cgc_ccle_api.cohorts.preview?fields=case_count%252Ccases%252Csample_count%252Csamples&_h=2&resource=%257B%250A++%2522Common%2522%253A+%250A++%257B%250A++++%2522project_short_name%2522%253A+%250A++++%255B%2522CCLE-BLCA%2522%252C%2522CCLE-LUSC%2522%250A++++%255D%250A++%257D%252C%250A++%2522Clinical%2522%253A+%250A++%257B%250A++++%2522gender%2522%253A+%250A++++%255B%2522Male%2522%250A++++%255D%250A++%257D%250A%257D&>`_ to see this endpoint in Google's API explorer.
 
 **Python API Client Example**::
 
@@ -31,7 +31,21 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2
 
 HTTP request::
 
-	GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/cohorts/preview
+	POST https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/tcga/cohorts/preview?fields=case_count%2Ccases%2Csample_count%2Csamples
+
+{
+ "Common": {
+  "project_short_name": [
+   "CCLE-BLCA",
+   "CCLE-LUSC"
+  ]
+ },
+ "Clinical": {
+  "gender": [
+   "Male"
+  ]
+ }
+}
 
 **Parameters**
 
