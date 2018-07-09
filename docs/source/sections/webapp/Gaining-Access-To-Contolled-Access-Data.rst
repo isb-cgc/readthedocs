@@ -271,9 +271,9 @@ were revoked because an unauthorized user was added to the project,
 the Google Cloud Project owner will be sent an email specifying the Service Account, GCP Project, and user
 which resulted in the access being revoked.  
 To reauthorize the service account 1) remedy the problem that resulted in access being denied,
-and 2) select the "refresh" icon beside the service account (see screenshot below).
+and 2) select the "adjust" icon beside the service account (see screenshot below) and add the controlled datasets to the service account.
 
-.. image:: RefreshServiceAccount.png
+.. image:: AdjustServiceAccount.png
    :scale: 50
    :align: center
 
