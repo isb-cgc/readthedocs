@@ -480,7 +480,7 @@ Viewing a Radiology Image
 
 To find images that can be viewed, open a saved cohort and select the “File Browser” button at the top of the page. You can also select the File Browser button from the Dashboard Saved Cohorts panel. The files associated with your cohort will be shown, with the fourth tab listing any available Radiology Images. Hovering over the Study Instance UID column and clicking on ‘Open in Osimis Web Viewer’ will open the series Selection panel in a new tab using Osimis DICOM (HINT: using a smaller cohort will provide faster response in creating the list of files available). 
 
-For a more detailed step-by-step process of Viewing Radiology Images using the Osimis DICOM viewer please go here.
+For a more detailed step-by-step process of Viewing Radiology Images using the Osimis DICOM viewer please go `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/OsimisWebViewer.html>`_.
 
 
 Deleting a cohort
