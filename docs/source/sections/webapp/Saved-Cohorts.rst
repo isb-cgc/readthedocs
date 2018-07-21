@@ -474,6 +474,15 @@ When available, pathology images can be viewed using the caMicroscope tool (see 
 
 A maximum of 5 slides can be viewed at one time.  To view these slides, select the caMicro check-boxes for each sample you want to view.  Then, go to the top of the page, and select the "caMicroscope" tab. The images that have been selected to view are shown. Pressing the "Launch caMicrosope" button launches a new window with individual tabs displaying the image.  To zoom into the image, either click the left button or use your wheel to zoom in.  Use your mouse to move around the image.  To zoom out of the image, shift-slick the left mouse button or use your wheel to zoom out.  Individual tabs with each image can also be launched to compare multiple images by pushing the "Open in new tab" button.
 
+
+Viewing a Radiology Image
+=========================
+
+To find images that can be viewed, open a saved cohort and select the “File Browser” button at the top of the page. You can also select the File Browser button from the Dashboard Saved Cohorts panel. The files associated with your cohort will be shown, with the fourth tab listing any available Radiology Images. Hovering over the Study Instance UID column and clicking on ‘Open in Osimis Web Viewer’ will open the series Selection panel in a new tab using Osimis DICOM (HINT: using a smaller cohort will provide faster response in creating the list of files available). 
+
+For a more detailed step-by-step process of Viewing Radiology Images using the Osimis DICOM viewer please go here.
+
+
 Deleting a cohort
 #################
 
