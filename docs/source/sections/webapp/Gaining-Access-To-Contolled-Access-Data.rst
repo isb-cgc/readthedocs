@@ -280,7 +280,7 @@ and 2) select the "adjust" icon beside the service account (see screenshot below
 
 Google Cloud Project Associated to an Organization Will NOT Work with controlled data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-If your Google Cloud Project is associated to an organization you will be unable to register the service account to controlled data.  You will return an error message similar to this saying, "GCP cgc-08-0126 was found to be in organization ID 913136405505; its service accounts cannot be registered for use with controlled data."  This is mainly to due with the fact ISB-CGC cannot see the permissions assocaited to the organization project therefore is a security risk.  We are currently working with Google to resolve this issue.
+If your Google Cloud Project is associated to an organization you will be unable to register the service account to controlled data.  You will return an error message similar to this saying, "GCP cgc-08-0126 was found to be in organization ID 8784632854871; its service accounts cannot be registered for use with controlled data."  This is mainly to due with the fact ISB-CGC cannot see the permissions assocaited to the organization project therefore is a security risk.  We are currently working with Google to resolve this issue.
 
 
 .. image:: OrganizationFound.PNG
