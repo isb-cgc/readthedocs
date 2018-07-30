@@ -80,6 +80,7 @@ Resources_:  Helpful information!
 
 .. _July: 
 
+
 **First look: BigQuery ML.**
 
 Exciting news! Google has just released a beta feature in BigQuery: Machine Learning (ML)! There are two availble model types, linear and logistic.
