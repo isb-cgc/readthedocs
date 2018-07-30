@@ -102,7 +102,7 @@ It's not entirely clear at this point, but when I learn more, I'll report it.
 
 
 .. figure:: query_figs/july/bq_ml_costs.png
-  :scale: 75
+  :scale: 100
   :align: center
 
 
@@ -119,7 +119,7 @@ web UI. I called it 'tcga_model_1'.
 
 
 .. figure:: query_figs/july/make_dataset.png
-  :scale: 75
+  :scale: 100
   :align: center
 
 
@@ -225,7 +225,7 @@ a model appears in the dataset, and clicking on it brings up some new informatio
 
 
 .. figure:: query_figs/july/4gene_model_specs.png
-  :scale: 75
+  :scale: 100
   :align: center
 
 
@@ -237,19 +237,19 @@ the model's 'not finding any traction'.
 
 
 .. figure:: query_figs/july/4gene_model_stats.png
-  :scale: 75
+  :scale: 100
   :align: center
 
 
 So, how'd it do? To find out, we actually QUERY the model! This gives us some `pretty standard metrics <https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-evaluate>`_
 like 
 
-	*precision
-	*recall
-	*accuracy
-	*f1_score
-	*log_loss
-	*roc_auc 
+	* precision
+	* recall
+	* accuracy
+	* f1_score
+	* log_loss
+	* roc_auc 
 
 There's also a ROC curve evaluation function 
 
@@ -298,7 +298,7 @@ Here's the result when I evaluated the model (NOTE you can evaluate on a subset 
 
 
 .. figure:: query_figs/july/4gene_roc.png
-  :scale: 75
+  :scale: 100
   :align: center
 
 
@@ -315,7 +315,7 @@ One last thing, we can get the weights (or model coefficients) by again querying
 
 
 .. figure:: query_figs/july/4gene_model_weights.png
-  :scale: 75
+  :scale: 100
   :align: center
 
 
@@ -484,12 +484,12 @@ and we can evaluate it:
 
 
 .. figure:: query_figs/july/apc_kras_model_stats.png
-  :scale: 75
+  :scale: 100
   :align: center
 
 
-.. figure:: query_figs/july/apc_kras_model_roc.png
-  :scale: 75
+.. figure:: query_figs/july/apc_kras_roc.png
+  :scale: 100
   :align: center
 
 
@@ -504,11 +504,11 @@ And we get model weights, this is where the intersting stuff is.
 	  ML.WEIGHTS(MODEL `tcga_model_1.APC_kras`)
 
 .. figure:: query_figs/july/apc_kras_model_weights1.png
-  :scale: 75
+  :scale: 100
   :align: center
 
 .. figure:: query_figs/july/apc_kras_model_weights2.png
-  :scale: 75
+  :scale: 100
   :align: center
 
 
