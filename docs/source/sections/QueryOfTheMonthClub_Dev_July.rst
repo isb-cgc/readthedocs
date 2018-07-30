@@ -78,8 +78,10 @@ Resources_:  Helpful information!
 -----------------------
 
 
-.. _July: 
+.. _July:
 
+July, 2018
+##########
 
 **First look: BigQuery ML.**
 
@@ -526,7 +528,7 @@ expect things to change! Have you found any good tricks?  If you have, let us kn
 .. _June:
 
 June, 2018
-#########
+##########
 
 **Processing bam files using WDL, scatter, and Cromwell**
 
