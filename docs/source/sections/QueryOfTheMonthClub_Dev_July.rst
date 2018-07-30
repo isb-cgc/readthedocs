@@ -130,7 +130,11 @@ The dataset is going to be created with a query, and saved as a table in the abo
 
 .. code-block:: sql
 
+	-- For each gene, we'll make a subtable named C1-C4.
+	-- You can see where we select the gene in the WHERE section.
+
 	With
+
 	c1 AS (
 	select
 	  project_short_name as label, 
@@ -142,6 +146,7 @@ The dataset is going to be created with a query, and saved as a table in the abo
 	  project_short_name IN ('TCGA-COAD','TCGA-PAAD')
 		and gene_name = 'CCNE1'
 	),
+
 	c2 AS (
 	select
 	  project_short_name as label, 
@@ -153,6 +158,7 @@ The dataset is going to be created with a query, and saved as a table in the abo
 	  project_short_name IN ('TCGA-COAD','TCGA-PAAD')
 		and gene_name = 'CDC6'
 	),
+
 	c3 AS (
 	select
 	  project_short_name as label, 
@@ -164,6 +170,7 @@ The dataset is going to be created with a query, and saved as a table in the abo
 	  project_short_name IN ('TCGA-COAD','TCGA-PAAD')
 		and gene_name = 'MDM2'
 	),
+
 	c4 AS (
 	select
 	  project_short_name as label, 
@@ -175,6 +182,9 @@ The dataset is going to be created with a query, and saved as a table in the abo
 	  project_short_name IN ('TCGA-COAD','TCGA-PAAD')
 		and gene_name = 'TGFA'
 	)
+
+	-- Now we join the above gene-tables into our training data.
+
 	SELECT 
 	C1.label as label,
 	C1.sample_barcode as sample_barcode,
@@ -191,24 +201,79 @@ The dataset is going to be created with a query, and saved as a table in the abo
 
 I ran the above query, and when done, clicked the 'Save to Table' button, placing it in the 'tcga_model_1' dataset. Now we're ready to train a model.
 
+
 .. code-block:: sql
 
 	#standardSQL
 	CREATE MODEL
-	  `tcga_model_1.coad_vs_paad_expr_l1_l2`
+	  `tcga_model_1.coad_vs_paad_expr_l1_l2`  -- the name of our model, dataset.model_name
 	OPTIONS
-	  ( model_type='logistic_reg',
+	  ( model_type='logistic_reg',            -- various options for the model 
 	    l1_reg=1, l2_reg=1 ) AS
 	SELECT
-	  label,
-	  CCNE1,
-	  CDC6,
+	  label,                                  -- here you define the training data
+	  CCNE1,                                  -- it's possible to give it a random subset
+	  CDC6,                                   -- see the next query for that.
 	  MDM2,
 	  TGFA
 	FROM
 	  `isb-cgc-02-0001.tcga_model_1.paad_coad_expr_2`
 
 
+It generally takes a minute or two for the model training to finish. When it does,
+a model appears in the dataset, and clicking on it brings up some new information fields in the UI.
+
+
+.. figure:: query_figs/july/4gene_model_spec.png
+  :scale: 50
+  :align: center
+
+
+We can also get a sense of how well the training went by clicking on the 'training stats' tab.
+When the model fit's not getting any better, the training will end (can turn this feature off).
+I found in models that were not doing well, they tended to end after just about four rounds, with 
+high training data loss (~0.45). Also, you should see the learning rate really ramp up, other wise
+the model's 'not finding any traction'.
+
+
+.. figure:: query_figs/july/4gene_model_stats.png
+  :scale: 50
+  :align: center
+
+
+So, how'd it do? To find out, we actually QUERY the model! This gives us some `pretty standard metrics <https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-evaluate>`_
+like 
+
+	*precision
+	*recall
+	*accuracy
+	*f1_score
+	*log_loss
+	*roc_auc 
+
+There's also a ROC curve evaluation function 
+
+:: 
+
+	The ML.ROC_CURVE Function
+	Beta
+	This is a beta release of BigQuery ML. This product might be changed in backward-incompatible ways and is not subject to any SLA or deprecation policy.
+
+	ML.ROC_CURVE function
+	Use the ML.ROC_CURVE function to evaluate logistic regression-specific metrics. ML.ROC_CURVE only evaluates logistic regression models.
+
+	The output ML.ROC_CURVE function includes multiple rows with metrics for different threshold values for the model. The metrics include:
+
+	threshold
+	recall
+	false_positive_rate
+	true_positives
+	false_positives
+	true_negatives
+	false_negatives
+
+
+Here's the result when I evaluated the model:
 
 .. code-block:: sql
 
@@ -231,8 +296,11 @@ I ran the above query, and when done, clicked the 'Save to Table' button, placin
 	 )
 
 
-Row	precision	recall	accuracy	f1_score	log_loss	roc_auc	 
-1	0.7530864197530864	0.648936170212766	0.8775981524249422	0.6971428571428572	0.2602491759977294	0.949104
+
+.. figure:: query_figs/july/4gene_roc.png
+  :scale: 50
+  :align: center
+
 
 
 .. code-block:: sql
