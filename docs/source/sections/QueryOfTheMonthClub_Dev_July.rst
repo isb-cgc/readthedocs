@@ -102,7 +102,7 @@ It's not entirely clear at this point, but when I learn more, I'll report it.
 
 
 .. figure:: query_figs/july/bq_ml_costs.png
-  :scale: 50
+  :scale: 75
   :align: center
 
 
@@ -119,7 +119,7 @@ web UI. I called it 'tcga_model_1'.
 
 
 .. figure:: query_figs/july/make_dataset.png
-  :scale: 50
+  :scale: 75
   :align: center
 
 
@@ -224,8 +224,8 @@ It generally takes a minute or two for the model training to finish. When it doe
 a model appears in the dataset, and clicking on it brings up some new information fields in the UI.
 
 
-.. figure:: query_figs/july/4gene_model_spec.png
-  :scale: 50
+.. figure:: query_figs/july/4gene_model_specs.png
+  :scale: 75
   :align: center
 
 
@@ -237,7 +237,7 @@ the model's 'not finding any traction'.
 
 
 .. figure:: query_figs/july/4gene_model_stats.png
-  :scale: 50
+  :scale: 75
   :align: center
 
 
@@ -273,7 +273,7 @@ There's also a ROC curve evaluation function
 	false_negatives
 
 
-Here's the result when I evaluated the model:
+Here's the result when I evaluated the model (NOTE you can evaluate on a subset of data):
 
 .. code-block:: sql
 
@@ -298,9 +298,11 @@ Here's the result when I evaluated the model:
 
 
 .. figure:: query_figs/july/4gene_roc.png
-  :scale: 50
+  :scale: 75
   :align: center
 
+
+One last thing, we can get the weights (or model coefficients) by again querying the model.
 
 
 .. code-block:: sql
@@ -312,16 +314,210 @@ Here's the result when I evaluated the model:
 
 
 
-Row	processed_input	weight	category_weights.category	category_weights.weight	 
-1	CCNE1	-0.7842583407600104			 
-2	CDC6	-2.2759546912451274			 
-3	MDM2	-0.015306280787606256			 
-4	TGFA	0.6158875549267074			 
-5	__INTERCEPT__	-2.4112478267421085
+.. figure:: query_figs/july/4gene_model_weights.png
+  :scale: 75
+  :align: center
+
+
+So we see that CDC6 was very useful, but MDM2 wasn't. It's a great way of seeing how useful each variable is, and for which class (by +/-).
 
 
 
-That's pretty useful!  Have you found any good tricks?  If you have, let us know on email or twitter!
+Neat! Let's do one more example, this time using somatic mutations. For this training data, I'm going to do a little `feature engineering <https://en.wikipedia.org/wiki/Feature_engineering>`_
+( `another ref <https://developers.google.com/machine-learning/crash-course/representation/feature-engineering>`_ ).  Our engineering is going to simply 
+combine a couple columns, the gene name where the mutation occurs, and the type of mutation or class of mutation. Types of mutation can be SNPs (single nucleotide polymorphisms) or deletions, for example, 
+and mutation classes can be where in the gene the mutation occurs (exon, intron, 3', etc).
+
+A tricky part of working with the mutation data, is that only a subset of samples have a mutation, so we need to start with a table of all the samples in our two groups,
+and then join in mutation data with a LEFT JOIN, which retains all the barcodes (which may or may not have mutations) and brings in mutations when present, then we join
+subtables for each gene of interest.
+
+.. code-block:: sql
+
+	WITH
+	barcodes AS (
+	SELECT
+	  project_short_name AS label,
+	  sample_barcode_tumor,
+	  'x' AS Hugo_Symbol,
+	  'x' AS Variant_Classification,
+	  'x' AS Variant_Type
+	FROM
+	  `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
+	WHERE
+	  project_short_name IN ('TCGA-COAD',
+	    'TCGA-PAAD')
+	GROUP BY
+	  project_short_name,
+	  sample_barcode_tumor
+	),
+
+
+	mutations AS (
+	select
+	  project_short_name as label, 
+	  sample_barcode_tumor,
+	  Hugo_Symbol,
+	  CONCAT(Hugo_Symbol, ' ', Variant_Classification) as Variant_Classification,
+	  CONCAT(Hugo_Symbol, ' ', Variant_Type) AS Variant_Type
+	from
+	  `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
+	WHERE
+	  project_short_name IN ('TCGA-COAD','TCGA-PAAD')
+		and Hugo_Symbol = 'APC'  
+	GROUP BY
+	  project_short_name, 
+	  sample_barcode_tumor,
+	  Hugo_Symbol,
+	  Variant_Classification,
+	  Variant_Type
+	)
+
+
+	select
+	  b.label,
+	  b.sample_barcode_tumor,
+	  m.Hugo_Symbol,
+	  m.Variant_Classification,
+	  m.Variant_Type
+	FROM
+	  barcodes b
+	LEFT JOIN
+	  mutations m
+	ON
+	  b.sample_barcode_tumor = m.sample_barcode_tumor AND
+	  b.label = m.label
+	WHERE
+	  b.sample_barcode_tumor = 'TCGA-AD-6965-01A'
+	GROUP BY
+	  label, 
+	  sample_barcode_tumor,
+	  m.Hugo_Symbol,
+	  m.Variant_Classification,
+	  m.Variant_Type
+
+
+
+So, if a sample doesn't have a mutation in APC, it reads out 'null'.
+
+::
+
+	  Row label sample_barcode_tumor  Hugo_Symbol Variant_Classification  Variant_Type   
+	1 TCGA-COAD TCGA-AD-6965-01A      null        null                    null
+
+
+	-- But if you select a tumor with a mutation in APC you get:  
+
+	1 TCGA-COAD TCGA-AA-3955-01A  APC APC In_Frame_Del      APC DEL  
+	2 TCGA-COAD TCGA-AA-3955-01A  APC APC Nonsense_Mutation APC SNP  
+	3 TCGA-COAD TCGA-AA-3955-01A  APC APC Intron            APC SNP
+
+
+
+So repeating that another time for KRAS, we have two subtables that get joined.
+
+.. code-block:: sql
+
+	SELECT
+	  k.label,
+	  k.barcode,
+	  APC,
+	  APCvarclass,
+	  APCvartype,
+	  kras,
+	  krasvarclass,
+	  krasvartype
+	FROM
+	  kras_join k
+	JOIN 
+	  APC_join t
+	ON
+	  k.label = t.label
+	  AND k.barcode = t.barcode
+
+
+Then we create our model:
+
+.. code-block:: sql
+
+	#standardSQL
+	CREATE MODEL `tcga_model_1.APC_kras`
+	OPTIONS(
+	model_type='logistic_reg', l1_reg=1, l2_reg=1
+	) AS
+	SELECT
+	  label,
+	  APC,
+	  APCvarclass,
+	  APCvartype,
+	  kras,
+	  krasvarclass,
+	  krasvartype
+	FROM
+	  `isb-cgc-02-0001.tcga_model_1.apc_kras`
+
+
+and we can evaluate it:
+
+
+.. code-block:: sql
+
+	  #standardSQL
+	SELECT
+	  *
+	FROM
+	  ML.EVALUATE(MODEL `tcga_model_1.APC_kras`, (
+	SELECT
+	  label,
+	  APC,
+	  APCvarclass,
+	  APCvartype,
+	  kras,
+	  krasvarclass,
+	  krasvartype
+	FROM
+	  `isb-cgc-02-0001.tcga_model_1.apc_kras`
+	WHERE
+	  RAND() < 0.5
+	  )
+	 )
+
+
+.. figure:: query_figs/july/apc_kras_model_stats.png
+  :scale: 75
+  :align: center
+
+
+.. figure:: query_figs/july/apc_kras_model_roc.png
+  :scale: 75
+  :align: center
+
+
+And we get model weights, this is where the intersting stuff is.
+
+
+.. code-block:: sql
+
+	SELECT
+	  category_weights
+	FROM
+	  ML.WEIGHTS(MODEL `tcga_model_1.APC_kras`)
+
+.. figure:: query_figs/july/apc_kras_model_weights1.png
+  :scale: 75
+  :align: center
+
+.. figure:: query_figs/july/apc_kras_model_weights2.png
+  :scale: 75
+  :align: center
+
+
+Pretty cool!  We see some variables that have very little information and have 
+weights of zero (or close to zero) like 'APC Silent' or 'KRAS Nonsense_Mutation'.
+
+
+That seems pretty useful! Of course, BigQuery ML is in beta, and our experiance with Google products:
+expect things to change! Have you found any good tricks?  If you have, let us know on email or twitter (@isb-cgc)!
 
 
 
