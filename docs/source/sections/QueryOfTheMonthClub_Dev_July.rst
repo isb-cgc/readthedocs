@@ -85,7 +85,10 @@ Resources_:  Helpful information!
 Exciting news! Google has just released a beta feature in BigQuery: Machine Learning (ML)! There are two availble model types, linear and logistic.
 The first, linear regression, models a continuous variable given a selection of variables, both catagorical (US postal code) and numeric (height and weight).
 The second, logistic regression, models a binary label given some variables. This is used for classificaion between two groups, which in past 
-Query-of-the-Months we've used extensively. An example of groups we created had features like 'has a mutation in GATA3 or not'.
+Query-of-the-Months we've used extensively. An example of groups we created had features like 'has a mutation in GATA3 or not'. However, the log model is regularized!
+We have both `L1 and L2 regularization available <https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/l1-regularization>`_.
+Since we have both L1 and L2 regularization, it seems to be an implementation of elasticnet. The google models 
+
 
 In these examples, I'm going to be working in the BigQuery web interface, but it's also possible to build and examine these models using 
 the command line tool (bq), the REST API, and from a scripting language (R or python).
@@ -103,11 +106,17 @@ It's not entirely clear at this point, but when I learn more, I'll report it.
   :align: center
 
 
+Something kind of amazing: (from the `Google Docs <https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create>`_ ) 
+If you're using a catagorical variable, the variable is split into a number of columns, one for each catagory-element. This is called `one hot encoding <https://www.kaggle.com/dansbecker/using-categorical-data-with-one-hot-encoding>`_. For example, we might have two columns from our 
+mutation status catagory: has-GATA3-mutation, no-GATA3-mutation. That's only 2 catagories. But, if you have many, many, many more catagories, those get split into columns too.
+And from the docs: "When you use a CREATE MODEL statement, the size of the model must be 90 MB or less or the query fails. Generally, if all categorical variables are short strings, a total feature cardinality (model dimension) of 5-10 million is supported. The dimensionality is dependent on the cardinality and length of the string variables."  WOW!
+
 
 Let's just jump in! The first task will be to classify a couple cancer types (by tissue) using gene expression.
 
 First I'm going to create a new data set to hold the training data and models. To do that, I clicked the blue down arrow next to my project ID in the
 web UI. I called it 'tcga_model_1'.
+
 
 .. figure:: query_figs/july/make_dataset.png
   :scale: 50
@@ -115,7 +124,7 @@ web UI. I called it 'tcga_model_1'.
 
 
 I've selected 'TCGA-COAD' (colon cancer) and 'TCGA-PAAD' (pancreatic cancer) as my two types. 
-They're pretty different, so it shouldn't be a difficult classification challenge.
+They're really pretty different, so it shouldn't be a difficult classification challenge.
 
 The dataset is going to be created with a query, and saved as a table in the above dataset.
 
@@ -180,7 +189,7 @@ The dataset is going to be created with a query, and saved as a table in the abo
 	JOIN C4 ON C1.label = C4.label AND C1.sample_barcode = C4.sample_barcode
 
 
-
+I ran the above query, and when done, clicked the 'Save to Table' button, placing it in the 'tcga_model_1' dataset. Now we're ready to train a model.
 
 .. code-block:: sql
 
