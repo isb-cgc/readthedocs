@@ -87,20 +87,19 @@ July, 2018
 
 Exciting news! Google has just released a beta feature in BigQuery: Machine Learning (ML)! There are two availble model types, linear and logistic.
 The first, linear regression, models a continuous variable given a selection of variables, both catagorical (US postal code) and numeric (height and weight).
-The second, logistic regression, models a binary label given some variables. This is used for classificaion between two groups, which in past 
-Query-of-the-Months we've used extensively. An example of groups we created had features like 'has a mutation in GATA3 or not'. However, the log model is regularized!
+The second, logistic regression, models a binary label given some variables. This is used for classification between two groups, which in past 
+Query-of-the-Months we've used extensively. An example of groups we created had features like 'has a mutation in GATA3 or not'. Even better, the logistic regression is regularized!
 We have both `L1 and L2 regularization available <https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/l1-regularization>`_.
-Since we have both L1 and L2 regularization, it seems to be an implementation of elasticnet. The google models 
+Since we have both L1 and L2 regularization, it seems to be an similar to an implementation of elasticnet.
 
-
-In these examples, I'm going to be working in the BigQuery web interface, but it's also possible to build and examine these models using 
+In the following examples, I'm going to be working in the BigQuery web interface, but it's also possible to train and apply these models using 
 the command line tool (bq), the REST API, and from a scripting language (R or python).
 
 The introductory documentation is found `here <https://cloud.google.com/bigquery/docs/bigqueryml-intro>`_.
 
 Something people are always concerned about: how much does it cost?!  Well, from reading the docs, at this time (July 2018) pricing is still
-under development. But essentially it's just like any other query. You're charged according to how much data is processed to train the model 
-and additionally, storage fees for the model (first 10GB free). However, the actual data read for training the model is more than just the size of the table.
+under development. But essentially it's similar to any other query. You're charged according to how much data is processed in training the model 
+and storage fees for the model (first 10GB free). However, the actual data read for training the model is more than just the size of the table.
 It's not entirely clear at this point, but when I learn more, I'll report it.
 
 
@@ -111,11 +110,12 @@ It's not entirely clear at this point, but when I learn more, I'll report it.
 
 Something kind of amazing: (from the `Google Docs <https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create>`_ ) 
 If you're using a catagorical variable, the variable is split into a number of columns, one for each catagory-element. This is called `one hot encoding <https://www.kaggle.com/dansbecker/using-categorical-data-with-one-hot-encoding>`_. For example, we might have two columns from our 
-mutation status catagory: has-GATA3-mutation, no-GATA3-mutation. That's only 2 catagories. But, if you have many, many, many more catagories, those get split into columns too.
-And from the docs: "When you use a CREATE MODEL statement, the size of the model must be 90 MB or less or the query fails. Generally, if all categorical variables are short strings, a total feature cardinality (model dimension) of 5-10 million is supported. The dimensionality is dependent on the cardinality and length of the string variables."  WOW!
+mutation status catagory: has-GATA3-mutation, no-GATA3-mutation. That's only 2 catagories, so 2 columns of binary variables. 
+But, if you have many, many, many more catagories, those get split into columns too.
+From the docs: "When you use a CREATE MODEL statement, the size of the model must be 90 MB or less or the query fails. Generally, if all categorical variables are short strings, a total feature cardinality (model dimension) of 5-10 million is supported. The dimensionality is dependent on the cardinality and length of the string variables."  WOW! That's a lot of columns.
 
 
-Let's just jump in! The first task will be to classify a couple cancer types (by tissue) using gene expression.
+Let's jump in! The first task will be to classify a couple cancer types (by tissue) using gene expression.
 
 First I'm going to create a new data set to hold the training data and models. To do that, I clicked the blue down arrow next to my project ID in the
 web UI. I called it 'tcga_model_1'.
@@ -126,7 +126,7 @@ web UI. I called it 'tcga_model_1'.
   :align: center
 
 
-I've selected 'TCGA-COAD' (colon cancer) and 'TCGA-PAAD' (pancreatic cancer) as my two types. 
+I've selected 'TCGA-COAD' (colon cancer) and 'TCGA-PAAD' (pancreatic cancer) as my two cancer types. 
 They're really pretty different, so it shouldn't be a difficult classification challenge.
 
 The dataset is going to be created with a query, and saved as a table in the above dataset.
@@ -138,7 +138,7 @@ The dataset is going to be created with a query, and saved as a table in the abo
 
 	With
 
-	c1 AS (
+	C1 AS (
 	select
 	  project_short_name as label, 
 	  sample_barcode,
@@ -150,7 +150,7 @@ The dataset is going to be created with a query, and saved as a table in the abo
 		and gene_name = 'CCNE1'
 	),
 
-	c2 AS (
+	C2 AS (
 	select
 	  project_short_name as label, 
 	  sample_barcode,
@@ -162,7 +162,7 @@ The dataset is going to be created with a query, and saved as a table in the abo
 		and gene_name = 'CDC6'
 	),
 
-	c3 AS (
+	C3 AS (
 	select
 	  project_short_name as label, 
 	  sample_barcode,
@@ -174,7 +174,7 @@ The dataset is going to be created with a query, and saved as a table in the abo
 		and gene_name = 'MDM2'
 	),
 
-	c4 AS (
+	C4 AS (
 	select
 	  project_short_name as label, 
 	  sample_barcode,
@@ -232,11 +232,11 @@ a model appears in the dataset, and clicking on it brings up some new informatio
   :align: center
 
 
-We can also get a sense of how well the training went by clicking on the 'training stats' tab.
-When the model fit's not getting any better, the training will end (can turn this feature off).
-I found in models that were not doing well, they tended to end after just about four rounds, with 
-high training data loss (~0.45). Also, you should see the learning rate really ramp up, other wise
-the model's 'not finding any traction'.
+We can also get a sense of the model training by clicking on the 'training stats' tab.
+When the model's fit is not improving, the training will end early (you can turn this feature off).
+I found that models that were not doing well, tended to end after just about four rounds, with 
+high training data loss (~0.45). Also, when models are doing well, you should see the learning rate 
+really ramp up, otherwise the model's 'not finding any traction'.
 
 
 .. figure:: query_figs/july/4gene_model_stats.png
@@ -294,7 +294,7 @@ Here's the result when I evaluated the model (NOTE you can evaluate on a subset 
 	FROM
 	  `isb-cgc-02-0001.tcga_model_1.paad_coad_expr_2`
 	WHERE
-		RAND() < 0.5
+	  RAND() < 0.5
 	  )
 	 )
 
@@ -322,22 +322,23 @@ One last thing, we can get the weights (or model coefficients) by again querying
   :align: center
 
 
-So we see that CDC6 was very useful, but MDM2 wasn't. It's a great way of seeing how useful each variable is, and for which class (by +/-).
+So we see that CDC6 was very useful, but MDM2 wasn't. It's a great way of testing the use of each variable for the particular problem at hand.
 
 
 
-Neat! Let's do one more example, this time using somatic mutations. For this training data, I'm going to do a little `feature engineering <https://en.wikipedia.org/wiki/Feature_engineering>`_
-( `another ref <https://developers.google.com/machine-learning/crash-course/representation/feature-engineering>`_ ).  Our engineering is going to simply 
-combine a couple columns, the gene name where the mutation occurs, and the type of mutation or class of mutation. Types of mutation can be SNPs (single nucleotide polymorphisms) or deletions, for example, 
-and mutation classes can be where in the gene the mutation occurs (exon, intron, 3', etc).
+Neat! Let's do one more example, this time using the somatic mutations data. For this training data, I'm going to do a little `feature engineering <https://en.wikipedia.org/wiki/Feature_engineering>`_ ( `another ref <https://developers.google.com/machine-learning/crash-course/representation/feature-engineering>`_ ).  Our engineering is simply 
+combining a couple of columns, the gene name where the mutation occurs and the type of mutation or class of mutation. Types of mutation can be SNPs (single nucleotide polymorphisms) or deletions, for example, and mutation classes can be where in the gene the mutation occurs (exon, intron, 3', etc).
 
 A tricky part of working with the mutation data, is that only a subset of samples have a mutation, so we need to start with a table of all the samples in our two groups,
-and then join in mutation data with a LEFT JOIN, which retains all the barcodes (which may or may not have mutations) and brings in mutations when present, then we join
-subtables for each gene of interest.
+and *then* join in mutation data with a LEFT JOIN, which retains all the barcodes (which may or may not have mutations) and brings in mutations when present. At the end, after selecting for a number of different genes, we join subtables for each gene of interest.
 
 .. code-block:: sql
-
+	
 	WITH
+
+
+	-- first we make a table with all barcodes for the two cancer types.
+
 	barcodes AS (
 	SELECT
 	  project_short_name AS label,
@@ -348,13 +349,15 @@ subtables for each gene of interest.
 	FROM
 	  `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
 	WHERE
-	  project_short_name IN ('TCGA-COAD',
-	    'TCGA-PAAD')
+	  project_short_name IN ('TCGA-COAD', 'TCGA-PAAD')
 	GROUP BY
 	  project_short_name,
 	  sample_barcode_tumor
 	),
 
+	--
+	-- Then we make a table of mutations, concatenating strings into new features.
+	-- First just for one gene, then more tables can follow by replacing the gene symbol.
 
 	mutations AS (
 	select
@@ -367,7 +370,7 @@ subtables for each gene of interest.
 	  `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
 	WHERE
 	  project_short_name IN ('TCGA-COAD','TCGA-PAAD')
-		and Hugo_Symbol = 'APC'  
+		and Hugo_Symbol = 'APC' 
 	GROUP BY
 	  project_short_name, 
 	  sample_barcode_tumor,
@@ -376,22 +379,23 @@ subtables for each gene of interest.
 	  Variant_Type
 	)
 
+	--
+	-- Left Join all the barcodes, with barcodes that have mutation data.
 
 	select
 	  b.label,
 	  b.sample_barcode_tumor,
-	  m.Hugo_Symbol,
-	  m.Variant_Classification,
-	  m.Variant_Type
+	  m.Hugo_Symbol as apc,
+	  m.Variant_Classification as apcvarclass,
+	  m.Variant_Type as apcvartype
 	FROM
 	  barcodes b
 	LEFT JOIN
 	  mutations m
 	ON
-	  b.sample_barcode_tumor = m.sample_barcode_tumor AND
-	  b.label = m.label
-	WHERE
-	  b.sample_barcode_tumor = 'TCGA-AD-6965-01A'
+	  b.sample_barcode_tumor = m.sample_barcode_tumor AND b.label = m.label
+	-- WHERE
+	--   b.sample_barcode_tumor = 'TCGA-AD-6965-01A'  -- this is here to test the query, see below
 	GROUP BY
 	  label, 
 	  sample_barcode_tumor,
@@ -424,19 +428,19 @@ So repeating that another time for KRAS, we have two subtables that get joined.
 	SELECT
 	  k.label,
 	  k.barcode,
-	  APC,
-	  APCvarclass,
-	  APCvartype,
+	  apc,
+	  apcvarclass,
+	  apcvartype,
 	  kras,
 	  krasvarclass,
 	  krasvartype
 	FROM
 	  kras_join k
 	JOIN 
-	  APC_join t
+	  apc_join a
 	ON
-	  k.label = t.label
-	  AND k.barcode = t.barcode
+	  k.label = a.label
+	  AND k.barcode = a.barcode
 
 
 Then we create our model:
@@ -444,15 +448,15 @@ Then we create our model:
 .. code-block:: sql
 
 	#standardSQL
-	CREATE MODEL `tcga_model_1.APC_kras`
+	CREATE MODEL `tcga_model_1.apc_kras`
 	OPTIONS(
 	model_type='logistic_reg', l1_reg=1, l2_reg=1
 	) AS
 	SELECT
 	  label,
-	  APC,
-	  APCvarclass,
-	  APCvartype,
+	  apc,
+	  apcvarclass,
+	  apcvartype,
 	  kras,
 	  krasvarclass,
 	  krasvartype
@@ -472,9 +476,9 @@ and we can evaluate it:
 	  ML.EVALUATE(MODEL `tcga_model_1.APC_kras`, (
 	SELECT
 	  label,
-	  APC,
-	  APCvarclass,
-	  APCvartype,
+	  apc,
+	  apcvarclass,
+	  apcvartype,
 	  kras,
 	  krasvarclass,
 	  krasvartype
@@ -515,11 +519,13 @@ And we get model weights, this is where the intersting stuff is.
   :align: center
 
 
-Pretty cool!  We see some variables that have very little information and have 
-weights of zero (or close to zero) like 'APC Silent' or 'KRAS Nonsense_Mutation'.
+OK, pretty cool!  We see some of the variables have very little information and have 
+weights of zero (or close to zero) like 'APC Silent' or 'KRAS Nonsense_Mutation', and
+others seem very important. You could test it by removing the feature, and observing if the 
+model statistics change.
 
 
-That seems pretty useful! Of course, BigQuery ML is in beta, and our experiance with Google products:
+Overall, that seems pretty useful! Of course, BigQuery ML is in beta, and our experiance with Google products:
 expect things to change! Have you found any good tricks?  If you have, let us know on email or twitter (@isb-cgc)!
 
 
