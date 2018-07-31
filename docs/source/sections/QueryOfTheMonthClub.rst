@@ -24,6 +24,8 @@ Table of Contents
 2018
 ++++
 
+- July_: First look: BigQuery ML.
+
 - June_: Processing bam files using WDL 'scatter and gather'.
 
 - May_: Processing bam files using CWL 'scatter and gather'.
@@ -76,10 +78,463 @@ Resources_:  Helpful information!
 -----------------------
 
 
+.. _July:
+
+July, 2018
+##########
+
+**First look: BigQuery ML.**
+
+Exciting news! Google has just released a beta feature in BigQuery: Machine Learning (ML)! There are two availble model types, linear and logistic.
+The first, linear regression, models a continuous variable given a selection of variables, both catagorical (US postal code) and numeric (height and weight).
+The second, logistic regression, models a binary label given some variables. This is used for classification between two groups, which in past 
+Query-of-the-Months we've used extensively. An example of groups we created had features like 'has a mutation in GATA3 or not'. Even better, the logistic regression is regularized!
+We have both `L1 and L2 regularization available <https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/l1-regularization>`_.
+Since we have both L1 and L2 regularization, it seems to be an similar to an implementation of elasticnet.
+
+In the following examples, I'm going to be working in the BigQuery web interface, but it's also possible to train and apply these models using 
+the command line tool (bq), the REST API, and from a scripting language (R or python).
+
+The introductory documentation is found `here <https://cloud.google.com/bigquery/docs/bigqueryml-intro>`_.
+
+Something people are always concerned about: how much does it cost?!  Well, from reading the docs, at this time (July 2018) pricing is still
+under development. But essentially it's similar to any other query. You're charged according to how much data is processed in training the model 
+and storage fees for the model (first 10GB free). However, the actual data read for training the model is more than just the size of the table.
+It's not entirely clear at this point, but when I learn more, I'll report it.
+
+
+.. figure:: query_figs/july/bq_ml_costs.png
+  :scale: 100
+  :align: center
+
+
+Something kind of amazing: (from the `Google Docs <https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create>`_ ) 
+If you're using a catagorical variable, the variable is split into a number of columns, one for each catagory-element. This is called `one hot encoding <https://www.kaggle.com/dansbecker/using-categorical-data-with-one-hot-encoding>`_. For example, we might have two columns from our 
+mutation status catagory: has-GATA3-mutation, no-GATA3-mutation. That's only 2 catagories, so 2 columns of binary variables. 
+But, if you have many, many, many more catagories, those get split into columns too.
+From the docs: "When you use a CREATE MODEL statement, the size of the model must be 90 MB or less or the query fails. Generally, if all categorical variables are short strings, a total feature cardinality (model dimension) of 5-10 million is supported. The dimensionality is dependent on the cardinality and length of the string variables."  WOW! That's a lot of columns.
+
+
+Let's jump in! The first task will be to classify a couple cancer types (by tissue) using gene expression.
+
+First I'm going to create a new data set to hold the training data and models. To do that, I clicked the blue down arrow next to my project ID in the
+web UI. I called it 'tcga_model_1'.
+
+
+.. figure:: query_figs/july/make_dataset.png
+  :scale: 100
+  :align: center
+
+
+I've selected 'TCGA-COAD' (colon cancer) and 'TCGA-PAAD' (pancreatic cancer) as my two cancer types. 
+They're really pretty different, so it shouldn't be a difficult classification challenge.
+
+The dataset is going to be created with a query, and saved as a table in the above dataset.
+
+.. code-block:: sql
+
+	-- For each gene, we'll make a subtable named C1-C4.
+	-- You can see where we select the gene in the WHERE section.
+
+	With
+
+	C1 AS (
+	select
+	  project_short_name as label, 
+	  sample_barcode,
+	  HTSeq__FPKM_UQ CCNE1
+	from
+	  `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
+	WHERE
+	  project_short_name IN ('TCGA-COAD','TCGA-PAAD')
+		and gene_name = 'CCNE1'
+	),
+
+	C2 AS (
+	select
+	  project_short_name as label, 
+	  sample_barcode,
+	  HTSeq__FPKM_UQ CDC6
+	from
+	  `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
+	WHERE
+	  project_short_name IN ('TCGA-COAD','TCGA-PAAD')
+		and gene_name = 'CDC6'
+	),
+
+	C3 AS (
+	select
+	  project_short_name as label, 
+	  sample_barcode,
+	  HTSeq__FPKM_UQ MDM2
+	from
+	  `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
+	WHERE
+	  project_short_name IN ('TCGA-COAD','TCGA-PAAD')
+		and gene_name = 'MDM2'
+	),
+
+	C4 AS (
+	select
+	  project_short_name as label, 
+	  sample_barcode,
+	  HTSeq__FPKM_UQ TGFA
+	from
+	  `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
+	WHERE
+	  project_short_name IN ('TCGA-COAD','TCGA-PAAD')
+		and gene_name = 'TGFA'
+	)
+
+	-- Now we join the above gene-tables into our training data.
+
+	SELECT 
+	C1.label as label,
+	C1.sample_barcode as sample_barcode,
+	  CCNE1,
+	  CDC6,
+	  MDM2,
+	  TGFA
+	FROM
+	C1
+	JOIN C2 ON C1.label = C2.label AND C1.sample_barcode = C2.sample_barcode
+	JOIN C3 ON C1.label = C3.label AND C1.sample_barcode = C3.sample_barcode
+	JOIN C4 ON C1.label = C4.label AND C1.sample_barcode = C4.sample_barcode
+
+
+I ran the above query, and when done, clicked the 'Save to Table' button, placing it in the 'tcga_model_1' dataset. Now we're ready to train a model.
+
+
+.. code-block:: sql
+
+	#standardSQL
+	CREATE MODEL
+	  `tcga_model_1.coad_vs_paad_expr_l1_l2`  -- the name of our model, dataset.model_name
+	OPTIONS
+	  ( model_type='logistic_reg',            -- various options for the model 
+	    l1_reg=1, l2_reg=1 ) AS
+	SELECT
+	  label,                                  -- here you define the training data
+	  CCNE1,                                  -- it's possible to give it a random subset
+	  CDC6,                                   -- see the next query for that.
+	  MDM2,
+	  TGFA
+	FROM
+	  `isb-cgc-02-0001.tcga_model_1.paad_coad_expr_2`
+
+
+It generally takes a minute or two for the model training to finish. When it does,
+a model appears in the dataset, and clicking on it brings up some new information fields in the UI.
+
+
+.. figure:: query_figs/july/4gene_model_specs.png
+  :scale: 100
+  :align: center
+
+
+We can also get a sense of the model training by clicking on the 'training stats' tab.
+When the model's fit is not improving, the training will end early (you can turn this feature off).
+I found that models that were not doing well, tended to end after just about four rounds, with 
+high training data loss (~0.45). Also, when models are doing well, you should see the learning rate 
+really ramp up, otherwise the model's 'not finding any traction'.
+
+
+.. figure:: query_figs/july/4gene_model_stats.png
+  :scale: 100
+  :align: center
+
+
+So, how'd it do? To find out, we actually QUERY the model! This gives us some `pretty standard metrics <https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-evaluate>`_
+like 
+
+	* precision
+	* recall
+	* accuracy
+	* f1_score
+	* log_loss
+	* roc_auc 
+
+There's also a ROC curve evaluation function 
+
+:: 
+
+	The ML.ROC_CURVE Function
+	Beta
+	This is a beta release of BigQuery ML. This product might be changed in backward-incompatible ways and is not subject to any SLA or deprecation policy.
+
+	ML.ROC_CURVE function
+	Use the ML.ROC_CURVE function to evaluate logistic regression-specific metrics. ML.ROC_CURVE only evaluates logistic regression models.
+
+	The output ML.ROC_CURVE function includes multiple rows with metrics for different threshold values for the model. The metrics include:
+
+	threshold
+	recall
+	false_positive_rate
+	true_positives
+	false_positives
+	true_negatives
+	false_negatives
+
+
+Here's the result when I evaluated the model (NOTE you can evaluate on a subset of data):
+
+.. code-block:: sql
+
+	#standardSQL
+	SELECT
+	  *
+	FROM
+	  ML.EVALUATE(MODEL `tcga_model_1.coad_vs_paad_expr_l1_l2`, (
+	SELECT
+	  label,
+	  CCNE1,
+	  CDC6,
+	  MDM2,
+	  TGFA
+	FROM
+	  `isb-cgc-02-0001.tcga_model_1.paad_coad_expr_2`
+	WHERE
+	  RAND() < 0.5
+	  )
+	 )
+
+
+
+.. figure:: query_figs/july/4gene_roc.png
+  :scale: 100
+  :align: center
+
+
+One last thing, we can get the weights (or model coefficients) by again querying the model.
+
+
+.. code-block:: sql
+
+	SELECT
+	  *
+	FROM
+	  ML.WEIGHTS(MODEL `tcga_model_1.coad_vs_paad_expr_2`)
+
+
+
+.. figure:: query_figs/july/4gene_model_weights.png
+  :scale: 100
+  :align: center
+
+
+So we see that CDC6 was very useful, but MDM2 wasn't. It's a great way of testing the use of each variable for the particular problem at hand.
+
+
+
+Neat! Let's do one more example, this time using the somatic mutations data. For this training data, I'm going to do a little `feature engineering <https://en.wikipedia.org/wiki/Feature_engineering>`_ ( `another ref <https://developers.google.com/machine-learning/crash-course/representation/feature-engineering>`_ ).  Our engineering is simply 
+combining a couple of columns, the gene name where the mutation occurs and the type of mutation or class of mutation. Types of mutation can be SNPs (single nucleotide polymorphisms) or deletions, for example, and mutation classes can be where in the gene the mutation occurs (exon, intron, 3', etc).
+
+A tricky part of working with the mutation data, is that only a subset of samples have a mutation, so we need to start with a table of all the samples in our two groups,
+and *then* join in mutation data with a LEFT JOIN, which retains all the barcodes (which may or may not have mutations) and brings in mutations when present. At the end, after selecting for a number of different genes, we join subtables for each gene of interest.
+
+.. code-block:: sql
+	
+	WITH
+
+
+	-- first we make a table with all barcodes for the two cancer types.
+
+	barcodes AS (
+	SELECT
+	  project_short_name AS label,
+	  sample_barcode_tumor,
+	  'x' AS Hugo_Symbol,
+	  'x' AS Variant_Classification,
+	  'x' AS Variant_Type
+	FROM
+	  `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
+	WHERE
+	  project_short_name IN ('TCGA-COAD', 'TCGA-PAAD')
+	GROUP BY
+	  project_short_name,
+	  sample_barcode_tumor
+	),
+
+	--
+	-- Then we make a table of mutations, concatenating strings into new features.
+	-- First just for one gene, then more tables can follow by replacing the gene symbol.
+
+	mutations AS (
+	select
+	  project_short_name as label, 
+	  sample_barcode_tumor,
+	  Hugo_Symbol,
+	  CONCAT(Hugo_Symbol, ' ', Variant_Classification) as Variant_Classification,
+	  CONCAT(Hugo_Symbol, ' ', Variant_Type) AS Variant_Type
+	from
+	  `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
+	WHERE
+	  project_short_name IN ('TCGA-COAD','TCGA-PAAD')
+		and Hugo_Symbol = 'APC' 
+	GROUP BY
+	  project_short_name, 
+	  sample_barcode_tumor,
+	  Hugo_Symbol,
+	  Variant_Classification,
+	  Variant_Type
+	)
+
+	--
+	-- Left Join all the barcodes, with barcodes that have mutation data.
+
+	select
+	  b.label,
+	  b.sample_barcode_tumor,
+	  m.Hugo_Symbol as apc,
+	  m.Variant_Classification as apcvarclass,
+	  m.Variant_Type as apcvartype
+	FROM
+	  barcodes b
+	LEFT JOIN
+	  mutations m
+	ON
+	  b.sample_barcode_tumor = m.sample_barcode_tumor AND b.label = m.label
+	-- WHERE
+	--   b.sample_barcode_tumor = 'TCGA-AD-6965-01A'  -- this is here to test the query, see below
+	GROUP BY
+	  label, 
+	  sample_barcode_tumor,
+	  m.Hugo_Symbol,
+	  m.Variant_Classification,
+	  m.Variant_Type
+
+
+
+So, if a sample doesn't have a mutation in APC, it reads out 'null'.
+
+::
+
+	  Row label sample_barcode_tumor  Hugo_Symbol Variant_Classification  Variant_Type   
+	1 TCGA-COAD TCGA-AD-6965-01A      null        null                    null
+
+
+	-- But if you select a tumor with a mutation in APC you get:  
+
+	1 TCGA-COAD TCGA-AA-3955-01A  APC APC In_Frame_Del      APC DEL  
+	2 TCGA-COAD TCGA-AA-3955-01A  APC APC Nonsense_Mutation APC SNP  
+	3 TCGA-COAD TCGA-AA-3955-01A  APC APC Intron            APC SNP
+
+
+
+So repeating that another time for KRAS, we have two subtables that get joined.
+
+.. code-block:: sql
+
+	SELECT
+	  k.label,
+	  k.barcode,
+	  apc,
+	  apcvarclass,
+	  apcvartype,
+	  kras,
+	  krasvarclass,
+	  krasvartype
+	FROM
+	  kras_join k
+	JOIN 
+	  apc_join a
+	ON
+	  k.label = a.label
+	  AND k.barcode = a.barcode
+
+
+Then we create our model:
+
+.. code-block:: sql
+
+	#standardSQL
+	CREATE MODEL `tcga_model_1.apc_kras`
+	OPTIONS(
+	model_type='logistic_reg', l1_reg=1, l2_reg=1
+	) AS
+	SELECT
+	  label,
+	  apc,
+	  apcvarclass,
+	  apcvartype,
+	  kras,
+	  krasvarclass,
+	  krasvartype
+	FROM
+	  `isb-cgc-02-0001.tcga_model_1.apc_kras`
+
+
+and we can evaluate it:
+
+
+.. code-block:: sql
+
+	  #standardSQL
+	SELECT
+	  *
+	FROM
+	  ML.EVALUATE(MODEL `tcga_model_1.APC_kras`, (
+	SELECT
+	  label,
+	  apc,
+	  apcvarclass,
+	  apcvartype,
+	  kras,
+	  krasvarclass,
+	  krasvartype
+	FROM
+	  `isb-cgc-02-0001.tcga_model_1.apc_kras`
+	WHERE
+	  RAND() < 0.5
+	  )
+	 )
+
+
+.. figure:: query_figs/july/apc_kras_model_stats.png
+  :scale: 100
+  :align: center
+
+
+.. figure:: query_figs/july/apc_kras_roc.png
+  :scale: 100
+  :align: center
+
+
+And we get model weights, this is where the intersting stuff is.
+
+
+.. code-block:: sql
+
+	SELECT
+	  category_weights
+	FROM
+	  ML.WEIGHTS(MODEL `tcga_model_1.APC_kras`)
+
+.. figure:: query_figs/july/apc_kras_model_weights1.png
+  :scale: 100
+  :align: center
+
+.. figure:: query_figs/july/apc_kras_model_weights2.png
+  :scale: 100
+  :align: center
+
+
+OK, pretty cool!  We see some of the variables have very little information and have 
+weights of zero (or close to zero) like 'APC Silent' or 'KRAS Nonsense_Mutation', and
+others seem very important. You could test it by removing the feature, and observing if the 
+model statistics change.
+
+
+Overall, that seems pretty useful! Of course, BigQuery ML is in beta, and our experiance with Google products:
+expect things to change! Have you found any good tricks?  If you have, let us know on email or twitter (@isb-cgc)!
+
+
+
+
 .. _June:
 
 June, 2018
-#########
+##########
 
 **Processing bam files using WDL, scatter, and Cromwell**
 
