@@ -3,6 +3,32 @@ Feature Alerts
 ************************
 
 
+*June 25, 2018*
+
+**Feature Alert:**  Log into the @ISB_CGC web app and check out our new image viewers!  Look at #TCGA #Radiology and #Histology images from the same patient, powered by #caMicroscope and Orthanc @orthancserver . #TCIA #cancerimaging #tsid #imaging  #quantitativeimaging  #FOAMrad .  Now you can see and use the depth of the TCGA dataset, using the Google Cloud @GCPCloud!! Thank you to all our collaborators.  Try them out: `Pathology Images <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html#viewing-a-pathology-image>`_ and `Radiology Images <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/OsimisWebViewer.html>`_
+
+.. image:: Pathology_TCGA_FD_A3B6.png
+   :scale: 25
+   :align: center
+
+
+
+
+
+
+.. image:: FD-A3B6-CT-Pelvis_smaller.gif
+   :scale: 25
+   :align: center
+
+
+*May 10, 2018*
+
+**Feature Alert:**  You are now able to export to Google Cloud Storage an entire cohort file manifest by genomic build using the File Browser page Export to GCS feature! For more information please go `here. <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html#export-file-list-to-google-cloud-storage>`_
+
+.. image:: export_to_gcs_feature.png
+   :scale: 25
+   :align: center
+
 *April 6, 2018*
 
 **Feature Alert:**  You are now able to BigQuery an entire cohort file manifest by genomic build using the File Browser page Export to BQ feature! For more information please go `here. <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html#export-file-list-to-bigquery>`_
