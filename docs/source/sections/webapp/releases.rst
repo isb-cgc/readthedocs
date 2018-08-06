@@ -41,6 +41,7 @@ Web-App Release Notes
    - API endpoint cohort.creation will include NULL values in sample counts when the cohort is created. 
    - On the File Browser page for Diagnostic images, there is no GDC file UUID associated to them.
    - Sharing a workbook with someone else will cause the analysis to reset.
+   - When downloading the CSV file for Radiology Images tab on the File Browser page you will noticed there are no samples barcodes associated to Radiology Images.  ISB-CGC will add a case barocde to the CSV file export table in the next release. 
 
 
 * **June 18, 2018** `v3.12 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.12>`_
