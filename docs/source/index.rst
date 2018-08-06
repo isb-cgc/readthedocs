@@ -7,6 +7,12 @@
 The ISB Cancer Genomics Cloud
 *****************************
 
+
+.. image:: NewBucketsPathsNotification.PNG
+   :scale: 100
+   :align: center
+
+
 Welcome to the ISB-CGC Documentation on Read the Docs.
 
 Here you will find information describing the features of the ISB-CGC platform, 
