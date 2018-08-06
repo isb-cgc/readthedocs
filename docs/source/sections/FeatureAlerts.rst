@@ -2,7 +2,7 @@
 Feature Alerts
 ************************
 
-*August 6,2018*
+*August 6, 2018*
 
 **Feature Alert:**  When working with the File Browser you now have the ability to search all tabs by case barcode! For more infromation about the File Browser page please go `here. <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html#file-browser-page>`_
 
