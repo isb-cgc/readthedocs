@@ -31,6 +31,8 @@ The metadata table also includes the patient identifier in TCGA "barcode" format
 *eg* TCGA-06-5413 (which is also part of the GCS url).  Other information available in the
 table includes the body part examined, image modality, patient age, etc.
 
+**UPDATE:** The TCIA images have been moved to a new bucket: ``gs://isb-tcia-open/`` and the individual ``*.dcm`` images have been removed.
+
 Pathology Images
 ################
 
