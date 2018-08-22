@@ -18,7 +18,7 @@ The open-access TCGA data hosted by the ISB-CGC Platform includes:
 in Google Cloud Storage (GCS)
 -----------------------------
 
-The data files described above are available to all ISB-CGC users in an open-access GCS bucket (gs://isb-cgc-open).
+The data files described above are available to all ISB-CGC users in an open-access GCS bucket (gs://isb-tcga-phs000178-open).
 
 .. _in_BigQuery:
 
