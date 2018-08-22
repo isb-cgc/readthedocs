@@ -13,7 +13,8 @@ The open-access TCGA data hosted by the ISB-CGC Platform includes:
 * Gene (mRNA) expression data:  these data were originally provided as TSV files (Level-3) by the DCC;
 * microRNA expression data:  these data were originally provided as TSV files (Level-3) by the DCC;
 * Protein expression data:  these data were origially provided as TSV files (Level-3) by the DCC; and
-* TCGA Annotations data:  annotations were obtained from the `TCGA Annotations Manager <https://tcga-data.nci.nih.gov/annotations>`_
+* TCGA Annotations data:  annotations were originally obtained from the TCGA Annotations Manager, and can now also be found on the
+`GDC Data Portal <https://portal.gdc.cancer.gov/annotations>`_
 
 in Google Cloud Storage (GCS)
 -----------------------------
