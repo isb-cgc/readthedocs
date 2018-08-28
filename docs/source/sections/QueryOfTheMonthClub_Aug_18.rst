@@ -351,10 +351,13 @@ Recall (or sensitivity) is the fraction of true positives over all positives. So
 is very close to 100%, then there were very few false positives. When recall is close to 1, almost all of the positive cases were
 correctly called positive. 
 
+To put it another way, from Wikipedia: "In a classification task, a precision score of 1.0 for a class C means that every item labeled as belonging to class C does indeed belong to class C (but says nothing about the number of items from class C that were not labeled correctly) whereas a recall of 1.0 means that every item from class C was labeled as belonging to class C (but says nothing about how many other items were incorrectly also labeled as belonging to class C). 
+
+Often, there is an inverse relationship between precision and recall, where it is possible to increase one at the cost of reducing the other."
+
 When making predictions with the model, we have a probability for sample to be in one group or the other. Then, for a given threshold t, we 
 call each sample as having label '0' if P < t.  By varying the threshold from 0 to 1, you can see the tradeoff of precision and
 recall. We can use this table for visualizing the model performance. 
-
 
 
 All the bigrquery functions are called when the user hits the 'submit' button. To do that we wrap the functions all together
@@ -453,6 +456,36 @@ having to redo any of the queries.
 	    bq_ops()$FeatureResults
 	})
 	  
+
+Let's take a look at an example.
+
+First we have the UI where we can pick our cohorts, the number of genes in the gene set that we'll use, the regularization rates and a maximum 
+number of iterations.
+
+.. figure:: query_figs/aug/qotm_aug_fig1.png
+  :scale: 100
+  :align: center
+
+Then we see the name of the model (and data) which can be found in the Google BigQuery web interface. Also we see the precision-recall
+curve.
+
+.. figure:: query_figs/aug/qotm_aug_fig2.png
+  :scale: 100
+  :align: center
+
+Next we have the metrics that are found when using the threshold that maximizes the F-score.
+
+.. figure:: query_figs/aug/qotm_aug_fig3.png
+  :scale: 100
+  :align: center
+
+
+Then we have the list of features (genes) with the model weights.
+
+.. figure:: query_figs/aug/qotm_aug_fig4.png
+  :scale: 100
+  :align: center
+
 
 
 
