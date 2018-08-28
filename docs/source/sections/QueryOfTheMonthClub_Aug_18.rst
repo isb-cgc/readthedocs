@@ -103,7 +103,8 @@ both have an effect of pushing the variable weights of less useful predictors to
 weights towards zero, but L1 regularization will make variable (gene) weights exactly zero. This can give us an idea of what 
 genes are most useful in separating groups, here cancer types.
 
-A good tool for getting a feel for what parameter values to use can be found `here. <https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/playground-exercise`_
+A good tool for getting a feel for what parameter values to use can be found `here. <https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/playground-exercise>`_
+
 
 In this Shiny App, we'll first select two cohorts which will represent two groups we wish to classify.
 Then we'll select one of the Hallmark Gene sets from MSigDB which will provide the feature set as a list of genes.
@@ -136,7 +137,7 @@ imported in the server.R code.
 	    # create model name // format the Sys.time() return
 	    # to put in underscores and remove colons
 	    # and paste in the cohort names.
-      	modelname <- getModelname()
+      	modelname <- getModelname(cohort1, cohort2)
 
 		q <- paste("
 			WITH
@@ -187,14 +188,14 @@ imported in the server.R code.
 			", sep = '')  
 
 		print(q)  
-		return(list(SQL=q, Dataset="tcga_model_1", Tablename=paste("isb-cgc-02-0001.tcga_model_1.data", modelname,sep="")))
+		return(list(SQL=q, Dataset="tcga_model_1", Tablename=paste("isb-cgc-myproject123.tcga_model_1.data", modelname,sep="")))
 		}
 
 
 Calling this function returns the SQL query string, the Dataset where the table will be placed, and the full name 
 'project.dataset.tablename', all as a list.
 
-The R code creating the query string, authenticating and executing the query is found in only a few lines:
+The R code creating the query string, authenticating and executing the query only takes a few lines:
 
 .. code-block:: r
 	
@@ -209,7 +210,7 @@ The R code creating the query string, authenticating and executing the query is 
     datasql <- buildDataSQL(geneNames1, input$cohortid1, input$cohortid2, input$n_genes)
 
     # and we execute the query, explicitly naming the location where it will be saved
-    res0 <- bq_project_query('isb-cgc-02-0001', datasql[["SQL"]],  destination_table = datasql[["Tablename"]])
+    res0 <- bq_project_query('isb-cgc-myproject123', datasql[["SQL"]],  destination_table = datasql[["Tablename"]])
 
 
 At this point we've generated the dataset and saved it in a BigQuery dataset. The next step is to fit the model.
@@ -218,9 +219,8 @@ We'll construct another query string and execute it.
 
 .. code-block:: r
 
-	buildModelSQL <- function(datasetname, tablename, input) {
+	buildModelSQL <- function(datasetname, tablename, modelname, input) {
 	  
-		modelname <- paste(sample(LETTERS, 18, replace = T),collapse = '')
 	 	l1reg <- input$l1_reg
 		l2reg <- input$l2_reg
 		maxit <- input$max_iterations
@@ -241,7 +241,7 @@ We'll construct another query string and execute it.
 	  # then build the model
 	  # the datasql is returned from building the dataset query above
       modSql <- buildModelSQL(datasql[["Dataset"]], datasql[["Tablename"]], as.list(input)) 
-      res1 <- bq_project_query('isb-cgc-02-0001', modSql[["SQL"]])
+      res1 <- bq_project_query('isb-cgc-myproject123', modSql[["SQL"]])
 
 
 When the model fit is finished, we will query the *model* to get information about the goodness-of-fit, and 
@@ -310,40 +310,51 @@ and we call all the query contruction functions and collect the performance of t
 
 	# get information about the model training 
     trainSql <- queryModelTrainingSQL(modSql[['Modelname']])
-    res2 <- bq_project_query('isb-cgc-02-0001', trainSql[['SQL']])
+    res2 <- bq_project_query('isb-cgc-myproject123', trainSql[['SQL']])
     trainingTable <- bq_table_download(res2)
       
     # then query the model for feature info
     featSql <- queryModelFeaturesSQL(modSql[['Modelname']])
-    res3 <- bq_project_query('isb-cgc-02-0001', featSql[['SQL']])
+    res3 <- bq_project_query('isb-cgc-myproject123', featSql[['SQL']])
     featureTable <- bq_table_download(res3)
       
     # then query the model for feature weights
     weightSql <- queryModelWeightsSQL(modSql[['Modelname']])
-    res4 <- bq_project_query('isb-cgc-02-0001', weightSql[['SQL']])
+    res4 <- bq_project_query('isb-cgc-myproject123', weightSql[['SQL']])
     weightTable <- bq_table_download(res4)
       
     # then the ROC
     rocSql <- queryModelROCSQL(modSql[['Modelname']], datasql[["Tablename"]])
-    res5 <- bq_project_query('isb-cgc-02-0001', rocSql[['SQL']])
+    res5 <- bq_project_query('isb-cgc-myproject123', rocSql[['SQL']])
     rocTable <- bq_table_download(res5)
 
 
-So first we get information about the model training, which is really useful actually. It will show a number of training
+First, using the queryModelTrainingSQL function above, we get information about the model training, which is really useful actually. It will show a number of training
 iterations, where in each iteration, there's a learning rate. When a model is fitting well, you'll see a big jump in
 the magnitude of the learning rate. Also it needs to train for a number of iterations. In unsuccessful fittings, the 
-model will not progress beyond just a few iterations.
+model will not progress beyond just a few iterations. Here's the `Google training module <https://developers.google.com/machine-learning/crash-course/reducing-loss/an-iterative-approach>`_ on this topic.
 
 Second we can get information about the features, such as the mean and quartiles of each gene in this case. 
 
 Then, one of the most important calls will be to get the feature weights. Since this is a regularized regression, which is
-controlled using the L1 and L2 parameters, variables that are not helpful in the classification will have weights that
+controlled using the L1 and L2 parameters, variables that are less helpful in the classification will have weights that
 will shrink to zero.
 
-Last, classification metrics like recall and precision can be generated over a range of threshold values. When making 
-predictions with the model, we have a probability for each label for each sample. Then, for a given threshold t, we 
-call each sample as having label 0 if P < t.  When you vary the threshold you can see the tradeoff of precision and
-recall. We can use this table for visualizing the model performance.
+In supervised machine learning,
+each sample has a known label. Here it's the tissue type. When the model is used to predict the label on a sample, we will either 
+get it right or wrong. We can call the label of the sample either 'cohort 1 positive' or 'cohort 1 negative (i.e. cohort 2 positive).
+Then our model makes a predition on whether the sample is 'cohort 1 positive' or not, making it a boolean value (true or false).
+
+To determine if our model is doing well, we use classification metrics like recall and precision.
+Precision is the fraction of true positives over combined true and negative positives. 
+Recall (or sensitivity) is the fraction of true positives over all positives. So when precision 
+is very close to 100%, then there were very few false positives. When recall is close to 1, almost all of the positive cases were
+correctly called positive. 
+
+When making predictions with the model, we have a probability for sample to be in one group or the other. Then, for a given threshold t, we 
+call each sample as having label '0' if P < t.  By varying the threshold from 0 to 1, you can see the tradeoff of precision and
+recall. We can use this table for visualizing the model performance. 
+
 
 
 All the bigrquery functions are called when the user hits the 'submit' button. To do that we wrap the functions all together
@@ -357,41 +368,41 @@ in a eventReactive.
 	    withProgress(message = 'Working...', value = 0, {
 
 	      # setup
-	      service_token <- set_service_token("data/ISB-CGC-02-0001-62c9d9471b0b.json")
+	      service_token <- set_service_token("data/isb-cgc-myproject123-62c9d9471b0b.json")
 	    
 	      # Making the BQDataSetTable
 	      load("data/gene_set_hash.rda")
 	      geneNames1 <- getGenes(sethash, input$var1)
 	      datasql <- buildDataSQL(geneNames1, input$cohortid1, input$cohortid2, input$n_genes)
-	      res0 <- bq_project_query('isb-cgc-02-0001', datasql[["SQL"]],  destination_table = datasql[["Tablename"]])
+	      res0 <- bq_project_query('isb-cgc-myproject123', datasql[["SQL"]],  destination_table = datasql[["Tablename"]])
 	      incProgress()
 	      
 	      # then build the model
 	      modSql <- buildModelSQL(datasql[["Dataset"]], datasql[["Tablename"]], as.list(input)) 
-	      res1 <- bq_project_query('isb-cgc-02-0001', modSql[["SQL"]])
+	      res1 <- bq_project_query('isb-cgc-myproject123', modSql[["SQL"]])
 	      incProgress()
 	      
 	      # then query the model
 	      trainSql <- queryModelTrainingSQL(modSql[['Modelname']])
-	      res2 <- bq_project_query('isb-cgc-02-0001', trainSql[['SQL']])
+	      res2 <- bq_project_query('isb-cgc-myproject123', trainSql[['SQL']])
 	      trainingTable <- bq_table_download(res2)
 	      incProgress()
 	      
 	      # then query the model for feature info
 	      featSql <- queryModelFeaturesSQL(modSql[['Modelname']])
-	      res3 <- bq_project_query('isb-cgc-02-0001', featSql[['SQL']])
+	      res3 <- bq_project_query('isb-cgc-myproject123', featSql[['SQL']])
 	      featureTable <- bq_table_download(res3)
 	      incProgress()
 	      
 	      # then query the model for feature weights
 	      weightSql <- queryModelWeightsSQL(modSql[['Modelname']])
-	      res4 <- bq_project_query('isb-cgc-02-0001', weightSql[['SQL']])
+	      res4 <- bq_project_query('isb-cgc-myproject123', weightSql[['SQL']])
 	      weightTable <- bq_table_download(res4)
 	      incProgress()
 	      
 	      # then the ROC
 	      rocSql <- queryModelROCSQL(modSql[['Modelname']], datasql[["Tablename"]])
-	      res5 <- bq_project_query('isb-cgc-02-0001', rocSql[['SQL']])
+	      res5 <- bq_project_query('isb-cgc-myproject123', rocSql[['SQL']])
 	      rocTable <- bq_table_download(res5)
 	      incProgress()	      
 	    })
@@ -421,6 +432,14 @@ having to redo any of the queries.
 	    df05 <- df[which(fscores == max(fscores))[1],]
 	    barplot( c(TP=df05$true_positives, FP=df05$false_positives, TN=df05$true_negatives, FN=df05$false_negatives) )
 	})
+
+	output$table4 <- renderTable({
+    	df <- bq_ops()$ROCTable
+    	fscores <- (2 * df$precision * df$recall) / (df$precision + df$recall)
+    	df05 <- cbind(df[which(fscores == max(fscores))[1],], data.frame(Fscore=max(fscores)))
+    	df05
+  	})
+  
 	  
 	output$table3 <- renderTable({
 	    bq_ops()$WeightsTable
@@ -580,7 +599,7 @@ I ran the above query, and when done, clicked the 'Save to Table' button, placin
 	  MDM2,
 	  TGFA
 	FROM
-	  `isb-cgc-02-0001.tcga_model_1.paad_coad_expr_2`
+	  `isb-cgc-myproject123.tcga_model_1.paad_coad_expr_2`
 
 
 It generally takes a minute or two for the model training to finish. When it does,
@@ -652,7 +671,7 @@ Here's the result when I evaluated the model (NOTE you can evaluate on a subset 
 	  MDM2,
 	  TGFA
 	FROM
-	  `isb-cgc-02-0001.tcga_model_1.paad_coad_expr_2`
+	  `isb-cgc-myproject123.tcga_model_1.paad_coad_expr_2`
 	WHERE
 	  RAND() < 0.5
 	  )
@@ -821,7 +840,7 @@ Then we create our model:
 	  krasvarclass,
 	  krasvartype
 	FROM
-	  `isb-cgc-02-0001.tcga_model_1.apc_kras`
+	  `isb-cgc-myproject123.tcga_model_1.apc_kras`
 
 
 and we can evaluate it:
@@ -843,7 +862,7 @@ and we can evaluate it:
 	  krasvarclass,
 	  krasvartype
 	FROM
-	  `isb-cgc-02-0001.tcga_model_1.apc_kras`
+	  `isb-cgc-myproject123.tcga_model_1.apc_kras`
 	WHERE
 	  RAND() < 0.5
 	  )
@@ -1590,7 +1609,7 @@ Here's the command:
     --workflow-file gs://my-bucket/bamtobam/samtools_bamtobam_single_file.cwl \
     --settings-file gs://my-bucket/bamtobam/bamtobam_params.yml \
     --input-recursive gs://my-bucket/bamtobam/data \
-    --output gs://isb-cgc-02-0001-workflows/bamtobam/output \
+    --output gs://isb-cgc-myproject123-workflows/bamtobam/output \
     --machine-type n1-standard-4 \
     --zone us-central1-f \
     --keep-alive \
@@ -1688,10 +1707,10 @@ And again we run it the same way, except, note that we put our tool definition
 ::
 
   ./pipelines-api-examples/cwl_runner/cwl_runner.sh \
-    --workflow-file gs://isb-cgc-02-0001-workflows/bamtobam/samtools_bamtobam_scatter.cwl \
-    --settings-file gs://isb-cgc-02-0001-workflows/bamtobam/bamtobam_params_scatter.yml \
-    --input-recursive gs://isb-cgc-02-0001-workflows/bamtobam/data \
-    --output gs://isb-cgc-02-0001-workflows/bamtobam/output \
+    --workflow-file gs://isb-cgc-myproject123-workflows/bamtobam/samtools_bamtobam_scatter.cwl \
+    --settings-file gs://isb-cgc-myproject123-workflows/bamtobam/bamtobam_params_scatter.yml \
+    --input-recursive gs://isb-cgc-myproject123-workflows/bamtobam/data \
+    --output gs://isb-cgc-myproject123-workflows/bamtobam/output \
     --machine-type n1-standard-4 \
     --zone us-central1-f \
     --preemptible
