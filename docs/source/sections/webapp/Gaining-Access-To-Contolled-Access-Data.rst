@@ -177,6 +177,13 @@ Please fill out the form following the instructions that are provided.  You can 
    :scale: 50
    :align: center
    
+
+Please be sure to add both service accounts listed below. If you don't add both service accounts you will run into issues viewing the controlled data in ISB-CGC.
+
+.. image:: RegisterServiceAccountsList.PNG
+   :scale: 50
+   :align: center
+
 Once you have completed these steps you will be presented at the bottom of the same page a listing of the members of your GCP you registering (see screenshot below):
 
 .. image:: GCPMembers.png
