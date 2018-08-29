@@ -85,17 +85,19 @@ July, 2018
 
 **First look: BigQuery ML.**
 
-Exciting news! Google has just released a beta feature in BigQuery: Machine Learning (ML)! There are two availble model types, linear and logistic.
-The first, linear regression, models a continuous variable given a selection of variables, both catagorical (US postal code) and numeric (height and weight).
-The second, logistic regression, models a binary label given some variables. This is used for classification between two groups, which in past 
-Query-of-the-Months we've used extensively. An example of groups we created had features like 'has a mutation in GATA3 or not'. Even better, the logistic regression is regularized!
-We have both `L1 and L2 regularization available <https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/l1-regularization>`_.
-Since we have both L1 and L2 regularization, it seems to be an similar to an implementation of elasticnet.
+Exciting news! Google has just released a beta feature in BigQuery: Machine Learning (ML)! There are two availble model types, 
+linear and logistic.  The first, linear regression, models a continuous variable given a selection of variables, both categorical 
+(*eg* US postal code) and numeric (*eg* height or weight).  The second, logistic regression, models a binary label given some variables. 
+This is used for classification between two groups, which we have used extensively in this blog.
+An example of groups we created had features like 'does or does not have a mutation in GATA3'. 
+Even better, the logistic regression is regularized!
+We have both `L1 and L2 regularization available <https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/l1-regularization>`_,
+which makes it similar to an implementation of elasticnet.
 
 In the following examples, I'm going to be working in the BigQuery web interface, but it's also possible to train and apply these models using 
 the command line tool (bq), the REST API, and from a scripting language (R or python).
 
-The introductory documentation is found `here <https://cloud.google.com/bigquery/docs/bigqueryml-intro>`_.
+The introductory documentation can be found `here <https://cloud.google.com/bigquery/docs/bigqueryml-intro>`_.
 
 Something people are always concerned about: how much does it cost?!  Well, from reading the docs, at this time (July 2018) pricing is still
 under development. But essentially it's similar to any other query. You're charged according to how much data is processed in training the model 
@@ -108,17 +110,21 @@ It's not entirely clear at this point, but when I learn more, I'll report it.
   :align: center
 
 
-Something kind of amazing: (from the `Google Docs <https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create>`_ ) 
-If you're using a catagorical variable, the variable is split into a number of columns, one for each catagory-element. This is called `one hot encoding <https://www.kaggle.com/dansbecker/using-categorical-data-with-one-hot-encoding>`_. For example, we might have two columns from our 
-mutation status catagory: has-GATA3-mutation, no-GATA3-mutation. That's only 2 catagories, so 2 columns of binary variables. 
-But, if you have many, many, many more catagories, those get split into columns too.
-From the docs: "When you use a CREATE MODEL statement, the size of the model must be 90 MB or less or the query fails. Generally, if all categorical variables are short strings, a total feature cardinality (model dimension) of 5-10 million is supported. The dimensionality is dependent on the cardinality and length of the string variables."  WOW! That's a lot of columns.
+Something kind of amazing (`doc link <https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create>`_): 
+If you're using a categorical variable, the variable is split into a number of columns, one for each category-element. 
+This is called `one hot encoding <https://www.kaggle.com/dansbecker/using-categorical-data-with-one-hot-encoding>`_. 
+For example, we might have two columns from our 
+mutation status category: has-GATA3-mutation, no-GATA3-mutation. That's only 2 categories, so 2 columns of binary variables. 
+But, if you have many, many, many more categories, those get split into columns too.
+From the docs: "When you use a CREATE MODEL statement, the size of the model must be 90 MB or less or the query fails. 
+Generally, if all categorical variables are short strings, a total feature cardinality (model dimension) of 5-10 million is supported. 
+The dimensionality is dependent on the cardinality and length of the string variables."  WOW! That's a lot of columns.
 
+Let's jump in! The first task will be to classify a couple of cancer types (by tissue) using gene expression.
 
-Let's jump in! The first task will be to classify a couple cancer types (by tissue) using gene expression.
-
-First I'm going to create a new data set to hold the training data and models. To do that, I clicked the blue down arrow next to my project ID in the
-web UI. I called it 'tcga_model_1'.
+First I'm going to create a new data set to hold the training data and models. To create a new dataset, click on the 
+blue down-arrow next to your project ID in the left side-panel of the 
+`web UI <https://bigquery.cloud.google.com>`_), and select "Create new dataset".  I called it 'tcga_model_1'.
 
 
 .. figure:: query_figs/july/make_dataset.png
@@ -236,7 +242,7 @@ We can also get a sense of the model training by clicking on the 'training stats
 When the model's fit is not improving, the training will end early (you can turn this feature off).
 I found that models that were not doing well, tended to end after just about four rounds, with 
 high training data loss (~0.45). Also, when models are doing well, you should see the learning rate 
-really ramp up, otherwise the model's 'not finding any traction'.
+really ramp up, otherwise the model is 'not getting any traction'.
 
 
 .. figure:: query_figs/july/4gene_model_stats.png
@@ -325,12 +331,16 @@ One last thing, we can get the weights (or model coefficients) by again querying
 So we see that CDC6 was very useful, but MDM2 wasn't. It's a great way of testing the use of each variable for the particular problem at hand.
 
 
+Neat! Let's do one more example, this time using the somatic mutations data. For this training data, I'm going to do a little 
+`feature engineering <https://en.wikipedia.org/wiki/Feature_engineering>`_ ( `another ref <https://developers.google.com/machine-learning/crash-course/representation/feature-engineering>`_ ).  
+Our engineering is simply combining a couple of columns: the gene name where the mutation occurs and the type of mutation or class of mutation. 
+Types of mutation can be SNPs (single nucleotide polymorphisms) or deletions, for example, and mutation classes can be where in the gene the 
+mutation occurs (exon, intron, 3', etc).
 
-Neat! Let's do one more example, this time using the somatic mutations data. For this training data, I'm going to do a little `feature engineering <https://en.wikipedia.org/wiki/Feature_engineering>`_ ( `another ref <https://developers.google.com/machine-learning/crash-course/representation/feature-engineering>`_ ).  Our engineering is simply 
-combining a couple of columns, the gene name where the mutation occurs and the type of mutation or class of mutation. Types of mutation can be SNPs (single nucleotide polymorphisms) or deletions, for example, and mutation classes can be where in the gene the mutation occurs (exon, intron, 3', etc).
-
-A tricky part of working with the mutation data, is that only a subset of samples have a mutation, so we need to start with a table of all the samples in our two groups,
-and *then* join in mutation data with a LEFT JOIN, which retains all the barcodes (which may or may not have mutations) and brings in mutations when present. At the end, after selecting for a number of different genes, we join subtables for each gene of interest.
+A tricky part of working with the mutation data, is that only a subset of samples have a mutation, so we need to start with a table of all 
+the samples in our two groups, and *then* join in mutation data with a LEFT JOIN, which retains all the barcodes (which may or may not have 
+mutations) and brings in mutations when present. At the end, after selecting for a number of different genes, we join subtables for each 
+gene of interest.
 
 .. code-block:: sql
 	
