@@ -1,14 +1,14 @@
-cases().get()
+cases().get_list()
 ##############
-Returns information about a specific case, including a list of samples and aliquots derived from this case. Takes a case barcode (*eg* ACC-MESO-1) as a required parameter. User does not need to be authenticated.
+Given a list of case barcodes (*eg* ACC-MESO-1), returns information about them, including a list of samples and aliquots derived from this case. Takes a list of case barcodes (*eg* ACC-MESO-1) as a required data payload. User does not need to be authenticated.
 
 **Example**::
 
-	curl https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/ccle/cases/1034
+	curl --data '{"case_barcodes": ["ACC-MESO-1","Saos-2"]}' https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/ccle/cases
 
 **API explorer example**:
 
-Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_ccle_api/v3/isb_cgc_ccle_api.cases.get?case_barcode=1034&/>`_ to see this endpoint in Google's API explorer.
+Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_ccle_api/v3/isb_cgc_ccle_api.cases.get_list&/>`_ to see this endpoint in Google's API explorer.
 
 **Python API Client Example**::
 
@@ -23,14 +23,20 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2
 		return build(api, version, discoveryServiceUrl=discovery_url, http=httplib2.Http())
 
 	service = get_unauthorized_service()
-	data = service.cases().get(case_barcode='1034').execute()
+	data = service.cases().get(body={"case_barcodes": ["Saos-2","ACC-MESO-1"]}).execute()
 
 
 **Request**
 
 HTTP request::
 
-	GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/ccle/cases/{case_barcode}
+	POST https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/ccle/cases
+{
+  "case_barcodes": [
+    "ACC-MESO-1",
+    "Saos-2"
+  ]
+}
 
 **Parameters**
 
@@ -50,7 +56,8 @@ If successful, this method returns a response body with the following structure(
   {
     "aliquots": [string],
     "clinical_data": {},
-    "samples": [string]
+    "samples": [string],
+    "sample_barcode": string
   }
 
 .. csv-table::

@@ -1,14 +1,14 @@
-samples().get()
+samples().get_list()
 ################
-Given a sample barcode (*eg* CCLE-ACC-MESO-1), this endpoint returns all available "biospecimen" information about this sample, the associated case barcode, a list of associated aliquots, and a list of "data_details" blocks describing each of the data files associated with this sample
+Given a list of sample barcodes (of length 16, *eg* CCLE-ACC-MESO-1), this endpoint returns the associated case barcode, a list of associated aliquots, and a list of "data_details" blocks describing each of the data files associated with this sample
 
 **Example**::
 
-	curl https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/ccle/samples/CCLE-LS1034
+	curl --data '{"sample_barcodes": ["CCLE-LS1034","CCLE-ACC-MESO-1"]}' https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/ccle/samples
 
 **API explorer example**:
 
-Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_ccle_api/v3/isb_cgc_ccle_api.samples.get?sample_barcode=CCLE-LS1034&/>`_ to see this endpoint in Google's API explorer.
+Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_ccle_api/v3/isb_cgc_ccle_api.samples.get_list&/>`_ to see this endpoint in Google's API explorer.
 
 **Python API Client Example**::
 
@@ -23,19 +23,25 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2
 		return build(api, version, discoveryServiceUrl=discovery_url, http=httplib2.Http())
 
 	service = get_unauthorized_service()
-	data = service.samples().get(sample_barcode='CCLE-LS1034').execute()
+	data = service.samples().get(body={"case_barcodes": ["CCLE-LS1034","CCLE-ACC-MESO-1"]}).execute()
 
 
 **Request**
 
 HTTP request::
 
-	GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/ccle/samples/{sample_barcode}
+	POST https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_ccle_api/v3/ccle/samples
+{
+  "sample_barcodes": [
+    "CCLE-LS1034",
+    "CCLE-ACC-MESO-1"
+  ]
+}
 
 **Parameters**
 
 .. csv-table::
-	:header: "**Parameter name**", "**Value**", "**Description**"
+    :header: "**Parameter name**", "**Value**", "**Description**"
 	:widths: 50, 10, 50
 
 	analysis_workflow_type,string,"Optional. "
@@ -58,6 +64,7 @@ If successful, this method returns a response body with the following structure(
     "aliquots": [string],
     "biospecimen_data": {},
     "case_barcode": string,
+    "sample_barcode": string,
     "case_gdc_id": string,
     "data_details": [
       {

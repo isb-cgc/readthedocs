@@ -1,14 +1,14 @@
-cases().get()
+cases().get_list()
 ##############
-Returns information about a specific case, including a list of samples and aliquots derived from this case. Takes a case barcode (of length 16, *eg* TARGET-51-PALFYG) as a required parameter. User does not need to be authenticated.
+Given a list of case barcodes (of length 11, *eg* TARGET-51-PALFYG), this endpoint returns all available "biospecimen" information about them, including a list of samples and aliquots derived from them. Takes a list of case barcodes (of length 12, *eg* TARGET-51-PALFYG) as a required data payload. User does not need to be authenticated.
 
 **Example**::
 
-	curl https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_target_api/v3/target/cases/TARGET-10-DCC001
+	curl --data '{"case_barcodes": ["TARGET-10-DCC001","TARGET-52-PASGGN"]}' https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_target_api/v3/target/cases
 
 **API explorer example**:
 
-Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_target_api/v3/isb_cgc_target_api.cases.get?case_barcode=TARGET-10-DCC001&/>`_ to see this endpoint in Google's API explorer.
+Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_target_api/v3/isb_cgc_target_api.cases.get_list&/>`_ to see this endpoint in Google's API explorer.
 
 **Python API Client Example**::
 
@@ -23,14 +23,20 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2
 		return build(api, version, discoveryServiceUrl=discovery_url, http=httplib2.Http())
 
 	service = get_unauthorized_service()
-	data = service.cases().get(case_barcode='TARGET-10-DCC001').execute()
+	data = service.cases().get(body={"case_barcodes": ["TARGET-10-DCC001","TARGET-52-PASGGN"]}).execute()
 
 
 **Request**
 
 HTTP request::
 
-	GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_target_api/v3/target/cases/{case_barcode}
+	POST https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_target_api/v3/target/cases
+{
+  "case_barcodes": [
+    "TARGET-10-DCC001",
+    "TARGET-52-PASGGN"
+  ]
+}
 
 **Parameters**
 
@@ -77,7 +83,8 @@ If successful, this method returns a response body with the following structure:
       "year_of_diagnosis": integer,
       "year_of_last_follow_up": integer
     },
-    "samples": [string]
+    "samples": [string],
+    "case_barcode": string
   }
 
 .. csv-table::

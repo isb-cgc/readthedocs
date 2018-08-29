@@ -1,14 +1,14 @@
-samples().get()
+samples().get_list()
 ################
-Given a sample barcode (of length 20-22, *eg* TARGET-51-PALFYG-01A), this endpoint returns all available "biospecimen" information about this sample, the associated case barcode, a list of associated aliquots, and a list of "data_details" blocks describing each of the data files associated with this sample
+Given a list of sample barcodes (of length 16, *eg* TARGET-B9-7268-01A), this endpoint returns all available "biospecimen" information about this sample, the associated case barcode, a list of associated aliquots, and a list of "data_details" blocks describing each of the data files associated with this sample.
 
 **Example**::
 
-	curl https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_target_api/v3/target/samples/TARGET-10-DCC001-03A
+	curl --data '{"sample_barcodes": ["TARGET-10-DCC001-03A","TARGET-52-PASGGN-01A"]}' https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_target_api/v3/target/samples
 
 **API explorer example**:
 
-Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_target_api/v3/isb_cgc_target_api.samples.get?sample_barcode=TARGET-10-DCC001-03A&/>`_ to see this endpoint in Google's API explorer.
+Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_target_api/v3/isb_cgc_target_api.samples.get_list&/>`_ to see this endpoint in Google's API explorer.
 
 **Python API Client Example**::
 
@@ -23,19 +23,25 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2
 		return build(api, version, discoveryServiceUrl=discovery_url, http=httplib2.Http())
 
 	service = get_unauthorized_service()
-	data = service.samples().get(sample_barcode='TARGET-10-DCC001-03A').execute()
+	data = service.samples().get(body={"case_barcodes": ["TARGET-52-PASGGN-01A","TARGET-10-DCC001-03A"]}).execute()
 
 
 **Request**
 
 HTTP request::
 
-	GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_target_api/v3/target/samples/{sample_barcode}
+	POST https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_target_api/v3/target/samples
+{
+  "sample_barcodes": [
+    "TARGET-10-DCC001-03A",
+    "TARGET-52-PASGGN-01A"
+  ]
+}
 
 **Parameters**
 
 .. csv-table::
-	:header: "**Parameter name**", "**Value**", "**Description**"
+    :header: "**Parameter name**", "**Value**", "**Description**"
 	:widths: 50, 10, 50
 
 	analysis_workflow_type,string,"Optional. "
@@ -84,7 +90,7 @@ If successful, this method returns a response body with the following structure:
       "year_of_diagnosis": integer,
       "year_of_last_follow_up": integer
     },
-    "case": string,
+    "case_barcode": string,
     "data_details": [
       {
         "access": string,
@@ -108,11 +114,12 @@ If successful, this method returns a response body with the following structure:
         "sample_type": string
       }
     ],
-    "data_details_count": integer
+    "data_details_count": integer,
+    "sample_barcode": string
   }
 
 .. csv-table::
-	:header: "**Parameter name**", "**Value**", "**Description**"
+    :header: "**Parameter name**", "**Value**", "**Description**"
 	:widths: 50, 10, 50
 
 	aliquots[], list, "List of barcodes of aliquots taken from this participant."

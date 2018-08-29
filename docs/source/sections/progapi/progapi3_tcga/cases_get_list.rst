@@ -1,4 +1,4 @@
-cases().get()
+cases().get_list()
 ##############
 Given a list of case barcodes (of length 11, *eg* TCGA-B9-7268), this endpoint returns all available "biospecimen" information about the cases, including a list of samples and aliquots derived from them. Takes a list of case barcodes (of length 12, *eg* TCGA-B9-7268) as a required data payload. User does not need to be authenticated.
 

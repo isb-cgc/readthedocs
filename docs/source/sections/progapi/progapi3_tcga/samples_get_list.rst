@@ -1,4 +1,4 @@
-samples().get()
+samples().get_list()
 ################
 Given a list of sample barcodes (of length 16, *eg* TCGA-B9-7268-01A), this endpoint returns all available "biospecimen" information about these samples, the associated case barcode, a list of associated aliquots, and a list of "data_details" blocks describing each of the data files associated with these samples
 
