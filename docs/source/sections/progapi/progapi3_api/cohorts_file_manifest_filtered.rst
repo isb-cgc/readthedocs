@@ -65,10 +65,10 @@ HTTP request::
 **Parameters**
 
 .. csv-table::
-	:header: "**Parameter name**", "**Value**", "**Description**"
-	:widths: 50, 10, 50
+    :header: "**Parameter name**", "**Value**", "**Description**"
+    :widths: 50, 10, 50
 
-	cohort_id,string,"Required. "
+    cohort_id,string,"Required. "
 	genomic_build,string,"Optional, The build for which to obtain file entries, default=hg19 "
 	offset,string,"Optional, The number of file entries to skip before collecting for retrieval (eg. offset 5 = start at 6), default=0 "
 	fetch_count,string,"Optional, The number of file entries to retrieve, default=50000 "
@@ -110,9 +110,9 @@ If successful, this method returns a response body with the following structure:
   }
 
 .. csv-table::
-	:header: "**Parameter name**", "**Value**", "**Description**"
-	:widths: 50, 10, 50
+    :header: "**Parameter name**", "**Value**", "**Description**"
+    :widths: 50, 10, 50
 
-	file_list[{...}], list, "List of file detail entries of files associated with the cohort."
-	total_file_count, integer, "Total number of file entries found for this cohort."
+    file_list[{...}], list, "List of file detail entries of files associated with the cohort."
+    total_file_count, integer, "Total number of file entries found for this cohort."
     files_retrieved, integer, "Total number of file entries retrieved in this response."
