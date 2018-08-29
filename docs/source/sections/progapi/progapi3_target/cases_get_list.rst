@@ -41,7 +41,7 @@ HTTP request::
 **Parameters**
 
 .. csv-table::
-	:header: "**Parameter name**", "**Value**", "**Description**"
+    :header: "**Parameter name**", "**Value**", "**Description**"
 	:widths: 50, 10, 50
 
 	case_barcode,string,"Required. "
