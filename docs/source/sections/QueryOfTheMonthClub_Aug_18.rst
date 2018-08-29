@@ -24,7 +24,7 @@ Table of Contents
 2018
 ++++
 
-- July_: Using BigQuery ML in a shiny app.
+- August_: Using BigQuery ML in a shiny app.
 
 - July_: First look: BigQuery ML.
 
@@ -463,30 +463,40 @@ First we have the UI where we can pick our cohorts, the number of genes in the g
 number of iterations.
 
 .. figure:: query_figs/aug/qotm_aug_fig1.png
-  :scale: 100
+  :scale: 50
   :align: center
 
 Then we see the name of the model (and data) which can be found in the Google BigQuery web interface. Also we see the precision-recall
 curve.
 
 .. figure:: query_figs/aug/qotm_aug_fig2.png
-  :scale: 100
+  :scale: 50
   :align: center
 
 Next we have the metrics that are found when using the threshold that maximizes the F-score.
 
 .. figure:: query_figs/aug/qotm_aug_fig3.png
-  :scale: 100
+  :scale: 50
   :align: center
 
 
 Then we have the list of features (genes) with the model weights.
 
 .. figure:: query_figs/aug/qotm_aug_fig4.png
-  :scale: 100
+  :scale: 50
   :align: center
 
 
+Finally, we have the record of iterative model fitting. 
+
+.. figure:: query_figs/aug/qotm_aug_fig5.png
+  :scale: 50
+  :align: center
+
+
+That's it for this month. I hope you found this informative, and can see how to integrate model building and 
+exploration within an interactive web environment. This sort of tool would allow anyone with some familiarity 
+of gene sets and TCGA to build and reason about models.
 
 
 
