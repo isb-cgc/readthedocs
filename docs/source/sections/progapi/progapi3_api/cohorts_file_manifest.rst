@@ -1,6 +1,6 @@
 cohorts().file_manifest()
 #####################################
-Takes a cohort id as a required parameter and returns cloud storage paths to files associated with all the samples in that cohort, up to a default limit of 10,000 files. Authentication is required. User must have READER or OWNER permissions on the cohort.
+Takes a cohort id as a required parameter and returns a manifest of all files associated with all the samples in that cohort, as well as their metadata, up to a default limit of 50,000 files. Authentication is required. User must have READER or OWNER permissions on the cohort.
 
 **Example**::
 
@@ -47,25 +47,25 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https://api-d
 		return authorized_service
 
 	service = get_authorized_service()
-	data = service.cohorts().file_manifest(cohort_id=1).execute()
+    data = service.cohorts().file_manifest(cohort_id=1).execute()
 
 
 **Request**
 
 HTTP request::
 
-	GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v3/cohorts/{cohort_id}/file_manifest
+    GET https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v3/cohorts/{cohort_id}/file_manifest
 
 **Parameters**
 
 .. csv-table::
-	:header: "**Parameter name**", "**Value**", "**Description**"
-	:widths: 50, 10, 50
+    :header: "**Parameter name**", "**Value**", "**Description**"
+    :widths: 50, 10, 50
 
     cohort_id,string,"Required. "
-	genomic_build,string,"(Optional) The build for which to obtain file entries, default=hg19 "
-	offset,string,"(Optional) The number of file entries to skip before collecting for retrieval (eg. offset 5 = start at 6), default=0 "
-	fetch_count,string,"(Optional) The number of file entries to retrieve, default=50000 "
+    genomic_build,string,"Optional, The build for which to obtain file entries, default=hg19 "
+    offset,string,"Optional, The number of file entries to skip before collecting for retrieval (eg. offset 5 = start at 6), default=0 "
+    fetch_count,string,"Optional, The number of file entries to retrieve, default=50000 "
 
 
 **Response**
@@ -97,9 +97,9 @@ If successful, this method returns a response body with the following structure:
   }
 
 .. csv-table::
-	:header: "**Parameter name**", "**Value**", "**Description**"
-	:widths: 50, 10, 50
+    :header: "**Parameter name**", "**Value**", "**Description**"
+    :widths: 50, 10, 50
 
-	file_list[{...}], list, "List of file detail entries of files associated with the cohort."
-	total_file_count, integer, "Total number of file entries found for this cohort."
+    file_list[{...}], list, "List of file detail entries of files associated with the cohort."
+    total_file_count, integer, "Total number of file entries found for this cohort."
     files_retrieved, integer, "Total number of file entries retrieved in this response."
