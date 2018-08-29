@@ -282,7 +282,7 @@ There's also a ROC curve evaluation function
 	false_negatives
 
 
-Here's the result when I evaluated the model (NOTE you can evaluate on a subset of data):
+Here's the result when I evaluated the model (NB: you can evaluate on a subset of data):
 
 .. code-block:: sql
 
@@ -328,7 +328,8 @@ One last thing, we can get the weights (or model coefficients) by again querying
   :align: center
 
 
-So we see that CDC6 was very useful, but MDM2 wasn't. It's a great way of testing the use of each variable for the particular problem at hand.
+From the magnitude of the weights, we can see that CDC6 was very useful, but MDM2 wasn't. 
+It's a great way of testing the use of each variable for the particular problem at hand.
 
 
 Neat! Let's do one more example, this time using the somatic mutations data. For this training data, I'm going to do a little 
@@ -510,7 +511,7 @@ and we can evaluate it:
   :align: center
 
 
-And we get model weights, this is where the intersting stuff is.
+Let's take a look at the model weights -- this is where the interesting stuff is:
 
 
 .. code-block:: sql
