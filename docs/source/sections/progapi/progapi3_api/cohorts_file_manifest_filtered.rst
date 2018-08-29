@@ -56,10 +56,10 @@ HTTP request::
 
 	POST https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_api/v3/cohorts/{cohort_id}/file_manifest
 {
-  "disease_code": [
-   "LUSC",
-   "CESC"
-  ]
+ "disease_code": [
+  "LUSC",
+  "BRCA"
+ ]
 }
 
 **Parameters**
