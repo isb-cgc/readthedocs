@@ -87,38 +87,71 @@ August, 2018
 
 **Using BigQuery ML in a Shiny app.**
 
-Last month we took a look at the new Google BigQuery ML. 
+Last month tried the new Google BigQuery ML. 
 
-This month we'll continue our look and learn some new things. One interesting event is that the R package used for 
-interacting with BigQuery, bigrquery, has undergone a major revision, hitting version 1.0, and many of the functions have changed
-significantly. Now, the returned object from making a BigQuery call (with function 'bq_project_query') is a 'bq_table', and
-an additional function is used to download the results.
+This month we'll continue to build examples and learn some new things. One item of news is that the R package used for 
+interacting with BigQuery, bigrquery, has undergone a major revision (hitting version 1.0), and many of the function calls have changed
+significantly. Now, the returned object from making a BigQuery call (with function 'bq_project_query') is not a data.frame, but a 'bq_table' 
+object. A second function call is used to download the results.
 
-Fitting models in BigQuery is different than what we've done before. In the past, working in BigQuery, we've computed 
-different statistics, and we've even used those statistics for classification, but that work was done in the SQL. Meaning that
+Working with BigQuery ML is quite a bit different than what we've done before. In the past, when working with BigQuery, we've computed 
+different statistics, and we've even used those statistics for classification, but that work was all done in the SQL. Meaning that
 a Z score is formulated in the SQL. Here, most of the work is found in preparing the data table prior to fitting the model.
 
-When fitting models, we have two very signficant parameters to think about are the L1 and L2 regularization rates. These
-both have an effect of pushing the variable weights of less useful predictors towards zero. L2 (or euclidean) will push
-weights towards zero, but L1 regularization will make variable (gene) weights exactly zero. This can give us an idea of what 
-genes are most useful in separating groups, here cancer types.
+When fitting models, we have two important parameters to think about:  the L1 and L2 regularization rates. These
+both have an effect of pushing the variable weights of less useful predictors towards zero. L2 (or euclidean norm) will push
+weights towards zero, but L1 regularization will make variable (gene) weights exactly zero. Using these regularizers 
+can give us an idea of what genes are most useful in separating groups, in this case, cancer types.
 
 A good tool for getting a feel for what parameter values to use can be found `here. <https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/playground-exercise>`_
 
 
-In this Shiny App, we'll first select two cohorts which will represent two groups we wish to classify.
-Then we'll select one of the Hallmark Gene sets from MSigDB which will provide the feature set as a list of genes.
+In this Shiny App, we'll select two cohorts which will represent the two groups we wish to classify.
+Then we'll select one of the cancer hallmark gene sets from MSigDB which will provide the feature set as a list of genes.
 The BigQuery ML models take a number of parameters, so we'll make those available to the user as well.
 
 By necessity, tables in BigQuery are (for the most part) tidy tables. However, when you want to fit a model with 10 variables,
-you will need a table with 10 columns. To do that we'll need a new BigQuery skill!  Cross Tabs! In this query, we are 
-taking a long table and making it wide. There's two keys to doing here. One, is that the query string needs to be 
-programatically constructed given a list of genes and a cohort. Secondly, we'll use aggregation to create each row of the table, 
+you will need a table with 10 columns. To do that we'll need a new BigQuery skill! Converting long-to-wide tables. 
+There's two keys to doing it in BigQuery. One, is that the query string needs to be 
+programatically constructed given a list of genes and a cohort (or two). Secondly, we'll use aggregation to create each row of the table, 
 where a row of the table represents a sample. 
 
+Here's a small example of doing that.
 
-Here's the first couple functions to build up the SQL as a string. I put these functions in a global.R file that gets 
-imported in the server.R code.
+.. code-block:: sql
+
+	SELECT
+	  sample_barcode AS sb,
+	  project_short_name AS label,
+	  SUM (CASE
+	     WHEN (HGNC_gene_symbol = 'FRMD6') THEN LOG10(normalized_count +1)
+	     ELSE (RAND()/1000000) END) AS FRMD6,
+	  SUM (CASE
+	     WHEN (HGNC_gene_symbol = 'MMD') THEN LOG10(normalized_count +1)
+	     ELSE (RAND()/1000000) END) AS MMD,
+	  SUM (CASE
+	     WHEN (HGNC_gene_symbol = 'IMPDH2') THEN LOG10(normalized_count +1)
+	     ELSE (RAND()/1000000) END) AS IMPDH2,
+	  SUM (CASE
+	     WHEN (HGNC_gene_symbol = 'SNORD60') THEN LOG10(normalized_count +1)
+	     ELSE (RAND()/1000000) END) AS SNORD60
+	FROM
+	  `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
+	WHERE
+	  project_short_name = 'TCGA-STAD'
+	  AND normalized_count IS NOT NULL
+	GROUP BY
+	  project_short_name,
+	  sample_barcode
+
+
+Keen readers will notice that I've included a call to RAND() when the gene symbol is not matched. 
+The reason is that some genes in the gene lists do not map to data in TCGA. 
+This creates a column of all zeros across samples, and causes an error in the model fitting. To get around that, I've 
+added a very small amount of noise to the data. If the gene is not present in TCGA's annotation, it is represented 
+as random noise and will not contribute to the model.
+
+Now we'll get to building the shiny app. Here's the first couple functions to build up the SQL as a string. I put these functions in a global.R file that gets imported in the server.R code.
 
 .. code-block:: r
 	
