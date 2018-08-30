@@ -143,48 +143,48 @@ imported in the server.R code.
 			WITH
 			C1 AS (
 			SELECT
-				sample_barcode as sb,
-				project_short_name as label,\n",
+			   sample_barcode as sb,
+			   project_short_name as label,\n",
 
-				paste(sapply(geneNames, function(gi) geneQuery(gi)),collapse = ',\n'), "\n
+			   paste(sapply(geneNames, function(gi) geneQuery(gi)),collapse = ',\n'), "\n
 
 			FROM
-				`isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
+			   `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
 			WHERE
-				project_short_name = '",cohort1,"'
-				AND normalized_count IS NOT NULL
+			   project_short_name = '",cohort1,"'
+			   AND normalized_count IS NOT NULL
 			GROUP BY
-				project_short_name,
-				sample_barcode ),
+			   project_short_name,
+			   sample_barcode ),
 
 			C2 AS (
 			SELECT
-				sample_barcode as sb,
-				project_short_name as label,\n",
+			   sample_barcode as sb,
+			   project_short_name as label,\n",
 
-				paste(sapply(geneNames, function(gi) geneQuery(gi)),collapse = ',\n'), "\n
+			   paste(sapply(geneNames, function(gi) geneQuery(gi)),collapse = ',\n'), "\n
 
 			FROM
-				`isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
+			   `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
 			WHERE
-				project_short_name = '",cohort2,"'
-				AND normalized_count IS NOT NULL
+			   project_short_name = '",cohort2,"'
+			   AND normalized_count IS NOT NULL
 			GROUP BY
-				project_short_name,
+			   project_short_name,
 			sample_barcode )
 
 			-- now we combine the two groups
 			SELECT
-				0 AS label,",
-				paste(geneNames,collapse = ','), "\n 
+			   0 AS label,",
+			   paste(geneNames,collapse = ','), "\n 
 			FROM
-				C1
+			   C1
 			UNION ALL
 			SELECT
-				1 AS label,",
-				paste(geneNames,collapse = ','), "\n 
+			   1 AS label,",
+			   paste(geneNames,collapse = ','), "\n 
 			FROM
-				C2
+			   C2
 			", sep = '')  
 
 		print(q)  
