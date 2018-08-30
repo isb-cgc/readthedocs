@@ -151,7 +151,8 @@ This creates a column of all zeros across samples, and causes an error in the mo
 added a very small amount of noise to the data. If the gene is not present in TCGA's annotation, it is represented 
 as random noise and will not contribute to the model.
 
-Now we'll get to building the shiny app. Here's the first couple functions to build up the SQL as a string. I put these functions in a global.R file that gets imported in the server.R code.
+Now we'll get to building the shiny app. Here's the first couple functions to build up the SQL as a string. I put these SQL query-string building functions in a global.R file that gets imported in the server.R code.  Then I make the query executions from an eventReactive function that's
+called when the user hits the submit button.
 
 .. code-block:: r
 	
@@ -165,7 +166,9 @@ Now we'll get to building the shiny app. Here's the first couple functions to bu
 	buildDataSQL <- function(geneNames, cohort1, cohort2, ngenes) {
 
 		# can control the number of genes going into the model
-	    if (length(geneNames) > ngenes) {geneNames <- geneNames[1:ngenes]}
+	    if (length(geneNames) > ngenes) {
+      		geneNames <- sample(geneNames, size = ngenes, replace = F)
+    	} 
 
 	    # create model name // format the Sys.time() return
 	    # to put in underscores and remove colons
@@ -221,12 +224,12 @@ Now we'll get to building the shiny app. Here's the first couple functions to bu
 			", sep = '')  
 
 		print(q)  
-		return(list(SQL=q, Dataset="tcga_model_1", Tablename=paste("isb-cgc-myproject123.tcga_model_1.data", modelname,sep="")))
+		return(list(SQL=q, Dataset="tcga_model_1", Tablename=paste("isb-cgc-myproject123.tcga_model_1.data", Modelname=modelname,sep="")))
 		}
 
 
-Calling this function returns the SQL query string, the Dataset where the table will be placed, and the full name 
-'project.dataset.tablename', all as a list.
+Calling this function returns the SQL query string, the Dataset where the table will be placed, the full name 
+'project.dataset.tablename', and the modelname, all as a list.
 
 The R code creating the query string, authenticating and executing the query only takes a few lines:
 
@@ -277,8 +280,8 @@ We'll construct another query string and execute it.
       res1 <- bq_project_query('isb-cgc-myproject123', modSql[["SQL"]])
 
 
-When the model fit is finished, we will query the *model* to get information about the goodness-of-fit, and 
-classification performance.
+When the model fit is finished, we will query the *model*, rather than a table, to get information about the goodness-of-fit, and 
+other classification metrics.
 
 .. code-block:: r
 	
@@ -356,26 +359,26 @@ and we call all the query contruction functions and collect the performance of t
     res4 <- bq_project_query('isb-cgc-myproject123', weightSql[['SQL']])
     weightTable <- bq_table_download(res4)
       
-    # then the ROC
+    # then the performance metrics
     rocSql <- queryModelROCSQL(modSql[['Modelname']], datasql[["Tablename"]])
     res5 <- bq_project_query('isb-cgc-myproject123', rocSql[['SQL']])
     rocTable <- bq_table_download(res5)
 
 
-First, using the queryModelTrainingSQL function above, we get information about the model training, which is really useful actually. It will show a number of training
-iterations, where in each iteration, there's a learning rate. When a model is fitting well, you'll see a big jump in
+First, using the queryModelTrainingSQL function above, we get information about the model training, which is really useful. 
+It will show a number of training iterations, where in each iteration, there's a learning rate. When a model is fitting well, you'll see a big jump in
 the magnitude of the learning rate. Also it needs to train for a number of iterations. In unsuccessful fittings, the 
 model will not progress beyond just a few iterations. Here's the `Google training module <https://developers.google.com/machine-learning/crash-course/reducing-loss/an-iterative-approach>`_ on this topic.
 
-Second we can get information about the features, such as the mean and quartiles of each gene in this case. 
+Secondly we can get information about the features themselves, such as the mean and quartiles of each gene in this case. 
 
 Then, one of the most important calls will be to get the feature weights. Since this is a regularized regression, which is
 controlled using the L1 and L2 parameters, variables that are less helpful in the classification will have weights that
-will shrink to zero.
+will shrink to zero. We show the weights in an absolute value sorted order. 
 
 In supervised machine learning,
-each sample has a known label. Here it's the tissue type. When the model is used to predict the label on a sample, we will either 
-get it right or wrong. We can call the label of the sample either 'cohort 1 positive' or 'cohort 1 negative (i.e. cohort 2 positive).
+each sample has a known label. Here it's the tissue type. When the model is used to predict a label for a sample, we will either 
+get it right or get it wrong. We can call the label of the sample either 'cohort 1 positive' or 'cohort 1 negative (i.e. cohort 2 positive).
 Then our model makes a predition on whether the sample is 'cohort 1 positive' or not, making it a boolean value (true or false).
 
 To determine if our model is doing well, we use classification metrics like recall and precision.
@@ -384,12 +387,10 @@ Recall (or sensitivity) is the fraction of true positives over all positives. So
 is very close to 100%, then there were very few false positives. When recall is close to 1, almost all of the positive cases were
 correctly called positive. 
 
-To put it another way, from Wikipedia: "In a classification task, a precision score of 1.0 for a class C means that every item labeled as belonging to class C does indeed belong to class C (but says nothing about the number of items from class C that were not labeled correctly) whereas a recall of 1.0 means that every item from class C was labeled as belonging to class C (but says nothing about how many other items were incorrectly also labeled as belonging to class C). 
-
-Often, there is an inverse relationship between precision and recall, where it is possible to increase one at the cost of reducing the other."
+To put it another way, from Wikipedia: "In a classification task, a precision score of 1.0 for a class C means that every item labeled as belonging to class C does indeed belong to class C (but says nothing about the number of items from class C that were not labeled correctly) whereas a recall of 1.0 means that every item from class C was labeled as belonging to class C (but says nothing about how many other items were incorrectly also labeled as belonging to class C). ... Often, there is an inverse relationship between precision and recall, where it is possible to increase one at the cost of reducing the other."
 
 When making predictions with the model, we have a probability for sample to be in one group or the other. Then, for a given threshold t, we 
-call each sample as having label '0' if P < t.  By varying the threshold from 0 to 1, you can see the tradeoff of precision and
+call each sample as having label 'cohort 1' if P < t.  By varying the threshold from 0 to 1, you can see the tradeoff of precision and
 recall. We can use this table for visualizing the model performance. 
 
 
@@ -453,46 +454,53 @@ having to redo any of the queries.
 
 .. code-blocks:: r
 
+	output$modelname <- renderText({
+	    bq_ops()$ModelName
+	  })
+	  
 	output$table1 <- renderTable({
-	  bq_ops()$TrainingResults
-	})
+	    bq_ops()$TrainingResults
+	  })
 	  
 	output$plot1 <- renderPlot({
-	 df <- bq_ops()$ROCTable
-	 qplot(x=df$recall, y=df$precision, main="Precision-Recall Curve", xlab='recall', ylab="precision", ylim=c(0,1), xlim=c(0,1), geom="line")
-	})
+	   df <- bq_ops()$ROCTable
+	   qplot(x=df$recall, y=df$precision, main="Precision-Recall Curve", xlab='recall', ylab="precision", ylim=c(0,1), xlim=c(0,1), geom="line")
+	  })
 	  
 	output$plot2 <- renderPlot({
 	    df <- bq_ops()$ROCTable
 	    fscores <- (2 * df$precision * df$recall) / (df$precision + df$recall)
 	    df05 <- df[which(fscores == max(fscores))[1],]
+	    print("df05")
+	    print(df05)
 	    barplot( c(TP=df05$true_positives, FP=df05$false_positives, TN=df05$true_negatives, FN=df05$false_negatives) )
-	})
-
+	  })
+	  
 	output$table4 <- renderTable({
-    	df <- bq_ops()$ROCTable
-    	fscores <- (2 * df$precision * df$recall) / (df$precision + df$recall)
-    	df05 <- cbind(df[which(fscores == max(fscores))[1],], data.frame(Fscore=max(fscores)))
-    	df05
-  	})
-  
+	    df <- bq_ops()$ROCTable
+	    fscores <- (2 * df$precision * df$recall) / (df$precision + df$recall)
+	    df05 <- cbind(df[which(fscores == max(fscores))[1],], data.frame(Fscore=max(fscores)))
+	    df05
+	  })
 	  
 	output$table3 <- renderTable({
-	    bq_ops()$WeightsTable
+	    weightsdf <- bq_ops()$WeightsTable
+	    weightsdf[order(abs(weightsdf$weight), decreasing = T),
+	              ]
 	  },
 	  caption = "Gene Weights",
 	  caption.placement = getOption("xtable.caption.placement", "top"), 
 	  caption.width = getOption("xtable.caption.width", NULL)
-	)
+	  )
 	  
 	output$table2 <- renderTable({
 	    bq_ops()$FeatureResults
-	})
-	  
+	  })
 
-Let's take a look at an example.
 
-First we have the UI where we can pick our cohorts, the number of genes in the gene set that we'll use, the regularization rates and a maximum 
+Let's take a look at an example. You can of course try the app `here  <https://gibbsdavidl.shinyapps.io/Shiny_Google_ML_demo/>`_.
+
+First we have the UI where we can pick our cohorts, the number of genes to use, the regularization rates, and a maximum 
 number of iterations.
 
 .. figure:: query_figs/aug/qotm_aug_fig1.png
@@ -529,7 +537,7 @@ Finally, we have the record of iterative model fitting.
 
 That's it for this month. I hope you found this informative, and can see how to integrate model building and 
 exploration within an interactive web environment. This sort of tool would allow anyone with some familiarity 
-of gene sets and TCGA to build and reason about models.
+of gene sets and TCGA to build and reason about models. Which is pretty cool!
 
 
 
