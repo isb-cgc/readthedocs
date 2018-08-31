@@ -598,7 +598,8 @@ blue down-arrow next to your project ID in the left side-panel of the
 I've selected 'TCGA-COAD' (colon cancer) and 'TCGA-PAAD' (pancreatic cancer) as my two cancer types. 
 They're really pretty different, so it shouldn't be a difficult classification challenge.
 
-The dataset is going to be created with a query, and saved as a table in the above dataset.
+Below, we use a Standard SQL query to create the training data, which we then save as
+a table in the dataset created above.
 
 .. code-block:: sql
 
@@ -671,14 +672,16 @@ The dataset is going to be created with a query, and saved as a table in the abo
 	JOIN C4 ON C1.label = C4.label AND C1.sample_barcode = C4.sample_barcode
 
 
-I ran the above query, and when done, clicked the 'Save to Table' button, placing it in the 'tcga_model_1' dataset. Now we're ready to train a model.
-
+I ran the above query, and when done, clicked the 'Save to Table' button, placing it in the 'tcga_model_1' dataset. 
+Now we're ready to train a model, which we'll do using the 
+`CREATE MODEL <https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create>`_ statement.
+(You will need to modify the CREATE MODEL statement below to use your project and dataset names.)
 
 .. code-block:: sql
 
 	#standardSQL
 	CREATE MODEL
-	  `tcga_model_1.coad_vs_paad_expr_l1_l2`  -- the name of our model, dataset.model_name
+	  `isb-cgc-02-00001.tcga_model_1.coad_vs_paad_expr_l1_l2`  -- the name of our model, project.dataset.model_name
 	OPTIONS
 	  ( model_type='logistic_reg',            -- various options for the model 
 	    l1_reg=1, l2_reg=1 ) AS
@@ -692,8 +695,11 @@ I ran the above query, and when done, clicked the 'Save to Table' button, placin
 	  `isb-cgc-02-0001.tcga_model_1.paad_coad_expr_2`
 
 
-It generally takes a minute or two for the model training to finish. When it does,
-a model appears in the dataset, and clicking on it brings up some new information fields in the UI.
+The model training should take a minute or two, and once complete you will now have a
+"Model" in your dataset (identified in the webUI using a green icon which is different
+from the blue one we are used to seeing next to tables).
+You can click on this model to see information about it, along with new buttons such
+as "Query Model" and "Training Stats":
 
 
 .. figure:: query_figs/july/4gene_model_specs.png
@@ -701,7 +707,14 @@ a model appears in the dataset, and clicking on it brings up some new informatio
   :align: center
 
 
-We can also get a sense of the model training by clicking on the 'training stats' tab.
+Looking at the "Training Stats" will give you a sense of how the training process went.
+Each row in the Training Stats table represents a single iteration, with the following 
+four pieces of information:
+    - training data loss: loss metric on the training data, calculated after this training iteration 
+    - evaluation data loss: loss metric computed on the held-out data 
+    - learn rate: hyper-parameter which controls how fast the model weights are adjusted (how this value is determined will depend on the learn_rate_strategy specified in the CREATE MODEL statement)
+    - completion time (sec)
+
 When the model's fit is not improving, the training will end early (you can turn this feature off).
 I found that models that were not doing well, tended to end after just about four rounds, with 
 high training data loss (~0.45). Also, when models are doing well, you should see the learning rate 
@@ -1272,7 +1285,7 @@ the results of a scatter. Additionally, we will propagate the scatter through a 
 Specifically, for a list of files, we're going to bin sequence reads by GC content, producing a single
 output file that we can use to make a plot.
 
-The tools are found in this `docker image <https://hub.docker.com/r/biocontainers/samtools/>_`
+The tools are found in this `docker image <https://hub.docker.com/r/biocontainers/samtools/>`_
 
 The plan:
 
@@ -1507,7 +1520,7 @@ And we need to define our input files (scatter_gather_pipeline.yml):
 
 
 
-To run this, we use the google_cwl_runner found `here <https://github.com/isb-cgc/examples-Compute>_`.
+To run this, we use the google_cwl_runner found `here <https://github.com/isb-cgc/examples-Compute>`_.
 
 I made a working folder in my google bucket called 'workflow-1', and two additional folders within,
 'data' and 'output'. I put the bam files and the cwl tool definitions into 'data' and I put the workflow 
