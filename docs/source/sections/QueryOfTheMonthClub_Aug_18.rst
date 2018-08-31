@@ -89,7 +89,7 @@ August, 2018
 
 Last month tried the new Google BigQuery ML. 
 
-This month we'll continue to build examples, learn some new things, and build a `shiny web app <https://gibbsdavidl.shinyapps.io/Shiny_Google_ML_demo/>`_. One item of news is that the R package used for 
+This month we'll continue to build examples, learn some new things, and build a `shiny web app <https://isb-cgc.shinyapps.io/GoogML_Shiny/>`_. One item of news is that the R package used for 
 interacting with BigQuery, bigrquery, has undergone a major revision (hitting version 1.0), and many of the function calls have changed
 significantly. Now, the returned object from making a BigQuery call (with function 'bq_project_query') is not a data.frame, but a 'bq_table' 
 object. A second function call is used to download the results.
@@ -498,7 +498,7 @@ having to redo any of the queries.
 	  })
 
 
-Let's take a look at an example. You can of course try the app `here  <https://gibbsdavidl.shinyapps.io/Shiny_Google_ML_demo/>`_.
+Let's take a look at an example. You can of course try the app `here  <https://isb-cgc.shinyapps.io/GoogML_Shiny/>`_.
 
 First we have the UI where we can pick our cohorts, the number of genes to use, the regularization rates, and a maximum 
 number of iterations.
