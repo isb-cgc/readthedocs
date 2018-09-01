@@ -954,7 +954,7 @@ and we can evaluate it:
 
 Let's take a look at the model weights.  Our model wound up having 20 weights: 
 11 for APC-related features and 9 for KRAS-related features, and it is clear that
-the APC-related features are the most informative for this particular task:
+the APC-related features are the most informative for this particular task.
 
 .. code-block:: sql
 
@@ -985,8 +985,9 @@ others seem very important. You could test it by removing the feature, and obser
 model statistics change.
 
 
-Overall, that seems pretty useful! Of course, BigQuery ML is in beta, and our experiance with Google products:
-expect things to change! Have you found any good tricks?  If you have, let us know on email or twitter (@isb-cgc)!
+Overall, that seems pretty useful! 
+Of course, BigQuery ML is in beta, and our experiance with Google products: expect things to change! 
+Have you found any good tricks?  If you have, please share them via email or on twitter (@isb-cgc)!
 
 
 
