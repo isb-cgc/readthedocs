@@ -949,25 +949,32 @@ and we can evaluate it:
 
 
 .. figure:: query_figs/july/apc_kras_roc.png
-  :scale: 80
   :align: center
 
 
-Let's take a look at the model weights -- this is where the interesting stuff is:
-
+Let's take a look at the model weights.  Our model wound up having 20 weights: 
+11 for APC-related features and 9 for KRAS-related features, and it is clear that
+the APC-related features are the most informative for this particular task:
 
 .. code-block:: sql
 
 	SELECT
-	  category_weights
+	  w.category, w.weight
 	FROM
-	  ML.WEIGHTS(MODEL `isb-cgc-02-0001.tcga_model_1.apc_kras_model`)
+	  ML.WEIGHTS(MODEL `isb-cgc-02-0001.tcga_model_1.apc_kras_model`), 
+          UNNEST(category_weights) AS w
+        GROUP BY 1, 2
+        HAVING
+          category LIKE "APC%"
+        ORDER BY
+          ABS(weight) DESC
 
-.. figure:: query_figs/july/apc_kras_model_weights1.png
+
+.. figure:: query_figs/july/apc_feat_weights.png
   :scale: 100
   :align: center
 
-.. figure:: query_figs/july/apc_kras_model_weights2.png
+.. figure:: query_figs/july/kras_feat_weights.png
   :scale: 100
   :align: center
 
