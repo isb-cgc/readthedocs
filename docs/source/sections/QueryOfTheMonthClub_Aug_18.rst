@@ -969,14 +969,13 @@ the APC-related features are the most informative for this particular task.
         ORDER BY
           ABS(weight) DESC
 
+|img_w1| |img_w2|
 
-.. figure:: query_figs/july/apc_feat_weights.png
-  :scale: 50
-  :align: center
+.. |img_w1| image:: query_figs/july/apc_feat_weights.png
+  :width: 45%
 
-.. figure:: query_figs/july/kras_feat_weights.png
-  :scale: 50
-  :align: center
+.. |img_w2| image:: query_figs/july/kras_feat_weights.png
+  :width: 45%
 
 
 OK, pretty cool!  We see some of the variables have very little information and have 
