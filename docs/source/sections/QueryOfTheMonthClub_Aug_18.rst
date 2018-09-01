@@ -583,7 +583,8 @@ From the docs: "When you use a CREATE MODEL statement, the size of the model mus
 Generally, if all categorical variables are short strings, a total feature cardinality (model dimension) of 5-10 million is supported. 
 The dimensionality is dependent on the cardinality and length of the string variables."  WOW! That's a lot of columns.
 
-Let's jump in! The first task will be to classify a couple of cancer types (by tissue) using gene expression.
+Let's jump in! The first task will be to classify a couple of cancer types (by tissue) using gene expression data
+for 4 specific genes.
 
 First I'm going to create a new data set to hold the training data and models. To create a new dataset, click on the 
 blue down-arrow next to your project ID in the left side-panel of the 
@@ -782,7 +783,9 @@ From the magnitude of the weights, we can see that CDC6 was very useful, but MDM
 It's a great way of testing the use of each variable for the particular problem at hand.
 
 
-Neat! Let's do one more example, this time using the somatic mutations data. For this training data, I'm going to do a little 
+Neat! Let's do one more example, this time using the somatic mutation data for 
+a couple of well-known genes (above we used gene expression data). 
+For this training data, I'm going to do a little 
 `feature engineering <https://en.wikipedia.org/wiki/Feature_engineering>`_ 
 (see also `this <https://developers.google.com/machine-learning/crash-course/representation/feature-engineering>`_).  
 Our "engineering" will simply consist of combining two columns to create a new "feature".
