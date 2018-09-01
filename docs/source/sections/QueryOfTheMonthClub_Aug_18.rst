@@ -179,8 +179,8 @@ called when the user hits the submit button.
 			WITH
 			C1 AS (
 			SELECT
-			   sample_barcode as sb,
-			   project_short_name as label,\n",
+			   sample_barcode AS sb,
+			   project_short_name AS label,\n",
 
 			   paste(sapply(geneNames, function(gi) geneQuery(gi)),collapse = ',\n'), "\n
 
@@ -195,8 +195,8 @@ called when the user hits the submit button.
 
 			C2 AS (
 			SELECT
-			   sample_barcode as sb,
-			   project_short_name as label,\n",
+			   sample_barcode AS sb,
+			   project_short_name AS label,\n",
 
 			   paste(sapply(geneNames, function(gi) geneQuery(gi)),collapse = ',\n'), "\n
 
@@ -609,8 +609,8 @@ a table in the dataset created above.
 	With
 
 	C1 AS (
-	select
-	  project_short_name as label, 
+        SELECT	
+	  project_short_name AS label, 
 	  sample_barcode,
 	  HTSeq__FPKM_UQ CCNE1
 	from
@@ -621,8 +621,8 @@ a table in the dataset created above.
 	),
 
 	C2 AS (
-	select
-	  project_short_name as label, 
+	SELECT
+	  project_short_name AS label, 
 	  sample_barcode,
 	  HTSeq__FPKM_UQ CDC6
 	from
@@ -633,8 +633,8 @@ a table in the dataset created above.
 	),
 
 	C3 AS (
-	select
-	  project_short_name as label, 
+	SELECT
+	  project_short_name AS label, 
 	  sample_barcode,
 	  HTSeq__FPKM_UQ MDM2
 	from
@@ -645,8 +645,8 @@ a table in the dataset created above.
 	),
 
 	C4 AS (
-	select
-	  project_short_name as label, 
+	SELECT
+	  project_short_name AS label, 
 	  sample_barcode,
 	  HTSeq__FPKM_UQ TGFA
 	from
@@ -659,8 +659,8 @@ a table in the dataset created above.
 	-- Now we join the above gene-tables into our training data.
 
 	SELECT 
-	C1.label as label,
-	C1.sample_barcode as sample_barcode,
+	C1.label AS label,
+	C1.sample_barcode AS sample_barcode,
 	  CCNE1,
 	  CDC6,
 	  MDM2,
@@ -726,39 +726,14 @@ really ramp up, otherwise the model is 'not getting any traction'.
   :align: center
 
 
-So, how'd it do? To find out, we actually QUERY the model! This gives us some `pretty standard metrics <https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-evaluate>`_
-like 
+Once we have created a model, we have a few options of what to do with it:
+    - evaluation functions: `ML.EVALUATE <https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-evaluate>`_ and `ML.ROC_CURVE <https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-roc>`_ (which only applies to logistic regression models)
+    - prediction function: `ML.PREDICT <https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-predict>`_
+    - inspection functions: `ML.TRAINING_INFO <https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-train>`_, `ML.FEATURE_INFO <https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-feature>`_, and `ML.WEIGHTS <https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-weights>`_ 
 
-	* precision
-	* recall
-	* accuracy
-	* f1_score
-	* log_loss
-	* roc_auc 
-
-There's also a ROC curve evaluation function 
-
-:: 
-
-	The ML.ROC_CURVE Function
-	Beta
-	This is a beta release of BigQuery ML. This product might be changed in backward-incompatible ways and is not subject to any SLA or deprecation policy.
-
-	ML.ROC_CURVE function
-	Use the ML.ROC_CURVE function to evaluate logistic regression-specific metrics. ML.ROC_CURVE only evaluates logistic regression models.
-
-	The output ML.ROC_CURVE function includes multiple rows with metrics for different threshold values for the model. The metrics include:
-
-	threshold
-	recall
-	false_positive_rate
-	true_positives
-	false_positives
-	true_negatives
-	false_negatives
-
-
-Here's the result when I evaluated the model (NB: you can evaluate on a subset of data):
+Below is an example "query" showing how to use the ML.EVALUATE function: here I am evaluating the model on a random subset (half) of
+the data that I used to train the model.  (In a more rigorous scenario, you would of course either do cross-fold validation
+or evaluate on a subset of the data that was not used at all during training.)
 
 .. code-block:: sql
 
@@ -809,14 +784,19 @@ It's a great way of testing the use of each variable for the particular problem 
 
 
 Neat! Let's do one more example, this time using the somatic mutations data. For this training data, I'm going to do a little 
-`feature engineering <https://en.wikipedia.org/wiki/Feature_engineering>`_ ( `another ref <https://developers.google.com/machine-learning/crash-course/representation/feature-engineering>`_ ).  
-Our engineering is simply combining a couple of columns: the gene name where the mutation occurs and the type of mutation or class of mutation. 
-Types of mutation can be SNPs (single nucleotide polymorphisms) or deletions, for example, and mutation classes can be where in the gene the 
-mutation occurs (exon, intron, 3', etc).
+`feature engineering <https://en.wikipedia.org/wiki/Feature_engineering>`_ 
+(see also `this <https://developers.google.com/machine-learning/crash-course/representation/feature-engineering>`_).  
+Our "engineering" will simply consist of combining two columns to create a new "feature".
 
-A tricky part of working with the mutation data, is that only a subset of samples have a mutation, so we need to start with a table of all 
-the samples in our two groups, and *then* join in mutation data with a LEFT JOIN, which retains all the barcodes (which may or may not have 
-mutations) and brings in mutations when present. At the end, after selecting for a number of different genes, we join subtables for each 
+One tricky aspect of working with the somatic mutation data table is that the table only contains rows describing
+observed somatic mutations.  The  *lack* of a mutation at a particular position in a gene, for a particular sample,
+is only implied by the lack of such a row in the table.  It is also possible that a mutation occurred but was
+missed by the sequencing or the mutation-calling pipeline.  We will assume, however, that all samples that are
+mentioned at least once in the table can be assumed to have been "tested" for all of the mutations that are present
+in the table.
+We will therefore start with a list of *all* of the samples we are interested in, and then join in the mutation
+data using a LEFT JOIN, which will retain all of the same barcodes.
+At the end, after selecting for a number of different genes, we join subtables for each 
 gene of interest.
 
 .. code-block:: sql
@@ -824,34 +804,36 @@ gene of interest.
 	WITH
 
 
-	-- first we make a table with all barcodes for the two cancer types.
+	-- First we make a table with all barcodes for the two cancer types.
+        -- (This table will have 579 rows, one per tumor sample.)
 
-	barcodes AS (
+	all_barcodes AS (
 	SELECT
 	  project_short_name AS label,
-	  sample_barcode_tumor,
-	  'x' AS Hugo_Symbol,
-	  'x' AS Variant_Classification,
-	  'x' AS Variant_Type
+	  sample_barcode_tumor AS barcode
 	FROM
 	  `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
 	WHERE
 	  project_short_name IN ('TCGA-COAD', 'TCGA-PAAD')
 	GROUP BY
-	  project_short_name,
-	  sample_barcode_tumor
+	  1, 2
 	),
 
 	--
 	-- Then we make a table of mutations, concatenating strings into new features.
-	-- First just for one gene, then more tables can follow by replacing the gene symbol.
+        -- For now, we'll do this only for the APC gene, but we could easily
+        -- add more genes or change the gene being tested for.
+        --
+        -- This table will have 444 rows, describing APC mutations in 313 tumor samples.
+        -- For example, sample TCGA-AA-A010-01A has 3 mutations, TCGA-AA-AA017-01A has one,
+        -- and TCGA-AA-A01P-01A has none and is not present in this table.
 
-	mutations AS (
-	select
-	  project_short_name as label, 
-	  sample_barcode_tumor,
+	apc_mut AS (
+	SELECT
+	  project_short_name AS label, 
+	  sample_barcode_tumor AS barcode,
 	  Hugo_Symbol,
-	  CONCAT(Hugo_Symbol, ' ', Variant_Classification) as Variant_Classification,
+	  CONCAT(Hugo_Symbol, ' ', Variant_Classification) AS Variant_Classification,
 	  CONCAT(Hugo_Symbol, ' ', Variant_Type) AS Variant_Type
 	from
 	  `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
@@ -859,56 +841,53 @@ gene of interest.
 	  project_short_name IN ('TCGA-COAD','TCGA-PAAD')
 		and Hugo_Symbol = 'APC' 
 	GROUP BY
-	  project_short_name, 
-	  sample_barcode_tumor,
-	  Hugo_Symbol,
-	  Variant_Classification,
-	  Variant_Type
-	)
+          1, 2, 3, 4, 5
+	),
 
 	--
 	-- Left Join all the barcodes, with barcodes that have mutation data.
 
-	select
+        apc_join AS ( 
+	SELECT
 	  b.label,
-	  b.sample_barcode_tumor,
-	  m.Hugo_Symbol as apc,
-	  m.Variant_Classification as apcvarclass,
-	  m.Variant_Type as apcvartype
+	  b.barcode,
+	  m.Hugo_Symbol AS apc,
+	  m.Variant_Classification AS apcvarclass,
+	  m.Variant_Type AS apcvartype
 	FROM
-	  barcodes b
+	  all_barcodes b
 	LEFT JOIN
-	  mutations m
+	  apc_mut m
 	ON
-	  b.sample_barcode_tumor = m.sample_barcode_tumor AND b.label = m.label
-	-- WHERE
-	--   b.sample_barcode_tumor = 'TCGA-AD-6965-01A'  -- this is here to test the query, see below
+	  b.barcode = m.barcode AND b.label = m.label
 	GROUP BY
-	  label, 
-	  sample_barcode_tumor,
-	  m.Hugo_Symbol,
-	  m.Variant_Classification,
-	  m.Variant_Type
+          1, 2, 3, 4, 5
+        )
 
-
-
-So, if a sample doesn't have a mutation in APC, it reads out 'null'.
+So, if a sample doesn't have a mutation in APC, you get nulls in the mutation columns, *eg*:
 
 ::
 
-	  Row label sample_barcode_tumor  Hugo_Symbol Variant_Classification  Variant_Type   
-	1 TCGA-COAD TCGA-AD-6965-01A      null        null                    null
-
+	Row label      barcode            apc    apcvarclass             apcvartype  
+	1   TCGA-COAD  TCGA-AD-6965-01A   null   null                    null
 
 	-- But if you select a tumor with a mutation in APC you get:  
 
-	1 TCGA-COAD TCGA-AA-3955-01A  APC APC In_Frame_Del      APC DEL  
-	2 TCGA-COAD TCGA-AA-3955-01A  APC APC Nonsense_Mutation APC SNP  
-	3 TCGA-COAD TCGA-AA-3955-01A  APC APC Intron            APC SNP
+	1   TCGA-COAD  TCGA-AA-A010-01A   APC    APC In_Frame_Del        APC DEL  
+	2   TCGA-COAD  TCGA-AA-A010-01A   APC    APC Nonsense_Mutation   APC SNP  
+	3   TCGA-COAD  TCGA-AA-A010-01A   APC    APC Intron              APC SNP
 
 
-
-So repeating that another time for KRAS, we have two subtables that get joined.
+Let's repeat the above, but this time with KRAS, and then join the two results 
+so that we have data for both KRAS and APC.
+We will save this table in our new dataset with the name `apc_kras`.
+(The apc_join table should have 710 rows
+containing information for 579 barcodes, and the kras_join table should have 589 rows
+containing information for the same 579 barcodes.  Joining these two will produce
+a table with 721 rows.  105 of these rows represent tumor samples with no mutations
+in either APC or KRAS; 167 rows represent tumor samples with mutations only in KRAS;
+223 rows represent tumor samples with mutations only in APC; and finally 226 rows
+represent samples with mutations in *both* APC and KRAS.)
 
 .. code-block:: sql
 
@@ -928,7 +907,6 @@ So repeating that another time for KRAS, we have two subtables that get joined.
 	ON
 	  k.label = a.label
 	  AND k.barcode = a.barcode
-
 
 Then we create our model:
 
