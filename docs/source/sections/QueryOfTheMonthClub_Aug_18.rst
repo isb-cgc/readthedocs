@@ -971,11 +971,11 @@ the APC-related features are the most informative for this particular task.
 
 
 .. figure:: query_figs/july/apc_feat_weights.png
-  :scale: 100
+  :scale: 50
   :align: center
 
 .. figure:: query_figs/july/kras_feat_weights.png
-  :scale: 100
+  :scale: 50
   :align: center
 
 
