@@ -949,7 +949,7 @@ and we can evaluate it:
 
 
 .. figure:: query_figs/july/apc_kras_roc.png
-  :scale: 100
+  :scale: 80
   :align: center
 
 
