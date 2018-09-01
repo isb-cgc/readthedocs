@@ -972,10 +972,10 @@ the APC-related features are the most informative for this particular task.
 |img_w1| |img_w2|
 
 .. |img_w1| image:: query_figs/july/apc_feat_weights.png
-  :width: 40%
+  :width: 37%
 
 .. |img_w2| image:: query_figs/july/kras_feat_weights.png
-  :width: 40%
+  :width: 37%
 
 
 OK, pretty cool!  We see some of the features have very little information and have 
