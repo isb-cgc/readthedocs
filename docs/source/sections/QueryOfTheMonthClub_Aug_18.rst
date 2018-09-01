@@ -972,23 +972,20 @@ the APC-related features are the most informative for this particular task.
 |img_w1| |img_w2|
 
 .. |img_w1| image:: query_figs/july/apc_feat_weights.png
-  :width: 45%
+  :width: 40%
 
 .. |img_w2| image:: query_figs/july/kras_feat_weights.png
-  :width: 45%
+  :width: 40%
 
 
-OK, pretty cool!  We see some of the variables have very little information and have 
-weights of zero (or close to zero) like 'APC Silent' or 'KRAS Nonsense_Mutation', and
-others seem very important. You could test it by removing the feature, and observing if the 
-model statistics change.
-
+OK, pretty cool!  We see some of the features have very little information and have 
+weights of zero (or close to zero) like 'APC Silent' or most of the KRAS-related features,
+while others seem very important. You could test this by removing a specific feature from your
+input data, and then checking to see if the model statistics change.
 
 Overall, that seems pretty useful! 
 Of course, BigQuery ML is in beta, and our experiance with Google products: expect things to change! 
 Have you found any good tricks?  If you have, please share them via email or on twitter (@isb-cgc)!
-
-
 
 
 .. _June:
