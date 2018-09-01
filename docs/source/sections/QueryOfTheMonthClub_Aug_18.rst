@@ -913,7 +913,7 @@ Then we create our model:
 .. code-block:: sql
 
 	#standardSQL
-	CREATE MODEL `tcga_model_1.apc_kras`
+	CREATE MODEL `isb-cgc-02-0001.tcga_model_1.apc_kras_model`
 	OPTIONS(
 	model_type='logistic_reg', l1_reg=1, l2_reg=1
 	) AS
