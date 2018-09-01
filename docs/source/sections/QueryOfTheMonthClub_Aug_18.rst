@@ -617,7 +617,7 @@ a table in the dataset created above.
 	  `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
 	WHERE
 	  project_short_name IN ('TCGA-COAD','TCGA-PAAD')
-		and gene_name = 'CCNE1'
+		and gene_name='CCNE1'
 	),
 
 	C2 AS (
@@ -629,7 +629,7 @@ a table in the dataset created above.
 	  `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
 	WHERE
 	  project_short_name IN ('TCGA-COAD','TCGA-PAAD')
-		and gene_name = 'CDC6'
+		and gene_name='CDC6'
 	),
 
 	C3 AS (
@@ -641,7 +641,7 @@ a table in the dataset created above.
 	  `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
 	WHERE
 	  project_short_name IN ('TCGA-COAD','TCGA-PAAD')
-		and gene_name = 'MDM2'
+		and gene_name='MDM2'
 	),
 
 	C4 AS (
@@ -653,7 +653,7 @@ a table in the dataset created above.
 	  `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
 	WHERE
 	  project_short_name IN ('TCGA-COAD','TCGA-PAAD')
-		and gene_name = 'TGFA'
+		and gene_name='TGFA'
 	)
 
 	-- Now we join the above gene-tables into our training data.
@@ -667,9 +667,9 @@ a table in the dataset created above.
 	  TGFA
 	FROM
 	C1
-	JOIN C2 ON C1.label = C2.label AND C1.sample_barcode = C2.sample_barcode
-	JOIN C3 ON C1.label = C3.label AND C1.sample_barcode = C3.sample_barcode
-	JOIN C4 ON C1.label = C4.label AND C1.sample_barcode = C4.sample_barcode
+	JOIN C2 ON C1.label=C2.label AND C1.sample_barcode=C2.sample_barcode
+	JOIN C3 ON C1.label=C3.label AND C1.sample_barcode=C3.sample_barcode
+	JOIN C4 ON C1.label=C4.label AND C1.sample_barcode=C4.sample_barcode
 
 
 I ran the above query, and when done, clicked the 'Save to Table' button, placing it in the 'tcga_model_1' dataset. 
@@ -741,7 +741,7 @@ or evaluate on a subset of the data that was not used at all during training.)
 	SELECT
 	  *
 	FROM
-	  ML.EVALUATE(MODEL `tcga_model_1.coad_vs_paad_expr_l1_l2`, (
+	  ML.EVALUATE(MODEL `isb-cgc-02-0001.tcga_model_1.coad_vs_paad_expr_l1_l2`, (
 	SELECT
 	  label,
 	  CCNE1,
@@ -754,7 +754,6 @@ or evaluate on a subset of the data that was not used at all during training.)
 	  RAND() < 0.5
 	  )
 	 )
-
 
 
 .. figure:: query_figs/july/4gene_roc.png
@@ -770,7 +769,7 @@ One last thing, we can get the weights (or model coefficients) by again querying
 	SELECT
 	  *
 	FROM
-	  ML.WEIGHTS(MODEL `tcga_model_1.coad_vs_paad_expr_2`)
+	  ML.WEIGHTS(MODEL `isb-cgc-02-0001.tcga_model_1.coad_vs_paad_expr_2`)
 
 
 
@@ -803,10 +802,8 @@ gene of interest.
 	
 	WITH
 
-
 	-- First we make a table with all barcodes for the two cancer types.
         -- (This table will have 579 rows, one per tumor sample.)
-
 	all_barcodes AS (
 	SELECT
 	  project_short_name AS label,
@@ -815,11 +812,8 @@ gene of interest.
 	  `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
 	WHERE
 	  project_short_name IN ('TCGA-COAD', 'TCGA-PAAD')
-	GROUP BY
-	  1, 2
-	),
+	GROUP BY 1, 2 ),
 
-	--
 	-- Then we make a table of mutations, concatenating strings into new features.
         -- For now, we'll do this only for the APC gene, but we could easily
         -- add more genes or change the gene being tested for.
@@ -827,31 +821,25 @@ gene of interest.
         -- This table will have 444 rows, describing APC mutations in 313 tumor samples.
         -- For example, sample TCGA-AA-A010-01A has 3 mutations, TCGA-AA-AA017-01A has one,
         -- and TCGA-AA-A01P-01A has none and is not present in this table.
-
 	apc_mut AS (
 	SELECT
 	  project_short_name AS label, 
 	  sample_barcode_tumor AS barcode,
-	  Hugo_Symbol,
+          CONCAT(Hugo_Symbol, ' Mut') AS Variant,
 	  CONCAT(Hugo_Symbol, ' ', Variant_Classification) AS Variant_Classification,
 	  CONCAT(Hugo_Symbol, ' ', Variant_Type) AS Variant_Type
 	from
 	  `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
 	WHERE
-	  project_short_name IN ('TCGA-COAD','TCGA-PAAD')
-		and Hugo_Symbol = 'APC' 
-	GROUP BY
-          1, 2, 3, 4, 5
-	),
+	  project_short_name IN ('TCGA-COAD','TCGA-PAAD') AND Hugo_Symbol='APC' 
+	GROUP BY 1, 2, 3, 4, 5),
 
-	--
 	-- Left Join all the barcodes, with barcodes that have mutation data.
-
         apc_join AS ( 
 	SELECT
 	  b.label,
 	  b.barcode,
-	  m.Hugo_Symbol AS apc,
+          m.Variant AS apc,
 	  m.Variant_Classification AS apcvarclass,
 	  m.Variant_Type AS apcvartype
 	FROM
@@ -859,28 +847,47 @@ gene of interest.
 	LEFT JOIN
 	  apc_mut m
 	ON
-	  b.barcode = m.barcode AND b.label = m.label
-	GROUP BY
-          1, 2, 3, 4, 5
-        )
+	  b.barcode=m.barcode AND b.label=m.label
+	GROUP BY 1, 2, 3, 4, 5 ),
 
-So, if a sample doesn't have a mutation in APC, you get nulls in the mutation columns, *eg*:
+        -- Finaly, we do need to replace the NULL values since the ML functions
+        -- cannot be trained with NULL values
+        apc_final AS (
+        SELECT
+          label, barcode, apc, apcvarclass, apcvartype
+        FROM
+          apc_join
+        WHERE
+          apc IS NOT NULL
+        UNION ALL
+        SELECT
+          label, barcode, 
+          "APC WT" AS apc,
+          "APC WT" AS apcvarclass, 
+          "APC WT" AS apcvartype
+        FROM
+          apc_join
+        WHERE
+          apc IS NULL )
+
+So, if a sample doesn't have a mutation in APC, the nulls are replaced with the 
+"APC WT" strings, and otherwise, the features specify the mutation class and type, *eg*:
 
 ::
 
-	Row label      barcode            apc    apcvarclass             apcvartype  
-	1   TCGA-COAD  TCGA-AD-6965-01A   null   null                    null
+	Row label      barcode            apc       apcvarclass             apcvartype  
+	1   TCGA-COAD  TCGA-AD-6965-01A   APC WT    APC WT                  APC WT
 
 	-- But if you select a tumor with a mutation in APC you get:  
 
-	1   TCGA-COAD  TCGA-AA-A010-01A   APC    APC In_Frame_Del        APC DEL  
-	2   TCGA-COAD  TCGA-AA-A010-01A   APC    APC Nonsense_Mutation   APC SNP  
-	3   TCGA-COAD  TCGA-AA-A010-01A   APC    APC Intron              APC SNP
+	1   TCGA-COAD  TCGA-AA-A010-01A   APC Mut   APC In_Frame_Del        APC DEL  
+	2   TCGA-COAD  TCGA-AA-A010-01A   APC Mut   APC Nonsense_Mutation   APC SNP  
+	3   TCGA-COAD  TCGA-AA-A010-01A   APC Mut   APC Intron              APC SNP
 
 
 Let's repeat the above, but this time with KRAS, and then join the two results 
 so that we have data for both KRAS and APC.
-We will save this table in our new dataset with the name `apc_kras`.
+We will save this table in our new dataset with the name `apc_kras_data`.
 (The apc_join table should have 710 rows
 containing information for 579 barcodes, and the kras_join table should have 589 rows
 containing information for the same 579 barcodes.  Joining these two will produce
@@ -892,21 +899,15 @@ represent samples with mutations in *both* APC and KRAS.)
 .. code-block:: sql
 
 	SELECT
-	  k.label,
-	  k.barcode,
-	  apc,
-	  apcvarclass,
-	  apcvartype,
-	  kras,
-	  krasvarclass,
-	  krasvartype
+	  k.label, k.barcode,
+          apc, apcvarclass, apcvartype,
+	  kras, krasvarclass, krasvartype
 	FROM
-	  kras_join k
+	  kras_final k
 	JOIN 
-	  apc_join a
+	  apc_final a
 	ON
-	  k.label = a.label
-	  AND k.barcode = a.barcode
+	  k.label=a.label AND k.barcode=a.barcode
 
 Then we create our model:
 
@@ -919,14 +920,10 @@ Then we create our model:
 	) AS
 	SELECT
 	  label,
-	  apc,
-	  apcvarclass,
-	  apcvartype,
-	  kras,
-	  krasvarclass,
-	  krasvartype
+          apc, apcvarclass, apcvartype,
+          kras, krasvarclass, krasvartype
 	FROM
-	  `isb-cgc-02-0001.tcga_model_1.apc_kras`
+	  `isb-cgc-02-0001.tcga_model_1.apc_kras_data`
 
 
 and we can evaluate it:
@@ -934,30 +931,21 @@ and we can evaluate it:
 
 .. code-block:: sql
 
-	  #standardSQL
+	#standardSQL
 	SELECT
 	  *
 	FROM
-	  ML.EVALUATE(MODEL `tcga_model_1.APC_kras`, (
+	  ML.EVALUATE(MODEL `isb-cgc-02-0001.tcga_model_1.apc_kras_model`, (
 	SELECT
 	  label,
-	  apc,
-	  apcvarclass,
-	  apcvartype,
-	  kras,
-	  krasvarclass,
-	  krasvartype
+          apc, apcvarclass, apcvartype,
+          kras, krasvarclass, krasvartype
 	FROM
-	  `isb-cgc-02-0001.tcga_model_1.apc_kras`
+	  `isb-cgc-02-0001.tcga_model_1.apc_kras_data`
 	WHERE
 	  RAND() < 0.5
 	  )
 	 )
-
-
-.. figure:: query_figs/july/apc_kras_model_stats.png
-  :scale: 100
-  :align: center
 
 
 .. figure:: query_figs/july/apc_kras_roc.png
@@ -973,7 +961,7 @@ Let's take a look at the model weights -- this is where the interesting stuff is
 	SELECT
 	  category_weights
 	FROM
-	  ML.WEIGHTS(MODEL `tcga_model_1.APC_kras`)
+	  ML.WEIGHTS(MODEL `isb-cgc-02-0001.tcga_model_1.apc_kras_model`)
 
 .. figure:: query_figs/july/apc_kras_model_weights1.png
   :scale: 100
