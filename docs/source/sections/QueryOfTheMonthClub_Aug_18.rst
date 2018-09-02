@@ -87,62 +87,72 @@ August, 2018
 
 **Using BigQuery ML in a Shiny app.**
 
-Last month tried the new Google BigQuery ML. 
+Last month, we tried out the newly-released Google BigQuery ML. 
+This month we'll continue to build examples, learn some new things, and build a `shiny web app <https://isb-cgc.shinyapps.io/GoogML_Shiny/>`_.
 
-This month we'll continue to build examples, learn some new things, and build a `shiny web app <https://isb-cgc.shinyapps.io/GoogML_Shiny/>`_. One item of news is that the R package used for 
-interacting with BigQuery, bigrquery, has undergone a major revision (hitting version 1.0), and many of the function calls have changed
-significantly. Now, the returned object from making a BigQuery call (with function 'bq_project_query') is not a data.frame, but a 'bq_table' 
-object. A second function call is used to download the results.
+One newsworthy bit of information, incase you missed it a few months ago, is that the R package used for 
+interacting with BigQuery, bigrquery, has undergone a major revision 
+(hitting `version 1.0.0 <https://github.com/r-dbi/bigrquery/releases/tag/v1.0.0>`_), 
+and many of the function calls have changed significantly. 
+The returned object from making a BigQuery call (with function 'bq_project_query') is now a "tibble" rather than a data frame.  
 
 Working with BigQuery ML is quite a bit different than what we've done before. In the past, when working with BigQuery, we've computed 
-different statistics, and we've even used those statistics for classification, but that work was all done in the SQL. Meaning that
-a Z score is formulated in the SQL. Here, most of the work is found in preparing the data table prior to fitting the model.
+different statistics, and we've even used those statistics for classification, but that work was all done in the SQL -- including,
+for example, formulating a Z-score in SQL.
+Now, most of our work will go into preparing the training data table to be used when fitting the model.
 
-When fitting models, we have two important parameters to think about:  the L1 and L2 regularization rates. These
-both have an effect of pushing the variable weights of less useful predictors towards zero. L2 (or euclidean norm) will push
+When fitting models, we have two important parameters to think about:  the L1 and L2 regularization rates.
+(There are other parameters, but we'll focus on these for the moment.)
+Both of these parameters effectively push the weights of less useful predictors towards zero. L2 (or euclidean norm) will push
 weights towards zero, but L1 regularization will make variable (gene) weights exactly zero. Using these regularizers 
-can give us an idea of what genes are most useful in separating groups, in this case, cancer types.
+can help us get an idea of which features (*eg* genes) are most useful in separating groups (*eg* cancer types).
 
-A good tool for getting a feel for what parameter values to use can be found `here. <https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/playground-exercise>`_
+A good tool for getting a feel for what parameter values to use can be found 
+`here <https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/playground-exercise>`_.
 
-
-In this Shiny App, we'll select two cohorts which will represent the two groups we wish to classify.
+In this Shiny App, we will select two "cohorts" as the two groups for our classification task.
 Then we'll select one of the cancer hallmark gene sets from MSigDB which will provide the feature set as a list of genes.
 The BigQuery ML models take a number of parameters, so we'll make those available to the user as well.
 
-By necessity, tables in BigQuery are (for the most part) tidy tables. However, when you want to fit a model with 10 variables,
+In general, when storing a gene-expression matrix in BigQuery, it is most useful to store it as a 
+`tidy <http://vita.had.co.nz/papers/tidy-data.html>`_  data table, *ie* a "long" table with just 3 columns: 
+sample_id, gene_id, expression_value,
+rather than a "wide" N x M table for N samples and M genes, in which the expression values for each gene are stored in a specific column.
+
+However, when you want to fit a model with 10 variables,
 you will need a table with 10 columns. To do that we'll need a new BigQuery skill! Converting long-to-wide tables. 
-There's two keys to doing it in BigQuery. One, is that the query string needs to be 
-programatically constructed given a list of genes and a cohort (or two). Secondly, we'll use aggregation to create each row of the table, 
-where a row of the table represents a sample. 
+There's two keys to doing it in BigQuery. The first is to programmatically construct the query string,
+given the list of genes and other relevant information (*eg* the cohort name), and the second is to use an 
+`aggregate function <https://cloud.google.com/bigquery/docs/reference/standard-sql/aggregate_functions>`_ 
+to create each row of the result table, where each row will represent a single sample. 
 
 Here's a small example of doing that.
 
 .. code-block:: sql
 
-	SELECT
-	  sample_barcode AS sb,
-	  project_short_name AS label,
-	  SUM (CASE
-	     WHEN (HGNC_gene_symbol = 'FRMD6') THEN LOG10(normalized_count +1)
-	     ELSE (RAND()/1000000) END) AS FRMD6,
-	  SUM (CASE
-	     WHEN (HGNC_gene_symbol = 'MMD') THEN LOG10(normalized_count +1)
-	     ELSE (RAND()/1000000) END) AS MMD,
-	  SUM (CASE
-	     WHEN (HGNC_gene_symbol = 'IMPDH2') THEN LOG10(normalized_count +1)
-	     ELSE (RAND()/1000000) END) AS IMPDH2,
-	  SUM (CASE
-	     WHEN (HGNC_gene_symbol = 'SNORD60') THEN LOG10(normalized_count +1)
-	     ELSE (RAND()/1000000) END) AS SNORD60
-	FROM
-	  `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
-	WHERE
-	  project_short_name = 'TCGA-STAD'
-	  AND normalized_count IS NOT NULL
-	GROUP BY
-	  project_short_name,
-	  sample_barcode
+    SELECT
+      sample_barcode AS sb,
+      project_short_name AS label,
+      SUM (CASE
+         WHEN (HGNC_gene_symbol = 'FRMD6') THEN LOG10(normalized_count +1)
+         ELSE (RAND()/1000000) END) AS FRMD6,
+      SUM (CASE
+         WHEN (HGNC_gene_symbol = 'MMD') THEN LOG10(normalized_count +1)
+         ELSE (RAND()/1000000) END) AS MMD,
+      SUM (CASE
+         WHEN (HGNC_gene_symbol = 'IMPDH2') THEN LOG10(normalized_count +1)
+         ELSE (RAND()/1000000) END) AS IMPDH2,
+      SUM (CASE
+         WHEN (HGNC_gene_symbol = 'SNORD60') THEN LOG10(normalized_count +1)
+         ELSE (RAND()/1000000) END) AS SNORD60
+    FROM
+      `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
+    WHERE
+      project_short_name = 'TCGA-STAD'
+      AND normalized_count IS NOT NULL
+    GROUP BY
+      project_short_name,
+      sample_barcode
 
 
 Keen readers will notice that I've included a call to RAND() when the gene symbol is not matched. 
@@ -151,91 +161,87 @@ This creates a column of all zeros across samples, and causes an error in the mo
 added a very small amount of noise to the data. If the gene is not present in TCGA's annotation, it is represented 
 as random noise and will not contribute to the model.
 
-Now we'll get to building the shiny app. Here's the first couple functions to build up the SQL as a string. I put these SQL query-string building functions in a global.R file that gets imported in the server.R code.  Then I make the query executions from an eventReactive function that's
-called when the user hits the submit button.
+Now we'll get to building the shiny app. Here's the first couple functions to build up the SQL as a string. 
+I put these SQL query-string building functions in a global.R file that gets imported in the server.R code.  
+Then I make the query executions from an eventReactive function which is called when the user clicks on the submit button.
 
 .. code-block:: r
 	
-	geneQuery <- function(gi) {
-		# This function gets called for each gene in a list.
-		# gi is the name of a gene as a string 
-		paste("SUM (CASE WHEN (HGNC_gene_symbol = '",gi,"') THEN normalized_count ELSE (RAND()/1000000) END) AS ", gi, sep='')
-	}
+    geneQuery <- function(gi) {
+    	# This function gets called for each gene in a list.
+    	# gi is the name of a gene as a string 
+    	paste("SUM (CASE WHEN (HGNC_gene_symbol = '",gi,"') THEN normalized_count ELSE (RAND()/1000000) END) AS ", gi, sep='')
+    }
 
 
-	buildDataSQL <- function(geneNames, cohort1, cohort2, ngenes) {
+    buildDataSQL <- function(geneNames, cohort1, cohort2, ngenes) {
 
-		# can control the number of genes going into the model
-	    if (length(geneNames) > ngenes) {
+    	# here we can control the number of genes going into the model
+        if (length(geneNames) > ngenes) {
       		geneNames <- sample(geneNames, size = ngenes, replace = F)
     	} 
 
-	    # create model name // format the Sys.time() return
-	    # to put in underscores and remove colons
-	    # and paste in the cohort names.
+        # create model name // format the sys.time() return
+        # to put in underscores and remove colons
+        # and paste in the cohort names.
       	modelname <- getModelname(cohort1, cohort2)
 
-		q <- paste("
-			WITH
-			C1 AS (
-			SELECT
-			   sample_barcode AS sb,
-			   project_short_name AS label,\n",
+    	q <- paste("
+    		WITH
+    		C1 AS (
+    		SELECT
+    		   sample_barcode AS sb,
+    		   project_short_name AS label,\n",
+    		   paste(sapply(geneNames, function(gi) geneQuery(gi)),collapse = ',\n'), "\n
+    		FROM
+    		   `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
+    		WHERE
+    		   project_short_name = '",cohort1,"'
+    		   AND normalized_count IS NOT NULL
+    		GROUP BY
+    		   project_short_name,
+    		   sample_barcode ),
 
-			   paste(sapply(geneNames, function(gi) geneQuery(gi)),collapse = ',\n'), "\n
+    		C2 AS (
+    		SELECT
+    		   sample_barcode AS sb,
+    		   project_short_name AS label,\n",
+    		   paste(sapply(geneNames, function(gi) geneQuery(gi)),collapse = ',\n'), "\n
+    		FROM
+    		   `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
+    		WHERE
+    		   project_short_name = '",cohort2,"'
+    		   AND normalized_count IS NOT NULL
+    		GROUP BY
+    		   project_short_name,
+    		sample_barcode )
 
-			FROM
-			   `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
-			WHERE
-			   project_short_name = '",cohort1,"'
-			   AND normalized_count IS NOT NULL
-			GROUP BY
-			   project_short_name,
-			   sample_barcode ),
+    		SELECT
+    		   0 AS label,",
+    		   paste(geneNames,collapse = ','), "\n 
+    		FROM
+    		   C1
+    		UNION ALL
+    		SELECT
+    		   1 AS label,",
+    		   paste(geneNames,collapse = ','), "\n 
+    		FROM
+    		   C2
+    		", sep = '')  
 
-			C2 AS (
-			SELECT
-			   sample_barcode AS sb,
-			   project_short_name AS label,\n",
-
-			   paste(sapply(geneNames, function(gi) geneQuery(gi)),collapse = ',\n'), "\n
-
-			FROM
-			   `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
-			WHERE
-			   project_short_name = '",cohort2,"'
-			   AND normalized_count IS NOT NULL
-			GROUP BY
-			   project_short_name,
-			sample_barcode )
-
-			-- now we combine the two groups
-			SELECT
-			   0 AS label,",
-			   paste(geneNames,collapse = ','), "\n 
-			FROM
-			   C1
-			UNION ALL
-			SELECT
-			   1 AS label,",
-			   paste(geneNames,collapse = ','), "\n 
-			FROM
-			   C2
-			", sep = '')  
-
-		print(q)  
-		return(list(SQL=q, Dataset="tcga_model_1", Tablename=paste("isb-cgc-myproject123.tcga_model_1.data", Modelname=modelname,sep="")))
-		}
+    	print(q)  
+    	return(list(SQL=q, Dataset="tcga_model_1", Tablename=paste("isb-cgc-myproject123.tcga_model_1.data", Modelname=modelname,sep="")))
+    	}
 
 
 Calling this function returns the SQL query string, the Dataset where the table will be placed, the full name 
 'project.dataset.tablename', and the modelname, all as a list.
 
-The R code creating the query string, authenticating and executing the query only takes a few lines:
+The R code to create the query string, authenticate, and execute the query only takes a few lines:
 
 .. code-block:: r
 	
-	# we've saved our service account token in the data directory
+    # we've saved our service account token in the data directory
     service_token <- set_service_token("data/ISB-CGC-myproject-1234567.json")
     
     # previously I made a hash keyed on gene set names, to get the list of gene members
@@ -255,29 +261,29 @@ We'll construct another query string and execute it.
 
 .. code-block:: r
 
-	buildModelSQL <- function(datasetname, tablename, modelname, input) {
+    buildModelSQL <- function(datasetname, tablename, modelname, input) {
 	  
-	 	l1reg <- input$l1_reg
-		l2reg <- input$l2_reg
-		maxit <- input$max_iterations
-		lr <- input$learn_rate
-		es <- input$early_stop
+ 	l1reg <- input$l1_reg
+	l2reg <- input$l2_reg
+	maxit <- input$max_iterations
+	lr <- input$learn_rate
+	es <- input$early_stop
 	  
-		q <- paste(
-	    	"CREATE MODEL `", datasetname ,".", modelname, "`
-	    	 OPTIONS(model_type='logistic_reg', l1_reg=",l1reg,", l2_reg=",l2reg,", max_iterations=",maxit,") 
-	    	 AS SELECT * FROM `", tablename ,"`
-	  	",sep="")
+	q <- paste(
+    	"CREATE MODEL `", datasetname ,".", modelname, "`
+    	 OPTIONS(model_type='logistic_reg', l1_reg=",l1reg,", l2_reg=",l2reg,", max_iterations=",maxit,") 
+    	 AS SELECT * FROM `", tablename ,"`
+  	",sep="")
 	  
-	  print(q)
-	  return(list(SQL=q, Modelname=paste(datasetname ,".", modelname,sep='')))
-	}
+        print(q)
+        return(list(SQL=q, Modelname=paste(datasetname ,".", modelname,sep='')))
 
+    }
 
-	  # then build the model
-	  # the datasql is returned from building the dataset query above
-      modSql <- buildModelSQL(datasql[["Dataset"]], datasql[["Tablename"]], as.list(input)) 
-      res1 <- bq_project_query('isb-cgc-myproject123', modSql[["SQL"]])
+    # then build the model
+    # the datasql is returned from building the dataset query above
+    modSql <- buildModelSQL(datasql[["Dataset"]], datasql[["Tablename"]], as.list(input)) 
+    res1 <- bq_project_query('isb-cgc-myproject123', modSql[["SQL"]])
 
 
 When the model fit is finished, we will query the *model*, rather than a table, to get information about the goodness-of-fit, and 
@@ -285,66 +291,61 @@ other classification metrics.
 
 .. code-block:: r
 	
-	queryModelTrainingSQL <- function(modelname) {
-	  q <- paste(
-	    "SELECT
-	     	*
-	     FROM
-	    	ML.TRAINING_INFO(MODEL `",modelname,"`)
-	    ",sep="")
-	  print(q)
-	  return(list(SQL=q))
-	}
+    queryModelTrainingSQL <- function(modelname) {
+      q <- paste(
+        "SELECT
+           *
+         FROM
+          ML.TRAINING_INFO(MODEL `",modelname,"`)
+        ",sep="")
+      print(q)
+      return(list(SQL=q))
+    }
 
+    queryModelFeaturesSQL <- function(modelname) {
+      q <- paste(
+        "SELECT
+           *
+         FROM
+          ML.FEATURE_INFO(MODEL `",modelname,"`)
+        ",sep="")
+      print(q)
+      return(list(SQL=q))
+    }
 
-	queryModelFeaturesSQL <- function(modelname) {
-	  q <- paste(
-	    "SELECT
-	    	*
-	     FROM
-	    	ML.FEATURE_INFO(MODEL `",modelname,"`)
-	    ",sep="")
-	  print(q)
-	  return(list(SQL=q))
-	}
+    queryModelWeightsSQL <- function(modelname) {
+      q <- paste(
+        "SELECT
+       	  processed_input,
+          weight
+         FROM
+          ML.WEIGHTS(MODEL `",modelname,"`)
+        ",sep="")
+      print(q)
+      return(list(SQL=q))
+    }
 
+    queryModelROCSQL <- function(modelname, tablename) {
+      q <- paste(
+        "SELECT
+           threshold,
+           false_positive_rate,
+           true_positives,
+           false_positives,
+           true_negatives,
+           false_negatives,
+           recall,
+           true_positives / (true_positives + false_positives) AS precision
+         FROM
+           ML.ROC_CURVE(MODEL `",modelname,"`, TABLE `", tablename ,"`)", sep='')
+      return(list(SQL=q))  
+    }
 
-	queryModelWeightsSQL <- function(modelname) {
-	  q <- paste(
-	    "SELECT
-	    	processed_input,
-	    	weight
-	     FROM
-	    	ML.WEIGHTS(MODEL `",modelname,"`)
-	    ",sep="")
-	  print(q)
-	  return(list(SQL=q))
-	}
-
-
-	queryModelROCSQL <- function(modelname, tablename) {
-	  q <- paste(
-	    "SELECT
-	     	threshold,
-	     	false_positive_rate,
-	     	true_positives,
-	     	false_positives,
-	     	true_negatives,
-	     	false_negatives,
-	     	recall,
-	     	true_positives / (true_positives + false_positives) AS precision
-	     FROM
-	     	ML.ROC_CURVE(MODEL `",modelname,"`, TABLE `", tablename ,"`)", sep='')
-	  return(list(SQL=q))  
-	}
-
-
-and we call all the query contruction functions and collect the performance of the classifier.
-
+and then we call all the query contruction functions and collect the performance of the classifier.
 
 .. code-blocks:: r
 
-	# get information about the model training 
+    # get information about the model training 
     trainSql <- queryModelTrainingSQL(modSql[['Modelname']])
     res2 <- bq_project_query('isb-cgc-myproject123', trainSql[['SQL']])
     trainingTable <- bq_table_download(res2)
@@ -366,20 +367,23 @@ and we call all the query contruction functions and collect the performance of t
 
 
 First, using the queryModelTrainingSQL function above, we get information about the model training, which is really useful. 
-It will show a number of training iterations, where in each iteration, there's a learning rate. When a model is fitting well, you'll see a big jump in
-the magnitude of the learning rate. Also it needs to train for a number of iterations. In unsuccessful fittings, the 
-model will not progress beyond just a few iterations. Here's the `Google training module <https://developers.google.com/machine-learning/crash-course/reducing-loss/an-iterative-approach>`_ on this topic.
+It will show a number of training iterations, where in each iteration, there's a learning rate. When a model is fitting well, 
+you should see a big jump in the magnitude of the learning rate. 
+Also it needs to train for a number of iterations. In unsuccessful fittings, the 
+model will not progress beyond just a few iterations. 
+Here is the `Google training module <https://developers.google.com/machine-learning/crash-course/reducing-loss/an-iterative-approach>`_ on this topic.
 
-Secondly we can get information about the features themselves, such as the mean and quartiles of each gene in this case. 
+Second, we can get information about the features themselves, such as the mean and quartiles for each gene. 
 
-Then, one of the most important calls will be to get the feature weights. Since this is a regularized regression, which is
+Finally, one of the most important calls will be to get the feature weights. Since this is a regularized regression, which is
 controlled using the L1 and L2 parameters, variables that are less helpful in the classification will have weights that
 will shrink to zero. We show the weights in an absolute value sorted order. 
 
 In supervised machine learning,
-each sample has a known label. Here it's the tissue type. When the model is used to predict a label for a sample, we will either 
+each sample has a known label. In this example, the label is the tissue type. 
+When the model is used to predict a label for a sample, we will either 
 get it right or get it wrong. We can call the label of the sample either 'cohort 1 positive' or 'cohort 1 negative (i.e. cohort 2 positive).
-Then our model makes a predition on whether the sample is 'cohort 1 positive' or not, making it a boolean value (true or false).
+Then our model makes a prediction on whether the sample is 'cohort 1 positive' or not, making it a boolean value (true or false).
 
 To determine if our model is doing well, we use classification metrics like recall and precision.
 Precision is the fraction of true positives over combined true and negative positives. 
@@ -389,63 +393,59 @@ correctly called positive.
 
 To put it another way, from Wikipedia: "In a classification task, a precision score of 1.0 for a class C means that every item labeled as belonging to class C does indeed belong to class C (but says nothing about the number of items from class C that were not labeled correctly) whereas a recall of 1.0 means that every item from class C was labeled as belonging to class C (but says nothing about how many other items were incorrectly also labeled as belonging to class C). ... Often, there is an inverse relationship between precision and recall, where it is possible to increase one at the cost of reducing the other."
 
-When making predictions with the model, we have a probability for sample to be in one group or the other. Then, for a given threshold t, we 
-call each sample as having label 'cohort 1' if P < t.  By varying the threshold from 0 to 1, you can see the tradeoff of precision and
-recall. We can use this table for visualizing the model performance. 
-
-
-All the bigrquery functions are called when the user hits the 'submit' button. To do that we wrap the functions all together
+Below is the R code for the "server" component of our Shiny app.  We want all of the bigrquery functions to be
+called when the user clickson the 'submit' button -- to accomplish this, we wrap all of the functions together
 in a eventReactive. 
 
 .. code-blocks:: r
 
-	server <- function(input, output, session) {
-	  
-	  bq_ops <- eventReactive(input$submit, {
-	    withProgress(message = 'Working...', value = 0, {
+    server <- function(input, output, session) {
+      
+      bq_ops <- eventReactive(input$submit, {
+        withProgress(message = 'Working...', value = 0, {
 
-	      # setup
-	      service_token <- set_service_token("data/isb-cgc-myproject123-62c9d9471b0b.json")
-	    
-	      # Making the BQDataSetTable
-	      load("data/gene_set_hash.rda")
-	      geneNames1 <- getGenes(sethash, input$var1)
-	      datasql <- buildDataSQL(geneNames1, input$cohortid1, input$cohortid2, input$n_genes)
-	      res0 <- bq_project_query('isb-cgc-myproject123', datasql[["SQL"]],  destination_table = datasql[["Tablename"]])
-	      incProgress()
-	      
-	      # then build the model
-	      modSql <- buildModelSQL(datasql[["Dataset"]], datasql[["Tablename"]], as.list(input)) 
-	      res1 <- bq_project_query('isb-cgc-myproject123', modSql[["SQL"]])
-	      incProgress()
-	      
-	      # then query the model
-	      trainSql <- queryModelTrainingSQL(modSql[['Modelname']])
-	      res2 <- bq_project_query('isb-cgc-myproject123', trainSql[['SQL']])
-	      trainingTable <- bq_table_download(res2)
-	      incProgress()
-	      
-	      # then query the model for feature info
-	      featSql <- queryModelFeaturesSQL(modSql[['Modelname']])
-	      res3 <- bq_project_query('isb-cgc-myproject123', featSql[['SQL']])
-	      featureTable <- bq_table_download(res3)
-	      incProgress()
-	      
-	      # then query the model for feature weights
-	      weightSql <- queryModelWeightsSQL(modSql[['Modelname']])
-	      res4 <- bq_project_query('isb-cgc-myproject123', weightSql[['SQL']])
-	      weightTable <- bq_table_download(res4)
-	      incProgress()
-	      
-	      # then the ROC
-	      rocSql <- queryModelROCSQL(modSql[['Modelname']], datasql[["Tablename"]])
-	      res5 <- bq_project_query('isb-cgc-myproject123', rocSql[['SQL']])
-	      rocTable <- bq_table_download(res5)
-	      incProgress()	      
-	    })
-	      
-	    return(list(TrainingResults=trainingTable, FeatureResults=featureTable, WeightsTable=weightTable, ROCTable=rocTable))
-	})
+          # setup
+          service_token <- set_service_token("data/isb-cgc-myproject123-62c9d9471b0b.json")
+        
+          # Making the BQDataSetTable
+          load("data/gene_set_hash.rda")
+          geneNames1 <- getGenes(sethash, input$var1)
+          datasql <- buildDataSQL(geneNames1, input$cohortid1, input$cohortid2, input$n_genes)
+          res0 <- bq_project_query('isb-cgc-myproject123', datasql[["SQL"]],  destination_table = datasql[["Tablename"]])
+          incProgress()
+          
+          # then build the model
+          modSql <- buildModelSQL(datasql[["Dataset"]], datasql[["Tablename"]], as.list(input)) 
+          res1 <- bq_project_query('isb-cgc-myproject123', modSql[["SQL"]])
+          incProgress()
+          
+          # then query the model
+          trainSql <- queryModelTrainingSQL(modSql[['Modelname']])
+          res2 <- bq_project_query('isb-cgc-myproject123', trainSql[['SQL']])
+          trainingTable <- bq_table_download(res2)
+          incProgress()
+          
+          # then query the model for feature info
+          featSql <- queryModelFeaturesSQL(modSql[['Modelname']])
+          res3 <- bq_project_query('isb-cgc-myproject123', featSql[['SQL']])
+          featureTable <- bq_table_download(res3)
+          incProgress()
+          
+          # then query the model for feature weights
+          weightSql <- queryModelWeightsSQL(modSql[['Modelname']])
+          res4 <- bq_project_query('isb-cgc-myproject123', weightSql[['SQL']])
+          weightTable <- bq_table_download(res4)
+          incProgress()
+          
+          # then the ROC
+          rocSql <- queryModelROCSQL(modSql[['Modelname']], datasql[["Tablename"]])
+          res5 <- bq_project_query('isb-cgc-myproject123', rocSql[['SQL']])
+          rocTable <- bq_table_download(res5)
+          incProgress()	      
+
+        })
+        return(list(TrainingResults=trainingTable, FeatureResults=featureTable, WeightsTable=weightTable, ROCTable=rocTable))
+    })
 	  
 
 Once it's all wrapped in a the eventReactive, we can access the results of all the queries repeatedly without
@@ -454,48 +454,48 @@ having to redo any of the queries.
 
 .. code-blocks:: r
 
-	output$modelname <- renderText({
-	    bq_ops()$ModelName
-	  })
-	  
-	output$table1 <- renderTable({
-	    bq_ops()$TrainingResults
-	  })
-	  
-	output$plot1 <- renderPlot({
-	   df <- bq_ops()$ROCTable
-	   qplot(x=df$recall, y=df$precision, main="Precision-Recall Curve", xlab='recall', ylab="precision", ylim=c(0,1), xlim=c(0,1), geom="line")
-	  })
-	  
-	output$plot2 <- renderPlot({
-	    df <- bq_ops()$ROCTable
-	    fscores <- (2 * df$precision * df$recall) / (df$precision + df$recall)
-	    df05 <- df[which(fscores == max(fscores))[1],]
-	    print("df05")
-	    print(df05)
-	    barplot( c(TP=df05$true_positives, FP=df05$false_positives, TN=df05$true_negatives, FN=df05$false_negatives) )
-	  })
-	  
-	output$table4 <- renderTable({
-	    df <- bq_ops()$ROCTable
-	    fscores <- (2 * df$precision * df$recall) / (df$precision + df$recall)
-	    df05 <- cbind(df[which(fscores == max(fscores))[1],], data.frame(Fscore=max(fscores)))
-	    df05
-	  })
-	  
-	output$table3 <- renderTable({
-	    weightsdf <- bq_ops()$WeightsTable
-	    weightsdf[order(abs(weightsdf$weight), decreasing = T),
-	              ]
-	  },
-	  caption = "Gene Weights",
-	  caption.placement = getOption("xtable.caption.placement", "top"), 
-	  caption.width = getOption("xtable.caption.width", NULL)
-	  )
-	  
-	output$table2 <- renderTable({
-	    bq_ops()$FeatureResults
-	  })
+    output$modelname <- renderText({
+        bq_ops()$ModelName
+      })
+      
+    output$table1 <- renderTable({
+        bq_ops()$TrainingResults
+      })
+      
+    output$plot1 <- renderPlot({
+       df <- bq_ops()$ROCTable
+       qplot(x=df$recall, y=df$precision, main="Precision-Recall Curve", xlab='recall', ylab="precision", ylim=c(0,1), xlim=c(0,1), geom="line")
+      })
+      
+    output$plot2 <- renderPlot({
+        df <- bq_ops()$ROCTable
+        fscores <- (2 * df$precision * df$recall) / (df$precision + df$recall)
+        df05 <- df[which(fscores == max(fscores))[1],]
+        print("df05")
+        print(df05)
+        barplot( c(TP=df05$true_positives, FP=df05$false_positives, TN=df05$true_negatives, FN=df05$false_negatives) )
+      })
+      
+    output$table4 <- renderTable({
+        df <- bq_ops()$ROCTable
+        fscores <- (2 * df$precision * df$recall) / (df$precision + df$recall)
+        df05 <- cbind(df[which(fscores == max(fscores))[1],], data.frame(Fscore=max(fscores)))
+        df05
+      })
+      
+    output$table3 <- renderTable({
+        weightsdf <- bq_ops()$WeightsTable
+        weightsdf[order(abs(weightsdf$weight), decreasing = T),
+                  ]
+      },
+      caption = "Gene Weights",
+      caption.placement = getOption("xtable.caption.placement", "top"), 
+      caption.width = getOption("xtable.caption.width", NULL)
+      )
+      
+    output$table2 <- renderTable({
+        bq_ops()$FeatureResults
+      })
 
 
 Let's take a look at an example. You can of course try the app `here  <https://isb-cgc.shinyapps.io/GoogML_Shiny/>`_.
@@ -520,13 +520,11 @@ Next we have the metrics that are found when using the threshold that maximizes 
   :scale: 50
   :align: center
 
-
 Then we have the list of features (genes) with the model weights.
 
 .. figure:: query_figs/aug/qotm_aug_fig4.png
   :scale: 50
   :align: center
-
 
 Finally, we have the record of iterative model fitting. 
 
@@ -537,8 +535,7 @@ Finally, we have the record of iterative model fitting.
 
 That's it for this month. I hope you found this informative, and can see how to integrate model building and 
 exploration within an interactive web environment. This sort of tool would allow anyone with some familiarity 
-of gene sets and TCGA to build and reason about models. Which is pretty cool!
-
+of gene sets and TCGA to build and reason about models. And we think that's pretty cool!
 
 
 .. _July:
