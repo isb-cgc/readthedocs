@@ -201,13 +201,20 @@ Select "Register Service Account" from the drop down menu on the left of the GCP
 .. image:: RegisterAServiceAccountFirstScreen.PNG
    :scale: 50
    :align: center
-   
+
+
+If you receive the error message saying, "Service Account ID '865895716826-compute@developer.gserviceaccount.com' wasn't found in Google Cloud Project silent-elevator-216118. Please double-check the service account ID, and be sure that Compute Engine has been enabled for this project." This error message is usually from using a brand new Google Cloud Project and not having the Compute Engine enabled for the GCP, please go `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DIYWorkshop.html#enabling-required-google-apis>`_ for more information on how to enable all APIs needed to work on a Google Cloud Project.
+
+.. image:: EnableComputeEngineError.PNG
+   :scale: 50
+   :align: center
+
 Once you click the "Button" at the bottom of the page, you will be presented with a list of the users of the GCP project, if they have registered with ISB-CGC through the Web Application, if they have an eRA Commons ID (or NIH ID) registered with ISB-CGC, and if they are authorized to use the selected controlled access dataset (see screenshot below).  All columns MUST have a green check-mark in them for each user before your service account can be registered.
 
 .. image:: ServiceAcctRegTable.png
    :scale: 50
    :align: center
-   
+
 If all the requirements for registering a service account are met, the account will be registered.  If not, the service account will only be registered for Open Datasets.  The final screen below shows the final registered data set (shown by selecting the drop-down menu beside the service account count highlighted in red).
 
 .. image:: ServiceAcctRegSuccess.png
