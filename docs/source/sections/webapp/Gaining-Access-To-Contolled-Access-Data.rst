@@ -203,7 +203,7 @@ Select "Register Service Account" from the drop down menu on the left of the GCP
    :align: center
 
 
-If you receive the error message saying, "Service Account ID '865895716826-compute@developer.gserviceaccount.com' wasn't found in Google Cloud Project silent-elevator-216118. Please double-check the service account ID, and be sure that Compute Engine has been enabled for this project." This error message is usually from using a brand new Google Cloud Project and not having the Compute Engine enabled for the GCP, please go `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DIYWorkshop.html#enabling-required-google-apis>`_ for more information on how to enable all APIs needed to work on a Google Cloud Project.
+If you receive the error message saying, "Service Account ID '865895716826-compute@developer.gserviceaccount.com' wasn't found in Google Cloud Project silent-elevator-216118. Please double-check the service account ID, and be sure that Compute Engine has been enabled for this project." This error message is usually from using a brand new Google Cloud Project and not having the Compute Engine API enabled for the GCP, please go `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DIYWorkshop.html#enabling-required-google-apis>`_ for more information on how to enable all APIs needed to work on a Google Cloud Project.
 
 .. image:: EnableComputeEngineError.PNG
    :scale: 50
