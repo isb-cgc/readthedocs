@@ -116,12 +116,12 @@ other additional information for each table, preview its contents, *etc*.
     targeted queries will need to scan less data (and will therefore be cheaper).
 
 
-  + `miRNAseq_Expression_r11_180816 <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.miRNAseq_Expression_r11_180816>`_:
+  + `miRNAseq_Expression <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.miRNAseq_Expression>`_:
     This table contains **all** of the miRNAseq stem-loop expression data for all TCGA samples assayed on either the 
     Illumina GA or Illumina HiSeq platforms.  
     
 
-  + `miRNA_Isoform_Expression_r11_180816 <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.miRNA_Isoform_Expression_r11_180816>`_:
+  + `miRNAseq_Isoform_Expression <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.miRNAseq_Isoform_Expression>`_:
     This table contains **all** of the miRNA isoform-level expression (aka isomiR) data for all
     TCGA samples assayed on either the Illumina GA or Illumina HiSeq platforms.  
     
