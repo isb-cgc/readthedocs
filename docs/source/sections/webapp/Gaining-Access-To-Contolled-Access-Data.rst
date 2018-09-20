@@ -48,7 +48,14 @@ You will then see the following page:
 .. image:: NIHAssociationPage.png
    :scale: 50
    :align: center
-   
+
+
+You will see a pop up describing all the steps needed to link you NIH Identity to the Data Commons Framework(DCF).
+
+.. image:: LinkNIHIDInstructions.PNG
+   :scale: 50
+   :align: center
+
 Now you need to associate your Google identity with your NIH identity.  (Your NIH identity is the one associated
 with your dbGaP application and authorization to work with controlled data.) 
 To do this, select the "Associate with eRA Commons Account" link (highlighted in diagram above, and labeled A).  
@@ -62,11 +69,19 @@ If you have an eRA identification, use this to sign in through panel A (see exam
 If you have an NIH PIV card, use that to sign in through panel B on this page (see above).  
 Once you have been authenticated by NIH, and your NIH identity has been verified to be on
 the current dbGaP whitelist, you will have access to controlled data for 24 hours.  
-(To renew your access, you will need to repeat this process.)
 
-.. image:: LogInandUnlink.png
+.. image:: Gen3authPage.PNG
    :scale: 50
    :align: center
+   
+
+Select the Yes, I Authorize button at the bottom right of the page to authorize the Data Commons Framework to authorize your Google identity with controlled data.
+
+.. image:: datacommons.ioLogIn.PNG
+   :scale: 50
+   :align: center
+
+Select the email you used to originally log into the ISB-CGC web application to finalize the authorization.
 
 Once logged in through eRA identification you are re-directed to the user details page and given Warning Notice referring to abiding by the rules and regulations provided by the DUCA Use Agreement.  Please refer to image below.
 
@@ -141,7 +156,9 @@ Requirements for Registering a Google Cloud Project Service Account
 --------------------------------------------------------------------
 To be able to register your GCP Project and at least one service account to access controlled data the following must all be true:
 
-- You must be an **owner** of the GCP project (because you will need to add an ISB-CGC service account as a new project member)
+- You must be an **owner** of the GCP project (because you will need to add an ISB-CGC service account as a new project member and a DCF service account as a new project member)
+ - 907668440978-oskt05du3ao083cke14641u35deokgjj@developer.gserviceaccount.com
+ - fence-service@dcf-prod.iam.gserviceaccount.com
 - At any time, ALL members of the project MUST be authorized to use the data set (*ie* be a registered dbGaP "PI" or "downloader") (see dbGap Data Access `Request Portal <http://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login>`_, and `Understanding Data Security <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/data/data2/TCGA_Data_Security.html>`_ for more details).
 - All members of the project have signed in to the ISB-CGC Web App *at least once*
 - All members of the project have authenticated via the NIH login page and thereby linked their NIH identity to their Google identity
@@ -175,6 +192,13 @@ Please fill out the form following the instructions that are provided.  You can 
    :scale: 50
    :align: center
    
+
+Please be sure to add both service accounts listed below. If you don't add both service accounts you will run into issues viewing the controlled data in ISB-CGC.
+
+.. image:: RegisterServiceAccountsList.PNG
+   :scale: 50
+   :align: center
+
 Once you have completed these steps you will be presented at the bottom of the same page a listing of the members of your GCP you registering (see screenshot below):
 
 .. image:: GCPMembers.png
@@ -193,19 +217,13 @@ Select "Register Service Account" from the drop down menu on the left of the GCP
    :scale: 50
    :align: center
 
-If you receive the error message saying, "Service Account ID '865895716826-compute@developer.gserviceaccount.com' wasn't found in Google Cloud Project silent-elevator-216118. Please double-check the service account ID, and be sure that Compute Engine has been enabled for this project." This error message is usually from using a brand new Google Cloud Project and not having the Compute Engine API enabled for the GCP, please go `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DIYWorkshop.html#enabling-required-google-apis>`_ for more information on how to enable all APIs needed to work on a Google Cloud Project.
-
-.. image:: EnableComputeEngineError.PNG
-   :scale: 50
-   :align: center
-
 
 Once you click the "Button" at the bottom of the page, you will be presented with a list of the users of the GCP project, if they have registered with ISB-CGC through the Web Application, if they have an eRA Commons ID (or NIH ID) registered with ISB-CGC, and if they are authorized to use the selected controlled access dataset (see screenshot below).  All columns MUST have a green check-mark in them for each user before your service account can be registered.
 
 .. image:: ServiceAcctRegTable.png
    :scale: 50
    :align: center
-   
+
 If all the requirements for registering a service account are met, the account will be registered.  If not, the service account will only be registered for Open Datasets.  The final screen below shows the final registered data set (shown by selecting the drop-down menu beside the service account count highlighted in red).
 
 .. image:: ServiceAcctRegSuccess.png
