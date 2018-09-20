@@ -3,7 +3,7 @@ Web-App Release Notes
 *********************
 
 
-* **September 20, 2018**
+* **September 20, 2018** `v3.14 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.14>`_
 
   **Please Note:** Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
   
@@ -15,6 +15,7 @@ Web-App Release Notes
    - You will now need to log into the Data Commons Framework to be able to access controlled data. 
    
   Bug Fixes
+  
    - API endpoint cohort.creation will no longer include NULL values in sample counts when cohort is created. 
    - On the File Browser tab using filter option NA will now return all entries associated to it. 
    - Program TCGA and TARGET have new miRNA based on the GDC release 11 is now available in Google BigQuery and for plotting.
@@ -33,7 +34,7 @@ Web-App Release Notes
    - When using a workbook, a gene with symbol “_” will produce a error message saying, “There was an error retrieving plot data.  Please try again.” 
 
 
-* **July 31, 2018**
+* **July 31, 2018** `v3.13 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.13>`_
 
   **Please Note:** Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
   
