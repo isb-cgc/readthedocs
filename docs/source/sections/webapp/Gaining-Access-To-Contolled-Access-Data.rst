@@ -83,10 +83,6 @@ Select the Yes, I Authorize button at the bottom right of the page to authorize 
 
 Select the email you used to originally log into the ISB-CGC web application to finalize the authorization.
 
-.. image:: LogInandUnlink.png
-   :scale: 50
-   :align: center
-
 Once logged in through eRA identification you are re-directed to the user details page and given Warning Notice referring to abiding by the rules and regulations provided by the DUCA Use Agreement.  Please refer to image below.
 
 .. image:: warningNotice.png
