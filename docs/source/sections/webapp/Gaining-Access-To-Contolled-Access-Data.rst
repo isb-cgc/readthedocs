@@ -217,6 +217,7 @@ Select "Register Service Account" from the drop down menu on the left of the GCP
    :scale: 50
    :align: center
 
+
 Once you click the "Button" at the bottom of the page, you will be presented with a list of the users of the GCP project, if they have registered with ISB-CGC through the Web Application, if they have an eRA Commons ID (or NIH ID) registered with ISB-CGC, and if they are authorized to use the selected controlled access dataset (see screenshot below).  All columns MUST have a green check-mark in them for each user before your service account can be registered.
 
 .. image:: ServiceAcctRegTable.png
