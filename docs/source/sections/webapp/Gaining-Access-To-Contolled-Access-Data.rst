@@ -217,8 +217,7 @@ Select "Register Service Account" from the drop down menu on the left of the GCP
    :scale: 50
    :align: center
 
-If you recieve the error message listed below, this signifies you need to enable the Default Compute Engine API for your Google Project.  FOr more information on how to enable all the API's you will need please go `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DIYWorkshop.html#enabling-required-google-apis>`_
-
+If you recieve the error message listed below, this signifies you need to enable the Default Compute Engine API for your Google Cloud Project.  For more information on how to enable all the API's you will need to work on a Google Cloud Project please go `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DIYWorkshop.html#enabling-required-google-apis>`_.
 
 .. image:: EnableComputeEngineError.PNG
    :scale: 50
