@@ -47,13 +47,13 @@ As of July 2018 Google has unfortunately placed https://isb-cgc.appspot.com/ on 
    :scale: 50
    :align: center
 
-If you have never used the ISB-CGC web application before when trying to view the IGV browser you will see the "This App Isn't Verfied" error message. To begin the process to adding ISB-CGC to the list of approved sites please select Advanced highlighted in green.
+If you have never used the ISB-CGC web application before when trying to view the IGV browser you will see the "This App Isn't Verified" error message. To begin the process to adding ISB-CGC to the list of approved sites please select Advanced highlighted in green.
 
 .. image:: selectedAdvanceOption.PNG
    :scale: 50
    :align: center
 
-Selecting the Go to isb-cgc.appspot.com(unsafe) option highligted in green above will begin the process for approving ISB-CGC to be used as a third party site.
+Selecting the Go to isb-cgc.appspot.com(unsafe) option highlighted in green above will begin the process for approving ISB-CGC to be used as a third party site.
 
 
 .. image:: AllowISB-CGCscreen.PNG
