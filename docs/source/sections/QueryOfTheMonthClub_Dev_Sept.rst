@@ -185,11 +185,11 @@ is done by using the googleAuthR package. See below for an example of working wi
   library(googleAuthR)
   gar_gce_auth()
 
-  # At this point, authorization is done, and a token has been created.
-  # (function output) Token cache file: .httr-oauth
 
-  # now we select the bucket we want to read from by setting a environment variable.
-  Sys.setenv("GCS_DEFAULT_BUCKET" = "gibbs_bucket_nov162016")
+At this point, authorization is done, and a token has been created. The function outputs: "Token cache file: .httr-oauth".
+
+
+.. code-block:: r
 
   # now we load up the cloud storage package and list the buckets
   library(googleCloudStorageR)
@@ -199,6 +199,14 @@ is done by using the googleAuthR package. See below for an example of working wi
   googleCloudStorageR::gcs_global_bucket("gibbs_bucket_nov162016")
 
   ## and get a list of objects in this bucket default bucket
+
+  # we can also select the default bucket by setting a environment variable.
+  Sys.setenv("GCS_DEFAULT_BUCKET" = "gibbs_bucket_nov162016")
+
+
+Now we're ready to start accessing our buckets!
+
+.. code-block:: r
 
   objects <- gcs_list_objects()
 
@@ -224,6 +232,11 @@ is done by using the googleAuthR package. See below for an example of working wi
   gcs_get_object("catter_input.txt", saveToDisk = "catter_downloaded.csv")
 
 
+Great, now to move files back to the bucket.
+
+
+.. code-block:: r
+
   dat <- read.table('catter_downloaded.csv', header=T)
   # saved as cat_plot.png
 
@@ -232,7 +245,7 @@ is done by using the googleAuthR package. See below for an example of working wi
 
 
 So, you can see how easy it is to startup a new Rstudio server (takes just a few seconds) 
-and start reading and writing to buckets. When you're done, you can either stop the VM,
+and start reading and writing to buckets. When you're done, you can stop the VM.
 
 .. code-block:: r
 
@@ -251,6 +264,125 @@ Next we're going to start up a set of VMs, link them together as a cluster, and 
 We're still going to use googleComputeEngineR to start up VMs, keeping them in a list, and 
 then using the future package to create the cluster (https://cran.r-project.org/web/packages/future/index.html).
 
+.. code-block:: r
+
+  # https://cloudyr.github.io/googleComputeEngineR/articles/massive-parallel.html
+  # Doing init like: https://cloudyr.github.io/googleComputeEngineR/articles/installation-and-authentication.html
+
+  library(googleComputeEngineR) ## using the dev version from github
+  library(future)
+
+  ## names for your cluster
+  vm_names <- c("vm1x","vm2x","vm3x")
+
+  ## create the cluster using custom docker image
+  ## creates jobs that are creating VMs in background
+  jobs <- lapply(vm_names, function(x) {
+      gce_vm_template(template = "r-base",
+                      predefined_type = "n1-standard-1",
+                      name = x,
+                      disk_size_gb = 15,
+                      wait = FALSE)
+                      })
+
+
+Now, since we set wait = False, we call the function and then we get back control of the environment.
+
+.. 
+
+  2018-09-28 17:23:11> Returning the startup job, not the VM instance.
+  2018-09-28 17:23:14> Returning the startup job, not the VM instance.
+  2018-09-28 17:23:16> Returning the startup job, not the VM instance.
+  >
+  > jobs
+  [[1]]
+  ==Zone Operation insert :  PENDING
+  Started:  2018-09-28 14:23:09
+  [[2]]
+  ==Zone Operation insert :  PENDING
+  Started:  2018-09-28 14:23:11
+  [[3]]
+  ==Zone Operation insert :  PENDING
+  Started:  2018-09-28 14:23:14
+
+
+The jobs object is a list, which we'll convert to a list of VM objects. Then we can apply functions to that 
+list of VMs, in order to (for example) shut them all down.
+
+.. code-block:: r
+
+  ## wait for all the jobs to complete and VMs are ready
+  vms <- lapply(jobs, gce_wait)
+
+  ## get the VM objects
+  vms <- lapply(vm_names, gce_vm)
+
+  ## set up SSH for the VMs
+  vms <- lapply(vms, gce_ssh_setup)
+
+
+Now for creating the cluster! This part is somewhat tricky, and at times seems to flop. 
+If it doesn't work, then just try again.
+
+This is cool: I've created my own small docker image and pushed it to docker hub. When
+building the cluster, we are able to start up those docker images in each VM in the cluster.
+This gives us control over what software is present on each worker node.
+
+The docker file is found at:  https://hub.docker.com/r/gibbsdavidl/googlesmallr/
+
+
+.. code-block:: r
+
+  ## the Rscript command that will run in the cluster
+  ## customise as needed, this for example sets shared RAM to 13GB
+  my_rscript <- c("docker", 
+                  "run", c("--net=host","--shm-size=8G"),
+                  "gibbsdavidl/googlesmallr:latest", 
+                  "Rscript")
+
+  ## create the future cluster
+  plan(cluster, 
+       workers = as.cluster(vms, 
+                            docker_image="gibbsdavidl/googlesmallr:latest",
+                            rscript=my_rscript)
+       )
+
+
+OK, now the cluster should be alive and waiting for something to do. You can go and see the VMs in your
+google cloud console. 
+
+The task will be to read a file from our bucket and report the size of the table.
+
+.. code-block:: r
+
+  ## test out if it's possible to access buckets.
+  work_chunks <- function(chunk){
+
+    # first we'll get the worker node authorized
+    require(googleAuthR)
+    require(googleCloudStorageR)
+    googleAuthR::gar_gce_auth()
+
+    # then we'll point to the bucket
+    gcs_global_bucket("gibbs_bucket_nov162016")
+
+    # and get the object, read it, and report the dimensions.
+    gcs_get_object("catter_input.txt", saveToDisk = "catter_downloaded.csv")
+    dat <- read.table('catter_downloaded.csv', header=T)
+    return(dim(dat))
+  }
+
+
+  # We use the future_lapply to send this function to each VM.
+  system.time(
+    result2 <- future.apply::future_lapply(vm_names, work_chunks)
+  ) 
+
+  #   user  system elapsed
+  #  0.035   0.004   1.155
+
+
+Great! It's very fast to move data around in the google cloud. 
 
 
 
