@@ -181,6 +181,8 @@ is done by using the googleAuthR package. See below for an example of working wi
 
 .. code-block:: r
 
+  ### FROM WITHIN THE RSTUDIO ENVIRONMENT ###
+
   # first we load this library and call the authorization function
   library(googleAuthR)
   gar_gce_auth()
@@ -249,7 +251,10 @@ and start reading and writing to buckets. When you're done, you can stop the VM.
 
 .. code-block:: r
 
+  ### BACK ON YOUR LOCAL MACHINE ###
+
   gce_vm_stop(vm)
+
 
 However, you will still be charged for the disk, but this lets you start it back up anytime to 
 start where you left off.  It's also easy to just write out your files to the bucket, 
@@ -259,7 +264,7 @@ As a note: it's very fast (and free as long as the VMs and buckets are in the sa
 to move data around in the google cloud. 
 
 
-*Part 2* Running R scripts on a cloud-based-cluster.
+*Part 2* Running R functions on a cloud-based-cluster.
 
 
 Next we're going to start up a set of VMs, link them together as a cluster, and submit work to them.
@@ -275,10 +280,10 @@ then using the future package to create the cluster (https://cran.r-project.org/
   library(future)
 
   ## names for your cluster
-  vm_names <- c("vm1x","vm2x","vm3x")
+  vm_names <- c("vm1","vm2","vm3")
 
-  ## create the cluster using custom docker image
   ## creates jobs that are creating VMs in background
+
   jobs <- lapply(vm_names, function(x) {
       gce_vm_template(template = "r-base",
                       predefined_type = "n1-standard-1",
@@ -342,7 +347,7 @@ The docker file is found at:  https://hub.docker.com/r/gibbsdavidl/googlesmallr/
                   "gibbsdavidl/googlesmallr:latest", 
                   "Rscript")
 
-  ## create the future cluster
+  ## create the cluster using custom docker image
   plan(cluster, 
        workers = as.cluster(vms, 
                             docker_image="gibbsdavidl/googlesmallr:latest",
@@ -385,7 +390,7 @@ The task will be to read a file from our bucket and report the size of the table
 
 
 Great! In this example, I used the vm_names to iterate across, but it just as easily
-been a list of data files, or parameter sets. 
+been a list of data files, or a list of parameter sets. 
 
 .. code-block:: r
 
@@ -396,7 +401,6 @@ been a list of data files, or parameter sets.
   result3 <- future.apply::future_lapply(paramList, work_chunks)
 
   ## work_chunks would need an extra parameter in the argument list ##
-
 
 
 I hope these examples help get you in the cloud! Please let me know if you have trouble or have questions.
