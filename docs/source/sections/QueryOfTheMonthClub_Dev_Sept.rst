@@ -127,6 +127,8 @@ and you can give it a name and an role in the project. For simplicity you can se
 has a great deal of permissions, which you may wish to scale back. When you hit the 'create key' blue botton, a json
 file will be downloaded. Guard that key with your life!  
 
+images for logging in
+
 
 OK. Now after starting up R, point your working dir to the directory holding your json key.
 
@@ -161,11 +163,94 @@ How do you get to it? Well, if we exampine the vm object in R, we see:
   1 rstudio-cron-googleauthr-boot-disk PERSISTENT READ_WRITE TRUE       TRUE
 
 
+If we take that External IP, and paste it into our browser. Viola!
 
+image here
+
+Logging in, we get a full Rstudio environment.
+
+To get a file into your VM, see https://support.rstudio.com/hc/en-us/articles/200713893-Uploading-and-Downloading-Files
+
+In the lower right corner, the files panel has an Upload button that let's you select a file or dataset. To download, 
+in the same pane, select 'More' and 'export'.
+
+But what about reading and writing to your google bucket? The first task will be getting the session authorized.
+The Rstudio instance, as started up with googleComputeEngineR, has metadata about the project, and authorization
+is done by using the googleAuthR package. See below for an example of working with buckets.
+
+
+.. code-block:: r
+
+  # first we load this library and call the authorization function
+  library(googleAuthR)
+  gar_gce_auth()
+
+  # At this point, authorization is done, and a token has been created.
+  # (function output) Token cache file: .httr-oauth
+
+  # now we select the bucket we want to read from by setting a environment variable.
+  Sys.setenv("GCS_DEFAULT_BUCKET" = "gibbs_bucket_nov162016")
+
+  # now we load up the cloud storage package and list the buckets
+  library(googleCloudStorageR)
+  googleCloudStorageR::gcs_list_buckets(projectId = 'isb-cgc-02-0001')
+
+  # we can then pick a bucket
+  googleCloudStorageR::gcs_global_bucket("gibbs_bucket_nov162016")
+
+  ## and get a list of objects in this bucket default bucket
+
+  objects <- gcs_list_objects()
+
+  head(objects$name)  # file names
+
+  ## save directly to an R object (warning, don't run out of RAM if its a big object)
+  ## the download type is guessed into an appropriate R object
+
+  parsed_download <- gcs_get_object(objects$name[4]) 
+
+  # this was a .csv file, and it parsed into a tibble
+
+  # or if you already know the name
+  parsed_download <- gcs_get_object("catter_input.txt")
+
+  ## if you want to do your own parsing, set parseObject to FALSE
+  ## use httr::content() to parse afterwards
+  raw_download <- gcs_get_object("catter_input.txt",
+                                 parseObject = FALSE)
+
+  ## Or move from a bucket to a file in your working directory
+  ## parseObject has no effect, it is a httr::content(req, "raw") download
+  gcs_get_object("catter_input.txt", saveToDisk = "catter_downloaded.csv")
+
+
+  dat <- read.table('catter_downloaded.csv', header=T)
+  # saved as cat_plot.png
+
+  ## attempt upload back to the bucket
+  upload_try <- gcs_upload("cat_plot.png")
+
+
+So, you can see how easy it is to startup a new Rstudio server (takes just a few seconds) 
+and start reading and writing to buckets. When you're done, you can either stop the VM,
+
+.. code-block:: r
+
+  gce_vm_stop(vm)
+
+However, you will still be charged for the disk, but this lets you start it back up anytime to 
+start where you left off.  It's also easy to just write out your files to the bucket, 
+and delete the VM.
 
 
 
 *Part 2* Running R scripts on a cloud-based-cluster.
+
+
+Next we're going to start up a set of VMs, link them together as a cluster, and submit work to them.
+We're still going to use googleComputeEngineR to start up VMs, keeping them in a list, and 
+then using the future package to create the cluster (https://cran.r-project.org/web/packages/future/index.html).
+
 
 
 
