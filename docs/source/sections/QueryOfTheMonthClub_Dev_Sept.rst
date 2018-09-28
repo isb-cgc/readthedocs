@@ -255,6 +255,8 @@ However, you will still be charged for the disk, but this lets you start it back
 start where you left off.  It's also easy to just write out your files to the bucket, 
 and delete the VM.
 
+As a note: it's very fast (and free as long as the VMs and buckets are in the same region) 
+to move data around in the google cloud. 
 
 
 *Part 2* Running R scripts on a cloud-based-cluster.
@@ -382,7 +384,22 @@ The task will be to read a file from our bucket and report the size of the table
   #  0.035   0.004   1.155
 
 
-Great! It's very fast to move data around in the google cloud. 
+Great! In this example, I used the vm_names to iterate across, but it just as easily
+been a list of data files, or parameter sets. 
+
+.. code-block:: r
+
+  paramList <- list(
+    P1=c(1,2,3), P2=c(4,5,6), P3=c(7,8,9)
+  )
+
+  result3 <- future.apply::future_lapply(paramList, work_chunks)
+
+  ## work_chunks would need an extra parameter in the argument list ##
+
+
+
+I hope these examples help get you in the cloud! Please let me know if you have trouble or have questions.
 
 
 
