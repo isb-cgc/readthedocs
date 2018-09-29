@@ -410,7 +410,7 @@ The (below) task will be to read a file from our bucket and report the size of t
   ) 
 
 
-..
+::
 
   #   user  system elapsed
   #  0.035   0.004   1.155
