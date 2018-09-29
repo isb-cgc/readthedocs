@@ -96,7 +96,9 @@ option, but it can be challenging for some users to install and use. As an alter
 that make running R scripts easy and straightforward.
 
 
-*Method 1* An RStudio server in the cloud
+*Method 1* 
+
+An RStudio server in the cloud
 
 Super developer, Mark Edmondson (github: MarkEdmondson123), has released a number of very useful packages
 for working in the Google cloud. 
