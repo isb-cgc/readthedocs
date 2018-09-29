@@ -192,9 +192,8 @@ If we copy that External IP, and paste it into our browser. Viola!
 
 After logging in, we get a full Rstudio environment.
 
-To get a file into your VM, see `here <https://support.rstudio.com/hc/en-us/articles/200713893-Uploading-and-Downloading-Files>`_.
-
-In the lower right corner, the files panel has an 'Upload' button that lets you select a file or dataset. To download, 
+To get a `file into your VM <https://support.rstudio.com/hc/en-us/articles/200713893-Uploading-and-Downloading-Files>`_,
+the files panel in the lower right corner has an 'Upload' button that lets you select a file or dataset. To download, 
 in the same pane, select 'More' and 'export'.
 
 But what about reading and writing to your google bucket? To do that, we need to get the session authorized.
