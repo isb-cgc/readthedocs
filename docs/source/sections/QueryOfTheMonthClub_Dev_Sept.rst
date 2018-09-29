@@ -287,7 +287,9 @@ As a note: it's very fast (and free as long as the VMs and buckets are in the sa
 to move data around in the google cloud. 
 
 
-*Part 2* Running R functions on a cloud-based-cluster.
+*Method 2* 
+
+Running R functions on a cloud-based-cluster.
 
 
 Next we're going to start up a set of VMs, link them together as a cluster, and submit work to them.
