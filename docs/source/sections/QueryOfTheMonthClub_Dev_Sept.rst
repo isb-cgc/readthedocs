@@ -89,48 +89,58 @@ September, 2018
 
 **R scripts in the cloud.**
 
-*Intro*
+Recently, I was asked to demonstate how to simply run an R script in the google cloud, so I decided to
+revisit the topic and look for new, easy methods. In the past
+I recommended methods like using dsub (link), which uses the Google Pipelines API. It's still a good 
+option, but it can be challenging for some users to install and use. As an alternative, I have two new (to me) methods 
+that make running R scripts easy and straightforward.
 
-Recently, I was asked to demonstate how to simply run an R script in the google cloud. In the past
-I recommended things like using dsub (link) which uses the Google Pipelines API. It's still a good 
-option, but it can be challenging to install and use for those not familiar with things like
-python virtual environments and docker images. As an alternative, I have two new (to me) methods 
-that make simply running R scripts much easier and straightforward.
 
-Needs: easy for R-people & reads and writes to buckets.
-
-*Part 1* starting an R Studio server
+*Method 1* An RStudio server in the cloud
 
 Super developer, Mark Edmondson (github: MarkEdmondson123), has released a number of very useful packages
 for working in the Google cloud. 
 
 These include:
 
-  * googleAuthR (http://code.markedmondson.me/googleAuthR/)
+  * `googleAuthR <http://code.markedmondson.me/googleAuthR/>`_
 
-  * googleComputeEngineR (https://github.com/cloudyr/googleComputeEngineR)
+  * `googleComputeEngineR <https://github.com/cloudyr/googleComputeEngineR>`_
 
-  * googleCloudStorageR (https://github.com/cloudyr/googleCloudStorageR)
+  * `googleCloudStorageR <https://github.com/cloudyr/googleCloudStorageR>`_
 
-  * bigQueryR (https://github.com/cloudyr/bigQueryR) 
+  * `bigQueryR <https://github.com/cloudyr/bigQueryR>`_ 
 
 
-Using these packages, it becomes super easy and fast to start up an Rstudio server that can acess all 
-the resources within a google project (i.e. read and write to buckets). After a little setup, this is accomplished with a 
-single function call!
+With these packages, it becomes super easy and fast to start up an RStudio server that can acess all 
+the resources within a google project (i.e. read and write to buckets, execute BigQueries). 
 
-The setup involves getting a project key. To do that, and you only need to do this once, log into your google cloud console.
+After a little setup, starting the server is accomplished with a single function call! The setup involves getting a 
+project key. To do that, and you only need to do this once, you'll log into your google cloud console.
 
-Then, use the hamburger menu (upper left corner) to navigate to the APIs and Credentials page. Then find the create 
+Then, use the hamburger menu (upper left corner) to navigate to the 'APIs and Credentials' page. Find the create 
 credentials button, and select 'Service account key'. Under service account, select 'New service account' 
 and you can give it a name and an role in the project. For simplicity you can select the editor role, knowing it 
-has a great deal of permissions, which you may wish to scale back. When you hit the 'create key' blue botton, a json
+has a great deal of permissions, which you may wish to scale back. When you hit the blue 'create key' button, a json
 file will be downloaded. Guard that key with your life!  
 
-images for logging in
+
+.. figure:: query_figs/sept/making_key_1.png
+  :scale: 50
+  :align: center
 
 
-OK. Now after starting up R, point your working dir to the directory holding your json key.
+.. figure:: query_figs/sept/making_key_2.png
+  :scale: 50
+  :align: center
+
+
+.. figure:: query_figs/sept/making_key_3.png
+  :scale: 50
+  :align: center
+
+
+OK. Now, after starting up R, point your working dir to the directory holding your json key.
 
 .. code-block:: r
     
@@ -140,8 +150,8 @@ OK. Now after starting up R, point your working dir to the directory holding you
                 predefined_type = "n1-standard-1",
                 template = "rstudio", 
                 dynamic_image = "gcr.io/gcer-public/google-auth-r-cron-tidy", 
-                username = "daveg", 
-                password = "daveg987654321")
+                username = "myname", 
+                password = "secretpassword321")
 
 
 After calling this function, a message is printed: '2018-09-28 15:48:06> VM running'. What happened? 
@@ -149,6 +159,7 @@ A new VM has been started using a docker image that contains Rstudio server and 
 How do you get to it? Well, if we exampine the vm object in R, we see:
 
 .. 
+
   > vm
   ==Google Compute Engine Instance==
 
@@ -329,7 +340,8 @@ list of VMs, in order to (for example) shut them all down.
 
 
 Now for creating the cluster! This part is somewhat tricky, and at times seems to flop. 
-If it doesn't work, then just try again.
+If the plan function doesn't work, then just try again, the docker pulls already done
+will not pull again.
 
 This is cool: I've created my own small docker image and pushed it to docker hub. When
 building the cluster, we are able to start up those docker images in each VM in the cluster.
@@ -385,8 +397,21 @@ The task will be to read a file from our bucket and report the size of the table
     result2 <- future.apply::future_lapply(vm_names, work_chunks)
   ) 
 
+
+..
+
   #   user  system elapsed
   #  0.035   0.004   1.155
+
+  > result2
+  [[1]]
+  [1] 21  2
+
+  [[2]]
+  [1] 21  2
+
+  [[3]]
+  [1] 21  2
 
 
 Great! In this example, I used the vm_names to iterate across, but it just as easily
