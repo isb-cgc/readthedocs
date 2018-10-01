@@ -24,6 +24,8 @@ Table of Contents
 2018
 ++++
 
+- September_: R scripts in the cloud.
+
 - August_: Using BigQuery ML in a shiny app.
 
 - July_: First look: BigQuery ML.
@@ -78,6 +80,367 @@ Resources_:  Helpful information!
 
 
 -----------------------
+
+
+.. _September:
+
+September, 2018
+###############
+
+**R in the cloud.**
+
+Recently, I was asked to demonstate how to simply run an R script in the google cloud, so I decided to
+revisit the topic and look for new, easy methods. In the past
+I recommended methods like using dsub (link), which uses the Google Pipelines API. It's still a good 
+option, but it can be challenging for some users to install and use. As an alternative, I have two new (to me) methods 
+that make running R scripts easy and straightforward.
+
+*Method 1* 
+
+An RStudio server in the cloud
+
+Super developer, Mark Edmondson (github: MarkEdmondson123), has released a number of very useful packages
+for working in the Google cloud. However, I would advise to work from the development versions in github to 
+get the latest and greatest (see devtools::install_github).
+
+These include:
+
+  * `googleAuthR <http://code.markedmondson.me/googleAuthR/>`_
+
+  * `googleComputeEngineR <https://github.com/cloudyr/googleComputeEngineR>`_
+
+  * `googleCloudStorageR <https://github.com/cloudyr/googleCloudStorageR>`_
+
+  * `bigQueryR <https://github.com/cloudyr/bigQueryR>`_ 
+
+
+Also a couple cloudyr tutorial links: `massively parallel <https://cloudyr.github.io/googleComputeEngineR/articles/massive-parallel.html>`_
+ and `install and auth <https://cloudyr.github.io/googleComputeEngineR/articles/installation-and-authentication.html>`_.
+
+
+With these packages, it becomes super easy and fast to start up an RStudio server that can acess all 
+the resources within a google project (i.e. read and write to buckets, execute BigQueries). 
+
+After a little setup, starting the server is accomplished with a single function call! The setup involves getting a 
+project key. To do that, and you only need to do this once, you'll log into your google cloud console.
+
+Then, use the hamburger menu (upper left corner) to navigate to the 'APIs and Credentials' page. Find the create 
+credentials button, and select 'Service account key'. Under service account, select 'New service account' 
+and you can give it a name and an role in the project. For simplicity you can select the editor role, knowing it 
+has a great deal of permissions, which you may wish to scale back. When you hit the blue 'create key' button, a json
+file will be downloaded. Guard that key with your life!  
+
+
+.. figure:: query_figs/sept/making_key_1.png
+  :scale: 50
+  :align: center
+
+
+.. figure:: query_figs/sept/making_key_2.png
+  :scale: 50
+  :align: center
+
+
+.. figure:: query_figs/sept/making_key_3.png
+  :scale: 50
+  :align: center
+
+
+**OK.**
+
+Now, after starting up R, point your working dir to the directory holding your json key.
+
+.. code-block:: r
+    
+  library(googleComputeEngineR)
+
+  vm <- gce_vm("rstudio-cron-googleauthr", 
+                predefined_type = "n1-standard-1",
+                template = "rstudio", 
+                dynamic_image = "gcr.io/gcer-public/google-auth-r-cron-tidy", 
+                username = "myname", 
+                password = "secretpassword321")
+
+
+After calling this function, a message is printed: '2018-09-28 15:48:06> VM running'. What happened? 
+A new VM has been started using a docker image that contains Rstudio server and all of the tidyverse.
+How do you get to it? Well, if we exampine the vm object in R, we see:
+
+::
+
+  > vm
+  ==Google Compute Engine Instance==
+
+  Name:                rstudio-cron-googleauthr
+  Created:             2018-09-18 13:06:23
+  Machine Type:        n1-standard-1
+  Status:              RUNNING
+  Zone:                us-west1-b
+  External IP:         35.199.153.108
+  Disks:
+                            deviceName       type       mode boot autoDelete
+  1 rstudio-cron-googleauthr-boot-disk PERSISTENT READ_WRITE TRUE       TRUE
+
+
+If we copy that External IP, and paste it into our browser. Viola!
+
+
+.. figure:: query_figs/sept/rstudio_login.png
+  :scale: 50
+  :align: center
+
+
+After logging in, we get a full Rstudio environment.
+
+To get a `file into your VM <https://support.rstudio.com/hc/en-us/articles/200713893-Uploading-and-Downloading-Files>`_,
+the files panel in the lower right corner has an 'Upload' button that lets you select a file or dataset. To download, 
+in the same pane, select 'More' and 'export'.
+
+But what about reading and writing to your google bucket? To do that, we need to get the session authorized.
+The RStudio instance, as started up with googleComputeEngineR, contains metadata about the project, and authorization
+is performed using the googleAuthR package. See below for an example of working with buckets.
+
+
+.. code-block:: r
+
+  ### FROM WITHIN THE RSTUDIO ENVIRONMENT ###
+
+  # first we load this library and call the authorization function
+  library(googleAuthR)
+  gar_gce_auth()
+
+
+At this point, authorization is done, and a token has been created. The function outputs: "Token cache file: .httr-oauth".
+
+
+.. code-block:: r
+
+  # now we load up the cloud storage package and list the buckets
+  library(googleCloudStorageR)
+  googleCloudStorageR::gcs_list_buckets(projectId = 'isb-cgc-02-0001')
+
+  # we can then pick a bucket
+  googleCloudStorageR::gcs_global_bucket("gibbs_bucket_nov162016")
+
+  # we can also select the default bucket by setting a environment variable.
+  Sys.setenv("GCS_DEFAULT_BUCKET" = "gibbs_bucket_nov162016")
+
+
+Now we're ready to start accessing our buckets!
+
+.. code-block:: r
+
+  ## getting a list of objects in the default bucket
+  objects <- gcs_list_objects()
+
+  head(objects$name)  # file names
+
+  ## save directly to an R object (warning, don't run out of RAM if its a big object)
+  ## the download type is guessed into an appropriate R object
+
+  parsed_download <- gcs_get_object(objects$name[4]) 
+
+  # this was a .csv file, and it parsed into a tibble
+
+  # or if you already know the name
+  parsed_download <- gcs_get_object("catter_input.txt")
+
+  ## if you want to do your own parsing, set parseObject to FALSE
+  ## and use httr::content() to parse afterwards
+  raw_download <- gcs_get_object("catter_input.txt",
+                                 parseObject = FALSE)
+
+  ## Or move from a bucket to a file in your working directory
+  ## parseObject has no effect, it is a httr::content(req, "raw") download
+  gcs_get_object("catter_input.txt", saveToDisk = "catter_downloaded.csv")
+
+
+Great, now to move files back to the bucket.
+
+
+.. code-block:: r
+
+  dat <- read.table('catter_downloaded.csv', header=T)
+  # saved as cat_plot.png
+
+  ## attempt upload back to the bucket
+  upload_try <- gcs_upload("cat_plot.png")
+
+
+You can see how easy it is to startup a new Rstudio server (takes just a few seconds) 
+and start reading and writing to buckets. When you're done, you can stop the VM.
+
+
+.. code-block:: r
+
+  ### BACK ON YOUR LOCAL MACHINE ###
+
+  gce_vm_stop(vm)
+
+
+However, you will still be charged for the attached disk, but this lets you resume your session anytime to 
+start where you left off.  It's also easy to just write out your files to the bucket, 
+and delete the VM, which is what I tend towards.
+
+As a note: it's very fast (and free as long as the VMs and buckets are in the same region) 
+to move data around in the google cloud. 
+
+
+*Method 2* 
+
+Running R functions on a cloud-based-cluster.
+
+
+Next we're going to start up a set of VMs, link them together as a cluster, and submit work to them.
+We're still going to use googleComputeEngineR to start up VMs, keeping them in a list, and 
+then using the future package to `create the cluster <https://cran.r-project.org/web/packages/future/index.html>`_.
+
+Here's a couple cloudyr links: `massively parallel <https://cloudyr.github.io/googleComputeEngineR/articles/massive-parallel.html>`_
+ and `install and auth <https://cloudyr.github.io/googleComputeEngineR/articles/installation-and-authentication.html>`_.
+
+.. code-block:: r
+
+  library(googleComputeEngineR) ## using the dev version from github
+  library(future)
+
+  ## names for your cluster
+  vm_names <- c("vm1","vm2","vm3")
+
+  ## creates jobs that are creating VMs in background
+
+  jobs <- lapply(vm_names, function(x) {
+      gce_vm_template(template = "r-base",
+                      predefined_type = "n1-standard-1",
+                      name = x,
+                      disk_size_gb = 15,
+                      wait = FALSE)
+                      })
+
+
+Now, since we set wait = False, we call the function and then we get back control of the environment.
+
+::
+
+  2018-09-28 17:23:11> Returning the startup job, not the VM instance.
+  2018-09-28 17:23:14> Returning the startup job, not the VM instance.
+  2018-09-28 17:23:16> Returning the startup job, not the VM instance.
+  >
+  > jobs
+  [[1]]
+  ==Zone Operation insert :  PENDING
+  Started:  2018-09-28 14:23:09
+  [[2]]
+  ==Zone Operation insert :  PENDING
+  Started:  2018-09-28 14:23:11
+  [[3]]
+  ==Zone Operation insert :  PENDING
+  Started:  2018-09-28 14:23:14
+
+
+The 'jobs' object is a list, which we'll convert to a list of VM objects. Then we can apply functions to that 
+list of VMs, in order to (for example) shut them all down.
+
+.. code-block:: r
+
+  ## wait for all the jobs to complete and VMs are ready
+  vms <- lapply(jobs, gce_wait)
+
+  ## get the VM objects
+  vms <- lapply(vm_names, gce_vm)
+
+  ## set up SSH for the VMs
+  vms <- lapply(vms, gce_ssh_setup)
+
+
+Now for creating the cluster! This part is somewhat tricky, and at times seems to flop. 
+If the plan function doesn't work, then just try again, the docker pulls already done
+will not pull again. A lot of times it takes a couple tries.
+
+This is a cool part(!): I've created my own small docker image and pushed it to docker hub. When
+building the cluster, we're able to start up those docker images in each VM in the cluster.
+This gives us control over what software is present on each worker node.
+
+The docker file is found at:  https://hub.docker.com/r/gibbsdavidl/googlesmallr/
+
+.. code-block:: r
+
+  ## customise as needed, this for example sets shared RAM to 13GB
+  my_rscript <- c("docker", 
+                  "run", c("--net=host","--shm-size=8G"),
+                  "gibbsdavidl/googlesmallr:latest", 
+                  "Rscript")
+
+  ## create the cluster using custom docker image
+  plan(cluster, 
+       workers = as.cluster(vms, 
+                            docker_image="gibbsdavidl/googlesmallr:latest",
+                            rscript=my_rscript)
+       )
+
+
+OK, now the cluster should be alive and waiting for something to do. You can go and see the VMs in your
+google cloud console, monitoring their workloads.
+
+The (below) task will be to read a file from our bucket and report the size of the table.
+
+.. code-block:: r
+
+  ## test out if it's possible to access buckets.
+  work_chunks <- function(chunk){
+
+    # first we'll get the worker node authorized
+    require(googleAuthR)
+    require(googleCloudStorageR)
+    googleAuthR::gar_gce_auth()
+
+    # then we'll point to the bucket
+    gcs_global_bucket("gibbs_bucket_nov162016")
+
+    # and get the object, read it, and report the dimensions.
+    gcs_get_object("catter_input.txt", saveToDisk = "catter_downloaded.csv")
+    dat <- read.table('catter_downloaded.csv', header=T)
+    return(dim(dat))
+  }
+
+
+  # We use the future_lapply to send this function to each VM.
+  system.time(
+    result2 <- future.apply::future_lapply(vm_names, work_chunks)
+  ) 
+
+
+::
+
+  #   user  system elapsed
+  #  0.035   0.004   1.155
+
+  > result2
+  [[1]]
+  [1] 21  2
+
+  [[2]]
+  [1] 21  2
+
+  [[3]]
+  [1] 21  2
+
+
+Great! In this example, I used the vm_names to iterate across, but it could 
+been a list of data files, or a list of parameter sets. 
+
+.. code-block:: r
+
+  paramList <- list(
+    P1=c(1,2,3), P2=c(4,5,6), P3=c(7,8,9)
+  )
+
+  result3 <- future.apply::future_lapply(paramList, work_chunks)
+
+  ## work_chunks would need an extra parameter in the argument list ##
+
+
+I hope these examples help get you in the cloud! Please let me know if you have trouble or have questions.
+
 
 
 .. _August:
