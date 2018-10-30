@@ -138,12 +138,14 @@ But let's suppose we'd like a few worker nodes, to start up that small cluster w
 
 and we get a return message..
 
-..
+::
 
 	Waiting on operation [projects/isb-cgc-02-0001/regions/global/operations/e2b39fb6-e139-3028-b7bc-33e1c1ca352b].
 	Waiting for cluster creation operation...done.
-	Created [https://dataproc.googleapis.com/v1/projects/isb-cgc-02-0001/regions/global/clusters/isb-dataproc-cluster] Cluster placed in zone [us-west1-b].
+	Created [https://dataproc.googleapis.com/v1/projects/my-project-123/regions/global/clusters/cluster-name-here] Cluster placed in zone [us-west1-b].
 
+
+Pay attention to the zone where the cluster lives! 
 
 
 *Scaling Clusters*
@@ -159,13 +161,14 @@ Because clusters can be scaled more than once, you might want to increase/decrea
 	  [--num-workers and/or --num-preemptible-workers] new-number-of-workers
 
 
-### Actually running the scripts ### 
 
-In practice, we can't use the cloud shell to open the jupyter notebook becuase 
-it uses a different ssh tunnelling system. This is a clear case where using datalab is 
-going to be easier in the Google ecosystem.
+*Actually running the scripts*
 
-Turns out (on my Mac) I needed to install the yaml python library.
+Now that we have the VMs running, we need to connect our browser to the notebook (living in the cloud).
+
+When using DataLab, one opens the network-connection to the notebook via the Google Cloud Console and Cloud shell in particular. However, here, we can't use the cloud shell to open the Jupyter notebook because it uses a different ssh tunnelling system. This is a clear case where using DataLab is going to be easier in the Google ecosystem.
+
+Turns out on my Mac, I needed to install the yaml python library.
 
 ::
 
@@ -179,9 +182,9 @@ Then found an error:
 	./dataproc-initialization-actions/jupyter/launch-jupyter-interface.sh: line 75: conditional binary operator expected
 
 
-Turns out that I was using an 'old' version on Bash (even though I'm on Mac OS 10.12.6). Therefore I needed to modify the launcher script, removing the double square bracket where checking of 'X' was done (clearly it had).
+Via github issues, I found out I was using an 'old' version on Bash (even though I'm on Mac OS 10.12.6). Therefore I needed to modify the launcher script, removing the double square bracket where checking of 'X' was done (clearly it had).
 
-I have made this start up script public in a `gist <https://gist.github.com/Gibbsdavidl/b7d85d590b169cce139db29ef9b38b90>`_.
+I have made this start up script public in a `gist <https://gist.github.com/Gibbsdavidl/b7d85d590b169cce139db29ef9b38b90>`_. It would just need to replace the same file in the dataproc-initialization-actions dir.  I have the dataproc-initialization-actions cloned in my working directory.
 
 ::
 	
@@ -199,15 +202,19 @@ And it starts up!
 	Warning: Permanently added 'compute.3445465330215520318' (ECDSA) to the list of known hosts.
 
 
-As a note: the script provided by Google assumes you are on a mac.
-On ubuntu linux, you get an error:
+As I mentioned earlier, the script provided by Google assumes you are on a mac. On Ubuntu linux, you get an error:
 
-..
+
+::
 	./dataproc-initialization-actions/jupyter/launch-jupyter-interface.sh: line 85: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome: No such file or directory
+
+
+It's trying to use the MacOS's application path!
 
 At present, there lacks a good linux script. But essentially, the three commands you need are:
 
-.. 
+
+:: 
 
 	gcloud dataproc clusters describe ${DATAPROC_CLUSTER_NAME}
 
@@ -219,17 +226,19 @@ At present, there lacks a good linux script. But essentially, the three commands
 	  --proxy-server="socks5://localhost:8124" \
 	  --user-data-dir="/tmp/${DATAPROC_CLUSTER_NAME}-m" http://${DATAPROC_CLUSTER_NAME}-m:8124
 
+
 And that should open a chrome browser connection to Jupyter.  Whew!
 
 
 ### Ready for work! ###
 
-We can now start up a new notebook, and under the File menu, select 'save as', and here we can select one
+We can now create a new notebook. To make backups of our notebook, under the File menu, select 'save as', and here we can select one
 of the cloud buckets associated with our project.
 
-Let's try some BigQuery!
 
-First bit of code, we'll import the libraries we need.
+~~Let's try some BigQuery!~~
+
+For the first bit of code, we'll import the libraries we need.
 
 The python client library for the Google cloud can be found `here <https://googleapis.github.io/google-cloud-python/latest/bigquery/index.html>`_.
 
@@ -244,7 +253,7 @@ The python client library for the Google cloud can be found `here <https://googl
 	print("Imports run.")
 
 
-OK, that seemed to work.  Next cell:
+OK! Next cell:
  
 
 .. code-block:: python
