@@ -616,14 +616,14 @@ And now we're ready to start coding our spark job. I have heavily borrowed from 
 If we take a look inside our named bucket, we see that data shards.
 
 .. figure:: query_figs/oct_2018_images/data_stored_in_shards.png
-  :scale: 70
+  :scale: 50
   :align: center
 
 
 Here's what it looked like when I was running the `natality example` given by Google:
 
 .. figure:: query_figs/oct_2018_images/cluster_working_fig.png
-  :scale: 70
+  :scale: 80
   :align: center
 
 
