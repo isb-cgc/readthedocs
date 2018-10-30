@@ -495,16 +495,16 @@ Then we can:
 	import findspark
 	findspark.init()
 
-And now we're ready to start coding our spark job.
+And now we're ready to start coding our spark job. I have heavily borrowed from the examples above..
 
 
 .. code-blocks:: python
 
-	"""Run a linear regression using Apache Spark ML.
+	"""Run a logistic regression using Apache Spark ML.
 
 	In the following PySpark (Spark Python API) code, we take the following actions:
 
-	  * Load a previously created linear regression (BigQuery) input table
+	  * Load a previously created BigQuery input table
 	    into our Cloud Dataproc Spark cluster as an RDD (Resilient
 	    Distributed Dataset)
 	  * Transform the RDD into a Spark Dataframe
@@ -612,44 +612,53 @@ And now we're ready to start coding our spark job.
 	trainingSummary.roc.toPandas().plot.scatter('FPR','TPR')
 
 
-And we have a model with an ROC of:
 
-..
+If we take a look inside our named bucket, we see that data shards.
+
+.. figure:: query_figs/oct_2018_images/data_stored_in_shards.png
+  :scale: 70
+  :align: center
+
+
+Here's what it looked like when I was running the `natality example` given by Google:
+
+.. figure:: query_figs/oct_2018_images/cluster_working_fig.png
+  :scale: 70
+  :align: center
+
+
+When we're all done (it actually takes just an instant in this case), we have a model with an ROC of:
+
+::
 
 	areaUnderROC: 0.9783191586648377
 
 
 The coefficients from the model were:
 
-..
+::
 
 	Coefficients:[50.29267918772197,0.0,0.16224745918590844,-0.31689142394240727]
 	Intercept:-0.9932429393509908
+
 
 So, it looks like only one gene was actually needed for the classification (EGFR).
 
 
 
-# Kill -9 the cluster #
+*Kill -9 the cluster*
 
-gcloud dataproc clusters update cluster-name \
-  --graceful-decommission-timeout="timeout-value" \
-  [--num-workers and/or --num-preemptible-workers]=decreased-number-of-workers
-  other args ...
+As with many other cloudy things, you can kill your cluster in the web console, on on the command line:
 
-  Graceful Decommissioning and Secondary Workers
-The preemptible (secondary) worker group continues to provision or delete workers to reach its expected size even after a cluster scaling operation is marked complete. If you attempt to gracefully decommission a secondary worker and receive an error message similar to the following:
+:: 
 
-"Secondary worker group cannot be modified outside of Cloud Dataproc. If you recently created or updated this cluster, wait a few minutes before gracefully decommissioning to allow all secondary instances to join or leave the cluster. Expected secondary worker group size: x, actual size: y",
-
-wait a few minutes then repeat the graceful decommissioning request.
-
-Also note:
-
-You can forcefully decommission preemptible workers at any time.
-You gracefully decommission primary workers at any time
+	gcloud dataproc clusters update cluster-name \
+	  --graceful-decommission-timeout="timeout-value" \
+	  [--num-workers and/or --num-preemptible-workers]=decreased-number-of-workers
+	  other args ...
 
 
+Hope that was helpful for getting started with Jupyter notebooks! Of course you don't have to use clusters, there's a lot you can do with a single node notebook! If you have some cool examples, I would love to see them!
 
 
 .. _September:
