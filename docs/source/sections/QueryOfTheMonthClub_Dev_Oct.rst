@@ -87,7 +87,7 @@ Resources_:  Helpful information!
 .. _October:
 
 October, 2018
-*
+#############
 
 **Jupyter notebooks and dataproc clusters.**
 
@@ -109,7 +109,7 @@ Find this project on `github <https://github.com/GoogleCloudPlatform/dataproc-in
 But note(!): it's assumed you're on a Mac. Below I have instructions for using linux, but not Windows at this point. 
 
 
-* Single node clusters *
+### Single node clusters ###
 
 If you only want a single VM as the computational platform, then you can start a 'single node cluster'.
 Single Node clusters have dataproc-role set to Master and dataproc-worker-count set to 0. Most of the initialization actions in this repository should work out of the box, as they run only on the master. Actions that run on all nodes of the cluster (such as cloud-sql-proxy) similarly work out of the box.
@@ -121,7 +121,7 @@ To do that we use the 'gcloud dataproc clusters create' command with a special a
 	gcloud dataproc clusters create <<args>> --single-node
 
 
-* Multinode clusters *
+### Multinode clusters ###
 
 ::
 
@@ -138,7 +138,7 @@ Waiting for cluster creation operation...done.
 Created [https://dataproc.googleapis.com/v1/projects/isb-cgc-02-0001/regions/global/clusters/isb-dataproc-cluster] Cluster placed in zone [us-west1-b].
 
 
-* Scaling Clusters *
+### Scaling Clusters ###
 
 https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/scaling-clusters
 
@@ -150,7 +150,7 @@ gcloud dataproc clusters update cluster-name \
   [--num-workers and/or --num-preemptible-workers] new-number-of-workers
 
 
-* Actually running the scripts * 
+### Actually running the scripts ### 
 
 In practice, we can't use the cloud shell to open the jupyter notebook becuase 
 it uses a different ssh tunnelling system. This is a clear case where using datalab is 
@@ -213,7 +213,7 @@ At present, there lacks a good linux script. But essentially, the three commands
 And that should open a chrome browser connection to Jupyter.  Whew!
 
 
-* Ready for work! *
+### Ready for work! ###
 
 We can now start up a new notebook, and under the File menu, select 'save as', and here we can select one
 of the cloud buckets associated with our project.
@@ -443,7 +443,7 @@ Next, I'm going to create a table that's going to be used for input.
 This table is now found in my project at: isb-cgc-02-0001:spark_job.tcga_spark
 
 
-* PySpark *
+### PySpark ###
 
 In this portion, we're working with the following examples:
 
@@ -634,7 +634,7 @@ You gracefully decommission primary workers at any time
 .. _September:
 
 September, 2018
-*
+###############
 
 **R in the cloud.**
 
@@ -752,7 +752,7 @@ is performed using the googleAuthR package. See below for an example of working 
 
 .. code-block:: r
 
-  * FROM WITHIN THE RSTUDIO ENVIRONMENT *
+  ### FROM WITHIN THE RSTUDIO ENVIRONMENT ###
 
   # first we load this library and call the authorization function
   library(googleAuthR)
@@ -822,7 +822,7 @@ and start reading and writing to buckets. When you're done, you can stop the VM.
 
 .. code-block:: r
 
-  * BACK ON YOUR LOCAL MACHINE *
+  ### BACK ON YOUR LOCAL MACHINE ###
 
   gce_vm_stop(vm)
 
@@ -995,7 +995,7 @@ I hope these examples help get you in the cloud! Please let me know if you have 
 .. _August:
 
 August, 2018
-*
+############
 
 **Using BigQuery ML in a Shiny app.**
 
@@ -1453,7 +1453,7 @@ of gene sets and TCGA to build and reason about models. And we think that's pret
 .. _July:
 
 July, 2018
-*#
+##########
 
 **First look: BigQuery ML.**
 
@@ -1903,7 +1903,7 @@ Have you found any good tricks?  If you have, please share them via email or on 
 .. _June:
 
 June, 2018
-*#
+##########
 
 **Processing bam files using WDL, scatter, and Cromwell**
 
@@ -2155,7 +2155,7 @@ google cloud. Not too bad, right?  Were you able to run your own workflow?  Let 
 .. _May:
 
 May, 2018
-*
+#########
 
 **Processing bam files using CWL 'scatter and gather'**
 
@@ -2452,7 +2452,7 @@ Thanks for reading!  Let us know if you have questions or comments!
 .. _April:
 
 April, 2018
-*##
+###########
 
 For the next few months, we're going to be focusing on running
 workflows in the Google cloud, starting with workflows defined with CWL.
@@ -2722,7 +2722,7 @@ Next month we'll continue our exploration of workflows and workflow runners. Let
 .. _March:
 
 March, 2018
-*##
+###########
 
 This month we demonstrate an implementation of a machine learning classifier
 using BigQuery.
@@ -3282,7 +3282,7 @@ and perhaps using more samples. Let me know if you give it a try!
 
 
 February, 2018
-*##
+##############
 
 
 .. figure:: query_figs/feb_screenshot1.png
@@ -3551,7 +3551,7 @@ a hold of us! Thanks!
 .. _January:
 
 January, 2018
-*##
+##############
 
 This month, we're going to implement a common bioinformatics task: gene set
 scoring. In this procedure, we will compare the <joint> expression of a set of genes
@@ -3919,7 +3919,7 @@ take requests!
 .. _December2017:
 
 December, 2017
-*##
+##############
 
 For December we're getting back to BigQuery. And, we've got a good one this month.
 Perhaps you've heard of `The Genotype-Tissue Expression (GTEx) project <https://www.gtexportal.org/home/>`_ ?
@@ -4265,7 +4265,7 @@ Sincerely, the ISB-CGC team.
 .. _November2017:
 
 November, 2017
-*##
+##############
 
 
 This month, we're going to shift topics and talk about running scripts in the cloud.
@@ -4414,7 +4414,7 @@ The exact same procedure could be used to run python or bash scripts.
 .. _October2017:
 
 October, 2017
-*#
+#############
 
 For October, we're going to dive into using Plotly for visualziation in Shiny
 apps. In particular, we're going to implement an interatictive heatmap using
@@ -4697,7 +4697,7 @@ systemsbiology *dot* org.
 .. _September2017:
 
 September, 2017
-*
+###############
 
 Greetings! For September we've implemented a new statistical test: the one-way
 ANOVA. This statistical test can be used to determine whether there is a statistically
@@ -4943,7 +4943,7 @@ from August.  You can find that `here <https://isb-cgc.shinyapps.io/mutstatusexp
 .. _August2017:
 
 August, 2017
-*##
+###########
 
 This month we have been working on a small demo application using BigQuery,
 with a graphical front-end built with
@@ -5266,7 +5266,7 @@ The results for the TCGA-LGG cohort are also quite striking -- go have a look!
 .. _July2017:
 
 July, 2017
-*##
+###########
 
 Way back in December we started talking about the new
 `NCI-GDC Data Portal <https://gdc-portal.nci.nih.gov/>`_
@@ -5539,7 +5539,7 @@ we'll feature you on this page!
 .. _May2017:
 
 May, 2017
-*##
+###########
 
 This month we are going to extend the query from April and focus on estimating the
 distance between samples based on shared mutations in pathways. To clarify, we want to know, given
@@ -6252,7 +6252,7 @@ of tissue, whereas other tissue types share patterns of disrupted pathways.
 .. _April2017:
 
 April, 2017
-*##
+###########
 
 In this month's query, we are going to look at two new data sources. The first
 is the MC3 somatic mutation table, and the second is the
@@ -6761,7 +6761,7 @@ Thanks for joining us this month!
 .. _March2017:
 
 March, 2017
-*##
+###########
 
 This month we're going to compute a pairwise distance matrix and visualize
 it using a heatmap in R. Many methods, such as clustering, depend on having a
@@ -7021,7 +7021,7 @@ Now, let's see that distance matrix in R!
 .. _February2017:
 
 February, 2017
-*##
+##############
 
 
 This month, we explore user defined functions or UDFs. BigQuery allows
@@ -7394,7 +7394,7 @@ Save the cluster assignments to a csv file, and read it into R.
 .. _January2017:
 
 January, 2017
-*#
+#############
 
 This month we'll be comparing Standard SQL and Legacy SQL. It's possible to write
 queries using either form, but as we'll see, using standard SQL can be easier to write
@@ -7757,7 +7757,7 @@ Standard SQL
 
 
 R script
-*##
+########
 
 .. code-block:: r
 
@@ -7810,7 +7810,7 @@ segments, while the "standard" solution takes a simpler approah.
 
 
 December, 2016
-*##
+##############
 
 The ISB-CGC team is starting to add the new hg38-based TCGA data available from the
 `NCI-GDC Data Portal <https://gdc-portal.nci.nih.gov/>`_ and one of the first obvious questions
