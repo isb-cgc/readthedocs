@@ -427,9 +427,9 @@ This is nice, because then we can use these summarized results in visualizations
 OK, for the main work product here, we will define a cohort, save that cohort into a new BigQuery table (not download it!), and run a spark job that fits a model.
 
 
-OK, so first I went to the BQ web interface and created a new dataset 'spark_job'.
+OK, to get started, I popped over to the BQ web interface and created a new dataset in my project: 'spark_job'.
 
-Next, I'm going to create a table that's going to be used for input.
+Then I'm created a table that's going to be used for the spark job input.
 
 .. code-block:: sql
 
@@ -472,25 +472,26 @@ This table is now found in my project at: isb-cgc-02-0001:spark_job.tcga_spark
 
 In this section, we're working with the following examples:
 
-1. `Get python code that gets data from BigQuery and performs some ML <https://cloud.google.com/dataproc/docs/tutorials/bigquery-sparkml>`_ .
+1. `Get some data from BigQuery and perform some ML in spark <https://cloud.google.com/dataproc/docs/tutorials/bigquery-sparkml>`_ .
 
-2. And `this BigQuery connector to Spark example <https://cloud.google.com/dataproc/docs/tutorials/bigquery-connector-spark-example>`_ .
+2. Also `this description of the BigQuery connector to Spark <https://cloud.google.com/dataproc/docs/tutorials/bigquery-connector-spark-example>`_ .
 
-Here's `another resource <https://github.com/jadianes/spark-py-notebooks <https://github.com/jadianes/spark-py-notebooks>`_ for working with python and spark in notebook environments.
+And here's `another resource <https://github.com/jadianes/spark-py-notebooks <https://github.com/jadianes/spark-py-notebooks>`_ for working with python and spark in notebook environments.
 
 
-There's a special package we need in order to get our spark context from within a notebook. This is because typically, we would submit a job to spark using the PySpark interactive environment, or submit the job through the Google 
-cloud console. In the notebook, we can use 'findspark' to connect with pyspark, and after that, instantiate our spark context.
+There's a special package we need to use in order to get our spark context from within a notebook. Typically, we would submit a job to spark using the PySpark interactive environment, or submit the job through the Google cloud console. But in the notebook we can use 'findspark' to connect with pyspark, and after that, instantiate our spark context.
+
+
+.. code-blocks:: python
+	
+	!{sys.executable} -m pip install pyspark findspark
+
+
+Then we can:
 
 
 .. code-blocks:: python
-
-!{sys.executable} -m pip install pyspark findspark
-
-Then we can...
-
-.. code-blocks:: python
-
+	
 	import findspark
 	findspark.init()
 
