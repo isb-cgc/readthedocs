@@ -237,7 +237,7 @@ At present, there lacks a good linux script. But essentially, the three commands
 And that should open a chrome browser connection to Jupyter.  Whew!
 
 
-### Ready for work! ###
+*Ready for work!*
 
 We can now create a new notebook. To make backups of our notebook, under the File menu, select 'save as', and here we can select one
 of the cloud buckets associated with our project.
@@ -420,7 +420,7 @@ This is nice, because then we can use these summarized results in visualizations
 
 
 .. figure:: query_figs/oct_2018_images/matlab_plot_ms_fs.png
-  :scale: 50
+  :scale: 90
   :align: center
 
 
