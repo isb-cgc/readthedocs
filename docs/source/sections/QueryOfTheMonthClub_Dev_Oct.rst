@@ -211,6 +211,7 @@ As I mentioned earlier, the script provided by Google assumes you are on a mac. 
 
 
 ::
+	
 	./dataproc-initialization-actions/jupyter/launch-jupyter-interface.sh: line 85: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome: No such file or directory
 
 
