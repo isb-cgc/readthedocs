@@ -482,7 +482,7 @@ And here's `another resource <https://github.com/jadianes/spark-py-notebooks <ht
 There's a special package we need to use in order to get our spark context from within a notebook. Typically, we would submit a job to spark using the PySpark interactive environment, or submit the job through the Google cloud console. But in the notebook we can use 'findspark' to connect with pyspark, and after that, instantiate our spark context.
 
 
-.. code-blocks:: python
+.. code-block:: python
 	
 	!{sys.executable} -m pip install pyspark findspark
 
@@ -490,7 +490,7 @@ There's a special package we need to use in order to get our spark context from 
 Then we can:
 
 
-.. code-blocks:: python
+.. code-block:: python
 	
 	import findspark
 	findspark.init()
@@ -498,7 +498,7 @@ Then we can:
 And now we're ready to start coding our spark job. I have heavily borrowed from the examples above..
 
 
-.. code-blocks:: python
+.. code-block:: python
 
 	"""Run a logistic regression using Apache Spark ML.
 
