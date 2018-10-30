@@ -145,6 +145,11 @@ and we get a return message..
 	Created [https://dataproc.googleapis.com/v1/projects/my-project-123/regions/global/clusters/cluster-name-here] Cluster placed in zone [us-west1-b].
 
 
+.. figure:: query_figs/oct_2018_images/changes_on_the_vm.png
+  :scale: 50
+  :align: center
+
+
 Pay attention to the zone where the cluster lives! 
 
 
@@ -216,11 +221,12 @@ At present, there lacks a good linux script. But essentially, the three commands
 
 :: 
 
-	gcloud dataproc clusters describe ${DATAPROC_CLUSTER_NAME}
+	gcloud dataproc clusters describe ${DATAPROC_CLUSTER_NAME}  ### this is just FYI ### 
 
-	gcloud compute ssh ${DATAPROC_CLUSTER_NAME}-m \   # note the '-m'
+	gcloud compute ssh ${DATAPROC_CLUSTER_NAME}-m \   # note the '-m' and putting it in the background with '&'
 	  --project=${GOOGLE_PROJECT_ID} \
-	  --zone=${ZONE} -- -D 8124 -N 
+	  --zone=${ZONE} -- -D 8124 -N  \
+	  &
 
 	/usr/bin/google-chrome \
 	  --proxy-server="socks5://localhost:8124" \
@@ -347,20 +353,9 @@ Let's change that query and get the results for all types of cancer in TCGA.
 	results = query_job.result()
 
 
-..
-	TCGA-UCEC : 548 : 0
-	TCGA-CESC : 307 : 0
-	TCGA-OV : 587 : 0
-	TCGA-UCS : 57 : 0
-	TCGA-BRCA : 1085 : 12
-	TCGA-CHOL : 25 : 20
-	TCGA-DLBC : 26 : 22
-	TCGA-STAD : 158 : 285
-	TCGA-LGG : 230 : 285
-	TCGA-ACC : 60 : 32
-	TCGA-SKCM : 180 : 290
-	TCGA-UVM : 35 : 45
-	TCGA-BLCA : 108 : 304
+.. figure:: query_figs/oct_2018_images/data_frame_output.png
+  :scale: 50
+  :align: center
 
 
 OK, that's working great.  But what about Pandas you're saying?
@@ -422,8 +417,12 @@ This is nice, because then we can use these summarized results in visualizations
 	df2.plot.bar();
 
 
+.. figure:: query_figs/sept/matlab_plot_ms_fs.png
+  :scale: 50
+  :align: center
 
-OK, for the main work product here, we will define a cohort, save that cohort into a new BigQuery table (not download it), then run a spark job in producing a model.
+
+OK, for the main work product here, we will define a cohort, save that cohort into a new BigQuery table (not download it!), and run a spark job that fits a model.
 
 
 OK, so first I went to the BQ web interface and created a new dataset 'spark_job'.
@@ -458,27 +457,28 @@ Next, I'm going to create a table that's going to be used for input.
 
 
 
+.. figure:: query_figs/oct_2018_images/spark_input_table.png
+  :scale: 50
+  :align: center
+
+
+
 This table is now found in my project at: isb-cgc-02-0001:spark_job.tcga_spark
 
 
-### PySpark ###
+*PySpark*
 
-In this portion, we're working with the following examples:
+In this section, we're working with the following examples:
 
-1. Get python code that gets data from BigQuery and performs some ML:
-https://cloud.google.com/dataproc/docs/tutorials/bigquery-sparkml
+1. `Get python code that gets data from BigQuery and performs some ML <https://cloud.google.com/dataproc/docs/tutorials/bigquery-sparkml>`_ .
 
-2. And this:
-https://cloud.google.com/dataproc/docs/tutorials/bigquery-connector-spark-example
+2. And `this BigQuery connector to Spark example <https://cloud.google.com/dataproc/docs/tutorials/bigquery-connector-spark-example>`_ .
 
-2. Using Random Forest:  
-https://weiminwang.blog/2016/06/09/pyspark-tutorial-building-a-random-forest-binary-classifier-on-unbalanced-dataset/
+Here's `another resource <https://github.com/jadianes/spark-py-notebooks <https://github.com/jadianes/spark-py-notebooks>`_ for working with python and spark in notebook environments.
 
-Here's a resource for working with python and spark in notebook environments:
-`https://github.com/jadianes/spark-py-notebooks <https://github.com/jadianes/spark-py-notebooks>`_
 
-There's a package we need to use, in order to get our spark context. This is because typically, we would submit a job to spark using the PySpark interactive environment, or submit the job through the Google 
-cloud console. In the notebook, we can use 'findspark' to connect with pyspark, and instantiate our spark context.
+There's a special package we need in order to get our spark context from within a notebook. This is because typically, we would submit a job to spark using the PySpark interactive environment, or submit the job through the Google 
+cloud console. In the notebook, we can use 'findspark' to connect with pyspark, and after that, instantiate our spark context.
 
 
 .. code-blocks:: python
