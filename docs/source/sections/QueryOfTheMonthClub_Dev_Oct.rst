@@ -146,7 +146,7 @@ and we get a return message..
 
 
 .. figure:: query_figs/oct_2018_images/changes_on_the_vm.png
-  :scale: 50
+  :scale: 80
   :align: center
 
 
@@ -211,7 +211,7 @@ As I mentioned earlier, the script provided by Google assumes you are on a mac. 
 
 
 ::
-	
+
 	./dataproc-initialization-actions/jupyter/launch-jupyter-interface.sh: line 85: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome: No such file or directory
 
 
@@ -303,8 +303,8 @@ OK! Next cell:
 	data
 
 
-Ok, we run that cell, and it completes very quickly. Next we'll write a cell
-that's going to get the results.
+Ok, we run that cell, and notice it completes very quickly. Next we'll write a cell
+to get the results.
 
 .. code-block:: python
 	
@@ -312,11 +312,12 @@ that's going to get the results.
     print("{} : {} : {}".format(row.project_short_name, row.F_count, row.M_count))
 
 
-I'm noticing that doing BigQuery in the cloud is seeming really fast to me. The results are 
-almost instant.   "TCGA-BRCA : 1085 : 12"
+..
+
+   "TCGA-BRCA : 1085 : 12"
 
 
-Let's change that query and get the results for all types of cancer in TCGA.
+Let's change that query and get results for all types of cancer in TCGA.
 
 
 .. code-block:: python
@@ -355,7 +356,7 @@ Let's change that query and get the results for all types of cancer in TCGA.
 
 
 .. figure:: query_figs/oct_2018_images/data_frame_output.png
-  :scale: 50
+  :scale: 90
   :align: center
 
 
@@ -418,7 +419,7 @@ This is nice, because then we can use these summarized results in visualizations
 	df2.plot.bar();
 
 
-.. figure:: query_figs/sept/matlab_plot_ms_fs.png
+.. figure:: query_figs/oct_2018_images/matlab_plot_ms_fs.png
   :scale: 50
   :align: center
 
