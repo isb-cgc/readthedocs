@@ -24,7 +24,7 @@ Table of Contents
 2018
 ++++
 
-- October_: Jupyter notebooks & DataProc clusters ... in the cloud.
+- October_: Jupyter notebooks & Dataproc clusters ... in the cloud.
 
 - September_: R scripts in the cloud.
 
@@ -89,22 +89,22 @@ Resources_:  Helpful information!
 October, 2018
 #############
 
-**Jupyter notebooks and dataproc clusters.**
+**Jupyter notebooks and Dataproc clusters.**
 
 
 Switching gears from last month when we learned how to start the RStudio server in the Google cloud, this month we'll
-discover how to quickly start up a Jupyter notebook. Secondly we'll make that notebook the front end of a dataproc cluster, for some serious compute power.
+discover how to quickly start up a Jupyter notebook. Secondly we'll make that notebook the front end of a Dataproc cluster, for some serious compute power.
 
+In this tutorial we'll be following these tutorials: `jupyter notebook <https://cloud.google.com/dataproc/docs/tutorials/>`_and 
+`Dataproc with GCP <https://codelabs.developers.google.com/codelabs/cpb102-dataproc-with-gcp/#3>`_.
 
-In this tutorial we'll be following:
-https://cloud.google.com/dataproc/docs/tutorials/jupyter-notebook
-https://codelabs.developers.google.com/codelabs/cpb102-dataproc-with-gcp/#3
+`Jupyter notebooks <http://www.jupyter.org>`_ are popular as a workspace in data science that makes it easy to share work. From the Jupyter site: "The notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text."
 
+From Google: `Google Dataproc <https://cloud.google.com/dataproc/>`_ is a fast, easy-to-use, fully-managed cloud service for running Apache Spark and Apache Hadoop clusters in a simpler, more cost-efficient way. Operations that used to take hours or days take seconds or minutes instead, and you pay only for the resources you use (with per-second billing). Cloud Dataproc also easily integrates with other Google Cloud Platform (GCP) services, giving you a powerful and complete platform for data processing, analytics and machine learning.
 
-* Starting scripts *
+### Starting scripts ###
 
-Google has written bash scripts to make starting jupyter notebooks easier.
-Find this project on `github <https://github.com/GoogleCloudPlatform/dataproc-initialization-actions/tree/master/jupyter>`_.
+The first task is getting a VM up and running with Jupyter. Google has provided a set of bash scripts to make starting Jupyter notebooks more convenient. You can find this project on `github <https://github.com/GoogleCloudPlatform/dataproc-initialization-actions/tree/master/jupyter>`_.
 
 But note(!): it's assumed you're on a Mac. Below I have instructions for using linux, but not Windows at this point. 
 
@@ -112,9 +112,9 @@ But note(!): it's assumed you're on a Mac. Below I have instructions for using l
 ### Single node clusters ###
 
 If you only want a single VM as the computational platform, then you can start a 'single node cluster'.
-Single Node clusters have dataproc-role set to Master and dataproc-worker-count set to 0. Most of the initialization actions in this repository should work out of the box, as they run only on the master. Actions that run on all nodes of the cluster (such as cloud-sql-proxy) similarly work out of the box.
+Single node clusters have dataproc-role set to 'Master' and the dataproc-worker-count set to 0. Most of the initialization actions in this repository should work out of the box, as they run only on the master. Actions that run on all nodes of the cluster (such as cloud-sql-proxy) similarly work out of the box.
 
-To do that we use the 'gcloud dataproc clusters create' command with a special argument '--single-node'.
+To create a single node cluster, we use the 'gcloud dataproc clusters create' command with a special argument '--single-node'.
 
 ::
 
@@ -133,16 +133,18 @@ To do that we use the 'gcloud dataproc clusters create' command with a special a
 	    --master-machine-type=n1-standard-4
 
 
-Waiting on operation [projects/isb-cgc-02-0001/regions/global/operations/e2b39fb6-e139-3028-b7bc-33e1c1ca352b].
-Waiting for cluster creation operation...done.
-Created [https://dataproc.googleapis.com/v1/projects/isb-cgc-02-0001/regions/global/clusters/isb-dataproc-cluster] Cluster placed in zone [us-west1-b].
+..
+
+	Waiting on operation [projects/isb-cgc-02-0001/regions/global/operations/e2b39fb6-e139-3028-b7bc-33e1c1ca352b].
+	Waiting for cluster creation operation...done.
+	Created [https://dataproc.googleapis.com/v1/projects/isb-cgc-02-0001/regions/global/clusters/isb-dataproc-cluster] Cluster placed in zone [us-west1-b].
+
 
 
 ### Scaling Clusters ###
 
-https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/scaling-clusters
 
-After creating a Cloud Dataproc cluster, you can adjust ("scale") the cluster by increasing or decreasing the number of primary or secondary worker nodes in the cluster. You can scale a Cloud Dataproc cluster at any time, even when jobs are running on the cluster.
+After creating a Cloud Dataproc cluster, you can `scale the cluster <https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/scaling-clusters>`_ by increasing or decreasing the number of primary or secondary worker nodes in the cluster. You can scale a Cloud Dataproc cluster at any time, even when jobs are running on the cluster.
 
 Because clusters can be scaled more than once, you might want to increase/decrease the cluster size at one time, and then decrease/increase the size later.
 
