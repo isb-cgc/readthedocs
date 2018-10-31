@@ -130,21 +130,14 @@ But let's suppose we'd like a few worker nodes, to start up that small cluster w
 
 	gcloud dataproc clusters create isb-dataproc-cluster-test2 \
 	    --metadata "JUPYTER_PORT=8124,JUPYTER_CONDA_PACKAGES=numpy:pandas:scikit-learn" \
-	    --initialization-actions gs://dataproc-initialization-actions/jupyter/jupyter.sh \
+	    --initialization-actions gs://dataproc-initialization-actions/jupyter2/jupyter2.sh \
 	    --properties spark:spark.executorEnv.PYTHONHASHSEED=0,spark:spark.yarn.am.memory=1024m \
 	    --worker-machine-type=n1-standard-4 \
 	    --master-machine-type=n1-standard-4
 
 
-gcloud dataproc clusters create isb-dataproc-cluster-test3 \
-    --metadata "JUPYTER_PORT=8124,JUPYTER_CONDA_PACKAGES=numpy" \
-    --initialization-actions gs://dataproc-initialization-actions/jupyter/jupyter.sh \
-    --properties spark:spark.executorEnv.PYTHONHASHSEED=0,spark:spark.yarn.am.memory=1024m \
-    --worker-machine-type=n1-standard-4 \
-    --master-machine-type=n1-standard-4
-
-
-and we get a return message..
+This, init script *jupyter2/jupyter2.sh* uses python2, and *jupyter/jupyter.sh* uses python3. 
+Running that we get a return message..
 
 ::
 
@@ -187,7 +180,7 @@ Essentially, the two commands you need are:
 
 :: 
 
-	gcloud compute ssh DATAPROC_CLUSTER_NAME-m \   # note the '-m' and putting it in the background with '&'
+	gcloud compute ssh DATAPROC_CLUSTER_NAME-m \
 	  --project=GOOGLE_PROJECT_ID \
 	  --zone=ZONE -- -D 8124 -N  \
 	  &
@@ -197,13 +190,14 @@ Essentially, the two commands you need are:
 	  --user-data-dir="/tmp/DATAPROC_CLUSTER_NAME-m" http://DATAPROC_CLUSTER_NAME-m:8124
 
 
+*note the '-m' and putting it in the background with '&'*
 The first command opens an SSH tunnel to the server, and the second opens a browser window using
 the correct proxy and port. Just replace DATAPROC_CLUSTER_NAME with the name you gave 
 your cluster in the *gcloud dataproc clusters create* call.
 
 And that should open a chrome browser connection to Jupyter.  Whew!
 
-Another useful command is: 
+One more useful command is: 
 
 ::
 
@@ -215,7 +209,7 @@ issues with it. So I'm not sure I would recommend it yet.
 
 
 
-*Ready for work!*
+**Ready for work!**
 
 We can now create a new notebook. To make backups of our notebook, under the File menu, select 'save as', and here we can select one
 of the cloud buckets associated with our project.
@@ -446,7 +440,7 @@ Then I'm created a table that's going to be used for the spark job input.
 This table is now found in my project at: isb-cgc-02-0001:spark_job.tcga_spark
 
 
-*PySpark*
+**PySpark**
 
 In this section, we're working with the following examples:
 
