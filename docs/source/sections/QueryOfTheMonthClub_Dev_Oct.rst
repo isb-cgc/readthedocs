@@ -104,9 +104,9 @@ From Google: `Google Dataproc <https://cloud.google.com/dataproc/>`_ is a fast, 
 
 **Starting scripts**
 
-The first task is getting a VM up and running with Jupyter. Google has provided a set of bash scripts to make starting Jupyter notebooks more convenient. You can find this project on `github <https://github.com/GoogleCloudPlatform/dataproc-initialization-actions/tree/master/jupyter>`_.
-
-But note(!): it's assumed you're on a Mac. Below I have instructions for using linux, but not Windows at this point. 
+The first task is getting a VM up and running with Jupyter. Google has provided a set of bash scripts to make starting Jupyter notebooks more convenient. 
+You can find this project on `github <https://github.com/GoogleCloudPlatform/dataproc-initialization-actions/tree/master/jupyter>`_.
+We will be passing the bucket address of the initialization script to *gcloud dataproc clusters create* to to all the needed installations on the VM.
 
 
 **Single node clusters**
@@ -134,6 +134,14 @@ But let's suppose we'd like a few worker nodes, to start up that small cluster w
 	    --properties spark:spark.executorEnv.PYTHONHASHSEED=0,spark:spark.yarn.am.memory=1024m \
 	    --worker-machine-type=n1-standard-4 \
 	    --master-machine-type=n1-standard-4
+
+
+gcloud dataproc clusters create isb-dataproc-cluster-test3 \
+    --metadata "JUPYTER_PORT=8124,JUPYTER_CONDA_PACKAGES=numpy" \
+    --initialization-actions gs://dataproc-initialization-actions/jupyter/jupyter.sh \
+    --properties spark:spark.executorEnv.PYTHONHASHSEED=0,spark:spark.yarn.am.memory=1024m \
+    --worker-machine-type=n1-standard-4 \
+    --master-machine-type=n1-standard-4
 
 
 and we get a return message..
