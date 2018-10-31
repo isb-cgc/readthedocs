@@ -102,14 +102,14 @@ In this tutorial we'll be following these tutorials: `jupyter notebook <https://
 
 From Google: `Google Dataproc <https://cloud.google.com/dataproc/>`_ is a fast, easy-to-use, fully-managed cloud service for running Apache Spark and Apache Hadoop clusters in a simpler, more cost-efficient way. Operations that used to take hours or days take seconds or minutes instead, and you pay only for the resources you use (with per-second billing). Cloud Dataproc also easily integrates with other Google Cloud Platform (GCP) services, giving you a powerful and complete platform for data processing, analytics and machine learning.
 
-*Starting scripts*
+**Starting scripts**
 
 The first task is getting a VM up and running with Jupyter. Google has provided a set of bash scripts to make starting Jupyter notebooks more convenient. You can find this project on `github <https://github.com/GoogleCloudPlatform/dataproc-initialization-actions/tree/master/jupyter>`_.
 
 But note(!): it's assumed you're on a Mac. Below I have instructions for using linux, but not Windows at this point. 
 
 
-*Single node clusters*
+**Single node clusters**
 
 If you only want a single VM as the computational platform, then you can start a 'single node cluster'.
 Single node clusters have dataproc-role set to 'Master' and the dataproc-worker-count set to 0. Most of the initialization actions in this repository should work out of the box, as they run only on the master. Actions that run on all nodes of the cluster (such as cloud-sql-proxy) similarly work out of the box.
@@ -121,14 +121,14 @@ To create a single node cluster, we use the 'gcloud dataproc clusters create' co
 	gcloud dataproc clusters create <<args>> --single-node
 
 
-*Multinode clusters*
+**Multinode clusters**
 
 
 But let's suppose we'd like a few worker nodes, to start up that small cluster we use the command:
 
 ::
 
-	gcloud dataproc clusters create isb-dataproc-cluster-oct16 \
+	gcloud dataproc clusters create isb-dataproc-cluster-test2 \
 	    --metadata "JUPYTER_PORT=8124,JUPYTER_CONDA_PACKAGES=numpy:pandas:scikit-learn" \
 	    --initialization-actions gs://dataproc-initialization-actions/jupyter/jupyter.sh \
 	    --properties spark:spark.executorEnv.PYTHONHASHSEED=0,spark:spark.yarn.am.memory=1024m \
@@ -153,7 +153,7 @@ and we get a return message..
 Pay attention to the zone where the cluster lives! 
 
 
-*Scaling Clusters*
+**Scaling Clusters**
 
 
 After creating a Cloud Dataproc cluster, you can `scale the cluster <https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/scaling-clusters>`_ by increasing or decreasing the number of primary or secondary worker nodes in the cluster. You can scale a Cloud Dataproc cluster at any time, even when jobs are running on the cluster.
@@ -167,74 +167,44 @@ Because clusters can be scaled more than once, you might want to increase/decrea
 
 
 
-*Actually running the scripts*
+**Connecting to the notebook**
+
+This is actually one of the tricky parts.
 
 Now that we have the VMs running, we need to connect our browser to the notebook (living in the cloud).
 
 When using DataLab, one opens the network-connection to the notebook via the Google Cloud Console and Cloud shell in particular. However, here, we can't use the cloud shell to open the Jupyter notebook because it uses a different ssh tunnelling system. This is a clear case where using DataLab is going to be easier in the Google ecosystem.
 
-Turns out on my Mac, I needed to install the yaml python library.
-
-::
-
-	 pip3 install yaml
-
-
-Then found an error:
-
-::
-	
-	./dataproc-initialization-actions/jupyter/launch-jupyter-interface.sh: line 75: conditional binary operator expected
-
-
-Via github issues, I found out I was using an 'old' version on Bash (even though I'm on Mac OS 10.12.6). Therefore I needed to modify the launcher script, removing the double square bracket where checking of 'X' was done (clearly it had).
-
-I have made this start up script public in a `gist <https://gist.github.com/Gibbsdavidl/b7d85d590b169cce139db29ef9b38b90>`_. It would just need to replace the same file in the dataproc-initialization-actions dir.  I have the dataproc-initialization-actions cloned in my working directory.
-
-::
-	
-	sh dataproc-initialization-actions/jupyter/launch-jupyter-interface.sh -c=isb-dataproc-cluster-oct16 -z=us-west1-b
-
-
-And it starts up!
-
-:: 
-	
-	Using following cluster name: isb-dataproc-cluster-oct16
-	Using following cluster zone: us-west1-b
-	Using following remote dataproc jupyter port: 8124
-
-	Warning: Permanently added 'compute.3445465330215520318' (ECDSA) to the list of known hosts.
-
-
-As I mentioned earlier, the script provided by Google assumes you are on a mac. On Ubuntu linux, you get an error:
-
-
-::
-
-	./dataproc-initialization-actions/jupyter/launch-jupyter-interface.sh: line 85: /Applications/Google Chrome.app/Contents/MacOS/Google Chrome: No such file or directory
-
-
-It's trying to use the MacOS's application path!
-
-At present, there lacks a good linux script. But essentially, the three commands you need are:
-
+Essentially, the two commands you need are:
 
 :: 
 
-	gcloud dataproc clusters describe ${DATAPROC_CLUSTER_NAME}  ### this is just FYI ### 
-
-	gcloud compute ssh ${DATAPROC_CLUSTER_NAME}-m \   # note the '-m' and putting it in the background with '&'
-	  --project=${GOOGLE_PROJECT_ID} \
-	  --zone=${ZONE} -- -D 8124 -N  \
+	gcloud compute ssh DATAPROC_CLUSTER_NAME-m \   # note the '-m' and putting it in the background with '&'
+	  --project=GOOGLE_PROJECT_ID \
+	  --zone=ZONE -- -D 8124 -N  \
 	  &
 
 	/usr/bin/google-chrome \
 	  --proxy-server="socks5://localhost:8124" \
-	  --user-data-dir="/tmp/${DATAPROC_CLUSTER_NAME}-m" http://${DATAPROC_CLUSTER_NAME}-m:8124
+	  --user-data-dir="/tmp/DATAPROC_CLUSTER_NAME-m" http://DATAPROC_CLUSTER_NAME-m:8124
 
+
+The first command opens an SSH tunnel to the server, and the second opens a browser window using
+the correct proxy and port. Just replace DATAPROC_CLUSTER_NAME with the name you gave 
+your cluster in the *gcloud dataproc clusters create* call.
 
 And that should open a chrome browser connection to Jupyter.  Whew!
+
+Another useful command is: 
+
+::
+
+	gcloud dataproc clusters describe ${DATAPROC_CLUSTER_NAME}  ### this is just FYI ### 
+
+
+Now, there is a Google provided *launch-jupyter-interface.sh* script, but I had a lot of 
+issues with it. So I'm not sure I would recommend it yet.
+
 
 
 *Ready for work!*
