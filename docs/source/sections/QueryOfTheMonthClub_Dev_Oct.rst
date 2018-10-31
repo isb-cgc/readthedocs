@@ -129,14 +129,15 @@ But let's suppose we'd like a few worker nodes, to start up that small cluster w
 ::
 
 	gcloud dataproc clusters create isb-dataproc-cluster-test2 \
-	    --metadata "JUPYTER_PORT=8124,JUPYTER_CONDA_PACKAGES=numpy:pandas:scikit-learn" \
-	    --initialization-actions gs://dataproc-initialization-actions/jupyter2/jupyter2.sh \
+	    --metadata "JUPYTER_PORT=8124" \
+	    --initialization-actions gs://dataproc-initialization-actions/jupyter/jupyter.sh \
 	    --properties spark:spark.executorEnv.PYTHONHASHSEED=0,spark:spark.yarn.am.memory=1024m \
 	    --worker-machine-type=n1-standard-4 \
 	    --master-machine-type=n1-standard-4
 
 
 This, init script *jupyter2/jupyter2.sh* uses python2, and *jupyter/jupyter.sh* uses python3. 
+In the metadata, it's also possible to add *JUPYTER_CONDA_PACKAGES=numpy:pandas:scikit-learn*, but at the moment I'm getting some errors with those options.
 Running that we get a return message..
 
 ::
@@ -564,6 +565,17 @@ And now we're ready to start coding our spark job. I have heavily borrowed from 
 	training_data = clean_data.rdd.map(vector_from_inputs).toDF(["label",
 	                                                             "features"])
 	training_data.cache()
+
+
+	# Construct a new LogisticRegression object and fit the training data.
+	# https://spark.apache.org/docs/latest/ml-classification-regression.html#binomial-logistic-regression
+	
+	lr = LogisticRegression(maxIter=5, regParam=0.3, elasticNetParam=0.8)
+	lrModel = lr.fit(training_data)
+	# Print the model summary.
+	print("Coefficients:" + str(lrModel.coefficients))
+	print("Intercept:" + str(lrModel.intercept))
+
 
 	# getting the model performance metrics 
 	trainingSummary = lrModel.summary
