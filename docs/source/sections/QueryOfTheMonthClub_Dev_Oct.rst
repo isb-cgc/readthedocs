@@ -214,6 +214,8 @@ issues with it. So I'm not sure I would recommend it yet.
 We can now create a new notebook. To make backups of our notebook, under the File menu, select 'save as', and here we can select one
 of the cloud buckets associated with our project.
 
+You can download the notebook I made `here <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/source/sections/query_figs/OctoberQOTM.ipynb>`_
+
 
 ~~Let's try some BigQuery!~~
 
