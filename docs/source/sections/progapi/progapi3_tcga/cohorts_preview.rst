@@ -33,6 +33,17 @@ HTTP request::
 
 	POST https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_tcga_api/v3/tcga/cohorts/preview
 
+{
+ "Common": {
+  "project_short_name": [
+   "TCGA-UCS",
+   "TCGA-CESC"
+  ]
+ },
+ "Clinical": {
+  "age_at_diagnosis_gte": 20
+ }
+}
 
 **Parameters**
 

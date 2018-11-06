@@ -30,11 +30,38 @@ Using IGV Desktop Application to View Aligned Reads in Google Cloud Storage
 
 You can also download and use the IGV desktop application to view aligned reads stored BAM files in Google Cloud Storage. To do this, `download <http://www.broadinstitute.org/software/igv/download>`_ the most recent version of IGV.  After launching IGV, go to the "Settings" menu to enable the Google Menu item in the application (`directions <http://googlegenomics.readthedocs.io/en/latest/use_cases/browse_genomic_data/igv.html>`_ on how to do this).
 
-To load BAM files from ISB-CGC Google Cloud Storage, use the "File" > "Load from URL..."  menu item in the IGV application, entering the path to the bam file in GCS.  Paths to BAM files stored by ISB-CGC can be found using the ``cohorts().cloud_storage_file_paths()`` and ``samples().cloud_storage_file_paths()`` APIs described `here <../progapi/Programmatic-API.html#id4>`_.
+To load BAM files from ISB-CGC Google Cloud Storage, use the "File" > "Load from URL..."  menu item in the IGV application, entering the path to the bam file in GCS.  Paths to BAM files stored by ISB-CGC can be found using the ``cohorts().cloud_storage_file_paths()`` and ``samples().cloud_storage_file_paths()`` APIs described `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/progapi3_api/cohorts_cloud_storage_file_paths.html>`_.
 
 
 NOTE:
  - You will only be able to view controlled access sequence files if you have `logged in as a registered dbGaP authorized user <Gaining-Access-To-Contolled-Access-Data.html>`_.
+
+
+App Not Verified from Google Error Message Fix
+-----------------------------------------------
+
+As of July 2018 Google has unfortunately placed https://isb-cgc.appspot.com/ on an unverified application list. We have submitted a request with Google to resolve this issue.  In the meantime below are the steps listed to add ISB-CGC to your list of approved third party sites to gain access.
+
+
+.. image:: AppNotVerified.PNG
+   :scale: 50
+   :align: center
+
+If you have never used the ISB-CGC web application before when trying to view the IGV browser you will see the "This App Isn't Verified" error message. To begin the process to adding ISB-CGC to the list of approved sites please select Advanced highlighted in green.
+
+.. image:: selectedAdvanceOption.PNG
+   :scale: 50
+   :align: center
+
+Selecting the Go to isb-cgc.appspot.com(unsafe) option highlighted in green above will begin the process for approving ISB-CGC to be used as a third party site.
+
+
+.. image:: AllowISB-CGCscreen.PNG
+   :scale: 50
+   :align: center
+   
+Please select the Allow button highlighted in green in the image above to trust ISB-CGC web application.
+
 
 Acknowledgements
 ----------------
