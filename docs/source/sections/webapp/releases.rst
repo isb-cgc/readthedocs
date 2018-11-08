@@ -3,7 +3,78 @@ Web-App Release Notes
 *********************
 
 
-* **June 18, 2018** 
+* **September 20, 2018** `v3.14 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.14>`_
+
+  **Please Note:** Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
+  
+  **Issues resolved in sprint 29 as of 09/20/2018**
+  
+  New Enhancements
+   
+   - When on the File browser page, the case barcode column is included when downloading the file manifest CSV format option. 
+   - You will now need to log into the Data Commons Framework to be able to access controlled data. 
+   
+  Bug Fixes
+  
+   - API endpoint cohort.creation will no longer include NULL values in sample counts when cohort is created. 
+   - On the File Browser tab using filter option NA will now return all entries associated to it. 
+   - Program TCGA and TARGET have new miRNA based on the GDC release 11 is now available in Google BigQuery and for plotting.
+   
+  **Known Issues in Sprint 28 as of 07/31/2018**
+   
+   - Analysis Type: Seq peek Formatting is Elongated on occasion 
+   - If the user shares a Cohort, neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort.
+   - CCLE data cannot be plotted when working with workbooks.  ISB-CGC will resolve this functionality after the GDC formally releases CCLE data. 
+   - When a user duplicates a Worksheet, then tries to implement the log scale, it will not function properly. 
+   - The set operation for existing Cohorts complement is behaving exceptionally slow.
+   - The mouse-over feature is currently disabled for program TARGET with disease code ALL. 
+   - When uploading TARGET files using the cohort barcode creation feature from the GDC, you may get an invalid barcodes error message and unable to upload all the barcodes. 
+   - On the File Browser page for Diagnostic images there is no GDC file UUID associated to them. 
+   - Sharing a workbook with someone else will cause the analysis to reset. 
+   - When using a workbook, a gene with symbol “_” will produce a error message saying, “There was an error retrieving plot data.  Please try again.” 
+
+
+* **July 31, 2018** `v3.13 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.13>`_
+
+  **Please Note:** Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
+  
+  **Issues resolved in sprint 28 as of 07/31/2018**
+  
+  New Enhancements
+  
+   - When working on the File Browser you now have the ability to search by case barcode all on tabs(Pathology Images, Radiology Images, IGV Browser, All Files). 
+   - On the File Browser page for the Pathology Images tab, you can now also filter by Disease Code, Data Format, and Data Type. For the Radiology Images, a disease code was added. 
+   - On the File Browser page, you now have the ability to hide the filters and expand the file list to full width. 
+   - On the File Browser page, if you download the file manifest using the export CSV feature, you will see newly updated file paths.  The older paths are still in existence but will be deleted within the next month. 
+   - On the File Browser page if you use a cohort with CCLE data present, switch to build hg38 and attempt to export you will return a notification no CCLE data will be present for build hg38. 
+   - On the homepage, we have added a carousel scrolling feature for all how-to videos for easy access. 
+   - A description has been added to all video tutorials. 
+   - The menu bar text variable favorites have been updated to be undifferentiated. 
+   
+  Bug Fixes
+  
+   - When creating a cohort using the filter selection option, if the filter options selected add up to zero the save cohort button will be disabled. 
+   - A workbook with user upload data and public data e.g TCGA data will plot any analyses.
+   - For the export to GCS and BigQuery feature the export button will now disable when an invalid name is given. 
+   - On a registered Google Cloud Project detail page, datasets can no longer be duplicated within a project, and bucket names are globally unique (across all projects).
+   
+   
+  **Known Issues in Sprint 28 as of 07/31/2018**
+   
+   - Analysis Type: Seq peek Formatting is Elongated on occasion 
+   - If the user shares a Cohort, neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort. 
+   - CCLE data cannot be plotted when working with workbooks.  ISB-CGC will resolve this functionality after the GDC formally releases CCLE data.
+   - When a user duplicates a Worksheet, then tries to implement the log scale, it will not function properly. 
+   - The set operation for existing Cohorts complement is behaving exceptionally slow.
+   - The mouse-over feature is currently disabled for program TARGET with disease code ALL. 
+   - When uploading TARGET files using the cohort barcode creation feature from the GDC, you may get an invalid barcodes error message and unable to upload all the barcodes. 
+   - API endpoint cohort.creation will include NULL values in sample counts when the cohort is created. 
+   - On the File Browser page for Diagnostic images, there is no GDC file UUID associated to them.
+   - Sharing a workbook with someone else will cause the analysis to reset.
+   - When downloading the CSV file for Radiology Images tab on the File Browser page you will noticed there are no samples barcodes associated to Radiology Images.  ISB-CGC will add a case barocde to the CSV file export table in the next release. 
+
+
+* **June 18, 2018** `v3.12 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.12>`_
 
   **Please Note:** Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
   
