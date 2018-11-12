@@ -2,6 +2,46 @@
 Web-App Release Notes
 *********************
 
+* **November 14, 2018**
+
+  **Please Note:** Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
+  
+  **Issues resolved in sprint 30 as of 11/14/2018**
+  
+  New Enhancements
+  
+   - The ISB-CGC homepage has been updated to provide Funding and Partnership information, and the About Us section is now hidden by default. 
+   - An introduction video has been added to the videos tutorials section. This video covers the user interface, BigQuery and using the API endpoints. 
+   - Funding information has been updated on the ISB-CGC homepage.
+   - On the Register/Adjust a service account page all spacing issues have been addressed. 
+   - On the Register/Adjust a service account pages you are now returned more detailed information.  You will be returned verification results for all users on the Google Cloud Project, datasets permissions verification, registered service account verification results, and all service accounts verification results. 
+   - On the File Browser page, when working with on a cohort with CCLE data included for genomic build hg38 you are displayed a notification message for CSV export button. 
+   - On the File Browser a new column has been added for File Size for all tabs. 
+   - When exporting a large cohort on the File Browser page you are returned a notification message stating cohort export is underway to check BigQuery in a few minutes. 
+   - On the File Browser you are now able to view/download/print Pathology Reports in pdf format. 
+   - On the Pathology Images viewer, the GDC has released multiple versions of slide barcodes. To handle this we now sort the pathology image files by UUID. 
+   - On the the File Browser for Radiology Images, ISB-CGC has upgraded the viewer to run OHIF for better performance times and views. 
+   
+  Bug Fixes
+  
+   - When working on the File Browser  export to BigQuery/Google Cloud Storage entering an invalid name will disable the export feature, even after toggling between datasets. 
+   - When on a Workbook, using an OncoPrint analysis using certain genes with no gene positions will return correct error message stating no internal feature ID was found.
+   - Certain gene names which symbol ‘_’ included will now return data points when working with a Workbook. 
+   
+  
+  Known Issues in Sprint 30 as of 11/14/2018
+  
+   - Analysis Type: Seq peek Formatting is Elongated on occasion 
+   - If the user shares a Cohort, neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort.
+   - CCLE data cannot be plotted when working with workbooks.  ISB-CGC will resolve this functionality after the GDC formally releases CCLE data. 
+   - When a user duplicates a Worksheet, then tries to implement the log scale, it will not function properly. 
+   - The set operation for existing Cohorts complement is behaving exceptionally slow.
+   - The mouse-over feature is currently disabled for program TARGET with disease code ALL. 
+   - When uploading TARGET files using the cohort barcode creation feature from the GDC, you may get an invalid barcodes error message and unable to upload all the barcodes. 
+   - On the File Browser page for Diagnostic images there is no GDC file UUID associated to them. 
+   - Sharing a workbook with someone else will cause the analysis to reset. 
+
+
 
 * **September 20, 2018** `v3.14 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.14>`_
 
