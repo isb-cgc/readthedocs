@@ -177,7 +177,23 @@ Now that we have the VMs running, we need to connect our browser to the notebook
 
 When using DataLab, one opens the network-connection to the notebook via the Google Cloud Console and Cloud shell in particular. However, here, we can't use the cloud shell to open the Jupyter notebook because it uses a different ssh tunnelling system. This is a clear case where using DataLab is going to be easier in the Google ecosystem.
 
-Essentially, the two commands you need are:
+If you log into the cloud console, find Dataproc and click on your cluster, under the cluster name is a link that brings up the 
+commands to create an SSH tunnel to connect to a web interface.
+
+Essentially, the two commands, ON A MAC, are:
+
+:: 
+
+	gcloud compute ssh DATAPROC_CLUSTER_NAME-m \
+	  --project=GOOGLE_PROJECT_ID \
+	  --zone=ZONE -- -D 8124 -N  \
+	  &
+
+	"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+	  --proxy-server="socks5://localhost:8124" \
+	  --user-data-dir="/tmp/DATAPROC_CLUSTER_NAME-m" http://DATAPROC_CLUSTER_NAME-m:8124
+
+The two commands, ON UBUNTU LINUX, are:
 
 :: 
 
