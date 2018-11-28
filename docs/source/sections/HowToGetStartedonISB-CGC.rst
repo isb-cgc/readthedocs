@@ -64,7 +64,7 @@ II. Accessing and analyzing data via BigQuery
  - Every month, ISB-CGC provides an example analysis of cancer genomics data using BigQuery in our `Query of the Month blog <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/QueryOfTheMonthClub.html>`_. 
  
  
- III. Accessing and analyzing data stored in GCS 
+III. Accessing and analyzing data stored in GCS 
 -------------------------------------------------
 
 
@@ -74,8 +74,5 @@ II. Accessing and analyzing data via BigQuery
  - `Summary of data types and format available <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_GCS.html>`_
  - Working with large-scale data hosted by the ISB-CGC in Google Cloud Storage requires some familiarity with tools such as the `Google Cloud SDK <https://cloud.google.com/sdk/>`_, `Google Compute Engine <https://cloud.google.com/compute/>`_, `Virtual Machines <https://en.wikipedia.org/wiki/Virtual_machine>`_ and `Docker <https://www.docker.com/why-docker#/VM>`_.
  - Cheat-sheets and slides on computing in the cloud including how to access files stored on GCS can be found `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DIYWorkshop.html#isb-cancer-genomics-cloud-isb-cgc>`_. 
-
-      
-      
 
 
