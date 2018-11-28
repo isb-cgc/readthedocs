@@ -63,6 +63,7 @@ II. Accessing and analyzing data via BigQuery
  - ISB-CGC provides `tutorials <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DIYWorkshop.html#additional-quickstart-tutorials>`_ and `walkthroughs <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/bigqueryGUI/WalkthroughOfGoogleBigQuery.html>`_ on how to access BigQuery from the `web-UI <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform.html>`_,  `programmatically in R <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/workshop/Workshop_R_tut_v2.html>`_, or through Google’s native Jupyter notebook `Cloud Datalab <https://cloud.google.com/datalab/>`_, and `python <https://github.com/isb-cgc/examples-Python/>`_ examples.
  - Every month, ISB-CGC provides an example analysis of cancer genomics data using BigQuery in our `Query of the Month blog <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/QueryOfTheMonthClub.html>`_. 
  
+ 
  III. Accessing and analyzing data stored in GCS 
 --------------------------------------------------
 
