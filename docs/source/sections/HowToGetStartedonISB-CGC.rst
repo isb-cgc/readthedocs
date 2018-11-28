@@ -65,7 +65,7 @@ II. Accessing and analyzing data via BigQuery
  
  
  III. Accessing and analyzing data stored in GCS 
---------------------------------------------------
+-------------------------------------------------
 
 
  - All open-access data on ISB-CGC are stored in a publically available GCS bucket (gs://isb-cgc-open).
