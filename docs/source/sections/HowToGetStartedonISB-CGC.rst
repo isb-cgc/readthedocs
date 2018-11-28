@@ -67,6 +67,7 @@ II. Accessing and analyzing data via BigQuery
  III. Accessing and analyzing data stored in GCS 
 --------------------------------------------------
 
+
  - All open-access data on ISB-CGC are stored in a publically available GCS bucket (gs://isb-cgc-open).
  - All controlled-access data are stored in Google Cloud Storage (GCS) in their original form as obtained from the GDC. 
  - To access controlled data, users must first be authenticated by NIH (`via the ISB-CGC web-app <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-Contolled-Access-Data.html#interactive-access-to-controlled-data>`_). Upon successful authentication, user dbGaP authorization will be verified. These two steps are required before the user’s Google identity is added to the access control list (ACL) for the controlled data. At this time, this access must be renewed every 24 hours.
