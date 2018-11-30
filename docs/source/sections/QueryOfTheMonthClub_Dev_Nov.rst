@@ -94,6 +94,8 @@ November, 2018
 
 **Transforming VCF (DNA variants) files to BigQuery.**
 
+`tldr; <https://gist.github.com/Gibbsdavidl/dc257e66867a5f3bb8a6c6f351a633c9>`_
+
 Variant calls, as organized in vcf files, are central to almost all
 genomics and bioinformatics analyses. As genomics datasets continue to
 become larger in both size and complexity, as researchers we are often
@@ -159,10 +161,10 @@ it has the binaries and all dependencies pre-installed.
 
 Run the script below and replace the following parameters:
 
--  GOOGLE\_CLOUD\_PROJECT: This is your project ID that contains the
+-  GOOGLE_CLOUD_PROJECT: This is your project ID that contains the
    BigQuery dataset.
 
--  INPUT\_PATTERN: A location in Google Cloud Storage where the VCF file
+-  INPUT_PATTERN: A location in Google Cloud Storage where the VCF file
    are stored. You may specify a single file or provide a pattern to
    load multiple files at once. Please refer to the `*Variant
    Merging* <https://github.com/googlegenomics/gcp-variant-transforms/blob/master/docs/variant_merging.md>`__
@@ -170,63 +172,66 @@ Run the script below and replace the following parameters:
    supports gzip, bzip, and uncompressed VCF formats. However, it runs
    slower for compressed files as they cannot be sharded.
 
--  OUTPUT\_TABLE: The full path to a BigQuery table to store the output.
+-  OUTPUT_TABLE: The full path to a BigQuery table to store the output.
 
--  TEMP\_LOCATION: This can be any folder in Google Cloud Storage that
+-  TEMP_LOCATION: This can be any folder in Google Cloud Storage that
    your project has write access to. It's used to store temporary files
    and logs from the pipeline.
 
 ::
 
-    GOOGLE\_CLOUD\_PROJECT=your\_project\_id
+    GOOGLE_CLOUD_PROJECT=your_project_id
 
-    INPUT\_PATTERN=gs://Path\_to\_your\_vcf\_file
+    INPUT_PATTERN=gs://Path_to_your_vcf_file
 
-    OUTPUT\_TABLE=your\_project\_id:bq\_dataset.bqtable
+    OUTPUT_TABLE=your_project_id:bq_dataset.bqtable
 
-    TEMP\_LOCATION=gs://path\_to\_a\_temp\_folder
+    TEMP_LOCATION=gs://path_to_a_temp_folder
 
-    COMMAND="/opt/gcp\_variant\_transforms/bin/vcf\_to\_bq
-    --infer\_undefined\_headers --allow\_incompatible\_records \\
+    COMMAND="/opt/gcp_variant_transforms/bin/vcf_to_bq
+       --infer_undefined_headers --allow_incompatible_records \\
 
-    --project ${GOOGLE\_CLOUD\_PROJECT} \\
+       --project ${GOOGLE_CLOUD_PROJECT} \\
 
-    --input\_pattern ${INPUT\_PATTERN} \\
+       --input_pattern ${INPUT_PATTERN} \\
 
-    --output\_table ${OUTPUT\_TABLE} \\
+       --output_table ${OUTPUT_TABLE} \\
 
-    --temp\_location ${TEMP\_LOCATION} \\
+       --temp_location ${TEMP_LOCATION} \\
 
-    --job\_name vcf-to-bigquery \\
+       --job_name vcf-to-bigquery \\
 
-    --runner DataflowRunner"
+       --runner DataflowRunner"
 
     gcloud alpha genomics pipelines run \\
 
-    --project "${GOOGLE\_CLOUD\_PROJECT}" \\
+       --project "${GOOGLE_CLOUD_PROJECT}" \\
 
-    --logging "${TEMP\_LOCATION}/runner\_logs\_$(date
-    +%Y%m%d\_%H%M%S).log" \\
+       --logging "${TEMP_LOCATION}/runner_logs_$(date+%Y%m%d_%H%M%S).log" \\
 
-    --service-account-scopes
-    https://www.googleapis.com/auth/cloud-platform \\**
+       --service-account-scopes https://www.googleapis.com/auth/cloud-platform \\**
 
-    --zones us-central1-f \\
+       --zones us-central1-f \\
 
-    --docker-image
-    gcr.io/gcp-variant-transforms/gcp-variant-transforms \\**
+       --docker-image  gcr.io/gcp-variant-transforms/gcp-variant-transforms \\**
 
-    --command-line "${COMMAND}"
+       --command-line "${COMMAND}"
 
 
 Note the operation ID returned by the above script. You can track the
 status of your operation by running:
 
-**gcloud alpha genomics operations describe <operation-id>**
+::
+	
+	gcloud alpha genomics operations describe <operation-id>
+
 
 The resulting transformed vcf table looks something like this:
 
-|image0|
+.. figure:: query_figs/BigQuery_VCF_preview.png
+  :scale: 80
+  :align: center
+
 
 What are all those empty cells? Well, when you upload a vcf file, the
 schema automatically defines a lot of those fields as type:'Record' that
