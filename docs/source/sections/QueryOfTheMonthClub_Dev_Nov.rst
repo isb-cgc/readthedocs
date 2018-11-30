@@ -92,7 +92,7 @@ Resources_:  Helpful information!
 November, 2018
 #############
 
-**Transforming VCF (dna variant) files to BigQuery.**
+**Transforming VCF (DNA variants) files to BigQuery.**
 
 Variant calls, as organized in vcf files, are central to almost all
 genomics and bioinformatics analyses. As genomics datasets continue to
@@ -176,45 +176,48 @@ Run the script below and replace the following parameters:
    your project has write access to. It's used to store temporary files
    and logs from the pipeline.
 
-    **GOOGLE\_CLOUD\_PROJECT=your\_project\_id**
+::
 
-    **INPUT\_PATTERN=gs://Path\_to\_your\_vcf\_file**
+    GOOGLE\_CLOUD\_PROJECT=your\_project\_id
 
-    **OUTPUT\_TABLE=your\_project\_id:bq\_dataset.bqtable**
+    INPUT\_PATTERN=gs://Path\_to\_your\_vcf\_file
 
-    **TEMP\_LOCATION=gs://path\_to\_a\_temp\_folder**
+    OUTPUT\_TABLE=your\_project\_id:bq\_dataset.bqtable
 
-    **COMMAND="/opt/gcp\_variant\_transforms/bin/vcf\_to\_bq
-    --infer\_undefined\_headers --allow\_incompatible\_records \\**
+    TEMP\_LOCATION=gs://path\_to\_a\_temp\_folder
 
-    **--project ${GOOGLE\_CLOUD\_PROJECT} \\**
+    COMMAND="/opt/gcp\_variant\_transforms/bin/vcf\_to\_bq
+    --infer\_undefined\_headers --allow\_incompatible\_records \\
 
-    **--input\_pattern ${INPUT\_PATTERN} \\**
+    --project ${GOOGLE\_CLOUD\_PROJECT} \\
 
-    **--output\_table ${OUTPUT\_TABLE} \\**
+    --input\_pattern ${INPUT\_PATTERN} \\
 
-    **--temp\_location ${TEMP\_LOCATION} \\**
+    --output\_table ${OUTPUT\_TABLE} \\
 
-    **--job\_name vcf-to-bigquery \\**
+    --temp\_location ${TEMP\_LOCATION} \\
 
-    **--runner DataflowRunner"**
+    --job\_name vcf-to-bigquery \\
 
-    **gcloud alpha genomics pipelines run \\**
+    --runner DataflowRunner"
 
-    **--project "${GOOGLE\_CLOUD\_PROJECT}" \\**
+    gcloud alpha genomics pipelines run \\
 
-    **--logging "${TEMP\_LOCATION}/runner\_logs\_$(date
-    +%Y%m%d\_%H%M%S).log" \\**
+    --project "${GOOGLE\_CLOUD\_PROJECT}" \\
 
-    **--service-account-scopes
+    --logging "${TEMP\_LOCATION}/runner\_logs\_$(date
+    +%Y%m%d\_%H%M%S).log" \\
+
+    --service-account-scopes
     https://www.googleapis.com/auth/cloud-platform \\**
 
-    **--zones us-central1-f \\**
+    --zones us-central1-f \\
 
-    **--docker-image
+    --docker-image
     gcr.io/gcp-variant-transforms/gcp-variant-transforms \\**
 
-    **--command-line "${COMMAND}"**
+    --command-line "${COMMAND}"
+
 
 Note the operation ID returned by the above script. You can track the
 status of your operation by running:
