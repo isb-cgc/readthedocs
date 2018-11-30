@@ -24,7 +24,7 @@ Table of Contents
 2018
 ++++
 
-- November_: Tranforming VCFs to BigQuery and working with nested tables
+- November_: Transform VCF (DNA variants) files to BigQuery.
 
 - October_: Jupyter notebooks & Dataproc clusters ... in the cloud.
 
@@ -86,15 +86,195 @@ Resources_:  Helpful information!
 -----------------------
 
 
+
 .. _November:
 
 November, 2018
 #############
 
-**Transforming VCFs to BigQuery and working with nested tables.**
+**Transforming VCF (dna variant) files to BigQuery.**
+
+Variant calls, as organized in vcf files, are central to almost all
+genomics and bioinformatics analyses. As genomics datasets continue to
+become larger in both size and complexity, as researchers we are often
+faced with the scenario of having to gain biological insights from
+hundreds and sometimes even thousands of VCF files at once. Google
+Genomics has developed a tool for transforming and processing VCF files
+in a scalable manner based on `*Apache Beam* <https://beam.apache.org/>`_ using
+`*Dataflow* <https://cloud.google.com/dataflow/>`_ on the Google Cloud
+Platform. Using this transform pipeline, one can load hundreds of
+thousands of VCF files with millions of samples and billions of records
+into BigQuery.
+
+In the near future, ISB-CGC will make available controlled-access VCFs,
+transformed into BigQuery tables, allowing users with approved
+authorization to harness the power of BigQuery to conduct powerful
+variant analyses. This month, we will explore variant analysis in
+BigQuery. We transform a VCF into a BigQuery table and perform queries
+to gain biological insights into variant data.
+
+Here's some helpful links: 
+
+`*Loading and transforming VCF files into
+BigQuery* <https://cloud.google.com/genomics/docs/how-tos/load-variants>`__,
+
+`*Understanding the BigQuery Variants
+Schema* <https://cloud.google.com/genomics/v1/bigquery-variants-schema>`__,
+
+`*Variant Transforms
+github* <https://github.com/googlegenomics/gcp-variant-transforms>`__,
+
+`*Analyzing Variants in
+BigQuery* <https://googlegenomics.readthedocs.io/en/latest/use_cases/analyze_variants/analyze_variants_with_bigquery.html>`__
+
+*To start, you’ll first need to configure your Cloud environment:*
+
+-  A GCP project with billing
+
+-  Enable the `*Cloud Genomics, Compute Engine, Cloud Storage, and Cloud
+   Dataflow
+   APIs* <https://console.cloud.google.com/flows/enableapi?apiid=genomics,storage_component,storage_api,compute_component,dataflow>`__
+
+-  An existing `*BigQuery
+   dataset* <https://cloud.google.com/bigquery/docs/datasets>`__ and a
+   `*Cloud Storage
+   bucket* <https://cloud.google.com/storage/docs/creating-buckets>`__.
+
+*Moving data into your GCS bucket:*
+
+If we have web addresses to the VCF files, we can use the cloud console
+(or gcloud) to transfer files directly to our GCS bucket.
+
+For this exercise, we use a vcf file of chromosome 21 from the public
+1000 genomes project already in GCS into a bigquery table:
+gs://genomics-public-data/1000-genomes-phase-3/vcf
+
+*VCF to BigQuery Transform:*
+
+The easiest way to run the VCF to BigQuery pipeline is to use the
+`*docker* <https://www.docker.com/>`__ image and run it with the
+`*Google Genomics Pipelines
+API* <https://cloud-dot-devsite.googleplex.com/genomics/pipelines>`__ as
+it has the binaries and all dependencies pre-installed.
+
+Run the script below and replace the following parameters:
+
+-  GOOGLE\_CLOUD\_PROJECT: This is your project ID that contains the
+   BigQuery dataset.
+
+-  INPUT\_PATTERN: A location in Google Cloud Storage where the VCF file
+   are stored. You may specify a single file or provide a pattern to
+   load multiple files at once. Please refer to the `*Variant
+   Merging* <https://github.com/googlegenomics/gcp-variant-transforms/blob/master/docs/variant_merging.md>`__
+   documentation if you want to merge samples across files. The pipeline
+   supports gzip, bzip, and uncompressed VCF formats. However, it runs
+   slower for compressed files as they cannot be sharded.
+
+-  OUTPUT\_TABLE: The full path to a BigQuery table to store the output.
+
+-  TEMP\_LOCATION: This can be any folder in Google Cloud Storage that
+   your project has write access to. It's used to store temporary files
+   and logs from the pipeline.
+
+    **GOOGLE\_CLOUD\_PROJECT=your\_project\_id**
+
+    **INPUT\_PATTERN=gs://Path\_to\_your\_vcf\_file**
+
+    **OUTPUT\_TABLE=your\_project\_id:bq\_dataset.bqtable**
+
+    **TEMP\_LOCATION=gs://path\_to\_a\_temp\_folder**
+
+    **COMMAND="/opt/gcp\_variant\_transforms/bin/vcf\_to\_bq
+    --infer\_undefined\_headers --allow\_incompatible\_records \\**
+
+    **--project ${GOOGLE\_CLOUD\_PROJECT} \\**
+
+    **--input\_pattern ${INPUT\_PATTERN} \\**
+
+    **--output\_table ${OUTPUT\_TABLE} \\**
+
+    **--temp\_location ${TEMP\_LOCATION} \\**
+
+    **--job\_name vcf-to-bigquery \\**
+
+    **--runner DataflowRunner"**
+
+    **gcloud alpha genomics pipelines run \\**
+
+    **--project "${GOOGLE\_CLOUD\_PROJECT}" \\**
+
+    **--logging "${TEMP\_LOCATION}/runner\_logs\_$(date
+    +%Y%m%d\_%H%M%S).log" \\**
+
+    **--service-account-scopes
+    https://www.googleapis.com/auth/cloud-platform \\**
+
+    **--zones us-central1-f \\**
+
+    **--docker-image
+    gcr.io/gcp-variant-transforms/gcp-variant-transforms \\**
+
+    **--command-line "${COMMAND}"**
+
+Note the operation ID returned by the above script. You can track the
+status of your operation by running:
+
+**gcloud alpha genomics operations describe <operation-id>**
+
+The resulting transformed vcf table looks something like this:
+
+|image0|
+
+What are all those empty cells? Well, when you upload a vcf file, the
+schema automatically defines a lot of those fields as type:'Record' that
+have mode:'Repeated'. This is compared to more common data types like
+'Integer' or 'String'. A 'Record' or 'Struct' is a data structure that
+brings related items together as a list or a nested set of lists. The
+example given in the Google documentation is:
+
+"In BigQuery, you can preserve the relationship between book and author
+without creating a separate author table. Instead, you create an author
+column, and you nest fields within it such as the author's first name,
+last name, date of birth, and so on. If a book has multiple authors, you
+can make the nested author column repeated."
+`*https://cloud.google.com/bigquery/docs/nested-repeated* <https://cloud.google.com/bigquery/docs/nested-repeated>`__
+
+In our case, we have a single genomic position, and within that position
+we can list different alternate variants. In the example, the reference
+G is replaced by either an A or a C, and you can see this list in the
+column names 'alternate\_bases.alt', 'alternate\_bases.AC', etc.
+
+***Unnesting BigQuery tables to query repeated fields ***
+
+Querying multiple independently repeated fields or calculating the cross
+product of such fields requires "flattening" the BigQuery records. You
+may have seen error messages like "Cannot query the cross product of
+repeated fields ..." from BigQuery in such scenarios. `*Google
+Genomics* <https://github.com/googlegenomics/gcp-variant-transforms/blob/master/docs/flattening_table.md>`__
+describes the workarounds for enabling such queries and exporting a
+flattened BigQuery table that can be directly used in tools that
+required a flattened table structure (e.g. for easier data
+visualization). BigQuery supports fields of type
+`*ARRAY* <https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#array-type>`__
+for lists of values and fields of type
+`*STRUCT* <https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#struct-type>`__
+for hierarchical values. These field types are useful for representing
+rich data without duplication.
+
+***Let’s dive in with some examples! ***
+
+Colaboratory is a free Jupyter notebook environment that requires no
+setup and runs entirely in the cloud! Colaboratory is a great way to
+work on analysis projects with a group. A great feature is that BigQuery
+takes all the heavy-duty compute to the cloud, and lets the notebook be
+used for documentation and visualization. We've provided a notebook with
+all code in shared Colab notebook here:
+
+.. |image0| image:: media/image1.png
+   :width: 6.50000in
+   :height: 1.55556in
 
 
-text here
 
 
 .. _October:
