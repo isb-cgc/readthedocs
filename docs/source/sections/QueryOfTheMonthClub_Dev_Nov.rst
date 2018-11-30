@@ -24,6 +24,8 @@ Table of Contents
 2018
 ++++
 
+- November_: Tranforming VCFs to BigQuery and working with nested tables
+
 - October_: Jupyter notebooks & Dataproc clusters ... in the cloud.
 
 - September_: R scripts in the cloud.
@@ -82,6 +84,17 @@ Resources_:  Helpful information!
 
 
 -----------------------
+
+
+.. _November:
+
+November, 2018
+#############
+
+**Transforming VCFs to BigQuery and working with nested tables.**
+
+
+text here
 
 
 .. _October:
