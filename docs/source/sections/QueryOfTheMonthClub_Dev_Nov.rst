@@ -250,12 +250,12 @@ can make the nested author column repeated."
 In our case, we have a single genomic position, and within that position
 we can list different alternate variants. In the example, the reference
 G is replaced by either an A or a C, and you can see this list in the
-column names 'alternate\_bases.alt', 'alternate\_bases.AC', etc.
+column names 'alternate_bases.alt', 'alternate_bases.AC', etc.
 
 ***Unnesting BigQuery tables to query repeated fields ***
 
 Querying multiple independently repeated fields or calculating the cross
-product of such fields requires "flattening" the BigQuery records. You
+product of such fields requires "flattening" of the BigQuery records. You
 may have seen error messages like "Cannot query the cross product of
 repeated fields ..." from BigQuery in such scenarios. `*Google
 Genomics* <https://github.com/googlegenomics/gcp-variant-transforms/blob/master/docs/flattening_table.md>`__
@@ -269,6 +269,8 @@ for lists of values and fields of type
 for hierarchical values. These field types are useful for representing
 rich data without duplication.
 
+These type of tables can be pretty tricky, so...
+
 ***Let’s dive in with some examples! ***
 
 Colaboratory is a free Jupyter notebook environment that requires no
@@ -278,10 +280,9 @@ takes all the heavy-duty compute to the cloud, and lets the notebook be
 used for documentation and visualization. We've provided a notebook with
 all code in shared Colab notebook here:
 
-.. |image0| image:: media/image1.png
-   :width: 6.50000in
-   :height: 1.55556in
+`BigQuery Colab Notebook <https://gist.github.com/Gibbsdavidl/dc257e66867a5f3bb8a6c6f351a633c9>`_
 
+Thanks and let us know 
 
 
 
