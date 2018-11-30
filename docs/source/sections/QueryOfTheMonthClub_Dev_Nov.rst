@@ -13,6 +13,8 @@ Query of the Month is produced by:
 
 - David L Gibbs (david.gibbs ( ~ at ~ ) systemsbiology ( ~ dot ~ ) org)
 
+- Kawther Abdilleh (kawther.abdilleh  ( ~ at ~ ) gdit (~ dot ~) com)
+
 - Sheila M Reynolds (sheila.reynolds ( ~ at ~ ) systemsbiology ( ~ dot ~ ) org)
 
 
@@ -282,7 +284,7 @@ all code in shared Colab notebook here:
 
 `BigQuery Colab Notebook <https://gist.github.com/Gibbsdavidl/dc257e66867a5f3bb8a6c6f351a633c9>`_
 
-Thanks and let us know 
+Thank you!  Please let know if you have any questions.
 
 
 
