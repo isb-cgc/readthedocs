@@ -282,6 +282,14 @@ takes all the heavy-duty compute to the cloud, and lets the notebook be
 used for documentation and visualization. We've provided a notebook with
 all code in shared Colab notebook here:
 
+Just as with all Google Cloud Platform (GCP) products, to work with BigQuery in the Colaboratory notebook you must first set up a GCP Project. If you're starting up a new account you can get $300 in credit, plus there's a sizable amount of querying that's free every month. Detailed instructions on how to set up a GCP project can be found here in our documentation:
+
+https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowToGetStartedonISB-CGC.html
+
+Once you’ve set up your GCP project, insert your project ID into code within the Colaboratory notebook.
+
+When you create a GCP, a billing account will be attached to it. Any charges incurred by BigQuery are billed to the attached billing account even if you’re accessing data found in another project. Here's some information on BigQuery costs. You can keep an eye on your GCP expenses in your Google Cloud Platform Console home page.
+
 `BigQuery Colab Notebook <https://gist.github.com/Gibbsdavidl/dc257e66867a5f3bb8a6c6f351a633c9>`_
 
 Thank you!  Please let know if you have any questions.
