@@ -2,11 +2,11 @@
 Web-App Release Notes
 *********************
 
-* **November 14, 2018**
+* **December 5, 2018**
 
   **Please Note:** Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
   
-  **Issues resolved in sprint 30 as of 11/14/2018**
+  **Issues resolved in sprint 30 as of 12/05/2018**
   
   New Enhancements
   
@@ -29,7 +29,7 @@ Web-App Release Notes
    - Certain gene names which symbol ‘_’ included will now return data points when working with a Workbook. 
    
   
-  Known Issues in Sprint 30 as of 11/14/2018
+  **Known Issues in Sprint 30 as of 12/05/2018**
   
    - Analysis Type: Seq peek Formatting is Elongated on occasion 
    - If the user shares a Cohort, neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort.
