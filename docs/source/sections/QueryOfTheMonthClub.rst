@@ -945,6 +945,12 @@ Now, after starting up R, point your working dir to the directory holding your j
 
 .. code-block:: r
     
+
+  Sys.setenv("GCE_AUTH_FILE" = "~/tmp/auth.json")       # edit path to your file
+  Sys.setenv("GCE_DEFAULT_PROJECT_ID"="MY PROJECT ID")  # edit this
+  Sys.setenv("GCE_DEFAULT_ZONE"="us-west1-a")           # edit this
+
+
   library(googleComputeEngineR)
 
   vm <- gce_vm("rstudio-cron-googleauthr", 
