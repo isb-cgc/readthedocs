@@ -211,7 +211,7 @@ Pushing the "Register" button will take you to the next screen:
    :scale: 50
    :align: center
    
-Select "Register Service Account" from the drop down menu on the left of the GCP you want to add a service account to.  By default, there will be the Compute Engine Default service account in the Enter the service account ID text box (see screenshot below).  Addtionally, select the "Yes" checkbox indicating that you will be using the account to access controlled data and select the Controlled Dataset(s) you plan to access.  Currently you can select either Controlled TCGA data or controlled TARGET data to gain access  to.
+Select "Register Service Account" from the drop down menu on the left of the GCP you want to add a service account to.  By default, there will be the Compute Engine Default service account in the Enter the service account ID text box (see screenshot below).  Addtionally, select the programs you wish to gain access to by selecting the checkbox to the associated Controlled Dataset(s) you plan to access.  Currently you can select either Controlled TCGA data or controlled TARGET data to gain access  to.
 
 .. image:: RegisterAServiceAccountFirstScreen.PNG
    :scale: 50
@@ -223,9 +223,13 @@ If you recieve the error message listed below, this signifies you need to enable
    :scale: 50
    :align: center
 
-Once you click the "Button" at the bottom of the page, you will be presented with a list of the users of the GCP project, if they have registered with ISB-CGC through the Web Application, if they have an eRA Commons ID (or NIH ID) registered with ISB-CGC, and if they are authorized to use the selected controlled access dataset (see screenshot below).  All columns MUST have a green check-mark in them for each user before your service account can be registered.
+Once you click the "Verify Service Account Users" at the bottom of the page, you will be presented with multiple lists. You will be presented with the Verification Results, Google Cloud Project User ISB-CGC Registration and Identity Linkages, Dataset Permissions Verification, Registered Service Account Verification Results, Google Cloud Project Verification Results, and the Google Cloud Project Service Account Verification Results (see screenshots below).  All columns MUST have a green check-marks in them for each user before your service account can be registered.
 
 .. image:: ServiceAcctRegTable.png
+   :scale: 50
+   :align: center
+   
+.. image:: ServiceAcctRegTable2.png
    :scale: 50
    :align: center
 
