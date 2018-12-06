@@ -1053,6 +1053,13 @@ Now we're ready to start accessing our buckets!
   ## parseObject has no effect, it is a httr::content(req, "raw") download
   gcs_get_object("catter_input.txt", saveToDisk = "catter_downloaded.csv")
 
+  ## **** ##
+  ## Here's an example of getting text from a file in GCS
+  ## and parsing it to a data frame
+
+  textobj <- gcs_get_object("catter_input.txt")
+  df <- read.delim( textConnection(textobj), header=T, sep=" ", strip.white=TRUE)
+
 
 Great, now to move files back to the bucket.
 
