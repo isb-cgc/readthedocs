@@ -38,6 +38,7 @@ Contents
    :maxdepth: 1
 
    sections/About-ISB-CGC
+   sections/HowToGetStartedonISB-CGC
    sections/Hosted-Data
    sections/Web-UI
    sections/Prog-APIs
