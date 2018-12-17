@@ -184,13 +184,14 @@ command-line.
 
 ::
 
+  # usage:
+  # bq --location=[LOCATION] load --source_format=[FORMAT] [DATASET].[TABLE] [PATH_TO_SOURCE] [SCHEMA]
+
     bq load \\
 
     --source_format=CSV \\
 
     --skip_leading_rows=1 \\
-
-    TEMP_LOCATION=gs://path_to_a_temp_folder \\
 
     RNAseq_data.expressionFile \\
 
