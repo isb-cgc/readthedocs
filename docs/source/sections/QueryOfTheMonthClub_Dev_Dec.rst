@@ -150,7 +150,7 @@ Let’s create a dataset that will hold our RNAseq data:
 If successful, you will get the following message: 
 ::
 
-  Dataset 'Your_Project_ID:RNAseq\_data' successfully created
+  Dataset 'Your_Project_ID:RNAseq_data' successfully created
   
 You can also list all of the datasets associated with your project using
 the following command:
