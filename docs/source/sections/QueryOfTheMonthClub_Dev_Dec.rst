@@ -142,6 +142,7 @@ tables and load data using Google SDK’s handy bq tool. bq is a
 python-based, command-line tool for BigQuery. `https://cloud.google.com/bigquery/docs/bq-command-line-tool <https://cloud.google.com/bigquery/docs/bq-command-line-tool>`__  
 
 Let’s create a dataset that will hold our RNAseq data:
+
 ::
 
   bq mk RNAseq_data
@@ -153,6 +154,7 @@ If successful, you will get the following message:
   
 You can also list all of the datasets associated with your project using
 the following command:
+
 ::
 
   bq ls
@@ -176,18 +178,19 @@ should probably be 1000 or more (default value is 1000)
 
 **Loading Data in BigQuery**
 
-With the JSON schema file, we are now ready to load data into BigQuery.The bq load command is used to load data in BigQuery via the
+With the JSON schema file, we are now ready to load data into BigQuery. 
+The bq load command is used to load data in BigQuery via the
 command-line.
 
 ::
 
     bq load \\
 
-    --source\_format=CSV \\
+    --source_format=CSV \\
 
-    --skip\_leading\_rows=1 \\
+    --skip_leading_rows=1 \\
 
-    TEMP_LOCATION=gs://path_to_a_temp_folder
+    TEMP_LOCATION=gs://path_to_a_temp_folder \\
 
     RNAseq_data.expressionFile \\
 
@@ -231,24 +234,25 @@ appended to a new table.
 So let's look at an example using a table built from wikipedia (from
 Optimizing BigQuery: Cluster your tables, by `*Felipe
 Hoffa* <https://medium.com/@hoffa?source=post_header_lockup>`__). This
-uses a query to select-\*-everything from the table, and cluster it by
+uses a query to select-*-everything from the table, and cluster it by
 wiki and title. The order matters in clusters (see notes below)!
 Clustered tables also have to be applied to partitioned tables. Below
 the table is being partitioned by a date.
 
 ::
 
-    CREATE TABLE \`fh-bigquery.wikipedia\_v3.pageviews\_2017\`
+    CREATE TABLE `fh-bigquery.wikipedia_v3.pageviews_2017`
 
     PARTITION BY DATE(datehour)
 
     CLUSTER BY wiki, title
 
     OPTIONS(
-    description="Wikipedia pageviews - partitioned by day,clustered by (wiki, title). Contact
-   `*https://twitter.com/felipehoffa* <https://twitter.com/felipehoffa>`__", require\_partition\_filter=true)
-     AS SELECT \* FROM \`fh-bigquery.wikipedia\_v2.pageviews\_2017\`
-     WHERE datehour > '1990-01-01' # nag
+    description="Wikipedia pageviews - partitioned by day,clustered by (wiki, title). 
+      Contact `*https://twitter.com/felipehoffa* <https://twitter.com/felipehoffa>`__", 
+      require_partition_filter=true)
+    AS SELECT * FROM `fh-bigquery.wikipedia_v2.pageviews_2017`
+    WHERE datehour > '1990-01-01' # nag
 
 
 Now, *Felipe* notes:
@@ -259,7 +263,7 @@ Now, *Felipe* notes:
        the user only filters by title, clustering won’t work, as the
        order is important (think boxes inside boxes).
 
--  **require\_partition\_filter=true**: This option reminds my users to
+-  **require_partition_filter=true**: This option reminds my users to
        always add a date filtering clause to their queries. That’s how I
        remind them that their queries could be cheaper if they only
        query through a fraction of the year.
@@ -272,7 +276,7 @@ even if the amount of data read is the same.
 ::
 
   SELECT wiki, title, SUM(views) views
-  FROM \`fh-bigquery.wikipedia\_v3.pageviews\_2017\`
+  FROM `fh-bigquery.wikipedia_v3.pageviews_2017`
   WHERE DATE(datehour) BETWEEN '2017-06-01' AND '2017-06-30'
   GROUP BY wiki, title
   ORDER BY views DESC
@@ -304,20 +308,19 @@ saved that flat file to a new table 'flat1000genomes' with 2.7
 Partitioning tables (right now) only works with DATEs. So to get around
 that, we'll create a 'fake date'
 
-see:
-(https://stackoverflow.com/questions/51802482/my-data-can-t-be-date-partitioned-how-do-i-use-clustering/51829225#51829225)
+see `here <https://stackoverflow.com/questions/51802482/my-data-can-t-be-date-partitioned-how-do-i-use-clustering/51829225#51829225>`_.
 
 ::
 
   CREATE TABLE
-  \`isb-cgc-02-0001.Daves\_working\_area.Clustered1000genomes\`
-  PARTITION BY fake\_date
+    `isb-cgc-02-0001.Daves_working_area.Clustered1000genomes`
+  PARTITION BY fake_date
   CLUSTER BY chr, name
   OPTIONS(
-  description="1000 genomes partitioned by chr, cluster by call.name",
-  require\_partition\_filter=true)
-  AS SELECT \*, DATE('2018-12-14') fake\_date FROM
-  \`isb-cgc-02-0001.Daves\_working\_area.flat1000genomes\`
+    description="1000 genomes partitioned by chr, cluster by call.name",
+    require_partition_filter=true)
+  AS SELECT *, DATE('2018-12-14') fake_date FROM
+    `isb-cgc-02-0001.Daves_working_area.flat1000genomes`
 
 
 
@@ -326,7 +329,7 @@ So here's a query that counts up variants within samples.
 
   SELECT chr, name, alt1, COUNT( alt1 ) AS n
   FROM
-  \`isb-cgc-02-0001.Daves\_working\_area.flat1000genomes\`
+  `isb-cgc-02-0001.Daves_working_area.flat1000genomes`
   GROUP BY chr,name,alt1
   ORDER BY n ASC
 
@@ -334,8 +337,8 @@ So here's a query that counts up variants within samples.
 ::
 
   SELECT chr, name, alt2, COUNT( alt2 ) AS n
-  FROM \`isb-cgc-02-0001.Daves\_working\_area.Clustered1000genomes\`
-  WHERE fake\_date is not NULL
+  FROM `isb-cgc-02-0001.Daves_working_area.Clustered1000genomes`
+  WHERE fake_date is not NULL
   GROUP BY chr, name, alt2
   ORDER BY n ASC
   LIMIT 10
