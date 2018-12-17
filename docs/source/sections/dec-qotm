@@ -1,0 +1,60 @@
+******************
+BigQuery Tips & Tricks: 
+******************
+
+Last month, we transformed a typical genomics file type (the vcf file format) into a BigQuery table. This month, we’ll continue exploring how to load data into bigquery tables. Because genomics files are often very large in size, we'll also explore some tricks on how to partition tables to query to save both money and time!
+
+**Loading CSV Data into BigQuery**
+
+First, let's explore how to load csv files into big query. Here’s an example of a common use-case:
+
+*A lab with which your group collaborates is generating large amounts of RNAseq gene expression data. They have been following the nice analyses your group has done using BigQuery and would like you to help them perform similar analyses. Thus far, they have saved all of their RNAseq expression data into CSV format. They need your help first loading their RNAseq data files into BigQuery.*
+
+Here, we’ll learn how to load CSV files into BigQuery tables. We’ll accomplish this with some very useful bq command-line tools and arguments.
+
+Before starting:
+
+-- This tutorial assumes that you’ve already created a GCP project. If you don’t already have one, instructions on how to set up one up can be found: `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowToGetStartedonISB-CGC.html>`__
+
+-- Ensure that you have Google Cloud SDK installed
+
+*Loading CSV into Google CLoud Storage*  
+
+You can load local files as well as files from Google Cloud Storage (GCS). For this exercise, let’s make a GCS bucket to store our CSV files.
+
+1. Make a bucket to store the RNAseq CSV
+::
+
+	gsutil mb gs://RNAseq_CSVs
+
+
+
+2. Copy the CSVs into your newly created storage bucket
+::
+
+	gsutil cp *.csv gs://RNAseq_CSVs
+  
+*Creating a BigQuery dataset*  
+
+Creating tables and loading data via the BigQuery web-UI is good if
+you’re only loading a small amount of data. It can be a tediously manual
+process though if you have more than a handful of files. We can create
+tables and load data using Google SDK’s handy bq tool. bq is a
+python-based, command-line tool for BigQuery. `https://cloud.google.com/bigquery/docs/bq-command-line-tool <https://cloud.google.com/bigquery/docs/bq-command-line-tool>`__  
+
+Let’s create a dataset that will hold our RNAseq data:
+::
+
+	bq mk RNAseq\_data
+  
+If successful, you will get the following message: 
+::
+
+	Dataset 'Your_Project_ID:RNAseq\_data' successfully created
+  
+You can also list all of the datasets associated with your project using
+the following command:
+::
+
+	bq ls
+  
