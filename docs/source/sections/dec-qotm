@@ -4,7 +4,7 @@ BigQuery Tips & Tricks:
 
 Last month, we transformed a typical genomics file type (the vcf file format) into a BigQuery table. This month, we’ll continue exploring how to load data into bigquery tables. Because genomics files are often very large in size, we'll also explore some tricks on how to partition tables to query to save both money and time!
 
-**Loading CSV Data into BigQuery**
+**I. Loading CSV Data into BigQuery**
 
 First, let's explore how to load csv files into big query. Here’s an example of a common use-case:
 
@@ -66,3 +66,59 @@ Python script (**createSchema.py**) to create a JSON schema for your
 table in our github examples-Python repository.
 
 `https://github.com/isb-cgc/examples-Python/tree/master/python <https://github.com/isb-cgc/examples-Python/tree/master/python>`__
+
+Usage: python createSchema.py <input-filename> <nSkip>
+where nSkip specifies the # of lines skipped between lines that are
+parsed and checked for data-types; if the input file is small, you can
+leave set nSkip to be small, but if the input file is very large, nSkip
+should probably be 1000 or more (default value is 1000)
+
+*Loading Data in BQ*
+
+With the JSON schema file, we are now ready to load data into BigQuery.The bq load command is used to load data in BigQuery via the
+command-line.
+
+::
+
+    bq load \\
+
+    --source\_format=CSV \\
+
+    --skip\_leading\_rows=1 \\
+
+    TEMP_LOCATION=gs://path_to_a_temp_folder
+
+    RNAseq_data.expressionFile \\
+
+    gs://RNAseq\_CSVs/ExpressionDataTable.csv \\   
+
+    ExpressionDataTable.csv.json  
+
+    
+You can verify that the table loaded by showing the table properties
+with this command:
+
+::
+
+    bq show RNAseq_data.expressionFile
+    
+
+**II. BigQuery Table Clusters**
+The costs of using BigQuery center around how much of a table is read by
+the query. So, the same query applied to a small table versus a very
+large table will incur very different costs. It simply costs more to
+query a large table! In the past, we broke tables into many subtables to
+save costs and time. This was the case with the methylation tables where
+the entire thing consisted of 3.9 Billion rows (932 GB)! It's pretty
+expensive to query that table, so we broke it into many tables by
+chromosome. OK, but not entirely convenient to work with.
+
+Now, there's a fairly simple step to accomplish the same thing,
+resulting in huge cost savings without changing your SQL or table
+schema! They're called 'clustered tables', which groups rows of your
+BigQuery table so that your query only reads the appropriate portions of
+your table. This means you can specify the cluster to be over
+chromosomes, and your query will only read the portion of the table
+associated with that chromosome.
+
+ 
