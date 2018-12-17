@@ -39,6 +39,13 @@ The `gsutil command-line tool <https://cloud.google.com/storage/docs/gsutil>`_ p
 The `Cloud Storage Client Libraries <https://cloud.google.com/storage/docs/reference/libraries>`_ provide programmatic support for a number of programming languages, including Java, Python, and Ruby.
 You can find additional, third-party tools and libraries, such as the `Boto library <https://cloud.google.com/storage/docs/boto-plugin>`_, by searching the Internet.
 
+How can I get a summary of daily space usage?
+----------------------------------------------
+
+You can use the gsutil du command or Storage Logs to get the total space used by all objects for a specified bucket. For more information, see `Determining a Bucket's Size <https://cloud.google.com/storage/docs/getting-bucket-information#bucket-size>`_.
+
+
+
 ***************
 Pricing
 ***************
