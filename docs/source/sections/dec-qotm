@@ -58,3 +58,11 @@ the following command:
 
 	bq ls
   
+*Generate schema for BigQuery table*
+A schema for a table is a description of its field names and types.
+BigQuery allows you to specify a table's schema when you load data into
+a table. We can create a schema file in JSON format. You can find a
+Python script (**createSchema.py**) to create a JSON schema for your
+table in our github examples-Python repository.
+
+`https://github.com/isb-cgc/examples-Python/tree/master/python <https://github.com/isb-cgc/examples-Python/tree/master/python>`__
