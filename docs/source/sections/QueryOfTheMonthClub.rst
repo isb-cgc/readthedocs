@@ -184,19 +184,20 @@ command-line.
 
 ::
 
+  # usage:
+  # bq --location=[LOCATION] load --source_format=[FORMAT] [DATASET].[TABLE] [PATH_TO_SOURCE] [SCHEMA]
+
     bq load \\
 
     --source_format=CSV \\
 
     --skip_leading_rows=1 \\
 
-    TEMP_LOCATION=gs://path_to_a_temp_folder \\
+    RNAseq_data.expressionFile \\                 # where it's going 
 
-    RNAseq_data.expressionFile \\
+    gs://RNAseq_CSVs/ExpressionDataTable.csv \\   # the table in a bucket
 
-    gs://RNAseq_CSVs/ExpressionDataTable.csv \\   
-
-    ExpressionDataTable.csv.json  
+    ExpressionDataTable.csv.json                  # the table schema 
 
     
 You can verify that the table loaded by showing the table properties
@@ -224,7 +225,7 @@ schema! They're called 'clustered tables', which groups rows of your
 BigQuery table so that your query only reads the appropriate portions of
 your table. This means you can specify the cluster to be over
 chromosomes, and your query will only read the portion of the table
-associated with that chromosome. `https://cloud.google.com/bigquery/docs/clustered-tables<https://cloud.google.com/bigquery/docs/clustered-tables>`__
+associated with that chromosome. `docs here <https://cloud.google.com/bigquery/docs/clustered-tables>`_
 
 There's a number of different ways to partition your tables. For one,
 you can partition it at the time of 'ingestion'. What that means is that

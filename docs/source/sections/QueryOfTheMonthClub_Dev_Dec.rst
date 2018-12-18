@@ -193,11 +193,11 @@ command-line.
 
     --skip_leading_rows=1 \\
 
-    RNAseq_data.expressionFile \\
+    RNAseq_data.expressionFile \\                 # where it's going 
 
-    gs://RNAseq_CSVs/ExpressionDataTable.csv \\   
+    gs://RNAseq_CSVs/ExpressionDataTable.csv \\   # the table in a bucket
 
-    ExpressionDataTable.csv.json  
+    ExpressionDataTable.csv.json                  # the table schema 
 
     
 You can verify that the table loaded by showing the table properties
@@ -225,7 +225,7 @@ schema! They're called 'clustered tables', which groups rows of your
 BigQuery table so that your query only reads the appropriate portions of
 your table. This means you can specify the cluster to be over
 chromosomes, and your query will only read the portion of the table
-associated with that chromosome. `https://cloud.google.com/bigquery/docs/clustered-tables<https://cloud.google.com/bigquery/docs/clustered-tables>`__
+associated with that chromosome. `docs here <https://cloud.google.com/bigquery/docs/clustered-tables>`_
 
 There's a number of different ways to partition your tables. For one,
 you can partition it at the time of 'ingestion'. What that means is that
