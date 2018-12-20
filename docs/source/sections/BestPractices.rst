@@ -90,3 +90,9 @@ A company with multiple data centers, both on-premises and in colocation facilit
 CloudEndure's target-machine-blueprint mechanism allowed the customer to define and redefine, as frequently as needed, how the target-server network settings were going to be provisioned in the cloud. After each blueprint configuration iteration, the customer could test spinning up the target servers in an isolated cloud network and verify their behavior without impacting the source servers. When all test criteria had been met, the cutover window was scheduled and the migration cutover was executed, with high predictability and low risk.
 
 
+***************
+Securely Connecting to VM Instances
+***************
+
+
+
