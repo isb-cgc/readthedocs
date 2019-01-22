@@ -1,14 +1,13 @@
-
 *********************
 Web-App Release Notes
 *********************
 
 
-* **January 17, 2018** `v3.16 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.16>`_
+* **January 22, 2018** `v3.16 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.16>`_
 
   **Please Note:** Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
   
-  **Issues resolved in sprint 31 as of 01/17/2019**
+  **Issues resolved in sprint 31 as of 01/22/2019**
   
   New Enhancements
    
@@ -21,7 +20,7 @@ Web-App Release Notes
    - If you have not linked to the Data Commons Framework at all you are able to unregister a Google Cloud Project. Linking to the DCF framework once will then require you to be linked to the DCF to then be able to unregister a GCP.    
    
   
-  **Known Issues in Sprint 30 as of 01/17/2019**
+  **Known Issues in Sprint 30 as of 01/22/2019**
    
    - Analysis Type: Seq peek Formatting is Elongated on occasion 
    - If the user shares a Cohort, neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort. 
