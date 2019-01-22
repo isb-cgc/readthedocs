@@ -480,7 +480,7 @@ Controlled access files will be viewable by sequence ONLY if you have `authentic
 (`more information about Viewing a Sequence in the IGV Viewer <IGV-Browser.html>`_).
 
 
-Viewing a Pathology Image
+Using the Image Pathology Viewer
 =========================
 
 When available, pathology images can be viewed using the caMicroscope tool (see more about caMicroscope provide `here <http://camicroscope.org>`_ ).  These are the pathology images that are associated with TCGA samples (not all files are currently available, due to some metadata that is not in place at GDC describing the image files.  ISB-CGC is working with GDC to resolve this issue, and more images will be appearing when that issue is resolved).  To find images that can be viewed, open a saved cohort and select the "File Browser" button at the top of the page. You can also select the File Browser button from the Dashboard Saved Cohorts panel.  The files associated with your cohort will be shown, with the third tab listing any available Pathology Images. Hovering over the File Name column and clicking on 'Open in caMicroscope' will open the image file in a new tab using caMicroscope (HINT: using a smaller cohort will provide faster response in creating the list of files available).
