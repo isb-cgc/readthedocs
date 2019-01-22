@@ -1,3 +1,4 @@
+
 *********************
 Web-App Release Notes
 *********************
@@ -12,11 +13,12 @@ Web-App Release Notes
   New Enhancements
    
    - On the Gene list creation page you can now upload line separated and tab separated gene lists to be uploaded for analysis.
+   - We have made some updates to the workbooks plotting section.  You are now able to redraw to the original plot after any changes. Also, you are now able to save the plot as a .SVG, .PNG, or a .JSON file.
    
   Bug Fixes
    
    - On the cohort creation using the barcode upload feature.  The table page list feature now is now displayed properly. 
-   - When attempting to unregister a Google Cloud Project you must be link to the Data Commons Framework via your NIH ID if you have previously been linked before.  If you have not linked to the Data Commons Framework at all you are able to unregister a Google Cloud Project as such.  
+   - If you have not linked to the Data Commons Framework at all you are able to unregister a Google Cloud Project. Linking to the DCF framework once will then require you to be linked to the DCF to then be able to unregister a GCP.    
    
   
   **Known Issues in Sprint 30 as of 01/17/2019**
