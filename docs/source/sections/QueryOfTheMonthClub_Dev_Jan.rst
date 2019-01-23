@@ -106,7 +106,7 @@ January, 2019
 
 For this month’s Query of the Month, we’ll show how to accomplish an operation called “BAM slicing” on BAM files. We’ll show you can do this in a Jupyter notebook environment!  
 
-BAM files are central to almost all genomic analyses. Often, they are very large in size, especially for larger genomes like the human genome. Frequently, researchers are only interested in extracting or “slicing out” subsections of the BAM file. The htslib library (release 1.4+) , a C-library used to manipulate high-throughput genomics data allows users to perform the BAM-slicing operation. The htslib library is bundled with the SAMtools software package, a widely used tool for NGS data manipulation (`http://www.htslib.org/doc/samtools.html <http://www.htslib.org/doc/samtools.html>`__). There is also a python wrapper for SAMtools called PySAM(https://pysam.readthedocs.io/en/latest/api.html). 
+BAM files are central to almost all genomic analyses. Often, they are very large in size, especially for larger genomes like the human genome. Frequently, researchers are only interested in extracting or “slicing out” subsections of the BAM file. The htslib library (release 1.4+) , a C-library used to manipulate high-throughput genomics data allows users to perform the BAM-slicing operation. The htslib library is bundled with the SAMtools software package, a widely used tool for NGS data manipulation (`http://www.htslib.org/doc/samtools.html <http://www.htslib.org/doc/samtools.html>`__). There is also a python wrapper for SAMtools called PySAM (https://pysam.readthedocs.io/en/latest/api.html). 
 
 In the Jupyter notebook (see link below), we demonstrate the following: 
 
