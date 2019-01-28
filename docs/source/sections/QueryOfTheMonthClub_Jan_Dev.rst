@@ -23,6 +23,12 @@ Query of the Month is produced by:
 Table of Contents
 =================
 
+2019
+++++
+
+- January2019_: Bam slicing in a cloud hosted python notebook.
+
+
 2018
 ++++
 
@@ -89,6 +95,12 @@ Resources_:  Helpful information!
 
 -----------------------
 
+
+.. _January2019:
+
+**Bam slicing in the cloud
+
+This month we're going to do some bam slicing in a cloud hosted python notebook.
 
 
 .. _December2018:
