@@ -26,7 +26,7 @@ Table of Contents
 2018
 ++++
 
-- December_: BigQuery Tips & Tricks
+- December_: BigQuery Tips & Tricks - Part II
 
 - November_: Transform VCF (DNA variants) files to BigQuery.
 
