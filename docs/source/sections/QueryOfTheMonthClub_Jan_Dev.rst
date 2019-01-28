@@ -148,14 +148,6 @@ Another useful command is
 Which prints out all the environment variables. This is useful in a lot of cases, such as compiling software.
 
 
-Of course we can use all our Google cloud api tools like gsutil!
-
-::
-  !gsutil ls gs://my_bucket_1/
-
-Here we list out all the file in my bucket.  We can also use gsutil to move items in and out of our notebook environment.
-
-
 **How to install packages/programs within a Jupyter environment**
 
 To install a new linux library, create a new cell in your collaboratory python notebook and run:
@@ -208,7 +200,37 @@ Then, to slice out a region on chromosome 7 between 140453130-140453140, we woul
   export GCS_OAUTH_TOKEN=`gcloud auth application-default print-access-token`
   ./samtools view gs://isb-ccle-open/gdc/0a109993-2d5b-4251-bcab-9da4a611f2b1/C836.Calu-3.2.bam 7:140453130-140453140
 
+In the python notebook, we do something very similar. We need to compile HTSlib with the abilities to read cloud-based files turned on, 
+and that requires previously installing a few libraries.  Then we would:
 
+.. code-block:: python
+  
+  samfile = pysam.AlignmentFile('gs://isb-ccle-open/gdc/0a109993-2d5b-4251-bcab-9da4a611f2b1/C836.Calu-3.2.bam', "rb")
+  for read in samfile.fetch('7', 140453130, 140453135):
+    print(read)
+
+  samfile.close()
+
+The AlignmentFile class let's you fetch a AlignedSegment object, which has many different methods. You can see the list `here <https://pysam.readthedocs.io/en/latest/api.html#pysam.AlignedSegment>`_. 
+
+For a couple quick examples of working with AlignedSegments, such as processing sequence data, check out the `notebook <https://colab.research.google.com/drive/1ZaQ7TH0MEaiwSXqj1lTtdUS88Nv_uKpY#scrollTo=4RxAZ67mvHKk>`_!
+
+
+**How to save slices in your bucket and retrieve them**
+
+
+Once you have a list of slices for analysis, we can use all our Google cloud api tools like gsutil!
+
+::
+  !gsutil ls gs://my_bucket_1/
+
+Here we list out all the file in my bucket.  We can also use gsutil to move items in and out of our notebook environment.
+
+::
+  !gsutil cp my.bam gs://my_bucket_1/my.bam
+
+
+That's it for this month, please let us know if you have questions, or have topics you'd like to see covered in later months!
 
 
 .. _December2018:
