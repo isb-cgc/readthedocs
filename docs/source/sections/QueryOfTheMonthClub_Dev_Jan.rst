@@ -131,7 +131,7 @@ Link to the Jupyter notebook:
 `https://colab.research.google.com/drive/1gBLlBDmTNQWCA5pr4C4OkYvV4aVv5doN#scrollTo=QUb3A2R-Pdh- <https://colab.research.google.com/drive/1gBLlBDmTNQWCA5pr4C4OkYvV4aVv5doN#scrollTo=QUb3A2R-Pdh->`_
 
 
-.. _December:
+.. _December2018:
 
 December, 2018
 ##############
@@ -389,7 +389,7 @@ So here's a query that counts up variants within samples.
 
 
 
-.. _November:
+.. _November2018:
 
 November, 2018
 ##############
@@ -596,7 +596,7 @@ Thank you!  Please let know if you have any questions.
 
 
 
-.. _October:
+.. _October2018:
 
 October, 2018
 #############
@@ -1099,9 +1099,13 @@ As with many other cloudy things, you can kill your cluster in the web console, 
 	  [--num-workers and/or --num-preemptible-workers]=decreased-number-of-workers
 	  other args ...
 Hope that was helpful for getting started with Jupyter notebooks! Of course you don't have to use clusters, there's a lot you can do with a single node notebook! If you have some cool examples, I would love to see them!
-.. _September:
+
+.. _September2018:
+
 September, 2018
 ###############
+
+
 **R in the cloud.**
 Recently, I was asked to demonstate how to simply run an R script in the google cloud, so I decided to
 revisit the topic and look for new, easy methods. In the past
@@ -1335,9 +1339,12 @@ been a list of data files, or a list of parameter sets.
   result3 <- future.apply::future_lapply(paramList, work_chunks)
   ## work_chunks would need an extra parameter in the argument list ##
 I hope these examples help get you in the cloud! Please let me know if you have trouble or have questions.
-.. _August:
+
+.. _August2018:
+
 August, 2018
 ############
+
 **Using BigQuery ML in a Shiny app.**
 Last month, we tried out the newly-released Google BigQuery ML. 
 This month we'll continue to build examples, learn some new things, and build a `shiny web app <https://isb-cgc.shinyapps.io/GoogML_Shiny/>`_.
@@ -1714,9 +1721,12 @@ Finally, we have the record of iterative model fitting.
 That's it for this month. I hope you found this informative, and can see how to integrate model building and 
 exploration within an interactive web environment. This sort of tool would allow anyone with some familiarity 
 of gene sets and TCGA to build and reason about models. And we think that's pretty cool!
-.. _July:
+
+.. _July2018:
+
 July, 2018
 ##########
+
 **First look: BigQuery ML.**
 Exciting news! Google has just released a beta feature in BigQuery: Machine Learning (ML)! There are two availble model types, 
 linear and logistic.  The first, linear regression, models a continuous variable given a selection of variables, both categorical 
@@ -2069,9 +2079,12 @@ input data, and then checking to see if the model statistics change.
 Overall, that seems pretty useful! 
 Of course, BigQuery ML is in beta, and our experiance with Google products: expect things to change! 
 Have you found any good tricks?  If you have, please share them via email or on twitter (@isb-cgc)!
-.. _June:
+
+.. _June2018:
+
 June, 2018
 ##########
+
 **Processing bam files using WDL, scatter, and Cromwell**
 In the last two editions, we've described a multi-step workflow for generating statistics from bam files (from ENCODE) using the
 common workflow language (CWL). This month, we've translated the example to `WDL (workflow description language) <https://software.broadinstitute.org/wdl/>`_
@@ -2232,9 +2245,12 @@ And if we look inside our cat_tool folder, we see the final output file. Cool.
   :align: center
 That's it! We've run a multi-step workflow, with steps in parallel, written in WDL, and run with Cromwell in the
 google cloud. Not too bad, right?  Were you able to run your own workflow?  Let us know!
-.. _May:
+
+.. _May2018:
+
 May, 2018
 #########
+
 **Processing bam files using CWL 'scatter and gather'**
 In this edition, we're going to continue our exploration of using CWL to run workflows on the Google cloud. 
 Last time, we performed a 'scatter' operation, where a tool is applied to a list of files. 
@@ -2434,7 +2450,9 @@ and the last column is the number of reads.
   :scale: 50
   :align: center
 Thanks for reading!  Let us know if you have questions or comments!
-.. _April:
+
+.. _April2018:
+
 April, 2018
 ###########
 For the next few months, we're going to be focusing on running
@@ -2633,9 +2651,13 @@ Whew! It's a really steep learning curve, but the payoff is that in two years,
 when you wonder 'how did I do this?', you can look back and easily figure that out
 and probably (maybe) even run it again.
 Next month we'll continue our exploration of workflows and workflow runners. Let me know how it goes!
-.. _March:
+
+
+.. _March2018:
+
 March, 2018
 ###########
+
 This month we demonstrate an implementation of a machine learning classifier
 using BigQuery.
 The 'Top Scoring Pairs' method, finds a pair of genes that
@@ -3137,7 +3159,9 @@ When we see how we did (see table above, 88% accuracy), it's very similar to wha
 found, but clearly there's room for improvement.
 Probably changing the way genes are selected would make a difference,
 and perhaps using more samples. Let me know if you give it a try!
-.. _February:
+
+.. _February2018:
+
 February, 2018
 ##############
 .. figure:: query_figs/feb_screenshot1.png
@@ -3354,9 +3378,12 @@ through permuations which would give a good background for comparison.
 That's it for this month. As always, if you have any special requests for queries
 you would like to see or would like to submit a query of the month, please get
 a hold of us! Thanks!
-.. _January:
+
+.. _January2018:
+
 January, 2018
 ##############
+
 This month, we're going to implement a common bioinformatics task: gene set
 scoring. In this procedure, we will compare the <joint> expression of a set of genes
 between two groups.
