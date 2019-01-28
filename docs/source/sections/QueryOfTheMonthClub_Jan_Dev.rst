@@ -102,6 +102,7 @@ Resources_:  Helpful information!
 
 This month we're going to do some bam slicing in a cloud hosted python notebook.
 
+ISB-CGC documentation can be found `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_GCS.html>`_.
 
 BAM files are central to almost all genomic analyses. Often, they are very large in size, 
 especially for larger genomes like the human genome. Researchers may only be interested in 
@@ -147,6 +148,14 @@ Another useful command is
 Which prints out all the environment variables. This is useful in a lot of cases, such as compiling software.
 
 
+Of course we can use all our Google cloud api tools like gsutil!
+
+::
+  !gsutil ls gs://my_bucket_1/
+
+Here we list out all the file in my bucket.  We can also use gsutil to move items in and out of our notebook environment.
+
+
 **How to install packages/programs within a Jupyter environment**
 
 To install a new linux library, create a new cell in your collaboratory python notebook and run:
@@ -184,6 +193,20 @@ google cloud bucket, and slice out a section of reads from each.
 **Using Pysam to slice bams**
 
 Pysam is a python wrapper around SAMtools which uses the `HTSlib <http://www.htslib.org/>`_ in reading and processng bams. 
+
+In order to read out of GCS (cloud buckets), HTSlib needs to be compile to turn on some functionality.
+
+::
+  
+  export HTSLIB_CONFIGURE_OPTIONS="--enable-gcs"
+
+
+Then, to slice out a region on chromosome 7 between 140453130-140453140, we would:
+
+::
+  
+  export GCS_OAUTH_TOKEN=`gcloud auth application-default print-access-token`
+  ./samtools view gs://isb-ccle-open/gdc/0a109993-2d5b-4251-bcab-9da4a611f2b1/C836.Calu-3.2.bam 7:140453130-140453140
 
 
 
