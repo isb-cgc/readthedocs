@@ -98,9 +98,94 @@ Resources_:  Helpful information!
 
 .. _January2019:
 
-**Bam slicing in the cloud
+**Bam slicing in the cloud**
 
 This month we're going to do some bam slicing in a cloud hosted python notebook.
+
+
+BAM files are central to almost all genomic analyses. Often, they are very large in size, 
+especially for larger genomes like the human genome. Researchers may only be interested in 
+small genomic regions, and so rather than download and deal with massive files, we can  
+extract or "slice out" subsections of the BAM file. The htslib library (release 1.4+), 
+a library written in C, is used to manipulate high-throughput genomics data and allow
+users to perform BAM-slicing. HTSlib is used by the SAMtools package, a widely used tool 
+for NGS data manipulation `http://www.htslib.org/doc/samtools.html <http://www.htslib.org/doc/samtools.html>`_ . 
+
+In this work, we'll be using a python wrapper for SAMtools called PySAM (https://pysam.readthedocs.io/en/latest/api.html). 
+
+In the Jupyter notebook (see link below), we demonstrate the following: 
+
+*How to invoke bash commands within a Jupyter environment.
+*How to install packages/programs within a Jupyter environment
+*How to use available BigQuery tables within ISB-CGC to query and identify Google Cloud Storage bucket locations for BAM files of interest
+*How to use PySam to slice BAM files
+*How to save slices in your bucket and retrieve them
+*Brief example of working with reads
+
+Link to the Jupyter notebook `here <https://colab.research.google.com/drive/1gBLlBDmTNQWCA5pr4C4OkYvV4aVv5doN#scrollTo=QUb3A2R-Pdh->`_ .
+
+**How to invoke bash commands within a Jupyter environment.**
+
+We're finding the free python notebooks offered from Google Collaboratory really useful and surprisingly flexible.
+The level of access to the operating system is quite good and allows us to run command line commands using bash.
+
+To run a command, in your collaboratory python notebook, create a cell like:
+
+::
+  !ls -lha
+
+That's going to list out all the files in your environment.
+The 'bang' (exclaimation point) signals to the notebook to run this command using bash.
+
+
+
+Another useful command is
+
+::
+  !env
+
+Which prints out all the environment variables. This is useful in a lot of cases, such as compiling software.
+
+
+**How to install packages/programs within a Jupyter environment**
+
+To install a new linux library, create a new cell in your collaboratory python notebook and run:
+
+!sudo apt-get install libxml2
+
+
+
+**How to use available BigQuery tables**
+
+In the notebook, there's other 'magic commands' as well. Since it's a google product, it's relatively straightforward to connect to other 
+google products like BigQuery. This is really cool, because maybe the free collaboratory notebook is short on raw compute power, but with 
+BigQuery you can do big compute, and get the summary results in the notebook for visualization and downstream analysis.
+
+To run an SQL query, we use some %%BigQuery magic
+
+::
+  
+  %%bigquery --project our-project-id df
+  SELECT * FROM `isb-cgc.TCGA_hg19_data_v0.tcga_metadata_data_hg19_18jul`
+  where 
+  data_format = 'BAM' 
+  AND disease_code = 'OV' 
+  AND experimental_strategy = "WGS" 
+  AND platform = 'ABI SOLiD'
+  LIMIT 5
+
+
+Where 'our-project-id' is your google project id, and df is a variable that will store the results of the query.
+In this query, we're selecting all the available metadata for bam files (data_format = 'BAM') associated with
+ovarian cancer (disease_code = 'OV').  From a query like this, you can get a list of bam files stored in a 
+google cloud bucket, and slice out a section of reads from each.
+
+
+**Using Pysam to slice bams**
+
+Pysam is a python wrapper around SAMtools which uses the `HTSlib <http://www.htslib.org/>`_ in reading and processng bams. 
+
+
 
 
 .. _December2018:
