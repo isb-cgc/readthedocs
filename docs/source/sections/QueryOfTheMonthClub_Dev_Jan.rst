@@ -27,35 +27,35 @@ Table of Contents
 2019
 ++++
 
-- January_: Bam Slicing on ISB-CGC 
+- January2019_: Bam Slicing on ISB-CGC 
 
 
 2018
 ++++
 
-- December_: BigQuery Tips & Tricks
+- December2018_: BigQuery Tips & Tricks
 
-- November_: Transform VCF (DNA variants) files to BigQuery.
+- November2018_: Transform VCF (DNA variants) files to BigQuery.
 
-- October_: Jupyter notebooks & Dataproc clusters ... in the cloud.
+- October2018_: Jupyter notebooks & Dataproc clusters ... in the cloud.
 
-- September_: R scripts in the cloud.
+- September2018_: R scripts in the cloud.
 
-- August_: Using BigQuery ML in a shiny app.
+- August2018_: Using BigQuery ML in a shiny app.
 
-- July_: First look: BigQuery ML.
+- July2018_: First look: BigQuery ML.
 
-- June_: Processing bam files using WDL 'scatter and gather'.
+- June2018_: Processing bam files using WDL 'scatter and gather'.
 
-- May_: Processing bam files using CWL 'scatter and gather'.
+- May2018_: Processing bam files using CWL 'scatter and gather'.
 
-- April_: Running CWL workflows in the cloud.
+- April2018_: Running CWL workflows in the cloud.
 
-- March_: Machine learning classifer in BigQuery?! Top Scoring Pairs implementation.
+- March2018_: Machine learning classifer in BigQuery?! Top Scoring Pairs implementation.
 
-- February_: BioCircos shiny app, showing pairwise correlations within a pathway.
+- February2018_: BioCircos shiny app, showing pairwise correlations within a pathway.
 
-- January_: Gene Set Scoring in BigQuery, using the new hg38 mutation tables.
+- January2018_: Gene Set Scoring in BigQuery, using the new hg38 mutation tables.
 
 2017
 ++++
@@ -98,7 +98,7 @@ Resources_:  Helpful information!
 
 
 
-.. _January:
+.. _January2019:
 
 January, 2019
 #############
