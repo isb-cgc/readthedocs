@@ -23,6 +23,7 @@ Query of the Month is produced by:
 Table of Contents
 =================
 
+
 2019
 ++++
 
