@@ -20,7 +20,7 @@ Web-App Release Notes
    - If you have not linked to the Data Commons Framework at all you are able to unregister a Google Cloud Project. If you are not linked to the Data Commons Framework, but others in the Google Cloud project are, only they will be able to unregister the GCP.    
    
   
-  **Known Issues in Sprint 30 as of 01/22/2019**
+  **Known Issues in Sprint 31 as of 01/22/2019**
    
    - Analysis Type: Seq peek Formatting is Elongated on occasion 
    - If the user shares a Cohort, neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort. 
@@ -32,6 +32,7 @@ Web-App Release Notes
   - On the File Browser page for Diagnostic images there is no GDC file UUID associated to them. 
   - Sharing a workbook with someone else will cause the analysis to reset. 
   
+
 
 * **December 5, 2018** `v3.15 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.15>`_
 
