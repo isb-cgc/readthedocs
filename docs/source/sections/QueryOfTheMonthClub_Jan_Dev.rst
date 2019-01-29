@@ -123,7 +123,7 @@ In the Jupyter notebook (see link below), we demonstrate the following:
 *How to save slices in your bucket and retrieve them
 *Brief example of working with reads
 
-Link to the Jupyter notebook `here <https://colab.research.google.com/drive/1gBLlBDmTNQWCA5pr4C4OkYvV4aVv5doN#scrollTo=QUb3A2R-Pdh->`_ .
+Link to the Jupyter notebook `here <https://colab.research.google.com/drive/1ZaQ7TH0MEaiwSXqj1lTtdUS88Nv_uKpY#scrollTo=H4J3VQuW488Z->`_ .
 
 **How to invoke bash commands within a Jupyter environment.**
 
