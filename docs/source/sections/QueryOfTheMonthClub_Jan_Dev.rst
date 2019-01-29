@@ -112,28 +112,37 @@ a library written in C, is used to manipulate high-throughput genomics data and 
 users to perform BAM-slicing. HTSlib is used by the SAMtools package, a widely used tool 
 for NGS data manipulation `http://www.htslib.org/doc/samtools.html <http://www.htslib.org/doc/samtools.html>`_ . 
 
+
 In this work, we'll be using a python wrapper for SAMtools called PySAM (https://pysam.readthedocs.io/en/latest/api.html). 
+
 
 In the Jupyter notebook (see link below), we demonstrate the following: 
 
-*How to invoke bash commands within a Jupyter environment.
-*How to install packages/programs within a Jupyter environment
-*How to use available BigQuery tables within ISB-CGC to query and identify Google Cloud Storage bucket locations for BAM files of interest
-*How to use PySam to slice BAM files
-*How to save slices in your bucket and retrieve them
-*Brief example of working with reads
+
+* How to invoke bash commands within a Jupyter environment.
+* How to install packages/programs within a Jupyter environment
+* How to use available BigQuery tables within ISB-CGC to query and identify Google Cloud Storage bucket locations for BAM files of interest
+* How to use PySam to slice BAM files
+* How to save slices in your bucket and retrieve them
+* Brief example of working with reads
+
 
 Link to the Jupyter notebook `here <https://colab.research.google.com/drive/1ZaQ7TH0MEaiwSXqj1lTtdUS88Nv_uKpY#scrollTo=H4J3VQuW488Z->`_ .
 
+
 **How to invoke bash commands within a Jupyter environment.**
+
 
 We're finding the free python notebooks offered from Google Collaboratory really useful and surprisingly flexible.
 The level of access to the operating system is quite good and allows us to run command line commands using bash.
 
+
 To run a command, in your collaboratory python notebook, create a cell like:
 
 ::
+
   !ls -lha
+
 
 That's going to list out all the files in your environment.
 The 'bang' (exclaimation point) signals to the notebook to run this command using bash.
@@ -143,7 +152,9 @@ The 'bang' (exclaimation point) signals to the notebook to run this command usin
 Another useful command is
 
 ::
+
   !env
+
 
 Which prints out all the environment variables. This is useful in a lot of cases, such as compiling software.
 
@@ -152,7 +163,9 @@ Which prints out all the environment variables. This is useful in a lot of cases
 
 To install a new linux library, create a new cell in your collaboratory python notebook and run:
 
-!sudo apt-get install libxml2
+::
+
+  !sudo apt-get install libxml2
 
 
 
