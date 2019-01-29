@@ -100,20 +100,20 @@ Resources_:  Helpful information!
 
 **Bam slicing in the cloud**
 
-This month we're going to do some bam slicing in a cloud hosted python notebook.
+This month we're going to do some bam slicing in a `cloud hosted jupyter notebook <https://colab.research.google.com>`_.
 
-ISB-CGC documentation can be found `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_GCS.html>`_.
+Regarding bam slicing, ISB-CGC documentation can be found `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_GCS.html>`_.
 
 BAM files are central to almost all genomic analyses. Often, they are very large in size, 
 especially for larger genomes like the human genome. Researchers may only be interested in 
 small genomic regions, and so rather than download and deal with massive files, we can  
-extract or "slice out" subsections of the BAM file. The htslib library (release 1.4+), 
-a library written in C, is used to manipulate high-throughput genomics data and allow
-users to perform BAM-slicing. HTSlib is used by the SAMtools package, a widely used tool 
+extract or "slice out" subsections of the BAM file. The high performance HTSlib library (release 1.4+)
+is used to manipulate high-throughput genomics data and is what allows
+users to perform BAM-slicing. HTSlib is central to the SAMtools package, a popular tool 
 for NGS data manipulation `http://www.htslib.org/doc/samtools.html <http://www.htslib.org/doc/samtools.html>`_ . 
 
 
-In this work, we'll be using a python wrapper for SAMtools called PySAM (https://pysam.readthedocs.io/en/latest/api.html). 
+In this post, we'll be using a python wrapper for SAMtools called `PySAM <https://pysam.readthedocs.io/en/latest/api.html>`_. 
 
 
 In the Jupyter notebook (see link below), we demonstrate the following: 
@@ -133,11 +133,11 @@ Link to the Jupyter notebook `here <https://colab.research.google.com/drive/1ZaQ
 **How to invoke bash commands within a Jupyter environment.**
 
 
-We're finding the free python notebooks offered from Google Collaboratory really useful and surprisingly flexible.
-The level of access to the operating system is quite good and allows us to run command line commands using bash.
+We're finding the free jupyter notebooks offered from Google Colaboratory really useful and surprisingly flexible.
+The level of access to the operating system is quite good and allows us to run bash commands to work on the file level.
 
 
-To run a command, in your collaboratory python notebook, create a cell like:
+To run a command, in your colaboratory notebook, create a cell like:
 
 ::
 
@@ -161,7 +161,7 @@ Which prints out all the environment variables. This is useful in a lot of cases
 
 **How to install packages/programs within a Jupyter environment**
 
-To install a new linux library, create a new cell in your collaboratory python notebook and run:
+To install a new linux library, create a new cell in your colaboratory python notebook and run:
 
 ::
 
@@ -171,9 +171,9 @@ To install a new linux library, create a new cell in your collaboratory python n
 
 **How to use available BigQuery tables**
 
-In the notebook, there's other 'magic commands' as well. Since it's a google product, it's relatively straightforward to connect to other 
-google products like BigQuery. This is really cool, because maybe the free collaboratory notebook is short on raw compute power, but with 
-BigQuery you can do big compute, and get the summary results in the notebook for visualization and downstream analysis.
+In the notebook, there's other 'magic commands' as well. Since it's a Google product, it's relatively straightforward to connect to other 
+Google products like BigQuery. This is really cool, because if the free colaboratory notebook is short on raw compute power,  
+BigQuery gives you the power of a cluster, and with the summary results you can do visualization and downstream analysis in the notebook.
 
 To run an SQL query, we use some %%BigQuery magic
 
@@ -197,9 +197,9 @@ google cloud bucket, and slice out a section of reads from each.
 
 **Using Pysam to slice bams**
 
-Pysam is a python wrapper around SAMtools which uses the `HTSlib <http://www.htslib.org/>`_ in reading and processng bams. 
+Pysam is a python wrapper around SAMtools which uses the `HTSlib <http://www.htslib.org/>`_ in reading and processing bams. 
 
-In order to read out of GCS (cloud buckets), HTSlib needs to be compile to turn on some functionality.
+In order to read out from GCS (cloud buckets), HTSlib needs to be compiled with some additional functionality.
 
 ::
   
@@ -211,36 +211,43 @@ Then, to slice out a region on chromosome 7 between 140453130-140453140, we woul
 ::
   
   export GCS_OAUTH_TOKEN=`gcloud auth application-default print-access-token`
+
   ./samtools view gs://isb-ccle-open/gdc/0a109993-2d5b-4251-bcab-9da4a611f2b1/C836.Calu-3.2.bam 7:140453130-140453140
 
-In the python notebook, we do something very similar. We need to compile HTSlib with the abilities to read cloud-based files turned on, 
-and that requires previously installing a few libraries.  Then we would:
+In the python notebook, we do something very similar. We need to compile HTSlib gcs-enabled to read cloud-based files, 
+which in turn requires installing a few extra libraries.  Then we would:
 
 .. code-block:: python
   
   samfile = pysam.AlignmentFile('gs://isb-ccle-open/gdc/0a109993-2d5b-4251-bcab-9da4a611f2b1/C836.Calu-3.2.bam', "rb")
+
   for read in samfile.fetch('7', 140453130, 140453135):
     print(read)
 
   samfile.close()
 
-The AlignmentFile class let's you fetch a AlignedSegment object, which has many different methods. You can see the list `here <https://pysam.readthedocs.io/en/latest/api.html#pysam.AlignedSegment>`_. 
+The AlignmentFile lets you fetch a AlignedSegment object, and you use that object to call many different methods. 
+You can see the full API `here <https://pysam.readthedocs.io/en/latest/api.html#pysam.AlignedSegment>`_. 
 
 For a couple quick examples of working with AlignedSegments, such as processing sequence data, check out the `notebook <https://colab.research.google.com/drive/1ZaQ7TH0MEaiwSXqj1lTtdUS88Nv_uKpY#scrollTo=4RxAZ67mvHKk>`_!
 
 
 **How to save slices in your bucket and retrieve them**
 
+Once you have a list of slices for analysis, we can use all our Google cloud tools, like gsutil!
 
-Once you have a list of slices for analysis, we can use all our Google cloud api tools like gsutil!
 
 ::
+
   !gsutil ls gs://my_bucket_1/
 
 Here we list out all the file in my bucket.  We can also use gsutil to move items in and out of our notebook environment.
 
+
 ::
+
   !gsutil cp my.bam gs://my_bucket_1/my.bam
+
 
 
 That's it for this month, please let us know if you have questions, or have topics you'd like to see covered in later months!
