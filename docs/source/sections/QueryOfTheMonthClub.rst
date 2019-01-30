@@ -23,32 +23,38 @@ Query of the Month is produced by:
 Table of Contents
 =================
 
+2019
+++++
+
+- January2019_: Bam slicing in a cloud hosted python notebook.
+
+
 2018
 ++++
 
-- December_: BigQuery Tips & Tricks
+- December2018_: BigQuery Tips & Tricks
 
-- November_: Transform VCF (DNA variants) files to BigQuery.
+- November2018_: Transform VCF (DNA variants) files to BigQuery.
 
-- October_: Jupyter notebooks & Dataproc clusters ... in the cloud.
+- October2018_: Jupyter notebooks & Dataproc clusters ... in the cloud.
 
-- September_: R scripts in the cloud.
+- September2018_: R scripts in the cloud.
 
-- August_: Using BigQuery ML in a shiny app.
+- August2018_: Using BigQuery ML in a shiny app.
 
-- July_: First look: BigQuery ML.
+- July2018_: First look: BigQuery ML.
 
-- June_: Processing bam files using WDL 'scatter and gather'.
+- June2018_: Processing bam files using WDL 'scatter and gather'.
 
-- May_: Processing bam files using CWL 'scatter and gather'.
+- May2018_: Processing bam files using CWL 'scatter and gather'.
 
-- April_: Running CWL workflows in the cloud.
+- April2018_: Running CWL workflows in the cloud.
 
-- March_: Machine learning classifer in BigQuery?! Top Scoring Pairs implementation.
+- March2018_: Machine learning classifer in BigQuery?! Top Scoring Pairs implementation.
 
-- February_: BioCircos shiny app, showing pairwise correlations within a pathway.
+- February2018_: BioCircos shiny app, showing pairwise correlations within a pathway.
 
-- January_: Gene Set Scoring in BigQuery, using the new hg38 mutation tables.
+- January2018_: Gene Set Scoring in BigQuery, using the new hg38 mutation tables.
 
 2017
 ++++
@@ -90,8 +96,164 @@ Resources_:  Helpful information!
 -----------------------
 
 
+.. _January2019:
 
-.. _December:
+**Bam slicing in the cloud**
+
+This month we're going to do some bam slicing in a `cloud hosted jupyter notebook <https://colab.research.google.com>`_.
+
+Regarding bam slicing, ISB-CGC documentation can be found `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_GCS.html>`_.
+
+BAM files are central to almost all genomic analyses. Often, they are very large in size, 
+especially for larger genomes like the human genome. Researchers may only be interested in 
+small genomic regions, and so rather than download and deal with massive files, we can  
+extract or "slice out" subsections of the BAM file. The high performance HTSlib library (release 1.4+)
+is used to manipulate high-throughput genomics data and is what allows
+users to perform BAM-slicing. HTSlib is central to the SAMtools package, a popular tool 
+for NGS data manipulation `http://www.htslib.org/doc/samtools.html <http://www.htslib.org/doc/samtools.html>`_ . 
+
+
+In this post, we'll be using a python wrapper for SAMtools called `PySAM <https://pysam.readthedocs.io/en/latest/api.html>`_. 
+
+
+In the Jupyter notebook (see link below), we demonstrate the following: 
+
+
+* How to invoke bash commands within a Jupyter environment.
+* How to install packages/programs within a Jupyter environment
+* How to use available BigQuery tables within ISB-CGC to query and identify Google Cloud Storage bucket locations for BAM files of interest
+* How to use PySam to slice BAM files
+* How to save slices in your bucket and retrieve them
+* Brief example of working with reads
+
+
+Link to the Jupyter notebook `here <https://colab.research.google.com/drive/1ZaQ7TH0MEaiwSXqj1lTtdUS88Nv_uKpY#scrollTo=H4J3VQuW488Z->`_ .
+
+
+**How to invoke bash commands within a Jupyter environment.**
+
+
+We're finding the free jupyter notebooks offered from Google Colaboratory really useful and surprisingly flexible.
+The level of access to the operating system is quite good and allows us to run bash commands to work on the file level.
+
+
+To run a command, in your colaboratory notebook, create a cell like:
+
+::
+
+  !ls -lha
+
+
+That's going to list out all the files in your environment.
+The 'bang' (exclaimation point) signals to the notebook to run this command using bash.
+
+
+
+Another useful command is
+
+::
+
+  !env
+
+
+Which prints out all the environment variables. This is useful in a lot of cases, such as compiling software.
+
+
+**How to install packages/programs within a Jupyter environment**
+
+To install a new linux library, create a new cell in your colaboratory python notebook and run:
+
+::
+
+  !sudo apt-get install libxml2
+
+
+
+**How to use available BigQuery tables**
+
+In the notebook, there's other 'magic commands' as well. Since it's a Google product, it's relatively straightforward to connect to other 
+Google products like BigQuery. This is really cool, because if the free colaboratory notebook is short on raw compute power,  
+BigQuery gives you the power of a cluster, and with the summary results you can do visualization and downstream analysis in the notebook.
+
+To run an SQL query, we use some %%BigQuery magic
+
+::
+  
+  %%bigquery --project our-project-id df
+  SELECT * FROM `isb-cgc.TCGA_hg19_data_v0.tcga_metadata_data_hg19_18jul`
+  where 
+  data_format = 'BAM' 
+  AND disease_code = 'OV' 
+  AND experimental_strategy = "WGS" 
+  AND platform = 'ABI SOLiD'
+  LIMIT 5
+
+
+Where 'our-project-id' is your google project id, and df is a variable that will store the results of the query.
+In this query, we're selecting all the available metadata for bam files (data_format = 'BAM') associated with
+ovarian cancer (disease_code = 'OV').  From a query like this, you can get a list of bam files stored in a 
+google cloud bucket, and slice out a section of reads from each.
+
+
+**Using Pysam to slice bams**
+
+Pysam is a python wrapper around SAMtools which uses the `HTSlib <http://www.htslib.org/>`_ in reading and processing bams. 
+
+In order to read out from GCS (cloud buckets), HTSlib needs to be compiled with some additional functionality.
+
+::
+  
+  export HTSLIB_CONFIGURE_OPTIONS="--enable-gcs"
+
+
+Then, to slice out a region on chromosome 7 between 140453130-140453140, we would:
+
+::
+  
+  export GCS_OAUTH_TOKEN=`gcloud auth application-default print-access-token`
+
+  ./samtools view gs://isb-ccle-open/gdc/0a109993-2d5b-4251-bcab-9da4a611f2b1/C836.Calu-3.2.bam 7:140453130-140453140
+
+In the python notebook, we do something very similar. We need to compile HTSlib gcs-enabled to read cloud-based files, 
+which in turn requires installing a few extra libraries.  Then we would:
+
+.. code-block:: python
+  
+  samfile = pysam.AlignmentFile('gs://isb-ccle-open/gdc/0a109993-2d5b-4251-bcab-9da4a611f2b1/C836.Calu-3.2.bam', "rb")
+
+  for read in samfile.fetch('7', 140453130, 140453135):
+    print(read)
+
+  samfile.close()
+
+The AlignmentFile lets you fetch a AlignedSegment object, and you use that object to call many different methods. 
+You can see the full API `here <https://pysam.readthedocs.io/en/latest/api.html#pysam.AlignedSegment>`_. 
+
+For a couple quick examples of working with AlignedSegments, such as processing sequence data, check out the `notebook <https://colab.research.google.com/drive/1ZaQ7TH0MEaiwSXqj1lTtdUS88Nv_uKpY#scrollTo=4RxAZ67mvHKk>`_!
+
+
+**How to save slices in your bucket and retrieve them**
+
+Once you have a list of slices for analysis, we can use all our Google cloud tools, like gsutil!
+
+
+::
+
+  !gsutil ls gs://my_bucket_1/
+
+Here we list out all the file in my bucket.  We can also use gsutil to move items in and out of our notebook environment.
+
+
+::
+
+  !gsutil cp my.bam gs://my_bucket_1/my.bam
+
+
+
+That's it for this month, please let us know if you have questions, or have topics you'd like to see covered in later months!
+
+
+.. _December2018:
 
 December, 2018
 ##############
@@ -351,7 +513,7 @@ So here's a query that counts up variants within samples.
 
 
 
-.. _November:
+.. _November2018:
 
 November, 2018
 ##############
@@ -558,7 +720,7 @@ Thank you!  Please let know if you have any questions.
 
 
 
-.. _October:
+.. _October2018:
 
 October, 2018
 #############
@@ -1137,7 +1299,7 @@ As with many other cloudy things, you can kill your cluster in the web console, 
 Hope that was helpful for getting started with Jupyter notebooks! Of course you don't have to use clusters, there's a lot you can do with a single node notebook! If you have some cool examples, I would love to see them!
 
 
-.. _September:
+.. _September2018:
 
 September, 2018
 ###############
@@ -1511,7 +1673,7 @@ I hope these examples help get you in the cloud! Please let me know if you have 
 
 
 
-.. _August:
+.. _August2018:
 
 August, 2018
 ############
@@ -1969,7 +2131,7 @@ exploration within an interactive web environment. This sort of tool would allow
 of gene sets and TCGA to build and reason about models. And we think that's pretty cool!
 
 
-.. _July:
+.. _July2018:
 
 July, 2018
 ##########
@@ -2419,7 +2581,7 @@ Of course, BigQuery ML is in beta, and our experiance with Google products: expe
 Have you found any good tricks?  If you have, please share them via email or on twitter (@isb-cgc)!
 
 
-.. _June:
+.. _June2018:
 
 June, 2018
 ##########
@@ -2671,7 +2833,7 @@ google cloud. Not too bad, right?  Were you able to run your own workflow?  Let 
 
 
 
-.. _May:
+.. _May2018:
 
 May, 2018
 #########
@@ -2968,7 +3130,7 @@ and the last column is the number of reads.
 Thanks for reading!  Let us know if you have questions or comments!
 
 
-.. _April:
+.. _April2018:
 
 April, 2018
 ###########
@@ -3238,7 +3400,7 @@ and probably (maybe) even run it again.
 Next month we'll continue our exploration of workflows and workflow runners. Let me know how it goes!
 
 
-.. _March:
+.. _March2018:
 
 March, 2018
 ###########
@@ -3795,10 +3957,7 @@ Probably changing the way genes are selected would make a difference,
 and perhaps using more samples. Let me know if you give it a try!
 
 
-
-
-.. _February:
-
+.. _February2018:
 
 February, 2018
 ##############
@@ -4067,7 +4226,7 @@ That's it for this month. As always, if you have any special requests for querie
 you would like to see or would like to submit a query of the month, please get
 a hold of us! Thanks!
 
-.. _January:
+.. _January2018:
 
 January, 2018
 ##############
