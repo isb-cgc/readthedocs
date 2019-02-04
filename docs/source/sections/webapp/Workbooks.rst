@@ -43,7 +43,6 @@ To create a **Workbook** from Your Dashboard, click on the **“Create a New Wor
 
     - **SeqPeek** - This visualization shows where somatic mutations have been observed on a linear representation of a specific protein. Each horizontal strip represents the protein, with data from different tumor types (aka cohorts or studies) shown stacked one on top of the other.
 
-
     A researcher now has the option to make the axis logarithmic if the plot can display continuous numerical data for eg. mRNA expression levels.
    
    **Note:** For Violin Plot and Scatter Plot you can select multiple cohorts as your Color By Feature. This will cause the Legend to list all the cohorts that the sample is associated to. Please be aware you'll end up with lots of permutations if you have lots of samples that belong to many different cohorts.
@@ -86,6 +85,14 @@ By clicking 'Cohorts' or the '+' symbol you will be directed to the Cohorts tabl
 Once completed you can proceed.  The user can also add multiple Cohorts to the worksheet if desired. More information about Cohorts can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html>`_.
 
 4. Select **Edit Analysis Settings** - This will trigger the Plot setting displaying the applicable x & y axis settings (i.e. Categorical or Numerical based on analysis type selected). Depending on the analysis type selected (e.g., Bar chart, Histogram, Scatter Plot, Violin Plot, Cubby Hole Plot, or SeqPeek) additional specifications may appear for selection.
+
+5. Select **Toggle Sample Selection** - After an analysis option has been selected, using the toggle sample button allows you to create a smaller cohort from within the plot itself.
+
+6. Select **Redraw** - After an analysis option has been selected, using the redraw button will reset the anaylsis to its orginal setting after being zoomed-in, moved place. 
+
+7. Select **Download** - After an analysis option has been selected, using the download button will allow you to either download analysis as a SVG, PNG, or a JSON file. 
+
+8. Select **Toggle Full Screen** - 
 
 
 Sharing Workbooks
