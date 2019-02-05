@@ -92,7 +92,7 @@ Once completed you can proceed.  The user can also add multiple Cohorts to the w
 
 7. Select **Download** - After an analysis option has been selected, using the download button will allow you to either download analysis as a SVG, PNG, or a JSON file. 
 
-8. Select **Toggle Full Screen** - 
+8. Select **Toggle Full Screen** -  After an analysis option has been selected, using this button will enable the plot to full-screen.
 
 
 Sharing Workbooks
