@@ -127,7 +127,7 @@ In the Jupyter notebook (see link below), we demonstrate the following:
 * Brief example of working with reads
 
 
-Link to the Jupyter notebook `here <https://colab.research.google.com/drive/1ZaQ7TH0MEaiwSXqj1lTtdUS88Nv_uKpY#scrollTo=H4J3VQuW488Z->`_ .
+Link to the Jupyter notebook `here <https://github.com/isb-cgc/examples-Python/blob/master/notebooks/Isb_cgc_bam_slicing_with_pysam.ipynb->`_ .
 
 
 **How to invoke bash commands within a Jupyter environment.**
