@@ -31,12 +31,9 @@ Web-App Release Notes
   - When uploading TARGET files using the cohort barcode creation feature from the GDC, you may get an invalid barcodes error message and unable to upload all the barcodes. 
   - On the File Browser page for Diagnostic images there is no GDC file UUID associated to them. 
   - Sharing a workbook with someone else will cause the analysis to reset. 
-  
-
 
 
 * **December 5, 2018** `v3.15 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.15>`_
-
 
 
   **Please Note:** Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
