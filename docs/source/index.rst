@@ -39,6 +39,7 @@ Contents
 
    sections/About-ISB-CGC
    sections/HowToGetStartedonISB-CGC
+   sections/BestPractices
    sections/Hosted-Data
    sections/Web-UI
    sections/Prog-APIs
