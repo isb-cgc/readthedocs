@@ -51,10 +51,16 @@ STORAGE ON THE CLOUD
 
 The Google Cloud Platform offers a number of different storage options for your virtual machine instances: https://cloud.google.com/compute/docs/disks/
 
- a.) 
-
-
-
-
-
-
+ a.) `Block Storage: <https://cloud.google.com/compute/docs/disks/#pdspecs>`_
+  - By default, each virtual machine instance has a single boot persistent disk that contains the operating system. The default size is 10GB but can be adjusted up to 64TB in size (Be careful! High costs here, spend wisely!). 
+  - Persistent disks are restricted to the zone where your instance is located.
+  - Use persistent disks if you are running analyses that require low latency and high-throughput. 
+  
+ b.) `Object Store: <https://cloud.google.com/compute/docs/disks/#gcsbuckets>`_ Google Cloud storage buckets are most the flexible and economical storage option.
+ 
+  - Unlike persistent disks, Cloud Storage buckets are not restricted to the zone where your instance is located. 
+  - Additionally, you can read and write data to a bucket from multiple instances simultaneously.
+  - You can mount a GCS bucket to your VM instance when latency is not a priority or when you need to share data easily between multiple instances or zones. 
+  An example use-case: You want to slice thousands of bam files and save the resulting slices to share with a collaborator who has instances in another zone to use for downstream statistical analyses.
+  - You can save objects to GCS buckets including images, videos, blobs and unstructured data. 
+ A comparison table detailing the current pricing of Google’s storage options can be found here: https://cloud.google.com/storage/features/ 
