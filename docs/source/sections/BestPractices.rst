@@ -20,7 +20,7 @@ COMPUTING ON THE CLOUD
 Most of the same linux commands, scripts, pipelines/workflows, genomics software packages and docker containers that you run on your local machine can be executed on virtual machines on the Google cloud. 
 
 
- a.) The basics and best practices on how to launch virtual machines (VMs) are described `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/gcp-info/gcp-info2/LaunchVM.html>`_ in our documentation.  
+ a.) The basics and best practices on how to launch virtual machines (VMs) are described `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/gcp-info/gcp-info2/LaunchVM.html>`_ in our documentation. **NOTE: When launching VMs, please maintain the default firewall settings.**
 
 
  b.) Compute Engine instances can run the public images for Linux and Windows Server that Google provides as well as private custom images that you can `create <https://isb-cgc.appspot.com/>`_ or `import from your existing systems <https://cloud.google.com/compute/docs/images/importing-virtual-disks>`_. 
