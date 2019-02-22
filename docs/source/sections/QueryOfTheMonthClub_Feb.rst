@@ -120,11 +120,9 @@ In R:
 
 Let's begin! 
 
+### Within your R environment ###
 .. code-block:: r
 
-
-### Within your R environment ###
-#Install the following libraries run to this code
 install.packages("bigrquery")
 install.packages("ggplot2")
 install.packages("httpuv")
