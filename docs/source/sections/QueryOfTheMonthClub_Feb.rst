@@ -126,8 +126,27 @@ Within your R environment
 .. code-block:: r
    
   install.packages("bigrquery")
-   	install.packages("httpuv")
-   
+  install.packages("httpuv")
+  install.packages("ggplot2")
+  install.packages("reshape")
+  install.packages("scales")
+  install.packages("dplyr")
+
+
+   library(bigrquery)
+   library(httpuv)
+   library(ggplot2)
+   library(reshape)
+   library(scales) 	
+   library(dplyr)
+
+    ##Let's investigate the publicly available ISB-CGC created TCGA and TARGET tables. 
+    ##There are a number of Level 3 datasets updated and available including:
+
+
+    #To list them in R: 
+     z = bq_project_datasets(x = "isb-cgc")
+     z  
 
 
 
