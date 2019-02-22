@@ -99,7 +99,11 @@ Resources_:  Helpful information!
 
 .. _February2019:
 
-In this QoTM, we'll look at the current publicly-available open-access TCGA and TARGET datasets in BigQuery. You can find in-depth descriptions of the BigQuery datasets in our documentation here: 
+In this QoTM, we'll look at the current publicly-available open-access TCGA and TARGET datasets in BigQuery. You can find in-depth descriptions of the BigQuery datasets in our documentation `_here: <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_BQ.html>``__.
+
+Followers of QoTM blog will know that BigQuery works seamlessly in R and allows one to complete comprehensive analyses from queries to producing plots all in R. 
+Note: You will need to have set up a Google Cloud Platform project to access/query the BigQuery tables in R, more info here if you still need to do this: `https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/gcp-info/gcp-info2/Setup.html <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/gcp-info/gcp-info2/Setup.html>`__.
+
 
 
 .. _January2019:
