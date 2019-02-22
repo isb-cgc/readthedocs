@@ -18,6 +18,8 @@ You don’t have to download the data! Bring your compute and know-how to the da
 Most bioinformaticians today are most likely accustomed to using the high performance compute (HPC) resources provided by their institution to conduct high-throughput bioinformatics analyses. Here’s a breakdown on how the Google Cloud Platform compares to your institution’s HPC resources. 
 
 
+
+
 +-----------+-------------------------------------+-----------------------------------------+
 |           | Your University’s HPC Resource      | Google Cloud Platform                   |
 +===========+=====================================+=========================================+
@@ -44,10 +46,28 @@ Most bioinformaticians today are most likely accustomed to using the high perfor
 |           |                                     | - You can save objects to  GCS  buckets |
 |           |                                     |   including images, videos, blobs, and  |
 |           |                                     |   unstructured data                     |
++-----------+-------------------------------------+-----------------------------------------+
+| Pricing   | Depends on the institution:         | Pay as you go                           |
 |           |                                     |                                         |
+|           | - Instituion provides basic HPC     | - You pay for the compute resources and |
+|           |   resources for researchers free of |   storage that you use*                 |
+|           |   charge                            |                                         |
+|           | - PIs requiring larger-scale        |                                         |
+|           |   resources must purchase clusters  |                                         |
+|           |   and storage space                 |                                         |
 |           |                                     |                                         |
-|           |                                     |                                         |
-|           |                                     |                                         |
++-----------+-------------------------------------+-----------------------------------------+
+| Do you    | Yes                                 | No                                      |
+| have to   |                                     |                                         |
+| wait?     | - Resources are shared amongst users| - Once you've set up a Google Cloud     |
+|           | - Scheduler systems used to schedule|   Platform account, you can spin up a   |
+|           |   jobs based on resource            |   virtual machine and begin computing   |
+|           |   availability                      |   quickly                               |
++-----------+-------------------------------------+-----------------------------------------+
+| Is        | Yes and no, depends on what you're  | Compute resources and storage are       |
+| machine   | trying to do. Often no              | unlimited but, you have to pay for it.* |
+| powerful  |                                     |                                         |
+| enough?   |                                     |                                         |
 |           |                                     |                                         |
 +-----------+-------------------------------------+-----------------------------------------+
 
