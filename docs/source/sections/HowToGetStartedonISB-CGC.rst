@@ -15,6 +15,44 @@ Benefits of Using The Cloud
 
 You don’t have to download the data! Bring your compute and know-how to the data. Use cloud-native, compute scale as big as you can imagine, tools to analyze TBs and PBs of data!! 
 
+Most bioinformaticians today are most likely accustomed to using the high performance compute (HPC) resources provided by their institution to conduct high-throughput bioinformatics analyses. Here’s a breakdown on how the Google Cloud Platform compares to your institution’s HPC resources. 
+
+
++-----------+-------------------------------------+-----------------------------------------+
+|           | Your University’s HPC Resource      | Google Cloud Platform                   |
++===========+=====================================+=========================================+
+| Operating | Linux, Windows                      | Virtual machines can run Linux and      |
+| Systems   |                                     | Windows                                 |
+|           |                                     |                                         |
++-----------+-------------------------------------+-----------------------------------------+
+| Compute   | Virtual machines not determined by  | You can sign up with you own virtual    |
+|           | you                                 | machines*                               |
+|           |                                     |                                         |
+|           |                                     |                                         |
++-----------+-------------------------------------+-----------------------------------------+
+| Storage   | Block Storage                       | Block Storage & Object Storage          |
+|           |                                     |                                         |
+|           | - Small storage is avaialable in    | - Each virtual machine instance has a   |
+|           |   your home directory (usually      |   single boot persistent disk with a    |
+|           |   around 1TB)                       |   default size of 10GB that can be      |
+|           | - Some Scratch storage that is often|   adjusted up to 64TB*                  |
+|           |   deleted after a certain amount of | - For storage that needs IO, consider   |
+|           |   time                              |   persistent disks                      |
+|           | - Storage is usually a shared       | - Google Cloud Storage (GCS) buckets are|
+|           |   resource                          |   the most flexible and economical      |
+|           |                                     |   storage option                        |
+|           |                                     | - You can save objects to  GCS  buckets |
+|           |                                     |   including images, videos, blobs, and  |
+|           |                                     |   unstructured data                     |
+|           |                                     |                                         |
+|           |                                     |                                         |
+|           |                                     |                                         |
+|           |                                     |                                         |
+|           |                                     |                                         |
++-----------+-------------------------------------+-----------------------------------------+
+
+
+
 Goals of this tutorial: 
 ========================
 
