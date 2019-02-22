@@ -114,7 +114,7 @@ Your lab is interested in comparing the gene expression profiles of 2 non-coding
 
 In R: 
 
-* Let's look at the currently available ISB-CGC BQ tables to find tables that will allow us to compare the expression    profiles of the non-coding RNAs. 
+* Let's look at the currently available ISB-CGC BQ tables to find tables that will allow us to compare the expression profiles of the non-coding RNAs. 
 * Once identified, let's query and explore the BQ tables that contain the information we need. 
 * Let's generate an interactive scatterplot!
 
@@ -133,12 +133,12 @@ Within your R environment
   install.packages("dplyr")
 
 
-   library(bigrquery)
-   library(httpuv)
-   library(ggplot2)
-   library(reshape)
-   library(scales) 	
-   library(dplyr)
+  library(bigrquery)
+  library(httpuv)
+  library(ggplot2)
+  library(reshape)
+  library(scales) 	
+  library(dplyr)
 
     ##Let's investigate the publicly available ISB-CGC created TCGA and TARGET tables. 
     ##There are a number of Level 3 datasets updated and available including:
