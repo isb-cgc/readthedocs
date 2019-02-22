@@ -26,7 +26,7 @@ Table of Contents
 2019
 ++++
 
-- February2019_: BigQuery in R - refresher
+- February2019_: BigQuery in R - a refresher
 
 - January2019_: Bam slicing in a cloud hosted python notebook.
 
@@ -65,7 +65,7 @@ Table of Contents
 
 - November2017_: Run an R (or python) script in batch mode using dsub on the google cloud.
 
-- October2017_: Using plotly for visualization in Shiny apps. We implement an interatictive heatmap using heatmaply
+- October2017_: Using plotly for visualization in Shiny apps. We implement an interactive heatmap using heatmaply
 
 - September2017_: We implement a new statistical test in BigQuery: the one-way ANOVA.
 
@@ -99,14 +99,31 @@ Resources_:  Helpful information!
 
 .. _February2019:
 
+February, 2019
+##############
+
+
 In this QoTM, we'll look at the current publicly-available open-access TCGA and TARGET datasets in BigQuery. You can find in-depth descriptions of the BigQuery datasets in our documentation `_here: <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_BQ.html>``__.
 
 Followers of QoTM blog will know that BigQuery works seamlessly in R and allows one to complete comprehensive analyses from queries to producing plots all in R. 
 Note: You will need to have set up a Google Cloud Platform project to access/query the BigQuery tables in R, more info here if you still need to do this: `https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/gcp-info/gcp-info2/Setup.html <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/gcp-info/gcp-info2/Setup.html>`__.
 
+Here's our example case-study for month: 
 
+Your lab is interested in comparing the gene expression profiles of 2 non-coding RNAs, specifically the lncRNA ANRIL and the miRNA miRNA-21 across multiple cancer types. From the literature and your own research studies, expression of both ANRIL and. miRNA-21 have been implicated in many different cancer types. 
+
+In R: 
+* Let's look through the currently available ISB-CGC BQ tables to find tables that will allow us to compare the expression profiles of the non-coding RNAs. 
+* Once identified, let's query and explore the BQ tables that contain the information we need. 
+* Let's generate an interactive scatterplot!
+
+Let's begin! 
 
 .. _January2019:
+
+January, 2019
+##############
+
 
 **Bam slicing in the cloud**
 
