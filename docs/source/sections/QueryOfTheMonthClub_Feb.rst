@@ -124,8 +124,8 @@ Within your R environment
 #########################
 
 .. code-block:: r
-
 install.packages("bigrquery")
+
 
 
 
