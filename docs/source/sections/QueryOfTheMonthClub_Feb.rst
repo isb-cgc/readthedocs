@@ -121,6 +121,7 @@ In R:
 Let's begin! 
 
 ### Within your R environment ###
+
 .. code-block:: r
 
 install.packages("bigrquery")
@@ -131,7 +132,6 @@ install.packages("scales")
 install.packages("dplyr")
 
 
-.. code-block:: r
 
 
 
