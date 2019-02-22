@@ -103,23 +103,26 @@ February, 2019
 ##############
 
 
-In this QoTM, we'll look at the current publicly-available open-access TCGA and TARGET datasets in BigQuery. You can find in-depth descriptions of the BigQuery datasets in our documentation `_here: <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_BQ.html>``__.
+In this QoTM, we'll look at the current publicly-available open-access TCGA and TARGET datasets in BigQuery. You can find in-depth descriptions of the BigQuery datasets in our documentation `_here: <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_BQ.html>`__.
 
 Followers of QoTM blog will know that BigQuery works seamlessly in R and allows one to complete comprehensive analyses from queries to producing plots all in R. 
-Note: You will need to have set up a Google Cloud Platform project to access/query the BigQuery tables in R, more info here if you still need to do this: `https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/gcp-info/gcp-info2/Setup.html <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/gcp-info/gcp-info2/Setup.html>`__.
+Note: You will need to have set up a Google Cloud Platform project to access/query the BigQuery tables in R, more info `_here: <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/gcp-info/gcp-info2/Setup.html>`__.
 
 Here's our example case-study for month: 
 
 Your lab is interested in comparing the gene expression profiles of 2 non-coding RNAs, specifically the lncRNA ANRIL and the miRNA miRNA-21 across multiple cancer types. From the literature and your own research studies, expression of both ANRIL and. miRNA-21 have been implicated in many different cancer types. 
 
 In R: 
-* Let's look through the currently available ISB-CGC BQ tables to find tables that will allow us to compare the expression profiles of the non-coding RNAs. 
+
+* Let's look at the currently available ISB-CGC BQ tables to find tables that will allow us to compare the expression    profiles of the non-coding RNAs. 
 * Once identified, let's query and explore the BQ tables that contain the information we need. 
 * Let's generate an interactive scatterplot!
 
 Let's begin! 
 
 .. code-block:: r
+
+
 ### Within your R environment ###
 #Install the following libraries run to this code
 install.packages("bigrquery")
