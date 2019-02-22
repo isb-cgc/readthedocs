@@ -204,14 +204,19 @@ Within your R environment
    [[19]]
 	<bq_dataset> isb-cgc.tcga_seq_metadata
 
-    #This list of datasets can be queried and plotted right here in R. Here, we'll present a very simple example of how to    	  #blend bigquery sql queries with R commands seamlessly to generate an interactive figure. 
+    #This list of datasets can be queried and plotted right here in R. 
+    #Here, we'll present a very simple example of how to blend bigquery sql queries with R 
+    #commands seamlessly to generate an interactive figure. 
 
-    #To access and query the BigQuery tables, you'll need to first specify your project id
+    #To access and query the BigQuery tables, you'll need to first specify your project id:
     project <-"isb-cgc-02-0001" 
+    
     #let's compose a query on the RNAseq_Gene_Expression dataset for the lncRNA dataset 
     sql1<-"SELECT case_barcode, project_short_name, gene_name,HTSeq__Counts FROM `isb-		  
     cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression` WHERE Ensembl_gene_id = 'ENSG00000240498' ORDER BY 
     project_short_name"
+    
+    
     data1 <- query_exec(sql1, project = project, use_legacy_sql = FALSE,max_pages = Inf)
     head(data1)
     
