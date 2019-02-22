@@ -147,6 +147,63 @@ Within your R environment
     #To list them in R: 
      z = bq_project_datasets(x = "isb-cgc")
      z  
+   [[1]] 
+   	<bq_dataset> isb-cgc.CCLE_bioclin_v0
+
+   [[2]]
+	<bq_dataset> isb-cgc.GDC_metadata
+
+   [[3]]
+	<bq_dataset> isb-cgc.GTEx_v7
+
+   [[4]]
+	<bq_dataset> isb-cgc.QotM
+
+   [[5]]
+	<bq_dataset> isb-cgc.TARGET_bioclin_v0
+
+   [[6]]
+	<bq_dataset> isb-cgc.TARGET_hg38_data_v0
+
+   [[7]]
+	<bq_dataset> isb-cgc.TCGA_bioclin_v0
+
+   [[8]]
+	<bq_dataset> isb-cgc.TCGA_hg19_data_v0
+
+   [[9]]
+	<bq_dataset> isb-cgc.TCGA_hg38_data_v0
+
+   [[10]]
+	<bq_dataset> isb-cgc.Toil_recompute
+
+   [[11]]
+	<bq_dataset> isb-cgc.ccle_201602_alpha
+
+   [[12]]
+	<bq_dataset> isb-cgc.genome_reference
+
+   [[13]]
+	<bq_dataset> isb-cgc.hg19_data_previews
+
+   [[14]]
+	<bq_dataset> isb-cgc.hg38_data_previews
+
+   [[15]]
+	<bq_dataset> isb-cgc.metadata
+
+   [[16]]
+	<bq_dataset> isb-cgc.platform_reference
+
+   [[17]]
+	<bq_dataset> isb-cgc.tcga_201607_beta
+
+   [[18]]
+	<bq_dataset> isb-cgc.tcga_cohorts
+
+   [[19]]
+	<bq_dataset> isb-cgc.tcga_seq_metadata
+
 
 
 
