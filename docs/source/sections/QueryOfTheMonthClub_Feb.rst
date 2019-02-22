@@ -26,7 +26,7 @@ Table of Contents
 2019
 ++++
 
-- February2019_: Pairwise comparison
+- February2019_: BigQuery in R - refresher
 
 - January2019_: Bam slicing in a cloud hosted python notebook.
 
@@ -96,6 +96,8 @@ Resources_:  Helpful information!
 
 
 -----------------------
+
+.. _February2019:
 
 
 .. _January2019:
