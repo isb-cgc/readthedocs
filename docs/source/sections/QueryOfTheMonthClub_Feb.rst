@@ -124,9 +124,9 @@ Within your R environment
 #########################
 
 .. code-block:: r
-   #first let's install these libraries	
-   install.packages("bigrquery")
-   install.packages("httpuv")
+   
+  install.packages("bigrquery")
+   	install.packages("httpuv")
    
 
 
