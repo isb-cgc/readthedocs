@@ -99,6 +99,8 @@ Resources_:  Helpful information!
 
 .. _February2019:
 
+In this QoTM, we'll look at the current publicly-available open-access TCGA and TARGET datasets in BigQuery. You can find in-depth descriptions of the BigQuery datasets in our documentation here: 
+
 
 .. _January2019:
 
