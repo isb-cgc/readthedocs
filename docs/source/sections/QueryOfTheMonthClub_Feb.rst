@@ -123,14 +123,11 @@ Let's begin!
 Within your R environment 
 #########################
 
-.. code-block:: r
+::
 
 install.packages("bigrquery")
-install.packages("ggplot2")
-install.packages("httpuv")
-install.packages("reshape")
-install.packages("scales")
-install.packages("dplyr")
+
+
 
 
 
