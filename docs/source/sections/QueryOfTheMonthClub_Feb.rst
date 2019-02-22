@@ -144,74 +144,43 @@ Within your R environment
     ##There are a number of Level 3 datasets updated and available including:
 
 
-    #To list them in R: 
-     list_tables = bq_project_datasets(x = "isb-cgc")
-     list_tables  
-   [[1]] 
-   	<bq_dataset> isb-cgc.CCLE_bioclin_v0
+    #To list datasets associated with the ISB-CGC project in R: 
+     list_datasets("isb-cgc")
+     [1] "CCLE_bioclin_v0"     "GDC_metadata"        "GTEx_v7"            "QotM"                "TARGET_bioclin_v0"  
+     [6] "TARGET_hg38_data_v0" "TCGA_bioclin_v0"     "TCGA_hg19_data_v0"   "TCGA_hg38_data_v0"   "Toil_recompute"     
+     [11] "ccle_201602_alpha"   "genome_reference"    "hg19_data_previews"  "hg38_data_previews"  "metadata"           
+     [16] "platform_reference"  "tcga_201607_beta"    "tcga_cohorts"        "tcga_seq_metadata" 
+     
+     #Let's get the list of tables for the TCGA_hg38 dataset: 
 
-   [[2]]
-	<bq_dataset> isb-cgc.GDC_metadata
+     list_tables("isb-cgc","TCGA_hg38_data_v0")
+     [1] "Copy_Number_Segment_Masked"     "Copy_Number_Segment_Masked_r14" "DNA_Methylation"               
+     [4] "DNA_Methylation_chr1"           "DNA_Methylation_chr10"          "DNA_Methylation_chr11"         
+     [7] "DNA_Methylation_chr12"          "DNA_Methylation_chr13"          "DNA_Methylation_chr14"         
+     [10] "DNA_Methylation_chr15"          "DNA_Methylation_chr16"          "DNA_Methylation_chr17"         
+     [13] "DNA_Methylation_chr18"          "DNA_Methylation_chr19"          "DNA_Methylation_chr2"          
+     [16] "DNA_Methylation_chr20"          "DNA_Methylation_chr21"          "DNA_Methylation_chr22"         
+     [19] "DNA_Methylation_chr3"           "DNA_Methylation_chr4"           "DNA_Methylation_chr5"          
+     [22] "DNA_Methylation_chr6"           "DNA_Methylation_chr7"           "DNA_Methylation_chr8"          
+     [25] "DNA_Methylation_chr9"           "DNA_Methylation_chrX"           "DNA_Methylation_chrY"          
+     [28] "Protein_Expression"             "RNAseq_Gene_Expression"         "Somatic_Mutation"              
+     [31] "Somatic_Mutation_DR10"          "Somatic_Mutation_DR6"           "Somatic_Mutation_DR7"          
+     [34] "miRNAseq_Expression"            "miRNAseq_Isoform_Expression"    "tcga_metadata_data_hg38_220818"
+     [37] "tcga_metadata_data_hg38_250718"
+     
+     
+  
 
-   [[3]]
-	<bq_dataset> isb-cgc.GTEx_v7
 
-   [[4]]
-	<bq_dataset> isb-cgc.QotM
-
-   [[5]]
-	<bq_dataset> isb-cgc.TARGET_bioclin_v0
-
-   [[6]]
-	<bq_dataset> isb-cgc.TARGET_hg38_data_v0
-
-   [[7]]
-	<bq_dataset> isb-cgc.TCGA_bioclin_v0
-
-   [[8]]
-	<bq_dataset> isb-cgc.TCGA_hg19_data_v0
-
-   [[9]]
-	<bq_dataset> isb-cgc.TCGA_hg38_data_v0
-
-   [[10]]
-	<bq_dataset> isb-cgc.Toil_recompute
-
-   [[11]]
-	<bq_dataset> isb-cgc.ccle_201602_alpha
-
-   [[12]]
-	<bq_dataset> isb-cgc.genome_reference
-
-   [[13]]
-	<bq_dataset> isb-cgc.hg19_data_previews
-
-   [[14]]
-	<bq_dataset> isb-cgc.hg38_data_previews
-
-   [[15]]
-	<bq_dataset> isb-cgc.metadata
-
-   [[16]]
-	<bq_dataset> isb-cgc.platform_reference
-
-   [[17]]
-	<bq_dataset> isb-cgc.tcga_201607_beta
-
-   [[18]]
-	<bq_dataset> isb-cgc.tcga_cohorts
-
-   [[19]]
-	<bq_dataset> isb-cgc.tcga_seq_metadata
-
-    #This list of datasets can be queried and plotted right here in R. 
-    #Here, we'll present a very simple example of how to blend bigquery sql queries with R 
-    #commands seamlessly to generate an interactive figure. 
+   #Each dataset contains more datasets and can further be identified like suc 
+   #This list of datasets can be queried and plotted right in R. Let's go through a simple example of how to 
+    blend bigquery sql queries with R commands seamlessly to generate an interactive figure. 
 
     #To access and query the BigQuery tables, you'll need to first specify your project id:
     project <-"isb-cgc-02-0001" 
     
-    #let's compose a query on the RNAseq_Gene_Expression dataset for the lncRNA dataset 
+    #Information about lnRNAs are in the gene expression tableslet's compose a query on the RNAseq_Gene_Expression dataset 	for the lncRNA dataset 
+    
     sql1<-"SELECT case_barcode, project_short_name, gene_name,HTSeq__Counts FROM `isb-		  
     cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression` WHERE Ensembl_gene_id = 'ENSG00000240498' ORDER BY 
     project_short_name"
