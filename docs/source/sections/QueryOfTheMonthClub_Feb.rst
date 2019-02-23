@@ -7,7 +7,7 @@ of new and interesting queries to demonstrate the powerful combination of
 BigData from the NCI cancer programs like TCGA, and BigQuery from Google.
 
 Please let us know if you have an idea or a suggestion for our next QotM!
-
+    
 Query of the Month is produced by:
 
 
@@ -190,7 +190,7 @@ Within your R environment
 
 .. raw:: html
 
-   <iframe src="_static/Plotly_Jan2019_qotm.html" height="345px" width="100%"></iframe>
+   <iframe src="Plotly_Jan2019_qotm.html" height="150px" width="100%"></iframe>
    
     
 
