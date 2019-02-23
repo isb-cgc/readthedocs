@@ -188,9 +188,11 @@ Within your R environment
     
     #we can join these tables in BQ and have one datatable, we can also create 2 tables and merge them right here in R.
 
+
+
 .. raw:: html
 
-   <iframe src="Plotly_Jan2019.html"></iframe>
+   <iframe src = "_static/Plotly_Jan2019.html"></iframe>
    
    
     
