@@ -102,8 +102,6 @@ Resources_:  Helpful information!
 February, 2019
 ##############
 
-	there is a sLet's go through a simple example of how to 
-    blend bigquery sql queries with R commands seamlessly to generate an interactive figure. 
 In this QoTM, we'll look at the current publicly-available open-access TCGA and TARGET datasets in BigQuery. You can find in-depth descriptions of the BigQuery datasets in our documentation `here: <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_BQ.html>`__.
 
 Followers of QoTM blog will know that BigQuery works seamlessly in R and allows one to complete comprehensive analyses from queries to producing plots all in R. 
@@ -192,7 +190,7 @@ Within your R environment
 
 .. raw:: html
 
-   <iframe src="_static/Plotly_Jan2019_qotm.html" height="345px" width="100% ></iframe>
+   <iframe src="_static/Plotly_Jan2019_qotm.html" height="85px" width="250px" ></iframe>
    
     
 
