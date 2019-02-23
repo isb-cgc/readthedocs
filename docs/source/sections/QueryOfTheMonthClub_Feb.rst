@@ -102,7 +102,8 @@ Resources_:  Helpful information!
 February, 2019
 ##############
 
-
+	there is a sLet's go through a simple example of how to 
+    blend bigquery sql queries with R commands seamlessly to generate an interactive figure. 
 In this QoTM, we'll look at the current publicly-available open-access TCGA and TARGET datasets in BigQuery. You can find in-depth descriptions of the BigQuery datasets in our documentation `here: <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_BQ.html>`__.
 
 Followers of QoTM blog will know that BigQuery works seamlessly in R and allows one to complete comprehensive analyses from queries to producing plots all in R. 
@@ -171,10 +172,8 @@ Within your R environment
      
   
 
-
-   #Each dataset contains more datasets and can further be identified like suc 
-   #This list of datasets can be queried and plotted right in R. Let's go through a simple example of how to 
-    blend bigquery sql queries with R commands seamlessly to generate an interactive figure. 
+    #So let's remember our use-case: We want to compare the gene expression profiles of our non-coding RNAs
+    of interest. ANRIL is a lncRNA and lncRNA expression is captured in the RNAseq_Gene_Expression table and miRNA-21 is a  	miRNA_seq_Expression table. Let's find get our RNAs expression from their respective tables
 
     #To access and query the BigQuery tables, you'll need to first specify your project id:
     project <-"isb-cgc-02-0001" 
