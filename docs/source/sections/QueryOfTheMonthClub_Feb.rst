@@ -190,7 +190,7 @@ Within your R environment
 
 
 
-.. include:: ./Plotly_Jan2019_qotm.html
+.. include:: Plotly_Jan2019_qotm.html
 
 .. raw:: html
 
