@@ -189,14 +189,6 @@ Within your R environment
     #we can join these tables in BQ and have one datatable, we can also create 2 tables and merge them right here in R.
 
 
-
-.. include:: Plotly_Jan2019_qotm.html
-
-.. raw:: html
-
-   html content
-
-   
    
     
 
