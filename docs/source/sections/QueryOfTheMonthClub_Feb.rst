@@ -191,7 +191,7 @@ Within your R environment
 
 
 .. raw:: html
-   :file: Plotly_Jan2019_qotm.html
+    <iframe src="Plotly_Jan2019_qotm.html" height="345px" width="100%"></iframe>
    
    
     
