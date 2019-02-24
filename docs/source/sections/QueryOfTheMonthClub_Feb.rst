@@ -191,7 +191,7 @@ Within your R environment
 
 
 .. raw:: html
-    <iframe src="Plotly_Jan2019_qotm.html" height="345px" width="100%"></iframe>
+    <iframe src="_static/Plotly_Jan2019_qotm.html" height="345px" width="100%"></iframe>
    
    
     
