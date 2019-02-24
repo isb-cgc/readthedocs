@@ -190,8 +190,12 @@ Within your R environment
 
 
 
+.. include:: ./Plotly_Jan2019_qotm.html
+
 .. raw:: html
-    <iframe src="_static/Plotly_Jan2019_qotm.html" height="345px" width="100%"></iframe>
+
+   html content
+
    
    
     
