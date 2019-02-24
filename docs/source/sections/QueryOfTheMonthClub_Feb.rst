@@ -192,7 +192,7 @@ Within your R environment
 
 .. raw:: html
 
-   <iframe src ="_static/Plotly_Jan2019.html"></iframe>
+   <iframe src ="_static/Plotly_Jan2019_qotm.html"></iframe>
    
    
     
