@@ -20,8 +20,9 @@ Most bioinformaticians today are most likely accustomed to using the high perfor
 
 
 
+
 +-----------+-------------------------------------+-----------------------------------------+
-|           | Your University’s HPC Resource      | Google Cloud Platform                   |
+|           | Your University's HPC Resource      | Google Cloud Platform                   |
 +===========+=====================================+=========================================+
 | Operating | Linux, Windows                      | Virtual machines can run Linux and      |
 | Systems   |                                     | Windows                                 |
@@ -65,12 +66,20 @@ Most bioinformaticians today are most likely accustomed to using the high perfor
 |           |   availability                      |   quickly                               |
 +-----------+-------------------------------------+-----------------------------------------+
 | Is        | Yes and no, depends on what you're  | Compute resources and storage are       |
-| machine   | trying to do. Often no              | unlimited but, you have to pay for it.* |
+| machine   | trying to do often no               | unlimited but, you have to pay for it*  |
 | powerful  |                                     |                                         |
 | enough?   |                                     |                                         |
 |           |                                     |                                         |
 +-----------+-------------------------------------+-----------------------------------------+
-
+| Acessing  | Typically not stored on the HPC, you| Data is stored on the cloud             |
+| Cancer    | have to download to your local      |                                         |
+| Genomics  | machine                             |                                         |
+| Data      |                                     |                                         |
++-----------+-------------------------------------+-----------------------------------------+
+| How to    | Log in using Secure Shell           | Log in using Secure Shell               |
+| connect   | protocal (SSH)                      | protocal (SSH)                          |
+|           |                                     |                                         |
++-----------+-------------------------------------+-----------------------------------------+
 
 
 Goals of this tutorial: 
