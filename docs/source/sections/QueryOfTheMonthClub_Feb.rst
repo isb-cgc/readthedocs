@@ -168,8 +168,6 @@ Within your R environment
      [37] "tcga_metadata_data_hg38_250718"
      
      
-  
-
     #So let's remember our use-case: We want to compare the gene expression profiles of our non-coding RNAs
     of interest. ANRIL is a lncRNA and lncRNA expression is captured in the RNAseq_Gene_Expression table and miRNA-21 is a  	miRNA_seq_Expression table. Let's find get our RNAs expression from their respective tables
 
@@ -181,7 +179,6 @@ Within your R environment
     sql1<-"SELECT case_barcode, project_short_name, gene_name,HTSeq__Counts FROM `isb-		  
     cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression` WHERE Ensembl_gene_id = 'ENSG00000240498' ORDER BY 
     project_short_name"
-    
     data1 <- query_exec(sql1, project = project, use_legacy_sql = FALSE,max_pages = Inf)
     head(data1)
     
@@ -191,8 +188,7 @@ Within your R environment
     head(data2)
 
     #let's merge these two data tables here in R by case_barcode. 
-    merge_data = merge(data1,data2,by=c("case_barcode","project_short_name"))
-    #let's fix the column names with informative names that we'll use for the plot labels. 
+    merge_data = merge(data1,data2,by=c("case_barcode","project_short_name")) 
 
     #The datavalues were computed using different tools, so to compare the values we can normalize using the rescale function 	  in R. 
     merge_data$HTSeq__Counts= rescale(merge_data$HTSeq__Counts,to=c(0,1))
@@ -206,7 +202,10 @@ Within your R environment
 
  .. raw:: html
 
+    <iframe src="_static/Plotly_Jan2019_qotm.html" height="500px" width="100%"></iframe> 
     <iframe src="../_static/Plotly_Jan2019_qotm.html" height="500px" width="100%"></iframe>    
+    
+    test
 
 .. _January2019:
 
