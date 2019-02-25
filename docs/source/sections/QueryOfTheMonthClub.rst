@@ -26,6 +26,7 @@ Table of Contents
 2019
 ++++
 
+- February2019_: BigQuery in R - a refresher
 - January2019_: Bam slicing in a cloud hosted python notebook.
 
 
@@ -94,9 +95,124 @@ Resources_:  Helpful information!
 
 
 -----------------------
+.. _February2019:
 
+February, 2019
+##############
+
+In this QoTM, we'll look at the current open-access TCGA and TARGET datasets in BigQuery using R as our workspace. You can find in-depth descriptions of the BigQuery datasets in our documentation `here: <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_BQ.html>`__.
+
+Note: You will need to have set up a Google Cloud Platform project to access/query the BigQuery tables in R, more info `here: <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/gcp-info/gcp-info2/Setup.html>`__.
+
+Here's our example case-study for month: 
+
+Your lab is interested in comparing the gene expression profiles of 2 non-coding RNAs, specifically the lncRNA ANRIL and the miRNA miRNA-21 across multiple cancer types. From the literature and your own research studies, expression of both ANRIL and. miRNA-21 have been implicated in many different cancer types. 
+
+In R: 
+
+* Let's look at the currently available ISB-CGC BigQuery tables to find tables that will allow us to compare the expression profiles of the non-coding RNAs. 
+* Once identified, let's query and explore the BigQuery tables that contain the information we need. 
+* Let's generate an interactive scatterplot!
+
+Let's begin! 
+
+Within your R environment 
+#########################
+
+.. code-block:: r
+   
+  install.packages("bigrquery")
+  install.packages("httpuv")
+  install.packages("ggplot2")
+  install.packages("reshape")
+  install.packages("scales")
+  install.packages("dplyr")
+
+
+  library(bigrquery)
+  library(httpuv)
+  library(ggplot2)
+  library(reshape)
+  library(scales) 	
+  library(dplyr)
+
+  ##Let's investigate the publicly available ISB-CGC created TCGA and TARGET tables. 
+  ##There are a number of Level 3 datasets updated and available including:
+
+
+  #To list datasets associated with the ISB-CGC project in R: 
+  list_datasets("isb-cgc")
+  [1] "CCLE_bioclin_v0"     "GDC_metadata"        "GTEx_v7"            "QotM"                "TARGET_bioclin_v0"  
+  [6] "TARGET_hg38_data_v0" "TCGA_bioclin_v0"     "TCGA_hg19_data_v0"   "TCGA_hg38_data_v0"   "Toil_recompute"     
+  [11] "ccle_201602_alpha"   "genome_reference"    "hg19_data_previews"  "hg38_data_previews"  "metadata"           
+  [16] "platform_reference"  "tcga_201607_beta"    "tcga_cohorts"        "tcga_seq_metadata" 
+     
+  #Let's get the list of tables for the TCGA_hg38 dataset: 
+   list_tables("isb-cgc","TCGA_hg38_data_v0")
+   [1] "Copy_Number_Segment_Masked"     "Copy_Number_Segment_Masked_r14" "DNA_Methylation"               
+   [4] "DNA_Methylation_chr1"           "DNA_Methylation_chr10"          "DNA_Methylation_chr11"         
+   [7] "DNA_Methylation_chr12"          "DNA_Methylation_chr13"          "DNA_Methylation_chr14"         
+   [10] "DNA_Methylation_chr15"          "DNA_Methylation_chr16"          "DNA_Methylation_chr17"         
+   [13] "DNA_Methylation_chr18"          "DNA_Methylation_chr19"          "DNA_Methylation_chr2"          
+   [16] "DNA_Methylation_chr20"          "DNA_Methylation_chr21"          "DNA_Methylation_chr22"         
+   [19] "DNA_Methylation_chr3"           "DNA_Methylation_chr4"           "DNA_Methylation_chr5"          
+   [22] "DNA_Methylation_chr6"           "DNA_Methylation_chr7"           "DNA_Methylation_chr8"          
+   [25] "DNA_Methylation_chr9"           "DNA_Methylation_chrX"           "DNA_Methylation_chrY"          
+   [28] "Protein_Expression"             "RNAseq_Gene_Expression"         "Somatic_Mutation"              
+   [31] "Somatic_Mutation_DR10"          "Somatic_Mutation_DR6"           "Somatic_Mutation_DR7"          
+   [34] "miRNAseq_Expression"            "miRNAseq_Isoform_Expression"    "tcga_metadata_data_hg38_220818"
+   [37] "tcga_metadata_data_hg38_250718"
+     
+     
+   #So let's remember our use-case: We want to compare the gene expression profiles of our non-coding RNAs
+   #of interest. ANRIL is a lncRNA and lncRNA expression is captured in the RNAseq_Gene_Expression table and miRNA-21 is 
+   #a miRNA_seq_Expression table. Let's find get our RNAs expression from their respective tables
+
+    #To access and query the BigQuery tables, you'll need to first specify your project id:
+    project <-"isb-cgc-02-0001" 
+    
+    #Information about lnRNAs are in the gene expression tables..Let's compose a query on the RNAseq_Gene_Expression dataset 
+    #for the lncRNA dataset 
+    
+    #query the RNAseq BigQuery table that has info for lncRNAs
+    sql1<-"SELECT case_barcode, project_short_name, gene_name,HTSeq__Counts FROM `isb-		  
+    cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression` WHERE Ensembl_gene_id = 'ENSG00000240498' ORDER BY 
+    project_short_name"
+    data1 <- query_exec(sql1, project = project, use_legacy_sql = FALSE,max_pages = Inf)
+    head(data1)
+    
+    #query the BigQuery miRNA expression table
+    sql2 <-"SELECT project_short_name, case_barcode, mirna_id,read_count FROM `isb-cgc.TCGA_hg38_data_v0.miRNAseq_Expression` 	  WHERE mirna_id = 'hsa-mir-21' ORDER BY project_short_name"
+    data2 <- query_exec(sql2, project = project, use_legacy_sql = FALSE,max_pages = Inf) 
+    head(data2)
+
+    #we can join these tables in BigQuery and have one datatable, we can also create 2 tables and merge them right here in R.
+    #let's merge these two data tables here in R by case_barcode. 
+    merge_data = merge(data1,data2,by=c("case_barcode","project_short_name")) 
+
+    #The expression values were computed using different tools for the different datasets, so to compare the values we can    	  #normalize using the rescale function in R. 
+    
+    merge_data$HTSeq__Counts= rescale(merge_data$HTSeq__Counts,to=c(0,1))
+    merge_data$read_count = rescale(merge_data$read_count,to=c(0,1))
+
+    #Let's take a look at our merged table, we now have information for expression of the CDKN2B-AS1 and hsa-mir-21 for      	 #almost 12,000 cases. 
+    head(merge_data)
+    
+    #We can create an interactive scatterplot plot using the function plotly in R to compare CDKN2B-AS1 and miRNA-21 	     	 #expression across multiple cancer types. This interactive plopt in R is called plotly. 
+
+    p <- ggplot(merge_data, aes((HTSeq__Counts), (read_count), colour=project_short_name)) + geom_point() + theme_classic() + 	  theme(legend.position="none") + labs(x = "ANRIL normalized expression",y="miRNA-21 normalized expression")
+    ggplotly(p)
+
+ 
+.. raw:: html
+
+    <iframe src="../_static/Plotly_Jan2019_qotm.html" height="500px" width="100%"></iframe>  
+    
 
 .. _January2019:
+
+January, 2019
+##############
 
 **Bam slicing in the cloud**
 
