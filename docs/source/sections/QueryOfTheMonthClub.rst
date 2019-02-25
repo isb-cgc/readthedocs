@@ -26,7 +26,7 @@ Table of Contents
 2019
 ++++
 
-- February2019_: BigQuery in R - a refresher 
+- February2019_: BigQuery in R - a refresher   
 
 - January2019_: Bam slicing in a cloud hosted python notebook.
 
