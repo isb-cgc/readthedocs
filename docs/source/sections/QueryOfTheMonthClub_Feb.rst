@@ -200,12 +200,12 @@ Within your R environment
     p <- ggplot(merge_data, aes((HTSeq__Counts), (read_count), colour=project_short_name)) + geom_point() + theme_classic() + 	  theme(legend.position="none") + labs(x = "ANRIL normalized expression",y="miRNA-21 normalized expression")
     ggplotly(p)
 
- .. raw:: html
+ 
+.. raw:: html
 
-    <iframe src="_static/Plotly_Jan2019_qotm.html" height="500px" width="100%"></iframe> 
     <iframe src="../_static/Plotly_Jan2019_qotm.html" height="500px" width="100%"></iframe>    
     
-    test
+   
 
 .. _January2019:
 
