@@ -182,17 +182,27 @@ Within your R environment
     cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression` WHERE Ensembl_gene_id = 'ENSG00000240498' ORDER BY 
     project_short_name"
     
-    
     data1 <- query_exec(sql1, project = project, use_legacy_sql = FALSE,max_pages = Inf)
     head(data1)
     
     #we can join these tables in BQ and have one datatable, we can also create 2 tables and merge them right here in R.
+    sql2 <-"SELECT project_short_name, case_barcode, mirna_id,read_count FROM `isb-cgc.TCGA_hg38_data_v0.miRNAseq_Expression` 	  WHERE mirna_id = 'hsa-mir-21' ORDER BY project_short_name"
+    data2 <- query_exec(sql2, project = project, use_legacy_sql = FALSE,max_pages = Inf) 
+    head(data2)
 
-.. include:: _static/Plotly_Jan2019_qotm.html
+    #let's merge these two data tables here in R by case_barcode. 
+    merge_data = merge(data1,data2,by=c("case_barcode","project_short_name"))
+    #let's fix the column names with informative names that we'll use for the plot labels. 
 
-.. raw:: html
+    #The datavalues were computed using different tools, so to compare the values we can normalize using the rescale function 	  in R. 
+    merge_data$HTSeq__Counts= rescale(merge_data$HTSeq__Counts,to=c(0,1))
+    merge_data$read_count = rescale(merge_data$read_count,to=c(0,1))
 
-   html content
+    #Let's take a look at our merged table, we now have information for expression of the CDKN2B-AS1 and hsa-mir-21 for over 	 #12,000 cases. We can create an interactive visualization plot that allows us to compare CDKN2B-AS1 hsa-mir-21 
+    #across multiple cancer types. This interactive function in R is called plotly. Using plotly, we'll create a simple     	#scatterplot of CDKN2B-AS1 expression vs hsa-mir-21 expression. 
+
+    p <- ggplot(merge_data, aes((HTSeq__Counts), (read_count), colour=project_short_name)) + geom_point() + theme_classic() + 	  theme(legend.position="none") + labs(x = "ANRIL normalized expression",y="miRNA-21 normalized expression")
+    ggplotly(p)
 
      
 
