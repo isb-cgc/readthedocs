@@ -80,7 +80,7 @@ Most bioinformaticians today are most likely accustomed to using the high perfor
 | connect   | protocal (SSH)                      | protocal (SSH)                          |
 |           |                                     |                                         |
 +-----------+-------------------------------------+-----------------------------------------+
-
+***Be careful of costs** 
 
 Goals of this tutorial: 
 ========================
