@@ -102,9 +102,8 @@ Resources_:  Helpful information!
 February, 2019
 ##############
 
-In this QoTM, we'll look at the current publicly-available open-access TCGA and TARGET datasets in BigQuery. You can find in-depth descriptions of the BigQuery datasets in our documentation `here: <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_BQ.html>`__.
+In this QoTM, we'll look at the current open-access TCGA and TARGET datasets in BigQuery using R as our workspace. You can find in-depth descriptions of the BigQuery datasets in our documentation `here: <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_BQ.html>`__.
 
-Followers of QoTM blog will know that BigQuery works seamlessly in R and allows one to complete comprehensive analyses from queries to producing plots all in R. 
 Note: You will need to have set up a Google Cloud Platform project to access/query the BigQuery tables in R, more info `here: <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/gcp-info/gcp-info2/Setup.html>`__.
 
 Here's our example case-study for month: 
@@ -113,8 +112,8 @@ Your lab is interested in comparing the gene expression profiles of 2 non-coding
 
 In R: 
 
-* Let's look at the currently available ISB-CGC BQ tables to find tables that will allow us to compare the expression profiles of the non-coding RNAs. 
-* Once identified, let's query and explore the BQ tables that contain the information we need. 
+* Let's look at the currently available ISB-CGC BigQuery tables to find tables that will allow us to compare the expression profiles of the non-coding RNAs. 
+* Once identified, let's query and explore the BigQuery tables that contain the information we need. 
 * Let's generate an interactive scatterplot!
 
 Let's begin! 
@@ -169,12 +168,14 @@ Within your R environment
      
      
     #So let's remember our use-case: We want to compare the gene expression profiles of our non-coding RNAs
-    of interest. ANRIL is a lncRNA and lncRNA expression is captured in the RNAseq_Gene_Expression table and miRNA-21 is a  	miRNA_seq_Expression table. Let's find get our RNAs expression from their respective tables
+    #of interest. ANRIL is a lncRNA and lncRNA expression is captured in the RNAseq_Gene_Expression table and miRNA-21 is 
+    a miRNA_seq_Expression table. Let's find get our RNAs expression from their respective tables
 
     #To access and query the BigQuery tables, you'll need to first specify your project id:
     project <-"isb-cgc-02-0001" 
     
-    #Information about lnRNAs are in the gene expression tableslet's compose a query on the RNAseq_Gene_Expression dataset 	for the lncRNA dataset 
+    #Information about lnRNAs are in the gene expression tableslet's compose a query on the RNAseq_Gene_Expression dataset 
+    #for the lncRNA dataset 
     
     sql1<-"SELECT case_barcode, project_short_name, gene_name,HTSeq__Counts FROM `isb-		  
     cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression` WHERE Ensembl_gene_id = 'ENSG00000240498' ORDER BY 
@@ -190,12 +191,16 @@ Within your R environment
     #let's merge these two data tables here in R by case_barcode. 
     merge_data = merge(data1,data2,by=c("case_barcode","project_short_name")) 
 
-    #The datavalues were computed using different tools, so to compare the values we can normalize using the rescale function 	  in R. 
+    #The expression values were computed using different tools for the different datasets, so to compare the values we can    	  #normalize using the rescale function in R. 
+    
     merge_data$HTSeq__Counts= rescale(merge_data$HTSeq__Counts,to=c(0,1))
     merge_data$read_count = rescale(merge_data$read_count,to=c(0,1))
 
-    #Let's take a look at our merged table, we now have information for expression of the CDKN2B-AS1 and hsa-mir-21 for over 	 #12,000 cases. We can create an interactive visualization plot that allows us to compare CDKN2B-AS1 hsa-mir-21 
-    #across multiple cancer types. This interactive function in R is called plotly. Using plotly, we'll create a simple     	#scatterplot of CDKN2B-AS1 expression vs hsa-mir-21 expression. 
+    #Let's take a look at our merged table, we now have information for expression of the CDKN2B-AS1 and hsa-mir-21 for      	 #almost 12,000 cases. 
+    head(merge_data)
+    
+    #We can create an interactive visualization plot that allows us to compare CDKN2B-AS1 hsa-mir-21 
+    #across multiple cancer types. This interactive function in R is called plotly. Using plotly, let's create a simple     	#scatterplot of CDKN2B-AS1 expression vs hsa-mir-21 expression. 
 
     p <- ggplot(merge_data, aes((HTSeq__Counts), (read_count), colour=project_short_name)) + geom_point() + theme_classic() + 	  theme(legend.position="none") + labs(x = "ANRIL normalized expression",y="miRNA-21 normalized expression")
     ggplotly(p)
