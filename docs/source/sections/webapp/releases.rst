@@ -3,6 +3,50 @@ Web-App Release Notes
 *********************
 
 
+
+* **March 8, 2019** `v3.17 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.17>`_
+
+  **Please Note:** Work is underway to rework our cohort creation page to better display images associated with samples. 
+
+   We will soon add the following datasets(open and controlled access) to ISB-CGC: 
+
+   1. The National Cancer Institute Center for Cancer Research (NCICCR)  
+   2. Foundation Medicine(FM)
+   3. Clinical Trial Sequencing Project (CTSP)
+   4. Veterans Research for Precision Oncology Program (VAREPOP) 
+
+   Is there a dataset that is a priority for you? Of this list which should we include first? If yes, please send all requests to feedback@isb-cgc.org 
+
+   **Issues resolved in Sprint 32 as of 3/07/2019**
+   
+   New Enhancements
+   
+    - When working with a workbook many overall enhancements of user functionality have been improved. 
+    - Cubby hole plot analysis has been reformatted to better suit the end user by now allowing resizing and scrolling through the cubby hole plot analysis.
+    - You are now able to work on a workbook via fullscreen for added comfort. 
+    - You are also now able to download plot data for Bar charts, Histogram charts, Scatter plots, Violin plot charts, and Cubby hole plots  as a CSV file.
+    - `OncoGrid <https://github.com/oncojs/oncogrid>`_ has been added as an analysis option when working with a workbook. 
+    - On the File Browser section you are now able to use full screen on all image viewers. 
+    -  On the register/adjust a service account page, we’ve clarified the notification message if a key or role is found associated to a service account. 
+    
+   Bug Fixes
+   
+    - When using a workbook you will no longer see text overlap when working on a violin/scatter plot with the color by feature sample type as filter option.  
+    - When working on the Pathology images viewer you will no longer see text overlap on the top right hand side of viewer. 
+    
+   **Known Issues in Sprint 32 as of  03/07/2019**
+   
+    -  Analysis Type: Seq peek Formatting is Elongated on occasion 
+    - If the user shares a Cohort, neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort. 
+    - CCLE data cannot be plotted when working with workbooks.  ISB-CGC will resolve this functionality after the GDC formally releases CCLE data. 
+    - When a user duplicates a Worksheet, then tries to implement the log scale, it will not function properly. 
+    - The set operation for existing Cohorts complement is behaving exceptionally slow.
+    - The mouse-over feature is currently disabled for program TARGET with disease code ALL.
+    - When uploading TARGET files using the cohort barcode creation feature from the GDC, you may get an invalid barcodes error message and unable to upload all the barcodes.
+    - On the File Browser page for Diagnostic images there is no GDC file UUID associated to them.
+    - Sharing a workbook with someone else will cause the analysis to reset.
+    
+
 * **January 22, 2018** `v3.16 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.16>`_
 
   **Please Note:** Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
