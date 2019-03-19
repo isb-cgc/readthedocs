@@ -38,6 +38,8 @@ To create a **Workbook** from Your Dashboard, click on the **“Create a New Wor
     - **Violin Plot** - This chart is used to plot a categorical feature on the x-axis versus a numerical feature on the y-axis. Points in the plot can be colored by another categorical feature.
     
     - **OncoPrint** - This chart is used to plot multiple genomic alteration (somatic mutation) events across a set of samples using color-coded glyphs. OncoPrint is developed and provided by cBioPortal.
+    
+    - **OncoGrid** - This chart is used to visualize the top mutated genes across programs/projects and the number of cases affected. We are also able to view the mutation frequency, clinical data, data format types, number of gene sets and the number of cases affected.
 
     - **Cubby Hole Plot** - This chart is used to plot two categorical features. Boxes are colored by their related p-values.
 
