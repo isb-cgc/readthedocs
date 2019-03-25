@@ -26,6 +26,8 @@ Table of Contents
 2019
 ++++
 
+- March2019_: Analyzing MAF files in BigQuery
+
 - February2019_: BigQuery in R - a refresher
 
 - January2019_: Bam slicing in a cloud hosted python notebook.
@@ -96,6 +98,12 @@ Resources_:  Helpful information!
 
 
 -----------------------
+
+.. _March2019:
+
+March, 2019
+##############
+
 
 .. _February2019:
 
