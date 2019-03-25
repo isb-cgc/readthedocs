@@ -68,7 +68,7 @@ other additional information for each table, preview its contents, *etc*.
 ..
 
   + `Clinical <https://bigquery.cloud.google.com/dataset/isb-cgc:TCGA_bioclin_v0.Clinical>`_:
-    This table is contains one row for each TCGA case (aka patient or participant) with *any* 
+    This table contains one row for each TCGA case (aka patient or participant) with *any* 
     available clinical information -- over 11,000 cases are represented.
     Any given field in 
     this table may be ``null`` for many patients, depending on tumor-type or data-availability.  
@@ -215,10 +215,6 @@ other additional information for each table, preview its contents, *etc*.
   (in the case of probe/array-based data such as the SNP6/copy-number and the DNA Methylation data).
 
 ..
-
-  + `miRNAseq_Expression <https://bigquery.cloud.google.com/table/isb-cgc:TARGET_hg38_data_v0.miRNAseq_Expression>`_: 
-    This table contains **all** of the miRNAseq stem-loop expression data *currently available* from the NCI-GDC.
-    
 
   + `miRNAseq_Isoform_Expression <https://bigquery.cloud.google.com/table/isb-cgc:TARGET_hg38_data_v0.miRNAseq_Isoform_Expression>`_: 
     This table contains **all** of the miRNAseq isoform-level expression (aka isomiR) data *currently available* from the NCI-GDC.
