@@ -188,6 +188,8 @@ Details for each of these endpoints can be found below:
    progapi3_api/cohorts_delete.rst
    progapi3_api/cohorts_get.rst
    progapi3_api/cohorts_list.rst
+   progapi3_api/cohorts_file_manifest.rst
+   progapi3_api/cohorts_file_manifest_filtered.rst
    
    
 **TCGA Endpoints**
@@ -198,8 +200,10 @@ Details for each of these endpoints can be found below:
     progapi3_tcga/cohorts_preview.rst
     progapi3_tcga/cohorts_create.rst
     progapi3_tcga/cases_get.rst
+    progapi3_tcga/cases_get_list.rst
     progapi3_tcga/samples_cloud_storage_file_paths.rst
     progapi3_tcga/samples_get.rst
+    progapi3_tcga/samples_get_list.rst
     progapi3_tcga/users_get.rst
     progapi3_tcga/aliquots_annotations.rst
     progapi3_tcga/cases_annotations.rst
@@ -214,8 +218,10 @@ Details for each of these endpoints can be found below:
     progapi3_target/cohorts_preview.rst
     progapi3_target/cohorts_create.rst
     progapi3_target/cases_get.rst
+    progapi3_target/cases_get_list.rst
     progapi3_target/samples_cloud_storage_file_paths.rst
     progapi3_target/samples_get.rst
+    progapi3_target/samples_get_list.rst
     progapi3_target/users_get.rst
     
     
@@ -227,8 +233,10 @@ Details for each of these endpoints can be found below:
     progapi3_ccle/cohorts_preview.rst
     progapi3_ccle/cohorts_create.rst
     progapi3_ccle/cases_get.rst
+    progapi3_ccle/cases_get_list.rst
     progapi3_ccle/samples_cloud_storage_file_paths.rst
     progapi3_ccle/samples_get.rst
-   
+    progapi3_ccle/samples_get_list.rst
+
 
 

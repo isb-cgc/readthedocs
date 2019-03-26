@@ -11,9 +11,11 @@ Please let us know if you have an idea or a suggestion for our next QotM!
 Query of the Month is produced by:
 
 
-- David L Gibbs (david.gibbs (~at~) systemsbiology (~dot~) org)
+- David L Gibbs (david.gibbs ( ~ at ~ ) systemsbiology ( ~ dot ~ ) org)
 
-- Sheila M Reynolds (sheila.reynolds (~at~) systemsbiology (~dot~) org)
+- Kawther Abdilleh (kawther.abdilleh  ( ~ at ~ ) gdit (~ dot ~) com)
+
+- Sheila M Reynolds (sheila.reynolds ( ~ at ~ ) systemsbiology ( ~ dot ~ ) org)
 
 
 -----------------------
@@ -21,16 +23,40 @@ Query of the Month is produced by:
 Table of Contents
 =================
 
+2019
+++++
+
+- February2019_: BigQuery in R - a refresher   
+
+- January2019_: Bam slicing in a cloud hosted python notebook.
+
+
 2018
 ++++
 
-- April_: Running CWL workflows in the cloud.
+- December2018_: BigQuery Tips & Tricks
 
-- March_: Machine learning classifer in BigQuery?! Top Scoring Pairs implementation.
+- November2018_: Transform VCF (DNA variants) files to BigQuery.
 
-- February_: BioCircos shiny app, showing pairwise correlations within a pathway.
+- October2018_: Jupyter notebooks & Dataproc clusters ... in the cloud.
 
-- January_: Gene Set Scoring in BigQuery, using the new hg38 mutation tables.
+- September2018_: R scripts in the cloud.
+
+- August2018_: Using BigQuery ML in a shiny app.
+
+- July2018_: First look: BigQuery ML.
+
+- June2018_: Processing bam files using WDL 'scatter and gather'.
+
+- May2018_: Processing bam files using CWL 'scatter and gather'.
+
+- April2018_: Running CWL workflows in the cloud.
+
+- March2018_: Machine learning classifer in BigQuery?! Top Scoring Pairs implementation.
+
+- February2018_: BioCircos shiny app, showing pairwise correlations within a pathway.
+
+- January2018_: Gene Set Scoring in BigQuery, using the new hg38 mutation tables.
 
 2017
 ++++
@@ -71,8 +97,3158 @@ Resources_:  Helpful information!
 
 -----------------------
 
+.. _February2019:
 
-.. _April:
+February, 2019
+##############
+
+In this QoTM, we'll look at the current open-access TCGA and TARGET datasets in BigQuery using R as our workspace. You can find in-depth descriptions of the BigQuery datasets in our documentation `here: <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_BQ.html>`__.
+
+Note: You will need to have set up a Google Cloud Platform project to access/query the BigQuery tables in R, more info `here: <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/gcp-info/gcp-info2/Setup.html>`__.
+
+Here's our example case-study for month: 
+
+Your lab is interested in comparing the gene expression profiles of 2 non-coding RNAs, specifically the lncRNA ANRIL and the miRNA miRNA-21 across multiple cancer types. From the literature and your own research studies, expression of both ANRIL and. miRNA-21 have been implicated in many different cancer types. 
+
+In R: 
+
+* Let's look at the currently available ISB-CGC BigQuery tables to find tables that will allow us to compare the expression profiles of the non-coding RNAs. 
+* Once identified, let's query and explore the BigQuery tables that contain the information we need. 
+* Let's generate an interactive scatterplot!
+
+Let's begin! 
+
+Within your R environment 
+#########################
+
+.. code-block:: r
+   
+  install.packages("bigrquery")
+  install.packages("httpuv")
+  install.packages("ggplot2")
+  install.packages("reshape")
+  install.packages("scales")
+  install.packages("dplyr")
+
+
+  library(bigrquery)
+  library(httpuv)
+  library(ggplot2)
+  library(reshape)
+  library(scales) 	
+  library(dplyr)
+
+  ##Let's investigate the publicly available ISB-CGC created TCGA and TARGET tables. 
+  ##There are a number of Level 3 datasets updated and available including:
+
+
+  #To list datasets associated with the ISB-CGC project in R: 
+  list_datasets("isb-cgc")
+  [1] "CCLE_bioclin_v0"     "GDC_metadata"        "GTEx_v7"            "QotM"                "TARGET_bioclin_v0"  
+  [6] "TARGET_hg38_data_v0" "TCGA_bioclin_v0"     "TCGA_hg19_data_v0"   "TCGA_hg38_data_v0"   "Toil_recompute"     
+  [11] "ccle_201602_alpha"   "genome_reference"    "hg19_data_previews"  "hg38_data_previews"  "metadata"           
+  [16] "platform_reference"  "tcga_201607_beta"    "tcga_cohorts"        "tcga_seq_metadata" 
+     
+  #Let's get the list of tables for the TCGA_hg38 dataset: 
+   list_tables("isb-cgc","TCGA_hg38_data_v0")
+   [1] "Copy_Number_Segment_Masked"     "Copy_Number_Segment_Masked_r14" "DNA_Methylation"               
+   [4] "DNA_Methylation_chr1"           "DNA_Methylation_chr10"          "DNA_Methylation_chr11"         
+   [7] "DNA_Methylation_chr12"          "DNA_Methylation_chr13"          "DNA_Methylation_chr14"         
+   [10] "DNA_Methylation_chr15"          "DNA_Methylation_chr16"          "DNA_Methylation_chr17"         
+   [13] "DNA_Methylation_chr18"          "DNA_Methylation_chr19"          "DNA_Methylation_chr2"          
+   [16] "DNA_Methylation_chr20"          "DNA_Methylation_chr21"          "DNA_Methylation_chr22"         
+   [19] "DNA_Methylation_chr3"           "DNA_Methylation_chr4"           "DNA_Methylation_chr5"          
+   [22] "DNA_Methylation_chr6"           "DNA_Methylation_chr7"           "DNA_Methylation_chr8"          
+   [25] "DNA_Methylation_chr9"           "DNA_Methylation_chrX"           "DNA_Methylation_chrY"          
+   [28] "Protein_Expression"             "RNAseq_Gene_Expression"         "Somatic_Mutation"              
+   [31] "Somatic_Mutation_DR10"          "Somatic_Mutation_DR6"           "Somatic_Mutation_DR7"          
+   [34] "miRNAseq_Expression"            "miRNAseq_Isoform_Expression"    "tcga_metadata_data_hg38_220818"
+   [37] "tcga_metadata_data_hg38_250718"
+     
+     
+   #So let's remember our use-case: We want to compare the gene expression profiles of our non-coding RNAs
+   #of interest. ANRIL is a lncRNA and lncRNA expression is captured in the RNAseq_Gene_Expression table and miRNA-21 is 
+   #a miRNA_seq_Expression table. Let's find get our RNAs expression from their respective tables
+
+    #To access and query the BigQuery tables, you'll need to first specify your project id:
+    project <-"isb-cgc-02-0001" 
+    
+    #Information about lnRNAs are in the gene expression tables..Let's compose a query on the RNAseq_Gene_Expression dataset 
+    #for the lncRNA dataset 
+    
+    #query the RNAseq BigQuery table that has info for lncRNAs
+    sql1<-"SELECT case_barcode, project_short_name, gene_name,HTSeq__Counts FROM `isb-		  
+    cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression` WHERE Ensembl_gene_id = 'ENSG00000240498' ORDER BY 
+    project_short_name"
+    data1 <- query_exec(sql1, project = project, use_legacy_sql = FALSE,max_pages = Inf)
+    head(data1)
+    
+    #query the BigQuery miRNA expression table
+    sql2 <-"SELECT project_short_name, case_barcode, mirna_id,read_count FROM `isb-cgc.TCGA_hg38_data_v0.miRNAseq_Expression` 	  WHERE mirna_id = 'hsa-mir-21' ORDER BY project_short_name"
+    data2 <- query_exec(sql2, project = project, use_legacy_sql = FALSE,max_pages = Inf) 
+    head(data2)
+
+    #we can join these tables in BigQuery and have one datatable, we can also create 2 tables and merge them right here in R.
+    #let's merge these two data tables here in R by case_barcode. 
+    merge_data = merge(data1,data2,by=c("case_barcode","project_short_name")) 
+
+    #The expression values were computed using different tools for the different datasets, so to compare the values we can    	  #normalize using the rescale function in R. 
+    
+    merge_data$HTSeq__Counts= rescale(merge_data$HTSeq__Counts,to=c(0,1))
+    merge_data$read_count = rescale(merge_data$read_count,to=c(0,1))
+
+    #Let's take a look at our merged table, we now have information for expression of the CDKN2B-AS1 and hsa-mir-21 for      	 #almost 12,000 cases. 
+    head(merge_data)
+    
+    #We can create an interactive scatterplot plot using the function plotly in R to compare CDKN2B-AS1 and miRNA-21 	     	 #expression across multiple cancer types. This interactive plopt in R is called plotly. 
+
+    p <- ggplot(merge_data, aes((HTSeq__Counts), (read_count), colour=project_short_name)) + geom_point() + theme_classic() + 	  theme(legend.position="none") + labs(x = "ANRIL normalized expression",y="miRNA-21 normalized expression")
+    ggplotly(p)
+
+ 
+.. raw:: html
+
+    <iframe src="../_static/Plotly_Jan2019_qotm.html" height="500px" width="100%"></iframe>  
+    
+
+.. _January2019:
+
+January, 2019
+##############
+
+**Bam slicing in the cloud**
+
+This month we're going to do some bam slicing in a `cloud hosted jupyter notebook <https://colab.research.google.com>`_.
+
+Regarding bam slicing, ISB-CGC documentation can be found `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_GCS.html>`_.
+
+BAM files are central to almost all genomic analyses. Often, they are very large in size, 
+especially for larger genomes like the human genome. Researchers may only be interested in 
+small genomic regions, and so rather than download and deal with massive files, we can  
+extract or "slice out" subsections of the BAM file. The high performance HTSlib library (release 1.4+)
+is used to manipulate high-throughput genomics data and is what allows
+users to perform BAM-slicing. HTSlib is central to the SAMtools package, a popular tool 
+for NGS data manipulation `http://www.htslib.org/doc/samtools.html <http://www.htslib.org/doc/samtools.html>`_ . 
+
+
+In this post, we'll be using a python wrapper for SAMtools called `PySAM <https://pysam.readthedocs.io/en/latest/api.html>`_. 
+
+
+In the Jupyter notebook (see link below), we demonstrate the following: 
+
+
+* How to invoke bash commands within a Jupyter environment.
+* How to install packages/programs within a Jupyter environment
+* How to use available BigQuery tables within ISB-CGC to query and identify Google Cloud Storage bucket locations for BAM files of interest
+* How to use PySam to slice BAM files
+* How to save slices in your bucket and retrieve them
+* Brief example of working with reads
+
+
+Link to the Jupyter notebook `here <https://github.com/isb-cgc/examples-Python/blob/master/notebooks/isb_cgc_bam_slicing_with_pysam.ipynb>`_ .
+
+
+**How to invoke bash commands within a Jupyter environment.**
+
+
+We're finding the free jupyter notebooks offered from Google Colaboratory really useful and surprisingly flexible.
+The level of access to the operating system is quite good and allows us to run bash commands to work on the file level.
+
+
+To run a command, in your colaboratory notebook, create a cell like:
+
+::
+
+  !ls -lha
+
+
+That's going to list out all the files in your environment.
+The 'bang' (exclaimation point) signals to the notebook to run this command using bash.
+
+
+
+Another useful command is
+
+::
+
+  !env
+
+
+Which prints out all the environment variables. This is useful in a lot of cases, such as compiling software.
+
+
+**How to install packages/programs within a Jupyter environment**
+
+To install a new linux library, create a new cell in your colaboratory python notebook and run:
+
+::
+
+  !sudo apt-get install libxml2
+
+
+
+**How to use available BigQuery tables**
+
+In the notebook, there's other 'magic commands' as well. Since it's a Google product, it's relatively straightforward to connect to other 
+Google products like BigQuery. This is really cool, because if the free colaboratory notebook is short on raw compute power,  
+BigQuery gives you the power of a cluster, and with the summary results you can do visualization and downstream analysis in the notebook.
+
+To run an SQL query, we use some %%BigQuery magic
+
+::
+  
+  %%bigquery --project our-project-id df
+  SELECT * FROM `isb-cgc.TCGA_hg19_data_v0.tcga_metadata_data_hg19_18jul`
+  where 
+  data_format = 'BAM' 
+  AND disease_code = 'OV' 
+  AND experimental_strategy = "WGS" 
+  AND platform = 'ABI SOLiD'
+  LIMIT 5
+
+
+Where 'our-project-id' is your google project id, and df is a variable that will store the results of the query.
+In this query, we're selecting all the available metadata for bam files (data_format = 'BAM') associated with
+ovarian cancer (disease_code = 'OV').  From a query like this, you can get a list of bam files stored in a 
+google cloud bucket, and slice out a section of reads from each.
+
+
+**Using Pysam to slice bams**
+
+Pysam is a python wrapper around SAMtools which uses the `HTSlib <http://www.htslib.org/>`_ in reading and processing bams. 
+
+In order to read out from GCS (cloud buckets), HTSlib needs to be compiled with some additional functionality.
+
+::
+  
+  export HTSLIB_CONFIGURE_OPTIONS="--enable-gcs"
+
+
+Then, to slice out a region on chromosome 7 between 140453130-140453140, we would:
+
+::
+  
+  export GCS_OAUTH_TOKEN=`gcloud auth application-default print-access-token`
+
+  ./samtools view gs://isb-ccle-open/gdc/0a109993-2d5b-4251-bcab-9da4a611f2b1/C836.Calu-3.2.bam 7:140453130-140453140
+
+In the python notebook, we do something very similar. We need to compile HTSlib gcs-enabled to read cloud-based files, 
+which in turn requires installing a few extra libraries.  Then we would:
+
+.. code-block:: python
+  
+  samfile = pysam.AlignmentFile('gs://isb-ccle-open/gdc/0a109993-2d5b-4251-bcab-9da4a611f2b1/C836.Calu-3.2.bam', "rb")
+
+  for read in samfile.fetch('7', 140453130, 140453135):
+    print(read)
+
+  samfile.close()
+
+The AlignmentFile lets you fetch a AlignedSegment object, and you use that object to call many different methods. 
+You can see the full API `here <https://pysam.readthedocs.io/en/latest/api.html#pysam.AlignedSegment>`_. 
+
+For a couple quick examples of working with AlignedSegments, such as processing sequence data, check out the `notebook <https://colab.research.google.com/drive/1ZaQ7TH0MEaiwSXqj1lTtdUS88Nv_uKpY#scrollTo=4RxAZ67mvHKk>`_!
+
+
+**How to save slices in your bucket and retrieve them**
+
+Once you have a list of slices for analysis, we can use all our Google cloud tools, like gsutil!
+
+
+::
+
+  !gsutil ls gs://my_bucket_1/
+
+Here we list out all the file in my bucket.  We can also use gsutil to move items in and out of our notebook environment.
+
+
+::
+
+  !gsutil cp my.bam gs://my_bucket_1/my.bam
+
+
+
+That's it for this month, please let us know if you have questions, or have topics you'd like to see covered in later months!
+
+
+.. _December2018:
+
+December, 2018
+##############
+
+
+**BigQuery Tips & Tricks**
+
+
+Last month, we transformed a typical genomics file type (the vcf file format) into a BigQuery table. This month, we’ll continue exploring how to load data into bigquery tables. Because genomics files are often very large in size, we'll also explore some tricks on how to partition tables to query to save both money and time!
+
+**I. Loading CSV Data into BigQuery**
+
+First, let's explore how to load csv files into big query. Here’s an example of a common use-case:
+
+*A lab with which your group collaborates is generating large amounts of RNAseq gene expression data. They have been following the nice analyses your group has done using BigQuery and would like you to help them perform similar analyses. Thus far, they have saved all of their RNAseq expression data into CSV format. They need your help first loading their RNAseq data files into BigQuery.*
+
+Here, we’ll learn how to load CSV files into BigQuery tables. We’ll accomplish this with some very useful bq command-line tools and arguments.
+
+Before starting:
+
+-- This tutorial assumes that you’ve already created a GCP project. If you don’t already have one, instructions on how to set up one up can be found: `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowToGetStartedonISB-CGC.html>`__
+
+-- Ensure that you have Google Cloud SDK installed
+
+
+**Loading CSV files into Google Cloud Storage**  
+
+You can load local files as well as files from Google Cloud Storage (GCS). For this exercise, let’s make a GCS bucket to store our CSV files.
+
+1. Make a bucket to store the RNAseq CSV
+::
+
+  gsutil mb gs://RNAseq_CSVs
+
+
+
+2. Copy the CSVs into your newly created storage bucket
+::
+
+  gsutil cp *.csv gs://RNAseq_CSVs
+  
+**Creating a BigQuery dataset**  
+
+Creating tables and loading data via the BigQuery web-UI is good if
+you’re only loading a small amount of data. It can be a tediously manual
+process though if you have more than a handful of files. We can create
+tables and load data using Google SDK’s handy bq tool. bq is a
+python-based, command-line tool for BigQuery. `https://cloud.google.com/bigquery/docs/bq-command-line-tool <https://cloud.google.com/bigquery/docs/bq-command-line-tool>`__  
+
+Let’s create a dataset that will hold our RNAseq data:
+
+::
+
+  bq mk RNAseq_data
+  
+If successful, you will get the following message: 
+::
+
+  Dataset 'Your_Project_ID:RNAseq_data' successfully created
+  
+You can also list all of the datasets associated with your project using
+the following command:
+
+::
+
+  bq ls
+  
+**Generate schema for BigQuery table**
+
+A schema for a table is a description of its field names and types.
+BigQuery allows you to specify a table's schema when you load data into
+a table. We can create a schema file in JSON format. You can find a
+Python script (**createSchema.py**) to create a JSON schema for your
+table in our github examples-Python repository.
+
+`https://github.com/isb-cgc/examples-Python/tree/master/python <https://github.com/isb-cgc/examples-Python/tree/master/python>`__
+
+Usage: python createSchema.py <input-filename> <nSkip>
+
+where nSkip specifies the # of lines skipped between lines that are
+parsed and checked for data-types; if the input file is small, you can
+leave set nSkip to be small, but if the input file is very large, nSkip
+should probably be 1000 or more (default value is 1000)
+
+**Loading Data in BigQuery**
+
+With the JSON schema file, we are now ready to load data into BigQuery. 
+The bq load command is used to load data in BigQuery via the
+command-line.
+
+::
+
+  # usage:
+  # bq --location=[LOCATION] load --source_format=[FORMAT] [DATASET].[TABLE] [PATH_TO_SOURCE] [SCHEMA]
+
+    bq load \\
+
+    --source_format=CSV \\
+
+    --skip_leading_rows=1 \\
+
+    RNAseq_data.expressionFile \\                 # where it's going 
+
+    gs://RNAseq_CSVs/ExpressionDataTable.csv \\   # the table in a bucket
+
+    ExpressionDataTable.csv.json                  # the table schema 
+
+    
+You can verify that the table loaded by showing the table properties
+with this command:
+
+::
+
+    bq show RNAseq_data.expressionFile
+    
+
+**II. BigQuery Table Clusters**
+
+The costs of using BigQuery center around how much of a table is read by
+the query. So, the same query applied to a small table versus a very
+large table will incur very different costs. It simply costs more to
+query a large table! In the past, we broke tables into many subtables to
+save costs and time. This was the case with the methylation tables where
+the entire thing consisted of 3.9 Billion rows (932 GB)! It's pretty
+expensive to query that table, so we broke it into many tables by
+chromosome. OK, but not entirely convenient to work with.
+
+Now, there's a fairly simple step to accomplish the same thing,
+resulting in huge cost savings without changing your SQL or table
+schema! They're called 'clustered tables', which groups rows of your
+BigQuery table so that your query only reads the appropriate portions of
+your table. This means you can specify the cluster to be over
+chromosomes, and your query will only read the portion of the table
+associated with that chromosome. `docs here <https://cloud.google.com/bigquery/docs/clustered-tables>`_
+
+There's a number of different ways to partition your tables. For one,
+you can partition it at the time of 'ingestion'. What that means is that
+each time new data arrives, a new partition is created when the data is
+appended to a new table.
+
+So let's look at an example using a table built from wikipedia (from
+Optimizing BigQuery: Cluster your tables, by `*Felipe
+Hoffa* <https://medium.com/@hoffa?source=post_header_lockup>`__). This
+uses a query to select-*-everything from the table, and cluster it by
+wiki and title. The order matters in clusters (see notes below)!
+Clustered tables also have to be applied to partitioned tables. Below
+the table is being partitioned by a date.
+
+::
+
+    CREATE TABLE `fh-bigquery.wikipedia_v3.pageviews_2017`
+
+    PARTITION BY DATE(datehour)
+
+    CLUSTER BY wiki, title
+
+    OPTIONS(
+    description="Wikipedia pageviews - partitioned by day,clustered by (wiki, title). 
+      Contact `*https://twitter.com/felipehoffa* <https://twitter.com/felipehoffa>`__", 
+      require_partition_filter=true)
+    AS SELECT * FROM `fh-bigquery.wikipedia_v2.pageviews_2017`
+    WHERE datehour > '1990-01-01' # nag
+
+
+Now, *Felipe* notes:
+
+-  **CLUSTER BY wiki, title**: Whenever people query using the wiki
+       column, BigQuery will optimize these queries. These queries will
+       be optimized even further if the user also filters by title. If
+       the user only filters by title, clustering won’t work, as the
+       order is important (think boxes inside boxes).
+
+-  **require_partition_filter=true**: This option reminds my users to
+       always add a date filtering clause to their queries. That’s how I
+       remind them that their queries could be cheaper if they only
+       query through a fraction of the year.
+
+To use a clustered table, just GROUP BY on the clustered columns, then
+it's done automatically. Most often, you'll see a reduction in the
+amount of data read, but you can also see where the runtime is reduced,
+even if the amount of data read is the same.
+
+::
+
+  SELECT wiki, title, SUM(views) views
+  FROM `fh-bigquery.wikipedia_v3.pageviews_2017`
+  WHERE DATE(datehour) BETWEEN '2017-06-01' AND '2017-06-30'
+  GROUP BY wiki, title
+  ORDER BY views DESC
+  LIMIT 10
+
+
+without clustering
+
+**64.8s elapsed, 180 GB processed**
+
+with clustering
+
+**22.1 elapsed, 180 GB processed**
+
+So, in genomics data, this is an excellent technique to apply, and some
+experimentation might be necessary to find the best clustering schema
+for your work.
+
+Let's try this on the 1000 genomes table from last month. That was a
+table of genomic data, produced from a VCF file from the Wellcome Trust
+1000 Genomes project.
+
+Earlier I had written a query to flatten the VCF table, we'll use that
+to partition, since some of the columns we'd like to use for
+partitioning and clustering are nested fields, which are incompatible. I
+saved that flat file to a new table 'flat1000genomes' with 2.7
+\*Billion\* rows.
+
+Partitioning tables (right now) only works with DATEs. So to get around
+that, we'll create a 'fake date'
+
+see `here <https://stackoverflow.com/questions/51802482/my-data-can-t-be-date-partitioned-how-do-i-use-clustering/51829225#51829225>`_.
+
+::
+
+  CREATE TABLE
+    `isb-cgc-02-0001.Daves_working_area.Clustered1000genomes`
+  PARTITION BY fake_date
+  CLUSTER BY chr, name
+  OPTIONS(
+    description="1000 genomes partitioned by chr, cluster by call.name",
+    require_partition_filter=true)
+  AS SELECT *, DATE('2018-12-14') fake_date FROM
+    `isb-cgc-02-0001.Daves_working_area.flat1000genomes`
+
+
+
+So here's a query that counts up variants within samples.
+::
+
+  SELECT chr, name, alt1, COUNT( alt1 ) AS n
+  FROM
+  `isb-cgc-02-0001.Daves_working_area.flat1000genomes`
+  GROUP BY chr,name,alt1
+  ORDER BY n ASC
+
+**Query complete (8.6s elapsed, 40.8 GB processed)**
+::
+
+  SELECT chr, name, alt2, COUNT( alt2 ) AS n
+  FROM `isb-cgc-02-0001.Daves_working_area.Clustered1000genomes`
+  WHERE fake_date is not NULL
+  GROUP BY chr, name, alt2
+  ORDER BY n ASC
+  LIMIT 10
+
+**Query complete (3.6s elapsed, 61.2 GB processed)**
+
+**That's more than 58% less time on ~50% more data!**
+
+
+
+
+.. _November2018:
+
+November, 2018
+##############
+
+**Transforming VCF (DNA variants) files to BigQuery.**
+
+`tldr; <https://gist.github.com/Gibbsdavidl/dc257e66867a5f3bb8a6c6f351a633c9>`_
+
+Variant calls, as organized in vcf files, are central to almost all
+genomics and bioinformatics analyses. As genomics datasets continue to
+become larger in both size and complexity, as researchers we are often
+faced with the scenario of having to gain biological insights from
+hundreds and sometimes even thousands of VCF files at once. Google
+Genomics has developed a tool for transforming and processing VCF files
+in a scalable manner based on `*Apache Beam* <https://beam.apache.org/>`_ using
+`*Dataflow* <https://cloud.google.com/dataflow/>`_ on the Google Cloud
+Platform. Using this transform pipeline, one can load hundreds of
+thousands of VCF files with millions of samples and billions of records
+into BigQuery.
+
+In the near future, ISB-CGC will make available controlled-access VCFs,
+transformed into BigQuery tables, allowing users with approved
+authorization to harness the power of BigQuery to conduct powerful
+variant analyses. This month, we will explore variant analysis in
+BigQuery. We transform a VCF into a BigQuery table and perform queries
+to gain biological insights into variant data.
+
+Here's some helpful links: 
+
+`*Loading and transforming VCF files into
+BigQuery* <https://cloud.google.com/genomics/docs/how-tos/load-variants>`__,
+
+`*Understanding the BigQuery Variants
+Schema* <https://cloud.google.com/genomics/v1/bigquery-variants-schema>`__,
+
+`*Variant Transforms
+github* <https://github.com/googlegenomics/gcp-variant-transforms>`__,
+
+`*Analyzing Variants in
+BigQuery* <https://googlegenomics.readthedocs.io/en/latest/use_cases/analyze_variants/analyze_variants_with_bigquery.html>`__
+
+*To start, you’ll first need to configure your Cloud environment:*
+
+-  A GCP project with billing
+
+-  Enable the `*Cloud Genomics, Compute Engine, Cloud Storage, and Cloud
+   Dataflow
+   APIs* <https://console.cloud.google.com/flows/enableapi?apiid=genomics,storage_component,storage_api,compute_component,dataflow>`__
+
+-  An existing `*BigQuery
+   dataset* <https://cloud.google.com/bigquery/docs/datasets>`__ and a
+   `*Cloud Storage
+   bucket* <https://cloud.google.com/storage/docs/creating-buckets>`__.
+
+*Moving data into your GCS bucket:*
+
+If we have web addresses to the VCF files, we can use the cloud console
+(or gcloud) to transfer files directly to our GCS bucket.
+
+For this exercise, we use a vcf file of chromosome 21 from the public
+1000 genomes project already in GCS into a bigquery table:
+gs://genomics-public-data/1000-genomes-phase-3/vcf
+
+*VCF to BigQuery Transform:*
+
+The easiest way to run the VCF to BigQuery pipeline is to use the
+`*docker* <https://www.docker.com/>`__ image and run it with the
+`*Google Genomics Pipelines
+API* <https://cloud-dot-devsite.googleplex.com/genomics/pipelines>`__ as
+it has the binaries and all dependencies pre-installed.
+
+Run the script below and replace the following parameters:
+
+-  GOOGLE_CLOUD_PROJECT: This is your project ID that contains the
+   BigQuery dataset.
+
+-  INPUT_PATTERN: A location in Google Cloud Storage where the VCF file
+   are stored. You may specify a single file or provide a pattern to
+   load multiple files at once. Please refer to the `*Variant
+   Merging* <https://github.com/googlegenomics/gcp-variant-transforms/blob/master/docs/variant_merging.md>`__
+   documentation if you want to merge samples across files. The pipeline
+   supports gzip, bzip, and uncompressed VCF formats. However, it runs
+   slower for compressed files as they cannot be sharded.
+
+-  OUTPUT_TABLE: The full path to a BigQuery table to store the output.
+
+-  TEMP_LOCATION: This can be any folder in Google Cloud Storage that
+   your project has write access to. It's used to store temporary files
+   and logs from the pipeline.
+
+::
+
+    GOOGLE_CLOUD_PROJECT=your_project_id
+
+    INPUT_PATTERN=gs://Path_to_your_vcf_file
+
+    OUTPUT_TABLE=your_project_id:bq_dataset.bqtable
+
+    TEMP_LOCATION=gs://path_to_a_temp_folder
+
+    COMMAND="/opt/gcp_variant_transforms/bin/vcf_to_bq
+       --infer_undefined_headers --allow_incompatible_records \\
+
+       --project ${GOOGLE_CLOUD_PROJECT} \\
+
+       --input_pattern ${INPUT_PATTERN} \\
+
+       --output_table ${OUTPUT_TABLE} \\
+
+       --temp_location ${TEMP_LOCATION} \\
+
+       --job_name vcf-to-bigquery \\
+
+       --runner DataflowRunner"
+
+    gcloud alpha genomics pipelines run \\
+
+       --project "${GOOGLE_CLOUD_PROJECT}" \\
+
+       --logging "${TEMP_LOCATION}/runner_logs_$(date+%Y%m%d_%H%M%S).log" \\
+
+       --service-account-scopes https://www.googleapis.com/auth/cloud-platform \\**
+
+       --zones us-central1-f \\
+
+       --docker-image  gcr.io/gcp-variant-transforms/gcp-variant-transforms \\**
+
+       --command-line "${COMMAND}"
+
+
+Note the operation ID returned by the above script. You can track the
+status of your operation by running:
+
+::
+	
+	gcloud alpha genomics operations describe <operation-id>
+
+
+The resulting transformed vcf table looks something like this:
+
+.. figure:: query_figs/BigQuery_VCF_preview.png
+  :scale: 80
+  :align: center
+
+
+What are all those empty cells? Well, when you upload a vcf file, the
+schema automatically defines a lot of those fields as type:'Record' that
+have mode:'Repeated'. This is compared to more common data types like
+'Integer' or 'String'. A 'Record' or 'Struct' is a data structure that
+brings related items together as a list or a nested set of lists. The
+example given in the Google documentation is:
+
+"In BigQuery, you can preserve the relationship between book and author
+without creating a separate author table. Instead, you create an author
+column, and you nest fields within it such as the author's first name,
+last name, date of birth, and so on. If a book has multiple authors, you
+can make the nested author column repeated."
+`*https://cloud.google.com/bigquery/docs/nested-repeated* <https://cloud.google.com/bigquery/docs/nested-repeated>`__
+
+In our case, we have a single genomic position, and within that position
+we can list different alternate variants. In the example, the reference
+G is replaced by either an A or a C, and you can see this list in the
+column names 'alternate_bases.alt', 'alternate_bases.AC', etc.
+
+***Unnesting BigQuery tables to query repeated fields ***
+
+Querying multiple independently repeated fields or calculating the cross
+product of such fields requires "flattening" of the BigQuery records. You
+may have seen error messages like "Cannot query the cross product of
+repeated fields ..." from BigQuery in such scenarios. `*Google
+Genomics* <https://github.com/googlegenomics/gcp-variant-transforms/blob/master/docs/flattening_table.md>`__
+describes the workarounds for enabling such queries and exporting a
+flattened BigQuery table that can be directly used in tools that
+required a flattened table structure (e.g. for easier data
+visualization). BigQuery supports fields of type
+`*ARRAY* <https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#array-type>`__
+for lists of values and fields of type
+`*STRUCT* <https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#struct-type>`__
+for hierarchical values. These field types are useful for representing
+rich data without duplication.
+
+These type of tables can be pretty tricky, so...
+
+***Let’s dive in with some examples! ***
+
+Colaboratory is a free Jupyter notebook environment that requires no
+setup and runs entirely in the cloud! Colaboratory is a great way to
+work on analysis projects with a group. A great feature is that BigQuery
+takes all the heavy-duty compute to the cloud, and lets the notebook be
+used for documentation and visualization. We've provided a notebook with
+all code in shared Colab notebook here:
+
+Just as with all Google Cloud Platform (GCP) products, to work with BigQuery in the Colaboratory notebook you must first set up a GCP Project. If you're starting up a new account you can get $300 in credit, plus there's a sizable amount of querying that's free every month. Detailed instructions on how to set up a GCP project can be found here in our documentation:
+
+https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowToGetStartedonISB-CGC.html
+
+Once you’ve set up your GCP project, insert your project ID into code within the Colaboratory notebook.
+
+When you create a GCP, a billing account will be attached to it. Any charges incurred by BigQuery are billed to the attached billing account even if you’re accessing data found in another project. Here's some information on BigQuery costs. You can keep an eye on your GCP expenses in your Google Cloud Platform Console home page.
+
+`BigQuery Colab Notebook <https://gist.github.com/Gibbsdavidl/dc257e66867a5f3bb8a6c6f351a633c9>`_
+
+Thank you!  Please let know if you have any questions.
+
+
+
+.. _October2018:
+
+October, 2018
+#############
+
+**Jupyter notebooks and Dataproc clusters.**
+
+
+Switching gears from last month when we learned how to start the RStudio server in the Google cloud, this month we'll
+discover how to quickly start up a Jupyter notebook. Secondly we'll make that notebook the front end of a Dataproc cluster, for some serious compute power.
+
+In this tutorial we'll be following these tutorials: `jupyter notebook <https://cloud.google.com/dataproc/docs/tutorials/>`_ and 
+`Dataproc with GCP <https://codelabs.developers.google.com/codelabs/cpb102-dataproc-with-gcp/#3>`_.
+
+`Jupyter notebooks <http://www.jupyter.org>`_ are popular as a workspace in data science that makes it easy to share work. From the Jupyter site: "The notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text."
+
+From Google: `Google Dataproc <https://cloud.google.com/dataproc/>`_ is a fast, easy-to-use, fully-managed cloud service for running Apache Spark and Apache Hadoop clusters in a simpler, more cost-efficient way. Operations that used to take hours or days take seconds or minutes instead, and you pay only for the resources you use (with per-second billing). Cloud Dataproc also easily integrates with other Google Cloud Platform (GCP) services, giving you a powerful and complete platform for data processing, analytics and machine learning.
+
+**Starting scripts**
+
+The first task is getting a VM up and running with Jupyter. Google has provided a set of bash scripts to make starting Jupyter notebooks more convenient. 
+You can find this project on `github <https://github.com/GoogleCloudPlatform/dataproc-initialization-actions/tree/master/jupyter>`_.
+We will be passing the bucket address of the initialization script to *gcloud dataproc clusters create* to to all the needed installations on the VM.
+
+
+**Single node clusters**
+
+If you only want a single VM as the computational platform, then you can start a 'single node cluster'.
+Single node clusters have dataproc-role set to 'Master' and the dataproc-worker-count set to 0. Most of the initialization actions in this repository should work out of the box, as they run only on the master. Actions that run on all nodes of the cluster (such as cloud-sql-proxy) similarly work out of the box.
+
+To create a single node cluster, we use the 'gcloud dataproc clusters create' command with a special argument '--single-node'.
+
+::
+
+	gcloud dataproc clusters create <<args>> --single-node
+
+
+**Multinode clusters**
+
+
+But let's suppose we'd like a few worker nodes, to start up that small cluster we use the command:
+
+::
+
+	gcloud dataproc clusters create isb-dataproc-cluster-test2 \
+	    --metadata "JUPYTER_PORT=8124" \
+	    --initialization-actions gs://dataproc-initialization-actions/jupyter/jupyter.sh \
+	    --properties spark:spark.executorEnv.PYTHONHASHSEED=0,spark:spark.yarn.am.memory=1024m \
+	    --worker-machine-type=n1-standard-4 \
+	    --master-machine-type=n1-standard-4
+
+
+This, init script *jupyter2/jupyter2.sh* uses python2, and *jupyter/jupyter.sh* uses python3. 
+In the metadata, it's also possible to add *JUPYTER_CONDA_PACKAGES=numpy:pandas:scikit-learn*, but at the moment I'm getting some errors with those options.
+Running that we get a return message..
+
+::
+
+	Waiting on operation [projects/isb-cgc-02-0001/regions/global/operations/e2b39fb6-e139-3028-b7bc-33e1c1ca352b].
+	Waiting for cluster creation operation...done.
+	Created [https://dataproc.googleapis.com/v1/projects/my-project-123/regions/global/clusters/cluster-name-here] Cluster placed in zone [us-west1-b].
+
+
+.. figure:: query_figs/oct_2018_images/changes_on_the_vm.png
+  :scale: 80
+  :align: center
+
+
+Pay attention to the zone where the cluster lives! 
+
+
+**Scaling Clusters**
+
+
+After creating a Cloud Dataproc cluster, you can `scale the cluster <https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/scaling-clusters>`_ by increasing or decreasing the number of primary or secondary worker nodes in the cluster. You can scale a Cloud Dataproc cluster at any time, even when jobs are running on the cluster.
+
+Because clusters can be scaled more than once, you might want to increase/decrease the cluster size at one time, and then decrease/increase the size later.
+
+::
+
+	gcloud dataproc clusters update cluster-name \
+	  [--num-workers and/or --num-preemptible-workers] new-number-of-workers
+
+
+
+**Connecting to the notebook**
+
+This is actually one of the tricky parts.
+
+Now that we have the VMs running, we need to connect our browser to the notebook (living in the cloud).
+
+When using DataLab, one opens the network-connection to the notebook via the Google Cloud Console and Cloud shell in particular. However, here, we can't use the cloud shell to open the Jupyter notebook because it uses a different ssh tunnelling system. This is a clear case where using DataLab is going to be easier in the Google ecosystem.
+
+If you log into the cloud console, find Dataproc and click on your cluster, under the cluster name is a link that brings up the 
+commands to create an SSH tunnel to connect to a web interface.
+
+Essentially, the two commands, ON A MAC, are:
+
+:: 
+
+	gcloud compute ssh DATAPROC_CLUSTER_NAME-m \
+	  --project=GOOGLE_PROJECT_ID \
+	  --zone=ZONE -- -D 8124 -N  \
+	  &
+
+	"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+	  --proxy-server="socks5://localhost:8124" \
+	  --user-data-dir="/tmp/DATAPROC_CLUSTER_NAME-m" http://DATAPROC_CLUSTER_NAME-m:8124
+
+The two commands, ON UBUNTU LINUX, are:
+
+:: 
+
+	gcloud compute ssh DATAPROC_CLUSTER_NAME-m \
+	  --project=GOOGLE_PROJECT_ID \
+	  --zone=ZONE -- -D 8124 -N  \
+	  &
+
+	/usr/bin/google-chrome \
+	  --proxy-server="socks5://localhost:8124" \
+	  --user-data-dir="/tmp/DATAPROC_CLUSTER_NAME-m" http://DATAPROC_CLUSTER_NAME-m:8124
+
+
+*note the '-m' and putting it in the background with '&'*
+The first command opens an SSH tunnel to the server, and the second opens a browser window using
+the correct proxy and port. Just replace DATAPROC_CLUSTER_NAME with the name you gave 
+your cluster in the *gcloud dataproc clusters create* call.
+
+And that should open a chrome browser connection to Jupyter.  Whew!
+
+One more useful command is: 
+
+::
+
+	gcloud dataproc clusters describe ${DATAPROC_CLUSTER_NAME}  ### this is just FYI ### 
+
+
+Now, there is a Google provided *launch-jupyter-interface.sh* script, but I had a lot of 
+issues with it. So I'm not sure I would recommend it yet.
+
+
+
+**Ready for work!**
+
+We can now create a new notebook. To make backups of our notebook, under the File menu, select 'save as', and here we can select one
+of the cloud buckets associated with our project.
+
+You can download the notebook I made `here <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/source/sections/query_figs/OctoberQOTM.ipynb>`_
+
+
+~~Let's try some BigQuery!~~
+
+For the first bit of code, we'll import the libraries we need.
+
+The python client library for the Google cloud can be found `here <https://googleapis.github.io/google-cloud-python/latest/bigquery/index.html>`_.
+
+.. code-block:: python
+	
+	import sys
+	!{sys.executable} -m pip install --upgrade google-cloud-bigquery
+
+	import pandas as pd
+	from pandas.io import gbq
+
+	print("Imports run.")
+
+
+OK! Next cell:
+ 
+
+.. code-block:: python
+
+	query_job = client.query("""
+	WITH
+	  table1 AS (
+	  SELECT
+	    project_short_name,
+	    case_barcode,
+	    IF (gender = 'FEMALE',
+	      1,
+	      0) AS F,
+	    IF (gender = 'MALE',
+	      1,
+	      0) AS M
+	  FROM
+	    `isb-cgc.TCGA_bioclin_v0.Clinical`
+	  WHERE
+	    project_short_name = 'TCGA-SKCM'
+	  GROUP BY
+	    project_short_name,
+	    case_barcode,
+	    gender)
+	    -- 
+	    --
+	SELECT
+	  project_short_name,
+	  SUM(F) AS F_count,
+	  SUM(M) AS M_count
+	FROM
+	  table1
+	GROUP BY
+	  project_short_name
+	""")
+
+	print('Running query...')
+	data = gbq.read_gbq(sql, project_id=projectId)
+
+	data
+
+
+Ok, we run that cell, and notice it completes very quickly. Next we'll write a cell
+to get the results.
+
+.. code-block:: python
+	
+	for row in results:
+    print("{} : {} : {}".format(row.project_short_name, row.F_count, row.M_count))
+
+
+..
+
+   "TCGA-BRCA : 1085 : 12"
+
+
+Let's change that query and get results for all types of cancer in TCGA.
+
+
+.. code-block:: python
+
+	query_job = client.query("""
+		WITH
+		  table1 AS (
+		  SELECT
+		    project_short_name,
+		    case_barcode,
+		    IF (gender = 'FEMALE',
+		      1,
+		      0) AS F,
+		    IF (gender = 'MALE',
+		      1,
+		      0) AS M
+		  FROM
+		    `isb-cgc.TCGA_bioclin_v0.Clinical`
+		  GROUP BY
+		    project_short_name,
+		    case_barcode,
+		    gender)
+		    -- 
+		    --
+		SELECT
+		  project_short_name,
+		  SUM(M) AS M_count,
+		  SUM(F) AS F_count
+		FROM
+		  table1
+		GROUP BY
+		  project_short_name
+		""")
+
+	results = query_job.result()
+
+
+.. figure:: query_figs/oct_2018_images/data_frame_output.png
+  :scale: 90
+  :align: center
+
+
+OK, that's working great.  But what about Pandas you're saying?
+
+Well, it turns out we can do the same thing with the pandas and pandas-gbq libraries.
+
+.. code-blocks:: python
+
+	import sys
+	!{sys.executable} -m pip install cython pandas-gbq
+
+
+	import pandas
+
+
+	projectid = "isb-cgc-02-0001"
+	query = """
+		WITH
+		  table1 AS (
+		  SELECT
+		    project_short_name,
+		    case_barcode,
+		    IF (gender = 'FEMALE',
+		      1,
+		      0) AS F,
+		    IF (gender = 'MALE',
+		      1,
+		      0) AS M
+		  FROM
+		    `isb-cgc.TCGA_bioclin_v0.Clinical`
+		  GROUP BY
+		    project_short_name,
+		    case_barcode,
+		    gender)
+		    -- 
+		    --
+		SELECT
+		  project_short_name,
+		  SUM(M) AS M_count,
+		  SUM(F) AS F_count
+		FROM
+		  table1
+		GROUP BY
+		  project_short_name
+		"""
+	data_frame = pandas.read_gbq(query, project_id=projectid, dialect='standard')
+
+
+	data_frame.shape
+
+
+This is nice, because then we can use these summarized results in visualizations or in further analysis.
+
+.. code-block:: python
+
+	import matplotlib.pyplot as plt
+	plt.figure();
+	df2 = pandas.DataFrame(data_frame, columns=['M_count','F_count'])
+	df2.plot.bar();
+
+
+.. figure:: query_figs/oct_2018_images/matlab_plot_ms_fs.png
+  :scale: 90
+  :align: center
+
+
+OK, for the main work product here, we will define a cohort, save that cohort into a new BigQuery table (not download it!), and run a spark job that fits a model.
+
+
+OK, to get started, I popped over to the BQ web interface and created a new dataset in my project: 'spark_job'.
+
+Then I'm created a table that's going to be used for the spark job input.
+
+.. code-block:: sql
+
+	SELECT
+	  sample_barcode AS sb,
+	  IF (project_short_name = 'TCGA-STAD', 1, 0) AS label,
+	  SUM (CASE
+	     WHEN (HGNC_gene_symbol = 'EGFR') THEN LOG10(normalized_count +1)
+	     ELSE (RAND()/1000000) END) AS'EGFR,
+	  SUM (CASE
+	     WHEN (HGNC_gene_symbol = 'TP53') THEN LOG10(normalized_count +1)
+	     ELSE (RAND()/1000000) END) AS TP53,
+	  SUM (CASE
+	     WHEN (HGNC_gene_symbol = 'NOTCH1') THEN LOG10(normalized_count +1)
+	     ELSE (RAND()/1000000) END) AS NOTCH1,
+	  SUM (CASE
+	     WHEN (HGNC_gene_symbol = 'GATA3') THEN LOG10(normalized_count +1)
+	     ELSE (RAND()/1000000) END) AS GATA3
+	FROM
+	  `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
+	WHERE
+	  project_short_name IN ('TCGA-STAD','TCGA-BRCA')
+	  AND normalized_count IS NOT NULL
+	GROUP BY
+	  project_short_name,
+	  sample_barcode
+
+
+
+.. figure:: query_figs/oct_2018_images/spark_input_table.png
+  :scale: 50
+  :align: center
+
+
+
+This table is now found in my project at: isb-cgc-02-0001:spark_job.tcga_spark
+
+
+**PySpark**
+
+In this section, we're working with the following examples:
+
+1. `Get some data from BigQuery and perform some ML in spark <https://cloud.google.com/dataproc/docs/tutorials/bigquery-sparkml>`_ .
+
+2. Also `this description of the BigQuery connector to Spark <https://cloud.google.com/dataproc/docs/tutorials/bigquery-connector-spark-example>`_ .
+
+And here's `another resource <https://github.com/jadianes/spark-py-notebooks <https://github.com/jadianes/spark-py-notebooks>`_ for working with python and spark in notebook environments.
+
+
+There's a special package we need to use in order to get our spark context from within a notebook. Typically, we would submit a job to spark using the PySpark interactive environment, or submit the job through the Google cloud console. But in the notebook we can use 'findspark' to connect with pyspark, and after that, instantiate our spark context.
+
+
+.. code-block:: python
+	
+	!{sys.executable} -m pip install pyspark findspark
+
+
+Then we can:
+
+
+.. code-block:: python
+	
+	import findspark
+	findspark.init()
+
+And now we're ready to start coding our spark job. I have heavily borrowed from the examples above..
+
+
+.. code-block:: python
+
+	"""Run a logistic regression using Apache Spark ML.
+
+	In the following PySpark (Spark Python API) code, we take the following actions:
+
+	  * Load a previously created BigQuery input table
+	    into our Cloud Dataproc Spark cluster as an RDD (Resilient
+	    Distributed Dataset)
+	  * Transform the RDD into a Spark Dataframe
+	  * Vectorize the features on which the model will be trained
+	  * Compute a linear regression using Spark ML
+
+	"""
+
+	from datetime import datetime
+	from pyspark.context import SparkContext
+	from pyspark.ml.linalg import Vectors
+	from pyspark.ml.classification import LogisticRegression
+	from pyspark.sql.session import SparkSession
+
+	# The imports, above, allow us to access SparkML features specific to linear
+	# regression as well as the Vectors types.
+
+
+	# Use Cloud Dataprocs automatically propagated configurations to get
+	# the Cloud Storage bucket and Google Cloud Platform project for this
+	# cluster.
+	sc = SparkContext()
+	spark = SparkSession(sc)
+	bucket = spark._jsc.hadoopConfiguration().get("fs.gs.system.bucket")
+	project = spark._jsc.hadoopConfiguration().get("fs.gs.project.id")
+
+	# Set an input directory for reading data from Bigquery.
+	todays_date = datetime.strftime(datetime.today(), "%Y-%m-%d-%H-%M-%S")
+	input_directory = "gs:/input_directory = "gs://qotm_oct_2018" + todays_date
+
+	# Set the configuration for importing data from BigQuery.
+	# Specifically, make sure to set the project ID and bucket for Cloud Dataproc,
+	# and the project ID, dataset, and table names for BigQuery.
+
+	conf = {
+	    # Input Parameters
+	    "mapred.bq.project.id": project,
+	    "mapred.bq.gcs.bucket": bucket,
+	    "mapred.bq.temp.gcs.path": input_directory,
+	    "mapred.bq.input.project.id": project,
+	    "mapred.bq.input.dataset.id": "spark_job",
+	    "mapred.bq.input.table.id": "tcga_spark",
+	}
+
+	# Read the data from BigQuery into Spark as an RDD.
+	table_data = spark.sparkContext.newAPIHadoopRDD(
+	    "com.google.cloud.hadoop.io.bigquery.JsonTextBigQueryInputFormat",
+	    "org.apache.hadoop.io.LongWritable",
+	    "com.google.gson.JsonObject",
+	    conf=conf)
+
+	# Extract the JSON strings from the RDD.
+	table_json = table_data.map(lambda x: x[1])
+
+	# Load the JSON strings as a Spark Dataframe.
+	tcga_data = spark.read.json(table_json)
+
+	# Create a view so that Spark SQL queries can be run against the data.
+	tcga_data.createOrReplaceTempView("tcga_view")
+
+	# Define a function that collects the features of interest
+	# Package the vector in a tuple containing the label (`label`) for that
+	# row.
+	def vector_from_inputs(r):
+	  return (float(r["label"]), Vectors.dense(float(r['EGFR"]),
+	                                    float(r["TP53"]),
+	                                    float(r["NOTCH1"]),
+	                                    float(r["GATA3"])))
+
+	# As a precaution, run a query in Spark SQL against the view to ensure no NULL values exist.
+	sql_query = """
+	SELECT *
+	from tcga_view
+	where label is not null
+		and'EGFR is not null
+		and TP53 is not null
+		and GATA3 is not null
+		and NOTCH1 is not null
+	"""
+	clean_data = spark.sql(sql_query)
+
+	# Create an input DataFrame for Spark ML using the above function.
+	training_data = clean_data.rdd.map(vector_from_inputs).toDF(["label",
+	                                                             "features"])
+	training_data.cache()
+
+
+	# Construct a new LogisticRegression object and fit the training data.
+	# https://spark.apache.org/docs/latest/ml-classification-regression.html#binomial-logistic-regression
+	
+	lr = LogisticRegression(maxIter=5, regParam=0.3, elasticNetParam=0.8)
+	lrModel = lr.fit(training_data)
+	# Print the model summary.
+	print("Coefficients:" + str(lrModel.coefficients))
+	print("Intercept:" + str(lrModel.intercept))
+
+
+	# getting the model performance metrics 
+	trainingSummary = lrModel.summary
+
+	# Obtain the objective per iteration
+	objectiveHistory = trainingSummary.objectiveHistory
+	print("objectiveHistory:")
+	for objective in objectiveHistory:
+	    print(objective)
+
+	# Obtain the receiver-operating characteristic as a dataframe and areaUnderROC.
+	trainingSummary.roc.show()
+	print("areaUnderROC: " + str(trainingSummary.areaUnderROC))
+
+	# we can even convert the pyspark DataFrame to a Pandas DataFrame
+	# and plot the ROC
+	import pandas
+	import matplotlib.pyplot as plt
+	plt.figure();
+	trainingSummary.roc.toPandas().plot.scatter('FPR','TPR')
+
+
+
+If we take a look inside our named bucket, we see that data shards.
+
+.. figure:: query_figs/oct_2018_images/data_stored_in_shards.png
+  :scale: 50
+  :align: center
+
+
+Here's what it looked like when I was running the `natality example` given by Google:
+
+.. figure:: query_figs/oct_2018_images/cluster_working_fig.png
+  :scale: 80
+  :align: center
+
+
+When we're all done (it actually takes just an instant in this case), we have a model with an ROC of:
+
+::
+
+	areaUnderROC: 0.9783191586648377
+
+
+The coefficients from the model were:
+
+::
+
+	Coefficients:[50.29267918772197,0.0,0.16224745918590844,-0.31689142394240727]
+	Intercept:-0.9932429393509908
+
+
+So, it looks like only one gene was actually needed for the classification (EGFR).
+
+
+
+*Kill -9 the cluster*
+
+As with many other cloudy things, you can kill your cluster in the web console, on on the command line:
+
+:: 
+
+	gcloud dataproc clusters update cluster-name \
+	  --graceful-decommission-timeout="timeout-value" \
+	  [--num-workers and/or --num-preemptible-workers]=decreased-number-of-workers
+	  other args ...
+
+
+Hope that was helpful for getting started with Jupyter notebooks! Of course you don't have to use clusters, there's a lot you can do with a single node notebook! If you have some cool examples, I would love to see them!
+
+
+.. _September2018:
+
+September, 2018
+###############
+
+**R in the cloud.**
+
+Recently, I was asked to demonstate how to simply run an R script in the google cloud, so I decided to
+revisit the topic and look for new, easy methods. In the past
+I recommended methods like using dsub (link), which uses the Google Pipelines API. It's still a good 
+option, but it can be challenging for some users to install and use. As an alternative, I have two new (to me) methods 
+that make running R scripts easy and straightforward.
+
+*Method 1* 
+
+An RStudio server in the cloud
+
+Super developer, Mark Edmondson (github: MarkEdmondson123), has released a number of very useful packages
+for working in the Google cloud. However, I would advise to work from the development versions in github to 
+get the latest and greatest (see devtools::install_github).
+
+These include:
+
+  * `googleAuthR <http://code.markedmondson.me/googleAuthR/>`_
+
+  * `googleComputeEngineR <https://github.com/cloudyr/googleComputeEngineR>`_
+
+  * `googleCloudStorageR <https://github.com/cloudyr/googleCloudStorageR>`_
+
+  * `bigQueryR <https://github.com/cloudyr/bigQueryR>`_ 
+
+
+Also a couple cloudyr tutorial links: `massively parallel <https://cloudyr.github.io/googleComputeEngineR/articles/massive-parallel.html>`_
+ and `install and auth <https://cloudyr.github.io/googleComputeEngineR/articles/installation-and-authentication.html>`_.
+
+
+With these packages, it becomes super easy and fast to start up an RStudio server that can acess all 
+the resources within a google project (i.e. read and write to buckets, execute BigQueries). 
+
+After a little setup, starting the server is accomplished with a single function call! The setup involves getting a 
+project key. To do that, and you only need to do this once, you'll log into your google cloud console.
+
+Then, use the hamburger menu (upper left corner) to navigate to the 'APIs and Credentials' page. Find the create 
+credentials button, and select 'Service account key'. Under service account, select 'New service account' 
+and you can give it a name and an role in the project. For simplicity you can select the editor role, knowing it 
+has a great deal of permissions, which you may wish to scale back. When you hit the blue 'create key' button, a json
+file will be downloaded. Guard that key with your life!  
+
+
+.. figure:: query_figs/sept/making_key_1.png
+  :scale: 50
+  :align: center
+
+
+.. figure:: query_figs/sept/making_key_2.png
+  :scale: 50
+  :align: center
+
+
+.. figure:: query_figs/sept/making_key_3.png
+  :scale: 50
+  :align: center
+
+
+**OK.**
+
+Now, after starting up R, point your working dir to the directory holding your json key.
+
+.. code-block:: r
+    
+
+  Sys.setenv("GCE_AUTH_FILE" = "~/tmp/auth.json")       # edit path to your file
+  Sys.setenv("GCE_DEFAULT_PROJECT_ID"="MY PROJECT ID")  # edit this
+  Sys.setenv("GCE_DEFAULT_ZONE"="us-west1-a")           # edit this
+
+
+  library(googleComputeEngineR)
+
+  vm <- gce_vm("rstudio-cron-googleauthr", 
+                predefined_type = "n1-standard-1",
+                template = "rstudio", 
+                dynamic_image = "gcr.io/gcer-public/google-auth-r-cron-tidy", 
+                username = "myname", 
+                password = "secretpassword321")
+
+
+After calling this function, a message is printed: '2018-09-28 15:48:06> VM running'. What happened? 
+A new VM has been started using a docker image that contains Rstudio server and all of the tidyverse.
+How do you get to it? Well, if we exampine the vm object in R, we see:
+
+::
+
+  > vm
+  ==Google Compute Engine Instance==
+
+  Name:                rstudio-cron-googleauthr
+  Created:             2018-09-18 13:06:23
+  Machine Type:        n1-standard-1
+  Status:              RUNNING
+  Zone:                us-west1-b
+  External IP:         35.199.153.108
+  Disks:
+                            deviceName       type       mode boot autoDelete
+  1 rstudio-cron-googleauthr-boot-disk PERSISTENT READ_WRITE TRUE       TRUE
+
+
+If we copy that External IP, and paste it into our browser. Viola!
+
+
+.. figure:: query_figs/sept/rstudio_login.png
+  :scale: 50
+  :align: center
+
+
+After logging in, we get a full Rstudio environment.
+
+To get a `file into your VM <https://support.rstudio.com/hc/en-us/articles/200713893-Uploading-and-Downloading-Files>`_,
+the files panel in the lower right corner has an 'Upload' button that lets you select a file or dataset. To download, 
+in the same pane, select 'More' and 'export'.
+
+But what about reading and writing to your google bucket? To do that, we need to get the session authorized.
+The RStudio instance, as started up with googleComputeEngineR, contains metadata about the project, and authorization
+is performed using the googleAuthR package. See below for an example of working with buckets.
+
+
+.. code-block:: r
+
+  ### FROM WITHIN THE RSTUDIO ENVIRONMENT ###
+
+  # first we load this library and call the authorization function
+  library(googleAuthR)
+  gar_gce_auth()
+
+
+At this point, authorization is done, and a token has been created. The function outputs: "Token cache file: .httr-oauth".
+
+
+.. code-block:: r
+
+  # now we load up the cloud storage package and list the buckets
+  library(googleCloudStorageR)
+  googleCloudStorageR::gcs_list_buckets(projectId = 'isb-cgc-02-0001')
+
+  # we can then pick a bucket
+  googleCloudStorageR::gcs_global_bucket("gibbs_bucket_nov162016")
+
+  # we can also select the default bucket by setting a environment variable.
+  Sys.setenv("GCS_DEFAULT_BUCKET" = "gibbs_bucket_nov162016")
+
+
+Now we're ready to start accessing our buckets!
+
+.. code-block:: r
+
+  ## getting a list of objects in the default bucket
+  objects <- gcs_list_objects()
+
+  head(objects$name)  # file names
+
+  ## save directly to an R object (warning, don't run out of RAM if its a big object)
+  ## the download type is guessed into an appropriate R object
+
+  parsed_download <- gcs_get_object(objects$name[4]) 
+
+  # this was a .csv file, and it parsed into a tibble
+
+  # or if you already know the name
+  parsed_download <- gcs_get_object("catter_input.txt")
+
+  ## if you want to do your own parsing, set parseObject to FALSE
+  ## and use httr::content() to parse afterwards
+  raw_download <- gcs_get_object("catter_input.txt",
+                                 parseObject = FALSE)
+
+  ## Or move from a bucket to a file in your working directory
+  ## parseObject has no effect, it is a httr::content(req, "raw") download
+  gcs_get_object("catter_input.txt", saveToDisk = "catter_downloaded.csv")
+
+  ## **** ##
+  ## Here's an example of getting text from a file in GCS
+  ## and parsing it to a data frame
+
+  textobj <- gcs_get_object("catter_input.txt")
+  df <- read.delim( textConnection(textobj), header=T, sep=" ", strip.white=TRUE)
+
+
+Great, now to move files back to the bucket.
+
+
+.. code-block:: r
+
+  dat <- read.table('catter_downloaded.csv', header=T)
+  # saved as cat_plot.png
+
+  ## attempt upload back to the bucket
+  upload_try <- gcs_upload("cat_plot.png")
+
+
+You can see how easy it is to startup a new Rstudio server (takes just a few seconds) 
+and start reading and writing to buckets. When you're done, you can stop the VM.
+
+
+.. code-block:: r
+
+  ### BACK ON YOUR LOCAL MACHINE ###
+
+  gce_vm_stop(vm)
+
+
+However, you will still be charged for the attached disk, but this lets you resume your session anytime to 
+start where you left off.  It's also easy to just write out your files to the bucket, 
+and delete the VM, which is what I tend towards.
+
+As a note: it's very fast (and free as long as the VMs and buckets are in the same region) 
+to move data around in the google cloud. 
+
+
+*Method 2* 
+
+Running R functions on a cloud-based-cluster.
+
+
+Next we're going to start up a set of VMs, link them together as a cluster, and submit work to them.
+We're still going to use googleComputeEngineR to start up VMs, keeping them in a list, and 
+then using the future package to `create the cluster <https://cran.r-project.org/web/packages/future/index.html>`_.
+
+Here's a couple cloudyr links: `massively parallel <https://cloudyr.github.io/googleComputeEngineR/articles/massive-parallel.html>`_
+ and `install and auth <https://cloudyr.github.io/googleComputeEngineR/articles/installation-and-authentication.html>`_.
+
+.. code-block:: r
+
+  library(googleComputeEngineR) ## using the dev version from github
+  library(future)
+
+  ## names for your cluster
+  vm_names <- c("vm1","vm2","vm3")
+
+  ## creates jobs that are creating VMs in background
+
+  jobs <- lapply(vm_names, function(x) {
+      gce_vm_template(template = "r-base",
+                      predefined_type = "n1-standard-1",
+                      name = x,
+                      disk_size_gb = 15,
+                      wait = FALSE)
+                      })
+
+
+Now, since we set wait = False, we call the function and then we get back control of the environment.
+
+::
+
+  2018-09-28 17:23:11> Returning the startup job, not the VM instance.
+  2018-09-28 17:23:14> Returning the startup job, not the VM instance.
+  2018-09-28 17:23:16> Returning the startup job, not the VM instance.
+  >
+  > jobs
+  [[1]]
+  ==Zone Operation insert :  PENDING
+  Started:  2018-09-28 14:23:09
+  [[2]]
+  ==Zone Operation insert :  PENDING
+  Started:  2018-09-28 14:23:11
+  [[3]]
+  ==Zone Operation insert :  PENDING
+  Started:  2018-09-28 14:23:14
+
+
+The 'jobs' object is a list, which we'll convert to a list of VM objects. Then we can apply functions to that 
+list of VMs, in order to (for example) shut them all down.
+
+.. code-block:: r
+
+  ## wait for all the jobs to complete and VMs are ready
+  vms <- lapply(jobs, gce_wait)
+
+  ## get the VM objects
+  vms <- lapply(vm_names, gce_vm)
+
+  ## set up SSH for the VMs
+  vms <- lapply(vms, gce_ssh_setup)
+
+
+Now for creating the cluster! This part is somewhat tricky, and at times seems to flop. 
+If the plan function doesn't work, then just try again, the docker pulls already done
+will not pull again. A lot of times it takes a couple tries.
+
+This is a cool part(!): I've created my own small docker image and pushed it to docker hub. When
+building the cluster, we're able to start up those docker images in each VM in the cluster.
+This gives us control over what software is present on each worker node.
+
+The docker file is found at:  https://hub.docker.com/r/gibbsdavidl/googlesmallr/
+
+.. code-block:: r
+
+  ## customise as needed, this for example sets shared RAM to 13GB
+  my_rscript <- c("docker", 
+                  "run", c("--net=host","--shm-size=8G"),
+                  "gibbsdavidl/googlesmallr:latest", 
+                  "Rscript")
+
+  ## create the cluster using custom docker image
+  plan(cluster, 
+       workers = as.cluster(vms, 
+                            docker_image="gibbsdavidl/googlesmallr:latest",
+                            rscript=my_rscript)
+       )
+
+
+OK, now the cluster should be alive and waiting for something to do. You can go and see the VMs in your
+google cloud console, monitoring their workloads.
+
+The (below) task will be to read a file from our bucket and report the size of the table.
+
+.. code-block:: r
+
+  ## test out if it's possible to access buckets.
+  work_chunks <- function(chunk){
+
+    # first we'll get the worker node authorized
+    require(googleAuthR)
+    require(googleCloudStorageR)
+    googleAuthR::gar_gce_auth()
+
+    # then we'll point to the bucket
+    gcs_global_bucket("gibbs_bucket_nov162016")
+
+    # and get the object, read it, and report the dimensions.
+    gcs_get_object("catter_input.txt", saveToDisk = "catter_downloaded.csv")
+    dat <- read.table('catter_downloaded.csv', header=T)
+    return(dim(dat))
+  }
+
+
+  # We use the future_lapply to send this function to each VM.
+  system.time(
+    result2 <- future.apply::future_lapply(vm_names, work_chunks)
+  ) 
+
+
+::
+
+  #   user  system elapsed
+  #  0.035   0.004   1.155
+
+  > result2
+  [[1]]
+  [1] 21  2
+
+  [[2]]
+  [1] 21  2
+
+  [[3]]
+  [1] 21  2
+
+
+Great! In this example, I used the vm_names to iterate across, but it could 
+been a list of data files, or a list of parameter sets. 
+
+.. code-block:: r
+
+  paramList <- list(
+    P1=c(1,2,3), P2=c(4,5,6), P3=c(7,8,9)
+  )
+
+  result3 <- future.apply::future_lapply(paramList, work_chunks)
+
+  ## work_chunks would need an extra parameter in the argument list ##
+
+
+I hope these examples help get you in the cloud! Please let me know if you have trouble or have questions.
+
+
+
+.. _August2018:
+
+August, 2018
+############
+
+**Using BigQuery ML in a Shiny app.**
+
+Last month, we tried out the newly-released Google BigQuery ML. 
+This month we'll continue to build examples, learn some new things, and build a `shiny web app <https://isb-cgc.shinyapps.io/GoogML_Shiny/>`_.
+
+One newsworthy bit of information, incase you missed it a few months ago, is that the R package used for 
+interacting with BigQuery, bigrquery, has undergone a major revision 
+(hitting `version 1.0.0 <https://github.com/r-dbi/bigrquery/releases/tag/v1.0.0>`_), 
+and many of the function calls have changed significantly. 
+The returned object from making a BigQuery call (with function 'bq_project_query') is now a "tibble" rather than a data frame.  
+
+Working with BigQuery ML is quite a bit different than what we've done before. In the past, when working with BigQuery, we've computed 
+different statistics, and we've even used those statistics for classification, but that work was all done in the SQL -- including,
+for example, formulating a Z-score in SQL.
+Now, most of our work will go into preparing the training data table to be used when fitting the model.
+
+When fitting models, we have two important parameters to think about:  the L1 and L2 regularization rates.
+(There are other parameters, but we'll focus on these for the moment.)
+Both of these parameters effectively push the weights of less useful predictors towards zero. L2 (or euclidean norm) will push
+weights towards zero, but L1 regularization will make variable (gene) weights exactly zero. Using these regularizers 
+can help us get an idea of which features (*eg* genes) are most useful in separating groups (*eg* cancer types).
+
+A good tool for getting a feel for what parameter values to use can be found 
+`here <https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/playground-exercise>`_.
+
+In this Shiny App, we will select two "cohorts" as the two groups for our classification task.
+Then we'll select one of the cancer hallmark gene sets from MSigDB which will provide the feature set as a list of genes.
+The BigQuery ML models take a number of parameters, so we'll make those available to the user as well.
+
+In general, when storing a gene-expression matrix in BigQuery, it is most useful to store it as a 
+`tidy <http://vita.had.co.nz/papers/tidy-data.html>`_  data table, *ie* a "long" table with just 3 columns: 
+sample_id, gene_id, expression_value,
+rather than a "wide" N x M table for N samples and M genes, in which the expression values for each gene are stored in a specific column.
+
+However, when you want to fit a model with 10 variables,
+you will need a table with 10 columns. To do that we'll need a new BigQuery skill! Converting long-to-wide tables. 
+There's two keys to doing it in BigQuery. The first is to programmatically construct the query string,
+given the list of genes and other relevant information (*eg* the cohort name), and the second is to use an 
+`aggregate function <https://cloud.google.com/bigquery/docs/reference/standard-sql/aggregate_functions>`_ 
+to create each row of the result table, where each row will represent a single sample. 
+
+Here's a small example of doing that.
+
+.. code-block:: sql
+
+    SELECT
+      sample_barcode AS sb,
+      project_short_name AS label,
+      SUM (CASE
+         WHEN (HGNC_gene_symbol = 'FRMD6') THEN LOG10(normalized_count +1)
+         ELSE (RAND()/1000000) END) AS FRMD6,
+      SUM (CASE
+         WHEN (HGNC_gene_symbol = 'MMD') THEN LOG10(normalized_count +1)
+         ELSE (RAND()/1000000) END) AS MMD,
+      SUM (CASE
+         WHEN (HGNC_gene_symbol = 'IMPDH2') THEN LOG10(normalized_count +1)
+         ELSE (RAND()/1000000) END) AS IMPDH2,
+      SUM (CASE
+         WHEN (HGNC_gene_symbol = 'SNORD60') THEN LOG10(normalized_count +1)
+         ELSE (RAND()/1000000) END) AS SNORD60
+    FROM
+      `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
+    WHERE
+      project_short_name = 'TCGA-STAD'
+      AND normalized_count IS NOT NULL
+    GROUP BY
+      project_short_name,
+      sample_barcode
+
+
+Keen readers will notice that I've included a call to RAND() when the gene symbol is not matched. 
+The reason is that some genes in the gene lists do not map to data in TCGA. 
+This creates a column of all zeros across samples, and causes an error in the model fitting. To get around that, I've 
+added a very small amount of noise to the data. If the gene is not present in TCGA's annotation, it is represented 
+as random noise and will not contribute to the model.
+
+Now we'll get to building the shiny app. Here's the first couple functions to build up the SQL as a string. 
+I put these SQL query-string building functions in a global.R file that gets imported in the server.R code.  
+Then I make the query executions from an eventReactive function which is called when the user clicks on the submit button.
+
+.. code-block:: r
+	
+    geneQuery <- function(gi) {
+    	# This function gets called for each gene in a list.
+    	# gi is the name of a gene as a string 
+    	paste("SUM (CASE WHEN (HGNC_gene_symbol = '",gi,"') THEN normalized_count ELSE (RAND()/1000000) END) AS ", gi, sep='')
+    }
+
+
+    buildDataSQL <- function(geneNames, cohort1, cohort2, ngenes) {
+
+    	# here we can control the number of genes going into the model
+        if (length(geneNames) > ngenes) {
+      		geneNames <- sample(geneNames, size = ngenes, replace = F)
+    	} 
+
+        # create model name // format the sys.time() return
+        # to put in underscores and remove colons
+        # and paste in the cohort names.
+      	modelname <- getModelname(cohort1, cohort2)
+
+    	q <- paste("
+    		WITH
+    		C1 AS (
+    		SELECT
+    		   sample_barcode AS sb,
+    		   project_short_name AS label,\n",
+    		   paste(sapply(geneNames, function(gi) geneQuery(gi)),collapse = ',\n'), "\n
+    		FROM
+    		   `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
+    		WHERE
+    		   project_short_name = '",cohort1,"'
+    		   AND normalized_count IS NOT NULL
+    		GROUP BY
+    		   project_short_name,
+    		   sample_barcode ),
+
+    		C2 AS (
+    		SELECT
+    		   sample_barcode AS sb,
+    		   project_short_name AS label,\n",
+    		   paste(sapply(geneNames, function(gi) geneQuery(gi)),collapse = ',\n'), "\n
+    		FROM
+    		   `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
+    		WHERE
+    		   project_short_name = '",cohort2,"'
+    		   AND normalized_count IS NOT NULL
+    		GROUP BY
+    		   project_short_name,
+    		sample_barcode )
+
+    		SELECT
+    		   0 AS label,",
+    		   paste(geneNames,collapse = ','), "\n 
+    		FROM
+    		   C1
+    		UNION ALL
+    		SELECT
+    		   1 AS label,",
+    		   paste(geneNames,collapse = ','), "\n 
+    		FROM
+    		   C2
+    		", sep = '')  
+
+    	print(q)  
+    	return(list(SQL=q, Dataset="tcga_model_1", Tablename=paste("isb-cgc-myproject123.tcga_model_1.data", Modelname=modelname,sep="")))
+    	}
+
+
+Calling this function returns the SQL query string, the Dataset where the table will be placed, the full name 
+'project.dataset.tablename', and the modelname, all as a list.
+
+The R code to create the query string, authenticate, and execute the query only takes a few lines:
+
+.. code-block:: r
+	
+    # we've saved our service account token in the data directory
+    service_token <- set_service_token("data/ISB-CGC-myproject-1234567.json")
+    
+    # previously I made a hash keyed on gene set names, to get the list of gene members
+    load("data/gene_set_hash.rda")
+    geneNames1 <- geneSets[[setname]]
+
+    # then we build the string using the above code.
+    datasql <- buildDataSQL(geneNames1, input$cohortid1, input$cohortid2, input$n_genes)
+
+    # and we execute the query, explicitly naming the location where it will be saved
+    res0 <- bq_project_query('isb-cgc-myproject123', datasql[["SQL"]],  destination_table = datasql[["Tablename"]])
+
+
+At this point we've generated the dataset and saved it in a BigQuery dataset. The next step is to fit the model.
+We'll construct another query string and execute it.
+
+
+.. code-block:: r
+
+    buildModelSQL <- function(datasetname, tablename, modelname, input) {
+	  
+ 	l1reg <- input$l1_reg
+	l2reg <- input$l2_reg
+	maxit <- input$max_iterations
+	lr <- input$learn_rate
+	es <- input$early_stop
+	  
+	q <- paste(
+    	"CREATE MODEL `", datasetname ,".", modelname, "`
+    	 OPTIONS(model_type='logistic_reg', l1_reg=",l1reg,", l2_reg=",l2reg,", max_iterations=",maxit,") 
+    	 AS SELECT * FROM `", tablename ,"`
+  	",sep="")
+	  
+        print(q)
+        return(list(SQL=q, Modelname=paste(datasetname ,".", modelname,sep='')))
+
+    }
+
+    # then build the model
+    # the datasql is returned from building the dataset query above
+    modSql <- buildModelSQL(datasql[["Dataset"]], datasql[["Tablename"]], as.list(input)) 
+    res1 <- bq_project_query('isb-cgc-myproject123', modSql[["SQL"]])
+
+
+When the model fit is finished, we will query the *model*, rather than a table, to get information about the goodness-of-fit, and 
+other classification metrics.
+
+.. code-block:: r
+	
+    queryModelTrainingSQL <- function(modelname) {
+      q <- paste(
+        "SELECT
+           *
+         FROM
+          ML.TRAINING_INFO(MODEL `",modelname,"`)
+        ",sep="")
+      print(q)
+      return(list(SQL=q))
+    }
+
+    queryModelFeaturesSQL <- function(modelname) {
+      q <- paste(
+        "SELECT
+           *
+         FROM
+          ML.FEATURE_INFO(MODEL `",modelname,"`)
+        ",sep="")
+      print(q)
+      return(list(SQL=q))
+    }
+
+    queryModelWeightsSQL <- function(modelname) {
+      q <- paste(
+        "SELECT
+       	  processed_input,
+          weight
+         FROM
+          ML.WEIGHTS(MODEL `",modelname,"`)
+        ",sep="")
+      print(q)
+      return(list(SQL=q))
+    }
+
+    queryModelROCSQL <- function(modelname, tablename) {
+      q <- paste(
+        "SELECT
+           threshold,
+           false_positive_rate,
+           true_positives,
+           false_positives,
+           true_negatives,
+           false_negatives,
+           recall,
+           true_positives / (true_positives + false_positives) AS precision
+         FROM
+           ML.ROC_CURVE(MODEL `",modelname,"`, TABLE `", tablename ,"`)", sep='')
+      return(list(SQL=q))  
+    }
+
+and then we call all the query contruction functions and collect the performance of the classifier.
+
+.. code-blocks:: r
+
+    # get information about the model training 
+    trainSql <- queryModelTrainingSQL(modSql[['Modelname']])
+    res2 <- bq_project_query('isb-cgc-myproject123', trainSql[['SQL']])
+    trainingTable <- bq_table_download(res2)
+      
+    # then query the model for feature info
+    featSql <- queryModelFeaturesSQL(modSql[['Modelname']])
+    res3 <- bq_project_query('isb-cgc-myproject123', featSql[['SQL']])
+    featureTable <- bq_table_download(res3)
+      
+    # then query the model for feature weights
+    weightSql <- queryModelWeightsSQL(modSql[['Modelname']])
+    res4 <- bq_project_query('isb-cgc-myproject123', weightSql[['SQL']])
+    weightTable <- bq_table_download(res4)
+      
+    # then the performance metrics
+    rocSql <- queryModelROCSQL(modSql[['Modelname']], datasql[["Tablename"]])
+    res5 <- bq_project_query('isb-cgc-myproject123', rocSql[['SQL']])
+    rocTable <- bq_table_download(res5)
+
+
+First, using the queryModelTrainingSQL function above, we get information about the model training, which is really useful. 
+It will show a number of training iterations, where in each iteration, there's a learning rate. When a model is fitting well, 
+you should see a big jump in the magnitude of the learning rate. 
+Also it needs to train for a number of iterations. In unsuccessful fittings, the 
+model will not progress beyond just a few iterations. 
+Here is the `Google training module <https://developers.google.com/machine-learning/crash-course/reducing-loss/an-iterative-approach>`_ on this topic.
+
+Second, we can get information about the features themselves, such as the mean and quartiles for each gene. 
+
+Finally, one of the most important calls will be to get the feature weights. Since this is a regularized regression, which is
+controlled using the L1 and L2 parameters, variables that are less helpful in the classification will have weights that
+will shrink to zero. We show the weights in an absolute value sorted order. 
+
+In supervised machine learning,
+each sample has a known label. In this example, the label is the tissue type. 
+When the model is used to predict a label for a sample, we will either 
+get it right or get it wrong. We can call the label of the sample either 'cohort 1 positive' or 'cohort 1 negative (i.e. cohort 2 positive).
+Then our model makes a prediction on whether the sample is 'cohort 1 positive' or not, making it a boolean value (true or false).
+
+To determine if our model is doing well, we use classification metrics like recall and precision.
+Precision is the fraction of true positives over combined true and negative positives. 
+Recall (or sensitivity) is the fraction of true positives over all positives. So when precision 
+is very close to 100%, then there were very few false positives. When recall is close to 1, almost all of the positive cases were
+correctly called positive. 
+
+To put it another way, from Wikipedia: "In a classification task, a precision score of 1.0 for a class C means that every item labeled as belonging to class C does indeed belong to class C (but says nothing about the number of items from class C that were not labeled correctly) whereas a recall of 1.0 means that every item from class C was labeled as belonging to class C (but says nothing about how many other items were incorrectly also labeled as belonging to class C). ... Often, there is an inverse relationship between precision and recall, where it is possible to increase one at the cost of reducing the other."
+
+Below is the R code for the "server" component of our Shiny app.  We want all of the bigrquery functions to be
+called when the user clickson the 'submit' button -- to accomplish this, we wrap all of the functions together
+in a eventReactive. 
+
+.. code-blocks:: r
+
+    server <- function(input, output, session) {
+      
+      bq_ops <- eventReactive(input$submit, {
+        withProgress(message = 'Working...', value = 0, {
+
+          # setup
+          service_token <- set_service_token("data/isb-cgc-myproject123-62c9d9471b0b.json")
+        
+          # Making the BQDataSetTable
+          load("data/gene_set_hash.rda")
+          geneNames1 <- getGenes(sethash, input$var1)
+          datasql <- buildDataSQL(geneNames1, input$cohortid1, input$cohortid2, input$n_genes)
+          res0 <- bq_project_query('isb-cgc-myproject123', datasql[["SQL"]],  destination_table = datasql[["Tablename"]])
+          incProgress()
+          
+          # then build the model
+          modSql <- buildModelSQL(datasql[["Dataset"]], datasql[["Tablename"]], as.list(input)) 
+          res1 <- bq_project_query('isb-cgc-myproject123', modSql[["SQL"]])
+          incProgress()
+          
+          # then query the model
+          trainSql <- queryModelTrainingSQL(modSql[['Modelname']])
+          res2 <- bq_project_query('isb-cgc-myproject123', trainSql[['SQL']])
+          trainingTable <- bq_table_download(res2)
+          incProgress()
+          
+          # then query the model for feature info
+          featSql <- queryModelFeaturesSQL(modSql[['Modelname']])
+          res3 <- bq_project_query('isb-cgc-myproject123', featSql[['SQL']])
+          featureTable <- bq_table_download(res3)
+          incProgress()
+          
+          # then query the model for feature weights
+          weightSql <- queryModelWeightsSQL(modSql[['Modelname']])
+          res4 <- bq_project_query('isb-cgc-myproject123', weightSql[['SQL']])
+          weightTable <- bq_table_download(res4)
+          incProgress()
+          
+          # then the ROC
+          rocSql <- queryModelROCSQL(modSql[['Modelname']], datasql[["Tablename"]])
+          res5 <- bq_project_query('isb-cgc-myproject123', rocSql[['SQL']])
+          rocTable <- bq_table_download(res5)
+          incProgress()	      
+
+        })
+        return(list(TrainingResults=trainingTable, FeatureResults=featureTable, WeightsTable=weightTable, ROCTable=rocTable))
+    })
+	  
+
+Once it's all wrapped in a the eventReactive, we can access the results of all the queries repeatedly without
+having to redo any of the queries.
+
+
+.. code-blocks:: r
+
+    output$modelname <- renderText({
+        bq_ops()$ModelName
+      })
+      
+    output$table1 <- renderTable({
+        bq_ops()$TrainingResults
+      })
+      
+    output$plot1 <- renderPlot({
+       df <- bq_ops()$ROCTable
+       qplot(x=df$recall, y=df$precision, main="Precision-Recall Curve", xlab='recall', ylab="precision", ylim=c(0,1), xlim=c(0,1), geom="line")
+      })
+      
+    output$plot2 <- renderPlot({
+        df <- bq_ops()$ROCTable
+        fscores <- (2 * df$precision * df$recall) / (df$precision + df$recall)
+        df05 <- df[which(fscores == max(fscores))[1],]
+        print("df05")
+        print(df05)
+        barplot( c(TP=df05$true_positives, FP=df05$false_positives, TN=df05$true_negatives, FN=df05$false_negatives) )
+      })
+      
+    output$table4 <- renderTable({
+        df <- bq_ops()$ROCTable
+        fscores <- (2 * df$precision * df$recall) / (df$precision + df$recall)
+        df05 <- cbind(df[which(fscores == max(fscores))[1],], data.frame(Fscore=max(fscores)))
+        df05
+      })
+      
+    output$table3 <- renderTable({
+        weightsdf <- bq_ops()$WeightsTable
+        weightsdf[order(abs(weightsdf$weight), decreasing = T),
+                  ]
+      },
+      caption = "Gene Weights",
+      caption.placement = getOption("xtable.caption.placement", "top"), 
+      caption.width = getOption("xtable.caption.width", NULL)
+      )
+      
+    output$table2 <- renderTable({
+        bq_ops()$FeatureResults
+      })
+
+
+Let's take a look at an example. You can of course try the app `here  <https://isb-cgc.shinyapps.io/GoogML_Shiny/>`_.
+
+First we have the UI where we can pick our cohorts, the number of genes to use, the regularization rates, and a maximum 
+number of iterations.
+
+.. figure:: query_figs/aug/qotm_aug_fig1.png
+  :scale: 50
+  :align: center
+
+Then we see the name of the model (and data) which can be found in the Google BigQuery web interface. Also we see the precision-recall
+curve.
+
+.. figure:: query_figs/aug/qotm_aug_fig2.png
+  :scale: 50
+  :align: center
+
+Next we have the metrics that are found when using the threshold that maximizes the F-score.
+
+.. figure:: query_figs/aug/qotm_aug_fig3.png
+  :scale: 50
+  :align: center
+
+Then we have the list of features (genes) with the model weights.
+
+.. figure:: query_figs/aug/qotm_aug_fig4.png
+  :scale: 50
+  :align: center
+
+Finally, we have the record of iterative model fitting. 
+
+.. figure:: query_figs/aug/qotm_aug_fig5.png
+  :scale: 50
+  :align: center
+
+
+That's it for this month. I hope you found this informative, and can see how to integrate model building and 
+exploration within an interactive web environment. This sort of tool would allow anyone with some familiarity 
+of gene sets and TCGA to build and reason about models. And we think that's pretty cool!
+
+
+.. _July2018:
+
+July, 2018
+##########
+
+**First look: BigQuery ML.**
+
+Exciting news! Google has just released a beta feature in BigQuery: Machine Learning (ML)! There are two availble model types, 
+linear and logistic.  The first, linear regression, models a continuous variable given a selection of variables, both categorical 
+(*eg* US postal code) and numeric (*eg* height or weight).  The second, logistic regression, models a binary label given some variables. 
+This is used for classification between two groups, which we have used extensively in this blog.
+An example of groups we created had features like 'does or does not have a mutation in GATA3'. 
+Even better, the logistic regression is regularized!
+We have both `L1 and L2 regularization available <https://developers.google.com/machine-learning/crash-course/regularization-for-sparsity/l1-regularization>`_,
+which makes it similar to an implementation of elasticnet.
+
+In the following examples, I'm going to be working in the BigQuery web interface, but it's also possible to train and apply these models using 
+the command line tool (bq), the REST API, and from a scripting language (R or python).
+
+The introductory documentation can be found `here <https://cloud.google.com/bigquery/docs/bigqueryml-intro>`_.
+
+Something people are always concerned about: how much does it cost?!  Well, from reading the docs, at this time (July 2018) pricing is still
+under development. But essentially it's similar to any other query. You're charged according to how much data is processed in training the model 
+and storage fees for the model (first 10GB free). However, the actual data read for training the model is more than just the size of the table.
+It's not entirely clear at this point, but when I learn more, I'll report it.
+
+
+.. figure:: query_figs/july/bq_ml_costs.png
+  :scale: 100
+  :align: center
+
+
+Something kind of amazing (`doc link <https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create>`_): 
+If you're using a categorical variable, the variable is split into a number of columns, one for each category-element. 
+This is called `one hot encoding <https://www.kaggle.com/dansbecker/using-categorical-data-with-one-hot-encoding>`_. 
+For example, we might have two columns from our 
+mutation status category: has-GATA3-mutation, no-GATA3-mutation. That's only 2 categories, so 2 columns of binary variables. 
+But, if you have many, many, many more categories, those get split into columns too.
+From the docs: "When you use a CREATE MODEL statement, the size of the model must be 90 MB or less or the query fails. 
+Generally, if all categorical variables are short strings, a total feature cardinality (model dimension) of 5-10 million is supported. 
+The dimensionality is dependent on the cardinality and length of the string variables."  WOW! That's a lot of columns.
+
+Let's jump in! The first task will be to classify a couple of cancer types (by tissue) using gene expression data
+for 4 specific genes.
+
+First I'm going to create a new data set to hold the training data and models. To create a new dataset, click on the 
+blue down-arrow next to your project ID in the left side-panel of the 
+`web UI <https://bigquery.cloud.google.com>`_), and select "Create new dataset".  I called it 'tcga_model_1'.
+
+
+.. figure:: query_figs/july/make_dataset.png
+  :scale: 100
+  :align: center
+
+
+I've selected 'TCGA-COAD' (colon cancer) and 'TCGA-PAAD' (pancreatic cancer) as my two cancer types. 
+They're really pretty different, so it shouldn't be a difficult classification challenge.
+
+Below, we use a Standard SQL query to create the training data, which we then save as
+a table in the dataset created above.
+
+.. code-block:: sql
+
+	-- For each gene, we'll make a subtable named C1-C4.
+	-- You can see where we select the gene in the WHERE section.
+
+	With
+
+	C1 AS (
+        SELECT	
+	  project_short_name AS label, 
+	  sample_barcode,
+	  HTSeq__FPKM_UQ CCNE1
+	from
+	  `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
+	WHERE
+	  project_short_name IN ('TCGA-COAD','TCGA-PAAD')
+		and gene_name='CCNE1'
+	),
+
+	C2 AS (
+	SELECT
+	  project_short_name AS label, 
+	  sample_barcode,
+	  HTSeq__FPKM_UQ CDC6
+	from
+	  `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
+	WHERE
+	  project_short_name IN ('TCGA-COAD','TCGA-PAAD')
+		and gene_name='CDC6'
+	),
+
+	C3 AS (
+	SELECT
+	  project_short_name AS label, 
+	  sample_barcode,
+	  HTSeq__FPKM_UQ MDM2
+	from
+	  `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
+	WHERE
+	  project_short_name IN ('TCGA-COAD','TCGA-PAAD')
+		and gene_name='MDM2'
+	),
+
+	C4 AS (
+	SELECT
+	  project_short_name AS label, 
+	  sample_barcode,
+	  HTSeq__FPKM_UQ TGFA
+	from
+	  `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
+	WHERE
+	  project_short_name IN ('TCGA-COAD','TCGA-PAAD')
+		and gene_name='TGFA'
+	)
+
+	-- Now we join the above gene-tables into our training data.
+
+	SELECT 
+	C1.label AS label,
+	C1.sample_barcode AS sample_barcode,
+	  CCNE1,
+	  CDC6,
+	  MDM2,
+	  TGFA
+	FROM
+	C1
+	JOIN C2 ON C1.label=C2.label AND C1.sample_barcode=C2.sample_barcode
+	JOIN C3 ON C1.label=C3.label AND C1.sample_barcode=C3.sample_barcode
+	JOIN C4 ON C1.label=C4.label AND C1.sample_barcode=C4.sample_barcode
+
+
+I ran the above query, and when done, clicked the 'Save to Table' button, placing it in the 'tcga_model_1' dataset. 
+Now we're ready to train a model, which we'll do using the 
+`CREATE MODEL <https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-create>`_ statement.
+(You will need to modify the CREATE MODEL statement below to use your project and dataset names.)
+
+.. code-block:: sql
+
+	#standardSQL
+	CREATE MODEL
+	  `isb-cgc-02-00001.tcga_model_1.coad_vs_paad_expr_l1_l2`  -- the name of our model, project.dataset.model_name
+	OPTIONS
+	  ( model_type='logistic_reg',            -- various options for the model 
+	    l1_reg=1, l2_reg=1 ) AS
+	SELECT
+	  label,                                  -- here you define the training data
+	  CCNE1,                                  -- it's possible to give it a random subset
+	  CDC6,                                   -- see the next query for that.
+	  MDM2,
+	  TGFA
+	FROM
+	  `isb-cgc-02-0001.tcga_model_1.paad_coad_expr_2`
+
+
+The model training should take a minute or two, and once complete you will now have a
+"Model" in your dataset (identified in the webUI using a green icon which is different
+from the blue one we are used to seeing next to tables).
+You can click on this model to see information about it, along with new buttons such
+as "Query Model" and "Training Stats":
+
+
+.. figure:: query_figs/july/4gene_model_specs.png
+  :scale: 100
+  :align: center
+
+
+Looking at the "Training Stats" will give you a sense of how the training process went.
+Each row in the Training Stats table represents a single iteration, with the following 
+four pieces of information:
+    - training data loss: loss metric on the training data, calculated after this training iteration 
+    - evaluation data loss: loss metric computed on the held-out data 
+    - learn rate: hyper-parameter which controls how fast the model weights are adjusted (how this value is determined will depend on the learn_rate_strategy specified in the CREATE MODEL statement)
+    - completion time (sec)
+
+When the model's fit is not improving, the training will end early (you can turn this feature off).
+I found that models that were not doing well, tended to end after just about four rounds, with 
+high training data loss (~0.45). Also, when models are doing well, you should see the learning rate 
+really ramp up, otherwise the model is 'not getting any traction'.
+
+
+.. figure:: query_figs/july/4gene_model_stats.png
+  :scale: 100
+  :align: center
+
+
+Once we have created a model, we have a few options of what to do with it:
+    - evaluation functions: `ML.EVALUATE <https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-evaluate>`_ and `ML.ROC_CURVE <https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-roc>`_ (which only applies to logistic regression models)
+    - prediction function: `ML.PREDICT <https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-predict>`_
+    - inspection functions: `ML.TRAINING_INFO <https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-train>`_, `ML.FEATURE_INFO <https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-feature>`_, and `ML.WEIGHTS <https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-weights>`_ 
+
+Below is an example "query" showing how to use the ML.EVALUATE function: here I am evaluating the model on a random subset (half) of
+the data that I used to train the model.  (In a more rigorous scenario, you would of course either do cross-fold validation
+or evaluate on a subset of the data that was not used at all during training.)
+
+.. code-block:: sql
+
+	#standardSQL
+	SELECT
+	  *
+	FROM
+	  ML.EVALUATE(MODEL `isb-cgc-02-0001.tcga_model_1.coad_vs_paad_expr_l1_l2`, (
+	SELECT
+	  label,
+	  CCNE1,
+	  CDC6,
+	  MDM2,
+	  TGFA
+	FROM
+	  `isb-cgc-02-0001.tcga_model_1.paad_coad_expr_2`
+	WHERE
+	  RAND() < 0.5
+	  )
+	 )
+
+
+.. figure:: query_figs/july/4gene_roc.png
+  :scale: 100
+  :align: center
+
+
+One last thing, we can get the weights (or model coefficients) by again querying the model.
+
+
+.. code-block:: sql
+
+	SELECT
+	  *
+	FROM
+	  ML.WEIGHTS(MODEL `isb-cgc-02-0001.tcga_model_1.coad_vs_paad_expr_2`)
+
+
+
+.. figure:: query_figs/july/4gene_model_weights.png
+  :scale: 100
+  :align: center
+
+
+From the magnitude of the weights, we can see that CDC6 was very useful, but MDM2 wasn't. 
+It's a great way of testing the use of each variable for the particular problem at hand.
+
+
+Neat! Let's do one more example, this time using the somatic mutation data for 
+a couple of well-known genes (above we used gene expression data). 
+For this training data, I'm going to do a little 
+`feature engineering <https://en.wikipedia.org/wiki/Feature_engineering>`_ 
+(see also `this <https://developers.google.com/machine-learning/crash-course/representation/feature-engineering>`_).  
+Our "engineering" will simply consist of combining two columns to create a new "feature".
+
+One tricky aspect of working with the somatic mutation data table is that the table only contains rows describing
+observed somatic mutations.  The  *lack* of a mutation at a particular position in a gene, for a particular sample,
+is only implied by the lack of such a row in the table.  It is also possible that a mutation occurred but was
+missed by the sequencing or the mutation-calling pipeline.  We will assume, however, that all samples that are
+mentioned at least once in the table can be assumed to have been "tested" for all of the mutations that are present
+in the table.
+We will therefore start with a list of *all* of the samples we are interested in, and then join in the mutation
+data using a LEFT JOIN, which will retain all of the same barcodes.
+At the end, after selecting for a number of different genes, we join subtables for each 
+gene of interest.
+
+.. code-block:: sql
+	
+	WITH
+
+	-- First we make a table with all barcodes for the two cancer types.
+        -- (This table will have 579 rows, one per tumor sample.)
+	all_barcodes AS (
+	SELECT
+	  project_short_name AS label,
+	  sample_barcode_tumor AS barcode
+	FROM
+	  `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
+	WHERE
+	  project_short_name IN ('TCGA-COAD', 'TCGA-PAAD')
+	GROUP BY 1, 2 ),
+
+	-- Then we make a table of mutations, concatenating strings into new features.
+        -- For now, we'll do this only for the APC gene, but we could easily
+        -- add more genes or change the gene being tested for.
+        --
+        -- This table will have 444 rows, describing APC mutations in 313 tumor samples.
+        -- For example, sample TCGA-AA-A010-01A has 3 mutations, TCGA-AA-AA017-01A has one,
+        -- and TCGA-AA-A01P-01A has none and is not present in this table.
+	apc_mut AS (
+	SELECT
+	  project_short_name AS label, 
+	  sample_barcode_tumor AS barcode,
+          CONCAT(Hugo_Symbol, ' Mut') AS Variant,
+	  CONCAT(Hugo_Symbol, ' ', Variant_Classification) AS Variant_Classification,
+	  CONCAT(Hugo_Symbol, ' ', Variant_Type) AS Variant_Type
+	from
+	  `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
+	WHERE
+	  project_short_name IN ('TCGA-COAD','TCGA-PAAD') AND Hugo_Symbol='APC' 
+	GROUP BY 1, 2, 3, 4, 5),
+
+	-- Left Join all the barcodes, with barcodes that have mutation data.
+        apc_join AS ( 
+	SELECT
+	  b.label,
+	  b.barcode,
+          m.Variant AS apc,
+	  m.Variant_Classification AS apcvarclass,
+	  m.Variant_Type AS apcvartype
+	FROM
+	  all_barcodes b
+	LEFT JOIN
+	  apc_mut m
+	ON
+	  b.barcode=m.barcode AND b.label=m.label
+	GROUP BY 1, 2, 3, 4, 5 ),
+
+        -- Finaly, we do need to replace the NULL values since the ML functions
+        -- cannot be trained with NULL values
+        apc_final AS (
+        SELECT
+          label, barcode, apc, apcvarclass, apcvartype
+        FROM
+          apc_join
+        WHERE
+          apc IS NOT NULL
+        UNION ALL
+        SELECT
+          label, barcode, 
+          "APC WT" AS apc,
+          "APC WT" AS apcvarclass, 
+          "APC WT" AS apcvartype
+        FROM
+          apc_join
+        WHERE
+          apc IS NULL )
+
+So, if a sample doesn't have a mutation in APC, the nulls are replaced with the 
+"APC WT" strings, and otherwise, the features specify the mutation class and type, *eg*:
+
+::
+
+	Row label      barcode            apc       apcvarclass             apcvartype  
+	1   TCGA-COAD  TCGA-AD-6965-01A   APC WT    APC WT                  APC WT
+
+	-- But if you select a tumor with a mutation in APC you get:  
+
+	1   TCGA-COAD  TCGA-AA-A010-01A   APC Mut   APC In_Frame_Del        APC DEL  
+	2   TCGA-COAD  TCGA-AA-A010-01A   APC Mut   APC Nonsense_Mutation   APC SNP  
+	3   TCGA-COAD  TCGA-AA-A010-01A   APC Mut   APC Intron              APC SNP
+
+
+Let's repeat the above, but this time with KRAS, and then join the two results 
+so that we have data for both KRAS and APC.
+We will save this table in our new dataset with the name `apc_kras_data`.
+(The apc_join table should have 710 rows
+containing information for 579 barcodes, and the kras_join table should have 589 rows
+containing information for the same 579 barcodes.  Joining these two will produce
+a table with 721 rows.  105 of these rows represent tumor samples with no mutations
+in either APC or KRAS; 167 rows represent tumor samples with mutations only in KRAS;
+223 rows represent tumor samples with mutations only in APC; and finally 226 rows
+represent samples with mutations in *both* APC and KRAS.)
+
+.. code-block:: sql
+
+	SELECT
+	  k.label, k.barcode,
+          apc, apcvarclass, apcvartype,
+	  kras, krasvarclass, krasvartype
+	FROM
+	  kras_final k
+	JOIN 
+	  apc_final a
+	ON
+	  k.label=a.label AND k.barcode=a.barcode
+
+Then we create our model:
+
+.. code-block:: sql
+
+	#standardSQL
+	CREATE MODEL `isb-cgc-02-0001.tcga_model_1.apc_kras_model`
+	OPTIONS(
+	model_type='logistic_reg', l1_reg=1, l2_reg=1
+	) AS
+	SELECT
+	  label,
+          apc, apcvarclass, apcvartype,
+          kras, krasvarclass, krasvartype
+	FROM
+	  `isb-cgc-02-0001.tcga_model_1.apc_kras_data`
+
+
+and we can evaluate it:
+
+
+.. code-block:: sql
+
+	#standardSQL
+	SELECT
+	  *
+	FROM
+	  ML.EVALUATE(MODEL `isb-cgc-02-0001.tcga_model_1.apc_kras_model`, (
+	SELECT
+	  label,
+          apc, apcvarclass, apcvartype,
+          kras, krasvarclass, krasvartype
+	FROM
+	  `isb-cgc-02-0001.tcga_model_1.apc_kras_data`
+	WHERE
+	  RAND() < 0.5
+	  )
+	 )
+
+
+.. figure:: query_figs/july/apc_kras_roc.png
+  :align: center
+
+
+Let's take a look at the model weights.  Our model wound up having 20 weights: 
+11 for APC-related features and 9 for KRAS-related features, and it is clear that
+the APC-related features are the most informative for this particular task.
+
+.. code-block:: sql
+
+	SELECT
+	  w.category, w.weight
+	FROM
+	  ML.WEIGHTS(MODEL `isb-cgc-02-0001.tcga_model_1.apc_kras_model`), 
+          UNNEST(category_weights) AS w
+        GROUP BY 1, 2
+        HAVING
+          category LIKE "APC%"
+        ORDER BY
+          ABS(weight) DESC
+
+|img_w1| |img_w2|
+
+.. |img_w1| image:: query_figs/july/apc_feat_weights.png
+  :width: 37%
+
+.. |img_w2| image:: query_figs/july/kras_feat_weights.png
+  :width: 37%
+
+
+OK, pretty cool!  We see some of the features have very little information and have 
+weights of zero (or close to zero) like 'APC Silent' or most of the KRAS-related features,
+while others seem very important. You could test this by removing a specific feature from your
+input data, and then checking to see if the model statistics change.
+
+Overall, that seems pretty useful! 
+Of course, BigQuery ML is in beta, and our experiance with Google products: expect things to change! 
+Have you found any good tricks?  If you have, please share them via email or on twitter (@isb-cgc)!
+
+
+.. _June2018:
+
+June, 2018
+##########
+
+**Processing bam files using WDL, scatter, and Cromwell**
+
+In the last two editions, we've described a multi-step workflow for generating statistics from bam files (from ENCODE) using the
+common workflow language (CWL). This month, we've translated the example to `WDL (workflow description language) <https://software.broadinstitute.org/wdl/>`_
+and moved to executing the workflow using `Cromwell <http://cromwell.readthedocs.io/en/develop/>`_, a 'workflow management system' that can operate in the Google cloud.
+
+So again, starting with a collection of bam files, we're going to bin sequence reads by GC content, and produce a single
+output file summarizing all the input files.
+
+Using the same `dockerized tools as last time (tool reuse!) <https://hub.docker.com/r/biocontainers/samtools/>`_ , we're 
+going to be using Cromwell to run the workflows. You can find installation instructions `here <http://cromwell.readthedocs.io/en/develop/>`_.
+Also install 'womtool', availble in the same location as cromwell.
+
+
+The plan:
+
+- compute some statistics over a list of bam files with samtools
+
+- use grep to parse out a portion of the stats output
+
+- use cut to process columns from the output
+
+- use cat to gather the outputs into a single file
+
+
+Each of these steps is now defined as a WDL task, and together they make a workflow.
+
+
+Let's look at the first task:
+
+
+::
+	
+	task samtools_stats_tool {
+	    File filein
+	    String filename
+
+	    runtime {
+	      docker: "biocontainers/samtools"
+	    }
+	    command {
+	        samtools stats ${filein} > ${filename}_gc_stats.txt
+	    }
+	    output {
+	         File statsout = "${filename}_gc_stats.txt"
+	    }
+	}
+
+
+In this task, we have two input parameters, a file and a string. Then, we define the runtime environment (AKA the docker image). 
+This is followed by the actual command we would use in running the job. If the command needs to be split across multiple lines,
+just use the '\' to end each line (just like in a terminal). Notice we reference the parameters with a ${}. We are reading ${filein} and writing to ${filename}. 
+Last, we have the output of the task, setting an output variable to be referenced in other tasks.
+
+The next three tasks follow this same form: input parameters (usually a file), runtime definition, command, and output. Here's what they look like:
+
+::
+
+	task grep_tool {
+	    File grepin
+
+	    runtime {
+	      docker: "biocontainers/samtools"
+	    }
+	    
+	    command {
+	        grep --with-filename '^GCF' ${grepin} > grep_out.txt
+	    }
+
+	    output {
+	        File grepout = "grep_out.txt"
+	    }
+	}
+
+
+	task cut_tool {
+	    File cutin
+
+	    runtime {
+	      docker: "biocontainers/samtools"
+	    }
+
+	    command {
+	      cut -d '/' -f 9- ${cutin} > cut_out.txt
+	    }
+
+	    output {
+	        File cuttoolout = "cut_out.txt"
+	    }    
+
+	}
+
+
+	task cat_tool {
+	    Array[File] filesin
+
+	    runtime {
+	      docker: "biocontainers/samtools"
+	    }
+
+	    command {
+	        cat ${sep=" " filesin} > final_gc_stats_out.txt
+	    }
+
+	    output {
+	        File finalfile = "final_gc_stats_out.txt"
+	    }
+	}
+
+
+The stats tool, grep tool, and cut tool all take a single file, while the cat tool (as you might expect) takes an array of files. 
+Additionally, in this case, the output of grep was different compared to running the workflow in CWL, so the cut tool command
+changed to account for that.
+
+The next 'task' for *us* is to take these task-definitions and connect them together into a workflow. In this example, I've got a 
+tab separated file with two columns. The first column has google bucket paths to bam files, and the second column is a  
+file label (see below). That said, the input parameter to the workflow, is just telling the workflow where the list of bam files is.
+
+::
+
+	workflow gcStats {
+
+	    File inputSamplesFile
+
+	    Array[Array[String]] inputSamples = read_tsv(inputSamplesFile)
+
+	    scatter (sample in inputSamples) {
+	     call samtools_stats_tool {
+	       input:
+	         filein=sample[0],
+	         filename=sample[1]
+	       }
+	     }
+
+	     scatter (statout in samtools_stats_tool.statsout) {
+	      call grep_tool {
+	        input:
+	          grepin = statout
+	      }
+	     }
+
+	     scatter (grepped in grep_tool.grepout) {
+	       call cut_tool {
+	            input: 
+	              cutin = grepped
+	       }
+	     }
+
+	     call cat_tool {
+	       input: 
+	         filesin = cut_tool.cuttoolout
+	     }
+
+	} # end workflow
+
+
+In calling the first tool, we perform a scatter operation over input files. For the next tools, we perform scatter operations over the previously 
+called tool outputs. The last tool (the cat tool) gets an array of files as an input, and concatenates them. 
+
+The task definitions and the workflow are placed into the same file, here named 'gcstats.wdl'. We can validate the workflow by calling:
+
+::
+
+	java -jar womtool-32.jar validate gcstats.wdl
+
+If it's valid, there's no errors reported.
+
+
+The list of bam files is stored in a file named 'bamfiles.txt'. Below is the file listing.
+
+::
+
+	gs://daves-cromwell-bucket/bamfiles/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam	bam1
+	gs://daves-cromwell-bucket/bamfiles/wgEncodeUwRepliSeqBjG1bAlnRep1.bam	bam2
+	gs://daves-cromwell-bucket/bamfiles/wgEncodeUwRepliSeqBjG2AlnRep1.bam	bam3
+	gs://daves-cromwell-bucket/bamfiles/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam	bam4
+
+
+The workflow input then refers to the list of bam files. This file is named 'gcstats.input'.
+A template for the json input can be generated, and filled in using this command:
+
+::
+	
+	java -jar womtool-32.jar inputs gcstats.wdl  > gcstats.inputs
+
+
+After it's filled in, the file looks like:
+
+::
+	
+	{
+		"gcStats.inputSamplesFile": "gs://daves-cromwell-bucket/bamfiles.txt"
+	}
+
+
+Then, a new bucket was created which serves as the root for the cromwell execution. In that bucket,
+'daves-cromwell-bucket', I created another folder called 'bamfiles' and placed the data. In the root
+I placed the bamfile list 'bamfiles.txt'.
+
+
+.. figure:: query_figs/june_fig1.png
+  :scale: 50
+  :align: center
+
+
+We're almost ready to run!  But first we need to deal with authorization.  So, to do that, 
+all the instructions for 'Configuring a Google Project' need to be followed 
+`here <http://cromwell.readthedocs.io/en/develop/tutorials/PipelinesApi101/>`_. That configuration is saved 
+in a file named 'google.conf'. Make sure you can run the 'hello.wdl' example.
+
+
+FINALLY, now we're ready to run with this command:
+
+::
+	
+	java -Dconfig.file=google.conf -jar cromwell-32.jar run gcstats.wdl -i gcstats.inputs
+
+
+This command starts up a VM in the Google cloud, runs the tasks in parallel, and writes the output to your bucket.
+The resulting directory 'cromwell-execution' looks like this:
+
+
+.. figure:: query_figs/june_fig2.png
+  :scale: 50
+  :align: center
+
+
+The take outputs are organized (under an unreadable folder name) by name:
+
+.. figure:: query_figs/june_fig3.png
+  :scale: 50
+  :align: center
+
+
+And if we look inside our cat_tool folder, we see the final output file. Cool.
+
+
+.. figure:: query_figs/june_fig4.png
+  :scale: 50
+  :align: center
+
+
+That's it! We've run a multi-step workflow, with steps in parallel, written in WDL, and run with Cromwell in the
+google cloud. Not too bad, right?  Were you able to run your own workflow?  Let us know!
+
+
+
+.. _May2018:
+
+May, 2018
+#########
+
+**Processing bam files using CWL 'scatter and gather'**
+
+In this edition, we're going to continue our exploration of using CWL to run workflows on the Google cloud. 
+Last time, we performed a 'scatter' operation, where a tool is applied to a list of files. 
+This time, we'll complete the paradigm by performing a 'gather' to collate 
+the results of a scatter. Additionally, we will propagate the scatter through a series of steps.
+
+Specifically, for a list of files, we're going to bin sequence reads by GC content, producing a single
+output file that we can use to make a plot.
+
+The tools are found in this `docker image <https://hub.docker.com/r/biocontainers/samtools/>`_
+
+The plan:
+
+- compute some statistics over a list of bam files with samtools
+
+- use grep to parse out a portion of the stats output
+
+- use cut to select some columns from the output
+
+- use cat to gather the outputs into a single file
+
+
+Each of these steps is defined as a CWL tool, and together they make a workflow.
+
+The first three steps of the workflow are considered scatter operations, and the 
+last is the gather, where outputs are combined.
+
+Let's look at the first tool:
+
+
+::
+
+	#samtools_stats_tool.cwl 
+
+	cwlVersion: v1.0
+	class: CommandLineTool
+
+	baseCommand: [samtools, stats]
+
+	requirements:
+	  - class: InlineJavascriptRequirement
+
+	inputs:
+	  filein:
+	    type: File
+	    inputBinding:
+	      position: 1
+
+	outputs:
+	  statsout:
+	    type: File
+	    outputBinding:
+	      glob: "*.stats"
+
+	stdout: $(inputs.filein.path.split('/').pop() + '.stats')
+
+
+This tool definition is going to compute several different statistics for each bam file.
+The statistic-type is delineated by a column label. 
+An interesting thing here, is that the standard output, usually printed to the screen, 
+is captured and saved using the input file name with '.stats' added on,
+and the output looks for that '.stats' with the file glob. We want to hold onto the file
+name to use as a label in the final results.
+
+
+The next tool is going to parse out our statistic of interest, the GC content.
+
+
+::
+	
+	#grep_tool.cwl 
+
+	cwlVersion: v1.0
+
+	class: CommandLineTool
+
+	baseCommand: grep
+
+	arguments:
+	  - "--with-filename"
+	  - "^GCF"
+
+	inputs:
+	  input_file:
+	    type: File
+	    inputBinding:
+	      position: 1
+
+	outputs:
+	  grepout:
+	    type: stdout
+
+
+This is a very general tool that could be applied in many settings... it's just grep!
+Grep is a pattern matching tool, so each line of text that starts with 'GCF' is printed. Also
+we're going to add the input file name to each line (--with-filename). 
+Interesting thing here: since we don't explicitly define the file name for the standard output (stdout),
+the file name is random. We can let the workflow runner worry about it.
+
+
+The next tool wraps the cut command.
+
+::
+	
+ 	#cut_tool.cwl 
+
+	cwlVersion: v1.0
+
+	class: CommandLineTool
+
+	baseCommand: cut
+	arguments:
+	  - "-d "
+	  - "-f"
+	  - "1,5-"
+
+	inputs:
+	  input_file:
+	    type: File
+	    inputBinding:
+	      position: 1
+	    
+	outputs:
+	  cutout:
+	    type: stdout
+
+
+Here, we define some 'arguments' to the baseCommand. The '-d ' sets the delimiter to white space,
+'-f 1,5-' says we want fields (-f) 1, and 5+.  Column 1 is the file name, and the stats of interest
+appear in columns 5 and beyond.  Again we don't define any file names for the output.
+
+
+Lastly, we are going to gather all the results.
+
+::
+
+	#cat_tool.cwl 
+
+	cwlVersion: v1.0
+
+	class: CommandLineTool
+
+	baseCommand: cat
+
+	inputs:
+	  filein:
+	    type: File[]
+	    inputBinding:
+	      position: 1
+
+	outputs:
+	  catout:
+	    type: stdout
+
+	stdout: final_output.txt
+
+
+It's important to note that in the cat tool, we have defined the input to be an array of files.
+The command becomes 'cat file.a file.b file.c'. And here we *do* define the output file name. 
+
+
+OK! Let's work these tools into a flow.
+
+Important note: I developed all these tools on my local machine with small test cases. When I was ready to test on the google cloud, 
+the only change I made was adding the docker hint (DockerRequirement, see below), and moving tool definitions (the cwl files) data into a bucket. 
+It was surprisingly easy to move from the local environment to the cloud.
+
+
+The main workflow:
+
+::
+	
+	#!/usr/bin/env cwl-runner
+
+	cwlVersion: v1.0
+	class: Workflow
+
+	requirements:
+	  ScatterFeatureRequirement: {}
+
+	hints:
+	  DockerRequirement:
+	    dockerPull: biocontainers/samtools
+
+	inputs:
+	  filein: File[]
+
+	outputs:
+	  pipeline_result:
+	    type: File
+	    outputSource: step4/catout
+
+	steps:
+
+	  step1:
+	    run: data/samtools_stats_tool.cwl
+	    scatter: [filein]
+	    scatterMethod: dotproduct
+	    in:
+	      filein: filein
+	    out:
+	      [statsout]
+
+	  step2:
+	    run: data/grep_tool.cwl
+	    scatter: [input_file]
+	    scatterMethod: dotproduct
+	    in:
+	      input_file: step1/statsout
+	    out:
+	      [grepout]
+
+	  step3:
+	    run: data/cut_tool.cwl
+	    scatter: [input_file]
+	    scatterMethod: dotproduct
+	    in:
+	      input_file: step2/grepout
+	    out:
+	      [cutout]
+
+	  step4:
+	    run: data/cat_tool.cwl
+	    in:
+	      filein: step3/cutout
+	    out:
+	      [catout]
+
+
+You will notice, that we only define an array of bam files as inputs to the workflow (File[]), 
+the intermediates are carried through without explicitly naming them. Inputs to the middle steps
+point to the outputs of previous steps (step1/statsout -> step2).
+
+And we need to define our input files (scatter_gather_pipeline.yml):
+
+::
+
+	filein:
+	  - {class: File, path: data/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam}
+	  - {class: File, path: data/wgEncodeUwRepliSeqBjG1bAlnRep1.bam}
+	  - {class: File, path: data/wgEncodeUwRepliSeqBjG2AlnRep1.bam}
+
+
+
+To run this, we use the google_cwl_runner found `here <https://github.com/isb-cgc/examples-Compute>`_.
+
+I made a working folder in my google bucket called 'workflow-1', and two additional folders within,
+'data' and 'output'. I put the bam files and the cwl tool definitions into 'data' and I put the workflow 
+file in the top level of my working folder.
+
+::
+
+	./examples-Compute/google_cwl_runner/cwl_runner.sh \
+	     --workflow-file gs://my-bucket/workflow-1/scatter_gather_pipeline.cwl \
+	     --settings-file gs://my-bucket/workflow-1/scatter_gather_pipeline.yml \
+	     --input-recursive gs://my-bucket/workflow-1/data \
+	     --output gs://my-bucket/workflow-1/output \
+	     --machine-type n1-standard-4 \
+	     --zone us-west1-a \
+	     --preemptible
+
+
+Running this command prints out some google cloud commands to enable us to check on the status of the job, and 
+when it's finished we have logs for stderr, stdout, and status. Additionally we get the cwl_startup.sh,
+cwl_runner.sh, and cwl_shutdown.sh scripts for your perusal.
+
+But most importantly(!), we get our single output file containing the binned GC content (shown below).
+The first column is the file name that produced the result, the second column is the percent GC,
+and the last column is the number of reads.
+
+::
+
+	/long.tmp.path/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam.stats:GCF	1.26	22
+	/long.tmp.path/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam.stats:GCF	4.02	66
+	/long.tmp.path/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam.stats:GCF	6.78	232
+	/long.tmp.path/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam.stats:GCF	9.55	349
+	/long.tmp.path/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam.stats:GCF	12.31	647
+	/long.tmp.path/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam.stats:GCF	15.08	1413
+	/long.tmp.path/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam.stats:GCF	17.84	3473
+	/long.tmp.path/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam.stats:GCF	20.60	7676
+	/long.tmp.path/wgEncodeUwRepliSeqBg02esG1bAlnRep1.bam.stats:GCF	23.37	15064
+	...
+
+
+.. figure:: query_figs/gc_content_final_output.png
+  :scale: 50
+  :align: center
+
+Thanks for reading!  Let us know if you have questions or comments!
+
+
+.. _April2018:
 
 April, 2018
 ###########
@@ -342,7 +3518,7 @@ and probably (maybe) even run it again.
 Next month we'll continue our exploration of workflows and workflow runners. Let me know how it goes!
 
 
-.. _March:
+.. _March2018:
 
 March, 2018
 ###########
@@ -899,10 +4075,7 @@ Probably changing the way genes are selected would make a difference,
 and perhaps using more samples. Let me know if you give it a try!
 
 
-
-
-.. _February:
-
+.. _February2018:
 
 February, 2018
 ##############
@@ -1171,7 +4344,7 @@ That's it for this month. As always, if you have any special requests for querie
 you would like to see or would like to submit a query of the month, please get
 a hold of us! Thanks!
 
-.. _January:
+.. _January2018:
 
 January, 2018
 ##############
@@ -2726,8 +5899,15 @@ to the submit button called outputPlot, which wraps our plot function
 in the googleAuthR::with_shiny function, in order to make our API calls while
 properly logged in.
 
+See this `help <http://code.markedmondson.me/googleAuthR/articles/troubleshooting.html>`_ on authorization.
 
 .. code-block:: r
+
+
+  options("googleAuthR.scopes.selected" = c("https://www.googleapis.com/auth/bigquery"))
+  options("googleAuthR.webapp.client_id" = "get_this_from_your_cloud_console_under_Credentials_OAuth 2.0 client IDs.apps.googleusercontent.com")
+  options("googleAuthR.webapp.client_secret" = "get_from_cloud_console")
+
 
   server <- function(input, output, session){
 

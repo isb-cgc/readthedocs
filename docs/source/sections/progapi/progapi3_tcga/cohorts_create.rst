@@ -54,7 +54,18 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2
 
 HTTP request::
 
-	POST https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_tcga_api/v3/cohorts/create
+	POST https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_tcga_api/v3/tcga/cohorts/create?name=TCGA-test&fields=case_count%2Cfilters%2Cid%2Clast_date_saved%2Cname%2Csample_count
+{
+ "Common": {
+  "project_short_name": [
+   "TCGA-UCS",
+   "TCGA-CESC"
+  ]
+ },
+ "Clinical": {
+  "age_at_diagnosis_lte": 60
+ }
+}
 
 **Parameters**
 
