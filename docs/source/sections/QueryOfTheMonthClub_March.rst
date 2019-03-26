@@ -123,6 +123,12 @@ Loading Libraries
    require(httpuv, quietly = TRUE) || install.packages('httpuv',verbose=FALSE)
    
 
+Your Project ID
+###############
+.. code-block:: r
+
+  myprojectID = "cgc-05-0050"
+  
 
 
 
