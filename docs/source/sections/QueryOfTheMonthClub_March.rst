@@ -116,7 +116,8 @@ Loading Libraries
 
 .. code-block:: r
  
-   if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager")
+   if (!requireNamespace("BiocManager", quietly = TRUE)) 
+   	install.packages("BiocManager")
    BiocManager::install("TCGAbiolinks", version = "3.8")
    require(bigrquery,quietly = TRUE) || install.packages('bigrquery',verbose = FALSE)
    require(httpuv, quietly = TRUE) || install.packages('httpuv',verbose=FALSE)
