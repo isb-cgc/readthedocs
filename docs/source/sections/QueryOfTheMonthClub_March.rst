@@ -104,6 +104,14 @@ Resources_:  Helpful information!
 March, 2019
 ##############
 
+How to analyze MAF files in R 
+* How do you find the MAF files in GDC using the TCGAbiolinks tool
+* How to use the BigQuery MAF tables in ISB-CGC BigQuery tables
+
+Note: To use TCGAbiolinks, make sure your R version is updated to 3.5 or higher.
+.. code-block:: r
+   #Install the following packages first: 
+   install.packages("bigrquery")
 
 .. _February2019:
 
