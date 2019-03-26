@@ -7,7 +7,7 @@ To obtain access to the ISB-CGC project tables in BigQuery you must link these t
 When you access BigQuery from your Google Cloud Platform Console (see link `here <HowToAccessBigQueryFromTheGoogleCloudPlatform.html>`_ for more information on this), you will be presented with the following page:
 
 .. image:: BlueArrowDropdown.PNG
-   :scale: 50
+   :scale: 100
    :align: center
 
 The blue arrow will produce a drop down list; select 'Switch to Project'; then click 'display project...'
@@ -15,19 +15,19 @@ The blue arrow will produce a drop down list; select 'Switch to Project'; then c
 You will then be presented with the following page:
 
 .. image:: SearchProjectSection.PNG
-   :scale: 50
+   :scale: 100
    :align: center
 
 As shown in the image above you will need to type in "isb-cgc" in the project id and then click okay. 
 
 .. image:: isb-cgc_pinned.PNG
-   :scale: 50
+   :scale: 100
    :align: center
 
 Once this has been completed you will see all of the BigQuery datasets made public by the ISB-CGC project on the left hand side above public data sets (see screenshot below).
 
 .. image:: ISB-CGCBiqQueryDatasets.png
-   :scale: 50
+   :scale: 100
    :align: center
 
 ================================================
