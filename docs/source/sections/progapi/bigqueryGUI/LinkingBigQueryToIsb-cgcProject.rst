@@ -20,7 +20,7 @@ You will then be presented with the following page:
 
 As shown in the image above you will need to type in "isb-cgc" in the project id and then click okay. 
 
-.. image:: isb-cgc_pinned.png
+.. image:: isb-cgc_pinned.PNG
    :scale: 50
    :align: center
 
