@@ -106,7 +106,7 @@ As shown in the image above you will need to type in "isb-cgc-cbq" in the projec
 
 Once this has been completed you will see all of the BigQuery datasets made public by the ISB-CGC project on the left hand side above public data sets (see screenshot below).
 
-.. image:: ISB-CGCBiqQueryDatasets.png
+.. image:: isb-cgc-cbq_tablename.PNG
    :scale: 25
    :align: center
 
