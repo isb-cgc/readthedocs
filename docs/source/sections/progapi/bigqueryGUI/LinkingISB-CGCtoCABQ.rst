@@ -77,3 +77,36 @@ In the unusual instance that your NIH identity has been registered with another 
 If this happens, please sign in with that other account and "unlink" your eRA from that account i
 (see description above).  You will then be able to register your eRA account with the desired Google identity.  
 If you are not able to resolve the issue, contact us at feedback@isb-cgc.org and we will help you resolve it. 
+
+
+Linking controlled access data to your Google Console
+-----------------------------------------------------
+
+To obtain access to the ISB-CGC project tables in BigQuery you must link these tables to your project so that they will show up in the left panel of your BigQuery web UI. 
+
+When you access BigQuery from your Google Cloud Platform Console (see link `here <HowToAccessBigQueryFromTheGoogleCloudPlatform.html>`_ for more information on this), you will be presented with the following page:
+
+.. image:: BlueArrowDropdown.PNG
+   :scale: 25
+   :align: center
+
+The blue arrow will produce a drop down list; select 'Switch to Project'; then click 'display project...'
+
+You will then be presented with the following page:
+
+.. image:: SearchProjectSection.PNG
+   :scale: 25
+   :align: center
+
+As shown in the image above you will need to type in "isb-cgc-cbq" in the project id and then click okay. 
+
+.. image:: CABQisb-cgc-pinning.PNG
+   :scale: 25
+   :align: center
+
+Once this has been completed you will see all of the BigQuery datasets made public by the ISB-CGC project on the left hand side above public data sets (see screenshot below).
+
+.. image:: ISB-CGCBiqQueryDatasets.png
+   :scale: 25
+   :align: center
+
