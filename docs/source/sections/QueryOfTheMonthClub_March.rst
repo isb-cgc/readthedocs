@@ -147,7 +147,10 @@ In ISB-CGC, we have concatenated all of the controlled-access MAF files for all 
   WHERE 
 	project_short_name = 'TCGA-LAML'"
   
-   #When you execute the query using the following command,you will be prompted to create a local file that will cache your   	 #Oauth access credentials between R sessions. Select the Yes option. This will open up a web browser where you will be      	#prompted to sign in using the google ID that is linked to your Google Cloud Project and is authorized to access 	      #controlled-#data. It will ask you to authorize BigQuery to access your Google Cloud Project. Once authenticated, you 	    #can move to back to #your R console.
+   #When you execute the query using the following command,you will be prompted to:
+    # 1) create a local file that will cache your Oauth access credentials between R sessions. Select Yes.
+    # 2) this will open up a web browser where you will be prompted to sign in using the google ID that is linked to your 	   Google Cloud Project and is authorized to access controlled-data. 
+    # 3) the prompt on the web-browser will ask you to authorize BigQuery to access your Google Cloud Project. Select yes,     	      and move to back to your R console.
   
   
   ##EXECUTE THE QUERY
