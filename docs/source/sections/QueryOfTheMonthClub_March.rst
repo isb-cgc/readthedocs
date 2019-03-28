@@ -26,7 +26,7 @@ Table of Contents
 2019
 ++++
 
-- March2019_: Analyzing MAF files in BigQuery
+- March2019_: Variant Analysis in R using controlled-access TCGA MAF data in BigQuery
 
 - February2019_: BigQuery in R - a refresher
 
@@ -115,9 +115,9 @@ Leveraging the power of Bigquery, we have merged all of the available TCGA MAF f
 Here we'll show how to access and use the controlled-acess MAF BigQuery table in R. 
 In order to access and use controlled data for analyses:
 
-* You will have to make sure you are properly authorized to have access to controlled-data. Please see instructions on how to gain access to controlled-data: `here: <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-Contolled-Access-Data.html>`__. 
+* You will have to make sure you are properly authorized to have access to controlled-data. Please see instructions on how to gain access to controlled-data: `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-Contolled-Access-Data.html>`__. 
 * You will need to have set up a Google Cloud Project. Please find instructions on how to set up a Google Cloud Project: 
-  `here: <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowToGetStartedonISB-CGC.html>`__.
+  `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowToGetStartedonISB-CGC.html>`__.
   
   
 Loading Libraries
