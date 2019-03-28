@@ -153,8 +153,6 @@ In ISB-CGC, we have concatenated all of the controlled-access MAF files for all 
     #	 linked to your Google Cloud Project and is authorized to access controlled-data. 
     # 3) the prompt on the web-browser will ask you to authorize BigQuery to access your Google Cloud Project. 
     #	 Select yes, and move to back to your R console.
-  
-  
   ##EXECUTE THE QUERY
   laml_data <- query_exec(q1, project = projectID, use_legacy_sql = FALSE,max_pages = Inf)
   head(laml_data)
