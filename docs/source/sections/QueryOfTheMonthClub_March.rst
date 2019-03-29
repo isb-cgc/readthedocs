@@ -173,21 +173,21 @@ the maftools packages.
   #Typing out laml shows basic summary of MAF file.
   laml 
   An object of class  MAF 
-                        ID summary     Mean Median
- 1:             NCBI_Build      NA       NA     NA
- 2:                 Center      NA       NA     NA
- 3:                Samples     162       NA     NA
- 4:                 nGenes   17579       NA     NA
- 5:        Frame_Shift_Del    2851   17.599   11.0
- 6:        Frame_Shift_Ins   11641   71.858   46.5
- 7:           In_Frame_Del    4724   29.160   29.0
- 8:           In_Frame_Ins     403    2.488    2.0
- 9:      Missense_Mutation  210526 1299.543  963.0
-10:      Nonsense_Mutation   10987   67.821   55.0
-11:       Nonstop_Mutation     733    4.525    2.0
-12:            Splice_Site   20965  129.414   73.5
-13: Translation_Start_Site     132    0.815    1.0
-14:                  total  262962 1623.222 1225.5 
+ 	                       ID summary     Mean Median
+ 	1:             NCBI_Build      NA       NA     NA
+ 	2:                 Center      NA       NA     NA
+	3:                Samples     162       NA     NA
+	4:                 nGenes   17579       NA     NA
+	5:        Frame_Shift_Del    2851   17.599   11.0
+	6:        Frame_Shift_Ins   11641   71.858   46.5
+ 	7:           In_Frame_Del    4724   29.160   29.0
+	8:           In_Frame_Ins     403    2.488    2.0
+	9:      Missense_Mutation  210526 1299.543  963.0
+	10:      Nonsense_Mutation   10987   67.821   55.0
+	11:       Nonstop_Mutation     733    4.525    2.0
+	12:            Splice_Site   20965  129.414   73.5
+	13: Translation_Start_Site     132    0.815    1.0
+	14:                  total  262962 1623.222 1225.5 
  
   
 We can use plotmafSummary to plot the summary of the maf file, which displays number of variants in each sample as a         stacked barplot and variant types as a boxplot summarized by Variant_Classification.
