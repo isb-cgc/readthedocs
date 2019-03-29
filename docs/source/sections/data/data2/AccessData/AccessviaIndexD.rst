@@ -7,9 +7,17 @@ New Programs
 -------------
 
 Foundation Medicine Adult Cancer Clinical Dataset (FM-AD)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 Clinical Trial Sequencing Project (CTSP) 
-VA APOLLO Project - Research for Precision Oncology (VAREPOP) 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+VA APOLLO Project - Research for Precision Oncology (VAREPOP)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
 Genomic Variation in Diffuse Large B Cell Lymphomas (NCICCR)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Login via NIH ID to ISB-CGC
