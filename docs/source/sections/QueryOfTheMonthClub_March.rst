@@ -105,7 +105,7 @@ March, 2019
 ##############
 
 
-**Variant Analysis using controlled-access MAF data in BigQuery**
+**Variant Analysis in R using controlled-access TCGA MAF data in BigQuery**
 
 
 Variant data exists at the GDC generally in one of two tab-delimited text file formats: MAF (mutation annotation format) or VCF (variant call format). The MAF files are derived from whole-exome sequencing experiments. Mutations are called by comparing a tumor sample to a "matched normal" sample (either blood or adjacent "normal" tissue).  Four different mutation callers have been run by the GDC: MuSE, MuTect2, SomaticSniper, and VarScan2. In the active archive (for hg38 reference) of the GDC, there are currently 264 TCGA MAF files, evenly divided into open-access (132) and controlled-access (132) files.
