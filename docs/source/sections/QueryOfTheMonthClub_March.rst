@@ -135,7 +135,7 @@ In ISB-CGC, we have concatenated all of the controlled-access MAF files for all 
 
 .. code-block:: r
   
-  myprojectID = "your_project_id"
+  projectID = "your_project_id"
  
   ##CONSTRUCT THE QUERY
   q1 <- "
