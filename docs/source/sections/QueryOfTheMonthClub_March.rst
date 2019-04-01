@@ -200,6 +200,16 @@ We can use plotmafSummary to plot the summary of the maf file, which displays nu
   :scale: 80
   :align: center
 
+Many disease causing genes in cancer are co-occurring or show strong exclusiveness in their mutation pattern. Such mutually exclusive or co-occurring set of genes can be detected using somaticInteractions function, which performs pair-wise Fisher’s Exact test to detect such significant pair of genes. 
+
+.. code-block:: r
+   
+somaticInteractions(maf = laml, top = 25, pvalue = c(0.05, 0.1))
+ 
+.. figure:: query_figs/SomaticInteractions.jpeg
+  :scale: 80
+  :align: center 
+
 
   
 .. _February2019:
