@@ -204,7 +204,7 @@ Many disease causing genes in cancer are co-occurring or show strong exclusivene
 
 .. code-block:: r
    
-somaticInteractions(maf = laml, top = 25, pvalue = c(0.05, 0.1))
+   somaticInteractions(maf = laml, top = 25, pvalue = c(0.05, 0.1))
  
 .. figure:: query_figs/SomaticInteractions.jpeg
   :scale: 80
