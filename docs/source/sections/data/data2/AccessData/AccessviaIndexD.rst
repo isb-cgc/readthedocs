@@ -49,6 +49,10 @@ The Data Use Aggreement for The Genomic Variation in Diffuse Large B Cell Lympho
 Login via NIH ID to ISB-CGC
 -----------------------------
 
+To access the controlled data files you will first need to be authoenticated with your NIH ID and you Google ID using the DCF's fence.  For information on how to set up access to controlled data please go `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-Contolled-Access-Data.html#linking-your-nih-and-google-identities>`_.
+
+
+
 How to find files via IndexD
 -----------------------------
 
