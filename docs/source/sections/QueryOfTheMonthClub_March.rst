@@ -164,8 +164,7 @@ The results of this query are saved as a data frame allowing you to seamlessly c
 **Use MAFtools R package**  
 
 There is a package in R designed for the analysis of MAF files. It has a lot of cool features that allow
-one to summarize, analyze and visualize MAF files. Let's explore our controlled-access MAF data from BigQuery using 
-the maftools packages.
+one to summarize, analyze and visualize MAF files. Let's explore the TCGA-LAML project data we queried in the controlled-access MAF table in BigQuery using the maftools packages.
 
 .. code-block:: r
   
@@ -191,7 +190,7 @@ the maftools packages.
 	14:                  total  262962 1623.222 1225.5 
  
   
-We can use plotmafSummary to plot the summary of the maf file, which displays number of variants in each sample as a         stacked barplot and variant types as a boxplot summarized by Variant_Classification.
+We can use plotmafSummary function to plot the summary of the maf file, which displays number of variants in each sample as a stacked barplot and variant types as a boxplot summarized by Variant_Classification.
 
 .. code-block:: r
   
