@@ -158,7 +158,8 @@ In ISB-CGC, we have concatenated all of the controlled-access MAF files for all 
   head(laml_data)
   dim(laml_data)
  
-   #The results of this query are saved as a data frame allowing you to seamlessly create plots and use with other R           	#packages.
+ 
+The results of this query are saved as a data frame allowing you to seamlessly create plots and use with other R packages.
   
 **Use MAFtools R package**  
 
@@ -210,12 +211,13 @@ Many disease causing genes in cancer are co-occurring or show strong exclusivene
   :scale: 80
   :align: center 
 
+
 Oncoplots (types of waterfall plots) are good ways of representating data in maf files. Here this oncoplot depicts the top ten mutated genes. (You can remove non-mutated samples for better visualization.)
 
 .. code-block:: r
+   
    oncoplot(maf = laml, top = 10,removeNonMutated = TRUE)
    
-
 .. figure:: query_figs/oncoplot1.jpeg
   :scale: 80
   :align: center 
