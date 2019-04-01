@@ -195,6 +195,33 @@ We can use plotmafSummary to plot the summary of the maf file, which displays nu
   
   plotmafSummary(maf = laml, rmOutlier = TRUE, addStat = 'median', dashboard = TRUE, titvRaw = FALSE)
   
+
+.. figure:: query_figs/mafSummary.jpeg
+  :scale: 80
+  :align: center
+
+Many disease causing genes in cancer are co-occurring or show strong exclusiveness in their mutation pattern. Such mutually exclusive or co-occurring set of genes can be detected using somaticInteractions function, which performs pair-wise Fisher’s Exact test to detect such significant pair of genes. 
+
+.. code-block:: r
+   
+somaticInteractions(maf = laml, top = 25, pvalue = c(0.05, 0.1))
+ 
+.. figure:: query_figs/SomaticInteractions.jpeg
+  :scale: 80
+  :align: center 
+
+Better representation of maf file can be shown as oncoplots. 
+
+.. code-block:: r
+   oncoplot(maf = laml, top = 10)
+   
+
+.. figure:: query_figs/oncoplot.jpeg
+  :scale: 80
+  :align: center 
+
+That's it for this month, please let us know if you have questions, or have topics you'd like to see covered in later months!
+  
 .. _February2019:
 
 February, 2019
