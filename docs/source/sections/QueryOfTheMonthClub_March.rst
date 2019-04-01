@@ -212,7 +212,7 @@ Many disease causing genes in cancer are co-occurring or show strong exclusivene
   :align: center 
 
 
-Oncoplots (types of waterfall plots) are good ways of representating data in maf files. Here this oncoplot depicts the top ten mutated genes. (You can remove non-mutated samples for better visualization.)
+Oncoplots (types of waterfall plots) are a good way of representating data in maf files. Here this oncoplot depicts the top ten mutated genes. (You can remove non-mutated samples for better visualization.)
 
 .. code-block:: r
    
