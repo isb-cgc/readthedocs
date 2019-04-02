@@ -2,8 +2,8 @@
 Linking BigQuery to ISB-CGC Project Controlled Access Data
 =======================================================
 
-To obtain access you must fist link your NIH ID via the wepp application to your Google identity to be able to use controlled data in BigQuery.  Then once linked you can To obtain access to the ISB-CGC-cbq project tables in BigQuery. You must also
-link these tables to your project so that they will show up in the left panel of your BigQuery web UI.
+To obtain access you must first link your NIH ID via the wepp application to your Google identity to be able to use controlled data in BigQuery.  Then once linked you can obtain access to the ISB-CGC-cbq project tables in BigQuery. You must also
+link these tables to your project, so that they will show up in the left panel of your BigQuery web UI.
 
 Linking your NIH and Google identities
 --------------------------------------
@@ -98,7 +98,7 @@ You will then be presented with the following page:
    :scale: 25
    :align: center
 
-As shown in the image above you will need to type in "isb-cgc-cbq" in the project id and then click okay. 
+As shown in the image below you will need to type in "isb-cgc-cbq" in the project id and then click okay. 
 
 .. image:: CABQisb-cgc-pinning.PNG
    :scale: 25
@@ -109,4 +109,5 @@ Once this has been completed you will see all of the BigQuery datasets made publ
 .. image:: isb-cgc-cbq_tablename.PNG
    :scale: 25
    :align: center
+
 
