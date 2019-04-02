@@ -78,7 +78,7 @@ Open Access: 84 files
 Clinical Trial Sequencing Project (CTSP)
 """"""""""""""""""""""""""""""""""""""""""
 
-The Genomic Data Commons currently has only bam files currently available. TO see the GDC data portal with Clinical Trial Sequencing Project please select `here <https://portal.gdc.cancer.gov/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22CTSP%22%5D%7D%7D%5D%7D&searchTableTab=cases>`_.
+The Genomic Data Commons currently has only bam files currently available. To see the GDC data portal with Clinical Trial Sequencing Project please select `here <https://portal.gdc.cancer.gov/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22CTSP%22%5D%7D%7D%5D%7D&searchTableTab=cases>`_.
 
 BAM: 89 files
 ALL CONTROLLED
@@ -86,13 +86,21 @@ ALL CONTROLLED
 VA APOLLO Project - Research for Precision Oncology (VAREPOP)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-The Genomic Data Commons currently has only 
+The Genomic Data Commons currently has bam and vcf files.  To see the GDC data portal with Research for Precision Oncology Project please select `here <https://portal.gdc.cancer.gov/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22VAREPOP%22%5D%7D%7D%5D%7D>`_. 
+
+VCF: 14 files
+BAM: 7 files
+ALL CONTROLLED
+
 
 
 Genomic Variation in Diffuse Large B Cell Lymphomas (NCICCR)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+The Genomic Data Commons currently has only bam files currently available.  To see the GDC data portal with Genomic Variation in Diffuse Large B Cell Lymphomas Project please select `here <https://portal.gdc.cancer.gov/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22NCICCR%22%5D%7D%7D%5D%7D>`_. 
 
+BAM: 957 files
+ALL CONTROLLED
 
 
 URL to find file information in IndexD
