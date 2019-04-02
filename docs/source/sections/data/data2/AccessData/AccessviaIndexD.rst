@@ -56,8 +56,44 @@ To access the controlled data files you will first need to be authoenticated wit
 How to find files via IndexD
 -----------------------------
 
+This tutorial will go thorough how to find controlled access file paths for all four new programs FM, CTSP, VAREPOP, and NCICCR via the Genomic Data Commons.  
+
+
 Find GDC ID in Genomic Data Portal
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Foundation Medicine (FM)
+"""""""""""""""""""""""""
+
+The Gonomic Data Commons currently has VCF, TSV, and MAF data available. To see the GDC data portal with Foudation Medicine as program selected please select `here <https://portal.gdc.cancer.gov/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22FM%22%5D%7D%7D%5D%7D&searchTableTab=cases>`_.
+
+VCF: 36,008 files
+TSV: 84 files
+MAF: 42 files
+
+Controlled Access: 36,050
+Open Access: 84 files
+
+
+Clinical Trial Sequencing Project (CTSP)
+""""""""""""""""""""""""""""""""""""""""""
+
+The Genomic Data Commons currently has only bam files currently available. TO see the GDC data portal with Clinical Trial Sequencing Project please select `here <https://portal.gdc.cancer.gov/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22CTSP%22%5D%7D%7D%5D%7D&searchTableTab=cases>`_.
+
+BAM: 89 files
+ALL CONTROLLED
+
+VA APOLLO Project - Research for Precision Oncology (VAREPOP)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+The Genomic Data Commons currently has only 
+
+
+Genomic Variation in Diffuse Large B Cell Lymphomas (NCICCR)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+
 
 URL to find file information in IndexD
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
