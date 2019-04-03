@@ -74,6 +74,7 @@ MAF: 42 files
 Controlled Access: 36,050
 Open Access: 84 files
 
+For this tutorial we will use GDC ID: 85d93d5a-f6a6-49a0-8d97-7d73bd471c69
 
 
 Clinical Trial Sequencing Project (CTSP)
@@ -84,6 +85,8 @@ The Genomic Data Commons currently has only bam files currently available. To se
 BAM: 89 files
 
 ALL CONTROLLED
+
+For this tutorial we will use GDC ID: e7f2edd8-bd89-40b1-9fe4-103183cb1a5f
 
 VA APOLLO Project - Research for Precision Oncology (VAREPOP)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -96,6 +99,9 @@ BAM: 7 files
 ALL CONTROLLED
 
 
+For this tutorial we will use GDC ID: a4aba10a-f420-45a0-a8fc-875fbab0915b
+
+
 
 Genomic Variation in Diffuse Large B Cell Lymphomas (NCICCR)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -106,9 +112,18 @@ BAM: 957 files
 
 ALL CONTROLLED
 
+For this tutorial we will use GDC ID: 5a3265d5-3952-4ee2-8cb7-183239c86a04
+
 
 URL to find file information in IndexD
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+We are currently able to use IndexD via a URL. Default URL is https://nci-crdc.datacommons.io/index/ 
+
+You add the GDC UUID at the end of URL at the moment.
+
+
+
 
 Google Cloud Storage path
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
