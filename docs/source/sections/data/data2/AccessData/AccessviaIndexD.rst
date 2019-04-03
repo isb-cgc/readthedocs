@@ -56,7 +56,7 @@ To access the controlled data files you will first need to be authoenticated wit
 How to find files via IndexD
 -----------------------------
 
-This tutorial will go thorough how to find controlled access file paths for all four new programs FM, CTSP, VAREPOP, and NCICCR via the Genomic Data Commons.  
+This tutorial will go thorough how to find the GDC UUID needed to find for all four new programs FM, CTSP, VAREPOP, and NCICCR via the Genomic Data Commons. 
 
 
 Find GDC ID in Genomic Data Portal
@@ -65,7 +65,7 @@ Find GDC ID in Genomic Data Portal
 Foundation Medicine (FM)
 """""""""""""""""""""""""
 
-The Gonomic Data Commons currently has VCF, TSV, and MAF data available. To see the GDC data portal with Foudation Medicine as program selected please select `here <https://portal.gdc.cancer.gov/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22FM%22%5D%7D%7D%5D%7D&searchTableTab=cases>`_.
+The Genomic Data Commons currently has VCF, TSV, and MAF data available. To see the GDC data portal with Foudation Medicine as program selected please select `here <https://portal.gdc.cancer.gov/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22FM%22%5D%7D%7D%5D%7D&searchTableTab=cases>`_.
 
 VCF: 36,008 files
 TSV: 84 files
@@ -74,7 +74,20 @@ MAF: 42 files
 Controlled Access: 36,050
 Open Access: 84 files
 
-For this tutorial we will use GDC ID: 85d93d5a-f6a6-49a0-8d97-7d73bd471c69
+For this tutorial we will use GDC UUID: 85d93d5a-f6a6-49a0-8d97-7d73bd471c69
+
+
+.. image:: gdc-FM-portal.PNG
+   :scale: 50
+   :align: center
+   
+Above Screenshot of the Genomic Data Commons portal with program : FM as filter   
+   
+.. image:: gdc-FM-detailPage.PNG
+   :scale: 50
+   :align: center
+
+File details page UUID is serial number needed for IndexD highlighted in green.
 
 
 Clinical Trial Sequencing Project (CTSP)
@@ -87,6 +100,20 @@ BAM: 89 files
 ALL CONTROLLED
 
 For this tutorial we will use GDC ID: e7f2edd8-bd89-40b1-9fe4-103183cb1a5f
+
+
+.. image:: gdc-CTSP-portal.PNG
+   :scale: 50
+   :align: center
+   
+Above Screenshot of the Genomic Data Commons portal with program : CTSP as filter   
+   
+.. image:: gdc-CTSPdetailPage.PNG
+   :scale: 50
+   :align: center
+
+File details page UUID is serial number needed for IndexD highlighted in green.
+
 
 VA APOLLO Project - Research for Precision Oncology (VAREPOP)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -102,6 +129,18 @@ ALL CONTROLLED
 For this tutorial we will use GDC ID: a4aba10a-f420-45a0-a8fc-875fbab0915b
 
 
+.. image:: gdc-VAREPOP-portal.PNG
+   :scale: 50
+   :align: center
+   
+Above Screenshot of the Genomic Data Commons portal with program : VAREPOP as filter   
+   
+.. image:: gdc-VAREPOPdetails-Page.PNG
+   :scale: 50
+   :align: center
+
+File details page UUID is serial number needed for IndexD highlighted in green.
+
 
 Genomic Variation in Diffuse Large B Cell Lymphomas (NCICCR)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -113,6 +152,21 @@ BAM: 957 files
 ALL CONTROLLED
 
 For this tutorial we will use GDC ID: 5a3265d5-3952-4ee2-8cb7-183239c86a04
+
+
+.. image:: gdc-NCICCR-portal.PNG
+   :scale: 50
+   :align: center
+   
+Above Screenshot of the Genomic Data Commons portal with program : NCICCR as filter   
+   
+.. image:: gdc-NCICCR-details-Page.PNG
+   :scale: 50
+   :align: center
+
+File details page UUID is serial number needed for IndexD highlighted in green.
+
+
 
 
 URL to find file information in IndexD
