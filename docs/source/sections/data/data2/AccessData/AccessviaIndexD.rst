@@ -135,7 +135,7 @@ For this tutorial we will use GDC ID: a4aba10a-f420-45a0-a8fc-875fbab0915b
    
 Above Screenshot of the Genomic Data Commons portal with program : VAREPOP as filter   
    
-.. image:: gdc-VAREPOPdetails-Page.PNG
+.. image:: gdc-VAREPOP-details-Page.PNG
    :scale: 50
    :align: center
 
