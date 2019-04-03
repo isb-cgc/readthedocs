@@ -174,7 +174,37 @@ URL to find file information in IndexD
 
 We are currently able to use IndexD via a URL. Default URL is https://nci-crdc.datacommons.io/index/ 
 
-You add the GDC UUID at the end of URL at the moment.
+You add the GDC UUID at the end of URL at the moment. Highlited in green below is where the Google Cloud Storage path is via the JSON return. 
+
+
+Foundation Medicine (FM)
+"""""""""""""""""""""""""
+
+.. image:: gdc-NCICCR-details-Page.PNG
+   :scale: 50
+   :align: center
+
+Clinical Trial Sequencing Project (CTSP)
+""""""""""""""""""""""""""""""""""""""""""
+
+.. image:: gdc-NCICCR-details-Page.PNG
+   :scale: 50
+   :align: center
+
+VA APOLLO Project - Research for Precision Oncology (VAREPOP)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+.. image:: gdc-NCICCR-details-Page.PNG
+   :scale: 50
+   :align: center
+
+
+Genomic Variation in Diffuse Large B Cell Lymphomas (NCICCR)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+.. image:: gdc-NCICCR-details-Page.PNG
+   :scale: 50
+   :align: center
 
 
 
