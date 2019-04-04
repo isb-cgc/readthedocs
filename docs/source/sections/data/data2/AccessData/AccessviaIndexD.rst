@@ -59,8 +59,8 @@ How to find files via IndexD
 This tutorial will go thorough how to find the GDC UUID needed to find for all four new programs FM, CTSP, VAREPOP, and NCICCR via the Genomic Data Commons. 
 
 
-Find GDC ID in Genomic Data Portal
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Find GDC UUID in Genomic Data Portal
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Foundation Medicine (FM)
 """""""""""""""""""""""""
