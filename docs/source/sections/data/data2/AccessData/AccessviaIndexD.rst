@@ -180,21 +180,21 @@ You add the GDC UUID at the end of URL at the moment. Highlited in green below i
 Foundation Medicine (FM)
 """""""""""""""""""""""""
 
-.. image:: gdc-NCICCR-details-Page.PNG
+.. image:: indexD-FM.PNG
    :scale: 50
    :align: center
 
 Clinical Trial Sequencing Project (CTSP)
 """"""""""""""""""""""""""""""""""""""""""
 
-.. image:: gdc-NCICCR-details-Page.PNG
+.. image:: indexD-CTSP.PNG
    :scale: 50
    :align: center
 
 VA APOLLO Project - Research for Precision Oncology (VAREPOP)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-.. image:: gdc-NCICCR-details-Page.PNG
+.. image:: indexD-VAREPOP.PNG
    :scale: 50
    :align: center
 
@@ -202,7 +202,7 @@ VA APOLLO Project - Research for Precision Oncology (VAREPOP)
 Genomic Variation in Diffuse Large B Cell Lymphomas (NCICCR)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-.. image:: gdc-NCICCR-details-Page.PNG
+.. image:: indexD-NCICCR.PNG
    :scale: 50
    :align: center
 
