@@ -209,6 +209,10 @@ Genomic Variation in Diffuse Large B Cell Lymphomas (NCICCR)
 
 
 
-Google Cloud Storage path
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+How to use Google Cloud Storage
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+We have available tutorials and guides on how to access data in Google Cloud Storage and can be found  `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowToGetStartedonISB-CGC.html#iii-accessing-and-analyzing-data-stored-in-gcs>`_. 
+
+Cheat sheets available `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DIYWorkshop.html#isb-cancer-genomics-cloud-isb-cgc>`_.
 
