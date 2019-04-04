@@ -1,7 +1,7 @@
 New Program Data Available in Google Cloud Storage
 =======================================
 
-We have new program data available via Google Cloud Storage. While we work on adding all the new programs to our cohort creation section of the web application we have created this document as a work around.  This tutorial will enable you to be albe to find files in Google Cloud Storage via the Data Commons' Framework tool IndexD. If you have any additional questions or comments please feel free to contact feedback@systemsbiology.org. 
+We have new program data available via Google Cloud Storage. While we work on adding all the new programs to our cohort creation section of the web application we have created this document as a work around.  This tutorial will enable you to be able to find files in Google Cloud Storage via the Data Commons' Framework tool IndexD. If you have any additional questions or comments please feel free to contact feedback@systemsbiology.org. 
 
 New Programs
 -------------
