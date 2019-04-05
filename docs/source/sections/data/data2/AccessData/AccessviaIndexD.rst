@@ -232,6 +232,11 @@ URL used is: https://nci-crdc.datacommons.io/index/index/?ids=a3e62c00-9cd0-4662
 
 GDC UUIDs used: 
 
+- a3e62c00-9cd0-4662-aefc-0559dab3bb1c
+- e7b41733-c0b8-4104-834a-234fb9f8caa2
+- 243b3398-5b1c-4530-8903-1cc6275ba8be
+- e916a56f-9d64-4172-829d-03ee2fe2d704
+
 
 
 .. image:: indexD-fourUUIDs_Before.PNG
