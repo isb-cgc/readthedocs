@@ -1,7 +1,7 @@
 New Program Data Available in Google Cloud Storage
 =======================================
 
-We have new program data available via Google Cloud Storage. While we work on adding all the new programs to our cohort creation section of the web application we have created this document as a work around.  This tutorial will enable you to be albe to find files in Google Cloud Storage via the Data Commons' Framework tool IndexD. If you have any additional questions or comments please feel free to contact feedback@systemsbiology.org. 
+We have new program data available via Google Cloud Storage. While we work on adding all the new programs to our cohort creation section of the web application we have created this document as a work around.  This tutorial will enable you to find files in Google Cloud Storage via the Data Commons' Framework tool IndexD. If you have any additional questions or comments please feel free to contact feedback@systemsbiology.org. 
 
 New Programs
 -------------
@@ -56,12 +56,163 @@ To access the controlled data files you will first need to be authoenticated wit
 How to find files via IndexD
 -----------------------------
 
-Find GDC ID in Genomic Data Portal
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This tutorial will go thorough how to find the GDC UUID needed to find for all four new programs FM, CTSP, VAREPOP, and NCICCR via the Genomic Data Commons. 
+
+
+Find GDC UUID in Genomic Data Portal
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Foundation Medicine (FM)
+"""""""""""""""""""""""""
+
+The Genomic Data Commons currently has VCF, TSV, and MAF data available. To see the GDC data portal with Foudation Medicine as program selected please select `here <https://portal.gdc.cancer.gov/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22FM%22%5D%7D%7D%5D%7D&searchTableTab=cases>`_.
+
+VCF: 36,008 files
+TSV: 84 files
+MAF: 42 files
+
+Controlled Access: 36,050
+Open Access: 84 files
+
+For this tutorial we will use GDC UUID: 85d93d5a-f6a6-49a0-8d97-7d73bd471c69
+
+
+.. image:: gdc-FM-portal.PNG
+   :scale: 50
+   :align: center
+   
+Above Screenshot of the Genomic Data Commons portal with program : FM as filter   
+   
+.. image:: gdc-FM-detailPage.PNG
+   :scale: 50
+   :align: center
+
+File details page UUID is serial number needed for IndexD highlighted in green.
+
+
+Clinical Trial Sequencing Project (CTSP)
+""""""""""""""""""""""""""""""""""""""""""
+
+The Genomic Data Commons currently has only bam files currently available. To see the GDC data portal with Clinical Trial Sequencing Project please select `here <https://portal.gdc.cancer.gov/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22CTSP%22%5D%7D%7D%5D%7D&searchTableTab=cases>`_.
+
+BAM: 89 files
+
+ALL CONTROLLED
+
+For this tutorial we will use GDC ID: e7f2edd8-bd89-40b1-9fe4-103183cb1a5f
+
+
+.. image:: gdc-CTSP-portal.PNG
+   :scale: 50
+   :align: center
+   
+Above Screenshot of the Genomic Data Commons portal with program : CTSP as filter   
+   
+.. image:: gdc-CTSPdetailPage.PNG
+   :scale: 50
+   :align: center
+
+File details page UUID is serial number needed for IndexD highlighted in green.
+
+
+VA APOLLO Project - Research for Precision Oncology (VAREPOP)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+The Genomic Data Commons currently has bam and vcf files.  To see the GDC data portal with Research for Precision Oncology Project please select `here <https://portal.gdc.cancer.gov/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22VAREPOP%22%5D%7D%7D%5D%7D>`_. 
+
+VCF: 14 files
+BAM: 7 files
+
+ALL CONTROLLED
+
+
+For this tutorial we will use GDC ID: a4aba10a-f420-45a0-a8fc-875fbab0915b
+
+
+.. image:: gdc-VAREPOP-portal.PNG
+   :scale: 50
+   :align: center
+   
+Above Screenshot of the Genomic Data Commons portal with program : VAREPOP as filter   
+   
+.. image:: gdc-VAREPOP-details-Page.PNG
+   :scale: 50
+   :align: center
+
+File details page UUID is serial number needed for IndexD highlighted in green.
+
+
+Genomic Variation in Diffuse Large B Cell Lymphomas (NCICCR)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+The Genomic Data Commons currently has only bam files currently available.  To see the GDC data portal with Genomic Variation in Diffuse Large B Cell Lymphomas Project please select `here <https://portal.gdc.cancer.gov/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22NCICCR%22%5D%7D%7D%5D%7D>`_. 
+
+BAM: 957 files
+
+ALL CONTROLLED
+
+For this tutorial we will use GDC ID: 5a3265d5-3952-4ee2-8cb7-183239c86a04
+
+
+.. image:: gdc-NCICCR-portal.PNG
+   :scale: 50
+   :align: center
+   
+Above Screenshot of the Genomic Data Commons portal with program : NCICCR as filter   
+   
+.. image:: gdc-NCICCR-details-Page.PNG
+   :scale: 50
+   :align: center
+
+File details page UUID is serial number needed for IndexD highlighted in green.
+
+
+
 
 URL to find file information in IndexD
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Google Cloud Storage path
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+We are currently able to use IndexD via a URL. Default URL is https://nci-crdc.datacommons.io/index/ 
+
+You add the GDC UUID at the end of URL at the moment. Highlited in green below is where the Google Cloud Storage path is via the JSON return. 
+
+
+Foundation Medicine (FM)
+"""""""""""""""""""""""""
+
+.. image:: indexD-FM.PNG
+   :scale: 50
+   :align: center
+
+Clinical Trial Sequencing Project (CTSP)
+""""""""""""""""""""""""""""""""""""""""""
+
+.. image:: indexD-CTSP.PNG
+   :scale: 50
+   :align: center
+
+VA APOLLO Project - Research for Precision Oncology (VAREPOP)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+.. image:: indexD-VAREPOP.PNG
+   :scale: 50
+   :align: center
+
+
+Genomic Variation in Diffuse Large B Cell Lymphomas (NCICCR)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+.. image:: indexD-NCICCR.PNG
+   :scale: 50
+   :align: center
+
+
+
+
+How to use Google Cloud Storage
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+We have available tutorials and guides on how to access data in Google Cloud Storage and can be found  `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowToGetStartedonISB-CGC.html#iii-accessing-and-analyzing-data-stored-in-gcs>`_. 
+
+Cheat sheets available `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DIYWorkshop.html#isb-cancer-genomics-cloud-isb-cgc>`_.
 
