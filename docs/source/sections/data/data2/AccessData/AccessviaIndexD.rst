@@ -223,7 +223,7 @@ Using multiple GDC UUUIDs with IndexD
 
 For this example we will show how to find the URLs when using multiple UUID's with IndexD.  The URL needed when using multiple UUIDs is https://nci-crdc.datacommons.io/index/index/?ids= each UUID should be comma seperated. 
 
-example URL: https://nci-crdc.datacommons.io/index/index/?ids=a3e62c00-9cd0-4662-aefc-0559dab3bb1c,1ffe8c60-3e20-4d94-8375-0c76ac98b04f
+example URL: https://nci-crdc.datacommons.io/index/index/?ids=a3e62c00-9cd0-4662-aefc-0559dab3bb1c,e916a56f-9d64-4172-829d-03ee2fe2d704
 
 
 In example below we will have four UUIDs called from IndexD.  We will then use the control + F feature in web browser to find the Google Cloud Storage path we are looking for in JSON file return. 
