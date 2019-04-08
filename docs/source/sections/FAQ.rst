@@ -85,6 +85,25 @@ You can get this page for two reasons:  First, if you may have typed in your pas
 
 **What happens if I accidently delete the default service account from a Google Cloud Project?**
 
+If you accidently delete the default service account associated to the Google Cloud Project you are working in you can no longer authorize the service account during instance creation, associate the service account to controlled access data, and many other functionalities will no longer work. 
+
+Then if you try to add the service account back to the Google Cloud Project you return this error, 
+
+ERROR: (gcloud.compute.instances.create) Some requests did not succeed:
+
+- The resource 'xx...@project.gserviceaccount.com' of type 'serviceAccount' was not found.
+
+Unfortunately at this time, there is no direct way to recover the default service account.
+
+One workaround to recreate the GCE default service account is to disable and re-enable Google Compute Engine API in your project. This will only work if you have no GCE resource(e.g VMs, Disks, Snapshots etc) in your project, otherwise you will get "Backend Provisioning Error" when you try to disable compute engine API.
+
+Another solution would be creating a new project and redeploying your instances there.
+
+Google has an internal feature request to prevent accidental deletion of default service accounts.
+
+There is a Google forum discussion that can be found `here <https://groups.google.com/forum/#!topic/gce-discussion/bQ_-qCWoUZw>`_ with more details and explanation.
+
+
 
 ISB-CGC Web Application
 ########################
