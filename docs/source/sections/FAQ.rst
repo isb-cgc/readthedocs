@@ -90,7 +90,8 @@ If you accidently delete the default service account associated to the Google Cl
 Then if you try to add the service account back to the Google Cloud Project you return this error, 
 
 
-.. literalinclude:: ERROR: (gcloud.compute.instances.create) Some requests did not succeed: - The resource 'xx...@project.gserviceaccount.com' of type 'serviceAccount' was not found.
+ *ERROR: (gcloud.compute.instances.create) Some requests did not succeed:*
+*- The resource 'xx...@project.gserviceaccount.com' of type 'serviceAccount' was not found.*
 
 
 Unfortunately at this time, there is no direct way to recover the default service account.
