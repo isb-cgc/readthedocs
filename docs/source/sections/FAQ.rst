@@ -89,13 +89,13 @@ If you accidently delete the default service account associated to the Google Cl
 
 Then if you try to add the service account back to the Google Cloud Project you return this error, 
 
-ERROR: (gcloud.compute.instances.create) Some requests did not succeed:
 
-- The resource 'xx...@project.gserviceaccount.com' of type 'serviceAccount' was not found.
+.. literalinclude:: ERROR: (gcloud.compute.instances.create) Some requests did not succeed: - The resource 'xx...@project.gserviceaccount.com' of type 'serviceAccount' was not found.
+
 
 Unfortunately at this time, there is no direct way to recover the default service account.
 
-One workaround to recreate the GCE default service account is to disable and re-enable Google Compute Engine API in your project. This will only work if you have no GCE resource(e.g VMs, Disks, Snapshots etc) in your project, otherwise you will get "Backend Provisioning Error" when you try to disable compute engine API.
+One workaround to recreate the GCE default service account is to disable and re-enable Google Compute Engine API in your project. This will only work if you have no GCE resource (e.g VMs, Disks, Snapshots etc) in your project, otherwise you will get "Backend Provisioning Error" when you try to disable compute engine API.
 
 Another solution would be creating a new project and redeploying your instances there.
 
