@@ -95,7 +95,7 @@ The `NCI-GDC <https://gdc.cancer.gov/>`_ has also implemented a BAM-slicing API 
 their data repository.  This API can be accessed programmatically as documented
 `here <https://docs.gdc.cancer.gov/API/Users_Guide/BAM_Slicing/>`_ 
 or interactively on any of the file-specific data-portal pages like 
-`this one <https://gdc-portal.nci.nih.gov/files/91081819-79c8-4de6-bfdb-742df760c08b>`_
+`this one <https://portal.gdc.cancer.gov/files/34320460-51a0-4a7f-adb2-6f0c1ecfc4f9>`_
 for a TCGA-BRCA whole-exome BAM file.  (The "BAM Slicing" button is in the upper
 right corner of the page.)
 
