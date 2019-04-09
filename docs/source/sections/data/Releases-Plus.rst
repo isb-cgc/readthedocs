@@ -69,7 +69,7 @@ Release Notes
 
 * August 20, 2016: updated **hg19** and **hg38** `Kaviar <http://db.systemsbiology.net/kaviar/>`_ tables added to the **isb-cgc:genome_reference** BigQuery dataset
 
-* August 17, 2016: new **isb-cgc:GDC_metadata** BigQuery dataset containing metadata for both *legacy* and *current* files hosted at the `NCI-GDC <https://gdc-portal.nci.nih.gov/>`_.
+* August 17, 2016: new **isb-cgc:GDC_metadata** BigQuery dataset containing metadata for both *legacy* and *current* files hosted at the `NCI-GDC <https://gdc.cancer.gov/>`_.
 
 * July 28, 2016: new **isb-cgc:tcga_201607_beta** BigQuery dataset based on the *final* TCGA data upload from the DCC.  This dataset largely mirrors the previous **isb-cgc:tcga_20510_alpha** dataset and is now also supporting the ISB-CGC Web-App.  The curated TCGA cohort tables in the **isb-cgc:tcga_cohorts** BigQuery dataset have also been updated.
 
