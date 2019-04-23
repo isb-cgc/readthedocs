@@ -25,11 +25,16 @@ Provided by:
 What's a notebook?
 ==================
 
-Notebooks are documents that mix code (usually R or python), descriptive explainations, and visualizations. They're ideal for explaining an analysis. Also idea for tutorials because of the 'hands on' nature.
+`Notebooks <https://towardsdatascience.com/jupyter-lab-evolution-of-the-jupyter-notebook-5297cacde6b>`_ are documents that mix code (usually R or python), descriptive explainations, and visualizations. They're ideal for explaining an analysis. Also idea for tutorials because of the 'hands on' nature.  
 
-How to use a python notebook.
+`Jupyter notebooks <https://jupyter.org/>`_
 
-How to use an R notebook.
+`Jupyter lab notebooks <https://jupyterlab.readthedocs.io/en/stable/>`_ 
+
+`How to use a python notebook. <https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/>`_
+
+`How to use an R notebook. <https://rmarkdown.rstudio.com/lesson-10.html>`_
+
 
 
 How do I...
