@@ -3,18 +3,19 @@
 ********************
 
 Welcome to our collection notebooks, demonstrating the powerful combination of
-BigData from the NCI cancer programs like TCGA, and powertools from Google.
+BigData from the NCI cancer programs like TCGA, and cloud-power-tools from Google.
 
 Please let us know if you have an idea or a suggestion for a notebook!
 
-Notebooks are produced by:
 
+
+Provided by:
 
 - Kawther Abdilleh (kawther.abdilleh  ( ~ at ~ ) gdit (~ dot ~) com)
 
 - John Cornelius (john.cornelius ( ~ at ~ ) systemsbiology ( ~ dot ~ ) org)
 
-- John Cornelius (john.cornelius ( ~ at ~ ) systemsbiology ( ~ dot ~ ) org)
+- David L Gibbs  david.gibbs ( ~ at ~ ) systemsbiology ( ~ dot ~ ) org)
 
 - Sheila M Reynolds (sheila.reynolds ( ~ at ~ ) systemsbiology ( ~ dot ~ ) org)
 
