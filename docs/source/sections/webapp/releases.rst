@@ -20,15 +20,15 @@ Web-App Release Notes
    
    New Enhancements
    
-    - When working on a workbook, you know have the ability to toggle hide/show plot data. 
     - When working with Oncogrid, OncoPrint, or a SeqPeek plot on a workbook you will receive an automatic list of genes ready for analysis. 
     - When on a workbook additional text has been added to guide the user to select edit plot settings to select a gene/miRNA/variable filter and cohort to used in analysis selected. 
-    - When using a workbook the comments section has been reformatted to align with analysis displayed. 
-    -  On the cohort creation - filter page the filters have been updated in the left filter panel to reflect the total number samples counted for filter selected. 
+    - The Workbook comments section has been reformatted to better align with analysis displayed. 
+    - On the cohort creation - filter page the filters have been updated in the left filter panel to specify the count type displayed (samples).
 
    
    Bug Fixes
    
+    - Clicking on a legend entry to toggle display of the data points on a scatter or violin plot will now work correctly, even if the legend text has a space.
     - Plotting with sample type filter on a workbook will now display counts correctly. 
     -  When working with the color by feature on either a Scatter plot or a VIolin plot, the numerical values are displayed as a color-gradient legend. 
     - When using a workbook with OncoGrid analysis you are now able to plot using genomic build hg19. 
