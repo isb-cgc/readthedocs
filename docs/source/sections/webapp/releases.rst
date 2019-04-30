@@ -30,9 +30,9 @@ Web-App Release Notes
    
     - Clicking on a legend entry to toggle display of the data points on a scatter or violin plot will now work correctly, even if the legend text has a space.
     - Plotting with sample type filter on a workbook will now display counts correctly. 
-    -  When working with the color by feature on either a Scatter plot or a VIolin plot, the numerical values are displayed as a color-gradient legend. 
+    -  When working with the color by feature on either a Scatter plot or a Violin plot, the numerical values are now displayed as a color-gradient legend. 
     - When using a workbook with OncoGrid analysis you are now able to plot using genomic build hg19. 
-    - When using a workbook with a Cubby Hole plot analysis there no longer any text cut off when using sample type or residual tumor as a filter. 
+    - When using a workbook with a Cubby Hole plot analysis text is no longer cut off when using sample type or residual tumor as a filter.
    
    
   **Known Issues in Sprint 33 as of 4/25/2019**
