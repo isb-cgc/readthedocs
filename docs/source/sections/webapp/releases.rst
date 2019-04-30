@@ -5,16 +5,18 @@ Web-App Release Notes
 
 * **April 25, 2019** `v3.18 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.18>`_
   
-  **Please Note:** Work is underway to rework our cohort creation page to better display images associated with samples. 
+   **Please Note:** Work is underway to rework our cohort creation page to better display images associated with samples. 
   
-  The following datasets (open and controlled access) have been added to the ISB-CGC:
   
-   1. The National Cancer Institute Center for Cancer Research (NCICCR)  
-   2. Foundation Medicine(FM)
-   3. Clinical Trial Sequencing Project (CTSP)
-   4. Veterans Research for Precision Oncology Program (VAREPOP) 
+   The following datasets (open and controlled access) have been added to the ISB-CGC:
+  
+    1. The National Cancer Institute Center for Cancer Research (NCICCR)  
+    2. Foundation Medicine(FM)
+    3. Clinical Trial Sequencing Project (CTSP)
+    4. Veterans Research for Precision Oncology Program (VAREPOP) 
    
-   **Issues resolved in sprint 33 as of 4/25/2019**
+  
+  **Issues resolved in sprint 33 as of 4/25/2019**
    
    New Enhancements
    
@@ -33,7 +35,7 @@ Web-App Release Notes
     - When using a workbook with a Cubby Hole plot analysis there no longer any text cut off when using sample type or residual tumor as a filter. 
    
    
-   **Known Issues in Sprint 33 as of 4/25/2019**
+  **Known Issues in Sprint 33 as of 4/25/2019**
     
     - Analysis Type: Seq peek Formatting is Elongated on occasion 
     - If the user shares a Cohort, neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort. 
@@ -50,12 +52,12 @@ Web-App Release Notes
 
   **Please Note:** Work is underway to rework our cohort creation page to better display images associated with samples. 
 
-   We will soon add the following datasets(open and controlled access) to ISB-CGC: 
+    We will soon add the following datasets(open and controlled access) to ISB-CGC: 
 
-   1. The National Cancer Institute Center for Cancer Research (NCICCR)  
-   2. Foundation Medicine(FM)
-   3. Clinical Trial Sequencing Project (CTSP)
-   4. Veterans Research for Precision Oncology Program (VAREPOP) 
+    1. The National Cancer Institute Center for Cancer Research (NCICCR)  
+    2. Foundation Medicine(FM)
+    3. Clinical Trial Sequencing Project (CTSP)
+    4. Veterans Research for Precision Oncology Program (VAREPOP) 
 
    Is there a dataset that is a priority for you? Of this list which should we include first? If yes, please send all requests to feedback@isb-cgc.org 
 
