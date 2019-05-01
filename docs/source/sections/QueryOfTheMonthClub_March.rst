@@ -459,14 +459,14 @@ Then, to slice out a region on chromosome 7 between 140453130-140453140, we woul
   
   export GCS_OAUTH_TOKEN=`gcloud auth application-default print-access-token`
 
-  ./samtools view gs://isb-ccle-open/gdc/0a109993-2d5b-4251-bcab-9da4a611f2b1/C836.Calu-3.2.bam 7:140453130-140453140
+  ./samtools view gs://gdc-ccle-open/0a109993-2d5b-4251-bcab-9da4a611f2b1/C836.Calu-3.2.bam 7:140453130-140453140
 
 In the python notebook, we do something very similar. We need to compile HTSlib gcs-enabled to read cloud-based files, 
 which in turn requires installing a few extra libraries.  Then we would:
 
 .. code-block:: python
   
-  samfile = pysam.AlignmentFile('gs://isb-ccle-open/gdc/0a109993-2d5b-4251-bcab-9da4a611f2b1/C836.Calu-3.2.bam', "rb")
+  samfile = pysam.AlignmentFile('gs://gdc-ccle-open/0a109993-2d5b-4251-bcab-9da4a611f2b1/C836.Calu-3.2.bam', "rb")
 
   for read in samfile.fetch('7', 140453130, 140453135):
     print(read)
