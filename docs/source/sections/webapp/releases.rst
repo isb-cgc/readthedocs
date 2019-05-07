@@ -8,7 +8,7 @@ Web-App Release Notes
    **Please Note:** Work is underway to rework our cohort creation page to better display images associated with samples. 
   
   
-   The following datasets (open and controlled access) have been added to the ISB-CGC:
+   The following datasets (open and controlled access) have been added to the ISB-CGC for service account registration:
   
     1. The National Cancer Institute Center for Cancer Research (NCICCR)  
     2. Foundation Medicine(FM)
