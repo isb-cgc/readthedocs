@@ -71,7 +71,7 @@ This new functionality allows you to run, for example:
 
 .. code-block:: none
 
-   $ ./samtools view gs://isb-cgc-open/NCI-GDC/legacy/CCLE/CCLE-LUSC/WXS/Aligned_reads/0a109993-2d5b-4251-bcab-9da4a611f2b1/C836.Calu-3.2.bam 7:140453130-140453140
+   $ ./samtools view gs://gdc-ccle-open/0a109993-2d5b-4251-bcab-9da4a611f2b1/C836.Calu-3.2.bam 7:140453130-140453140
 
 If you want to access a controlled-access BAM file, you'll need to provide credentials first:
 
@@ -86,7 +86,7 @@ also that you have access to this file by using the
 
 .. code-block:: none
 
-   $ gsutil ls -l gs://isb-cgc-open/NCI-GDC/legacy/CCLE/CCLE-LUSC/WXS/Aligned_reads/0a109993-2d5b-4251-bcab-9da4a611f2b1/C836.Calu-3.2.bam
+   $ gsutil ls -l gs://gdc-ccle-open/0a109993-2d5b-4251-bcab-9da4a611f2b1/C836.Calu-3.2.bam
 
 Other Options for BAM-slicing
 -----------------------------
@@ -95,7 +95,7 @@ The `NCI-GDC <https://gdc.cancer.gov/>`_ has also implemented a BAM-slicing API 
 their data repository.  This API can be accessed programmatically as documented
 `here <https://docs.gdc.cancer.gov/API/Users_Guide/BAM_Slicing/>`_ 
 or interactively on any of the file-specific data-portal pages like 
-`this one <https://gdc-portal.nci.nih.gov/files/91081819-79c8-4de6-bfdb-742df760c08b>`_
+`this one <https://portal.gdc.cancer.gov/files/34320460-51a0-4a7f-adb2-6f0c1ecfc4f9>`_
 for a TCGA-BRCA whole-exome BAM file.  (The "BAM Slicing" button is in the upper
 right corner of the page.)
 

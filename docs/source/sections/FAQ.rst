@@ -29,7 +29,7 @@ to the TCGA data, *without* necessarily inserting an extra interface layer betwe
 component of the ISB-CGC is a web-app (running on Google App Engine), some users may prefer not to go through
 the web-app to access other components of the ISB-CGC.  For example, the open-access TCGA data
 that we have loaded into BigQuery tables can be accessed directly via the 
-`BigQuery web interface <https://www.bigquery.cloud.google.com>`_ or from Python or R.  Similarly,
+`BigQuery web interface <https://console.cloud.google.com/bigquery?>`_ or from Python or R.  Similarly,
 the ISB-CGC programmatic API is a REST service that can be used from many different
 programming languages.
 
@@ -46,6 +46,7 @@ You will need to input the Google Cloud Prooject ID which can be found on the Da
 .. image:: project_info.PNG
    :scale: 50
    :align: center
+
 
 
 **Why do I add the service account 907668440978-oskt05du3ao083cke14641u35deokgjj@developer.gserviceaccount.com to my Google Cloud Project?**
@@ -82,21 +83,54 @@ Another reason could be if some users are marked as unable to access datasets th
 You can get this page for two reasons:  First, if you may have typed in your password incorrectly, please select the Click Here to continue link and try to log in again.  Second, if you have typed your password correctly, it could time to refresh your NIH identity password.  Please reset your password by using this link `here <https://public.era.nih.gov/commons>`_ and try again.  This should allow you to link your NIH Identity to the ISB-CGC user interface. 
 
 
+**What happens if I accidently delete the default service account from a Google Cloud Project?**
+
+If you accidently delete the default service account associated to the Google Cloud Project you are working in you can no longer authorize the service account during instance creation, associate the service account to controlled access data, and many other functionalities will no longer work. 
+
+Then if you try to add the service account back to the Google Cloud Project you return this error, 
+
+
+ *ERROR: (gcloud.compute.instances.create) Some requests did not succeed:*
+*- The resource 'xx...@project.gserviceaccount.com' of type 'serviceAccount' was not found.*
+
+
+Unfortunately at this time, there is no direct way to recover the default service account.
+
+One workaround to recreate the GCE default service account is to disable and re-enable Google Compute Engine API in your project. This will only work if you have no GCE resource (e.g VMs, Disks, Snapshots etc) in your project, otherwise you will get "Backend Provisioning Error" when you try to disable compute engine API.
+
+Another solution would be creating a new project and redeploying your instances there.
+
+Google has an internal feature request to prevent accidental deletion of default service accounts.
+
+There is a Google forum discussion that can be found `here <https://groups.google.com/forum/#!topic/gce-discussion/bQ_-qCWoUZw>`_ with more details and explanation.
+
+
+
 ISB-CGC Web Application
 ########################
+
 **Why do I sometimes get a "Do you want to leave this site?" pop-up box when leaving a page or canceling a workflow edit?**
 
 This is a security feature when working with forms found in most web browsers; it lets you know that you may have made some changes which will be lost when you navigate away from the page. If you intend to cancel what you were doing, you can safely ignore it.
 
 **Which web browser is recomended to use when working with the site?**
 
-We recomend using Google Chrome browser.  We currently will display a chart slightly off when working with workbooks on a FireFox browser. 
+We recommend using Google Chrome browser.  We currently will display a chart slightly off when working with workbooks on a FireFox browser. 
 
 **Why did I get a 401 error on the IGV Browser?**
 
 You will see the 401 error only if your popup blocker is enabled for the isb-cgc website.  Please disable the pop-up blocker on the top right-hand side of the screen by selecting to always allow pop-ups from ISB-CGC.
 
 .. image:: 401ErrorIGVBrowser.PNG
+   :scale: 50
+   :align: center
+   
+
+**Why does the web browser crash if too many IGV Browser tabs are opened at once?**
+
+The web browser will be caused to crash when too many IGV Browser tabs are open due to the memory intensive nature of loading bam files.  When working with the IGV Browser please be mindful of having multiple tabs open of the IGV Browser.
+
+.. image:: IGVBrowserCrash.png
    :scale: 50
    :align: center
    
