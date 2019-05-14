@@ -22,6 +22,8 @@ To create a **Workbook** from Your Dashboard, click on the **“Create a New Wor
 
 **Note:** If you wish to use your own data in graphing, please review the documentations on `how to upload your own data`_ and on `how to graph your own data`_.  Using your own data uses a slightly different approach than is described here.
 
+**ANNOUCEMENT:** For OncoPrint, OncoGrid, and SeqPeek analyses we now provide a default gene list. Genes with consensus score of 6 or higher are added to the gene list. (Ref: `Bailey et al., Cell. 2018 Apr 5;173(2):371-385.e18. doi: 10.1016/j.cell.2018.02.06 <https://www.sciencedirect.com/science/article/pii/S009286741830237X?via%3Dihub>`_ )
+
 .. _how to upload your own data: program_data_upload.html
 .. _how to graph your own data: GraphingUserData.html
 
