@@ -6,7 +6,7 @@ Radiology images are viewed in an Osimis Web Viewer, a plug-in to the `Orthanc I
 
 The ISB-CGC web application `File Browser page`_ presents a table of DICOM studies associated with patients in some cohort.
 
-.. _File Browser page: https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html#view-file-browser-page
+.. _File Browser page: https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html#file-browser-page
 
 .. image:: OsimisPick.png
 
