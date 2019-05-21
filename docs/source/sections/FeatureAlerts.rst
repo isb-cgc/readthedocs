@@ -2,6 +2,17 @@
 Feature Alerts
 ************************
 
+
+*May 21, 2019*
+
+**FEATURE ALERT:**  Log into the @ISB_CGC web app and check out the new default gene list feature! When using SeqPeek, OncoGrid, or an OncoPrint analyses you are given a default gene list with genes with a consensus score of six or higher! For more information please go `here. <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Workbooks.html#creating-and-saving-a-workbook>`_
+
+
+.. image:: Default_list_FINAL.PNG
+   :scale: 25
+   :align: center
+
+
 *August 6, 2018*
 
 **Feature Alert:**  When working with the File Browser you now have the ability to search all tabs by case barcode! For more infromation about the File Browser page please go `here. <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html#file-browser-page>`_
