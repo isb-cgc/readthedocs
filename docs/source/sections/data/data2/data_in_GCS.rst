@@ -90,6 +90,7 @@ also that you have access to this file by using the
 
    $ gsutil ls -l gs://gdc-ccle-open/0a109993-2d5b-4251-bcab-9da4a611f2b1/C836.Calu-3.2.bam
    
+     gsutil ls -l gs://gdc-ccle-open/96b56036-b278-45cd-a7ca-265f589ff951/C836.Calu-3.2.bam.bai   
 
 
 Other Options for BAM-slicing
