@@ -27,6 +27,8 @@ Datasets in BigQuery are uniquely identified based on the Google Cloud Platform 
 *eg* ``isb-cgc:TCGA_bioclin_v0``.  Tables are uniquely identified by appending the table name,
 preceded by a period, *eg* ``isb-cgc:TCGA_bioclin_v0.Clinical``.
 
+You can use the Google BigQuery graphical interface to query the BigQuery datasets.  To view and use these datasets, please see this `page <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/bigqueryGUI/LinkingISB-CGCtoCABQ.html>`_  for accessing controlled data in BigQuery or this `page <../../progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_ to view open access data in BigQuery.
+
 The following sections describe each of the major datasets that are currently publicly-accessible, 
 and the tables that each one contains.  For additional details regarding the ETL (extract, transform,
 and load) process for each of these data types, please refer to the data-type specific details
@@ -66,7 +68,7 @@ other additional information for each table, preview its contents, *etc*.
 ..
 
   + `Clinical <https://bigquery.cloud.google.com/dataset/isb-cgc:TCGA_bioclin_v0.Clinical>`_:
-    This table is contains one row for each TCGA case (aka patient or participant) with *any* 
+    This table contains one row for each TCGA case (aka patient or participant) with *any* 
     available clinical information -- over 11,000 cases are represented.
     Any given field in 
     this table may be ``null`` for many patients, depending on tumor-type or data-availability.  
@@ -114,13 +116,13 @@ other additional information for each table, preview its contents, *etc*.
     targeted queries will need to scan less data (and will therefore be cheaper).
 
 
-  + `miRNAseq_Expression <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.miRNAseq_Expression>`_: 
+  + `miRNAseq_Expression <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.miRNAseq_Expression>`_:
     This table contains **all** of the miRNAseq stem-loop expression data for all TCGA samples assayed on either the 
     Illumina GA or Illumina HiSeq platforms.  
     
 
-  + `miRNAseq_Isoform_Expression <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.miRNAseq_Isoform_Expression>`_: 
-    This table contains **all** of the miRNAseq isoform-level expression (aka isomiR) data for all 
+  + `miRNAseq_Isoform_Expression <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.miRNAseq_Isoform_Expression>`_:
+    This table contains **all** of the miRNA isoform-level expression (aka isomiR) data for all
     TCGA samples assayed on either the Illumina GA or Illumina HiSeq platforms.  
     
 
@@ -213,10 +215,6 @@ other additional information for each table, preview its contents, *etc*.
   (in the case of probe/array-based data such as the SNP6/copy-number and the DNA Methylation data).
 
 ..
-
-  + `miRNAseq_Expression <https://bigquery.cloud.google.com/table/isb-cgc:TARGET_hg38_data_v0.miRNAseq_Expression>`_: 
-    This table contains **all** of the miRNAseq stem-loop expression data *currently available* from the NCI-GDC.
-    
 
   + `miRNAseq_Isoform_Expression <https://bigquery.cloud.google.com/table/isb-cgc:TARGET_hg38_data_v0.miRNAseq_Isoform_Expression>`_: 
     This table contains **all** of the miRNAseq isoform-level expression (aka isomiR) data *currently available* from the NCI-GDC.

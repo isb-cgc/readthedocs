@@ -5,22 +5,24 @@ Workbooks store the Analyses you create -- and their related data. Basically, th
   • Group together multiple related analyses,
   • Share analysis results with specific groups of people,
 
-For example, you can create a workbook (i.e., Disease A) which consists of identifying gene mutations and pathways involved in Head and Neck Cancer (and share it with research Group A). 
+For example, you can create a Workbook (i.e., Disease A) which consists of identifying gene mutations and pathways involved in Head and Neck Cancer (and share it with research Group A). 
 
-And create another workbook (i.e., Disease B) with a different group of researchers (Group B) investigating the average time after diagnosis of death for different lung cancers.  Think of workbooks as virtual "excel spreadsheets" that various related analyses can be created in individual Worksheets (“Tabs” within the spreadsheet) and grouped together in one Workbook (the overall spreadsheet).
+And to create another Workbook (i.e., Disease B) with a different group of researchers (Group B) investigating the average time after diagnosis of death for different lung cancers.  Think of workbooks as virtual "excel spreadsheets" that various related analyses can be created in individual Worksheets (“Tabs” within the spreadsheet) and grouped together in one Workbook (the overall spreadsheet).
 
 Additionally, you can:
-  • Save a workbook for later use, or
-  • Edit an existing workbook.
+  • Save a Workbook for later use, or
+  • Edit an existing Workbook.
 
 Creating and Saving a Workbook
 ##############################
 
-From your dashboard, under Sample Analysis you will find the “Saved Workbooks” panel.  This panel displays any previously created and save workbooks and allows you to “Create a New Workbook”. If you do not have any saved workbooks you will see “Saved Workbooks (0)".
+From your Dashboard, you will find the “Saved Workbooks” panel.  This panel displays any previously created, Saved Workbooks, also you are able to “Create a New Workbook”. If you do not have any saved workbooks you will see “Workbooks store the analyses you create, and their related data." text in the panel.
 
-To create a **workbook** from Your Dashboard, click on the **“Create a New Workbook”** link in the "Saved Workbooks" panel. This will take you to the workbook creation page.
+To create a **Workbook** from Your Dashboard, click on the **“Create a New Workbook”** link in the "Saved Workbooks" panel. This will take you to the Workbook creation page.
 
 **Note:** If you wish to use your own data in graphing, please review the documentations on `how to upload your own data`_ and on `how to graph your own data`_.  Using your own data uses a slightly different approach than is described here.
+
+**ANNOUNCEMENT:** For OncoPrint, OncoGrid, and SeqPeek analyses we now provide a default gene list. Genes with consensus score of 6 or higher are added to the default gene list. (Ref: `Bailey et al., Cell. 2018 Apr 5;173(2):371-385.e18. doi: 10.1016/j.cell.2018.02.06 <https://www.sciencedirect.com/science/article/pii/S009286741830237X?via%3Dihub>`_ )
 
 .. _how to upload your own data: program_data_upload.html
 .. _how to graph your own data: GraphingUserData.html
@@ -36,11 +38,14 @@ To create a **workbook** from Your Dashboard, click on the **“Create a New Wor
     - **Scatter Plot** - This chart is used to plot two numerical features (x & y axis) for one or more cohorts. Can also color code points by a single categorical feature.
 
     - **Violin Plot** - This chart is used to plot a categorical feature on the x-axis versus a numerical feature on the y-axis. Points in the plot can be colored by another categorical feature.
+    
+    - **OncoPrint** - This chart is used to plot multiple genomic alteration (somatic mutation) events across a set of samples using color-coded glyphs. OncoPrint is developed and provided by cBioPortal.
+    
+    - **OncoGrid** - This chart is used to visualize the top mutated genes across programs/projects and the number of cases affected. We are also able to view the mutation frequency, clinical data, data format types, number of gene sets and the number of cases affected.
 
     - **Cubby Hole Plot** - This chart is used to plot two categorical features. Boxes are colored by their related p-values.
 
     - **SeqPeek** - This visualization shows where somatic mutations have been observed on a linear representation of a specific protein. Each horizontal strip represents the protein, with data from different tumor types (aka cohorts or studies) shown stacked one on top of the other.
-
 
     A researcher now has the option to make the axis logarithmic if the plot can display continuous numerical data for eg. mRNA expression levels.
    
@@ -84,6 +89,14 @@ By clicking 'Cohorts' or the '+' symbol you will be directed to the Cohorts tabl
 Once completed you can proceed.  The user can also add multiple Cohorts to the worksheet if desired. More information about Cohorts can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html>`_.
 
 4. Select **Edit Analysis Settings** - This will trigger the Plot setting displaying the applicable x & y axis settings (i.e. Categorical or Numerical based on analysis type selected). Depending on the analysis type selected (e.g., Bar chart, Histogram, Scatter Plot, Violin Plot, Cubby Hole Plot, or SeqPeek) additional specifications may appear for selection.
+
+5. Select **Toggle Sample Selection** - After an analysis option has been selected, using the toggle sample button allows you to create a smaller cohort from within the plot itself.
+
+6. Select **Redraw** - After an analysis option has been selected, using the redraw button will reset the anaylsis to its orginal setting after being zoomed-in, moved place. 
+
+7. Select **Download** - After an analysis option has been selected, using the download button will allow you to either download analysis as a SVG, PNG, or a JSON file. 
+
+8. Select **Toggle Full Screen** -  After an analysis option has been selected, using this button will enable the plot to full-screen.
 
 
 Sharing Workbooks
