@@ -438,6 +438,7 @@ To export the File list to BigQuery, select the button BigQuery.  You will need 
 
 The table will contain the following information (for each of the data type tabs):
 
+* row
 * cohort_id
 * case_barcode
 * sample_barcode
@@ -452,6 +453,9 @@ The table will contain the following information (for each of the data type tabs
 * data_type
 * data_format
 * cloud_storage_location
+* file_size_bytes
+* index_file_gdc_uuid
+* index_file_cloud_storage_location
 
 Export File List to Google Cloud Storage
 ========================================
