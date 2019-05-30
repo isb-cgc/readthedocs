@@ -415,6 +415,7 @@ To download a list of files that are part of this cohort, select the button in t
 
 The file contains the following information for each file:
 
+* Case Barcode
 * Sample Barcode
 * Program
 * Platform
@@ -422,7 +423,11 @@ The file contains the following information for each file:
 * Data Category
 * Data Type
 * Data Format
-* File Path to the Cloud Storage Location 
+* Genomic Data Commons(GDC) File UUID
+* Google Cloud Storage(GCS) location
+* Genomic Data Commons(GDC) Index
+* Index File Google Cloud Storage(GCS) location
+* File Size
 * Access Type (open or controlled access)
 
 
