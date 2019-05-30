@@ -1,5 +1,5 @@
 *******************
-Saved Cohorts
+Working With Cohorts
 *******************
 
 Cohorts are an way of creating custom groupings of the samples and/or cases that you are 
