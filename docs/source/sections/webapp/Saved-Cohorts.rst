@@ -467,6 +467,7 @@ The file will contain the following information (for each of the data type tabs)
 * sample_barcode
 * case_barcode
 * cloud_storage_location
+* file_size_bytes
 * platform
 * data_type
 * data_category 
@@ -477,6 +478,8 @@ The file will contain the following information (for each of the data type tabs)
 * project_short_name
 * cohort_id
 * build
+* index_file_storage_location
+* index_file_gdc_uuid
 * date_added
 
 Viewing a Sequence
