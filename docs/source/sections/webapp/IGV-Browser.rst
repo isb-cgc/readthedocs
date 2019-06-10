@@ -37,32 +37,6 @@ NOTE:
  - You will only be able to view controlled access sequence files if you have `logged in as a registered dbGaP authorized user <Gaining-Access-To-Contolled-Access-Data.html>`_.
 
 
-App Not Verified from Google Error Message Fix
------------------------------------------------
-
-As of July 2018 Google has unfortunately placed https://isb-cgc.appspot.com/ on an unverified application list. We have submitted a request with Google to resolve this issue.  In the meantime below are the steps listed to add ISB-CGC to your list of approved third party sites to gain access.
-
-
-.. image:: AppNotVerified.PNG
-   :scale: 50
-   :align: center
-
-If you have never used the ISB-CGC web application before when trying to view the IGV browser you will see the "This App Isn't Verified" error message. To begin the process to adding ISB-CGC to the list of approved sites please select Advanced highlighted in green.
-
-.. image:: selectedAdvanceOption.PNG
-   :scale: 50
-   :align: center
-
-Selecting the Go to isb-cgc.appspot.com(unsafe) option highlighted in green above will begin the process for approving ISB-CGC to be used as a third party site.
-
-
-.. image:: AllowISB-CGCscreen.PNG
-   :scale: 50
-   :align: center
-   
-Please select the Allow button highlighted in green in the image above to trust ISB-CGC web application.
-
-
 Acknowledgements
 ----------------
 

@@ -1,5 +1,5 @@
 *******************
-Saved Cohorts
+Working With Cohorts
 *******************
 
 Cohorts are an way of creating custom groupings of the samples and/or cases that you are 
@@ -415,6 +415,7 @@ To download a list of files that are part of this cohort, select the button in t
 
 The file contains the following information for each file:
 
+* Case Barcode
 * Sample Barcode
 * Program
 * Platform
@@ -422,7 +423,11 @@ The file contains the following information for each file:
 * Data Category
 * Data Type
 * Data Format
-* File Path to the Cloud Storage Location 
+* Genomic Data Commons(GDC) File UUID
+* Google Cloud Storage(GCS) location
+* Genomic Data Commons(GDC) Index
+* Index File Google Cloud Storage(GCS) location
+* File Size
 * Access Type (open or controlled access)
 
 
@@ -433,6 +438,7 @@ To export the File list to BigQuery, select the button BigQuery.  You will need 
 
 The table will contain the following information (for each of the data type tabs):
 
+* row
 * cohort_id
 * case_barcode
 * sample_barcode
@@ -447,6 +453,9 @@ The table will contain the following information (for each of the data type tabs
 * data_type
 * data_format
 * cloud_storage_location
+* file_size_bytes
+* index_file_gdc_uuid
+* index_file_cloud_storage_location
 
 Export File List to Google Cloud Storage
 ========================================
@@ -458,6 +467,7 @@ The file will contain the following information (for each of the data type tabs)
 * sample_barcode
 * case_barcode
 * cloud_storage_location
+* file_size_bytes
 * platform
 * data_type
 * data_category 
@@ -468,6 +478,8 @@ The file will contain the following information (for each of the data type tabs)
 * project_short_name
 * cohort_id
 * build
+* index_file_storage_location
+* index_file_gdc_uuid
 * date_added
 
 Viewing a Sequence
