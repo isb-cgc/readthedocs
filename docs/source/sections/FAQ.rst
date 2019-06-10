@@ -51,7 +51,10 @@ You will need to input the Google Cloud Prooject ID which can be found on the Da
 
 **Why do I add the service account 907668440978-oskt05du3ao083cke14641u35deokgjj@developer.gserviceaccount.com to my Google Cloud Project?**
 
+
 This service account is needed  in your Google Cloud Project for the ISB-CGC project to be able to automatically verify that all users of your Google Cloud Project have the same appropriate access rights to the protected data that has been reuested for the project.
+
+
 
 **What service account do I use on the Register a Service Account page to be able to gain access to protected data?**
 
