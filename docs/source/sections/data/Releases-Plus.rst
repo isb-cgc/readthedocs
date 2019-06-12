@@ -6,9 +6,9 @@ Release Notes
 #############
 
 * June 25, 2018 : GDC data release 12 was posted on Wednesday, June 13, 2018
- - there is absolutely no change in the legacy archive data between DR11 and DR12
- - there is also no change in the total number of cases in either archive
- - the number of files in the current archive has incrased from 329,165 to 356,381:
+ - There is absolutely no change in the legacy archive data between DR11 and DR12
+ - There is also no change in the total number of cases in either archive
+ - The number of files in the current archive has incrased from 329,165 to 356,381:
   - 67,220 files were removed
   - 94,436 files were added
  More details about the changes to the current archive of TCGA data:
