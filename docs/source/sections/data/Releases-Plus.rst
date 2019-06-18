@@ -5,6 +5,43 @@ Data Releases and Future Plans
 Release Notes
 #############
 
+* June 25, 2018 : GDC data release 12 was posted on Wednesday, June 13, 2018
+ - There is absolutely no change in the legacy archive data between DR11 and DR12
+ - There is also no change in the total number of cases in either archive
+ - The number of files in the current archive has incrased from 329,165 to 356,381:
+  - 67,220 files were removed
+  - 94,436 files were added
+ More details about the changes to the current archive of TCGA data:
+ - Copy Number Variation | Genotyping Array | TXT files:
+  - 22376 Copy Number Segment files replaced (ie removed and added)
+  - 22376 Masked Copy Number Segment files replaced
+ - Biospecimen | BCR XML files:
+  - 11294 files replaced
+ - Clinical | BCR XML files:
+  - 11160 files removed / 11167 files added (ie 7 extra files)
+ - Biospecimen | Diagnostic Slide | SVS files:
+  - 11730 Slide Image files added
+ - Biospecimen | BCR SSF XML files:
+  - 10557 Biospecimen Supplement files added
+ - Biospecimen | BCR Auxiliary XML files:
+  - 2884 Biospecimen Supplement files added
+ - Clinical | BCR OMF XML files:
+  - 1051 Clinical Supplement files added
+ - Biospecimen | BCR Biotab files:
+  - 340 Biospecimen Supplement files added
+ - Clinical | BCR Biotab files:
+  - 226 Clinical Supplement files added
+ - Simple Nucleotide Variation | WXS | VCF | Varscan2 files :
+  - 1 Raw Simple Somatic Mutation file removed (2017-03-04)
+  - 1 Annotated Somatic Mutation file removed (2017-06-17)
+  - both for ESCA samples: TCGA-VR-A8ET-01A-11D-A403-09;TCGA-VR-A8ET-10B-01D-A403-09
+ For TARGET data:
+ - RNA-Seq data:
+  - 3 BAM files and 9 Gene Expression Quantification files removed
+  - sample barcodes: TARGET-30-PAKYZS-01A-01R, TARGET-30-PAMEZH-01A-01R, TARGET-30-PANRRW-01A-01R
+ - Raw CGI Variant | WGS | Combined Nucleotide Variation | VCF files:
+  - 435 files added
+
 * June 4, 2018: metadata tables for GDC data release 11 are now available in BigQuery
 
 * May 8, 2018: the gnomAD database (release 2.0.2, dated October 2017) is now available in BigQuery! **isb-cgc:genome_reference.gnomAD_20171003_GRCh37**
