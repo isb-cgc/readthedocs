@@ -31,10 +31,8 @@ it. feedback@isb-cgc.org
 
 -- the ISB-CGC team
 
-Contents
-########
-
 .. toctree::
+   :hidden:
    :maxdepth: 1
 
    sections/About-ISB-CGC
