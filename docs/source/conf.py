@@ -157,7 +157,8 @@ html_theme_options = {
     "rightsidebar":       "false",
     "stickysidebar":      "true",
     "collapsiblesidebar": "false",
-    "externalrefs":       "true"
+    "externalrefs":       "true",
+    "display_version":    "false"
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
