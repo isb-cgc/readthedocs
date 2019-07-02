@@ -51,7 +51,7 @@ the newer GRCh38/hg38-based data now available at the NCI-GDC.
 All of the tables include one or more of the following identifiers which can be used for 
 performing cross-table JOINs: ``case_barcode``, ``sample_barcode``, and ``aliquot_barcode``.
 (Note that these were previously called ``ParticipantBarcode``, ``SampleBarcode``, and
-``AliquotBarcode``.)  In addition, most tables also containa a ``project_short_name`` field
+``AliquotBarcode``.)  In addition, most tables also contains a ``project_short_name`` field
 (formerly called ``Study``, *eg* TCGA-LUAD, TCGA-BRCA, *etc*).
 
 (Note that in an attempt to be consistent with the NCI-GDC terminology, what we used to call a 
