@@ -39,11 +39,10 @@ it. feedback@isb-cgc.org
    sections/HowToGetStartedonISB-CGC
    sections/BestPractices
    sections/Hosted-Data
-   sections/BigQuery
    sections/Web-UI
    sections/Prog-APIs
    sections/QuicklinksOneTable
-   sections/TutorialsAndHowTosGuides
+   sections/TutorialsAndWorkshops
    sections/FAQ
    sections/Support
 
