@@ -55,7 +55,7 @@ The Google Cloud Platform offers a number of different storage options for your 
   - Persistent disks are restricted to the zone where your instance is located.
   - Use persistent disks if you are running analyses that require low latency and high-throughput. 
   
- b.) `Object Store: <https://cloud.google.com/compute/docs/disks/#gcsbuckets>`_ Google Cloud storage buckets are the most flexible and economical storage option.
+ b.) `Object Storage: <https://cloud.google.com/compute/docs/disks/#gcsbuckets>`_ Google Cloud storage buckets are the most flexible and economical storage option.
  
   - Unlike persistent disks, Cloud Storage buckets are not restricted to the zone where your instance is located. 
   - Additionally, you can read and write data to a bucket from multiple instances simultaneously.
