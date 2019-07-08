@@ -63,3 +63,4 @@ The Google Cloud Platform offers a number of different storage options for your 
   An example use-case: You want to slice thousands of bam files and save the resulting slices to share with a collaborator who has instances in another zone to use for downstream statistical analyses.
   - You can save objects to GCS buckets including images, videos, blobs and unstructured data. 
  A comparison table detailing the current pricing of Google’s storage options can be found here: `storage features <https://cloud.google.com/storage/features/>`_
+ 
