@@ -15,7 +15,7 @@ The nodes are color-coded as follows:
   - **blue** indicates a metadata table (*eg* file manifest, or other metadata)
 
 All of the TCGA tables include patient, sample, and/or aliquot 
-`barcodes <https://wiki.nci.nih.gov/display/TCGA/TCGA+barcode>`_ on each row.
+`barcodes <https://docs.gdc.cancer.gov/Encyclopedia/pages/TCGA_Barcode/>`_ on each row.
 (The actual field names are typically ``ParticipantBarcode``, ``SampleBarcode``, or ``AliquotBarcode``.) 
 Almost all of these tables also include a field called ``Study`` which contains the 
 TCGA tumor-type abbreviation (*eg* BRCA for breast cancer, GBM for glioblastoma multiforme, *etc*).
