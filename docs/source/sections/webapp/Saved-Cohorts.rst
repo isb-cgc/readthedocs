@@ -2,14 +2,14 @@
 Working With Cohorts
 *******************
 
-Cohorts are an way of creating custom groupings of the samples and/or cases that you are 
+Cohorts are a way of creating custom groupings of the samples and/or cases that you are 
 interested in analyzing further.  You may frequently re-use a cohort in multiple analyses.  Creating a "saved cohort" allows you to do this.  If you have any existing saved cohorts, they will appear here for you to view, edit and share (see below for details).
 
 Creating and saving a cohort
 ############################
 
 To create a cohort from Your Dashboard, if you do not have a cohort created, click on the "Filter" or the "Barcodes" links in the 
-"Saved Cohorts" panel at the bottom of the page. The Filter link will take you to the cohort creation page with all filters explained below.  The Barcodes link will send you to a page where you can uplaod samples/cases barcodes and create a cohort from them. Currently you can only upload from three programs TCGA, CCLE, and TARGET. 
+"Saved Cohorts" panel at the bottom of the page. The Filter link will take you to the cohort creation page with all filters explained below.  The Barcodes link will send you to a page where you can upload samples/cases barcodes and create a cohort from them. Currently you can only upload from three programs TCGA, CCLE, and TARGET. 
 
 If you already have saved cohorts, they will be listed in the "Saved Cohorts" panel.  Click on the "Saved Cohorts" link in that panel and this will take you to a page that displays the details of your saved cohorts.  Alternatively, to go directly to a given cohort, click on its name and you will be taken to the cohort details page of that cohort.
 
@@ -19,7 +19,7 @@ Cohort Creation Filters Page
 ============================
 
 Using the provided list of filters on the left hand side, you can select the attributes and features
-that you are interested in either from ISB-CGC data or the User Data tab.  TCGA Data is the first program to be displayed, next to it is CCLE and TARGET Data tabs. You are able to create a cohort with multiple program filters.  CCLE (The Cancer Cell Line Encyclopedia) data - is open access data set that can be used to view sequence data with the IGV viewer without having dbGaP permissions.
+that you are interested in either from ISB-CGC data or the User Data tab.  TCGA Data is the first program to be displayed next to it is CCLE and TARGET Data tabs. You are able to create a cohort with multiple program filters.  CCLE (The Cancer Cell Line Encyclopedia) data - is open access data set that can be used to view sequence data with the IGV viewer without having dbGaP permissions.
 
 By clicking on a feature, the field will expand and provide you with additional filtering options.
 For example, when you click on "Vital Status", it expands and provides a list containing "Alive", "Dead", and
@@ -253,7 +253,7 @@ Viewing and Editing a Cohort
 
 Once you have created a "Saved Cohort" you can view and edit it.  To view a cohort, select it by clicking on its name either from the "Saved Cohorts" panel on the main "Your Dashboard" page or on the "Cohorts" page listing all your saved cohorts.
 
-When you have gone to the "Cohorts" page, you will be shown details of the cohort on the "SAVED COHORTS" tab.  The "PUBLIC COHORTS" tab shows public cohorts that are commonly selected.  Public cohorts can be used for a "New Workbook" and "Set Operations".
+When you have gone to the "Cohorts" page, you will be shown the details of the cohort on the "SAVED COHORTS" tab.  The "PUBLIC COHORTS" tab shows public cohorts that are commonly selected.  Public cohorts can be used for a "New Workbook" and "Set Operations".
 
 From the "COHORTS" page you can select:
 
@@ -274,7 +274,7 @@ To activate the set operations button, you must have at least one cohort selecte
 Upon clicking the "Set Operations"
 button, a dialogue box will appear. Now you may do one of the following:
 
-* Enter in a name for the new cohort you’re about to create.
+* Enter a name for the new cohort you’re about to create.
 * Select a set operation.
 * Edit cohorts to be used in the operation.
 * Add A Cohort
@@ -346,7 +346,7 @@ From the "SAVED COHORTS" tab you can:
 *Note:* You shouldn't ever set UUID to 'required' because sometimes a sample doesn't have a UUID, and the attempt to insert a 'null' will cause the cohort export to fail.
 
 * GCS: This will save the details of the cohort in a Google Cloud Storage location specified by you. You must have a registered Google Cloud Storage (GCS) bucket with a Google Cloud Project on the registered Google Cloud Projects details page. More information on how to register a GCS bucket can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_.  You will be able to select the file format to export into Cloud Storage, either CSV or JSON. All files are exported are converted into zip files.  
-* Share: This will share the web view of the cohorts with users you select by entering the users e-mail. If the email address you entered in is not registered in the database you are prompted with a message saying, "The following user emails could not be found; please ask them to log into the site first:(email entered)."
+* Share: This will share the web view of the cohorts with users you select by entering the user's email. If the email address you entered is not registered in the database you are prompted with a message saying, "The following user emails could not be found; please ask them to log into the site first:(email entered)."
  
 Current Filters Panel
 =====================
@@ -391,7 +391,7 @@ Data File Availability Panel
 
 This panel shows a parallel sets graph of available data files for the selected samples in the cohort. The large headers over
 the vertical bars are data types. Each vertical bar may be broken up to represent different platforms used to generate
-that type of data (and "NA" for samples for which that data type is not available).
+that type of data (and "NA" for samples for which data type is not available).
 The sets of lines that "flow" from left to right indicate the number of samples for which each type of data files are
 available. If you hover over a horizontal segment between two bars, you will see the number of samples that have both those data
 type platforms. You can also reorder the vertical categories by dragging the headers left and right and reorder the
@@ -404,7 +404,7 @@ File Browser Page
 
 "File Browser" takes you to a new page where you can view the complete list of data files associated with your current the cohort.  The file list page provides a paginated list of files available with all samples in the cohort. Here, "available" refers to files that have been uploaded to the ISB-CGC Google Cloud Project, including both controlled access and open access data. You can use "Show", "Page", "Previous" and "Next" navigation tools to navigate to more values in the list.  The columns are sortable by selecting the column header.  You can select a subset of the default columns to show by using the "Choose Columns to Display" tool.
 
-You can filter by Genomic Build either HG19 or HG38 and view which platforms and files are available for the build selected. You can enter a case barocde on all tabs as a filter option.  You also have the ability to do a partial string search.  To remove the search key word you click the clear "X" button. After useing the case search button the filter count is updated for the rest of the filters.  You may also filter on these files if you are only interested in a specific data type, data format, platform, disease code, disease strategy, and/or experimental strategy.  Selecting a filter will update the associated list.  The numbers next to the filter refers to the number of files available for that filter.
+You can filter by Genomic Build either HG19 or HG38 and view which platforms and files are available for the build selected. You can enter a case barcode on all tabs as a filter option.  You also have the ability to do a partial string search.  To remove the search key word you click the clear "X" button. After using the case search button the filter count is updated for the rest of the filters.  You may also filter on these files if you are only interested in a specific data type, data format, platform, disease code, disease strategy, and/or experimental strategy.  Selecting a filter will update the associated list.  The numbers next to the filter refers to the number of files available for that filter.
 
 The tabs "IGV", "Pathology Images" and "Radiology Images" allow you to filter for files that show you respectively read-level sequence data (viewed using the IGV viewer), pathology images, and radiology images.  Please note: only if you have authenticated as a dbGaP authorized user will you be able to select controlled access files to view in the IGV viewer (CCLE data does not require authorization to view the sequence data in the IGV viewer).  Details of how to view Sequences, and Pathology and Radiology images are provided below.
 

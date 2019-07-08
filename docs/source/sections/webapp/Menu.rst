@@ -3,10 +3,10 @@ Menu Bar
 **********
 
 Clicking on the Menu icon or word in the upper-right corner of your browser window (next to your name), will insert the
-blue menu bar in your current view.  You can make this menu bar disappear by clicking the on the blue **X** or the 
+blue menu bar in your current view.  You can make this menu bar disappear by clicking on the blue **X** or the 
 word Menu again.
 
-The **MENU** bar is a graphical control element which contains application navigational drop downs (sub-links). 
+The **MENU** bar is a graphical control element which contains application navigation drop downs (sub-links). 
 The Menu bar's purpose is to supply quick and common links for application-specific functions / features such as: 
 
 
@@ -29,7 +29,7 @@ The Menu bar's purpose is to supply quick and common links for application-speci
         * Save or cancel a new creation
     -   *Public Programs* - Here you can:
         
-          *  View the programs and project that are currently in the ISB-CGC system. 
+          *  View the programs and projects that are currently in the ISB-CGC system. 
 
  * **ANALYSES** - From here you can Create, Edit Details, Duplicate, Delete, or Share Analyses. You can use a specific analysis type to create a new workbook customized with the specific data (Genes and miRNAs, Variables, Cohorts) you have selected.  The plot types that you can select from include:
     - *Bar Chart*
