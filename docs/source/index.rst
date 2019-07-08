@@ -41,7 +41,7 @@ it. feedback@isb-cgc.org
    sections/Web-UI
    sections/Prog-APIs
    sections/QuicklinksOneTable
-   sections/TutorialsAndDIYWorkshop
+   sections/TutorialsAndHow-ToGuides
    sections/FAQ
    sections/Support
 
