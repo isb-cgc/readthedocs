@@ -19,7 +19,7 @@ Some of this data has been re-processed and is available on the main
 This newer dataset so far includes 6183 files representing 3236 cases, and totaling over 17 TB.
 Over half of the files (3740) are controlled-access files, including BAM, VCF, and MAF file types, 
 based on WXS, RNA-seq, and miRNA-seq data.
-The remaining 2443 open-access files, include RNA-seq and miRNA-seq quantification,
+The remaining 2443 open-access files, including RNA-seq and miRNA-seq quantification,
 as well as clinical and biospecimen supplement files.
 
 For more information about the TARGET program, please visit the official 
