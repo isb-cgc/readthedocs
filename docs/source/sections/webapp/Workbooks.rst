@@ -39,7 +39,7 @@ To create a **Workbook** from Your Dashboard, click on the **“Create a New Wor
 
     - **Violin Plot** - This chart is used to plot a categorical feature on the x-axis versus a numerical feature on the y-axis. Points in the plot can be colored by another categorical feature.
     
-    - **OncoPrint** - This chart is used to plot multiple genomic alteration (somatic mutation) events across a set of samples using color-coded glyphs. OncoPrint is developed and provided by cBioPortal.
+    - **OncoPrint** - This chart is used to plot multiple genomic alterations (somatic mutation) events across a set of samples using color-coded glyphs. OncoPrint is developed and provided by cBioPortal.
     
     - **OncoGrid** - This chart is used to visualize the top mutated genes across programs/projects and the number of cases affected. We are also able to view the mutation frequency, clinical data, data format types, number of gene sets and the number of cases affected.
 
@@ -92,7 +92,7 @@ Once completed you can proceed.  The user can also add multiple Cohorts to the w
 
 5. Select **Toggle Sample Selection** - After an analysis option has been selected, using the toggle sample button allows you to create a smaller cohort from within the plot itself.
 
-6. Select **Redraw** - After an analysis option has been selected, using the redraw button will reset the anaylsis to its orginal setting after being zoomed-in, moved place. 
+6. Select **Redraw** - After an analysis option has been selected, using the redraw button will reset the analysis to its original setting after being zoomed-in, moved place. 
 
 7. Select **Download** - After an analysis option has been selected, using the download button will allow you to either download analysis as a SVG, PNG, or a JSON file. 
 
@@ -101,18 +101,18 @@ Once completed you can proceed.  The user can also add multiple Cohorts to the w
 
 Sharing Workbooks
 -----------------
-This will share the web view of workbooks with users you select by entering the users e-mail.  The User will receive an e-mail message with a link to your shared workbook explaining that (you) wanted to share a workbook with (them) and that you have invited them to join.  If the email address you entered in not registered in the database you are prompted with a message saying, "The following user emails could not be found; please ask them to log into the site first:(email entered)."
+This will share the web view of workbooks with users you select by entering the user's email.  The User will receive an email message with a link to your shared workbook explaining that (you) wanted to share a workbook with (them) and that you have invited them to join.  If the email address you entered in not registered in the database you are prompted with a message saying, "The following user emails could not be found; please ask them to log into the site first:(email entered)."
 
 Manipulation of Workbooks
 -------------------------
 
-**Creating A Worksheet** - By selecting the "+" next to an existing worksheet a user can create a new worksheet to create a new analysis. You can give the new worksheet an unique identifier and also give a description for the worksheet. This is ideal by allowing the user to easily have access to different graphs with the same data in the same workbook.
+**Creating A Worksheet** - By selecting the "+" next to an existing worksheet a user can create a new worksheet to create a new analysis. You can give the new worksheet a unique identifier and also give a description for the worksheet. This is ideal by allowing the user to easily have access to different graphs with the same data in the same workbook.
 
 **Worksheet Menu** - The worksheet will have a section similar to the workbook menu where user can edit, duplicate or delete the worksheet. You can find the worksheet menu bar by clicking the arrow pointing down located next to the name of the worksheet that is opened.
 
 **Edit Analysis Settings** - This function allows you to select new Plot Setting for selected analysis type.
 
-Please Note: When selecting a gene or miRNA for either the x-axis or y-axis variable you be prompted with selecting a specification. If you select Gene Expression you have the option of choosing a Select Feature.  If you select the Copy Number specification you can choose a Value Filter. If you select the Protein specification you can selelct a Protein Filter. If you select the Mutation specification you can select a Value Filter. If you select an miRNA expression you can select a select feature.
+Please Note: When selecting a gene or miRNA for either the x-axis or y-axis variable you be prompted with selecting a specification. If you select Gene Expression you have the option of choosing a Select Feature.  If you select the Copy Number specification you can choose a Value Filter. If you select the Protein specification you can select a Protein Filter. If you select the Mutation specification you can select a Value Filter. If you select a miRNA expression you can select a select feature.
  
 .. _selectionicon:
 

@@ -17,7 +17,7 @@ Be mindful that if you download data, you’ll incur egress charges.
 COMPUTING ON THE CLOUD
 =======================
 
-Most of the same linux commands, scripts, pipelines/workflows, genomics software packages and docker containers that you run on your local machine can be executed on virtual machines on the Google cloud. 
+Most of the same Linux commands, scripts, pipelines/workflows, genomics software packages and docker containers that you run on your local machine can be executed on virtual machines on the Google cloud. 
 
 
  a.) The basics and best practices on how to launch virtual machines (VMs) are described `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/gcp-info/gcp-info2/LaunchVM.html>`_ in our documentation. **NOTE: When launching VMs, please maintain the default firewall settings.**
@@ -34,7 +34,7 @@ Most of the same linux commands, scripts, pipelines/workflows, genomics software
  
  d.) A good way to estimate costs for running a workflow/pipeline on large datasets is to test them first on a small subset of data.
  
- e.) There are different VM types depending on the sort of jobs you wish to execute. By default, when you create an VM instance, it remains active until you either stop it or delete it. The costs associated with VM instances are detailed here:  `compute pricing <https://cloud.google.com/compute/pricing>`_
+ e.) There are different VM types depending on the sort of jobs you wish to execute. By default, when you create a VM instance, it remains active until you either stop it or delete it. The costs associated with VM instances are detailed here:  `compute pricing <https://cloud.google.com/compute/pricing>`_
  
  f.) If you plan on running many short compute-intensive jobs (for example indexing and sorting thousands of large bam files), you can execute your jobs on preemptible virtual machines. They are 80% cheaper than regular instances.  `preemptible vms <https://cloud.google.com/preemptible-vms/>`_
  

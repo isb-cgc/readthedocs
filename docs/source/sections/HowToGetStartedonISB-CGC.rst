@@ -35,7 +35,7 @@ Most bioinformaticians today are most likely accustomed to using the high perfor
 +-----------+-------------------------------------+-----------------------------------------+
 | Storage   | Block Storage                       | Block Storage & Object Storage          |
 |           |                                     |                                         |
-|           | - Small storage is avaialable in    | - Each virtual machine instance has a   |
+|           | - Small storage is available in     | - Each virtual machine instance has a   |
 |           |   your home directory (usually      |   single boot persistent disk with a    |
 |           |   around 1TB)                       |   default size of 10GB that can be      |
 |           | - Some Scratch storage that is often|   adjusted up to 64TB*                  |
@@ -50,7 +50,7 @@ Most bioinformaticians today are most likely accustomed to using the high perfor
 +-----------+-------------------------------------+-----------------------------------------+
 | Pricing   | Depends on the institution:         | Pay as you go                           |
 |           |                                     |                                         |
-|           | - Instituion provides basic HPC     | - You pay for the compute resources and |
+|           | - Institution provides basic HPC    | - You pay for the compute resources and |
 |           |   resources for researchers free of |   storage that you use*                 |
 |           |   charge                            |                                         |
 |           | - PIs requiring larger-scale        |                                         |
@@ -71,13 +71,13 @@ Most bioinformaticians today are most likely accustomed to using the high perfor
 | enough?   |                                     |                                         |
 |           |                                     |                                         |
 +-----------+-------------------------------------+-----------------------------------------+
-| Acessing  | Typically not stored on the HPC, you| Data is stored on the cloud             |
+| Accessing | Typically not stored on the HPC, you| Data is stored on the cloud             |
 | Cancer    | have to download to your local      |                                         |
 | Genomics  | machine                             |                                         |
 | Data      |                                     |                                         |
 +-----------+-------------------------------------+-----------------------------------------+
 | How to    | Log in using Secure Shell           | Log in using Secure Shell               |
-| connect   | protocal (SSH)                      | protocal (SSH)                          |
+| connect   | protocol (SSH)                      | protocol (SSH)                          |
 |           |                                     |                                         |
 +-----------+-------------------------------------+-----------------------------------------+
 ***Be careful of costs** 
@@ -125,7 +125,7 @@ II. Accessing and analyzing data via BigQuery
 -----------------------------------------------
 
  - BigQuery is Google’s native big data analysis tool. It is a serverless, highly scalable data warehouse tool that allows researchers to find meaningful insights from data using standard SQL queries CHEAPLY, and FAST!
- - ISB-CGC has leveraged this powerful tool and uploaded multiple cancer genomics datasets into BigQuery tables that are open to the public. `ISB-CGC Datasets in BigQuery <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_BQ.html>`_ and the always freshly updated `Data Release Notes and Future Plans <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/Releases-Plus.html>`_ . 
+ - ISB-CGC has leveraged this powerful tool and uploaded multiple cancer genomics datasets into BigQuery tables that are open to the public. `ISB-CGC Datasets in BigQuery <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_BQ.html>`_ and the always freshly updated `Data Release Notes and Future Plans <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/Releases-Plus.html>`_. 
  - To obtain access to the ISB-CGC open access project tables in BigQuery, users can link these tables to your GCP project as described `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_.
  - To obtain access to the ISB-CGC controlled access project tables in BigQuery, users can link these tables to your GCP project as described `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/bigqueryGUI/LinkingISB-CGCtoCABQ.html>`_.
  - ISB-CGC provides `tutorials <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DIYWorkshop.html#additional-quickstart-tutorials>`_ and `walkthroughs <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/bigqueryGUI/WalkthroughOfGoogleBigQuery.html>`_ on how to access BigQuery from the `web-UI <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform.html>`_,  `programmatically in R <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/workshop/Workshop_R_tut_v2.html>`_, or through Google’s native Jupyter notebook `Cloud Datalab <https://cloud.google.com/datalab/>`_, and `python <https://github.com/isb-cgc/examples-Python/>`_ examples.
@@ -139,9 +139,9 @@ III. Accessing and analyzing data stored in GCS
  - All open-access data on ISB-CGC are stored in a publically available GCS bucket (gs://isb-cgc-open).
  - All controlled-access data are stored in Google Cloud Storage (GCS) in their original form as obtained from the GDC. 
  - To access controlled data, users must first be authenticated by NIH (`via the ISB-CGC web-app <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-Contolled-Access-Data.html#interactive-access-to-controlled-data>`_). Upon successful authentication, user dbGaP authorization will be verified. These two steps are required before the user’s Google identity is added to the access control list (ACL) for the controlled data. At this time, this access must be renewed every 24 hours.
- - `Summary of data types and format available <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_GCS.html>`_
+ - `Summary of data types and formats available <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_GCS.html>`_
  - New programs have been added into Google Cloud Storage, directions on how to find the data paths via IndexD can be found `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/AccessData/AccessviaIndexD.html>`_.
  - Working with large-scale data hosted by the ISB-CGC in Google Cloud Storage requires some familiarity with tools such as the `Google Cloud SDK <https://cloud.google.com/sdk/>`_, `Google Compute Engine <https://cloud.google.com/compute/>`_, `Virtual Machines <https://en.wikipedia.org/wiki/Virtual_machine>`_ and `Docker <https://www.docker.com/why-docker#/VM>`_.
- - Cheat-sheets and slides on computing in the cloud including how to access files stored on GCS can be found `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DIYWorkshop.html#isb-cancer-genomics-cloud-isb-cgc>`_. 
+ - Cheat-sheets and slides on computing in the cloud, including how to access files stored on GCS, can be found `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DIYWorkshop.html#isb-cancer-genomics-cloud-isb-cgc>`_. 
 
 
