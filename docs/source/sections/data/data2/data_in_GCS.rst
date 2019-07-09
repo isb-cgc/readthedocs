@@ -71,9 +71,9 @@ This new functionality allows you to run, for example:
 
 .. code-block:: none
 
-   $ ./samtools view gs://gdc-ccle-open/0a109993-2d5b-4251-bcab-9da4a611f2b1/C836.Calu-3.2.bam 7:140453130-140453140
+   $ ./samtools -X view gs://gdc-ccle-open/0a109993-2d5b-4251-bcab-9da4a611f2b1/C836.Calu-3.2.bam gs://gdc-ccle-open/96b56036-b278-45cd-a7ca-265f589ff951/C836.Calu-3.2.bam.bai 7:140453130-140453140
    
-   Index file location: gs://gdc-ccle-open/96b56036-b278-45cd-a7ca-265f589ff951/C836.Calu-3.2.bam.bai 
+     
 
 If you want to access a controlled-access BAM file, you'll need to provide credentials first:
 
