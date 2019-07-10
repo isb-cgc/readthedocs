@@ -23,14 +23,14 @@ The ISB-CGC is hosting much of this data (both "legacy" and "harmonized" in
 Google Cloud Storage (GCS), meaning that you may *not* need to download any
 data from the NCI-GDC if you're planning on running your analyses on the Google
 Cloud Platform.  These tables can be previewed and queried conveniently and
-interactively from the `BigQuery web UI <https://bigquery.cloud.google.com>`_
+interactively from the `BigQuery web UI <https://console.cloud.google.com/bigquery/>`_
 or from scripting languages such as **R** and **Python**, or from the command-line using the 
 `cloud SDK <https://cloud.google.com/sdk/>`_ utility **bq**.  If you have used the NCI-GDC portal to create cohorts or filelists, you can follow `these tutorials <../GDCTutorials/FromGDCtoISBCGC.html>`__ to bring that information into ISB-CGC for use.
 
 In order to help users determine which data at the NCI-GDC is available on the
 ISB-CGC platform, we have created a set of metadata tables in BigQuery
 (based on `NCI-GDC Data Release 8.0 <https://docs.gdc.cancer.gov/Data/Release_Notes/Data_Release_Notes/>`_)
-in the `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:GDC_metadata>`_ dataset:
+in the `isb-cgc.GDC_metadata <https://console.cloud.google.com/bigquery?p=isb-cgc&d=GDC_metadata>`_ dataset:
 
 - `rel8_caseData <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel8_caseData>`_:  contains a complete list of all 17268 cases existing in either the legacy or current archives.  The following query, for example will return a count of the number of cases by program, together with the number of data files for those cases in the two archives:
 
@@ -74,7 +74,7 @@ in the `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:
      COUNT(*) AS numFiles,
      SUM(file_size)/1000000000 AS totFileSize_GB
    FROM
-     `isb-cgc.GDC_metadata.rel8_fileData_current`
+     `isb-cgc.GDC_metadata.re8_fileData_current`
    GROUP BY
      1, 2, 3, 4, 5
    ORDER BY
