@@ -14,13 +14,13 @@ Genome Reference Data
 =====================
 
 Reference data that describes or annotates the human (or other) genome(s) is described in this section.  
-Reference data hosted by the ISB-CGC in BigQuery tables are available in the ``isb-cgc:genome_reference`` 
-`dataset <https://bigquery.cloud.google.com/dataset/isb-cgc:genome_reference>`_.  Tables based on 
+Reference data hosted by the ISB-CGC in BigQuery tables are available in the ``isb-cgc.genome_reference`` 
+`dataset <https://console.cloud.google.com/bigquery?p=isb-cgc&d=genome_reference&page=dataset>`_.  Tables based on 
 gene-sets such as Ensembl and GENCODE can be used to find the genomic coordinates and identifiers
 for genes of interest, in order to perform queries that join tables with gene-symbol based data
 to tables with genomic-coordinate based data or tables that use other gene identifiers, for example.
 
-For additional details about each of these tables, please use the `BigQuery web UI <https://bigquery.cloud.google.com>`_ 
+For additional details about each of these tables, please use the `BigQuery web UI <https://console.cloud.google.com/bigquery>`_ 
 to access each of these tables and look at the information on the **Details** page.  (Look for the Details button
 between the Schema and Preview buttons, beneath the table name.)
 
@@ -51,7 +51,7 @@ between the Schema and Preview buttons, beneath the table name.)
 .. _liftOver: https://genome.ucsc.edu/cgi-bin/hgLiftOver
 .. _GO: http://www.geneontology.org/
 .. _Ensembl: http://uswest.ensembl.org/index.html
-.. _GENCODE: https://www.gencodegenes.org/releases/
+.. _GENCODE: https://www.gencodegenes.org/
 .. _Kaviar: http://db.systemsbiology.net/kaviar/
 .. _miRBase: http://www.mirbase.org/
 .. _miRTarBase: http://nar.oxfordjournals.org/content/early/2015/11/19/nar.gkv1258.long
@@ -69,7 +69,7 @@ to see hosted in BigQuery tables, please let us know at feedback@isb-cgc.org.
  * **DNA Methylation Platform**
     - Most of the DNA Methylation data produced by the TCGA project was obtained using the Illumina Infinium HumanMethylation450 (aka 450k) BeadChip array.  Some of the earlier tumor types were assayed on the older, 27k array.
 
-    - Although additional details can be found at the `Illumina <https://www.illumina.com/>`_ webpage, we have uploaded the platform annotation information into the BigQuery table ``isb-cgc:platform_reference.methylation_annotation``
+    - Although additional details can be found at the `Illumina <https://www.illumina.com/>`_ webpage, we have uploaded the platform annotation information into the BigQuery table ``isb-cgc.platform_reference.methylation_annotation``
 
     - Each CpG locus is uniquely identified as described in this `technical note <http://www.illumina.com/content/dam/illumina-marketing/documents/products/technotes/technote_cpg_loci_identification.pdf>`_ and this unique identifier can be used to look up and cross-reference data between the TCGA DNA methylation data table and the platform annotation table. 
 
@@ -77,7 +77,7 @@ to see hosted in BigQuery tables, please let us know at feedback@isb-cgc.org.
 
 
   * **Genome-Wide SNP Array**
-    - The technical documentation for the Affymetrix Genome-Wide Human SNP Array 6.0 array can be found `here <http://www.affymetrix.com/catalog/131533/AFFY/Genome-Wide+Human+SNP+Array+6.0#1_3>`_
+    - The technical documentation for the Affymetrix Genome-Wide Human SNP Array 6.0 array can be found `here <http://www.affymetrix.com/catalog/131533/AFFY/Genome-Wide+Human+SNP+Array+6.0#1_3>`_.
 
 
 Other Reference Data Sources
@@ -87,7 +87,7 @@ In collaboration with the Wellcome Trust Sanger Institute, the ISB-CGC is hostin
 `COSMIC database <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/COSMIC.html>`_.
 
 Google Genomics maintains a list of 
-`publicly available datasets <http://googlegenomics.readthedocs.org/en/latest/use_cases/discover_public_data/index.html>`_, 
+`publicly available datasets <https://cloud.google.com/genomics/docs/public-datasets/>`_, 
 including **Reference Genomes**, 
 the **Illumina Platinum Genomes**, information about the **Tute Genomics Annotation** table, *etc*.
 
