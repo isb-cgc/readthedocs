@@ -2,16 +2,16 @@ Annotations
 ===========
 
 The TCGA Annotations BigQuery
-`table <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_bioclin_v0.Annotations>`__
+`table <https://console.cloud.google.com/bigquery?p=isb-cgc&d=TCGA_bioclin_v0&t=Annotations&page=table>`__
 was created based on the contents of the JSON file obtained from the TCGA
 Annotation manager `Web Service
-API <https://wiki.nci.nih.gov/display/TCGA/TCGA+Annotations+Web+Service+User's+Guide>`__.
+API <https://docs.gdc.cancer.gov/API/Users_Guide/Search_and_Retrieval/#annotations-endpoint>`__.
 The deeply nested JSON file was first flattened, and then a subset of the 
 fields were selected to be loaded into the BigQuery table.  In the flattening
 process, sub-level field names were prefixed with the parent name, separated by
 an underscore.  These names have now been updated to reflect their names in the Genome Data Commons (GDC) Annotations API.
 Please refer directly to BigQuery for the table 
-`schema <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_bioclin_v0.Annotations>`__.
+`schema <https://console.cloud.google.com/bigquery?p=isb-cgc&d=TCGA_bioclin_v0&t=Annotations&page=table>`__.
 
 +------------------------------------------------------------------------------+----------------------------+
 | Original field name                                                          | New field name             |
