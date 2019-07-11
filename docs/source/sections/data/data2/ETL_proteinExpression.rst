@@ -6,8 +6,8 @@ annotation file, and the estimated expression value for that particular
 protein. The "Composite Element REF" was parsed to generate additional
 
 information(see details in the formatting section). The BigQuery tables 
-`HG19 Protein_Expression <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.Protein_Expression>`_ and 
-`HG38 Protein_Expression <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg38_data_v0.Protein_Expression>`_
+`HG19 Protein_Expression <https://console.cloud.google.com/bigquery?p=isb-cgc&d=TCGA_hg19_data_v0&t=Protein_Expression&page=table>`_ and 
+`HG38 Protein_Expression <https://console.cloud.google.com/bigquery?p=isb-cgc&d=TCGA_hg38_data_v0&t=Protein_Expression&page=table>`_
 
 was populated with all TCGA Level-3 RPPA data matching the pattern -
 "%\_RPPA\_Core.protein\_expression%.txt".
