@@ -2,20 +2,24 @@
 Integrative Genomics Viewer (IGV)
 *********************************
 IGV is a widely used interactive tool for exploring genomic data.  A web-based version is integrated into the ISB-CGC Web-App, 
-and the IGV desktop version can also be used to access ISB-CGC hosted data in Google Cloud Storage (GCS).
-Information about this use-case is provided in this section.  For more information about IGV, please follow the links
-in the Acknowledgements section at the bottom of this page.
-
+and the IGV desktop version can also be used to access ISB-CGC hosted data in Google Cloud Storage (GCS). For more information about IGV, please follow the links in the Acknowledgements section at the bottom of this page.
+  
 Accessing the IGV Browser from the Web Application
 --------------------------------------------------
 
-To access IGV, first select a cohort and then go to the cohort file list page (through the "View Files" link at the top of the page).
+To access IGV, first select a cohort and then go to the cohort file list page by clicking on the "File Browser" button at the top of the pa.
 
 .. image:: cohort.PNG
 
-The resulting file list can be filtered using the build either HG19 or HG38 and the Platforms listed on the left.  Any file that can be displayed in the IGV Browser will have a "Cloud Storage" (for files available via Google Cloud Storage) checkbox in the IGV column on the right side of the file table.  Note that many files viewable in IGV may require that the user have dbGaP authorization to view controlled access data.  If the user has been authenticated and authorized through the user details page, the user will be able to select files.  Otherwise the cursor will be disabled when the user hovers over a checkbox.  Open source data such as the CCLE project do not require dbGaP authorization and can be viewed by any authenticated user.
+On the File Browser page, click on IGV in the top menu bar.
 
-Once a maximum of five files have been selected, they can be viewed in the IGV Browser by clicking on the "Launch IGV" button in the upper right of the window
+The resulting file list can be filtered using the Build (HG19 or HG38) and the other filters listed on the left.  
+
+Click the View checkbox (far right column) for each file that you want to view in IGV. Sometimes the checkbox cannot be checked; here are some reasons why:
+ - Many files viewable in IGV may require that the user have dbGaP authorization to view controlled access data.  If the user has been authenticated and authorized through the user details page, the user will be able to select files.  Otherwise the cursor will be disabled when the user hovers over a checkbox.  Open source data such as the CCLE project do not require dbGaP authorization and can be viewed by any authenticated user.
+ - Only a maximum of five files can be selected for viewing at a time.
+
+To view the selected files in the IGV Browser, click on the "Launch IGV" button in the upper right of the window.
 
 .. image:: CCLE_Files.PNG
 
@@ -28,7 +32,7 @@ NOTES:
 Using IGV Desktop Application to View Aligned Reads in Google Cloud Storage 
 ----------------------------------------------------------------------------
 
-You can also download and use the IGV desktop application to view aligned reads stored BAM files in Google Cloud Storage. To do this, `download <http://www.broadinstitute.org/software/igv/download>`_ the most recent version of IGV.  After launching IGV, go to the "Settings" menu to enable the Google Menu item in the application (`directions <http://googlegenomics.readthedocs.io/en/latest/use_cases/browse_genomic_data/igv.html>`_ on how to do this).
+You can also download and use the IGV desktop application to view aligned reads stored in BAM files in Google Cloud Storage. To do this, `download <http://www.broadinstitute.org/software/igv/download>`_ the most recent version of IGV.  After launching IGV, go to the "Settings" menu to enable the Google Menu item in the application (`directions <http://googlegenomics.readthedocs.io/en/latest/use_cases/browse_genomic_data/igv.html>`_ on how to do this).
 
 To load BAM files from ISB-CGC Google Cloud Storage, use the "File" > "Load from URL..."  menu item in the IGV application, entering the path to the bam file in GCS.  Paths to BAM files stored by ISB-CGC can be found using the ``cohorts().cloud_storage_file_paths()`` and ``samples().cloud_storage_file_paths()`` APIs described `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/progapi3_api/cohorts_cloud_storage_file_paths.html>`_.
 
