@@ -6,8 +6,8 @@ UNC RSEM pipeline was incorporated into the GDC.  The GDC has also reprocessed t
 BigQuery table.:
 
 
-- the data produced by the `UNC LCCC <https://unclineberger.org/>`_ and the resulting normalized RSEM values are stored in `one table <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM>`_
-- and the data produced by the `GDC <https://gdc.cancer.gov/>`_ and the resulting normalized RPKM values are stored in `another table <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg38_data_v0.RNAseq_Gene_Expression>`_
+- the data produced by the `UNC LCCC <https://unclineberger.org/>`_ and the resulting normalized RSEM values are stored in `one table <https://console.cloud.google.com/bigquery?p=isb-cgc&d=TCGA_hg19_data_v0&t=RNAseq_Gene_Expression_UNC_RSEM&page=table>`_
+- and the data produced by the `GDC <https://gdc.cancer.gov/>`_ and the resulting normalized RPKM values are stored in `another table <https://console.cloud.google.com/bigquery?p=isb-cgc&d=TCGA_hg38_data_v0&t=RNAseq_Gene_Expression&page=table>`_
 
 
 UNC RNAseqV2 Pipeline
