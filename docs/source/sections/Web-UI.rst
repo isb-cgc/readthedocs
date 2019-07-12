@@ -12,6 +12,7 @@ We welcome your ideas and needs.  Please use this `link <https://groups.google.c
    :maxdepth: 1
 
    webapp/Overview
+   webapp/Dashboard
    webapp/Gaining-Access-To-Contolled-Access-Data
    webapp/Menu
    webapp/Workbooks
