@@ -25,12 +25,3 @@ These are live links, and can be used to rapidly navigate from one section of th
 .. image:: Breadcrumbs.png
    :scale: 50
    :align: center
-
-The data that is being manipulated with the Web Application is the same data that is available through the programmatic APIs.  
-Details describing how to access these data are provided in detail in specific documentation sections elsewhere in the documentation.
-
-The Web Application was optimized for use with the Google Chrome web browser.  Most of the functionality should work with recent versions 
-of other web browsers (e.g. Firefox, Safari, Internet Explorer).  If you find an issue and you are not using Chrome, please
-try using Chrome to see if the issue appears to be browser-specific.
-
- Also please note the system is set in Pacific time, so if you see some inconsistencies with the time in the workbooks or cohorts you generated in the last updated section it could be due to this fact. 
