@@ -13,8 +13,7 @@ The open-access TCGA data hosted by the ISB-CGC Platform includes:
 * Gene (mRNA) expression data:  these data were originally provided as TSV files (Level-3) by the DCC;
 * microRNA expression data:  these data were originally provided as TSV files (Level-3) by the DCC;
 * Protein expression data:  these data were originally provided as TSV files (Level-3) by the DCC; and
-* TCGA Annotations data:  annotations were originally obtained from the TCGA Annotations Manager, and can now also be found on the
-`GDC Data Portal <https://portal.gdc.cancer.gov/annotations>`_
+* TCGA Annotations data:  annotations were originally obtained from the TCGA Annotations Manager, and can now also be found on the `GDC Data Portal <https://portal.gdc.cancer.gov/annotations>`_.
 
 in Google Cloud Storage (GCS)
 -----------------------------
@@ -30,9 +29,7 @@ The information scattered over tens of thousands of XML and TSV files at the DCC
 *much more accessible* form in a series of 
 `BigQuery tables <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_BQ.html#tcga-clinical-biospecimen-and-molecular-data>`_.  
 
-For more details, including tutorials and code examples in 
-`Python <https://github.com/isb-cgc/examples-Python>`_ or 
-`R <https://github.com/isb-cgc/examples-R>`_, please see our `github repositories <https://github.com/isb-cgc>`_.
+For more details, please see our `github repositories <https://github.com/isb-cgc>`_ or our `Community Notebook Repository <https://github.com/isb-cgc/Community-Notebooks>`_ for tutorials and code examples in Python and R.
 
 This `introductory tutorial <https://github.com/isb-cgc/examples-Python/blob/master/notebooks/The%20ISB-CGC%20open-access%20TCGA%20tables%20in%20BigQuery.ipynb>`_
 gives a great overview of all of the tables and pointers on how to get started exploring them.  Be sure to check it out!
