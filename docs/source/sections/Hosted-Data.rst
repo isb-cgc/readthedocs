@@ -10,7 +10,7 @@ and annotation datasets in different appropriate Google Cloud technologies:
     * TCGA radiology and tissue image data are now also available in Google Cloud Storage;
     * TCGA proteomics (CPTAC PhaseII) data has also been uploaded to Google Cloud Storage;
 
-The original mission of the ISB-CGC was to host the TCGA dataset.  We are now in midst
+The original mission of the ISB-CGC was to host the TCGA dataset.  We are now in the midst
 of adding data from the TARGET pediatric cancer.  Stay tuned for updates.
 
 A note about legacy and harmonized data sets

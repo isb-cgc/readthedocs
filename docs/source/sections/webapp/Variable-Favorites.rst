@@ -89,7 +89,7 @@ This filter allows the user to search by any clinical feature in a given program
 
 User Uploaded Programs Filter
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This filter allows you to select by filters that you have uploaded using the upload data functionality. It's seperated by projects within your program, a drop down list will display the features that are assocaited.
+This filter allows you to select by filters that you have uploaded using the upload data functionality. It's separated by projects within your program, a drop down list will display the features that are associated.
 
 Selected Filters Panel
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -98,7 +98,7 @@ This is where the filters you have selected are shown on the right panel for cle
 
 Editing a Variable Favorites List
 =================================
-Selecting the edit button from the variable list page or a specific variable details page, you are re-directed to a page where you can add or remove filters from all programs on system and user uploaded data. You are also able to change the title of the variable favortie list from the feature. 
+Selecting the edit button from the variable list page or a specific variable details page, you are redirected to a page where you can add or remove filters from all programs on system and user uploaded data. You are also able to change the title of the variable favorite list from the feature. 
 
 Main Menu
 ---------

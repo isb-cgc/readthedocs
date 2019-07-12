@@ -12,7 +12,7 @@ The open-access TCGA data hosted by the ISB-CGC Platform includes:
 * DNA methylation data:  these data were originally provided as TSV files (Level-3) by the DCC;
 * Gene (mRNA) expression data:  these data were originally provided as TSV files (Level-3) by the DCC;
 * microRNA expression data:  these data were originally provided as TSV files (Level-3) by the DCC;
-* Protein expression data:  these data were origially provided as TSV files (Level-3) by the DCC; and
+* Protein expression data:  these data were originally provided as TSV files (Level-3) by the DCC; and
 * TCGA Annotations data:  annotations were originally obtained from the TCGA Annotations Manager, and can now also be found on the
 `GDC Data Portal <https://portal.gdc.cancer.gov/annotations>`_
 
@@ -47,7 +47,7 @@ The controlled-access TCGA data hosted by the ISB-CGC Platform includes:
 * MAF files:  these "protected" mutation files (Level-2) were provided by the DCC (note that these files were not generated uniformly for all tumor types);
 * DNA-seq BAM files:  these Level-1 data files were provided by CGHub;
    - over 37,000 of these files are available in Google Cloud Storage (GCS);
-   - roughly 90% of these BAM files containe exome data, the remaining 10% contain whole-genome data;
+   - roughly 90% of these BAM files contain exome data, the remaining 10% contain whole-genome data;
    - BAM index (BAI) files are also available for all BAM files;
 * mRNA- and microRNA-seq BAM files:  these Level-1 data files were provided by CGHub;
    - over 13,000 mRNA-seq BAM files are available in GCS;
@@ -60,7 +60,7 @@ in Google Cloud Storage
 At this time, all of these controlled-access data files are stored in GCS in the original form, as obtained from the data repository.  
 
 In order to access these controlled data, a user of the ISB-CGC must first be authenticated by NIH (via the ISB-CGC web-app).
-Upon successful authentication, the users's dbGaP authorization will be verified.  These two steps are required before the user's
+Upon successful authentication, the user's dbGaP authorization will be verified.  These two steps are required before the user's
 Google identity is added to the access control list (ACL) for the controlled data.  At this time, this access must be renewed
 every 24 hours.
 
