@@ -46,9 +46,9 @@ If your GoogleID is tied to a G-Suite org (e.g "exampleuser@systemsbiology.org",
 
 One workaround is to give ownership to "your" Gsuite account. This essentially means you e.g. add "exampleuser@systemsbiology.org" as an owner, after creating it as e.g. "example.user@gmail.com". 
 
-Please note that the user has to have at least a free tier cloud account or please contact feedback@isb-cgc.org for more assistance in creating a free account. 
+Please note that you will need to have at least a free tier cloud account or please contact feedback@isb-cgc.org for more assistance in creating a free account. 
 
-Also be aware that the billing account for the user needs to be tied to the project as well after it is created.  *This is important* if you would like your organization to get billed instead of your personal credit card.
+Also be aware that the billing account for the end-user needs to be tied to the project as well after it is created.  *This is important* if you would like your organization to get billed instead of your personal credit card. 
 
 There are additional instructions which work and can be found `here <https://stackoverflow.com/questions/47776654/create-gcp-project-without-organization>`_.
 
