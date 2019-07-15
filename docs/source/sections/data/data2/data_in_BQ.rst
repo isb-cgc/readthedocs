@@ -6,11 +6,10 @@ The information scattered over tens of thousands of XML and TSV files in two sep
 `NCI-GDC <https://gdc.cancer.gov/>`_ is provided in a 
 *much more accessible* form in a series of *open-access* BigQuery tables.  
 For more details, including tutorials, SQL, 
-and code examples in `Python <https://github.com/isb-cgc/examples-Python>`_ or 
-`R <https://github.com/isb-cgc/examples-R>`_, 
+and code examples in Python or R, 
 please see our 
 `Query of the Month <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/QueryOfTheMonthClub.html>`_ page and our
-`github repositories <https://github.com/isb-cgc>`_.
+`Community Notebook Repository <https://github.com/isb-cgc/Community-Notebooks>`_.
 Note that dbGaP authorization is **not** required to access these tables!
 
 If you have suggestions or requests for additional data (*eg* TCGA isoform expression data,
@@ -24,8 +23,8 @@ Data made available by the ISB-CGC through BigQuery is organized into several *o
 datasets, where a dataset is made up of multiple tables.  
 Datasets in BigQuery are uniquely identified based on the Google Cloud Platform (GCP) project name 
 (in this case **isb-cgc**), and the dataset name, separated by a colon (or a period, in standard SQL), 
-*eg* ``isb-cgc:TCGA_bioclin_v0``.  Tables are uniquely identified by appending the table name,
-preceded by a period, *eg* ``isb-cgc:TCGA_bioclin_v0.Clinical``.
+*eg* ``isb-cgc.TCGA_bioclin_v0``.  Tables are uniquely identified by appending the table name,
+preceded by a period, *eg* ``isb-cgc.TCGA_bioclin_v0.Clinical``.
 
 You can use the Google BigQuery graphical interface to query the BigQuery datasets.  To view and use these datasets, please see this `page <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/bigqueryGUI/LinkingISB-CGCtoCABQ.html>`_  for accessing controlled data in BigQuery or this `page <../../progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_ to view open access data in BigQuery.
 
@@ -63,11 +62,11 @@ Each dataset and table described below is linked directly the corresponding view
 `BigQuery web UI <https://bigquery.cloud.google.com>`_ where you can see the schema and 
 other additional information for each table, preview its contents, *etc*.
 
-- `isb-cgc:TCGA_bioclin_v0 <https://bigquery.cloud.google.com/dataset/isb-cgc:TCGA_bioclin_v0>`_:
+- `isb-cgc.TCGA_bioclin_v0 <https://console.cloud.google.com/bigquery?utm_source=bqui&utm_medium=link&utm_campaign=classic&p=isb-cgc&d=TCGA_bioclin_v0&page=dataset>`_:
 
 ..
 
-  + `Clinical <https://bigquery.cloud.google.com/dataset/isb-cgc:TCGA_bioclin_v0.Clinical>`_:
+  + `Clinical <https://console.cloud.google.com/bigquery?utm_source=bqui&utm_medium=link&utm_campaign=classic&folder&p=isb-cgc&d=TCGA_bioclin_v0&t=Clinical&page=table>`_:
     This table contains one row for each TCGA case (aka patient or participant) with *any* 
     available clinical information -- over 11,000 cases are represented.
     Any given field in 
@@ -76,24 +75,24 @@ other additional information for each table, preview its contents, *etc*.
   
 ..
 
-  + `Biospecimen <https://bigquery.cloud.google.com/dataset/isb-cgc:TCGA_bioclin_v0.Biospecimen>`_:
+  + `Biospecimen <https://console.cloud.google.com/bigquery?utm_source=bqui&utm_medium=link&utm_campaign=classic&folder&p=isb-cgc&d=TCGA_bioclin_v0&t=Biospecimen&page=table>`_:
     This table is a *sample-centric* table, and contains one row of information for each of the (over 23,000) 
     TCGA samples.  Any given field in this table may be ``null`` for many samples, depending on the 
     sample-type or the tumor-type.
 
 ..
 
-  + `Annotations <https://bigquery.cloud.google.com/dataset/isb-cgc:TCGA_bioclin_v0.Annotations>`_:
+  + `Annotations <https://console.cloud.google.com/bigquery?utm_source=bqui&utm_medium=link&utm_campaign=classic&folder&p=isb-cgc&d=TCGA_bioclin_v0&t=Annotations&page=table>`_:
     This table contains annotations and related information obtained from the 
-    `TCGA Annotations Manager <https://wiki.nci.nih.gov/display/TCGA/TCGA+Annotations+Manager+User's+Guide>`_
+    `TCGA Annotations Manager <https://docs.gdc.cancer.gov/Data_Dictionary/viewer/#?view=table-definition-view&id=annotation>`_
     (formerly available at the TCGA DCC).
     
 
-- `isb-cgc:TCGA_hg19_data_v0 <https://bigquery.cloud.google.com/dataset/isb-cgc:TCGA_hg19_data_v0>`_:
+- `isb-cgc.TCGA_hg19_data_v0 <https://console.cloud.google.com/bigquery?utm_source=bqui&utm_medium=link&utm_campaign=classic&folder&p=isb-cgc&d=TCGA_hg19_data_v0&page=dataset>`_:
 
 ..
 
-  + `Copy_Number_Segment_Masked <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.Copy_Number_Segment_Masked>`_: 
+  + `Copy_Number_Segment_Masked <https://console.cloud.google.com/bigquery?utm_source=bqui&utm_medium=link&utm_campaign=classic&folder&p=isb-cgc&d=TCGA_hg19_data_v0&t=Copy_Number_Segment_Masked&page=table>`_: 
     This table contains all available Copy Number segmentation data across all TCGA samples.  
     Each row in the table describes a single copy-number segment for a single aliquot.  
     The fields ``chromosome``, ``start_pos``, and ``end_pos`` specify the chromosomal coordinates (1-based) 
@@ -104,29 +103,29 @@ other additional information for each table, preview its contents, *etc*.
 
 ..
 
-  + `DNA_Methylation <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.DNA_Methylation>`_: 
+  + `DNA_Methylation <https://console.cloud.google.com/bigquery?utm_source=bqui&utm_medium=link&utm_campaign=classic&folder&p=isb-cgc&d=TCGA_hg19_data_v0&t=DNA_Methylation&page=table>`_: 
     This table contains **all** of the DNA methylation data for all TCGA samples assayed on either the 
     HumanMethylation 27k or 450k platforms.  Please note that this is a very **large** table 
     (with close to 4 billion rows), so query it with caution -- a *single* query will cost *your* GCP project $2-3.  
     Each row contains the methylation "beta" for a particular aliquot at a particular probe.  
     Details about a particular probe, based on the ``Probe_Id`` field value (*eg* ``cg03879918``) 
     can be obtained from the ``methylation_annotation`` table (available in the 
-    `isb-cgc:platform_reference <https://bigquery.cloud.google.com/dataset/isb-cgc:platform_reference>`_ dataset).
+    `isb-cgc.platform_reference <https://console.cloud.google.com/bigquery?utm_source=bqui&utm_medium=link&utm_campaign=classic&folder&p=isb-cgc&d=platform_reference&page=dataset>`_ dataset).
     For convenience, this data is also available in 24 chromosome-specific tables so that more
     targeted queries will need to scan less data (and will therefore be cheaper).
 
 
-  + `miRNAseq_Expression <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.miRNAseq_Expression>`_:
+  + `miRNAseq_Expression <https://console.cloud.google.com/bigquery?utm_source=bqui&utm_medium=link&utm_campaign=classic&folder&p=isb-cgc&d=TCGA_hg19_data_v0&t=miRNAseq_Expression&page=table>`_:
     This table contains **all** of the miRNAseq stem-loop expression data for all TCGA samples assayed on either the 
     Illumina GA or Illumina HiSeq platforms.  
     
 
-  + `miRNAseq_Isoform_Expression <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.miRNAseq_Isoform_Expression>`_:
+  + `miRNAseq_Isoform_Expression <https://console.cloud.google.com/bigquery?utm_source=bqui&utm_medium=link&utm_campaign=classic&folder&p=isb-cgc&d=TCGA_hg19_data_v0&t=miRNAseq_Isoform_Expression&page=table>`_:
     This table contains **all** of the miRNA isoform-level expression (aka isomiR) data for all
     TCGA samples assayed on either the Illumina GA or Illumina HiSeq platforms.  
     
 
-  + `Protein_Expression <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.Protein_Expression>`_: 
+  + `Protein_Expression <https://console.cloud.google.com/bigquery?utm_source=bqui&utm_medium=link&utm_campaign=classic&folder&p=isb-cgc&d=TCGA_hg19_data_v0&t=Protein_Expression&page=table>`_: 
     This table contains protein expression quantification estimates based on the RPPA (reverse phase protein array) 
     platform.  Note that only a subset (~70%) of the TCGA tumor samples were assayed on this platform.  This 
     technology uses antibodies which bind (sometimes non-specifically) to the target protein.  In certain cases, 
@@ -136,7 +135,7 @@ other additional information for each table, preview its contents, *etc*.
     Additional fields include the ``antibody_source`` and ``validation_status``.
 
 
-  + `RNAseq_Gene_Expression_UNC_RSEM <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM>`_: 
+  + `RNAseq_Gene_Expression_UNC_RSEM <https://console.cloud.google.com/bigquery?utm_source=bqui&utm_medium=link&utm_campaign=classic&folder&p=isb-cgc&d=TCGA_hg19_data_v0&t=RNAseq_Gene_Expression_UNC_RSEM&page=table>`_: 
     This table contains gene expression data from 10,289 samples assayed on the Illumina HiSeq platform
     and 818 samples assayed on the Illumina GA platform, all of which were then  
     processed through the UNC "RNASeqV2" RSEM pipeline.  Each row in this table contains the RSEM expression 
@@ -144,10 +143,10 @@ other additional information for each table, preview its contents, *etc*.
     ``original_gene_symbol`` (as originally given in the file submitted by UNC to the TCGA DCC), and 
     ``HGNC_gene_symbol`` (the most current HGNC-approved gene symbol at the time this table was created).  
     More details about specific genes can be obtained from any of the ``GENCODE`` tables
-    available in the `genome_reference <https://bigquery.cloud.google.com/dataset/isb-cgc:genome_reference>`_ dataset.
+    available in the `genome_reference <https://console.cloud.google.com/bigquery?utm_source=bqui&utm_medium=link&utm_campaign=classic&folder&p=isb-cgc&d=genome_reference&page=dataset>`_ dataset.
 
 
-  + `Somatic_Mutation_DCC <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.Somatic_Mutation_DCC>`_: 
+  + `Somatic_Mutation_DCC <https://console.cloud.google.com/bigquery?utm_source=bqui&utm_medium=link&utm_campaign=classic&folder&p=isb-cgc&d=TCGA_hg19_data_v0&t=Somatic_Mutation_DCC&page=table>`_: 
     This table contains all somatic mutations called across all TCGA tumor samples, based on aggregating all 
     of the MAF files available at the DCC as of June 2016.  Each mutation call was annotated using 
     `Oncotator <https://www.broadinstitute.org/cancer/cga/oncotator>`_, 
@@ -156,14 +155,14 @@ other additional information for each table, preview its contents, *etc*.
     filter out duplicate mutation calls.
 
 
-  + `Somatic_Mutation_MC3 <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.Somatic_Mutation_MC3>`_: 
+  + `Somatic_Mutation_MC3 <https://console.cloud.google.com/bigquery?utm_source=bqui&utm_medium=link&utm_campaign=classic&folder&p=isb-cgc&d=TCGA_hg19_data_v0&t=Somatic_Mutation_MC3&page=table>`_: 
     This table is based on the unified "MC3" TCGA call set recently published by the TCGA Network.  
     For more details or the original source file, please refer to `Synapse <https://www.synapse.org/#!Synapse:syn7214402/wiki/405297>`_.
     The original input file contained 114 columns but many were empty or duplicates of other columns.  This table contains 75 columns.  
     Additional details can be found in the table schema.
 
 
-- `isb-cgc:TCGA_hg38_data_v0 <https://bigquery.cloud.google.com/dataset/isb-cgc:TCGA_hg38_data_v0>`_:
+- `isb-cgc:TCGA_hg38_data_v0 <https://console.cloud.google.com/bigquery?utm_source=bqui&utm_medium=link&utm_campaign=classic&folder&p=isb-cgc&d=TCGA_hg38_data_v0&page=dataset>`_:
   This dataset by and large mirrors the ``TCGA_hg19_data_v0`` dataset, and is based on the GRCh38/hg38 data
   now available from the NCI-GDC.  In some cases the new data has been realigned to the new genome (in the case
   of any DNAseq or miRNA/mRNAseq based data), or the coordinates have been "lifted over" from hg19 to hg38
@@ -188,27 +187,27 @@ In addition, most tables also contains a ``project_short_name`` field
 (formerly called ``Study``, *eg* TARGET-AML, *etc*).
 
 Each dataset and table described below is linked directly the corresponding view in the
-`BigQuery web UI <https://bigquery.cloud.google.com>`_ where you can see the schema and 
+`BigQuery web UI <https://console.cloud.google.com/bigquery>`_ where you can see the schema and 
 other additional information for each table, preview its contents, *etc*.
 
-- `isb-cgc:TARGET_bioclin_v0 <https://bigquery.cloud.google.com/dataset/isb-cgc:TARGET_bioclin_v0>`_:
+- `isb-cgc.TARGET_bioclin_v0 <https://console.cloud.google.com/bigquery?folder&p=isb-cgc&d=TARGET_bioclin_v0&page=dataset>`_:
 
 ..
 
-  + `Clinical <https://bigquery.cloud.google.com/dataset/isb-cgc:TARGET_bioclin_v0.Clinical>`_:
+  + `Clinical <https://console.cloud.google.com/bigquery?folder&p=isb-cgc&d=TARGET_bioclin_v0&t=Clinical&page=table>`_:
     This table contains one row for each TARGET case (aka patient or participant) with *any* 
     available clinical information -- over 5,000 cases are represented.  Note that most 
     of these cases do not *yet* have molecular data available in BigQuery.
   
 ..
 
-  + `Biospecimen <https://bigquery.cloud.google.com/dataset/isb-cgc:TARGET_bioclin_v0.Biospecimen>`_:
+  + `Biospecimen <https://console.cloud.google.com/bigquery?folder&p=isb-cgc&d=TARGET_bioclin_v0&t=Biospecimen&page=table>`_:
     This table is a *sample-centric* table, and contains one row of information for each of the (over 7,000) 
     TARGET samples.
 
 ..
 
-- `isb-cgc:TARGET_hg38_data_v0 <https://bigquery.cloud.google.com/dataset/isb-cgc:TARGET_hg38_data_v0>`_:
+- `isb-cgc.TARGET_hg38_data_v0 <https://console.cloud.google.com/bigquery?folder&p=isb-cgc&d=TARGET_hg38_data_v0&page=dataset>`_:
   This dataset will by and large mirror the ``TARGET_hg38_data_v0`` dataset, and is based on the GRCh38/hg38 data
   now available from the NCI-GDC.  In some cases the new data has been realigned to the new genome (in the case
   of any DNAseq or miRNA/mRNAseq based data), or the coordinates have been "lifted over" from hg19 to hg38
@@ -216,11 +215,11 @@ other additional information for each table, preview its contents, *etc*.
 
 ..
 
-  + `miRNAseq_Isoform_Expression <https://bigquery.cloud.google.com/table/isb-cgc:TARGET_hg38_data_v0.miRNAseq_Isoform_Expression>`_: 
+  + `miRNAseq_Isoform_Expression <https://console.cloud.google.com/bigquery?folder&p=isb-cgc&d=TARGET_hg38_data_v0&t=miRNAseq_Isoform_Expression&page=table>`_: 
     This table contains **all** of the miRNAseq isoform-level expression (aka isomiR) data *currently available* from the NCI-GDC.
     
 
-  + `RNAseq_Gene_Expression <https://bigquery.cloud.google.com/table/isb-cgc:TARGET_hg38_data_v0.RNAseq_Gene_Expression>`_: 
+  + `RNAseq_Gene_Expression <https://console.cloud.google.com/bigquery?folder&p=isb-cgc&d=TARGET_hg38_data_v0&t=RNAseq_Gene_Expression&page=table>`_: 
     This table contains gene expression data from 481 samples (434 cases).
     Each row in this table contains the HTSeq expression 
     estimates for a single gene in a single aliquot.  The gene symbol can be found in the field
@@ -233,7 +232,7 @@ Additional Metadata
 
 Additional related metadata is organized into the following datasets:
 
-- `isb-cgc:metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:metadata>`_:
+- `isb-cgc.metadata <https://console.cloud.google.com/bigquery?folder&p=isb-cgc&d=metadata&page=dataset>`_:
   This dataset currently contains two tables which contain metadata about two additional
   TCGA data types: pathology and radiology images.  More information about these
   image datasets can be found on the 
@@ -241,25 +240,25 @@ Additional related metadata is organized into the following datasets:
   documentation page.
 
 
-- `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:GDC_metadata>`_:
+- `isb-cgc.GDC_metadata <https://console.cloud.google.com/bigquery?folder&p=isb-cgc&d=GDC_metadata&page=dataset>`_:
   This dataset contains several tables which contain metadata describing the cases and
   files at the NCI-GDC, in both the legacy and the current data archives.
 
 
-- `isb-cgc:tcga_seq_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:tcga_seq_metadata>`_:
+- `isb-cgc.tcga_seq_metadata <https://console.cloud.google.com/bigquery?folder&p=isb-cgc&d=tcga_seq_metadata&page=dataset>`_:
   This dataset contains several tables with metadata about the original hg19 sequence data
   (including both BAM and FASTQ files).
   The important common identifiers to link these tables back to other information is the ``CGHubAnalysisID``
   (which sometimes may be written ``CGHub_analysisID``).  In alphabetical order by name, these tables are:
 
    
-- `isb-cgc:tcga_cohorts <https://bigquery.cloud.google.com/dataset/isb-cgc:tcga_cohorts>`_: 
+- `isb-cgc.tcga_cohorts <https://console.cloud.google.com/bigquery?folder&p=isb-cgc&d=tcga_cohorts&page=dataset>`_: 
   This dataset contains a series of curated cohorts, one for each of the 33 TCGA tumor types, named 
   according to the tumor abbreviation, *eg* BRCA.  A "cohort" is defined as a paired list of case- 
   and sample-barcodes.  In order to be included, molecular data from at least one of the main platforms 
   must be available for that sample, and there must be no disqualifying annotation for that sample or 
   the case (aka patient).  For example, the 
-  `BRCA cohort table <https://bigquery.cloud.google.com/table/isb-cgc:tcga_cohorts.BRCA>`_ 
+  `BRCA cohort table <https://console.cloud.google.com/bigquery?folder&p=isb-cgc&d=tcga_cohorts&t=BRCA&page=table>`_ 
   contains 1086 unique cases and 2221 unique samples, but a query of the Clinical table for all 
   BRCA cases will return 1097 cases, and a similar query of the Biospecimen table for all 
   BRCA samples will return 2302 samples.  The Annotation table contains annotations of one type or 
@@ -282,7 +281,7 @@ formatting and data curation:
    UTF-8 character set. If the encoding of a character from
    the original file could not be detected, that character was ignored.
    Character encodings were detected using the Python
-   library `Chardet <https://www.google.com/url?q=https://pypi.python.org/pypi/chardet&sa=D&usg=AFQjCNEqIpFiwf3f-ynJmNtP1ZqXe-TvRg>`_.
+   library `Chardet <https://pypi.org/project/chardet/>`_.
 
 -  All missing information value strings such as: ``none``, ``None``,
    ``NONE``, ``null``, ``Null``, ``NULL``, , ``NA``, ``\_\_UNKNOWN\_\_``, ``<blank>``
