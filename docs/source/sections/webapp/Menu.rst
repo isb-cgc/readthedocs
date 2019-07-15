@@ -2,12 +2,14 @@
 Menu Bar
 **********
 
-Clicking on the Menu icon or word in the upper-right corner of your browser window (next to your name), will insert the
-blue menu bar in your current view.  You can make this menu bar disappear by clicking on the blue **X** or the 
+Clicking on the word Menu in the upper-right corner of your browser window (next to your name) will display the
+blue menu bar.  You can make this menu bar disappear by clicking on the blue **X** or the 
 word Menu again.
 
-The **MENU** bar is a graphical control element which contains application navigation drop downs (sub-links). 
-The Menu bar's purpose is to supply quick and common links for application-specific functions / features such as: 
+.. image:: WebApp-MenuBar.png
+   :align: center
+
+The **MENU** bar supplies quick and common links for Web App features such as: 
 
 
  * **DASHBOARD** - This link takes you to *Your Dashboard* main page.
@@ -38,6 +40,8 @@ The Menu bar's purpose is to supply quick and common links for application-speci
     - *Violin Plot*
     - *Cubby Hole Plot*
     - *SeqPeek*
+    - *OncoPrint*
+    - *OncoGrid*
     - *Browse All Analyses*
 
  * **GENES & miRNA** - From this Menu selection you can **Manage Gene and miRNA Favorites**, **Create Gene and miRNA Favorite(s)** or **Select Genes and miRNAs for a New Workbook**. 

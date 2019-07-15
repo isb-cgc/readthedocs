@@ -19,7 +19,7 @@ investigating survival-time after diagnosis for patients with different types of
 Think of workbooks as containers in which you can create and group related analyses, and which you can share
 with specific colleagues.
 
-**Breadcrumbs** show you where you are in the Web Interface as you move from one section to another (figure below).  
+**Breadcrumbs** show you where you are in the Web App as you move from one section to another (figure below).  
 These are live links, and can be used to rapidly navigate from one section of the interface to another.
 
 .. image:: Breadcrumbs.png
