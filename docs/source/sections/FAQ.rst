@@ -48,7 +48,7 @@ One workaround is to give ownership to "your" Gsuite account. This essentially m
 
 Please note that you will need to have at least a free tier cloud account or please contact feedback@isb-cgc.org for more assistance in creating a free account. 
 
-Also be aware that the billing account for the end-user needs to be tied to the project as well after it is created.  *This is important* if you would like your organization to get billed instead of your personal credit card. For more information on how to modify billing information please go to Modify A Project Billings Settings document provided by Google `here <https://cloud.google.com/billing/docs/how-to/modify-project>`_.
+Also be aware that the billing account for the end-user needs to be tied to the project as well after it is created.  *This is important* if you would like your organization to get billed instead of your personal credit card. For more information on how to modify billing please go to Modify A Project Billings Settings document provided by Google `here <https://cloud.google.com/billing/docs/how-to/modify-project>`_.
 
 
 There are additional instructions which work and can be found `here <https://stackoverflow.com/questions/47776654/create-gcp-project-without-organization>`_.
