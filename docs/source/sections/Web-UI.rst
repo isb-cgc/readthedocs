@@ -2,7 +2,7 @@
 ISB-CGC Web Interface (Web App)
 *******************************
 
-The documentation contained in this section is for the `ISB-CGC web interface <https://isb-cgc.appspot.com/>`_. Over time we will be updating and enhancing this web interface based on your feedback.  
+The documentation contained in this section is for the `ISB-CGC Web Interface (Web App) <https://isb-cgc.appspot.com/>`_. Over time we will be updating and enhancing this web interface based on your feedback.  
 We welcome your ideas and needs.  Please use this `link <https://groups.google.com/a/isb-cgc.org/forum/#!newtopic/feedback>`_ to provide them.
 
 .. toctree::
