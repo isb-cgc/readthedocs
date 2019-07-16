@@ -2,16 +2,16 @@
 Cloud-Hosted Data Sets
 **********************
 
-The ISB-CGC platform hosts the majority of the TCGA data set as well as other reference and annotation datasets in different appropriate Google Cloud technologies:
+The ISB-CGC platform hosts the majority of the TCGA data set as well as other reference and annotation data sets in different appropriate Google Cloud technologies:
 
     * low-level DNA- and RNA-Seq data are stored primarily in `Google Cloud Storage <https://cloud.google.com/storage/>`_;
-    * high-level clinical, biospecimen, and molecular data are available in a series of carefully curated datasets and tables backed by the massively-parallel analytics engine `Google BigQuery <https://cloud.google.com/bigquery/>`_;
+    * high-level clinical, biospecimen, and molecular data are available in a series of carefully curated data sets and tables backed by the massively-parallel analytics engine `Google BigQuery <https://cloud.google.com/bigquery/>`_;
     * TCGA radiology and tissue image data are now also available in Google Cloud Storage;
     * TCGA proteomics (CPTAC PhaseII) data has also been uploaded to Google Cloud Storage;
 
-The original mission of the ISB-CGC was to host the TCGA dataset but we have added additional datasets such as the TARGET datasets and are looking for more datasets to host.
+The original mission of the ISB-CGC was to host the TCGA data set but we have added additional data sets such as the TARGET data sets and are looking for more data sets to host.
 
-About Programs and Datasets:
+About Programs and Data Sets:
 +++++++++++++++++++++++++++++
 .. toctree::
    :maxdepth: 2
