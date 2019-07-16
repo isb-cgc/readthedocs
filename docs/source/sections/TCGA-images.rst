@@ -9,7 +9,7 @@ are all now available in open-access  ISB-CGC Google Cloud Storage (GCS) buckets
 as described below.
 
 Metadata for these files can be found in BigQuery, in the ISB-CGC metadata 
-`dataset <https://bigquery.cloud.google.com/dataset/isb-cgc:metadata>`_.
+`dataset <https://console.cloud.google.com/bigquery?p=isb-cgc&d=metadata&page=dataset>`_.
 
 Radiology Images
 ################
@@ -39,7 +39,7 @@ Over 30,000 TCGA tissue slide images in
 `gs://isb-tcga-phs000178-open/ <https://console.cloud.google.com/storage/browser/isb-tcga-phs000178-open/>`_.
 .  
 These files were uploaded from the 
-`NCI-GDC legacy archive <https://gdc-portal.nci.nih.gov/legacy-archive/search/f?filters=%7B%22op%22:%22and%22,%22content%22:%5B%7B%22op%22:%22in%22,%22content%22:%7B%22field%22:%22files.data_format%22,%22value%22:%5B%22SVS%22%5D%7D%7D%5D%7D>`_.
+`NCI-GDC legacy archive <https://portal.gdc.cancer.gov/legacy-archive/search/f?filters=%7B%22op%22:%22and%22,%22content%22:%5B%7B%22op%22:%22in%22,%22content%22:%7B%22field%22:%22files.data_format%22,%22value%22:%5B%22SVS%22%5D%7D%7D%5D%7D>`_.
 
 The BigQuery metadata table, ``isb-cgc.metadata.TCGA_slide_images`` contains 
 the full urls to these SVS files, *eg* 
