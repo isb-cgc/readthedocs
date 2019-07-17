@@ -36,8 +36,8 @@ Storage (GCS_) and in BigQuery_.
 .. _GCS: https://cloud.google.com/storage/
 .. _BigQuery: https://cloud.google.com/bigquery/
 
-The ISB-CGC platform is one of NCI's 
-`Cloud Resources <https://datascience.cancer.gov/data-commons/cloud-resources>`_ 
+The ISB-CGC platform is one of the 
+`NCI Cloud Resources <https://datascience.cancer.gov/data-commons/cloud-resources>`_ 
 and our mission is to host the TCGA data in the cloud so that researchers around the world 
 may work with the data without needing 
 to download and store the data at their own local institutions.
