@@ -76,7 +76,7 @@ processed at BCGSC and the normalized gene-expression values are based on RPKM.
 TCGA Data Types
 +++++++++++++++
 
-The TCGA dataset is unique in that the tumor samples were assayed using a standard set of platforms and pipelines in order to produce a comprehensive dataset including:
+The TCGA data set is unique in that the tumor samples were assayed using a standard set of platforms and pipelines in order to produce a comprehensive data set including:
 
 * DNA sequencing of tumor samples and matched-normals (typically blood samples) in order to detect somatic mutations;
 * SNP array based DNA copy-number and genotyping analysis of tumor samples and matched-normals;
