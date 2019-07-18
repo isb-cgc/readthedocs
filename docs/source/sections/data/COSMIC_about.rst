@@ -16,8 +16,8 @@ About the COSMIC data
 The BigQuery datasets contain *all* of the tables available for download from the `COSMIC ftp site <http://cancer.sanger.ac.uk/cosmic/download>`_.
 The availability of these additional tables will support many more types of queries -- please explore them at (after registering for access as described below):
 
-* `isb-cgc:COSMIC_v87_grch38 <https://bigquery.cloud.google.com/dataset/isb-cgc:COSMIC_v87_grch38>`_
-* `isb-cgc:COSMIC_v87_grch37 <https://bigquery.cloud.google.com/dataset/isb-cgc:COSMIC_v87_grch37>`_
+* `isb-cgc.COSMIC_v87_grch38 <https://console.cloud.google.com/bigquery?p=isb-cgc&d=COSMIC_v87_grch38&page=dataset>`_
+* `isb-cgc.COSMIC_v87_grch37 <https://console.cloud.google.com/bigquery?p=isb-cgc&d=COSMIC_v87_grch37&page=dataset>`_
 Details about the underlying COSMIC export files used to create these BigQuery tables can be found in README files for `GRCh38 <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/source/sections/cosmic/README-cosmic-grch38.txt>`_ 
 and `GRCh37 <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/source/sections/cosmic/README-cosmic-grch37.txt>`_.
 
