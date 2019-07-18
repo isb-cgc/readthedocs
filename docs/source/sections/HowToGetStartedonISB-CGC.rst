@@ -10,13 +10,15 @@ If you would like this document in pdf format please click `here <https://raw.gi
 
 
 
+
 Benefits of Using The Cloud
 ============================
 
-You don’t have to download the data! Bring your compute and know-how to the data. Use cloud-native, compute scale as big as you can imagine, tools to analyze TBs and PBs of data!! 
+You don’t have to download the data! Bring your compute and know-how to the data. Use cloud-native, compute scale as big as you can imagine, tools to analyze TBs and PBs of data! 
 
 Most bioinformaticians today are most likely accustomed to using the high performance compute (HPC) resources provided by their institution to conduct high-throughput bioinformatics analyses. Here’s a breakdown on how the Google Cloud Platform compares to your institution’s HPC resources. 
 
+Don’t be intimidated by the cloud! Bring your computation to the data on ISB-CGC. If you’ve conducted bioinformatics analyses before using the command line or SQL, this will be just as easy (if not easier).
 
 
 
@@ -82,25 +84,12 @@ Most bioinformaticians today are most likely accustomed to using the high perfor
 +-----------+-------------------------------------+-----------------------------------------+
 ***Be careful of costs** 
 
-Goals of this tutorial: 
-========================
 
- 1. How to get started on the ISB-CGC powered by the Google Cloud Platform (GCP)
- 2. Learn about cloud credits offered by Google and ISB-CGC
- 3. Learn about data hosted on ISB-CGC
- 4. Learn about how to get authorization to access controlled cancer genomics data 
- 5. Setting up and registering a GCP project to use controlled access data
- 6. Enabling required GCP APIs 
- 7. Learn about GCP’s BigQuery tool 
- 8. Learn how to run analyses on data stored in BigQuery or stored in Google Cloud Storage (GCS)
 
-Take home message:
+
+
+Getting Started
 ===================
-
-Don’t be intimidated by the cloud! Bring your computation to the data on ISB-CGC. If you’ve conducted bioinformatics analyses before using the command line or SQL, this will be just as easy (if not easier).
-
-I. Getting Started:
---------------------
 
  1.) ISB-CGC hosts both open-access and controlled-access cancer genomics data from the NCI.
       `About ISB-CGC Cloud-Hosted Datasets <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Hosted-Data.html>`_
@@ -121,7 +110,7 @@ I. Getting Started:
  5.) `Enable Required Google Cloud APIs <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DIYWorkshop.html#enabling-required-google-apis>`_
       
       
-II. Accessing and analyzing data via BigQuery
+I. Accessing and analyzing data via BigQuery
 -----------------------------------------------
 
  - BigQuery is Google’s native big data analysis tool. It is a serverless, highly scalable data warehouse tool that allows researchers to find meaningful insights from data using standard SQL queries CHEAPLY, and FAST!
@@ -132,7 +121,7 @@ II. Accessing and analyzing data via BigQuery
  - Every month, ISB-CGC provides an example analysis of cancer genomics data using BigQuery in our `Query of the Month blog <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/QueryOfTheMonthClub.html>`_. 
  
  
-III. Accessing and analyzing data stored in GCS 
+II. Accessing and analyzing data stored in GCS 
 -------------------------------------------------
 
 
