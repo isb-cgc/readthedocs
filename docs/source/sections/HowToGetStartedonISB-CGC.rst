@@ -90,6 +90,8 @@ Don’t be intimidated by the cloud! Bring your computation to the data on ISB-C
 
 Getting Started
 ===================
+I. Data Access and Google Cloud Project Setup
+-----------------------------------------------
 
  1.) ISB-CGC hosts both open-access and controlled-access cancer genomics data from the NCI.
       `About ISB-CGC Cloud-Hosted Datasets <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Hosted-Data.html>`_
