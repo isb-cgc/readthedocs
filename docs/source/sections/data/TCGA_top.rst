@@ -73,6 +73,17 @@ samples should take this into consideration.  Another example where multiple pla
 expression data: most tumor samples were processed at UNC and the normalized gene-expression values are based on the RSEM method, while some tumor samples were
 processed at BCGSC and the normalized gene-expression values are based on RPKM.
 
+TCGA Data Levels
+++++++++++++++++
+
+For each *type* of data, there are typically three *levels* of data:
+* Level 1 typically represents raw, un-normalized data
+* Level 2 typically represents an intermediate level of processing and/or normalization of the data;
+* Level 3 typically represents aggregated, normalized, and/or segmented data.
+
+The results of integrative or pan-cancer analyses are sometimes referred to as "Level 4" data.  More information about
+`Data Level Classification <https://gdc.cancer.gov/resources-tcga-users/tcga-code-tables/data-levels>`_ can be found on the NCI page.
+
 TCGA Data Types
 +++++++++++++++
 
@@ -86,25 +97,66 @@ The TCGA data set is unique in that the tumor samples were assayed using a stand
 
 In addition, protein expression for a significant fraction (~20%) of all tumor samples was obtained using RPPA (reverse phase protein array).
 
-TCGA Data Levels
-++++++++++++++++
+Open-Access TCGA Data
+=====================
 
-For each *type* of data, there are typically three *levels* of data:
-* Level 1 typically represents raw, un-normalized data
-* Level 2 typically represents an intermediate level of processing and/or normalization of the data;
-* Level 3 typically represents aggregated, normalized, and/or segmented data.
+The open-access TCGA data hosted by the ISB-CGC Platform includes:
 
-The results of integrative or pan-cancer analyses are sometimes referred to as "Level 4" data.  More information about
-`Data Level Classification <https://gdc.cancer.gov/resources-tcga-users/tcga-code-tables/data-levels>`_ can be found on the NCI page.
+* Clinical (de-identified) and Biospecimen data: these data were originally provided in XML files (Level-1) by the DCC
+* Somatic mutation data:  these data were originally provided in MAF files (Level-2) by the DCC
+* DNA copy-number segments:  these data were originally provided as segmentation files (Level-3) by the DCC
+* DNA methylation data:  these data were originally provided as TSV files (Level-3) by the DCC
+* Gene (mRNA) expression data:  these data were originally provided as TSV files (Level-3) by the DCC
+* microRNA expression data:  these data were originally provided as TSV files (Level-3) by the DCC
+* Protein expression data:  these data were originally provided as TSV files (Level-3) by the DCC
+* TCGA Annotations data:  annotations were originally obtained from the TCGA Annotations Manager, and can now also be found on the `GDC Data Portal <https://portal.gdc.cancer.gov/annotations>`_
 
-For more information about the original data source repository and data access classes (open *vs* controlled),
-please refer to these sections:
+in Google Cloud Storage (GCS)
+*****************************
 
-.. toctree::
-   :maxdepth: 1
+The data files described above are available to all ISB-CGC users in an open-access GCS bucket (gs://isb-tcga-phs000178-open).
 
-   data2/byAccessClass
-   data2/bySourceRepo
+.. _in_BigQuery:
+
+in BigQuery
+***********
+
+The information scattered over tens of thousands of XML and TSV files at the DCC is provided in a 
+*much more accessible* form in a series of 
+`BigQuery tables <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_BQ.html#tcga-clinical-biospecimen-and-molecular-data>`_.  
+
+For more details, please see our `github repositories <https://github.com/isb-cgc>`_ or our `Community Notebook Repository <https://github.com/isb-cgc/Community-Notebooks>`_ for tutorials and code examples in Python and R.
+
+This `introductory tutorial <https://github.com/isb-cgc/examples-Python/blob/master/notebooks/The%20ISB-CGC%20open-access%20TCGA%20tables%20in%20BigQuery.ipynb>`_
+gives a great overview of all of the tables and pointers on how to get started exploring them.  Be sure to check it out!
+
+Controlled-Access TCGA Data
+===========================
+
+The controlled-access TCGA data hosted by the ISB-CGC Platform includes:
+
+* SNP array CEL files:  these Level-1 data files were provided by the DCC and include over 22,000 files for both tumor and matched-normal samples
+* VCF files:  these Level-2 data files were provided by the DCC and include over 15,000 files produced by several different centers (primarily Broad and BCGSC)
+* MAF files:  these "protected" mutation files (Level-2) were provided by the DCC (note that these files were not generated uniformly for all tumor types)
+* DNA-seq BAM files:  these Level-1 data files were provided by CGHub
+   - over 37,000 of these files are available in Google Cloud Storage (GCS)
+   - roughly 90% of these BAM files contain exome data, the remaining 10% contain whole-genome data
+   - BAM index (BAI) files are also available for all BAM files
+* mRNA- and microRNA-seq BAM files:  these Level-1 data files were provided by CGHub
+   - over 13,000 mRNA-seq BAM files are available in GCS
+   - over 16,000 miRNA-seq BAM files are available in GCS
+* mRNA-seq FASTQ files:  these Level-1 data files were provided by CGHub and include over 11,000 tar files
+
+in Google Cloud Storage
+***********************
+
+At this time, all of these controlled-access data files are stored in GCS in the original form, as obtained from the data repository.  
+
+In order to access these controlled data, a user of the ISB-CGC must first be authenticated by NIH (via the ISB-CGC web-app).
+Upon successful authentication, the user's dbGaP authorization will be verified.  These two steps are required before the user's
+Google identity is added to the access control list (ACL) for the controlled data.  At this time, this access must be renewed
+every 24 hours.
+
 
 TCGA Data Repository History
 ++++++++++++++++++++++++++++++
