@@ -90,6 +90,7 @@ Don’t be intimidated by the cloud! Bring your computation to the data on ISB-C
 
 Getting Started
 ===================
+
 I. Data Access and Google Cloud Project Setup
 -----------------------------------------------
 
@@ -112,7 +113,7 @@ I. Data Access and Google Cloud Project Setup
  5.) `Enable Required Google Cloud APIs <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DIYWorkshop.html#enabling-required-google-apis>`_
       
       
-I. Accessing and analyzing data via BigQuery
+II. Accessing and analyzing data via BigQuery
 -----------------------------------------------
 
  - BigQuery is Google’s native big data analysis tool. It is a serverless, highly scalable data warehouse tool that allows researchers to find meaningful insights from data using standard SQL queries CHEAPLY, and FAST!
@@ -123,8 +124,8 @@ I. Accessing and analyzing data via BigQuery
  - Every month, ISB-CGC provides an example analysis of cancer genomics data using BigQuery in our `Query of the Month blog <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/QueryOfTheMonthClub.html>`_. 
  
  
-II. Accessing and analyzing data stored in GCS 
--------------------------------------------------
+II. Accessing and analyzing data stored in Google Cloud Storage 
+---------------------------------------------------------------
 
 
  - All open-access data on ISB-CGC are stored in a publically available GCS bucket (gs://isb-cgc-open).
