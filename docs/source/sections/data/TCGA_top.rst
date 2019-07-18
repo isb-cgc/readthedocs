@@ -54,15 +54,6 @@ using the most appropriate Google Cloud Platform technologies.
    :scale: 50
    :align: center
 
-We recommend that you review important information about data security and data access
-in these sections:
-
-.. toctree::
-   :maxdepth: 1
-
-   data2/TCGA_Data_Security
-   data2/TCGA_Access
-
 TCGA Data Platforms
 +++++++++++++++++++
 
