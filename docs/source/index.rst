@@ -25,9 +25,6 @@ custom scripts using languages such as R or Python, accessing the data through A
 to algorithm developers who wish to spin up thousands of virtual machines to analyze hundreds 
 of terabytes of sequence data.
 
-This documentation is a work-in-progress, please let us know how we can improve 
-it. feedback@isb-cgc.org 
-
 -- the ISB-CGC team
 
 .. toctree::
