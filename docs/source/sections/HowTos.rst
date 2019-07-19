@@ -9,6 +9,22 @@ Please let us know if you have suggestions, ideas, or thoughts for a notebook ex
 
 -----------------------
 
+What's a notebook?
+==================
+
+`Notebooks <https://towardsdatascience.com/jupyter-lab-evolution-of-the-jupyter-notebook-5297cacde6b>`_ are documents that mix code (usually R or python), descriptive explainations, and visualizations. They're ideal for explaining an analysis. Also idea for tutorials because of the 'hands on' nature.  
+
+`Jupyter notebooks <https://jupyter.org/>`_
+
+`Jupyter lab notebooks <https://jupyterlab.readthedocs.io/en/stable/>`_ 
+
+`How to use a python notebook. <https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/>`_
+
+`How to use an R notebook. <https://rmarkdown.rstudio.com/lesson-10.html>`_
+
+
+-----------------------
+
 How do I...
 ===========
 
@@ -42,20 +58,7 @@ How do I...
 `How do I compute gene-gene expression correlation using BigQuery (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/RegulomeExplorer_2_Gexpr_Gexpr.ipynb>`_
 
 
------------------------
 
-What's a notebook?
-==================
-
-`Notebooks <https://towardsdatascience.com/jupyter-lab-evolution-of-the-jupyter-notebook-5297cacde6b>`_ are documents that mix code (usually R or python), descriptive explainations, and visualizations. They're ideal for explaining an analysis. Also idea for tutorials because of the 'hands on' nature.  
-
-`Jupyter notebooks <https://jupyter.org/>`_
-
-`Jupyter lab notebooks <https://jupyterlab.readthedocs.io/en/stable/>`_ 
-
-`How to use a python notebook. <https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/>`_
-
-`How to use an R notebook. <https://rmarkdown.rstudio.com/lesson-10.html>`_
 
 
 -----------------------
