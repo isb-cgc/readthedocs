@@ -40,6 +40,7 @@ of terabytes of sequence data.
    sections/Prog-APIs
    sections/QuicklinksOneTable
    sections/TutorialsAndHow-ToGuides
+   sections/FeatureAlertsandDataReleases
    sections/FAQ
    sections/Support
 
