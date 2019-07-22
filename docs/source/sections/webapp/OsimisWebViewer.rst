@@ -1,6 +1,6 @@
 Radiology Viewer
 ================
-Radiology images are viewed in an Osimis Web Viewer, a plug-in to the `Orthanc Image Server`_ (Orthanc). The ISB_CGC web application uses an instance of Orthanc to manage radiology files for the purpose of viewing. Currently only DICOM formatted files from TCGA samples are available for viewing. It may be helpful to review the `DICOM Model of the Real World <http://dicom.nema.org/medical/dicom/current/output/html/part03.html#chapter_7>`_ to understand the relationship between patients DICOM studies, DICOM series and DICOM instances.
+Radiology images are viewed in an Osimis Web Viewer, a plug-in to the `Orthanc Image Server`_ (Orthanc). The ISB-CGC web application uses an instance of Orthanc to manage radiology files for the purpose of viewing. Currently only DICOM formatted files from TCGA samples are available for viewing. It may be helpful to review the `DICOM Model of the Real World <http://dicom.nema.org/medical/dicom/current/output/html/part03.html#chapter_7>`_ to understand the relationship between patient DICOM studies, DICOM series and DICOM instances.
 
 .. _Orthanc Image Server: https://www.orthanc-server.com/
 
@@ -34,13 +34,13 @@ To view a larger rendering of a series, drag its thumbnail into the viewport. Th
 
 At the same time, at the bottom of the viewport you will notice a grid comprised of a series of rectangles corresponding to the instances in the series. The color of the tabs indicates the following:
 
-* Black: The corresponsing instance is not yet avialable for viewing
+* Black: The corresponding instance is not yet available for viewing
 * Red: A reduced resolution image of the instance is available for viewing
 * Green: The full resolution image of the instance is available for viewing
 
 Typically, the viewer loads reduced resolution images for all series as quickly as possible. It loads full resolution images only when a series is dragged into the viewport.
 
-When instance images have been loaded, you can scroll through the instances using your mouse's thumbwheel or equvalent. As you scroll, the grid at the bottom of the screen highlights the instance currently being displayed. Clicking on a rectangle in the grid causes the corresponding instance to be displayed. The **Play Controls** |play| in the lower left corner of the main window enable you to single step forward or back through the series, and to cycle throught series repeatedly. A frame rate slider pops up when you hover over the play button. 
+When instance images have been loaded, you can scroll through the instances using your mouse's thumbwheel or equvalent. As you scroll, the grid at the bottom of the screen highlights the instance currently being displayed. Clicking on a rectangle in the grid causes the corresponding instance to be displayed. The **Play Controls** |play| in the lower left corner of the main window enable you to single step forward or backward through the series, and to cycle through the series repeatedly. A frame rate slider pops up when you hover over the play button. 
 
 .. |play| image:: OsimisPlay.png
 
