@@ -10,13 +10,15 @@ If you would like this document in pdf format please click `here <https://raw.gi
 
 
 
+
 Benefits of Using The Cloud
 ============================
 
-You don’t have to download the data! Bring your compute and know-how to the data. Use cloud-native, compute scale as big as you can imagine, tools to analyze TBs and PBs of data!! 
+You don’t have to download the data! Bring your compute and know-how to the data. Use cloud-native, compute scale as big as you can imagine, tools to analyze TBs and PBs of data! 
 
 Most bioinformaticians today are most likely accustomed to using the high performance compute (HPC) resources provided by their institution to conduct high-throughput bioinformatics analyses. Here’s a breakdown on how the Google Cloud Platform compares to your institution’s HPC resources. 
 
+Don’t be intimidated by the cloud! Bring your computation to the data on ISB-CGC. If you’ve conducted bioinformatics analyses before using the command line or SQL, this will be just as easy (if not easier).
 
 
 
@@ -82,33 +84,23 @@ Most bioinformaticians today are most likely accustomed to using the high perfor
 +-----------+-------------------------------------+-----------------------------------------+
 ***Be careful of costs** 
 
-Goals of this tutorial: 
-========================
 
- 1. How to get started on the ISB-CGC powered by the Google Cloud Platform (GCP)
- 2. Learn about cloud credits offered by Google and ISB-CGC
- 3. Learn about data hosted on ISB-CGC
- 4. Learn about how to get authorization to access controlled cancer genomics data 
- 5. Setting up and registering a GCP project to use controlled access data
- 6. Enabling required GCP APIs 
- 7. Learn about GCP’s BigQuery tool 
- 8. Learn how to run analyses on data stored in BigQuery or stored in Google Cloud Storage (GCS)
 
-Take home message:
+
+
+Getting Started
 ===================
 
-Don’t be intimidated by the cloud! Bring your computation to the data on ISB-CGC. If you’ve conducted bioinformatics analyses before using the command line or SQL, this will be just as easy (if not easier).
+I. Data Access and Google Cloud Project Setup
+-----------------------------------------------
 
-I. Getting Started:
---------------------
-
- 1.) ISB-CGC hosts both open-access and controlled-access cancer genomics data from the NCI.
+- ISB-CGC hosts both open-access and controlled-access cancer genomics data from the NCI.
       `About ISB-CGC Cloud-Hosted Datasets <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Hosted-Data.html>`_
       
- 2.) To access controlled-access data, dbGaP authorization is required.
+- To access controlled-access data, dbGaP authorization is required.
       `Accessing Controlled-Access Data and acquiring dbGaP authorization <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Hosted-Data.html>`_
       
- 3.) To work in GCP, you must first set up a GCP Project: 
+- To work in GCP, you must first set up a GCP Project: 
       - A GCP project is required to make use of all of the data, tools, and Google Cloud functionality.
       - Do you have a Google identity already (e.g. a GMail account)? Your institutional email may be a Google identity (if your institution uses Google Apps), or you may have a personal GMail address.
       - If not, it only takes a minute to `create a google identity <https://accounts.google.com/signup/v2/webcreateaccount?dsh=308321458437252901&continue=https%3A%2F%2Faccounts.google.com%2FManageAccount&flowName=GlifWebSignIn&flowEntry=SignUp#FirstName=&LastName=>`_.  You can even link a non-GMail account (eg. scientist@nih.gov) as a Google identity by `this <https://accounts.google.com/signup/v2/webcreateaccount?flowName=GlifWebSignIn&flowEntry=SignUp&nogm=true>`_ method.
@@ -116,12 +108,12 @@ I. Getting Started:
       - If you have already used this one-time offer (or there is some other reason you cannot use it), please see the information here about `ISB-CGC Cloud Credits Available for Researchers <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/outreach/User%20Credit%20Guidelines.html>`_.
       - `How to request ISB-CGC Cloud Credits <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Support.html>`_.
       
- 4.) `Registering the GCP project <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-Contolled-Access-Data.html#requirements-for-registering-a-google-cloud-project-service-account>`_
+- `Registering the GCP project <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-Contolled-Access-Data.html#requirements-for-registering-a-google-cloud-project-service-account>`_
  
- 5.) `Enable Required Google Cloud APIs <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DIYWorkshop.html#enabling-required-google-apis>`_
+- `Enable Required Google Cloud APIs <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DIYWorkshop.html#enabling-required-google-apis>`_
       
       
-II. Accessing and analyzing data via BigQuery
+II. Accessing and Analyzing Data via BigQuery
 -----------------------------------------------
 
  - BigQuery is Google’s native big data analysis tool. It is a serverless, highly scalable data warehouse tool that allows researchers to find meaningful insights from data using standard SQL queries CHEAPLY, and FAST!
@@ -132,8 +124,8 @@ II. Accessing and analyzing data via BigQuery
  - Every month, ISB-CGC provides an example analysis of cancer genomics data using BigQuery in our `Query of the Month blog <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/QueryOfTheMonthClub.html>`_. 
  
  
-III. Accessing and analyzing data stored in GCS 
--------------------------------------------------
+III. Accessing and Analyzing Data Stored in Google Cloud Storage 
+---------------------------------------------------------------
 
 
  - All open-access data on ISB-CGC are stored in a publically available GCS bucket (gs://isb-cgc-open).

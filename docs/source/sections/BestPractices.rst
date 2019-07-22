@@ -3,7 +3,7 @@ Best Practices
 ============
 
 
-Don't download the data
+Don't Download the Data
 ========================
 
 
