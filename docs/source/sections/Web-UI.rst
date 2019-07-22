@@ -22,6 +22,6 @@ We welcome your ideas and needs.  Please use this `link <https://groups.google.c
    webapp/IGV-Browser
    webapp/ViewingCohorts
    webapp/OsimisWebViewer
-   webapp/releases
+ 
    
 
