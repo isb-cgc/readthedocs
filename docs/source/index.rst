@@ -43,6 +43,7 @@ it. feedback@isb-cgc.org
    sections/Prog-APIs
    sections/QuicklinksOneTable
    sections/TutorialsAndHow-ToGuides
+   sections/FeatureAlertsandDataReleases
    sections/FAQ
    sections/Support
 
