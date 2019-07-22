@@ -31,7 +31,7 @@ Google identity associated with your account will have access to the controlled-
 
 For more information on applying for dbGaP authorization to access controlled data, please see our 
 Frequently Asked Questions (FAQ) 
-`page <http://http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/FAQ.html?>`_ 
+`page <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/FAQ.html?>`_
 or the "How to" `Apply for Controlled Access Data Video <http://www.youtube.com/watch?v=-3tUBeKbP5c>`_.
 
 Linking your NIH and Google identities
