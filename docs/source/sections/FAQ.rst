@@ -235,7 +235,7 @@ R and Bioconductor Users
 **I want to use R and Bioconductor packages to work with the TCGA data.  How can I do that?**
 
 You can run RStudio locally or deploy a dockerized version on a Google Compute Engine VM.  You can
-find some great examples to get you started in our examples-R_ repository on github, and also in
+find some great examples to get you started in our examples-R_ repository on GitHub, and also in
 the documentation from the Google Genomics workshop_ at BioConductor 2015.
 
 .. _examples-R: https://github.com/isb-cgc/examples-R
