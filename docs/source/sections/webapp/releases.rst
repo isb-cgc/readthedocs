@@ -23,6 +23,7 @@ Web-App Release Notes
    - When using a workbook you are now able to plot using case barcode centric data and sample barcode centric data.  This is mainly a factor when variables are patient based mainly when using a scatter plot or a histogram chart.
    
   Bug Fixes
+  
    - When using a workbook you are now able to add a an existing gene list variable your analysis.
    - When using the User Data Upload feature the Data System Dictionary has been re-enabled.
 
