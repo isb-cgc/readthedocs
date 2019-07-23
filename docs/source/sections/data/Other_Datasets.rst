@@ -8,4 +8,7 @@ Along with NCI Cancer Programs, ISB-CGC hosts several data sets from other progr
    :maxdepth: 1
  
    COSMIC_about.rst
-   data2/AccessData/AccessviaIndexD.rst
+   FM-AD_about.rst
+   CTSP_about.rst
+   VAREPOP_about.rst
+   NCICCR_about.rst
