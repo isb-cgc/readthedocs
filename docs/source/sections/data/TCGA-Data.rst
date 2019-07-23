@@ -23,7 +23,7 @@ in most downstream analyses.  The ISB-CGC platform aims to make these different 
 accessible to the widest possible variety of users within the cancer research community, 
 using the most appropriate Google Cloud Platform technologies.
 
-.. image:: TCGASizeandComplexity.PNG
+.. image:: figs/TCGASizeandComplexity.PNG
    :scale: 50
    :align: center
 
