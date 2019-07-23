@@ -28,7 +28,7 @@ The ISB-CGC platform is one of the `NCI Cloud Resources <https://datascience.can
 
 The vast majority (over 99%) of this **petabyte** of data consists of low-level sequence data, currently stored as files in Google Cloud Storage (see figure below).  Over the course of the TCGA project, this low-level (*"Level 1"*) data has been processed through a set of standardized pipelines and the resulting high-level (*"Level 3"*) data is frequently the data that is used in most downstream analyses.  The ISB-CGC platform aims to make these different types of data accessible to the widest possible variety of users within the cancer research community, using the most appropriate Google Cloud Platform technologies.
 
-.. image:: TCGASizeandComplexity.PNG
+.. image:: figs/TCGASizeandComplexity.PNG
    :scale: 50
    :align: center
 
