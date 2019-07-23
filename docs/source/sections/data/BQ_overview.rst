@@ -22,7 +22,7 @@ TCGA tumor-type abbreviation (*eg* BRCA for breast cancer, GBM for glioblastoma 
 Most of the molecular data tables include gene (or miRNA) symbols or identifiers, some include
 chromosomal coordinates, and some include both (*eg* the somatic mutation calls (SMC) table).
 
-.. image:: BQ-layout2b-20jul2016.png
+.. image:: figs/BQ-layout2b-20jul2016.png
    :scale: 75
    :align: center
 
@@ -43,7 +43,7 @@ chromosomal coordinate for each methylation probe (by performing a JOIN operatio
 on the probe id), and then the chromosomal coordinate of the probe can be used to 
 find relevant copy-number segments in the copy-number table.
 
-.. image:: meth-to-cn-map.png
+.. image:: figs/meth-to-cn-map.png
    :scale: 35
    :align: center
 
