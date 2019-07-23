@@ -24,6 +24,7 @@ these individual, large-scale programs.
    :maxdepth: 1
  
    TCGA_top.rst
+   TCGA-images.rst
    TARGET_top.rst
    CCLE_top.rst
    CGCI_top.rst
