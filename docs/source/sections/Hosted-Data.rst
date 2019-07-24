@@ -14,8 +14,7 @@ About Programs and Data Sets:
 .. toctree::
    :maxdepth: 2
 
-   data/NCI_Programs
-   data/other_datasets.rst
+   data/Data_Sets.rst
    data/GDC_top
    data/Data_on_ISBCGC
    data/Reference-Data
