@@ -1,12 +1,15 @@
-************************************************************
-Genomic Variation in Diffuse Large B Cell Lymphomas (NCICCR)
-************************************************************
+*********************
+NCICCR-DLBCL Data Set
+*********************
 
-Integrative analysis of genetic lesions in 574 diffuse large B cell lymphomas (DLBCL). The study investigates genomic structural variation, genetic alteration and its effect on the development and biology of lymphomas by using high throughput sequencing, gene expression, and methylation status.
+About the NCICCR-DLBCL
+----------------------
+The NCI Center for Cancer Research (NCICCR) conducted a study about the Genomic Variation in Diffuse Large B Cell Lymphomas (DLBCL) through integrative analysis of genetic lesions in 574 diffuse large B cell lymphomas (DLBCL). The study investigated genomic structural variation, genetic alteration and its effect on the development and biology of lymphomas by using high throughput sequencing, gene expression, and methylation status.
 
-Study Type: Case Set
-Number of study subjects that have individual-level data available through Authorized Access: 489
-489 phenotyped subjects
+About the NCICCR-DLBCL data
+---------------------------
+
+Number of study subjects that have individual-level data available through Authorized Access: 489 phenotyped subjects
 
 For more information please `visit <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs001444.v1.p1>`_. 
 
