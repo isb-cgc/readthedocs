@@ -1,6 +1,6 @@
-*********
-Programs
-*********
+**********
+Data Sets
+**********
 
 In recent years, the `National Cancer Institute <https://www.cancer.gov/about-nci>`_, in collaboration with other institutes within `NIH <https://www.nih.gov/>`_, has invested in the production and analysis of several large datasets. The ISB-CGC platform is funded by NCI in an effort to make these data more accessible and usable.
 
