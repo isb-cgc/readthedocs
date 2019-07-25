@@ -3,9 +3,34 @@ Web-App Release Notes
 *********************
 
 
+* **July 18, 2019** `v3.19 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.19>`_
+
+  **Please Note:** Work is underway to rework our cohort creation page to better display images associated with samples. 
+   
+   
+   The following datasets (open and controlled access) have been added to the ISB-CGC for service account registration:
+   
+    1. The National Cancer Institute Center for Cancer Research (NCICCR)  
+    2. Foundation Medicine(FM)
+    3. Clinical Trial Sequencing Project (CTSP)
+    4. Veterans Research for Precision Oncology Program (VAREPOP) 
+    
+    
+  **Issues resolved in Sprint 35 as of 07/19/2019**
+  
+  New Enhancements
+
+   - When using a workbook you are now able to plot using case barcode centric data and sample barcode centric data.  This is mainly a factor when variables are patient based mainly when using a scatter plot or a histogram chart.
+   
+  Bug Fixes
+  
+   - When using a workbook you are now able to add a an existing gene list variable your analysis.
+   - When using the User Data Upload feature the Data System Dictionary has been re-enabled.
+
+
 * **April 25, 2019** `v3.18 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.18>`_
   
-   **Please Note:** Work is underway to rework our cohort creation page to better display images associated with samples. 
+  **Please Note:** Work is underway to rework our cohort creation page to better display images associated with samples. 
   
   
    The following datasets (open and controlled access) have been added to the ISB-CGC for service account registration:

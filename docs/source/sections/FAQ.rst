@@ -56,7 +56,7 @@ There are additional instructions which work and can be found `here <https://sta
 
 **What project information do I input on the Register a Google Cloud Project page?**
 
-You will need to input the Google Cloud Prooject ID which can be found on the Dashboard page of the Google Console under Project info.
+You will need to input the Google Cloud Project ID which can be found on the Dashboard page of the Google Console under Project info.
 
 .. image:: project_info.PNG
    :scale: 50
@@ -131,9 +131,9 @@ ISB-CGC Web Application
 
 This is a security feature when working with forms found in most web browsers; it lets you know that you may have made some changes which will be lost when you navigate away from the page. If you intend to cancel what you were doing, you can safely ignore it.
 
-**Which web browser is recomended to use when working with the site?**
+**Which web browser is recommended to use when working with the site?**
 
-We recommend using Google Chrome browser.  We currently will display a chart slightly off when working with workbooks on a FireFox browser. 
+We recommend using the Google Chrome browser.  We currently will display a chart slightly off when working with workbooks on a FireFox browser. 
 
 **Why did I get a 401 error on the IGV Browser?**
 
@@ -153,7 +153,7 @@ The web browser will be caused to crash when too many IGV Browser tabs are open 
    :align: center
    
 
-**Does SeqPeek and CNVR plotting only work with TCGA data?**
+**Does SeqPeek and CNVR plot only work with TCGA data?**
 
 We currently have no data associated with CNVR or Seqpeek for TARGET or CCLE.  Therefore, SeqPeek and CNVR will only work with TCGA data.
 
@@ -163,7 +163,7 @@ Data Access
 **Does all TCGA data require dbGaP authorization prior to access?**
 
 No, generally only the low-level sequence (DNA and RNA) and SNP-array data (CEL files) require
-dbGaP authorization.  All of the "high-level" molecular data, as well as the clinical data are
+dbGaP authorization.  All of the "high-level" molecular data, as well as the clinical data, are
 open-access and much of this has been made available in a convenient set of BigQuery tables. 
 
 **Where can I find the TCGA data that ISB-CGC has made publicly available in BigQuery tables?**
@@ -171,7 +171,7 @@ open-access and much of this has been made available in a convenient set of BigQ
 The BigQuery web interface can be accessed at bigquery.cloud.google.com.  If you have not already added the ISB-CGC datasets to your BigQuery "view", click on the blue arrow
 next to your project name at the top of the left side-bar, select "Switch to Project", then "Display Project...",
 and enter "isb-cgc" (without quotes) in the text box labeled "Project ID".  All ISB-CGC public BigQuery
-datasets and tables will now be visible in the left side-bar of the BigQuery web interface.
+datasets and tables will now be visible on the left side-bar of the BigQuery web interface.
 Note that in order to use BigQuery, you need to be a member of a Google Cloud Project.
 
 **How can I apply for access to the low-level DNA and RNA sequence data?**
@@ -208,7 +208,7 @@ associated with more than one Google identity within the ISB-CGC platform at any
 **Can I authenticate to NIH programmatically?**
 
 No, the current NIH authentication flow requires
-web-based authentication and must therefore be done from within the ISB-CGC web-app.  Once you have
+web-based authentication and must, therefore, be done from within the ISB-CGC web-app.  Once you have
 authenticated to NIH via the web-app, and your dbGaP authorization has been verified, the Google 
 identity associated with your account will have access to the controlled-data for 24 hours.
 
@@ -216,7 +216,7 @@ Data Content
 ############
 **I get a different number of samples in BigQuery than I do with the same query in the Webapp.  Why?**
 
-Older programs like TCGA have both legacy data (data from the original program) and harmonized data (data run through the Genomics Data Commons).  The Webapp primarily uses harmonized data where BigQuery contains both legacy and harmonized data.  In addition, some cases and samples have been removed from the Webapp if annotation suggest the data from those caases or samples are incorrect, misleading or from cases of uncertain origin.  Most of these cases and samples are still in BigQuery and users are encouraged to check the annotations tables.
+Older programs like TCGA have both legacy data (data from the original program) and harmonized data (data run through the Genomics Data Commons).  The Webapp primarily uses harmonized data where BigQuery contains both legacy and harmonized data.  In addition, some cases and samples have been removed from the Webapp if annotation suggests the data from those cases or samples are incorrect, misleading or from cases of uncertain origin.  Most of these cases and samples are still in BigQuery and users are encouraged to check the annotations tables.
 
 Python Users
 ############
@@ -224,7 +224,7 @@ Python Users
 **I want to write python scripts that access the TCGA data hosted by the ISB-CGC.  Do you have some examples that can get me started?**  
 
 Yes, of course!  The best place to start is with our examples-Python_
-repository on github.  You can run any of those examples yourself by signing in 
+repository on GitHub.  You can run any of those examples yourself by signing in 
 to your Google Cloud Project and deploying an instance of Google Cloud Datalab_.
 
 .. _examples-Python: https://github.com/isb-cgc/examples-Python
@@ -235,7 +235,7 @@ R and Bioconductor Users
 **I want to use R and Bioconductor packages to work with the TCGA data.  How can I do that?**
 
 You can run RStudio locally or deploy a dockerized version on a Google Compute Engine VM.  You can
-find some great examples to get you started in our examples-R_ repository on github, and also in
+find some great examples to get you started in our examples-R_ repository on GitHub, and also in
 the documentation from the Google Genomics workshop_ at BioConductor 2015.
 
 .. _examples-R: https://github.com/isb-cgc/examples-R
