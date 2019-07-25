@@ -308,13 +308,13 @@ Data-Type Specific ETL Details
 .. toctree::
    :maxdepth: 1
 
-   ETL_Clinical
-   ETL_Biospecimen
-   ETL_somaticMutations
-   ETL_DNAcopyNumber
-   ETL_DNAmethylation
-   ETL_mRNAexpression
-   ETL_microRNAexpression
-   ETL_proteinExpression
-   ETL_annotations
+   ETL/ETL_Clinical
+   ETL/ETL_Biospecimen
+   ETL/ETL_somaticMutations
+   ETL/ETL_DNAcopyNumber
+   ETL/ETL_DNAmethylation
+   ETL/ETL_mRNAexpression
+   ETL/ETL_microRNAexpression
+   ETL/ETL_proteinExpression
+   ETL/ETL_annotations
 
