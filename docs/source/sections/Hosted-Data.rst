@@ -26,7 +26,7 @@ In addition, we recommend that you review important information about data secur
 .. toctree::
    :maxdepth: 1
 
-   TCGA_Data_Security
+   data/TCGA_Data_Security
 
 A note about legacy and harmonized data sets
 --------------------------------------------
