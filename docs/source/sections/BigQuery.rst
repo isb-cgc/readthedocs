@@ -5,6 +5,7 @@ BigQuery
 Getting Started With BigQuery
 ----------------------------
 .. toctree::
+   :hidden:
    :maxdepth: 2
 
    progapi/bigqueryGUI/WalkthroughOfGoogleBigQuery
@@ -14,10 +15,11 @@ Getting Started With BigQuery
 Data in BigQuery
 ----------------------------
 .. toctree::
+   :hidden:
    :maxdepth: 2
    
    data/BQ_overview
-   PanCancer Atlas Mirror
+   PanCancer-Atlas-Mirror
 
 
 
