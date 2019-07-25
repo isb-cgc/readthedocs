@@ -9,8 +9,8 @@ The majority of the TCGA data set as well as other reference and annotation data
 * TCGA radiology and tissue image data are available in Google Cloud Storage
 * TCGA proteomics (CPTAC PhaseII) data are available in Google Cloud Storage
 
-About Programs and Data Sets:
-+++++++++++++++++++++++++++++
+About Programs and Data Sets
+----------------------------
 .. toctree::
    :maxdepth: 2
 
@@ -18,6 +18,15 @@ About Programs and Data Sets:
    data/GDC_top
    data/Data_on_ISBCGC
    data/Reference-Data
+
+Data Security and Access
+------------------------
+In addition, we recommend that you review important information about data security and data access in these sections:
+
+.. toctree::
+   :maxdepth: 1
+
+   TCGA_Data_Security
 
 A note about legacy and harmonized data sets
 --------------------------------------------
