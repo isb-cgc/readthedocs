@@ -1,5 +1,5 @@
 *******************************************
-Clinical Trials Sequencing Project Data Set
+CTSP Data Set
 *******************************************
 
 About the CTSP
