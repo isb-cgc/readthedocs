@@ -57,7 +57,7 @@ For more information, please refer to the
 *"The Investigator and their associated institution assume the responsibility for the security of the dbGaP data.  As such, NIH has tried to provide as much information as possible for PIs, institutional signing officials (SOs) and the IT staff who will be supporting these projects, to make sure they understand their responsibilities."* (Ref: `The Cloud, dbGaP and the NIH <http://datascience.nih.gov/blog/cloud>`_ blog post 03.27.2015)
 
 Understanding Data Access
-*************************
+-------------------------
 
 * **Public Data**  Sometimes the word "public" is misinterpreted as meaning "open".  All of the TCGA data is *public* data, and much of it is *open*, meaning that it is accessible and available to *all* users; while some low-level TCGA data is *controlled* and restricted to authorized users.
 * **Open-Access Data**  Depending on how you categorize the data, *most* of the TCGA data is open-access data.  This includes all de-identified clinical and biospecimen data, as well as all Level-3 molecular data including gene expression data, DNA methylation data, DNA copy-number data, protein expression data, somatic mutation calls, etc. 
