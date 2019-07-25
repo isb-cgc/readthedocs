@@ -14,22 +14,9 @@ For more information about the TARGET program, please visit the official `TARGET
 About the TARGET Data
 ---------------------
 
-The ISB-CGC currently hosts over 70 terabytes of TARGET_ data in Google Cloud Storage (GCS_) and in BigQuery_.  
+The ISB-CGC currently hosts several of TARGET_ data sets in BigQuery_. TARGET controlled-access data is available to authorized users in Genomic Data Commons and open-access data includes RNA-seq and miRNA-seq expression levels, and is available in BigQuery, along with the open-access clinical and biospecimen information.
 
-.. _TARGET: https://ocg.cancer.gov/programs/target
-.. _GCS: https://cloud.google.com/storage/
-.. _BigQuery: https://cloud.google.com/bigquery/
-
-The ISB-CGC platform is one of the `NCI Cloud Resources <https://datascience.cancer.gov/data-commons/cloud-resources>`_ and part of our mission is to host the TARGET data in the cloud so that researchers around the world may work with the data without needing to download and store the data at their own local institutions.
-
-TARGET controlled-access data is now available to authorized users in Google Cloud Storage.
-
-The open-access data includes RNA-seq and miRNA-seq expression levels, and is available in BigQuery, along with the open-access clinical and biospecimen information.
-
-TARGET Data by Access Class
----------------------------
-
-Open-Access TARGET Data
+BigQuery TARGET Data
 +++++++++++++++++++++++
 
 The open-access TARGET data hosted by the ISB-CGC Platform includes:
@@ -38,19 +25,6 @@ The open-access TARGET data hosted by the ISB-CGC Platform includes:
 * Gene (mRNA) expression data:  these data were originally provided as TSV files (Level-3) by the TARGET DCC
 * microRNA expression data:  these data were originally provided as TSV files (Level-3) by the TARGET DCC
 
-in BigQuery
-===========
-
 The information scattered over thousands of XLSX and TSV files at the GDC is provided in a *much more accessible* form in a series of 
 `BigQuery tables <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_BQ.html#target-clinical-biospecimen-and-molecular-data>`_.
 
-Controlled-Access TARGET Data
-+++++++++++++++++++++++++++++
-
-The controlled-access TARGET data is not yet accessible but will be soon, please stay tuned for updates and let us know if you have an urgent need for this data.
-(Please note that you will need to obtain dbGaP authorization first, so if you do not yet have that, you should begin that process.)
-
-in Google Cloud Storage
------------------------
-
-All controlled-access TARGET data will be available as files in GCS, in their original form (*ie* BAM or FASTQ files).
