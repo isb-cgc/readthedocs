@@ -1,6 +1,6 @@
-*******************
-Programmatic Access
-*******************
+*************************
+Programmatic Access (API)
+*************************
 
 Programmatic access to the data and metadata is provided through a combination of ISB-CGC
 APIs and Google APIs.  The majority of the ISB-CGC data in BigQuery tables and in Google Cloud Storage is 
@@ -15,12 +15,11 @@ and the Google Genomics Pipelines (GGP) service
 are provided in our github repositories, also described below.
 
 .. toctree::
+   :hidden:
    :maxdepth: 1
 
    progapi/SysModel
-   progapi/Tutorials
    progapi/Programmatic-API
-   progapi/Compute-Engine
-   webapp/ViewingCohorts
-   progapi/workflows_top
+   
+   
 

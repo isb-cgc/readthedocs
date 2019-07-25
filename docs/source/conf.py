@@ -52,7 +52,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'ISB Cancer Genomics Cloud'
-copyright = u'2015-2017, the ISB-CGC team'
+copyright = u'2015-2019, the ISB-CGC team'
 author = u'the ISB-CGC team'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -108,8 +108,8 @@ rst_epilog = """
 
 .. container:: isbcgcfooter
 
-  Have feedback or corrections?  You can file an issue `here <https://github.com/isb-cgc/readthedocs/issues>`_ or email us at feedback@isb-cgc.org.
-
+  Have feedback or corrections?  Please email us at feedback@isb-cgc.org.
+  
 .. GLOBAL LINK REPLACEMENTS CAN GO HERE
 
 .. ### random examples
@@ -157,7 +157,8 @@ html_theme_options = {
     "rightsidebar":       "false",
     "stickysidebar":      "true",
     "collapsiblesidebar": "false",
-    "externalrefs":       "true"
+    "externalrefs":       "true",
+    "display_version":    "false"
 }
 
 # Add any paths that contain custom themes here, relative to this directory.

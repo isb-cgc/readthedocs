@@ -16,7 +16,6 @@ tips on how to use it, and details about the data that we are hosting on the
 Google Cloud Platform.
 
 .. image:: new-block-three-p.png
-   :scale: 100
    :align: center
 
 The ISB-CGC aims to serve the needs of a broad range of cancer researchers ranging from 
@@ -26,25 +25,22 @@ custom scripts using languages such as R or Python, accessing the data through A
 to algorithm developers who wish to spin up thousands of virtual machines to analyze hundreds 
 of terabytes of sequence data.
 
-This documentation is a work-in-progress, please let us know how we can improve 
-it. feedback@isb-cgc.org 
-
 -- the ISB-CGC team
 
-Contents
-########
-
 .. toctree::
+   :hidden:
    :maxdepth: 1
 
    sections/About-ISB-CGC
    sections/HowToGetStartedonISB-CGC
    sections/BestPractices
    sections/Hosted-Data
+   sections/BigQuery
    sections/Web-UI
    sections/Prog-APIs
    sections/QuicklinksOneTable
-   sections/TutorialsAndDIYWorkshop
+   sections/TutorialsAndHow-ToGuides
+   sections/FeatureAlertsandDataReleases
    sections/FAQ
    sections/Support
 
