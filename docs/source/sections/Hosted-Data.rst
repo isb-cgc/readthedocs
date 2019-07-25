@@ -1,6 +1,6 @@
-*********
-Data Sets
-*********
+**********************
+Programs and Data Sets
+**********************
 
 The majority of the TCGA data set as well as other reference and annotation data sets are available in different Google Cloud technologies:
 
@@ -14,7 +14,7 @@ About Programs and Data Sets
 .. toctree::
    :maxdepth: 2
 
-   data/Programs.rst
+   data/Data_Sets.rst
    data/GDC_top
    data/Data_on_ISBCGC
    data/Reference-Data
