@@ -18,6 +18,7 @@ are provided in our github repositories, also described below.
    :maxdepth: 1
 
    progapi/SysModel
+   HowTos.rst
    progapi/Programmatic-API
    progapi/Compute-Engine
    webapp/ViewingCohorts
