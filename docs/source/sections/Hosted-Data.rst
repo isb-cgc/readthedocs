@@ -20,6 +20,7 @@ About Programs and Data Sets
 
 .. toctree::
    :hidden:
+   :name: Data Security and Access
    :maxdepth: 1
 
    data/TCGA_Data_Security
