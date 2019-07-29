@@ -36,3 +36,4 @@ try using Chrome to see if the issue appears to be browser specific.
 **Web App Time Zone**
 
 Also please note the system is set in Pacific time, so if you see some inconsistencies with the time in the workbooks or cohorts you generated, it could be due to this. 
+
