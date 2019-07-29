@@ -18,8 +18,6 @@ are provided in our github repositories, also described below.
    :hidden:
    :maxdepth: 1
 
-   progapi/SysModel
-   progapi/Programmatic-API
    
    
 

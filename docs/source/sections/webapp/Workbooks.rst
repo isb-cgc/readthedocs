@@ -27,7 +27,7 @@ To create a **Workbook** from Your Dashboard, click on the **“Create a New Wor
 .. _how to upload your own data: program_data_upload.html
 .. _how to graph your own data: GraphingUserData.html
 
-1. From the Workbook creation panel you will first select one of six analysis types (i.e., Bar chart, Histogram, Scatter Plot, Violin Plot, Cubby Hole Plot or SeqPeek). 
+1. From the Workbook creation panel you will first select one of six analysis types (i.e., Bar chart, Histogram, Scatter Plot, Violin Plot, Cubby Hole Plot, OncoPrint, OncoGrid, or SeqPeek). 
 
   * **Analysis Type Description**
 
@@ -89,6 +89,8 @@ By clicking 'Cohorts' or the '+' symbol you will be directed to the Cohorts tabl
 Once completed you can proceed.  The user can also add multiple Cohorts to the worksheet if desired. More information about Cohorts can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html>`_.
 
 4. Select **Edit Analysis Settings** - This will trigger the Plot setting displaying the applicable x & y axis settings (i.e. Categorical or Numerical based on analysis type selected). Depending on the analysis type selected (e.g., Bar chart, Histogram, Scatter Plot, Violin Plot, Cubby Hole Plot, or SeqPeek) additional specifications may appear for selection.
+  
+  **NOTE:** When using a workbook you are now able to plot using case barcode centric data and sample barcode centric data.  This is a main factor when variables are patient based mainly when using a scatter plot or a histogram chart.
 
 5. Select **Toggle Sample Selection** - After an analysis option has been selected, using the toggle sample button allows you to create a smaller cohort from within the plot itself.
 
