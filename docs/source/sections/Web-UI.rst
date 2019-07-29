@@ -21,7 +21,6 @@ We welcome your ideas and needs.  Please use this `link <https://groups.google.c
    webapp/GraphingUserData
    webapp/IGV-Browser
    webapp/OsimisWebViewer
-   webapp/releases
 
 **Sharing Cohorts between the Web App and the API**
 
