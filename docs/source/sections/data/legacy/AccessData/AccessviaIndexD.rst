@@ -9,9 +9,9 @@ New Programs
 Foundation Medicine Adult Cancer Clinical Dataset (FM-AD)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The Foundation Medicine adult cancer clinical dataset consists of 18,004 unique solid tumor samples that underwent genomic profiling on a single uniform platform as part of standard clinical care. The dataset is derived from the FoundationOne® genomic profiling assay version 2 that interrogates exonic regions of 287 cancer-related genes and selected introns from 19 genes known to undergo rearrangements in human cancer. For more information please `visit <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs001179.v1.p1/>`_. 
+The Foundation Medicine adult cancer clinical dataset consists of 18,004 unique solid tumor samples that underwent genomic profiling on a single uniform platform as part of standard clinical care. The dataset is derived from the FoundationOne® genomic profiling assay version 2 that interrogates exonic regions of 287 cancer-related genes and selected introns from 19 genes known to undergo rearrangements in human cancer. For more information please `visit <https://gdc.cancer.gov/about-gdc/contributed-genomic-data-cancer-research/foundation-medicine/foundation-medicine>`_. 
 
-The Data Use Aggreement for Foundation Medicine can be found `here <https://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?view_pdf&stacc=phs001179.v1.p1>`_. 
+The Data Use Agreement for Foundation Medicine can be found `here <https://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?view_pdf&stacc=phs001179.v1.p1>`_. 
 
 
 Clinical Trial Sequencing Project (CTSP) 
