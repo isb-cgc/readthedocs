@@ -3,7 +3,7 @@ Viewing and using cohorts in the Webapp and API
 ***********************************************
 Cohorts are one of the central concepts that researchers use when analyzing large datasets.  As has been discussed elsewhere in the documentation, cohorts can be created either in the Webapp or via the ISB-CGC REST API.  What may not be as clear is that cohorts created by one of the systems can be viewed and used in the other.  In other words, you can create a cohort using the API and use it in the webapp or you can create a cohort in the webapp and use it in the API.  This can give researchers significant flexibility in creating and sharing their cohorts.  
 
-It should be noted that the details of how to use the APIs can differ significantly depending on how users access the REST APIs.  The examples given here are assuming users only have access to a console and not a higher-level language like Python where the APIs can be used more programatically.  Additionally, the examples shown here are using the TCGA endpoint, but exactly the same functionality is avialable for TARGET and CCLE using the endpoints specific to those programs.
+It should be noted that the details of how to use the APIs can differ significantly depending on how users access the REST APIs.  The examples given here are assuming users only have access to a console and not a higher-level language like Python where the APIs can be used more programmatically.  Additionally, the examples shown here are using the TCGA endpoint, but exactly the same functionality is available for TARGET and CCLE using the endpoints specific to those programs.
 
 Related documents:
 
@@ -33,7 +33,7 @@ Similarly, the **cohorts().list()** endpoint of the ISB-CGC API will return exac
 Creating Cohorts
 ================
 
-`Creating cohorts using the Webapp`_ has been fully documented and needs no further explanation.  Creating cohorts using the API uses two different endpoints, `cohorts().preview()`_ and `cohorts().create()`_.  These two endpoints have exactly the same query capabilities and differ only in that the preview endpoint will return the results of the query without creating a cohort while the create endpoint will create the cohort and name it using the name provided with the name attribute.  In addition, due to the authentication requirement for the create endpoint, the query is sent as a JSON object
+`Creating cohorts using the Webapp`_ has been fully documented and needs no further explanation.  Creating cohorts using the API uses two different endpoints, `cohorts().preview()`_ and `cohorts().create()`_.  These two endpoints have exactly the same query capabilities and differ only in that the preview endpoint will return the results of the query without creating a cohort while the create endpoint will create the cohort and name it using the name provided with the name attribute.  In addition, due to the authentication requirement for the create endpoint, the query is sent as a JSON object.
 
 In the following example, the first query creates a cohort of patients from the UCS and CESC studies who were 20 years old or younger at the time of diagnosis.  Since this query is run against the **preview** endpoint, no cohort is actually created, only the results shown in Figure 3 are returned. ::
 
@@ -53,7 +53,7 @@ Additionally a JSON object containing the query needs to be created. ::
 
     {"Study": ["TCGA-UCS", "TCGA-CESC"], "age_at_initial_pathologic_diagnosis_lte": 20}
 
-The commands above will create a cohort via the API
+The commands above will create a cohort via the API.
 
 .. _Creating cohorts using the Webapp: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html
 .. _cohorts().preview(): http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/progapi3_tcga/cohorts_preview.html

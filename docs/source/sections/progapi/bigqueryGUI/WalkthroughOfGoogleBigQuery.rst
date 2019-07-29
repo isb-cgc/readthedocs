@@ -40,7 +40,7 @@ Getting information from one table
     SELECT
       case_barcode, project_short_name, original_gene_symbol, HGNC_gene_symbol, gene_id
     FROM
-      [isb-cgc:TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM]
+      `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
     WHERE
       original_gene_symbol = 'ARID1B'
     AND
@@ -71,7 +71,7 @@ the type of mutation
       mutation.case_barcode,
       mutation.Variant_Type
     FROM
-      [isb-cgc:TCGA_hg19_data_v0.Somatic_Mutation_DCC] AS mutation
+      `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_DCC` AS mutation
     WHERE
       mutation.Hugo_Symbol = 'CDKN2A'
       AND project_short_name = 'TCGA-BLCA'
@@ -108,7 +108,7 @@ Bringing in the patient data from the ISB-CGC TCGA Clinical table so that we can
         mutation.case_barcode,
         mutation.Variant_Type
       FROM
-        [isb-cgc:TCGA_hg19_data_v0.Somatic_Mutation_DCC] AS mutation
+        `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_DCC` AS mutation
       WHERE
         mutation.Hugo_Symbol = 'CDKN2A'
         AND project_short_name = 'TCGA-BLCA'
@@ -119,7 +119,7 @@ Bringing in the patient data from the ISB-CGC TCGA Clinical table so that we can
         mutation.case_barcode,
         ) AS case_list /* end case_list */
     JOIN
-      [isb-cgc:TCGA_bioclin_v0.Clinical] AS clinical
+      `isb-cgc.TCGA_bioclin_v0.Clinical` AS clinical
     ON
       case_list.case_barcode = clinical.case_barcode
   
@@ -163,7 +163,7 @@ Show the gene expression levels for the 4 genes of interest, and order them by c
           mutation.case_barcode,
           mutation.Variant_Type
         FROM
-          [isb-cgc:TCGA_hg19_data_v0.Somatic_Mutation_DCC] AS mutation
+          `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_DCC` AS mutation
         WHERE
           mutation.Hugo_Symbol = 'CDKN2A'
           AND project_short_name = 'TCGA-BLCA'
@@ -174,11 +174,11 @@ Show the gene expression levels for the 4 genes of interest, and order them by c
           mutation.case_barcode,
           ) AS case_list /* end case_list */
       INNER JOIN
-        [isb-cgc:TCGA_bioclin_v0.Clinical] AS clinical
+        `isb-cgc.TCGA_bioclin_v0.Clinical` AS clinical
       ON
         case_list.case_barcode = clinical.case_barcode /* end clinical annotation */ ) AS clinical_info
     INNER JOIN
-      [isb-cgc:TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM] AS genex
+      `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM` AS genex
     ON
       genex.case_barcode = case_list.case_barcode
     WHERE

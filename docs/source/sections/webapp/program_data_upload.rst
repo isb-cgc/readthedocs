@@ -96,7 +96,7 @@ Creating and Saving a New Program
 #################################
 To create a new program from Your Dashboard, if you do not have a program created, click on the “Upload Program Data” link in the “Saved Programs” panel at the bottom of the page. This will take you to the Data Upload page.
 
-If you already have Programs created, they will be listed in the “Saved Programs” panel. Click on the “Saved Programs” link in that panel and this will take you to a page that displays the details of your existing Programss. Alternatively, to go directly to a given Program, click on its name and you will be taken to the program details page of that program.
+If you already have Programs created, they will be listed in the “Saved Programs” panel. Click on the “Saved Programs” link in that panel and this will take you to a page that displays the details of your existing Programs. Alternatively, to go directly to a given Program, click on its name and you will be taken to the program details page of that program.
 
 
 Registering Cloud Storage Buckets and BigQuery Datasets - a pre-requisite for using your own data in ISB-CGC
