@@ -15,7 +15,13 @@ and the Google Genomics Pipelines (GGP) service
 are provided in our github repositories, also described below.
 
 .. toctree::
-   :hidden:
+   
+   progapi/SysModel
+   HowTos
+   progapi/Programmatic-API
+   progapi/Compute-Engine
+   webapp/ViewingCohorts
+   progapi/workflows_top
    :maxdepth: 1
 
    
