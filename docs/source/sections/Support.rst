@@ -62,14 +62,6 @@ have a particular use-case that has not yet been addressed, please contact us
 (email info@isb-cgc.org) and we will work with you to determine the best approach to 
 run the analysis you have in mind. 
 
-**Cloud Datalab** is a powerful web-based interactive computational environment built on the 
-familiar IPython (now known as Jupyter) environment, running on a Google VM in your own Google Cloud Project. 
-Cloud Datalab_ allows you to combine
-SQL-like queries into the TCGA BigQuery tables with all the power of Python packages like Pandas
-and Matplotlib.  See our examples-Python_ repository on github.
-
-.. _Datalab: https://datalab.cloud.google.com/
-.. _examples-Python: https://github.com/isb-cgc/examples-Python
 
 **Google Genomics** provides tools for storing, processing, exploring, and sharing DNA sequence
 reads, reference-based alignments, and variant calls, using Google's infrastructure.  An extensive
