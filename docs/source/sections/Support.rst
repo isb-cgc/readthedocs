@@ -62,8 +62,3 @@ have a particular use-case that has not yet been addressed, please contact us
 (email info@isb-cgc.org) and we will work with you to determine the best approach to 
 run the analysis you have in mind. 
 
-
-**Google Genomics** provides tools for storing, processing, exploring, and sharing DNA sequence
-reads, reference-based alignments, and variant calls, using Google's infrastructure.  An extensive
-Cookbook_ here on Read the Docs as well as an ever-growing set of examples on github_ showcase
-some of the tools at your disposal.
