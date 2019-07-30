@@ -2,14 +2,7 @@
 README, COSMIC COSMIC Download Files
 ====================================
 
-Version 83, 7th November 2017
-
-*** Pre-Release ***
-
-Files stored under /cosmic/tmp/pre-release/ on the SFTP server are early access files.
-
-As such they are still undergoing QC and are subject to change at any time before the next official release (v83) on 7th November 2017.
-
+Version 87, 13th November 2018
 
 ---------------------------
 Classification Information
@@ -45,7 +38,7 @@ Classification Information
 -------------------------------------------------
 COSMIC Complete Mutation Data (Targeted Screens)
 -------------------------------------------------
- A tab separated table of the complete curated COSMIC dataset (targeted screens) from the current release. It includes all coding point mutations, and the negative data set. [ /cosmic/grch37/cosmic/v83/CosmicCompleteTargetedScreensMutantExport.tsv.gz ] 
+ A tab separated table of the complete curated COSMIC dataset (targeted screens) from the current release. It includes all coding point mutations, and the negative data set. [ /cosmic/grch37/cosmic/v87/CosmicCompleteTargetedScreensMutantExport.tsv.gz ] 
 
   File Description
 
@@ -68,13 +61,13 @@ COSMIC Complete Mutation Data (Targeted Screens)
 [17:Q]                Mutation Id                                        unique mutation identifier.
 [18:R]                Mutation CDS                                       The change that has occurred in the nucleotide sequence. Formatting is identical to the method used for the peptide sequence.
 [19:S]                Mutation AA                                        The change that has occurred in the peptide sequence. Formatting is based on the recommendations made by the Human Genome Variation Society. The description of each type can be found by following the link to Mutation Overview page.
-[20:T]                Mutation Description                               Type of mutation (substitution, deletion, insertion, complex, fusion, unknown etc.)
+[20:T]                Mutation Description                               Type of mutation at the amino acid level (substitution, deletion, insertion, complex, fusion, unknown etc.)
 [21:U]                Mutation zygosity                                  Information on whether the mutation was reported to be homozygous , heterozygous or unknown within the sample.
 [22:V]                LOH                                                LOH Information on whether the gene was reported to have loss of heterozygosity in the sample: yes, no or unknown.
 [23:W]                GRCh                                               The coordinate system used -
                         * 38 = GRCh38/Hg38
                         * 37 = GRCh37/Hg19
-[24:X]                Mutation genome position                           The genomic cooridnates of the mutation.
+[24:X]                Mutation genome position                           The genomic coordinates of the mutation.
 [25:Y]                Mutation strand                                    Positive or negative.
 [26:Z]                SNP                                                All the known SNPs are flagged as 'y' defined by the 1000 genomes project, dbSNP and a panel of 378 normal (non-cancer) samples from Sanger CGP sequencing.
 [27:AA]               Resistance Mutation                                The mutation confers drug resistance (see CosmicResistanceMutations.tsv.gz for gene/drug details).
@@ -88,7 +81,7 @@ COSMIC Complete Mutation Data (Targeted Screens)
                         * Previously observed = when the mutation has been reported as somatic previously but not in current paper.
 [31:AE]               Pubmed_PMID                                        The PUBMED ID for the paper that the sample was noted in, linking to pubmed to provide more details of the publication.
 [32:AF]               Id Study                                           Lists the unique Ids of studies that have involved this sample.
-[33:AG]               Sample source,Tumour origin                        Describes where the sample has originated from including the tumour type.
+[33:AG]               Sample Type,Tumour origin                          Describes where the sample has originated from including the tumour type.
 [35:AI]               Age                                                Age of the individual (if this information is provided with the publications).
 
 
@@ -96,7 +89,7 @@ COSMIC Complete Mutation Data (Targeted Screens)
 --------------------------------------
 COSMIC Mutation Data (Genome Screens)
 --------------------------------------
- A tab separated table of coding point mutations from genome wide screens (including whole exome sequencing). [ /cosmic/grch37/cosmic/v83/CosmicGenomeScreensMutantExport.tsv.gz ] 
+ A tab separated table of coding point mutations from genome wide screens (including whole exome sequencing). [ /cosmic/grch37/cosmic/v87/CosmicGenomeScreensMutantExport.tsv.gz ] 
 
   File Description
 
@@ -119,13 +112,13 @@ COSMIC Mutation Data (Genome Screens)
 [17:Q]                Mutation Id                                        unique mutation identifier.
 [18:R]                Mutation CDS                                       The change that has occurred in the nucleotide sequence. Formatting is identical to the method used for the peptide sequence.
 [19:S]                Mutation AA                                        The change that has occurred in the peptide sequence. Formatting is based on the recommendations made by the Human Genome Variation Society. The description of each type can be found by following the link to Mutation Overview page.
-[20:T]                Mutation Description                               Type of mutation (substitution, deletion, insertion, complex, fusion, unknown etc.)
+[20:T]                Mutation Description                               Type of mutation at the amino acid level (substitution, deletion, insertion, complex, fusion, unknown etc.)
 [21:U]                Mutation zygosity                                  Information on whether the mutation was reported to be homozygous , heterozygous or unknown within the sample.
 [22:V]                LOH                                                LOH Information on whether the gene was reported to have loss of heterozygosity in the sample: yes, no or unknown.
 [23:W]                GRCh                                               The coordinate system used -
                         * 38 = GRCh38/Hg38
                         * 37 = GRCh37/Hg19
-[24:X]                Mutation genome position                           The genomic cooridnates of the mutation.
+[24:X]                Mutation genome position                           The genomic coordinates of the mutation.
 [25:Y]                Mutation strand                                    positive or negative.
 [26:Z]                SNP                                                All the known SNPs are flagged as 'y' defined by the 1000 genomes project, dbSNP and a panel of 378 normal (non-cancer) samples from Sanger CGP sequencing.
 [27:AA]               FATHMM prediction                                  More information about FATHMM (Functional Analysis through Hidden Markov Models) is available from http://fathmm.biocompute.org.uk. FATHMM  descriptors -
@@ -138,7 +131,7 @@ COSMIC Mutation Data (Genome Screens)
                         * Previously observed = when the mutation has been reported as somatic previously but not in current paper.
 [30:AD]               Pubmed_PMID                                        The PUBMED ID for the paper that the sample was noted in, linking to pubmed to provide more details of the publication.
 [31:AE]               Id Study                                           Lists the unique Ids of studies that have involved this sample.
-[32:AF]               Sample source,Tumour origin                        Describes where the sample has originated from including the tumour type.
+[32:AF]               Sample Type,Tumour origin                          Describes where the sample has originated from including the tumour type.
 [34:AH]               Age                                                Age of the individual (if this information is provided with the publications).
 
 
@@ -146,7 +139,7 @@ COSMIC Mutation Data (Genome Screens)
 ---------------------
 COSMIC Mutation Data
 ---------------------
- A tab separated table of all COSMIC coding point mutations from targeted and genome wide screens from the current release. [ /cosmic/grch37/cosmic/v83/CosmicMutantExport.tsv.gz ] 
+ A tab separated table of all COSMIC coding point mutations from targeted and genome wide screens from the current release. [ /cosmic/grch37/cosmic/v87/CosmicMutantExport.tsv.gz ] 
 
   File Description
 
@@ -169,13 +162,13 @@ COSMIC Mutation Data
 [17:Q]                Mutation Id                                        unique mutation identifier.
 [18:R]                Mutation CDS                                       The change that has occurred in the nucleotide sequence. Formatting is identical to the method used for the peptide sequence.
 [19:S]                Mutation AA                                        The change that has occurred in the peptide sequence. Formatting is based on the recommendations made by the Human Genome Variation Society. The description of each type can be found by following the link to Mutation Overview page.
-[20:T]                Mutation Description                               Type of mutation (substitution, deletion, insertion, complex, fusion, unknown etc.)
+[20:T]                Mutation Description                               Type of mutation at the amino acid level (substitution, deletion, insertion, complex, fusion, unknown etc.)
 [21:U]                Mutation zygosity                                  Information on whether the mutation was reported to be homozygous , heterozygous or unknown within the sample.
 [22:V]                LOH                                                LOH Information on whether the gene was reported to have loss of heterozygosity in the sample: yes, no or unknown.
 [23:W]                GRCh                                               The coordinate system used -
                         * 38 = GRCh38/Hg38
                         * 37 = GRCh37/Hg19
-[24:X]                Mutation genome position                           The genomic cooridnates of the mutation.
+[24:X]                Mutation genome position                           The genomic coordinates of the mutation.
 [25:Y]                Mutation strand                                    postive or negative.
 [26:Z]                SNP                                                All the known SNPs are flagged as 'y' defined by the 1000 genomes project, dbSNP and a panel of 378 normal (non-cancer) samples from Sanger CGP sequencing.
 [27:AA]               Resistance Mutation                                mutation confers drug resistance (see CosmicResistanceMutations.tsv.gz for gene/drug details).
@@ -189,80 +182,80 @@ COSMIC Mutation Data
                         * Previously observed = when the mutation has been reported as somatic previously but not in current paper.
 [31:AE]               Pubmed_PMID                                        The PUBMED ID for the paper that the sample was noted in, linking to pubmed to provide more details of the publication.
 [32:AF]               Id Study                                           Lists the unique Ids of studies that have involved this sample.
-[33:AG]               Sample source,Tumour origin                        Describes where the sample has originated from including the tumour type.
+[33:AG]               Sample Type,Tumour origin                          Describes where the sample has originated from including the tumour type.
 [35:AI]               Age                                                Age of the sample (if this information is provided with the publications).
 
 
 
-------------------------------------
-Structural Genomic Reararrangements
-------------------------------------
+----------------------------------
+Structural Genomic Rearrangements
+----------------------------------
 STRUCTURAL VARIANTS
- All structural variants from the current release in a tab separated table. [ /cosmic/grch37/cosmic/v83/CosmicStructExport.tsv.gz ] 
+ All structural variants from the current release in a tab separated table. [ /cosmic/grch37/cosmic/v87/CosmicStructExport.tsv.gz ] 
 
   File Description
 
 [column number:label] Heading                                           Description
 --------------------------------------------------------------------------------------------------------
-[1:A]                 Sample name                                        A sample is an instance of a portion of a tumour being examined for mutations. The sample name can be derived from a number of sources. In many cases it originates from the cell line name. Other sources include names assigned by the annotators, or an incremented number assigned during an anonymisation process. A number of samples can be taken from a single tumour and a number of tumours can be obtained from one individual.
-[2:B]                 Primary Site                                       The primary tissue/cancer from which the sample originated. More details on the tissue classification are avaliable from http://cancer.sanger.ac.uk/cosmic/classification. In COSMIC we have standard classification system for tissue types and sub types because they vary a lot between different papers.
-[3:C]                 Site Subtype 1                                     Further sub classification (level 1) of the samples tissue of origin.
-[4:D]                 Site Subtype 2                                     Further sub classification (level 2) of the samples tissue of origin.
-[5:E]                 Site Subtype 3                                     Further sub classification (level 3) of the samples tissue of origin.
-[6:F]                 Primary Histology                                  The histological classification of the sample.
-[7:G]                 Histology Subtype 1                                Further histological classification (level 1) of the sample.
-[8:H]                 Histology Subtype 2                                Further histological classification (level 2) of the sample.
-[9:I]                 Histology Subtype 3                                Further histological classification (level 3) of the sample.
-[10:J]                Mutation Id                                        unique mutation identifier.
-[11:K]                Mutation Type                                      Type of mutation : Intra/Inter (chromosomal), tandem duplication, deletion, inversion, complex substitutions, complex amplicons.
-[12:L]                GRCh                                               The coordinate system used -
+[1:A]                 Sample name,Sample id,Id tumour                    A sample is an instance of a portion of a tumour being examined for mutations. The sample name can be derived from a number of sources. In many cases it originates from the cell line name. Other sources include names assigned by the annotators, or an incremented number assigned during an anonymisation process. A number of samples can be taken from a single tumour and a number of tumours can be obtained from one individual. A sample id is used to identify a sample within the COSMIC database. There can be multiple ids, if the same sample has been entered into the database multiple times from different papers.
+[4:D]                 Primary Site                                       The primary tissue/cancer from which the sample originated. More details on the tissue classification are avaliable from http://cancer.sanger.ac.uk/cosmic/classification. In COSMIC we have standard classification system for tissue types and sub types because they vary a lot between different papers.
+[5:E]                 Site Subtype 1                                     Further sub classification (level 1) of the samples tissue of origin.
+[6:F]                 Site Subtype 2                                     Further sub classification (level 2) of the samples tissue of origin.
+[7:G]                 Site Subtype 3                                     Further sub classification (level 3) of the samples tissue of origin.
+[8:H]                 Primary Histology                                  The histological classification of the sample.
+[9:I]                 Histology Subtype 1                                Further histological classification (level 1) of the sample.
+[10:J]                Histology Subtype 2                                Further histological classification (level 2) of the sample.
+[11:K]                Histology Subtype 3                                Further histological classification (level 3) of the sample.
+[12:L]                Mutation Id                                        unique mutation identifier.
+[13:M]                Mutation Type                                      Type of mutation : Intra/Inter (chromosomal), tandem duplication, deletion, inversion, complex substitutions, complex amplicons.
+[14:N]                GRCh                                               The coordinate system used -
                         * 38 = GRCh38/Hg38
                         * 37 = GRCh37/Hg19
-[13:M]                Description                                        A syntax which describes the structural variant, based on HGVS recommendations.
-[14:N]                Pubmed_PMID                                        The PUBMED ID for the paper that the sample was noted in.
-[15:O]                ID_STUDY                                           Lists the unique Ids of studies that have involved this structural mutation.
+[15:O]                Description                                        A syntax which describes the structural variant, based on HGVS recommendations.
+[16:P]                Pubmed_PMID                                        The PUBMED ID for the paper that the sample was noted in.
+[17:Q]                ID_STUDY                                           Lists the unique Ids of studies that have involved this structural mutation.
 
 
 BREAKPOINTS
- All breakpoint data from the current release in a tab separated table. [ /cosmic/grch37/cosmic/v83/CosmicBreakpointsExport.tsv.gz ] 
+ All breakpoint data from the current release in a tab separated table. [ /cosmic/grch37/cosmic/v87/CosmicBreakpointsExport.tsv.gz ] 
 
   File Description
 
 [column number:label] Heading                                           Description
 --------------------------------------------------------------------------------------------------------
-[1:A]                 Sample name                                        A sample is an instance of a portion of a tumour being examined for mutations. The sample name can be derived from a number of sources. In many cases it originates from the cell line name. Other sources include names assigned by the annotators, or an incremented number assigned during an anonymisation process. A number of samples can be taken from a single tumour and a number of tumours can be obtained from one individual. A sample id is used to identify a sample within the COSMIC database. There can be multiple ids, if the same sample has been entered into the database multiple times from different papers.
-[2:B]                 Primary Site                                       The primary tissue/cancer from which the sample originated. More details on the tissue classification are avaliable from http://cancer.sanger.ac.uk/cosmic/classification. In COSMIC we have standard classification system for tissue types and sub types because they vary a lot between different papers.
-[3:C]                 Site Subtype 1                                     Further sub classification (level 1) of the samples tissue of origin.
-[4:D]                 Site Subtype 2                                     Further sub classification (level 2) of the samples tissue of origin.
-[5:E]                 Site Subtype 3                                     Further sub classification (level 3) of the samples tissue of origin.
-[6:F]                 Primary Histology                                  The histological classification of the sample.
-[7:G]                 Histology Subtype 1                                Further histological classification (level 1) of the sample.
-[8:H]                 Histology Subtype 2                                Further histological classification (level 2) of the sample.
-[9:I]                 Histology Subtype 3                                Further histological classification (level 3) of the sample.
-[10:J]                Mutation Type                                      Type of mutation : Intra/Inter (chromosomal), tandem duplication, deletion, inversion, complex substitutions, complex amplicons.
-[11:K]                Mutation Id                                        unique mutation identifier.
-[12:L]                Breakpoint Order                                   For variants involving multiple breakpoints, the predicted order along chromosome(s).Otherwise '0'.
-[13:M]                GRCh                                               The coordinate system used -
+[1:A]                 Sample name,Sample id,Id tumour                    A sample is an instance of a portion of a tumour being examined for mutations. The sample name can be derived from a number of sources. In many cases it originates from the cell line name. Other sources include names assigned by the annotators, or an incremented number assigned during an anonymisation process. A number of samples can be taken from a single tumour and a number of tumours can be obtained from one individual. A sample id is used to identify a sample within the COSMIC database. There can be multiple ids, if the same sample has been entered into the database multiple times from different papers.
+[4:D]                 Primary Site                                       The primary tissue/cancer from which the sample originated. More details on the tissue classification are avaliable from http://cancer.sanger.ac.uk/cosmic/classification. In COSMIC we have standard classification system for tissue types and sub types because they vary a lot between different papers.
+[5:E]                 Site Subtype 1                                     Further sub classification (level 1) of the samples tissue of origin.
+[6:F]                 Site Subtype 2                                     Further sub classification (level 2) of the samples tissue of origin.
+[7:G]                 Site Subtype 3                                     Further sub classification (level 3) of the samples tissue of origin.
+[8:H]                 Primary Histology                                  The histological classification of the sample.
+[9:I]                 Histology Subtype 1                                Further histological classification (level 1) of the sample.
+[10:J]                Histology Subtype 2                                Further histological classification (level 2) of the sample.
+[11:K]                Histology Subtype 3                                Further histological classification (level 3) of the sample.
+[12:L]                Mutation Type                                      Type of mutation : Intra/Inter (chromosomal), tandem duplication, deletion, inversion, complex substitutions, complex amplicons.
+[13:M]                Mutation Id                                        unique mutation identifier.
+[14:N]                Breakpoint Order                                   For variants involving multiple breakpoints, the predicted order along chromosome(s).Otherwise '0'.
+[15:O]                GRCh                                               The coordinate system used -
                         * 38 = GRCh38/Hg38
                         * 37 = GRCh37/Hg19
-[14:N]                Chrom From                                         The chromosome where the first variant/breakpoint occurs.
-[15:O]                Location From min                                  The first position in breakpoint range.
-[16:P]                Location From max                                  The last position in breakpoint range.
-[17:Q]                Strand From                                        positive or negative.
-[18:R]                Chrom To                                           The chromosome where the last variant/breakpoint occurs.
-[19:S]                Location To min                                    The first position in breakpoint range.
-[20:T]                Location To max                                    The last position in breakpoint range.
-[21:U]                Strand To                                          positive or negative.
-[22:V]                Non-templated ins seq                              Non Templated Sequence (if any) which is inserted at the breakpoint. The sequence is not encoded.
-[23:W]                Pubmed_PMID                                        The PUBMED ID for the paper that the sample was noted in.
-[24:X]                Id Study                                           Lists the unique Ids of studies that have involved this structural mutation.
+[16:P]                Chrom From                                         The chromosome where the first variant/breakpoint occurs.
+[17:Q]                Location From min                                  The first position in breakpoint range.
+[18:R]                Location From max                                  The last position in breakpoint range.
+[19:S]                Strand From                                        positive or negative.
+[20:T]                Chrom To                                           The chromosome where the last variant/breakpoint occurs.
+[21:U]                Location To min                                    The first position in breakpoint range.
+[22:V]                Location To max                                    The last position in breakpoint range.
+[23:W]                Strand To                                          positive or negative.
+[24:X]                Non-templated ins seq                              Non Templated Sequence (if any) which is inserted at the breakpoint. The sequence is not encoded.
+[25:Y]                Pubmed_PMID                                        The PUBMED ID for the paper that the sample was noted in.
+[26:Z]                Id Study                                           Lists the unique Ids of studies that have involved this structural mutation.
 
 
 
 -----------------------
 Complete Fusion Export
 -----------------------
- All gene fusion mutation data from the current release in a tab separated table. [ /cosmic/grch37/cosmic/v83/CosmicFusionExport.tsv.gz ] 
+ All gene fusion mutation data from the current release in a tab separated table. [ /cosmic/grch37/cosmic/v87/CosmicFusionExport.tsv.gz ] 
 
   File Description
 
@@ -288,7 +281,7 @@ Complete Fusion Export
 ------------------------------
 All Mutations in Census Genes
 ------------------------------
- All coding mutations in genes listed in the Cancer Gene Census ( http://cancer.sanger.ac.uk/census ) in a tab separated table. [ /cosmic/grch37/cosmic/v83/CosmicMutantExportCensus.tsv.gz ] 
+ All coding mutations in genes listed in the Cancer Gene Census ( http://cancer.sanger.ac.uk/census ) in a tab separated table. [ /cosmic/grch37/cosmic/v87/CosmicMutantExportCensus.tsv.gz ] 
 
   File Description
 
@@ -317,7 +310,7 @@ All Mutations in Census Genes
 [23:W]                GRCh                                               The coordinate system used -
                         * 38 = GRCh38/Hg38
                         * 37 = GRCh37/Hg19
-[24:X]                Mutation genome position                           The genomic cooridnates of the mutation.
+[24:X]                Mutation genome position                           The genomic coordinates of the mutation.
 [25:Y]                Mutation strand                                    positive or negative.
 [26:Z]                SNP                                                All the known SNPs are flagged as 'y' defined by the 1000 genomes project, dbSNP and a panel of 378 normal (non-cancer) samples from Sanger CGP sequencing.
 [27:AA]               Resistance Mutation                                mutation confers drug resistance (see CosmicResistanceMutations.tsv.gz for gene/drug details).
@@ -331,7 +324,7 @@ All Mutations in Census Genes
                         * Previously observed = when the mutation has been reported as somatic previously but not in current paper.
 [31:AE]               Pubmed_PMID                                        The PUBMED ID for the paper that the sample was noted in, linking to pubmed to provide more details of the publication.
 [32:AF]               Id Study                                           Lists the unique Ids of studies that have involved this sample.
-[33:AG]               Sample source,Tumour origin                        Describes where the sample has originated from including the tumour type.
+[33:AG]               Sample Type,Tumour origin                          Describes where the sample has originated from including the tumour type.
 [35:AI]               Age                                                Age of the sample (if this information is provided with the publications).
 [36:AJ]               Tier                                               1 or 2 [see http://cancer.sanger.ac.uk/census for details or Tier 1 and 2]
 
@@ -340,7 +333,7 @@ All Mutations in Census Genes
 --------------------
 Non coding variants
 --------------------
- A tab separated table of all non-coding mutations from the current release. [ /cosmic/grch37/cosmic/v83/CosmicNCV.tsv.gz ] 
+ A tab separated table of all non-coding mutations from the current release. [ /cosmic/grch37/cosmic/v87/CosmicNCV.tsv.gz ] 
 
   File Description
 
@@ -382,7 +375,7 @@ Non coding variants
 ---------------------
 Copy Number Variants
 ---------------------
- All copy number abberations from the current release in a tab separated table. For more information on copy number data, please see http://cancer.sanger.ac.uk/cosmic/help/cnv/overview. [ /cosmic/grch37/cosmic/v83/CosmicCompleteCNA.tsv.gz ] 
+ All copy number abberations from the current release in a tab separated table. For more information on copy number data, please see http://cancer.sanger.ac.uk/cosmic/help/cnv/overview. [ /cosmic/grch37/cosmic/v87/CosmicCompleteCNA.tsv.gz ] 
 
   File Description
 
@@ -416,7 +409,7 @@ Copy Number Variants
 ----------------
 Gene Expression
 ----------------
- All gene expression level 3 data from the TCGA portal for the current most release in a tab separated table. Please note : The platform codes currently used to produce the COSMIC gene expression values are: IlluminaGA_RNASeqV2, IlluminaHiSeq_RNASeqV2, AgilentG4502A_07_2, AgilentG4502A_07_3. For more information on the gene expression data, please see  http://cancer.sanger.ac.uk/cosmic/analyses. [ /cosmic/grch37/cosmic/v83/CosmicCompleteGeneExpression.tsv.gz ] 
+ All gene expression level 3 data from the TCGA portal for the current most release in a tab separated table. Please note : The platform codes currently used to produce the COSMIC gene expression values are: IlluminaGA_RNASeqV2, IlluminaHiSeq_RNASeqV2, AgilentG4502A_07_2, AgilentG4502A_07_3. For more information on the gene expression data, please see  http://cancer.sanger.ac.uk/cosmic/analyses. [ /cosmic/grch37/cosmic/v87/CosmicCompleteGeneExpression.tsv.gz ] 
 
   File Description
 
@@ -433,7 +426,7 @@ Gene Expression
 ------------
 Methylation
 ------------
- TCGA Level 3 methylation data from the ICGC portal for the current release in a tab separated table. More information on the methylation data is available from http://cancer.sanger.ac.uk/wgs/analyses. [ /cosmic/grch37/cosmic/v83/CosmicCompleteDifferentialMethylation.tsv.gz ] 
+ TCGA Level 3 methylation data from the ICGC portal for the current release in a tab separated table. More information on the methylation data is available from http://cancer.sanger.ac.uk/cosmic/analyses. [ /cosmic/grch37/cosmic/v87/CosmicCompleteDifferentialMethylation.tsv.gz ] 
 
   File Description
 
@@ -467,13 +460,13 @@ Methylation
 -------------------
 Cancer Gene Census
 -------------------
- A list of all cancer census genes from the current release in a comma separated table. The census table is exported from http://cancer.sanger.ac.uk/census and the format is the same. [ /cosmic/grch37/cosmic/v83/cancer_gene_census.csv ] 
+ A list of all cancer census genes from the current release in a comma separated table. The census table is exported from http://cancer.sanger.ac.uk/census and the format is the same. [ /cosmic/grch37/cosmic/v87/cancer_gene_census.csv ] 
 
 
 -----------------------
 COSMIC Sample Features
 -----------------------
- All the features related to a sample from the current release in a tab separated file. [ /cosmic/grch37/cosmic/v83/CosmicSample.tsv.gz ] 
+ All the features related to a sample from the current release in a tab separated file. [ /cosmic/grch37/cosmic/v87/CosmicSample.tsv.gz ] 
 
   File Description
 
@@ -514,13 +507,14 @@ COSMIC Sample Features
 [36:AJ]               Gender                                             Sex of individual.
 [37:AK]               Individual Remark                                  Any additional individual information (e.g. age group, hereditary syndromes).
 [38:AL]               NCI code                                           NCI thesaurus code for tumour histological classification.
+[39:AM]               Sample Type                                        Describes where the sample originated from.
 
 
 
 ------------
 COSMIC HGNC
 ------------
- A tab separated table showing the relationship between the Cancer Gene Census, COSMIC ID, Gene Name, HGNC ID and Entrez ID. [ /cosmic/grch37/cosmic/v83/CosmicHGNC.tsv.gz ] 
+ A tab separated table showing the relationship between the Cancer Gene Census, COSMIC ID, Gene Name, HGNC ID and Entrez ID. [ /cosmic/grch37/cosmic/v87/CosmicHGNC.tsv.gz ] 
 
   File Description
 
@@ -539,7 +533,7 @@ COSMIC HGNC
 ----------------------------
 COSMIC Resistance Mutations
 ----------------------------
- A tab separated table listing the details of all mutations in COSMIC which are known to confer drug resistance. [ /cosmic/grch37/cosmic/v83/CosmicResistanceMutations.tsv.gz ] 
+ A tab separated table listing the details of all mutations in COSMIC which are known to confer drug resistance. [ /cosmic/grch37/cosmic/v87/CosmicResistanceMutations.tsv.gz ] 
 
   File Description
 
@@ -565,7 +559,7 @@ COSMIC Resistance Mutations
                         * Variant of unknown origin = when the mutation is known to be somatic but the tumour was sequenced without a matched normal.
                         * Confirmed Somatic = if the mutation has been confimed to be somatic in the experiment by sequencing both the tumour and a matched normal from the same patient.
                         * Previously observed = when the mutation has been reported as somatic previously but not in current paper.
-[19:S]                Sample Source                                      Describes where the sample has originated from including the tumour type.
+[19:S]                Sample Type                                        Describes where the sample has originated from including the tumour type.
 [20:T]                Zygosity                                           Information on whether the mutation was reported to be homozygous , heterozygous or unknown within the sample.
 [21:U]                Genome Coordinates (GRCh37/38)                     The genome location of the mutation (chr:start..end), on the specified genome version.
 [22:V]                Tier                                               1 or 2 [see http://cancer.sanger.ac.uk/census for details or Tier 1 and 2]
@@ -575,7 +569,7 @@ COSMIC Resistance Mutations
 ----------------------------------
 ASCAT Ploidy and Purity Estimates
 ----------------------------------
- A tab separated table listing the ploidy and aberrant cell fraction (purity estimate), for TCGA samples re-analysed using ASCAT. [ /cosmic/grch37/cosmic/v83/ascat_acf_ploidy.tsv ] 
+ A tab separated table listing the ploidy and aberrant cell fraction (purity estimate), for TCGA samples re-analysed using ASCAT. [ /cosmic/grch37/cosmic/v87/ascat_acf_ploidy.tsv ] 
 
   File Description
 
@@ -592,22 +586,22 @@ ASCAT Ploidy and Purity Estimates
 VCF Files (coding and non-coding mutations)
 --------------------------------------------
 CODING MUTATIONS
- VCF file of all coding mutations in the current release. [ /cosmic/grch37/cosmic/v83/VCF/CosmicCodingMuts.vcf.gz ] 
+ VCF file of all coding mutations in the current release. [ /cosmic/grch37/cosmic/v87/VCF/CosmicCodingMuts.vcf.gz ] 
 
 NON-CODING VARIANTS
- VCF file of all non coding mutations in the current release. [ /cosmic/grch37/cosmic/v83/VCF/CosmicNonCodingVariants.vcf.gz ] 
+ VCF file of all non coding mutations in the current release. [ /cosmic/grch37/cosmic/v87/VCF/CosmicNonCodingVariants.vcf.gz ] 
 
 
 -------------------
 Fasta File (genes)
 -------------------
- CDS sequence for all the genes in COSMIC. [ /cosmic/grch37/cosmic/v83/All_COSMIC_Genes.fasta.gz ] 
+ CDS sequence for all the genes in COSMIC. [ /cosmic/grch37/cosmic/v87/All_COSMIC_Genes.fasta.gz ] 
 
 
 -------------------
 COSMIC Transcripts
 -------------------
- A tab separated table listing the gene name and transcript accession for each gene ID. [ /cosmic/grch37/cosmic/v83/CosmicTranscripts.tsv.gz ] 
+ A tab separated table listing the gene name and transcript accession for each gene ID. [ /cosmic/grch37/cosmic/v87/CosmicTranscripts.tsv.gz ] 
 
   File Description
 
@@ -622,6 +616,6 @@ COSMIC Transcripts
 ---------------------
 Oracle Database Dump
 ---------------------
- The oracle database dump of the current release. Please see the help document OracleSchemaDocumentation.pdf for a description of the database schema. [ /cosmic/grch37/cosmic/v83/COSMIC_ORACLE_EXPORT.dmp.gz ] 
+ The oracle database dump of the current release. Please see the help document OracleSchemaDocumentation.pdf for a description of the database schema. [ /cosmic/grch37/cosmic/v87/COSMIC_ORACLE_EXPORT.dmp.gz ] 
 
 

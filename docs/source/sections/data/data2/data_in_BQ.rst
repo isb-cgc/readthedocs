@@ -27,6 +27,8 @@ Datasets in BigQuery are uniquely identified based on the Google Cloud Platform 
 *eg* ``isb-cgc:TCGA_bioclin_v0``.  Tables are uniquely identified by appending the table name,
 preceded by a period, *eg* ``isb-cgc:TCGA_bioclin_v0.Clinical``.
 
+You can use the Google BigQuery graphical interface to query the BigQuery datasets.  To view and use these datasets, please see this `page <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/bigqueryGUI/LinkingISB-CGCtoCABQ.html>`_  for accessing controlled data in BigQuery or this `page <../../progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_ to view open access data in BigQuery.
+
 The following sections describe each of the major datasets that are currently publicly-accessible, 
 and the tables that each one contains.  For additional details regarding the ETL (extract, transform,
 and load) process for each of these data types, please refer to the data-type specific details
@@ -49,7 +51,7 @@ the newer GRCh38/hg38-based data now available at the NCI-GDC.
 All of the tables include one or more of the following identifiers which can be used for 
 performing cross-table JOINs: ``case_barcode``, ``sample_barcode``, and ``aliquot_barcode``.
 (Note that these were previously called ``ParticipantBarcode``, ``SampleBarcode``, and
-``AliquotBarcode``.)  In addition, most tables also containa a ``project_short_name`` field
+``AliquotBarcode``.)  In addition, most tables also contains a ``project_short_name`` field
 (formerly called ``Study``, *eg* TCGA-LUAD, TCGA-BRCA, *etc*).
 
 (Note that in an attempt to be consistent with the NCI-GDC terminology, what we used to call a 
@@ -66,7 +68,7 @@ other additional information for each table, preview its contents, *etc*.
 ..
 
   + `Clinical <https://bigquery.cloud.google.com/dataset/isb-cgc:TCGA_bioclin_v0.Clinical>`_:
-    This table is contains one row for each TCGA case (aka patient or participant) with *any* 
+    This table contains one row for each TCGA case (aka patient or participant) with *any* 
     available clinical information -- over 11,000 cases are represented.
     Any given field in 
     this table may be ``null`` for many patients, depending on tumor-type or data-availability.  
@@ -103,7 +105,7 @@ other additional information for each table, preview its contents, *etc*.
 ..
 
   + `DNA_Methylation <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.DNA_Methylation>`_: 
-    This table contains **all** of the DNA methlyation data for all TCGA samples assayed on either the 
+    This table contains **all** of the DNA methylation data for all TCGA samples assayed on either the 
     HumanMethylation 27k or 450k platforms.  Please note that this is a very **large** table 
     (with close to 4 billion rows), so query it with caution -- a *single* query will cost *your* GCP project $2-3.  
     Each row contains the methylation "beta" for a particular aliquot at a particular probe.  
@@ -114,13 +116,13 @@ other additional information for each table, preview its contents, *etc*.
     targeted queries will need to scan less data (and will therefore be cheaper).
 
 
-  + `miRNAseq_Expression <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.miRNAseq_Expression>`_: 
+  + `miRNAseq_Expression <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.miRNAseq_Expression>`_:
     This table contains **all** of the miRNAseq stem-loop expression data for all TCGA samples assayed on either the 
     Illumina GA or Illumina HiSeq platforms.  
     
 
-  + `miRNAseq_Isoform_Expression <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.miRNAseq_Isoform_Expression>`_: 
-    This table contains **all** of the miRNAseq isoform-level expression (aka isomiR) data for all 
+  + `miRNAseq_Isoform_Expression <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.miRNAseq_Isoform_Expression>`_:
+    This table contains **all** of the miRNA isoform-level expression (aka isomiR) data for all
     TCGA samples assayed on either the Illumina GA or Illumina HiSeq platforms.  
     
 
@@ -182,7 +184,7 @@ the GRCh38/hg38-based data now available at the NCI-GDC.
 
 All of the tables include one or more of the following identifiers which can be used for 
 performing cross-table JOINs: ``case_barcode``, ``sample_barcode``, and ``aliquot_barcode``.
-In addition, most tables also containa a ``project_short_name`` field
+In addition, most tables also contains a ``project_short_name`` field
 (formerly called ``Study``, *eg* TARGET-AML, *etc*).
 
 Each dataset and table described below is linked directly the corresponding view in the
@@ -194,7 +196,7 @@ other additional information for each table, preview its contents, *etc*.
 ..
 
   + `Clinical <https://bigquery.cloud.google.com/dataset/isb-cgc:TARGET_bioclin_v0.Clinical>`_:
-    This table is contains one row for each TARGET case (aka patient or participant) with *any* 
+    This table contains one row for each TARGET case (aka patient or participant) with *any* 
     available clinical information -- over 5,000 cases are represented.  Note that most 
     of these cases do not *yet* have molecular data available in BigQuery.
   
@@ -213,10 +215,6 @@ other additional information for each table, preview its contents, *etc*.
   (in the case of probe/array-based data such as the SNP6/copy-number and the DNA Methylation data).
 
 ..
-
-  + `miRNAseq_Expression <https://bigquery.cloud.google.com/table/isb-cgc:TARGET_hg38_data_v0.miRNAseq_Expression>`_: 
-    This table contains **all** of the miRNAseq stem-loop expression data *currently available* from the NCI-GDC.
-    
 
   + `miRNAseq_Isoform_Expression <https://bigquery.cloud.google.com/table/isb-cgc:TARGET_hg38_data_v0.miRNAseq_Isoform_Expression>`_: 
     This table contains **all** of the miRNAseq isoform-level expression (aka isomiR) data *currently available* from the NCI-GDC.
@@ -265,7 +263,7 @@ Additional related metadata is organized into the following datasets:
   contains 1086 unique cases and 2221 unique samples, but a query of the Clinical table for all 
   BRCA cases will return 1097 cases, and a similar query of the Biospecimen table for all 
   BRCA samples will return 2302 samples.  The Annotation table contains annotations of one type or 
-  another for 122 "entities" in the TCGA-BRCA proejct affecting 33 BRCA cases, 2 BRCA samples, 18 BRCA analytes, 
+  another for 122 "entities" in the TCGA-BRCA project affecting 33 BRCA cases, 2 BRCA samples, 18 BRCA analytes, 
   and 69 BRCA aliquots.
 
 

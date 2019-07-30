@@ -29,7 +29,7 @@ to the TCGA data, *without* necessarily inserting an extra interface layer betwe
 component of the ISB-CGC is a web-app (running on Google App Engine), some users may prefer not to go through
 the web-app to access other components of the ISB-CGC.  For example, the open-access TCGA data
 that we have loaded into BigQuery tables can be accessed directly via the 
-`BigQuery web interface <https://www.bigquery.cloud.google.com>`_ or from Python or R.  Similarly,
+`BigQuery web interface <https://console.cloud.google.com/bigquery?>`_ or from Python or R.  Similarly,
 the ISB-CGC programmatic API is a REST service that can be used from many different
 programming languages.
 
@@ -39,18 +39,37 @@ or your own personal project) and the ISB-CGC is your Google identity
 Access to all ISB-CGC hosted data is controlled using access control lists (ACLs) which define the
 permissions attached to each dataset, bucket, or object.
 
+
+**How do I create a Google Cloud Project without an Organization present?**
+
+If your GoogleID is tied to a G-Suite org (e.g "exampleuser@systemsbiology.org", as isb is a G-suite organization account), this email account cannot create a Google Project with no parent organization. 
+
+One workaround is to give ownership to "your" Gsuite account. This essentially means you e.g. add "exampleuser@systemsbiology.org" as an owner, after creating it as e.g. "example.user@gmail.com". 
+
+Please note that you will need to have at least a free tier cloud account or please contact feedback@isb-cgc.org for more assistance in creating a free account. 
+
+Also be aware that the billing account for the end-user needs to be tied to the project as well after it is created.  *This is important* if you would like your organization to get billed instead of your personal credit card. For more information on how to modify billing please go to Modify A Project Billings Settings document provided by Google `here <https://cloud.google.com/billing/docs/how-to/modify-project>`_.
+
+
+There are additional instructions which work and can be found `here <https://stackoverflow.com/questions/47776654/create-gcp-project-without-organization>`_.
+
+
 **What project information do I input on the Register a Google Cloud Project page?**
 
-You will need to input the Google Cloud Prooject ID which can be found on the Dashboard page of the Google Console under Project info.
+You will need to input the Google Cloud Project ID which can be found on the Dashboard page of the Google Console under Project info.
 
 .. image:: project_info.PNG
    :scale: 50
    :align: center
 
 
+
 **Why do I add the service account 907668440978-oskt05du3ao083cke14641u35deokgjj@developer.gserviceaccount.com to my Google Cloud Project?**
 
+
 This service account is needed  in your Google Cloud Project for the ISB-CGC project to be able to automatically verify that all users of your Google Cloud Project have the same appropriate access rights to the protected data that has been reuested for the project.
+
+
 
 **What service account do I use on the Register a Service Account page to be able to gain access to protected data?**
 
@@ -82,15 +101,39 @@ Another reason could be if some users are marked as unable to access datasets th
 You can get this page for two reasons:  First, if you may have typed in your password incorrectly, please select the Click Here to continue link and try to log in again.  Second, if you have typed your password correctly, it could time to refresh your NIH identity password.  Please reset your password by using this link `here <https://public.era.nih.gov/commons>`_ and try again.  This should allow you to link your NIH Identity to the ISB-CGC user interface. 
 
 
+**What happens if I accidently delete the default service account from a Google Cloud Project?**
+
+If you accidently delete the default service account associated to the Google Cloud Project you are working in you can no longer authorize the service account during instance creation, associate the service account to controlled access data, and many other functionalities will no longer work. 
+
+Then if you try to add the service account back to the Google Cloud Project you return this error, 
+
+
+ *ERROR: (gcloud.compute.instances.create) Some requests did not succeed:*
+*- The resource 'xx...@project.gserviceaccount.com' of type 'serviceAccount' was not found.*
+
+
+Unfortunately at this time, there is no direct way to recover the default service account.
+
+One workaround to recreate the GCE default service account is to disable and re-enable Google Compute Engine API in your project. This will only work if you have no GCE resource (e.g VMs, Disks, Snapshots etc) in your project, otherwise you will get "Backend Provisioning Error" when you try to disable compute engine API.
+
+Another solution would be creating a new project and redeploying your instances there.
+
+Google has an internal feature request to prevent accidental deletion of default service accounts.
+
+There is a Google forum discussion that can be found `here <https://groups.google.com/forum/#!topic/gce-discussion/bQ_-qCWoUZw>`_ with more details and explanation.
+
+
+
 ISB-CGC Web Application
 ########################
+
 **Why do I sometimes get a "Do you want to leave this site?" pop-up box when leaving a page or canceling a workflow edit?**
 
 This is a security feature when working with forms found in most web browsers; it lets you know that you may have made some changes which will be lost when you navigate away from the page. If you intend to cancel what you were doing, you can safely ignore it.
 
-**Which web browser is recomended to use when working with the site?**
+**Which web browser is recommended to use when working with the site?**
 
-We recomend using Google Chrome browser.  We currently will display a chart slightly off when working with workbooks on a FireFox browser. 
+We recommend using the Google Chrome browser.  We currently will display a chart slightly off when working with workbooks on a FireFox browser. 
 
 **Why did I get a 401 error on the IGV Browser?**
 
@@ -101,7 +144,16 @@ You will see the 401 error only if your popup blocker is enabled for the isb-cgc
    :align: center
    
 
-**Does SeqPeek and CNVR plotting only work with TCGA data?**
+**Why does the web browser crash if too many IGV Browser tabs are opened at once?**
+
+The web browser will be caused to crash when too many IGV Browser tabs are open due to the memory intensive nature of loading bam files.  When working with the IGV Browser please be mindful of having multiple tabs open of the IGV Browser.
+
+.. image:: IGVBrowserCrash.png
+   :scale: 50
+   :align: center
+   
+
+**Does SeqPeek and CNVR plot only work with TCGA data?**
 
 We currently have no data associated with CNVR or Seqpeek for TARGET or CCLE.  Therefore, SeqPeek and CNVR will only work with TCGA data.
 
@@ -111,7 +163,7 @@ Data Access
 **Does all TCGA data require dbGaP authorization prior to access?**
 
 No, generally only the low-level sequence (DNA and RNA) and SNP-array data (CEL files) require
-dbGaP authorization.  All of the "high-level" molecular data, as well as the clinical data are
+dbGaP authorization.  All of the "high-level" molecular data, as well as the clinical data, are
 open-access and much of this has been made available in a convenient set of BigQuery tables. 
 
 **Where can I find the TCGA data that ISB-CGC has made publicly available in BigQuery tables?**
@@ -119,7 +171,7 @@ open-access and much of this has been made available in a convenient set of BigQ
 The BigQuery web interface can be accessed at bigquery.cloud.google.com.  If you have not already added the ISB-CGC datasets to your BigQuery "view", click on the blue arrow
 next to your project name at the top of the left side-bar, select "Switch to Project", then "Display Project...",
 and enter "isb-cgc" (without quotes) in the text box labeled "Project ID".  All ISB-CGC public BigQuery
-datasets and tables will now be visible in the left side-bar of the BigQuery web interface.
+datasets and tables will now be visible on the left side-bar of the BigQuery web interface.
 Note that in order to use BigQuery, you need to be a member of a Google Cloud Project.
 
 **How can I apply for access to the low-level DNA and RNA sequence data?**
@@ -156,7 +208,7 @@ associated with more than one Google identity within the ISB-CGC platform at any
 **Can I authenticate to NIH programmatically?**
 
 No, the current NIH authentication flow requires
-web-based authentication and must therefore be done from within the ISB-CGC web-app.  Once you have
+web-based authentication and must, therefore, be done from within the ISB-CGC web-app.  Once you have
 authenticated to NIH via the web-app, and your dbGaP authorization has been verified, the Google 
 identity associated with your account will have access to the controlled-data for 24 hours.
 
@@ -164,7 +216,7 @@ Data Content
 ############
 **I get a different number of samples in BigQuery than I do with the same query in the Webapp.  Why?**
 
-Older programs like TCGA have both legacy data (data from the original program) and harmonized data (data run through the Genomics Data Commons).  The Webapp primarily uses harmonized data where BigQuery contains both legacy and harmonized data.  In addition, some cases and samples have been removed from the Webapp if annotation suggest the data from those caases or samples are incorrect, misleading or from cases of uncertain origin.  Most of these cases and samples are still in BigQuery and users are encouraged to check the annotations tables.
+Older programs like TCGA have both legacy data (data from the original program) and harmonized data (data run through the Genomics Data Commons).  The Webapp primarily uses harmonized data where BigQuery contains both legacy and harmonized data.  In addition, some cases and samples have been removed from the Webapp if annotation suggests the data from those cases or samples are incorrect, misleading or from cases of uncertain origin.  Most of these cases and samples are still in BigQuery and users are encouraged to check the annotations tables.
 
 Python Users
 ############
@@ -172,7 +224,7 @@ Python Users
 **I want to write python scripts that access the TCGA data hosted by the ISB-CGC.  Do you have some examples that can get me started?**  
 
 Yes, of course!  The best place to start is with our examples-Python_
-repository on github.  You can run any of those examples yourself by signing in 
+repository on GitHub.  You can run any of those examples yourself by signing in 
 to your Google Cloud Project and deploying an instance of Google Cloud Datalab_.
 
 .. _examples-Python: https://github.com/isb-cgc/examples-Python
@@ -183,7 +235,7 @@ R and Bioconductor Users
 **I want to use R and Bioconductor packages to work with the TCGA data.  How can I do that?**
 
 You can run RStudio locally or deploy a dockerized version on a Google Compute Engine VM.  You can
-find some great examples to get you started in our examples-R_ repository on github, and also in
+find some great examples to get you started in our examples-R_ repository on GitHub, and also in
 the documentation from the Google Genomics workshop_ at BioConductor 2015.
 
 .. _examples-R: https://github.com/isb-cgc/examples-R
