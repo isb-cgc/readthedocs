@@ -2,10 +2,10 @@ Biospecimen
 ===========
 
 The 
-`Biospecimen <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_bioclin_v0.Biospecimen>`_ 
+`Biospecimen <https://console.cloud.google.com/bigquery?p=isb-cgc&d=TCGA_bioclin_v0&t=Biospecimen&page=table>`_ 
 table contains one row per TCGA sample.  Each TCGA sample is
 uniquely represented by a 
-`TCGA barcode <https://wiki.nci.nih.gov/display/TCGA/TCGA+barcode>`_
+`TCGA barcode <https://docs.gdc.cancer.gov/Encyclopedia/pages/TCGA_Barcode/>`_
 of length 16, *eg* ``TCGA-2G-AAM4-10A``.  (For more information on how TCGA barcodes
 were created and how to *"read"* a TCGA barcode, click on the preceding link.)
 

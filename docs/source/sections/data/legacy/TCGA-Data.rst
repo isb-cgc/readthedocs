@@ -23,7 +23,7 @@ in most downstream analyses.  The ISB-CGC platform aims to make these different 
 accessible to the widest possible variety of users within the cancer research community, 
 using the most appropriate Google Cloud Platform technologies.
 
-.. image:: TCGASizeandComplexity.PNG
+.. image:: figs/TCGASizeandComplexity.PNG
    :scale: 50
    :align: center
 
@@ -48,15 +48,15 @@ in these sections:
 Historically, the data being hosted by the ISB-CGC was obtained from two former TCGA data
 repositories:
 
-* **TCGA DCC**: the TCGA Data Coordinating Center which provided a `Data Portal <https://tcga-data.nci.nih.gov/docs/publications/tcga/>`_ from which users could download open-access or controlled-access data.  This portal provided access to all TCGA data *except* for the low-level sequence data. 
-* **CGHub**:  the `Cancer Genomics Hub <https://cghub.ucsc.edu>`_ was NCI's current secure data repository for all TCGA BAM and FASTQ sequence data files.
+* **TCGA DCC**: the TCGA Data Coordinating Center which provided a **Data Portal** from which users could download open-access or controlled-access data.  This portal provided access to all TCGA data *except* for the low-level sequence data. 
+* **CGHub**:  the **Cancer Genomics Hub** was NCI's current secure data repository for all TCGA BAM and FASTQ sequence data files.
 
 As of June 2016, the official data repository for all TCGA and other NCI CCG data is
 the `NCI Genomic Data Commons <https://gdc.cancer.gov/>`_.  The original TCGA data,
 aligned to the hg19 human reference genome is available from the NCI-GDC's 
-`legacy archive <https://gdc-portal.nci.nih.gov/legacy-archive/search/f>`_ 
+`legacy archive <https://portal.gdc.cancer.gov/legacy-archive/search/f>`_ 
 while the new "harmonized" data, realigned to hg38 is available from
-the NCI-GDC's main `data portal <https://gdc-portal.nci.nih.gov/>`_.
+the NCI-GDC's main `data portal <https://portal.gdc.cancer.gov/>`_.
 
 For more information about the original data source repository and data access classes (open *vs* controlled),
 please refer to these sections:

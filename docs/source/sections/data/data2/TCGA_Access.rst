@@ -15,5 +15,5 @@ produced by someone else.
 In the earlier days of the TCGA data, although the data was made public as quickly as possible, it was generally under
 **embargo** for some period of time, to allow the TCGA analysis working groups to produce the initial "marker paper"
 for each tumor type.  Now that the TCGA project is nearing completion, none of the TCGA data is under embargo anymore,
-but we still recommend that you review the `TCGA Publication Guidelines <http://cancergenome.nih.gov/publications/publicationguidelines>`_.
+but we still recommend that you review the `TCGA Publication Guidelines <https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/using-tcga/citing-tcga>`_.
 

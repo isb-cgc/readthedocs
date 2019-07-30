@@ -2,15 +2,15 @@ DNA Copy-Number Segments
 ==========================
 
 The
-`Copy_Number_segments <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.Copy_Number_Segment_Masked>`_
+`Copy_Number_segments <https://console.cloud.google.com/bigquery?p=isb-cgc&d=TCGA_hg19_data_v0&t=Copy_Number_Segment_Masked&page=table>`_
 table contains one row *per* copy-number segment *per* TCGA aliquot.  
 Each TCGA aliquot is uniquely represented by a
-`TCGA barcode <https://wiki.nci.nih.gov/display/TCGA/TCGA+barcode>`_
+`TCGA barcode <https://docs.gdc.cancer.gov/Encyclopedia/pages/TCGA_Barcode/>`_
 of length 24, *eg* ``TCGA-04-1517-01A-01D-0533-01``.  (For more information on how TCGA barcodes
 were created and how to *"read"* a TCGA barcode, click on the preceding link.)
 
 There is also a GDC 
-`Copy_Number_segments <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg38_data_v0.Copy_Number_Segment_Masked>`_
+`Copy_Number_segments <https://console.cloud.google.com/bigquery?p=isb-cgc&d=TCGA_hg38_data_v0&t=Copy_Number_Segment_Masked&page=table>`_
 table that has been reprocessed against the HG38 genomic build.
 
 Platform

@@ -9,7 +9,7 @@ referred to using a combination of the microRNA
 gene name and the unique accession number, eg:
 "hsa-mir-21.MIMAT0000076".  During ETL, this string is split into two
 parts and stored as separate columns in the BigQuery
-\ `table <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.miRNAseq_Isoform_Expression>`_.
+\ `table <https://console.cloud.google.com/bigquery?p=isb-cgc&d=TCGA_hg19_data_v0&t=miRNAseq_Isoform_Expression&page=table>`_.
 The entire matrix is then melted into a flat structure (known as the tidy data format) and loaded
 into the table. 
 
@@ -18,7 +18,7 @@ Only the isoform files matching the pattern
 information was obtained from the SDRF file associated with the Level-3
 isoform data file.
 
-There is also a `table <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.miRNAseq_Expression>`_ with the expression data and corresponding tables reprocessed by the GDC
-against the HG38 genomic build for `isoform <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg38_data_v0.miRNAseq_Isoform_Expression>`_ and 
-`expression <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg38_data_v0.miRNAseq_Expression>`_
+There is also a `table <https://console.cloud.google.com/bigquery?p=isb-cgc&d=TCGA_hg19_data_v0&t=miRNAseq_Expression&page=table>`_ with the expression data and corresponding tables reprocessed by the GDC
+against the HG38 genomic build for `isoform <https://console.cloud.google.com/bigquery?p=isb-cgc&d=TCGA_hg38_data_v0&t=miRNAseq_Isoform_Expression&page=table>`_ and 
+`expression <https://console.cloud.google.com/bigquery?p=isb-cgc&d=TCGA_hg38_data_v0&t=miRNAseq_Expression&page=table>`_
 

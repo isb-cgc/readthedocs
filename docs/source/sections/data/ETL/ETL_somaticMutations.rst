@@ -3,11 +3,11 @@ Somatic DNA Mutations
 =======================
 
 The 
-Somatic Mutations tables, `Somatic_Mutation_DCC <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.Somatic_Mutation_DCC>`_, 
-`Somatic_Mutation_MC3 <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg19_data_v0.Somatic_Mutation_MC3>`_, and 
-`Somatic_Mutation <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg38_data_v0.Somatic_Mutation>`_
+Somatic Mutations tables, `Somatic_Mutation_DCC <https://console.cloud.google.com/bigquery?p=isb-cgc&d=TCGA_hg19_data_v0&t=Somatic_Mutation_DCC&page=table>`_, 
+`Somatic_Mutation_MC3 <https://console.cloud.google.com/bigquery?p=isb-cgc&d=TCGA_hg19_data_v0&t=Somatic_Mutation_MC3&page=table>`_, and 
+`Somatic_Mutation <https://console.cloud.google.com/bigquery?p=isb-cgc&d=TCGA_hg38_data_v0&t=Somatic_Mutation&page=table>`_
 in BigQuery contain somatic mutation calls collected from the open-access 
-`MAF <https://wiki.nci.nih.gov/display/TCGA/Mutation+Annotation+Format+(MAF)+Specification>`_ 
+`MAF <https://docs.gdc.cancer.gov/Encyclopedia/pages/Mutation_Annotation_Format_TCGAv2/>`_.
 
 files from 30 tumor types.
 

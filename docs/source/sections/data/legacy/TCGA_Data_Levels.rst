@@ -11,6 +11,6 @@ For each *type* of data, there are typically three *levels* of data:
 * Level 3 typically represents aggregated, normalized, and/or segmented data.
 
 The results of integrative or pan-cancer analyses are sometimes referred to as "Level 4" data.  More information about
-`Data Level Classification <https://wiki.nci.nih.gov/display/TCGA/Data+level>`_ can be found on the NCI wiki.
+`Data Level Classification <https://gdc.cancer.gov/resources-tcga-users/tcga-code-tables/data-levels>`_ can be found on the NCI page.
 
 
