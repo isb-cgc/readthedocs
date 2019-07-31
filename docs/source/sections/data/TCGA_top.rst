@@ -23,7 +23,7 @@ The ISB-CGC hosts several TCGA datasets in BigQuery_ and more data is available 
 .. _TCGA: http://cancergenome.nih.gov/
 .. _BigQuery: https://cloud.google.com/bigquery/
 
-The vast majority (over 99%) of this **petabyte** of data consists of low-level sequence data, currently stored as files are in the GDC (see figure below).  Over the course of the TCGA project, this low-level (*"Level 1"*) data has been processed through a set of standardized pipelines and the resulting high-level (*"Level 3"*) data is frequently the data that is used in most downstream analyses.  The ISB-CGC platform aims to make these different types of data accessible to the widest possible variety of users within the cancer research community.
+The vast majority (over 99%) of this **petabyte** of data consists of low-level sequence data, currently stored as files in the GDC (see figure below).  Over the course of the TCGA project, this low-level (*"Level 1"*) data has been processed through a set of standardized pipelines and the resulting high-level (*"Level 3"*) data is frequently the data that is used in most downstream analyses.  The ISB-CGC platform aims to make these different types of data accessible to the widest possible variety of users within the cancer research community.
 
 .. image:: figs/TCGASizeandComplexity.PNG
    :scale: 50
