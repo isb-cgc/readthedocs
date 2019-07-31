@@ -14,7 +14,7 @@ For more information about the TARGET program, please visit the official `TARGET
 About the TARGET Data
 ---------------------
 
-The ISB-CGC currently hosts several of TARGET_ data sets in BigQuery_. TARGET controlled-access data is available to authorized users in Genomic Data Commons and open-access data includes RNA-seq and miRNA-seq expression levels, and is available in BigQuery, along with the open-access clinical and biospecimen information.
+The ISB-CGC currently hosts several TARGET data sets in BigQuery. TARGET controlled-access data is available to authorized users in Genomic Data Commons and open-access data includes RNA-seq and miRNA-seq expression levels, and is available in BigQuery, along with the open-access clinical and biospecimen information.
 
 BigQuery TARGET Data
 +++++++++++++++++++++++
