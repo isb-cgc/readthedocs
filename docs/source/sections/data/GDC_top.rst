@@ -107,7 +107,7 @@ in the `isb-cgc:GDC_metadata <https://bigquery.cloud.google.com/dataset/isb-cgc:
 
 ..
 
-- `rel8_slide2caseIDmap <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel8_slide2caseIDmap>`_:  is another very similar "helper" table, but for the tissue slide data.  A total of 18682 slide identifers are included.  In this table the hierarchy is program > project > case > sample > portion > slide.
+- `rel8_slide2caseIDmap <https://bigquery.cloud.google.com/table/isb-cgc:GDC_metadata.rel8_slide2caseIDmap>`_:  is another very similar "helper" table, but for the tissue slide data.  A total of 18682 slide identifiers are included.  In this table the hierarchy is program > project > case > sample > portion > slide.
 
 ..
 

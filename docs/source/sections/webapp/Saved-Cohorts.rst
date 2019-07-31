@@ -1,15 +1,15 @@
 *******************
-Saved Cohorts
+Working With Cohorts
 *******************
 
-Cohorts are an way of creating custom groupings of the samples and/or cases that you are 
+Cohorts are a way of creating custom groupings of the samples and/or cases that you are 
 interested in analyzing further.  You may frequently re-use a cohort in multiple analyses.  Creating a "saved cohort" allows you to do this.  If you have any existing saved cohorts, they will appear here for you to view, edit and share (see below for details).
 
 Creating and saving a cohort
 ############################
 
 To create a cohort from Your Dashboard, if you do not have a cohort created, click on the "Filter" or the "Barcodes" links in the 
-"Saved Cohorts" panel at the bottom of the page. The Filter link will take you to the cohort creation page with all filters explained below.  The Barcodes link will send you to a page where you can uplaod samples/cases barcodes and create a cohort from them. Currently you can only upload from three programs TCGA, CCLE, and TARGET. 
+"Saved Cohorts" panel at the bottom of the page. The Filter link will take you to the cohort creation page with all filters explained below.  The Barcodes link will send you to a page where you can upload samples/cases barcodes and create a cohort from them. Currently you can only upload from three programs TCGA, CCLE, and TARGET. 
 
 If you already have saved cohorts, they will be listed in the "Saved Cohorts" panel.  Click on the "Saved Cohorts" link in that panel and this will take you to a page that displays the details of your saved cohorts.  Alternatively, to go directly to a given cohort, click on its name and you will be taken to the cohort details page of that cohort.
 
@@ -19,7 +19,7 @@ Cohort Creation Filters Page
 ============================
 
 Using the provided list of filters on the left hand side, you can select the attributes and features
-that you are interested in either from ISB-CGC data or the User Data tab.  TCGA Data is the first program to be displayed, next to it is CCLE and TARGET Data tabs. You are able to create a cohort with multiple program filters.  CCLE (The Cancer Cell Line Encyclopedia) data - is open access data set that can be used to view sequence data with the IGV viewer without having dbGaP permissions.
+that you are interested in either from ISB-CGC data or the User Data tab.  TCGA Data is the first program to be displayed next to it is CCLE and TARGET Data tabs. You are able to create a cohort with multiple program filters.  CCLE (The Cancer Cell Line Encyclopedia) data - is open access data set that can be used to view sequence data with the IGV viewer without having dbGaP permissions.
 
 By clicking on a feature, the field will expand and provide you with additional filtering options.
 For example, when you click on "Vital Status", it expands and provides a list containing "Alive", "Dead", and
@@ -38,7 +38,7 @@ Program Selection Panel
 -----------------------
 The panel in the center of the screen, with four tabs called "TCGA DATA", "CCLE DATA", "TARGET DATA", and "USER DATA" will allow to create a cohort between data programs in the system and data that you have uploaded. The  TCGA, CCLE, and TARGET DATA tab each have three tabs called "CASE", "DATA TYPE", and "MOLECULAR"  which allow you to apply filters to the cohorts your are creating using ISB-CGC hosted data. For the USER DATA tab, there is one tab called "PROJECTS & STUDIES" which allow you to filter by the projects or studies you have uploaded to the system. Below are the details of each tab.
 
-**Please Note:** Selecting the program filter will add all samples pertaining to program. Also there is a mouse over feature that will display the disease code long name if it's part of the TCGA dataset.
+**Please Note:** Selecting the program filter will add all samples pertaining to program. Also there is a mouse over feature that will display the disease code long name if it's part of the TCGA, CCLE, or TARGET dataset.
 
 
           
@@ -99,8 +99,17 @@ The panel in the center of the screen, with four tabs called "TCGA DATA", "CCLE 
    
 Molecular Tab
 ^^^^^^^^^^^^^
-    * Gene Mutation Status (creating a cohort based on the presence of a mutation (of various types) in a gene)  You can also filter by different genomic builds and hence different BigQuery Tables.  The two BigQuery tables you can select from are *TCGA_hg19_data_v0:Somatic_Mutation_MC3* and *TCGA_hg38_data_v0:Somatic_Mutation*. 
-    
+Gene Mutation Status (creating a cohort based on the presence of a mutation (of various types) in a gene or genes).
+
+This is currently only available for TCGA data.  To combine multiple gene filters, select AND (requires all filters to be met for the data to be filtered) or OR (at least one criteria needs to be met for the data to be displayed).
+          
+ NOTE 1: If you use AND and do not see the data you are expecting in the filter, try OR instead.  AND is a more restrictive criteria requiring all filters to be met, OR is less restrictive, requiring only one criteria to be met for the data to appear.
+          
+ NOTE 2: Please add in your saved cohort title the term AND or OR for the combination you used, as the type of combination used in your cohort does not currently appear in the summary of filters in a saved cohort.  We are working on this.
+          
+You can also filter by different genomic builds and hence different BigQuery Tables.  The two BigQuery tables you can select from are *TCGA_hg19_data_v0:Somatic_Mutation_MC3* and *TCGA_hg38_data_v0:Somatic_Mutation*. 
+
+
 Programs & Projects Tab
 ^^^^^^^^^^^^^^^^^^^^^^^^
     * User Program
@@ -244,7 +253,7 @@ Viewing and Editing a Cohort
 
 Once you have created a "Saved Cohort" you can view and edit it.  To view a cohort, select it by clicking on its name either from the "Saved Cohorts" panel on the main "Your Dashboard" page or on the "Cohorts" page listing all your saved cohorts.
 
-When you have gone to the "Cohorts" page, you will be shown details of the cohort on the "SAVED COHORTS" tab.  The "PUBLIC COHORTS" tab shows public cohorts that are commonly selected.  Public cohorts can be used for a "New Workbook" and "Set Operations".
+When you have gone to the "Cohorts" page, you will be shown the details of the cohort on the "SAVED COHORTS" tab.  The "PUBLIC COHORTS" tab shows public cohorts that are commonly selected.  Public cohorts can be used for a "New Workbook" and "Set Operations".
 
 From the "COHORTS" page you can select:
 
@@ -265,7 +274,7 @@ To activate the set operations button, you must have at least one cohort selecte
 Upon clicking the "Set Operations"
 button, a dialogue box will appear. Now you may do one of the following:
 
-* Enter in a name for the new cohort you’re about to create.
+* Enter a name for the new cohort you’re about to create.
 * Select a set operation.
 * Edit cohorts to be used in the operation.
 * Add A Cohort
@@ -337,7 +346,7 @@ From the "SAVED COHORTS" tab you can:
 *Note:* You shouldn't ever set UUID to 'required' because sometimes a sample doesn't have a UUID, and the attempt to insert a 'null' will cause the cohort export to fail.
 
 * GCS: This will save the details of the cohort in a Google Cloud Storage location specified by you. You must have a registered Google Cloud Storage (GCS) bucket with a Google Cloud Project on the registered Google Cloud Projects details page. More information on how to register a GCS bucket can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_.  You will be able to select the file format to export into Cloud Storage, either CSV or JSON. All files are exported are converted into zip files.  
-* Share: This will share the web view of the cohorts with users you select by entering the users e-mail. If the email address you entered in is not registered in the database you are prompted with a message saying, "The following user emails could not be found; please ask them to log into the site first:(email entered)."
+* Share: This will share the web view of the cohorts with users you select by entering the user's email. If the email address you entered is not registered in the database you are prompted with a message saying, "The following user emails could not be found; please ask them to log into the site first:(email entered)."
  
 Current Filters Panel
 =====================
@@ -379,9 +388,10 @@ This panel shows a list of tree maps that give a high level break of the samples
 
 Data File Availability Panel
 ============================
+
 This panel shows a parallel sets graph of available data files for the selected samples in the cohort. The large headers over
 the vertical bars are data types. Each vertical bar may be broken up to represent different platforms used to generate
-that type of data (and "NA" for samples for which that data type is not available).
+that type of data (and "NA" for samples for which data type is not available).
 The sets of lines that "flow" from left to right indicate the number of samples for which each type of data files are
 available. If you hover over a horizontal segment between two bars, you will see the number of samples that have both those data
 type platforms. You can also reorder the vertical categories by dragging the headers left and right and reorder the
@@ -392,34 +402,43 @@ platforms by dragging the platform names up and down.
 File Browser Page
 #################
 
-"File Browser" takes you to a new page where you can view the complete list of data files associated with your current the cohort.  The file list page provides a paginated list of files available with all samples in the cohort. Here, "available" refers to files that have been uploaded to the ISB-CGC Google Cloud Project, including both controlled access and open access data. You can use the "Previous" and "Next", and "#" navigation buttons, and "Show" dropdown to navigate to more values in the list.  The columns are sortable by selecting the column header.
+"File Browser" takes you to a new page where you can view the complete list of data files associated with your current the cohort.  The file list page provides a paginated list of files available with all samples in the cohort. Here, "available" refers to files that have been uploaded to the ISB-CGC Google Cloud Project, including both controlled access and open access data. You can use "Show", "Page", "Previous" and "Next" navigation tools to navigate to more values in the list.  The columns are sortable by selecting the column header.  You can select a subset of the default columns to show by using the "Choose Columns to Display" tool.
 
-You can filter by Genomic Build either HG19 or HG38 and view which platforms and files are available for the build selected.  You may also filter on these files if you are only interested in a specific data type, data format, platform, disease code, disease strategy, and/or experimental strategy.  Selecting a filter will update the associated list.  The numbers next to the filter refers to the number of files available for that filter.
+You can filter by Genomic Build either HG19 or HG38 and view which platforms and files are available for the build selected. You can enter a case barcode on all tabs as a filter option.  You also have the ability to do a partial string search.  To remove the search key word you click the clear "X" button. After using the case search button the filter count is updated for the rest of the filters.  You may also filter on these files if you are only interested in a specific data type, data format, platform, disease code, disease strategy, and/or experimental strategy.  Selecting a filter will update the associated list.  The numbers next to the filter refers to the number of files available for that filter.
 
-The tabs "IGV" and "Pathology Images" allow you to filter for files that show you respectively read-level sequence data (viewed using the IGV viewer) and pathology images.  Please note: only if you have authenticated as a dbGaP authorized user will you be able to select controlled access files to view in the IGV viewer (CCLE data does not require authorization to view the sequence data in the IGV viewer).  Details of how to view Sequences and Pathology images are provided below.
+The tabs "IGV", "Pathology Images" and "Radiology Images" allow you to filter for files that show you respectively read-level sequence data (viewed using the IGV viewer), pathology images, and radiology images.  Please note: only if you have authenticated as a dbGaP authorized user will you be able to select controlled access files to view in the IGV viewer (CCLE data does not require authorization to view the sequence data in the IGV viewer).  Details of how to view Sequences, and Pathology and Radiology images are provided below.
 
 Download File List as CSV
 =========================
 
-To download a list of files that are part of this cohort, select the button in the upper right on the File Listing panel called "CSV". This will begin a download process of all the files available for the cohort, taking into account the selected filters. 
+To download a list of files that are part of this cohort, select the button in the upper right on the File Listing panel (on all tabs) called "CSV". This will begin a download process of all the files available for the cohort, taking into account the selected filters. 
 
 The file contains the following information for each file:
 
-* Program
+* Case Barcode
 * Sample Barcode
+* Program
 * Platform
-* Pipeline
-* Data Level
-* File Path to the Cloud Storage Location
-* Access type (open or controlled access)
+* Experimental Strategy 
+* Data Category
+* Data Type
+* Data Format
+* Genomic Data Commons(GDC) File UUID
+* Google Cloud Storage(GCS) location
+* Genomic Data Commons(GDC) Index
+* Index File Google Cloud Storage(GCS) location
+* File Size
+* Access Type (open or controlled access)
+
 
 Export File List to BigQuery
 ============================
 
 To export the File list to BigQuery, select the button BigQuery.  You will need to have registered a Google Cloud Project and a BigQuery dataset to be able to export to BigQuery. More information on how to register a BigQuery Dataset can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_. You can either make a new table or append an existing table.  You can also give the table a unique name if left blank we will provide a name for the table.
 
-The table will contain the following information:
+The table will contain the following information (for each of the data type tabs):
 
+* row
 * cohort_id
 * case_barcode
 * sample_barcode
@@ -434,45 +453,59 @@ The table will contain the following information:
 * data_type
 * data_format
 * cloud_storage_location
+* file_size_bytes
+* index_file_gdc_uuid
+* index_file_cloud_storage_location
 
 Export File List to Google Cloud Storage
 ========================================
 
 To export the File list to Google Cloud Storage (GCS), select the button GCS.  You will need to have registered a Google Cloud Project and a GCS Object to be able to export to GCS. More information on how to register a GCS bucket can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_. You can also give the object a unique name if left blank we will provide a name for the bucket. You can either choose to export as  JSON or CSV file and all files exported are converted into zip files.
 
-The file will contain the following information:
+The file will contain the following information (for each of the data type tabs):
 
-* cohort_id
-* case_barcode
 * sample_barcode
-* project_short_name
-* date_added
-* build 
-* gdc_file_uuid
-* gdc_case_uuid
-* platform 
-* exp_strategy
-* data_category
-* data_type
-* data_format
+* case_barcode
 * cloud_storage_location
+* file_size_bytes
+* platform
+* data_type
+* data_category 
+* exp_strategy
+* data_format
+* gdc_file_uuid 
+* gdc_case_uuid
+* project_short_name
+* cohort_id
+* build
+* index_file_storage_location
+* index_file_gdc_uuid
+* date_added
 
 Viewing a Sequence
 ==================
 
-When available, sequences in a cohort can be viewed using the IGV viewer.  To find those sequences that can be viewed with the IGV viewer, open a cohort and select the "View Files" button at the top of the page.  The files associated with your cohort will be shown, with the last column indicating if the IGV viewer can be used to view the contents of that file.
-This is indicated by a checkbox beside "Cloud Storage").  Clicking the "Launch IGV" button will take you to an IGV view of the selected sequence(s) data.  
+When available, sequences in a cohort can be viewed using the IGV viewer.  To find those sequences that can be viewed with the IGV viewer, open a cohort and select the "View Files" button at the top of the page.  The files associated with your cohort will be shown, a tab displaying the files that can be viewed with the IGV viewer.  Selecting the check-box in the "View" column (for a maximum of 5 files) and the "Launch IGV" button in the upper window will take you to an IGV view of the selected sequence(s) data.  
 Controlled access files will be viewable by sequence ONLY if you have `authenticated as a dbGaP-authorized user <Gaining-Access-To-Contolled-Access-Data.html>`_. 
 
 (`more information about Viewing a Sequence in the IGV Viewer <IGV-Browser.html>`_).
 
 
-Viewing a Pathology Image
+Using the Image Pathology Viewer
 =========================
 
-When available, pathology images can be viewed using the caMicroscope tool (see more about caMicroscope provide `here <http://camicroscope.org>`_ ).  These are the pathology images that are associated with TCGA samples (not all files are currently available, due to some metadata that is not in place at GDC describing the image files.  ISB-CGC is working with GDC to resolve this issue, and more images will be appearing when that issue is resolved).  To find images that can be viewed, open a saved cohort and select the "View Files" button at the top of the page.  The files associated with your cohort will be shown, with the last column indicating if the caMicro viewer can be used to view the contents of that file.  This is indicated by a checkbox beside the word caMicro (HINT: by selecting the "Clinical" platform ONLY the clinical files that have the pathology images associated with them will be displayed.)(HINT 2: using a smaller cohort will provide faster response in creating the list of files available).
+When available, pathology images can be viewed using the caMicroscope tool (see more about caMicroscope provide `here <http://camicroscope.org>`_ ).  These are the pathology images that are associated with TCGA samples (not all files are currently available, due to some metadata that is not in place at GDC describing the image files.  ISB-CGC is working with GDC to resolve this issue, and more images will be appearing when that issue is resolved).  To find images that can be viewed, open a saved cohort and select the "File Browser" button at the top of the page. You can also select the File Browser button from the Dashboard Saved Cohorts panel.  The files associated with your cohort will be shown, with the third tab listing any available Pathology Images. Hovering over the File Name column and clicking on 'Open in caMicroscope' will open the image file in a new tab using caMicroscope (HINT: using a smaller cohort will provide faster response in creating the list of files available).
 
-A maximum of 5 slides can be viewed at one time.  To view these slides, select the caMicro check-boxes for each sample you want to view.  Then, go to the top of the page, and select the "caMicroscope" tab. The images that have been selected to view are shown. Pressing the "Launch caMicrosope" button launches a new window with individual tabs displaying the image.  To zoom into the image, either click the left button or use your wheel to zoom in.  Use your mouse to move around the image.  To zoom out of the image, shift-slick the left mouse button or use your wheel to zoom out.  Individual tabs with each image can also be launched to compare multiple images by pushing the "Open in new tab" button.
+To zoom into the image, either click the left button or use your wheel to zoom in.  Use your mouse to move around the image.  To zoom out of the image, shift-slick the left mouse button or use your wheel to zoom out.  Selecting caMicroscope at the top of page will send you to the caMicroscope homepage. If you hover over the Slide Barcode section on the top right hand side you will see metadata information listed.
+
+
+Viewing a Radiology Image
+=========================
+
+To find images that can be viewed, open a saved cohort and select the “File Browser” button at the top of the page. You can also select the File Browser button from the Dashboard Saved Cohorts panel. The files associated with your cohort will be shown, with the fourth tab listing any available Radiology Images. Hovering over the Study Instance UID column and clicking on ‘Open in Osimis Web Viewer’ will open the series Selection panel in a new tab using Osimis DICOM (HINT: using a smaller cohort will provide faster response in creating the list of files available). 
+
+For a more detailed step-by-step process of Viewing Radiology Images using the Osimis DICOM viewer please go `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/OsimisWebViewer.html>`_.
+
 
 Deleting a cohort
 #################

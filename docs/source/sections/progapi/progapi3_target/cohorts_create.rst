@@ -8,7 +8,7 @@ Creates and saves a cohort. Takes a JSON object in the request body to use as th
 
 **API explorer example**:
 
-Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#p/isb_cgc_target_api/v3/isb_cgc_target_api.cohorts.create?name=COHORT%20NAME%20HERE&resource=%257B%250A++%2522Study%2522%253A+%250A++%255B%2522UCS%2522%250A++%255D%250A%257D&/>`_ to see this endpoint in Google's API explorer.
+Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2Fapi-dot-isb-cgc.appspot.com%2F_ah%2Fapi#s/isb_cgc_target_api/v3/isb_cgc_target_api.cohorts.create?name=Cohort_test&fields=case_count%252Cfilters%252Cid%252Clast_date_saved%252Cname%252Csample_count&_h=1&resource=%257B%250A++%2522Common%2522%253A+%250A++%257B%250A++++%2522project_short_name%2522%253A+%250A++++%255B%2522TARGET-ALL-P2%2522%252C%2522TARGET-RT%2522%250A++++%255D%250A++%257D%252C%250A++%2522Clinical%2522%253A+%250A++%257B%250A++++%2522age_at_diagnosis_lte%2522%253A+60%250A++%257D%250A%257D&>`_ to see this endpoint in Google's API explorer.
 
 **Python API Client Example**::
 
@@ -55,7 +55,19 @@ Click `here <https://apis-explorer.appspot.com/apis-explorer/?base=https%3A%2F%2
 
 HTTP request::
 
-	POST https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_target_api/v3/cohorts/create
+	POST https://api-dot-isb-cgc.appspot.com/_ah/api/isb_cgc_target_api/v3/target/cohorts/create?name=Cohort_test&fields=case_count%2Cfilters%2Cid%2Clast_date_saved%2Cname%2Csample_count
+
+{
+ "Common": {
+  "project_short_name": [
+   "TARGET-ALL-P2",
+   "TARGET-RT"
+  ]
+ },
+ "Clinical": {
+  "age_at_diagnosis_lte": 60
+ }
+}
 
 **Parameters**
 

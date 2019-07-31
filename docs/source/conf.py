@@ -52,7 +52,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'ISB Cancer Genomics Cloud'
-copyright = u'2015-2017, the ISB-CGC team'
+copyright = u'2015-2019, the ISB-CGC team'
 author = u'the ISB-CGC team'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -145,8 +145,10 @@ todo_include_todos = True
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.   sphinx-doc.org/theming.html
 #### html_theme = 'alabaster'
-#### html_theme = 'sphinx_rtd_theme'
-html_theme = 'classic'
+#### html_theme = 'classic'
+#Change the theme from classic to sphinx_rtd_theme
+html_theme = 'sphinx_rtd_theme'
+
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -155,7 +157,8 @@ html_theme_options = {
     "rightsidebar":       "false",
     "stickysidebar":      "true",
     "collapsiblesidebar": "false",
-    "externalrefs":       "true"
+    "externalrefs":       "true",
+    "display_version":    "false"
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
