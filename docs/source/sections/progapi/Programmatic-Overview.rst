@@ -19,3 +19,5 @@ Some example use-cases include:
 
 
 
+The Swagger UI(ADD PROD LINK) can be used to see details about each endpoint, and also provides a convenient interface to test an endpoint through your web browser. Following the link in the previous sentence will take you to a page with a list of APIs, in which each API consists of a set of functionally-related endpoints. Together, these individual APIs make up the ISB-CGC API. 
+
