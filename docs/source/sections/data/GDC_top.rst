@@ -11,10 +11,10 @@ The `NCI-GDC Data Portal <https://portal.gdc.cancer.gov/>`_ allows users to sear
 and download data directly via your web browser or using the 
 `NCI-GDC Data Transfer Tool <https://gdc.cancer.gov/access-data/gdc-data-transfer-tool>`_.
 So-called "legacy" data that the NCI-GDC "inherited" from previous data coordinating
-centers (*eg* the TCGA-DCC and CGHub), is available in the 
+centers (*e.g.* the TCGA-DCC and CGHub), is available in the 
 `Legacy Archive <https://portal.gdc.cancer.gov/legacy-archive/search/f>`_, while a 
 `"harmonized" <https://gdc.cancer.gov/about-data/gdc-data-harmonization>`_ 
-data set (re-aligned to GRCh38/hg38 and re-processed by the NCI-GDC) is available
+data set (re-aligned to GRCh38/hg38 and reprocessed by the NCI-GDC) is available
 at the main `Data Portal <https://portal.gdc.cancer.gov/>`_.  (We will generally
 refer to the harmonized/default archive available from the main NCI-GDC Data Portal
 as the "current" archive.)
@@ -128,7 +128,7 @@ in the `isb-cgc.GDC_metadata <https://console.cloud.google.com/bigquery?p=isb-cg
 
    Much of this type of data is provided by ISB-CGC in BigQuery tables rather than
    the raw flat files, where the data is more easily explored using Standard SQL
-   backed a massively-parallel analytics engine and also accessible from R or Python.
+   backed by a massively-parallel analytics engine and also accessible from R or Python.
    Fore more details, please see our 
    `Data in BigQuery <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_BQ.html>`_ 
    section.
@@ -137,7 +137,7 @@ in the `isb-cgc.GDC_metadata <https://console.cloud.google.com/bigquery?p=isb-cg
    at data that is *not* available in GCS, and is *not* of
    the ``TXT`` or ``TSV`` type which would be amenable to putting into BigQuery tables.
    We find that the single largest category of data at the NCI-GDC which is not currently 
-   available in any ISB-CGC buckets consists "raw" Methylation array data, DNA-Seq coverage (WIG) files,
+   available in any ISB-CGC buckets consists of "raw" Methylation array data, DNA-Seq coverage (WIG) files,
    "raw" Protein expression array data, clinical  pathology reports, etc.
    
    Please let us know if there are any important data sets at the GDC that you would like to 
