@@ -12,7 +12,7 @@ The Data Use Agreement for The VA Apollo Research for Precision Oncology Program
 About the VAREPOP Data
 ----------------------
 
-The Genomic Data Commons currently has bam and vcf files.  To see the GDC data portal with Research for Precision Oncology Project please select `here <https://portal.gdc.cancer.gov/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22VAREPOP%22%5D%7D%7D%5D%7D>`_. For help on how to find the files in the Cloud Platform, please see the IndexD Access tutorial.
+The Genomic Data Commons currently has BAM and VCF files.  To see the GDC data portal with Research for Precision Oncology Project please select `here <https://portal.gdc.cancer.gov/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22VAREPOP%22%5D%7D%7D%5D%7D>`_. For help on how to find the files in the Cloud Platform, please see the IndexD Access tutorial.
 
 VCF: 14 files
 BAM: 7 files

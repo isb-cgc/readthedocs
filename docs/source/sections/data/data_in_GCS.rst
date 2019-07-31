@@ -4,12 +4,12 @@ Data in Cloud Storage
 
 At this time, all controlled-access data files are stored in Google Cloud Storage (GCS) in their original form, as obtained from the data repository.  This includes these major data types and formats:
 
-* RNA-Seq **FASTQ** files (unaligned reads, typically compressed tar-files)
+* RNA-Seq **FASTQ** files (unaligned reads, typically compressed TAR files)
 * DNA-Seq and RNA-Seq **BAM** files (aligned reads)
 * Genome-Wide SNP6 array **CEL** files
 * Variant-calls in **VCF** files
 
-In order to access these controlled data, a user of the ISB-CGC must first be authenticated by NIH (via the ISB-CGC web-app). Upon successful authentication, the user's dbGaP authorization will be verified. These two steps are required before the user's Google identity is added to the access control list (ACL) for the controlled data. At this time, this access must be renewed every 24 hours.
+In order to access these controlled data, a user of the ISB-CGC must first be authenticated by NIH (via the ISB-CGC Web App). Upon successful authentication, the user's dbGaP authorization will be verified. These two steps are required before the user's Google identity is added to the access control list (ACL) for the controlled data. At this time, this access must be renewed every 24 hours.
 
 
 Summary of Data Available in GCS

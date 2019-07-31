@@ -15,7 +15,7 @@ Genome Reference Data
 
 Reference data that describes or annotates the human (or other) genome(s) is described in this section.  
 Reference data hosted by the ISB-CGC in BigQuery tables are available in the ``isb-cgc.genome_reference`` 
-`dataset <https://console.cloud.google.com/bigquery?p=isb-cgc&d=genome_reference&page=dataset>`_.  Tables based on 
+`data set <https://console.cloud.google.com/bigquery?p=isb-cgc&d=genome_reference&page=dataset>`_.  Tables based on 
 gene-sets such as Ensembl and GENCODE can be used to find the genomic coordinates and identifiers
 for genes of interest, to perform queries that join tables with gene-symbol based data
 to tables with genomic-coordinate based data or tables that use other gene identifiers, for example.
@@ -36,7 +36,7 @@ between the Schema and Preview buttons, beneath the table name.)
 
 * **Kaviar** : The latest hg19- and hg38-based Kaviar_ databases are available.  Kaviar_ is a compilation of SNVs, indels, and complex variants observed in humans, designed to facilitate testing for the novelty and frequency of observed variants.
 
-* **liftOver_hg19_to_hg38** : This table provides a mapping of each hg19 position to the corresponding position in hg38, and can be used to perform a liftOver_ operation in BigQuery
+* **liftOver_hg19_to_hg38** : This table provides a mapping of each hg19 position to the corresponding position in hg38, and can be used to perform a liftOver_ operation in BigQuery.
 
 * **miRBase**
     - GRCh37: The human portion of version 20 of the miRBase_ database; including genomic coordinates for human microRNAs.
@@ -84,6 +84,6 @@ Other Reference Data Sources
 ############################
 
 Google Genomics maintains a list of 
-`publicly available datasets <https://cloud.google.com/genomics/docs/public-datasets/>`_, 
+`publicly available data sets <https://cloud.google.com/genomics/docs/public-datasets/>`_, 
 including **Reference Genomes**, 
 the **Illumina Platinum Genomes**, information about the **Tute Genomics Annotation** table, *etc*.
