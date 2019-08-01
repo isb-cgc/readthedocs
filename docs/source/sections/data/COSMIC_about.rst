@@ -47,6 +47,6 @@ A few important notes:
 
   - *e.g.* the base account tb@mylab.org might have a longer-form alias like thomas.brown@mylab.org
 
-.. Note::
+**Note**
 After going through the registration process described above, there will be a short delay before your Google identity is granted the necessary access to BigQuery and the COSMIC data resources.  If you get an error when running a query, please wait 10-15 minutes and then try again. If you are still not successful, please `verify <https://accounts.google.com/ForgotPasswd>`_
 that the Google ID you have provided is a valid Google account.  If you are still not able to run the sample query given below, please contact us at feedback@isb-cgc.org.
