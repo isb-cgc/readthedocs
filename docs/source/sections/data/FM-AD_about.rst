@@ -12,11 +12,6 @@ The Data Use Agreement for Foundation Medicine can be found `here <https://dbgap
 About the FM-AD Data
 --------------------
 
-The Genomic Data Commons (GDC) currently has VCF, TSV, and MAF data available. To see the GDC data portal with Foundation Medicine as program selected please select `here <https://portal.gdc.cancer.gov/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22FM%22%5D%7D%7D%5D%7D&searchTableTab=cases>`_. For help on how to find the files in the Cloud Platform, please see the IndexD Access tutorial.
+The Genomic Data Commons (GDC) currently has VCF, TSV, and MAF data available. To see the GDC data portal with Foundation Medicine as program selected please select `here <https://portal.gdc.cancer.gov/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22FM%22%5D%7D%7D%5D%7D&searchTableTab=cases>`_. Files can be found with in the ``isb-cgc.GDC_metadata`` tables in BigQuery or using IndexD.
 
-VCF: 36,008 files
-TSV: 84 files
-MAF: 42 files
-
-Controlled Access: 36,050
-Open Access: 84 files
+There are 36,008 VCF files, 84 TSV files, and 42 MAF files available with 36,050 of them that are Controlled Access and 84 files which are Open Access.
