@@ -14,7 +14,7 @@ Data Sets
 .. toctree::
    :maxdepth: 2
    
-   data/Data_sets
+   data/Data_Sets
    data/GDC_top
    data/Data_on_ISBCGC
    data/Reference-Data
