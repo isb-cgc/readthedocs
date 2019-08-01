@@ -25,6 +25,7 @@ Along with NCI Cancer Programs, ISB-CGC hosts several data sets from other progr
 
 .. toctree::
    :hidden:
+   :name: Test 2
    :maxdepth: 2
    
    data/GDC_top
