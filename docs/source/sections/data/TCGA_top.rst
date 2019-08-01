@@ -32,7 +32,7 @@ The vast majority (over 99%) of this **petabyte** of data consists of low-level 
 TCGA Data Platforms
 +++++++++++++++++++
 
-When working with any of the data types, it is important to also be aware of both the *platform* that was used to generate the underlying raw data as well as the *pipeline* that was used to process the data.  For example, over the course of the TCGA study, DNA methylation data was obtained using first the Illumina HumanMethylation27 platform, and later using the HumanMethylation450 platform.  Any analysis that combines data from these two platforms across a cohort of samples should take this into consideration.  Another example where multiple platforms and/or pipelines were used to produce a single data type is the Level-3 gene expression data: most tumor samples were processed at UNC and the normalized gene-expression values are based on the RSEM method, while some tumor samples were processed at BCGSC and the normalized gene-expression values are based on RPKM.
+When working with any of the data types, it is important to also be aware of both the *platform* that was used to generate the underlying raw data as well as the *pipeline* that was used to process the data.  For example, over the course of the TCGA study, DNA methylation data were obtained using first the Illumina HumanMethylation27 platform, and later using the HumanMethylation450 platform.  Any analysis that combines data from these two platforms across a cohort of samples should take this into consideration.  Another example where multiple platforms and/or pipelines were used to produce a single data type is the Level-3 gene expression data: most tumor samples were processed at UNC and the normalized gene-expression values are based on the RSEM method, while some tumor samples were processed at BCGSC and the normalized gene-expression values are based on RPKM.
 
 TCGA Data Levels
 ++++++++++++++++
@@ -63,20 +63,18 @@ Open-Access TCGA Data
 
 The open-access TCGA data includes:
 
-* Clinical (de-identified) and Biospecimen data: these data were originally provided in XML files (Level-1) by the DCC
-* Somatic mutation data:  these data were originally provided in MAF files (Level-2) by the DCC
-* DNA copy-number segments:  these data were originally provided as segmentation files (Level-3) by the DCC
-* DNA methylation data:  these data were originally provided as TSV files (Level-3) by the DCC
-* Gene (mRNA) expression data:  these data were originally provided as TSV files (Level-3) by the DCC
-* microRNA expression data:  these data were originally provided as TSV files (Level-3) by the DCC
-* Protein expression data:  these data were originally provided as TSV files (Level-3) by the DCC
+* Clinical (de-identified) and Biospecimen data: these data were originally provided in XML files (Level-1)
+* Somatic mutation data:  these data were originally provided in MAF files (Level-2)
+* DNA copy-number segments:  these data were originally provided as segmentation files (Level-3)
+* DNA methylation data:  these data were originally provided as TSV files (Level-3)
+* Gene (mRNA) expression data:  these data were originally provided as TSV files (Level-3)
+* microRNA expression data:  these data were originally provided as TSV files (Level-3)
+* Protein expression data:  these data were originally provided as TSV files (Level-3)
 * TCGA Annotations data:  annotations were originally obtained from the TCGA Annotations Manager, and can be found on the `GDC Data Portal <https://portal.gdc.cancer.gov/annotations>`_
 
-The information scattered over tens of thousands of XML and TSV files at the DCC is provided in a *much more accessible* form in a series of `BigQuery tables <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_BQ.html#tcga-clinical-biospecimen-and-molecular-data>`_.  
+The information scattered over tens of thousands of XML and TSV files at the GDC is provided in a *much more accessible* form in a series of `BigQuery tables <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_BQ.html#tcga-clinical-biospecimen-and-molecular-data>`_.  
 
-For more details, please see our `github repositories <https://github.com/isb-cgc>`_ or our `Community Notebook Repository <https://github.com/isb-cgc/Community-Notebooks>`_ for tutorials and code examples in Python and R.
-
-This `introductory tutorial <https://github.com/isb-cgc/examples-Python/blob/master/notebooks/The%20ISB-CGC%20open-access%20TCGA%20tables%20in%20BigQuery.ipynb>`_ gives a great overview of all of the tables and pointers on how to get started exploring them.  Be sure to check it out!
+For more details, please see our `Community Notebook Repository <https://github.com/isb-cgc/Community-Notebooks>`_ for tutorials and code examples in Python and R.
 
 Controlled-Access TCGA Data
 ===========================
@@ -97,10 +95,9 @@ The controlled-access TCGA data includes:
 
 TCGA Data Repository History
 ++++++++++++++++++++++++++++++
-Historically, the data being hosted by the ISB-CGC was obtained from two former TCGA data repositories:
+Historically, the data was obtained from two former TCGA data repositories:
 
 * **TCGA DCC**: the TCGA Data Coordinating Center which provided a **Data Portal** from which users could download open-access or controlled-access data.  This portal provided access to all TCGA data *except* for the low-level sequence data. 
-* **CGHub**:  the **Cancer Genomics Hub** was NCI's current secure data repository for all TCGA BAM and FASTQ sequence data files.
+* **CGHub**:  the **Cancer Genomics Hub** was NCI's secure data repository for all TCGA BAM and FASTQ sequence data files.
 
-As of June 2016, the official data repository for all TCGA and other NCI CCG data is the `NCI Genomic Data Commons <https://gdc.cancer.gov/>`_.  The original TCGA data, aligned to the hg19 human reference genome is available from the NCI-GDC's 
-`legacy archive <https://portal.gdc.cancer.gov/legacy-archive/search/f>`_ while the new "harmonized" data, realigned to hg38 is available from the NCI-GDC's main `data portal <https://portal.gdc.cancer.gov/>`_.
+In June of 2016, the official data repository for all TCGA and other NCI CCG data is the `NCI Genomic Data Commons <https://gdc.cancer.gov/>`_ (NCI GDC).  The original TCGA data, aligned to the hg19 human reference genome is available from the NCI-GDC's `legacy archive <https://portal.gdc.cancer.gov/legacy-archive/search/f>`_ while the new "harmonized" data, realigned to hg38 is available from the NCI-GDC's main `data portal <https://portal.gdc.cancer.gov/>`_.
