@@ -17,7 +17,6 @@ Data Sets
    data/TCGA-images.rst
    data/TARGET_top.rst
    data/CCLE_top.rst
-   data/CGCI_top.rst
    data/COSMIC_about.rst
    data/FM-AD_about.rst
    data/CTSP_about.rst
