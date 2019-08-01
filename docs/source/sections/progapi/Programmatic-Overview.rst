@@ -24,3 +24,33 @@ The Swagger UI(ADD PROD LINK) can be used to see details about each endpoint, an
 
 Cohorts are the primary organizing principle for sub setting and working with the TCGA data. A cohort is a list of samples and a list of patients. Users may create and share cohorts using the ISB-CGC web-app and then programmatically access these cohorts using the Swagger UI. (TCGA samples are identified using a 16-character “barcode” e.g. TCGA-B9-7268-01A, while patients are identified using the 12-character prefix, i.e. TCGA-B9-7268, of the sample barcode. Other datasets such as CCLE may use other less standardized naming conventions).
 
+
+***************************
+Get familiar with Swagger UI through the ISB-CGC demo
+***************************
+
+
+To get a better understanding of Swagger UI, let’s explore the Swagger ISB-CGC example. In the ISB-CGC example, the site is generated using Swagger UI.
+
+ 
+
+
+.. image:: new_UI_display-pic
+   :scale: 50
+   :align: center 
+   
+   
+   
+The endpoints are grouped as follows:
+
+ - cohorts
+ - files
+ - users
+ 
+
+
+Authorize your request
+======================
+
+
+
