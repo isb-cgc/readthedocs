@@ -9,7 +9,7 @@ The initial goal of the `ISB-CGC <http://www.isb-cgc.org>`_ was to host the data
 Along with NCI Cancer Programs, ISB-CGC hosts several data sets from other programs such as COSMIC from the `Wellcome Trust Sanger Institute <http://www.sanger.ac.uk/>`_. We are always looking to add new data sets so if you have any suggestions or requests for additional data that you would like to see made available, please let us know (feedback@isb-cgc.org) and we will try to make that happen.
 
 .. toctree::
-   :caption: Data Sets
+   :caption: Test
    :maxdepth: 1
 
    data/TCGA_top.rst
