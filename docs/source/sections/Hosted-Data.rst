@@ -12,20 +12,30 @@ Data Sets
 ---------
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 
    
-   data/Data_Sets
+   TCGA_top.rst
+   TCGA-images.rst
+   TARGET_top.rst
+   CCLE_top.rst
+   COSMIC_about.rst
+   FM-AD_about.rst
+   CTSP_about.rst
+   VAREPOP_about.rst
+   NCICCR_about.rst
    data/GDC_top
    data/Reference-Data
    
 Storage Platforms
 ----------------
+
 .. toctree::
    :maxdepth: 2
    data/Data_on_ISBCGC
 
 Security
 --------
+
 .. toctree::
    :maxdepth: 1
    data/TCGA_Data_Security
