@@ -53,4 +53,20 @@ Authorize your request
 ======================
 
 
+Before making any requests, you would normally authorize your session by clicking the Authorize button and completing the information required in the Authorization modal pictured below:
+
+
+
+.. image:: authorize-panel
+   :scale: 50
+   :align: center 
+   
+   
+Make a Request
+================
+
+
+
+
+
 
