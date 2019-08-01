@@ -39,6 +39,7 @@ Security
 
 .. toctree::
    :maxdepth: 1
+   
    data/TCGA_Data_Security
    
 **A note about legacy and harmonized data sets**
