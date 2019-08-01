@@ -26,5 +26,5 @@ The open-access TARGET data hosted by the ISB-CGC Platform includes:
 * microRNA expression data:  these data were originally provided as TSV files (Level-3) by the TARGET DCC
 
 The information scattered over thousands of XLSX and TSV files at the GDC is provided in a *much more accessible* form in a series of 
-`BigQuery tables <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data_in_BQ.html>`_.
+BigQuery tables.
 
