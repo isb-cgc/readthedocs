@@ -11,7 +11,7 @@ Along with NCI Cancer Programs, ISB-CGC hosts several data sets from other progr
 Programs & Data Sets
 -------------------
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    data/TCGA_top.rst
    data/TCGA-images.rst
@@ -23,6 +23,9 @@ Programs & Data Sets
    data/CTSP_about.rst
    data/VAREPOP_about.rst
    data/NCICCR_about.rst
+
+             
+-------------
 
 .. toctree::
    :hidden:
