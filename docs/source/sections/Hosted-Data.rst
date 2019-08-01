@@ -23,10 +23,9 @@ Data Sets
    data/VAREPOP_about.rst
    data/NCICCR_about.rst
 
-Test
-
 .. toctree::
    :hidden:
+   :caption: Test
    :maxdepth: 2
    
    data/GDC_top
