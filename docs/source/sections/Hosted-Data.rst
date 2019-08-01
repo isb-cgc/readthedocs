@@ -21,7 +21,7 @@ Data Sets
 Storage Platforms
 ----------------
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    data/Data_on_ISBCGC
 
 Security
