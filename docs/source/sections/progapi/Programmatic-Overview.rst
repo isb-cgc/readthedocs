@@ -65,6 +65,12 @@ Before making any requests, you would normally authorize your session by clickin
 Make a Request
 ================
 
+Now let’s make a request:
+
+    Expand the  `POST samples endpoint <https://mvm-api-dot-isb-cgc.appspot.com/v4/swagger#/default/getSampleMetadataList>`_.
+
+    Click Try it out.
+
 
 
 
