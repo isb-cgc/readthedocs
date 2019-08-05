@@ -2,8 +2,8 @@
 TCGA Data Set
 *************
 
-About the TCGA Program
-----------------------
+About the TCGA
+---------------
 
 The Cancer Genome Atlas (TCGA) is a comprehensive and coordinated effort to accelerate the understanding of the molecular basis of cancer through the application of genome analysis technologies, including large-scale genome sequencing.
 
