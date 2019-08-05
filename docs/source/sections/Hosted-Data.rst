@@ -6,7 +6,7 @@ The `National Cancer Institute <https://www.cancer.gov/about-nci>`_, in collabor
 
 The initial goal of the `ISB-CGC <http://www.isb-cgc.org>`_ was to host the data produced by `The Cancer Genome Atlas <https://cancergenome.nih.gov/abouttcga>`_ (TCGA) program. The data has expanded to include data sets from other programs such as  `Therapeutically Applicable Research To Generate Effective Treatments <https://ocg.cancer.gov/programs/target>`_ (TARGET) program.
 
-Along with NCI Cancer Programs, ISB-CGC hosts several data sets from other programs such as COSMIC from the `Wellcome Trust Sanger Institute <http://www.sanger.ac.uk/>`_. We are always looking to add new data sets so if you have any suggestions or requests for additional data that you would like to see made available, please let us know (feedback@isb-cgc.org) and we will try to make that happen.
+Along with NCI Cancer Programs, ISB-CGC hosts several data sets from other programs such as `Catalogue Of Somatic Mutations In Cancer <https://cancer.sanger.ac.uk/cosmic>`_ (COSMIC) from the `Wellcome Trust Sanger Institute <http://www.sanger.ac.uk/>`_. We are always looking to add new data sets so if you have any suggestions or requests for additional data that you would like to see made available, please let us know (feedback@isb-cgc.org) and we will try to make that happen.
 
 Data Sets
 ---------
