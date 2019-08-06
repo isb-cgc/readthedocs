@@ -105,6 +105,21 @@ Resources_:  Helpful information!
 
 .. _July2019: 
 
+July, 2019
+##############
+
+This month we've added a couple new notebooks. Let us know if they're useful!
+
+We have a notebook demonstrating how to create sample cohorts based on clinical characteristics.
+Second, a notebook demonstrating how to get a dataset from NCBI GEO, transform it to a 'tidy' format
+and make a BigQuery table.
+
+`How do I create cohorts of patients (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_create_cohorts.ipynb>`_
+
+`How do I make an NCBI GEO BigQuery table (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_make_NCBI_GEO_BigQuery_tables.ipynb>`_
+
+
+
 June, 2019
 ##############
 
