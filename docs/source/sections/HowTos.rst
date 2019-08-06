@@ -36,6 +36,9 @@ How do I...
 `How do I find a tool using the GA4GC Tool Repository Service (TRS) (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_find_a_tool_using_GA4GH_TRS.ipynb>`_
 
 
+`How do I convert a .bam file to a .fastq file with samtools? (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_convert_bams_to_fastq_with_samtools.ipynb>`_
+
+
 `How do I correlate gene expression and copy number variation (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/RegulomeExplorer_1_Gexpr_CNV.ipynb>`_
 
 
