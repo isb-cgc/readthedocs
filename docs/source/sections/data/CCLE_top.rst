@@ -2,8 +2,8 @@
 CCLE Data Set
 *************
 
-About the CCLE program
------------------------
+About the CCLE
+--------------
 The `Cancer Cell Line Encyclopedia <https://depmap.org/portal/ccle/>`_ (CCLE) project is an effort to conduct a detailed genetic characterization of a large panel of human cancer cell lines. The CCLE provides public access analysis and visualization of DNA copy number, mRNA expression, mutation data and more, for 1000 cancer cell lines. 
 
 About the CCLE Data
