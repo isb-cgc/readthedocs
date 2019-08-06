@@ -14,15 +14,15 @@ Data Sets
 .. toctree::
    :maxdepth: 1
    
-   data/TCGA_top.rst
-   data/TCGA-images.rst
-   data/TARGET_top.rst
-   data/CCLE_top.rst
-   data/COSMIC_about.rst
-   data/FM-AD_about.rst
-   data/CTSP_about.rst
-   data/VAREPOP_about.rst
-   data/NCICCR_about.rst
+   data/TCGA_top
+   data/TCGA-images
+   data/TARGET_top
+   data/CCLE_top
+   data/COSMIC_about
+   data/FM-AD_about
+   data/CTSP_about
+   data/VAREPOP_about
+   data/NCICCR_about
    data/GDC_top
    data/Reference-Data
 
@@ -44,7 +44,7 @@ ISB-CGC hosts a seriese of reference tables in BigQuery with information that de
 .. toctree::
    :maxdepth: 1
    
-   data/reference
+   data/Reference-Data
 
 Storage Platforms
 ----------------
