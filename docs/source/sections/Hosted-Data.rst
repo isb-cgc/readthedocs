@@ -33,6 +33,7 @@ The NCI’s Genomic Data Commons (GDC) provides the cancer research community wi
 
 .. toctree::
    :maxdepth: 1
+   
    data/GDC_top
 
 Reference Data Sets
@@ -42,6 +43,7 @@ ISB-CGC hosts a seriese of reference tables in BigQuery with information that de
 
 .. toctree::
    :maxdepth: 1
+   
    data/reference
 
 Storage Platforms
@@ -68,6 +70,7 @@ Security
 --------
 
 It is recommended that you review important information about data security and data access.
+
 .. toctree::
    :maxdepth: 1
    
