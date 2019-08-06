@@ -2,8 +2,8 @@
 TARGET Data Set
 ***************
 
-About the TARGET Program
-------------------------
+About the TARGET
+----------------
 The Therapeutically Applicable Research to Generate Effective Treatments program (TARGET) applied a comprehensive genomic approach to determine molecular changes that drive childhood cancers. Investigators formed a collaborative network to facilitate the discovery of molecular targets and translate those findings into the clinic. TARGET is managed by NCI's Office of Cancer Genomics and Cancer Therapy Evaluation Program.
 
 The TARGET data is available at the GDC in the `legacy archive <https://portal.gdc.cancer.gov/legacy-archive/search/f?filters=%7B%22op%22:%22and%22,%22content%22:%5B%7B%22op%22:%22in%22,%22content%22:%7B%22field%22:%22cases.project.program.name%22,%22value%22:%5B%22TARGET%22%5D%7D%7D%5D%7D>`_ which contains over 10,000 files for over 5,000 cases. Virtually all of this data is low-level (and controlled-access) sequence data (including 1702 RNA-seq files, 765 miRNA-seq, with the remainder being WXS or WGS DNA-seq BAMs).
