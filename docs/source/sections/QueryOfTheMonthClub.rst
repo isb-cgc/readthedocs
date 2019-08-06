@@ -120,20 +120,6 @@ and make a BigQuery table.
 
 
 
-June, 2019
-##############
-
-New notebooks: building cohorts and transforming NCBI GEO data to BigQuery.
-
-This month we added notebooks demonstrating how to build sample cohorts and bringing data from NCBI GEO into BigQuery.
-
-Check them out and let us know if they were useful!
-
-`How do I create cohorts of patients (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_create_cohorts.ipynb>`_
-
-`How do I make an NCBI GEO BigQuery table (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_make_NCBI_GEO_BigQuery_tables.ipynb>`_
-
-
 .. _June2019: 
 
 June, 2019
