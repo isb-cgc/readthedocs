@@ -72,3 +72,8 @@ Now let’s make a request:
     Expand the  `POST samples endpoint <https://mvm-api-dot-isb-cgc.appspot.com/v4/swagger#/default/getSampleMetadataList>`_.
 
     Click Try it out.
+   
+
+.. image:: post-tryitout-button.PNG
+   :scale: 50
+   :align: center 
