@@ -39,6 +39,7 @@ or your own personal project) and the ISB-CGC is your Google identity
 Access to all ISB-CGC hosted data is controlled using access control lists (ACLs) which define the
 permissions attached to each dataset, bucket, or object.
 
+
 **What project information do I input on the Register a Google Cloud Project page?**
 
 You will need to input the Google Cloud Prooject ID which can be found on the Dashboard page of the Google Console under Project info.
@@ -46,7 +47,6 @@ You will need to input the Google Cloud Prooject ID which can be found on the Da
 .. image:: project_info.PNG
    :scale: 50
    :align: center
-
 
 
 **Why do I add the service account 907668440978-oskt05du3ao083cke14641u35deokgjj@developer.gserviceaccount.com to my Google Cloud Project?**
