@@ -39,21 +39,6 @@ or your own personal project) and the ISB-CGC is your Google identity
 Access to all ISB-CGC hosted data is controlled using access control lists (ACLs) which define the
 permissions attached to each dataset, bucket, or object.
 
-
-**How do I create a Google Cloud Project without an Organization present?**
-
-If your GoogleID is tied to a G-Suite org (e.g "exampleuser@systemsbiology.org", as isb is a G-suite organization account), this email account cannot create a Google Project with no parent organization. 
-
-One workaround is to give ownership to "your" Gsuite account. This essentially means you e.g. add "exampleuser@systemsbiology.org" as an owner, after creating it as e.g. "example.user@gmail.com". 
-
-Please note that you will need to have at least a free tier cloud account or please contact feedback@isb-cgc.org for more assistance in creating a free account. 
-
-Also be aware that the billing account for the end-user needs to be tied to the project as well after it is created.  *This is important* if you would like your organization to get billed instead of your personal credit card. For more information on how to modify billing please go to Modify A Project Billings Settings document provided by Google `here <https://cloud.google.com/billing/docs/how-to/modify-project>`_.
-
-
-There are additional instructions which work and can be found `here <https://stackoverflow.com/questions/47776654/create-gcp-project-without-organization>`_.
-
-
 **What project information do I input on the Register a Google Cloud Project page?**
 
 You will need to input the Google Cloud Prooject ID which can be found on the Dashboard page of the Google Console under Project info.
