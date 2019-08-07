@@ -2,8 +2,8 @@
 COSMIC Data Set
 ***************
 
-About the COSMIC program
-------------------------
+About the COSMIC
+----------------
 
 The `Catalogue Of Somatic Mutations In Cancer <https://cancer.sanger.ac.uk/cosmic>`_ (COSMIC) is the world's largest and most comprehensive resource for exploring the impact of somatic mutations in human cancer. The COSMIC tables in BigQuery were produced in collaboration with the `Wellcome Trust Sanger Institute <http://www.sanger.ac.uk/>`_ to provide a new way to explore and understand the mutations driving cancer. 
 
@@ -45,8 +45,8 @@ A few important notes:
 
 * Please enter the 'base' name and avoid using an alias
 
-  - *eg* the base account tb@mylab.org might have a longer-form alias like thomas.brown@mylab.org
+  - *e.g.* the base account tb@mylab.org might have a longer-form alias like thomas.brown@mylab.org
 
-**Note:**
+**Note**
 After going through the registration process described above, there will be a short delay before your Google identity is granted the necessary access to BigQuery and the COSMIC data resources.  If you get an error when running a query, please wait 10-15 minutes and then try again. If you are still not successful, please `verify <https://accounts.google.com/ForgotPasswd>`_
 that the Google ID you have provided is a valid Google account.  If you are still not able to run the sample query given below, please contact us at feedback@isb-cgc.org.

@@ -14,10 +14,4 @@ programming environments such as Python and R, using Google Compute Engine VMs
 and the Google Genomics Pipelines (GGP) service
 are provided in our github repositories, also described below.
 
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-
    
-   
-
