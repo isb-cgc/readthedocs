@@ -51,6 +51,8 @@ The endpoints are grouped as follows:
  
  
 
+ 
+
 Authorize your request
 ======================
 
@@ -59,7 +61,7 @@ Before making any requests, you would normally authorize your session by clickin
 
 
 
-.. image:: authorize-panel
+.. image:: Api-auth-page.PNG
    :scale: 50
    :align: center 
    
@@ -72,3 +74,31 @@ Now let’s make a request:
     Expand the  `POST samples endpoint <https://mvm-api-dot-isb-cgc.appspot.com/v4/swagger#/default/getSampleMetadataList>`_.
 
     Click Try it out.
+   
+
+.. image:: post-tryitout-button.PNG
+   :scale: 50
+   :align: center 
+   
+   
+After you click Try it out, the example value in the Request Body field becomes editable.
+
+In the sample barcode value field, change string to list of samples you wish you return information on. 
+
+Click Execute
+
+
+.. image:: post-tryitout-button.PNG
+   :scale: 50
+   :align: center 
+
+
+
+
+
+
+
+
+
+
+
