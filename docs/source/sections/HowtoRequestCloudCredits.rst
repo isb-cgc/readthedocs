@@ -1,5 +1,5 @@
-Your Own GCP project
-####################
+How to Request Cloud Credits
+############################
 
 To request an ISB-CGC funded Google Cloud Platform (GCP) project, please send a request to request-gcp@isb-cgc.org.
 (Note that if you *already* have a GCP project, and are not requesting funds as part of our
