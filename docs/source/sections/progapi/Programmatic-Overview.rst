@@ -59,7 +59,7 @@ Before making any requests, you would normally authorize your session by clickin
 
 
 
-.. image:: Apiv4-auth-page.PNG
+.. image:: Api-auth-page.PNG
    :scale: 50
    :align: center 
    
