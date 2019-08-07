@@ -93,6 +93,16 @@ Click Execute
    :align: center 
 
 
+Swagger UI submits the request and shows the curl that was submitted. The Responses section shows the response. If you select the Download button, you are able to download the response in JSON format. 
+
+
+.. image:: post_samples_execute.PNG
+   :scale: 50
+   :align: center 
+
+
+Nuances when using the API Endpoints
+=====================================
 
 
 
