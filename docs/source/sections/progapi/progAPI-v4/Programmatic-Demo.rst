@@ -88,7 +88,7 @@ In the sample barcode value field, change string to list of samples you wish you
 Click Execute
 
 
-.. image:: post-tryitout-button.PNG
+.. image:: post_samples_execute.PNG
    :scale: 50
    :align: center 
 
