@@ -119,7 +119,6 @@ and make a BigQuery table.
 `How do I make an NCBI GEO BigQuery table (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_make_NCBI_GEO_BigQuery_tables.ipynb>`_
 
 
-
 .. _June2019: 
 
 June, 2019

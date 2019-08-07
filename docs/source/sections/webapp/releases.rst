@@ -1,5 +1,5 @@
 *********************
-Web-App Release Notes
+Web App Release Notes
 *********************
 
 
