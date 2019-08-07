@@ -6,10 +6,12 @@ Welcome to the 'Query of the Month' where we'll be creating a collection
 of new and interesting queries to demonstrate the powerful combination of
 BigData from the NCI cancer programs like TCGA, and BigQuery from Google.
 
-Please let us know if you have an idea or a suggestion for our next QotM!
+NOTE! We mostly spend time producing notebooks for our community collection. 
+Check it out: https://github.com/isb-cgc/Community-Notebooks
+ReadTheDocs: https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowTos.html
 
-Query of the Month is produced by:
 
+Query of the Month is produced by the ISB-CGC team, with special effort by:
 
 - David L Gibbs (david.gibbs ( ~ at ~ ) systemsbiology ( ~ dot ~ ) org)
 

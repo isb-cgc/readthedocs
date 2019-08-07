@@ -96,7 +96,9 @@ I. Data Access and Google Cloud Project Setup
 - ISB-CGC hosts both open-access and controlled-access cancer genomics data from the NCI.
       `About ISB-CGC Cloud-Hosted Datasets <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Hosted-Data.html>`_
       
+
 - To access controlled-access data, dbGaP authorization is required.
+
       `Accessing Controlled-Access Data and acquiring dbGaP authorization <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-Contolled-Access-Data.html#interactive-access-to-controlled-data>`_
       
 - To work in GCP, you must first set up a GCP Project: 
