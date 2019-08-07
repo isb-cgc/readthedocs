@@ -97,7 +97,7 @@ I. Data Access and Google Cloud Project Setup
       `About ISB-CGC Cloud-Hosted Datasets <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Hosted-Data.html>`_
       
 - To access controlled-access data, dbGaP authorization is required.
-      `Accessing Controlled-Access Data and acquiring dbGaP authorization <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Hosted-Data.html>`_
+      `Accessing Controlled-Access Data and acquiring dbGaP authorization <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-Contolled-Access-Data.html#interactive-access-to-controlled-data>`_
       
 - To work in GCP, you must first set up a GCP Project: 
       - A GCP project is required to make use of all of the data, tools, and Google Cloud functionality.
