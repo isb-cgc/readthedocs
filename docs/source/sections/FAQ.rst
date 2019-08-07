@@ -42,7 +42,7 @@ permissions attached to each dataset, bucket, or object.
 
 **How do I create a Google Cloud Project without an Organization present?**
 
-If your GoogleID is tied to a G-Suite org (e.g "exampleuser@systemsbiology.org", as isb is a G-suite organization account), this email account cannot create a Google Project with no parent organization. 
+If your GoogleID is tied to a G-Suite org (e.g "exampleuser@systemsbiology.org", as ISB-CGC is a G-suite organization account), this email account cannot create a Google Project with no parent organization. 
 
 One workaround is to give ownership to "your" Gsuite account. This essentially means you e.g. add "exampleuser@systemsbiology.org" as an owner, after creating it as e.g. "example.user@gmail.com". 
 
