@@ -77,3 +77,24 @@ Now let’s make a request:
 .. image:: post-tryitout-button.PNG
    :scale: 50
    :align: center 
+   
+   
+After you click Try it out, the example value in the Request Body field becomes editable.
+
+In the sample barcode value field, change string to list of samples you wish you return information on. 
+
+Click Execute
+
+
+.. image:: post-tryitout-button.PNG
+   :scale: 50
+   :align: center 
+
+
+
+
+
+
+
+
+
