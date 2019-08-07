@@ -6,10 +6,12 @@ Welcome to the 'Query of the Month' where we'll be creating a collection
 of new and interesting queries to demonstrate the powerful combination of
 BigData from the NCI cancer programs like TCGA, and BigQuery from Google.
 
-Please let us know if you have an idea or a suggestion for our next QotM!
+NOTE! We mostly spend time producing notebooks for our community collection. 
+Check it out: https://github.com/isb-cgc/Community-Notebooks
+ReadTheDocs: https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowTos.html
 
-Query of the Month is produced by:
 
+Query of the Month is produced by the ISB-CGC team, with special effort by:
 
 - David L Gibbs (david.gibbs ( ~ at ~ ) systemsbiology ( ~ dot ~ ) org)
 
@@ -25,6 +27,10 @@ Table of Contents
 
 2019
 ++++
+
+- July2019_: New notebooks added, cohorts and GEO data
+
+- June2019_: Community Notebooks launched!
 
 - February2019_: BigQuery in R - a refresher   
 
@@ -96,6 +102,48 @@ Resources_:  Helpful information!
 
 
 -----------------------
+
+.. _July2019: 
+
+July, 2019
+##############
+
+This month we've added a couple new notebooks. Let us know if they're useful!
+
+We have a notebook demonstrating how to create sample cohorts based on clinical characteristics.
+Second, a notebook demonstrating how to get a dataset from NCBI GEO, transform it to a 'tidy' format
+and make a BigQuery table.
+
+`How do I create cohorts of patients (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_create_cohorts.ipynb>`_
+
+`How do I make an NCBI GEO BigQuery table (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_make_NCBI_GEO_BigQuery_tables.ipynb>`_
+
+
+.. _June2019: 
+
+June, 2019
+##############
+
+#*Community Notebooks launched!*
+
+`Community Notebooks <https://github.com/isb-cgc/Community-Notebooks/>`_
+
+After a lengthy hiatus, we've returned with a new Community Notebooks repository! This is a central hub, where very specific questions (like an FAQ) can be answered using a notebook format. This should make it easier to move from example to application. 
+
+Our first few notebooks include:
+
+`How do I get started fast (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/Quick_Start_Guide_to_ISB_CGC.ipynb>`_
+
+`How do I get started fast (R)? <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/Quick_Start_Guide_for_ISB-CGC.Rmd>`_
+
+`How do I plot a BigQuery result (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_plot_BigQuery_results.ipynb>`_
+
+`How do I plot a BigQuery result (R)? <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_plot_BigQuery_results.Rmd>`_
+
+`How do I work with cloud storage (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_work_with_cloud_storage.ipynb>`_
+
+Stay tuned for more notebooks!  And, we would love to hear from you!  Have a notebooks you'd like to share with world, *and attribution* (!) , please send an email to dgibbs <at> systemsbiology <dot> org.
+
 
 .. _February2019:
 
