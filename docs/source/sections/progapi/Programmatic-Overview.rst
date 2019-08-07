@@ -48,3 +48,27 @@ The endpoints are grouped as follows:
  - cohorts
  - files
  - users
+ 
+ 
+
+Authorize your request
+======================
+
+
+Before making any requests, you would normally authorize your session by clicking the Authorize button and completing the information required in the Authorization modal pictured below:
+
+
+
+.. image:: authorize-panel
+   :scale: 50
+   :align: center 
+   
+   
+Make a Request
+================
+
+Now let’s make a request:
+
+    Expand the  `POST samples endpoint <https://mvm-api-dot-isb-cgc.appspot.com/v4/swagger#/default/getSampleMetadataList>`_.
+
+    Click Try it out.
