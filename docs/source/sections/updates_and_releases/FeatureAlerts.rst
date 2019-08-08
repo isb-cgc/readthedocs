@@ -8,7 +8,7 @@ Feature Alerts
 **FEATURE ALERT:**  Log into the @ISB_CGC web app and check out the new default gene list feature! When using SeqPeek, OncoGrid, or an OncoPrint analyses you are given a default gene list with genes with a consensus score of six or higher! For more information please go `here. <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Workbooks.html#creating-and-saving-a-workbook>`_
 
 
-.. image:: Default_list_FINAL.PNG
+.. image:: images/Default_list_FINAL.PNG
    :scale: 25
    :align: center
 
@@ -17,7 +17,7 @@ Feature Alerts
 
 **Feature Alert:**  When working with the File Browser you now have the ability to search all tabs by case barcode! For more infromation about the File Browser page please go `here. <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html#file-browser-page>`_
 
-.. image:: FileBrowserCaseBarcodeSearch.PNG
+.. image:: images/FileBrowserCaseBarcodeSearch.PNG
    :scale: 25
    :align: center
 
@@ -26,7 +26,7 @@ Feature Alerts
 
 **Feature Alert:**  Log into the @ISB_CGC web app and check out our new image viewers!  Look at #TCGA #Radiology and #Histology images from the same patient, powered by #caMicroscope and Orthanc @orthancserver . #TCIA #cancerimaging #tsid #imaging  #quantitativeimaging  #FOAMrad .  Now you can see and use the depth of the TCGA dataset, using the Google Cloud @GCPCloud!! Thank you to all our collaborators.  Try them out: `Pathology Images <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html#viewing-a-pathology-image>`_ and `Radiology Images <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/OsimisWebViewer.html>`_
 
-.. image:: Pathology_TCGA_FD_A3B6.png
+.. image:: images/Pathology_TCGA_FD_A3B6.png
    :scale: 25
    :align: center
 
@@ -35,7 +35,7 @@ Feature Alerts
 
 
 
-.. image:: FD-A3B6-CT-Pelvis_smaller.gif
+.. image:: images/FD-A3B6-CT-Pelvis_smaller.gif
    :scale: 25
    :align: center
 
@@ -44,7 +44,7 @@ Feature Alerts
 
 **Feature Alert:**  You are now able to export to Google Cloud Storage an entire cohort file manifest by genomic build using the File Browser page Export to GCS feature! For more information please go `here. <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html#export-file-list-to-google-cloud-storage>`_
 
-.. image:: export_to_gcs_feature.png
+.. image:: images/export_to_gcs_feature.png
    :scale: 25
    :align: center
 
@@ -52,7 +52,7 @@ Feature Alerts
 
 **Feature Alert:**  You are now able to BigQuery an entire cohort file manifest by genomic build using the File Browser page Export to BQ feature! For more information please go `here. <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html#export-file-list-to-bigquery>`_
 
-.. image:: ExportBQTweet-1.png
+.. image:: images/ExportBQTweet-1.png
    :scale: 25
    :align: center
 
@@ -61,7 +61,7 @@ Feature Alerts
 **FeatureAlert:** You can now view TCGA pathology images using caMicroscope on the ISB-CGC website. For more information please go `here. <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html#viewing-a-pathology-image>`_
 
 
-.. image:: caMicroscope_image_for_tweet_01.png
+.. image:: images/caMicroscope_image_for_tweet_01.png
    :scale: 25
    :align: center
 
@@ -70,7 +70,7 @@ Feature Alerts
 **Feature Alert:** You can now create a cohort by uploading a .JSON or a .TSV file from the Genomic Data Commons(GDC) using the new barcode upload feature! For more information please go `here. <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html#upload-tab>`_
 
 
-.. image:: gdc_upload-1.png
+.. image:: images/gdc_upload-1.png
    :scale: 25
    :align: center
 
@@ -79,6 +79,6 @@ Feature Alerts
 **Feature Alert:** - You can now send a cohort you have created in the web application to a new BigQuery table or append an existing table!  For more information please go `here. <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html#cohort-details-page>`_
 
 
-.. image:: export_to_BQ-1.png
+.. image:: images/export_to_BQ-1.png
    :scale: 25
    :align: center
