@@ -1,5 +1,5 @@
 ==========================
-ISB-CGC Endpoints Tutorial
+ISB-CGC API Tutorial
 ==========================
 
 
@@ -43,7 +43,7 @@ To get a better understanding of Swagger UI, let’s explore the Swagger ISB-CGC
    
    
    
-The endpoints are grouped as follows:
+The APIs are grouped as follows:
 
  - cohorts
  - files
@@ -103,8 +103,8 @@ Swagger UI submits the request and shows the curl that was submitted. The Respon
    :align: center 
 
 
-Nuances when using the API Endpoints
-=====================================
+Nuances when using the APIs
+===========================
 
 
 Any special characters in the input field will cause the endpoint to fail. e.g. spacing in inout box
