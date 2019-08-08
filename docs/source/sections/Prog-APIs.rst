@@ -18,6 +18,6 @@ are provided in our github repositories, also described below.
    :maxdepth: 1
    
    
-   progAPIv4/Programmatic-Demo.rst
+   progAPIv4/Programmatic-Demo
    
    
