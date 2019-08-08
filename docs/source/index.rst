@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 *****************************
-The ISB Cancer Genomics Cloud
+ISB-CGC
 *****************************
 
 
