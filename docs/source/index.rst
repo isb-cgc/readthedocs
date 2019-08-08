@@ -33,6 +33,7 @@ of terabytes of sequence data.
 
    sections/About-ISB-CGC
    sections/HowToGetStartedonISB-CGC
+   sections/HowtoRequestCloudCredits
    sections/BestPractices
    sections/Hosted-Data
    sections/BigQuery
