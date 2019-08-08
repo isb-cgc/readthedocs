@@ -59,6 +59,8 @@ Authorize your request
 
 Before making any requests, you would normally authorize your session by clicking the Authorize button and completing the information required in the Authorization modal pictured below:
 
+**Please Note:** Both scopes are required to be selected.
+
 
 
 .. image:: Api-auth-page.PNG
@@ -105,7 +107,13 @@ Nuances when using the API Endpoints
 =====================================
 
 
+Any special characters in the input field will cause the endpoint to fail. e.g. spacing in inout box
 
+Please make sure to delete all fields not being used.  Any leftover fields with text “string” or left blank will cause the endpoint to fail.
+
+Case barcode centric endpoints only pull TCGA and CCLE hg19 data details e.g file paths 
+
+Use sample centric endpoint to pull hg38 centric data details using the endpoints
 
 
 
