@@ -36,7 +36,7 @@ of terabytes of sequence data.
    sections/HowtoRequestCloudCredits
    sections/BestPractices
    sections/Hosted-Data
-   sections/BigQuery/BigQuery
+   sections/BigQuery
    sections/Web-UI
    sections/Prog-APIs
    sections/QuicklinksOneTable
