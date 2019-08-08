@@ -20,7 +20,7 @@ Some example use-cases include:
 
 
 
-The Swagger UI(ADD PROD LINK) can be used to see details about each endpoint, and also provides a convenient interface to test an endpoint through your web browser. 
+The `Swagger User Interface <https://mvm-api-dot-isb-cgc.appspot.com/v4/swagger#/>`_can be used to see details about each endpoint, and also provides a convenient interface to test an endpoint through your web browser. 
 
 
 .. image:: api-endpoints.PNG
