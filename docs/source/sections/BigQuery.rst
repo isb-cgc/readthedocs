@@ -8,9 +8,9 @@ Getting Started With BigQuery
    :hidden:
    :maxdepth: 2
 
-   sections/progapi/bigqueryGUI/WalkthroughOfGoogleBigQuery
-   sections/bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform
-   sections/bigqueryGUI/LinkingBigQueryToIsb-cgcProject
+   progapi/bigqueryGUI/WalkthroughOfGoogleBigQuery
+   bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform
+   bigqueryGUI/LinkingBigQueryToIsb-cgcProject
 
 Data in BigQuery
 ----------------------------
@@ -18,8 +18,8 @@ Data in BigQuery
    :hidden:
    :maxdepth: 2
    
-   BQ_overview
-   sections/PanCancer-Atlas-Mirror
+   BigQuery/BQ_overview
+   PanCancer-Atlas-Mirror
 
 
 
