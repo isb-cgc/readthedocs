@@ -1,6 +1,6 @@
-********************
-Program Data Upload
-********************
+*********
+Programs
+*********
 Uploading your own data is a way of creating custom groupings of the samples and/or cases that you are interested in analyzing further with the data that is already preexisting in our system or tools that we have on the system. You may frequently re-use the data that was uploaded in multiple analyses. Creating a “Program” allows you to do this. If you have any existing Programs with data uploaded, they will appear here for you to view, edit and share (see below for details).
 
 Files and File Formats
