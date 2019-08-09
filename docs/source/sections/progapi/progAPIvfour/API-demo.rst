@@ -5,7 +5,7 @@ ISB-CGC API Tutorial
 
 
 
-Programmatic access to data within the ISB-CGC platform uses a combination of ISB-CGC APIs and Swagger UI documentation. 
+Programmatic access to data within the ISB-CGC platform uses a combination of ISB-CGC APIs and `Swagger UI <https://swagger.io/>`_ documentation. 
 
 The ISB-CGC API provides an interface to the ISB-CGC metadata stored in BigQuery, and consists of several “endpoints”, implemented using Google Cloud Endpoints. Details about these endpoints can be found below. 
 
@@ -20,7 +20,7 @@ Some example use-cases include:
 
 
 
-The `Swagger User Interface <https://mvm-api-dot-isb-cgc.appspot.com/v4/swagger#/>`_can be used to see details about each endpoint, and also provides a convenient interface to test an endpoint through your web browser. 
+The `ISB-CGC API v4.0 <https://mvm-api-dot-isb-cgc.appspot.com/v4/swagger#/>`_ can be used to see details about each endpoint, and also provides a convenient interface to test an endpoint through your web browser. 
 
 
 .. image:: api-endpoints.PNG
