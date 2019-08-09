@@ -9,15 +9,15 @@ We welcome your ideas and needs.  Please use this `link <https://groups.google.c
    :hidden:
    :maxdepth: 1
 
+   webapp/Gaining-Access-To-Contolled-Access-Data
    webapp/Overview
    webapp/Dashboard
    webapp/Menu
-   webapp/Gaining-Access-To-Contolled-Access-Data
    webapp/Workbooks
+   webapp/program_data_upload
    webapp/Gene-and-miRNA-Favorites
    webapp/Variable-Favorites
    webapp/Saved-Cohorts
-   webapp/program_data_upload
    webapp/GraphingUserData
    webapp/IGV-Browser
    webapp/OsimisWebViewer
