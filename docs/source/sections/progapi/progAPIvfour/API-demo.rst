@@ -56,7 +56,7 @@ Authorize your request
 
 Before making any requests, you would normally authorize your session by clicking the Authorize button and completing the information required in the Authorization modal pictured below:
 
-**Please Note:** Both scopes are required to be selected.
+**Please Note:** Both scopes are required.
 
 
 
