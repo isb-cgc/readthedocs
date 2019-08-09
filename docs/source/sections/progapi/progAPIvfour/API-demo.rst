@@ -28,12 +28,12 @@ The `ISB-CGC API v4.0 <https://mvm-api-dot-isb-cgc.appspot.com/v4/swagger#/>`_ c
    :align: center 
 
 
-Cohorts are the primary organizing principle for subsetting and working with the TCGA data. A cohort is a list of samples. Users may create and share cohorts using the ISB-CGC web-app and then programmatically access these cohorts using the Swagger UI. (TCGA samples are identified using a 16-character “barcode” e.g. TCGA-B9-7268-01A, while patients are identified using the 12-character prefix, i.e. TCGA-B9-7268, of the sample barcode. Other datasets such as CCLE may use other less standardized naming conventions).
+The primary organizing principle  subsetting and working with the TCGA data is a Cohort which isa list of samples. Users may create and share cohorts using the ISB-CGC web-app and then programmatically access them using the Swagger UI. (TCGA samples are identified using a 16-character “barcode” e.g. TCGA-B9-7268-01A, while patients are identified using the 12-character prefix, i.e. TCGA-B9-7268, of the sample barcode. Other datasets such as CCLE may use other less standardized naming conventions).
 
 
 
 ***************************
-Get familiar with Swagger UI through the ISB-CGC demo
+Demo of Swagger UI
 ***************************
 
 
@@ -54,7 +54,7 @@ Authorize your request
 ======================
 
 
-Before making any requests, you would normally authorize your session by clicking the Authorize button and completing the information required in the Authorization modal pictured below:
+Before making any requests, you would normally authorize your session by clicking the 'Authorize' button and completing the information required in the Authorization modal pictured below:
 
 **Please Note:** Both scopes are required.
 
@@ -70,9 +70,9 @@ Make a Request
 
 Now let’s make a request:
 
-    Expand the  `POST samples endpoint <https://mvm-api-dot-isb-cgc.appspot.com/v4/swagger#/default/getSampleMetadataList>`_.
+    Expand the  `POST samples endpoint <https://mvm-api-dot-isb-cgc.appspot.com/v4/swagger#/default/getSampleMetadataList>`_.   by clicking on the ‘POST/samples’ line. 
 
-    Click Try it out.
+    Click 'Try it out'.
 
 
 .. image:: post-tryitout-button.png
@@ -80,11 +80,11 @@ Now let’s make a request:
    :align: center 
 
 
-After you click Try it out, the example value in the Request Body field becomes editable.
+After you click 'Try it out', the example value in the Request Body field becomes editable.
 
-In the sample barcode value field, change string to list of samples you wish you return information on. 
+In the 'sample barcode value field', change string to list of samples you wish you return information on. 
 
-Click Execute
+Click 'Execute'
 
 
 .. image:: post-samples-execute.png
@@ -92,7 +92,7 @@ Click Execute
    :align: center 
 
 
-Swagger UI submits the request and shows the curl that was submitted. The Responses section shows the response. If you select the Download button, you are able to download the response in JSON format. 
+Swagger UI submits the request and shows the curl code that was submitted. The ‘Response body’ section shows the response to the request. If you click the ‘Download’ button, you are able to download the response in JSON format.
 
 
 .. image:: response-body.png
@@ -106,7 +106,7 @@ Nuances when using the APIs
 
 Any special characters in the input field will cause the endpoint to fail. e.g. spacing in inout box.
 
-Please make sure to delete all fields not being used.  Any leftover fields with text “string” or left blank will cause the endpoint to fail.
+Please make sure to delete all fields not being used.
 
 Case barcode centric endpoints only pull TCGA and CCLE hg19 data details e.g file paths. 
 
