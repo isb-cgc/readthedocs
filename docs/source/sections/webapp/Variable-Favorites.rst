@@ -1,7 +1,7 @@
 
-*******************
-Variable Favorites
-*******************
+**********
+Variables
+**********
 A variable Favorites list is a way of creating custom groupings of the samples and/or cases that you are interested in analyzing further. For example, you can create a variable favorites list that span across multiple projects, only contain samples for which certain types of data are available, or focus on specific phenotypic characteristics.
 
 Creating and Saving a Variable Favorites List
