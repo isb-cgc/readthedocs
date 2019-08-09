@@ -17,7 +17,7 @@ Some example use-cases include:
  - retrieve a cohort's file manifest based on filters provided;
  - register, refresh, unregister a specified Google Cloud Project;
 
-The `Swagger User Interface <https://mvm-api-dot-isb-cgc.appspot.com/v4/swagger#/>`_ can be used to see details about each endpoint, and also provides a convenient interface to test an endpoint through your web browser. 
+The `ISB-CGC API v4.0 <https://mvm-api-dot-isb-cgc.appspot.com/v4/swagger#/>`_ can be used to see details about each endpoint, and also provides a convenient interface to test an endpoint through your web browser. 
 
 
 .. image:: api-endpoints.PNG
