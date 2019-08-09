@@ -26,6 +26,7 @@ The ISB-CGC aims to serve the needs of a broad range of cancer researchers rangi
    sections/HowToGetStartedonISB-CGC
    sections/HowtoRequestCloudCredits
    sections/BestPractices
+   sections/Benefits
    sections/Hosted-Data
    sections/BigQuery
    sections/Web-UI
