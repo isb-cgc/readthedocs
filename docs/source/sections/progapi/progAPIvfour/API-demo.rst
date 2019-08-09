@@ -87,7 +87,7 @@ In the sample barcode value field, change string to list of samples you wish you
 Click Execute
 
 
-.. image:: post_samples_execute.png
+.. image:: post-samples-execute.png
    :scale: 50
    :align: center 
 
@@ -95,7 +95,7 @@ Click Execute
 Swagger UI submits the request and shows the curl that was submitted. The Responses section shows the response. If you select the Download button, you are able to download the response in JSON format. 
 
 
-.. image:: response-body.png
+.. image:: response-body.PNG
    :scale: 50
    :align: center 
 
