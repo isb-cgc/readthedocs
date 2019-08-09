@@ -2,20 +2,13 @@
 About the ISB-CGC
 ******************
 
+*Democratizing access to cancer data in the cloud*
 
-The ISB-CGC platform is built on top of the Google Cloud Platform and has been designed to make the TCGA data as accessible as possible to a wide range of users. For the programmatic users, this includes complete access to the tools that Google is pioneering to allow users to scale-up their analyses on the Google infrastructure using a variety of means.
+ISB Cancer Genomics Cloud (ISB-CGC) is one of three `NCI Cloud Recourses <https://datascience.cancer.gov/data-commons/cloud-resources>`_ tasked to bring together cancer data and computation power through cloud platforms. ISB-CGC is built with Google Cloud Platform and designed to ease access to a wide range of users allowing the data sets to be explored and analyzed through tools such as:
 
+- ISB-CGC Web App
+- Google BigQuery
+- Google Compute Engine
+- Google Cloud Storage
 
-The ISB-CGC provides interactive and programmatic access to all data hosted by institutes such as the Genomic Data Commons GDC and the Welcome Trust Sanger Institute, leveraging many aspects of the Google Cloud Platform including BigQuery, Compute Engine, App Engine, and Google Cloud Storage.  Open-access clinical and biospecimen information for all TCGA, TARGET, CCLE, COSMIC, and FM patients and samples, combined with the analyzed summary data and genomic reference and platform-annotation sources are stored in BigQuery, enabling fast SQL-like queries against the entire dataset.  Controlled-access DNA and RNA sequence data is available to dbGaP-authorized users in the original BAM and FASTQ file formats for TCGA, TARGET, FM, CTSP, VAREPOP, and NCICCR-DLBCL data at this time.
-
-The ISB-CGC aims to serve the needs of a broad range of cancer researchers 
-ranging from scientists or clinicians who prefer to use an interactive 
-web-based application to access and explore the rich TCGA, TARGET, and CCLE datasets, to 
-computational scientists who want to write their own custom scripts using 
-languages such as R or Python, accessing the data through APIs, to algorithm 
-developers who want to spin up thousands of virtual machines to rapidly 
-analyze hundreds of terabytes of sequence data.  The ISB-CGC allows scientists 
-to interactively define and compare cohorts, examine the underlying molecular 
-data for specific genes or pathways of interest, and share insights with 
-collaborators around the globe.  
-
+ISB-CGC is a collaboration between the `Institute for Systems Biology <https://systemsbiology.org/>`_ (ISB) and `General Dynamics Information Technology <https://www.gdit.com/>`_ (GDIT). ISB-CGC began in 2016 as part of the NCI’s pilot cloud resource initiative to tackle the issue of the increasing amounts of cancer data and the accessibility to the data.
