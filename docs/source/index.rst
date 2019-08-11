@@ -40,6 +40,7 @@ it. feedback@isb-cgc.org
    sections/Hosted-Data
    sections/Web-UI
    sections/Prog-APIs
+   sections/HowTos
    sections/QuicklinksOneTable
    sections/TutorialsAndDIYWorkshop
    sections/FAQ
