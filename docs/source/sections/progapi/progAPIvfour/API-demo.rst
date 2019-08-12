@@ -40,6 +40,18 @@ Demo of Swagger UI
 To get a better understanding of Swagger UI, let’s explore the Swagger ISB-CGC example. In the ISB-CGC example, the site is generated using Swagger UI.   
 
 
+.. highlight:: 
+{
+  "sample_barcodes": [
+    "TARGET-52-PAJMBW-01A",
+    "TCGA-WB-A81K-01Z",
+    "TCGA-DX-A23U-01A",
+    "CCLE-Malme-3M",
+    "CCLE-Hs 863.T"
+  ]
+}
+
+
 The APIs are grouped as follows:
 
  - samples
