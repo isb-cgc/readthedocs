@@ -47,30 +47,12 @@ POST/cohorts/
 {
   "name": "An example cohort name.",
   "description": "An example cohort description.",
-  "filters": {
-    "TCGA": {
-      "disease_code": [
-        "BRCA",
-        "READ"
-      ],
-      "vital_status": [
-        "Alive"
-      ]
-    },
-    "TARGET": {
-      "age_at_diagnosis_btw": [
-        5,
-        10
-      ]
-    },
-    "CCLE": {
-      "case_gdc_id": [
-        "216a0048-168c-4257-88a4-31346d81a639",
-        "6cd41ffa-8dbd-4af0-8e52-eb9bec7c2c82"
-      ]
-    }
-  }
-}
+  "filters": { "TCGA": 
+  { "disease_code": ["BRCA","READ"],
+      "vital_status": [ "Alive"] },
+    "TARGET": {"age_at_diagnosis_btw": [5, 10] },
+    "CCLE": { "case_gdc_id": [ "216a0048-168c-4257-88a4-31346d81a639", "6cd41ffa-8dbd-4af0-8e52-eb9bec7c2c82" ]  
+    } } }
 
 
 The APIs are grouped as follows:
