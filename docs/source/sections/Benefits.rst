@@ -2,7 +2,7 @@
 Benefits of Using The Cloud
 ***************************
 
-The biggest benefit of the cloud is you don’t have to download the data! You'll bring your know-how to the data. Use cloud-native, compute tools to scale as big as you can imagine and analyze TBs and PBs of data! 
+The biggest benefit of the cloud is unlimited storage space and compute power! It can expand to your wildest data dreams and needs! You won't have to download the data and wait for results using cloud-native compute tools, to scale as big as you can imagine, to analyze TBs and PBs of data!
 
 Don’t be intimidated by the cloud! Bring your computation to the data on ISB-CGC. If you’ve conducted bioinformatics analyses before using the command line or SQL, this will be just as easy (if not easier) and we are also here to help! Email feedback@isb-cgc.org or visit our `Community Notebooks Repository <https://github.com/isb-cgc/Community-Notebooks>`_ for guides and tutorials.
 
