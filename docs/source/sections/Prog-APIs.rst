@@ -15,7 +15,7 @@ and the Google Genomics Pipelines (GGP) service
 are provided in our github repositories, also described below.
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    progAPIvfour/API-Demo
    
