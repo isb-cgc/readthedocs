@@ -54,7 +54,7 @@ Authorize your request
 ======================
 
 
-Before making any requests, you would normally authorize your session by clicking the 'Authorize' button and completing the information required in the Authorization modal pictured below:
+Before making any requests, you would normally authorize your session by clicking the 'Authorize' button and completing the information required in the pop-up authorization model pictured below:
 
 **Please Note:** Both scopes are required.
 
