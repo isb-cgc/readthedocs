@@ -41,14 +41,35 @@ To get a better understanding of Swagger UI, let’s explore the Swagger ISB-CGC
 
 
 .. highlight:: 
+
+POST/cohorts/
+
 {
-  "sample_barcodes": [
-    "TARGET-52-PAJMBW-01A",
-    "TCGA-WB-A81K-01Z",
-    "TCGA-DX-A23U-01A",
-    "CCLE-Malme-3M",
-    "CCLE-Hs 863.T"
-  ]
+  "name": "An example cohort name.",
+  "description": "An example cohort description.",
+  "filters": {
+    "TCGA": {
+      "disease_code": [
+        "BRCA",
+        "READ"
+      ],
+      "vital_status": [
+        "Alive"
+      ]
+    },
+    "TARGET": {
+      "age_at_diagnosis_btw": [
+        5,
+        10
+      ]
+    },
+    "CCLE": {
+      "case_gdc_id": [
+        "216a0048-168c-4257-88a4-31346d81a639",
+        "6cd41ffa-8dbd-4af0-8e52-eb9bec7c2c82"
+      ]
+    }
+  }
 }
 
 
