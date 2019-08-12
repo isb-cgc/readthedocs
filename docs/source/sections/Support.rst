@@ -2,10 +2,7 @@
 Contact Us
 ****************************
 
-.. _contact-us:
 
-Contact Us
-##########
 
 For general information about the ISB-CGC please contact us at feedback@isb-cgc.org.
 We are especially keen on learning about your particular use-cases, and how we can
