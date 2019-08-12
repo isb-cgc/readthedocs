@@ -14,4 +14,4 @@ ISB Cancer Genomics Cloud (ISB-CGC) is one of three `NCI Cloud Recourses <https:
 
 ISB-CGC is a collaboration between the `Institute for Systems Biology <https://systemsbiology.org/>`_ (ISB) and `General Dynamics Information Technology <https://www.gdit.com/>`_ (GDIT). ISB-CGC began in 2016 as part of the NCI’s pilot cloud resource initiative to tackle the issue of the increasing amounts of cancer data and the accessibility to the data.
 
-ISB-CGC has created a repository to demonstrate the use of the different tools available utitlizing mainly Python and R which can be found `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowTos.html>`_ in an FAQ and in the  `Community Notebook Repository <https://github.com/isb-cgc/Community-Notebooks>`_ on GitHub .
+The ISB-CGC created a `Community Notebook <https://github.com/isb-cgc/Community-Notebooks>`_ repository to hold notebooks that use the various tools to illustrate common tasks in biological data analysis.
