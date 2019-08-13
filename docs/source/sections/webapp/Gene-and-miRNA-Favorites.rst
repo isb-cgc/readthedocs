@@ -29,14 +29,14 @@ To create a new Gene & miRNA Favorite:
 Manage Gene & miRNA Favorites
 ###############################
 
-Selecting **Manage Gene & miRNA Favorites** from the **GENES & miRNAs menu dropdown** displays the **Saved Gene & miRNA Favorites** screen. This screen displays your saved Gene & miRNA Favorites and allows you to edit or delete them, as well as start a new workbook using your favorite.
+Selecting **Manage Gene & miRNA Favorites** from the **GENES & miRNAs** menu dropdown displays the **Saved Gene & miRNA Favorites** screen. This screen displays your saved Gene & miRNA Favorites and allows you to edit or delete them, as well as start a new workbook using your favorite.
 
 Clicking on the **Create New Favorite** button will take you to the **Create Gene & miRNA Favorite** screen.
 
 Select Genes & miRNAs for a New Workbook
 ########################################
 
-Selecting **Select Genes & miRNAs for a New Workbook** from the **GENES & miRNAs menu dropdown** displays the **Data Source | Gene & miRNA Favorites** screen. This screen displays your saved Gene & miRNA Favorites and allows you to apply them to a new workbook.
+Selecting **Select Genes & miRNAs for a New Workbook** from the **GENES & miRNAs** menu dropdown displays the **Data Source | Gene & miRNA Favorites** screen. This screen displays your saved Gene & miRNA Favorites and allows you to apply them to a new workbook.
 
 - Check the box adjacent to your favorite and click the **Apply to New Worksheet** button to create a new workbook using your Gene & miRNA Favorite.
 - Click the **Apply New Gene & miRNA List** to create a new favorite. This takes you to the **Create Gene & miRNA Favorite** screen.
