@@ -5,22 +5,27 @@ Genes and miRNAs
 This feature allows you to create and manage Gene and miRNA lists for use in subsequent analyses.  
 From the Menu - Genes and miRNA selection, you can:
 
-- Manage Gene and miRNA Favorite(s)
-- Create Gene and miRNA Favorite(s) 
+- Manage Gene and miRNA Favorites
+- Create Gene and miRNA Favorites
 - Select Genes and miRNAs for a New Workbook
 
-**Creating A Gene and miRNA List Favorite**
+**Create a Gene and miRNA Favorite**
+
+.. image:: Gene_Favorite.png
+   :align: center
 
 To create a new Gene and miRNA Favorite:
-  *  Begin by naming your new "Favorites list"; you can create many Favorites and use them later when working with workbooks.
-  *  Next specify the Gene(s) and/or miRNA(s) to populate this list. You can upload a pre-existing list, or enter Genes and miRNAs one at a time by typing them into the input box (with auto-completion support). 
 
-If duplicate symbols are entered they will be marked for your deletion or automatically dropped when the list is saved.  
-If an unrecognized item is entered it will also be flagged for your attention.  
+- Name your new Favorites; you can create many Favorites and use them later when working with workbooks.
+- Specify the Gene(s) and/or miRNA(s) to include in this list. You can do this by:
 
-- To aid in Gene selection, you can access the HGNC portal (Hugo Gene Nomenclature Committee) via the `View Gene Identifiers <http://www.genenames.org/>`_ link provided under this Menu selection. 
-
-- To aid in miRNA selection, you can access the miRBase via the `View miRNA Identifiers <http://www.mirbase.org/cgi-bin/mirna_summary.pl?org=hsa>`_ link provided next to the View Gene Identifier link mentioned above. 
+  * Uploading a pre-existing list using the Upload Gene and miRNA List link
+  * Entering Genes and miRNAs by typing them into the input box (with auto-completion support). 
+  
+    - To aid in Gene selection, you can access the HGNC portal (Hugo Gene Nomenclature Committee) via the `View Gene Identifiers <http://www.genenames.org/>`_ link.
+    - To aid in miRNA selection, you can access the miRBase via the `View miRNA Identifiers <http://www.mirbase.org/cgi-bin/mirna_summary.pl?org=hsa>`_ link. 
+    - If duplicate symbols are entered they will be marked for your deletion or automatically dropped when the list is saved. If an unrecognized item is entered it will also be flagged for your attention.  
+- Click Save As Favorite.
 
 **Terminology Used for Genes**
   * The `National Human Genome Research Institute (NHGRI) <http://www.genome.gov/glossary/index.cfm>`_ created the Talking Glossary of Genetic Terms to help everyone understand the terms and concepts used in genetic research.  In addition to definitions, specialists in the field of genetics share their descriptions of terms, and many terms include images, animation and links to related terms.
