@@ -2,18 +2,20 @@
 **********
 Variables
 **********
-A variable Favorites list is a way of creating custom groupings of the samples and/or cases that you are interested in analyzing further. For example, you can create a variable favorites list that span across multiple projects, only contain samples for which certain types of data are available, or focus on specific phenotypic characteristics.
+Creating a variable favorites list is a way of creating custom groupings of the samples and/or cases that you are interested in analyzing further. For example, you can create a variable favorites list that spans across multiple projects, only contains samples for which certain types of data are available, or focuses on specific phenotypic characteristics. A Variable Favorites list can be included in a workbook.
 
-Creating and Saving a Variable Favorites List
-##############################################
-To create a variable list from the User Dashboard, click on the "Create Variable Favorite” link where you will be directed to the Create Variable Favorite Page. 
+Create Variable Favorites List
+##############################
+
+To create a variable list from the User Dashboard, click on the **Create Variable Favorite** link which will display the **Create Variable Favorite Page**. 
+
+Or, from the menu dropdown, select **Create Variables Favorite List** from the **VARIABLES** menu dropdown. 
 
 Variable Favorites List Creation page
 ======================================
-Using the provided list of filters on the left hand side, you can select the attributes and features
-that you are interested in.
+Using the provided list of filters on the left hand side, you can select the attributes and features that you are interested in.
 
-By clicking on a program, the field will expand and provide you with additional filtering options in the Data Types section.
+By clicking on a program (TCGA, CCLE, TARGET), the field will expand and provide you with additional filtering options in the Data Types section.
 For example, when to select the TCGA tab you see a common filters section. The common filters section is shared across programs, so if the common filter is selected in one program it will be selected for all programs. 
 
 
@@ -26,25 +28,25 @@ Common Filter List by Program
    | TCGA Common  Filter   | CCLE Common  Filter List     | TARGET Common       |
    | List                  |                              | Filter List         |
    +=======================+==============================+=====================+
-   | Year of Diagnosis     | Gender                       | WBC at              |
+   | Year of Diagnosis     | Program                      | WBC at              |
    |                       |                              | Diagnosis           | 
    +-----------------------+------------------------------+---------------------+
-   | Residual Tumor        | Disease Code                 | Year of Diagnosis   |
+   | Residual Tumor        | Project Short Name           | Year of Diagnosis   |
    +-----------------------+------------------------------+---------------------+
-   | Neoplasm Histologic   | Sample Type                  | Event Free Survival |
+   | Neoplasm Histologic   | Disease Code                 | Event Free Survival |
    | Grade                 |                              |                     |
    +-----------------------+------------------------------+---------------------+
-   | Disease Code          | Project Short Name           | Days to Last Follow |
+   | Disease Code          | Sample Type                  | Days to Last Follow |
    |                       |                              | Up                  |
    +-----------------------+------------------------------+---------------------+
-   | Age at Diagnosis      | Site Primary                 | Gender              |
+   | Age at Diagnosis      | Gender                       | Gender              |
    +-----------------------+------------------------------+---------------------+
    | Vital Status          | Histology                    | Days to Last Known  |
    |                       |                              | Alive               |
    +-----------------------+------------------------------+---------------------+
    | Ethnicity             | Histological SubType         | Sample Type         |
    +-----------------------+------------------------------+---------------------+
-   | Person Neoplasm       | Program                      | Project Short Name  |
+   | Person Neoplasm       | Site Primary                 | Project Short Name  |
    | Cancer Status         |                              |                     |
    +-----------------------+------------------------------+---------------------+
    | Sample Type           |                              | Disease Code        |
@@ -118,3 +120,19 @@ Click the arrow next to the variable favorites list a box will appear with the d
 
 From within the variable favorites list: 
 If you are viewing the variable favorites list you created, then you delete the cohort by clicking the delete button under the selected variables list.
+
+Manage Variable Favorites List
+###############################
+
+Selecting **Manage Variable Favorites List** from the **VARIABLES** menu dropdown displays the **Saved Variable Favorites** screen. This screen displays your saved Variables Favorites and allows you to edit or delete them, as well as start a new workbook using your favorite.
+
+Clicking on the **Create New Favorite** button will take you to the **Create Variable Favorite** screen.
+
+Select Variables for a New Workbook
+########################################
+
+Selecting **Variables for a New Workbook** from the **VARIABLES** menu dropdown displays the **Data Source | Variables** screen. This screen allows you to create a new workbook with the selected variables.
+
+- Click the **Create New Workbook With Selected Variables** button to create a new workbook using your selected variables.
+
+
