@@ -39,7 +39,7 @@ The ISB-CGC aims to serve the needs of a broad range of cancer researchers rangi
    sections/Web-UI
    sections/Prog-APIs
    
- .. toctree::
+.. toctree::
    :hidden:
    :maxdepth: 1
    :caption: MORE INFORMATION
