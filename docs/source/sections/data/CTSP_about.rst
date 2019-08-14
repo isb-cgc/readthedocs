@@ -1,11 +1,11 @@
-*******************************************
+*************
 CTSP Data Set
-*******************************************
+*************
 
 About the CTSP
 --------------
 
-CTSP is the Clinical Trials Sequencing Project (CTSP). CTSP is a joint collaboration from National Cancer Institute (NCI) Division of Cancer Treatment and Diagnosis (DCTD) to promote the use of the genomics in NCI-sponsored clinical trials and elucidate the molecular basis of response and resistance to therapies studied. Breast cancer, renal cell carcinoma, and diffuse large B-cell lymphoma are the cancer types that are currently under study. For more information on CTSP, please visit the `NCI CTSP page <https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/clinical-trial-sequencing>`_.  
+The `Clinical Trials Sequencing Project <https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/clinical-trial-sequencing>`_ (CTSP) is a joint collaboration from National Cancer Institute (NCI) Division of Cancer Treatment and Diagnosis (DCTD) to promote the use of the genomics in NCI-sponsored clinical trials and elucidate the molecular basis of response and resistance to therapies studied. Breast cancer, renal cell carcinoma, and diffuse large B-cell lymphoma are the cancer types that are currently under study.
 
 
 About the CTSP Data

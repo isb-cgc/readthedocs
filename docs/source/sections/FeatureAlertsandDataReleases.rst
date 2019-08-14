@@ -2,10 +2,9 @@
 Feature Alerts and Data Releases
 ********************************
 
-
-
-* `Feature Alerts <FeatureAlerts.html>`__
-* `Web Interface Release Notes <webapp/releases.html>`__
-* `GDC Data Releases <data/Releases-Plus.html>`__
-
-
+.. toctree::
+   :maxdepth: 1
+   
+   updates_and_releases/FeatureAlerts
+   webapp/releases
+   updates_and_releases/Data_Releases

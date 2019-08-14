@@ -4,7 +4,7 @@ Programs and Data Sets
 
 The `National Cancer Institute <https://www.cancer.gov/about-nci>`_, in collaboration with other institutes within `NIH <https://www.nih.gov/>`_, has invested in the production and analysis of several large datasets. The ISB-CGC platform is funded by NCI to make these data more accessible and usable.
 
-The initial goal of the `ISB-CGC <http://www.isb-cgc.org>`_ was to host the data produced by `The Cancer Genome Atlas <https://cancergenome.nih.gov/abouttcga>`_ (TCGA) program. The data has expanded to include data sets from other programs such as  `Therapeutically Applicable Research To Generate Effective Treatments <https://ocg.cancer.gov/programs/target>`_ (TARGET) program.
+The initial goal of the `ISB-CGC <http://www.isb-cgc.org>`_ was to host the data produced by `The Cancer Genome Atlas <https://cancergenome.nih.gov/abouttcga>`_ (TCGA). The data has expanded to include data sets from other programs such as  `Therapeutically Applicable Research To Generate Effective Treatments <https://ocg.cancer.gov/programs/target>`_ (TARGET) program.
 
 Along with NCI Cancer Programs, ISB-CGC hosts several data sets from other programs such as `Catalogue Of Somatic Mutations In Cancer <https://cancer.sanger.ac.uk/cosmic>`_ (COSMIC) from the `Wellcome Trust Sanger Institute <http://www.sanger.ac.uk/>`_. We are always looking to add new data sets so if you have any suggestions or requests for additional data that you would like to see made available, please let us know (feedback@isb-cgc.org) and we will try to make that happen.
 
@@ -27,7 +27,7 @@ Data Sets
 NCI Genomic Data Commons
 ------------------------
 
-The NCI’s Genomic Data Commons (GDC) provides the cancer research community with a unified data repository that enables data sharing across cancer genomic studies in support of precision medicine. ISB-CGC hosts a series of reference tables in BigQuery.
+The NCI’s `Genomic Data Commons <https://gdc.cancer.gov/>`_ (GDC) provides the cancer research community with a unified data repository that enables data sharing across cancer genomic studies in support of precision medicine.
 
 .. toctree::
    :maxdepth: 1
@@ -48,21 +48,18 @@ Storage Platforms
 ----------------
 As part of its mission, the ISB-CGC has been exploring the best ways to use available cloud technologies to provide access to the data. To this end, the data is made available using these three main Google Cloud Platform technologies:
 
-* `Google BigQuery <https://cloud.google.com/bigquery/>`_ (BQ),  
-   a massively-parallel analytics engine is ideal for working with data that is essentially tabular in nature. This includes the high-level clinical, biospecimen, and molecular data from the main NCI programs. It is also where we store a large amount of metadata about files that are more appropriately stored in Google Cloud Storage, as well as genome reference sources (*e.g.* GENCODE, miRBase, *etc.*). All of these datasets and tables are completely *open access* and available to the research community.
+Google BigQuery
+~~~~~~~~~~~~~~~~
+`Google BigQuery <https://cloud.google.com/bigquery/>`_ (BQ) is a a massively-parallel analytics engine is ideal for working with data that is essentially tabular in nature. This includes the high-level clinical, biospecimen, and molecular data from the main NCI programs. It is also where we store a large amount of metadata about files that are more appropriately stored in Google Cloud Storage, as well as genome reference sources (*e.g.* GENCODE, miRBase, *etc.*). All of these datasets and tables are completely *open access* and available to the research community.
 
-* `Google Cloud Storage <https://cloud.google.com/storage/>`_ (GCS), 
-   a cloud-based object-store is used to store other types of (typically binary) data which is typically processed by custom software pipelines. In this case, it means the low-level sequence data, in BAM or FASTQ format, as well as pathology and radiology images (in SVS or DICOM format). All controlled-access data is currently only available in GCS -- access to these data requires that a user walk through the required `authentication and authorization steps <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-Contolled-Access-Data.html>`_.
+Google Cloud Storage
+~~~~~~~~~~~~~~~~~~~~
+`Google Cloud Storage <https://cloud.google.com/storage/>`_ (GCS) is a cloud-based object-store is used to store other types of (typically binary) data which is typically processed by custom software pipelines. The data hosted by GDC is contained with in Google Cloud Storage. The ISB-CGC Web App
 
-* `Google Genomics <https://cloud.google.com/genomics/>`_ (GG),
-   provides a way to work with sequence-level data, via the `GA4GH API <http://ga4gh.org/#/>`_.
+Google Genomics
+~~~~~~~~~~~~~~~
 
-.. toctree::
-   :maxdepth: 1
-   
-   data/data_in_BQ.rst
-   data/data_in_GCS.rst
-   data/data_in_GG.rst
+`Google Genomics <https://cloud.google.com/genomics/>`_ (GG) provides a storage platform and a way to work with sequence-level data which can also be worked through the `Global Alliance for Gemonics and Health <https://www.ga4gh.org/#/>`_ (GA4GH) APIs. GA4GH is a policy-framing and technical standards-setting organization, seeking to enable responsible genomic data sharing within a human rights framework. The GA4GH tools can be found `here <https://www.ga4gh.org/genomic-data-toolkit/>`_.
 
 Security
 --------
@@ -76,4 +73,4 @@ It is recommended that you review important information about data security and 
    
 **A note about legacy and harmonized data sets**
 
-Programs like TCGA that pre-date the Genomic Data Commons will have both legacy data sets (data as originally generated by the program) and harmonized data sets created by the Genomic Data Commons.  Whiles these data sets do have much in common, as part of the GDC harmonization process several changes can occur including removal or addition of cases and samples or changes in terminology.  One of the goals of the ISB-CGC is to stay current with changes introduced by GDC and therefore you may find differences between legacy data and harmonized data.
+Programs like TCGA that pre-date the Genomic Data Commons will have both legacy data sets (data as originally generated by the program) and harmonized data sets created by the Genomic Data Commons.  While these data sets do have much in common, as part of the GDC harmonization process several changes can occur including removal or addition of cases and samples or changes in terminology.  One of the goals of the ISB-CGC is to stay current with changes introduced by GDC and therefore you may find differences between legacy data and harmonized data.
