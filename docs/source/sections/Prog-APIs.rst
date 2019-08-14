@@ -8,9 +8,8 @@ A growing set of tutorials and programming examples illustrating how you can wor
 programming environments such as Python and R, using Google Compute Engine VMs and the Google Genomics Pipelines (GGP) service are provided in our github repositories, also described below.
 
 .. toctree::
-   :hidden:
    :maxdepth: 1
    
-   /progapi/progAPI-v4/Programmatic-Demo
+   progapi/progAPI-v4/Programmatic-Demo
    
    
