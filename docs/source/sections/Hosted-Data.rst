@@ -24,6 +24,7 @@ Data Sets
    data/VAREPOP_about
    data/NCICCR_about
    data/HCMI-CMDC_about
+   data/BEATAML_about
 
 NCI Genomic Data Commons
 ------------------------
