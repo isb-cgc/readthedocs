@@ -17,5 +17,5 @@ are provided in our github repositories, also described below.
 .. toctree::
    :maxdepth: 2
 
-   progAPIvfour/API-Demo
+   progapi/progAPIvfour/API-Demo
    
