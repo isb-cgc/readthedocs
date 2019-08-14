@@ -23,6 +23,7 @@ Data Sets
    data/CTSP_about
    data/VAREPOP_about
    data/NCICCR_about
+   data/HCMI-CMDC_about
 
 NCI Genomic Data Commons
 ------------------------
