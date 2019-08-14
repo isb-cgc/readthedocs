@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 *****************************
-The ISB Cancer Genomics Cloud
+ISB-CGC
 *****************************
 
 Welcome to the ISB-CGC Documentation on Read the Docs!
@@ -21,16 +21,30 @@ The ISB-CGC aims to serve the needs of a broad range of cancer researchers rangi
 .. toctree::
    :hidden:
    :maxdepth: 1
+   :caption: GETTING STARTED
 
    sections/About-ISB-CGC
    sections/HowToGetStartedonISB-CGC
    sections/HowtoRequestCloudCredits
    sections/BestPractices
    sections/Benefits
+   
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :caption: USER GUIDE
+   
    sections/Hosted-Data
    sections/BigQuery
+   sections/Gaining-Access-To-Controlled-Access-Data
    sections/Web-UI
    sections/Prog-APIs
+   
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :caption: MORE INFORMATION
+   
    sections/HowTos
    sections/QuicklinksOneTable
    sections/TutorialsAndHow-ToGuides
