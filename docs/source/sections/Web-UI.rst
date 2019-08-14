@@ -10,14 +10,13 @@ We welcome your ideas and needs.  Please use this `link <https://groups.google.c
    :maxdepth: 1
 
    webapp/Overview
-   webapp/Dashboard
    webapp/Menu
-   webapp/Gaining-Access-To-Contolled-Access-Data
+   webapp/Dashboard
    webapp/Workbooks
+   webapp/program_data_upload
    webapp/Gene-and-miRNA-Favorites
    webapp/Variable-Favorites
    webapp/Saved-Cohorts
-   webapp/program_data_upload
    webapp/GraphingUserData
    webapp/IGV-Browser
    webapp/OsimisWebViewer
