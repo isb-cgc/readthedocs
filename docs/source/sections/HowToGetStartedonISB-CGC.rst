@@ -4,88 +4,7 @@ How To Get Started on ISB-CGC
 
 The ISB-CGC provides both interactive (through a `web application <https://isb-cgc.appspot.com/>`_) and programmatic access to data hosted by institutes such as the Genomic Data Commons GDC of the National Cancer Institute (NCI), and the Wellcome Trust Sanger Institute, leveraging many aspects of the Google Cloud Platform. 
 
-
 `More about ISB-CGC <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/About-ISB-CGC.html>`_, `ISB-CGC Main Landing Page <https://isb-cgc.appspot.com/>`_, `Full documentation of the ISB-CGC platform <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/index.html>`_, and `FAQS <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/FAQ.html>`_.
-
-
-
-
-Benefits of Using The Cloud
-============================
-
-You don’t have to download the data! Bring your compute and know-how to the data. Use cloud-native, compute scale as big as you can imagine, tools to analyze TBs and PBs of data! 
-
-Most bioinformaticians today are most likely accustomed to using the high performance compute (HPC) resources provided by their institution to conduct high-throughput bioinformatics analyses. Here’s a breakdown on how the Google Cloud Platform compares to your institution’s HPC resources. 
-
-Don’t be intimidated by the cloud! Bring your computation to the data on ISB-CGC. If you’ve conducted bioinformatics analyses before using the command line or SQL, this will be just as easy (if not easier).
-
-
-
-
-+-----------+-------------------------------------+-----------------------------------------+
-|           | Your University's HPC Resource      | Google Cloud Platform                   |
-+===========+=====================================+=========================================+
-| Operating | Linux, Windows                      | Virtual machines can run Linux and      |
-| Systems   |                                     | Windows                                 |
-|           |                                     |                                         |
-+-----------+-------------------------------------+-----------------------------------------+
-| Compute   | Virtual machines not determined by  | You can sign up with you own virtual    |
-|           | you                                 | machines*                               |
-|           |                                     |                                         |
-|           |                                     |                                         |
-+-----------+-------------------------------------+-----------------------------------------+
-| Storage   | Block Storage                       | Block Storage & Object Storage          |
-|           |                                     |                                         |
-|           | - Small storage is available in     | - Each virtual machine instance has a   |
-|           |   your home directory (usually      |   single boot persistent disk with a    |
-|           |   around 1TB)                       |   default size of 10GB that can be      |
-|           | - Some Scratch storage that is often|   adjusted up to 64TB*                  |
-|           |   deleted after a certain amount of | - For storage that needs IO, consider   |
-|           |   time                              |   persistent disks                      |
-|           | - Storage is usually a shared       | - Google Cloud Storage (GCS) buckets are|
-|           |   resource                          |   the most flexible and economical      |
-|           |                                     |   storage option                        |
-|           |                                     | - You can save objects to  GCS  buckets |
-|           |                                     |   including images, videos, blobs, and  |
-|           |                                     |   unstructured data                     |
-+-----------+-------------------------------------+-----------------------------------------+
-| Pricing   | Depends on the institution:         | Pay as you go                           |
-|           |                                     |                                         |
-|           | - Institution provides basic HPC    | - You pay for the compute resources and |
-|           |   resources for researchers free of |   storage that you use*                 |
-|           |   charge                            |                                         |
-|           | - PIs requiring larger-scale        |                                         |
-|           |   resources must purchase clusters  |                                         |
-|           |   and storage space                 |                                         |
-|           |                                     |                                         |
-+-----------+-------------------------------------+-----------------------------------------+
-| Do you    | Yes                                 | No                                      |
-| have to   |                                     |                                         |
-| wait?     | - Resources are shared amongst users| - Once you've set up a Google Cloud     |
-|           | - Scheduler systems used to schedule|   Platform account, you can spin up a   |
-|           |   jobs based on resource            |   virtual machine and begin computing   |
-|           |   availability                      |   quickly                               |
-+-----------+-------------------------------------+-----------------------------------------+
-| Is        | Yes and no, depends on what you're  | Compute resources and storage are       |
-| machine   | trying to do often no               | unlimited but, you have to pay for it*  |
-| powerful  |                                     |                                         |
-| enough?   |                                     |                                         |
-|           |                                     |                                         |
-+-----------+-------------------------------------+-----------------------------------------+
-| Accessing | Typically not stored on the HPC, you| Data is stored on the cloud             |
-| Cancer    | have to download to your local      |                                         |
-| Genomics  | machine                             |                                         |
-| Data      |                                     |                                         |
-+-----------+-------------------------------------+-----------------------------------------+
-| How to    | Log in using Secure Shell           | Log in using Secure Shell               |
-| connect   | protocol (SSH)                      | protocol (SSH)                          |
-|           |                                     |                                         |
-+-----------+-------------------------------------+-----------------------------------------+
-***Be careful of costs** 
-
-
-
-
 
 Getting Started
 ===================
@@ -99,7 +18,7 @@ I. Data Access and Google Cloud Project Setup
 
 - To access controlled-access data, dbGaP authorization is required.
 
-      `Accessing Controlled-Access Data and acquiring dbGaP authorization <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-Contolled-Access-Data.html#interactive-access-to-controlled-data>`_
+      `Accessing Controlled-Access Data and acquiring dbGaP authorization <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Gaining-Access-To-Contolled-Access-Data.html#interactive-access-to-controlled-data>`_
       
 - To work in GCP, you must first set up a GCP Project: 
       - A GCP project is required to make use of all of the data, tools, and Google Cloud functionality.
@@ -109,7 +28,7 @@ I. Data Access and Google Cloud Project Setup
       - If you have already used this one-time offer (or there is some other reason you cannot use it), please see the information here about `ISB-CGC Cloud Credits Available for Researchers <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/outreach/User%20Credit%20Guidelines.html>`_.
       - `How to request ISB-CGC Cloud Credits <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Support.html>`_.
       
-- `Registering the GCP project <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-Contolled-Access-Data.html#requirements-for-registering-a-google-cloud-project-service-account>`_
+- `Registering the GCP project <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Gaining-Access-To-Contolled-Access-Data.html#requirements-for-registering-a-google-cloud-project-service-account>`_
  
 - `Enable Required Google Cloud APIs <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DIYWorkshop.html#enabling-required-google-apis>`_
       

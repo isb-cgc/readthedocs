@@ -1,33 +1,50 @@
-********************************
-Genes and miRNAs Favorites List
-********************************
+****************
+Genes and miRNAs
+****************
 
-**PURPOSE**
+This feature allows you to create and manage Gene and miRNA lists for inclusion in workbooks and use in subsequent analyses.  
 
-This feature allows you to create and manage Gene and miRNA lists for use in subsequent analyses.  
-From the Menu - Genes and miRNA selection, you can Manage Gene and miRNA Favorite(s), Create Gene and miRNA Favorite(s) or Select Genes and miRNAs for a New Workbook analysis.
+Create a Gene & miRNA Favorite
+################################
 
-**Creating A Gene and miRNA List Favorite**
+Selecting **Create Gene & miRNA Favorites** from the **GENES & miRNAs** menu dropdown displays the **Create Gene & miRNA Favorites** screen. 
 
-To create a new Gene and miRNA  Favorite - 
-  *  Begin by naming your new "Favorites list"; you can create many Favorites and use them later when working with workbooks.
-  *  Next specify the Gene(s) and/or miRNA(s) to populate this list: you can upload a pre-existing list, or enter Genes and miRNAs one at a time by typing them into the input box (with auto-completion support). 
+To create a new Gene & miRNA Favorite:
 
-If duplicate symbols are entered they will be marked for your deletion or automatically dropped when the list is saved.  
-If an unrecognized item is entered it will also be flagged for your attention.  
-To aid in Gene selection, you can access the HGNC portal (Hugo Gene Nomenclature Committee) via the 
-`View Gene Identifiers <http://www.genenames.org/>`_ link provided under this Menu selection. 
-To also aid in miRNA selection, you can access the miRBase via the `View miRNA Identifiers <http://www.mirbase.org/cgi-bin/mirna_summary.pl?org=hsa>`_ link provided next to the View Gene Identifier link mentioned above. 
+- Name your new favorite; you can create many favorites and use them later when working with workbooks.
+- Specify the Gene(s) and/or miRNA(s) to include in this list. You can do this by:
 
-**Terminology Used for Genes**
-  * The `National Human Genome Research Institute (NHGRI) <http://www.genome.gov/glossary/index.cfm>`_ created the Talking Glossary of Genetic Terms to help everyone understand the terms and concepts used in genetic research.  In addition to definitions, specialists in the field of genetics share their descriptions of terms, and many terms include images, animation and links to related terms.
+  * Uploading a pre-existing list using the Upload Gene and miRNA List link
+  * Entering Genes and miRNAs by typing them into the input box (with auto-completion support). 
+  
+    - To aid in Gene selection, you can access the HGNC portal (Hugo Gene Nomenclature Committee) via the `View Gene Identifiers <http://www.genenames.org/>`_ link.
+    - To aid in miRNA selection, you can access the miRBase via the `View miRNA Identifiers <http://www.mirbase.org/cgi-bin/mirna_summary.pl?org=hsa>`_ link. 
+    - If duplicate symbols are entered they will be marked for your deletion or automatically dropped when the list is saved. If an unrecognized item is entered it will also be flagged for your attention.  
+- Click **Save As Favorite**.
 
-**Terminology Used for miRNA**
-  * The `miRBase <http://www.mirbase.org/index.shtml>`_ created a microRNA database center to enable researchers to understand the published miRNA sequences and annotations.  
+.. image:: Gene_Favorite.png
+   :align: center
 
 
-**Resources**
+Manage Gene & miRNA Favorites
+###############################
 
-A variety of on-line resources exist that may be useful for understanding and working with Gene identifiers, for example:
-     * `Hugo Gene Nomenclature Committee (HGCN) <http://www.genenames.org>`_  or
-     * `National Center for Biotechnology Information (NCBI) <http://www.ncbi.nlm.nih.gov>`_
+Selecting **Manage Gene & miRNA Favorites** from the **GENES & miRNAs** menu dropdown displays the **Saved Gene & miRNA Favorites** screen. This screen displays your saved Gene & miRNA Favorites and allows you to edit or delete them, as well as start a new workbook using your favorite.
+
+Clicking on the **Create New Favorite** button will take you to the **Create Gene & miRNA Favorite** screen.
+
+Select Genes & miRNAs for a New Workbook
+########################################
+
+Selecting **Select Genes & miRNAs for a New Workbook** from the **GENES & miRNAs** menu dropdown displays the **Data Source | Gene & miRNA Favorites** screen. This screen displays your saved Gene & miRNA Favorites and allows you to apply them to a new workbook.
+
+- Check the box adjacent to your favorite and click the **Apply to New Worksheet** button to create a new workbook using your Gene & miRNA Favorite.
+- Click the **Apply New Gene & miRNA List** to create a new favorite. This takes you to the **Create Gene & miRNA Favorite** screen.
+
+
+**Resources for understanding and working with miRNAs and gene identifiers:**
+
+- The `National Human Genome Research Institute (NHGRI) <http://www.genome.gov/glossary/index.cfm>`_ created the Talking Glossary of Genetic Terms to help everyone understand the terms and concepts used in genetic research.  In addition to definitions, specialists in the field of genetics share their descriptions of terms, and many terms include images, animation and links to related terms.
+- The `miRBase <http://www.mirbase.org/index.shtml>`_ created a microRNA database center to enable researchers to understand the published miRNA sequences and annotations.  
+- `Hugo Gene Nomenclature Committee (HGCN) <http://www.genenames.org>`_ 
+- `National Center for Biotechnology Information (NCBI) <http://www.ncbi.nlm.nih.gov>`_
