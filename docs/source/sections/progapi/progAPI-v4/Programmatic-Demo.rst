@@ -60,7 +60,7 @@ Before making any requests, you would normally authorize your session by clickin
 
 
 
-.. image:: api-auth-page.PNG
+.. image:: Api-auth-page.PNG
    :scale: 50
    :align: center 
 
