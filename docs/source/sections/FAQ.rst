@@ -32,12 +32,12 @@ that we have loaded into BigQuery tables can be accessed directly via the
 the ISB-CGC programmatic API is a REST service that can be used from many different
 programming languages.
 
-The connection between your GCP project (whether it is an ISB-CGC sponsored and funded project
+The connection between your GCP (whether it is an ISB-CGC sponsored and funded project
 or your own personal project) and the ISB-CGC is your Google identity 
 (also referred to as your "user credentials").  
 
-Access to all ISB-CGC hosted data is controlled using access control lists (ACLs) which define the
-permissions attached to each dataset, bucket, or object.
+Access to all ISB-CGC hosted data is controlled using the `Data Commons Framework Gen3 <https://dcf.gen3.org/>`_ which define the
+permissions attached to each data set, bucket, or object.
 
 
 **What project information do I input on the Register a Google Cloud Project page?**
@@ -51,27 +51,28 @@ You will need to input the Google Cloud Project ID which can be found on the Das
 **Why do I add the service account 907668440978-oskt05du3ao083cke14641u35deokgjj@developer.gserviceaccount.com to my Google Cloud Project?**
 
 
-This service account is needed  in your Google Cloud Project for the ISB-CGC project to be able to automatically verify that all users of your Google Cloud Project have the same appropriate access rights to the protected data that has been reuested for the project.
+This service account is needed in your Google Cloud Project IAM page for the ISB-CGC project to be able to automatically verify that all users of your Google Cloud Project have the same appropriate access rights to the protected data that has been requested for the project.
 
 
 
 **What service account do I use on the Register a Service Account page to be able to gain access to protected data?**
 
-On the Register a Service account page you are asked to input a service account ID.  You need to go to the IAM and Admin page which can be found in your console for you Google Cloud Project to find the correct service account.  The service account you would like to use is named, "Compute Engine default service account".  Please input that service account in the Register a service account page. *Please DO NOT use the service account 907668440978-oskt05du3ao083cke14641u35deokgjj@developer.gserviceaccount.com (you will be prevented from using this account by our software and an error message will be sent indicating this).* 
+On the Register a Service account page you are asked to input a service account ID.  You need to go to the IAM and Admin page which can be found in your `console <https://console.cloud.google.com/home/dashboard?>`_ for your Google Cloud Project to find the correct service account.  The service account you would like to use is named, "Compute Engine default service account". This service account is the default option on the Register A Service Account page. *Please DO NOT use the service account 907668440978-oskt05du3ao083cke14641u35deokgjj@developer.gserviceaccount.com (you will be prevented from using this account by our software and an error message will be sent indicating this).* 
 
-**Why can't I re-authorized my Service Account on my Google Cloud Project?**
 
-Your service account may have had its permissions revoked (because, for example, the 7-day limit has expired, or you have added a member to the GCP who is not authorized to use that controlled data or has not logged into the ISB-CGC UI and authenticated using their dbGaP
-credentials). If permissions were revoked because an unauthorized user was added to the project, the Google Cloud Project owner will be sent
-an email specifying the Service Account, GCP Project, and user which resulted in the access being revoked. If the user has not logged into the ISB-CGC interface and or has not authenticated, you will be given a red error message saying, "There was an error in processing your service account. Please try again." when attempting to refresh using the refresh wheel.  To see which new user hasn't logged in or authenticated, please go to the Register a Service Account page and see which user it is within the table for which the dataset is not selected and there are X's in the Registered and Has NIH Identity.
+**Why can't I re-authorize my Service Account on my Google Cloud Project?**
+
+Your service account may have had its permissions revoked (because, for example, the 7-day limit has been reached, or you have added a member to the GCP who is not authorized to use controlled data the service account is linked with or has not logged into the ISB-CGC UI and authenticated using their dbGaP credentials). If permissions were revoked because an unauthorized user was added to the project, the Google Cloud Project owner will be sent
+an email specifying the Service Account, and GCP Project which resulted in the access being revoked. If the user has not logged into the ISB-CGC web app and/or has not authenticated, you will be given a red error message saying, "There was an error in processing your service account. Please try again." when attempting to refresh using the refresh wheel.  To see which new user hasn't logged in or authenticated, please go to either the Register a Service Account page or the Adjust a Service Account page and see which user it is within the table for which the data set is not selected and there are X's in the Registered and Has NIH Identity.
+
 
 .. image:: authorizedtable.PNG
    :align: center
 
-Ensure that the user has 1)Logged into the ISB-CGC user interface and 2) Has registered their NIH Identity with their user interface identity.
 
-To reauthorize the service account 1) remedy the problem that resulted in access being denied, and 2) select the "refresh" icon beside the
-service account.
+Ensure that the user has 1)Logged into the ISB-CGC web app and 2) Has registered their NIH Identity with their user interface identity.
+
+To reauthorize the service account 1) remedy the problem that resulted in access being denied, and 2) select the "Adjust A Service Account" icon(plus sign) next to Current Access Expires.
 
 Another reason could be if some users are marked as unable to access datasets they should have access to, make sure they have logged into the system and linked their eRA Commons/NIH Identity to their Google Identity.
 
@@ -81,7 +82,7 @@ Another reason could be if some users are marked as unable to access datasets th
    :scale: 50
    :align: center
 
-You can get this page for two reasons:  First, if you may have typed in your password incorrectly, please select the Click Here to continue link and try to log in again.  Second, if you have typed your password correctly, it could time to refresh your NIH identity password.  Please reset your password by using this link `here <https://public.era.nih.gov/commons>`_ and try again.  This should allow you to link your NIH Identity to the ISB-CGC user interface. 
+You can get this page for two reasons:  First, if you may have typed in your password incorrectly, please select the Click Here to continue link and try to log in again.  Second, if you have typed your password correctly, it could be time to refresh your NIH identity password.  Please reset your password by using this link `here <https://public.era.nih.gov/commons>`_ and try again.  This should allow you to link your NIH Identity to the ISB-CGC user interface. 
 
 
 **What happens if I accidently delete the default service account from a Google Cloud Project?**
