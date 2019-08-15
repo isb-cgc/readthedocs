@@ -7,20 +7,17 @@ Creating a variable favorites list is a way of creating custom groupings of the 
 Create Variable Favorites List
 ##############################
 
-To create a variable list from the User Dashboard, click on the **Create Variable Favorite** link which will display the **Create Variable Favorite Page**. 
+To create a variable list from **Your Dashboard**, click on the **Create Variable Favorites** link which will display the **Create Variable Favorite** Page. 
 
 Or, from the menu dropdown, select **Create Variables Favorite List** from the **VARIABLES** menu dropdown. 
 
-Variable Favorites List Creation page
-======================================
-Using the provided list of filters on the left hand side, you can select the attributes and features that you are interested in.
+To create a new Variable Favorite:
 
-By clicking on a program (TCGA, CCLE, TARGET), the field will expand and provide you with additional filtering options in the Data Types section.
-For example, when to select the TCGA tab you see a common filters section. The common filters section is shared across programs, so if the common filter is selected in one program it will be selected for all programs. 
+- Name your new favorite; you can create many favorites and use them later when working with workbooks.
+- Clicking on a program (TCGA, CCLE, TARGET) will display relevant filters (attributes and features) under the **COMMON** tab.
 
-
-Variable Favorites Filter 
---------------------------
+  * Check the checkbox adjacent to each attribute or feature that you are interested in. They will display in the **Selected Variables** panel. (Note that checking these filters will also check the filters under the under programs, if it is on the list.)
+- Click **Save As Favorite** to save the Variable list.
 
 Common Filter List by Program 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
