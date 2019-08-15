@@ -6,6 +6,8 @@ Google BigQuery (BQ) is a a massively-parallel analytics engine ideal for workin
 
 Getting Started With BigQuery
 ----------------------------
+The following pages will show you how to find BigQuery on the Google Cloud Platform, serve as a quick guide on how to get started and also show how to access and link ISB-CGC open-access BigQuery tables to your Google Cloud Project. 
+
 .. toctree::
    :hidden:
    :maxdepth: 2
