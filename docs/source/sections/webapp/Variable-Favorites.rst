@@ -16,17 +16,17 @@ To create a new Variable Favorite:
 - Name your new favorite; you can create many favorites and use them later when working with workbooks.
 - Select attributes and features for your variable list by performing one or more of these actions:
 
-  - Common Filter Selection - Click on a program (TCGA, CCLE, TARGET) to display relevant filters (attributes and features) under the **COMMON** tab.
+  - *Common Filter Selection* - Click on a program (TCGA, CCLE, TARGET) to display relevant filters (attributes and features) under the **COMMON** tab.
   
     * Check the checkbox adjacent to each feature that you are interested in. They will display in the **Selected Variables** panel. (Note that checking these filters will also check the filters under the under programs, if they are on that list.)
     
-  - Clinical Filter Feature Search - Click on a program (TCGA, CCLE, TARGET) and then click the  **CLINICAL SEARCH** tab. This filter allows the user to search by any clinical feature in the selected program that is present in the most recent data uploaded for that program. 
+  - *Clinical Filter Feature Search* - Click on a program (TCGA, CCLE, TARGET) and then click the  **CLINICAL SEARCH** tab. This filter allows the user to search by any clinical feature in the selected program that is present in the most recent data uploaded for that program. 
   
     * Enter one or more characters in the **Feature Search** field. A list of features containing these characters displays. Select a feature from the list and it will display in the **Selected Variables** panel.
     
-  - Favorites Filter Selection - Click on **FAVORITES** tab (in the same row as TCGA, CCLE and TARGET programs). This displays your existing Variable Favorite lists, and their component features. These features can now be selected for a new Variable Favorite list by checking the checkbox adjacent to each feature that you are interested in. They will display in the **Selected Variables** panel. 
+  - *Favorites Filter Selection* - Click on **FAVORITES** tab (in the same row as TCGA, CCLE and TARGET programs). This displays your existing Variable Favorite lists, and their component features. These features can now be selected for a new Variable Favorite list by checking the checkbox adjacent to each feature that you are interested in. They will display in the **Selected Variables** panel. 
 
-  - User Data Filter Search - Click on **USER DATA** tab (in the same row as TCGA, CCLE and TARGET programs). This option allows you to select by filters that you have uploaded using the upload data functionality. It's separated by projects within your program; a drop down list will display the associated features.
+  - *User Data Filter Search*- Click on **USER DATA** tab (in the same row as TCGA, CCLE and TARGET programs). This option allows you to select by filters that you have uploaded using the upload data functionality. It's separated by projects within your program; a drop down list will display the associated features.
 
 - Verify that all your selected filters are displayed in the **Selected Variables** panel on the right-hand side. Clicking **Clear All** will remove all selected filters. 
 - Click **Save As Favorite** to save the Variable list.
@@ -90,23 +90,18 @@ Common Filter List by Program
    +-----------------------+------------------------------+---------------------+
 
 
-Selected Filters Panel
-----------------------
-This panel displays any filters that have been used on the variable list or any of its ancestors. These cannot be modified and any additional filters applied to the cohorts will be deleted.
-
-
 Manage Variable Favorites List
 ###############################
 
 Selecting **Manage Variable Favorites List** from the **VARIABLES** menu dropdown displays the **Saved Variable Favorites** screen. This screen displays your saved Variables Favorites and allows you to edit or delete them, as well as start a new workbook using your favorite.
 
-* Edit Button: Selecting this menu item make the filters panel appear. And filters selected will be additive to any filters that have already been selected. To return to the previous view, you much either save any selected filters, or choose to cancel adding any new filters.
+* Edit Button: Selecting this menu item displays the **Edit Variable Favorite** screen, which shows all filters in the selected variable list. Any filters selected will be added to any existing filters. To return to the previous view, you must either save any selected filters, or choose to cancel adding any new filters.
 * Delete Button: Selecting this button will delete you variable favorites list.
-* Apply New Workbook button: Selecting this button will create a new workbook with the variable favorites list for analysis.
+* Apply To New Workbook button: Selecting this button will create a new workbook with the variable favorites list for analysis.
 
 **Editing a Variable Favorites List**
 
-Selecting the edit button from the variable list page or a specific variable details page, you are redirected to a page where you can add or remove filters from all programs on system and user uploaded data. You are also able to change the title of the variable favorite list from the feature. 
+Selecting the edit button from the variable list page or a specific variable details page, you are redirected to a page where you can add or remove filters from all programs on system and user uploaded data. You are also able to change the title of the variable favorite list. 
 
 **Deleting a Variable Favorites List**
 
