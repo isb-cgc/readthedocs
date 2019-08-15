@@ -12,6 +12,13 @@ We have also made public genomic reference databases including COSMIC, GENCODE, 
 
 In this section, you'll learn how to: 
 
+* How to invoke bash commands within a Jupyter environment.
+* How to install packages/programs within a Jupyter environment
+* How to use available BigQuery tables within ISB-CGC to query and identify Google Cloud Storage bucket locations for BAM files of interest
+* How to use PySam to slice BAM files
+* How to save slices in your bucket and retrieve them
+* Brief example of working with reads
+
 *Find BigQuery on the Google Cloud Platform
 *Get started using BigQuery
 *Link ISB-CGC open-access BigQuery tables to your Google Cloud Project 
