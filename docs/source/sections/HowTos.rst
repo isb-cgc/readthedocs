@@ -9,8 +9,8 @@ Please let us know if you have suggestions, ideas, or thoughts for a notebook ex
 
 -----------------------
 
-What's a notebook?
-==================
+What's a Jupyter notebook?
+==========================
 
 `Notebooks <https://towardsdatascience.com/jupyter-lab-evolution-of-the-jupyter-notebook-5297cacde6b>`_ are documents that mix code (usually R or python), descriptive explainations, and visualizations. They're ideal for explaining an analysis. Also idea for tutorials because of the 'hands on' nature.  
 
