@@ -11,9 +11,9 @@ We have also made public genomic reference databases including COSMIC, GENCODE, 
 
 
 In this section, you'll learn how to: 
-1) find BigQuery on the Google Cloud Platform, 
-2) get started using BigQuery
-3) link ISB-CGC open-access BigQuery tables to your Google Cloud Project. 
+* Find BigQuery on the Google Cloud Platform, 
+* Get started using BigQuery
+* Link ISB-CGC open-access BigQuery tables to your Google Cloud Project. 
 
 .. toctree::
    :hidden:
