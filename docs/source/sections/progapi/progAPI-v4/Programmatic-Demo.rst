@@ -23,7 +23,7 @@ Some example use-cases include:
 The `ISB-CGC API v4.0 <https://mvm-api-dot-isb-cgc.appspot.com/v4/swagger#/>`_ can be used to see details about each endpoint, and also provides a convenient interface to test an endpoint through your web browser. 
 
 
-.. image:: api-endpoints.png
+.. image:: api-endpoints.PNG
    :scale: 50
    :align: center 
 
@@ -60,7 +60,7 @@ Before making any requests, you would normally authorize your session by clickin
 
 
 
-.. image:: api-auth-page.png
+.. image:: api-auth-page.PNG
    :scale: 50
    :align: center 
 
@@ -75,7 +75,7 @@ Now let’s make a request:
     Click 'Try it out'.
 
 
-.. image:: post-tryitout-button.png
+.. image:: post-tryitout-button.PNG
    :scale: 50
    :align: center 
 
@@ -87,7 +87,7 @@ In the 'sample barcode value field', change string to list of samples you wish y
 Click 'Execute'
 
 
-.. image:: post-samples-execute.png
+.. image:: post-samples-execute.PNG
    :scale: 50
    :align: center 
 
@@ -95,7 +95,7 @@ Click 'Execute'
 Swagger UI submits the request and shows the curl code that was submitted. The ‘Response body’ section shows the response to the request. If you click the ‘Download’ button, you are able to download the response in JSON format.
 
 
-.. image:: response-body.png
+.. image:: response-body.PNG
    :scale: 50
    :align: center 
 
