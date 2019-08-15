@@ -14,10 +14,8 @@ In this section, you'll learn how to:
 
 * Find BigQuery on the Google Cloud Platform
 * Get started using BigQuery
-* Link ISB-CGC open-access BigQuery tables to your Google Cloud Project files of interest
-* How to use PySam to slice BAM files
-* How to save slices in your bucket and retrieve them
-* Brief example of working with reads
+* Link ISB-CGC open-access BigQuery tables to your Google Cloud Project 
+
 
 
 .. toctree::
