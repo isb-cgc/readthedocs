@@ -14,9 +14,21 @@ Or, from the menu dropdown, select **Create Variables Favorite List** from the *
 To create a new Variable Favorite:
 
 - Name your new favorite; you can create many favorites and use them later when working with workbooks.
-- Clicking on a program (TCGA, CCLE, TARGET) will display relevant filters (attributes and features) under the **COMMON** tab.
+- Select attributes and features for your variable list by performing one or more of these actions:
 
-  * Check the checkbox adjacent to each attribute or feature that you are interested in. They will display in the **Selected Variables** panel. (Note that checking these filters will also check the filters under the under programs, if it is on the list.)
+  - Common Filter Selection - Click on a program (TCGA, CCLE, TARGET) to display relevant filters (attributes and features) under the **COMMON** tab.
+  
+    * Check the checkbox adjacent to each feature that you are interested in. They will display in the **Selected Variables** panel. (Note that checking these filters will also check the filters under the under programs, if they are on that list.)
+    
+  - Clinical Filter Feature Search - Click on a program (TCGA, CCLE, TARGET) and then click the  **CLINICAL SEARCH** tab. This filter allows the user to search by any clinical feature in the selected program that is present in the most recent data uploaded for that program. 
+  
+    * Enter one or more characters in the **Feature Search** field. A list of features containing these characters displays. Select a feature from the list and it will display in the **Selected Variables** panel.
+    
+  - Favorites Filter Selection - Click on **FAVORITES** tab (in the same row as TCGA, CCLE and TARGET programs). This displays your existing Variable Favorite lists, and their component features. These features can now be selected for a new Variable Favorite list by checking the checkbox adjacent to each feature that you are interested in. They will display in the **Selected Variables** panel. 
+
+  - User Data Filter Search - Click on **USER DATA** tab (in the same row as TCGA, CCLE and TARGET programs). This option allows you to select by filters that you have uploaded using the upload data functionality. It's separated by projects within your program; a drop down list will display the associated features.
+
+- Verify that all your selected filters are displayed in the **Selected Variables** panel on the right-hand side. Clicking **Clear All** will remove all selected filters. 
 - Click **Save As Favorite** to save the Variable list.
 
 Common Filter List by Program 
@@ -77,22 +89,6 @@ Common Filter List by Program
    | Tumor Tissue Site     |                              |                     |
    +-----------------------+------------------------------+---------------------+
 
-
-Favorites Filter
-^^^^^^^^^^^^^^^^
-This filter allows the user to add selected variables from existing variable Favorite list.
-
-Clinical Filter Feature Search
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This filter allows the user to search by any clinical feature in a given program that is present in the most recent data uploaded for that program. 
-
-User Uploaded Programs Filter
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This filter allows you to select by filters that you have uploaded using the upload data functionality. It's separated by projects within your program, a drop down list will display the features that are associated.
-
-Selected Filters Panel
-^^^^^^^^^^^^^^^^^^^^^^
-This is where the filters you have selected are shown on the right panel for clear verification of what has been selected for analysis. Clicking "Clear All" will remove all selected filters. 
 
 Selected Filters Panel
 ----------------------
