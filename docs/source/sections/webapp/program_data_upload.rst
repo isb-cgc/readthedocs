@@ -6,6 +6,8 @@ Uploading your own data is a way of creating custom groupings of the samples and
 Files and File Formats
 ######################
 
+  .. _page:
+
 The **Upload Program Data** uses a number of predefined file formats to get data into the system and make it available for use.  The **Other/Generic** file format is the most flexible.  This format assumes that the first row of the file contains the column headers and all subsequent rows contain data.  The remaining file formats are all matrix formats where the first column (or columns in some data types) contain identifiers like gene or miRNA name. The first row contains sample identifiers and the "cells" contain the actual data values.  Examples of the accepted matrix format files are shown below:
 
 **NOTE:** For the matrix files, the text case matters for the required columns (lower case is different from upper case).  In addition, the ISB-CGC system will not validate any identifiers such as barcodes or gene names.  It is up to the user to make sure that uploaded data is correctly identified.
@@ -87,26 +89,27 @@ The **Upload Program Data** uses a number of predefined file formats to get data
 
   **NOTE:** Currently, each Sample Barcode can only be represented once in a file.  Files with the same barcode on multiple rows will cause a failure.  If you have multiple data values for a single barcode (like gene expression values for multiple genes) you will either have to create a matrix file or upload multiple files using Other/Generic.
 
+Create a New Program
+####################
+
+Selecting **Upload Program Data** from the **PROGRAMS** menu dropdown displays the **Register a Google Cloud Project** screen. 
+
+Or, from **Your Dashboard**, click on the **Upload Program Data** link in the **Saved Programs** panel at the bottom of the page. 
+
+If you already have Programs created, they will be listed in the **Saved Programs** panel of your dashboard. Click on the **Saved Programs** link in that panel and this will take you to a page that displays the details of your existing Programs. Alternatively, to go directly to a given Program, click on its name and you will be taken to the program details page of that program.
 
 
-Creating and Saving a New Program
-#################################
-To create a new program from Your Dashboard, if you do not have a program created, click on the “Upload Program Data” link in the “Saved Programs” panel at the bottom of the page. This will take you to the Data Upload page.
-
-If you already have Programs created, they will be listed in the “Saved Programs” panel. Click on the “Saved Programs” link in that panel and this will take you to a page that displays the details of your existing Programs. Alternatively, to go directly to a given Program, click on its name and you will be taken to the program details page of that program.
-
-
-Registering Cloud Storage Buckets and BigQuery Datasets - a pre-requisite for using your own data in ISB-CGC
+Registering Cloud Storage Buckets and BigQuery Datasets - a prerequisite for using your own data in ISB-CGC
 ==============================================================================================================
 
 
 .. _registered:
 
-You will need to have a BigQuery Dataset and a Google Cloud Storage bucket registered to your Google Cloud Project through the Google Project details page in the UI. (Please note: the names of the buckets and datasets are case sensitive.)
+You will need to have a BigQuery Dataset and a Google Cloud Storage bucket registered to your Google Cloud Project through the Google Project details page in the Web App. (Please note: The names of the buckets and data sets are case sensitive.)
 
 **How To Register Buckets and Datasets**
 
-Once you have created a bucket and a dataset in the Google Cloud Console of your Google Cloud Project, you will need to register them with your project name using the Webapp.  
+Once you have created a bucket and a dataset in the Google Cloud Console of your Google Cloud Project, you will need to register them with your project name using the Web App.  
 
 **Step 1**: Click on your user icon in the upper right.
 
