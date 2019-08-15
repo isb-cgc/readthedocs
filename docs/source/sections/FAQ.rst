@@ -45,7 +45,6 @@ permissions attached to each dataset, bucket, or object.
 You will need to input the Google Cloud Prooject ID which can be found on the Dashboard page of the Google Console under Project info.
 
 .. image:: project_info.PNG
-   :scale: 50
    :align: center
 
 
@@ -67,7 +66,6 @@ credentials). If permissions were revoked because an unauthorized user was added
 an email specifying the Service Account, GCP Project, and user which resulted in the access being revoked. If the user has not logged into the ISB-CGC interface and or has not authenticated, you will be given a red error message saying, "There was an error in processing your service account. Please try again." when attempting to refresh using the refresh wheel.  To see which new user hasn't logged in or authenticated, please go to the Register a Service Account page and see which user it is within the table for which the dataset is not selected and there are X's in the Registered and Has NIH Identity.
 
 .. image:: authorizedtable.PNG
-   :scale: 50
    :align: center
 
 Ensure that the user has 1)Logged into the ISB-CGC user interface and 2) Has registered their NIH Identity with their user interface identity.
