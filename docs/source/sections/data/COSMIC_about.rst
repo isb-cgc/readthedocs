@@ -39,7 +39,7 @@ A few important notes:
 
   - If you do not already have a Google account, you can `create one <https://accounts.google.com/SignUp?hl=en>`_
 
-* If you mistype your Google ID, or enter a string that is not a valid Google ID, you will not be able to access the COSMIC tables in BigQuery
+* If you mistype your Google ID or enter a string that is not a valid Google ID, you will not be able to access the COSMIC tables in BigQuery
 
   - Google IDs are not being automatically verified at this time, so please double-check that the Google ID you provided is correct
 
