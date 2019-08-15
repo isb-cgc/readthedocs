@@ -11,7 +11,8 @@ programming environments such as Python and R, using Google Compute Engine VMs a
    :maxdepth: 1
    
    progapi/progAPI-v4/Programmatic-Demo
-   `Swagger Document <https://mvm-api-dot-isb-cgc.appspot.com/v4/swagger#/>__
+   
+   `Swagger UI <https://swagger.io/>`_
    
    
    
