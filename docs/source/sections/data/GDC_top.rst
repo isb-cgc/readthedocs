@@ -1,7 +1,7 @@
-*******************
-NCI's GDC Overview
-*******************
-The NCI hosts a variety of data from cancer genomic studies in the Genomic Data Commons (GDC) providing the cancer research community a unified data repository enabling data sharing to support precision medicine. The GDC Data Portal allows users to search for and download data directly via your web browser or using the GDC Data Transfer Tool. There are two sets of data available in the GDC: legacy data and harmonized data. The legacy data is from previous data coordinating centers, such as TCGA-DCC and CGHub, that the GDC inherited. The current data available in the GDC is harmonized data from the coordination centers that were re-aligned to GRCh38/hg38 and reprocessed by GDC along with new data sets.
+*****************
+NCI GDC Overview
+*****************
+The NCI hosts a variety of data from cancer genomic studies in the `Genomic Data Commons <https://gdc.cancer.gov/>`_ (GDC) providing the cancer research community a unified data repository enabling data sharing to support precision medicine. The `GDC Data Portal <https://portal.gdc.cancer.gov/>`_ allows users to search for and download data directly via your web browser or using the GDC Data Transfer Tool. There are two sets of data available in the GDC: legacy data and harmonized data. The legacy data is from previous data coordinating centers, such as TCGA-DCC and CGHub, that the GDC inherited. The current data available in the GDC is harmonized data from the coordination centers that were re-aligned to GRCh38/hg38 and reprocessed by GDC along with new data sets.
 
 The ISB-CGC hosts several metadata tables to help users determine which files are available in Google BigQuery. Preview and query these tables conveniently and interactively from the BigQuery web UI or scripting languages such as R and Python, or the command-line using the cloud SDK utility bq. The metadata is split up into several tables per release as follows:
 
@@ -23,4 +23,4 @@ The ISB-CGC hosts several metadata tables to help users determine which files ar
    * - rel#_GDCfileID_to_GCSurl
      - Gives the Google Cloud Storage location for each file
 
-For examples of querying the metadata tables, please see the ISB-CGC Community Notebook GitHub Repository. If you have used the GDC portal to create cohorts or file lists, you can follow these tutorials to bring that information into ISB-CGC for use.
+For examples of querying the metadata tables, please see the `ISB-CGC Community Notebook GitHub Repository <https://github.com/isb-cgc/Community-Notebooks>`_. If you have used the GDC portal to create cohorts or file lists, you can follow `these <https://isb-cancer-genomics-cloud.readthedocs.io/en/lauren-staging-theme/sections/GDCTutorials/FromGDCtoISBCGC.html>`_ tutorials to bring that information into ISB-CGC for use.
