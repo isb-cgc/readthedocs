@@ -12,4 +12,4 @@ The Data Use Agreement for The VA Apollo Research for Precision Oncology Program
 About the VAREPOP Data
 ----------------------
 
-The Genomic Data Commons currently has controlled access BAM and VCF files.  To see the GDC data portal with Research for Precision Oncology Project please select `here <https://portal.gdc.cancer.gov/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22VAREPOP%22%5D%7D%7D%5D%7D>`_. Files can be found with in the ``isb-cgc.GDC_metadata`` tables in BigQuery or using IndexD.
+The Genomic Data Commons currently has controlled access BAM and VCF files.  To see the GDC data portal with Research for Precision Oncology Project please select `here <https://portal.gdc.cancer.gov/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22VAREPOP%22%5D%7D%7D%5D%7D>`_. Files can be found within the ``isb-cgc.GDC_metadata`` tables in BigQuery.
