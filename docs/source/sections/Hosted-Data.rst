@@ -52,16 +52,16 @@ As part of its mission, the ISB-CGC has been exploring the best ways to use avai
 
 Google BigQuery
 ~~~~~~~~~~~~~~~~
-`Google BigQuery <https://cloud.google.com/bigquery/>`_ (BQ) is a a massively-parallel analytics engine is ideal for working with data that is essentially tabular in nature. This includes the high-level clinical, biospecimen, and molecular data from the main NCI programs. It is also where we store a large amount of metadata about files that are more appropriately stored in Google Cloud Storage, as well as genome reference sources (*e.g.* GENCODE, miRBase, *etc.*). All of these datasets and tables are completely *open access* and available to the research community.
+`Google BigQuery <https://cloud.google.com/bigquery/>`_ (BQ) is a massively-parallel analytics engine that is ideal for working with data that is essentially tabular in nature. This includes the high-level clinical, biospecimen, and molecular data from the main NCI programs. It is also where we store a large amount of metadata about files that are more appropriately stored in Google Cloud Storage, as well as genome reference sources (*e.g.* GENCODE, miRBase, *etc.*). All of these datasets and tables are completely *open access* and available to the research community.
 
 Google Cloud Storage
 ~~~~~~~~~~~~~~~~~~~~
-`Google Cloud Storage <https://cloud.google.com/storage/>`_ (GCS) is a cloud-based object-store is used to store other types of (typically binary) data which is typically processed by custom software pipelines. The data hosted by GDC is contained with in Google Cloud Storage. The ISB-CGC Web App
+`Google Cloud Storage <https://cloud.google.com/storage/>`_ (GCS) is a cloud-based object-store is used to store other types of (typically binary) data which is typically processed by custom software pipelines. The data hosted by GDC is contained within Google Cloud Storage. The ISB-CGC Web App
 
 Google Genomics
 ~~~~~~~~~~~~~~~
 
-`Google Genomics <https://cloud.google.com/genomics/>`_ (GG) provides a storage platform and a way to work with sequence-level data which can also be worked through the `Global Alliance for Gemonics and Health <https://www.ga4gh.org/#/>`_ (GA4GH) APIs. GA4GH is a policy-framing and technical standards-setting organization, seeking to enable responsible genomic data sharing within a human rights framework. The GA4GH tools can be found `here <https://www.ga4gh.org/genomic-data-toolkit/>`_.
+`Google Genomics <https://cloud.google.com/genomics/>`_ (GG) provides a storage platform and a way to work with sequence-level data which can also be worked through the `Global Alliance for Gemonics and Health <https://www.ga4gh.org/#/>`_ (GA4GH) APIs. GA4GH is a policy-framing and technical standards-setting organization, seeking to enable responsible genomic data sharing within a human rights framework. GA4GH tools can be found `here <https://www.ga4gh.org/genomic-data-toolkit/>`_.
 
 Security
 --------
