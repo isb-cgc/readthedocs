@@ -12,7 +12,7 @@ programming environments such as Python and R, using Google Compute Engine VMs a
    
    progapi/progAPI-v4/Programmatic-Demo
    
-   `Swagger UI <https://swagger.io/>`_
+   `Swagger UI <https://mvm-api-dot-isb-cgc.appspot.com/v4/swagger#/>`_
    
    
    
