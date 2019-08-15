@@ -56,7 +56,7 @@ Google BigQuery
 
 Google Cloud Storage
 ~~~~~~~~~~~~~~~~~~~~
-`Google Cloud Storage <https://cloud.google.com/storage/>`_ (GCS) is a cloud-based object-store is used to store other types of (typically binary) data which is typically processed by custom software pipelines. The data hosted by GDC is contained within Google Cloud Storage. The ISB-CGC Web App
+`Google Cloud Storage <https://cloud.google.com/storage/>`_ (GCS) is a cloud-based object-store that is used to store other types of (typically binary) data which is typically processed by custom software pipelines. The data hosted by GDC is contained within Google Cloud Storage. The ISB-CGC Web App
 
 Google Genomics
 ~~~~~~~~~~~~~~~
