@@ -9,7 +9,7 @@ Metadata for these files can be found in BigQuery, in the ISB-CGC metadata `data
 Radiology Images
 ################
 
-Over 1.4 million radiology image files in `DICOM <https://en.wikipedia.org/wiki/DICOM>`_ format, grouped together into over 20,000 ZIP files are available in a GCS bucket called `gs://isb-tcia-open/ <https://console.cloud.google.com/storage/browser/isb-tcia-open/>`_. Each ZIP file may contain hundreds of images, or just a single image.
+Over 1.4 million radiology image files in `DICOM <https://en.wikipedia.org/wiki/DICOM>`_ format, grouped together into over 20,000 ZIP files are available in a GCS bucket called `gs://isb-tcia-open/ <https://console.cloud.google.com/storage/browser/isb-tcia-open/>`_. Each ZIP file may contain hundreds of images or just a single image.
 
 The BigQuery metadata table, ``isb-cgc.metadata.TCGA_radiology_images`` contains the full URLs to these ZIP files, *e.g.*:
 
