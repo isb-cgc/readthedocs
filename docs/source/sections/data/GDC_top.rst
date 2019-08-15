@@ -12,7 +12,7 @@ The ISB-CGC hosts several metadata tables to help users determine which files ar
      - Description
    * - rel#_caseData
      - List of all of the cases in GDC
-   * - rel#_fileData_current or rel17_fileData_active
+   * - rel#_fileData_current or rel#_fileData_active
      - List of the currently active cases in GDC along with information related to those cases
    * - rel#_fileData_legacy
      - Same as the previous table but with legacy data instead
