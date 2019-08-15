@@ -3,8 +3,8 @@ Best Practices
 ============
 
 
-Don't Download the Data
-========================
+I. Don't Download the Data
+===========================
 
 
 The ISB-CGC platform is one of NCI’s `Cancer Genomics Cloud Resources <https://datascience.cancer.gov/data-commons/cloud-resources>`_ and our mission is to host TCGA and TARGET data in the cloud so that researchers around the world may work with data without needing to download and store the data at their own local institutions.  
@@ -14,8 +14,8 @@ Be mindful that if you download data, you’ll incur egress charges.
 `Google egress charges information <https://cloud.google.com/compute/pricing#internet_egress>`_
 
 
-Computing on the Cloud
-=======================
+II. Computing on the Cloud
+===========================
 
 
 Most of the same linux commands, scripts, pipelines/workflows, genomics software packages and docker containers that you run on your local machine can be executed on virtual machines on Google cloud. 
@@ -47,8 +47,8 @@ Most of the same linux commands, scripts, pipelines/workflows, genomics software
   
 
 
-Storage on the Cloud
-=====================
+III. Storage on the Cloud
+==========================
 
 The Google Cloud Platform offers a number of different storage options for your virtual machine instances: `disks <https://cloud.google.com/compute/docs/disks/>`_
 
