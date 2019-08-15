@@ -108,12 +108,12 @@ Selecting **Manage Variable Favorites List** from the **VARIABLES** menu dropdow
 * Delete Button: Selecting this button will delete you variable favorites list.
 * Apply New Workbook button: Selecting this button will create a new workbook with the variable favorites list for analysis.
 
-Editing a Variable Favorites List
-=================================
+**Editing a Variable Favorites List**
+
 Selecting the edit button from the variable list page or a specific variable details page, you are redirected to a page where you can add or remove filters from all programs on system and user uploaded data. You are also able to change the title of the variable favorite list from the feature. 
 
-Deleting a Variable Favorites List
-==================================
+**Deleting a Variable Favorites List**
+
 From the dashboard:
 Click the arrow next to the variable favorites list a box will appear with the delete option. Confirm the deletion to permanently delete the list.
 
