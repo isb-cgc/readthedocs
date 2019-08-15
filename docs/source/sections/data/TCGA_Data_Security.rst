@@ -37,16 +37,8 @@ if they are summary in nature, may no longer be controlled data and could be cop
 analyses by researchers who are not authorized to view controlled data.  Researchers who are not authorized to view controlled data could be made
 members of project-B, while users who *are* authorized could be members of both project-A *and* project-B.
 
-**Note:**  The PI and the PI's institution are *responsible* for and will be held *accountable* for ensuring the security of controlled data, 
-not the cloud service provider.  The Google Cloud Platform has been certified as 
-`FedRAMP compliant <https://www.fedramp.gov/marketplace/compliant-systems/google-google-services/>`_
-which means that it has been independently assessed and shown to meet all necessary 
-`FedRAMP security controls <https://www.fedramp.gov/files/2015/03/FedRAMP-Security-Controls-Preface-FINAL-1.pdf>`_.  
-This provides the assurance that the data-security and access control mechanisms
-implemented by the Google Cloud Platform and made
-available to end-users are sufficient to safeguard the data.  However, it remains the PI's responsibility
-to ensure that these access control mechanisms are used appropriately and effectively within the 
-context of the PI's GCP project.
+**Note:**  The PI and the PI's institution are *responsible* for and will be held *accountable* for ensuring the security of controlled data, not the cloud service provider.  The Google Cloud Platform has been certified as `FedRAMP compliant <https://www.fedramp.gov/marketplace/compliant-systems/google-google-services/>`_
+which means that it has been independently assessed and shown to meet all necessary `FedRAMP security controls <https://www.fedramp.gov/files/2015/03/FedRAMP-Security-Controls-Preface-FINAL-1.pdf>`_.  This provides the assurance that the data security and access control mechanisms implemented by the Google Cloud Platform and made available to end-users are sufficient to safeguard the data.  However, it remains the PI's responsibility to ensure that these access control mechanisms are used appropriately and effectively within the context of the PI's GCP project.
 
 You should think about securing controlled data within the context of your GCP project in the same way that you
 would think about securing controlled data that you might download to a file-server or compute-cluster at your
@@ -61,11 +53,11 @@ Understanding Data Access
 
 * **Public Data**  Sometimes the word "public" is misinterpreted as meaning "open".  All of the TCGA data is *public* data, and much of it is *open*, meaning that it is accessible and available to *all* users; while some low-level TCGA data is *controlled* and restricted to authorized users.
 * **Open-Access Data**  Depending on how you categorize the data, *most* of the TCGA data is open-access data.  This includes all de-identified clinical and biospecimen data, as well as all Level-3 molecular data including gene expression data, DNA methylation data, DNA copy-number data, protein expression data, somatic mutation calls, etc. 
-* **Controlled-Access Data**  All low-level sequence data (both DNA-seq and RNA-seq), the raw SNP array data (CEL files), germline mutation calls, and a small amount of other data are treated as *controlled* data and require that a user be properly authenticated and have dbGaP-authorization prior to accessing these data.
+* **Controlled-Access Data**  All low-level sequence data (both DNA-seq and RNA-seq), the raw SNP array data (CEL files), germline mutation calls, and a small amount of other data are treated as *controlled* data and require that a user is properly authenticated and have dbGaP-authorization prior to accessing these data.
 
 Note that many public, open-access datasets may still be **restricted** in various ways.  Typically, a **License** document
 containing explicit terms of use will be associated with each dataset.  Some institutions have their own licenses, 
-though many use one of the `Creative Commons <https://creativecommons.org/>`_ licenses.  License terms apply to both
+though many uses one of the `Creative Commons <https://creativecommons.org/>`_ licenses.  License terms apply to both
 data and source-code, so please be aware of the terms of a license whenever you plan to re-use data or source-code
 produced by someone else.
 
