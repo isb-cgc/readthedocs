@@ -123,7 +123,6 @@ We recommend using Google Chrome browser.  We currently will display a chart sli
 You will see the 401 error only if your popup blocker is enabled for the isb-cgc website.  Please disable the pop-up blocker on the top right-hand side of the screen by selecting to always allow pop-ups from ISB-CGC.
 
 .. image:: 401ErrorIGVBrowser.PNG
-   :scale: 50
    :align: center
    
 
@@ -132,7 +131,6 @@ You will see the 401 error only if your popup blocker is enabled for the isb-cgc
 The web browser will be caused to crash when too many IGV Browser tabs are open due to the memory intensive nature of loading bam files.  When working with the IGV Browser please be mindful of having multiple tabs open of the IGV Browser.
 
 .. image:: IGVBrowserCrash.png
-   :scale: 50
    :align: center
    
 
