@@ -1,20 +1,17 @@
 *********
 Programs
 *********
-Uploading your own data is a way of creating custom groupings of the samples and/or cases that you are interested in analyzing further with the data that is already preexisting in our system or tools that we have on the system. You may frequently re-use the data that was uploaded in multiple analyses. Creating a “Program” allows you to do this. If you have any existing Programs with data uploaded, they will appear here for you to view, edit and share (see below for details).
+Uploading your own data is a way of creating custom groupings of the samples and/or cases that you are interested in analyzing further along with the data that is already preexisting in our system, using tools that are on the system. You may frequently re-use the data that was uploaded in multiple analyses. Creating a Program allows you to do this. If you have any existing Programs with data uploaded, they will appear here for you to view, edit and share.
 
 Files and File Formats
 ######################
 
-  .. _page:
-
-The Program Data Upload uses a number of predefined file formats to get data into the system and make it available for use.  The **Other/Generic** file format is the most flexible.  This format assumes that the first row of the file contains the column headers and all subsequent rows contain data.  The remaining file formats are all matrix formats where the first column (or columns in some data types) contain identifiers like gene or miRNA name, the first row contains sample identifiers and the "cells" contain the actual data values.  Examples of the accepted matrix format files are shown below:
+The **Upload Program Data** uses a number of predefined file formats to get data into the system and make it available for use.  The **Other/Generic** file format is the most flexible.  This format assumes that the first row of the file contains the column headers and all subsequent rows contain data.  The remaining file formats are all matrix formats where the first column (or columns in some data types) contain identifiers like gene or miRNA name. The first row contains sample identifiers and the "cells" contain the actual data values.  Examples of the accepted matrix format files are shown below:
 
 **NOTE:** For the matrix files, the text case matters for the required columns (lower case is different from upper case).  In addition, the ISB-CGC system will not validate any identifiers such as barcodes or gene names.  It is up to the user to make sure that uploaded data is correctly identified.
 
 
 * DNA Methylation
-
 
   This is a simple matrix file.  The first column should have the header **Probe_ID**.  Sample barcodes should be the headers for all remaining columns.
 
@@ -33,8 +30,8 @@ The Program Data Upload uses a number of predefined file formats to get data int
 
   The Gene Expression matrix file has two required columns:
   
-  * **Name**: This is the accession number for the gene 
-  * **Description**: This is the gene symbol for the gene
+  * **Name**: This is the accession number for the gene. 
+  * **Description**: This is the gene symbol for the gene.
 
   +------------+-------------+----------+-----------+-----------+
   | Name       | Description | Barcode 1| Barcode 2 |Barcode N  |
@@ -51,8 +48,8 @@ The Program Data Upload uses a number of predefined file formats to get data int
 
   There is one required and one optional column for microRNA:
   
-  * **miRNA_ID** is required and is generally the ID for the miRNA_ID
-  * **miRNA_name** is optional and can be used to provide alternative names for the miRNA.  If not present, the BigQuery data table will have **null** in this column
+  * **miRNA_ID**: This is generally the ID for the miRNA_ID; required.
+  * **miRNA_name**: This can be used to provide alternative names for the miRNA; optional.  If not present, the BigQuery data table will have **null** in this column.
   
   +------------+-------------+----------+-----------+-----------+
   | miRNA_ID   | miRNA_name  | Barcode 1| Barcode 2 |Barcode N  |
@@ -69,9 +66,9 @@ The Program Data Upload uses a number of predefined file formats to get data int
 
   Protein Expression has three required columns:
   
-  * **Protein_Name**: This is the name or symbol for the protein
-  * **Gene_Name**: This is the name of the gene associated with the protein
-  * **Gene_Id**: This is the accession number for the gene
+  * **Protein_Name**: This is the name or symbol for the protein.
+  * **Gene_Name**: This is the name of the gene associated with the protein.
+  * **Gene_Id**: This is the accession number for the gene.
   
   +--------------+-------------+-----------+-----------+-----------+-----------+
   | Protein_name |  Gene_Name  | Gene_Id   | Barcode 1 |Barcode 2  |Barcode N  |
@@ -86,9 +83,9 @@ The Program Data Upload uses a number of predefined file formats to get data int
 
 * Other/Generic
 
-Files in Other/Generic format are not matrix files, but rather have the data in columns.  The order of the columns is very flexible, and the upload interface will allow users to define what kind of data is in each of the columns.  The only requirement is that one, and only one, of the columns should be sample barcodes.  In addition, all rows must have the same number of columns.  Any completely blank columns will be flagged and should be removed.  Any columns containing blank entries will have *null* used for the blanks in the BigQuery data table.
+  Files in Other/Generic format are not matrix files, but rather have the data in columns.  The order of the columns is very flexible, and the upload interface will allow users to define what kind of data is in each of the columns.  The only requirement is that one, and only one, of the columns should be sample barcodes.  In addition, all rows must have the same number of columns.  Any completely blank columns will be flagged and should be removed.  Any columns containing blank entries will have *null* used for the blanks in the BigQuery data table.
 
-**NOTE:** Currently, each Sample Barcode can only be represented once in a file.  Files with the same barcode on multiple rows will cause a failure.  If you have multiple data values for a single barcode (like gene expression values for multiple genes) you will either have to create a matrix file or upload multiple files to Other/Generic.
+  **NOTE:** Currently, each Sample Barcode can only be represented once in a file.  Files with the same barcode on multiple rows will cause a failure.  If you have multiple data values for a single barcode (like gene expression values for multiple genes) you will either have to create a matrix file or upload multiple files using Other/Generic.
 
 
 
