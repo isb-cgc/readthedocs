@@ -61,7 +61,7 @@ Google Cloud Storage
 Google Genomics
 ~~~~~~~~~~~~~~~
 
-`Google Genomics <https://cloud.google.com/genomics/>`_ (GG) provides a storage platform and a way to work with sequence-level data which can also be worked through the `Global Alliance for Gemonics and Health <https://www.ga4gh.org/#/>`_ (GA4GH) APIs. GA4GH is a policy-framing and technical standards-setting organization, seeking to enable responsible genomic data sharing within a human rights framework. GA4GH tools can be found `here <https://www.ga4gh.org/genomic-data-toolkit/>`_.
+`Google Genomics <https://cloud.google.com/genomics/>`_ (GG) provides a storage platform and a way to work with sequence-level data which can also be worked through the `Global Alliance for Genomics and Health <https://www.ga4gh.org/#/>`_ (GA4GH) APIs. GA4GH is a policy-framing and technical standards-setting organization, seeking to enable responsible genomic data sharing within a human rights framework. GA4GH tools can be found `here <https://www.ga4gh.org/genomic-data-toolkit/>`_.
 
 Security
 --------
