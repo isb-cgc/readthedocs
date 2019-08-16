@@ -33,6 +33,7 @@ In this section, you'll learn how to:
    
    BigQuery/BQ_overview
    PanCancer-Atlas-Mirror
+   BigQuery/BigQueryUsageCosts
 
 
 
