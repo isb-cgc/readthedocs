@@ -17,10 +17,7 @@ are required to submit:
 * a **data access request** (DAR)
 * a **research use statement** (RUS)
 
-**Note:** Requesters and institutional signing officials (SO) must have NIH eRA user IDs to begin this process. 
-Visit the `electronic Research Administration <http://era.nih.gov>`_ (eRA) for more information on 
-registering for an NIH eRA account. NIH staff may utilize their NIH log-in. 
-(See the `dbGaP Data Access Request Portal <http://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login>`_ 
+**Note:** Requesters and institutional signing officials (SO) must have NIH eRA user IDs to begin this process. Visit the `electronic Research Administration <http://era.nih.gov>`_ (eRA) for more information on registering for an NIH eRA account. NIH staff may utilize their NIH log-in. (See the `dbGaP Data Access Request Portal <http://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login>`_ 
 for additional `instructions <http://www.genome.gov/20019654>`_.)
 
 Additionally, they must:
@@ -55,13 +52,6 @@ Understanding Data Access
 * **Open-Access Data**  Depending on how you categorize the data, *most* of the TCGA data is open-access data.  This includes all de-identified clinical and biospecimen data, as well as all Level-3 molecular data including gene expression data, DNA methylation data, DNA copy-number data, protein expression data, somatic mutation calls, etc. 
 * **Controlled-Access Data**  All low-level sequence data (both DNA-seq and RNA-seq), the raw SNP array data (CEL files), germline mutation calls, and a small amount of other data are treated as *controlled* data and require that a user is properly authenticated and have dbGaP-authorization prior to accessing these data.
 
-Note that many public, open-access datasets may still be **restricted** in various ways.  Typically, a **License** document
-containing explicit terms of use will be associated with each dataset.  Some institutions have their own licenses, 
-though many uses one of the `Creative Commons <https://creativecommons.org/>`_ licenses.  License terms apply to both
-data and source-code, so please be aware of the terms of a license whenever you plan to re-use data or source-code
-produced by someone else.
+Note that many public, open-access datasets may still be **restricted** in various ways.  Typically, a **License** document containing explicit terms of use will be associated with each dataset.  Some institutions have their own licenses, though many uses one of the `Creative Commons <https://creativecommons.org/>`_ licenses.  License terms apply to both data and source-code, so please be aware of the terms of a license whenever you plan to reuse data or source-code produced by someone else.
 
-In the earlier days of the TCGA data, although the data was made public as quickly as possible, it was generally under
-**embargo** for some period of time, to allow the TCGA analysis working groups to produce the initial "marker paper"
-for each tumor type.  Now that the TCGA project is nearing completion, none of the TCGA data is under embargo anymore,
-but we still recommend that you review the `TCGA Publication Guidelines <https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/using-tcga/citing-tcga>`_.
+In the earlier days of the TCGA data, although the data was made public as quickly as possible, it was generally under **embargo** for some period of time, to allow the TCGA analysis working groups to produce the initial "marker paper" for each tumor type.  Now that the TCGA project is nearing completion, none of the TCGA data is under embargo anymore, but we still recommend that you review the `TCGA Publication Guidelines <https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/using-tcga/citing-tcga>`_.
