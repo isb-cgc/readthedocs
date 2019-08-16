@@ -5,7 +5,7 @@ FM-AD Data Set
 About the FM-AD
 ---------------
 
-The `Foundation Medicine Adult Cancer Clinical Data set <https://gdc.cancer.gov/about-gdc/contributed-genomic-data-cancer-research/foundation-medicine/foundation-medicine>`_ (FM-AD) was a study conducted by Foundation Medicine Inc. (FMI) which is a molecular information company that specializes in precision medicine. FMI has generated genomic profiles for thousands of cancer patients, which are designed to match each patient to a personalized treatment plan.
+The `Foundation Medicine Adult Cancer Clinical Data set <https://gdc.cancer.gov/about-gdc/contributed-genomic-data-cancer-research/foundation-medicine/foundation-medicine>`_ (FM-AD) was a study conducted by Foundation Medicine Inc. (FMI) which is a molecular information company that specializes in precision medicine. FMI has generated genomic profiles for thousands of cancer patients, which are designed to match each patient with a personalized treatment plan.
 
 About the FM-AD Data
 --------------------
