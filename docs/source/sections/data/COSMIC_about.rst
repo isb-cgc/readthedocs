@@ -14,7 +14,7 @@ The BigQuery datasets contain *all* of the tables available for download from th
 
 * `isb-cgc.COSMIC_v87_grch38 <https://console.cloud.google.com/bigquery?p=isb-cgc&d=COSMIC_v87_grch38&page=dataset>`_
 * `isb-cgc.COSMIC_v87_grch37 <https://console.cloud.google.com/bigquery?p=isb-cgc&d=COSMIC_v87_grch37&page=dataset>`_
-Details about the underlying COSMIC export files used to create these BigQuery tables can be found in README files for `GRCh38 <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/source/sections/cosmic/README-cosmic-grch38.txt>`_ 
+Details about the underlying COSMIC export files used to create these BigQuery tables can be found in the README files for `GRCh38 <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/source/sections/cosmic/README-cosmic-grch38.txt>`_ 
 and `GRCh37 <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/source/sections/cosmic/README-cosmic-grch37.txt>`_.
 
 Gaining Access to the Data
