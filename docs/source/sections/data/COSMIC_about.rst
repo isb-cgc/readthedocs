@@ -23,7 +23,7 @@ Gaining Access to the Data
 `Register <https://cancer.sanger.ac.uk/cosmic/register>`_ for access to `COSMIC <https://cancer.sanger.ac.uk/cosmic/about>`_ in `BigQuery <https://cloud.google.com/bigquery/what-is-bigquery>`_:
 
 * If you are already a registered user of COSMIC, you will need to go to `your account <https://cancer.sanger.ac.uk/cosmic/myaccount>`_ page and add a valid "Google identity" in the Google ID box: when you are signed in to COSMIC, your name in the upper-right corner is a pull-down menu from which you can access your Account Settings
-* If the Email Address that you initially used when registering for COSMIC is already a valid Google identity, you may simply re-enter the same email address into the Google ID box
+* If the Email Address that you initially used when registering for COSMIC is already a valid Google identity, you may simply reenter the same email address into the Google ID box
 * If you are not sure whether your institutional (or other) email address is a Google identity, you can check by entering it in the Google `password-assistance page <https://accounts.google.com/ForgotPasswd>`_; or by asking your IT staff
 * If you are not currently a registered COSMIC user, you will first need to `register <https://cancer.sanger.ac.uk/cosmic/register>`_, agree to the Terms and Conditions, and supply a valid Google identity in the Google ID box
 
