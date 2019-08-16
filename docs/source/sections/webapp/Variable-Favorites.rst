@@ -7,20 +7,17 @@ Creating a variable favorites list is a way of creating custom groupings of the 
 Create Variable Favorites List
 ##############################
 
-To create a variable list from the User Dashboard, click on the **Create Variable Favorite** link which will display the **Create Variable Favorite Page**. 
+To create a variable list from **Your Dashboard**, click on the **Create Variable Favorites** link which will display the **Create Variable Favorite** Page. 
 
 Or, from the menu dropdown, select **Create Variables Favorite List** from the **VARIABLES** menu dropdown. 
 
-Variable Favorites List Creation page
-======================================
-Using the provided list of filters on the left hand side, you can select the attributes and features that you are interested in.
+To create a new Variable Favorite:
 
-By clicking on a program (TCGA, CCLE, TARGET), the field will expand and provide you with additional filtering options in the Data Types section.
-For example, when to select the TCGA tab you see a common filters section. The common filters section is shared across programs, so if the common filter is selected in one program it will be selected for all programs. 
+- Name your new favorite; you can create many favorites and use them later when working with workbooks.
+- Clicking on a program (TCGA, CCLE, TARGET) will display relevant filters (attributes and features) under the **COMMON** tab.
 
-
-Variable Favorites Filter 
---------------------------
+  * Check the checkbox adjacent to each attribute or feature that you are interested in. They will display in the **Selected Variables** panel. (Note that checking these filters will also check the filters under the under programs, if it is on the list.)
+- Click **Save As Favorite** to save the Variable list.
 
 Common Filter List by Program 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -97,34 +94,31 @@ Selected Filters Panel
 ^^^^^^^^^^^^^^^^^^^^^^
 This is where the filters you have selected are shown on the right panel for clear verification of what has been selected for analysis. Clicking "Clear All" will remove all selected filters. 
 
-
-Editing a Variable Favorites List
-=================================
-Selecting the edit button from the variable list page or a specific variable details page, you are redirected to a page where you can add or remove filters from all programs on system and user uploaded data. You are also able to change the title of the variable favorite list from the feature. 
-
-Main Menu
----------
-
-* Edit Button: Selecting this menu item make the filters panel appear. And filters selected will be additive to any filters that have already been selected. To return to the previous view, you much either save any selected filters, or choose to cancel adding any new filters.
-* Delete Button: Selecting this button will delete you variable favorites list.
-* Apply New Workbook button: Selecting this button will create a new workbook with the variable favorites list for analysis.
-
 Selected Filters Panel
 ----------------------
 This panel displays any filters that have been used on the variable list or any of its ancestors. These cannot be modified and any additional filters applied to the cohorts will be deleted.
 
-Deleting a Variable Favorites List
-==================================
-From the dashboard:
-Click the arrow next to the variable favorites list a box will appear with the delete option. Confirm the deletion to permanently delete the list.
-
-From within the variable favorites list: 
-If you are viewing the variable favorites list you created, then you delete the cohort by clicking the delete button under the selected variables list.
 
 Manage Variable Favorites List
 ###############################
 
 Selecting **Manage Variable Favorites List** from the **VARIABLES** menu dropdown displays the **Saved Variable Favorites** screen. This screen displays your saved Variables Favorites and allows you to edit or delete them, as well as start a new workbook using your favorite.
+
+* Edit Button: Selecting this menu item make the filters panel appear. And filters selected will be additive to any filters that have already been selected. To return to the previous view, you much either save any selected filters, or choose to cancel adding any new filters.
+* Delete Button: Selecting this button will delete you variable favorites list.
+* Apply New Workbook button: Selecting this button will create a new workbook with the variable favorites list for analysis.
+
+**Editing a Variable Favorites List**
+
+Selecting the edit button from the variable list page or a specific variable details page, you are redirected to a page where you can add or remove filters from all programs on system and user uploaded data. You are also able to change the title of the variable favorite list from the feature. 
+
+**Deleting a Variable Favorites List**
+
+From the dashboard:
+Click the arrow next to the variable favorites list a box will appear with the delete option. Confirm the deletion to permanently delete the list.
+
+From within the variable favorites list: 
+If you are viewing the variable favorites list you created, then you delete the cohort by clicking the delete button under the selected variables list.
 
 Clicking on the **Create New Favorite** button will take you to the **Create Variable Favorite** screen.
 

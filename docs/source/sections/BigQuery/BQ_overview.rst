@@ -12,7 +12,7 @@ The nodes are color-coded as follows:
 
 All of the TCGA tables include patient, sample, and/or aliquot `barcodes <https://docs.gdc.cancer.gov/Encyclopedia/pages/TCGA_Barcode/>`_ on each row. (The actual field names are typically ``case_barcode``, ``sample_barcode``, or ``aliquot_barcode``.) Almost all of these tables also include a field called ``project_short_name`` which contains the TCGA tumor-type abbreviation (*eg* BRCA for breast cancer, GBM for glioblastoma multiforme, *etc*). Most of the molecular data tables include gene (or miRNA) symbols or identifiers, some include chromosomal coordinates, and some include both (*eg* the somatic mutation calls (SMC) table).
 
-.. image:: figs/BQ-layout2b-20jul2016.png
+.. image:: data/figs/BQ-layout2b-20jul2016.png
    :scale: 75
    :align: center
 
@@ -23,7 +23,7 @@ If you want to map DNA methylation data onto copy-number data, you will need to 
 Both TCGA data tables (the red nodes) contain sample barcodes, allowing information from each table that pertains to the same sample to be merged into a single output row by a JOIN operation. However, neither the copy-number nor the methylation table schemas include a
 field with a gene symbol which is another common way to JOIN one molecular data table to another. Instead, the methylation annotation table (yellow node) can be used to find the chromosomal coordinate for each methylation probe (by performing a JOIN operation on the probe id), and then the chromosomal coordinate of the probe can be used to find relevant copy-number segments in the copy-number table.
 
-.. image:: figs/meth-to-cn-map.png
+.. image:: data/figs/meth-to-cn-map.png
    :scale: 35
    :align: center
 

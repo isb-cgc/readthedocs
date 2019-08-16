@@ -1,6 +1,6 @@
-==========================
+***************************
 ISB-CGC API Tutorial
-==========================
+***************************
 
 
 
@@ -32,9 +32,9 @@ The primary organizing principle  subsetting and working with the TCGA data is a
 
 
 
-***************************
+
 Demo of Swagger UI
-***************************
+===================
 
 
 To get a better understanding of Swagger UI, let’s explore the Swagger ISB-CGC in depth. In the ISB-CGC example, the site is generated using Swagger UI.  All parameters and responses are in JSON format. 
@@ -66,7 +66,7 @@ Before making any requests, you would normally authorize your session by clickin
 
 
 Make a Request
-================
+---------------
 
 Now let’s make a request:
 

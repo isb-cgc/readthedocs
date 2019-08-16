@@ -1,6 +1,6 @@
-==================================
-Walk Through of Google BigQuery
-==================================
+====================================
+Getting Started With Google BigQuery
+====================================
 This will serve as a guide to navigate through the Google web-interface for BigQuery and do some introductory queiries using ISB-CGC hosted TCGA data.  For those who would rather use R or Python to programmatically interact with BigQuery, detailed tutorials are provided `here <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/progapi/Tutorials.html>`_.
 
 ***************
