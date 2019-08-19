@@ -54,7 +54,7 @@ A New Program
 -------------
 To start an entirely new program, users should click on the **A New Program** tab on the Data Upload screen.  This will bring up a form where a new program can be defined.  Users should fill out the required fields (Program Name, Project Name) and any optional fields (Program Description, Project Description) that would be helpful.  Clicking on the **Select File(S)** button will bring up a dialog to select the data file for upload. 
 
-**NOTE:** You can upload multiple files in a single step.  The **Type** drop-down should be used to indicate what data type the file represents.  If the data type is one of the choices besides **Other**, the file will have to conform to the specifications listed at the top of this page_.  For a more complete description of the options on this page, see the `Data Upload Page Components`_ section.
+**NOTE:** You can upload multiple files in a single step.  The **Type** drop-down should be used to indicate what data type the file represents.  If the data type is one of the choices besides **Other**, the file will have to conform to the specifications below. For a more complete description of the options on this page, see the `Data Upload Page Components`_ section.
 
 Files and File Formats
 **********************
@@ -146,8 +146,8 @@ The **Upload Program Data** uses a number of predefined file formats to get data
 
 .. image:: MouseProject.PNG
 
-**Project description and file selection**
-
+Project description and file selection
+**************************************
 
 Clicking on the **Next** button brings up a form where users will select which bucket and BigQuery data set the file upload should use.  These buckets and data sets were registered_ according to the process above.  The **Platform** and **Pipeline** fields can contain any useful description a user wishes to provide.
 
