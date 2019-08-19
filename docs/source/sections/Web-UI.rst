@@ -14,6 +14,7 @@ We welcome your ideas and needs.  Please use this `link <https://groups.google.c
    webapp/Dashboard
    webapp/Workbooks
    webapp/program_data_upload
+   webapp/WebAppAnalyses
    webapp/Gene-and-miRNA-Favorites
    webapp/Variable-Favorites
    webapp/Saved-Cohorts
