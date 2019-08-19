@@ -3,8 +3,61 @@ Programs
 *********
 Uploading your own data is a way of creating custom groupings of the samples and/or cases that you are interested in analyzing further along with the data that is already preexisting in our system, using tools that are on the system. You may frequently re-use the data that was uploaded in multiple analyses. Creating a Program allows you to do this. If you have any existing Programs with data uploaded, they will appear here for you to view, edit and share.
 
+Upload Program Data
+####################
+
+Selecting **Upload Program Data** from the **PROGRAMS** menu dropdown displays the **Register a Google Cloud Project** screen. 
+
+Or, from **Your Dashboard**, click on the **Upload Program Data** link in the **Saved Programs** panel at the bottom of the page. 
+
+If you already have Programs created, they will be listed in the **Saved Programs** panel of your dashboard. Click on the **Saved Programs** link in that panel and this will take you to a page that displays the details of your existing Programs. Alternatively, to go directly to a given Program, click on its name and you will be taken to the program details page of that program.
+
+
+Registering Cloud Storage Buckets and BigQuery Datasets - a prerequisite for using your own data in ISB-CGC
+==============================================================================================================
+
+
+.. _registered:
+
+You will need to have a BigQuery Dataset and a Google Cloud Storage bucket registered to your Google Cloud Project through the Google Project details page in the Web App. (Please note: The names of the buckets and data sets are case sensitive.)
+
+**How To Register Buckets and Datasets**
+
+Once you have created a bucket and a dataset in the Google Cloud Console of your Google Cloud Project, you will need to register them with your project name using the Web App.  
+
+**Step 1**: Click on your user icon in the upper right.
+
+
+.. image:: Register_Step_1.png
+
+**Step 2**: Click on "View Registered Google Cloud Projects"
+
+
+.. image:: Register_Step_2.png
+
+**Step 3**: Click on the project you wish to use.  If you have not registered a project, follow the instructions `here`_.
+
+.. _here: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-TCGA-Contolled-Access-Data.html#requirements-for-registering-a-google-cloud-project-service-account
+
+.. image:: Register_Step_3.png
+
+**Step 4**: Use the "Register Cloud Storage Bucket" or "Register BigQuery Dataset" links to add buckets and datasets as needed
+
+
+.. image:: Register_Step_4.png
+
+
+Data Upload Page
+================
+
+A New Program
+-------------
+To start an entirely new program, users should click on the **Upload Program Data** link on the front page of the Webapp (*Your Dashboard*).  This will bring up a form where a new program can be defined.  Users should fill out the required fields and any optional fields that would be helpful.  Clicking on **Select File(S)** button will bring up a dialog to select the file with data. 
+
+**NOTE:** You can upload multiple files in a single step.  The **Type** drop-down should be used to indicate what data type the file represents.  If the data type is one of the choices besides **Other**, the file will have to conform to the specifications listed at the top of this page_.  For a more complete description of the options on this page, see the `Data Upload Page Components`_ section.
+
 Files and File Formats
-######################
+======================
 
   .. _page:
 
@@ -89,58 +142,7 @@ The **Upload Program Data** uses a number of predefined file formats to get data
 
   **NOTE:** Currently, each Sample Barcode can only be represented once in a file.  Files with the same barcode on multiple rows will cause a failure.  If you have multiple data values for a single barcode (like gene expression values for multiple genes) you will either have to create a matrix file or upload multiple files using Other/Generic.
 
-Create a New Program
-####################
 
-Selecting **Upload Program Data** from the **PROGRAMS** menu dropdown displays the **Register a Google Cloud Project** screen. 
-
-Or, from **Your Dashboard**, click on the **Upload Program Data** link in the **Saved Programs** panel at the bottom of the page. 
-
-If you already have Programs created, they will be listed in the **Saved Programs** panel of your dashboard. Click on the **Saved Programs** link in that panel and this will take you to a page that displays the details of your existing Programs. Alternatively, to go directly to a given Program, click on its name and you will be taken to the program details page of that program.
-
-
-Registering Cloud Storage Buckets and BigQuery Datasets - a prerequisite for using your own data in ISB-CGC
-==============================================================================================================
-
-
-.. _registered:
-
-You will need to have a BigQuery Dataset and a Google Cloud Storage bucket registered to your Google Cloud Project through the Google Project details page in the Web App. (Please note: The names of the buckets and data sets are case sensitive.)
-
-**How To Register Buckets and Datasets**
-
-Once you have created a bucket and a dataset in the Google Cloud Console of your Google Cloud Project, you will need to register them with your project name using the Web App.  
-
-**Step 1**: Click on your user icon in the upper right.
-
-
-.. image:: Register_Step_1.png
-
-**Step 2**: Click on "View Registered Google Cloud Projects"
-
-
-.. image:: Register_Step_2.png
-
-**Step 3**: Click on the project you wish to use.  If you have not registered a project, follow the instructions `here`_.
-
-.. _here: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-TCGA-Contolled-Access-Data.html#requirements-for-registering-a-google-cloud-project-service-account
-
-.. image:: Register_Step_3.png
-
-**Step 4**: Use the "Register Cloud Storage Bucket" or "Register BigQuery Dataset" links to add buckets and datasets as needed
-
-
-.. image:: Register_Step_4.png
-
-
-Data Upload Page
-================
-
-A New Program
--------------
-To start an entirely new program, users should click on the **Upload Program Data** link on the front page of the Webapp (*Your Dashboard*).  This will bring up a form where a new program can be defined.  Users should fill out the required fields and any optional fields that would be helpful.  Clicking on **Select File(S)** button will bring up a dialog to select the file with data. 
-
-**NOTE:** You can upload multiple files in a single step.  The **Type** drop-down should be used to indicate what data type the file represents.  If the data type is one of the choices besides **Other**, the file will have to conform to the specifications listed at the top of this page_.  For a more complete description of the options on this page, see the `Data Upload Page Components`_ section.
 
 .. image:: MouseProject.PNG
 
