@@ -6,20 +6,20 @@ Uploading your own data is a way of creating custom groupings of the samples and
 Upload Program Data
 ####################
 
-Selecting **Upload Program Data** from the **PROGRAMS** menu dropdown displays the **Register a Google Cloud Project** screen. 
+Selecting **Upload Program Data** from the **PROGRAMS** menu dropdown displays the **Register a Google Cloud Project** screen, or if you already have a registered Google Cloud Project, it will display the **Data Upload** screen. 
 
 Or, from **Your Dashboard**, click on the **Upload Program Data** link in the **Saved Programs** panel at the bottom of the page. 
 
 If you already have Programs created, they will be listed in the **Saved Programs** panel of your dashboard. Click on the **Saved Programs** link in that panel and this will take you to a page that displays the details of your existing Programs. Alternatively, to go directly to a given Program, click on its name and you will be taken to the program details page of that program.
 
 
-Registering Cloud Storage Buckets and BigQuery Datasets - a prerequisite for using your own data in ISB-CGC
-==============================================================================================================
+Registering Cloud Storage Buckets and BigQuery Datasets
+=======================================================
 
 
 .. _registered:
 
-You will need to have a BigQuery Dataset and a Google Cloud Storage bucket registered to your Google Cloud Project through the Google Project details page in the Web App. (Please note: The names of the buckets and data sets are case sensitive.)
+Registering a Google Cloud Storage Bucket and a BigQuery Data Set is a prerequisite for using your own data in ISB-CGC. (Please note: The names of the buckets and data sets are case sensitive.)
 
 **How To Register Buckets and Datasets**
 
@@ -52,12 +52,12 @@ Data Upload Page
 
 A New Program
 -------------
-To start an entirely new program, users should click on the **Upload Program Data** link on the front page of the Webapp (*Your Dashboard*).  This will bring up a form where a new program can be defined.  Users should fill out the required fields and any optional fields that would be helpful.  Clicking on **Select File(S)** button will bring up a dialog to select the file with data. 
+To start an entirely new program, users should click on the **A New Program** tab on the Data Upload screen.  This will bring up a form where a new program can be defined.  Users should fill out the required fields (Program Name, Project Name) and any optional fields (Program Description, Project Description) that would be helpful.  Clicking on the **Select File(S)** button will bring up a dialog to select the data file for upload. 
 
 **NOTE:** You can upload multiple files in a single step.  The **Type** drop-down should be used to indicate what data type the file represents.  If the data type is one of the choices besides **Other**, the file will have to conform to the specifications listed at the top of this page_.  For a more complete description of the options on this page, see the `Data Upload Page Components`_ section.
 
 Files and File Formats
-======================
+**********************
 
   .. _page:
 
@@ -149,7 +149,7 @@ The **Upload Program Data** uses a number of predefined file formats to get data
 **Project description and file selection**
 
 
-Clicking on the **Next** button brings up a form where users will select which bucket and BigQuery dataset the file upload should use.  These buckets and datasets were registered_ according to the process above.  The **Platform** and **Pipeline** fields can contain any useful description a user wishes to provide.
+Clicking on the **Next** button brings up a form where users will select which bucket and BigQuery data set the file upload should use.  These buckets and data sets were registered_ according to the process above.  The **Platform** and **Pipeline** fields can contain any useful description a user wishes to provide.
 
 .. image:: Mouse_bucket_and_dataset.png
 
@@ -158,15 +158,15 @@ Lastly, the user should click on the **Upload Data** button to start the process
 .. image:: Mouse_processing.PNG
 
 Correcting Data Uploaded As Other
----------------------------------
-If your data does not fit into any of the existing pre-defined matrix formats, the *Other* data type will allow users to upload data that is in a tabular format.  In this format, the first row of the file is assumed to be the description of each of the columns and all subsequent rows are assumed to be data.  The system will attempt to define what kind of data are in each column, however this process may not always be correct and users must review the column data type assignments before proceeding.
+*********************************
+If your data does not fit into any of the existing pre-defined matrix formats, the *Other* data type will allow users to upload data that is in a tabular format.  In this format, the first row of the file is assumed to be the description of each of the columns and all subsequent rows are assumed to be data.  The system will attempt to define what kind of data are in each column; however this process may not always be correct and users must review the column data type assignments before proceeding.
 
 In the example shown below, the automated process has identified two columns as potentially containing Sample Barcodes and has further misidentified a column containing decimal data (numeric float values) as containing categorical (text) data.  The user will need to correct both instances so there is only one Sample Barcode column and define the expression data as decimal.
 
 .. image:: OtherExample.PNG
 
 A New Project For An Existing Program
-------------------------------------
+-------------------------------------
 Adding a new project to an existing program follows the same steps as creating a new program.  However, instead of filling out the new program information fields, users should click on the **A New Project For An Existing Program** tab and select an existing program from the drop-down menu.  All other steps for describing and uploading the file will remain the same.
 
   .. image:: MouseExisting.PNG
@@ -174,34 +174,32 @@ Adding a new project to an existing program follows the same steps as creating a
 
 
 Data Upload Page Components
-=============================
+***************************
 This section describes the features found on the Data Upload page.
 
-Sharing User Uploaded Programs
-------------------------------
+**Sharing User Uploaded Programs**
 
-This will share the web view of your uploaded program with users you select by entering the users e-mail. The User will receive an e-mail
-message with a link to your shared uploaded program explaining that (you) wanted to share a program with (them) and that you have invite
-them to join. If the email address you entered in not registered in the database you are prompted with a message saying, "The following user
-emails could not be found; please ask them to log into the site first:(email entered)."
+This will share the web view of your uploaded program with users you select by entering the users email. The user will receive an email
+message with a link to your shared uploaded program explaining that you wanted to share a program with them and that you have invited
+them to join. If the email address you entered in not registered in the database, you are prompted with a message saying, "The following user emails could not be found; please ask them to log into the site first:(email entered)."
 
 
-System Data Dictionary Link
----------------------------
+**System Data Dictionary Link**
+
 This link goes to the System Data Dictionary which is a comprehensive list of all clinical data fields and possible values.  This dictionary can be helpful in aligning metadata from the imported program to ISB-CGC data fields.
 
 
-High Level Data Files
----------------------
+**High Level Data Files**
+
 High level data files usually represent some level of data analysis as opposed to raw files.  High level files can be used in Workbooks and visualized alongside ISB-CGC data.
 
-Low Level Files for API Access
--------------------------------
-Files uploaded as low-level files for API access will not be usable in the Webapp, but rather will appear in the user's Google Storage Bucket.  This feature is intended for files like BAM or VCF files that contain more raw data.
+**Low Level Files for API Access**
 
-File Type
-----------
-This is the data type that the uploaded file represents.  Currently the allowed data types are:
+Files uploaded as low-level files for API access will not be usable in the Web App, but rather will appear in the user's Google Storage Bucket.  This feature is intended for files like BAM or VCF files that contain more raw data.
+
+**File Type**
+
+This is the data type of the uploaded file.  Currently the allowed data types are:
 
 * Gene Expression
 * miRNA Expression
@@ -209,8 +207,8 @@ This is the data type that the uploaded file represents.  Currently the allowed 
 * Methylation
 * Other
 
-File Format Requirements
--------------------------
+**File Format Requirements**
+
 All files must be tab delimited and meet the formatting requirements described in `Files and File Formats`_.
 
 .. image:: MouseProjectAnnotated.PNG
