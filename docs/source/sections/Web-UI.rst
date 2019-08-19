@@ -8,7 +8,7 @@ Over time we will be updating and enhancing this web interface based on your fee
 We welcome your ideas and needs.  Please use this `link <https://groups.google.com/a/isb-cgc.org/forum/#!newtopic/feedback>`_ to provide them.
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    webapp/Overview
    webapp/Gaining-Access-To-Contolled-Access-Data
