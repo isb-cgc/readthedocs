@@ -2,9 +2,9 @@
 Programs and Data Sets
 **********************
 
-Between the ISB-CGC and the Genomic Data Commons (GDC), there are many cancer data sets available. ISB-CGC hosts high-level clinical, biospecimen and molecular data in a series of carefully curated datasets and tables in BigQuery along with radiology and pathology images while the low-level DNA- and RNA-Seq data are in  Genomic Data Commons. The data sets have now expanded past TCGA to include other data sets from programs such as  `Therapeutically Applicable Research To Generate Effective Treatments <https://ocg.cancer.gov/programs/target>`_ (TARGET) program.
+Between the ISB-CGC and the Genomic Data Commons (GDC), there are many cancer data sets available on the Google Cloud Platform. ISB-CGC hosts some high-level clinical, biospecimen and molecular data in a series of carefully curated datasets and tables in BigQuery and radiology and pathology images in Google Cloud Storage. The GDC hosts several more data sets that include low-level sequencing data.
 
-Along with the NCI Cancer Programs, ISB-CGC hosts several data sets from other programs such as `Catalogue Of Somatic Mutations In Cancer <https://cancer.sanger.ac.uk/cosmic>`_ (COSMIC) from the `Wellcome Trust Sanger Institute <http://www.sanger.ac.uk/>`_. We are always looking to add new data sets so if you have any suggestions or requests for additional data that you would like to see made available, please let us know (feedback@isb-cgc.org) and we will try to make that happen.
+The ISB-CGC started with the TCGA data sets but has expanded to include other data sets from programs such as Therapeutically Applicable Research To Generate Effective Treatments (TARGET) program. Accompanying the NCI data sets, ISB-CGC hosts several data sets from programs such as Catalogue Of Somatic Mutations In Cancer (COSMIC) from the `Wellcome Trust Sanger Institute <http://www.sanger.ac.uk/>`_. We are always interested in adding new data sets, so if you have any suggestions or requests for additional data, please let us know (feedback@isb-cgc.org).
 
 Data Sets
 ---------
