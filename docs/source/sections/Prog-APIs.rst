@@ -2,7 +2,7 @@
 APIs
 *************************
 
-Programmatic access to the data and metadata is provided through a combination of ISB-CGC APIs and Google APIs. The majority of the ISB-CGC data in BigQuery tables and in Google Cloud Storage is  accessed directly via Google Cloud tools and interfaces. Access to ISB-CGC metadata and user-data such as cohort definitions is provided through the ISB-CGC programmatic API described below.
+Programmatic access to ISB-CGC data and metadata is provided through ISB-CGC APIs built on Google's OpenAPI Endpoints. A SwaggerUI interface is also available, to try out the APIs and view their documentation. User-generated data such as cohort definitions, and user functions such as registering GCP projects is also available through the ISB-CGC API Endpoints. Note that all user-generated Endpoints require identity credentials for use.
 
 
 .. toctree::
