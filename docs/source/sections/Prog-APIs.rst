@@ -9,8 +9,14 @@ Programmatic access to ISB-CGC data and metadata is provided through ISB-CGC API
    :maxdepth: 1
    
    progapi/progAPI-v4/Programmatic-Demo
-   
-   `Swagger UI <https://mvm-api-dot-isb-cgc.appspot.com/v4/swagger#/>`_
-   
+   ISB-CGC-API-v4_
    
    
+   
+   
+   
+
+
+
+
+.. _ISB-CGC-API-v4: https://mvm-api-dot-isb-cgc.appspot.com/v4/swagger#/
