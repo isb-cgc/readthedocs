@@ -66,7 +66,7 @@ Before making any requests, you would normally authorize your session by clickin
 
 
 Make a Request
----------------
+==============
 
 Now letâ€™s make a request:
 
@@ -98,6 +98,15 @@ Swagger UI submits the request and shows the curl code that was submitted. The â
 .. image:: response-body.PNG
    :scale: 50
    :align: center 
+
+
+ISB-CGC APIs v4
+================
+
+ISB-CGC-API-v4_
+   
+
+.. _ISB-CGC-API-v4: https://mvm-api-dot-isb-cgc.appspot.com/v4/swagger#/
 
 
 Nuances when using the APIs
