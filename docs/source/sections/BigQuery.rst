@@ -23,6 +23,7 @@ In this section, you'll learn how to:
    progapi/bigqueryGUI/WalkthroughOfGoogleBigQuery
    bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform
    bigqueryGUI/LinkingBigQueryToIsb-cgcProject
+   BigQuery/BigQueryUsageCosts
 
 
 .. toctree::
@@ -31,7 +32,7 @@ In this section, you'll learn how to:
    
    BigQuery/BQ_overview
    PanCancer-Atlas-Mirror
-   BigQuery/BigQueryUsageCosts
+  
 
 
 
