@@ -26,7 +26,7 @@ The `ISB-CGC API v4.0 <https://mvm-api-dot-isb-cgc.appspot.com/v4/swagger#/>`_ c
    :align: center 
 
 
-The primary organizing principle  subsetting and working with the TCGA data is a Cohort which isa list of samples. Users may create and share cohorts using the ISB-CGC web-app and then programmatically access them using the Swagger UI. (TCGA samples are identified using a 16-character “barcode” e.g. TCGA-B9-7268-01A, while patients are identified using the 12-character prefix, i.e. TCGA-B9-7268, of the sample barcode. Other datasets such as CCLE may use other less standardized naming conventions).
+The primary organizing principle  subsetting and working with the TCGA data is a Cohort which is a list of samples. Users may create and share cohorts using the ISB-CGC web-app and then programmatically access them using the Swagger UI. (TCGA samples are identified using a 16-character “barcode” e.g. TCGA-B9-7268-01A, while patients are identified using the 12-character prefix, i.e. TCGA-B9-7268, of the sample barcode. Other datasets such as CCLE may use other less standardized naming conventions).
 
 
 
@@ -43,7 +43,7 @@ Some example use-cases include:
  - Creating (or retrieving a previously saved) cohort of patients and samples, based on a defined set of criteria
  - Retrieving a cohort's file manifest using the cohort ID
  - Retrieve a cohort's file manifest based on filters provided
- - Register, refresh, unregister a specified Google Cloud Project
+ - Register, refresh, and unregister a specified Google Cloud Project
  
 
 To get a better understanding of Swagger UI, let’s explore the Swagger ISB-CGC in depth. In the ISB-CGC example, the site is generated using Swagger UI.  All parameters and responses are in JSON format. 
@@ -51,11 +51,11 @@ To get a better understanding of Swagger UI, let’s explore the Swagger ISB-CGC
 
 The APIs are grouped as follows:
 
- - samples
- - cases
- - files
- - cohorts
- - users
+ - Samples
+ - Cases
+ - Files
+ - Cohorts
+ - Users
 
 
 Authorize Your Request
@@ -95,8 +95,7 @@ In the 'sample barcode value field', change string to list of samples you wish y
 Click 'Execute'
 
 
-.. image:: post-samples-execute.PNG
-   :scale: 50
+.. image:: post_samples_execute.PNG
    :align: center 
 
 
@@ -104,7 +103,6 @@ Swagger UI submits the request and shows the curl code that was submitted. The �
 
 
 .. image:: response-body.PNG
-   :scale: 50
    :align: center 
 
 
@@ -122,14 +120,14 @@ Nuances when using the APIs
 ===========================
 
 
-Any special characters in the input field will cause the endpoint to fail. e.g. spacing in inout box.
+- Any special characters in the input field will cause the endpoint to fail. e.g. spacing in input box.
 
-Please make sure to delete all fields not being used.
+- Please make sure to delete all fields not being used.
 
-Case barcode centric endpoints only pull TCGA and CCLE hg19 data details e.g file paths. 
+- Case barcode centric endpoints only pull TCGA and CCLE hg19 data details e.g. file paths. 
 
-Use sample centric endpoint to pull hg38 centric data details using the endpoints.
+- Use sample centric endpoint to pull hg38 centric data details using the endpoints.
 
-Cohorts made in CloudSQL(web app) will differ in sample counts from cohorts made with BigQuery tables(APIs). Samples which correspond to pathology slide images are in the CloudSQL tables but not the BigQuery tables.
+- Cohorts made in CloudSQL(web app) will differ in sample counts from cohorts made with BigQuery tables(APIs). Samples which correspond to pathology slide images are in the CloudSQL tables but not the BigQuery tables.
 
 
