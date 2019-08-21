@@ -1,7 +1,7 @@
 
-**********
-BigQuery
-**********
+****************
+Google BigQuery
+****************
 
 Google BigQuery (BQ) is a a massively-parallel analytics engine ideal for working with tabular data. Analyze patient, biospecimen, and molecular data for many cancer programs such as TCGA, TARGET, CCLE, GTEx all in ISB-CGC's BigQuery tables. 
 
