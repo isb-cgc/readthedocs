@@ -20,9 +20,9 @@ In this section, you'll learn how to:
    :hidden:
    :maxdepth: 1
 
-   progapi/bigqueryGUI/WalkthroughOfGoogleBigQuery
-   bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform
-   bigqueryGUI/LinkingBigQueryToIsb-cgcProject
+   progapi/bigqueryGUI/GettingStartedWithGoogleBigQuery
+   progapi/bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform
+   progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject
    BigQuery/BigQueryUsageCosts
 
 
@@ -30,7 +30,7 @@ In this section, you'll learn how to:
    :hidden:
    :maxdepth: 1
    
-   progapi/bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform
+   
    BigQuery/BQ_overview
    PanCancer-Atlas-Mirror
   
