@@ -53,7 +53,6 @@ The APIs are grouped as follows:
 
  - samples
  - cases
- - samples
  - files
  - cohorts
  - users
