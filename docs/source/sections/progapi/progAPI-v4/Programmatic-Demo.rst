@@ -59,7 +59,7 @@ The APIs are grouped as follows:
  - users
 
 
-Authorize your request
+Authorize Your Request
 ======================
 
 
