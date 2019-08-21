@@ -7,7 +7,7 @@ APIs
 About
 ======
 
-API stands for Application Programming Interface. An API is a software intermediary that allows two applications to talk to each other.  In other words, an API is the messenger that delivers your request to the provider that you’re requesting it from and then delivers the response back to you. 
+API stands for Application Programming Interface. An API is a software intermediary that allows two applications to talk to each other.  In other words, an API is the messenger that delivers your request to the provider that you’re requesting it from and then delivers the response back to you. Programmatic access to data within the ISB-CGC platform uses a combination of ISB-CGC APIs and `Swagger UI <https://swagger.io/>`_ documentation. 
 
 Programmatic access to ISB-CGC data and metadata is provided through ISB-CGC APIs built
 on Google's OpenAPI Endpoints. A SwaggerUI interface is also available, to try out the APIs 
@@ -17,8 +17,6 @@ GCP projects is also available through the ISB-CGC API Endpoints.
 **Note that all user-generated Endpoints require identity 
 credentials for use.**
 
-
-Programmatic access to data within the ISB-CGC platform uses a combination of ISB-CGC APIs and `Swagger UI <https://swagger.io/>`_ documentation. 
 
 The ISB-CGC API provides an interface to the ISB-CGC metadata stored in BigQuery, and consists of several “endpoints”, implemented using Google Cloud Endpoints. Details about these endpoints can be found below. 
 
