@@ -30,6 +30,7 @@ In this section, you'll learn how to:
    :hidden:
    :maxdepth: 1
    
+   progapi/bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform
    BigQuery/BQ_overview
    PanCancer-Atlas-Mirror
   
