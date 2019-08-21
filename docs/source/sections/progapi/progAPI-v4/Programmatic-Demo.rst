@@ -112,4 +112,6 @@ Case barcode centric endpoints only pull TCGA and CCLE hg19 data details e.g fil
 
 Use sample centric endpoint to pull hg38 centric data details using the endpoints.
 
+Cohorts made in CloudSQL(web app) will differ in sample counts from cohorts made with BigQuery tables(APIs). Samples which correspond to pathology slide images are in the CloudSQL tables but not the BigQuery tables.
+
 
