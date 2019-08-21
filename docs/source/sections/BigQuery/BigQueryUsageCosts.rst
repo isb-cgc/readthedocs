@@ -1,5 +1,6 @@
+**********************
 BigQuery Usage Costs
-####################
+**********************
 
 More details about BigQuery costs can be found in the Google
 `documentation <https://cloud.google.com/bigquery/pricing>`_.
