@@ -18,19 +18,6 @@ GCP projects is also available through the ISB-CGC API Endpoints.
 credentials for use.**
 
 
-The ISB-CGC API provides an interface to the ISB-CGC metadata stored in BigQuery, and consists of several “endpoints”, implemented using Google Cloud Endpoints. Details about these endpoints can be found below. 
-
-Some example use-cases include:
-
-
- - obtaining detailed metadata about a particular patient or sample;
- - creating (or retrieving a previously saved) cohort of patients and samples, based on a defined set of criteria;
- - retrieving a cohort's file manifest using the cohort ID;
- - retrieve a cohort's file manifest based on filters provided;
- - register, refresh, unregister a specified Google Cloud Project;
-
-
-
 The `ISB-CGC API v4.0 <https://mvm-api-dot-isb-cgc.appspot.com/v4/swagger#/>`_ can be used to see details about each endpoint, and also provides a convenient interface to test an endpoint through your web browser. 
 
 
@@ -44,9 +31,20 @@ The primary organizing principle  subsetting and working with the TCGA data is a
 
 
 
-Demo of Swagger UI
+APIs Demo
 ===================
 
+The ISB-CGC API provides an interface to the ISB-CGC metadata stored in BigQuery, and consists of several “endpoints”, implemented using Google Cloud Endpoints. Details about these endpoints can be found below. 
+
+Some example use-cases include:
+
+
+ - Obtaining detailed metadata about a particular patient or sample
+ - Creating (or retrieving a previously saved) cohort of patients and samples, based on a defined set of criteria
+ - Retrieving a cohort's file manifest using the cohort ID
+ - Retrieve a cohort's file manifest based on filters provided
+ - Register, refresh, unregister a specified Google Cloud Project
+ 
 
 To get a better understanding of Swagger UI, let’s explore the Swagger ISB-CGC in depth. In the ISB-CGC example, the site is generated using Swagger UI.  All parameters and responses are in JSON format. 
 
