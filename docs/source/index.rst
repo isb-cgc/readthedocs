@@ -38,7 +38,7 @@ The ISB-CGC aims to serve the needs of a broad range of cancer researchers rangi
    sections/BigQuery
    sections/Gaining-Access-To-Controlled-Access-Data
    sections/Web-UI
-   sections/Prog-APIs
+   sections/progapi/progAPI-v4/Programmatic-Demo
    
 .. toctree::
    :hidden:
