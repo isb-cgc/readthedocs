@@ -6,7 +6,7 @@ In order to use BigQuery, you must have access to a Google Cloud Platform (GCP) 
 You will also need a Google account identity (freely available with a new account or by linking to an existing email account). 
 If you have not logged into the `Google Cloud Platform <http://cloud.google.com>`_ you will be presented with this page (click on the image to enlarge it):
 
-.. image:: SignIntoGCP.png
+.. image:: NewSignIntoGCP.png
    :scale: 75
    :align: center
 
