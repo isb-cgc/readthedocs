@@ -22,7 +22,7 @@ Below are some sample queries that will get you started using BigQuery and these
 The examples below show the question that is being asked, and an example BigQuery SQL syntax that can be used to find the answer.  Try it yourself by pasting the query into your own instance of the BigQuery web UI.
 
 
-Getting information from one table
+Querying one table
 ==================================
 
 **Q: Find all THCA participants with UNC HiSeq gene expression data for the ARID1B gene**
@@ -42,7 +42,7 @@ Getting information from one table
    :scale: 50
    :align: center
   
-Getting information from more than one table (Joining)
+Querying from more than one table (Joining)
 ======================================================
 
 **Q: For bladder cancer patients that have mutations in the CDKN2A (cyclin-dependent kinase inhibitor 2A) gene, what types of mutations are they, what is their gender, vital status, and days to death - and for 3 downstream genes (MDM2 (MDM2 proto-oncogene), TP53 (tumor protein p53), CDKN1A (cyclin-dependent kinase inhibitor 1A)), what are the gene expression levels for each patient?**
