@@ -14,7 +14,7 @@ For additional details about each menu item, see the corresponding section in th
 The **MENU** bar supplies quick and common links for the following Web App features: 
 
 * **DASHBOARD** - This menu item takes you to **Your Dashboard**, the Web App home page.
-|
+
 * **WORKBOOKS** - Workbooks store the Analyses you create, and their related data. You can create worksheets as you explore and analyze selected underlying data (i.e. Genes and miRNAs, Variables and Cohorts). From the Workbook menu item, you can select the following:
    
    - Saved Workbooks - Displays all your saved workbooks and allows you to edit, duplicate or delete the workbooks.
@@ -76,13 +76,13 @@ The **MENU** bar supplies quick and common links for the following Web App featu
       * Delete 
       * Start New Workbook - (Create a New Workbook using the selected Favorite Variables)
 
-    - Create Favorite Variable(s) List - Here you "Name" your new favorite and select variables from four (4) available data sources to incorporate in your analysis- 
+    - Create Favorite Variable(s) List - Here you "Name" your new favorite and select variables from four available data sources to incorporate in your analysis:
 
       * Common Variables
       * Favorite(s) Saved
       * Programs (Previously Uploaded and Saved) 
       
-    - *Select Variables for a New Workbook* - This sub-menu has two features:
+    - Select Variables for a New Workbook - This sub-menu has two features:
       
       * Apply to New Worksheet - Select a Favorite(s) variables from the list shown of stored Favorites to Analyze 
       * Add (+) Apply New Variable List - Basically navigates back to the **Create Variables Favorite** (See description above)  
@@ -90,13 +90,14 @@ The **MENU** bar supplies quick and common links for the following Web App featu
 * **COHORTS** - Here you can **Manage Saved Cohorts**, select **Public Cohorts** and **Select Cohorts for a New Workbook** or **Create your First Cohort** if it's empty.
 
     - Manage Saved Cohorts - There are two tabs:
-
-      * Saved Cohorts - Displays previously created cohorts which can be selected. If no cohorts exist, you can create your first Cohort here by selecting the "Create Your First Cohort" link displayed and selecting Donors and Data Types. Within Saved Cohorts you can:
+      
+      - Saved Cohorts - Displays previously created cohorts which can be selected. If no cohorts exist, you can create your first Cohort here by selecting the "Create Your First Cohort" link displayed and selecting Donors and Data Types. Within Saved Cohorts you can:
+         
          - Create a "New Workbook" from a saved Cohort
          - Delete a Saved Cohort
          - Set Operations (i.e., Union, Intersection or complement) from a Base or Subtracted Cohort.
-  
-      * Public Cohorts - Displays any public cohorts which can be selected.
+      - Public Cohorts - Displays any public cohorts which can be selected.
+         
          - Create a "New Workbook" from a saved Public Cohort
          - Set Operations (i.e., Union, Intersection or complement) from a Base or Subtracted Cohort.
          
