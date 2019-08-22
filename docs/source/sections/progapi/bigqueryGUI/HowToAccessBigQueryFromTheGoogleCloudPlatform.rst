@@ -15,7 +15,7 @@ When first logging into the `Google Cloud Platform <http://cloud.google.com>`_ ,
    :align: center
 
 
-You will be presented with sign in page, prompting you to enter a Google account identity:
+You will be presented with sign in page, prompting you to enter a Google account log in and password:
 
 .. image:: SignInPage.png
    :scale: 50
