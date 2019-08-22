@@ -20,8 +20,7 @@ Using the list of filters on the left panel, you can select the attributes and f
 
 CCLE (The Cancer Cell Line Encyclopedia) data is an open access data set; therefore, a user does not need dbGaP permissions to view its sequence data with the IGV viewer.
 
-By clicking on a feature, the field will expand and provide you with additional filtering options. For example, when you click on "Vital Status", it expands and provides a list containing "Alive", "Dead", and
-"NA" as options you may choose from. 
+By clicking on a feature, the field will expand and provide you with additional filtering options. For example, when you click on "Vital Status", it expands and provides a list containing "Alive", "Dead", and "NA" as options you may choose from. 
 
 Selecting one or more of these will cause the filter(s) to appear in the Selected Filters panel and will update the Program Details panel with the Total Number of Samples based on the selected filters.
 
@@ -29,14 +28,15 @@ Individual selections within a filter group are "ORed" together, meaning if any 
 
 Program Selection Panel
 -----------------------
-The panel in the center of the screen, with four tabs called "TCGA DATA", "CCLE DATA", "TARGET DATA", and "USER DATA" will allow to create a cohort between data programs in the system and data that you have uploaded. 
-- The TCGA, CCLE, and TARGET DATA tab each have three tabs called "CASE", "DATA TYPE", and "MOLECULAR"  which allow you to apply filters to the cohorts your are creating using ISB-CGC hosted data. 
-- For the USER DATA tab, there is one tab called "PROJECTS & STUDIES" which allow you to filter by the projects or studies you have uploaded to the system. Below are the details of each tab.
+The panel in the center of the screen, with four tabs called "TCGA DATA", "CCLE DATA", "TARGET DATA", and "USER DATA" will allow to create a cohort between data programs in the system and data that you have uploaded.
+
+- The TCGA, CCLE, and TARGET DATA tab each have three tabs called "CASE", "DATA TYPE", and "MOLECULAR" which allow you to apply filters to the cohorts you are creating using ISB-CGC hosted data. 
+- For the USER DATA tab, there is one tab called "PROJECTS & STUDIES" which allow you to filter by the projects or studies you have uploaded to the system.
 
 **Note:** Selecting the program filter will add all samples pertaining to program. Also there is a mouse over feature that will display the disease code long name if it's part of the TCGA, CCLE, or TARGET data set.
 
 Filter List by Program (Case and Data Tabs)
-^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
           
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
    | TCGA Case Tab         | TCGA Data Tab                | CCLE Case Tab       | TARGET Case  Tab      | TARGET Data Tab             |
