@@ -29,6 +29,7 @@ Once you sign in, click on Console at the top of the screen (see arrow in image 
 
 
 At the home button, scroll down to BigQuery to open it. 
+
 .. image:: AccessingBigQuery.png
    :scale: 50
    :align: center
