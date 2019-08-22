@@ -10,7 +10,7 @@ Data Sets
 ---------
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    
    data/TCGA_top
    data/TCGA-images
