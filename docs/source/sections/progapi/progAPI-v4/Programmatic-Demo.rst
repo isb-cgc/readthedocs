@@ -7,7 +7,10 @@ APIs
 About
 ======
 
-API stands for Application Programming Interface. An API is a software intermediary that allows two applications to talk to each other.  In other words, an API is the messenger that delivers your request to the provider that you’re requesting it from and then delivers the response back to you. Programmatic access to data within the ISB-CGC platform uses a combination of ISB-CGC APIs and `Swagger UI <https://swagger.io/>`_ documentation. 
+API stands for Application Programming Interface. An API is a software intermediary that allows two applications to talk to each other.
+In other words, an API is the messenger that delivers your request to the provider that you’re requesting it from and then delivers the
+response back to you. Programmatic access to data within the ISB-CGC platform uses a combination of ISB-CGC APIs and `Swagger UI
+<https://swagger.io/>`_ documentation. 
 
 Programmatic access to ISB-CGC data and metadata is provided through ISB-CGC APIs built
 on Google's OpenAPI Endpoints. A SwaggerUI interface is also available, to try out the APIs 
