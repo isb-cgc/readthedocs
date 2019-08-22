@@ -199,14 +199,17 @@ You can easily save Query results in intermediate tables in your project, allowi
 
 
 *****************************
-For Additional Google Support
+Additional Google Support
 *****************************
-Google provides its users with a detailed explanation of BigQuery and how it works. 
 
- -https://cloud.google.com/bigquery/what-is-bigquery 
+Google provides its users with a detailed explanation of BigQuery and how it works, query reference guides, quickstart guide using the BigQuery Web UI and much more. 
 
-Google also provides a query reference guide 
+https://cloud.google.com/bigquery/what-is-bigquery 
 
- -https://cloud.google.com/bigquery/query-reference 
+https://cloud.google.com/bigquery/query-reference 
+
+https://cloud.google.com/bigquery/docs/quickstarts/quickstart-web-ui
+
+
 
 
