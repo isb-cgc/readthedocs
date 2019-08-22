@@ -10,11 +10,10 @@ If you have not logged into the `Google Cloud Platform <http://cloud.google.com>
    :scale: 30
    :align: center
 
-You login through the *Sign In* link at the upper right of the initial page (label *A* in the image above). Also on this page are links to a free-trail on the Google Cloud Platform (B) and (C), a link to contact google for any issues regarding the google cloud platform (D), a link to more information about the Google Cloud platform (E).  
 
-Upon signing in with a Google account identity, you will be presented with the following page:
+You will be presented with the following page, prompting you to sign in with a Google account identity:
 
-.. image:: GCPDashboard.png
+.. image:: SignInPage.png
    :scale: 50
    :align: center
    
