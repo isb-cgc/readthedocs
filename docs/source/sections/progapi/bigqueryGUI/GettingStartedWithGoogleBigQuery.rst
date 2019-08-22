@@ -196,27 +196,6 @@ Saving Query Results in other BigQuery Tables
 *********************************************
 You can easily save Query results in intermediate tables in your project, allowing others to view and use them.  Details from Google on how to do that is `here <https://cloud.google.com/bigquery/bigquery-web-ui>`_.  If your query gets too complex it can take too long to run.  Creating intermediate result tables can be a good approach to obtain the same result more quickly and at a lower cost. 
 
-******************************
-Tutorials Provided by Google
-******************************
-
-**Using BigQuery with C#**
-
- Mete Atamel (@meteatamel) shows how you use BigQuery with C#. 
- Take a look at this codelab for more details → http://bit.ly/2xATB5V 
- video → `here <https://www.youtube.com/watch?v=zOjOg_Lp5Nc&list=PLIivdWyY5sqLfOJPABd0ec4go0pEoEQOA&index=2&t=0s>`_ 
-
-**Customer-Managed Encryption Keys for BigQuery**
- 
- Felipe Hoffa (@felipehoffa) shows you how to use a key in Cloud Key Management Service (Cloud KMS) to protect your data stored at rest in BigQuery. Customer-Managed Encryption Keys (CMEK) allow you to select a key you managed in Cloud KMS to protect your data stored in other Google services, using native storage layer encryption.
- 
- video → `here <https://www.youtube.com/watch?v=-dlv9wJheF8&list=PLIivdWyY5sqLfOJPABd0ec4go0pEoEQOA&index=2>`_
- 
-**Create a BigQuery table with Ruby**
-
- In this video Aja (@the_thagomizer) shows you how to create a BigQuery table using the Google Cloud ruby gem. This video assumes you have a service account with BigQuery create permissions and that the BigQuery API is turned on. 
- 
- video → `here <https://www.youtube.com/watch?v=Mr1bFFugRYo&list=PLIivdWyY5sqLfOJPABd0ec4go0pEoEQOA&index=3>`_
 
 
 *****************************
