@@ -21,8 +21,9 @@ Below are some sample queries that will get you started using BigQuery and these
 
 The examples below show the question that is being asked, and an example BigQuery SQL syntax that can be used to find the answer.  Try it yourself by pasting the query into your own instance of the BigQuery web UI.
 
+
 Getting information from one table
-##################################
+==================================
 
 **Q: Find all THCA participants with UNC HiSeq gene expression data for the ARID1B gene**
 
@@ -42,15 +43,15 @@ Getting information from one table
    :align: center
   
 Getting information from more than one table (Joining)
-######################################################
+======================================================
 
 **Q: For bladder cancer patients that have mutations in the CDKN2A (cyclin-dependent kinase inhibitor 2A) gene, what types of mutations are they, what is their gender, vital status, and days to death - and for 3 downstream genes (MDM2 (MDM2 proto-oncogene), TP53 (tumor protein p53), CDKN1A (cyclin-dependent kinase inhibitor 1A)), what are the gene expression levels for each patient?**
 
 This question was chosen as an interesting example because the p53/Rb pathway is commonly involved in bladder cancer (see `TCGA Network paper <https://tcga-data.nci.nih.gov/docs/publications/blca_2013/>`_ "Comprehensive Molecular Characterization of Urothelial Bladder Carcinoma", Figure 4).
 
-This is a complex question that requires information from four tables.  We will build up this complex query in three stages.
+This is a complex question that requires information from four tables.  We will build up this complex query in three steps.
 
-Stage 1
+Step 1
 *******
 Finding the patients with bladder cancer that have mutations in the CDKN2A gene, and displaying the patient ID and 
 the type of mutation
@@ -80,7 +81,7 @@ We now have the list of patients that have a mutation in the CDKN2A gene and the
 
 Notice that we have named the "isb-cgc:TCGA_hg19_data_v0.Somatic_Mutation_DCC" table "mutation" using the AS statement.  This is useful for easier reading and composing of complex queries.
 
-Stage 2
+Step 2
 *******
 Bringing in the patient data from the ISB-CGC TCGA Clinical table so that we can see each patient's gender, vital status and days to death.
 
@@ -122,7 +123,7 @@ We now have combined information from two tables through a join.  Notice in part
 and the fact that
 for the join (inner join by default), the fields that are identiical between the mutation table and the clinical table is "case_barcode".  
 
-Stage 3
+Step 3
 *******
 Show the gene expression levels for the 4 genes of interest, and order them by case id (Case Barcode) and gene name (HGNC_gene_symbol).  
   
@@ -191,11 +192,10 @@ Note that the final join surrounds the previous join top and bottom.  This is co
 
 You can either download the results from a query in either CSV or JSON format, or save it for further analysis in Google BigQuery by the "Save as Table" button.  As the next section describes, large queries continuing to combine multiple tables in a gene query may be limited by cost and resources, saving results as intermediate tables is a solution to these issues.
 
-*********************************************
-Saving Query Results in other BigQuery Tables
-*********************************************
-You can easily save Query results in intermediate tables in your project, allowing others to view and use them.  Details from Google on how to do that is `here <https://cloud.google.com/bigquery/bigquery-web-ui>`_.  If your query gets too complex it can take too long to run.  Creating intermediate result tables can be a good approach to obtain the same result more quickly and at a lower cost. 
 
+Saving Query Results to other BigQuery Tables
+==============================================
+You can easily save Query results in intermediate tables in your project, allowing others to view and use them.  Details from Google on how to do that is `here <https://cloud.google.com/bigquery/bigquery-web-ui>`_.  If your query gets too complex it can take too long to run.  Creating intermediate result tables can be a good approach to obtain the same result more quickly and at a lower cost. 
 
 
 *****************************
