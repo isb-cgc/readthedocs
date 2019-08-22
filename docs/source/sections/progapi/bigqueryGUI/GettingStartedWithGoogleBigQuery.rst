@@ -230,8 +230,4 @@ Google also provides a query reference guide
 
  -https://cloud.google.com/bigquery/query-reference 
 
-***************
-Important Note
-***************
-`Here <https://cloud.google.com/bigquery/pricing>`_ is information about how much does it costs to use BigQuery.  Queries are billed according to how much data is scanned during the course of the query, and the rate is $5 per TB, although the first 1 TB is free each month.
-You can keep an eye on your GCP expenses on your Google Cloud Platform `Console home page <https://console.cloud.google.com/home/dashboard>`_.
+
