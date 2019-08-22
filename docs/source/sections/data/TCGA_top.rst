@@ -97,9 +97,3 @@ Historically, the data was obtained from two former TCGA data repositories:
 * **CGHub**:  the **Cancer Genomics Hub** was NCI's secure data repository for all TCGA BAM and FASTQ sequence data files.
 
 In June of 2016, the official data repository for all TCGA and other NCI CCG data is the NCI's `Genomic Data Commons <https://gdc.cancer.gov/>`_ (GDC).  The original TCGA data, aligned to the hg19 human reference genome is available from the GDC's `legacy archive <https://portal.gdc.cancer.gov/legacy-archive/search/f>`_ while the new "harmonized" data, realigned to hg38 is available from the GDC's main `data portal <https://portal.gdc.cancer.gov/>`_.
-
-.. toctree::
-   :hidden:
-   :maxdepth: 3
-   
-   TCGA_top
