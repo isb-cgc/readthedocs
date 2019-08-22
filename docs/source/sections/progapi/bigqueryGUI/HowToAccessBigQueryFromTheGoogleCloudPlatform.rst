@@ -1,5 +1,5 @@
 =======================================================
-How to Access BigQuery from the Google Cloud Platform
+Accessing BigQuery from the Google Cloud Platform
 =======================================================
 
 In order to use BigQuery, you must have access to a Google Cloud Platform (GCP) project.  
