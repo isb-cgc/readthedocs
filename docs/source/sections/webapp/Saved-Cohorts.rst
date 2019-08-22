@@ -13,35 +13,33 @@ If you already have saved cohorts, they will be listed in the **Saved Cohorts** 
 
 These functions can also be navigated to by using the drop down options in the **COHORTS** item on the menu bar.
 
-Cohort Creation Filters Page
-============================
+Cohort Creation - Filters 
+=========================
 
-Using the provided list of filters on the left hand side, you can select the attributes and features
-that you are interested in either from ISB-CGC data or the User Data tab.  TCGA Data is the first program to be displayed next to it is CCLE and TARGET Data tabs. You are able to create a cohort with multiple program filters.  CCLE (The Cancer Cell Line Encyclopedia) data - is open access data set that can be used to view sequence data with the IGV viewer without having dbGaP permissions.
+Using the list of filters on the left panel, you can select the attributes and features that you are interested in either from ISB-CGC data (TCGA, CCLE, TARGET) or user data. You are able to create a cohort with multiple program filters.  
 
-By clicking on a feature, the field will expand and provide you with additional filtering options.
-For example, when you click on "Vital Status", it expands and provides a list containing "Alive", "Dead", and
+CCLE (The Cancer Cell Line Encyclopedia) data is an open access data set; therefore, a user does not need dbGaP permissions to view its sequence data with the IGV viewer.
+
+By clicking on a feature, the field will expand and provide you with additional filtering options. For example, when you click on "Vital Status", it expands and provides a list containing "Alive", "Dead", and
 "NA" as options you may choose from. 
-Selecting one or more of these will cause the filter(s) to appear in the Selected Filters
-panel and visualizations on the page
-will be updated to reflect that the current cohort has been filtered according to Vital Status.
-The numbers beside the selectable
-filter values reflect the number of samples that have that attribute based on all other filters that
-have been selected.
 
-Individual selections in a filter are "ORed" together, meaning if any of the selected conditions are met they will be in the filter.  Filters are "ANDed" together, meaning that selecting two filters means that the cases and samples are created based on both filters being executed.  There may be cases where you have 0 cases and samples, because the combination of filters you have chosen are ALL not present (AND function).
+Selecting one or more of these will cause the filter(s) to appear in the Selected Filters panel and will update the Program Details panel with the Total Number of Samples based on the selected filters.
 
+Individual selections within a filter group are "ORed" together, meaning if any of the conditions are met, they will be in the results.  On the other hand, filters are "ANDed" together, meaning that data must meet all filter criteria in order to be selected. There may be cases where you have 0 cases and samples in the results, based on the combination of filters you have chosen.
 
 Program Selection Panel
 -----------------------
-The panel in the center of the screen, with four tabs called "TCGA DATA", "CCLE DATA", "TARGET DATA", and "USER DATA" will allow to create a cohort between data programs in the system and data that you have uploaded. The  TCGA, CCLE, and TARGET DATA tab each have three tabs called "CASE", "DATA TYPE", and "MOLECULAR"  which allow you to apply filters to the cohorts your are creating using ISB-CGC hosted data. For the USER DATA tab, there is one tab called "PROJECTS & STUDIES" which allow you to filter by the projects or studies you have uploaded to the system. Below are the details of each tab.
+The panel in the center of the screen, with four tabs called "TCGA DATA", "CCLE DATA", "TARGET DATA", and "USER DATA" will allow to create a cohort between data programs in the system and data that you have uploaded. 
+- The TCGA, CCLE, and TARGET DATA tab each have three tabs called "CASE", "DATA TYPE", and "MOLECULAR"  which allow you to apply filters to the cohorts your are creating using ISB-CGC hosted data. 
+- For the USER DATA tab, there is one tab called "PROJECTS & STUDIES" which allow you to filter by the projects or studies you have uploaded to the system. Below are the details of each tab.
 
-**Please Note:** Selecting the program filter will add all samples pertaining to program. Also there is a mouse over feature that will display the disease code long name if it's part of the TCGA, CCLE, or TARGET dataset.
+**Note:** Selecting the program filter will add all samples pertaining to program. Also there is a mouse over feature that will display the disease code long name if it's part of the TCGA, CCLE, or TARGET data set.
 
-
+Filter List by Program (Case and Data Tabs)
+^^^^^^^^^^^^^^^^^^^^^^
           
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | TCGA Cases Tab        | TCGA Data Type Tab           | CCLE Cases Tab      | TARGET Cases Tab      | TARGET Data Type Tab        |
+   | TCGA Case Tab         | TCGA Data Tab                | CCLE Case Tab       | TARGET Case  Tab      | TARGET Data Tab             |
    +=======================+==============================+=====================+=======================+=============================+
    | Program               | Pathology Image              | Program             | Program               | mRNA Gene Quantification    |
    +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
@@ -97,28 +95,26 @@ The panel in the center of the screen, with four tabs called "TCGA DATA", "CCLE 
    
 Molecular Tab
 ^^^^^^^^^^^^^
-Gene Mutation Status (creating a cohort based on the presence of a mutation (of various types) in a gene or genes).
 
-This is currently only available for TCGA data.  To combine multiple gene filters, select AND (requires all filters to be met for the data to be filtered) or OR (at least one criteria needs to be met for the data to be displayed).
-          
- NOTE 1: If you use AND and do not see the data you are expecting in the filter, try OR instead.  AND is a more restrictive criteria requiring all filters to be met, OR is less restrictive, requiring only one criteria to be met for the data to appear.
-          
- NOTE 2: Please add in your saved cohort title the term AND or OR for the combination you used, as the type of combination used in your cohort does not currently appear in the summary of filters in a saved cohort.  We are working on this.
-          
-You can also filter by different genomic builds and hence different BigQuery Tables.  The two BigQuery tables you can select from are *TCGA_hg19_data_v0:Somatic_Mutation_MC3* and *TCGA_hg38_data_v0:Somatic_Mutation*. 
+The Molecular Tab is only available for TCGA data. It enables the user to filter by Gene Mutation Status (creating a cohort based on the presence of a mutation (of various types) in a gene or genes).
 
+To combine multiple gene filters, select AND (requires all filters to be met for the data to be filtered) or OR (at least one criteria needs to be met for the data to be displayed).
 
+You can also filter by different genomic builds.
+          
+ NOTES:
+ 
+ - If you use AND and do not see the data you are expecting in the filter, try OR instead.  AND is a more restrictive criteria requiring all filters to be met, OR is less restrictive, requiring only one criteria to be met for the data to appear.
+ - Please add the term "AND" or "OR" in your saved cohort title as the type of combination used in your cohort does not currently appear in the summary of filters in a saved cohort. 
+          
 Programs & Projects Tab
 ^^^^^^^^^^^^^^^^^^^^^^^^
-    * User Program
-    * User Project
+The Programs & Projects Tab is only available for User Data. It displays the programs and projects that are part of the user data set.  
 
+Saving the Cohort
+^^^^^^^^^^^^^^^^^^
 
-
-Save As New Cohort Button
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Push this button if you wish to save the cohort based on the filters you have set.  You will be asked for a cohort name and the selected filters will be displayed.  Enter the name (any text) and push the "Create Cohort" button. 
+Click the **Save as New Cohort** button when you are ready to save the cohort based on the filters you have set.  You will be asked for a cohort name and the selected filters will be displayed.  Enter the name and click the **Create Cohort** button. 
 
 **NOTE:** When working with multiple programs you will see a yellow notification box stating, "Your cohort contains samples from multiple programs. Please note that filters will only apply to samples from the program indicated by the tab they were chosen on - they will not apply to samples from other programs in this cohort." 
 
@@ -181,8 +177,8 @@ Programs & Projects Panel
 
 This panel displays a list of images (called "treemaps") similar to the clinical features panel, but can only be found when the User Data tab is selected. This panel displays a high level breakdown of the projects and studies you have uploaded to the system. Another similarity to the clinical features panel hovering over the image will show details of the specific section of the image and the number of samples associated with it. 
 
-Cohort Creation Barcodes Page
-=============================
+Cohort Creation - Barcodes
+==========================
 
 This feature will allow you upload or enter your own list of sample or cases barcodes
 from multiple programs.  There is a blue instructions button present on both the upload and Enter tabs.  
