@@ -11,13 +11,14 @@ word Menu again.
 
 The **MENU** bar supplies quick and common links for the following Web App features: 
 
-* **DASHBOARD** - This link takes you to **Your Dashboard** Web App home page.
-
-* **WORKBOOKS** - Workbooks store the Analyses you create, and their related data.  You can create worksheets as you explore and analyze selected underlying data (i.e. Genes and miRNAs, Variables and Cohorts).  From the "Workbook" link you can select the following:
-   - Saved Workbooks - Displays all your saved workbooks and allows you to edit, duplicate or delete the workbook.
+* **DASHBOARD** - This menu item takes you to **Your Dashboard**, the Web App home page.
+* **WORKBOOKS** - Workbooks store the Analyses you create, and their related data. You can create worksheets as you explore and analyze selected underlying data (i.e. Genes and miRNAs, Variables and Cohorts). From the Workbook menu item, you can select the following:
+   
+   - Saved Workbooks - Displays all your saved workbooks and allows you to edit, duplicate or delete the workbooks.
    - Create a New Workbook - Allows you to create a new workbook by selecting the data source and analysis type.
      
-* **PROGRAMS** - These are shortcuts to the programs you have created if you uploaded your own data.
+* **PROGRAMS** - This menu item provides a ashortcut to the programs you have created if you uploaded your own data.
+   
    - Saved Programs - Here you can: 
 
        * Edit or delete a Saved Program
@@ -28,20 +29,21 @@ The **MENU** bar supplies quick and common links for the following Web App featu
      
         * Create a new program for analysis. To create a new program you provide a name for program, name for your project, and attach files that meet our Data Type requirements. Please see `Program Data Upload <program_data_upload.html>`_ for more information on data type accepted by the ISB-CGC. 
         * Save or cancel a new creation
-    -   *Public Programs* - Here you can:
         
-          *  View the programs and projects that are currently in the ISB-CGC system. 
+    - Public Programs - Here you can:
+        
+        *  View the public programs (such as TCGA, CCLE, TARGET) that are currently in the ISB-CGC system. 
 
 * **ANALYSES** - From here you can Create, Edit Details, Duplicate, Delete, or Share Analyses. You can use a specific analysis type to create a new workbook customized with the specific data (Genes and miRNAs, Variables, Cohorts) you have selected.  The plot types that you can select from include:
-    - *Bar Chart*
-    - *Histogram*
-    - *Scatter Plot*
-    - *Violin Plot*
-    - *Cubby Hole Plot*
-    - *SeqPeek*
-    - *OncoPrint*
-    - *OncoGrid*
-    - *Browse All Analyses*
+    
+    - Bar Chart
+    - Histogram
+    - Scatter Plot
+    - Violin Plot
+    - Cubby Hole Plot
+    - SeqPeek
+    - OncoPrint
+    - OncoGrid
 
 * **GENES & miRNA** - From this Menu selection you can **Manage Gene and miRNA Favorites**, **Create Gene and miRNA Favorite(s)** or **Select Genes and miRNAs for a New Workbook**. 
 
