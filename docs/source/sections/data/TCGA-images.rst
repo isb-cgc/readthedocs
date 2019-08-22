@@ -13,9 +13,7 @@ Over 1.4 million radiology image files in `DICOM <https://en.wikipedia.org/wiki/
 
 The BigQuery metadata table, ``isb-cgc.metadata.TCGA_radiology_images`` contains the full URLs to these ZIP files, *e.g.*:
 
-.. code-block:: none
-
-   gs://isb-tcia-open/images/TCGA-GBM/TCGA-06-5413/TCIA.image.1.3.6.1.4.1.14519.5.2.1.4591.4001.275342915307453440215680715165.zip 
+``gs://isb-tcia-open/images/TCGA-GBM/TCGA-06-5413/TCIA.image.1.3.6.1.4.1.14519.5.2.1.4591.4001.275342915307453440215680715165.zip``
 
 The metadata table also includes the patient identifier in TCGA "barcode" format, *e.g.* TCGA-06-5413 (which is also part of the GCS URL).  Other information available in the table includes the body part examined, image modality, patient age, etc.
 
