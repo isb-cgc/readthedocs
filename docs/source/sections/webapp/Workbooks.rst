@@ -1,20 +1,21 @@
+*********
 Workbooks
 *********
 
-Workbooks store the Analyses you create -- and their related data. Basically, the worksheets you create to conduct analysis based on the source data selected (i.e. Genes and miRNAs, Variables and Cohorts).  Workbooks can be used to:
-  • Group together multiple related analyses,
-  • Share analysis results with specific groups of people,
+Workbooks store the Analyses you create -- and their related data. The worksheets you create to conduct analysis are based on the source data selected (i.e. Genes and miRNAs, Variables and Cohorts).  Workbooks can be used to:
+  * Group together multiple related analyses.
+  * Share analysis results with specific groups of people.
 
 For example, you can create a Workbook (i.e., Disease A) which consists of identifying gene mutations and pathways involved in Head and Neck Cancer (and share it with research Group A). 
 
 And to create another Workbook (i.e., Disease B) with a different group of researchers (Group B) investigating the average time after diagnosis of death for different lung cancers.  Think of workbooks as virtual "excel spreadsheets" that various related analyses can be created in individual Worksheets (“Tabs” within the spreadsheet) and grouped together in one Workbook (the overall spreadsheet).
 
 Additionally, you can:
-  • Save a Workbook for later use, or
-  • Edit an existing Workbook.
+  * Save a Workbook for later use, or
+  * Edit an existing Workbook.
 
-Creating and Saving a Workbook
-##############################
+Create a New Workbook
+#####################
 
 From your Dashboard, you will find the “Saved Workbooks” panel.  This panel displays any previously created, Saved Workbooks, also you are able to “Create a New Workbook”. If you do not have any saved workbooks you will see “Workbooks store the analyses you create, and their related data." text in the panel.
 
@@ -134,3 +135,10 @@ Comments Section
 Any user who owns or has had a workbook shared with them can comment on it. To open comments, use the comments button at the top right and select “Comments”. A sidebar will appear on the right side and any previously created comments will be shown.
 
 On the bottom of the comments sidebar, you can create a new comment and save it. It should appear at the bottom of the list of comments.
+
+Saved Workbooks
+###############
+
+Selecting **Saved Workbooks** from the **WORKBOOKS** menu dropdown displays a screen displays a list of all of your saved workbooks, and information about the workbooks, including Version and Build, Name, number of Worksheets, Ownership and Last Updated.
+
+To the left of each Workbook, dropdown options allow you to Edit, Duplicate or Delete the Workbook.
