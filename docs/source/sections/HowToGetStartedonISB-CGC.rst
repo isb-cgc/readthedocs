@@ -6,8 +6,7 @@ The ISB-CGC provides both interactive (through a `web application <https://isb-c
 
 `More about ISB-CGC <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/About-ISB-CGC.html>`_, `ISB-CGC Main Landing Page <https://isb-cgc.appspot.com/>`_, `Full documentation of the ISB-CGC platform <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/index.html>`_, and `FAQS <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/FAQ.html>`_.
 
-Getting Started
-===================
+
 
 I. Data Access and Google Cloud Project Setup
 -----------------------------------------------

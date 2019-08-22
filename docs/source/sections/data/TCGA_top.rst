@@ -35,7 +35,7 @@ TCGA Data Levels
 
 For each *type* of data, there are typically three *levels* of data:
 
-* Level 1 typically represents raw, un-normalized data
+* Level 1 typically represents raw, unnormalized data
 * Level 2 typically represents an intermediate level of processing and/or normalization of the data
 * Level 3 typically represents aggregated, normalized, and/or segmented data
 
@@ -47,10 +47,10 @@ TCGA Data Types
 The TCGA data set is unique in that the tumor samples were assayed using a standard set of platforms and pipelines in order to produce a comprehensive data set including:
 
 * DNA sequencing of tumor samples and matched-normals (typically blood samples) in order to detect somatic mutations
-* SNP array based DNA copy-number and genotyping analysis of tumor samples and matched-normals
+* SNP array-based DNA copy-number and genotyping analysis of tumor samples and matched-normals
 * DNA methylation of tumor samples
 * messenger RNA (mRNA) expression analysis of the tumor samples to capture the gene expression profile
-* micro-RNA (miRNA) expression profiling of the tumor samples
+* microRNA (miRNA) expression profiling of the tumor samples
 
 In addition, protein expression for a significant fraction (~20%) of all tumor samples was obtained using RPPA (reverse phase protein array).
 
@@ -96,4 +96,4 @@ Historically, the data was obtained from two former TCGA data repositories:
 * **TCGA DCC**: the TCGA Data Coordinating Center which provided a **Data Portal** from which users could download open-access or controlled-access data.  This portal provided access to all TCGA data *except* for the low-level sequence data. 
 * **CGHub**:  the **Cancer Genomics Hub** was NCI's secure data repository for all TCGA BAM and FASTQ sequence data files.
 
-In June of 2016, the official data repository for all TCGA and other NCI CCG data is the `NCI Genomic Data Commons <https://gdc.cancer.gov/>`_ (NCI GDC).  The original TCGA data, aligned to the hg19 human reference genome is available from the NCI-GDC's `legacy archive <https://portal.gdc.cancer.gov/legacy-archive/search/f>`_ while the new "harmonized" data, realigned to hg38 is available from the NCI-GDC's main `data portal <https://portal.gdc.cancer.gov/>`_.
+In June of 2016, the official data repository for all TCGA and other NCI CCG data is the NCI's `Genomic Data Commons <https://gdc.cancer.gov/>`_ (GDC).  The original TCGA data, aligned to the hg19 human reference genome is available from the GDC's `legacy archive <https://portal.gdc.cancer.gov/legacy-archive/search/f>`_ while the new "harmonized" data, realigned to hg38 is available from the GDC's main `data portal <https://portal.gdc.cancer.gov/>`_.

@@ -11,6 +11,5 @@ research questions.
 
 For feature-requests or bug-reports, please send e-mail to feedback@isb-cgc.org.
 
-.. _request-gcp:
 
 
