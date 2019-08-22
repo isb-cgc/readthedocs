@@ -1,18 +1,10 @@
-====================================
-Getting Started With Google BigQuery
-====================================
-This will serve as a guide to navigate through the Google web-interface for BigQuery and do some introductory queiries using ISB-CGC hosted TCGA data.  For those who would rather use R or Python to programmatically interact with BigQuery, detailed tutorials are provided `here <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/progapi/Tutorials.html>`_.
-
-***************
-Gaining Access
-***************
-Please refer to documentation on `how to access BigQuery from the Google Console <HowToAccessBigQueryFromTheGoogleCloudPlatform.html>`_ if you have not done this before. 
-
-Also to add ISB-CGC data to your BigQuery platform please refer to the documentaion for `linking ISB-CGC data to BigQuery in the Google Console <LinkingBigQueryToIsb-cgcProject.html>`_.
-
 *****************************
 ISB-CGC Data Sets in BigQuery
 *****************************
+
+This will serve as a guide to navigate through the Google web-interface for BigQuery and do some introductory queries using ISB-CGC hosted TCGA data.  For those who would rather use R or Python to programmatically interact with BigQuery, detailed tutorials are provided `here <http://isb-cancer-genomics-cloud.readthedocs.org/en/staging-theme/sections/HowTos.html>`_.
+
+
 ISB-CGC maintains multiple `data sets in BigQuery <../../data/data2/data_in_BQ.html>`__ including:
 
 * `TCGA clinical, biospecimen and molecular data <../../data/data2/data_in_BQ.html#tcga-clinical-biospecimen-and-molecular-data>`__
@@ -20,7 +12,6 @@ ISB-CGC maintains multiple `data sets in BigQuery <../../data/data2/data_in_BQ.h
 * `A wide variety of related metadata <../../data/data2/data_in_BQ.html#additional-metadata>`__
 
 With the exception of the COSMIC mutation data, all data in BigQuery is open for general use.
-
 
 
 ************************
