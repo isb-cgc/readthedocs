@@ -2,8 +2,13 @@
 BigQuery Usage Costs
 **********************
 
+`Here <https://cloud.google.com/bigquery/pricing>`_ is information about how much does it costs to use BigQuery.  Queries are billed according to how much data is scanned during the course of the query, and the rate is $5 per TB, although the first 1 TB is free each month.
+You can keep an eye on your GCP expenses on your Google Cloud Platform `Console home page <https://console.cloud.google.com/home/dashboard>`_.
+
+
 More details about BigQuery costs can be found in the Google
 `documentation <https://cloud.google.com/bigquery/pricing>`_.
+
 There are two basic types of costs: storage costs and usage costs.  ISB-CGC is hosting
 these PanCancer Atlas tables in BigQuery and is paying for the storage costs (with support from NCI).
 The size of each PanCancer Atlas table is less than 1.5 GB and therefore costs less than $0.25 per year to store.
