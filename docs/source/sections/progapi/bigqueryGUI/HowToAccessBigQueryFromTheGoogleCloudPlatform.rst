@@ -22,7 +22,10 @@ We encourage you to try the risk free trial(H). Once you have a GCP project, you
 
 Google products and services may also be accessed through (G). Scroll down to BigQuery and open it (see screenshot below).
 
-.. image:: BigQuerySelect.png
+.. image:: AfterSignInPage.png
    :scale: 50
    :align: center
 
+.. image:: AccessingBigQuery.png
+   :scale: 50
+   :align: center
