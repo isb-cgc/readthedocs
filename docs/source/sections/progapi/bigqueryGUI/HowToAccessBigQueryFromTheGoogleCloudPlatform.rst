@@ -21,7 +21,7 @@ You will be presented with sign in page, prompting you to enter a Google account
    :scale: 50
    :align: center
    
-Once you sign in, click on Console at the top of the screen (see arrow in image below) to find access a full range of Google cloud products and services.  
+Once you sign in, click on Console at the top of the screen (see arrow in image below) to access a full range of Google cloud products and services including BigQuery.  
 
 .. image:: AfterSignInPage.png
    :scale: 50
