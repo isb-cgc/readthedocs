@@ -24,15 +24,11 @@ In this section, you'll learn how to:
    progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject
    progapi/bigqueryGUI/GettingStartedWithGoogleBigQuery
    BigQuery/BigQueryUsageCosts
-
-
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-   
-   
-   BigQuery/BQ_overview
    PanCancer-Atlas-Mirror
+
+
+   
+   
   
 
 
