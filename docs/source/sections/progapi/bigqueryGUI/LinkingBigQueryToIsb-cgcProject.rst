@@ -18,6 +18,7 @@ one from a list. Choose the "Enter a Project Name" and enter in "isb-cgc" and th
 
 
 You will now see the isb-cgc open access BigQuery tables on the left-hand side pinned to your project. 
+
 .. image:: PinnedProject.png
    :align: center
 
