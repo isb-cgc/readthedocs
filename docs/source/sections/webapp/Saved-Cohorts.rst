@@ -24,7 +24,7 @@ By clicking on a feature, the field will expand and provide you with additional 
 
 Selecting one or more of these will cause the filter(s) to appear in the Selected Filters panel and will update the Program Details panel with the Total Number of Samples based on the selected filters.
 
-Individual selections within a filter group are "ORed" together, meaning if any of the conditions are met, they will be in the results.  On the other hand, filters are "ANDed" together, meaning that data must meet all filter criteria in order to be selected. There may be cases where you have 0 cases and samples in the results, based on the combination of filters you have chosen.
+Individual selections within a filter group are "ORed" together, meaning if any of the conditions are met, they will be in the results.  On the other hand, filters are "ANDed" together, meaning that data must meet all filter criteria in order to be selected. There may be times where you have no cases and samples in the results, based on the combination of filters you have chosen.
 
 Program Selection Panel
 -----------------------
@@ -182,8 +182,7 @@ This panel displays a list of images (called "treemaps") similar to the clinical
 Cohort Creation - Barcodes
 ==========================
 
-This feature will allow you upload or enter your own list of sample or cases barcodes
-from multiple programs.  There is a blue instructions button present on both the upload and Enter tabs.  
+This feature will allow you upload or enter your own list of sample or cases barcodes from multiple programs.  There is a blue instructions button present on both the **UPLOAD** and **ENTER** tabs.  
 
 Below is an example of what you are provided when the *Instructions* tab is selected.
 
@@ -503,16 +502,6 @@ To find images that can be viewed, open a saved cohort and select the “File Br
 For a more detailed step-by-step process of Viewing Radiology Images using the Osimis DICOM viewer please go `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/OsimisWebViewer.html>`_.
 
 
-Deleting a cohort
-#################
-
-From the "COHORTS" page:
-Select the cohorts that you wish to delete using the checkboxes next to the cohorts. When one or more are selected, the
-delete button will be active and you can then proceed to deleting them.
-
-From within a cohort:
-If you are viewing a cohort you created, then you can delete the cohort using the delete button on the menu.
-
 Creating a Cohort from a Visualization
 ######################################
 
@@ -528,18 +517,38 @@ on this when you are ready to create a new cohort.
 
 Put in a name for you newly selected cohort and click the "Save" button.
 
-Copying a cohort
-################
 
-Copying a cohort can only be done from the cohort details page of the cohort you want to copy.
+Manage Saved Cohorts
+####################
 
-When you are looking at the cohort you wish to copy, select Duplicate from the top menu.
+Selecting **Manage Saved Cohorts** from the **COHORT** menu dropdown displays the **Cohorts** screen, **SAVED COHORTS** tab. This screen displays your saved cohorts and allows you to delete, set operations, and share them. In addition, you can start a new workbook using selected cohorts.
 
-This will take you to a new copy of the cohort.
+To delete a cohort, check the checkbox adjacent to the cohort, and click the **Delete** button.
+
+Clicking on the name of the cohort displays the cohort details.
+
+Cohort Details Screen
+#####################
+
+The Cohort Details Screen provides the following functions:
+
+Copy a cohort
+=============
+
+To create a copy of the cohort, click on the **Duplicate** button. This will take you to a new copy of the cohort.
+
+Deleting a cohort
+=================
+
+Click the **Delete** button to delete the cohort.
+
+
+
+
 
 Public Cohorts
 ##############
 
-Selecting **Public Cohorts** from the **COHORT** menu dropdown displays the **Cohorts** screen, **PUBLIC PROGRAMS** tab. This screen displays details about any public cohorts currently available in the Web App. It displays the cohort name, number of cases, number of samples and the last date each program was updated.
+Selecting **Public Cohorts** from the **COHORT** menu dropdown displays the **Cohorts** screen, **PUBLIC COHORTS** tab. This screen displays details about any public cohorts currently available in the Web App. It displays the cohort name, number of cases, number of samples and the last date each program was updated.
 
-To create a New Workbooks based on a public cohort, check the checkbox adjacent to the public cohort and click on the **New Workbook** button.
+To create new workbooks based on a public cohort, check the checkbox adjacent to the public cohort and click on the **New Workbook** button.
