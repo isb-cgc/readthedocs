@@ -2,11 +2,9 @@
 Programs and Data Sets
 **********************
 
-The `National Cancer Institute <https://www.cancer.gov/about-nci>`_, in collaboration with other institutes within `NIH <https://www.nih.gov/>`_, has invested in the production and analysis of several large datasets. The ISB-CGC platform is funded by NCI to make these data more accessible and usable.
+Between the ISB-CGC and the Genomic Data Commons (GDC), there are many cancer data sets available on the Google Cloud Platform. ISB-CGC hosts some high-level clinical, biospecimen and molecular data in a series of carefully curated datasets and tables in BigQuery and radiology and pathology images in Google Cloud Storage. The GDC hosts several more data sets that include low-level sequencing data.
 
-The initial goal of the `ISB-CGC <http://www.isb-cgc.org>`_ was to host the data produced by `The Cancer Genome Atlas <https://cancergenome.nih.gov/abouttcga>`_ (TCGA). The data has expanded to include data sets from other programs such as  `Therapeutically Applicable Research To Generate Effective Treatments <https://ocg.cancer.gov/programs/target>`_ (TARGET) program.
-
-Along with NCI Cancer Programs, ISB-CGC hosts several data sets from other programs such as `Catalogue Of Somatic Mutations In Cancer <https://cancer.sanger.ac.uk/cosmic>`_ (COSMIC) from the `Wellcome Trust Sanger Institute <http://www.sanger.ac.uk/>`_. We are always looking to add new data sets so if you have any suggestions or requests for additional data that you would like to see made available, please let us know (feedback@isb-cgc.org) and we will try to make that happen.
+The ISB-CGC started with The Cancer Genome Atlas (TCGA) data sets but has expanded to include other data sets from programs such as Therapeutically Applicable Research To Generate Effective Treatments (TARGET) program. Accompanying the NCI data sets, ISB-CGC hosts several data sets from programs such as Catalogue Of Somatic Mutations In Cancer (COSMIC) from the `Wellcome Trust Sanger Institute <http://www.sanger.ac.uk/>`_. We are always interested in adding new data sets, so if you have any suggestions or requests for additional data, please let us know (feedback@isb-cgc.org).
 
 Data Sets
 ---------
