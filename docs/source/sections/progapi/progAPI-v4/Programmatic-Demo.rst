@@ -124,10 +124,14 @@ Nuances when using the APIs
 
 
 - Any special characters in the input field will cause the endpoint to fail. e.g. spacing in input box.
-
 - Please make sure to delete all fields not being used.
 
 - Case barcode centric endpoints only pull TCGA and CCLE hg19 data details e.g. file paths. 
+
+- Use sample centric endpoint to pull hg38 centric data details using the endpoints.
+
+- Cohorts made in CloudSQL(web app) will differ in sample counts from cohorts made with BigQuery tables(APIs). Samples which correspond to pathology slide images are in the CloudSQL tables but not the BigQuery tables.
+>>>>>>> staging-theme
 
 - Use sample centric endpoint to pull hg38 centric data details using the endpoints.
 
