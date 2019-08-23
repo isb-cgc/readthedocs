@@ -2,8 +2,9 @@
 ISB-CGC Web Interface (Web App)
 *******************************
 
-The documentation contained in this section is for the `ISB-CGC Web Interface (Web App) <https://isb-cgc.appspot.com/>`_. Over time we will be updating and enhancing this web interface based on your feedback.  
-We welcome your ideas and needs.  Please use this `link <https://groups.google.com/a/isb-cgc.org/forum/#!newtopic/feedback>`_ to provide them.
+The `ISB-CGC Web Interface (Web App) <https://isb-cgc.appspot.com/>`_ provides robust functionality for the user to analyze the ISB-CGC cancer data through a user interface. Without needing to use any programming, you can select and filter data from one or more public data sets (such as TCGA, CCLE, and TARGET), combine with your own uploaded data and analyze using a variety of build-in plot types. There is also a built-in Integrative Genomics Viewer (IGV) and Radiology Viewer.
+
+Over time we will be updating and enhancing this web interface based on your feedback.  We welcome your ideas and needs.  Please use this `link <https://groups.google.com/a/isb-cgc.org/forum/#!newtopic/feedback>`_ to provide them.
 
 .. toctree::
    :hidden:
@@ -14,6 +15,7 @@ We welcome your ideas and needs.  Please use this `link <https://groups.google.c
    webapp/Dashboard
    webapp/Workbooks
    webapp/program_data_upload
+   webapp/WebAppAnalyses
    webapp/Gene-and-miRNA-Favorites
    webapp/Variable-Favorites
    webapp/Saved-Cohorts
