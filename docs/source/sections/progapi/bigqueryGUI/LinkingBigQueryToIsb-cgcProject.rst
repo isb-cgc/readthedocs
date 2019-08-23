@@ -2,23 +2,22 @@
 Linking Open-Access ISB-CGC BigQuery Tables to Your Google Cloud Project
 ========================================================================
 
-To access the open-access ISB-CGC BigQuery ta
+Follow the screenshots below to link the ISB-CGC BigQuery tables to your Google Cloud Project. 
 
-Follow the screenshot below to pin the ISB-CGC BigQuWhen you access BigQuery from your Google Cloud Platform Console, you will see an "Add Data" option  
+When you access BigQuery from your Google Cloud Platform Console, you will see an "Add Data" box with a "Pin Project option"
 
 .. image:: AddDataBox.png
+   :scale: 30
    :align: center
 
-The blue arrow will produce a drop down list; select 'Switch to Project'; then click 'display project...'
-
-You will then be presented with the following page:
+When you click on "Pin Project", you will presented with a pop-up box that allows you either enter a project name or select
+one from a list. Choose the "Enter a Project Name" and enter in "isb-cgc" and then hit "Pin".
 
 .. image:: PinAProject.png
    :align: center
 
 
-Once this has been completed you will see all of the BigQuery datasets made public by the ISB-CGC project on the left hand side above public data sets (see screenshot below).
-
+You will now see the isb-cgc open access BigQuery tables on the left-hand side pinned to your project. 
 .. image:: PinnedProject.png
    :align: center
 
