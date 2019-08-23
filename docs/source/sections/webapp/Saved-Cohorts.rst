@@ -102,10 +102,10 @@ To combine multiple gene filters, select AND (requires all filters to be met for
 
 You can also filter by different genomic builds.
           
- NOTES:
+NOTES:
  
  - If you use AND and do not see the data you are expecting in the filter, try OR instead.  AND is a more restrictive criteria requiring all filters to be met, OR is less restrictive, requiring only one criteria to be met for the data to appear.
- - Please add the term "AND" or "OR" in your saved cohort title as the type of combination used in your cohort does not currently appear in the summary of filters in a saved cohort. 
+ - Please add the term "AND" or "OR" in your saved cohort title since the type of combination used in your cohort does not display in the filters list for a saved cohort. 
           
 Programs & Projects Tab
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -121,14 +121,16 @@ Click the **Save as New Cohort** button when you are ready to save the cohort ba
 Selected Filters Panel
 ^^^^^^^^^^^^^^^^^^^^^^
 
-This is where selected filters are shown for each program so there section to see what filters have been selected.  You have to toggle between program tabs to see the filters selected for each program.
+This panel displays selected filters for each program. You have to toggle between program tabs to see the filters selected for each program.
 
-If you have not saved the cohort yet, clicking on “Clear All” will remove all selected filters for that program.  Also, if you have not saved the cohort yet, selecting an X beside a single filter will remove that filter.  If you have saved the cohort, the X is not present as this function is disabled in saved cohorts (to add back to an existing cohort, you can use set operations - see below).
+If you have not saved the cohort yet, clicking on “Clear All” will remove all selected filters for that program and selecting an X beside a single filter will remove that filter.  
+
+If you have saved the cohort, the X is not present as this function is disabled in saved cohorts. (To add back to an existing cohort, you can use set operations; see below).
 
 Details Panel
 ^^^^^^^^^^^^^
 
-This panel shows the Total Number of Samples and Total Number of Cases in a cohort that is actively being created with the filters that have been selected.  If there is a small "timer" icon, the calculation is taking place - the results should appear soon.
+This panel shows the **Total Number of Samples** and **Total Number of Cases** in a cohort based on the selected filters. If there is a small "timer" icon, the calculation is taking place; the results should appear soon.
 
 Clinical Features Panel
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -534,3 +536,10 @@ Copying a cohort can only be done from the cohort details page of the cohort you
 When you are looking at the cohort you wish to copy, select Duplicate from the top menu.
 
 This will take you to a new copy of the cohort.
+
+Public Cohorts
+##############
+
+Selecting **Public Cohorts** from the **COHORT** menu dropdown displays the **Cohorts** screen, **PUBLIC PROGRAMS** tab. This screen displays details about any public cohorts currently available in the Web App. It displays the cohort name, number of cases, number of samples and the last date each program was updated.
+
+To create a New Workbooks based on a public cohort, check the checkbox adjacent to the public cohort and click on the **New Workbook** button.
