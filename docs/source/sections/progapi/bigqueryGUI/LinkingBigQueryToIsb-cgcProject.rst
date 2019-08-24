@@ -1,6 +1,6 @@
-========================================================================
-Linking Open-Access ISB-CGC BigQuery Tables to Your Google Cloud Project
-========================================================================
+======================================================
+Linking To Open-Access ISB-CGC BigQuery Tables 
+======================================================
 
 Follow the images below to link the ISB-CGC BigQuery tables to your Google Cloud Project. Click on image to zoom in.
 
