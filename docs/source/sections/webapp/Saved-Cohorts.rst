@@ -284,7 +284,6 @@ The figure below shows what the results of the set operations will be (represent
 
 
 .. image:: SetOperations.PNG
-   :scale: 50
    :align: center
 
 
@@ -293,16 +292,10 @@ Click "Okay" to complete the set operation and create the new cohort.
 
 Cohort Details Page
 ###################
-The cohort details page displays the details of a specific cohort.  The title of the cohort is displayed at the top of the page.
+
 
 From the "SAVED COHORTS" tab you can:
 
-* New Workbook: Pushing this button creates a New Workbook using the cohort
-* Edit: Pushing this button makes the filters panel appear. And filters selected will be additive to any filters that have already been selected. To return to the previous view, you must either save any NEW selected filters (with the "Save Changes" button), or choose to cancel adding any new filters (by clicking the "cancel" link).
-* Comments: Pushing "Comments" will cause the Comments panel to appear. Here anyone who can see this cohort can comment on it. Comments are shared with anyone who can view this cohort.  They are ordered by newest on the bottom.  Selecting the "X" on the Comments panel will close the panel.  Any user who owns or has had a cohort shared with them can comment on it.
-* Duplicate: Making a copy will create a copy of this cohort with the same list of samples and cases and make you the owner of the copy.  This is how you create a copy of another researchers cohort that they have shared with you (note: If they later change their cohort, your cohort will not be updated, it will remain the same as it was at the time you duplicated it).
-* Delete: Allows you to delete this cohort (if you confirm by clicking the second delete button presented)
-* File Browser: Allows you to view the list of files associated with this cohort (see details below)
 * CSV: Provides a list of sample and cases IDs in the cohort
 * BigQuery: This will allow you to create a new table or append to an existing table. You must have registered a BigQuery dataset with a Google Cloud Project on the registered Google Cloud Projects details page. More information on how to register a BigQuery dataset can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_.
   If a user wants to export their cohort to a premade table of their own, we require it to have the necessary columns. Here's the schema: 
@@ -506,17 +499,35 @@ Clicking on the name of the cohort displays the cohort details.
 Cohort Details Screen
 #####################
 
+The cohort details page displays the details of a specific cohort.  The title of the cohort is displayed at the top of the page.
+
 The Cohort Details Screen provides the following functions:
+
+Create a New Workbook
+=====================
+
+Clicking the **New Workbook** button brings you to a screen where you can create a new workbook using this cohort.
+
+Edit a cohort
+=============
+
+Clicking the **Edit** button  displays the Filters panel. Any filters selected will be added to existing filters. To return to the previous view, save any newly selected filters using the **Save Changes** button, or cancel adding any new filters by clicking the **Cancel** link.
+
+Comment on a cohort
+===================
+Clicking the **Comments** button displays the Comments panel. Here anyone who can see this cohort (such as an owner or someone who has shared access to the cohort) can comment on it. Comments are shared with anyone who can view this cohort.  They are ordered by newest on the bottom.  Selecting the "X" on the Comments panel will close the panel.  
 
 Copy a cohort
 =============
 
-To create a copy of the cohort, click on the **Duplicate** button. This will take you to a new copy of the cohort.
+To create a copy of the cohort, click on the **Duplicate** button. This will take you to a new copy of the cohort which has the same list of samples and cases and make you the owner of the copy.  
+
+This is how you create a copy of another researcher's cohort that they have shared with you. (Note: If they later change their cohort, your cohort will not be updated; it will remain the same as it was at the time you duplicated it).
 
 Delete a cohort
 =================
 
-Click the **Delete** button to delete the cohort.
+Click the **Delete** button to delete the cohort. Confirm by clicking the second **Delete** button presented.
 
 File Browser
 ============
