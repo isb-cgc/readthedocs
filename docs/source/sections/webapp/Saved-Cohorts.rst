@@ -33,7 +33,7 @@ The panel in the center of the screen, with four tabs called "TCGA DATA", "CCLE 
 - The TCGA, CCLE, and TARGET DATA tab each have three tabs called "CASE", "DATA TYPE", and "MOLECULAR" which allow you to apply filters to the cohorts you are creating using ISB-CGC hosted data. 
 - For the USER DATA tab, there is one tab called "PROJECTS & STUDIES" which allow you to filter by the projects or studies you have uploaded to the system.
 
-**Note:** Selecting the program filter will add all samples pertaining to program. Also there is a mouse over feature that will display the disease code long name if it's part of the TCGA, CCLE, or TARGET data set.
+**Note:** Selecting the program filter will add all samples pertaining to the program. Also there is a mouse over feature that will display the disease code long name if it's part of the TCGA, CCLE, or TARGET data set.
 
 Filter List by Program (Case and Data Tabs)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -240,55 +240,6 @@ This feature will allow you to manually input barcodes for cohort creation.  The
 Please use the file upload option if you need to upload more barcodes than will fit in that space.
 
 
-Operations on Cohorts
-#####################
-
-Viewing and Editing a Cohort
-============================
-
-Once you have created a "Saved Cohort" you can view and edit it.  To view a cohort, select it by clicking on its name either from the "Saved Cohorts" panel on the main "Your Dashboard" page or on the "Cohorts" page listing all your saved cohorts.
-
-When you have gone to the "Cohorts" page, you will be shown the details of the cohort on the "SAVED COHORTS" tab.  The "PUBLIC COHORTS" tab shows public cohorts that are commonly selected.  Public cohorts can be used for a "New Workbook" and "Set Operations".
-
-From the "COHORTS" page you can select:
-
-* New Workbook: Pushing this button creates a New Workbook using the selected Cohorts
-* Delete: Allows you to delete selected cohort(s) (if you confirm by clicking the second delete button presented)
-* Set Operations: Allows you to perform set operations on selected cohorts (see below for details)
-* Share: This will share the web view of the cohorts with users you select by entering the users e-mail. If the email address you entered in
-  not registered in the database you are prompted with a message saying, "The following user emails could not be found; please ask them 
-  to log into the site first:(email entered)."
-  
-
-Set Operations
-==============
-
-You can create cohorts using set operations on the Cohorts page.
-
-To activate the set operations button, you must have at least one cohort selected in your "Cohorts" page. 
-Upon clicking the "Set Operations"
-button, a dialogue box will appear. Now you may do one of the following:
-
-* Enter a name for the new cohort you’re about to create.
-* Select a set operation.
-* Edit cohorts to be used in the operation.
-* Add A Cohort
-
-The intersect and union operations can take any number of cohorts and in any order.
-The complement operation requires that there be a base cohort, from which the other cohorts will be subtracted from.
-
-**Note:** To combine the User uploaded data and the ISB-CGC data, use the Set Operations function. This is possible since the list of barcodes is what is used to create the set operation. For example, to make a cohort of user data samples and ISB-CGC curated samples, Set Union must be used, and to filter user data which is an extension of TCGA or TARGET samples, Set Intersection must be used.
-
-
-The figure below shows what the results of the set operations will be (represented by I for Intersect, U for Union, and C for Complement).  There are two types of sets shown, those that overlap (on the left) and those that are nested (on the right).  For the last row (complement operations), the "Subtracted" area is removed from the "Base" area to result in the Complement (C). 
-
-
-.. image:: SetOperations.PNG
-   :align: center
-
-
-
-Click "Okay" to complete the set operation and create the new cohort.
 
 Cohort Details Page
 ###################
@@ -447,11 +398,48 @@ Put in a name for your newly selected cohort and click the **Save** button.
 Manage Saved Cohorts
 ####################
 
-Selecting **Manage Saved Cohorts** from the **COHORT** menu dropdown displays the **Cohorts** screen, **SAVED COHORTS** tab. This screen displays your saved cohorts and allows you to delete, set operations, and share them. In addition, you can start a new workbook using selected cohorts.
+Selecting **Manage Saved Cohorts** from the **COHORT** menu dropdown displays the **Cohorts** screen, **SAVED COHORTS** tab. This screen displays your saved cohorts and allows you to view, edit, delete, set operations, and share them. In addition, you can start a new workbook using selected cohorts.
 
-To delete a cohort, check the checkbox adjacent to the cohort, and click the **Delete** button.
+To view a cohort, click on the name of the cohort to display the cohort details. Alternately, you can view the cohort details by
+clicking on its name in the "Saved Cohorts" panel on the "Your Dashboard" page. 
+ 
+From **Cohorts** screen, **SAVED COHORTS** tab, you can perform the following functions. Except for Set Operations, these functions are described in detail in the Cohort Details Screen section, as they are also available there.
 
-Clicking on the name of the cohort displays the cohort details.
+* New Workbook
+* Delete
+* Set Operations
+* Share
+
+Set Operations
+==============
+
+Clicking the **Set Operations** button brings you to a screen where you can create new cohorts new cohorts from two or more existing cohorts using the union, intersection or complement operations.
+
+To activate the set operations button, you must have at least one cohort selected in your "Cohorts" page. 
+Upon clicking the "Set Operations" button, a dialogue box will appear. Now you may do one of the following:
+
+* Enter a name for the new cohort you’re about to create.
+* Select a set operation.
+* Edit cohorts to be used in the operation.
+* Add A Cohort
+
+The intersect and union operations can take any number of cohorts and in any order.
+The complement operation requires that there be a base cohort, from which the other cohorts will be subtracted from.
+
+**Note:** To combine the User uploaded data and the ISB-CGC data, use the Set Operations function. This is possible since the list of barcodes is what is used to create the set operation. For example, to make a cohort of user data samples and ISB-CGC curated samples, Set Union must be used, and to filter user data which is an extension of TCGA or TARGET samples, Set Intersection must be used.
+
+
+The figure below shows what the results of the set operations will be (represented by I for Intersect, U for Union, and C for Complement).  There are two types of sets shown, those that overlap (on the left) and those that are nested (on the right).  For the last row (complement operations), the "Subtracted" area is removed from the "Base" area to result in the Complement (C). 
+
+
+.. image:: SetOperations.PNG
+   :align: center
+
+
+
+Click "Okay" to complete the set operation and create the new cohort.
+
+
 
 Cohort Details Screen
 #####################
@@ -573,6 +561,6 @@ If the email address you entered is not registered with ISB-CGC, a message displ
 Public Cohorts
 ##############
 
-Selecting **Public Cohorts** from the **COHORT** menu dropdown displays the **Cohorts** screen, **PUBLIC COHORTS** tab. This screen displays details about any public cohorts currently available in the Web App. It displays the cohort name, number of cases, number of samples and the last date each program was updated.
+Selecting **Public Cohorts** from the **COHORT** menu dropdown displays the **Cohorts** screen, **PUBLIC COHORTS** tab. This screen displays details about any public cohorts currently available in the Web App. It displays the cohort name, number of cases, number of samples and the last date each program was updated.  Public cohorts can be used for a "New Workbook" and "Set Operations".
 
 To create new workbooks based on a public cohort, check the checkbox adjacent to the public cohort and click on the **New Workbook** button.
