@@ -217,7 +217,7 @@ Because the GDC Data Portal case manifest entries are cases, all samples from a 
 Enter Tab
 ---------
 
-This feature will allow you to manually input barcodes for cohort creation.  There is a maximum length of 10000 character for the text box.
+This feature will allow you to manually input barcodes for cohort creation.  There is a maximum length of 10000 characters for the text box.
 Please use the file upload option if you need to upload more barcodes than will fit in that space.
 
 Manage Saved Cohorts
@@ -265,7 +265,7 @@ This panel displays current filters on this cohort or any of its ancestors. Save
 
 **Cohort Details Panel**
 
-This panel displays the Internal ISB-CGC Cohort ID (the identifier you use to programmatically use this cohort through the `APIs <../progapi/Programmatic-API.html#id4>`_ ), and the number of samples and cases in this cohort. The number of samples may be larger than the number of cases because some cases may have provided multiple samples. This panel also displays "Your Permissions" which can be either Owner or Reader, as well as Revision History.  If you have edited the cohort, the filters that were used to originally create the cohort are displayed under the "Creation Filters" header. The newly applied filters since original creation are displayed under the "Applied Filters" label.
+This panel displays the Internal ISB-CGC Cohort ID (the identifier you use to programmatically use this cohort through the `APIs <../progapi/Programmatic-API.html#id4>`_), and the number of samples and cases in this cohort. The number of samples may be larger than the number of cases because some cases may have provided multiple samples. This panel also displays "Your Permissions" which can be either Owner or Reader, as well as Revision History.  If you have edited the cohort, the filters that were used to originally create the cohort are displayed under the "Creation Filters" header. The newly applied filters (afteroriginal creation) are displayed under the "Applied Filters" header.
 
 **TCGA DATA, CCLE DATA, TARGET DATA and USER DATA Tabs**
 
@@ -341,9 +341,36 @@ This list includes all files which have been uploaded to the ISB-CGC Google Clou
 
 You can use "Show", "Page", "Previous" and "Next" to navigate through the list.  The columns are sortable by selecting the column header.  You can select a subset of the default columns to show by using the "Choose Columns to Display" tool.
 
-You can filter by Genomic Build either HG19 or HG38 and view which platforms and files are available for the build selected. You can enter a case barcode on all tabs as a filter option.  You also have the ability to do a partial string search.  To remove the search key word you click the clear "X" button. After using the case search button the filter count is updated for the rest of the filters.  You may also filter on these files if you are only interested in a specific data type, data format, platform, disease code, disease strategy, and/or experimental strategy.  Selecting a filter will update the associated list.  The numbers next to the filter refers to the number of files available for that filter.
+You can filter by Genomic Build (HG19 or HG38) and view which platforms and files are available for the build selected. 
 
-The tabs "IGV", "Pathology Images" and "Radiology Images" allow you to filter for files that show you respectively read-level sequence data (viewed using the IGV viewer), pathology images, and radiology images.  Please note: only if you have authenticated as a dbGaP authorized user will you be able to select controlled access files to view in the IGV viewer (CCLE data does not require authorization to view the sequence data in the IGV viewer).  Details of how to view Sequences, and Pathology and Radiology images are provided below.
+You can filter by full or partial Case Barcode on all tabs. To remove the search key word, click the "X" button adjacent to it. Filtering by Case Barcode updates the number to the right of all the other filters. 
+
+You may also filter by data type, data format, platform, disease code, disease strategy, and/or experimental strategy.  Selecting a filter will update the associated list.  The numbers next to the filter refers to the number of files available for that filter.
+
+The tabs "IGV", "Pathology Images" and "Radiology Images" allow you to filter for files that show you respectively read-level sequence data (viewed using the IGV viewer), pathology images, and radiology images.  Please note: only if you have authenticated as a dbGaP authorized user will you be able to select controlled access files to view in the IGV viewer (CCLE data does not require authorization to view the sequence data in the IGV viewer).  Details of how to view Sequences, and Pathology and Radiology Images are provided below.
+
+Viewing a Sequence
+------------------
+
+When available, sequences in a cohort can be viewed using the IGV viewer.  To find those sequences that can be viewed, select the **IGV** link on the **File Browser** screen. The File Listing panel will display the files that can be viewed with the IGV viewer.  Selecting the checkbox in the "View" column (maximum of 5 files) and clicking the **Launch IGV** button in the upper panel will display an IGV view of the selected sequence(s) data.  
+
+Controlled access files will be viewable by sequence ONLY if you have `authenticated as a dbGaP-authorized user <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Gaining-Access-To-Contolled-Access-Data.html>`_. 
+
+(`more information about Viewing a Sequence in the IGV Viewer <IGV-Browser.html>`_).
+
+Using the Image Pathology Viewer
+--------------------------------
+
+When available, pathology images can be viewed using the caMicroscope tool (see more about caMicroscope provide `here <http://camicroscope.org>`_ ).  These are the pathology images that are associated with TCGA samples. To find images that can be viewed, open a saved cohort and select the **File Browser** button. You can also select the **File Browser** link from the Dashboard Saved Cohorts panel.  The files associated with your cohort will be shown. Click on **Pathology Images** to see a list of available pathology images. Hovering over the File Name and clicking on "Open in caMicroscope" will open the image file in a new tab using caMicroscope. (HINT: using a smaller cohort will provide faster response in creating the list of files available).
+
+To zoom into the image, either click the left button or use your wheel to zoom in.  Use your mouse to move around the image.  To zoom out of the image, shift-slick the left mouse button or use your wheel to zoom out.  Selecting caMicroscope at the top of page will send you to the caMicroscope homepage. If you hover over the Slide Barcode section on the top right hand side you will see metadata information listed.
+
+Viewing a Radiology Image
+-------------------------
+
+To find images that can be viewed, open a saved cohort and select the **File Browser** button. You can also click the **File Browser** link from the Dashboard Saved Cohorts panel. The files associated with your cohort will be shown. Click the **Radiology Images** tab to view a list of available radiology images. Hovering over the Study Instance UID column and clicking on "Open in CHIF Viewer" will open the series Selection panel in a new tab using Osimis DICOM. (HINT: Using a smaller cohort will provide faster response in creating the list of files available.)
+
+For a more detailed step-by-step process of Viewing Radiology Images using the Osimis DICOM viewer please go `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/OsimisWebViewer.html>`_.
 
 Download File List as CSV
 -------------------------
@@ -419,28 +446,6 @@ The file will contain the following information (for each of the data type tabs)
 * index_file_gdc_uuid
 * date_added
 
-Viewing a Sequence
-------------------
-
-When available, sequences in a cohort can be viewed using the IGV viewer.  To find those sequences that can be viewed, select the **IGV** link on the **File Browser** screen. The File Listing panel will display the files that can be viewed with the IGV viewer.  Selecting the checkbox in the "View" column (maximum of 5 files) and clicking the **Launch IGV** button in the upper panel will display an IGV view of the selected sequence(s) data.  
-
-Controlled access files will be viewable by sequence ONLY if you have `authenticated as a dbGaP-authorized user <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Gaining-Access-To-Contolled-Access-Data.html>`_. 
-
-(`more information about Viewing a Sequence in the IGV Viewer <IGV-Browser.html>`_).
-
-Using the Image Pathology Viewer
---------------------------------
-
-When available, pathology images can be viewed using the caMicroscope tool (see more about caMicroscope provide `here <http://camicroscope.org>`_ ).  These are the pathology images that are associated with TCGA samples. To find images that can be viewed, open a saved cohort and select the **File Browser** button. You can also select the **File Browser** link from the Dashboard Saved Cohorts panel.  The files associated with your cohort will be shown. Click on **Pathology Images** to see a list of available pathology images. Hovering over the File Name and clicking on "Open in caMicroscope" will open the image file in a new tab using caMicroscope. (HINT: using a smaller cohort will provide faster response in creating the list of files available).
-
-To zoom into the image, either click the left button or use your wheel to zoom in.  Use your mouse to move around the image.  To zoom out of the image, shift-slick the left mouse button or use your wheel to zoom out.  Selecting caMicroscope at the top of page will send you to the caMicroscope homepage. If you hover over the Slide Barcode section on the top right hand side you will see metadata information listed.
-
-Viewing a Radiology Image
--------------------------
-
-To find images that can be viewed, open a saved cohort and select the **File Browser** button. You can also click the **File Browser** link from the Dashboard Saved Cohorts panel. The files associated with your cohort will be shown. Click the **Radiology Images** tab to view a list of available radiology images. Hovering over the Study Instance UID column and clicking on "Open in CHIF Viewer" will open the series Selection panel in a new tab using Osimis DICOM. (HINT: Using a smaller cohort will provide faster response in creating the list of files available.)
-
-For a more detailed step-by-step process of Viewing Radiology Images using the Osimis DICOM viewer please go `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/OsimisWebViewer.html>`_.
 
 Creating a Cohort from a Visualization
 ======================================
