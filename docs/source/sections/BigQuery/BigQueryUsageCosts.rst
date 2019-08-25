@@ -31,10 +31,8 @@ Your overall query costs using this less-clever approach, instead of being a few
 would be several hundred dollars!  This latter approach would also take significantly more time.
 
 As your queries become more complex and you begin to join in other resources such as the
-ISB-CGC `genomic-reference <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/Reference-Data.html>`_
-or
-`molecular-data <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_BQ.html>`_
-tables, the amount of data processed by a
+ISB-CGC genomic-reference 
+or the amount of data processed by a
 single query may increase into the GB or even TB range.
 
 If you want to be able to
