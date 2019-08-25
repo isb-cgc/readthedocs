@@ -33,6 +33,10 @@ To create a new Variable Favorite:
   
 - Click **Save As Favorite** to save the Variable list.
 
+.. image:: Create_Variables.png
+   :align: center
+
+
 Common Filter List by Program 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
    +-----------------------+------------------------------+---------------------+
