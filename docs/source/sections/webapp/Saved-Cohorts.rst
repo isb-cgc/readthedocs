@@ -244,22 +244,6 @@ Please use the file upload option if you need to upload more barcodes than will 
 Cohort Details Page
 ###################
  
-Current Filters Panel
-=====================
-
-This panel displays current filters that have been used on the cohort or any of its ancestors. If you have selected multiple These cannot be modified.  To add additional filters to this list use the Edit button.
-
-Details Panel
-=============
-
-This panel displays the Internal ISB-CGC Cohort ID (the identifier you use to programmatically use this cohort through our `APIs <../progapi/Programmatic-API.html#id4>`_ ), and the number of samples and cases in this cohort. The number of samples may be larger than the number of cases because some cases may have
-provided multiple samples.
-This panel also displays "Your Permissions" which can be either owner or reader, as well as revision history.  If you have edited the cohort, the filters that were used to originally create the cohort are displayed under the "Creation Filters" label, the newly applied filters since original creation are displayed under the "Applied Filters" label.
-
-TCGA DATA, CCLE DATA, TARGET DATA and USER DATA Tabs
-====================================================
-Selecting any program tab will be enabled if you have selected filters for that program.  By selecting the tab you will display the Clinical Features panel and the Data File Availability panels for the program selected. 
-
 Clinical Features Panel
 =======================
 
@@ -413,21 +397,13 @@ From **Cohorts** screen, **SAVED COHORTS** tab, you can perform the following fu
 Set Operations
 ==============
 
-Clicking the **Set Operations** button brings you to a screen where you can create new cohorts new cohorts from two or more existing cohorts using the union, intersection or complement operations.
+Clicking the **Set Operations** button displays a **New Cohort** screen where you can create new cohorts from two or more existing cohorts using the union, intersection or complement operations. The Set Operations button will only be available if at least two cohorts are selected on the **Cohorts** screen. 
 
-To activate the set operations button, you must have at least one cohort selected in your "Cohorts" page. 
-Upon clicking the "Set Operations" button, a dialogue box will appear. Now you may do one of the following:
+On the **New Cohort** screen, enter a name for the new cohort and select a set operation. The intersect and union operations can take any number of cohorts and in any order. The complement operation requires that there is a base cohort, from which the other cohorts will be subtracted.
 
-* Enter a name for the new cohort you’re about to create.
-* Select a set operation.
-* Edit cohorts to be used in the operation.
-* Add A Cohort
+Click **Okay** to complete the set operation and create the new cohort.
 
-The intersect and union operations can take any number of cohorts and in any order.
-The complement operation requires that there be a base cohort, from which the other cohorts will be subtracted from.
-
-**Note:** To combine the User uploaded data and the ISB-CGC data, use the Set Operations function. This is possible since the list of barcodes is what is used to create the set operation. For example, to make a cohort of user data samples and ISB-CGC curated samples, Set Union must be used, and to filter user data which is an extension of TCGA or TARGET samples, Set Intersection must be used.
-
+Note: To combine the user uploaded data and the ISB-CGC data, use the Set Operations function. This is possible since the list of barcodes is what is used to create the set operation. For example, to make a cohort of user data samples and ISB-CGC curated samples, Set Union must be used, and to filter user data which is an extension of TCGA or TARGET samples, Set Intersection must be used.
 
 The figure below shows what the results of the set operations will be (represented by I for Intersect, U for Union, and C for Complement).  There are two types of sets shown, those that overlap (on the left) and those that are nested (on the right).  For the last row (complement operations), the "Subtracted" area is removed from the "Base" area to result in the Complement (C). 
 
@@ -435,16 +411,30 @@ The figure below shows what the results of the set operations will be (represent
 .. image:: SetOperations.PNG
    :align: center
 
-
-
-Click "Okay" to complete the set operation and create the new cohort.
-
-
-
 Cohort Details Screen
 #####################
 
-The cohort details page displays the details of a specific cohort.  The title of the cohort is displayed at the top of the page.
+The cohort details screen displays the details of a specific cohort.  The title of the cohort is displayed at the top of the page.
+
+The screen is divided into the following sections:
+
+Current Filters Panel
+---------------------
+
+This panel displays current filters on this cohort or any of its ancestors. Saved filters cannot be removed, but new ones can be added using Edit.
+
+Cohort Details Panel
+--------------------
+
+This panel displays the Internal ISB-CGC Cohort ID (the identifier you use to programmatically use this cohort through the `APIs <../progapi/Programmatic-API.html#id4>`_ ), and the number of samples and cases in this cohort. The number of samples may be larger than the number of cases because some cases may have provided multiple samples. This panel also displays "Your Permissions" which can be either Owner or Reader, as well as Revision History.  If you have edited the cohort, the filters that were used to originally create the cohort are displayed under the "Creation Filters" header. The newly applied filters since original creation are displayed under the "Applied Filters" label.
+
+TCGA DATA, CCLE DATA, TARGET DATA and USER DATA Tabs
+----------------------------------------------------
+
+A program tab will be enabled if there are selected filters for that program. When a tab is selected, the Clinical Features panel and the Data File Availability panels for that program display. 
+
+
+
 
 The Cohort Details Screen provides the following functions:
 
@@ -561,6 +551,6 @@ If the email address you entered is not registered with ISB-CGC, a message displ
 Public Cohorts
 ##############
 
-Selecting **Public Cohorts** from the **COHORT** menu dropdown displays the **Cohorts** screen, **PUBLIC COHORTS** tab. This screen displays details about any public cohorts currently available in the Web App. It displays the cohort name, number of cases, number of samples and the last date each program was updated.  Public cohorts can be used for a "New Workbook" and "Set Operations".
+Selecting **Public Cohorts** from the **COHORT** menu dropdown displays the **Cohorts** screen, **PUBLIC COHORTS** tab. This screen displays details about any public cohorts currently available in the Web App. It displays the cohort name, number of cases, number of samples and the last date each program was updated.  Public cohorts can be used for "New Workbook" and "Set Operations".
 
 To create new workbooks based on a public cohort, check the checkbox adjacent to the public cohort and click on the **New Workbook** button.
