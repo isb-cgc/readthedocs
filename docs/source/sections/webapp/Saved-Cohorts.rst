@@ -28,12 +28,12 @@ Individual selections within a filter group are "ORed" together, meaning if any 
 
 Program Selection Panel
 -----------------------
-The panel in the center of the screen, with four tabs called "TCGA DATA", "CCLE DATA", "TARGET DATA", and "USER DATA" will allow to create a cohort between data programs in the system and data that you have uploaded.
+The panel in the center of the screen, with four tabs called "TCGA DATA", "CCLE DATA", "TARGET DATA", and "USER DATA" will allow you to create a cohort with programs in the system and data that you have uploaded.
 
 - The TCGA, CCLE, and TARGET DATA tab each have three tabs called "CASE", "DATA TYPE", and "MOLECULAR" which allow you to apply filters to the cohorts you are creating using ISB-CGC hosted data. 
 - For the USER DATA tab, there is one tab called "PROJECTS & STUDIES" which allow you to filter by the projects or studies you have uploaded to the system.
 
-**Note:** Selecting the program filter will add all samples pertaining to the program. Also there is a mouse over feature that will display the disease code long name if it's part of the TCGA, CCLE, or TARGET data set.
+Note: Selecting the program filter will add all samples pertaining to the program. Also there is a mouse over feature that will display the disease code long name if it's part of the TCGA, CCLE, or TARGET data set.
 
 Filter List by Program (Case and Data Tabs)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -104,19 +104,12 @@ You can also filter by different genomic builds.
           
 NOTES:
  
- - If you use AND and do not see the data you are expecting in the filter, try OR instead.  AND is a more restrictive criteria requiring all filters to be met, OR is less restrictive, requiring only one criteria to be met for the data to appear.
- - Please add the term "AND" or "OR" in your saved cohort title since the type of combination used in your cohort does not display in the filters list for a saved cohort. 
+- If you use AND and do not see the data you are expecting in the filter, try OR instead.  AND is a more restrictive criteria requiring all filters to be met, OR is less restrictive, requiring only one criteria to be met for the data to appear.
+- Please add the term "AND" or "OR" in your saved cohort title since the type of combination used in your cohort does not display in the filters list for a saved cohort. 
           
 Programs & Projects Tab
 ^^^^^^^^^^^^^^^^^^^^^^^^
-The Programs & Projects Tab is only available for User Data. It displays the programs and projects that are part of the user data set.  
-
-Saving the Cohort
-^^^^^^^^^^^^^^^^^^
-
-Click the **Save as New Cohort** button when you are ready to save the cohort based on the filters you have set.  You will be asked for a cohort name and the selected filters will be displayed.  Enter the name and click the **Create Cohort** button. 
-
-**NOTE:** When working with multiple programs you will see a yellow notification box stating, "Your cohort contains samples from multiple programs. Please note that filters will only apply to samples from the program indicated by the tab they were chosen on - they will not apply to samples from other programs in this cohort." 
+The Programs & Projects Tab is only available for User Data. It displays the programs and projects that are part of the user data set. 
 
 Selected Filters Panel
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -125,7 +118,7 @@ This panel displays selected filters for each program. You have to toggle betwee
 
 If you have not saved the cohort yet, clicking on “Clear All” will remove all selected filters for that program and selecting an X beside a single filter will remove that filter.  
 
-If you have saved the cohort, the X is not present as this function is disabled in saved cohorts. (To add back to an existing cohort, you can use set operations; see below).
+Note that you cannot removed filters once the cohort has been saved. (See Set Operations below for more ways to add or remove filters from your cohorts.)
 
 Details Panel
 ^^^^^^^^^^^^^
@@ -157,27 +150,17 @@ handful of features for the selected program:
 
 By using the “Show More” button, you can see the last two tree maps.  Mousing over an image shows the details of each specific section of the image and the number of samples associated with it.
 
-Data File Availability Panel
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-NOTE: this function is now available only when editing a created cohort.  To access this function, please create the cohort and edit it as described below.
-
-This panel shows a parallel sets graph of available data files for the selected samples in the cohort. The large headers over
-the vertical bars are data types. Each data type (vertical bar) is subdivided according to the different platforms
-that were used to generate this type of data (with "NA" indicating samples for which this data type is not available).
-Each sample in the current cohort is represented by a single line that "flows" horizontally from left to right,
-crossing each vertical bar in the appropriate segment.
-
-Hovering on a swatch between two vertical bars, you will see the number of samples that have data from those
-two platforms. 
-
-You can also reorder the vertical categories by dragging the headers left and right and reorder the
-platforms by dragging the platform names up and down.
-
 Programs & Projects Panel
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This panel displays a list of images (called "treemaps") similar to the clinical features panel, but can only be found when the User Data tab is selected. This panel displays a high level breakdown of the projects and studies you have uploaded to the system. Another similarity to the clinical features panel hovering over the image will show details of the specific section of the image and the number of samples associated with it. 
+This panel displays a list of images (called "treemaps") similar to the Clinical Features panel, but can only be found when the User Data tab is selected. This panel displays a high level breakdown of the projects and studies you have uploaded to the system. Another similarity to the Clinical Features panel is that hovering over the image will show details of the specific section of the image and the number of samples associated with it. 
+
+Saving the Cohort
+^^^^^^^^^^^^^^^^^^
+
+Click the **Save as New Cohort** button when you are ready to save the cohort based on the filters you have set.  You will be asked for a cohort name and the selected filters will be displayed.  Enter the name and click the **Create Cohort** button. 
+
+NOTE: When working with multiple programs you will see a yellow notification box stating, "Your cohort contains samples from multiple programs. Please note that filters will only apply to samples from the program indicated by the tab they were chosen on - they will not apply to samples from other programs in this cohort." 
 
 Cohort Creation - Barcodes
 ==========================
@@ -219,10 +202,8 @@ Upload Tab
 -----------
 
 This feature allows to upload files with barcodes to create a cohort. Files must be in GDC Data Portal case manifest format, or in comma/tab-delimited case/sample/program format. The file can be a maximum of 32MB.  Also, files must be in tab- or comma-delimited 
-format (TSV or CSV) and have an extension of .txt, .csv, or .tsv.  
-After selecting the file and uploading it, the entries will be validated. Any entries which are found to be invalid will be
-listed, and you can choose to omit them and continue with cohort creation, or select
-a new file for verification and upload. 
+format (TSV or CSV) and have an extension of .txt, .csv, or .tsv. After selecting the file and uploading it, the entries will be validated. Any entries which are found to be invalid will be
+listed, and you can choose to omit them and continue with cohort creation, or select a new file for verification and upload. 
 
 **GDC Data Portal Case Manifest Files**
 
