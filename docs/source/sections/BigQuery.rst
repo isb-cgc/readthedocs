@@ -18,11 +18,12 @@ Analyze patient, biospecimen, and molecular data for many cancer programs such a
    progapi/bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform
    progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject
    progapi/bigqueryGUI/GettingStartedWithGoogleBigQuery
+   BigQuery/data_in_BQ
    PanCancer-Atlas-Mirror
    BigQuery/BigQueryUsageCosts
 
    
-   
+  
   
 
 
