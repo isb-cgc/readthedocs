@@ -167,58 +167,40 @@ Cohort Creation - Barcodes
 
 This feature will allow you upload or enter your own list of sample or cases barcodes from multiple programs.  There is a blue instructions button present on both the **UPLOAD** and **ENTER** tabs.  
 
-Below is an example of what you are provided when the *Instructions* tab is selected.
-
-All entries must contain a valid case barcode or sample barcode, and a valid program short name.
-
-Valid program short names:
-
-  - TCGA
-  - CCLE
-  - TARGET
-
-When only a case barcode is provided, all samples from that case will be included in the cohort. 
-Make a separate entry per sample if only specific samples from a case should be added to the cohort.
-
-Please do not include any column headers. Values may be placed in single or double quotes. Format your entries as follows:
-
-Case Barcode,Sample Barcode,Program Short Name
-
-When omitting either barcode type, please be sure to still include the empty column's delimiter. (See examples below.) You may place an empty quoted value ("" or ''), but this is optional.
-
-::
-
- **Example Barcode Set**
-
- TCGA-N9-A4Q4,,TCGA
- ,TCGA-N7-A4Y8-01A,TCGA
- 'Saos-2','CCLE-Saos-2', 'CCLE'
- 'Hs 863.T', '','CCLE'
- "TARGET-51-PAJLIV",, "TARGET"
- TARGET-51-PAJMFS,"", "TARGET"
-
-
 Upload Tab
 -----------
 
-This feature allows to upload files with barcodes to create a cohort. Files must be in GDC Data Portal case manifest format, or in comma/tab-delimited case/sample/program format. The file can be a maximum of 32MB.  Also, files must be in tab- or comma-delimited 
-format (TSV or CSV) and have an extension of .txt, .csv, or .tsv. After selecting the file and uploading it, the entries will be validated. Any entries which are found to be invalid will be
-listed, and you can choose to omit them and continue with cohort creation, or select a new file for verification and upload. 
+This feature allows uploading files with barcodes to create a cohort. Files must be in GDC Data Portal case manifest format, or in comma/tab-delimited case/sample/program format. The file can be a maximum of 32MB.  Also, files must be in tab- or comma-delimited 
+format (TSV or CSV) and have an extension of .txt, .csv, or .tsv. After selecting the file and uploading it, the entries will be validated. Any entries which are found to be invalid will be listed, and you can choose to omit them and continue with cohort creation, or select a new file for verification and upload. 
 
 **GDC Data Portal Case Manifest Files**
 
-GDC Data Portal case manifests can be obtained on the 'Cases' tab of the Exploration section of the data portal `'Cases' tab of the Exploration section of the data portal <https://portal.gdc.cancer.gov/exploration>`_.
+GDC Data Portal case manifests can be obtained on the 'Cases' tab of the Exploration section of the data portal `here <https://portal.gdc.cancer.gov/exploration>`_.
 JSON case manifests must have a .json extension, and will be validated against the GDC's JSON schema. The minimum required properties for each entry in the JSON file are the project object and the submitter_id field. The project object must include the project_id property. All other properties will be ignored.
 
-TSV case manifests must have a .tsv extension, and must contain the first 3 columns of the GDC TSV case manifest in the following order: Case UUID, Case ID, Project. Any other columns will be ignored. Do not remove the header row of the TSV case manifest.
+TSV case manifests must have a .tsv extension, and must contain the first three columns of the GDC TSV case manifest in the following order: Case UUID, Case ID, Project. Any other columns will be ignored. Do not remove the header row of the TSV case manifest.
 
 Because the GDC Data Portal case manifest entries are cases, all samples from a case will be included in the cohort.
+
+Below are the instructions which display when the **Show Instructions** button is clicked.
+
+.. image:: CreateCohorts-Barcodes-Upload-Instructions1.png
+   :align: center
+
+.. image:: CreateCohorts-Barcodes-Upload-Instructions2.png
+   :align: center
+
 
 Enter Tab
 ---------
 
 This feature will allow you to manually input barcodes for cohort creation.  There is a maximum length of 10000 characters for the text box.
 Please use the file upload option if you need to upload more barcodes than will fit in that space.
+
+Below are the instructions which display when the **Show Instructions** button is clicked.
+
+.. image:: CreateCohorts-Barcodes-Enter-Instructions.png
+   :align: center
 
 Manage Saved Cohorts
 ####################
