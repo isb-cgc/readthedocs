@@ -1,5 +1,5 @@
 *******************************
-PanCancer Atlas BigQuery Mirror
+PanCancer Atlas BigQuery Data
 *******************************
 
 `The PanCancer BigQuery Mirror <https://bigquery.cloud.google.com/queries/pancancer-atlas>`_ -- produced in
