@@ -40,3 +40,15 @@ upload your own data to BigQuery or save the results of your queries as new BigQ
 you will need to have your own GCP project.  (All new GCP users are welcome
 to take advantage of the Google `free trial <https://cloud.google.com/free/>`_
 which includes up to $300 in funding to be used over a period of one year.)
+
+*****************************
+Additional Google Support
+*****************************
+
+Up-to-date information about BigQuery including quickstart guide and query references can be found at https://cloud.google.com/bigquery 
+
+Here are few links to get you started: 
+https://cloud.google.com/bigquery/what-is-bigquery 
+https://cloud.google.com/bigquery/query-reference 
+https://cloud.google.com/bigquery/docs/quickstarts/quickstart-web-ui
+
