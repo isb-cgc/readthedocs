@@ -3,6 +3,7 @@ Accessing BigQuery from the Google Cloud Platform
 =======================================================
 
 In order to use BigQuery, you must have access to a Google Cloud Platform (GCP) project. Your GCP project must be associated with a billing account in order to gain full access to all of products and services that make up the Google Cloud. Contact us at **request-gcp@isb-cgc.org** for more information on how to to request cloud credits. 
+
 Additionally, you will need a Google account identity (freely available with a new account or by linking to an existing email account). 
 
 
