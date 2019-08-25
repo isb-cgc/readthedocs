@@ -15,7 +15,7 @@ With the exception of the COSMIC mutation data, all data in BigQuery is open for
 
 
 ************************
-Syntax Queries Examples
+Query Syntax Examples
 ************************
 Below are some sample queries that will get you started using BigQuery and these ISB-CGC datasets for your own analyses.  One easy way is to use the BigQuery web UI (see screenshot below).  See Google's `BigQuery Web UI Tutorial <https://developers.google.com/bigquery/docs/hello_bigquery_gui>`_ for more general details of how to use this tool.
 
