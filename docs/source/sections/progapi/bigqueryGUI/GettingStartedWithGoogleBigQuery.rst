@@ -1,18 +1,4 @@
 **********
-Data Sets
-**********
-
-This will serve as a guide to navigate through the Google web-interface for BigQuery and do some introductory queries using ISB-CGC hosted TCGA data.  For those who would rather use R or Python to programmatically interact with BigQuery, detailed tutorials are provided `here <http://isb-cancer-genomics-cloud.readthedocs.org/en/staging-theme/sections/HowTos.html>`_.
-
-
-ISB-CGC maintains multiple `data sets in BigQuery <../../data/data2/data_in_BQ.html>`__ including:
-
-* `TCGA clinical, biospecimen and molecular data <../../data/data2/data_in_BQ.html#tcga-clinical-biospecimen-and-molecular-data>`__
-* `TARGET clinical, biospecimen and molecular data <../../data/data2/data_in_BQ.html#target-clinical-biospecimen-and-molecular-data>`__
-* `A wide variety of related metadata <../../data/data2/data_in_BQ.html#additional-metadata>`__
-
-With the exception of the COSMIC mutation data, all data in BigQuery is open for general use.
-
 
 ************************
 Query Syntax Examples
@@ -195,7 +181,7 @@ You can either download the results from a query in either CSV or JSON format, o
 
 Saving Query Results to other BigQuery Tables
 ==============================================
-You can easily save Query results in intermediate tables in your project, allowing others to view and use them.  Details from Google on how to do that is `here <https://cloud.google.com/bigquery/bigquery-web-ui>`_.  If your query gets too complex it can take too long to run.  Creating intermediate result tables can be a good approach to obtain the same result more quickly and at a lower cost. 
+You can easily save query results in intermediate tables in your project, allowing others to view and use them.  Details from Google on how to do that is `here <https://cloud.google.com/bigquery/bigquery-web-ui>`_.  If your query gets too complex it can take too long to run.  Creating intermediate result tables can be a good approach to obtain the same result more quickly and at a lower cost. 
 
 
 
