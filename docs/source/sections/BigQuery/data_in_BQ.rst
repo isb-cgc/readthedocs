@@ -14,7 +14,7 @@ or other reference data sources) that you would like to see made available as Bi
 please let us know (feedback@isb-cgc.org) and we will try to make that happen.
 
 BigQuery Datasets and Tables
-----------------------------
+
 
 Data made available by the ISB-CGC through BigQuery is organized into several *open-access* 
 datasets, where a dataset is made up of multiple tables.  
