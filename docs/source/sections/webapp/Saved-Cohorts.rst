@@ -239,146 +239,6 @@ Enter Tab
 This feature will allow you to manually input barcodes for cohort creation.  There is a maximum length of 10000 character for the text box.
 Please use the file upload option if you need to upload more barcodes than will fit in that space.
 
-
-
-Cohort Details Page
-###################
- 
-Clinical Features Panel
-=======================
-
-This panel shows a list of tree maps that give a high level break of the samples for a handful of features for the program view selected:
-
-   +------------------------------+------------------------------+---------------------------------+------------------------------------+
-   | TCGA Clinical Features Panel | CCLE Clinical Features Panel | TARGET Clinical Features Panel  | USER DATA Programs & Projects Panel|
-   +==============================+==============================+=================================+====================================+
-   | Disease Code                 | Disease Code                 | Disease Code                    | Program                            |
-   +------------------------------+------------------------------+---------------------------------+------------------------------------+
-   | Vital Status                 | Gender                       | Vital Status                    | Project                            |
-   +------------------------------+------------------------------+---------------------------------+------------------------------------+
-   | Sample Type                  | Site Primary                 | Gender                          |                                    |
-   +------------------------------+------------------------------+---------------------------------+------------------------------------+
-   | Tumor Tissue Site            | Histology                    | Sample Type                     |                                    |
-   +------------------------------+------------------------------+---------------------------------+------------------------------------+
-   | Gender                       | Histological SubType         | Age At Diagnosis                |                                    |
-   +------------------------------+------------------------------+---------------------------------+------------------------------------+
-   | Age At Initial Pathologic    |                              |                                 |                                    |
-   | Diagnosis                    |                              |                                 |                                    |
-   +------------------------------+------------------------------+---------------------------------+------------------------------------+
-
-Data File Availability Panel
-============================
-
-This panel shows a parallel sets graph of available data files for the selected samples in the cohort. The large headers over
-the vertical bars are data types. Each vertical bar may be broken up to represent different platforms used to generate
-that type of data (and "NA" for samples for which data type is not available).
-The sets of lines that "flow" from left to right indicate the number of samples for which each type of data files are
-available. If you hover over a horizontal segment between two bars, you will see the number of samples that have both those data
-type platforms. You can also reorder the vertical categories by dragging the headers left and right and reorder the
-platforms by dragging the platform names up and down.
-
-.. _viewfilelist:
-
-
-Download File List as CSV
-=========================
-
-To download a list of files that are part of this cohort, select the button in the upper right on the File Listing panel (on all tabs) called "CSV". This will begin a download process of all the files available for the cohort, taking into account the selected filters. 
-
-The file contains the following information for each file:
-
-* Case Barcode
-* Sample Barcode
-* Program
-* Platform
-* Experimental Strategy 
-* Data Category
-* Data Type
-* Data Format
-* Genomic Data Commons(GDC) File UUID
-* Google Cloud Storage(GCS) location
-* Genomic Data Commons(GDC) Index
-* Index File Google Cloud Storage(GCS) location
-* File Size
-* Access Type (open or controlled access)
-
-
-Export File List to BigQuery
-============================
-
-To export the File list to BigQuery, select the button BigQuery.  You will need to have registered a Google Cloud Project and a BigQuery dataset to be able to export to BigQuery. More information on how to register a BigQuery Dataset can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_. You can either make a new table or append an existing table.  You can also give the table a unique name if left blank we will provide a name for the table.
-
-The table will contain the following information (for each of the data type tabs):
-
-* row
-* cohort_id
-* case_barcode
-* sample_barcode
-* project_short_name
-* date_added
-* build 
-* gdc_file_uuid
-* gdc_case_uuid
-* platform 
-* exp_strategy
-* data_category
-* data_type
-* data_format
-* cloud_storage_location
-* file_size_bytes
-* index_file_gdc_uuid
-* index_file_cloud_storage_location
-
-Export File List to Google Cloud Storage
-========================================
-
-To export the File list to Google Cloud Storage (GCS), select the button GCS.  You will need to have registered a Google Cloud Project and a GCS Object to be able to export to GCS. More information on how to register a GCS bucket can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_. You can also give the object a unique name if left blank we will provide a name for the bucket. You can either choose to export as  JSON or CSV file and all files exported are converted into zip files.
-
-The file will contain the following information (for each of the data type tabs):
-
-* sample_barcode
-* case_barcode
-* cloud_storage_location
-* file_size_bytes
-* platform
-* data_type
-* data_category 
-* exp_strategy
-* data_format
-* gdc_file_uuid 
-* gdc_case_uuid
-* project_short_name
-* cohort_id
-* build
-* index_file_storage_location
-* index_file_gdc_uuid
-* date_added
-
-Viewing a Sequence
-==================
-
-When available, sequences in a cohort can be viewed using the IGV viewer.  To find those sequences that can be viewed with the IGV viewer, open a cohort and select the "View Files" button at the top of the page.  The files associated with your cohort will be shown, a tab displaying the files that can be viewed with the IGV viewer.  Selecting the check-box in the "View" column (for a maximum of 5 files) and the "Launch IGV" button in the upper window will take you to an IGV view of the selected sequence(s) data.  
-Controlled access files will be viewable by sequence ONLY if you have `authenticated as a dbGaP-authorized user <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Gaining-Access-To-Contolled-Access-Data.html>`_. 
-
-(`more information about Viewing a Sequence in the IGV Viewer <IGV-Browser.html>`_).
-
-
-Creating a Cohort from a Visualization
-######################################
-
-To create a cohort from visualization, you must be in plot selection mode. If you are in plot selection mode, the
-crosshairs icon in the top right corner of the plot panel should be blue. If it is not, click on it and it should turn
-blue.
-
-Once in plot selection mode, you can click and drag your cursor of the plot area to select the desired samples. For a
-cubbyhole plot, you will have to select each cubby that you are interested in.
-
-When your selection has been made, a small window should appear that contains a button labelled "Save as Cohort". Click
-on this when you are ready to create a new cohort.
-
-Put in a name for your newly selected cohort and click the **Save** button.
-
-
 Manage Saved Cohorts
 ####################
 
@@ -418,21 +278,49 @@ The cohort details screen displays the details of a specific cohort.  The title 
 
 The screen is divided into the following sections:
 
-Current Filters Panel
----------------------
+**Current Filters Panel**
 
 This panel displays current filters on this cohort or any of its ancestors. Saved filters cannot be removed, but new ones can be added using Edit.
 
-Cohort Details Panel
---------------------
+**Cohort Details Panel**
 
 This panel displays the Internal ISB-CGC Cohort ID (the identifier you use to programmatically use this cohort through the `APIs <../progapi/Programmatic-API.html#id4>`_ ), and the number of samples and cases in this cohort. The number of samples may be larger than the number of cases because some cases may have provided multiple samples. This panel also displays "Your Permissions" which can be either Owner or Reader, as well as Revision History.  If you have edited the cohort, the filters that were used to originally create the cohort are displayed under the "Creation Filters" header. The newly applied filters since original creation are displayed under the "Applied Filters" label.
 
-TCGA DATA, CCLE DATA, TARGET DATA and USER DATA Tabs
-----------------------------------------------------
+**TCGA DATA, CCLE DATA, TARGET DATA and USER DATA Tabs**
 
 A program tab will be enabled if there are selected filters for that program. When a tab is selected, the Clinical Features panel and the Data File Availability panels for that program display. 
 
+**Clinical Features Panel**
+
+This panel shows a list of tree maps that give a high level break of the samples for a handful of features for the program view selected:
+
+   +------------------------------+------------------------------+---------------------------------+------------------------------------+
+   | TCGA Clinical Features Panel | CCLE Clinical Features Panel | TARGET Clinical Features Panel  | USER DATA Programs & Projects Panel|
+   +==============================+==============================+=================================+====================================+
+   | Disease Code                 | Disease Code                 | Disease Code                    | Program                            |
+   +------------------------------+------------------------------+---------------------------------+------------------------------------+
+   | Vital Status                 | Gender                       | Vital Status                    | Project                            |
+   +------------------------------+------------------------------+---------------------------------+------------------------------------+
+   | Sample Type                  | Site Primary                 | Gender                          |                                    |
+   +------------------------------+------------------------------+---------------------------------+------------------------------------+
+   | Tumor Tissue Site            | Histology                    | Sample Type                     |                                    |
+   +------------------------------+------------------------------+---------------------------------+------------------------------------+
+   | Gender                       | Histological SubType         | Age At Diagnosis                |                                    |
+   +------------------------------+------------------------------+---------------------------------+------------------------------------+
+   | Age At Initial Pathologic    |                              |                                 |                                    |
+   | Diagnosis                    |                              |                                 |                                    |
+   +------------------------------+------------------------------+---------------------------------+------------------------------------+
+
+**Data File Availability Panel**
+
+This panel shows a parallel sets graph of available data files for the selected samples in the cohort. The large headers over the vertical bars are data types. Each vertical bar may be broken up to represent different platforms used to generate that type of data (and "NA" for samples for which data type is not available).
+
+The sets of lines that "flow" from left to right indicate the number of samples for which each type of data files are
+available. If you hover over a horizontal segment between two bars, you will see the number of samples that have both those data
+type platforms. You can also reorder the vertical categories by dragging the headers left and right and reorder the
+platforms by dragging the platform names up and down.
+
+.. _viewfilelist:
 
 
 
@@ -476,6 +364,88 @@ You can filter by Genomic Build either HG19 or HG38 and view which platforms and
 
 The tabs "IGV", "Pathology Images" and "Radiology Images" allow you to filter for files that show you respectively read-level sequence data (viewed using the IGV viewer), pathology images, and radiology images.  Please note: only if you have authenticated as a dbGaP authorized user will you be able to select controlled access files to view in the IGV viewer (CCLE data does not require authorization to view the sequence data in the IGV viewer).  Details of how to view Sequences, and Pathology and Radiology images are provided below.
 
+Download File List as CSV
+-------------------------
+
+To download a list of files that are part of this cohort, select the **CSV**button in the upper right on the File Listing panel (on all tabs) on the **File Browser** screen. 
+
+The file contains the following information for each file:
+
+* Case Barcode
+* Sample Barcode
+* Program
+* Platform
+* Experimental Strategy 
+* Data Category
+* Data Type
+* Data Format
+* Genomic Data Commons(GDC) File UUID
+* Google Cloud Storage(GCS) location
+* Genomic Data Commons(GDC) Index
+* Index File Google Cloud Storage(GCS) location
+* File Size
+* Access Type (open or controlled access)
+
+
+Export File List to BigQuery
+----------------------------
+
+To export the File List to BigQuery, select the **BigQuery** button on the **File Browser** screen.  You will need to have registered a Google Cloud Project and a BigQuery dataset to be able to export to BigQuery. More information on how to register a BigQuery Dataset can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_. You can either make a new table or append to an existing table.  You can also give the table a unique name; if left blank, a name will be provided for the table.
+
+The table will contain the following information (for each of the data type tabs):
+
+* row
+* cohort_id
+* case_barcode
+* sample_barcode
+* project_short_name
+* date_added
+* build 
+* gdc_file_uuid
+* gdc_case_uuid
+* platform 
+* exp_strategy
+* data_category
+* data_type
+* data_format
+* cloud_storage_location
+* file_size_bytes
+* index_file_gdc_uuid
+* index_file_cloud_storage_location
+
+Export File List to Google Cloud Storage
+----------------------------------------
+
+To export the File List to Google Cloud Storage (GCS), select the **GCS** button on the **File Browser** screen.  You will need to have registered a Google Cloud Project and a GCS Object to be able to export to GCS. More information on how to register a GCS bucket can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_. You can also give the object a unique name; if left blank, a name will be provided for the bucket. You will be able to select either CSV or JSON as the file format for exporting into Cloud Storage. All exported files are converted into zip files.  
+
+The file will contain the following information (for each of the data type tabs):
+
+* sample_barcode
+* case_barcode
+* cloud_storage_location
+* file_size_bytes
+* platform
+* data_type
+* data_category 
+* exp_strategy
+* data_format
+* gdc_file_uuid 
+* gdc_case_uuid
+* project_short_name
+* cohort_id
+* build
+* index_file_storage_location
+* index_file_gdc_uuid
+* date_added
+
+Viewing a Sequence
+------------------
+
+When available, sequences in a cohort can be viewed using the IGV viewer.  To find those sequences that can be viewed, select the **IGV** link on the **File Browser** screen. The File Listing panel will display the files that can be viewed with the IGV viewer.  Selecting the checkbox in the "View" column (maximum of 5 files) and clicking the **Launch IGV** button in the upper panel will display an IGV view of the selected sequence(s) data.  
+
+Controlled access files will be viewable by sequence ONLY if you have `authenticated as a dbGaP-authorized user <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Gaining-Access-To-Contolled-Access-Data.html>`_. 
+
+(`more information about Viewing a Sequence in the IGV Viewer <IGV-Browser.html>`_).
 
 Using the Image Pathology Viewer
 --------------------------------
@@ -490,6 +460,21 @@ Viewing a Radiology Image
 To find images that can be viewed, open a saved cohort and select the **File Browser** button. You can also click the **File Browser** link from the Dashboard Saved Cohorts panel. The files associated with your cohort will be shown. Click the **Radiology Images** tab to view a list of available radiology images. Hovering over the Study Instance UID column and clicking on "Open in CHIF Viewer" will open the series Selection panel in a new tab using Osimis DICOM. (HINT: Using a smaller cohort will provide faster response in creating the list of files available.)
 
 For a more detailed step-by-step process of Viewing Radiology Images using the Osimis DICOM viewer please go `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/OsimisWebViewer.html>`_.
+
+Creating a Cohort from a Visualization
+======================================
+
+To create a cohort from visualization, you must be in plot selection mode. If you are in plot selection mode, the
+crosshairs icon in the top right corner of the plot panel should be blue. If it is not, click on it and it should turn
+blue.
+
+Once in plot selection mode, you can click and drag your cursor of the plot area to select the desired samples. For a
+cubbyhole plot, you will have to select each cubby that you are interested in.
+
+When your selection has been made, a small window should appear that contains a button labelled "Save as Cohort". Click
+on this when you are ready to create a new cohort.
+
+Put in a name for your newly selected cohort and click the **Save** button.
 
 Cohort export to CSV
 ===================
