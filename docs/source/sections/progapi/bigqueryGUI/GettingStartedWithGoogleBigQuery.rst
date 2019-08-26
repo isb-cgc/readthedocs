@@ -38,7 +38,7 @@ Query Syntax Examples
 ======================
 
 Simple Query Examples
-======================
+*********************
 Let's start with a few simple examples to get some practice using BigQuery. Note that all of these examples are in "Standard SQL". You can simply copy-and-paste any of the SQL queries on this page into the BigQuery web UI https://bigquery.cloud.google.com.
 
 **1. How many mutations have been observed in KRAS?**
@@ -55,6 +55,7 @@ Let's start with a few simple examples to get some practice using BigQuery. Note
 The following screen-shot below shows the query in the "Query Editor" box, and the results down below.  Just click on the "RUN QUERY" button to run the query. Notice the green check-mark indicating that the SQL query syntax looks good.
 
 .. image:: SimpleSQLExample1.png
+   :scale: 50 
    :align: center
 
 
@@ -107,6 +108,7 @@ In addition to answering the question above, this next query also illustrates us
       
       
 .. image:: SimpleSQLExample2.png
+   :scale: 50 
    :align: center
 
 **3. What are the most frequently observed mutations and how often do they occur?**
