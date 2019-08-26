@@ -17,7 +17,7 @@ on Google's OpenAPI Endpoints. A SwaggerUI interface is also available, to try o
 and view their documentation. User-generated data such as cohort definitions, and user functions such as registering 
 GCP projects is also available through the ISB-CGC API Endpoints. 
 
-**Note that all user-generated Endpoints require identity 
+**Note that all user-generated APIs require identity 
 credentials for use.**
 
 
