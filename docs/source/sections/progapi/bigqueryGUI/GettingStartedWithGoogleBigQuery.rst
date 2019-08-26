@@ -55,7 +55,7 @@ Let's start with a few simple examples to get some practice using BigQuery. Note
 The following screen-shot below shows the query in the "Query Editor" box, and the results down below.  Just click on the "RUN QUERY" button to run the query. Notice the green check-mark indicating that the SQL query syntax looks good.
 
 .. image:: SimpleSQLExample1.png
-   :scale: 50 
+   :scale: 40 
    :align: center
 
 
@@ -108,7 +108,7 @@ In addition to answering the question above, this next query also illustrates us
       
       
 .. image:: SimpleSQLExample2.png
-   :scale: 50 
+   :scale: 40 
    :align: center
 
 **3. What are the most frequently observed mutations and how often do they occur?**
@@ -152,7 +152,7 @@ In addition to answering the question above, this next query also illustrates us
       n DESC
 
 .. image:: SQLSimpleExample3.png
-   :scale: 50
+   :scale: 40
    :align: center
 
   
