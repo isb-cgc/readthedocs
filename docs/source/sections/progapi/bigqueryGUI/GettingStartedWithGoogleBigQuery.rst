@@ -166,7 +166,7 @@ This question was chosen as an interesting example because the p53/Rb pathway is
 This is a complex question that requires information from four tables.  We will build up this complex query in three steps.
 
 Step 1
-*******
+++++++
 Finding the patients with bladder cancer that have mutations in the CDKN2A gene, and displaying the patient ID and 
 the type of mutation
 
@@ -196,7 +196,7 @@ We now have the list of patients that have a mutation in the CDKN2A gene and the
 Notice that we have named the "isb-cgc:TCGA_hg19_data_v0.Somatic_Mutation_DCC" table "mutation" using the AS statement.  This is useful for easier reading and composing of complex queries.
 
 Step 2
-*******
++++++++
 Bringing in the patient data from the ISB-CGC TCGA Clinical table so that we can see each patient's gender, vital status and days to death.
 
 .. code-block:: sql
@@ -238,7 +238,7 @@ and the fact that
 for the join (inner join by default), the fields that are identiical between the mutation table and the clinical table is "case_barcode".  
 
 Step 3
-*******
++++++++
 Show the gene expression levels for the 4 genes of interest, and order them by case id (Case Barcode) and gene name (HGNC_gene_symbol).  
   
 .. code-block:: sql
