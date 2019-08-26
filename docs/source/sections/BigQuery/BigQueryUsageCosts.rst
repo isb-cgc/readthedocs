@@ -18,7 +18,6 @@ You want to upload your own data to BigQuery or to store results of your queries
 The image below summarizes BigQuery's storage costs (as of August 2019). Note, these prices are subject to change so check  Google's pricing page, https://cloud.google.com/bigquery/pricing for the most up-to-date costs. 
 
 .. image:: BigQueryCosts.png
-   :scale: 30
    :align: center
 
  
