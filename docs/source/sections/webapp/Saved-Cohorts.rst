@@ -13,6 +13,9 @@ If you already have saved cohorts, they will be listed in the **Saved Cohorts** 
 
 These functions can also be navigated to by using the drop down options in the **COHORTS** item on the menu bar.
 
+.. image:: CreateCohort.png
+   :align: center
+
 Cohort Creation - Filters 
 =========================
 
@@ -239,6 +242,9 @@ Cohort Details Screen
 
 The cohort details screen displays the details of a specific cohort.  The title of the cohort is displayed at the top of the page.
 
+.. image:: CreateDetails.png
+   :align: center
+
 The screen is divided into the following sections:
 
 **Current Filters Panel**
@@ -320,6 +326,10 @@ File Browser
 
 Clicking the **File Browser** button displays a screen with a list of data files associated with your current cohort.  
 This list includes all files which have been uploaded to the ISB-CGC Google Cloud Project, including both controlled access and open access data.
+
+.. image:: CohortFileBrowser.png
+   :align: center
+
 
 You can use "Show", "Page", "Previous" and "Next" to navigate through the list.  The columns are sortable by selecting the column header.  You can select a subset of the default columns to show by using the "Choose Columns to Display" tool.
 
