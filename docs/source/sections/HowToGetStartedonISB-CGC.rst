@@ -12,7 +12,7 @@ I. Data Access and Google Cloud Project Setup
 -----------------------------------------------
 
 - ISB-CGC hosts both open-access and controlled-access cancer genomics data from the NCI.
-      `About ISB-CGC Cloud-Hosted Datasets <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Hosted-Data.html>`_
+      `About ISB-CGC Cloud-Hosted Datasets <Hosted-Data.html>`_
       
 
 - To access controlled-access data, dbGaP authorization is required.
@@ -27,9 +27,9 @@ I. Data Access and Google Cloud Project Setup
       - If you have already used this one-time offer (or there is some other reason you cannot use it), please see the information here about `ISB-CGC Cloud Credits Available for Researchers <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/outreach/User%20Credit%20Guidelines.html>`_.
       - `How to request ISB-CGC Cloud Credits <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Support.html>`_.
       
-- `Registering the GCP project <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Gaining-Access-To-Contolled-Access-Data.html#requirements-for-registering-a-google-cloud-project-service-account>`_
+- `Registering the GCP project <Gaining-Access-To-Contolled-Access-Data.html#requirements-for-registering-a-google-cloud-project-service-account>`_
  
-- `Enable Required Google Cloud APIs <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DIYWorkshop.html#enabling-required-google-apis>`_
+- `Enable Required Google Cloud APIs <https://cloud.google.com/apis/docs/getting-started#enabling_apis>`_
       
       
 II. Accessing and Analyzing Data via BigQuery
@@ -49,7 +49,7 @@ III. Accessing and Analyzing Data Stored in Google Cloud Storage
 
  - All open-access data on ISB-CGC are stored in a publically available GCS bucket (gs://isb-cgc-open).
  - All controlled-access data are stored in Google Cloud Storage (GCS) in their original form as obtained from the GDC. 
- - To access controlled data, users must first be authenticated by NIH (`via the ISB-CGC web-app <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-Contolled-Access-Data.html#interactive-access-to-controlled-data>`_). Upon successful authentication, user dbGaP authorization will be verified. These two steps are required before the user’s Google identity is added to the access control list (ACL) for the controlled data. At this time, this access must be renewed every 24 hours.
+ - To access controlled data, users must first be authenticated by NIH (`via the ISB-CGC web-app <Gaining-Access-To-Contolled-Access-Data.html#interactive-access-to-controlled-data>`_). Upon successful authentication, user dbGaP authorization will be verified. These two steps are required before the user’s Google identity is added to the access control list (ACL) for the controlled data. At this time, this access must be renewed every 24 hours.
  - `Summary of data types and formats available <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_GCS.html>`_
  - New programs have been added into Google Cloud Storage, directions on how to find the data paths via IndexD can be found `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/AccessData/AccessviaIndexD.html>`_.
  - Working with large-scale data hosted by the ISB-CGC in Google Cloud Storage requires some familiarity with tools such as the `Google Cloud SDK <https://cloud.google.com/sdk/>`_, `Google Compute Engine <https://cloud.google.com/compute/>`_, `Virtual Machines <https://en.wikipedia.org/wiki/Virtual_machine>`_ and `Docker <https://www.docker.com/why-docker#/VM>`_.
