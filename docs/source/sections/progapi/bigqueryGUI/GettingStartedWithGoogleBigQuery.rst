@@ -1,6 +1,6 @@
-************************
-Query Syntax Examples
-************************
+*************
+Query Syntax 
+*************
 
 Legacy SQL vs Standard SQL
 ===========================
@@ -37,7 +37,9 @@ between the project name and the dataset name, like this:
 Query Syntax Examples
 ======================
 
-Let's start with a few simple examples to get some practice using BigQuery. Note that all of these examples are in "Standard SQL".
+Simple Query Examples
+======================
+Let's start with a few simple examples to get some practice using BigQuery. Note that all of these examples are in "Standard SQL". You can simply copy-and-paste any of the SQL queries on this page into the BigQuery web UI https://bigquery.cloud.google.com.
 
 **1. How many mutations have been observed in KRAS?**
 
@@ -50,11 +52,12 @@ Let's start with a few simple examples to get some practice using BigQuery. Note
     WHERE
       Hugo_Symbol="KRAS"
 
-You can simply copy-and-paste any of the SQL queries on this page into the
-`BigQuery web UI  <https://bigquery.cloud.google.com>`_ .  The screen-shot
-shown here shows the query in the "New Query" box, and the results
-down below.  Just click on the "RUN QUERY" button to run the query.
-Notice the green check-mark indicating that the query looks good.
+The following screen-shot below shows the query in the "New Query" box, and the results down below.  Just click on the "RUN QUERY" button to run the query. Notice the green check-mark indicating that the query looks good.
+
+.. image:: SimpleSQLExample1.png
+   :scale: 65
+   :align: center
+
 
 
 **2. What other information is available about these KRAS mutant tumours?**
