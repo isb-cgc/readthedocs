@@ -17,7 +17,6 @@ in the right direction.
 .. toctree::
    :maxdepth: 1
 
-   gcp-info2/Setup.rst
    gcp-info2/LaunchVM.rst
    gcp-info2/Disks.rst
 
