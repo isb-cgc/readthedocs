@@ -39,7 +39,7 @@ Select Genes & miRNAs for a New Workbook
 Selecting **Select Genes & miRNAs for a New Workbook** from the **GENES & miRNAs** menu dropdown displays the **Data Source | Gene & miRNA Favorites** screen. This screen displays your saved Gene & miRNA Favorites and allows you to apply them to a new workbook.
 
 - Check the box adjacent to your favorite and click the **Apply to New Worksheet** button to create a new workbook using your Gene & miRNA Favorite.
-- Click the **Apply New Gene & miRNA List** to create a new favorite. This takes you to the **Create Gene & miRNA Favorite** screen.
+- Click the **Apply New Gene & miRNA List** button to create a new favorite. This takes you to the **Create Gene & miRNA Favorite** screen.
 
 
 **Resources for understanding and working with miRNAs and gene identifiers:**
