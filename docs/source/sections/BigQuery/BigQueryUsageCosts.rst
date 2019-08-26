@@ -33,6 +33,8 @@ Some more helpful links:
 
 **Introductory Information:** https://cloud.google.com/bigquery/what-is-bigquery 
 
+**Main Google BigQuery documentation:** https://cloud.google.com/bigquery/docs
+
 **QuickStart Guide:** https://cloud.google.com/bigquery/docs/quickstarts/quickstart-web-ui
 
 **Query Syntax:** https://cloud.google.com/bigquery/query-reference 
