@@ -43,3 +43,9 @@ Browse All Analyses
 Selecting **Browse All Analyses** from the **Analyses** menu dropdown displays a screen which provides a visual example and a written description of each type of plot. This information can help you determine which type of plot would be useful in your analysis.
 
 From here, click on the **Start a New Workbook <Plot Type>** link to go to a screen which enables you to build your analysis.
+
+.. image:: Analyses-Descriptions1.png
+   :align: center
+
+.. image:: Analyses-Descriptions2.png
+   :align: center
