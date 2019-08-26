@@ -1,49 +1,163 @@
-*****************************
-ISB-CGC Data Sets in BigQuery
-*****************************
+***************
+BigQuery Syntax 
+***************
 
-This will serve as a guide to navigate through the Google web-interface for BigQuery and do some introductory queries using ISB-CGC hosted TCGA data.  For those who would rather use R or Python to programmatically interact with BigQuery, detailed tutorials are provided `here <http://isb-cancer-genomics-cloud.readthedocs.org/en/staging-theme/sections/HowTos.html>`_.
+Legacy SQL vs Standard SQL
+===========================
+
+BigQuery introduced support for
+`Standard SQL <https://cloud.google.com/bigquery/docs/reference/standard-sql/>`_
+in 2016.  The previous version of SQL supported by
+BigQuery is now known as
+`Legacy SQL <https://cloud.google.com/bigquery/docs/reference/legacy-sql>`_.
+
+Note that when you first go to the BigQuery web UI,
+Standard SQL will be activated by default and you will need to enable Legacy SQL if you want to
+use Legacy SQL.  For simple queries, the same syntax will work in both, except for one
+important detail which is how you specify the table name.  A simple Standard SQL query might look like:
+
+.. code-block:: sql
+
+    SELECT *
+      FROM `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
+      LIMIT 1000
+
+whereas the same query in Legacy SQL requires square brackets around the table name and a colon
+between the project name and the dataset name, like this:
+
+.. code-block:: sql
+
+    SELECT *
+      FROM [isb-cgc:TCGA_hg38_data_v0.Somatic_Mutation_DR10]
+      LIMIT 1000
+
+(Although please note that you can use the "Preview" feature in the BigQuery web UI, at no cost, instead of doing a SELECT * which will do a full table scan!)
 
 
-ISB-CGC maintains multiple `data sets in BigQuery <../../data/data2/data_in_BQ.html>`__ including:
+Query Syntax Examples
+======================
 
-* `TCGA clinical, biospecimen and molecular data <../../data/data2/data_in_BQ.html#tcga-clinical-biospecimen-and-molecular-data>`__
-* `TARGET clinical, biospecimen and molecular data <../../data/data2/data_in_BQ.html#target-clinical-biospecimen-and-molecular-data>`__
-* `A wide variety of related metadata <../../data/data2/data_in_BQ.html#additional-metadata>`__
+Simple Query Examples
+*********************
+Let's start with a few simple examples to get some practice using BigQuery. Note that all of these examples are in "Standard SQL". You can simply copy-and-paste any of the SQL queries on this page into the BigQuery web UI https://bigquery.cloud.google.com.
 
-With the exception of the COSMIC mutation data, all data in BigQuery is open for general use.
-
-
-************************
-Syntax Queries Examples
-************************
-Below are some sample queries that will get you started using BigQuery and these ISB-CGC datasets for your own analyses.  One easy way is to use the BigQuery web UI (see screenshot below).  See Google's `BigQuery Web UI Tutorial <https://developers.google.com/bigquery/docs/hello_bigquery_gui>`_ for more general details of how to use this tool.
-
-The examples below show the question that is being asked, and an example BigQuery SQL syntax that can be used to find the answer.  Try it yourself by pasting the query into your own instance of the BigQuery web UI.
-
-
-Querying one table
-==================================
-
-**Q: Find all THCA participants with UNC HiSeq gene expression data for the ARID1B gene**
+**1. How many mutations have been observed in KRAS?**
 
 .. code-block:: sql
 
     SELECT
-      case_barcode, project_short_name, original_gene_symbol, HGNC_gene_symbol, gene_id
+      COUNT(DISTINCT(sample_barcode_tumor)) AS numSamples
     FROM
-      `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
+      `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
     WHERE
-      original_gene_symbol = 'ARID1B'
-    AND
-      project_short_name = 'TCGA-THCA' LIMIT 100
-  
-.. image:: BigQueryExample1Query.PNG
-   :scale: 50
+      Hugo_Symbol="KRAS"
+
+The following screen-shot below shows the query in the "Query Editor" box, and the results down below.  Just click on the "RUN QUERY" button to run the query. Notice the green check-mark indicating that the SQL query syntax looks good.
+
+.. image:: SimpleSQLExample1.png
+   :scale: 40 
    :align: center
+
+
+
+**2. What other information is available about these KRAS mutant tumours?**
+
+In addition to answering the question above, this next query also illustrates usage of the **WITH** construct to create an intermediate table on the fly, and then use it in a follow-up **SELECT**:
+
+.. code-block:: sql
+
+    WITH
+      t1 AS (
+      SELECT
+        project_short_name,
+        sample_barcode_tumor,
+        Hugo_Symbol,
+        Variant_Classification,
+        Variant_Type,
+        SIFT,
+        PolyPhen
+      FROM
+        `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
+      WHERE
+        Hugo_Symbol="KRAS"
+      GROUP BY
+        project_short_name,
+        sample_barcode_tumor,
+        Hugo_Symbol,
+        Variant_Classification,
+        Variant_Type,
+        SIFT,
+        PolyPhen )
+    SELECT
+      COUNT(*) AS n,
+      Hugo_Symbol,
+      Variant_Classification,
+      Variant_Type,
+      SIFT,
+      PolyPhen
+    FROM
+      t1
+    GROUP BY
+      Hugo_Symbol,
+      Variant_Classification,
+      Variant_Type,
+      SIFT,
+      PolyPhen
+    ORDER BY
+      n DESC
+      
+      
+.. image:: SimpleSQLExample2.png
+   :scale: 40 
+   :align: center
+
+**3. What are the most frequently observed mutations and how often do they occur?**
+
+.. code-block:: sql
+
+    WITH
+      t1 AS (
+      SELECT
+        sample_barcode_tumor,
+        Hugo_Symbol,
+        Variant_Classification,
+        Variant_Type,
+        SIFT,
+        PolyPhen
+      FROM
+        `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
+      GROUP BY
+        sample_barcode_tumor,
+        Hugo_Symbol,
+        Variant_Classification,
+        Variant_Type,
+        SIFT,
+        PolyPhen )
+    SELECT
+      COUNT(*) AS n,
+      Hugo_Symbol,
+      Variant_Classification,
+      Variant_Type,
+      SIFT,
+      PolyPhen
+    FROM
+      t1
+    GROUP BY
+      Hugo_Symbol,
+      Variant_Classification,
+      Variant_Type,
+      SIFT,
+      PolyPhen
+    ORDER BY
+      n DESC
+
+.. image:: SQLSimpleExample3.png
+   :scale: 40
+   :align: center
+
   
 Querying from more than one table (Joining)
-======================================================
+*******************************************
 
 **Q: For bladder cancer patients that have mutations in the CDKN2A (cyclin-dependent kinase inhibitor 2A) gene, what types of mutations are they, what is their gender, vital status, and days to death - and for 3 downstream genes (MDM2 (MDM2 proto-oncogene), TP53 (tumor protein p53), CDKN1A (cyclin-dependent kinase inhibitor 1A)), what are the gene expression levels for each patient?**
 
@@ -52,7 +166,7 @@ This question was chosen as an interesting example because the p53/Rb pathway is
 This is a complex question that requires information from four tables.  We will build up this complex query in three steps.
 
 Step 1
-*******
+++++++
 Finding the patients with bladder cancer that have mutations in the CDKN2A gene, and displaying the patient ID and 
 the type of mutation
 
@@ -82,7 +196,7 @@ We now have the list of patients that have a mutation in the CDKN2A gene and the
 Notice that we have named the "isb-cgc:TCGA_hg19_data_v0.Somatic_Mutation_DCC" table "mutation" using the AS statement.  This is useful for easier reading and composing of complex queries.
 
 Step 2
-*******
++++++++
 Bringing in the patient data from the ISB-CGC TCGA Clinical table so that we can see each patient's gender, vital status and days to death.
 
 .. code-block:: sql
@@ -124,7 +238,7 @@ and the fact that
 for the join (inner join by default), the fields that are identiical between the mutation table and the clinical table is "case_barcode".  
 
 Step 3
-*******
++++++++
 Show the gene expression levels for the 4 genes of interest, and order them by case id (Case Barcode) and gene name (HGNC_gene_symbol).  
   
 .. code-block:: sql
@@ -195,20 +309,65 @@ You can either download the results from a query in either CSV or JSON format, o
 
 Saving Query Results to other BigQuery Tables
 ==============================================
-You can easily save Query results in intermediate tables in your project, allowing others to view and use them.  Details from Google on how to do that is `here <https://cloud.google.com/bigquery/bigquery-web-ui>`_.  If your query gets too complex it can take too long to run.  Creating intermediate result tables can be a good approach to obtain the same result more quickly and at a lower cost. 
+You can easily save query results in intermediate tables in your project, allowing others to view and use them.  Details from Google on how to do that is `here <https://cloud.google.com/bigquery/bigquery-web-ui>`_.  If your query gets too complex it can take too long to run.  Creating intermediate result tables can be a good approach to obtain the same result more quickly and at a lower cost. 
 
 
-*****************************
-Additional Google Support
-*****************************
+SQL Functions
+=============
 
-Google provides its users with a detailed explanation of BigQuery and how it works, query reference guides, quickstart guide using the BigQuery Web UI and much more. 
+Standard SQL includes a large variety of built-in
+`functions and operators <https://cloud.google.com/bigquery/docs/reference/standard-sql/functions-and-operators>`_
+including logical and statistical aggregate functions, and mathematical functions, just to name a few.
+`User-defined functions <https://cloud.google.com/bigquery/docs/reference/standard-sql/user-defined-functions>`_ (UDFs)
+are also supported and can be used to further extend the types of analyses possible in BigQuery.
 
-https://cloud.google.com/bigquery/what-is-bigquery 
+Using the bq Command Line Tool
+==============================================
+The **bq** command line tool is part of the
+`cloud SDK <https://cloud.google.com/sdk/>`_ and can be used to interact directly
+with BigQuery from the command line.  The cloud SDK is easy to install and
+is available for most operating systems.  You can use **bq** to create and upload
+your own tables into BigQuery (if you have your own GCP project),
+and you can run queries at the command-line like this:
 
-https://cloud.google.com/bigquery/query-reference 
+.. code-block:: none
 
-https://cloud.google.com/bigquery/docs/quickstarts/quickstart-web-ui
+   bq query --allow_large_results \
+            --destination_table="myproj:dataset:query_output" \
+            --nouse_legacy_sql \
+            --nodry_run \
+            "$(cat myQuery.sql)"
+
+(where myQuery.sql is a plain-text file containing the SQL, and the destination
+table is in an existing BigQuery dataset in your project).
+
+Using BigQuery from R
+======================
+BigQuery can be accessed from R using one of two powerful R packages:
+`bigrquery <https://cran.r-project.org/web/packages/bigrquery/>`_ and
+`dplyr <https://cran.r-project.org/web/packages/dplyr/>`_.
+Please refer to the documentation provided with these packages for more information.
+
+Using BigQuery from Python
+==========================
+BigQuery
+`client libraries <https://cloud.google.com/bigquery/docs/reference/libraries#client-libraries-install-python>`_
+are available that let you interact with BigQuery from Python or other languages.
+In addition, the experimental
+`pandas.io.gbq <http://pandas.pydata.org/pandas-docs/stable/io.html#google-bigquery-experimental>`_
+module provides a wrapper for BigQuery.
+
+Getting Help
+============
+Aside from the documentation, the best place to look for help using BigQuery and tips
+and tricks with SQL is
+`StackOverflow <http://stackoverflow.com/>`_.  If you tag your question with ``google-bigquery``
+your question will quickly get the attention of Google BigQuery experts.  You may also find
+that your question has already been asked and answered among the nearly 10,000 questions
+that have already been asked about BigQuery on StackOverflow.
+
+
+
 
 
 
