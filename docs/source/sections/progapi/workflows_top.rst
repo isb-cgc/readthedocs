@@ -35,9 +35,9 @@ its challenging to make a choice on any one technology.
 ISB CGC's approach therefore has been not to make a choice but to instead enable as many of these
 technologies as possible through documentation, support, and where necessary infrastructure.
 
-For more information on workflows see:
 
 .. toctree::
+   :hidden:
    :maxdepth: 1
 
    CWL_top
