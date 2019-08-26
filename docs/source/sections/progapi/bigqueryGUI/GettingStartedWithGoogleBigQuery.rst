@@ -151,6 +151,9 @@ In addition to answering the question above, this next query also illustrates us
     ORDER BY
       n DESC
 
+.. image:: SimpleSQLExample2.png
+   :scale: 50
+   :align: center
 
 Below are some sample queries that will get you started using BigQuery and these ISB-CGC datasets for your own analyses.  One easy way is to use the BigQuery web UI. Seee Google's `BigQuery Web UI Tutorial <https://developers.google.com/bigquery/docs/hello_bigquery_gui>`_ for more general details of how to use this tool.
 
