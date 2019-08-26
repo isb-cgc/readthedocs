@@ -32,18 +32,4 @@ Once on the file page, a file manifest can be downloaded simply by clicking on t
 
 .. image:: FileManifestButton4.png
   
-Using BigQuery
-==============
-  
-The rest of this tutorial (described in the three separate pages linked below) assumes that the user is familiar with using the BigQuery interface and can write some basic SQL statements.  If you need an introduction to BigQuery, visit our `tutorial <../progapi/bigqueryGUI/WalkthroughOfGoogleBigQuery.html>`__ and there are a number of pages that explain the data already available to users in BiqQuery:
 
- * `Data in BigQuery <../data/data2/data_in_BQ.html>`__
- * `Data Releases and Future Plans <../data/Releases-Plus.html#release-notes>`__
- * `NCI-GDC Overview <../data/GDC_top.html>`__
- 
-
-Links to other GDC tutorial pages:
-++++++++++++++++++++++++++++++++++ 
-* `Importing a GDC File Manifest <ImportGDCFileManifest.html>`__
-* `Importing a GDC Case List <ImportGDCCaseDownload.html>`__
-* `Creating an ISB-CGC Cohort from a GDC Case List <ISB-CGC_Cohort_from_GDC_Cases.html>`__
