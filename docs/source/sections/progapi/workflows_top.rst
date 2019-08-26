@@ -5,15 +5,7 @@ Running Workflows
 In the last few years there has been significant renewed interest in using a 
 workflow approach to perform data analysis on Genomic, RNASeq, Proteomic and
 other types of data driven by the growth in big data and the popularity of 
-cloud technologies ability for scalable storage and computing.  The concept 
-of a workflow was 
-`defined <http://www.aiai.ed.ac.uk/project/wfmc/ARCHIVE/DOCS/glossary/glossary.html>`_ 
-about 20 years ago by the 
-`Workflow Management Coalition <http://www.wfmc.org/>`_ 
-as: *"The automation of a business process, in whole or part, during which documents, 
-information or tasks are passed from one participant to another for action, 
-according to a set of procedural rules."* The focus of this particular 
-organization is on something called BPM or *Business Process Management*.
+cloud technologies ability for scalable storage and computing.  
 
 *Scientific* workflows have emerged to manage and describe the complexity that arises
 in scientific experiments, as well as data analysis and data processing.  Complex 
@@ -29,7 +21,7 @@ the scheduler is typically trying to optimize usage of the available workers bas
 on the requirements of the master(s), the executor causes tasks to be run on the specified 
 schedule, and the workers do the work.
 
-Out of this demand for scientific workflows have emerged sseveral competing description 
+Out of this demand for scientific workflows have emerged several competing description 
 languages such as the CWL (`Common Workflow Language <http://www.commonwl.org/>`_), 
 WDL (`Workflow Description Language <https://software.broadinstitute.org/wdl/>`_),
 and `NextFlow <https://www.nextflow.io>`_ to name a few.
@@ -38,10 +30,10 @@ are becoming more stable for use in production environments.  Coupled with these
 are runner implementations such as cwltool, rabix, toil, and cromwell and new API standards such
 as GA4GH’s Task Execution Schema (TES) and the Workflow Execution Schema (WES).  With the 
 advent of so many choices; all under rapid development and at various stages of completeness
-its challenging to make a choice on any one technology.  ISB CGC's approach 
-therefore has been not to make a choice but to instead enable as many of these
-technologies as possible through documentation, support, and where necessary
-infrastructure.
+its challenging to make a choice on any one technology.  
+
+ISB CGC's approach therefore has been not to make a choice but to instead enable as many of these
+technologies as possible through documentation, support, and where necessary infrastructure.
 
 For more information on workflows see:
 
