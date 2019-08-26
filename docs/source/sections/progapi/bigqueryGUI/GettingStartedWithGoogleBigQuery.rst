@@ -52,19 +52,16 @@ Let's start with a few simple examples to get some practice using BigQuery. Note
     WHERE
       Hugo_Symbol="KRAS"
 
-The following screen-shot below shows the query in the "New Query" box, and the results down below.  Just click on the "RUN QUERY" button to run the query. Notice the green check-mark indicating that the query looks good.
+The following screen-shot below shows the query in the "Query Editor" box, and the results down below.  Just click on the "RUN QUERY" button to run the query. Notice the green check-mark indicating that the SQL query syntax looks good.
 
 .. image:: SimpleSQLExample1.png
-   :scale: 65
    :align: center
 
 
 
 **2. What other information is available about these KRAS mutant tumours?**
 
-In addition to answering the question above,
-this next query also illustrates usage of the **WITH** construct to create an intermediate
-table on the fly, and then use it in a follow-up **SELECT**:
+In addition to answering the question above, this next query also illustrates usage of the **WITH** construct to create an intermediate table on the fly, and then use it in a follow-up **SELECT**:
 
 .. code-block:: sql
 
@@ -107,6 +104,10 @@ table on the fly, and then use it in a follow-up **SELECT**:
       PolyPhen
     ORDER BY
       n DESC
+      
+      
+.. image:: SimpleSQLExample2.png
+   :align: center
 
 **3. What are the most frequently observed mutations and how often do they occur?**
 
