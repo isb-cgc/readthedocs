@@ -2,34 +2,23 @@
 Workbooks
 *********
 
-Workbooks store the Analyses you create, and their related data. The worksheets you create to conduct analysis are based on the source data selected (i.e. Genes and miRNAs, Variables and Cohorts).  Workbooks can be used to:
+Workbooks store the analyses you create, and their related data. You can create multiple analyses in a workbook and store them on separate worksheets within the workbook. The worksheets you create to conduct analysis are based on the source data selected (i.e. Genes and miRNAs, Variables and Cohorts).  Workbooks can be used to:
 
   * Group together multiple related analyses.
   * Share analysis results with specific groups of people.
 
-For example, you can create a Workbook (i.e., Disease A) which consists of identifying gene mutations and pathways involved in Head and Neck Cancer (and share it with research Group A). 
-
-And to create another Workbook (i.e., Disease B) with a different group of researchers (Group B) investigating the average time after diagnosis of death for different lung cancers.  Think of workbooks as virtual "excel spreadsheets" that various related analyses can be created in individual Worksheets (“Tabs” within the spreadsheet) and grouped together in one Workbook (the overall spreadsheet).
-
-Additionally, you can:
-  * Save a Workbook for later use, or
-  * Edit an existing Workbook.
+For example, you can create a Workbook (i.e., Disease A) which consists of identifying gene mutations and pathways involved in Head and Neck Cancer (and share it with research Group A). And then you could create another Workbook (i.e., Disease B) with a different group of researchers (Group B) investigating the average time after diagnosis of death for different lung cancers. Think of workbooks as virtual "excel spreadsheets". Various related analyses can be created in individual worksheets (“Tabs” within the spreadsheet) and grouped together in one workbook (the overall spreadsheet).
 
 Create a New Workbook
 #####################
 
-From your Dashboard, you will find the “Saved Workbooks” panel.  This panel displays any previously created, Saved Workbooks, also you are able to “Create a New Workbook”. If you do not have any saved workbooks you will see “Workbooks store the analyses you create, and their related data." text in the panel.
+On **Your Dashboard**, there is a **Saved Workbooks** panel.  This panel displays any previously created, saved workbooks. If you do not have any saved workbooks you will see “Workbooks store the analyses you create, and their related data." text in the panel. To create a new workbook, click on the **Create a New Workbook** link. 
 
-To create a **Workbook** from Your Dashboard, click on the **“Create a New Workbook”** link in the "Saved Workbooks" panel. This will take you to the Workbook creation page.
+Selecting **Create a New Workbook** from the **WORKBOOKS** menu dropdown also displays a screen where you can create a new workbook. 
 
-**Note:** If you wish to use your own data in graphing, please review the documentations on `how to upload your own data`_ and on `how to graph your own data`_.  Using your own data uses a slightly different approach than is described here.
+Follow these steps to create a workbook:
 
-**ANNOUNCEMENT:** For OncoPrint, OncoGrid, and SeqPeek analyses we now provide a default gene list. Genes with consensus score of 6 or higher are added to the default gene list. (Ref: `Bailey et al., Cell. 2018 Apr 5;173(2):371-385.e18. doi: 10.1016/j.cell.2018.02.06 <https://www.sciencedirect.com/science/article/pii/S009286741830237X?via%3Dihub>`_ )
-
-.. _how to upload your own data: program_data_upload.html
-.. _how to graph your own data: GraphingUserData.html
-
-1. From the Workbook creation panel you will first select one of six analysis types (i.e., Bar chart, Histogram, Scatter Plot, Violin Plot, Cubby Hole Plot or SeqPeek). 
+1. From the Workbook creation panel, select an Analysis Type (i.e., Bar Chart, Histogram, Scatter Plot, Violin Plot, Cubby Hole Plot, SeqPeek, OncoPrint or OncoGrid). 
 
   * **Analysis Type Description**
 
@@ -100,6 +89,13 @@ Once completed you can proceed.  The user can also add multiple Cohorts to the w
 
 8. Select **Toggle Full Screen** -  After an analysis option has been selected, using this button will enable the plot to full-screen.
 
+**Note:** If you wish to use your own data in graphing, please review the documentations on `how to upload your own data`_ and on `how to graph your own data`_.  Using your own data uses a slightly different approach than is described here.
+
+**ANNOUNCEMENT:** For OncoPrint, OncoGrid, and SeqPeek analyses we now provide a default gene list. Genes with consensus score of 6 or higher are added to the default gene list. (Ref: `Bailey et al., Cell. 2018 Apr 5;173(2):371-385.e18. doi: 10.1016/j.cell.2018.02.06 <https://www.sciencedirect.com/science/article/pii/S009286741830237X?via%3Dihub>`_ )
+
+.. _how to upload your own data: program_data_upload.html
+.. _how to graph your own data: GraphingUserData.html
+
 
 Sharing Workbooks
 -----------------
@@ -146,5 +142,9 @@ To the left of each Workbook, dropdown options allow you to Edit, Duplicate or D
 
 * Edit - Selecting **Edit** displays a popup screen which allows you to update the Workbook name, build and description.
 * Duplicate - Selecting **Duplicate** enables you to make a copy of the worksheet. Note that this will create a copy of the worksheet and reference the cohorts, variables, and gene lists used in the workbook, but will not make duplicates of the cohort, variables, and gene lists used in the workbook.
-* Delete - This option will delete the worksheet.
+* Delete - This option will delete the workbook.
+
+Clicking on the workbook **Name** will display the Workbook Details screen.
+
+
 
