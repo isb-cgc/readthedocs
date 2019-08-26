@@ -2,25 +2,8 @@
 Data Sets
 ===========
 
-For more details, including tutorials, SQL, 
-and code examples in Python or R, 
-please see our 
-`Query of the Month <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/QueryOfTheMonthClub.html>`_ page and our
-`Community Notebook Repository <https://github.com/isb-cgc/Community-Notebooks>`_.
-Note that dbGaP authorization is **not** required to access these tables!
-
-If you have suggestions or requests for additional data (*eg* TCGA isoform expression data,
-or other reference data sources) that you would like to see made available as BigQuery tables,
-please let us know (feedback@isb-cgc.org) and we will try to make that happen.
-
-BigQuery Datasets and Tables
-
-
 Data made available by the ISB-CGC through BigQuery is organized into several *open-access* 
-datasets, where a dataset is made up of multiple tables.  
-Datasets in BigQuery are uniquely identified based on the Google Cloud Platform (GCP) project name 
-(in this case **isb-cgc**), and the dataset name, separated by a colon (or a period, in standard SQL), 
-*eg* ``isb-cgc.TCGA_bioclin_v0``.  Tables are uniquely identified by appending the table name,
+datasets, where a dataset is made up of multiple tables.  Datasets in BigQuery are uniquely identified based on the Google Cloud Platform (GCP) project name (in this case **isb-cgc**), and the dataset name, separated by a colon (or a period, in standard SQL),  *eg* ``isb-cgc.TCGA_bioclin_v0``.  Tables are uniquely identified by appending the table name,
 preceded by a period, *eg* ``isb-cgc.TCGA_bioclin_v0.Clinical``.
 
 
