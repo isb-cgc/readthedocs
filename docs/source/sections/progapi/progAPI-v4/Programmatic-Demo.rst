@@ -21,7 +21,7 @@ GCP projects is also available through the ISB-CGC API Endpoints.
 credentials for use.**
 
 
-The `ISB-CGC API v4.0 <https://mvm-api-dot-isb-cgc.appspot.com/v4/swagger#/>`_ can be used to see details about each endpoint, and also provides a convenient interface to test an endpoint through your web browser. 
+The `ISB-CGC API v4.0 <https://api-dot-isb-cgc.appspot.com/v4/swagger/>`_ can be used to see details about each endpoint, and also provides a convenient interface to test an endpoint through your web browser. 
 
 
 .. image:: api-endpoints.PNG
@@ -81,7 +81,7 @@ Make a Request
 
 Now let’s make a request:
 
-    Expand the  `POST samples endpoint <https://mvm-api-dot-isb-cgc.appspot.com/v4/swagger#/default/getSampleMetadataList>`_.   by clicking on the ‘POST/samples’ line. 
+    Expand the  `POST samples endpoint <https://api-dot-isb-cgc.appspot.com/v4/swagger/#/default/getSampleMetadataList>`_.   by clicking on the ‘POST/samples’ line. 
 
     Click 'Try it out'.
 
@@ -115,7 +115,7 @@ ISB-CGC APIs v4
 ISB-CGC-API-v4_
    
 
-.. _ISB-CGC-API-v4: https://mvm-api-dot-isb-cgc.appspot.com/v4/swagger#/
+.. _ISB-CGC-API-v4: https://api-dot-isb-cgc.appspot.com/v4/swagger/
 
 
 
