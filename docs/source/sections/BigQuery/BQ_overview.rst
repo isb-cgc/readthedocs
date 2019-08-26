@@ -1,6 +1,6 @@
-**********************
-BigQuery Data Overview
-**********************
+******************************
+ISB-CGC BigQuery Data Overview
+******************************
 
 The diagram below illustrates some of the important relationships between our BigQuery tables. The yellow, red and blue nodes all represent tables in BigQuery.  The green nodes represent fields that are common to two or more tables and can be used in "JOIN" operations if you want to link information found in one table with relevant information found in another table.  These same fields may also be useful in "GROUP BY" operations.
 
