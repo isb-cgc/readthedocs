@@ -155,30 +155,6 @@ In addition to answering the question above, this next query also illustrates us
    :scale: 50
    :align: center
 
-Below are some sample queries that will get you started using BigQuery and these ISB-CGC datasets for your own analyses.  One easy way is to use the BigQuery web UI. Seee Google's `BigQuery Web UI Tutorial <https://developers.google.com/bigquery/docs/hello_bigquery_gui>`_ for more general details of how to use this tool.
-
-The examples below show the question that is being asked, and an example BigQuery SQL syntax that can be used to find the answer.  Try it yourself by pasting the query into your own instance of the BigQuery web UI.
-
-
-Querying one table
-******************
-
-**Q: Find all THCA participants with UNC HiSeq gene expression data for the ARID1B gene**
-
-.. code-block:: sql
-
-    SELECT
-      case_barcode, project_short_name, original_gene_symbol, HGNC_gene_symbol, gene_id
-    FROM
-      `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM`
-    WHERE
-      original_gene_symbol = 'ARID1B'
-    AND
-      project_short_name = 'TCGA-THCA' LIMIT 100
-  
-.. image:: BigQueryExample1Query.PNG
-   :scale: 50
-   :align: center
   
 Querying from more than one table (Joining)
 *******************************************
