@@ -20,23 +20,23 @@ Follow these steps to create a workbook:
 
 1. From the Workbook creation panel, select an Analysis Type (i.e., Bar Chart, Histogram, Scatter Plot, Violin Plot, Cubby Hole Plot, SeqPeek, OncoPrint or OncoGrid). 
 
-  * **Analysis Type Description**
+   **Analysis Type Description**
 
-    - **Bar Chart** - This chart is used to plot a single categorical feature for one or more cohorts. It generates vertical lines to represent the type of data being used. The X axis shows categorical information being used while the other y axis,  displays categorical data chosen in the edit analysis settings. 
+    - **Bar Chart** - This chart is used to plot a single categorical feature for one or more cohorts. It generates vertical lines to represent the type of data being used. The X axis shows categorical information being used while the other axis (Y axis) displays categorical data chosen in the edit analysis settings. 
 
-    - **Histogram** - This chart is used to plot a single numerical feature for one or more cohorts. It generates vertical lines to represent the type of data being used. The X axis shows numerical information being used while the other y axis,  displays numerical data chosen in the edit analysis settings.
+    - **Histogram** - This chart is used to plot a single numerical feature for one or more cohorts. It generates vertical lines to represent the type of data being used. The X axis shows numerical information being used while the other axis (Y axis) displays numerical data chosen in the edit analysis settings.
 
-    - **Scatter Plot** - This chart is used to plot two numerical features (x & y axis) for one or more cohorts. Can also color code points by a single categorical feature.
+    - **Scatter Plot** - This chart is used to plot two numerical features (X & Y axis) for one or more cohorts. Can also color code points by a single categorical feature.
 
-    - **Violin Plot** - This chart is used to plot a categorical feature on the x-axis versus a numerical feature on the y-axis. Points in the plot can be colored by another categorical feature.
+    - **Violin Plot** - This chart is used to plot a categorical feature on the X axis versus a numerical feature on the Y axis. Points in the plot can be colored by another categorical feature.
+    
+    - **Cubby Hole Plot** - This chart is used to plot two categorical features. Boxes are colored by their related p-values.
+    
+    - **SeqPeek** - This visualization shows where somatic mutations have been observed on a linear representation of a specific protein. Each horizontal strip represents the protein, with data from different tumor types (aka cohorts or studies) shown stacked one on top of the other.
     
     - **OncoPrint** - This chart is used to plot multiple genomic alterations (somatic mutation) events across a set of samples using color-coded glyphs. OncoPrint is developed and provided by cBioPortal.
     
-    - **OncoGrid** - This chart is used to visualize the top mutated genes across programs/projects and the number of cases affected. We are also able to view the mutation frequency, clinical data, data format types, number of gene sets and the number of cases affected.
-
-    - **Cubby Hole Plot** - This chart is used to plot two categorical features. Boxes are colored by their related p-values.
-
-    - **SeqPeek** - This visualization shows where somatic mutations have been observed on a linear representation of a specific protein. Each horizontal strip represents the protein, with data from different tumor types (aka cohorts or studies) shown stacked one on top of the other.
+    - **OncoGrid** - This chart is used to visualize the top mutated genes across programs/projects and the number of cases affected. You can also view the mutation frequency, clinical data, data format types, number of gene sets and the number of cases affected.
 
     A researcher now has the option to make the axis logarithmic if the plot can display continuous numerical data for eg. mRNA expression levels.
    
@@ -44,30 +44,13 @@ Follow these steps to create a workbook:
 
 2. You will then select **Genes and miRNAs or Variables** (or, optionally both)
 
-  * **Genes and miRNAs** - This will display previously created “Gene and miRNA Favorites” which can be “Applied to Analysis" (see `Gene and miRNA Favorites <Gene-and-miRNA-Favorites.html>`_ for details) or you can apply / create a “New Gene and miRNA List”).
+   **Genes and miRNAs** 
+   
+   Selecting this link displays the **Data Source | Gene & miRNA Favorites** screen showing previously created “Gene and miRNA Favorites”.  Click the **Apply to Worksheet** to apply or click **Apply New Gene & miRNA List** to create a new list and apply. Any Gene and miRNA List you create here will automatically be added to your Gene and miRNA Favorites list and can be selected for additional analysis later. (See `Gene and miRNA Favorites <Gene-and-miRNA-Favorites.html>`_ for details.)
 
-
-You begin by naming the data set (Gene Type or Project Specific); the Gene and miRNA list you create here will automatically be added to your Gene and miRNA Favorites list and can be selected for additional analysis later.
-
-Next select the Gene(s) and miRNA(s) you’re interested in (you can upload a specific list you’ve previously created/stored, select new Genes and miRNA by typing them into the input box (you will see that Genes and miRNAs will auto-display). If duplicate listings are entered they will be marked for your deletion or automatically dropped when saved. If an error or unknown item is entered it will also be flagged for your attention. 
-
-To aid in Gene selection, you can access the HGNC portal (Hugo Gene Nomenclature Committee) via the "`View Gene Identifiers <http://www.genenames.org/>`_" link under this Menu selection.  To aid in miRNA selection You can also access the miRBase portal via the "`View miRNA Identifiers <http://www.mirbase.org/cgi-bin/mirna_summary.pl?org=hsa>`_" for readily available miRNA identifiers. 
-
- This allows you to focus on specific results or queries.
-
-  * **Variables** - (this will display previously created “Variable Favorites” which can be “Applied to Analysis" (see `Variable Favorites <Variable-Favorites.html>`_ for details) or you can apply / create a “New Variable List”).
-
-
-You begin by naming the new Variable; the Variable you create here will automatically be added to your Variable Favorites list and can be applied to other analysis later.
-
-Next you can select variables from five (5) available data sources to incorporate in your Variables-
-  * *TCGA* - Common (22 options) and clinical search feature
-  * *CCLE* - Common (8 options) and clinical search feature
-  * *TARGET* - Common (16 options) and clinical search feature 
-  * *Favorite(s)* - (Previously created variables which were Saved)
-  * *User Data* - Every program and data variable you have uploaded into system.
-
-Then **“Apply to Worksheet”**
+   **Variables** 
+   
+   Selecting this link displays the **Data Source | Variable Favorites** screen showing previously created “Variables Favorites”. Click the **Apply to Worksheet** to apply or click **Apply New Variable List** to create a new list and apply. Any Variable Favorites you create here will automatically be added to your Variable Favorites and can be selected for additional analysis later. (See `Variable Favorites <Variable-Favorites.html>`_ for details.)
 
 3. Select your **Cohort** - Cohorts allow the user to create custom groupings of the samples and/or cases that can be used for further analysis.
 
