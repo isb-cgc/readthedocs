@@ -1,6 +1,6 @@
-*************
-Query Syntax 
-*************
+***************
+BigQuery Syntax 
+***************
 
 Legacy SQL vs Standard SQL
 ===========================
