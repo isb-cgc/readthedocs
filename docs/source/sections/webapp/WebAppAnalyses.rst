@@ -22,6 +22,7 @@ This is the same screen that is displayed when you choose to create a workbook u
 
 .. image:: Analyses-Dropdown.png
    :align: center
+   :scale: 50
 
 Browse All Analyses
 ###################
