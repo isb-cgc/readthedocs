@@ -151,7 +151,7 @@ In addition to answering the question above, this next query also illustrates us
     ORDER BY
       n DESC
 
-.. image:: SimpleSQLExample2.png
+.. image:: SQLSimpleExample3.png
    :scale: 50
    :align: center
 
