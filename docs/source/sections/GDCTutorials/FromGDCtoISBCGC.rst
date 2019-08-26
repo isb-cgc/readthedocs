@@ -1,6 +1,7 @@
 
+**************************
 Moving from GDC to ISB-CGC
-===========================
+**************************
 
 If you've been using the National Cancer Institute's `Genomic Data Commons Portal 
 <https://portal.gdc.cancer.gov/>`_ you've probably discovered that while you can identify patients and files that might be interesting, the analysis options are limited and you need to download files to your own system in order to do anything unique.
