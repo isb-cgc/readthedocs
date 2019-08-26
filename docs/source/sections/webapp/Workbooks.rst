@@ -2,7 +2,8 @@
 Workbooks
 *********
 
-Workbooks store the Analyses you create -- and their related data. The worksheets you create to conduct analysis are based on the source data selected (i.e. Genes and miRNAs, Variables and Cohorts).  Workbooks can be used to:
+Workbooks store the Analyses you create, and their related data. The worksheets you create to conduct analysis are based on the source data selected (i.e. Genes and miRNAs, Variables and Cohorts).  Workbooks can be used to:
+
   * Group together multiple related analyses.
   * Share analysis results with specific groups of people.
 
@@ -139,6 +140,11 @@ On the bottom of the comments sidebar, you can create a new comment and save it.
 Saved Workbooks
 ###############
 
-Selecting **Saved Workbooks** from the **WORKBOOKS** menu dropdown displays a screen displays a list of all of your saved workbooks, and information about the workbooks, including Version and Build, Name, number of Worksheets, Ownership and Last Updated.
+Selecting **Saved Workbooks** from the **WORKBOOKS** menu dropdown displays a screen which lists all of your saved workbooks, and information about the workbooks, including Version and Build, Name, number of Worksheets, Ownership and Last Updated.
 
 To the left of each Workbook, dropdown options allow you to Edit, Duplicate or Delete the Workbook.
+
+* Edit - Selecting **Edit** displays a popup screen which allows you to update the Workbook name, build and description.
+* Duplicate - Selecting **Duplicate** enables you to make a copy of the worksheet. Note that this will create a copy of the worksheet and reference the cohorts, variables, and gene lists used in the workbook, but will not make duplicates of the cohort, variables, and gene lists used in the workbook.
+* Delete - This option will delete the worksheet.
+
