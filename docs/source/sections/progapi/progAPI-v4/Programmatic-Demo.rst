@@ -13,7 +13,7 @@ response back to you. Programmatic access to data within the ISB-CGC platform us
 <https://swagger.io/>`_ documentation. 
 
 Programmatic access to ISB-CGC data and metadata is provided through ISB-CGC APIs built
-on Google's OpenAPI Endpoints. A SwaggerUI interface is also available, to try out the APIs 
+on Google's OpenAPI Endpoints. A SwaggerUI interface is also available to try out the APIs 
 and view their documentation. User-generated data such as cohort definitions, and user functions such as registering 
 GCP projects is also available through the ISB-CGC API Endpoints. 
 
@@ -127,9 +127,9 @@ Nuances when using the APIs
 
 - Please make sure to delete all fields not being used.
 
-- Case barcode centric endpoints only pull TCGA and CCLE hg19 data details e.g. file paths. 
+- Case barcode centric endpoints only pull file paths specific to case entries.
 
-- Use sample centric endpoint to pull hg38 centric data details using the endpoints.
+- Sample centric endpoints pull file paths specific to sample entries.
 
 - Cohorts made in CloudSQL(web app) will differ in sample counts from cohorts made with BigQuery tables(APIs). Samples which correspond to pathology slide images are in the CloudSQL tables but not the BigQuery tables.
 
