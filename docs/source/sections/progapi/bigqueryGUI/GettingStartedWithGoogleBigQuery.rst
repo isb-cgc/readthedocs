@@ -1,15 +1,158 @@
-**********
-
 ************************
 Query Syntax Examples
 ************************
-Below are some sample queries that will get you started using BigQuery and these ISB-CGC datasets for your own analyses.  One easy way is to use the BigQuery web UI (see screenshot below).  See Google's `BigQuery Web UI Tutorial <https://developers.google.com/bigquery/docs/hello_bigquery_gui>`_ for more general details of how to use this tool.
+
+Legacy SQL vs Standard SQL
+===========================
+
+BigQuery introduced support for
+`Standard SQL <https://cloud.google.com/bigquery/docs/reference/standard-sql/>`_
+in 2016.  The previous version of SQL supported by
+BigQuery is now known as
+`Legacy SQL <https://cloud.google.com/bigquery/docs/reference/legacy-sql>`_.
+
+Note that when you first go to the BigQuery web UI,
+Standard SQL will be activated by default and you will need to enable Legacy SQL if you want to
+use Legacy SQL.  For simple queries, the same syntax will work in both, except for one
+important detail which is how you specify the table name.  A simple Standard SQL query might look like:
+
+.. code-block:: sql
+
+    SELECT *
+      FROM `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
+      LIMIT 1000
+
+whereas the same query in Legacy SQL requires square brackets around the table name and a colon
+between the project name and the dataset name, like this:
+
+.. code-block:: sql
+
+    SELECT *
+      FROM [isb-cgc:TCGA_hg38_data_v0.Somatic_Mutation_DR10]
+      LIMIT 1000
+
+(Although please note that you can use the "Preview" feature in the BigQuery web UI, at no cost, instead of doing a SELECT * which will do a full table scan!)
+
+
+Query Syntax Examples
+======================
+
+Let's start with a few simple examples to get some practice using BigQuery. Note that all of these examples are in "Standard SQL".
+
+**1. How many mutations have been observed in KRAS?**
+
+.. code-block:: sql
+
+    SELECT
+      COUNT(DISTINCT(sample_barcode_tumor)) AS numSamples
+    FROM
+      `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
+    WHERE
+      Hugo_Symbol="KRAS"
+
+You can simply copy-and-paste any of the SQL queries on this page into the
+`BigQuery web UI  <https://bigquery.cloud.google.com>`_ .  The screen-shot
+shown here shows the query in the "New Query" box, and the results
+down below.  Just click on the "RUN QUERY" button to run the query.
+Notice the green check-mark indicating that the query looks good.
+
+
+**2. What other information is available about these KRAS mutant tumours?**
+
+In addition to answering the question above,
+this next query also illustrates usage of the **WITH** construct to create an intermediate
+table on the fly, and then use it in a follow-up **SELECT**:
+
+.. code-block:: sql
+
+    WITH
+      t1 AS (
+      SELECT
+        project_short_name,
+        sample_barcode_tumor,
+        Hugo_Symbol,
+        Variant_Classification,
+        Variant_Type,
+        SIFT,
+        PolyPhen
+      FROM
+        `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
+      WHERE
+        Hugo_Symbol="KRAS"
+      GROUP BY
+        project_short_name,
+        sample_barcode_tumor,
+        Hugo_Symbol,
+        Variant_Classification,
+        Variant_Type,
+        SIFT,
+        PolyPhen )
+    SELECT
+      COUNT(*) AS n,
+      Hugo_Symbol,
+      Variant_Classification,
+      Variant_Type,
+      SIFT,
+      PolyPhen
+    FROM
+      t1
+    GROUP BY
+      Hugo_Symbol,
+      Variant_Classification,
+      Variant_Type,
+      SIFT,
+      PolyPhen
+    ORDER BY
+      n DESC
+
+**3. What are the most frequently observed mutations and how often do they occur?**
+
+.. code-block:: sql
+
+    WITH
+      t1 AS (
+      SELECT
+        sample_barcode_tumor,
+        Hugo_Symbol,
+        Variant_Classification,
+        Variant_Type,
+        SIFT,
+        PolyPhen
+      FROM
+        `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
+      GROUP BY
+        sample_barcode_tumor,
+        Hugo_Symbol,
+        Variant_Classification,
+        Variant_Type,
+        SIFT,
+        PolyPhen )
+    SELECT
+      COUNT(*) AS n,
+      Hugo_Symbol,
+      Variant_Classification,
+      Variant_Type,
+      SIFT,
+      PolyPhen
+    FROM
+      t1
+    GROUP BY
+      Hugo_Symbol,
+      Variant_Classification,
+      Variant_Type,
+      SIFT,
+      PolyPhen
+    ORDER BY
+      n DESC
+
+
+Below are some sample queries that will get you started using BigQuery and these ISB-CGC datasets for your own analyses.  One easy way is to use the BigQuery web UI. Seee Google's `BigQuery Web UI Tutorial <https://developers.google.com/bigquery/docs/hello_bigquery_gui>`_ for more general details of how to use this tool.
 
 The examples below show the question that is being asked, and an example BigQuery SQL syntax that can be used to find the answer.  Try it yourself by pasting the query into your own instance of the BigQuery web UI.
 
 
 Querying one table
-==================================
+******************
 
 **Q: Find all THCA participants with UNC HiSeq gene expression data for the ARID1B gene**
 
@@ -29,7 +172,7 @@ Querying one table
    :align: center
   
 Querying from more than one table (Joining)
-======================================================
+*******************************************
 
 **Q: For bladder cancer patients that have mutations in the CDKN2A (cyclin-dependent kinase inhibitor 2A) gene, what types of mutations are they, what is their gender, vital status, and days to death - and for 3 downstream genes (MDM2 (MDM2 proto-oncogene), TP53 (tumor protein p53), CDKN1A (cyclin-dependent kinase inhibitor 1A)), what are the gene expression levels for each patient?**
 
@@ -184,43 +327,8 @@ Saving Query Results to other BigQuery Tables
 You can easily save query results in intermediate tables in your project, allowing others to view and use them.  Details from Google on how to do that is `here <https://cloud.google.com/bigquery/bigquery-web-ui>`_.  If your query gets too complex it can take too long to run.  Creating intermediate result tables can be a good approach to obtain the same result more quickly and at a lower cost. 
 
 
-Additional BigQuery Documentation
-#################################
-
-The main Google BigQuery documentation can be found `here <https://cloud.google.com/bigquery/docs/>`_.
-
-Legacy SQL vs Standard SQL
---------------------------
-
-BigQuery introduced support for
-`Standard SQL <https://cloud.google.com/bigquery/docs/reference/standard-sql/>`_
-in 2016.  The previous version of SQL supported by
-BigQuery is now known as
-`Legacy SQL <https://cloud.google.com/bigquery/docs/reference/legacy-sql>`_.
-Note that when you first go to the BigQuery web UI,
-Legacy SQL will be activated by default and you will need to enable Standard SQL if you want to
-use Standard SQL.  For simple queries, the same syntax will work in both, except for one
-important detail which is how you specify the table name.  A simple Standard SQL query might look like:
-
-.. code-block:: sql
-
-    SELECT *
-      FROM `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
-      LIMIT 1000
-
-whereas the same query in Legacy SQL requires square brackets around the table name and a colon
-between the project name and the dataset name, like this:
-
-.. code-block:: sql
-
-    SELECT *
-      FROM [isb-cgc:TCGA_hg38_data_v0.Somatic_Mutation_DR10]
-      LIMIT 1000
-
-(Although please note that you can use the "Preview" feature in the BigQuery web UI, at no cost, instead of doing a SELECT * which will do a full table scan!)
-
 SQL functions
--------------
+=============
 
 Standard SQL includes a large variety of built-in
 `functions and operators <https://cloud.google.com/bigquery/docs/reference/standard-sql/functions-and-operators>`_
@@ -229,7 +337,7 @@ including logical and statistical aggregate functions, and mathematical function
 are also supported and can be used to further extend the types of analyses possible in BigQuery.
 
 Using the bq Command Line Tool
-------------------------------
+==============================================
 The **bq** command line tool is part of the
 `cloud SDK <https://cloud.google.com/sdk/>`_ and can be used to interact directly
 with BigQuery from the command line.  The cloud SDK is easy to install and
@@ -249,14 +357,14 @@ and you can run queries at the command-line like this:
 table is in an existing BigQuery dataset in your project).
 
 Using BigQuery from R
----------------------
+======================
 BigQuery can be accessed from R using one of two powerful R packages:
 `bigrquery <https://cran.r-project.org/web/packages/bigrquery/>`_ and
 `dplyr <https://cran.r-project.org/web/packages/dplyr/>`_.
 Please refer to the documentation provided with these packages for more information.
 
 Using BigQuery from Python
---------------------------
+==========================
 BigQuery
 `client libraries <https://cloud.google.com/bigquery/docs/reference/libraries#client-libraries-install-python>`_
 are available that let you interact with BigQuery from Python or other languages.
@@ -265,7 +373,7 @@ In addition, the experimental
 module provides a wrapper for BigQuery.
 
 Getting Help
-------------
+============
 Aside from the documentation, the best place to look for help using BigQuery and tips
 and tricks with SQL is
 `StackOverflow <http://stackoverflow.com/>`_.  If you tag your question with ``google-bigquery``
@@ -273,125 +381,8 @@ your question will quickly get the attention of Google BigQuery experts.  You ma
 that your question has already been asked and answered among the nearly 10,000 questions
 that have already been asked about BigQuery on StackOverflow.
 
-More SQL Examples
-#################
-
-Let's start with a few simple examples to get some practice using BigQuery, and to
-explore some of the available fields in these PanCancer Atlas tables.
-
-Note that all of these examples are in "Standard SQL", so make sure that you have that enabled.
-(See instructions above regarding un-checking the "Legacy SQL" box in the BigQuery web UI.)
-
-**1. How many mutations have been observed in KRAS?**
-
-.. code-block:: sql
-
-    SELECT
-      COUNT(DISTINCT(sample_barcode_tumor)) AS numSamples
-    FROM
-      `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
-    WHERE
-      Hugo_Symbol="KRAS"
-
-You can simply copy-and-paste any of the SQL queries on this page into the
-`BigQuery web UI  <https://bigquery.cloud.google.com>`_ .  The screen-shot
-shown here shows the query in the "New Query" box, and the results
-down below.  Just click on the "RUN QUERY" button to run the query.
-Notice the green check-mark indicating that the query looks good.
 
 
-**2. What other information is available about these KRAS mutant tumours?**
-
-In addition to answering the question above,
-this next query also illustrates usage of the **WITH** construct to create an intermediate
-table on the fly, and then use it in a follow-up **SELECT**:
-
-.. code-block:: sql
-
-    WITH
-      t1 AS (
-      SELECT
-        project_short_name,
-        sample_barcode_tumor,
-        Hugo_Symbol,
-        Variant_Classification,
-        Variant_Type,
-        SIFT,
-        PolyPhen
-      FROM
-        `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
-      WHERE
-        Hugo_Symbol="KRAS"
-      GROUP BY
-        project_short_name,
-        sample_barcode_tumor,
-        Hugo_Symbol,
-        Variant_Classification,
-        Variant_Type,
-        SIFT,
-        PolyPhen )
-    SELECT
-      COUNT(*) AS n,
-      Hugo_Symbol,
-      Variant_Classification,
-      Variant_Type,
-      SIFT,
-      PolyPhen
-    FROM
-      t1
-    GROUP BY
-      Hugo_Symbol,
-      Variant_Classification,
-      Variant_Type,
-      SIFT,
-      PolyPhen
-    ORDER BY
-      n DESC
-
-**3. What are the most frequently observed mutations and how often do they occur?**
-
-.. code-block:: sql
-
-    WITH
-      t1 AS (
-      SELECT
-        sample_barcode_tumor,
-        Hugo_Symbol,
-        Variant_Classification,
-        Variant_Type,
-        SIFT,
-        PolyPhen
-      FROM
-        `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
-      GROUP BY
-        sample_barcode_tumor,
-        Hugo_Symbol,
-        Variant_Classification,
-        Variant_Type,
-        SIFT,
-        PolyPhen )
-    SELECT
-      COUNT(*) AS n,
-      Hugo_Symbol,
-      Variant_Classification,
-      Variant_Type,
-      SIFT,
-      PolyPhen
-    FROM
-      t1
-    GROUP BY
-      Hugo_Symbol,
-      Variant_Classification,
-      Variant_Type,
-      SIFT,
-      PolyPhen
-    ORDER BY
-      n DESC
-
-
-**Stay-tuned, more examples coming soon!**
-
-If you have a specific use-case that you need help with, feel free to contact us!
 
 
 
