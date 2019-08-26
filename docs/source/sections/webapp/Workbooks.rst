@@ -16,6 +16,10 @@ On **Your Dashboard**, there is a **Saved Workbooks** panel.  This panel display
 
 Selecting **Create a New Workbook** from the **WORKBOOKS** menu dropdown also displays a screen where you can create a new workbook. 
 
+.. image:: CreateWorkbook.png
+   :align: center
+
+
 Follow these steps to create a workbook:
 
 1. From the Workbook creation panel, select an Analysis Type (i.e., Bar Chart, Histogram, Scatter Plot, Violin Plot, Cubby Hole Plot, SeqPeek, OncoPrint or OncoGrid). 
@@ -96,6 +100,10 @@ Workbook Details Screen
 
 On the top of the Workbook Details Screen are the **Edit Details**, **Duplicate** and **Delete** buttons. They perform the same functions as described for the workbook dropdown menu options on the **Saved Workbooks** screen, described above.
 
+.. image:: WorkbookDetails.png
+   :align: center
+
+
 Share a Workbook
 =================
 
@@ -119,11 +127,11 @@ Manipulation of Workbooks and Worksheets
 
 **Edit Plot Settings** - This function allows you to select new Plot Settings for the selected analysis type.
 
-Please Note: When selecting a gene or miRNA for either the x-axis or y-axis variable you be prompted with selecting a specification. If you select Gene Expression you have the option of choosing a Select Feature.  If you select the Copy Number specification you can choose a Value Filter. If you select the Protein specification you can select a Protein Filter. If you select the Mutation specification you can select a Value Filter. If you select a miRNA expression you can select a select feature.
+Note: When selecting a gene or miRNA for either the X-axis or Y-axis variable, you will be prompted to select a specification. If you select Gene Expression you have the option of choosing a Select Feature.  If you select the Copy Number specification you can choose a Value Filter. If you select the Protein specification you can select a Protein Filter. If you select the Mutation specification you can select a Value Filter. If you select a miRNA expression you can select a Select Feature.
  
 .. _selectionicon:
 
-**Enable Sample section and Edit Analysis Settings** - Enable Sample Selection(shown in the image below) allows you to select samples from displayed analysis and save that selection to a new Cohort for further drill down analysis. The Edit Analysis Settings allows you to change the variables you wish to use for your analysis(varies by which analysis you choose).  Finally, if you select miRNA you can select specification miRNA Expression, you will be prompted to select a feature.
+**Enable Sample section and Edit Analysis Settings** - Enable Sample Selection (shown in the image below) allows you to select samples from displayed analysis and save that selection to a new cohort for further drill down analysis. The Edit Analysis Settings allows you to change the variables you wish to use for your analysis (varies by which analysis you choose). Finally, if you select miRNA you can select specification miRNA Expression and you will be prompted to select a feature.
 
 .. image:: edit_analysis_finger.PNG
    :scale: 50

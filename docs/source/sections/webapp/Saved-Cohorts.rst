@@ -13,6 +13,9 @@ If you already have saved cohorts, they will be listed in the **Saved Cohorts** 
 
 These functions can also be navigated to by using the drop down options in the **COHORTS** item on the menu bar.
 
+.. image:: CreateCohort.png
+   :align: center
+
 Cohort Creation - Filters 
 =========================
 
@@ -239,6 +242,9 @@ Cohort Details Screen
 
 The cohort details screen displays the details of a specific cohort.  The title of the cohort is displayed at the top of the page.
 
+.. image:: CreateDetails.png
+   :align: center
+
 The screen is divided into the following sections:
 
 **Current Filters Panel**
@@ -321,6 +327,10 @@ File Browser
 Clicking the **File Browser** button displays a screen with a list of data files associated with your current cohort.  
 This list includes all files which have been uploaded to the ISB-CGC Google Cloud Project, including both controlled access and open access data.
 
+.. image:: CohortFileBrowser.png
+   :align: center
+
+
 You can use "Show", "Page", "Previous" and "Next" to navigate through the list.  The columns are sortable by selecting the column header.  You can select a subset of the default columns to show by using the "Choose Columns to Display" tool.
 
 You can filter by Genomic Build (HG19 or HG38) and view which platforms and files are available for the build selected. 
@@ -338,12 +348,12 @@ When available, sequences in a cohort can be viewed using the IGV viewer.  To fi
 
 Controlled access files will be viewable by sequence ONLY if you have `authenticated as a dbGaP-authorized user <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Gaining-Access-To-Contolled-Access-Data.html>`_. 
 
-(`more information about Viewing a Sequence in the IGV Viewer <IGV-Browser.html>`_).
+`More information about Viewing a Sequence in the IGV Viewer <IGV-Browser.html>`_.
 
 Using the Image Pathology Viewer
 --------------------------------
 
-When available, pathology images can be viewed using the caMicroscope tool (see more about caMicroscope provide `here <http://camicroscope.org>`_ ).  These are the pathology images that are associated with TCGA samples. To find images that can be viewed, open a saved cohort and select the **File Browser** button. You can also select the **File Browser** link from the Dashboard Saved Cohorts panel.  The files associated with your cohort will be shown. Click on **Pathology Images** to see a list of available pathology images. Hovering over the File Name and clicking on "Open in caMicroscope" will open the image file in a new tab using caMicroscope. (HINT: using a smaller cohort will provide faster response in creating the list of files available).
+When available, pathology images can be viewed using the caMicroscope tool (see more about caMicroscope provide `here <http://camicroscope.org>`_).  These are the pathology images that are associated with TCGA samples. To find images that can be viewed, open a saved cohort and select the **File Browser** button. You can also select the **File Browser** link from the Dashboard Saved Cohorts panel.  The files associated with your cohort will be shown. Click on **Pathology Images** to see a list of available pathology images. Hovering over the File Name and clicking on "Open in caMicroscope" will open the image file in a new tab using caMicroscope. (HINT: using a smaller cohort will provide faster response in creating the list of files available).
 
 To zoom into the image, either click the left button or use your wheel to zoom in.  Use your mouse to move around the image.  To zoom out of the image, shift-slick the left mouse button or use your wheel to zoom out.  Selecting caMicroscope at the top of page will send you to the caMicroscope homepage. If you hover over the Slide Barcode section on the top right hand side you will see metadata information listed.
 
@@ -427,22 +437,6 @@ The file will contain the following information (for each of the data type tabs)
 * index_file_storage_location
 * index_file_gdc_uuid
 * date_added
-
-
-Creating a Cohort from a Visualization
-======================================
-
-To create a cohort from visualization, you must be in plot selection mode. If you are in plot selection mode, the
-crosshairs icon in the top right corner of the plot panel should be blue. If it is not, click on it and it should turn
-blue.
-
-Once in plot selection mode, you can click and drag your cursor of the plot area to select the desired samples. For a
-cubbyhole plot, you will have to select each cubby that you are interested in.
-
-When your selection has been made, a small window should appear that contains a button labelled "Save as Cohort". Click
-on this when you are ready to create a new cohort.
-
-Put in a name for your newly selected cohort and click the **Save** button.
 
 Cohort export to CSV
 ===================
