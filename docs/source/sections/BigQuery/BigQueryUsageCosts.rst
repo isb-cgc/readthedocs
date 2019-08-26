@@ -30,13 +30,14 @@ Additional Google Support
 Latest information about BigQuery can be found here:  https://cloud.google.com/bigquery 
 
 Some more helpful links:
-**Introductory Information**: https://cloud.google.com/bigquery/what-is-bigquery 
 
-**QuickStart Guide** https://cloud.google.com/bigquery/docs/quickstarts/quickstart-web-ui
+**Introductory Information:** https://cloud.google.com/bigquery/what-is-bigquery 
 
-**Query Syntax** https://cloud.google.com/bigquery/query-reference 
+**QuickStart Guide:** https://cloud.google.com/bigquery/docs/quickstarts/quickstart-web-ui
 
-**Detailed information on Google pricing**: https://cloud.google.com/bigquery/pricing 
+**Query Syntax:** https://cloud.google.com/bigquery/query-reference 
+
+**Detailed information on Google pricing:** https://cloud.google.com/bigquery/pricing 
 
 **Estimating storage and query costs:** https://cloud.google.com/bigquery/docs/estimate-costs
 
