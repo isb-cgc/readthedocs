@@ -10,8 +10,8 @@ The links on this page connect to tutorials and other helpful pages created by t
    HowTos
    progapi/RPythonAndSQLTutorials
    progapi/bigqueryGUI/GettingStartedWithGoogleBigQuery
-   GDCTutorials/FromGDCtoISBCGC
    QueryOfTheMonthClub
+   GDCTutorials/FromGDCtoISBCGC
    progapi/workflows_top
    progapi/Compute-Engine
    DIYWorkshop
