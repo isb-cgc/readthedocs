@@ -17,7 +17,7 @@ I. Data Access and Google Cloud Project Setup
 
 - To access controlled-access data, dbGaP authorization is required.
 
-      `Accessing Controlled-Access Data and acquiring dbGaP authorization <sections/Gaining-Access-To-Controlled-Access-Data.html>`_
+      `Accessing Controlled-Access Data and acquiring dbGaP authorization <Gaining-Access-To-Controlled-Access-Data.html>`_
       
 - To work in GCP, you must first set up a GCP Project: 
       - A GCP project is required to make use of all of the data, tools, and Google Cloud functionality.
