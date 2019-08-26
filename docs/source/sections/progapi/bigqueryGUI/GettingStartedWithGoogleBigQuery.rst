@@ -312,7 +312,7 @@ Saving Query Results to other BigQuery Tables
 You can easily save query results in intermediate tables in your project, allowing others to view and use them.  Details from Google on how to do that is `here <https://cloud.google.com/bigquery/bigquery-web-ui>`_.  If your query gets too complex it can take too long to run.  Creating intermediate result tables can be a good approach to obtain the same result more quickly and at a lower cost. 
 
 
-SQL functions
+SQL Functions
 =============
 
 Standard SQL includes a large variety of built-in
