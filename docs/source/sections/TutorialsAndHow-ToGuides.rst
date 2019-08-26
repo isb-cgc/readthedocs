@@ -13,8 +13,8 @@ The links on this page connect to tutorials and other helpful pages created by t
    QueryOfTheMonthClub
    GDCTutorials/FromGDCtoISBCGC
    progapi/workflows_top
-   progapi/Compute-Engine
-   DIYWorkshop
+   gcp-info/GCE-101
+ 
    
    
 
