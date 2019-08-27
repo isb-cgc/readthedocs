@@ -25,7 +25,7 @@ I. Data Access and Google Cloud Project Setup
       - If not, it only takes a minute to `create a google identity <https://accounts.google.com/signup/v2/webcreateaccount?dsh=308321458437252901&continue=https%3A%2F%2Faccounts.google.com%2FManageAccount&flowName=GlifWebSignIn&flowEntry=SignUp#FirstName=&LastName=>`_.  You can even link a non-GMail account (eg. scientist@nih.gov) as a Google identity by `this <https://accounts.google.com/signup/v2/webcreateaccount?flowName=GlifWebSignIn&flowEntry=SignUp&nogm=true>`_ method.
       - Create your own GCP project and take advantage of a one-time `$300 Google Credit <https://cloud.google.com/free/>`_.
       - If you have already used this one-time offer (or there is some other reason you cannot use it), please see the information here about how to request `ISB-CGC Cloud Credits <HowtoRequestCloudCredits.html>`_.
-  
+    
       
 - `Registering the GCP project <Gaining-Access-To-Contolled-Access-Data.html#requirements-for-registering-a-google-cloud-project-service-account>`_
  
@@ -39,8 +39,7 @@ II. Accessing and Analyzing Data via BigQuery
  - ISB-CGC has leveraged this powerful tool and uploaded multiple cancer genomics datasets into BigQuery tables that are open to the public. `ISB-CGC Datasets in BigQuery <BigQuery/data_in_BQ.html>`_ and the always freshly updated `Data Release Notes and Future Plans <updates_and_releases/Data_Releases.html>`_. 
  - To obtain access to the ISB-CGC open access project tables in BigQuery, users can link these tables to your GCP project as described `here <progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_.
  - To obtain access to the ISB-CGC controlled access project tables in BigQuery, users can link these tables to your GCP project as described `here <progapi/bigqueryGUI/LinkingISB-CGCtoCABQ.html>`_.
- - ISB-CGC provides quickstart guides, tutorials and examples in both R and Jupyter notebooks for BigQuery in the 
- `Tutorials <TutorialsAndHow-ToGuides.html>`_ and `Community Notebooks <HowTos.html>`_ sections of the documentation page. 
+ - ISB-CGC provides quickstart guides, tutorials and examples in both R and Jupyter notebooks for BigQuery in the  `Tutorials <TutorialsAndHow-ToGuides.html>`_ and `Community Notebooks <HowTos.html>`_ sections of the documentation page. 
  - Every month, ISB-CGC provides an example analysis of cancer genomics data using BigQuery in our `Query of the Month blog <QueryOfTheMonthClub.html>`_. 
  
  
