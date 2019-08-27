@@ -39,7 +39,8 @@ II. Accessing and Analyzing Data via BigQuery
  - ISB-CGC has leveraged this powerful tool and uploaded multiple cancer genomics datasets into BigQuery tables that are open to the public. `ISB-CGC Datasets in BigQuery <BigQuery/data_in_BQ.html>`_ and the always freshly updated `Data Release Notes and Future Plans <updates_and_releases/Data_Releases.html>`_. 
  - To obtain access to the ISB-CGC open access project tables in BigQuery, users can link these tables to your GCP project as described `here <progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_.
  - To obtain access to the ISB-CGC controlled access project tables in BigQuery, users can link these tables to your GCP project as described `here <progapi/bigqueryGUI/LinkingISB-CGCtoCABQ.html>`_.
- - ISB-CGC provides quickstart guides, tutorials and examples in both R and Jupyter notebooks for BigQuery in the `tutorials <TutorialsAndHow-ToGuides.html>`_and `Community Notebooks <HowTos.html>`_ sections of the documentation page. 
+ - ISB-CGC provides quickstart guides, tutorials and examples in both R and Jupyter notebooks for BigQuery in the 
+ `Tutorials <TutorialsAndHow-ToGuides.html>`_ and `Community Notebooks <HowTos.html>`_ sections of the documentation page. 
  - Every month, ISB-CGC provides an example analysis of cancer genomics data using BigQuery in our `Query of the Month blog <QueryOfTheMonthClub.html>`_. 
  
  
