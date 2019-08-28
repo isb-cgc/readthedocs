@@ -7,7 +7,6 @@ The ISB-CGC provides both interactive (through a `web application <https://isb-c
 `More about ISB-CGC <About-ISB-CGC.html>`_, `ISB-CGC Main Landing Page <https://isb-cgc.appspot.com/>`_, `Full documentation of the ISB-CGC platform <index.html>`_, and `FAQS <FAQ.html>`_.
 
 
-
 I. Data Access and Google Cloud Project Setup
 -----------------------------------------------
 
