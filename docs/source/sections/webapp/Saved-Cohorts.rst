@@ -344,9 +344,9 @@ The tabs "IGV", "Pathology Images" and "Radiology Images" allow you to filter fo
 Viewing a Sequence
 ------------------
 
-When available, sequences in a cohort can be viewed using the IGV viewer.  To find those sequences that can be viewed, select the **IGV** link on the **File Browser** screen. The File Listing panel will display the files that can be viewed with the IGV viewer.  Selecting the checkbox in the "View" column (maximum of 5 files) and clicking the **Launch IGV** button in the upper panel will display an IGV view of the selected sequence(s) data.  
+When available, sequences in a cohort can be viewed using the IGV viewer.  To find those sequences that can be viewed, select the **IGV** link on the **File Browser** screen. The File Listing panel will display the files that can be viewed with the IGV viewer.  Selecting the checkbox in the "View" column (maximum of file files) and clicking the **Launch IGV** button in the upper panel will display an IGV view of the selected sequence(s) data.  
 
-Controlled access files will be viewable by sequence ONLY if you have `authenticated as a dbGaP-authorized user <../Gaining-Access-To-Contolled-Access-Data.html>`_. 
+Controlled access files will be viewable by sequence ONLY if you have `authenticated as a dbGaP-authorized user <../Gaining-Access-To-Contolled-Access-Data>`_. 
 
 `More information about Viewing a Sequence in the IGV Viewer <IGV-Browser.html>`_.
 
