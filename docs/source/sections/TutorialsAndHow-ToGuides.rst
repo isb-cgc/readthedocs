@@ -2,16 +2,24 @@
 Tutorials and How-To Guides
 **************************
 
-The links on this page connect to tutorials and other helpful pages created by the ISB-CGC team:
+The links on this page connect to How-To guides, examples and other helpful tutorials. We encourage the community to provide feedback on these examples and also to add your own examples to enrich this public resource! Contact us at feedback@isb-cgc.org
 
-* `How Tos <HowTos.html>`__
-* `R, Python and SQL Tutorials <progapi/Tutorials.html>`__
-* `Walkthrough of BigQuery <progapi/bigqueryGUI/WalkthroughOfGoogleBigQuery.html>`__
-* `Moving from GDC to ISB-CGC <GDCTutorials/FromGDCtoISBCGC.html>`__
-* `DIY Workshop <DIYWorkshop.html>`__
-* `Query of the Month Club (BigQuery) <QueryOfTheMonthClub.html>`__
-* `Using the Google Compute Engine <progapi/Compute-Engine.html>`__
-* `Workflows <progapi/workflows_top.html>`__
 
+.. toctree::
+   :maxdepth: 1
+
+   HowTos
+   progapi/RPythonAndSQLTutorials
+   progapi/bigqueryGUI/GettingStartedWithGoogleBigQuery
+   QueryOfTheMonthClub
+   GDCTutorials/FromGDCtoISBCGC
+   progapi/workflows_top
+   gcp-info/GCE-101
+ 
+   
+   
+
+   
+   
 
 

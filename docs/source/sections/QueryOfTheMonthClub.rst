@@ -6,7 +6,7 @@ Welcome to the 'Query of the Month' where we'll be creating a collection
 of new and interesting queries to demonstrate the powerful combination of
 BigData from the NCI cancer programs like TCGA, and BigQuery from Google.
 
-NOTE! We mostly spend time producing notebooks for our community collection. 
+**NOTE!** We mostly spend time producing notebooks for our community collection. 
 Check it out: https://github.com/isb-cgc/Community-Notebooks
 ReadTheDocs: https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowTos.html
 

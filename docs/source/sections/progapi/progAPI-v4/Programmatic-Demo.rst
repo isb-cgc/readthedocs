@@ -1,5 +1,5 @@
 ***************************
-APIs
+ISB-CGC APIs
 ***************************
 
 
@@ -13,15 +13,15 @@ response back to you. Programmatic access to data within the ISB-CGC platform us
 <https://swagger.io/>`_ documentation. 
 
 Programmatic access to ISB-CGC data and metadata is provided through ISB-CGC APIs built
-on Google's OpenAPI Endpoints. A SwaggerUI interface is also available, to try out the APIs 
+on Google's OpenAPI Endpoints. A SwaggerUI interface is also available to try out the APIs 
 and view their documentation. User-generated data such as cohort definitions, and user functions such as registering 
 GCP projects is also available through the ISB-CGC API Endpoints. 
 
-**Note that all user-generated Endpoints require identity 
+**Note that all user-generated APIs require identity 
 credentials for use.**
 
 
-The `ISB-CGC API v4.0 <https://mvm-api-dot-isb-cgc.appspot.com/v4/swagger#/>`_ can be used to see details about each endpoint, and also provides a convenient interface to test an endpoint through your web browser. 
+The `ISB-CGC API v4.0 <https://api-dot-isb-cgc.appspot.com/v4/swagger/>`_ can be used to see details about each endpoint, and also provides a convenient interface to test an endpoint through your web browser. 
 
 
 .. image:: api-endpoints.PNG
@@ -81,7 +81,7 @@ Make a Request
 
 Now let’s make a request:
 
-    Expand the  `POST samples endpoint <https://mvm-api-dot-isb-cgc.appspot.com/v4/swagger#/default/getSampleMetadataList>`_.   by clicking on the ‘POST/samples’ line. 
+    Expand the  `POST samples endpoint <https://api-dot-isb-cgc.appspot.com/v4/swagger/#/default/getSampleMetadataList>`_.   by clicking on the ‘POST/samples’ line. 
 
     Click 'Try it out'.
 
@@ -115,7 +115,7 @@ ISB-CGC APIs v4
 ISB-CGC-API-v4_
    
 
-.. _ISB-CGC-API-v4: https://mvm-api-dot-isb-cgc.appspot.com/v4/swagger#/
+.. _ISB-CGC-API-v4: https://api-dot-isb-cgc.appspot.com/v4/swagger/
 
 
 
@@ -127,9 +127,9 @@ Nuances when using the APIs
 
 - Please make sure to delete all fields not being used.
 
-- Case barcode centric endpoints only pull TCGA and CCLE hg19 data details e.g. file paths. 
+- Case barcode centric endpoints only pull file paths specific to case entries.
 
-- Use sample centric endpoint to pull hg38 centric data details using the endpoints.
+- Sample centric endpoints pull file paths specific to sample entries.
 
 - Cohorts made in CloudSQL(web app) will differ in sample counts from cohorts made with BigQuery tables(APIs). Samples which correspond to pathology slide images are in the CloudSQL tables but not the BigQuery tables.
 
