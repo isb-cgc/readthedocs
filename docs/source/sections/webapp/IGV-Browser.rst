@@ -2,7 +2,7 @@
 Integrative Genomics Viewer (IGV)
 *********************************
 IGV is a widely used interactive tool for exploring genomic data.  A web-based version is integrated into the ISB-CGC Web App, 
-and the IGV desktop version can also be used to access ISB-CGC hosted data in Google Cloud Storage (GCS). For more information about IGV, please follow the links in the Acknowledgements section at the bottom of this page.
+and the IGV desktop version can also be used to access cancer data in Google Cloud Storage (GCS). For more information about IGV, please follow the links in the Acknowledgements section at the bottom of this page.
   
 Accessing the IGV Browser from the Web App
 --------------------------------------------------

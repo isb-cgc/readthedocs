@@ -2,7 +2,7 @@
 Login to Web App
 ****************
 
-The ISB-CGC Web App is accessed through a Google account identity (freely available `with a new account <https://accounts.google.com/signupwithoutgmail?hl=en>`_ or `by linking to an existing email account <https://accounts.google.com/SignUpWithoutGmail>`_).  If you are not logged into the ISB-CGC Web App, you will be presented with this page:
+The ISB-CGC Web App is accessed through a Google Account Identity (freely available `with a new account <https://accounts.google.com/signupwithoutgmail?hl=en>`_ or `by linking to an existing email account <https://accounts.google.com/SignUpWithoutGmail>`_).  If you are not logged into the ISB-CGC Web App, you will be presented with this page:
 
 .. image:: startscreen-nologin.PNG
    :scale: 50

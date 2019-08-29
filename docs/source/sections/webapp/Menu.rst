@@ -19,7 +19,7 @@ The **MENU** bar supplies links for the following Web App features:
    - Saved Workbooks - Displays all your saved workbooks and allows you to edit, duplicate or delete the workbooks.
    - Create a New Workbook - Allows you to create a new workbook by selecting the data source and analysis type.
      
-* **PROGRAMS** - This menu item provides a a shortcut to the programs you have created if you uploaded your own data.
+* **PROGRAMS** - This menu item provides a shortcut to the programs you have created if you uploaded your own data.
    
    - Saved Programs - Here you can: 
 
