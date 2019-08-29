@@ -293,7 +293,7 @@ platforms by dragging the platform names up and down.
 
 
 
-The Cohort Details Screen provides the following functions:
+**Cohort Details Screen functions:**
 
 Create a New Workbook
 =====================
