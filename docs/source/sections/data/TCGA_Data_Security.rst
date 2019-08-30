@@ -18,7 +18,7 @@ are required to submit:
 * a **research use statement** (RUS)
 
 **Note:** Requesters and institutional signing officials (SO) must have NIH eRA user IDs to begin this process. Visit the `electronic Research Administration <http://era.nih.gov>`_ (eRA) for more information on registering for an NIH eRA account. NIH staff may utilize their NIH login. (See the `dbGaP Data Access Request Portal <http://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login>`_ 
-for additional `instructions <http://www.genome.gov/20019654>`_.)
+for additional `instructions <https://osp.od.nih.gov/wp-content/uploads/Extramural_Flowcharts_for_Data_Access.pdf>`_.)
 
 Additionally, they must:
  
