@@ -188,7 +188,7 @@ the type of mutation
       mutation.case_barcode
 
 .. image:: BigQueryExample1.png
-   :scale: 50
+   :scale: 40
    :align: center  
    
 We now have the list of patients that have a mutation in the CDKN2A gene and the type of mutation.
@@ -230,7 +230,7 @@ Bringing in the patient data from the ISB-CGC TCGA Clinical table so that we can
       case_list.case_barcode = clinical.case_barcode
   
 .. image:: BigQueryExample2.png
-   :scale: 50
+   :scale: 40
    :align: center
    
 We now have combined information from two tables through a join.  Notice in particular the join syntax, 
@@ -297,7 +297,7 @@ Show the gene expression levels for the 4 genes of interest, and order them by c
       HGNC_gene_symbol
 
 .. image:: BigQueryExample3.png
-   :scale: 50
+   :scale: 40
    :align: center  
 
 We have now gotten all the data together in one table for further analysis.  
