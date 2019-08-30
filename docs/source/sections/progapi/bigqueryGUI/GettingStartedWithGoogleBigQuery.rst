@@ -353,8 +353,7 @@ Using BigQuery from Python
 BigQuery
 `client libraries <https://cloud.google.com/bigquery/docs/reference/libraries#client-libraries-install-python>`_
 are available that let you interact with BigQuery from Python or other languages.
-In addition, the experimental
-`pandas.io.gbq <http://pandas.pydata.org/pandas-docs/stable/io.html#google-bigquery-experimental>`_
+In addition, the `pandas.io.gbq <https://pandas.pydata.org/pandas-docs/version/0.19/generated/pandas.io.gbq.to_gbq.html>`_
 module provides a wrapper for BigQuery.
 
 Getting Help
