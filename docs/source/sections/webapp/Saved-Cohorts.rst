@@ -321,6 +321,8 @@ Delete a cohort
 
 Click the **Delete** button to delete the cohort. Confirm by clicking the second **Delete** button presented.
 
+.. _file-browser-page:
+
 File Browser
 ============
 
