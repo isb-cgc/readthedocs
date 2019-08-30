@@ -26,7 +26,7 @@ I. Data Access and Google Cloud Project Setup
       - If you have already used this one-time offer (or there is some other reason you cannot use it), please see the information here about how to request `ISB-CGC Cloud Credits <HowtoRequestCloudCredits.html>`_.
     
       
-- `Registering the GCP project <Gaining-Access-To-Contolled-Access-Data.html#requirements-for-registering-a-google-cloud-project-service-account>`_
+- `Registering the GCP project <Gaining-Access-To-Controlled-Access-Data.html#requirements-for-registering-a-google-cloud-project-service-account>`_
  
 - `Enable Required Google Cloud APIs <https://cloud.google.com/apis/docs/getting-started#enabling_apis>`_
       
