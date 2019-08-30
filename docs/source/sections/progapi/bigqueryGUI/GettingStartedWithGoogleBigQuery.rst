@@ -187,7 +187,7 @@ the type of mutation
     ORDER BY
       mutation.case_barcode
 
-.. image:: BigQueryExample2Query.PNG
+.. image:: BigQueryExample1.png
    :scale: 50
    :align: center  
    
@@ -229,7 +229,7 @@ Bringing in the patient data from the ISB-CGC TCGA Clinical table so that we can
     ON
       case_list.case_barcode = clinical.case_barcode
   
-.. image:: BigQueryExample3Query.PNG
+.. image:: BigQueryExample2.png
    :scale: 50
    :align: center
    
@@ -296,7 +296,7 @@ Show the gene expression levels for the 4 genes of interest, and order them by c
       case_barcode,
       HGNC_gene_symbol
 
-.. image:: BigQueryExample4Query.PNG
+.. image:: BigQueryExample3.png
    :scale: 50
    :align: center  
 
