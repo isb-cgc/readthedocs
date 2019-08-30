@@ -4,7 +4,7 @@ Benefits of Using The Cloud
 
 One of the benefits of working in the cloud is that it is exceptionally scalable and versatile. You only use as much as you need, whether that's in terms of storage space or processing cores. Cloud-based data is easily read by massively parallel processes, in turn expediting results. Then when you're done, it disappears! You don't have idle resources sitting around collecting dust. 
 
-Don’t be intimidated by the cloud! Bring your computation to the data on ISB-CGC. If you’ve conducted bioinformatics analyses before using the command line or SQL, this will be just as easy (if not easier) and we are also here to help! Email feedback@isb-cgc.org or visit our `Community Notebooks Repository <HowTos.html>`_ for guides and tutorials.
+Don’t be intimidated by the cloud! Bring your computation to the data on ISB-CGC. If you’ve conducted bioinformatics analyses before using the command line or SQL, this will be just as easy (if not easier) and we are also here to help! Email feedback@isb-cgc.org or visit our `Community Notebooks page <HowTos.html>`_ for guides and tutorials.
 
 Most bioinformaticians today are most likely accustomed to using the high performance compute (HPC) resources provided by their institution to conduct high-throughput bioinformatics analyses. Here’s a breakdown on how the Google Cloud Platform compares to your institution’s HPC resources. 
 
