@@ -344,7 +344,7 @@ table is in an existing BigQuery dataset in your project).
 Using BigQuery from R
 ======================
 BigQuery can be accessed from R using one of two powerful R packages:
-`bigrquery <https://cran.r-project.org/web/packages/bigrquery/>`_ and
+`bigrquery <https://bigrquery.r-dbi.org/>`_ and
 `dplyr <https://cran.r-project.org/web/packages/dplyr/>`_.
 Please refer to the documentation provided with these packages for more information.
 
