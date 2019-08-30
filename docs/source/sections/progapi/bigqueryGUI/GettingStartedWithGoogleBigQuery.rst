@@ -39,7 +39,7 @@ Query Syntax Examples
 
 Simple Query Examples
 *********************
-Let's start with a few simple examples to get some practice using BigQuery. Note that all of these examples are in "Standard SQL". You can simply copy-and-paste any of the SQL queries on this page into the BigQuery web UI https://bigquery.cloud.google.com.
+Let's start with a few simple examples to get some practice using BigQuery. Note that all of these examples are in "Standard SQL". You can simply copy-and-paste any of the SQL queries on this page into the BigQuery web UI https://console.cloud.google.com/bigquery.
 
 **1. How many mutations have been observed in KRAS?**
 
@@ -161,7 +161,7 @@ Querying from more than one table (Joining)
 
 **Q: For bladder cancer patients that have mutations in the CDKN2A (cyclin-dependent kinase inhibitor 2A) gene, what types of mutations are they, what is their gender, vital status, and days to death - and for 3 downstream genes (MDM2 (MDM2 proto-oncogene), TP53 (tumor protein p53), CDKN1A (cyclin-dependent kinase inhibitor 1A)), what are the gene expression levels for each patient?**
 
-This question was chosen as an interesting example because the p53/Rb pathway is commonly involved in bladder cancer (see `TCGA Network paper <https://tcga-data.nci.nih.gov/docs/publications/blca_2013/>`_ "Comprehensive Molecular Characterization of Urothelial Bladder Carcinoma", Figure 4).
+This question was chosen as an interesting example because the p53/Rb pathway is commonly involved in bladder cancer (see `TCGA Network paper <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3962515/>`_ "Comprehensive Molecular Characterization of Urothelial Bladder Carcinoma", Figure 4).
 
 This is a complex question that requires information from four tables.  We will build up this complex query in legacy SQL three steps. Change the query settings to legacy SQL.
 
@@ -188,7 +188,7 @@ the type of mutation
       mutation.case_barcode
 
 .. image:: BigQueryExample1.png
-   :scale: 50
+   :scale: 40
    :align: center  
    
 We now have the list of patients that have a mutation in the CDKN2A gene and the type of mutation.
@@ -230,7 +230,7 @@ Bringing in the patient data from the ISB-CGC TCGA Clinical table so that we can
       case_list.case_barcode = clinical.case_barcode
   
 .. image:: BigQueryExample2.png
-   :scale: 50
+   :scale: 40
    :align: center
    
 We now have combined information from two tables through a join.  Notice in particular the join syntax, 
@@ -297,7 +297,7 @@ Show the gene expression levels for the 4 genes of interest, and order them by c
       HGNC_gene_symbol
 
 .. image:: BigQueryExample3.png
-   :scale: 50
+   :scale: 40
    :align: center  
 
 We have now gotten all the data together in one table for further analysis.  
@@ -344,7 +344,7 @@ table is in an existing BigQuery dataset in your project).
 Using BigQuery from R
 ======================
 BigQuery can be accessed from R using one of two powerful R packages:
-`bigrquery <https://cran.r-project.org/web/packages/bigrquery/>`_ and
+`bigrquery <https://bigrquery.r-dbi.org/>`_ and
 `dplyr <https://cran.r-project.org/web/packages/dplyr/>`_.
 Please refer to the documentation provided with these packages for more information.
 
@@ -353,8 +353,7 @@ Using BigQuery from Python
 BigQuery
 `client libraries <https://cloud.google.com/bigquery/docs/reference/libraries#client-libraries-install-python>`_
 are available that let you interact with BigQuery from Python or other languages.
-In addition, the experimental
-`pandas.io.gbq <http://pandas.pydata.org/pandas-docs/stable/io.html#google-bigquery-experimental>`_
+In addition, the `pandas.io.gbq <https://pandas.pydata.org/pandas-docs/version/0.19/generated/pandas.io.gbq.to_gbq.html>`_
 module provides a wrapper for BigQuery.
 
 Getting Help

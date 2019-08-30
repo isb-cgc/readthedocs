@@ -150,7 +150,7 @@ open-access and much of this has been made available in a convenient set of BigQ
 
 **Where can I find the TCGA data that ISB-CGC has made publicly available in BigQuery tables?**
 
-The BigQuery web interface can be accessed at https://console.cloud.google.com/bigquery?.  If you have not already added the ISB-CGC datasets to your BigQuery "view", click on the blue arrow
+The BigQuery web interface can be accessed at https://console.cloud.google.com/bigquery.  If you have not already added the ISB-CGC datasets to your BigQuery "view", click on the blue arrow
 next to your project name at the top of the left side-bar, select "Switch to Project", then "Display Project...",
 and enter "isb-cgc" (without quotes) in the text box labeled "Project ID".  All ISB-CGC public BigQuery
 datasets and tables will now be visible in the left side-bar of the BigQuery web interface.
@@ -174,7 +174,7 @@ successfully authenticate you will be brought back to the ISB-CGC web app.  Afte
 authenticate, we will verify that you also have dbGaP authorization for the TCGA controlled-access data and other programs you have dbGaP access to.
 
 
-We also ask that you review our section on `Understanding Data Security <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/TCGA_Data_Security.html>`_ .
+We also ask that you review our section on `Understanding Data Security <data/TCGA_Data_Security.html>`_ .
 
 
 **My professor has dbGaP authorization.  Do I have to have my own authorization too?**
