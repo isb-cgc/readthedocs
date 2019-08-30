@@ -174,7 +174,7 @@ successfully authenticate you will be brought back to the ISB-CGC web app.  Afte
 authenticate, we will verify that you also have dbGaP authorization for the TCGA controlled-access data and other programs you have dbGaP access to.
 
 
-We also ask that you review our section on `Understanding Data Security <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Hosted-Data.html#security>`_ .
+We also ask that you review our section on `Understanding Data Security <data/TCGA_Data_Security.html>`_ .
 
 
 **My professor has dbGaP authorization.  Do I have to have my own authorization too?**
