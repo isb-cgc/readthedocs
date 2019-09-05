@@ -330,6 +330,6 @@ texinfo_documents = [
 #texinfo_no_detailmenu = False
 
 
-# If false, no auth indexing
+# If false, no auto indexing
 #ELASTICSEARCH_DSL_AUTOSYNC = True
 
