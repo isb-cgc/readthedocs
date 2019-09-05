@@ -331,5 +331,5 @@ texinfo_documents = [
 
 
 # If false, no auto indexing
-#ELASTICSEARCH_DSL_AUTOSYNC = True
+ELASTICSEARCH_DSL_AUTOSYNC = True
 
