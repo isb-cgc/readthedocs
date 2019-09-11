@@ -30,6 +30,6 @@ The BigQuery metadata table, ``isb-cgc.metadata.TCGA_slide_images`` contains the
 
 .. code-block:: none
 
-  gs://gdc-tcga-phs000178-open/gdc/208fa2ac-69a8-4851-b13e-1f000872bf7f/TCGA-06-5413-01Z-00-DX1.6c5e8a47-c2d0-4873-9b32-36857c5f67ac.svs
+  gs://gdc-tcga-phs000178-open/9c4b1b5c-b5cf-48f6-bf41-047ceb8c883c/TCGA-CR-7365-01A-01-TS1.811bb2b7-66e3-4694-891b-10b436ec300d.svs
 
 as well as image metadata and the TCGA case and sample "barcode" which can be used to join this table with other TCGA clinical, biospecimen and molecular data tables.
