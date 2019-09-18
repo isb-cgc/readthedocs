@@ -2,7 +2,7 @@
 ISB-CGC "Cloud Credits" Available for Researchers
 *************************************************
 
-To facilitate the use of the ISB Biology Cancer Genomics Cloud 
+To facilitate the use of the ISB Cancer Genomics Cloud 
 (ISB-CGC), NCI-funded "Google cloud credits" are available to researchers to cover compute and storage costs associated with using the ISB-CGC platform and resources.
 
 The table below describes the four user spending tiers.
