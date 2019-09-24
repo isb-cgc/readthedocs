@@ -17,7 +17,7 @@ There are five `searchers <https://mitelmandatabase.isb-cgc.org/search_menu>`_ a
 
   * finds studies pertaining to gene rearrangements, in particular gene fusions, detected either as a consequence of cytogenetic aberrations or identified by sequencing
 
-* The Clinical Associations Searcher 
+* Clinical Associations Searcher 
 
   * searches studies pertaining to clinical associations of cytogenetic aberrations and/or gene rearrangements.
 
