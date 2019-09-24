@@ -29,16 +29,14 @@ How do I...
 ===========
 
 .. _Q1:
-Q1
-##
-`How do I get started fast (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/Quick_Start_Guide_to_ISB_CGC.ipynb>`_
+Q1: `How do I get started fast (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/Quick_Start_Guide_to_ISB_CGC.ipynb>`_
 
 .. _Q2:
 Q2
 ##
 `How do I get started fast (R)? <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/Quick_Start_Guide_for_ISB-CGC.Rmd>`_
 
-
+.. _Q3:
 `How do I plot a BigQuery result (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_plot_BigQuery_results.ipynb>`_
 
 
