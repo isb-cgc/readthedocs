@@ -5,7 +5,7 @@ Mitelman Database
 About Mitelman Database
 -----------------------
 
-The `Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer <https://mitelmandatabase.isb-cgc.org/>`_  is devoted to genes, chromosomes, and cancer. The Mitelman Database is supported by NCI (National Cancer Institute), the Swedish Cancer Society and the Swedish Childhood Cancer. ISB-CGC has created a site to access and search the data.
+The `Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer <https://mitelmandatabase.isb-cgc.org/>`_  is devoted to genes, chromosomes, and cancer. The Mitelman Database is supported by NCI (National Cancer Institute), the Swedish Cancer Society and the Swedish Childhood Cancer. `The Mitelman Database <https://mitelmandatabase.isb-cgc.org/>`_ is available from the ISB-CGC to access and search the data.
 
 There are five `searchers <https://mitelmandatabase.isb-cgc.org/search_menu>`_ available to searching through the data: 
 
