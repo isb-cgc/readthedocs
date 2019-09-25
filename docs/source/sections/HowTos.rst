@@ -28,12 +28,15 @@ What's a Jupyter notebook?
 How do I...
 ===========
 
-`How do I get started fast (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/Quick_Start_Guide_to_ISB_CGC.ipynb>`_
+.. _Q1:
+Q1: `How do I get started fast (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/Quick_Start_Guide_to_ISB_CGC.ipynb>`_
 
-
+.. _Q2:
+Q2
+##
 `How do I get started fast (R)? <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/Quick_Start_Guide_for_ISB-CGC.Rmd>`_
 
-
+.. _Q3:
 `How do I plot a BigQuery result (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_plot_BigQuery_results.ipynb>`_
 
 
@@ -59,6 +62,9 @@ How do I...
 
 
 `How do I convert a 10X scRNA-seq bam file to fastq with dsub? (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_10X_bamtofastq_with_dsub.ipynb>`_
+
+
+`How do I quantify 10X scRNA-seq gene expression with Kallisto and BUStools? (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_use_Kallisto_on_scRNAseq_data.ipynb>`_
 
 
 `How do I run an ANOVA with BigQuery? (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_an_ANOVA_test_in_BigQuery.ipynb>`_
