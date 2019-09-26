@@ -72,10 +72,10 @@ How do I...
 `How do I score gene sets in BigQuery? (R) <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_an_ANOVA_test_in_BigQuery.md>`_
 +++++++++++++++++++++++++++++++++++++++
 
-`How do I correlate gene expression and copy number variation (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/RegulomeExplorer_1_Gexpr_CNV.ipynb>`_
+`How do I correlate gene expression and copy number variation (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/RegulomeExplorer_GeneExpression_vs_CNV.ipynb>`_
 +++++++++++++++++++++++++++++++++++++++
 
-`How do I compute gene-gene expression correlation using BigQuery (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/RegulomeExplorer_2_Gexpr_Gexpr.ipynb>`_
+`How do I compute gene-gene expression correlation using BigQuery (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/RegulomeExplorer_GeneExpression_vs_GeneExpression.ipynb>`_
 +++++++++++++++++++++++++++++++++++++++
 
 -----------------------
