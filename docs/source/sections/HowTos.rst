@@ -85,3 +85,6 @@ Provided by the ISB-CGC team, featuring special efforts by:
 - David L Gibbs  david.gibbs ( ~ at ~ ) systemsbiology ( ~ dot ~ ) org)
 - Sheila M Reynolds (sheila.reynolds ( ~ at ~ ) systemsbiology ( ~ dot ~ ) org)
 
+.. toctree::
+   :hidden:
+   :maxdepth: 1
