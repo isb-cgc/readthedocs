@@ -87,4 +87,4 @@ Provided by the ISB-CGC team, featuring special efforts by:
 
 .. toctree::
    :hidden:
-   :maxdepth: 1
+   :maxdepth: 0
