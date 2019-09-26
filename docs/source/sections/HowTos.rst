@@ -34,7 +34,7 @@ How do I...
 +++++++++++++++++++++++++++++++++++++++
 
 `How do I plot a BigQuery result (R)? <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_plot_BigQuery_results.Rmd>`_
-
++++++++++++++++++++++++++++++++++++++++
 
 `How do I work with cloud storage (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_work_with_cloud_storage.ipynb>`_
 +++++++++++++++++++++++++++++++++++++++
