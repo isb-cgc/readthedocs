@@ -84,7 +84,7 @@ How do I...
 `How do I convert a .bam file to a .fastq file with samtools? (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_convert_bams_to_fastq_with_samtools.ipynb>`_
 +++++++++++++++++++++++++++++++++++++++
 
-`How do I convert a 10X scRNA-seq bam file to fastq with dsub? (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_10X_bamtofastq_with_dsub.ipynb>`_
+`How do I convert a 10X scRNA-seq bam file to fastq with dsub? (Py)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_10X_bamtofastq_with_dsub.ipynb>`_
 +++++++++++++++++++++++++++++++++++++++
 
 `How do I quantify 10X scRNA-seq gene expression with Kallisto and BUStools? (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_use_Kallisto_on_scRNAseq_data.ipynb>`_
