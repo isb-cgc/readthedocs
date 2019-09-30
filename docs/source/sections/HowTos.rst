@@ -91,9 +91,6 @@ How do I...
 +++++++++++++++++++++++++++++++++++++++
 
 
-.. _nb1: nb1 `How do 10X scRNA-seq ? (test)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_use_Kallisto_on_scRNAseq_data.ipynb>`_
-
-
 
 -----------------------
 
