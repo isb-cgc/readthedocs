@@ -30,6 +30,12 @@ How do I...
 `How do I get started fast (R)? <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/Quick_Start_Guide_for_ISB-CGC.Rmd>`_
 +++++++++++++++++++++++++++++++++++++++
 
+`How_to_Find_GDC_File_Locations (Python) <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_Find_GDC_File_Locations.ipynb>`_
++++++++++++++++++++++++++++++++++++++++
+
+`How_to_Find_GDC_File_Locations (R) <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_Find_GDC_File_Locations.Rmd>`_
++++++++++++++++++++++++++++++++++++++++
+
 `How do I plot a BigQuery result (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_plot_BigQuery_results.ipynb>`_
 +++++++++++++++++++++++++++++++++++++++
 
@@ -45,19 +51,16 @@ How do I...
 `How do I create cohorts of patients (R)? <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_create_cohorts.md>`_
 +++++++++++++++++++++++++++++++++++++++
 
+`How do I create a complex cohort (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_create_a_complex_cohort.ipynb>`_
++++++++++++++++++++++++++++++++++++++++
+
+`How do I create a complex cohort (R)? <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_create_a_complex_cohort.Rmd>`_
++++++++++++++++++++++++++++++++++++++++
+
 `How do I make a BigQuery table from an NCBI GEO data set (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_make_NCBI_GEO_BigQuery_tables.ipynb>`_
 +++++++++++++++++++++++++++++++++++++++
 
 `How do I find a tool using the GA4GH Tool Repository Service (TRS) (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_find_a_tool_using_GA4GH_TRS.ipynb>`_
-+++++++++++++++++++++++++++++++++++++++
-
-`How do I convert a .bam file to a .fastq file with samtools? (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_convert_bams_to_fastq_with_samtools.ipynb>`_
-+++++++++++++++++++++++++++++++++++++++
-
-`How do I convert a 10X scRNA-seq bam file to fastq with dsub? (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_10X_bamtofastq_with_dsub.ipynb>`_
-+++++++++++++++++++++++++++++++++++++++
-
-`How do I quantify 10X scRNA-seq gene expression with Kallisto and BUStools? (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_use_Kallisto_on_scRNAseq_data.ipynb>`_
 +++++++++++++++++++++++++++++++++++++++
 
 `How do I run an ANOVA with BigQuery? (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_an_ANOVA_test_in_BigQuery.ipynb>`_
@@ -77,6 +80,17 @@ How do I...
 
 `How do I compute gene-gene expression correlation using BigQuery (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/RegulomeExplorer_GeneExpression_vs_GeneExpression.ipynb>`_
 +++++++++++++++++++++++++++++++++++++++
+
+`How do I convert a .bam file to a .fastq file with samtools? (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_convert_bams_to_fastq_with_samtools.ipynb>`_
++++++++++++++++++++++++++++++++++++++++
+
+`How do I convert a 10X scRNA-seq bam file to fastq with dsub? (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_10X_bamtofastq_with_dsub.ipynb>`_
++++++++++++++++++++++++++++++++++++++++
+
+`How do I quantify 10X scRNA-seq gene expression with Kallisto and BUStools? (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_use_Kallisto_on_scRNAseq_data.ipynb>`_
++++++++++++++++++++++++++++++++++++++++
+
+
 
 -----------------------
 
