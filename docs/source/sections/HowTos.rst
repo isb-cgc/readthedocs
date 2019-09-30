@@ -30,10 +30,10 @@ How do I...
 `How do I get started fast (R)? <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/Quick_Start_Guide_for_ISB-CGC.Rmd>`_
 +++++++++++++++++++++++++++++++++++++++
 
-`How_to_Find_GDC_File_Locations (Python) <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_Find_GDC_File_Locations.ipynb>`_
+`How to find GDC file locations (Python) <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_Find_GDC_File_Locations.ipynb>`_
 +++++++++++++++++++++++++++++++++++++++
 
-`How_to_Find_GDC_File_Locations (R) <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_Find_GDC_File_Locations.Rmd>`_
+`How to find GDC file locations (R) <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_Find_GDC_File_Locations.Rmd>`_
 +++++++++++++++++++++++++++++++++++++++
 
 `How do I plot a BigQuery result (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_plot_BigQuery_results.ipynb>`_
@@ -60,7 +60,7 @@ How do I...
 `How do I make a BigQuery table from an NCBI GEO data set (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_make_NCBI_GEO_BigQuery_tables.ipynb>`_
 +++++++++++++++++++++++++++++++++++++++
 
-`How do I find a tool using the GA4GH Tool Repository Service (TRS) (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_find_a_tool_using_GA4GH_TRS.ipynb>`_
+`How do I use the GA4GH Tool Repository Service (TRS) (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_find_a_tool_using_GA4GH_TRS.ipynb>`_
 +++++++++++++++++++++++++++++++++++++++
 
 `How do I run an ANOVA with BigQuery? (Python)? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_an_ANOVA_test_in_BigQuery.ipynb>`_
