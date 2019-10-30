@@ -2,7 +2,7 @@
 Benefits of Using The Cloud
 ***************************
 
-Working in the cloud is exceptionally scalable and versatile, you only use as much as you need, whether that's in terms of storage space or processing cores. Cloud-based data is easily read by massively parallel processes, expediting results. When you're done, it disappears! You don't have idle resources sitting around collecting dust. 
+Working in the cloud is exceptionally scalable and versatile, you only use as much as you need, whether that's in terms of storage space or processing cores. Cloud-based data is easily read by massively parallel processes, expediting results. When you're done, they disappear! You don't have idle resources sitting around collecting dust. 
 
 Don’t be intimidated by the cloud! Scale your analyses using the data on ISB-CGC. If you’ve conducted bioinformatics before using the command line or SQL, this will be just as easy (if not easier) and we are also here to help! Email feedback@isb-cgc.org or visit our `Community Notebooks page <HowTos.html>`_ for guides and tutorials.
 
