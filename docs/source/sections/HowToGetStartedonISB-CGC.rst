@@ -2,28 +2,18 @@
 How To Get Started on ISB-CGC
 ******************
 
-The ISB-CGC provides both interactive (through a `web application <https://isb-cgc.appspot.com/>`_) and programmatic access to data hosted by institutes such as the Genomic Data Commons GDC of the National Cancer Institute (NCI), and the Wellcome Trust Sanger Institute, leveraging many aspects of the Google Cloud Platform. 
+The ISB-CGC provides both interactive (through a `web application <https://isb-cgc.appspot.com/>`_) and programmatic access to data hosted by institutes such as the Genomic Data Commons GDC of the National Cancer Institute (NCI), and the Wellcome Trust Sanger Institute, leveraging many aspects of the Google Cloud Platform. ISB-CGC hosts both open-access and controlled-access cancer genomics data from the NCI from `a variety of Programs and Data Sets <Hosted-Data.html>`_. Some of these are controlled-access data `which will require dbGaP authorization to access <Gaining-Access-To-Controlled-Access-Data.html>`_.
 
 `More about ISB-CGC <About-ISB-CGC.html>`_, `ISB-CGC Main Landing Page <https://isb-cgc.appspot.com/>`_ and `FAQS <FAQ.html>`_.
-
 
 I. Data Access and Google Cloud Project Setup
 -----------------------------------------------
 
-- ISB-CGC hosts both open-access and controlled-access cancer genomics data from the NCI.
-      `About ISB-CGC Programs and Data Sets <Hosted-Data.html>`_
-      
-
-- To access controlled-access data, dbGaP authorization is required.
-
-      `Accessing Controlled-Access Data and acquiring dbGaP authorization <Gaining-Access-To-Controlled-Access-Data.html>`_
-      
-- To work in GCP, you must first set up a GCP Project: 
-      - A GCP project is required to make use of all of the data, tools, and Google Cloud functionality.
-      - Do you have a Google identity already (e.g. a GMail account)? Your institutional email may be a Google identity (if your institution uses Google Apps), or you may have a personal GMail address.
-      - If not, it only takes a minute to `create a google identity <https://accounts.google.com/signup/v2/webcreateaccount?dsh=308321458437252901&continue=https%3A%2F%2Faccounts.google.com%2FManageAccount&flowName=GlifWebSignIn&flowEntry=SignUp#FirstName=&LastName=>`_.  You can even link a non-GMail account (eg. scientist@nih.gov) as a Google identity by `this <https://accounts.google.com/signup/v2/webcreateaccount?flowName=GlifWebSignIn&flowEntry=SignUp&nogm=true>`_ method.
-      - Create your own GCP project and take advantage of a one-time `$300 Google Credit <https://cloud.google.com/free/>`_.
-      - If you have already used this one-time offer (or there is some other reason you cannot use it), please see the information here about how to request `ISB-CGC Cloud Credits <HowtoRequestCloudCredits.html>`_.
+- A GCP project is required to make use of all of the data, tools, and Google Cloud functionality.
+- Do you have a Google identity already (e.g. a GMail account)? Your institutional email may be a Google identity (if your institution uses Google Apps), or you may have a personal GMail address.
+- If not, it only takes a minute to `create a google identity <https://accounts.google.com/signup/v2/webcreateaccount?dsh=308321458437252901&continue=https%3A%2F%2Faccounts.google.com%2FManageAccount&flowName=GlifWebSignIn&flowEntry=SignUp#FirstName=&LastName=>`_.  You can even link a non-GMail account (eg. scientist@nih.gov) as a Google identity by `this <https://accounts.google.com/signup/v2/webcreateaccount?flowName=GlifWebSignIn&flowEntry=SignUp&nogm=true>`_ method.
+- Create your own GCP project and take advantage of a one-time `$300 Google Credit <https://cloud.google.com/free/>`_.
+- If you have already used this one-time offer (or there is some other reason you cannot use it), please see the information here about how to request `ISB-CGC Cloud Credits <HowtoRequestCloudCredits.html>`_.
     
       
 - `Registering the GCP project <Gaining-Access-To-Controlled-Access-Data.html#requirements-for-registering-a-google-cloud-project-service-account>`_
@@ -44,7 +34,6 @@ II. Accessing and Analyzing Data via BigQuery
  
 III. Accessing and Analyzing Data Stored in Google Cloud Storage 
 ---------------------------------------------------------------
-
 
  - All open-access data on ISB-CGC are stored in a publically available GCS bucket (gs://isb-cgc-open).
  - All controlled-access data are stored in Google Cloud Storage (GCS) in their original form as obtained from the GDC. 
