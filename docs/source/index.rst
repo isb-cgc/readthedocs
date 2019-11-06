@@ -34,11 +34,11 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    :maxdepth: 1
    :caption: USER GUIDE
    
-   sections/Gaining-Access-To-Controlled-Access-Data
    sections/Hosted-Data
    sections/BigQuery
    sections/Web-UI
    sections/progapi/progAPI-v4/Programmatic-Demo
+   sections/Gaining-Access-To-Controlled-Access-Data
    
 .. toctree::
    :hidden:
