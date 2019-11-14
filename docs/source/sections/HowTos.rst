@@ -20,10 +20,7 @@ What's a Jupyter notebook?
 
 `How to use an R notebook. <https://rmarkdown.rstudio.com/lesson-10.html>`_
   
-  
-  
-  
-  
+----
   
   
 I'm a novice, how do I...
@@ -45,8 +42,12 @@ I'm a novice, how do I...
 
 **How do I use the GA4GH Tool Repository Service (TRS)?** `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_find_a_tool_using_GA4GH_TRS.ipynb>`_
 
-  
-  
+
+
+
+----
+
+
 I'm an advanced user, how do I...
 ++++
   
