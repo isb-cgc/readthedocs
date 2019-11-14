@@ -20,11 +20,10 @@ What's a Jupyter notebook?
 
 `How to use an R notebook. <https://rmarkdown.rstudio.com/lesson-10.html>`_
   
-----
-  
   
 I'm a novice, how do I...
 ++++
+----
 
 **How do I get started fast?** `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/Quick_Start_Guide_to_ISB_CGC.ipynb>`_ / `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/Quick_Start_Guide_for_ISB-CGC.Rmd>`_
 
@@ -45,11 +44,9 @@ I'm a novice, how do I...
 
 
 
-----
-
-
 I'm an advanced user, how do I...
 ++++
+----
   
 **How do I make a BigQuery table from an NCBI GEO data set?** `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_make_NCBI_GEO_BigQuery_tables.ipynb>`_
 
