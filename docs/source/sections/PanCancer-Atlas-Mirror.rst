@@ -13,12 +13,12 @@ open-access datasets made available by the ISB-CGC
 and `that <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/Reference-Data.html>`_
 for more details on other publicly accessible BigQuery datasets).
 
-README
+About
 ######
 
 The Google BigQuery tables (`here <https://bigquery.cloud.google.com/queries/pancancer-atlas>`_) mirror the files shared by the PanCancer Atlas initiative on the `GDC <https://gdc.cancer.gov/about-data/publications/pancanatlas>`_.
 
-For examples of usage, see `our blog <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/QueryOfTheMonthClub.html>`_.
+For examples of usage, see `Community Notebooks <HowTos.html>`_.
 
 Use of the tables in the Filtered dataset is suggested.
 
