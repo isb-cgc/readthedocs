@@ -10,9 +10,8 @@ The ISB-CGC BigQuery Table Search user interface (URL) is a discovery tool that 
    :align: center
 
 
-Currently, ISB-CGC hosts over 300 Open Access BigQuery Tables. Each table has been manually curated to include detailed table and field descriptions. 
 
-Users may search for tables of interest using a number of filters including: 
+Currently, ISB-CGC hosts over 300 Open Access BigQuery Tables. Each table has been manually curated to include detailed table and field descriptions allowing users to search for tables of interest using a wild card search or via number of filters including: 
 
 Status
 ==========
