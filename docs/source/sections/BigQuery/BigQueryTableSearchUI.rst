@@ -1,6 +1,6 @@
-*******************************************
-ISB-CGC BigQuery Table Search Web Interface
-*******************************************
+******************************
+ISB-CGC BigQuery Table Search 
+******************************
 
 The ISB-CGC BigQuery Table Search user interface (URL) is a discovery tool that allows users to explore and search for ISB-CGC hosted BigQuery tables. 
 
