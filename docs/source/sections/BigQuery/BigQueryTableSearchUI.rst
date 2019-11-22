@@ -2,44 +2,69 @@
 ISB-CGC BigQuery Table Search 
 ******************************
 
-The ISB-CGC BigQuery Table Search user interface (URL) is a discovery tool that allows users to explore and search for ISB-CGC hosted BigQuery tables. 
+The ISB-CGC BigQuery Table Search user interface (**URL**) is a discovery tool that allows users to explore and search for ISB-CGC hosted BigQuery tables. 
 
-**Note**: Users are not required to already have a Google Cloud Platform (GCP) project to learn more about the tables hosted by ISB-CGC. 
+**Note**: Users are not required to already have a Google Cloud Platform (GCP) project  or account to learn more about the tables hosted by ISB-CGC. 
 
 .. image:: BigQueryTableSearchUI.png
    :align: center
 
 
-
-Currently, ISB-CGC hosts over 300 Open Access BigQuery Tables. Each table has been manually curated to include detailed table and field descriptions allowing users to search for tables of interest using a wild card search or via number of filters including: 
+Currently, ISB-CGC hosts over 300 Open Access BigQuery Tables. Each table has been curated to include detailed table and field descriptions as well as table labels allowing users to search for BigQuery tables of interest using a wild card search or via filters including: 
 
 **Status**
 
-You can find out what tables are current, deprecated or archived. 
+We are committed to providing the most up-to-date information in our BigQuery tables but realize that at times researchers need to reference older versions of data. Each table is assigned a status based on the following criteria:
 
-**Catgories**
+   * Tables with the most up-to-date available information are given a status of **current**
+   * Tables with the older information are given a status of **archived**
+   * Tables that have data that we believe will no longer be supported are **deprecated**
+   
+.. image:: Status-filter.png
+   :align: center
+   
+**Categories**
 
-The tables are grouped into 4 high-level categories: 
+The tables are grouped into four high-level categories: 
 
-* Clinical Biospecimen Data (includes clinical tables with patient demographic data, Biospecimen data with detailed sample information)
+* Clinical Biospecimen Data : Patient case and sample information (includes clinical tables with patient demographic data, and                               biospecimen data with detailed sample information)
 
-* File Metadata (includes tables with information about files available at the GDC, including GCS paths, creation dates, sizes, etc)
+* File Metadata : Information about raw data files including Google Cloud Storage Paths (includes tables with information                       about files available at the GDC, including GCS paths, creation dates, sizes, etc)
 
-* Genomic Reference Database (examples include  COSMIC, ClinVar, cytoBand, dbSNP, Ensembl, Ensembl2Reactome)
+* Genomic Reference Database: Genomic information that can be used to cross-reference against processed-omics data tables                                   (examples include  COSMIC, ClinVar, cytoBand, dbSNP, Ensembl, Ensembl2Reactome)
 
-* Processed-omics  Datasets (gene expression, miRNA expression, copy number, somatic mutations, methylation)
+* Processed-omics  Datasets: Processed data primarily from the GDC (i.e. raw data that has gone through GDC pipeline                                        processing e.g. gene expression, miRNA expression, copy number, somatic mutations, methylation)
+
+
+.. image:: Category-filter.png
+   :align: center
+
 
 **Reference Genome Build**
 
-You can filter for tables that contain data for hg19 or hg38. In a few cases, there are tables for which information from both genome builds can be found. For example, tables that include liftover coordinates between the reference builds. 
+You can filter for tables that contain data for hg19 or hg38. In a few cases, there are tables which contain information from both genome builds; for example, tables that include liftover coordinates between the reference builds. 
+
+
+.. image:: GenomeReference-filter.png
+   :align: center
+
 
 **Source**
 
 Search through the sources of our BigQuery tables using the Source filter. Sources of available tables are listed and searchable using the source filter.
 
+.. image:: Source-filter.png
+   :align: center
+
+
 **Data Type**
 
 The data type filter allows you to filter for the filters of interest. 
+
+.. image:: DataType-filter.png
+   :align: center
+
+
 
 **Advanced Filters**
 
@@ -50,4 +75,3 @@ The advanced filters allow users to search by dataset ID, table ID, table descri
 
 
 
- 
