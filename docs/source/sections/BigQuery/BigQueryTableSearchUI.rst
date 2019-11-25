@@ -20,10 +20,11 @@ Currently, ISB-CGC hosts over 300 Open Access BigQuery Tables. Each table has be
    :align: center
 
 
+
 Links to various helpful documentation pages are also made available including Google BigQuery's documentation and our Community Notebook repository which contains example uses-cases on how to use BigQuery tables programmatically via Jupyter notebooks or R scripts.
 
 
-.. image:: BigQueryTableSearch-DocumentationPages.png
+.. image:: BigQueryTableSearch-Documentation.png
    :align: center
 
 
@@ -89,7 +90,7 @@ For users already familiar with the BigQuery tables (including dataset ID, table
 
 **Labels**
 
-Each table was tagged with labels relating to the source, data type, reference genome build, status, and access. Users can search on any of these tags on the label filter field. 
+Each table was tagged with labels relating to the source, data type, reference genome build, status, and access. Users can search on any of these tags on the label filter field. Users can find the labels search filter under the "More Filters" option. 
 
 
 
