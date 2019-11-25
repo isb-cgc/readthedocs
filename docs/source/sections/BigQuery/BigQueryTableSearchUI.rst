@@ -151,6 +151,7 @@ Table Access
 For full-access to the tables including the ability to query the tables, please see the following ISB-CGC documentation pages:
 
 `How to create a Google Cloud Platform (GCP) project <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowToGetStartedonISB-CGC.html/>`_ 
+
 `How to link ISB-CGC BigQuery tables to your Google Cloud Platform (GCP) project <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html/>`_ 
 
 
