@@ -148,12 +148,12 @@ A few rows of the data in a BigQuery table can be viewed by clicking on the **Pr
 Table Access
 ++++++++++++
 
-For full-access to the tables, please see the following ISB-CGC documentation pages:
+For full-access to the tables including the ability to query the tables, please see the following ISB-CGC documentation pages:
 
-How to create a Google Cloud Platform (GCP) project
+`How to create a Google Cloud Platform (GCP) project <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowToGetStartedonISB-CGC.html/>`_ 
 
-How to link ISB-CGC BigQuery tables to your Google Cloud Platform (GCP) project
 
-For more in-depth access to the tables including the ability to query, please see the ISB-CGC documentations here and here for
-details on how to create a Google Cloud Platform (GCP) project and how to link the BigQuery tables to your Google Cloud Platform.
+`How to link ISB-CGC BigQuery tables to your Google Cloud Platform (GCP) project <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html/>`_ 
+
+
   
