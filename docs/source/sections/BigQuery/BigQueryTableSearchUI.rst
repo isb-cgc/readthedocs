@@ -10,6 +10,8 @@ The ISB-CGC BigQuery Table Search UI (**URL**) is a discovery tool that allows u
    :align: center
 
 
+
+
 Currently, ISB-CGC hosts over 300 Open Access BigQuery Tables. Each table has been curated to include detailed table and field descriptions as well as table labels allowing users to search for BigQuery tables of interest using a wild card search or via available filters. 
 
 
@@ -19,11 +21,14 @@ Currently, ISB-CGC hosts over 300 Open Access BigQuery Tables. Each table has be
 
 
 
+
 Links to various helpful documentation pages are also made available including Google BigQuery's documentation and our Community Notebook repository which contains example uses-cases on how to use BigQuery tables programmatically via Jupyter notebooks or R scripts.
 
 
 .. image:: BigQueryTableSearch-Documentation.png
    :align: center
+
+
 
 
 The available search filters consist of a combination of a multi-select dropdown lists and checkboxes. Boolean operators "OR" as well as "AND" are supported for multiple inputs. Information about each filter is detailed below.
