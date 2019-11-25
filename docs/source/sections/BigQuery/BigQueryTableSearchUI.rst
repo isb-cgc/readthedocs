@@ -113,7 +113,23 @@ These fields are most useful for users already familiar with the BigQuery tables
 
 Each table was tagged with labels relating to the source, data type, reference genome build, status, and access. Users can search on any of these tags on the Labels filter field. Users can find the **Labels** search filter under the **Show More Filters** option. 
 
-The labels for a table can be viewed when the blue + to the right of the table row is clicked. See the screen shot below.
+The labels for a table can be viewed when the blue + to the left of the table row is clicked. See the screen shot below.
+
+
+Search Results
+--------------
+
+Each row will display the Dataset ID, Table ID, Status, Category, Source, Data Type, number of rows and Created Date of the table. 
+
+Click on the column header to sort the displayed results by that column.
+
+To further filter the results, use the **Search** box above the results, on the right-hand side. This is a free-form text field; the user can type all or a portion of the seach item into the field to perform the query. This searches all fields in the table.
+
+To export the results of your search to a file in Comma Separated Values (CSV) format, click the **CSV Download** button.
+
+Schema Description
+++++++++++++++++++
+
 
 
 
