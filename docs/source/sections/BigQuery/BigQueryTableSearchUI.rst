@@ -10,7 +10,7 @@ The ISB-CGC BigQuery Table Search UI (**URL**) is a discovery tool that allows u
    :align: center
 
 
-Currently, ISB-CGC hosts over 300 Open Access BigQuery Tables. Each table has been curated to include detailed table and field descriptions as well as table labels allowing users to search for BigQuery tables of interest using a wild card search or via available filters. The filters consist of a combination of a multi-select dropdown lists and checkboxes. Boolean operators "OR" as well as "AND" are supported for multiple inputs. 
+Currently, ISB-CGC hosts over 300 Open Access BigQuery Tables. Each table has been curated to include detailed table and field descriptions as well as table labels allowing users to search for BigQuery tables of interest using a wild card search or via available filters. 
 
 
 
@@ -26,12 +26,15 @@ Links to various helpful documentation pages are also made available including G
    :align: center
 
 
+The available search filters consist of a combination of a multi-select dropdown lists and checkboxes. Boolean operators "OR" as well as "AND" are supported for multiple inputs. Information about each filter is detailed below.
+
+
 **Status**
 
 We are committed to providing the most up-to-date information in our BigQuery tables but realize that at times researchers need to reference older versions of data. Each table is assigned a status based on the following criteria:
 
    * Tables with the most up-to-date available information are given a status of **current**
-   * Tables with the older information are given a status of **archived**
+   * Tables with older versions of data are given a status of **archived**
    * Tables that have data that is no longer supported are **deprecated**
    
 .. image:: Status-filter.png
@@ -83,12 +86,12 @@ The Data Type filter also allows you to filter for data types of interest. Like 
 
 **More Filters**
 
-For users already familiar with the BigQuery tables (including dataset ID, table ID, table description, or a particular field name), you can use "show more filters" button to display filters allow users to search by dataset ID, table ID, table description or a field name of interest. 
+For users already familiar with the BigQuery tables (including dataset ID, table ID, table description, or a particular field name), the "Show More Filters" button can be used to display filters to search by dataset ID, table ID, table description or a field name of interest. 
 
 
 **Labels**
 
-Each table was tagged with labels relating to the source, data type, reference genome build, status, and access. Users can search on any of these tags on the label filter field. Users can find the labels search filter under the "More Filters" option. 
+Each table was tagged with labels relating to the source, data type, reference genome build, status, and access. Users can search on any of these tags on the label filter field. Users can find the labels search filter under the "Show More Filters" option. 
 
 
 
