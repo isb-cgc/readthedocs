@@ -113,7 +113,7 @@ These fields are most useful for users already familiar with the BigQuery tables
 
 Each table was tagged with labels relating to the source, data type, reference genome build, status, and access. Users can search on any of these tags on the Labels filter field. Users can find the **Labels** search filter under the **Show More Filters** option. 
 
-The labels for a table can be viewed when the blue + to the left of the table row is clicked. See the screen shot below.
+The labels for a table can be viewed when the blue plus sign (+) to the left of the table row is clicked. See the screen shot below.
 
 
 Search Results
@@ -130,7 +130,30 @@ To export the results of your search to a file in Comma Separated Values (CSV) f
 Schema Description
 ++++++++++++++++++
 
+For detailed table information, including full table ID, table description and field descriptions, click on the blue plus sign (+) on the left-hand side. Table labels (as described above) will also display.
+
+.. image:: BigQueryTableSearchUI-descriptions.png
+   :align: center
+
+Table Preview
+++++++++++++++
+
+A few rows of the data in a BigQuery table can be viewed by clicking on the **Preview** button on the right-hand side. This feature allows the user to get a better idea of the contents and format of the data.
 
 
+.. image:: BigQueryTableSearch-PreviewTableOption.png
+   :align: center
+ 
+ 
+Table Access
+++++++++++++
 
+For full-access to the tables, please see the following ISB-CGC documentation pages:
 
+How to create a Google Cloud Platform (GCP) project
+
+How to link ISB-CGC BigQuery tables to your Google Cloud Platform (GCP) project
+
+For more in-depth access to the tables including the ability to query, please see the ISB-CGC documentations here and here for
+details on how to create a Google Cloud Platform (GCP) project and how to link the BigQuery tables to your Google Cloud Platform.
+  
