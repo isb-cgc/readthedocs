@@ -7,7 +7,6 @@ The ISB-CGC BigQuery Table Search UI (**URL**) is a discovery tool that allows u
 **Note**: Users are not required to have a Google Cloud Platform (GCP) project  or an account to learn more about the tables hosted by ISB-CGC.
 
 .. image:: BigQueryTableSearchUI.png
-   :scale: 50
    :align: center
 
 
@@ -16,7 +15,6 @@ Currently, ISB-CGC hosts over 300 Open Access BigQuery Tables. Each table has be
 
 
 .. image:: BigQueryTableSearch-UI-homepage.png
-   :scale: 50
    :align: center
 
 
