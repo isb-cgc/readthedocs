@@ -33,11 +33,11 @@ Links to various helpful documentation pages are available, including Google Big
 Filters
 -------
 
-The search filters consist of a combination of a multi-select dropdown lists and checkboxes. 
+The search filters consist of a combination of multi-select dropdown lists, checkboxes and free entry fields. 
 
-Selecting multiple items within a filter will perform a Boolean "AND" on those selections and bring back any data that match any of the selected items. For example, selecting Data Type BIOSPECIMEN and CLINICAL will display both biospecimen and clinical data.
+Selecting multiple items within a multi-select dropdown list or checkbox filter will perform a Boolean "AND" on those selections and bring back any data that match any of the selected items. For example, selecting Data Type BIOSPECIMEN and CLINICAL will display both biospecimen and clinical data.
 
-Selecting multiple filters will perform a Boolean "OR" on those selections and bring back only data that fits both criteria. For example, selecting Data Type BIOSPECIMEN and Source of CCLE will only display CCLE biospecimen data.
+Selecting multiple filters will perform a Boolean "OR" on those selections and bring back only data that fits all criteria. For example, selecting Data Type BIOSPECIMEN and Source of CCLE will only display CCLE biospecimen data.
 
 Information about each filter is detailed below.
 
@@ -79,7 +79,7 @@ Hovering the cursor over the information icon will display a short description o
 
 Filter for tables that contain data for hg19 or hg38. In a few cases, there are tables which contain information from both genome builds; for example, tables that include liftover coordinates between the reference builds. 
 
-By default, the Status filter is set to ALL.  
+By default, the **Reference Genome** filter is set to ALL.  
 
 .. image:: GenomeReference-filter.png
    :align: center
@@ -87,7 +87,7 @@ By default, the Status filter is set to ALL.
 
 **Source**
 
-Search through the sources of the data in our BigQuery tables by using the Source filter. Click the Source box to see the dropdown list and click on a source to select it. Additional sources can be selected by clicking in the Source box again. 
+Search through the sources of the data in our BigQuery tables by using the **Source** filter. Click the Source box to see the dropdown list and click on a source to select it. Additional sources can be selected by clicking in the Source box again. 
 
 
 .. image:: Source-filter.png
@@ -96,7 +96,7 @@ Search through the sources of the data in our BigQuery tables by using the Sourc
 
 **Data Type**
 
-The Data Type filter also allows you to filter for data types of interest. Like Source, multiple Data Types can be selected.
+The **Data Type** filter also allows you to filter for data types of interest. Like Source, multiple Data Types can be selected.
 
 .. image:: DataType-filter.png
    :align: center
@@ -104,14 +104,14 @@ The Data Type filter also allows you to filter for data types of interest. Like 
 
 **More Filters**
 
-The "Show More Filters" button can be used to display Dataset ID, Table ID, Table Description, Labels and Field Name filters. The user can type all or a portion of the name into the field to perform the query. For instance, for all datasets which have "alpha" in the name, type "alpha" into the field.
+The **Show More Filters** button can be used to display **Dataset ID**, **Table ID**, **Table Description**, **Labels** and **Field Name** filters. These are free entry fields; the user can type all or a portion of the name into the field to perform the query. For instance, for all datasets which have "alpha" in the name, type "alpha" into the field.
 
 These fields are most useful for users already familiar with the BigQuery tables.
 
 
 **Labels**
 
-Each table was tagged with labels relating to the source, data type, reference genome build, status, and access. Users can search on any of these tags on the Labels filter field. Users can find the Labels search filter under the "Show More Filters" option. 
+Each table was tagged with labels relating to the source, data type, reference genome build, status, and access. Users can search on any of these tags on the Labels filter field. Users can find the **Labels** search filter under the **Show More Filters** option. 
 
 The labels for a table can be viewed when the blue + to the right of the table row is clicked. See the screen shot below.
 
