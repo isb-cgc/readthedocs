@@ -4,7 +4,7 @@ ISB-CGC BigQuery Table Search
 
 The ISB-CGC BigQuery Table Search user interface (**URL**) is a discovery tool that allows users to explore and search for ISB-CGC hosted BigQuery tables. 
 
- The BigQuery Table Search UI can be accessed directly from the ISB-CGC homepage (isb-cgc.org) as shown in the image below. **Note**: Users are not required to have a Google Cloud Platform (GCP) project  or an account to learn more about the tables hosted by ISB-CGC.
+ The BigQuery Table Search UI can be accessed directly from the ISB-CGC homepage (<https://isb-cgc.org/>`_) as shown in the image below. **Note**: Users are not required to have a Google Cloud Platform (GCP) project  or an account to learn more about the tables hosted by ISB-CGC.
 
 .. image:: BigQueryTableSearchUI.png
    :align: center
