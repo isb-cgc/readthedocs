@@ -2,9 +2,9 @@
 ISB-CGC BigQuery Table Search 
 ******************************
 
-The ISB-CGC BigQuery Table Search UI (**URL**) is a discovery tool that allows users to explore and search for ISB-CGC hosted BigQuery tables. It can be accessed directly from the ISB-CGC homepage (`<https://isb-cgc.org/>`_) as shown in the image below. 
+The ISB-CGC BigQuery Table Search UI (**URL**) is a discovery tool that allows users to explore and search for ISB-CGC hosted BigQuery tables. It can be accessed directly from the ISB-CGC homepage (`<https://isb-cgc.org/>`_) as shown in red in the image below. 
 
-**Note**: Users are not required to have a Google Cloud Platform (GCP) project  or an account to learn more about the tables hosted by ISB-CGC.
+**Note**: Users are not required to have a Google Cloud Platform (GCP) project or an account to learn more about the tables hosted by ISB-CGC.
 
 .. image:: BigQueryTableSearchUI.png
    :align: center
@@ -23,7 +23,7 @@ Currently, ISB-CGC hosts over 300 Open Access BigQuery Tables. Each table has be
 
 
 
-Links to various helpful documentation pages are also made available including Google BigQuery's documentation and our Community Notebook repository which contains example uses-cases on how to use BigQuery tables programmatically via Jupyter notebooks or R scripts.
+Links to various helpful documentation pages are also made available including Google BigQuery's documentation and to ISB-CGC's Community Notebook repository which contains example uses-cases on how to access BigQuery tables programmatically via Jupyter notebooks or R scripts.
 
 
 .. image:: BigQueryTableSearch-Documentation.png
