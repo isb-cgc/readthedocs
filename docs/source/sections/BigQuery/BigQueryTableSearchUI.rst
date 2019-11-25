@@ -4,13 +4,19 @@ ISB-CGC BigQuery Table Search
 
 The ISB-CGC BigQuery Table Search user interface (**URL**) is a discovery tool that allows users to explore and search for ISB-CGC hosted BigQuery tables. 
 
-**Note**: Users are not required to already have a Google Cloud Platform (GCP) project  or account to learn more about the tables hosted by ISB-CGC. 
+ The BigQuery Table Search UI can be accessed directly from the ISB-CGC homepage (isb-cgc.org) as shown in the image below. **Note**: Users are not required to already have a Google Cloud Platform (GCP) project  or an account to learn more about the tables hosted by ISB-CGC.
 
 .. image:: BigQueryTableSearchUI.png
    :align: center
 
 
-Currently, ISB-CGC hosts over 300 Open Access BigQuery Tables. Each table has been curated to include detailed table and field descriptions as well as table labels allowing users to search for BigQuery tables of interest using a wild card search or via filters including: 
+
+Currently, ISB-CGC hosts over 300 Open Access BigQuery Tables. Each table has been curated to include detailed table and field descriptions as well as table labels allowing users to search for BigQuery tables of interest using a wild card search or via available filters. The filters consist of a combination of a multi-select dropdown lists and checkboxes. Boolean operators "OR" as well as "AND" are supported for multiple inputs. 
+
+.. image:: BigQueryTableSearch-homepage.png
+   :align: center
+
+
 
 **Status**
 
@@ -22,6 +28,7 @@ We are committed to providing the most up-to-date information in our BigQuery ta
    
 .. image:: Status-filter.png
    :align: center
+   
    
 **Categories**
 
@@ -51,7 +58,8 @@ You can filter for tables that contain data for hg19 or hg38. In a few cases, th
 
 **Source**
 
-Search through the sources of our BigQuery tables using the Source filter. Sources of available tables are listed and searchable using the source filter.
+Search through the sources of the data in our BigQuery tables by using the Source filter. Click the Source box to see the dropdown list and click on a source to select it. Additional sources can be selected by clicking in the Source box. 
+
 
 .. image:: Source-filter.png
    :align: center
@@ -59,17 +67,16 @@ Search through the sources of our BigQuery tables using the Source filter. Sourc
 
 **Data Type**
 
-The data type filter allows you to filter for the filters of interest. 
+The Data Type filter also allows you to filter for data types of interest. Like Source, multiple Data Types can be selected.
 
 .. image:: DataType-filter.png
    :align: center
 
 
-
 **Advanced Filters**
 
-For users already familiar with the BigQuery tables (including dataset ID, table ID, table description, or a particular field name), you can use the advanced filters. 
-The advanced filters allow users to search by dataset ID, table ID, table description or a field name of interest. 
+For users already familiar with the BigQuery tables (including dataset ID, table ID, table description, or a particular field name), you can use "show more filters" button to displa filters allow users to search by dataset ID, table ID, table description or a field name of interest. 
+
 
 **Labels**
 
