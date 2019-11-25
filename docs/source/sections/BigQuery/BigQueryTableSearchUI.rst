@@ -2,9 +2,7 @@
 ISB-CGC BigQuery Table Search 
 ******************************
 
-The ISB-CGC BigQuery Table Search user interface (**URL**) is a discovery tool that allows users to explore and search for ISB-CGC hosted BigQuery tables. 
-
- The BigQuery Table Search UI can be accessed directly from the ISB-CGC homepage (`<https://isb-cgc.org/>`_) as shown in the image below. 
+The ISB-CGC BigQuery Table Search UI (**URL**) is a discovery tool that allows users to explore and search for ISB-CGC hosted BigQuery tables. The BigQuery Table Search UI can be accessed directly from the ISB-CGC homepage (`<https://isb-cgc.org/>`_) as shown in the image below. 
 
 **Note**: Users are not required to have a Google Cloud Platform (GCP) project  or an account to learn more about the tables hosted by ISB-CGC.
 
@@ -12,13 +10,18 @@ The ISB-CGC BigQuery Table Search user interface (**URL**) is a discovery tool t
    :align: center
 
 
-
 Currently, ISB-CGC hosts over 300 Open Access BigQuery Tables. Each table has been curated to include detailed table and field descriptions as well as table labels allowing users to search for BigQuery tables of interest using a wild card search or via available filters. The filters consist of a combination of a multi-select dropdown lists and checkboxes. Boolean operators "OR" as well as "AND" are supported for multiple inputs. 
 
-The homepage of the BigQuery UI contains links to various helpful documentation pages including Google BigQuery's documentation and our Community Notebook repository which contains example uses-cases on how to use BigQuery tables programmatically via Jupyter notebooks or R scripts.
 
 
-.. image:: BigQueryTableSearch-homepage.png
+.. image:: BigQueryTableSearch-UI-homepage.png
+   :align: center
+
+
+Links to various helpful documentation pages are also made available including Google BigQuery's documentation and our Community Notebook repository which contains example uses-cases on how to use BigQuery tables programmatically via Jupyter notebooks or R scripts.
+
+
+.. image:: BigQueryTableSearch-DocumentationPages.png
    :align: center
 
 
