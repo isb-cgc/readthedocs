@@ -12,7 +12,7 @@ The ISB-CGC BigQuery Table Search UI (**URL**) is a discovery tool that allows u
 
 
 
-Currently, ISB-CGC hosts over 300 open access BigQuery tables. Each table has been curated to include detailed table and field descriptions as well as table labels allowing users to search for BigQuery tables of interest using a wild card search or via available filters. 
+Currently, ISB-CGC hosts over 300 open access BigQuery tables. Each table has been curated to include detailed table and field descriptions as well as table labels allowing users to search for BigQuery tables of interest using a free-form text search or via available filters. 
 
 
 
@@ -23,7 +23,7 @@ Currently, ISB-CGC hosts over 300 open access BigQuery tables. Each table has be
 
 
 
-Links to various helpful documentation pages are available, including Google BigQuery's documentation and ISB-CGC's Community Notebook repository which contains example uses-cases on how to access BigQuery tables programmatically via Jupyter notebooks or R scripts.
+Links to various helpful documentation pages are available, including Google BigQuery's documentation and ISB-CGC's Community Notebook repository which contains example use-cases on how to access BigQuery tables programmatically via Jupyter notebooks or R scripts.
 
 
 .. image:: BigQueryTableSearch-Documentation.png
@@ -33,7 +33,7 @@ Links to various helpful documentation pages are available, including Google Big
 Filters
 -------
 
-The search filters consist of a combination of multi-select dropdown lists, checkboxes and free entry fields. 
+The search filters consist of a combination of multi-select dropdown lists, checkboxes and free-form text fields. 
 
 Selecting multiple items within a multi-select dropdown list or checkbox filter will perform a Boolean "AND" on those selections and bring back any data that match any of the selected items. For example, selecting Data Type BIOSPECIMEN and CLINICAL will display both biospecimen and clinical data.
 
@@ -104,7 +104,7 @@ The **Data Type** filter also allows you to filter for data types of interest. L
 
 **More Filters**
 
-The **Show More Filters** button can be used to display **Dataset ID**, **Table ID**, **Table Description**, **Labels** and **Field Name** filters. These are free entry fields; the user can type all or a portion of the name into the field to perform the query. For instance, for all datasets which have "alpha" in the name, type "alpha" into the field.
+The **Show More Filters** button can be used to display **Dataset ID**, **Table ID**, **Table Description**, **Labels** and **Field Name** filters. These are free-form text fields; the user can type all or a portion of the name into the field to perform the query. For instance, for all datasets which have "alpha" in the name, type "alpha" into the field.
 
 These fields are most useful for users already familiar with the BigQuery tables.
 
