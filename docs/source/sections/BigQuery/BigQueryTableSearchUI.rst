@@ -4,7 +4,7 @@ ISB-CGC BigQuery Table Search
 
 The ISB-CGC BigQuery Table Search user interface (**URL**) is a discovery tool that allows users to explore and search for ISB-CGC hosted BigQuery tables. 
 
- The BigQuery Table Search UI can be accessed directly from the ISB-CGC homepage (isb-cgc.org) as shown in the image below. **Note**: Users are not required to already have a Google Cloud Platform (GCP) project  or an account to learn more about the tables hosted by ISB-CGC.
+ The BigQuery Table Search UI can be accessed directly from the ISB-CGC homepage (isb-cgc.org) as shown in the image below. **Note**: Users are not required to have a Google Cloud Platform (GCP) project  or an account to learn more about the tables hosted by ISB-CGC.
 
 .. image:: BigQueryTableSearchUI.png
    :align: center
@@ -13,9 +13,11 @@ The ISB-CGC BigQuery Table Search user interface (**URL**) is a discovery tool t
 
 Currently, ISB-CGC hosts over 300 Open Access BigQuery Tables. Each table has been curated to include detailed table and field descriptions as well as table labels allowing users to search for BigQuery tables of interest using a wild card search or via available filters. The filters consist of a combination of a multi-select dropdown lists and checkboxes. Boolean operators "OR" as well as "AND" are supported for multiple inputs. 
 
+The homepage of the BigQuery UI contains links to various helpful documentation pages including Google BigQuery's documentation and our Community Notebook repository which contains example uses-cases on how to use BigQuery tables programmatically via Jupyter notebooks or R scripts.
+
+
 .. image:: BigQueryTableSearch-homepage.png
    :align: center
-
 
 
 **Status**
@@ -24,7 +26,7 @@ We are committed to providing the most up-to-date information in our BigQuery ta
 
    * Tables with the most up-to-date available information are given a status of **current**
    * Tables with the older information are given a status of **archived**
-   * Tables that have data that we believe will no longer be supported are **deprecated**
+   * Tables that have data that is no longer supported are **deprecated**
    
 .. image:: Status-filter.png
    :align: center
@@ -49,7 +51,7 @@ The tables are grouped into four high-level categories:
 
 **Reference Genome Build**
 
-You can filter for tables that contain data for hg19 or hg38. In a few cases, there are tables which contain information from both genome builds; for example, tables that include liftover coordinates between the reference builds. 
+Filter for tables that contain data for hg19 or hg38. In a few cases, there are tables which contain information from both genome builds; for example, tables that include liftover coordinates between the reference builds. 
 
 
 .. image:: GenomeReference-filter.png
@@ -73,12 +75,18 @@ The Data Type filter also allows you to filter for data types of interest. Like 
    :align: center
 
 
-**Advanced Filters**
+**More Filters**
 
-For users already familiar with the BigQuery tables (including dataset ID, table ID, table description, or a particular field name), you can use "show more filters" button to displa filters allow users to search by dataset ID, table ID, table description or a field name of interest. 
+For users already familiar with the BigQuery tables (including dataset ID, table ID, table description, or a particular field name), you can use "show more filters" button to display filters allow users to search by dataset ID, table ID, table description or a field name of interest. 
 
 
 **Labels**
+
+Each table was tagged with labels relating to the source, data type, reference genome build, status, and access. Users can search on any of these tags on the label filter field. 
+
+
+
+
 
 
 
