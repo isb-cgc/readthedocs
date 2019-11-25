@@ -49,6 +49,8 @@ We are committed to providing the most up-to-date information in our BigQuery ta
    * Tables with older versions of data are given a status of **archived**
    * Tables that have data that is no longer supported are **deprecated**
    
+By default, the Status filter is set to Current.   
+   
 .. image:: Status-filter.png
    :align: center
    
@@ -59,12 +61,15 @@ The tables are grouped into four high-level categories:
 
 * Clinical Biospecimen Data : Patient case and sample information (includes clinical tables with patient demographic data, and                               biospecimen data with detailed sample information)
 
-* File Metadata : Information about raw data files including Google Cloud Storage Paths (includes tables with information                       about files available at the GDC, including GCS paths, creation dates, sizes, etc)
+* File Metadata : Information about raw data files including Google Cloud Storage Paths (includes tables with information                       about files available at the GDC, including GCS paths, creation dates, sizes, etc.)
 
 * Genomic Reference Database: Genomic information that can be used to cross-reference against processed-omics data tables                                   (examples include  COSMIC, ClinVar, cytoBand, dbSNP, Ensembl, Ensembl2Reactome)
 
 * Processed-omics  Datasets: Processed data primarily from the GDC (i.e. raw data that has gone through GDC pipeline                                        processing e.g. gene expression, miRNA expression, copy number, somatic mutations, methylation)
 
+
+Click on one or more checkboxes to select categories. 
+Hovering the cursor over the information icon will display a short description of the category.
 
 .. image:: Category-filter.png
    :align: center
@@ -74,6 +79,7 @@ The tables are grouped into four high-level categories:
 
 Filter for tables that contain data for hg19 or hg38. In a few cases, there are tables which contain information from both genome builds; for example, tables that include liftover coordinates between the reference builds. 
 
+By default, the Status filter is set to ALL.  
 
 .. image:: GenomeReference-filter.png
    :align: center
@@ -81,7 +87,7 @@ Filter for tables that contain data for hg19 or hg38. In a few cases, there are 
 
 **Source**
 
-Search through the sources of the data in our BigQuery tables by using the Source filter. Click the Source box to see the dropdown list and click on a source to select it. Additional sources can be selected by clicking in the Source box. 
+Search through the sources of the data in our BigQuery tables by using the Source filter. Click the Source box to see the dropdown list and click on a source to select it. Additional sources can be selected by clicking in the Source box again. 
 
 
 .. image:: Source-filter.png
@@ -98,12 +104,16 @@ The Data Type filter also allows you to filter for data types of interest. Like 
 
 **More Filters**
 
-For users already familiar with the BigQuery tables (including dataset ID, table ID, table description, or a particular field name), the "Show More Filters" button can be used to display filters to search by dataset ID, table ID, table description or a field name of interest. 
+The "Show More Filters" button can be used to display Dataset ID, Table ID, Table Description, Labels and Field Name filters. The user can type all or a portion of the name into the field to perform the query. For instance, for all datasets which have "alpha" in the name, type "alpha" into the field.
+
+These fields are most useful for users already familiar with the BigQuery tables.
 
 
 **Labels**
 
-Each table was tagged with labels relating to the source, data type, reference genome build, status, and access. Users can search on any of these tags on the label filter field. Users can find the labels search filter under the "Show More Filters" option. 
+Each table was tagged with labels relating to the source, data type, reference genome build, status, and access. Users can search on any of these tags on the Labels filter field. Users can find the Labels search filter under the "Show More Filters" option. 
+
+The labels for a table can be viewed when the blue + to the right of the table row is clicked. See the screen shot below.
 
 
 
