@@ -23,17 +23,23 @@ Currently, ISB-CGC hosts over 300 open access BigQuery tables. Each table has be
 
 
 
-Links to various helpful documentation pages are also made available including Google BigQuery's documentation and ISB-CGC's Community Notebook repository which contains example uses-cases on how to access BigQuery tables programmatically via Jupyter notebooks or R scripts.
+Links to various helpful documentation pages are available, including Google BigQuery's documentation and ISB-CGC's Community Notebook repository which contains example uses-cases on how to access BigQuery tables programmatically via Jupyter notebooks or R scripts.
 
 
 .. image:: BigQueryTableSearch-Documentation.png
    :align: center
 
 
+Filters
+-------
 
+The search filters consist of a combination of a multi-select dropdown lists and checkboxes. 
 
-The available search filters consist of a combination of a multi-select dropdown lists and checkboxes. Boolean operators "OR" as well as "AND" are supported for multiple inputs. Information about each filter is detailed below.
+Selecting multiple items within a filter will perform a Boolean "AND" on those selections and bring back any data that match any of the selected items. For example, selecting Data Type BIOSPECIMEN and CLINICAL will display both biospecimen and clinical data.
 
+Selecting multiple filters will perform a Boolean "OR" on those selections and bring back only data that fits both criteria. For example, selecting Data Type BIOSPECIMEN and Source of CCLE will only display CCLE biospecimen data.
+
+Information about each filter is detailed below.
 
 **Status**
 
