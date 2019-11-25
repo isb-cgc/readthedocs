@@ -2,7 +2,7 @@
 ISB-CGC BigQuery Table Search 
 ******************************
 
-The ISB-CGC BigQuery Table Search UI (**https://isb-cgc.appspot.com/bq_meta_search/**) is a discovery tool that allows users to explore and search for ISB-CGC hosted BigQuery tables. It can be accessed directly from the ISB-CGC homepage (`<https://isb-cgc.org/>`_) as shown in red in the image below. 
+The ISB-CGC BigQuery Table Search UI ( `<https://isb-cgc.appspot.com/bq_meta_search//>`_) is a discovery tool that allows users to explore and search for ISB-CGC hosted BigQuery tables. It can be accessed directly from the ISB-CGC homepage (`<https://isb-cgc.org/>`_) as shown in red in the image below. 
 
 **Note**: Users are not required to have a Google Cloud Platform (GCP) project or an account to learn more about the tables hosted by ISB-CGC.
 
@@ -151,7 +151,6 @@ Table Access
 For full-access to the tables including the ability to query the tables, please see the following ISB-CGC documentation pages:
 
 `How to create a Google Cloud Platform (GCP) project <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowToGetStartedonISB-CGC.html/>`_ 
-
 
 `How to link ISB-CGC BigQuery tables to your Google Cloud Platform (GCP) project <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html/>`_ 
 
