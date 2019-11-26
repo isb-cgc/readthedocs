@@ -11,15 +11,11 @@ The ISB-CGC BigQuery Table Search UI (`<https://isb-cgc.appspot.com/bq_meta_sear
 
 
 
-
 Currently, ISB-CGC hosts over 300 open access BigQuery tables. Each table has been curated to include detailed table and field descriptions as well as table labels allowing users to search for BigQuery tables of interest using a free-form text search or via available filters. 
-
 
 
 .. image:: BigQueryTableSearch-UI-homepage.png
    :align: center
-
-
 
 
 Links to various helpful documentation pages are available, including Google BigQuery's documentation and ISB-CGC's Community Notebook repository which contains example use-cases on how to access BigQuery tables programmatically via Jupyter notebooks or R scripts.
