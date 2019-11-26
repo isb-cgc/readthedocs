@@ -44,7 +44,7 @@ Some more helpful links:
 
 `Detailed information on Google pricing <https://cloud.google.com/bigquery/pricing>`_
 
-`Estimating storage and query costs <https://cloud.google.com/bigquery/docs/estimate-costs>`
+`Estimating storage and query costs <https://cloud.google.com/bigquery/docs/estimate-costs>`_
 
 `Best practices on how to control costs <https://cloud.google.com/bigquery/docs/best-practices-costs>`_
 
