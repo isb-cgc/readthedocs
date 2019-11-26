@@ -27,8 +27,8 @@ The image below summarizes BigQuery's storage costs (as of August 2019). Note, t
 
 
 
-Additional Google Support
--------------------------
+Additional Support
+-----------------
 Latest information about BigQuery can be found here:  https://cloud.google.com/bigquery 
 
 Some more helpful links:
