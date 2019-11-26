@@ -3,7 +3,7 @@ Best Practices
 ============
 
 
-I. Don't Download the Data
+Don't Download the Data
 ===========================
 
 
@@ -14,7 +14,7 @@ Be mindful that if you download data, you’ll incur egress charges.
 `Google egress charges information <https://cloud.google.com/compute/pricing#internet_egress>`_
 
 
-II. Computing on the Cloud
+Computing on the Cloud
 ===========================
 
 
@@ -47,7 +47,7 @@ Most of the same linux commands, scripts, pipelines/workflows, genomics software
   
 
 
-III. Storage on the Cloud
+Storage on the Cloud
 ==========================
 
 The Google Cloud Platform offers a number of different storage options for your virtual machine instances: `disks <https://cloud.google.com/compute/docs/disks/>`_
