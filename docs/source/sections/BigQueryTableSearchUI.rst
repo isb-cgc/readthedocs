@@ -118,7 +118,7 @@ Each row will display the Dataset ID, Table ID, Status, Category, Source, Data T
 
 Click on the column header to sort the displayed results by that column.
 
-To further filter the results, use the **Search** box above the results, on the right-hand side. This is a free-form text field; the user can type all or a portion of the seach item into the field to perform the query. This searches all fields in the table.
+To further filter the results, use the **Search** box above the results, on the right-hand side. This is a free-form text field; the user can type all or a portion of the search item into the field to perform the query. This searches all fields in the table.
 
 To export the results of your search to a file in Comma Separated Values (CSV) format, click the **CSV Download** button.
 
