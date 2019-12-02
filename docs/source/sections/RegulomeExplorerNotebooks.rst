@@ -1,5 +1,5 @@
 *****************
-Regulome explorer 
+Regulome Explorer 
 *****************
 
 
