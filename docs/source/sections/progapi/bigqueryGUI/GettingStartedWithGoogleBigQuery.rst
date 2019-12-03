@@ -39,7 +39,7 @@ Query Syntax Examples
 
 Simple Query Examples
 *********************
-Let's start with a few simple examples to get some practice using BigQuery. Note that all of these examples are in "Standard SQL". You can simply copy-and-paste any of the SQL queries on this page into the BigQuery web UI https://bigquery.cloud.google.com.
+Let's start with a few simple examples to get some practice using BigQuery. Note that all of these examples are in "Standard SQL". You can simply copy-and-paste any of the SQL queries on this page into the BigQuery web UI https://console.cloud.google.com/bigquery.
 
 **1. How many mutations have been observed in KRAS?**
 
@@ -161,9 +161,9 @@ Querying from more than one table (Joining)
 
 **Q: For bladder cancer patients that have mutations in the CDKN2A (cyclin-dependent kinase inhibitor 2A) gene, what types of mutations are they, what is their gender, vital status, and days to death - and for 3 downstream genes (MDM2 (MDM2 proto-oncogene), TP53 (tumor protein p53), CDKN1A (cyclin-dependent kinase inhibitor 1A)), what are the gene expression levels for each patient?**
 
-This question was chosen as an interesting example because the p53/Rb pathway is commonly involved in bladder cancer (see `TCGA Network paper <https://tcga-data.nci.nih.gov/docs/publications/blca_2013/>`_ "Comprehensive Molecular Characterization of Urothelial Bladder Carcinoma", Figure 4).
+This question was chosen as an interesting example because the p53/Rb pathway is commonly involved in bladder cancer (see `TCGA Network paper <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3962515/>`_ "Comprehensive Molecular Characterization of Urothelial Bladder Carcinoma", Figure 4).
 
-This is a complex question that requires information from four tables.  We will build up this complex query in three steps.
+This is a complex question that requires information from four tables.  We will build up this complex query in legacy SQL three steps. Change the query settings to legacy SQL.
 
 Step 1
 ++++++
@@ -177,7 +177,7 @@ the type of mutation
       mutation.case_barcode,
       mutation.Variant_Type
     FROM
-      `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_DCC` AS mutation
+      [isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_DCC] AS mutation
     WHERE
       mutation.Hugo_Symbol = 'CDKN2A'
       AND project_short_name = 'TCGA-BLCA'
@@ -187,8 +187,8 @@ the type of mutation
     ORDER BY
       mutation.case_barcode
 
-.. image:: BigQueryExample2Query.PNG
-   :scale: 50
+.. image:: BigQueryExample1.png
+   :scale: 40
    :align: center  
    
 We now have the list of patients that have a mutation in the CDKN2A gene and the type of mutation.
@@ -214,7 +214,7 @@ Bringing in the patient data from the ISB-CGC TCGA Clinical table so that we can
         mutation.case_barcode,
         mutation.Variant_Type
       FROM
-        `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_DCC` AS mutation
+        [isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_DCC] AS mutation
       WHERE
         mutation.Hugo_Symbol = 'CDKN2A'
         AND project_short_name = 'TCGA-BLCA'
@@ -225,12 +225,12 @@ Bringing in the patient data from the ISB-CGC TCGA Clinical table so that we can
         mutation.case_barcode,
         ) AS case_list /* end case_list */
     JOIN
-      `isb-cgc.TCGA_bioclin_v0.Clinical` AS clinical
+      [isb-cgc.TCGA_bioclin_v0.Clinical] AS clinical
     ON
       case_list.case_barcode = clinical.case_barcode
   
-.. image:: BigQueryExample3Query.PNG
-   :scale: 50
+.. image:: BigQueryExample2.png
+   :scale: 40
    :align: center
    
 We now have combined information from two tables through a join.  Notice in particular the join syntax, 
@@ -269,7 +269,7 @@ Show the gene expression levels for the 4 genes of interest, and order them by c
           mutation.case_barcode,
           mutation.Variant_Type
         FROM
-          `isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_DCC` AS mutation
+          [isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_DCC] AS mutation
         WHERE
           mutation.Hugo_Symbol = 'CDKN2A'
           AND project_short_name = 'TCGA-BLCA'
@@ -280,11 +280,11 @@ Show the gene expression levels for the 4 genes of interest, and order them by c
           mutation.case_barcode,
           ) AS case_list /* end case_list */
       INNER JOIN
-        `isb-cgc.TCGA_bioclin_v0.Clinical` AS clinical
+        [isb-cgc.TCGA_bioclin_v0.Clinical] AS clinical
       ON
         case_list.case_barcode = clinical.case_barcode /* end clinical annotation */ ) AS clinical_info
     INNER JOIN
-      `isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM` AS genex
+      [isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM] AS genex
     ON
       genex.case_barcode = case_list.case_barcode
     WHERE
@@ -296,8 +296,8 @@ Show the gene expression levels for the 4 genes of interest, and order them by c
       case_barcode,
       HGNC_gene_symbol
 
-.. image:: BigQueryExample4Query.PNG
-   :scale: 50
+.. image:: BigQueryExample3.png
+   :scale: 40
    :align: center  
 
 We have now gotten all the data together in one table for further analysis.  
@@ -344,7 +344,7 @@ table is in an existing BigQuery dataset in your project).
 Using BigQuery from R
 ======================
 BigQuery can be accessed from R using one of two powerful R packages:
-`bigrquery <https://cran.r-project.org/web/packages/bigrquery/>`_ and
+`bigrquery <https://bigrquery.r-dbi.org/>`_ and
 `dplyr <https://cran.r-project.org/web/packages/dplyr/>`_.
 Please refer to the documentation provided with these packages for more information.
 
@@ -353,22 +353,18 @@ Using BigQuery from Python
 BigQuery
 `client libraries <https://cloud.google.com/bigquery/docs/reference/libraries#client-libraries-install-python>`_
 are available that let you interact with BigQuery from Python or other languages.
-In addition, the experimental
-`pandas.io.gbq <http://pandas.pydata.org/pandas-docs/stable/io.html#google-bigquery-experimental>`_
+In addition, the `pandas.io.gbq <https://pandas.pydata.org/pandas-docs/version/0.19/generated/pandas.io.gbq.to_gbq.html>`_
 module provides a wrapper for BigQuery.
 
 Getting Help
 ============
+
+ISB-CGC has a `Community Notebook Repository <HowTos.html>`_ on GitHub with examples of using BigQuery from Python and R along with creating SQL queries.
+
 Aside from the documentation, the best place to look for help using BigQuery and tips
 and tricks with SQL is
 `StackOverflow <http://stackoverflow.com/>`_.  If you tag your question with ``google-bigquery``
 your question will quickly get the attention of Google BigQuery experts.  You may also find
 that your question has already been asked and answered among the nearly 10,000 questions
 that have already been asked about BigQuery on StackOverflow.
-
-
-
-
-
-
 

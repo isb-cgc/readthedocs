@@ -44,7 +44,7 @@ Selecting **Select Genes & miRNAs for a New Workbook** from the **GENES & miRNAs
 
 **Resources for understanding and working with miRNAs and gene identifiers:**
 
-- The `National Human Genome Research Institute (NHGRI) <http://www.genome.gov/glossary/index.cfm>`_ created the Talking Glossary of Genetic Terms to help everyone understand the terms and concepts used in genetic research.  In addition to definitions, specialists in the field of genetics share their descriptions of terms, and many terms include images, animation and links to related terms.
+- The `National Human Genome Research Institute (NHGRI) <http://www.genome.gov/genetics-glossary>`_ created the Talking Glossary of Genetic Terms to help everyone understand the terms and concepts used in genetic research.  In addition to definitions, specialists in the field of genetics share their descriptions of terms, and many terms include images, animation and links to related terms.
 - The `miRBase <http://www.mirbase.org/index.shtml>`_ created a microRNA database center to enable researchers to understand the published miRNA sequences and annotations.  
 - `Hugo Gene Nomenclature Committee (HGCN) <http://www.genenames.org>`_ 
 - `National Center for Biotechnology Information (NCBI) <http://www.ncbi.nlm.nih.gov>`_

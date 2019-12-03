@@ -22,17 +22,14 @@ delay before you will be able to request access to these data on ISB-CGC.
 
 Visit `electronic Research Administration (eRA) <http://era.nih.gov>`_ for more information on 
 registering for a NIH eRA account. NIH staff may utilize their NIH log-in. 
-(For additional instructions, please refer to `Data Access Request Instructions <http://www.genome.gov/20019654>`_, 
-dbGap Data Access `Request Portal <http://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login>`_, 
-and `Understanding Data Security <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/data/data2/TCGA_Data_Security.html>`_).  Please be sure to review the Data Use Certification Agreement for `TCGA controlled data <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000178.v9.p8>`_ and `TARGET controlled data <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000218.v17.p6>`_. 
+(For additional instructions, please refer to `Tips on Preparing a Successful Data Access Request <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/GetPdf.cgi?document_name=GeneralAAInstructions.pdf>`_, 
+and `Understanding Data Security <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/TCGA_Data_Security.html>`_).  Please be sure to review the Data Use Certification Agreement for `TCGA controlled data <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000178.v9.p8>`_ and `TARGET controlled data <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000218.v17.p6>`_. 
 
 Once you have authenticated to NIH via the Web App, and your dbGaP authorization has been verified, the 
 Google identity associated with your account will have access to the controlled-data for 24 hours.
 
-For more information on applying for dbGaP authorization to access controlled data, please see our 
-Frequently Asked Questions (FAQ) 
-`page <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/FAQ.html?>`_
-or the "How to" `Apply for Controlled Access Data Video <http://www.youtube.com/watch?v=-3tUBeKbP5c>`_.
+For more information on applying for dbGaP authorization to access controlled data, please see 
+the "How to" `Apply for Controlled Access Data Video <http://www.youtube.com/watch?v=-3tUBeKbP5c>`_.
 
 Linking your NIH and Google identities
 --------------------------------------

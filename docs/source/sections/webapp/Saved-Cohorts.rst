@@ -293,7 +293,7 @@ platforms by dragging the platform names up and down.
 
 
 
-The Cohort Details Screen provides the following functions:
+**Cohort Details Screen functions:**
 
 Create a New Workbook
 =====================
@@ -321,11 +321,13 @@ Delete a cohort
 
 Click the **Delete** button to delete the cohort. Confirm by clicking the second **Delete** button presented.
 
+.. _file-browser-page:
+
 File Browser
 ============
 
 Clicking the **File Browser** button displays a screen with a list of data files associated with your current cohort.  
-This list includes all files which have been uploaded to the ISB-CGC Google Cloud Project, including both controlled access and open access data.
+This list includes all files which are stored on the Google Cloud, including both controlled access and open access data.
 
 .. image:: CohortFileBrowser.png
    :align: center
@@ -344,9 +346,9 @@ The tabs "IGV", "Pathology Images" and "Radiology Images" allow you to filter fo
 Viewing a Sequence
 ------------------
 
-When available, sequences in a cohort can be viewed using the IGV viewer.  To find those sequences that can be viewed, select the **IGV** link on the **File Browser** screen. The File Listing panel will display the files that can be viewed with the IGV viewer.  Selecting the checkbox in the "View" column (maximum of 5 files) and clicking the **Launch IGV** button in the upper panel will display an IGV view of the selected sequence(s) data.  
+When available, sequences in a cohort can be viewed using the IGV viewer.  To find those sequences that can be viewed, select the **IGV** link on the **File Browser** screen. The File Listing panel will display the files that can be viewed with the IGV viewer.  Selecting the checkbox in the "View" column (maximum of file files) and clicking the **Launch IGV** button in the upper panel will display an IGV view of the selected sequence(s) data.  
 
-Controlled access files will be viewable by sequence ONLY if you have `authenticated as a dbGaP-authorized user <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Gaining-Access-To-Contolled-Access-Data.html>`_. 
+Controlled access files will be viewable by sequence ONLY if you have `authenticated as a dbGaP-authorized user <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Gaining-Access-To-Controlled-Access-Data.html>`_. 
 
 `More information about Viewing a Sequence in the IGV Viewer <IGV-Browser.html>`_.
 
@@ -362,12 +364,12 @@ Viewing a Radiology Image
 
 To find images that can be viewed, open a saved cohort and select the **File Browser** button. You can also click the **File Browser** link from the Dashboard Saved Cohorts panel. The files associated with your cohort will be shown. Click the **Radiology Images** tab to view a list of available radiology images. Hovering over the Study Instance UID column and clicking on "Open in CHIF Viewer" will open the series Selection panel in a new tab using Osimis DICOM. (HINT: Using a smaller cohort will provide faster response in creating the list of files available.)
 
-For a more detailed step-by-step process of Viewing Radiology Images using the Osimis DICOM viewer please go `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/OsimisWebViewer.html>`_.
+For a more detailed step-by-step process of Viewing Radiology Images using the Osimis DICOM viewer please go `here <OsimisWebViewer.html>`_.
 
 Download File List as CSV
 -------------------------
 
-To download a list of files that are part of this cohort, select the **CSV**button in the upper right on the File Listing panel (on all tabs) on the **File Browser** screen. 
+To download a list of files that are part of this cohort, select the **CSV** button in the upper right on the File Listing panel (on all tabs) on the **File Browser** screen. 
 
 The file contains the following information for each file:
 
