@@ -6,7 +6,6 @@ About the ISB-CGC
 
 The ISB Cancer Genomics Cloud (ISB-CGC) is one of three `NCI Cloud Resources <https://datascience.cancer.gov/data-commons/cloud-resources>`_ tasked with bringing cancer data and computation power together through cloud platforms. We are a collaboration between the `Institute for Systems Biology <https://isbscience.org/>`_ (ISB) and `General Dynamics Information Technology Inc. <https://www.gdit.com/>`_ (GDIT). Since starting in 2014 as part of NCI’s Cloud Pilot Resource initiative, we have worked to tackle the issue of providing access to increasing amounts of cancer data in the cloud. The ISB-CGC is built with the Google Cloud Platform and designed to facilitate access for a wide range of users allowing them to explore and analyze data sets through tools such as:
 
-* ISB-CGC BigQuery Table Search
 * ISB-CGC Web App
 * ISB-CGC APIs
 * Google BigQuery
