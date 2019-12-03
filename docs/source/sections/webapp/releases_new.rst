@@ -12,8 +12,8 @@ Integrations
 Enhancements
 -------------
 
-BugFixes
---------
+Bug Fixes
+---------
 
 Future Plans
 =============
