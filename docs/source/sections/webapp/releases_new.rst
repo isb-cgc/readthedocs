@@ -9,19 +9,23 @@ text test
 December 2015
 ===================
 
-***********
 What's New
-***********
+===========
+
+
 
 ===================
 November 2015
 ===================
 
-***********
 What's New
-***********
+===========
 
-November 2 2015
+November 16, 2015
+
+Initial upload of data from CGHub into Google Cloud Storage (GCS) complete (not publicly released)
+
+**November 2, 2015**
 
 First public release of TCGA open-access data in BigQuery tables
 
@@ -33,24 +37,20 @@ First public release of TCGA open-access data in BigQuery tables
 October 2015 
 ===================
 
-***********
 What's New
-***********
+===========
 
 October 4, 2015
-
 Complete data upload from TCGA DCC, including controlled-access data
 
 ===================
 September 2015 
 ===================
 
-***********
 What's New
-***********
+===========
 
 September 21, 2015 
-
 Draft set of BigQuery tables (not publicly released)
 
 - isb-cgc:tcga_201507_alpha dataset containing clinical, biospecimen, somatic mutation calls and Level-3 TCGA data available at the TCGA DCC as of July 2015
