@@ -120,7 +120,6 @@ October 2015
 
 Complete data upload from TCGA DCC, including controlled-access data
 
-===================
 September 2015 
 ===================
 
