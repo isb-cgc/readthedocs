@@ -55,7 +55,7 @@ version `v1.1 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.1>`_
 - User is now able to delete selected filters from selected filter panel in new cohort page using the blue X
 - Editing an existing variable favorites list will display previously selected variables
 - (Already in documentation) Green checkmark will appear for IGV link
-- Update plot button will now work on a duplicate worksheet(can be added with 3)
+- Update plot button will now work on a duplicate worksheet(can be added with three)
 - User can now delete all cohorts with the select all feature
 - Fixed bugs with Data Type Create new cohort generating errors
 - The user can now search for variable favorite with the miRNA feature
