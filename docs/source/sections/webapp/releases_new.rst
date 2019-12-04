@@ -66,7 +66,7 @@ Known Issues and Workarounds
 
 **April 27, 2019**
 
- version `v1.2 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.2>`_
+version `v1.2 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.2>`_
  
 - Can add same gene twice if list has different names
 - User can add same filter to existing cohorts
