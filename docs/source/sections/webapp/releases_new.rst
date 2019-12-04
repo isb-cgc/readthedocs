@@ -9,8 +9,6 @@ Introduction text
 May 2016
 ===================
 
-What's New
-===========
 
 
 
@@ -18,8 +16,6 @@ What's New
 April 2016
 ===================
 
-What's New
-===========
 
 **April 28, 2016**
 
@@ -30,8 +26,6 @@ What's New
 March 2016
 ===================
 
-What's New
-===========
 
 **March 14, 2016**
 
@@ -42,8 +36,7 @@ With the release of our **Web-App**, controlled-data is now accessible (programm
 February 2016
 ===================
 
-What's New
-===========
+
 
 **February 26, 2016**
 
@@ -61,8 +54,7 @@ CCLE RNAseq and DNAseq bam files imported into **Google Genomics**
 January 2016
 ===================
 
-What's New
-===========
+
 
 **January 10, 2016**
 
@@ -72,8 +64,7 @@ What's New
 December 2015
 ===================
 
-What's New
-===========
+
 
 **December 26, 2015**
 
@@ -94,8 +85,7 @@ First tagged release of the web-app
 November 2015
 ===================
 
-What's New
-===========
+
 
 **November 16, 2015**
 
@@ -113,18 +103,17 @@ First public release of TCGA open-access data in BigQuery tables
 October 2015 
 ===================
 
-**What's New**
+
 
 
 **October 4, 2015**
 
 Complete data upload from TCGA DCC, including controlled-access data
 
+===================
 September 2015 
 ===================
 
-What's New
------------
 
 **September 21, 2015** 
 
