@@ -2,7 +2,7 @@
 Release Notes
 ###################
 
-text test
+Introduction text
 
 ===================
 April 2016
