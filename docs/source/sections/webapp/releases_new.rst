@@ -5,6 +5,35 @@ Release Notes
 text test
 
 ===================
+April 2016
+===================
+
+What's New
+===========
+
+===================
+March 2016
+===================
+
+What's New
+===========
+
+**March 14, 2016**
+
+With the release of our Web-App, controlled-data is now accessible (programmatically) to users who have previously obtained dbGaP approval for TCGA data and go through the NIH authentication process built-in to the Web-App
+
+Known Issues and Workarounds
+=============================
+
+**March 14, 2016**
+
+version `v1.0 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.0>`_
+
+- When working with a worksheet two plots will be generated occasionally
+- Axis labels and tick values sometimes overlap and get cutoff
+- Page elongated when Cubby Hole plot generated and there are lots of values in the y axis
+
+===================
 February 2016
 ===================
 
