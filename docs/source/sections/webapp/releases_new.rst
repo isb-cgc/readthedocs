@@ -4,37 +4,54 @@ Release Notes
 
 text test
 
-===================
-Month year example
-===================
 
-text test
+===================
+December 2015
+===================
 
 ***********
 What's New
 ***********
 
-text test
+===================
+November 2015
+===================
 
-*****************
-Integrations
-*****************
+***********
+What's New
+***********
 
-text test
+November 2 2015
 
-Enhancements
-=============
+First public release of TCGA open-access data in BigQuery tables
 
-text test
+- isb-cgc:tcga_201510_alpha dataset contains updated set of BigQuery tables, based on data available at the TCGA DCC as of October 2015
+- includes Annotations table with information about redacted samples, etc
+- isb-cgc:platform_reference contains annotation information for the Illumina DNA Methylation platform
 
-Bug Fixes
-=============
+===================
+October 2015 
+===================
 
-text test
+***********
+What's New
+***********
 
-**************
-Future Plans
-**************
+October 4, 2015
 
-text test
+Complete data upload from TCGA DCC, including controlled-access data
+
+===================
+September 2015 
+===================
+
+***********
+What's New
+***********
+
+September 21, 2015 
+
+Draft set of BigQuery tables (not publicly released)
+
+- isb-cgc:tcga_201507_alpha dataset containing clinical, biospecimen, somatic mutation calls and Level-3 TCGA data available at the TCGA DCC as of July 2015
 
