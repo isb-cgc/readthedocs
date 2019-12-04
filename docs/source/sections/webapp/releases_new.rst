@@ -4,6 +4,35 @@ Release Notes
 
 text test
 
+===================
+February 2016
+===================
+
+What's New
+===========
+
+**February 26, 2016**
+
+New CCLE dataset in BigQuery isb-cgc:ccle_201602_alpha includes sample metadata, mutation calls, copy-number segments, and expression data (metadata includes full cloud-storage-path for world-readable BAM and SNP CEL files, and Genomics dataset- and readgroupset-ids for sequence data imported into Google Genomics)
+
+**February 22, 2016**
+
+Kaviar database now available in the isb-cgc:genome_reference BigQuery dataset
+
+**February 19, 2016**
+
+CCLE RNAseq and DNAseq bam files imported into Google Genomics
+
+===================
+January 2016
+===================
+
+What's New
+===========
+
+**January 10, 2016**
+
+GENCODE_r19 and miRBase_v20 tables added to the isb-cgc:genome_reference BigQuery dataset
 
 ===================
 December 2015
