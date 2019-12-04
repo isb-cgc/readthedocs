@@ -20,7 +20,7 @@ Integrations
 
 **April 27, 2019**
 
- version `v1.2 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.2>`_
+version `v1.2 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.2>`_
  
 - The comments section now has a max number of characters 1000 limit
 - Link created to Extend controlled access period to 24-hours from the moment the link is clicked
