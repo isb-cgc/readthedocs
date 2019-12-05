@@ -62,17 +62,18 @@ Now let’s make a request:
    :scale: 50
    :align: center 
 
+
 .. code-block:: json
- :linenos:
-  {
-  "barcodes": [
-  "TARGET-52-PAJMBW-01A",
-  "TCGA-WB-A81K-01Z",
-  "TCGA-DX-A23U-01A",
-  "CCLE-Malme-3M",
-  "CCLE-Hs 863.T"
-  ]
-  }
+
+ {
+ "barcodes": [
+ "TARGET-52-PAJMBW-01A",
+ "TCGA-WB-A81K-01Z",
+ "TCGA-DX-A23U-01A",
+ "CCLE-Malme-3M",
+ "CCLE-Hs 863.T"
+ ]
+ }
 
 
 After you click 'Try it out', the example value in the Request Body field becomes editable.
