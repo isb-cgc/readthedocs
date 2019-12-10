@@ -67,9 +67,9 @@ I'm an advanced user, how do I...
 
 Provided by the ISB-CGC team, featuring special efforts by:
 
-- Lauren Hagen (lauren.hagen ( ~ at ~ ) systemsbiology ( ~ dot ~ ) org)
 - Kawther Abdilleh (kawther.abdilleh  ( ~ at ~ ) gdit (~ dot ~) com)
-- John Cornelius (john.cornelius ( ~ at ~ ) systemsbiology ( ~ dot ~ ) org)
-- David L Gibbs  david.gibbs ( ~ at ~ ) systemsbiology ( ~ dot ~ ) org)
-- Sheila M Reynolds (sheila.reynolds ( ~ at ~ ) systemsbiology ( ~ dot ~ ) org)
-
+- Boris Aguilar (boris.aguilar ( ~ at ~ ) systemsbiology ( ~ dot ~ ) org)
+- Lauren Hagen (lauren.hagen ( ~ at ~ ) systemsbiology ( ~ dot ~ ) org)
+- David L Gibbs  (david.gibbs ( ~ at ~ ) systemsbiology ( ~ dot ~ ) org)
+- Fabian Seidl (fabian.seidl ( ~ at ~ ) gdit ( ~ dot ~ ) com)
+- Ronald Taylor (ronald.taylor1 ( ~ at ~ ) gdit ( ~ dot ~ ) com)
