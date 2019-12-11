@@ -10,7 +10,7 @@ BigQuery TCGA tables, containing a heterogeneous data such as clinical and molec
 any or all of the following types of high-throughput data: microRNA expression levels, copy-number alterations, DNA methylation, and somatic mutations. 
 The Regulome Explorer is implemented in the following notebook:
 
-- `Regulome Explorer notebook <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Beta/RegulomeExplorer_GeneExpression.ipynb>`_
+- `Regulome Explorer notebook <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/RegulomeExplorer-notebook.ipynb>`_
 
 Within the heterogeneous TCGA dataset, information may be represented as categorical or numerical values. In the analysis, the statistical significance of each pairwise association is assessed using rank-ordered data and a statistical test appropriate to each data type pair. The following notebooks describe in detail the statistical methods implemented to compute the significance of association for each possible combination of molecular features:
 
