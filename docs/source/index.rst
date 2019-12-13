@@ -51,5 +51,6 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    sections/FeatureAlertsandDataReleases
    sections/Quick-links-updated
    sections/FAQ
+   sections/BigQueryTableSearchFAQ
    sections/Support
 
