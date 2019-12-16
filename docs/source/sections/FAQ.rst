@@ -265,7 +265,9 @@ to your Google Cloud Project and deploying an instance of Google Cloud Datalab_.
 
 R and Bioconductor Users
 ########################
-**I want to use R and Bioconductor packages to work with the TCGA data.  How can I do that?**
+
+I want to use R and Bioconductor packages to work with the TCGA data.  How can I do that?
+---------------------------------------------------------------------------------------------
 
 You can run RStudio locally or deploy a dockerized version on a Google Compute Engine VM.  You can
 find some great examples to get you started in our examples-R_ repository on github, and also in
