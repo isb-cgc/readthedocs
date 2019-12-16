@@ -5,7 +5,8 @@ Frequently Asked Questions (FAQ)
 ISB-CGC Accounts and Cloud Projects
 ###################################
 
-**Do I have to request an ISB-CGC account before I can try out the web app?**
+Do I have to request an ISB-CGC account before I can try out the web app?
+-------------------------------------------------------------------------------
 
 No, you can just "sign in" to the web app using your Google identity.  
 
