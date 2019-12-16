@@ -195,7 +195,7 @@ datasets and tables will now be visible in the left side-bar of the BigQuery web
 *Note that in order to use BigQuery, you need to be a member of a Google Cloud Project.*
 
 How can I apply for access to the low-level DNA and RNA sequence data?
-
+-----------------------------------------------------------------------
 
 In order to access the TCGA or All other controlled-access data available, you will need to apply to dbGaP_.
 Please also review our section on **Understanding Data Security**.
