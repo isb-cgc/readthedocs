@@ -217,7 +217,8 @@ authenticate, we will verify that you also have dbGaP authorization for the TCGA
 We also ask that you review our section on `Understanding Data Security <data/TCGA_Data_Security.html>`_ .
 
 
-**My professor has dbGaP authorization.  Do I have to have my own authorization too?**
+My professor has dbGaP authorization.  Do I have to have my own authorization too?
+---------------------------------------------------------------------------------------
 
 Yes, your professor will need to add you as a "data downloader" to his/her dbGaP application so that you
 have your own dbGaP authorization associated with your own eRA Commons id.  
