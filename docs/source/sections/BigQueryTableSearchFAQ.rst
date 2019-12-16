@@ -1,5 +1,5 @@
-ISB-CGC BigQuery Table Search FAQs Answered
-============================================
+ISB-CGC BigQuery FAQ
+======================
 
 What is BigQuery? 
 ------------------
