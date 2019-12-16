@@ -186,7 +186,7 @@ dbGaP authorization.  All of the "high-level" molecular data, as well as the cli
 open-access and much of this has been made available in a convenient set of BigQuery tables. 
 
 Where can I find the TCGA data that ISB-CGC has made publicly available in BigQuery tables?
-
+----------------------------------------------------------------------------------------------
 
 The BigQuery web interface can be accessed at https://console.cloud.google.com/bigquery.  If you have not already added the ISB-CGC datasets to your BigQuery "view", click on the blue arrow
 next to your project name at the top of the left side-bar, select "Switch to Project", then "Display Project...",
