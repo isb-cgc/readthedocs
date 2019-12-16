@@ -6,9 +6,12 @@ The links on this page connect to How-To guides, examples and other helpful tuto
 
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 0
 
    HowTos
+   
+.. toctree::
+   :maxdepth: 1
    progapi/RPythonAndSQLTutorials
    progapi/bigqueryGUI/GettingStartedWithGoogleBigQuery
    QueryOfTheMonthClub
