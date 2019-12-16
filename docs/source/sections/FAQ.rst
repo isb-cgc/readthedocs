@@ -140,7 +140,7 @@ You will see the 401 error only if your pop-up blocker is enabled for the ISB-CG
    
 
 Why does the web browser crash if too many IGV Browser tabs are opened at once?
-
+----------------------------------------------------------------------------------
 
 The web browser will be caused to crash when too many IGV Browser tabs are open due to the memory intensive nature of loading bam files.  When working with the IGV Browser please be mindful of having multiple tabs open of the IGV Browser.
 
