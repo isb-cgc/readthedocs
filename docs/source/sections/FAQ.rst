@@ -125,11 +125,13 @@ Why do I sometimes get a "Do you want to leave this site?" pop-up box when leavi
 
 This is a security feature when working with forms found in most web browsers; it lets you know that you may have made some changes which will be lost when you navigate away from the page. If you intend to cancel what you were doing, you can safely ignore it.
 
-**Which web browser is recomended to use when working with the site?**
+Which web browser is recomended to use when working with the site?
+----------------------------------------------------------------------------------
 
 We recommend using Google Chrome browser.  We currently will display a chart slightly off when working with workbooks on a FireFox browser. 
 
-**Why did I get a 401 error on the IGV Browser?**
+Why did I get a 401 error on the IGV Browser?
+----------------------------------------------
 
 You will see the 401 error only if your pop-up blocker is enabled for the ISB-CGC website.  Please disable the pop-up blocker on the top right-hand side of the screen by selecting to always allow pop-ups from ISB-CGC.
 
@@ -137,7 +139,8 @@ You will see the 401 error only if your pop-up blocker is enabled for the ISB-CG
    :align: center
    
 
-**Why does the web browser crash if too many IGV Browser tabs are opened at once?**
+Why does the web browser crash if too many IGV Browser tabs are opened at once?
+
 
 The web browser will be caused to crash when too many IGV Browser tabs are open due to the memory intensive nature of loading bam files.  When working with the IGV Browser please be mindful of having multiple tabs open of the IGV Browser.
 
