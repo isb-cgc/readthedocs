@@ -148,7 +148,8 @@ The web browser will be caused to crash when too many IGV Browser tabs are open 
    :align: center
    
 
-**Does SeqPeek and CNVR plotting only work with TCGA data?**
+Does SeqPeek and CNVR plotting only work with TCGA data?
+---------------------------------------------------------
 
 We currently have no data associated with CNVR or Seqpeek for TARGET or CCLE.  Therefore, SeqPeek and CNVR will only work with TCGA data.
 
