@@ -120,7 +120,8 @@ There is a Google forum discussion that can be found `here <https://groups.googl
 ISB-CGC Web Interface
 ########################
 
-**Why do I sometimes get a "Do you want to leave this site?" pop-up box when leaving a page or canceling a workflow edit?**
+Why do I sometimes get a "Do you want to leave this site?" pop-up box when leaving a page or canceling a workflow edit?
+--------------------------------------------------------------------------------------------------------------------------
 
 This is a security feature when working with forms found in most web browsers; it lets you know that you may have made some changes which will be lost when you navigate away from the page. If you intend to cancel what you were doing, you can safely ignore it.
 
