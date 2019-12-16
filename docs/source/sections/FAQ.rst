@@ -234,7 +234,8 @@ ID from that one before you can link it with your new Google Identity.  An eRA C
 associated with more than one Google Identity within the ISB-CGC platform at any one time.
 
 
-**Can I authenticate to NIH programmatically?**
+Can I authenticate to NIH programmatically?
+--------------------------------------------
 
 No, the current NIH authentication flow requires
 web-based authentication and must therefore be done from within the ISB-CGC web app.  Once you have
