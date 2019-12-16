@@ -10,19 +10,22 @@ Do I have to request an ISB-CGC account before I can try out the web app?
 
 No, you can just "sign in" to the web app using your Google identity.  
 
-**I want to be able to run big jobs using Google Compute Engine on the TCGA data hosted by the ISB-CGC.  What should I do?**
+I want to be able to run big jobs using Google Compute Engine on the TCGA data hosted by the ISB-CGC.  What should I do?
+-------------------------------------------------------------------------------------------------------------------------
 
 You will need to request a Google Cloud Platform (GCP) project.  Please see :ref:`request-gcp` for more details
 about requesting a project.
 
-**Can I use any email address as a Google identity?** 
+Can I use any email address as a Google identity?
+-----------------------------------------------------
 
 Yes, you can.  If your email address is not already linked to a Google account, you can create_ a Google account with your current email address.
 Please note, however that although these two accounts will then share the same *name*, they will still be two separate accounts, with two separate passwords, *etc*.  (It is also possible that your institutional email address is *already* a Google account, if your institution uses Google Apps. `This <https://support.google.com/accounts/answer/40560?hl=en&ref_topic=3382296>`_ is how to find out).
 
 .. _create: https://accounts.google.com/signupwithoutgmail
 
-**How do I connect my Google Cloud Project to the ISB-CGC?**
+How do I connect my Google Cloud Project to the ISB-CGC?
+---------------------------------------------------------
 
 Your Google Cloud Project gives you access to all of the technologies that make
 up the Google Cloud Platform.  These technologies include BigQuery, Cloud Storage, Compute Engine, etc.  The ISB-CGC makes use of a variety of these technologies to provide access
@@ -41,7 +44,8 @@ Access to all ISB-CGC hosted data is controlled using the `Data Commons Framewor
 permissions attached to each data set, bucket, or object.
 
 
-**What project information do I input on the Register a Google Cloud Project page?**
+What project information do I input on the Register a Google Cloud Project page?
+---------------------------------------------------------------------------------
 
 You will need to input the Google Cloud Project ID which can be found on the Dashboard page of the Google Console under Project info.
 
@@ -49,19 +53,22 @@ You will need to input the Google Cloud Project ID which can be found on the Das
    :align: center
 
 
-**Why do I add the service account 907668440978-oskt05du3ao083cke14641u35deokgjj@developer.gserviceaccount.com to my Google Cloud Project?**
+Why do I add the service account 907668440978-oskt05du3ao083cke14641u35deokgjj@developer.gserviceaccount.com to my Google Cloud Project?
+----------------------------------------------------------------------------------------------------------------------------------------
 
 
 This service account is needed in your Google Cloud Project IAM page for the ISB-CGC project to be able to automatically verify that all users of your Google Cloud Project have the same appropriate access rights to the protected data that has been requested for the project.
 
 
 
-**What service account do I use on the Register a Service Account page to be able to gain access to protected data?**
+What service account do I use on the Register a Service Account page to be able to gain access to protected data?
+-------------------------------------------------------------------------------------------------------------------------
 
 On the Register a Service account page you are asked to input a service account ID.  You need to go to the IAM and Admin page which can be found in your `console <https://console.cloud.google.com/home/dashboard?>`_ for your Google Cloud Project to find the correct service account.  The service account you would like to use is named, "Compute Engine default service account". This service account is the default option on the Register A Service Account page. *Please DO NOT use the service account 907668440978-oskt05du3ao083cke14641u35deokgjj@developer.gserviceaccount.com (you will be prevented from using this account by our software and an error message will be sent indicating this).* 
 
 
-**Why can't I reauthorize my Service Account on my Google Cloud Project?**
+Why can't I reauthorize my Service Account on my Google Cloud Project?
+------------------------------------------------------------------------
 
 Your service account may have had its permissions revoked (because, for example, the 7-day limit has been reached, or you have added a member to the GCP who is not authorized to use controlled data the service account is linked with or has not logged into the ISB-CGC UI and authenticated using their dbGaP credentials). If permissions were revoked because an unauthorized user was added to the project, the Google Cloud Project owner will be sent
 an email specifying the Service Account, and Google Cloud Project which resulted in the access being revoked. If the user has not logged into the ISB-CGC web app and/or has not authenticated, you will be given a red error message saying, "There was an error in processing your service account. Please try again." when attempting to refresh using the refresh wheel.  To see which new user hasn't logged in or authenticated, please go to either the Register a Service Account page or the Adjust a Service Account page and see which user it is within the table for which the data set is not selected and there are X's in the Registered and Has NIH Identity.
@@ -77,7 +84,8 @@ To reauthorize the service account 1) remedy the problem that resulted in access
 
 Another reason could be if some users are marked as unable to access datasets they should have access to, make sure they have logged into the system and linked their eRA Commons/NIH Identity to their Google Identity.
 
-**Why would I get an Authorization Failed page on NIH iTrust when attempting to link my Google Account with my NIH identity?**
+Why would I get an Authorization Failed page on NIH iTrust when attempting to link my Google Account with my NIH identity?
+---------------------------------------------------------------------------------------------------------------------------
 
 .. image:: authfailednihItrustpage.PNG
    :align: center
@@ -85,7 +93,8 @@ Another reason could be if some users are marked as unable to access datasets th
 You can get this page for two reasons:  First, if you may have typed in your password incorrectly, please select the Click Here to continue link and try to log in again.  Second, if you have typed your password correctly, it could be time to refresh your NIH identity password.  Please reset your password by using this link `here <https://public.era.nih.gov/commons>`_ and try again.  This should allow you to link your NIH Identity to the ISB-CGC web app. 
 
 
-**What happens if I accidently delete the default service account from a Google Cloud Project?**
+What happens if I accidently delete the default service account from a Google Cloud Project?
+----------------------------------------------------------------------------------------------
 
 If you accidently delete the default service account associated to the Google Cloud Project you are working in you can no longer authorize the service account during instance creation, associate the service account to controlled access data, and many other functionalities will no longer work. 
 
@@ -138,6 +147,28 @@ The web browser will be caused to crash when too many IGV Browser tabs are open 
 **Does SeqPeek and CNVR plotting only work with TCGA data?**
 
 We currently have no data associated with CNVR or Seqpeek for TARGET or CCLE.  Therefore, SeqPeek and CNVR will only work with TCGA data.
+
+ISB-CGC BigQuery
+#################
+
+What is BigQuery? 
+------------------
+
+How do I access the data in BigQuery? 
+--------------------------------------
+
+What kind of analysis can be run in BigQuery?
+----------------------------------------------
+
+How do you pay for analysis in BigQuery?
+---------------------------------------
+
+Where does the data come from? 
+-------------------------------
+
+Am I able to run an analysis on BigQuery without having to create a Google Cloud Project? 
+---------------------------------------------------------------------------------------
+
 
 
 Data Access
