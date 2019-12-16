@@ -202,7 +202,8 @@ Please also review our section on **Understanding Data Security**.
 
 .. _dbGaP: https://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login
 
-**I have dbGaP authorization.  How do I provide this information to the ISB-CGC platform?**
+I have dbGaP authorization.  How do I provide this information to the ISB-CGC platform?
+---------------------------------------------------------------------------------------
 
 In order for us to verify your dbGaP authorization, you first need to associate your Google Identity
 (used to sign-in to the web app) with a valid NIH login (*eg* your eRA Commons id).  After you have
