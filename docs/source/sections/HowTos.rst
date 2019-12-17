@@ -74,5 +74,4 @@ Provided by the ISB-CGC team, featuring special efforts by:
 - Lauren Hagen (lauren.hagen ( ~ at ~ ) systemsbiology ( ~ dot ~ ) org)
 - David L Gibbs  (david.gibbs ( ~ at ~ ) systemsbiology ( ~ dot ~ ) org)
 - Fabian Seidl (fabian.seidl ( ~ at ~ ) gdit ( ~ dot ~ ) com)
-- Ronald Taylor ((ronald.taylor1 ( ~ at ~ ) gdit ( ~ dot ~ ) com)
-
+- Ronald Taylor (ronald.taylor1 ( ~ at ~ ) gdit ( ~ dot ~ ) com)
