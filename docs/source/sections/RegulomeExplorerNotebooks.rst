@@ -24,7 +24,7 @@ Within the heterogeneous TCGA dataset, information may be represented as categor
      - Statistical test
    * - Gene expression
      - Gene expression
-     - Spearman Correlation
+     - Spearman Correlation (Coming Soon!)
    * - Gene expression
      - Clinical
      - `Kruskal-Wallis score <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/RE-KruskalWallis.ipynb>`_
