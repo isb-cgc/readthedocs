@@ -56,6 +56,8 @@ I'm an advanced user, how do I...
 
 **How do I compute gene-gene expression correlation using BigQuery?** `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/RegulomeExplorer_GeneExpression_vs_GeneExpression.ipynb>`_
 
+**How do I create randomized subsets of patients using BigQuery?** `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_create_a_random_sample_in_bigquery.ipynb>_`/`R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_create_cohorts.md>_`
+
 **How do I convert a 10X scRNA-seq bam file to fastq with dsub?** `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_10X_bamtofastq_with_dsub.ipynb>`_
 
 **How do I quantify 10X scRNA-seq gene expression with Kallisto and BUStools?** `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_use_Kallisto_on_scRNAseq_data.ipynb>`_
