@@ -125,7 +125,7 @@ Why do I sometimes get a "Do you want to leave this site?" pop-up box when leavi
 
 This is a security feature when working with forms found in most web browsers; it lets you know that you may have made some changes which will be lost when you navigate away from the page. If you intend to cancel what you were doing, you can safely ignore it.
 
-Which web browser is recomended to use when working with the site?
+Which web browser is recommended to use when working with the site?
 ----------------------------------------------------------------------------------
 
 We recommend using Google Chrome browser.  We currently will display a chart slightly off when working with workbooks on a FireFox browser. 
@@ -248,7 +248,7 @@ Data Content
 I get a different number of samples in BigQuery than I do with the same query in the Webapp. Why?
 -----------------------------------------------------------------------------------------------------
 
-Older programs like TCGA have both legacy data (data from the original program) and harmonized data (data run through the Genomics Data Commons).  The Webapp primarily uses harmonized data where BigQuery contains both legacy and harmonized data.  In addition, some cases and samples have been removed from the Webapp if annotation suggest the data from those caases or samples are incorrect, misleading or from cases of uncertain origin.  Most of these cases and samples are still in BigQuery and users are encouraged to check the annotations tables.
+Older programs like TCGA have both legacy data (data from the original program) and harmonized data (data run through the Genomics Data Commons).  The Webapp primarily uses harmonized data where BigQuery contains both legacy and harmonized data.  In addition, some cases and samples have been removed from the Webapp if annotation suggest the data from those cases or samples are incorrect, misleading or from cases of uncertain origin.  Most of these cases and samples are still in BigQuery and users are encouraged to check the annotations tables.
 
 Python Users
 ############
