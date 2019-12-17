@@ -23,14 +23,14 @@ Within the heterogeneous TCGA dataset, information may be represented as categor
      - Feature type
      - Statistical test
    * - Gene expression
-     - Gene expression
-     - Spearman Correlation (Coming Soon!)
-   * - Gene expression
      - Clinical
      - `Kruskal-Wallis score <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/RE-KruskalWallis.ipynb>`_
    * - Gene expression
      - Somatic mutation
-     - `T-test score <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/RE-StudentTest.ipynb>`_     
+     - `T-test score <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/RE-StudentTest.ipynb>`_   
+   * - Gene expression
+     - Gene expression
+     - Spearman Correlation (Coming Soon!)
    * - Somatic mutation
      - Clinical
      - `Chi Square test <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/RE-Chisquare.ipynb>`_
