@@ -2,8 +2,7 @@
 Regulome Explorer 
 *****************
 
-`Regulome Explorer <http://explorer.cancerregulome.org/>`_ is a popular web interface that allows the exploration of significant pairwise associations 
-within the TCGA dataset. 
+`Regulome Explorer <http://explorer.cancerregulome.org/>`_, a popular web interface developed in close collaboration between the Institute for Systems Biology and the MD Anderson Cancer Center, enables exploration of significant pairwise associations within the TCGA dataset. 
 
 We implemented a series of Python notebooks that replicate Regulome Explorer based on 
 BigQuery TCGA tables of heterogeneous data such as clinical and molecular data for hundreds of patients. The clinical information includes features such as age, tumor-stage, and histology, while the molecular data may include 
