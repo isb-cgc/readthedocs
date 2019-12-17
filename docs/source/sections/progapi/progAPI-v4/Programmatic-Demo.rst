@@ -5,7 +5,7 @@ ISB-CGC APIs
 About
 ======
 
-There are two Application Programming Interfaces (APIs) for interacting with ISB-CGC provided data. The first API, recommended for interacting with Big Query Tables is the `Google SDK <https://cloud.google.com/bigquery/docs/reference/rest/>`_. ISB-CGC also provides a `Swagger API <https://api-dot-isb-cgc.appspot.com/v4/swagger/>`_, recommended for interacting with our webapp and data generated through our webapp via the command line.
+There are two Application Programming Interfaces (APIs) for interacting with ISB-CGC hosted data. The first API, recommended for interacting with Big Query Tables is the `Google SDK <https://cloud.google.com/bigquery/docs/reference/rest/>`_. ISB-CGC also provides a `Swagger API <https://api-dot-isb-cgc.appspot.com/v4/swagger/>`_, intended for interacting with our webapp and data generated through our webapp via the command line.
 
 Some example use-cases that the ISB-CGC API is intended to address are:
 
@@ -19,7 +19,7 @@ Some example use-cases that the ISB-CGC API is intended to address are:
 Authorization
 =============
 
-The ISB-CGC APIs can be used via R and python. Some of the APIs - such as the programs, samples, and cases - can be accessed without authorization. APIs that call on information saved in a users account, such as the cohorts and gcp APIs, necessarily require account information to access.
+The ISB-CGC APIs can be used via R and python. Some of the APIs - such as the programs, samples, and cases - can be accessed without authorization. APIs that call on information saved in a users account, such as the cohorts and gcp APIs, necessarily require account authorization to access.
 
 In order to access the APIs that require ISB-CGC authorization, you will need to generate a credentials file on your local machine or on your VM. To load your credentials into your command line interface:
 
@@ -32,81 +32,88 @@ In order to access the APIs that require ISB-CGC authorization, you will need to
 ISB-CGC API v4.0 UI Demo
 =======================
 
-The `ISB-CGC API v4.0 UI <https://api-dot-isb-cgc.appspot.com/v4/swagger/>`_ can be used to see details about each endpoint, and also provides an interface to test endpoints.
+The `ISB-CGC API v4.0 UI <https://api-dot-isb-cgc.appspot.com/v4/swagger/>`_ can be used to see details about the syntax for each call, and also provides an interface to test requests.
 
-The primary organizing principle subsetting and working with the TCGA data is a Cohort which is a list of samples. Users may create and share cohorts using the ISB-CGC web-app and then access them using the Swagger UI. (TCGA samples are identified using a 16-character “barcode” e.g. TCGA-B9-7268-01A, while patients are identified using the 12-character prefix, i.e. TCGA-B9-7268, of the sample barcode. Other datasets such as CCLE may use other less standardized naming conventions).
-
-
-APIs are grouped as follows:
-
- - Samples
- - Cases
- - Files
- - Cohorts
- - Users
+To generate a subset of of ISB-CGC hosted data with your desired characteristics we have provided tools to generate cohorts of patients. In addition to the the BigQuery command line users may create and share cohorts using the ISB-CGC web-app and then access them using the Swagger UI API. (TCGA samples are easily subset by using the 16-character barcode, i.e. TCGA-B9-7268-01A, while patients are identified using the 12-character prefix of the sample barcode in this case TCGA-B9-7268. Other datasets such as CCLE may use other naming conventions).
 
 
 Make a Request
 --------------
 
-First, authorize your Swagger UI session with the 'Authorize' button.
-
-Now let’s make a request:
-
-    Expand the  `POST samples endpoint <https://api-dot-isb-cgc.appspot.com/v4/swagger/#/default/getSampleMetadataList>`_ by clicking on the ‘POST/samples’ line. 
-
-    Click 'Try it out'
-
-
-.. image:: post-tryitout-button.PNG
-   :scale: 50
-   :align: center 
-
+As mentioned before, some of the API calls will require authentication - denoted by a small lock symbol - this can be done by using the ‘Authorize’ button at the top right of the page. For a quick demonstration of the syntax of an API call one can test the `POST/samples request <https://api-dot-isb-cgc.appspot.com/v4/swagger/#/default/getSampleMetadataList>`_. This API request has the following syntax:
 
 .. code-block:: json
 
  {
- "barcodes": [
- "TARGET-52-PAJMBW-01A",
- "TCGA-WB-A81K-01Z",
- "TCGA-DX-A23U-01A",
- "CCLE-Malme-3M",
- "CCLE-Hs 863.T"
- ]
+  "barcodes": [
+  <barcode 1>,
+  <barcode 2>,
+  ...,
+  <barcode n>,
+  ]
  }
 
 
-After you click 'Try it out', the example value in the Request Body field becomes editable.
+The value in the Request Body field can be edited by selecting 'Try it out'. One can change the default sample names / barcodes or simply leave the default ones. The request can be run by selecting 'Execute'.
 
-In the 'sample barcode value field', change string to list of samples you wish you return information on. 
-
-Click 'Execute'
-
-
-.. image:: post_samples_execute.PNG
-   :align: center 
 
 Request Response
 ----------------
 
-Swagger UI submits the request and shows the curl code that was submitted. The ‘Response body’ section shows the response to the request. If you click the ‘Download’ button, you are able to download the response in JSON format.
+Swagger UI submits the request and shows the curl code that was submitted. The ‘Response body’ section will display the response to the request. The expected format of the response for the above request is shown below:
+
+.. code-block:: json
+
+ {
+  "data": [
+  {
+   "samples": [
+     {
+          "data_details": [
+            {
+              <key 1>: <value 1>,
+              <key 2>: <value 2>,
+              ...,
+              <key n>: <value n>,
+            }
+          ],
+          "biospecimen_data": {
+            <key 1>: <value 1>,
+            <key 2>: <value 2>,
+            ...,
+            <key n>: <value n>,
+          },
+          "sample_barcode": "string",
+          "case_barcode": "string"
+        }
+      ]
+    }
+  ],
+  "code": 0,
+  "barcodes_not_found": [
+    "string"
+  ],
+  "total_found": 0,
+  "notes": "string"
+ }
+
+The JSON formatted response can be downloaded by selecting the ‘Download’ button. We provide API calls that allow for calls pertaining to specific samples, cases, files, cohorts, and users. The syntax for all of these is available on the `ISB-CGC API v4.0 UI <https://api-dot-isb-cgc.appspot.com/v4/swagger/>`_ webpage. For any questions or feedback on the API, please do not hesistate to contact us at feedback@isb-cgc.org.
 
 
-.. image:: response-body.PNG
-   :align: center 
+
 
 Nuances when using the APIs
 ===========================
 
 
-- Any special characters in the input field will cause the endpoint to fail. e.g. spacing in input box.
+- Any special characters in the input field will cause the request to fail. e.g. spacing in input box.
 
 - Please make sure to delete all fields not being used.
 
-- Case barcode centric endpoints only pull file paths specific to case entries.
+- Case barcode centric requests only pull file paths specific to case entries.
 
-- Sample centric endpoints pull file paths specific to sample entries.
+- Sample centric requests pull file paths specific to sample entries.
 
-- Cohorts made in CloudSQL(web app) will differ in sample counts from cohorts made with BigQuery tables(APIs). Samples which correspond to pathology slide images are in the CloudSQL tables but not the BigQuery tables.
+- Cohorts made in CloudSQL (web app) will differ in sample counts from cohorts made with BigQuery tables (APIs). Samples which correspond to pathology slide images are available in the CloudSQL tables but not currently in the BigQuery tables.
 
 
