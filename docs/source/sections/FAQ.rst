@@ -72,9 +72,9 @@ an email specifying the Service Account, and Google Cloud Project which resulted
    :align: center
 
 
-Ensure that the user has 1)Logged into the ISB-CGC web app and 2) Has registered their NIH Identity with their user interface identity.
+Ensure that the user has 1) Logged into the ISB-CGC web app and 2) Has registered their NIH Identity with their user interface identity.
 
-To reauthorize the service account 1) remedy the problem that resulted in access being denied, and 2) select the "Adjust A Service Account" icon(plus sign) next to Current Access Expires.
+To reauthorize the service account 1) Remedy the problem that resulted in access being denied, and 2) Select the "Adjust A Service Account" icon(plus sign) next to Current Access Expires.
 
 Another reason could be if some users are marked as unable to access datasets they should have access to, make sure they have logged into the system and linked their eRA Commons/NIH Identity to their Google Identity.
 
