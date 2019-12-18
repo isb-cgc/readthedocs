@@ -13,6 +13,8 @@ No, you can just "sign in" to the web app using your Google identity.
 I want to be able to run big jobs using Google Compute Engine on the TCGA data hosted by the ISB-CGC.  What should I do?
 -------------------------------------------------------------------------------------------------------------------------
 
+You will need to request a Google Cloud Platform (GCP) project.  Please see `How to Request Cloud Credits <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowtoRequestCloudCredits.html>`_ for more details
+about requesting a project.
 
 Can I use any email address as a Google identity?
 -----------------------------------------------------
