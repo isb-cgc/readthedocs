@@ -92,7 +92,7 @@ What happens if I accidently delete the default service account from a Google Cl
 
 If you accidently delete the default service account associated to the Google Cloud Project you are working in you can no longer authorize the service account during instance creation, associate the service account to controlled access data, and many other functionalities will no longer work. 
 
-If you then try to add the service account back to the Google Cloud Project you return this error, 
+If you then try to add the service account back to the Google Cloud Project, this error occurs:
 
 
  *ERROR: (gcloud.compute.instances.create) Some requests did not succeed:*
