@@ -13,8 +13,6 @@ No, you can just "sign in" to the web app using your Google identity.
 I want to be able to run big jobs using Google Compute Engine on the TCGA data hosted by the ISB-CGC.  What should I do?
 -------------------------------------------------------------------------------------------------------------------------
 
-You will need to request a Google Cloud Platform (GCP) project.  Please see :ref:`request-gcp` for more details
-about requesting a project.
 
 Can I use any email address as a Google identity?
 -----------------------------------------------------
@@ -28,13 +26,7 @@ How do I connect my Google Cloud Project to the ISB-CGC?
 ---------------------------------------------------------
 
 Your Google Cloud Project gives you access to all of the technologies that make
-up the Google Cloud Platform.  These technologies include BigQuery, Cloud Storage, Compute Engine, etc.  The ISB-CGC makes use of a variety of these technologies to provide access
-to the TCGA data also many other data sets, *without* necessarily inserting an extra interface layer between you and the Google Cloud Project.  Although one component of the ISB-CGC is a web app (running on Google App Engine), some users may prefer not to go through
-the web app to access other components of the ISB-CGC.  For example, the open-access TCGA data
-that we have loaded into BigQuery tables can be accessed directly via the 
-`BigQuery web interface <https://console.cloud.google.com/bigquery?>`_ or from Python or R.  Similarly,
-the ISB-CGC programmatic API is a REST service that can be used from many different
-programming languages.
+up the Google Cloud Platform.  These technologies include BigQuery, Cloud Storage, Compute Engine, etc.  The ISB-CGC makes use of a variety of these technologies to provide access to the TCGA data also many other data sets. Please follow helpful guide on our How To Get Started page `Data Access and Google Cloud Project Setup <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowToGetStartedonISB-CGC.html#data-access-and-google-cloud-project-setup>`_.
 
 The connection between your Google Cloud Project (whether it is an ISB-CGC sponsored and funded project
 or your own personal project) and the ISB-CGC is your Google identity 
