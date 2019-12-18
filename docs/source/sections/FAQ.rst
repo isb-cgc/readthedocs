@@ -153,6 +153,8 @@ ISB-CGC BigQuery
 What is BigQuery? 
 ------------------
 
+Google BigQuery (BQ) is a massively-parallel analytics engine ideal for working with tabular data. For more information please go to `ISB-CGC BigQuery Tables <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQuery.html>`_
+
 How do I access the data in BigQuery? 
 --------------------------------------
 
