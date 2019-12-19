@@ -224,10 +224,10 @@ find some great examples to get you started in with our  `Community Notebooks <h
 Regulome Explorer Users
 ###########################
 
-Can I replicate a Regulome Explorer Anylyses using TCGA data tables of heterogeneous data such as clinical and molecular data for hundreds of patients present in BigQuery?
+Can I run Regulome Explorer Anylyses using TCGA data tables of heterogeneous data such as clinical and molecular data for hundreds of patients present in BigQuery?
 ----------------------------------------------------------------------------------------------------------------------------------
 
-
+Yes, of course! A series of python Notebooks have been created to replicate Regulome Explorer and includes detailed information on the statitical methods implemented.
 
 
 
