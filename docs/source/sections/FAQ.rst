@@ -28,7 +28,7 @@ How do I connect my Google Cloud Project to the ISB-CGC?
 ---------------------------------------------------------
 
 Your Google Cloud Project gives you access to all of the technologies that make
-up the Google Cloud Platform.  These technologies include BigQuery, Cloud Storage, Compute Engine, etc.  The ISB-CGC makes use of a variety of these technologies to provide access to the TCGA data also many other data sets. Please follow this helpful guide on our How To Get Started page, `Data Access and Google Cloud Project Setup <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowToGetStartedonISB-CGC.html#data-access-and-google-cloud-project-setup>`_.
+up the Google Cloud Platform.  These technologies include BigQuery, Cloud Storage, Compute Engine, etc.  The ISB-CGC makes use of a variety of these technologies to provide access to the TCGA data also many other data sets. Please follow this helpful guide on our How To Get Started page in the `Data Access and Google Cloud Project Setup <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowToGetStartedonISB-CGC.html#data-access-and-google-cloud-project-setup>`_ section.
 
 The connection between your Google Cloud Project (whether it is an ISB-CGC sponsored and funded project
 or your own personal project) and the ISB-CGC is your Google identity 
@@ -224,7 +224,7 @@ find some great examples to get you started in with our  `Community Notebooks <h
 Regulome Explorer Users
 ###########################
 
-Can I run Regulome Explorer Analyses using TCGA data tables of heterogeneous data such as clinical and molecular data for hundreds of patients present in BigQuery?
+Can I run Regulome Explorer Analyses using TCGA tables of heterogeneous data in BigQuery?
 ----------------------------------------------------------------------------------------------------------------------------------
 
 Yes, of course! A series of python Notebooks have been created to replicate Regulome Explorer and includes detailed information on the statistical methods implemented. To get started please visit our `Regulome Explorer <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/RegulomeExplorerNotebooks.html>`_ page in readthedocs or our Repository in `Regulome Explorer GitHub <https://github.com/isb-cgc/Community-Notebooks/tree/master/RegulomeExplorer>`_. 
