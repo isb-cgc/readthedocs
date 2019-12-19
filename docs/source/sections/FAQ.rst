@@ -210,8 +210,6 @@ I want to write python scripts that access the TCGA data hosted by the ISB-CGC. 
 
 Yes, of course!  The best place to start is with our  `Community Notebooks <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowTos.html>`_  or our repository in `GitHub <https://github.com/isb-cgc/Community-Notebooks>`_. You can run any of these examples yourself. It includes a introduction of what Notebooks are, how to get started a novice user, and how to run more advanced analyses once you are confortable. 
 
-
-
 R and Bioconductor Users
 ########################
 
@@ -222,6 +220,13 @@ You can run RStudio locally or deploy a dockerized version on a Google Compute E
 find some great examples to get you started in with our  `Community Notebooks <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowTos.html>`_  or our repository in `Community Notebooks GitHub <https://github.com/isb-cgc/Community-Notebooks>`_., and also inthe documentation from the Google Genomics workshop_ at BioConductor 2015.
 
 .. _workshop: http://googlegenomics.readthedocs.org/en/latest/workshops/bioc-2015.html
+
+Regulome Explorer Users
+###########################
+
+Can I replicate a Regulome Explorer Anylyses using TCGA data tables of heterogeneous data such as clinical and molecular data for hundreds of patients present in BigQuery?
+----------------------------------------------------------------------------------------------------------------------------------
+
 
 
 
