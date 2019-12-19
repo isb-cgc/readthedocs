@@ -37,7 +37,6 @@ or your own personal project) and the ISB-CGC is your Google identity
 Access to all ISB-CGC hosted data is controlled using the `Data Commons Framework Gen3 <https://dcf.gen3.org/>`_ which define the
 permissions attached to each data set, bucket, or object.
 
-
 What project information do I input on the Register a Google Cloud Project page?
 ---------------------------------------------------------------------------------
 
@@ -46,20 +45,15 @@ You will need to input the Google Cloud Project ID which can be found on the Das
 .. image:: project_info.PNG
    :align: center
 
-
 Why do I add the service account 907668440978-oskt05du3ao083cke14641u35deokgjj@developer.gserviceaccount.com to my Google Cloud Project?
 ----------------------------------------------------------------------------------------------------------------------------------------
 
-
 This service account is needed in your Google Cloud Project IAM page for the ISB-CGC project to be able to automatically verify that all users of your Google Cloud Project have the same appropriate access rights to the protected data that has been requested for the project.
-
-
 
 What service account do I use on the Register a Service Account page to be able to gain access to protected data?
 -------------------------------------------------------------------------------------------------------------------------
 
 On the Register a Service account page you are asked to input a service account ID.  You need to go to the IAM and Admin page which can be found in your `console <https://console.cloud.google.com/home/dashboard?>`_ for your Google Cloud Project to find the correct service account.  The service account you would like to use is named, "Compute Engine default service account". This service account is the default option on the Register A Service Account page. *Please DO NOT use the service account 907668440978-oskt05du3ao083cke14641u35deokgjj@developer.gserviceaccount.com (you will be prevented from using this account by our software and an error message will be sent indicating this).* 
-
 
 Why can't I reauthorize my Service Account on my Google Cloud Project?
 ------------------------------------------------------------------------
@@ -67,10 +61,8 @@ Why can't I reauthorize my Service Account on my Google Cloud Project?
 Your service account may have had its permissions revoked (because, for example, the 7-day limit has been reached, or you have added a member to the GCP who is not authorized to use controlled data the service account is linked with or has not logged into the ISB-CGC UI and authenticated using their dbGaP credentials). If permissions were revoked because an unauthorized user was added to the project, the Google Cloud Project owner will be sent
 an email specifying the Service Account, and Google Cloud Project which resulted in the access being revoked. If the user has not logged into the ISB-CGC web app and/or has not authenticated, you will be given a red error message saying, "There was an error in processing your service account. Please try again." when attempting to refresh using the refresh wheel.  To see which new user hasn't logged in or authenticated, please go to either the Register a Service Account page or the Adjust a Service Account page and see which user it is within the table for which the data set is not selected and there are X's in the Registered and Has NIH Identity.
 
-
 .. image:: authorizedtable.PNG
    :align: center
-
 
 Ensure that the user has 1) Logged into the ISB-CGC web app and 2) Has registered their NIH Identity with their user interface identity.
 
@@ -83,9 +75,8 @@ Why would I get an Authorization Failed page on NIH iTrust when attempting to li
 
 .. image:: authfailednihItrustpage.PNG
    :align: center
-
+   
 You can get this page for two reasons:  First, if you may have typed in your password incorrectly, please select the Click Here to continue link and try to log in again.  Second, if you have typed your password correctly, it could be time to refresh your NIH identity password.  Please reset your password by using this link `here <https://public.era.nih.gov/commons>`_ and try again.  This should allow you to link your NIH Identity to the ISB-CGC web app. 
-
 
 What happens if I accidently delete the default service account from a Google Cloud Project?
 ----------------------------------------------------------------------------------------------
@@ -94,10 +85,8 @@ If you accidently delete the default service account associated to the Google Cl
 
 If you then try to add the service account back to the Google Cloud Project, this error occurs:
 
-
  *ERROR: (gcloud.compute.instances.create) Some requests did not succeed:*
-*- The resource 'xx...@project.gserviceaccount.com' of type 'serviceAccount' was not found.*
-
+ *- The resource 'xx...@project.gserviceaccount.com' of type 'serviceAccount' was not found.*
 
 Unfortunately at this time, there is no direct way to recover the default service account.
 
@@ -108,8 +97,6 @@ Another solution would be creating a new project and redeploying your instances 
 Google has an internal feature request to prevent accidental deletion of default service accounts.
 
 There is a Google forum discussion that can be found `here <https://groups.google.com/forum/#!topic/gce-discussion/bQ_-qCWoUZw>`_ with more details and explanation.
-
-
 
 ISB-CGC Web Interface
 ########################
@@ -132,7 +119,6 @@ You will see the 401 error only if your pop-up blocker is enabled for the ISB-CG
 .. image:: 401ErrorIGVBrowser.PNG
    :align: center
    
-
 Why does the web browser crash if too many IGV Browser tabs are opened at once?
 ----------------------------------------------------------------------------------
 
@@ -141,7 +127,6 @@ The web browser will be caused to crash when too many IGV Browser tabs are open 
 .. image:: IGVBrowserCrash.png
    :align: center
    
-
 Does SeqPeek and CNVR plotting only work with TCGA data?
 ---------------------------------------------------------
 
@@ -184,9 +169,7 @@ verify your dbGaP authorization.  You will be redirected to the NIH iTrust login
 successfully authenticate you will be brought back to the ISB-CGC web app.  After you successfully
 authenticate, we will verify that you also have dbGaP authorization for the TCGA controlled-access data and other programs you have dbGaP access to.
 
-
 We also ask that you review our section on `Understanding Data Security <data/TCGA_Data_Security.html>`_ .
-
 
 My professor has dbGaP authorization.  Do I have to have my own authorization too?
 ---------------------------------------------------------------------------------------
@@ -196,14 +179,12 @@ have your own dbGaP authorization associated with your own eRA Commons id.
 (This `video <https://www.youtube.com/watch?v=Yem3OH26kX4>`_ explains how an authorized user of 
 controlled-access data can assign a downloader role to someone in his/her institution.)
 
-
 **I already authenticated using my eRA Commons ID but now I want to use a different Google identity to
 access the ISB-CGC web-app. Can I reauthenticate using the same eRA Commons ID?**
 
 Yes, but you will first need to sign in using your previous Google identity and "unlink" your eRA Commons
 ID from that one before you can link it with your new Google Identity.  An eRA Commons ID cannot be
 associated with more than one Google Identity within the ISB-CGC platform at any one time.
-
 
 Can I authenticate to NIH programmatically?
 --------------------------------------------
@@ -222,17 +203,14 @@ I get a different number of samples in BigQuery than I do with the same query in
 Older programs like TCGA have both legacy data (data from the original program) and harmonized data (data run through the Genomics Data Commons).  The Webapp primarily uses harmonized data where BigQuery contains both legacy and harmonized data.  In addition, some cases and samples have been removed from the Webapp if annotation suggest the data from those cases or samples are incorrect, misleading or from cases of uncertain origin.  Most of these cases and samples are still in BigQuery and users are encouraged to check the annotations tables.
 
 Python Users
-############
+############ 
 
 I want to write python scripts that access the TCGA data hosted by the ISB-CGC.  Do you have some examples that can get me started?
 -------------------------------------------------------------------------------------------------------------------------------------
 
-Yes, of course!  The best place to start is with our examples-Python_
-repository on github.  You can run any of those examples yourself by signing in 
-to your Google Cloud Project and deploying an instance of Google Cloud Datalab_.
+Yes, of course!  The best place to start is with our  `Community Notebooks <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowTos.html>`_  or our repository in `GitHub <https://github.com/isb-cgc/Community-Notebooks>`_. You can run any of these examples yourself. It includes a introduction of what Notebooks are, how to get started a novice user, and how to run more advanced analyses once you are confortable. 
 
-.. _examples-Python: https://github.com/isb-cgc/examples-Python
-.. _Datalab: https://datalab.cloud.google.com/
+
 
 R and Bioconductor Users
 ########################
@@ -241,9 +219,10 @@ I want to use R and Bioconductor packages to work with the TCGA data.  How can I
 ---------------------------------------------------------------------------------------------
 
 You can run RStudio locally or deploy a dockerized version on a Google Compute Engine VM.  You can
-find some great examples to get you started in our examples-R_ repository on github, and also in
-the documentation from the Google Genomics workshop_ at BioConductor 2015.
+find some great examples to get you started in with our  `Community Notebooks <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowTos.html>`_  or our repository in `Community Notebooks GitHub <https://github.com/isb-cgc/Community-Notebooks>`_., and also inthe documentation from the Google Genomics workshop_ at BioConductor 2015.
 
-.. _examples-R: https://github.com/isb-cgc/examples-R
 .. _workshop: http://googlegenomics.readthedocs.org/en/latest/workshops/bioc-2015.html
+
+
+
 
