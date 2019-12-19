@@ -210,16 +210,14 @@ I want to write python scripts that access the TCGA data hosted by the ISB-CGC. 
 
 Yes, of course!  The best place to start is with our `Community Notebooks <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowTos.html>`_  or our repository in `GitHub <https://github.com/isb-cgc/Community-Notebooks>`_. You can run any of these examples yourself. It includes a introduction of what Notebooks are, how to get started as a novice user, and how to run more advanced analyses once you are comfortable. 
 
-R and Bioconductor Users
-########################
+R Users
+########
 
 I want to use R and Bioconductor packages to work with the TCGA data.  How can I do that?
 ---------------------------------------------------------------------------------------------
 
 You can run RStudio locally or deploy a dockerized version on a Google Compute Engine VM.  You can
-find some great examples to get you started in with our  `Community Notebooks <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowTos.html>`_  or our repository in `Community Notebooks GitHub <https://github.com/isb-cgc/Community-Notebooks>`_, and also in the documentation from the Google Genomics workshop_ at BioConductor 2015.
-
-.. _workshop: http://googlegenomics.readthedocs.org/en/latest/workshops/bioc-2015.html
+find some great examples to get you started in with our  `Community Notebooks <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowTos.html>`_  or our repository in `Community Notebooks GitHub <https://github.com/isb-cgc/Community-Notebooks>`_.
 
 Regulome Explorer Users
 ###########################
