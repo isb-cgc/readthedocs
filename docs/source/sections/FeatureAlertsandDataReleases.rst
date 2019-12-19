@@ -7,5 +7,4 @@ Feature Alerts and Data Releases
    
    updates_and_releases/FeatureAlerts
    webapp/releases
-   webapp/releases_new
    updates_and_releases/Data_Releases
