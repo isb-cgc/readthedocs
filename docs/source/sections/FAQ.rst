@@ -147,31 +147,6 @@ Does SeqPeek and CNVR plotting only work with TCGA data?
 
 We currently have no data associated with CNVR or Seqpeek for TARGET or CCLE.  Therefore, SeqPeek and CNVR will only work with TCGA data.
 
-ISB-CGC BigQuery
-#################
-
-What is BigQuery? 
-------------------
-
-Google BigQuery (BQ) is a massively-parallel analytics engine ideal for working with tabular data. For more information please go to `ISB-CGC BigQuery Tables <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQuery.html>`_
-
-How do I access the data in BigQuery? 
---------------------------------------
-
-What kind of analysis can be run in BigQuery?
-----------------------------------------------
-
-How do you pay for analysis in BigQuery?
----------------------------------------
-
-Where does the data come from? 
--------------------------------
-
-Am I able to run an analysis on BigQuery without having to create a Google Cloud Project? 
----------------------------------------------------------------------------------------
-
-
-
 Data Access
 ###########
 
