@@ -11,3 +11,6 @@ CLINICAL BIOSPECIMEN DATA
 
 FILE METADATA
 ==============
+
+GENOMIC REFERENCE DATABASE 
+===========================
