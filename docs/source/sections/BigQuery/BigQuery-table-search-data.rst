@@ -9,4 +9,5 @@ preceded by a period, *eg* ``isb-cgc.TCGA_bioclin_v0.Clinical``.
 CLINICAL BIOSPECIMEN DATA
 ==========================
 
-
+FILE METADATA
+==============
