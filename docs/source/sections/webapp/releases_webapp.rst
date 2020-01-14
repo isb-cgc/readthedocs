@@ -5,10 +5,6 @@ Web App Release Notes
 Introduction text
 
 
-===================
-April 2019
-===================
-
 **April 25, 2019**
 
 **Please Note:** Work is underway to rework our cohort creation page to better display images associated with samples. 
@@ -48,10 +44,6 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - On the File Browser page for Diagnostic images there is no GDC file UUID associated to them.
 - Sharing a workbook with someone else will cause the analysis to reset.
 
-
-===================
-March 2019
-===================
 
 **March 8, 2019**
 
