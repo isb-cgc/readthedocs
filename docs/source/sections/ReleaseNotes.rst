@@ -6,6 +6,8 @@ Release Notes
    :maxdepth: 1
    
    sections/ReleaseNotes/ISB-CGCDataReleases.rst
+   sections/ReleaseNotes/BigQueryTableSearchReleaseNotes.rst
+
 
   
   
