@@ -7,6 +7,7 @@ Release Notes
    
    sections/ReleaseNotes/ISB-CGCDataReleases.rst
    sections/ReleaseNotes/BigQueryTableSearchReleaseNotes.rst
+   sections/ReleaseNotes/WebAppReleaseNotes.rst
 
 
   
