@@ -1,5 +1,5 @@
 ######################
-Web App Release Notes
+WebApp Release Notes
 ######################
 
 Introduction text
