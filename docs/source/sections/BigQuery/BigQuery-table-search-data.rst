@@ -9,11 +9,63 @@ preceded by a period, *eg* ``isb-cgc.TCGA_bioclin_v0.Clinical``.
 CLINICAL BIOSPECIMEN DATA
 ==========================
 
+CLINICAL
+--------
+
+BIOSPECIMEN
+------------
+
+FILE METADATA
+--------------
+
+
 FILE METADATA
 ==============
 
+FILE METADATA
+---------------
+
 GENOMIC REFERENCE DATABASE 
 ===========================
+
+CLINICAL
+--------
+
+BIOSPECIMEN
+------------
+
+COORDINATE CONVERSION
+----------------------
+
+DISEASE CLASSIFICATIONS
+------------------------
+
+DNA METHYLATION
+----------------
+
+GENE EXPRESSION
+----------------
+
+GENE ONTOLOGY
+--------------
+
+GENOME ANNOTATIONS
+------------------
+
+MICROARRAY, GENE EXPRESSION
+-----------------------------
+
+MIRNA ANNOTATIONS
+------------------
+
+MIRNA TARGET INTERACTIONS
+--------------------------
+
+PATHWAY ANNOTATIONS	
+--------------------
+
+
+
 
 PROCESSED -OMICS DATA
 ======================
