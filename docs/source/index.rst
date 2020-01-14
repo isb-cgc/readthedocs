@@ -49,7 +49,6 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    sections/HowTos
    sections/TutorialsAndHow-ToGuides
    sections/updates_and_releases/FeatureAlerts
-   sections/ReleaseNotes
    sections/Quick-links-updated
    sections/FAQ
    sections/Support
