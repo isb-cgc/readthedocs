@@ -24,6 +24,7 @@ Note that dbGaP authorization is not required to access these tables.
    progapi/bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform
    progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject
    BigQuery/data_in_BQ
+   BigQuery/BigQuery-table-search-data.rst
    progapi/bigqueryGUI/GettingStartedWithGoogleBigQuery
    PanCancer-Atlas-Mirror
    BigQuery/BigQueryUsageCosts
