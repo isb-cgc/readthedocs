@@ -1,20 +1,8 @@
-###################
-Release Notes
-###################
+#######################
+ISB-CGC Data Releases
+#######################
 
 Introduction text
-
-
-===================
-May 2016
-===================
-
-
-
-
-===================
-April 2016
-===================
 
 
 **April 28, 2016**
@@ -22,19 +10,11 @@ April 2016
 **GO_Ontology** and **GO_Annotations** tables added to the **isb-cgc:genome_reference** BigQuery dataset
 
 
-===================
-March 2016
-===================
-
 
 **March 14, 2016**
 
 With the release of our **Web-App**, controlled-data is now accessible (programmatically) to users who have previously obtained dbGaP approval for TCGA data and go through the NIH authentication process built-in to the Web-App
 
-
-===================
-February 2016
-===================
 
 
 
@@ -50,19 +30,10 @@ Kaviar database now available in the **isb-cgc:genome_reference** BigQuery datas
 
 CCLE RNAseq and DNAseq bam files imported into **Google Genomics**
 
-===================
-January 2016
-===================
-
-
 
 **January 10, 2016**
 
 **GENCODE_r19** and **miRBase_v20** tables added to the **isb-cgc:genome_reference** BigQuery dataset
-
-===================
-December 2015
-===================
 
 
 
@@ -81,11 +52,6 @@ version `v0.1 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/1.0>`_
 First tagged release of the web-app 
 
 
-===================
-November 2015
-===================
-
-
 
 **November 16, 2015**
 
@@ -99,20 +65,10 @@ First public release of TCGA open-access data in BigQuery tables
 - includes **Annotations** table with information about redacted samples, etc
 - **isb-cgc:platform_reference** contains annotation information for the Illumina DNA Methylation platform
 
-===================
-October 2015 
-===================
-
-
-
 
 **October 4, 2015**
 
 Complete data upload from TCGA DCC, including controlled-access data
-
-===================
-September 2015 
-===================
 
 
 **September 21, 2015** 
