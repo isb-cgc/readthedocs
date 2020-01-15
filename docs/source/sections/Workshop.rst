@@ -16,7 +16,7 @@ Step #1: Basic Information and your own GCP project
 Basic Information 
 -----------------
 
-**Please send the following information to info@isb-cgc.org ASAP** 
+**Please send the following information to request@isb-cgc.org ASAP** 
 
     * your Google identity (for example your gmail address)
     * are you bringing a Mac or Windows laptop?

@@ -1,38 +1,37 @@
 
-**********
-BigQuery
-**********
+***********************
+ISB-CGC BigQuery Tables
+***********************
 
-Google BigQuery (BQ) is a a massively-parallel analytics engine ideal for working with tabular data. This includes the high-level clinical, biospecimen, and molecular data from the main NCI programs. 
+Google BigQuery (BQ) is a massively-parallel analytics engine ideal for working with tabular data. Leveraging the power of BigQuery, we have made the information scattered over tens of thousands of XML and tabular data files in legacy and active archives at the NCI-GDC much more accessible in the form of open-access BigQuery tables. 
 
-Analyze patient, biospecimen, and molecular data for many cancer programs such as TCGA, TARGET, CCLE, GTEx all in ISB-CGC's BigQuery tables. 
+We have made the ability to explore and learn more about the ISB-CGC hosted BigQuery tables easy via an interactive BigQuery Table Search UI (https://isb-cgc.appspot.com/bq_meta_search/). Users can find tables of interest based on category, reference genome build, data type and free-form text search. 
 
-We have also made public genomic reference databases including COSMIC, GENCODE, Kaviar, ClinVar, GO Annotations and pathway data availale as BigQuery tables. 
+Using SQL in the Google BigQuery Console, in Juypter notebooks or in R, users with Google Cloud Platform (GCP) projects can analyze patient, biospecimen, and molecular data for many cancer programs such as TCGA, TARGET, CCLE, GTEx all in ISB-CGC's BigQuery tables. 
 
-
-In this section, you'll learn how to: 
-
-* Find BigQuery on the Google Cloud Platform
-* Get started using BigQuery
-* Link ISB-CGC open-access BigQuery tables to your Google Cloud Project 
+Note that dbGaP authorization is not required to access these tables. 
 
 
 
-.. toctree::
-   :hidden:
-   :maxdepth: 1
 
-   progapi/bigqueryGUI/WalkthroughOfGoogleBigQuery
-   bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform
-   bigqueryGUI/LinkingBigQueryToIsb-cgcProject
+
 
 
 .. toctree::
    :hidden:
    :maxdepth: 1
-   
-   BigQuery/BQ_overview
+
+   progapi/bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform
+   progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject
+   BigQuery/data_in_BQ
+   BigQuery/BigQuery-table-search-data.rst
+   progapi/bigqueryGUI/GettingStartedWithGoogleBigQuery
    PanCancer-Atlas-Mirror
+   BigQuery/BigQueryUsageCosts
+
+   
+  
+  
 
 
 

@@ -1,29 +1,30 @@
-=======================================================
-How to Access BigQuery from the Google Cloud Platform
-=======================================================
+===================================
+BigQuery on Google Cloud Platform
+===================================
 
-In order to use BigQuery, you must have access to a Google Cloud Platform (GCP) project.  
-You will also need a Google account identity (freely available with a new account or by linking to an existing email account). 
-If you have not logged into the `Google Cloud Platform <http://cloud.google.com>`_ you will be presented with this page:
+In order to use BigQuery, you must have access to a Google Cloud Platform (GCP) project. Your GCP project must be associated with a billing account in order to gain full access to all of products and services that make up the Google Cloud. Contact us at **request-gcp@isb-cgc.org** for more information on how to to request cloud credits. 
 
-.. image:: SignIntoGCP.png
-   :scale: 50
+Additionally, you will need a Google account identity (freely available with a new account or by linking to an existing email account). 
+
+
+When first logging into the `Google Cloud Platform <http://cloud.google.com>`_ ,you will be presented with this page (click on the images to enlarge them):
+
+.. image:: NewSignIntoGCP.png
    :align: center
 
-You login through the *Sign In* link at the upper right of the initial page (label *A* in the image above). Also on this page are links to a free-trail on the Google Cloud Platform (B) and (C), a link to contact google for any issues regarding the google cloud platform (D), a link to more information about the Google Cloud platform (E).  
 
-Upon signing in with a Google account identity, you will be presented with the following page:
+You will be presented with sign in page, prompting you to enter a Google account log in and password:
 
-.. image:: GCPDashboard.png
-   :scale: 50
+.. image:: SignInPage.png
    :align: center
    
-This is your personal *Dashboard* where your compute engine (A), Google APIs(C), App Engine(D), BigQuery, and Cloud Storage (F) components are readily accessible. Google also provides documentation for additional information if needed (E). Additional documentation describing how to use each component of this user interface are provided in the individual subsections of this documentation.
-We encourage you to try the risk free trial(H). Once you have a GCP project, you will have access to all of the products and services that make up the Google Cloud.
+Once you sign in, click on Console at the top of the screen (see arrow in image below) to access a full range of Google cloud products and services including BigQuery.  
 
-Google products and services may also be accessed through (G). Scroll down to BigQuery and open it (see screenshot below).
-
-.. image:: BigQuerySelect.png
-   :scale: 50
+.. image:: AfterSignInPage.png
    :align: center
 
+
+At the home button, scroll down to open BigQuery.
+
+.. image:: AccessingBigQuery.png
+   :align: center

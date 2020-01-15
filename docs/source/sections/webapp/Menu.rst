@@ -3,15 +3,14 @@ Menu Bar
 **********
 
 Clicking on the word Menu in the upper-right corner of your browser window (next to your name) will display the
-blue menu bar.  You can make this menu bar disappear by clicking on the blue **X** or the 
-word Menu again.
+blue menu bar.  You can make this menu bar disappear by clicking on the blue **X** or the word Menu again.
 
 For additional details about each menu item, see the corresponding section in this user guide.
 
 .. image:: WebApp-MenuBar.png
    :align: center
 
-The **MENU** bar supplies quick and common links for the following Web App features: 
+The **MENU** bar supplies links for the following Web App features: 
 
 * **DASHBOARD** - This menu item takes you to **Your Dashboard**, the Web App home page.
 
@@ -20,7 +19,7 @@ The **MENU** bar supplies quick and common links for the following Web App featu
    - Saved Workbooks - Displays all your saved workbooks and allows you to edit, duplicate or delete the workbooks.
    - Create a New Workbook - Allows you to create a new workbook by selecting the data source and analysis type.
      
-* **PROGRAMS** - This menu item provides a ashortcut to the programs you have created if you uploaded your own data.
+* **PROGRAMS** - This menu item provides a shortcut to the programs you have created if you uploaded your own data.
    
    - Saved Programs - Here you can: 
 
@@ -31,13 +30,12 @@ The **MENU** bar supplies quick and common links for the following Web App featu
    - Upload Program Data - Here you can:
      
         * Create a new program for analysis. To create a new program you provide a name for program, name for your project, and attach files that meet our Data Type requirements. Please see `Program Data Upload <program_data_upload.html>`_ for more information on data type accepted by the ISB-CGC. 
-        * Save or cancel a new creation
         
     - Public Programs - Here you can:
         
-        *  View the public programs (such as TCGA, CCLE, TARGET) that are currently in the ISB-CGC system. 
+        *  View the public programs (TCGA, CCLE, TARGET) that are currently in the ISB-CGC system. 
 
-* **ANALYSES** - From here you can Create, Edit Details, Duplicate, Delete, or Share Analyses. You can use a specific analysis type to create a new workbook customized with the specific data (Genes and miRNAs, Variables, Cohorts) you have selected.  The plot types that you can select from include:
+* **ANALYSES** - From here you can Create, Edit Details, Duplicate, Delete, or Share Analyses. You can use a specific analysis type to create a new workbook customized with the specific data (Genes and miRNAs, Variables, Cohorts) you have selected.  The plot types that you can select are:
     
     - Bar Chart
     - Histogram
@@ -50,8 +48,6 @@ The **MENU** bar supplies quick and common links for the following Web App featu
 
 * **GENES & miRNA** - From this menu selection you can **Manage Gene and miRNA Favorites**, **Create Gene and miRNA Favorite(s)** or **Select Genes and miRNAs for a New Workbook**. 
 
-       Each of these categories provide a quick link to additional application-specific functions / features such as:
-
     - Manage Gene & miRNA Favorites - Here you can:
     
       * Edit or Delete a Saved Gene and miRNA Favorite(s) 
@@ -61,7 +57,6 @@ The **MENU** bar supplies quick and common links for the following Web App featu
     - Create Gene & miRNA Favorite - Here you can:
 
       * Create a Gene & miRNA Favorite for Analysis. To Create a New Gene and miRNA Favorite - You provide a name and select the Gene and/or miRNA. You can upload a stored Gene and miRNA List or type in Gene name  or miRNA (**Note:** This will auto fill as you type in Gene name or miRNA name). To aid in Gene selection, you can access the HGNC portal (Hugo Gene Nomenclature Committee) via the "**View Gene Identifiers**" link under this Menu selection. Also, to aid in miRNA selection, you can access the miRBASE via the "**View miRNA Identifier**" link next to the View Gene Identifiers link. 
-      * Save or Cancel a new creation. 
       
     - Select Genes & miRNA for a New Workbook - This sub-menu has two features:
       
@@ -96,6 +91,7 @@ The **MENU** bar supplies quick and common links for the following Web App featu
          - Create a "New Workbook" from a saved Cohort
          - Delete a Saved Cohort
          - Set Operations (i.e., Union, Intersection or complement) from a Base or Subtracted Cohort.
+         
       - Public Cohorts - Displays any public cohorts which can be selected.
          
          - Create a "New Workbook" from a saved Public Cohort

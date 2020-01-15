@@ -21,7 +21,7 @@ Registering Cloud Storage Buckets and BigQuery Datasets
 
 Registering a Google Cloud Storage Bucket and a BigQuery Data Set is a prerequisite for using your own data in ISB-CGC. (Please note: The names of the buckets and data sets are case sensitive.)
 
-**How To Register Buckets and Datasets**
+**How To Register Buckets and Data sets**
 
 Once you have created a bucket and a dataset in the Google Cloud Console of your Google Cloud Project, you will need to register them with your project name using the Web App.  
 

@@ -14,7 +14,7 @@ and your GCP resources.  (For more details, please look at the official
 Bundled into the `gcloud <https://cloud.google.com/sdk/gcloud/reference/>`_ 
 CLI are several **commands** and **groups** of sub-commands.  The group of sub-commands
 that allows you to read and manipulate GCE resources is 
-`gcloud compute <https://cloud.google.com/sdk/gcloud/reference/compute/>`_
+`gcloud compute <https://cloud.google.com/sdk/gcloud/reference/compute/>`_.
 
 Launch a VM using the Console
 =============================

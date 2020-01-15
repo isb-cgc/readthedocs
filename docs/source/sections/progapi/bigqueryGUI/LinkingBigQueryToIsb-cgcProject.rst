@@ -1,39 +1,25 @@
-=======================================================
-Linking BigQuery to ISB-CGC Project Open Access Data
-=======================================================
+================================
+Access
+================================
 
-To obtain access to the ISB-CGC project tables in BigQuery you must link these tables to your project so that they will show up in the left panel of your BigQuery web UI. 
+Follow the images below to link the ISB-CGC BigQuery tables to your Google Cloud Project. Click on image to zoom in.
 
-When you access BigQuery from your Google Cloud Platform Console (see link `here <HowToAccessBigQueryFromTheGoogleCloudPlatform.html>`_ for more information on this), you will be presented with the following page:
+When you access BigQuery from your Google Cloud Platform Console, you will see an "Add Data" box with a "Pin a Project option"
 
-.. image:: BlueArrowDropdown.PNG
+.. image:: AddDataBox.png
+   :scale: 30
    :align: center
 
-The blue arrow will produce a drop down list; select 'Switch to Project'; then click 'display project...'
+When you click on "Pin a Project", you will presented with a pop-up box that allows you to either enter a project name or select one from a list. Choose the "Enter a Project Name" and enter in "isb-cgc" and then hit "Pin".
 
-You will then be presented with the following page:
-
-.. image:: SearchProjectSection.PNG
-   :scale: 25
+.. image:: PinAProject.png
+   :scale: 30
    :align: center
 
-As shown in the image above you will need to type in "isb-cgc" in the project id and then click okay. 
 
-.. image:: isb-cgc_pinned.PNG
-   :scale: 25
+You will now see the isb-cgc open access BigQuery tables on the left-hand side pinned to your project. 
+
+.. image:: PinnedProject.png
+   :scale: 30
    :align: center
-
-Once this has been completed you will see all of the BigQuery datasets made public by the ISB-CGC project on the left hand side above public data sets (see screenshot below).
-
-.. image:: ISB-CGCBiqQueryDatasets.png
-   :scale: 25
-   :align: center
-
-================================================
-Other Genomics BigQuery Data Available on Google
-================================================
-
-Google and others have made additional datasets available in BigQuery.  These can be used in joins with the ISB-CGC datasets.  The current list can be found `here <https://googlegenomics.readthedocs.org/en/latest/use_cases/discover_public_data/index.html>`_.  
-
-It is possible that not all the datasets provided on this page have BigQuery data.  You can find that out by opening up that link for each dataset and seeing if there is a section called "Google BigQuery Dataset ID(s)".  If there is, you can make these available through your Google console by the same process as you did for the ISB-CGC datasets above or by clicking on the link for that dataset.
 

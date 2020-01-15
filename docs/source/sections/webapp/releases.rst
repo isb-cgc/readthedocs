@@ -3,6 +3,8 @@ Web App Release Notes
 *********************
 
 
+
+
 * **April 25, 2019** `v3.18 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.18>`_
   
    **Please Note:** Work is underway to rework our cohort creation page to better display images associated with samples. 
@@ -110,9 +112,9 @@ Web App Release Notes
   
   **Known Issues in Sprint 31 as of 01/22/2019**
    
-   - Analysis Type: Seq peek Formatting is Elongated on occasion 
-   - If the user shares a Cohort, neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort. 
-   - CCLE data cannot be plotted when working with workbooks.  ISB-CGC will resolve this functionality after the GDC formally releases CCLE data. 
+  - Analysis Type: Seq peek Formatting is Elongated on occasion 
+  - If the user shares a Cohort, neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort. 
+  - CCLE data cannot be plotted when working with workbooks.  ISB-CGC will resolve this functionality after the GDC formally releases CCLE data. 
   - When a user duplicates a Worksheet, then tries to implement the log scale, it will not function properly. 
   - The set operation for existing Cohorts complement is behaving exceptionally slow.
   - The mouse-over feature is currently disabled for program TARGET with disease code ALL. 
