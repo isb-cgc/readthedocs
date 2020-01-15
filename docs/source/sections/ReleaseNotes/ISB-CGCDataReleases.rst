@@ -1,6 +1,6 @@
-#######################
-ISB-CGC Data Releases
-#######################
+############################
+ISB-CGC Data Release Notes
+#############################
 
 Introduction text
 
