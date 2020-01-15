@@ -1,6 +1,6 @@
-######################
-WebApp Release Notes
-######################
+#############################
+ISB-CGC WebApp Release Notes
+#############################
 
 Introduction text
 
