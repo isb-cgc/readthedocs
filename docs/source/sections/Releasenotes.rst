@@ -2,7 +2,7 @@
 Release Notes
 **************
 
-The ISB-CGC has created documentation to inform researchers about major changes between the ISB-CGC Data Releases, ISB-CGC BigQuery Table Search, and the ISB-CGC WebApp. For more information please select from one of the options below. 
+The ISB-CGC has created documentation to inform researchers about major changes between the ISB-CGC Data Releases, ISB-CGC Table Search, and the ISB-CGC WebApp. For more information, please select one of the options below.
 
 .. toctree::
    :maxdepth: 1
