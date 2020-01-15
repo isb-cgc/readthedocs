@@ -47,17 +47,6 @@ The following datasets (open and controlled access) have been added to the ISB-C
 
 **March 8, 2019**
 
-**Please Note:** Work is underway to rework our cohort creation page to better display images associated with samples. 
-  
-The following datasets (open and controlled access) have been added to the ISB-CGC for service account registration:
-  
- 1. The National Cancer Institute Center for Cancer Research (NCICCR)  
- 2. Foundation Medicine(FM)
- 3. Clinical Trial Sequencing Project (CTSP)
- 4. Veterans Research for Precision Oncology Program (VAREPOP) 
-
-Is there a dataset that is a priority for you? Of this list which should we include first? If yes, please send all requests to feedback@isb-cgc.org
-
 **Enhancements**
 
 - When working with a workbook many overall enhancements of user functionality have been improved. 
