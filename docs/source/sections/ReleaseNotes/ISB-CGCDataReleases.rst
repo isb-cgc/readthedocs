@@ -4,6 +4,12 @@ ISB-CGC Data Release Notes
 
 Introduction text
 
+
+
+**December 6, 2017:** 
+
+The GDC release 9 included some updated and new TARGET gene expression data. The BigQuery table **isb-cgc:TARGET_hg38_data_v0.RNAseq_Gene_Expression** has been updated to reflect this.
+
 **November 7, 2017:** 
 
 The release 83 of the **COSMIC** database is now available in BigQuery.
