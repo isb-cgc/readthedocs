@@ -4,6 +4,13 @@ ISB-CGC Data Release Notes
 
 Introduction text
 
+**June 9, 2018:** 
+
+The metadata tables for GDC data release 10 are now available in BigQuery.
+
+**May 8, 2018:** 
+
+The release 85 of the **COSMIC** database is now available in BigQuery.
 
 **February 13, 2018:** 
 
