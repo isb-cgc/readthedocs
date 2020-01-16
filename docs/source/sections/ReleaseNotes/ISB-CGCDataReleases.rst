@@ -5,7 +5,6 @@ ISB-CGC Data Release Notes
 Introduction text
 
 
-
 **February 19, 2016**
 
 CCLE RNAseq and DNAseq bam files imported into **Google Genomics**.
