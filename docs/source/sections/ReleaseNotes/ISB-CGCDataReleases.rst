@@ -5,6 +5,14 @@ ISB-CGC Data Release Notes
 Introduction text
 
 
+**May 3, 2016:**
+
+New **isb-cgc:tcga_seq_metadata** BigQuery dataset contains metadata and FastQC metrics for thousands of TCGA DNA-seq and RNA-seq data files:
+    - **CGHub_Manifest** table contains metadata for all TCGA files at CGHub as of April 27th, 2016
+    - **GCS_listing_27apr2016** table contains metadata for all TCGA files hosted by ISB-CGC in GCS 
+    - **RNAseq_FastQC** table contains metrics derived from FastQC runs on the RNAseq data files, including urls to the FastQC html reports that you can cut and paste directly into your browser
+    - **WXS_FastQC** table contains metrics derived from FastQC runs on the exome DNAseq data files
+
 **April 28, 2016**
 
 **GO_Ontology** and **GO_Annotations** tables added to the **isb-cgc:genome_reference** BigQuery dataset.
