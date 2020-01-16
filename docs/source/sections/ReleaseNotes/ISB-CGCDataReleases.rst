@@ -6,7 +6,7 @@ Introduction text
 
 
 
-*8May 9, 2017:** 
+**May 9, 2017:** 
 
 Release 81 of the COSMIC database is now available in BigQuery.
 
