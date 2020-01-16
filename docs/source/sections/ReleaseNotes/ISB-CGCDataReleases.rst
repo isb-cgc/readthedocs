@@ -6,6 +6,10 @@ Introduction text
 
 
 
+**March 30, 2017:**
+
+The 'harmonized' hg38 TCGA miRNA-Seq BAM files from the initial GDC data release are now available in the ISB-CGC controlled-data repository in Google Cloud Storage.
+
 **February 20, 2017:** 
 
 In collaboration with the Sanger Institute, the `COSMIC database <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/COSMIC_about.html>`_ is now available in BigQuery (registered users only).
