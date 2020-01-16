@@ -4,6 +4,9 @@ ISB-CGC Data Release Notes
 
 Introduction text
 
+**August 17, 2016:** 
+
+New **isb-cgc:GDC_metadata** BigQuery dataset containing metadata for both *legacy* and *current* files hosted at the `NCI-GDC <https://gdc.cancer.gov/>`_.
 
 **July 28, 2016:** 
 
