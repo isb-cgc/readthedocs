@@ -4,6 +4,11 @@ ISB-CGC Data Release Notes
 
 Introduction text
 
+
+**August 20, 2016:** 
+
+Updated **hg19** and **hg38** `Kaviar <http://db.systemsbiology.net/kaviar/>`_ tables added to the **isb-cgc:genome_reference** BigQuery dataset.
+
 **August 17, 2016:** 
 
 New **isb-cgc:GDC_metadata** BigQuery dataset containing metadata for both *legacy* and *current* files hosted at the `NCI-GDC <https://gdc.cancer.gov/>`_.
