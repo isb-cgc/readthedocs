@@ -5,7 +5,9 @@ ISB-CGC Data Release Notes
 Introduction text
 
 
-**June 30, 2017:** hg19 and hg38 TARGET WXS, RNA-Seq, and miRNA-Seq BAM files are now available in the ISB-CGC controlled-data repository in Google Cloud Storage.
+**June 30, 2017:** 
+
+The genome sequence hg19 and hg38 TARGET WXS, RNA-Seq, and miRNA-Seq BAM files are now available in the ISB-CGC controlled-data repository in Google Cloud Storage.
 
 **May 9, 2017:** 
 
