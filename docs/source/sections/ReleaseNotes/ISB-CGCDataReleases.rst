@@ -9,6 +9,7 @@ Introduction text
 **June 25, 2018:** 
 
 GDC data release 12 was posted on Wednesday, June 13, 2018
+
 - There is absolutely no change in the legacy archive data between DR11 and DR12
 - There is also no change in the total number of cases in either archive
 - The number of files in the current archive has increased from 329,165 to 356,381:
