@@ -4,6 +4,11 @@ ISB-CGC Data Release Notes
 
 Introduction text
 
+
+**November 3, 2017:**
+
+The metadata tables for GDC data release 9 are now available in BigQuery.
+
 **October 30, 2017:** the 'harmonized' hg38 TCGA VCF files (raw and annotated) are now available in the ISB-CGC controlled-data repository in Google Cloud Storage.
 
 **August 30, 2017:** 
