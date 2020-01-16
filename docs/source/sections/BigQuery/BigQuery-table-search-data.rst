@@ -38,6 +38,8 @@ Genomic information that can be used to cross-reference against processed-omics 
 DNA methylation
 ----------------
 
+
+
 Somatic Mutations
 ------------------
 
@@ -64,12 +66,15 @@ DNA methylation
 Somatic Mutations
 ------------------
 
+mRNA Expression
+----------------
+
+miRNA Expression
+-----------------
+
 Protein Quantification
 -------------------------
 
 Copy Number
 ------------
-
-miRNA Expression
------------------
 
