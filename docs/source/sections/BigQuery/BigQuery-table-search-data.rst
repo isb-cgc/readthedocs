@@ -49,10 +49,6 @@ mRNA Expression
 Genome Annotation
 ------------------
 
-**miRNA Annotations**
-
-**miRNA Interactions**
-
 
 
 Processed -Omics Data
