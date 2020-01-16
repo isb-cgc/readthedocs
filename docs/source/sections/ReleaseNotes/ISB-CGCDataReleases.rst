@@ -5,6 +5,10 @@ ISB-CGC Data Release Notes
 Introduction text
 
 
+**February 26, 2016**
+
+New CCLE dataset in BigQuery **isb-cgc:ccle_201602_alpha** includes sample metadata, mutation calls, copy-number segments, and expression data (metadata includes full cloud-storage-path for world-readable BAM and SNP CEL files, and Genomics dataset- and readgroupset-ids for sequence data imported into Google Genomics).
+
 **February 22, 2016**
 
 Kaviar database now available in the **isb-cgc:genome_reference** BigQuery dataset.
