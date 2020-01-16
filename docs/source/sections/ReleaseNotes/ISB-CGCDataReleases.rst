@@ -5,6 +5,11 @@ ISB-CGC Data Release Notes
 Introduction text
 
 
+**January 30, 2017:** 
+
+The final, unified "MC3" TCGA somatic mutations call set is available in the BigQuery. 
+**isb-cgc:hg19_data_previews** dataset (also `available on Synapse <https://www.synapse.org/#!Synapse:syn7214402/wiki/405297>`_).
+
 
 **January 10, 2017:**
 
