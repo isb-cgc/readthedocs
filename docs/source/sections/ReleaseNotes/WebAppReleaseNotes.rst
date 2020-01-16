@@ -594,8 +594,23 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - The mouse over feature is currently disabled for program TARGET with disease code ALL.
 - The sharing feature for Workbooks, Cohorts, and User Uploaded Programs is currently disabled. 
 - A number of TCGA and CCLE case IDs shown below will have been removed from all cohorts since they are no longer available from NCI’s Genomics Data Commons, and ISB-CGC is trying to mirror that data as closely as possible.
- - TCGA cases: TCGA-33-4579, TCGA-35-3621, TCGA-66-2746, TCGA-66-2747, TCGA-66-2750, TCGA-66-2751, TCGA-66-2752, TCGA-AN-A0FE, TCGA-AN-A0FG, TCGA-BH-A0B2, TCGA-BR-4186, TCGA-BR-4190, TCGA-BR-4194, TCGA-BR-4195, TCGA-BR-4196, TCGA-BR-4197, TCGA-BR-4199, TCGA-BR-4200, TCGA-BR-4205, TCGA-BR-4259, TCGA-BR-4260, TCGA-BR-4261, TCGA-BR-4263, TCGA-BR-4264, TCGA-BR-4265, TCGA-BR-4266, TCGA-BR-4270, TCGA-BR-4271, TCGA-BR-4272, TCGA-BR-4273, TCGA-BR-4274, TCGA-BR-4276, TCGA-BR-4277, TCGA-BR-4278, TCGA-BR-4281, TCGA-BR-4282, TCGA-BR-4283, TCGA-BR-4284, TCGA-BR-4285, TCGA-BR-4286, TCGA-BR-4288, TCGA-BR-4291, TCGA-BR-4298, TCGA-BR-4375, TCGA-BR-4376, TCGA-DM-A286, TCGA-E2-A1IP, TCGA-F4-6857, TCGA-GN-A261, TCGA-O2-A5IC, TCGA-PN-A8M9
- - CCLE cases: LS123, LS1034
+ 
+|TCGA cases  |            |            |            |            |
+| ---------- |:----------:|:----------:|:----------:| ----------:|
+|TCGA-33-4579|TCGA-35-3621|TCGA-66-2746|TCGA-66-2747|TCGA-66-2750|
+|TCGA-66-2751|TCGA-66-2752|TCGA-AN-A0FE|TCGA-AN-A0FG|TCGA-BH-A0B2|
+|TCGA-BR-4186|TCGA-BR-4190|TCGA-BR-4194|TCGA-BR-4195|TCGA-BR-4196|
+|TCGA-BR-4197|TCGA-BR-4199|TCGA-BR-4200|TCGA-BR-4205|TCGA-BR-4259|
+|TCGA-BR-4260|TCGA-BR-4261|TCGA-BR-4263|TCGA-BR-4264|TCGA-BR-4265|
+|TCGA-BR-4266|TCGA-BR-4270|TCGA-BR-4271|TCGA-BR-4272|TCGA-BR-4273|
+|TCGA-BR-4274|TCGA-BR-4276|TCGA-BR-4277|TCGA-BR-4278|TCGA-BR-4281|
+|TCGA-BR-4282|TCGA-BR-4283|TCGA-BR-4284|TCGA-BR-4285|TCGA-BR-4286|
+|TCGA-BR-4288|TCGA-BR-4291|TCGA-BR-4298|TCGA-BR-4375|TCGA-BR-4376|
+|TCGA-DM-A286|TCGA-E2-A1IP|TCGA-F4-6857|TCGA-GN-A261|TCGA-O2-A5IC|
+|TCGA-PN-A8M9|            |            |            |            |
+
+> CCLE cases: LS123, LS1034
+
 - The number of cases and samples when viewed in the User Interface as compared to the BigQuery tables vary across all three projects (TCGA, TARGET, and CCLE). This is because the user interface reflects the data available at the Genomic Data Commons, whereas data in BigQuery reflects either data at the original TCGA data coordinating center supplemented with Genomic Data Commons Data (for TCGA and CCLE), or for TARGET, data received from the TARGET data coordinating center, not the Genomic Data Commons.
 - We have removed Google Genomics functionality from the user interface. You will still be able to access CCLE open access data in Google Genomics from the command line. We are open to adding Google Genomics controlled data back into the user interface if you have a use case for it. Also we are restructuring the handling of multiple Programs of data. Please feel free to provide `feedback <https://groups.google.com/a/isb-cgc.org/forum/#!newtopic/feedback>`_. 
 - For TARGET data the clinical and Gene Expression files themselves are available in the system.
