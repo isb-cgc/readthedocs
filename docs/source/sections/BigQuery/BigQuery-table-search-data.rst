@@ -36,9 +36,9 @@ Genome Annotation
 miRNA Expression
 -----------------
 
-**miRNA Expression**
+**miRNA Annotations**
 
-**miRNA Isoform Expression**
+**miRNA Interactions**
 
 
 
@@ -54,6 +54,6 @@ COPY NUMBER
 miRNA Expression
 -----------------
 
-**miRNA Annotations**
+**miRNA Expression**
 
-**miRNA Interactions**
+**miRNA Isoform Expression**
