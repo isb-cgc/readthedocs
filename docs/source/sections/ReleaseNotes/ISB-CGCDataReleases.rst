@@ -4,6 +4,11 @@ ISB-CGC Data Release Notes
 
 Introduction text
 
+
+**February 22, 2018:**
+
+A `genenames_mapping <https://bigquery.cloud.google.com/table/isb-cgc:genome_reference.genenames_mapping?pli=1&tab=schema>`_ table has been added to our numerous reference sources in BigQuery to simplify mapping between HGNC IDs, HGNC symbols, Entrez Gene IDs, Ensembl Gene IDs, Pubmed IDs, and RefSeq IDs!
+
 **June 9, 2018:** 
 
 The metadata tables for GDC data release 10 are now available in BigQuery.
