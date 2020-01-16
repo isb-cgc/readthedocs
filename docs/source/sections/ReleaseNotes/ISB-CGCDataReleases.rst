@@ -5,6 +5,11 @@ ISB-CGC Data Release Notes
 Introduction text
 
 
+
+**December 30, 2016:**
+
+The 'harmonized' hg38 TCGA WXS BAM files and RNA-Seq BAM files from the initial GDC data release (1.0), as well as the legacy hg19. TCGA 'Level 2' Genome-Wide SNP6 array genotype files ('birdseed') files are now available in the ISB-CGC controlled-data repository in Google Cloud Storage.
+
 **November 14, 2016:**
 
 TCGA radiology and tissue slide images are now available in Google Cloud Storage!  
