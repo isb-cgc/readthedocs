@@ -15,15 +15,14 @@ CLINICAL
 BIOSPECIMEN
 ------------
 
-FILE METADATA
---------------
-
 
 FILE METADATA
 ==============
 
 FILE METADATA
 ---------------
+
+
 
 GENOMIC REFERENCE DATABASE 
 ===========================
@@ -34,5 +33,17 @@ DNA METHYLATION
 GENOME ANNOTATION
 ------------------
 
+
+
 PROCESSED -OMICS DATA
 ======================
+
+
+
+PROTEIN QUANTIFICATION
+-------------------------
+
+COPY NUMBER
+------------
+
+
