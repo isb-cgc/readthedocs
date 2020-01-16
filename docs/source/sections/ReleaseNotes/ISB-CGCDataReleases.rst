@@ -6,6 +6,10 @@ Introduction text
 
 
 
+**June 4, 2018:**
+
+The metadata tables for GDC data release 11 are now available in BigQuery.
+
 **May 8, 2018:**
 
 The gnomAD database (release 2.0.2, dated October 2017) is now available in BigQuery! **isb-cgc:genome_reference.gnomAD_20171003_GRCh37**.
