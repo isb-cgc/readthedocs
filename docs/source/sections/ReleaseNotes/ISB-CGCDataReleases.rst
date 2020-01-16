@@ -5,6 +5,15 @@ ISB-CGC Data Release Notes
 Introduction text
 
 
+
+**February 20, 2017:** 
+
+In collaboration with the Sanger Institute, the `COSMIC database <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/COSMIC_about.html>`_ is now available in BigQuery (registered users only).
+
+**February 5, 2017:** 
+
+Genomic coordinates (in GFF3 format) for human microRNAs added for miRBase v20 and v21 to the **isb-cgc:genome_reference** BigQuery dataset.
+
 **January 30, 2017:** 
 
 The final, unified "MC3" TCGA somatic mutations call set is available in the BigQuery. 
