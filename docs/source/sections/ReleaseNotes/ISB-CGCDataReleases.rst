@@ -5,6 +5,11 @@ ISB-CGC Data Release Notes
 Introduction text
 
 
+
+**May 5, 2017:**
+
+A table mapping between UniProtKB accessions and identifiers has been added to our reference dataset: **isb-cgc:genome_reference.UniProtKB_idmapping**.
+
 **April 10, 2017:** 
 
 We have re-organized our TCGA clinical, biospecimen, and molecular data into new datasets in BigQuery.
