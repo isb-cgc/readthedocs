@@ -5,6 +5,9 @@ ISB-CGC Data Release Notes
 Introduction text
 
 
+**August 26, 2016:** 
+
+A set of tables based on running Picard over ~67,000 TCGA bam files in GCS have been added to the **isb-cgc:tcga_seq_metadata** BigQuery dataset: information contained in these tables includes bam-index stats, insert-size metrics, quality-distribution metrics, and quality-yield metrics -- these tables can be used in conjunction with the FastQC-based tables to look for bam and/or fastq data files that meet your analysis criteria.
 
 **August 21, 2016:**
 
