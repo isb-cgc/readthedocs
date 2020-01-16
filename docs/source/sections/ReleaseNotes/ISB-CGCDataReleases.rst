@@ -4,6 +4,11 @@ ISB-CGC Data Release Notes
 
 Introduction text
 
+
+**May 13, 2016:** 
+
+New **NCBI_Viral_Annotations_Taxid10239** table added to the **isb-cgc:genome_reference** BigQuery dataset.
+
 **May 9, 2016:** 
 
 New **Ensembl2Reactome** and **miRBase2Reactome** tables added to the **isb-cgc:genome_reference** BigQuery dataset.
