@@ -42,13 +42,13 @@ miRNA Expression
 
 
 
-PROCESSED -OMICS DATA
+Processed -Omics Data
 ======================
 
-PROTEIN QUANTIFICATION
+Protein Quantification
 -------------------------
 
-COPY NUMBER
+Copy Number
 ------------
 
 miRNA Expression
