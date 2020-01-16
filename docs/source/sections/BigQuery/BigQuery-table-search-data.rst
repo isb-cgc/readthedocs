@@ -14,6 +14,8 @@ Patient case and sample information (includes clinical tables with patient demog
 Clinical
 --------
 
+
+
 Biospecimen
 ------------
 
@@ -36,6 +38,9 @@ Genomic information that can be used to cross-reference against processed-omics 
 DNA methylation
 ----------------
 
+Somatic Mutations
+------------------
+
 
 Genome Annotation
 ------------------
@@ -54,6 +59,9 @@ Processed data primarily from the GDC for TCGA, TARGET and CCLE (i.e. raw data t
 DNA methylation
 ----------------
 
+Somatic Mutations
+------------------
+
 Protein Quantification
 -------------------------
 
@@ -63,6 +71,3 @@ Copy Number
 miRNA Expression
 -----------------
 
-**miRNA Expression**
-
-**miRNA Isoform Expression**
