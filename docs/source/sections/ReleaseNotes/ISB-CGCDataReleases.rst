@@ -5,8 +5,10 @@ ISB-CGC Data Release Notes
 Introduction text
 
 
+**November 14, 2016:**
 
-
+TCGA radiology and tissue slide images are now available in Google Cloud Storage!  
+This includes radiology images (DICOM files) from the `Cancer Imaging Archive <http://www.cancerimagingarchive.net/>`_ (TCIA) and tissue slide images from the `NCI-GDC data portal <https://portal.gdc.cancer.gov/legacy-archive/search/f?filters=%7B%22op%22:%22and%22,%22content%22:%5B%7B%22op%22:%22in%22,%22content%22:%7B%22field%22:%22files.data_type%22,%22value%22:%5B%22Tissue%20slide%20image%22%5D%7D%7D%5D%7D>`_ (SVS files).
 
 **November 16, 2016:**
 
