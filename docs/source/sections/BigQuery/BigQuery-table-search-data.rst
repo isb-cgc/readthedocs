@@ -28,41 +28,8 @@ FILE METADATA
 GENOMIC REFERENCE DATABASE 
 ===========================
 
-CLINICAL
---------
 
-BIOSPECIMEN
-------------
 
-COORDINATE CONVERSION
-----------------------
-
-DISEASE CLASSIFICATIONS
-------------------------
-
-DNA METHYLATION
-----------------
-
-GENE EXPRESSION
-----------------
-
-GENE ONTOLOGY
---------------
-
-GENOME ANNOTATIONS
-------------------
-
-MICROARRAY, GENE EXPRESSION
------------------------------
-
-MIRNA ANNOTATIONS
-------------------
-
-MIRNA TARGET INTERACTIONS
---------------------------
-
-PATHWAY ANNOTATIONS	
---------------------
 
 
 
