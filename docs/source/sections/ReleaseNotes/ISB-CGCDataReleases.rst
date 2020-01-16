@@ -5,6 +5,9 @@ ISB-CGC Data Release Notes
 Introduction text
 
 
+**April 28, 2016**
+
+**GO_Ontology** and **GO_Annotations** tables added to the **isb-cgc:genome_reference** BigQuery dataset.
 
 **March 14, 2016**
 
