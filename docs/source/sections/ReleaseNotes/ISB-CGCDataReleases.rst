@@ -4,6 +4,9 @@ ISB-CGC Data Release Notes
 
 Introduction text
 
+**November 7, 2017:** 
+
+The release 83 of the **COSMIC** database is now available in BigQuery.
 
 **November 3, 2017:**
 
