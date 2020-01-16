@@ -6,7 +6,9 @@ Introduction text
 
 
 
+**January 10, 2017:**
 
+**miRBase_v20** table added to the **isb-cgc:genome_reference** BigQuery dataset.
 
 **January 4, 2017:** 
 
