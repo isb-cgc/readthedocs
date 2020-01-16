@@ -5,6 +5,13 @@ ISB-CGC Data Release Notes
 Introduction text
 
 
+**February 13, 2018:** 
+
+The release 84 of the **COSMIC** database is now available in BigQuery.
+
+**December 19, 2017:** 
+
+The ISB-CGC cohort metadata has been update to reflect the new and update TARGET gene expression data provided by the GDC in their data release 9.
 
 **December 6, 2017:** 
 
