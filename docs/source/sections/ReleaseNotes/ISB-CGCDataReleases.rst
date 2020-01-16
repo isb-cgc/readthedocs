@@ -4,6 +4,9 @@ ISB-CGC Data Release Notes
 
 Introduction text
 
+**May 9, 2016:** 
+
+New **Ensembl2Reactome** and **miRBase2Reactome** tables added to the **isb-cgc:genome_reference** BigQuery dataset.
 
 **May 3, 2016:**
 
