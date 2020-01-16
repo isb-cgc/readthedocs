@@ -4,6 +4,9 @@ ISB-CGC Data Release Notes
 
 Introduction text
 
+**June 18, 2016:** 
+
+New **GENCODE_r24** table added to the **isb-cgc:genome_reference** BigQuery dataset.
 
 **May 13, 2016:** 
 
