@@ -5,6 +5,16 @@ ISB-CGC Data Release Notes
 Introduction text
 
 
+**August 30, 2017:** 
+
+The hg38 TARGET VCF files (raw and annotated) are now available in the ISB-CGC controlled-data repository in Google Cloud Storage.
+
+
+**August 3, 2017:** 
+
+Release 82 of the **COSMIC** database is  now available in BigQuery.
+
+
 **June 30, 2017:** 
 
 The genome sequence hg19 and hg38 TARGET WXS, RNA-Seq, and miRNA-Seq BAM files are now available in the ISB-CGC controlled-data repository in Google Cloud Storage.
