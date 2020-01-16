@@ -6,6 +6,10 @@ Introduction text
 
 
 
+*8May 9, 2017:** 
+
+Release 81 of the COSMIC database is now available in BigQuery.
+
 **May 5, 2017:**
 
 A table mapping between UniProtKB accessions and identifiers has been added to our reference dataset: **isb-cgc:genome_reference.UniProtKB_idmapping**.
