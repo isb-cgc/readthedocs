@@ -7,7 +7,7 @@ Introduction text
 
 **April 10, 2017:** 
 
-We have re-organized our TCGA clinical, biospecimen, and molecular data into new datasets in BigQuery -- 
+We have re-organized our TCGA clinical, biospecimen, and molecular data into new datasets in BigQuery.
 
 Please find them below: 
 
