@@ -5,6 +5,11 @@ ISB-CGC Data Release Notes
 Introduction text
 
 
+
+**August 21, 2016:**
+
+New **miRBase_v21** table added to the **isb-cgc:genome_reference** BigQuery dataset.
+
 **August 20, 2016:** 
 
 Updated **hg19** and **hg38** `Kaviar <http://db.systemsbiology.net/kaviar/>`_ tables added to the **isb-cgc:genome_reference** BigQuery dataset.
@@ -36,10 +41,10 @@ New **Ensembl2Reactome** and **miRBase2Reactome** tables added to the **isb-cgc:
 **May 3, 2016:**
 
 New **isb-cgc:tcga_seq_metadata** BigQuery dataset contains metadata and FastQC metrics for thousands of TCGA DNA-seq and RNA-seq data files:
-    - **CGHub_Manifest** table contains metadata for all TCGA files at CGHub as of April 27th, 2016
-    - **GCS_listing_27apr2016** table contains metadata for all TCGA files hosted by ISB-CGC in GCS 
-    - **RNAseq_FastQC** table contains metrics derived from FastQC runs on the RNAseq data files, including urls to the FastQC html reports that you can cut and paste directly into your browser
-    - **WXS_FastQC** table contains metrics derived from FastQC runs on the exome DNAseq data files
+- **CGHub_Manifest** table contains metadata for all TCGA files at CGHub as of April 27th, 2016
+- **GCS_listing_27apr2016** table contains metadata for all TCGA files hosted by ISB-CGC in GCS 
+- **RNAseq_FastQC** table contains metrics derived from FastQC runs on the RNAseq data files, including urls to the FastQC html reports that you can cut and paste directly into your browser
+- **WXS_FastQC** table contains metrics derived from FastQC runs on the exome DNAseq data files
 
 **April 28, 2016**
 
