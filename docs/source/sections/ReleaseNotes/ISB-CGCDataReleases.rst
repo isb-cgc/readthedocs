@@ -5,6 +5,10 @@ ISB-CGC Data Release Notes
 Introduction text
 
 
+**February 22, 2016**
+
+Kaviar database now available in the **isb-cgc:genome_reference** BigQuery dataset.
+
 **February 19, 2016**
 
 CCLE RNAseq and DNAseq bam files imported into **Google Genomics**.
