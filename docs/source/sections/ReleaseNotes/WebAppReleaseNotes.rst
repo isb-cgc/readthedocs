@@ -355,6 +355,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - When working with a worksheet you are now able to plot gene names that contain periods.
 
 **Known Issues**
+
 - You cannot make a cohort using the cohort creation filter option on an Internet Explorer browser.
 - Analysis Type: Seq peek Formatting Elongated on occasion.
 - If the user shares a Cohort neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort. 
@@ -626,7 +627,7 @@ We have also released the analyzed data types that are based on genome build GRC
 
 Workbooks, cohorts, and variables favorites list created before the data structure migration will still be available for analysis and have been labeled as legacy and version 1. If you have difficulty using version 1 workbooks, please contact us
 
-*Known Issues**
+**Known Issues**
 
 - Analysis Type : Seq peek Formatting Elongated on occasion 
 - The CCLE data in GUI is not parallel to the CCLE data in BigQuery. 
@@ -1009,11 +1010,11 @@ Workbooks, cohorts, and variables favorites list created before the data structu
 
 **Enhancements**
   
- - A user can only select the cloud storage checkbox if he or she has been authenticated and authorized through the user details page. Otherwise the user can view the cloud storage checkbox but there will be a disabled cursor icon when the user hovers over in an attempt to select the checkbox.
- - The counts for the queries were refactored to match what was done for the APIs .
- - The Download File List as CSV was refactored to a maximum of 65,000 files at once.
- - Date formats on Workbooks, Cohort, Gene, and Variables list pages all reflect the same format.
- - The Last Updated columns to variable and gene lists were added to the user Dashboard
+- A user can only select the cloud storage checkbox if he or she has been authenticated and authorized through the user details page. Otherwise the user can view the cloud storage checkbox but there will be a disabled cursor icon when the user hovers over in an attempt to select the checkbox.
+- The counts for the queries were refactored to match what was done for the APIs .
+- The Download File List as CSV was refactored to a maximum of 65,000 files at once.
+- Date formats on Workbooks, Cohort, Gene, and Variables list pages all reflect the same format.
+- The Last Updated columns to variable and gene lists were added to the user Dashboard
 
 **Bug Fixes**
 
