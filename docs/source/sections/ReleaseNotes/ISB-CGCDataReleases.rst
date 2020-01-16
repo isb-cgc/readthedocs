@@ -70,8 +70,7 @@ RNA-Seq data:
 
 - 3 BAM files and 9 Gene Expression Quantification files removed
 - Sample barcodes: TARGET-30-PAKYZS-01A-01R, TARGET-30-PAMEZH-01A-01R, TARGET-30-PANRRW-01A-01R
-- Raw CGI Variant | WGS | Combined Nucleotide Variation | VCF files:
-- 435 files added
+- Raw CGI Variant | WGS | Combined Nucleotide Variation | VCF files:435 files added
 
 **June 4, 2018:**
 
