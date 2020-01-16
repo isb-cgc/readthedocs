@@ -73,7 +73,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - On the File Browser page for Diagnostic images there is no GDC file UUID associated to them.
 - Sharing a workbook with someone else will cause the analysis to reset.
 
-**January 22, 2018** `v3.16 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.16>`_
+**January 22, 2019** `v3.16 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.16>`_
 
 **Enhancements**
   
@@ -219,7 +219,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - When trying to reload a stored Seq-Peek plot from a Workbook the previous gene selection is stored and the plot will automatically be loaded. 
 - On the File Browser IGV Browser tab when switching genomic builds the view column selection option will be disabled.
  
-**Known Issues in Sprint 27 as of 06/18/2018**
+**Known Issues**
   
 - Analysis Type: Seq peek Formatting is Elongated on occasion 
 - If the user shares a Cohort, neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort.
@@ -376,6 +376,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
 **December 20, 2017** `v3.7 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.7>`_
  
 **Enhancements**
+
 - Using the 'View Files' page you can now view TCGA pathology images using caMicroscope! 
 - After logging into dbGaP you are now redirected to the user details page.  
 - Due to recent updates with Google, we have implemented new security requirements when working with the service accounts and attempting the access the controlled data. For more information about new requirements please go `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-Contolled-Access-Data.html#requirements-for-registering-a-google-cloud-project-service-account>`_. 
