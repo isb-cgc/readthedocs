@@ -75,6 +75,11 @@ File Metadata
 
 Information about raw data files including Google Cloud Storage paths (e.g. tables with information about files available at the GDC, including GCS paths, creation dates, file uuids, etc.)
 
+Case ID to Aliquot ID Mapping
+------------------------------
+
+
+
 Clinical Biospecimen Data
 ==========================
 
