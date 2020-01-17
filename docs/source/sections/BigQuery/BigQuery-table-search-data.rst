@@ -48,6 +48,8 @@ Genome Annotation data was loaded from multiple Ensembl gene-set versions and mu
 
 Pathway annotations data has been loaded from multiple ENSEMBL to All pathways mapping workflows from REACTOME, Badar Lab's EnrichmentMap workflow, and WikiPathways.
 
+Related Genome Ontology data is provided by the GO Consortium  and the Gene Ontology Resource. 
+
 
 Processed -Omics Data
 ======================
