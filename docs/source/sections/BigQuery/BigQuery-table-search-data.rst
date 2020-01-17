@@ -83,8 +83,10 @@ Patient case and sample information (includes clinical tables with patient demog
 Clinical
 --------
 
+Patient diagnosis, exposures, and demographic data, along with Clinical Annotation, can be found.
+
 Biospecimen
 ------------
 
-Information on cases tissue sample types, along with information on the generation process of data.
+Patient information on cases tissue sample types, along with details on the generation process of data.
 
