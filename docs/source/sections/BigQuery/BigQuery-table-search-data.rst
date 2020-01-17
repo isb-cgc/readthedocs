@@ -52,7 +52,7 @@ Genomic information that can be used to cross-reference against processed-omics 
 DNA Methylation
 ----------------
 
-
+Platform reference annotations, lift over, and liftover to hg38 coordinates workflow is available.  Also, it includes an extensive characterization of probes on multiple microarray workflows.
 
 Somatic Mutations
 ------------------
