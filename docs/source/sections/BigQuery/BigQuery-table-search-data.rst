@@ -39,7 +39,7 @@ Platform reference annnotations, lift over, and liftover to hg38 coordinates wor
 Somatic Mutations
 ------------------
 
-Refernce for human single nucleotide variations, microsatellites, small-scale insertions, and deletions from multiple tools and databases including Kaviar database. 
+Reference for human single nucleotide variations, microsatellites, small-scale insertions, and deletions from multiple tools and databases including Kaviar database. 
 
 Genome Annotation
 ------------------
