@@ -26,6 +26,7 @@ need text.
 mRNA Expression
 ----------------
 
+Gene expression data was extracted from the Affymetrix Genome-Wide Human SNP Array 6.0 analysis, ranked Hg38 gene expression data,  Illumina GA, HiSeq sequencing platforms, and the Genotype-Tissue Expression (GTEx) Project.  
 
 miRNA Expression
 -----------------
