@@ -16,13 +16,17 @@ Processed data primarily from the GDC for TCGA, TARGET and CCLE (i.e. raw data t
 DNA methylation
 ----------------
 
- Illumina Human Methylation 27k and 450k platforms
+Processed data was generated using Illumina Human Methylation 27k and 450k platforms and broken down by chromosome. The entire dataset is all available, which includes all chromosomes in one table.
 
 Somatic Mutations
 ------------------
 
+
+
 mRNA Expression
 ----------------
+
+
 
 miRNA Expression
 -----------------
