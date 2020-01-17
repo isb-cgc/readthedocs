@@ -13,7 +13,7 @@ Processed-omics Datasets
 
 Processed data primarily from the GDC for TCGA, TARGET and CCLE (i.e. raw data that has gone through GDC pipeline processing e.g. gene expression, miRNA expression, copy number, somatic mutations, methylation)
 
-DNA methylation
+DNA Methylation
 ----------------
 
 Processed data was generated using Illumina Human Methylation 27k and 450k platforms and broken down by chromosome. The entire dataset is all available, which includes all chromosomes in one table.
@@ -48,7 +48,7 @@ Genomic Reference Database
 
 Genomic information that can be used to cross-reference against processed-omics data tables (e.g. COSMIC, ClinVar, cytoBand, dbSNP)
 
-DNA methylation
+DNA Methylation
 ----------------
 
 Platform reference annnotations, lift over, and liftover to hg38 coordinates workflow is alailable.  Also, includes an extensive characterization of probes on multiple microarray workflows. 
