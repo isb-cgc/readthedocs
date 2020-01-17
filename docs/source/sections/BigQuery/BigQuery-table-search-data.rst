@@ -2,13 +2,18 @@
 Data Categories
 ================
 
+
+Due to the extensive collection of data made available by the ISB-CGC the datasets hosted in ISB-CGC Google BigQuery is organized into four categories, **Processed-omics datasets**, **Genomic Reference Database**, **File Metadata**, and **Clinical Biospecimen Data**. A dataset is made up of multiple tables, and can be uniquely identified based on the Google Cloud Platform (GCP) project name (in this case **isb-cgc**), and the dataset name, separated by a colon (or a period, in standard SQL),  *eg* ``isb-cgc.TCGA_bioclin_v0``.  Tables are uniquely identified by appending the table name,
+preceded by a period, *eg* ``isb-cgc.TCGA_bioclin_v0.Clinical``.
+
+
 Data made available by the ISB-CGC through BigQuery is organized into several *open-access* 
 datasets, where a dataset is made up of multiple tables.  Datasets in BigQuery are uniquely identified based on the Google Cloud Platform (GCP) project name (in this case **isb-cgc**), and the dataset name, separated by a colon (or a period, in standard SQL),  *eg* ``isb-cgc.TCGA_bioclin_v0``.  Tables are uniquely identified by appending the table name,
 preceded by a period, *eg* ``isb-cgc.TCGA_bioclin_v0.Clinical``.
 
 
-Processed -Omics Data
-======================
+Processed-omics Datasets
+========================
 
 Processed data primarily from the GDC for TCGA, TARGET and CCLE (i.e. raw data that has gone through GDC pipeline processing e.g. gene expression, miRNA expression, copy number, somatic mutations, methylation)
 
