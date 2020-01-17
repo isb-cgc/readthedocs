@@ -77,6 +77,7 @@ Information about raw data files including Google Cloud Storage paths (e.g. tabl
 Case ID to Aliquot ID Mapping
 ------------------------------
 
+
 Case ID Data
 -------------
 
@@ -85,6 +86,10 @@ Current File Data
 
 GDC file ID to Google Cloud Storage bucket location
 ----------------------------------------------------
+
+Legacy File Data
+-----------------
+
 
 Clinical Biospecimen Data
 ==========================
