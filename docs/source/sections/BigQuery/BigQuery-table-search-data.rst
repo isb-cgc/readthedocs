@@ -62,13 +62,13 @@ Reference for human single nucleotide variations, microsatellites, small-scale i
 Genome Annotation
 ------------------
 
-Genome Annotation data was loaded from multiple Ensembl gene-set versions and multiple GENCODE reference gene set versions. 
+Genome Annotation data was generated from multiple Ensembl gene-set versions, and multiple GENCODE reference gene set versions. 
 
 Pathway annotations data has been loaded from multiple ENSEMBL to All pathways mapping workflows from REACTOME, Badar Lab's EnrichmentMap workflow, and WikiPathways.
 
-Related Genome Ontology data is provided by the GO Consortium  and the Gene Ontology Resource. 
+Related Genome Ontology data is provided by the GO Consortium and the Gene Ontology Resource. 
 
-This also includes miRNA Expression annotations and target interactions loaded from the miRBase database and the miRTarBase database.
+The database also includes miRNA Expression annotations and target interactions loaded from the miRBase database and the miRTarBase database.
 
 File Metadata
 ==============
@@ -78,15 +78,13 @@ Information about raw data files including Google Cloud Storage paths (e.g. tabl
 Clinical Biospecimen Data
 ==========================
 
-Patient case and sample information (includes clinical tables with patient demographic data, and biospecimen data with detailed sample information).
+Patient case and sample information (includes clinical tables with patient demographic data, and biospecimen data with detailed sample information.)
 
 Clinical
 --------
 
-Patient diagnosis, exposures, and demographic data along with Clinical Annotation can be found. 
-
 Biospecimen
 ------------
 
-Information on cases tissue sample types, along with information on the generation process of data. 
+Information on cases tissue sample types, along with information on the generation process of data.
 
