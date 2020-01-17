@@ -6,6 +6,34 @@ Data made available by the ISB-CGC through BigQuery is organized into several *o
 datasets, where a dataset is made up of multiple tables.  Datasets in BigQuery are uniquely identified based on the Google Cloud Platform (GCP) project name (in this case **isb-cgc**), and the dataset name, separated by a colon (or a period, in standard SQL),  *eg* ``isb-cgc.TCGA_bioclin_v0``.  Tables are uniquely identified by appending the table name,
 preceded by a period, *eg* ``isb-cgc.TCGA_bioclin_v0.Clinical``.
 
+
+Processed -Omics Data
+======================
+
+Processed data primarily from the GDC for TCGA, TARGET and CCLE (i.e. raw data that has gone through GDC pipeline processing e.g. gene expression, miRNA expression, copy number, somatic mutations, methylation)
+
+DNA methylation
+----------------
+
+Somatic Mutations
+------------------
+
+mRNA Expression
+----------------
+
+miRNA Expression
+-----------------
+
+Protein Quantification
+-------------------------
+
+Copy Number
+------------
+
+
+
+
+
 Clinical Biospecimen Data
 ==========================
 
@@ -52,26 +80,5 @@ Related Genome Ontology data is provided by the GO Consortium  and the Gene Onto
 
 This also includes miRNA Expression annotations and target interactions loaded from the miRBase database and the miRTarBase database.
 
-Processed -Omics Data
-======================
 
-Processed data primarily from the GDC for TCGA, TARGET and CCLE (i.e. raw data that has gone through GDC pipeline processing e.g. gene expression, miRNA expression, copy number, somatic mutations, methylation)
-
-DNA methylation
-----------------
-
-Somatic Mutations
-------------------
-
-mRNA Expression
-----------------
-
-miRNA Expression
------------------
-
-Protein Quantification
--------------------------
-
-Copy Number
-------------
 
