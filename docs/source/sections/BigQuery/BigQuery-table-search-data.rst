@@ -77,19 +77,35 @@ Information about raw data files including Google Cloud Storage paths (e.g. tabl
 Case ID to Aliquot ID Mapping
 ------------------------------
 
+Example format in BigQuery: _aliquot2caseIDmap
+
+This table was created to prevent nested tables. 
 
 Case ID Data
 -------------
 
+Example format in BigQuery: _caseData
+
 Current File Data
 ------------------
+
+Example format in BigQuery: _fileData_active
+
 
 GDC file ID to Google Cloud Storage bucket location
 ----------------------------------------------------
 
+Example format in BigQuery: _GDCfileID_to_GCSurl
+
 Legacy File Data
 -----------------
 
+Example format in BigQuery: _fileData_legacy
+
+Case ID to Slide ID mapping
+----------------------------
+
+Example format in BigQuery: _slide2caseIDmap
 
 Clinical Biospecimen Data
 ==========================
