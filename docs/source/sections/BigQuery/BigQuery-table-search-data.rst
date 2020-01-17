@@ -9,26 +9,22 @@ preceded by a period, *eg* ``isb-cgc.TCGA_bioclin_v0.Clinical``.
 Clinical Biospecimen Data
 ==========================
 
-Patient case and sample information (includes clinical tables with patient demographic data, and biospecimen data with detailed sample information)
+Patient case and sample information (includes clinical tables with patient demographic data, and biospecimen data with detailed sample information).
 
 Clinical
 --------
 
-
+Patient diagnosis, exposures, and demographic data along with Clinical Annotation can be found. 
 
 Biospecimen
 ------------
 
+Information on cases tissue sample types, along with information on the generation process of data. 
 
 File Metadata
 ==============
 
 Information about raw data files including Google Cloud Storage paths (e.g. tables with information about files available at the GDC, including GCS paths, creation dates, file uuids, etc.)
-
-File Metadata
----------------
-
-
 
 Genomic Reference Database
 ===========================
