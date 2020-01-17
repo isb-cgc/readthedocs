@@ -78,6 +78,9 @@ Information about raw data files including Google Cloud Storage paths (e.g. tabl
 Case ID to Aliquot ID Mapping
 ------------------------------
 
+Case ID Data
+-------------
+
 
 
 Clinical Biospecimen Data
