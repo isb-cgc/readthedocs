@@ -16,6 +16,8 @@ Processed data primarily from the GDC for TCGA, TARGET and CCLE (i.e. raw data t
 DNA methylation
 ----------------
 
+ Illumina Human Methylation 27k and 450k platforms
+
 Somatic Mutations
 ------------------
 
@@ -34,7 +36,7 @@ Copy Number
 Genomic Reference Database
 ===========================
 
-Genomic information that can be used to cross-reference against processed-omics data tables (e.g. COSMIC, ClinVar, cytoBand, dbSNP, Ensembl, Ensembl2Reactome)
+Genomic information that can be used to cross-reference against processed-omics data tables (e.g. COSMIC, ClinVar, cytoBand, dbSNP)
 
 DNA methylation
 ----------------
