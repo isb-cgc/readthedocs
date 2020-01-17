@@ -46,6 +46,8 @@ Genome Annotation
 
 Genome Annotation data was loaded from multiple Ensembl gene-set versions and multiple GENCODE reference gene set versions. 
 
+Pathway annotations data has been loaded from multiple ENSEMBL to All pathways mapping workflows from REACTOME, Badar Lab's EnrichmentMap workflow, and WikiPathways.
+
 
 Processed -Omics Data
 ======================
