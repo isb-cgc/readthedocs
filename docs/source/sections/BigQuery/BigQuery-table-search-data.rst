@@ -84,6 +84,8 @@ Case ID Data
 Current File Data
 ------------------
 
+GDC file ID to Google Cloud Storage bucket location
+----------------------------------------------------
 
 Clinical Biospecimen Data
 ==========================
