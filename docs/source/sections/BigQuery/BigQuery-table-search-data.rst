@@ -50,6 +50,7 @@ Pathway annotations data has been loaded from multiple ENSEMBL to All pathways m
 
 Related Genome Ontology data is provided by the GO Consortium  and the Gene Ontology Resource. 
 
+This also includes miRNA Expression annotations and target interactions loaded from the miRBase database and the miRTarBase database.
 
 Processed -Omics Data
 ======================
