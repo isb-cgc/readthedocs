@@ -56,9 +56,10 @@ Related Genome Ontology data is provided by the GO Consortium  and the Gene Onto
 
 This also includes miRNA Expression annotations and target interactions loaded from the miRBase database and the miRTarBase database.
 
+File Metadata
+==============
 
-
-
+Information about raw data files including Google Cloud Storage paths (e.g. tables with information about files available at the GDC, including GCS paths, creation dates, file uuids, etc.)
 
 Clinical Biospecimen Data
 ==========================
