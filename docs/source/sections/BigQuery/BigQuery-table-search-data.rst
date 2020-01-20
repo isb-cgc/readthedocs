@@ -96,6 +96,11 @@ GDC file ID to Google Cloud Storage bucket location
 
 Example format in BigQuery: _GDCfileID_to_GCSurl
 
+Case ID to Slide ID mapping
+----------------------------
+
+Example format in BigQuery: _slide2caseIDmap
+
 Clinical Biospecimen Data
 ==========================
 
