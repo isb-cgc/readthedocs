@@ -61,7 +61,7 @@ Reference for human single nucleotide variations, microsatellites, small-scale i
 Genome Annotation
 ------------------
 
-Genome annotation is the category for datasets which contain information about the contents of a genome.  This includes, for example, the location and base change of nucleotide polymorphisms, the genomic location and function of genes, or the targets of miRNAs.
+This category represents datasets which contain information about the contents of a genome.  This includes, for example, the location and base change of nucleotide polymorphisms, the genomic location and function of genes, or the targets of miRNAs.
 
 Genome Annotation data was generated from multiple Ensembl gene-set versions, and multiple GENCODE reference gene set versions. 
 
