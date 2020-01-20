@@ -91,6 +91,11 @@ Legacy File Data
 
 Example format in BigQuery: _fileData_legacy
 
+GDC file ID to Google Cloud Storage bucket location
+----------------------------------------------------
+
+Example format in BigQuery: _GDCfileID_to_GCSurl
+
 Clinical Biospecimen Data
 ==========================
 
