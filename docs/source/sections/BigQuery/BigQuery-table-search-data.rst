@@ -96,7 +96,7 @@ Example table end name in BigQuery: _fileData_legacy
 GDC file ID to Google Cloud Storage bucket location
 ----------------------------------------------------
 
-Example format in BigQuery: _GDCfileID_to_GCSurl
+Example table end name in BigQuery: _GDCfileID_to_GCSurl
 
 Case ID to Slide ID mapping
 ----------------------------
