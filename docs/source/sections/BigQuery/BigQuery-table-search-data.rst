@@ -91,7 +91,7 @@ Example table end name in BigQuery: _fileData_active
 Legacy File Data
 -----------------
 
-Example format in BigQuery: _fileData_legacy
+Example table end name in BigQuery: _fileData_legacy
 
 GDC file ID to Google Cloud Storage bucket location
 ----------------------------------------------------
