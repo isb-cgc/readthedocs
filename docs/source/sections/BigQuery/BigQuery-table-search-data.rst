@@ -106,7 +106,7 @@ Example table end name in BigQuery: _slide2caseIDmap
 Case ID to Aliquot ID Mapping
 -----------------------------
 
-Example format in BigQuery: _aliquot2caseIDmap
+Example table end name in BigQuery: _aliquot2caseIDmap
 
 
 Clinical Biospecimen Data
