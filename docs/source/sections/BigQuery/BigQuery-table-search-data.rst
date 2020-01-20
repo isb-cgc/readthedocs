@@ -86,7 +86,7 @@ All case barcode information active and legacy databases is available from the G
 Current File Data
 ------------------
 
-Example format in BigQuery: _fileData_active
+Example table end name in BigQuery: _fileData_active
 
 Legacy File Data
 -----------------
