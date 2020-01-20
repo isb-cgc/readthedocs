@@ -9,3 +9,5 @@ ISB-CGC BigQuery Table Search Release Notes
 **Enhancements**
 
 **Bug Fixes**
+
+**Known Issues**
