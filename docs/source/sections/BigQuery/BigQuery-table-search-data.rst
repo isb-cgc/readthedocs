@@ -81,7 +81,7 @@ Case ID Data
 
 Example format in BigQuery: _caseData
 
-All case barcode information is available from the Genomic Data Commons API. You are able to find the 'case_gdc_id' along with the corresponding 'legacy_file_count' and the 'active_file_count'. The 'case_gdc_id' provides the ability to create joins across all file metadata tables generated from the GDC.
+All case barcode information active and legacy databases is available from the Genomic Data Commons API. You are able to find the 'case_gdc_id' along with the corresponding 'legacy_file_count' and the 'active_file_count' in this table. The 'case_gdc_id' provides the ability to create joins across all file metadata tables generated from the GDC.
 
 Current File Data
 ------------------
