@@ -81,6 +81,10 @@ Case ID Data
 
 Example format in BigQuery: _caseData
 
+Current File Data
+------------------
+
+Example format in BigQuery: _fileData_active
 
 Clinical Biospecimen Data
 ==========================
