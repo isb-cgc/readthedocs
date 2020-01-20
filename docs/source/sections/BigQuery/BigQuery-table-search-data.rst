@@ -86,6 +86,11 @@ Current File Data
 
 Example format in BigQuery: _fileData_active
 
+Legacy File Data
+-----------------
+
+Example format in BigQuery: _fileData_legacy
+
 Clinical Biospecimen Data
 ==========================
 
