@@ -101,7 +101,7 @@ Example table end name in BigQuery: _GDCfileID_to_GCSurl
 Case ID to Slide ID mapping
 ----------------------------
 
-Example format in BigQuery: _slide2caseIDmap
+Example table end name in BigQuery: _slide2caseIDmap
 
 Case ID to Aliquot ID Mapping
 -----------------------------
