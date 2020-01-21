@@ -6,7 +6,7 @@ Introduction text
 
 **Please note:** Work is underway to rework our cohort creation page to better display images associated with samples.
 
-**April 25, 2019**
+**April 25, 2019** 
  
 The following datasets (open and controlled access) have been added to the ISB-CGC for service account registration:
 
@@ -44,7 +44,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - Work is underway to rework our cohort creation page to better display images associated with samples.
 
 
-**March 8, 2019**
+**March 8, 2019** `v3.17 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.17>`_
 
 **Enhancements**
 
