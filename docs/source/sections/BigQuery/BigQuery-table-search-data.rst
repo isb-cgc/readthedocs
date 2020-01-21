@@ -88,6 +88,8 @@ Current File Data
 
 Example table end name in BigQuery: _fileData_active
 
+All possible information returned from the Genomic Data Commons API active database. 
+
 Legacy File Data
 -----------------
 
