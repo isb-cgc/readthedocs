@@ -19,7 +19,7 @@ ISB-CGC BigQuery Table Search Release Notes
  - Table Description
  - Labels
  - Field Name
-
+- Search results provide a detailed table schema description including full table ID, table description and field descriptions.
 
 
 **Bug Fixes**
