@@ -8,6 +8,13 @@ ISB-CGC BigQuery Table Search Release Notes
 
 **Enhancements**
 
+- Multiple filters introduced
+ - Status 
+ - Categories
+ - Reference Genome Build
+ - Source
+ - Data Type
+
 **Bug Fixes**
 
 **Known Issues**
