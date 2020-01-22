@@ -90,7 +90,7 @@ Current File Data
 
 Example table end name in BigQuery: rel#_fileData_active
 
-List of the currently active cases in GDC along with information related to those cases.  All possible information returned from the Genomic Data Commons API active database. 
+List of the currently active cases in GDC, along with information related to those cases.  All possible information returned from the Genomic Data Commons API active database. 
 
 Legacy File Data
 -----------------
@@ -104,7 +104,7 @@ GDC file ID to Google Cloud Storage bucket location
 
 Example table end name in BigQuery: rel#_GDCfileID_to_GCSurl
 
-Provides the Google Cloud Storage location for each file present at the Genomic Data Commons.
+Provides the Google Cloud Storage location for every file present at the Genomic Data Commons.
 
 
 Case ID to Slide ID mapping
