@@ -14,6 +14,11 @@ ISB-CGC BigQuery Table Search Release Notes
  - Reference Genome Build
  - Source
  - Data Type
+ - Dataset ID
+ - Table ID
+ - Table Description
+
+
 
 **Bug Fixes**
 
