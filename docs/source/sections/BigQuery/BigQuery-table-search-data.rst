@@ -76,39 +76,53 @@ File Metadata
 
 Information about raw data files including Google Cloud Storage paths (e.g. tables with information about files available at the GDC, including GCS paths, creation dates, file uuids, etc.)
 
+
 Case ID Data
 -------------
 
-Example table end name in BigQuery: _caseData
+Example table end name in BigQuery: rel#_caseData
 
 All case barcode information active and legacy databases is available from the Genomic Data Commons API. You are able to find the 'case_gdc_id' along with the corresponding 'legacy_file_count' and the 'active_file_count' in this table. The 'case_gdc_id' provides the ability to create joins across all file metadata tables generated from the GDC.
 
 Current File Data
 ------------------
 
-Example table end name in BigQuery: _fileData_active
+Example table end name in BigQuery: rel#_fileData_active
 
-All possible information returned from the Genomic Data Commons API active database. 
+List of the currently active cases in GDC along with information related to those cases.  All possible information returned from the Genomic Data Commons API active database. 
 
 Legacy File Data
 -----------------
 
-Example table end name in BigQuery: _fileData_legacy
+Example table end name in BigQuery: rel#_fileData_legacy
+
+Same as the current file data table but, with legacy data instead.
 
 GDC file ID to Google Cloud Storage bucket location
 ----------------------------------------------------
 
-Example table end name in BigQuery: _GDCfileID_to_GCSurl
+Example table end name in BigQuery: rel#_GDCfileID_to_GCSurl
+
+Provides the Google Cloud Storage location for each file present at the Genomic Data Commons.
+
 
 Case ID to Slide ID mapping
 ----------------------------
 
-Example table end name in BigQuery: _slide2caseIDmap
+Example table end name in BigQuery: rel#_slide2caseIDmap
+
+A “helper” table to help map between identifiers at different levels of tissue slide data. 
+
+The intrinsic hierarchy is program > project > case > sample > portion > slide.
 
 Case ID to Aliquot ID Mapping
 -----------------------------
 
-Example table end name in BigQuery: _aliquot2caseIDmap
+Example table end name in BigQuery: rel#_aliquot2caseIDmap
+
+A “helper” table to help map between identifiers at different levels of aliquot data. 
+
+The intrinsic hierarchy is program > project > case > sample > portion > analyte > aliquot.
 
 
 Clinical Biospecimen Data
