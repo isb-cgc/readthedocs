@@ -20,8 +20,12 @@ ISB-CGC BigQuery Table Search Release Notes
  - Labels
  - Field Name
 - Search results provide a detailed table schema description including full table ID, table description and field descriptions.
+- Search results also provide the ability to preview the first eight rows in BigQuery table of choice. 
+
 
 
 **Bug Fixes**
 
+
 **Known Issues**
+
