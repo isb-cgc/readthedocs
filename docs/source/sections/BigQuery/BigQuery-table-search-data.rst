@@ -76,6 +76,7 @@ File Metadata
 
 Information about raw data files including Google Cloud Storage paths (e.g. tables with information about files available at the GDC, including GCS paths, creation dates, file uuids, etc.)
 
+Most of the data is pulled from the Genomic Data Commons and created into BigQuery tables. We divide the metadata information into several tables. Below is a more detailed description of all the tables created.  
 
 Case ID Data
 -------------
