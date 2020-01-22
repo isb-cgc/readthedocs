@@ -17,6 +17,8 @@ ISB-CGC BigQuery Table Search Release Notes
  - Dataset ID
  - Table ID
  - Table Description
+ - Labels
+ - Field Name
 
 
 
