@@ -18,7 +18,6 @@ Note that dbGaP authorization is not required to access these tables.
 
 
 .. toctree::
-   :hidden:
    :maxdepth: 1
 
    progapi/bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform
