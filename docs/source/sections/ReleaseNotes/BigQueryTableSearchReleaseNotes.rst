@@ -34,6 +34,7 @@ ISB-CGC BigQuery Table Search Release Notes
 
 **Bug Fixes**
 
+No bug fixes in this release.
 
 **Known Issues**
 
