@@ -34,6 +34,8 @@ ISB-CGC BigQuery Table Search Release Notes
 
 **Enhancements**
 
+No enhancements in this release.
+
 **Bug Fixes**
 
 No bug fixes in this release.
