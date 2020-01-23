@@ -10,7 +10,7 @@ GDC data release 19.1 was posted on November 6, 2019.
 **New Programs and Projects**
 
 - BEATAML1.0-COHORT (Functional Genomic Landscape of Acute Myeloid Leukemia)
- Includes WXS and RNA-Seq data
+ New WXS and RNA-Seq data was released. 
  
 **Updates**
 
