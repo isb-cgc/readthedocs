@@ -44,7 +44,7 @@ GDC data release 19.1 was posted on November 6, 2019.
 - TARGET-NBL new WXS and RNA-Seq data was released.
 - TARGET-RT new WGS and RNA-Seq data was released.
 - TARGET-WT new WGS, WXS, and RNA-Seq data was released.
-- CGCI-BLGSP new WGD data was released. 
+- CGCI-BLGSP new WGS data was released. 
 - TARGET-ALL-P3 new Pindel VCFs was released.
 - MMRF new Pindel VCFs was released.
 - HCMI new Pindel VCFs was released.
