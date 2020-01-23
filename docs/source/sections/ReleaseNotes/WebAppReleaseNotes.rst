@@ -4,7 +4,9 @@ ISB-CGC WebApp Release Notes
 
 **Please note:** Work is underway to rework our cohort creation page to better display images associated with samples.
 
-*April 25, 2019* `v3.18 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.18>`_
+*April 25, 2019* 
+
+`v3.18 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.18>`_
  
 The following datasets (open and controlled access) have been added to the ISB-CGC for service account registration:
 
