@@ -2,6 +2,22 @@
 ISB-CGC Data Release Notes
 ############################
 
+*January 11, 2020*
+
+GDC data release 19.0 was posted on December 10, 2019.
+
+**New programs and Projects**
+
+- OHSU-CNL
+- GENIE-MDA
+- GENIE-VICC
+- GENIE-DFCI
+- GENIE-MSK
+- GENIE-UHN
+- GENIE-JHU
+- GENIE-GRCC
+- GENIE-NKI
+
 *December 20, 2019*
 
 GDC data release 19.0 was posted on September 17, 2019.
