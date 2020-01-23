@@ -2,10 +2,6 @@
 ISB-CGC Data Release Notes
 ############################
 
-Introduction text
-
-
-
 **June 25, 2018:** 
 
 GDC data release 12 was posted on Wednesday, June 13, 2018
