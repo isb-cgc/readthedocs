@@ -2,8 +2,31 @@
 ISB-CGC Data Release Notes
 ############################
 
+*September 29, 2019*
+	
+GDC data release 18 was posted on July 8, 2019.
 
+**New Programs and Projects**
 
+- ORGANOID-PANCREATIC((Pancreas Cancer Organoid Profiling)
+- MMRF-COMMPASS(Multiple Myeloma CoMMpass Study)
+- CGCI-BLGSP(Burkitt Lymphoma Genome Sequencing Project)
+- TARGET-ALL-P1(Acute Lymphoblastic Leukemia - Phase I)
+- TARGET-ALL-P2(Acute Lymphoblastic Leukemia - Phase II)
+
+**Updates**
+
+- TARGET-ALL-P3 new versions of RNA-Seq data available.
+- TARGET-CCSK new RNA-Seq data was released.
+- TARGET-OS new RNA-Seq data was released. 
+
+**BigQuery tables** created
+
+- isb-cgc:GDC_metadata.rel18_aliquot2caseIDmap
+- isb-cgc:GDC_metadata.rel18_caseData
+- isb-cgc:GDC_metadata.rel18_fileData_active
+- isb-cgc:GDC_metadata.rel18_fileData_legacy
+- isb-cgc:GDC_metadata.rel18_slide2caseIDmap
 
 *September 29, 2019*
 	
