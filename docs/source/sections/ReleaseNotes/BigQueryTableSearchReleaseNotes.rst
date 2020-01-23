@@ -6,7 +6,7 @@ ISB-CGC BigQuery Table Search Release Notes
 
 **November 26,2019** `v1.0 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.21>`_
 
-**Enhancements**
+**New Features**
 
 - Multiple filters introduced
  - Status 
