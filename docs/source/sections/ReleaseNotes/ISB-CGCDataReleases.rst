@@ -2,6 +2,21 @@
 ISB-CGC Data Release Notes
 ############################
 
+*January 4, 2019*
+
+GDC data release 14 was posted on December 18, 2018
+
+BigQuery tables created
+- isb-cgc:GDC_metadata.rel14_aliquot2caseIDmap
+- isb-cgc:GDC_metadata.rel14_caseData
+- isb-cgc:GDC_metadata.rel14_fileData_current
+- isb-cgc:GDC_metadata.rel14_fileData_legacy
+- isb-cgc:GDC_metadata.rel14_GDCfileID_to_GCSurl
+- isb-cgc:GDC_metadata.rel14_GDCfileID_to_GCSurl_NEW
+- isb-cgc:GDC_metadata.rel14_slide2caseIDmap
+- isb-cgc:TCGA_hg38_data_v0.miRNAseq_Expression
+- isb-cgc:TCGA_hg38_data_v0.miRNAseq_Isoform_Expression
+
 *October 2, 2018*
 
 GDC data release 13 was posted on September 27, 2018
