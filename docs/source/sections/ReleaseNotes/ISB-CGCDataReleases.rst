@@ -2,9 +2,24 @@
 ISB-CGC Data Release Notes
 ############################
 
+
+*September 29, 2019*
+
+	
+GDC data release 16 was posted on June 5, 2019.
+
+**New Programs and Projects**
+
+**September 25, 2019**
+
+
 *April 4, 2019*
 
 GDC data release 16 was posted on March 26, 2019.
+
+**New Programs and Projects**
+
+- CPTAC-3
 
 **BigQuery tables** created
 
@@ -18,7 +33,7 @@ GDC data release 16 was posted on March 26, 2019.
 
 GDC data release 15 was posted on February 20, 2019.
 
-**New Programs and New Peojects**
+**New Programs and Projects**
 
 - TARGET-ALL-P3
 
@@ -35,7 +50,7 @@ GDC data release 15 was posted on February 20, 2019.
 
 GDC data release 14 was posted on December 18, 2018.
 
-**New Programs and New Peojects**
+**New Programs and Projects**
 
 - FM-AD
 
@@ -55,7 +70,7 @@ GDC data release 14 was posted on December 18, 2018.
 
 GDC data release 13 was posted on September 27, 2018.
 
-**New Programs and New Projects**
+**New Programs and Projects**
 
 - VAREPOP-APOLLO
 - CTSP-DLBCL1 
