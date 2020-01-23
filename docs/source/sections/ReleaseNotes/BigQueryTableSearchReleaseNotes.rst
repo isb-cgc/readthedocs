@@ -32,6 +32,8 @@ ISB-CGC BigQuery Table Search Release Notes
 - The ability to download a CSV format file of search results.
 - The ability to show 10, 25, 50, or 100 entries at a time.
 
+**Enhancements**
+
 **Bug Fixes**
 
 No bug fixes in this release.
