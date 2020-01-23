@@ -8,7 +8,7 @@ GDC data release 18 was posted on July 8, 2019.
 
 **New Programs and Projects**
 
-- ORGANOID-PANCREATIC((Pancreas Cancer Organoid Profiling)
+- ORGANOID-PANCREATIC(Pancreas Cancer Organoid Profiling)
 - MMRF-COMMPASS(Multiple Myeloma CoMMpass Study)
 - CGCI-BLGSP(Burkitt Lymphoma Genome Sequencing Project)
 - TARGET-ALL-P1(Acute Lymphoblastic Leukemia - Phase I)
