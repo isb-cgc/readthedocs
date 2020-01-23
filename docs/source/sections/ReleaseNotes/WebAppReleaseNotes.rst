@@ -233,7 +233,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - A Workbook using a cohort that has user uploaded data and public TCGA data present will not return data for any analysis. 
 - Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
 
-**May 3, 2018** `v3.11 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.11>`_
+*May 3, 2018* `v3.11 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.11>`_
  
 **Enhancements**
  
@@ -269,7 +269,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - On the File Browser page for Diagnostic images there is no GDC file UUID associated to them.
 - Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
 
-**April 2, 2018** `v3.10 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.10>`_
+*April 2, 2018* `v3.10 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.10>`_
  
 **Enhancements**
 
@@ -300,7 +300,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - On the cohort File List Browser page, while you are downloading CSV files, other filters can be selected.
 - Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
 
-**February 28, 2018** `v3.9 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.9>`_
+*February 28, 2018* `v3.9 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.9>`_
  
 **Enhancements**
  
@@ -336,7 +336,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - On the File Browser page, while you are downloading CSV files, other filters can be selected. 
 - Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
 
-**February 1, 2018** `v3.8 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.8>`_
+*February 1, 2018* `v3.8 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.8>`_
 
 **Enhancements**
  
@@ -371,7 +371,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - Certain genes will produce a blank chart with no data on a worksheet when working with a histogram.
 - Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
 
-**December 20, 2017** `v3.7 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.7>`_
+*December 20, 2017* `v3.7 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.7>`_
  
 **Enhancements**
 
