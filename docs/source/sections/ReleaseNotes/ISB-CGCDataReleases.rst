@@ -2,9 +2,23 @@
 ISB-CGC Data Release Notes
 ############################
 
+*March 6, 2019*
+
+
+GDC data release 15 was posted on February 20, 2019.
+
+
+**BigQuery tables** created
+
+- isb-cgc:GDC_metadata.rel15_aliquot2caseIDmap
+- isb-cgc:GDC_metadata.rel15_caseData
+- isb-cgc:GDC_metadata.rel15_fileData_current
+- isb-cgc:GDC_metadata.rel15_fileData_legacy
+- isb-cgc:GDC_metadata.rel15_slide2caseIDmap
+
 *January 4, 2019*
 
-GDC data release 14 was posted on December 18, 2018
+GDC data release 14 was posted on December 18, 2018.
 
 **BigQuery tables** created
 
@@ -20,7 +34,7 @@ GDC data release 14 was posted on December 18, 2018
 
 *October 2, 2018*
 
-GDC data release 13 was posted on September 27, 2018
+GDC data release 13 was posted on September 27, 2018.
 
 **New Programs and New Projects**
 
@@ -37,7 +51,7 @@ GDC data release 13 was posted on September 27, 2018
 
 *June 25, 2018:*
 
-GDC data release 12 was posted on Wednesday, June 13, 2018
+GDC data release 12 was posted on Wednesday, June 13, 2018.
 
 - There is absolutely no change in the legacy archive data between DR11 and DR12
 - There is also no change in the total number of cases in either archive
