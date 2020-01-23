@@ -273,17 +273,17 @@ Public release of new **isb-cgc:genome_reference** BigQuery dataset: the first t
 
 Curated TCGA cohort lists available in **isb-cgc:tcga_cohorts** BigQuery dataset.
 
-**December 3, 2015**
+*December 3, 2015*
 
 Version `v0.1 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/1.0>`_.
 
 First tagged release of the web-app.
 
-**November 16, 2015**
+*November 16, 2015*
 
 Initial upload of data from CGHub into **Google Cloud Storage** (GCS) complete (not publicly released).
 
-**November 2, 2015**
+*November 2, 2015*
 
 First public release of TCGA open-access data in BigQuery tables.
 
@@ -291,11 +291,11 @@ First public release of TCGA open-access data in BigQuery tables.
 - Includes **Annotations** table with information about redacted samples, etc
 - **isb-cgc:platform_reference** contains annotation information for the Illumina DNA Methylation platform
 
-**October 4, 2015**
+*October 4, 2015*
 
 Complete data upload from TCGA DCC, including controlled-access data
 
-**September 21, 2015** 
+*September 21, 2015* 
 
 Draft set of BigQuery tables (not publicly released)
 
