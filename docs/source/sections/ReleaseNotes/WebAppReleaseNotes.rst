@@ -813,6 +813,21 @@ LS123, LS1034
 
 *September 21, 2016*: `v1.10 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.10>`_
 
+**Enhancements**
+  
+- Text in confirmation box of a duplication of a workbook has been enhanced. 
+- On the registered Google Cloud Projects page, icon has been added for the user to go directly to the Google Cloud Console page if desired. 
+- When the a Service Account is removed from the Access Control List, the project owner is sent an email with an explanation as to why the account was removed. 
+- IGV File List page displays of which page user is browsing. 
+
+**Bug Fixes**
+
+- For a Cubby hole plot the x - axis name can be seen clearly. 
+- On a duplicate worksheet when working with gene specifications, user is able to select between all options multiple times. 
+- Page becomes elongated when the user builds a Cubby Hole plot. 
+- The selected variables for the plot setting on a worksheet are saved after the user leaves the workbook. 
+- When registering a Google Cloud Project the user is displayed the list of emails associated to the GCP only once. 
+
 **Known Issues**
   
 - The user can add same gene twice if list to the same worksheet it they have different names. 
@@ -829,40 +844,7 @@ LS123, LS1034
 - When a user duplicates a worksheet, then tries to implement the log scale it will not function properly. 
 - There are duplicate rows in the molecular data table in BigQuery. 
 
-**Enhancements**
-  
-- Text in confirmation box of a duplication of a workbook has been enhanced. 
-- On the registered Google Cloud Projects page, icon has been added for the user to go directly to the Google Cloud Console page if desired. 
-- When the a Service Account is removed from the Access Control List, the project owner is sent an email with an explanation as to why the account was removed. 
-- IGV File List page displays of which page user is browsing. 
-
-**Bug Fixes**
-
-- For a Cubby hole plot the x - axis name can be seen clearly. 
-- On a duplicate worksheet when working with gene specifications, user is able to select between all options multiple times. 
-- Page becomes elongated when the user builds a Cubby Hole plot. 
-- The selected variables for the plot setting on a worksheet are saved after the user leaves the workbook. 
-- When registering a Google Cloud Project the user is displayed the list of emails associated to the GCP only once. 
-
 *September 7, 2016*: `v1.9 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.9>`_
-  
-**Known Issues**
-
-- The user can add same gene twice if list to the same worksheet it they have different names.
-- The Bar chart on the worksheet panel renders overlapping text.
-- Analysis Type : Seq peek Formatting Elongated 
-- The CCLE data in GUI is not parallel to the CCLE data in BigQuery. 
-- If a user creates a cohort with sample type filter Cell Lines and CCLE the total number of samples count off by one.
-- User will occasionally be sent to the Social Network Login page when trying to login. If this occurs, please go the the home page of the Web Application and try again.
-- Page becomes elongated when the user builds a Cubby Hole plot. 
-- X-axis name cut off for cubby hole plot when x-axis has only 3 criteria.
-- If the user shares a cohort they do not receive a confirmation email.
-- The Legend is displayed elongated when you use multiple cohort for color by feature for violin plot.
-- When the user selects multiple cohorts for color by feature for scatter plot they do not display in chart.
-- When the user creates a duplicate worksheet,the bar chart with a gene with specification protein can freeze when selecting an option for the Select Feature.
-- Cannot plot any data if you use CCLE data cohort on a worksheet.
-- When the user plots a graph with NA values the UI returns a blank graph.
-- When a user duplicates a worksheet, some functionality related to plotting will not function properly on the duplicate worksheet. 
 
 **Enhancements**
   
@@ -880,6 +862,24 @@ LS123, LS1034
 - The gene specification selection on the worksheet page is now working properly.
 - When a user shares a workbook with someone the person who received viewer access to the workbook is sent a confirmation email. If the person who shared the workbook then deletes the workbook before it's opened, then the person clicks the invitation link the person is sent to the unknown invitation page. The button to go back to the Dashboard page appears like this, "Your Dashboard"
 - The user is sent an email when the Service Account is removed the Access controlled list for having a user associated to the project who is not dbGaP authorized.
+
+**Known Issues**
+
+- The user can add same gene twice if list to the same worksheet it they have different names.
+- The Bar chart on the worksheet panel renders overlapping text.
+- Analysis Type : Seq peek Formatting Elongated 
+- The CCLE data in GUI is not parallel to the CCLE data in BigQuery. 
+- If a user creates a cohort with sample type filter Cell Lines and CCLE the total number of samples count off by one.
+- User will occasionally be sent to the Social Network Login page when trying to login. If this occurs, please go the the home page of the Web Application and try again.
+- Page becomes elongated when the user builds a Cubby Hole plot. 
+- X-axis name cut off for cubby hole plot when x-axis has only 3 criteria.
+- If the user shares a cohort they do not receive a confirmation email.
+- The Legend is displayed elongated when you use multiple cohort for color by feature for violin plot.
+- When the user selects multiple cohorts for color by feature for scatter plot they do not display in chart.
+- When the user creates a duplicate worksheet,the bar chart with a gene with specification protein can freeze when selecting an option for the Select Feature.
+- Cannot plot any data if you use CCLE data cohort on a worksheet.
+- When the user plots a graph with NA values the UI returns a blank graph.
+- When a user duplicates a worksheet, some functionality related to plotting will not function properly on the duplicate worksheet. 
 
 *August 24, 2016*: `v1.8 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.8>`_
   
@@ -921,7 +921,7 @@ LS123, LS1034
 - The user can now unlink an eRA commons account from their Google Identity in the user detail page. 
 - The violin plot was inconsistently failing. We have updated the JavaScript, therefore the Violin plot no longer fail. 
 
-**August 10, 2016**: `v1.7 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.7>`_
+*August 10, 2016*: `v1.7 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.7>`_
   
 **New Features**
   
@@ -967,7 +967,7 @@ LS123, LS1034
 - In the create new cohort page for the data type tab, the user can now select either True or False for DNA Sequencing, Protein, and SNP Copy Number filters. 
 - When the user edits a new cohort and sets the edited cohort to return zero samples, the user will be prompted to select different set of filters.
 
-**July 20, 2016**: `v1.6 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.6>`_
+*July 20, 2016*: `v1.6 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.6>`_
   
 **Known Issues**
   
@@ -1000,7 +1000,7 @@ LS123, LS1034
 - After 24 hour dbGaP authorization runs out the user is able to re authenticate.
 - User can not create new gene list without giving the gene list a name.
 
-**July 6, 2016**: `v1.5 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.5>`_
+*July 6, 2016*: `v1.5 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.5>`_
   
 **Known Issues**
   
@@ -1042,7 +1042,7 @@ LS123, LS1034
 - The Save cohort Endpoint default example for v1 now works properly.
 - For the cohort_list API endpoint v1 will now pull only the cohort_id you specified.
 
-**June 8, 2016**: `v1.4 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.4>`_
+*June 8, 2016*: `v1.4 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.4>`_
   
 **Known Issues**
   
@@ -1083,7 +1083,7 @@ LS123, LS1034
 - The user is now able to plot gene’s with a hyphen(-) in the gene name itself.
 - The user is now able to download a maximum of 85,000 files at a time, in the File List page for a selected cohort. 
 
-**May 10, 2016**: `v1.3 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.3>`_
+*May 10, 2016*: `v1.3 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.3>`_
  
 **Known Issues**
   
@@ -1125,7 +1125,7 @@ LS123, LS1034
 - When user switches gene in plot settings the feature choices for that specification will refresh. 
 - The variable clinical search feature works properly when the user searches for clinical variables and then are used for analysis.
 
-**April 27, 2016**: `v1.2 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.2>`_
+*April 27, 2016*: `v1.2 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.2>`_
 
 **Known Issues** 
 
@@ -1163,7 +1163,7 @@ LS123, LS1034
 - The user must have text to add a comment.
 - All columns in file list table will be transferred/displayed when exported as csv file.
 
-**April 14, 2016**: `v1.1 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.1>`_
+*April 14, 2016*: `v1.1 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.1>`_
   
 **Known Issues** 
 
@@ -1204,17 +1204,17 @@ LS123, LS1034
 - The user can now search for variable favorite with the miRNA feature
 - The user can now search for a variable favorite through the clinical search feature
 
-**March 14, 2016**: `v1.0 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.0>`_
+*March 14, 2016*: `v1.0 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.0>`_
 
 - When working with a worksheet two plots will be generated occasionally.
 - Axis labels and tick values sometimes overlap and get cutoff.
 - Page elongated when Cubby Hole plot generated and there are lots of values in the y axis.
 
-**December 23, 2015**: `v0.2 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/1.1>`_
+*December 23, 2015*: `v0.2 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/1.1>`_
 
 - Treemap graphs in cohort details and cohort creation pages will not apply its own filters to itself. For example, if you select a study, the study treemap graph will not update.
 - Cohort file list download not working.
 
-**December 3, 2015**: `v0.1 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/1.0>`_
+*December 3, 2015*: `v0.1 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/1.0>`_
 
 - First tagged release of the web-app
