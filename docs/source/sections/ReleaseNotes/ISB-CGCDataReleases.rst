@@ -7,6 +7,7 @@ ISB-CGC Data Release Notes
 GDC data release 14 was posted on December 18, 2018
 
 BigQuery tables created
+
 - isb-cgc:GDC_metadata.rel14_aliquot2caseIDmap
 - isb-cgc:GDC_metadata.rel14_caseData
 - isb-cgc:GDC_metadata.rel14_fileData_current
