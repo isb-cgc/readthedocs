@@ -141,7 +141,7 @@ A few rows of the data in a BigQuery table can be viewed by clicking on the **Pr
  
  
 Table Access
-++++++++++++
+-------------
 
 For full-access to the tables including the ability to query the tables, please see the following ISB-CGC documentation pages:
 
