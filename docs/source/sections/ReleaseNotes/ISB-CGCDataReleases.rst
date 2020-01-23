@@ -28,11 +28,10 @@ GDC data release 17.1 was posted on June 12, 2019.
 **BigQuery tables** created
 
 - isb-cgc:GDC_metadata.rel17_aliquot2caseIDmap
-- isb-cgc:GDC_metadata.rel16_aliquot2caseIDmap
-- isb-cgc:GDC_metadata.rel16_caseData
-- isb-cgc:GDC_metadata.rel16_fileData_active
-- isb-cgc:GDC_metadata.rel16_fileData_legacy
-- isb-cgc:GDC_metadata.rel16_slide2caseIDmap
+- isb-cgc:GDC_metadata.rel17_caseData
+- isb-cgc:GDC_metadata.rel17_fileData_active
+- isb-cgc:GDC_metadata.rel17_fileData_legacy
+- isb-cgc:GDC_metadata.rel17_slide2caseIDmap
 
 *April 4, 2019*
 
