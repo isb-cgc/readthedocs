@@ -11,7 +11,7 @@ preceded by a period, *e.g.* ``isb-cgc.TCGA_bioclin_v0.Clinical``.
 Processed-omics Datasets
 ========================
 
-Processed data primarily from the GDC for TCGA, TARGET, and CCLE (i.e., raw data that has gone through GDC pipeline processing e.g., gene expression, miRNA expression, copy number, somatic mutations, methylation.)
+Processed data, primarily from the GDC for TCGA, TARGET, and CCLE, is used to create the Processed-omics Data Sets. For example, to create the processed data, the TCGA raw data for the table used the GDC pipeline for processing. Some of the processed data available are gene expression, miRNA expression, copy number, somatic mutations, and methylation.
 
 DNA Methylation
 ----------------
