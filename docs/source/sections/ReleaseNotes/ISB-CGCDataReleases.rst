@@ -3,6 +3,8 @@ ISB-CGC Data Release Notes
 ############################
 
 
+
+
 *September 29, 2019*
 	
 GDC data release 17.0 was posted on June 5, 2019.
@@ -11,8 +13,17 @@ GDC data release 17.1 was posted on June 12, 2019.
 
 **New Programs and Projects**
 
-- HCMI-CMDC
-- BEATAML1.0-CRENOLANIB
+- HCMI-CMDC 500 files,  2.8TB
+- BEATAML1.0-CRENOLANIB 700 files,  3.6TB
+
+**Updates**
+
+- CPTAC-3 RNA-Seq - 7400 files, 16.6 TB
+- TCGA ATAC-Seq - 820 files, 9.2 TB
+- NCICCR-DLBCL RNA-Seq - 2900 files, 11.9 TB
+- CTSP-DLBCL1 RNA-Seq - 250 files, .96TB
+- Updates to TCGA clinical data
+- Migrations of three properties across all projects from diagnosis to demographic (vital_status, days_to_birth, days_to_death)
 
 **BigQuery tables** created
 
