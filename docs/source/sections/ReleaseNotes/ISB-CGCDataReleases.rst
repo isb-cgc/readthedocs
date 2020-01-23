@@ -16,7 +16,7 @@ GDC data release 18 was posted on July 8, 2019.
 
 **Updates**
 
-- TARGET-ALL-P3 new versions of RNA-Seq data available.
+- TARGET-ALL-P3 new RNA-Seq data was released.
 - TARGET-CCSK new RNA-Seq data was released.
 - TARGET-OS new RNA-Seq data was released. 
 
