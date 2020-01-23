@@ -69,14 +69,14 @@ Pathway annotations data has been loaded from multiple ENSEMBL to All pathways m
 
 Related Genome Ontology data is provided by the GO Consortium and the Gene Ontology Resource. 
 
-The database also includes miRNA Expression annotations and target interactions loaded from the miRBase database and the miRTarBase database.
+The data set also includes miRNA Expression annotations and target interactions loaded from the miRBase database and the miRTarBase database.
 
 File Metadata
 ==============
 
 Information about raw data files including Google Cloud Storage paths (e.g. tables with information about files available at the GDC, including GCS paths, creation dates, file uuids, etc.)
 
-Most of the data is pulled from the Genomic Data Commons and created into BigQuery tables. We divide the metadata information into several tables. Below is a more detailed description of all the tables created.  
+The metadata data sets contain information about raw data files. Some of the information included are Google Cloud Storage paths, available GDC files, creation dates, and file UUIDs. Most of the data are pulled from the Genomic Data Commons to create several BigQuery tables.  
 
 Case ID Data
 -------------
