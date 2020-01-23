@@ -14,8 +14,6 @@ GDC data release 16 was posted on March 26, 2019.
 - isb-cgc:GDC_metadata.rel16_fileData_legacy
 - isb-cgc:GDC_metadata.rel16_slide2caseIDmap
 
-
-
 *March 6, 2019*
 
 GDC data release 15 was posted on February 20, 2019.
