@@ -2,6 +2,40 @@
 ISB-CGC Data Release Notes
 ############################
 
+*December 20, 2019*
+
+GDC data release 19.0 was posted on September 17, 2019.
+GDC data release 19.1 was posted on November 6, 2019.
+
+**New Programs and Projects**
+
+- BEATAML1.0-COHORT (Functional Genomic Landscape of Acute Myeloid Leukemia)
+ Includes WXS and RNA-Seq data
+ 
+**Updates**
+
+- TARGET-ALL-P1 new RNA-Seq data was released.
+- TARGET-ALL-P2  new RNA-Seq, WXS, and miRNA-Seq data was released.
+- TARGET-ALL-P3 new miRNA-Seq data was released.
+- TARGET-AML new WXS and WGS data was released.
+- TARGET-NBL new WXS and RNA-Seq data was released.
+- TARGET-RT new WGS and RNA-Seq data was released.
+- TARGET-WT new WGS, WXS, and RNA-Seq data was released.
+- CGCI-BLGSP new WGD data was released. 
+- TARGET-ALL-P3 new Pindel VCFs was released.
+- MMRF new Pindel VCFs was released.
+- HCMI new Pindel VCFs was released.
+- CPTAC-3 new Pindel VCFs was released.
+- Disease-specific staging properties for many projects released.
+
+**BigQuery tables** created
+
+- isb-cgc:GDC_metadata.rel19_aliquot2caseIDmap
+- isb-cgc:GDC_metadata.rel19_caseData
+- isb-cgc:GDC_metadata.rel19_fileData_active
+- isb-cgc:GDC_metadata.rel19_fileData_legacy
+- isb-cgc:GDC_metadata.rel19_slide2caseIDmap
+
 *September 29, 2019*
 	
 GDC data release 18 was posted on July 8, 2019.
