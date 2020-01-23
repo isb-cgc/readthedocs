@@ -28,6 +28,7 @@ GDC data release 21.0 was posted on December 10, 2019.
 *December 20, 2019*
 
 GDC data release 19.0 was posted on September 17, 2019.
+
 GDC data release 19.1 was posted on November 6, 2019.
 
 **New Programs and Projects**
