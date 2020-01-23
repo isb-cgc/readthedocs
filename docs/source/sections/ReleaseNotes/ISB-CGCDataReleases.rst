@@ -4,14 +4,24 @@ ISB-CGC Data Release Notes
 
 
 *September 29, 2019*
-
 	
-GDC data release 16 was posted on June 5, 2019.
+GDC data release 17.0 was posted on June 5, 2019.
+
+GDC data release 17.1 was posted on June 12, 2019.
 
 **New Programs and Projects**
 
-**September 25, 2019**
+- HCMI-CMDC
+- BEATAML1.0-CRENOLANIB
 
+**BigQuery tables** created
+
+- isb-cgc:GDC_metadata.rel17_aliquot2caseIDmap
+- isb-cgc:GDC_metadata.rel16_aliquot2caseIDmap
+- isb-cgc:GDC_metadata.rel16_caseData
+- isb-cgc:GDC_metadata.rel16_fileData_active
+- isb-cgc:GDC_metadata.rel16_fileData_legacy
+- isb-cgc:GDC_metadata.rel16_slide2caseIDmap
 
 *April 4, 2019*
 
@@ -25,7 +35,7 @@ GDC data release 16 was posted on March 26, 2019.
 
 - isb-cgc:GDC_metadata.rel16_aliquot2caseIDmap
 - isb-cgc:GDC_metadata.rel16_caseData
-- isb-cgc:GDC_metadata.rel16_fileData_current
+- isb-cgc:GDC_metadata.rel16_fileData_active
 - isb-cgc:GDC_metadata.rel16_fileData_legacy
 - isb-cgc:GDC_metadata.rel16_slide2caseIDmap
 
