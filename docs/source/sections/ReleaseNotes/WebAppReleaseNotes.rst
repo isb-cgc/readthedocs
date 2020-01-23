@@ -397,7 +397,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - When uploading TARGET files using the cohort barcode creation feature from the GDC you may get an invalid barcodes error message and unable to upload all the barcodes.
 - Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
 
-**November 20, 2017** `v3.6 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.6>`_
+*November 20, 2017* `v3.6 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.6>`_
  
 **Enhancements**
  
@@ -429,7 +429,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - If you have uploaded a lot of data using the User Data Upload feature, it is likely you will experience 502 error page when attempting to create a new variable favorite list. 
 - When working with the API endpoints the sample.get for all three programs will return a 503 internal server error.
 
-**October 13, 2017** `v3.5 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.5>`_
+*October 13, 2017* `v3.5 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.5>`_
  
 **Enhancements**
  
@@ -457,7 +457,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - When working on Firefox browser a violin plot does not display the data plotted correctly when working on a Worksheet. 
 - We need to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
 
-**September 21,2017** `v3.4 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.4>`_
+*September 21,2017* `v3.4 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.4>`_
  
 **Enhancements**
  
@@ -493,7 +493,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - A very small amount of bam files for program TARGET currently have the wrong file name and cannot be used with the IGV browser. 
 - When working on Firefox browser a violin plot does not display the data plotted correctly when working on a Worksheet. 
 
-**August 23, 2017**: `v3.3 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.3>`_
+*August 23, 2017*: `v3.3 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.3>`_
  
 **Enhancements**
  
@@ -534,7 +534,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - When plotting, certain values will be displayed as numerical when it should be a categorical value e.g Tobacco Smoking History.
 - The mouse over feature is currently disabled for program TARGET with disease code ALL. 
 
-**July 31, 2017**: `v3.2 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.2>`_
+*July 31, 2017*: `v3.2 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.2>`_
 
 **Enhancements**
 
@@ -571,7 +571,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - The user.get CCLE program API endpoint will return a 503 internal server error.
 - When creating large cohort you will be given a red error message saying, “There was an error saving your cohort; it may not have been saved correctly.” 
 
-**June 14, 2017**: `v3.1 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.1>`_
+*June 14, 2017*: `v3.1 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.1>`_
 
 **Known Issues**
  
@@ -621,7 +621,7 @@ LS123, LS1034
 - Cohorts created with API specific filters are now accessible to access by their cohort details page. 
 - You are now able to plot miRNA data with genomic build hg38 for TARGET data. 
    
-**May 25, 2017**: `v3.0 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.0>`_
+*May 25, 2017*: `v3.0 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.0>`_
 
 In collaboration with the GDC we now have TARGET pediatric cancer data available for analysis in the user interface. You are now able to create cohorts and plot analysis with information from TARGET, TCGA, and CCLE data. 
  
@@ -672,13 +672,13 @@ LS123, LS1034
 - The user data upload is enabled and users can now upload their own datasets and create cohorts using existing programs and newly uploaded data by the user.
 - You can now have multiple Google Cloud Projects associated to your account and use only one bucket and dataset on one project with no interference. 
 
-**April 12, 2017**:
+*April 12, 2017*:
 
 **Known Issues**
 
 - We are currently having issues viewing bam files using the IGV browser for TCGA and CCLE data. We are working to fix the issue and it should be resolved as soon as possible.
 
-**February 26, 2017**: 
+*February 26, 2017*: 
 
 **Known Issues**
   
@@ -705,7 +705,7 @@ LS123, LS1034
   
 - User will no longer be sent to the Social Network Login page when trying to login. If this occurs, please feel free to send ISB-CGC feedback using this link `feedback <https://groups.google.com/a/isb-cgc.org/forum/#!newtopic/feedback>`_.
 
-**November 30, 2016**: `v1.13 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.13>`_
+*November 30, 2016*: `v1.13 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.13>`_
 
 **Known Issues**
   
@@ -730,7 +730,7 @@ LS123, LS1034
 - Worksheets added to an existing workbook now behave the same as the original worksheet.
 - Cohort set operations no longer performing exceptionally slow.
   
-**November 16, 2016**: `v1.12 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.12>`_
+*November 16, 2016*: `v1.12 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.12>`_
 
 **Known Issues**
   
@@ -766,7 +766,7 @@ LS123, LS1034
 - The upload data button is disabled on the review files page when no buckets or datasets are associated. 
 - Someone with multiple eRA accounts will be no longer have issues when trying to access controlled data. 
   
-**November 2, 2016**: `v1.11 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.11>`_
+*November 2, 2016*: `v1.11 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.11>`_
 
 **Known Issues**
 
@@ -811,7 +811,7 @@ LS123, LS1034
 - Create cohort from plot selection now works with all analysis types. 
 - Data inconsistencies between the create new cohort histogram filter and the most recent BigQuery datasets has been addressed and resolved.
 
-**September 21, 2016**: `v1.10 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.10>`_
+*September 21, 2016*: `v1.10 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.10>`_
 
 **Known Issues**
   
@@ -844,7 +844,7 @@ LS123, LS1034
 - The selected variables for the plot setting on a worksheet are saved after the user leaves the workbook. 
 - When registering a Google Cloud Project the user is displayed the list of emails associated to the GCP only once. 
 
-**September 7, 2016**: `v1.9 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.9>`_
+*September 7, 2016*: `v1.9 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.9>`_
   
 **Known Issues**
 
@@ -881,9 +881,9 @@ LS123, LS1034
 - When a user shares a workbook with someone the person who received viewer access to the workbook is sent a confirmation email. If the person who shared the workbook then deletes the workbook before it's opened, then the person clicks the invitation link the person is sent to the unknown invitation page. The button to go back to the Dashboard page appears like this, "Your Dashboard"
 - The user is sent an email when the Service Account is removed the Access controlled list for having a user associated to the project who is not dbGaP authorized.
 
-**August 24, 2016**: `v1.8 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.8>`_
+*August 24, 2016*: `v1.8 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.8>`_
   
-**Known issues in Sprint 9 as of 8/24/2016**
+**Known Issues**
   
 - The user can add same gene twice if list to the same worksheet it they have different names. 
 - The Bar chart on the worksheet panel renders overlapping text. 
