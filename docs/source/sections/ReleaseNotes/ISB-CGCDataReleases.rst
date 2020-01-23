@@ -2,10 +2,27 @@
 ISB-CGC Data Release Notes
 ############################
 
+*April 4, 2019*
+
+GDC data release 16 was posted on March 26, 2019.
+
+**BigQuery tables** created
+
+- isb-cgc:GDC_metadata.rel16_aliquot2caseIDmap
+- isb-cgc:GDC_metadata.rel16_caseData
+- isb-cgc:GDC_metadata.rel16_fileData_current
+- isb-cgc:GDC_metadata.rel16_fileData_legacy
+- isb-cgc:GDC_metadata.rel16_slide2caseIDmap
+
+
+
 *March 6, 2019*
 
-
 GDC data release 15 was posted on February 20, 2019.
+
+**New Programs and New Peojects**
+
+- TARGET-ALL-P3
 
 
 **BigQuery tables** created
@@ -19,6 +36,10 @@ GDC data release 15 was posted on February 20, 2019.
 *January 4, 2019*
 
 GDC data release 14 was posted on December 18, 2018.
+
+**New Programs and New Peojects**
+
+- FM-AD
 
 **BigQuery tables** created
 
