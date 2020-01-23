@@ -2,6 +2,23 @@
 ISB-CGC Data Release Notes
 ############################
 
+*October 2, 2018*
+
+GDC data release 13 was posted on September 27, 2018
+
+New Programs and New Projects
+
+- VAREPOP-APOLLO
+- CTSP-DLBCL1 
+- NCICCR-DLBCL
+
+DR13, active archive contains 428,543 files (DR12 contained 356,381 files)
+
+- 116 files were removed: 88 VCF files, 24 BAM files, and 2 miRNA "mirnas.quantification" files and (corresponding) 2 miRNA "isoforms.quantification" files.
+- 72278 files were added: 47248 BAI files, 23203 TBI files, 1287 BAM files, 504 SEG files, 36 SVS files.
+
+
+
 *June 25, 2018:*
 
 GDC data release 12 was posted on Wednesday, June 13, 2018
