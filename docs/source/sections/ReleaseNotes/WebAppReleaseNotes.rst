@@ -2,8 +2,6 @@
 ISB-CGC WebApp Release Notes
 #############################
 
-Introduction text
-
 **Please note:** Work is underway to rework our cohort creation page to better display images associated with samples.
 
 **April 25, 2019** `v3.18 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.18>`_
