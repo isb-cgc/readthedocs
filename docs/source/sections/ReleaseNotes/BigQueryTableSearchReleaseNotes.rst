@@ -8,7 +8,7 @@ For more detailed information about the data stored in ISB-CGC BigQuery tables p
 
 *November 26, 2019* `v1.0 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.21>`_
 
-**New Features**
+**Initial Release**
 
 - Multiple filters introduced
  - Status 
