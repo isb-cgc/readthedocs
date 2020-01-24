@@ -6,7 +6,7 @@ ISB-CGC Data Release Notes
 
 GDC data release 21.0 was posted on December 10, 2019.
 
-**New programs and Projects**
+**New programs and Projects available in Google Cloud Storage**
 
 - GENIE-MDA
 - GENIE-VICC
@@ -17,7 +17,7 @@ GDC data release 21.0 was posted on December 10, 2019.
 - GENIE-GRCC
 - GENIE-NKI
 
-**BigQuery tables** created
+**BigQuery tables created**
 
 - isb-cgc:GDC_metadata.rel21_aliquot2caseIDmap
 - isb-cgc:GDC_metadata.rel21_caseData
