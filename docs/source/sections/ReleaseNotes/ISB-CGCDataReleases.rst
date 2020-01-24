@@ -31,7 +31,7 @@ GDC data release 19.0 was posted on September 17, 2019.
 
 GDC data release 19.1 was posted on November 6, 2019.
 
-**New Programs and Projects**
+**New programs and projects available in Google Cloud Storage**
 
 - BEATAML1.0-COHORT (Functional Genomic Landscape of Acute Myeloid Leukemia) WXS and RNA-Seq data was included. 
  
