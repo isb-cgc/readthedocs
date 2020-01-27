@@ -150,7 +150,7 @@ GDC data release 15 was posted on February 20, 2019.
 
 GDC data release 14 was posted on December 18, 2018.
 
-**New Programs and Projects**
+**New programs and projects available in Google Cloud Storage**
 
 - FM-AD
 
