@@ -11,20 +11,20 @@ classified as "controlled access data" and are under the control of the
 Data Access Committee (DAC).
 
 Investigator(s) requesting to receive Genomic data in accordance with the 
-`NIH Genomic Data Sharing Policy <https://gds.nih.gov/>`_
+`NIH Genomic Data Sharing Policy <https://gdc.cancer.gov/access-data/data-access-policies>`_
 are required to submit:
 
 * a **data access request** (DAR)
 * a **research use statement** (RUS)
 
 **Note:** Requesters and institutional signing officials (SO) must have NIH eRA user IDs to begin this process. Visit the `electronic Research Administration <http://era.nih.gov>`_ (eRA) for more information on registering for an NIH eRA account. NIH staff may utilize their NIH login. (See the `dbGaP Data Access Request Portal <http://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login>`_ 
-for additional `instructions <http://www.genome.gov/20019654>`_.)
+for additional `instructions <https://osp.od.nih.gov/wp-content/uploads/Extramural_Flowcharts_for_Data_Access.pdf>`_.)
 
 Additionally, they must:
  
-*  Submit a `Data Use Certification <http://www.genome.gov/20019653>`_ (DUC) co-signed by the designated Institutional Official(s) at their sponsoring institution (`sample DUC <http://gds.nih.gov/pdf/Model_DUC.pdf>`_);
-*  Protect data confidentiality (any data which has been designated "controlled" **must** be protected accordingly, unless prior release authorization is obtained from an NCI data custodian);  and 
-*  Ensure that appropriate data security measures are in place.
+*  Submit a `Data Use Certification <https://osp.od.nih.gov/wp-content/uploads/Model_DUC.pdf>`_ (DUC) co-signed by the designated Institutional Official(s) at their sponsoring institution
+*  Protect data confidentiality (any data which has been designated "controlled" **must** be protected accordingly, unless prior release authorization is obtained from an NCI data custodian)
+*  Ensure that appropriate data security measures are in place
 
 In the context of Google Cloud Platform (GCP) projects, it is important to realize that all members of a GCP project have (at least) read access
 to all data stored within that project, as well as to all virtual machines, boot disks, and persistent disks attached to that project.
@@ -34,8 +34,8 @@ if they are summary in nature, may no longer be controlled data and could be cop
 analyses by researchers who are not authorized to view controlled data.  Researchers who are not authorized to view controlled data could be made
 members of project-B, while users who *are* authorized could be members of both project-A *and* project-B.
 
-**Note:**  The PI and the PI's institution are *responsible* for and will be held *accountable* for ensuring the security of controlled data, not the cloud service provider.  The Google Cloud Platform has been certified as `FedRAMP compliant <https://www.fedramp.gov/marketplace/compliant-systems/google-google-services/>`_
-which means that it has been independently assessed and shown to meet all necessary `FedRAMP security controls <https://www.fedramp.gov/files/2015/03/FedRAMP-Security-Controls-Preface-FINAL-1.pdf>`_.  This provides the assurance that the data security and access control mechanisms implemented by the Google Cloud Platform and made available to end users are sufficient to safeguard the data.  However, it remains the PI's responsibility to ensure that these access control mechanisms are used appropriately and effectively within the context of the PI's GCP project.
+**Note:**  The PI and the PI's institution are *responsible* for and will be held *accountable* for ensuring the security of controlled data, not the cloud service provider.  The Google Cloud Platform has been certified as `FedRAMP compliant <https://marketplace.fedramp.gov/#/product/google-services-google-cloud-platform-products-and-underlying-infrastructure?sort=productName&productNameSearch=google>`_
+which means that it has been independently assessed and shown to meet all necessary `FedRAMP <https://www.fedramp.gov/>`_ security controls.  This provides the assurance that the data security and access control mechanisms implemented by the Google Cloud Platform and made available to end users are sufficient to safeguard the data.  However, it remains the PI's responsibility to ensure that these access control mechanisms are used appropriately and effectively within the context of the PI's GCP project.
 
 You should think about securing controlled data within the context of your GCP project in the same way that you
 would think about securing controlled data that you might download to a file server or compute cluster at your
