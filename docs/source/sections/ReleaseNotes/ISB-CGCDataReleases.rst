@@ -51,7 +51,7 @@ GDC data release 19.1 was posted on November 6, 2019.
 - CPTAC-3 new Pindel VCFs was released.
 - Disease-specific staging properties for many projects released.
 
-**BigQuery tables** created
+**BigQuery tables created**
 
 - isb-cgc:GDC_metadata.rel19_aliquot2caseIDmap
 - isb-cgc:GDC_metadata.rel19_caseData
@@ -77,7 +77,7 @@ GDC data release 18 was posted on July 8, 2019.
 - TARGET-CCSK new RNA-Seq data was released.
 - TARGET-OS new RNA-Seq data was released. 
 
-**BigQuery tables** created
+**BigQuery tables created** 
 
 - isb-cgc:GDC_metadata.rel18_aliquot2caseIDmap
 - isb-cgc:GDC_metadata.rel18_caseData
@@ -105,7 +105,7 @@ GDC data release 17.1 was posted on June 12, 2019.
 - Updates to TCGA clinical data
 - Migrations of three properties across all projects from diagnosis to demographic (vital_status, days_to_birth, days_to_death)
 
-**BigQuery tables** created
+**BigQuery tables created** 
 
 - isb-cgc:GDC_metadata.rel17_aliquot2caseIDmap
 - isb-cgc:GDC_metadata.rel17_caseData
@@ -121,7 +121,7 @@ GDC data release 16 was posted on March 26, 2019.
 
 - CPTAC-3
 
-**BigQuery tables** created
+**BigQuery tables created** 
 
 - isb-cgc:GDC_metadata.rel16_aliquot2caseIDmap
 - isb-cgc:GDC_metadata.rel16_caseData
@@ -138,7 +138,7 @@ GDC data release 15 was posted on February 20, 2019.
 - TARGET-ALL-P3
 
 
-**BigQuery tables** created
+**BigQuery tables created** 
 
 - isb-cgc:GDC_metadata.rel15_aliquot2caseIDmap
 - isb-cgc:GDC_metadata.rel15_caseData
