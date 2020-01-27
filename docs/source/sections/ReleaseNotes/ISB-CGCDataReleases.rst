@@ -96,7 +96,7 @@ GDC data release 17.1 was posted on June 12, 2019.
 - HCMI-CMDC 500 files,  2.8TB
 - BEATAML1.0-CRENOLANIB 700 files,  3.6TB
 
-**Updates**
+**Updates to existing programs and projects**
 
 - CPTAC-3 RNA-Seq - 7400 files, 16.6 TB
 - TCGA ATAC-Seq - 820 files, 9.2 TB
