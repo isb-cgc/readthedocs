@@ -91,7 +91,7 @@ GDC data release 17.0 was posted on June 5, 2019.
 
 GDC data release 17.1 was posted on June 12, 2019.
 
-**New Programs and Projects**
+**New programs and projects available in Google Cloud Storage**
 
 - HCMI-CMDC 500 files,  2.8TB
 - BEATAML1.0-CRENOLANIB 700 files,  3.6TB
