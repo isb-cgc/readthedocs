@@ -154,7 +154,7 @@ GDC data release 14 was posted on December 18, 2018.
 
 - FM-AD
 
-**BigQuery tables** created
+**BigQuery tables created**
 
 - isb-cgc:GDC_metadata.rel14_aliquot2caseIDmap
 - isb-cgc:GDC_metadata.rel14_caseData
@@ -180,8 +180,6 @@ GDC data release 13 was posted on September 27, 2018.
 
 - 116 files were removed: 88 VCF files, 24 BAM files, and 2 miRNA "mirnas.quantification" files and (corresponding) 2 miRNA "isoforms.quantification" files.
 - 72278 files were added: 47248 BAI files, 23203 TBI files, 1287 BAM files, 504 SEG files, 36 SVS files.
-
-
 
 *June 25, 2018:*
 
