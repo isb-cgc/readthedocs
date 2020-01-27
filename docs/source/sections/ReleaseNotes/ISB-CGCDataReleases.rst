@@ -170,7 +170,7 @@ GDC data release 14 was posted on December 18, 2018.
 
 GDC data release 13 was posted on September 27, 2018.
 
-**New Programs and Projects**
+**New programs and projects available in Google Cloud Storage**
 
 - VAREPOP-APOLLO
 - CTSP-DLBCL1 
