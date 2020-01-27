@@ -13,4 +13,4 @@ The ISB Cancer Genomics Cloud (ISB-CGC) is one of three `NCI Cloud Resources <h
 * Google Compute Engine
 * Google Cloud Storage
 
-To learn more about how to conduct routine data analysis in the cloud on biological data, check out our `Community Notebook Repository <https://github.com/isb-cgc/Community-Notebooks>`_. Where you will find helpful hints, suggestions, and examples in both Python and R to get your analyses started on the cloud!
+To learn more about how to conduct routine data analysis in the cloud on biological data, check out our `Community Notebook Repository <https://github.com/isb-cgc/Community-Notebooks>`_, where you will find helpful hints, suggestions, and examples in both Python and R to get your analyses started on the cloud!
