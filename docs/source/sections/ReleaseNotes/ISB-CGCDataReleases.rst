@@ -117,7 +117,7 @@ GDC data release 17.1 was posted on June 12, 2019.
 
 GDC data release 16 was posted on March 26, 2019.
 
-**New Programs and Projects**
+**New programs and projects available in Google Cloud Storage**
 
 - CPTAC-3
 
