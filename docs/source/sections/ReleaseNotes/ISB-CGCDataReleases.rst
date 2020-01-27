@@ -63,7 +63,7 @@ GDC data release 19.1 was posted on November 6, 2019.
 	
 GDC data release 18 was posted on July 8, 2019.
 
-**New Programs and Projects**
+**New programs and projects available in Google Cloud Storage**
 
 - ORGANOID-PANCREATIC (Pancreas Cancer Organoid Profiling)
 - MMRF-COMMPASS (Multiple Myeloma CoMMpass Study)
