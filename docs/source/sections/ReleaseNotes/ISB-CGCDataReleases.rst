@@ -71,7 +71,7 @@ GDC data release 18 was posted on July 8, 2019.
 - TARGET-ALL-P1 (Acute Lymphoblastic Leukemia - Phase I)
 - TARGET-ALL-P2 (Acute Lymphoblastic Leukemia - Phase II)
 
-**Updates**
+**Updates to existing programs and projects**
 
 - TARGET-ALL-P3 new RNA-Seq data was released.
 - TARGET-CCSK new RNA-Seq data was released.
