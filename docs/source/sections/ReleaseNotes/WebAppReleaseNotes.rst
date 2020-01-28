@@ -4,6 +4,10 @@ ISB-CGC WebApp Release Notes
 
 **Please note:** Work is underway to rework our cohort creation page to better display images associated with samples.
 
+*July 18, 2019* 
+
+`v3.19 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.19>`_
+
 **New Features**
 
 Workbooks
@@ -51,7 +55,9 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - Work is underway to rework our cohort creation page to better display images associated with samples.
 
 
-*March 8, 2019* `v3.17 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.17>`_
+*March 8, 2019* 
+
+`v3.17 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.17>`_
 
 **Enhancements**
 
@@ -80,7 +86,9 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - On the File Browser page for Diagnostic images there is no GDC file UUID associated to them.
 - Sharing a workbook with someone else will cause the analysis to reset.
 
-*January 22, 2019* `v3.16 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.16>`_
+*January 22, 2019* 
+
+`v3.16 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.16>`_
 
 **Enhancements**
   
@@ -107,7 +115,9 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - Sharing a workbook with someone else will cause the analysis to reset. 
 - Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
 
-*December 5, 2018* `v3.15 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.15>`_
+*December 5, 2018* 
+
+`v3.15 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.15>`_
  
 **Enhancements**
  
@@ -142,7 +152,9 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - Sharing a workbook with someone else will cause the analysis to reset.
 - Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
 
-*September 20, 2018* `v3.14 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.14>`_
+*September 20, 2018* 
+
+`v3.14 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.14>`_
  
 **Enhancements**
   
