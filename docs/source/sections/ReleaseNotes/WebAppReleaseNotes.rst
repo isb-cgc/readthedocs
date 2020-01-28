@@ -181,7 +181,9 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - When using a workbook, a gene with symbol “_” will produce a error message saying, “There was an error retrieving plot data. Please try again.” 
 - Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
 
-*July 31, 2018* `v3.13 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.13>`_
+*July 31, 2018* 
+
+`v3.13 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.13>`_
 
 **Enhancements**
  
@@ -216,7 +218,9 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - When downloading the CSV file for Radiology Images tab on the File Browser page you will noticed there are no samples barcodes associated to Radiology Images. ISB-CGC will add a case barocde to the CSV file export table in the next release. 
 - Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
 
-*June 18, 2018* `v3.12 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.12>`_
+*June 18, 2018* 
+
+`v3.12 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.12>`_
 
 **Enhancements**
   
@@ -254,7 +258,9 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - A Workbook using a cohort that has user uploaded data and public TCGA data present will not return data for any analysis. 
 - Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
 
-*May 3, 2018* `v3.11 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.11>`_
+*May 3, 2018* 
+
+`v3.11 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.11>`_
  
 **Enhancements**
  
@@ -290,7 +296,9 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - On the File Browser page for Diagnostic images there is no GDC file UUID associated to them.
 - Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
 
-*April 2, 2018* `v3.10 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.10>`_
+*April 2, 2018* 
+
+`v3.10 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.10>`_
  
 **Enhancements**
 
@@ -321,7 +329,9 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - On the cohort File List Browser page, while you are downloading CSV files, other filters can be selected.
 - Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
 
-*February 28, 2018* `v3.9 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.9>`_
+*February 28, 2018* 
+
+`v3.9 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.9>`_
  
 **Enhancements**
  
@@ -357,7 +367,9 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - On the File Browser page, while you are downloading CSV files, other filters can be selected. 
 - Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
 
-*February 1, 2018* `v3.8 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.8>`_
+*February 1, 2018* 
+
+`v3.8 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.8>`_
 
 **Enhancements**
  
@@ -392,7 +404,9 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - Certain genes will produce a blank chart with no data on a worksheet when working with a histogram.
 - Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
 
-*December 20, 2017* `v3.7 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.7>`_
+*December 20, 2017* 
+
+`v3.7 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.7>`_
  
 **Enhancements**
 
@@ -418,7 +432,9 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - When uploading TARGET files using the cohort barcode creation feature from the GDC you may get an invalid barcodes error message and unable to upload all the barcodes.
 - Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
 
-*November 20, 2017* `v3.6 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.6>`_
+*November 20, 2017* 
+
+`v3.6 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.6>`_
  
 **Enhancements**
  
@@ -450,7 +466,9 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - If you have uploaded a lot of data using the User Data Upload feature, it is likely you will experience 502 error page when attempting to create a new variable favorite list. 
 - When working with the API endpoints the sample.get for all three programs will return a 503 internal server error.
 
-*October 13, 2017* `v3.5 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.5>`_
+*October 13, 2017* 
+
+`v3.5 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.5>`_
  
 **Enhancements**
  
@@ -478,7 +496,9 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - When working on Firefox browser a violin plot does not display the data plotted correctly when working on a Worksheet. 
 - We need to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
 
-*September 21,2017* `v3.4 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.4>`_
+*September 21,2017* 
+
+`v3.4 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.4>`_
  
 **Enhancements**
  
@@ -514,7 +534,9 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - A very small amount of bam files for program TARGET currently have the wrong file name and cannot be used with the IGV browser. 
 - When working on Firefox browser a violin plot does not display the data plotted correctly when working on a Worksheet. 
 
-*August 23, 2017*: `v3.3 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.3>`_
+*August 23, 2017*: 
+
+`v3.3 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.3>`_
  
 **Enhancements**
  
@@ -555,7 +577,9 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - When plotting, certain values will be displayed as numerical when it should be a categorical value e.g Tobacco Smoking History.
 - The mouse over feature is currently disabled for program TARGET with disease code ALL. 
 
-*July 31, 2017*: `v3.2 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.2>`_
+*July 31, 2017*: 
+
+`v3.2 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.2>`_
 
 **Enhancements**
 
@@ -592,7 +616,9 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - The user.get CCLE program API endpoint will return a 503 internal server error.
 - When creating large cohort you will be given a red error message saying, “There was an error saving your cohort; it may not have been saved correctly.” 
 
-*June 14, 2017*: `v3.1 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.1>`_
+*June 14, 2017*:
+
+`v3.1 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.1>`_
 
 **Known Issues**
  
@@ -642,7 +668,9 @@ LS123, LS1034
 - Cohorts created with API specific filters are now accessible to access by their cohort details page. 
 - You are now able to plot miRNA data with genomic build hg38 for TARGET data. 
    
-*May 25, 2017*: `v3.0 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.0>`_
+*May 25, 2017*: 
+
+`v3.0 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.0>`_
 
 In collaboration with the GDC we now have TARGET pediatric cancer data available for analysis in the user interface. You are now able to create cohorts and plot analysis with information from TARGET, TCGA, and CCLE data. 
  
@@ -695,11 +723,17 @@ LS123, LS1034
 
 *April 12, 2017*:
 
+
+`v1.15 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.15>`_
+
 **Known Issues**
 
 - We are currently having issues viewing bam files using the IGV browser for TCGA and CCLE data. We are working to fix the issue and it should be resolved as soon as possible.
 
 *February 26, 2017*: 
+
+
+`v1.14 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.14>`_
 
 **Known Issues**
   
@@ -726,7 +760,9 @@ LS123, LS1034
   
 - User will no longer be sent to the Social Network Login page when trying to login. If this occurs, please feel free to send ISB-CGC feedback using this link `feedback <https://groups.google.com/a/isb-cgc.org/forum/#!newtopic/feedback>`_.
 
-*November 30, 2016*: `v1.13 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.13>`_
+*November 30, 2016*: 
+
+`v1.13 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.13>`_
 
 **Known Issues**
   
@@ -751,7 +787,9 @@ LS123, LS1034
 - Worksheets added to an existing workbook now behave the same as the original worksheet.
 - Cohort set operations no longer performing exceptionally slow.
   
-*November 16, 2016*: `v1.12 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.12>`_
+*November 16, 2016*: 
+
+`v1.12 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.12>`_
 
 **Known Issues**
   
