@@ -9,12 +9,6 @@ ISB-CGC WebApp Release Notes
 Workbooks
 
 - Edit plot settings feature provides the ability to plot by either cases or samples barcode count for a bar chart, histogram, scatter plot, violin plot, and cubby hole plot analyses.
-- 
-
-**Enhancements**
-
-Workbooks
-
 - Detailed information provided from dbGaP for every program available when registering a Google service account. 
 
 *April 25, 2019* 
