@@ -49,6 +49,11 @@ By default, the Status filter is set to Current.
 .. image:: Status-filter.png
    :align: center
    
+**Name**   
+
+The Name filter is a free-form text field; the user can type all or a portion of the name into the field to perform the search. It will match against the Name column. 
+
+Note that this Name field is not the Table ID (which is used in SQL queries) but is a 'Friendly Name'; that is, a descriptive, user-friendly name for the table. 
    
 **Categories**
 
@@ -106,7 +111,7 @@ These fields are most useful for users already familiar with the BigQuery tables
 
 **Labels**
 
-Each table was tagged with labels relating to the source, data type, reference genome build, status, and access. Users can search on any of these tags on the Labels filter field. Users can find the **Labels** search filter under the **Show More Filters** option. 
+Each table was tagged with labels relating to the source, data type, reference genome build, status, and access. Users can search on any of these labels on the Labels filter field. Users can find the **Labels** search filter under the **Show More Filters** option. 
 
 The labels for a table can be viewed when the blue plus sign (+) to the left of the table row is clicked. See the screen shot below.
 
@@ -114,12 +119,25 @@ The labels for a table can be viewed when the blue plus sign (+) to the left of 
 Search Results
 --------------
 
-Each row will display the Dataset ID, Table ID, Status, Category, Source, Data Type, number of rows and Created Date of the table. 
+By default, each row will display the Name, Category, Source, Data Type, Status, number of rows, and Created Date of the table. 
+
+Columns Selector
+++++++++++++++++++
+
+Columns can be added or removed from the display by using the Columns selector. For instance, the Dataset ID and Table ID are not initially displayed, but they can be added to the display.
+
+.. image:: BigQueryTableSearchUI-ColumnSelector.png
+   :align: center
 
 Click on the column header to sort the displayed results by that column.
 
+Search Box
++++++++++++
+
 To further filter the results, use the **Search** box above the results, on the right-hand side. This is a free-form text field; the user can type all or a portion of the seach item into the field to perform the query. This searches all fields in the table.
 
+Export
++++++++
 To export the results of your search to a file in Comma Separated Values (CSV) format, click the **CSV Download** button.
 
 Schema Description
