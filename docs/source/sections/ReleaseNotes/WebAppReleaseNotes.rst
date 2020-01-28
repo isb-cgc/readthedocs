@@ -17,7 +17,9 @@ APIs
 
 **New Features**
 
-- Mitelman Databasae mirror released on the ISB-CGC `Mitelman Database Chromosome Aberrations and Gene Fusions in Cancer <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.20>`_. 
+- Mitelman Databasae mirror released on the ISB-CGC.
+
+Please follow link `Mitelman Database Chromosome Aberrations and Gene Fusions in Cancer <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.20>`_. 
 
 All search databases available listed below.  
 
