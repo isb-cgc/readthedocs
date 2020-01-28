@@ -4,17 +4,14 @@ ISB-CGC WebApp Release Notes
 
 **Please note:** Work is underway to rework our cohort creation page to better display images associated with samples.
 
-
-
 *August 27, 2019*
 
 **New Features**
 
 - Mitelman Databasae mirror released on the ISB-CGC `Mitelman Database
-Chromosome Aberrations and Gene Fusions in Cancer <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.20>`_. All search databases available listed below. 
- 
-
-
+Chromosome Aberrations and Gene Fusions in Cancer <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.20>`_. All search databases available listed below.  
+ - Cases Cytogenetics Searcher
+ - Gene Fusions Searcher
 
 *September 26, 2019*
 
