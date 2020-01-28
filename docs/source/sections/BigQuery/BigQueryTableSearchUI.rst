@@ -126,7 +126,7 @@ Columns Selector
 
 Columns can be added or removed from the display by using the Columns selector. For instance, the Dataset ID and Table ID are not initially displayed, but they can be added to the display.
 
-.. image:: BigQueryTableSearchUI-ColumnSelector.png
+.. image:: BigQueryTableSearch-ColumnSelector.png
    :align: center
 
 Click on the column header to sort the displayed results by that column.
@@ -143,10 +143,19 @@ To export the results of your search to a file in Comma Separated Values (CSV) f
 Schema Description
 ++++++++++++++++++
 
-For detailed table information, including full table ID, table description and field descriptions, click on the blue plus sign (+) on the left-hand side. Table labels (as described above) will also display.
+For detailed table information, click on the blue plus sign (+) on the left-hand side. 
 
 .. image:: BigQueryTableSearchUI-descriptions.png
    :align: center
+
+The following information is displayed:
+   * Full ID - This is the Project, Dataset ID, and Table ID concatenated with periods between them. The Full ID is used in SQL queries.
+   * Dataset ID - The BigQuery dataset of the table. A data set is a group of related tables.
+   * Table ID - The BiqQuery table ID.
+   * Description - A description of the table, which includes information such as how the data was created, its source, data type, and contents.
+   * Schema -The schema displays the Field Name, Type, Mode and Field Description.
+
+Table labels (as described above) will also display.
 
 Table Preview
 ++++++++++++++
