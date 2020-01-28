@@ -8,7 +8,9 @@ ISB-CGC WebApp Release Notes
 
 `v1.20 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.20>`_
 
+**New Features**
 
+ISB-CGC APIs have been updated to a Swagger user interface as well as Goole Endpoints OpenAPI.
 
 *July 18, 2019* 
 
