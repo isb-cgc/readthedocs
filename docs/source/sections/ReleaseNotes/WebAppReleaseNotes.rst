@@ -11,6 +11,10 @@ ISB-CGC WebApp Release Notes
 **New Features**
 
 
+APIs
+
+- Endpoint GET/data/available/registration lists all possible open and controlled programs available for registration with a service account. 
+- Endpoint GET/data/available/cohorts lists all possible programs and projects available to use to make a cohort of the data available. 
 
 *August 27, 2019*
 
