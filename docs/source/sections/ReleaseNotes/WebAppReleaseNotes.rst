@@ -12,6 +12,9 @@ ISB-CGC WebApp Release Notes
 Chromosome Aberrations and Gene Fusions in Cancer <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.20>`_. All search databases available listed below.  
  - Cases Cytogenetics Searcher
  - Gene Fusions Searcher
+ - Clinical Associations Searcher
+ - Recurrent Chromosome Aberrations Searcher
+ - References Searcher
 
 *September 26, 2019*
 
