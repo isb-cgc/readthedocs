@@ -4,6 +4,15 @@ ISB-CGC WebApp Release Notes
 
 **Please note:** Work is underway to rework our cohort creation page to better display images associated with samples.
 
+**New Features**
+
+Workbooks
+
+- Edit plot settings feature provides the ability to plot by either cases or samples barcode count for a bar chart, histogram, scatter plot, violin plot, and cubby hole plot analyses.
+
+
+
+
 *April 25, 2019* 
 
 `v3.18 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.18>`_
