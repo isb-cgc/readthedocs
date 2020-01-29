@@ -119,7 +119,9 @@ The labels for a table can be viewed when the blue plus sign (+) to the left of 
 Search Results
 --------------
 
-By default, each row will display the Name, Category, Source, Data Type, Status, number of rows, and Created Date of the table. 
+By default, each row will display the Name, Category, Source, Data Type, Status, number of rows, and Created Date of the table.
+
+Click on the column header to sort the displayed results by that column.
 
 Columns Selector
 ++++++++++++++++++
@@ -129,12 +131,10 @@ Columns can be added or removed from the display by using the Columns selector. 
 .. image:: BigQueryTableSearch-ColumnSelector.png
    :align: center
 
-Click on the column header to sort the displayed results by that column.
-
 Search Box
 +++++++++++
 
-To further filter the results, use the **Search** box above the results, on the right-hand side. This is a free-form text field; the user can type all or a portion of the seach item into the field to perform the query. This searches all fields in the table.
+To further filter the results, use the **Search** box above the results, on the right-hand side. This is a free-form text field; the user can type all or a portion of the search item into the field to perform the query. This searches all fields in the table.
 
 Export
 +++++++
@@ -149,6 +149,7 @@ For detailed table information, click on the blue plus sign (+) on the left-hand
    :align: center
 
 The following information is displayed:
+
    * Full ID - This is the Project, Dataset ID, and Table ID concatenated with periods between them. The Full ID is used in SQL queries.
    * Dataset ID - The BigQuery dataset of the table. A data set is a group of related tables.
    * Table ID - The BiqQuery table ID.
