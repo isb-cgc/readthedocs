@@ -113,7 +113,7 @@ These fields are most useful for users already familiar with the BigQuery tables
 
 Each table was tagged with labels relating to the source, data type, reference genome build, status, and access. Users can search on any of these labels on the Labels filter field. Users can find the **Labels** search filter under the **Show More Filters** option. 
 
-The labels for a table can be viewed when the blue plus sign (+) to the left of the table row is clicked. See the screen shot below.
+The labels for a table can be viewed when the blue plus sign (+) to the left of the table row is clicked. See the screen shot in the Schema section below.
 
 
 Search Results
@@ -123,21 +123,19 @@ By default, each row will display the Name, Category, Source, Data Type, Status,
 
 Click on the column header to sort the displayed results by that column.
 
-Columns Selector
-++++++++++++++++++
+**Columns Selector**
 
 Columns can be added or removed from the display by using the Columns selector. For instance, the Dataset ID and Table ID are not initially displayed, but they can be added to the display.
 
 .. image:: BigQueryTableSearch-ColumnSelector.png
    :align: center
 
-Search Box
-+++++++++++
+**Search Box**
 
 To further filter the results, use the **Search** box above the results, on the right-hand side. This is a free-form text field; the user can type all or a portion of the search item into the field to perform the query. This searches all fields in the table.
 
-Export
-+++++++
+**Export**
+
 To export the results of your search to a file in Comma Separated Values (CSV) format, click the **CSV Download** button.
 
 Schema Description
@@ -154,8 +152,8 @@ The following information is displayed:
    * Dataset ID - The BigQuery dataset of the table. A data set is a group of related tables.
    * Table ID - The BiqQuery table ID.
    * Description - A description of the table, which includes information such as how the data was created, its source, data type, and contents.
-   * Schema -The schema displays the Field Name, Type, Mode and Field Description.
-   * Table labels (as described above).
+   * Schema -The schema displays the Field Name, Type, Mode and Field Description for each field in the table.
+   * Table labels relating to the source, data type, reference genome build, status, and access of the table data.
 
 
 **Copy button**
