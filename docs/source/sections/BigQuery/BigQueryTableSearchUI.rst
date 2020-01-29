@@ -18,7 +18,7 @@ Currently, ISB-CGC hosts over 300 open access BigQuery tables. Each table has be
    :align: center
 
 
-Links to various helpful documentation pages are available, including Google BigQuery's documentation and ISB-CGC's Community Notebook repository which contains example use-cases on how to access BigQuery tables programmatically via Jupyter notebooks or R scripts.
+Links to various helpful documentation pages are available, including Google BigQuery's documentation and ISB-CGC's BigQuery documentation and the ISB-CGC Release Notes.
 
 
 .. image:: BigQueryTableSearch-Documentation.png
@@ -51,9 +51,9 @@ By default, the Status filter is set to Current.
    
 **Name**   
 
-The Name filter is a free-form text field; the user can type all or a portion of the name into the field to perform the search. It will match against the Name column. 
+The **Name** filter is a free-form text field; the user can type all or a portion of the name into the field to perform the search. It will match against the Name column. 
 
-Note that this Name field is not the Table ID (which is used in SQL queries) but is a 'Friendly Name'; that is, a descriptive, user-friendly name for the table. 
+Note that this Name field is not the Table ID (which is used in SQL queries) but is a **Friendly Name**; that is, a descriptive, user-friendly name for the table. 
    
 **Categories**
 
@@ -155,8 +155,12 @@ The following information is displayed:
    * Table ID - The BiqQuery table ID.
    * Description - A description of the table, which includes information such as how the data was created, its source, data type, and contents.
    * Schema -The schema displays the Field Name, Type, Mode and Field Description.
+   * Table labels (as described above).
 
-Table labels (as described above) will also display.
+
+**Copy button**
+
+Next to the Full ID is a **Copy** button. When the user clicks this, the Full ID is copied to the clipboard. The Full ID can then be pasted into an SQL query within the BiqQuery Query editor.
 
 Table Preview
 ++++++++++++++
