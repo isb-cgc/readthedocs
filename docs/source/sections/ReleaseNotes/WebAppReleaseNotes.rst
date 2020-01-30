@@ -59,9 +59,9 @@ The following datasets (open and controlled access) have been added to the ISB-C
  
 **New Features**
  
-- Mitelman Databasae mirror released on the ISB-CGC.
+- Mitelman Database mirror released on the ISB-CGC.
 
-Please follow link `Mitelman Database Chromosome Aberrations and Gene Fusions in Cancer <https://mitelmandatabase.isb-cgc.org/>`_. 
+Please follow the link `Mitelman Database Chromosome Aberrations and Gene Fusions in Cancer <https://mitelmandatabase.isb-cgc.org/>`_. 
 
 All search databases available listed below.  
 
@@ -71,7 +71,7 @@ All search databases available listed below.
  - Recurrent Chromosome Aberrations Searcher
  - References Searcher
 
-- ISB-CGC APIs have been updated to a Swagger user interface as well as Goole Endpoints OpenAPI now known as APIsv4.
+- ISB-CGC APIs have been updated to a Swagger user interface as well as Goole Endpoints OpenAPI, now known as APIsv4.
 
 **Known Issues**
 
@@ -97,7 +97,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
 Workbooks
 
 - Edit plot settings feature provides the ability to plot by either cases or samples barcode count for a bar chart, histogram, scatter plot, violin plot, and cubby hole plot analyses.
-- Detailed information provided from dbGaP for every program available when registering a Google service account. 
+- Detailed information provided by dbGaP for every program available when registering a Google service account. 
 
 **Known Issues**
 
@@ -124,14 +124,14 @@ The following datasets (open and controlled access) have been added to the ISB-C
   
 **Enhancements** 
 
-- When working with Oncogrid, OncoPrint, or a SeqPeek plot on a workbook you will receive an automatic list of genes ready for analysis.
-- When on a workbook additional text has been added to guide the user to select edit plot settings to select a gene/miRNA/variable filter and cohort to used in analysis selected.
+- When working with Oncogrid, OncoPrint, or a SeqPeek plot on a workbook, you will receive an automated list of genes ready for analysis.
+- When on an additional workbook, text has been added to guide the user to select edit plot settings to choose a gene/miRNA/variable filter and cohort to used in the selected analysis.
 - The Workbook comments section has been reformatted to better align with analysis displayed.
-- On the cohort creation - filter page the filters have been updated in the left filter panel to specify the count type displayed (samples).
+- On the cohort creation - filter page, the filters have been updated in the left filter panel to specify the count type displayed (samples).
 
 **Bug Fixes**
 
-- Clicking on a legend entry to toggle display of the data points on a scatter or violin plot will now work correctly, even if the legend text has a space.
+- Clicking on a legend entry to toggle the display of the data points on a scatter or violin plot will now work correctly, even if the legend text has a space.
 - Plotting with sample type filter on a workbook will now display counts correctly.
 - When working with the color by feature on either a Scatter plot or a Violin plot, the numerical values are now displayed as a color-gradient legend.
 - When using a workbook with OncoGrid analysis you are now able to plot using genomic build hg19.
