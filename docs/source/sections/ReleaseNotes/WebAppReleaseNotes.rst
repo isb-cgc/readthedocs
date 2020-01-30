@@ -6,6 +6,15 @@ ISB-CGC WebApp Release Notes
 
 *January 30, 2020* `v1.22 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.22>`_
 
+
+The following datasets (open and controlled access) have been added to the ISB-CGC for service account registration:
+
+ 1. The Pancreas Cancer Organoid Profiling (ORGANOID)
+ 2. The Multiple Myeloma CoMMpass Study (MMRF)
+ 3. Burkitt Lymphoma Genome Sequencing Project (CGCI)
+ 4. Acute Lymphoblastic Leukemia - Phase I (TARGET-ALL-P1)
+ 5. Acute Lymphoblastic Leukemia - Phase II (TARGET-ALL-P2)
+
 **New Features**
 
 - The File Browser is enabled to define cancer names under the Disease Code filter in left panel.
@@ -39,10 +48,15 @@ APIs
 - Sharing a workbook with someone else will cause the analysis to reset.
 - Work is underway to rework our cohort creation page to better display images associated with samples.
 
-*August 27, 2019* `v1.21 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.20>`_
+*August 27, 2019* `v1.20 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.20>`_
 
+The following datasets (open and controlled access) have been added to the ISB-CGC for service account registration:
+
+ 1. The Human Cancer Models Initiative (HCMI)
+ 2. The implementation of targeted therapies for acute myeloid leukaemia(AML) (BEATAML1.0)
+ 
 **New Features**
-
+ 
 - Mitelman Databasae mirror released on the ISB-CGC.
 
 Please follow link `Mitelman Database Chromosome Aberrations and Gene Fusions in Cancer <https://mitelmandatabase.isb-cgc.org/>`_. 
@@ -54,30 +68,8 @@ All search databases available listed below.
  - Clinical Associations Searcher
  - Recurrent Chromosome Aberrations Searcher
  - References Searcher
- 
-**Known Issues**
 
-- Analysis Type: Seq peek Formatting is Elongated on occasion
-- If the user shares a Cohort, neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort.
-- CCLE data cannot be plotted when working with workbooks. ISB-CGC will resolve this functionality after the GDC formally releases CCLE data.
-- When a user duplicates a Worksheet, then tries to implement the log scale, it will not function properly.
-- The set operation for existing Cohorts complement is behaving exceptionally slow.
-- The mouse-over feature is currently disabled for program TARGET with disease code ALL.
-- When uploading TARGET files using the cohort barcode creation feature from the GDC, you may get an invalid barcodes error message and unable to upload all the barcodes.
-- On the File Browser page for Diagnostic images there is no GDC file UUID associated to them.
-- Sharing a workbook with someone else will cause the analysis to reset.
-- Work is underway to rework our cohort creation page to better display images associated with samples.
-
-*September 26, 2019* `v1.20 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.20>`_
-
-The following datasets (open and controlled access) have been added to the ISB-CGC for service account registration:
-
- 1. The Human Cancer Models Initiative (HCMI)
- 2. The implementation of targeted therapies for acute myeloid leukaemia (AML)(BEATAML1.0)
-
-**New Features**
-
-ISB-CGC APIs have been updated to a Swagger user interface as well as Goole Endpoints OpenAPI.
+- ISB-CGC APIs have been updated to a Swagger user interface as well as Goole Endpoints OpenAPI now known as APIsv4.
 
 **Known Issues**
 
@@ -123,9 +115,10 @@ Workbooks
 The following datasets (open and controlled access) have been added to the ISB-CGC for service account registration:
 
  1. The National Cancer Institute Center for Cancer Research (NCICCR)
- 2. Foundation Medicine(FM)
+ 2. Foundation Medicine (FM)
  3. Clinical Trial Sequencing Project (CTSP)
  4. Veterans Research for Precision Oncology Program (VAREPOP) 
+ 5. Acute Lymphoblastic Leukemia - Phase I (TARGET-ALL-P3)
   
 **Enhancements** 
 
