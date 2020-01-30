@@ -58,8 +58,6 @@ GDC data release 19.1 was posted on November 6, 2019.
 - isb-cgc:GDC_metadata.rel19_fileData_active
 - isb-cgc:GDC_metadata.rel19_fileData_legacy
 - isb-cgc:GDC_metadata.rel19_slide2caseIDmap
-
-*September 29, 2019*
 	
 GDC data release 18 was posted on July 8, 2019.
 
