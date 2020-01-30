@@ -2,7 +2,7 @@
 ISB-CGC BigQuery Table Search Release Notes
 #################################################
 
-For more detailed information about this discovery tool's functionality created and implemented by the ISB-CGC please visit `ISB-CGC BigQuery Table Search <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQueryTableSearchUI.html>`_.
+For more detailed information about this discovery tool created by the ISB-CGC, please visit `ISB-CGC BigQuery Table Search <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQueryTableSearchUI.html>`_.
 
 For more detailed information about the data stored in ISB-CGC BigQuery tables please visit `ISB-CGC BigQuery Tables <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQuery.html>`_.
 
@@ -27,7 +27,11 @@ For more detailed information about the data stored in ISB-CGC BigQuery tables p
 
 **Initial Release**
 
-- Multiple filters introduced
+The ISB-CGC BigQuery Table Search UI is a discovery tool that allows users to explore and search for ISB-CGC hosted BigQuery tables. It can be accessed directly from the ISB-CGC homepage.
+
+Major features in the initial release include:
+
+- The ability to search for BiqQuery tables by multiple filters:
  - Status 
  - Categories
  - Reference Genome Build
@@ -38,7 +42,7 @@ For more detailed information about the data stored in ISB-CGC BigQuery tables p
  - Table Description
  - Labels
  - Field Name
-- Search results column headers introduced
+- Display of search results in a tabular format, with the following information about BiqQuery tables:
  - Dataset ID
  - Table ID 
  - Status 
@@ -46,7 +50,7 @@ For more detailed information about the data stored in ISB-CGC BigQuery tables p
  - Data Type
  - Num Rows
  - Created Date
-- Search results provide a detailed table description, including full table ID, table description, and field descriptions.
-- Search results also provide the ability to preview the first eight rows in the BigQuery table of choice. 
+- Detailed schema information for each table, including full table ID, table description, and field descriptions.
+- The ability to preview the first eight rows in the BigQuery table of choice. 
 - The ability to download a CSV format file of search results.
-- The ability to show 10, 25, 50, or 100 entries at a time.
+
