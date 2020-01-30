@@ -59,13 +59,13 @@ Note that this Name field is not the Table ID (which is used in SQL queries) but
 
 The tables are grouped into four high-level categories: 
 
-* Clinical Biospecimen Data : Patient case and sample information (includes clinical tables with patient demographic data, and                               biospecimen data with detailed sample information)
+* **Clinical Biospecimen Data**: Patient case and sample information (includes clinical tables with patient demographic data, and biospecimen data with detailed sample information)
 
-* File Metadata : Information about raw data files including Google Cloud Storage Paths (includes tables with information                       about files available at the GDC, including GCS paths, creation dates, sizes, etc.)
+* **File Metadata**: Information about raw data files including Google Cloud Storage Paths (includes tables with information                       about files available at the GDC, including GCS paths, creation dates, sizes, etc.)
 
-* Genomic Reference Database: Genomic information that can be used to cross-reference against processed-omics data tables                                   (examples include  COSMIC, ClinVar, cytoBand, dbSNP, Ensembl, Ensembl2Reactome)
+* **Genomic Reference Database**: Genomic information that can be used to cross-reference against processed-omics data tables                                   (examples include  COSMIC, ClinVar, cytoBand, dbSNP, Ensembl, Ensembl2Reactome)
 
-* Processed-omics  Datasets: Processed data primarily from the GDC (i.e. raw data that has gone through GDC pipeline                                        processing e.g. gene expression, miRNA expression, copy number, somatic mutations, methylation)
+* **Processed-omics Datasets**: Processed data primarily from the GDC (i.e. raw data that has gone through GDC pipeline                                        processing e.g. gene expression, miRNA expression, copy number, somatic mutations, methylation)
 
 
 Click on one or more checkboxes to select categories. 
@@ -148,12 +148,12 @@ For detailed table information, click on the blue plus sign (+) on the left-hand
 
 The following information is displayed:
 
-   * Full ID - This is the Project, Dataset ID, and Table ID concatenated with periods between them. The Full ID is used in SQL queries.
-   * Dataset ID - The BigQuery dataset of the table. A data set is a group of related tables.
-   * Table ID - The BiqQuery table ID.
-   * Description - A description of the table, which includes information such as how the data was created, its source, data type, and contents.
-   * Schema -The schema displays the Field Name, Type, Mode and Field Description for each field in the table.
-   * Table labels relating to the source, data type, reference genome build, status, and access of the table data.
+   * **Full ID** - This is the Project, Dataset ID, and Table ID concatenated with periods between them. The Full ID is used in SQL queries.
+   * **Dataset ID** - The BigQuery dataset of the table. A data set is a group of related tables.
+   * **Table ID** - The BiqQuery table ID.
+   * **Description** - A description of the table, which includes information such as how the data was created, its source, data type, and contents.
+   * **Schema** - The schema displays the Field Name, Type, Mode and Field Description for each field in the table.
+   * **Labels** - Labels are table metadata describing the source, data type, reference genome build, status, and access of the table data.
 
 
 **Copy button**
