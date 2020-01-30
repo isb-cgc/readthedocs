@@ -6,7 +6,7 @@ The ISB-CGC BigQuery Table Search UI (`<https://isb-cgc.appspot.com/bq_meta_sear
 
 **Note**: Users are not required to have a Google Cloud Platform (GCP) project or an account to learn more about the tables hosted by ISB-CGC.
 
-.. image:: BigQueryTableSearchUI.png
+.. image:: BigQuery/BigQueryTableSearchUI.png
    :align: center
 
 
@@ -14,14 +14,14 @@ The ISB-CGC BigQuery Table Search UI (`<https://isb-cgc.appspot.com/bq_meta_sear
 Currently, ISB-CGC hosts over 300 open access BigQuery tables. Each table has been curated to include detailed table and field descriptions as well as table labels allowing users to search for BigQuery tables of interest using a free-form text search or via available filters. 
 
 
-.. image:: BigQueryTableSearch-UI-homepage.png
+.. image:: BigQuery/BigQueryTableSearch-UI-homepage.png
    :align: center
 
 
 Links to various helpful documentation pages are available, including Google BigQuery's documentation and ISB-CGC's BigQuery documentation and the ISB-CGC Release Notes.
 
 
-.. image:: BigQueryTableSearch-Documentation.png
+.. image:: BigQuery/BigQueryTableSearch-Documentation.png
    :align: center
 
 
@@ -46,7 +46,7 @@ We are committed to providing the most up-to-date information in our BigQuery ta
    
 By default, the Status filter is set to Current.   
    
-.. image:: Status-filter.png
+.. image:: BigQuery/Status-filter.png
    :align: center
    
 **Name**   
@@ -71,7 +71,7 @@ The tables are grouped into four high-level categories:
 Click on one or more checkboxes to select categories. 
 Hovering the cursor over the information icon will display a short description of the category.
 
-.. image:: Category-filter.png
+.. image:: BigQuery/Category-filter.png
    :align: center
 
 
@@ -81,7 +81,7 @@ Filter for tables that contain data for hg19 or hg38. In a few cases, there are 
 
 By default, the **Reference Genome** filter is set to ALL.  
 
-.. image:: GenomeReference-filter.png
+.. image:: BigQuery/GenomeReference-filter.png
    :align: center
 
 
@@ -90,7 +90,7 @@ By default, the **Reference Genome** filter is set to ALL.
 Search through the sources of the data in our BigQuery tables by using the **Source** filter. Click the Source box to see the dropdown list and click on a source to select it. Additional sources can be selected by clicking in the Source box again. 
 
 
-.. image:: Source-filter.png
+.. image:: BigQuery/Source-filter.png
    :align: center
 
 
@@ -98,7 +98,7 @@ Search through the sources of the data in our BigQuery tables by using the **Sou
 
 The **Data Type** filter also allows you to filter for data types of interest. Like Source, multiple Data Types can be selected.
 
-.. image:: DataType-filter.png
+.. image:: BigQuery/DataType-filter.png
    :align: center
 
 
@@ -127,7 +127,7 @@ Click on the column header to sort the displayed results by that column.
 
 Columns can be added or removed from the display by using the Columns selector. For instance, the Dataset ID and Table ID are not initially displayed, but they can be added to the display.
 
-.. image:: BigQueryTableSearch-ColumnSelector.png
+.. image:: BigQuery/BigQueryTableSearch-ColumnSelector.png
    :align: center
 
 **Search Box**
@@ -143,7 +143,7 @@ Schema Description
 
 For detailed table information, click on the blue plus sign (+) on the left-hand side. 
 
-.. image:: BigQueryTableSearchUI-descriptions.png
+.. image:: BigQuery/BigQueryTableSearchUI-descriptions.png
    :align: center
 
 The following information is displayed:
@@ -166,7 +166,7 @@ Table Preview
 A few rows of the data in a BigQuery table can be viewed by clicking on the **Preview** button on the right-hand side. This feature allows the user to get a better idea of the contents and format of the data.
 
 
-.. image:: BigQueryTableSearch-PreviewTableOption.png
+.. image:: BigQuery/BigQueryTableSearch-PreviewTableOption.png
    :align: center
  
  
