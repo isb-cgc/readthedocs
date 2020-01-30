@@ -18,7 +18,7 @@ For more detailed information about the data stored in ISB-CGC BigQuery tables p
 
 **Enhancements**
 
-- For files downloaded using the CSV download feature, it will have fields column is comma-separated format.
+- For files downloaded using the CSV download feature, it will have fields column in comma-separated format.
 
 
 
