@@ -10,14 +10,15 @@ For more detailed information about the data stored in ISB-CGC BigQuery tables p
 
 **New Features**
 
-- Friendly Name column has been introduced. Full ID can be found using the detailed table information feature. 
-- Copy Full ID into the BigQuery console or virtual machine using the copy button in detailed table information please.
-- Paste format of Full ID will contrain grave accents(`) by default.
-- Files downloaded using the CSV download feature will contain Full ID in same format as the user interface.
+- A Friendly Name column has been introduced. The Full ID can be found using the detailed table information feature.
+- The ability to search by Name on left search panel. 
+- Copy Full ID into the BigQuery console or virtual machine using the copy button found in the detailed table information feature.
+- Paste format of Full ID will contain grave accents(`) by default.
+- Files downloaded using the CSV download feature will provide Full ID in the same format as the user interface e.g., SQL Standard format and with a grave accent(`).
 
 **Enhancements**
 
-- CSV download
+- For files downloaded using the CSV download feature, it will have fields column is comma-separated format.
 
 
 
