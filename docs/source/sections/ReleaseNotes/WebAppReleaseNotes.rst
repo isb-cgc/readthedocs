@@ -120,7 +120,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
  2. Foundation Medicine (FM)
  3. Clinical Trial Sequencing Project (CTSP)
  4. Veterans Research for Precision Oncology Program (VAREPOP) 
- 5. Acute Lymphoblastic Leukemia - Phase I (TARGET-ALL-P3)
+ 5. Acute Lymphoblastic Leukemia - Phase III (TARGET-ALL-P3)
   
 **Enhancements** 
 
