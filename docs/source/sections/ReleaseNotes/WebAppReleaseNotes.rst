@@ -4,6 +4,18 @@ ISB-CGC WebApp Release Notes
 
 **Please note:** Work is underway to rework our cohort creation page to better display images associated with samples.
 
+*January 30, 2020* `v1.22 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.22>`_
+
+**New Features**
+
+- The File Browser is enabled to define cancer names under the Disease Code filter in left panel.
+
+**Bug Fixes**
+
+- Cohorts share button is now enabled from the cohorts list page.
+- 
+
+
 *November 26, 2019* `v1.21 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.21>`_
 
 **New Features**
@@ -12,6 +24,19 @@ APIs
 
 - Endpoint GET/data/available/registration lists all possible open and controlled programs available for registration with a service account. 
 - Endpoint GET/data/available/cohorts lists all possible programs and projects available to use to make a cohort of the data available. 
+
+**Known Issues**
+
+- Analysis Type: Seq peek Formatting is Elongated on occasion
+- If the user shares a Cohort, neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort.
+- CCLE data cannot be plotted when working with workbooks. ISB-CGC will resolve this functionality after the GDC formally releases CCLE data.
+- When a user duplicates a Worksheet, then tries to implement the log scale, it will not function properly.
+- The set operation for existing Cohorts complement is behaving exceptionally slow.
+- The mouse-over feature is currently disabled for program TARGET with disease code ALL.
+- When uploading TARGET files using the cohort barcode creation feature from the GDC, you may get an invalid barcodes error message and unable to upload all the barcodes.
+- On the File Browser page for Diagnostic images there is no GDC file UUID associated to them.
+- Sharing a workbook with someone else will cause the analysis to reset.
+- Work is underway to rework our cohort creation page to better display images associated with samples.
 
 *August 27, 2019*
 
@@ -28,14 +53,49 @@ All search databases available listed below.
  - Clinical Associations Searcher
  - Recurrent Chromosome Aberrations Searcher
  - References Searcher
+ 
+**Known Issues**
+
+- Analysis Type: Seq peek Formatting is Elongated on occasion
+- If the user shares a Cohort, neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort.
+- CCLE data cannot be plotted when working with workbooks. ISB-CGC will resolve this functionality after the GDC formally releases CCLE data.
+- When a user duplicates a Worksheet, then tries to implement the log scale, it will not function properly.
+- The set operation for existing Cohorts complement is behaving exceptionally slow.
+- The mouse-over feature is currently disabled for program TARGET with disease code ALL.
+- When uploading TARGET files using the cohort barcode creation feature from the GDC, you may get an invalid barcodes error message and unable to upload all the barcodes.
+- On the File Browser page for Diagnostic images there is no GDC file UUID associated to them.
+- Sharing a workbook with someone else will cause the analysis to reset.
+- Work is underway to rework our cohort creation page to better display images associated with samples.
 
 *September 26, 2019* `v1.20 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.20>`_
+
+The following datasets (open and controlled access) have been added to the ISB-CGC for service account registration:
+
+ 1. The Human Cancer Models Initiative (HCMI)
+ 2. The implementation of targeted therapies for acute myeloid leukaemia (AML)(BEATAML1.0)
 
 **New Features**
 
 ISB-CGC APIs have been updated to a Swagger user interface as well as Goole Endpoints OpenAPI.
 
+**Known Issues**
+
+- Analysis Type: Seq peek Formatting is Elongated on occasion
+- If the user shares a Cohort, neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort.
+- CCLE data cannot be plotted when working with workbooks. ISB-CGC will resolve this functionality after the GDC formally releases CCLE data.
+- When a user duplicates a Worksheet, then tries to implement the log scale, it will not function properly.
+- The set operation for existing Cohorts complement is behaving exceptionally slow.
+- The mouse-over feature is currently disabled for program TARGET with disease code ALL.
+- When uploading TARGET files using the cohort barcode creation feature from the GDC, you may get an invalid barcodes error message and unable to upload all the barcodes.
+- On the File Browser page for Diagnostic images there is no GDC file UUID associated to them.
+- Sharing a workbook with someone else will cause the analysis to reset.
+- Work is underway to rework our cohort creation page to better display images associated with samples.
+
 *July 18, 2019* `v3.19 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.19>`_
+
+The following datasets (open and controlled access) have been added to the ISB-CGC for service account registration:
+
+ 1. The Clinical Proteomic Tumor Analysis Consortium (CPTAC)
 
 **New Features**
 
@@ -43,6 +103,19 @@ Workbooks
 
 - Edit plot settings feature provides the ability to plot by either cases or samples barcode count for a bar chart, histogram, scatter plot, violin plot, and cubby hole plot analyses.
 - Detailed information provided from dbGaP for every program available when registering a Google service account. 
+
+**Known Issues**
+
+- Analysis Type: Seq peek Formatting is Elongated on occasion
+- If the user shares a Cohort, neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort.
+- CCLE data cannot be plotted when working with workbooks. ISB-CGC will resolve this functionality after the GDC formally releases CCLE data.
+- When a user duplicates a Worksheet, then tries to implement the log scale, it will not function properly.
+- The set operation for existing Cohorts complement is behaving exceptionally slow.
+- The mouse-over feature is currently disabled for program TARGET with disease code ALL.
+- When uploading TARGET files using the cohort barcode creation feature from the GDC, you may get an invalid barcodes error message and unable to upload all the barcodes.
+- On the File Browser page for Diagnostic images there is no GDC file UUID associated to them.
+- Sharing a workbook with someone else will cause the analysis to reset.
+- Work is underway to rework our cohort creation page to better display images associated with samples.
 
 *April 25, 2019* `v3.18 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.18>`_
  
