@@ -9,21 +9,23 @@ ISB-CGC WebApp Release Notes
 
 The following datasets (open and controlled access) have been added to the ISB-CGC for service account registration:
 
- 1. The Pancreas Cancer Organoid Profiling (ORGANOID)
- 2. The Multiple Myeloma CoMMpass Study (MMRF)
- 3. Burkitt Lymphoma Genome Sequencing Project (CGCI)
- 4. Acute Lymphoblastic Leukemia - Phase I (TARGET-ALL-P1)
- 5. Acute Lymphoblastic Leukemia - Phase II (TARGET-ALL-P2)
-
+ 1. Genomics Evidence Neoplasia Information Exchange (GENIE)
+ 2. The Pancreas Cancer Organoid Profiling (ORGANOID)
+ 3. The Multiple Myeloma CoMMpass Study (MMRF)
+ 4. Burkitt Lymphoma Genome Sequencing Project (CGCI)
+ 5. Acute Lymphoblastic Leukemia - Phase I (TARGET-ALL-P1)
+ 6. Acute Lymphoblastic Leukemia - Phase II (TARGET-ALL-P2)
+ 7. Functional Genomic Landscape of Acute Myeloid Leukemi (BEATAML1.0-COHORT)
+ 
 **New Features**
 
 - The File Browser is enabled to define cancer names under the Disease Code filter in left panel.
-- 
 
 **Bug Fixes**
 
 - Cohorts share button is now enabled from the cohorts list page.
-- The cohort builder - filters, when using Pathologic Stage filter, the filters display in the correct format. 
+- The cohort builder - filters, when using Pathologic Stage filter, the filters display in the correct format.
+- Add a gene & mirna variable favorite list from menu bar selection is now enabled. 
 
 
 *November 26, 2019* `v1.21 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.21>`_
@@ -53,7 +55,7 @@ APIs
 The following datasets (open and controlled access) have been added to the ISB-CGC for service account registration:
 
  1. The Human Cancer Models Initiative (HCMI)
- 2. The implementation of targeted therapies for acute myeloid leukaemia(AML) (BEATAML1.0)
+ 2. The Functional Genomic Landscape of Acute Myeloid Leukemi (BEATAML1.0)
  
 **New Features**
  
