@@ -4,19 +4,20 @@ ISB-CGC WebApp Release Notes
 
 **Please note:** Work is underway to rework our cohort creation page to better display images associated with samples.
 
-*January 30, 2020* `v1.22 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.22>`_
+*January 30, 2020* `v1.22 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.22>`_
 
 **New Features**
 
 - The File Browser is enabled to define cancer names under the Disease Code filter in left panel.
+- 
 
 **Bug Fixes**
 
 - Cohorts share button is now enabled from the cohorts list page.
-- 
+- The cohort builder - filters, when using Pathologic Stage filter, the filters display in the correct format. 
 
 
-*November 26, 2019* `v1.21 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.21>`_
+*November 26, 2019* `v1.21 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.21>`_
 
 **New Features**
 
@@ -38,13 +39,13 @@ APIs
 - Sharing a workbook with someone else will cause the analysis to reset.
 - Work is underway to rework our cohort creation page to better display images associated with samples.
 
-*August 27, 2019*
+*August 27, 2019* `v1.21 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.20>`_
 
 **New Features**
 
 - Mitelman Databasae mirror released on the ISB-CGC.
 
-Please follow link `Mitelman Database Chromosome Aberrations and Gene Fusions in Cancer <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.20>`_. 
+Please follow link `Mitelman Database Chromosome Aberrations and Gene Fusions in Cancer <https://mitelmandatabase.isb-cgc.org/>`_. 
 
 All search databases available listed below.  
 
@@ -67,7 +68,7 @@ All search databases available listed below.
 - Sharing a workbook with someone else will cause the analysis to reset.
 - Work is underway to rework our cohort creation page to better display images associated with samples.
 
-*September 26, 2019* `v1.20 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.20>`_
+*September 26, 2019* `v1.20 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.20>`_
 
 The following datasets (open and controlled access) have been added to the ISB-CGC for service account registration:
 
