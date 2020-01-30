@@ -6,6 +6,21 @@ For more detailed information about this discovery tool's functionality created 
 
 For more detailed information about the data stored in ISB-CGC BigQuery tables please visit `ISB-CGC BigQuery Tables <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQuery.html>`_.
 
+*January 30,2020*
+
+**New Features**
+
+- Friendly Name column has been introduced. Full ID can be found using the detailed table information feature. 
+- Copy Full ID into the BigQuery console or virtual machine using the copy button in detailed table information please.
+- Paste format of Full ID will contrain grave accents(`) by default.
+- Files downloaded using the CSV download feature will contain Full ID in same format as the user interface.
+
+**Enhancements**
+
+- CSV download
+
+
+
 *November 26, 2019* `v1.0 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.21>`_
 
 **Initial Release**
