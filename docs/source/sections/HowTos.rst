@@ -44,7 +44,7 @@ I'm a novice, how do I...
 
 **How do I run a tool using a workflow execution service (WES)?** `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_use_a_GA4GH_tool_using_WES.ipynb>`_
 
-**How do I use the ISB-CGC APIs?** `_Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_use_ISB_CGC_APIs.ipynb>`_ / `_R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_use_ISB-CGC_APIs.md>`_
+**How do I use the ISB-CGC APIs?** `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_use_ISB_CGC_APIs.ipynb>`_ / `_R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_use_ISB-CGC_APIs.md>`_
 
 
 
