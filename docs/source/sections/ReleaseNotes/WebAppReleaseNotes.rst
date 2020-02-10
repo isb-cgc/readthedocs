@@ -61,7 +61,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
  
 - Mitelman Database mirror released on the ISB-CGC.
 
-Please follow the link `Mitelman Database Chromosome Aberrations and Gene Fusions in Cancer <https://mitelmandatabase.isb-cgc.org/>`_. 
+Please go to `Mitelman Database Chromosome Aberrations and Gene Fusions in Cancer <https://mitelmandatabase.isb-cgc.org/>`_. 
 
 All search databases available listed below.  
 
@@ -71,7 +71,7 @@ All search databases available listed below.
  - Recurrent Chromosome Aberrations Searcher
  - References Searcher
 
-- ISB-CGC APIs have been updated to a Swagger user interface as well as Goole Endpoints OpenAPI, now known as APIsv4.
+- ISB-CGC APIs have been updated to a Swagger user interface as well as Google Endpoints OpenAPI, now known as APIsv4.
 
 **Known Issues**
 
