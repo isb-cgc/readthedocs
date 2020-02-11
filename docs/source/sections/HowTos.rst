@@ -2,7 +2,7 @@
 Community Notebooks
 ********************
 
-Welcome to our collection notebooks, demonstrating the powerful combination of
+Welcome to our collection of notebooks, demonstrating the powerful combination of
 BigData from the NCI cancer programs (like TCGA), and powerful cloud-based tools from Google.
 
 Please let us know if you have suggestions, ideas, or thoughts for a notebook example!
