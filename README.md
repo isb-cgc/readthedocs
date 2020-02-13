@@ -1,6 +1,6 @@
 ## Documentation for the ISB-CGC on Read the Docs.
 
-This github repository is source control for the content for the ISB-CGC documentation at [http://isb-cancer-genomics-cloud.readthedocs.org](http://isb-cancer-genomics-cloud.readthedocs.org).
+This github repository is source control for the content for the [ISB-CGC](https://isb-cgc.appspot.com/) documentation at [http://isb-cancer-genomics-cloud.readthedocs.org](http://isb-cancer-genomics-cloud.readthedocs.org).
 
 Please be sure to visit our [Community Notebook Repository](https://github.com/isb-cgc/Community-Notebooks/tree/master), where we have a collection of notebooks, demonstrating the powerful combination of BigData from the NCI cancer programs (like TCGA), and powerful cloud-based tools.
 
