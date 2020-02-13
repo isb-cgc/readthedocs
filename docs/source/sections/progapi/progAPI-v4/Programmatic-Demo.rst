@@ -5,7 +5,7 @@ ISB-CGC APIs
 About
 ======
 
-There are two Application Programming Interfaces (APIs) for interacting with ISB-CGC hosted data. The first API, recommended for interacting with Big Query Tables is the `Google SDK <https://cloud.google.com/bigquery/docs/reference/rest/>`_. ISB-CGC also provides a `Swagger API <https://api-dot-isb-cgc.appspot.com/v4/swagger/>`_, intended for interacting with our webapp and data generated through our webapp via the command line.
+There are two Application Programming Interfaces (APIs) for interacting with ISB-CGC hosted data. The first API, recommended for interacting with Big Query Tables is the `Google SDK <https://cloud.google.com/bigquery/docs/reference/rest/>`_. ISB-CGC also provides a `Swagger API <https://api-dot-isb-cgc.appspot.com/v4/swagger/>`_, intended for interacting with our webapp and data generated through our webapp via the command line. The ISB-CGC APIs can also be used via Python and R. We have tutorial notebooks available in our Community Notebook Repository.
 
 Some example use-cases that the ISB-CGC API is intended to address are:
 
@@ -19,7 +19,7 @@ Some example use-cases that the ISB-CGC API is intended to address are:
 Authorization
 =============
 
-The ISB-CGC APIs can be used via R and python. Some of the APIs - such as the programs, samples, and cases - can be accessed without authorization. APIs that call on information saved in a users account, such as the cohorts and gcp APIs, necessarily require account authorization to access.
+Some of the APIs - such as the programs, samples, and cases - can be accessed without authorization. APIs that call on information saved in a users account, such as the cohorts and gcp APIs, necessarily require account authorization to access.
 
 In order to access the APIs that require ISB-CGC authorization, you will need to generate a credentials file on your local machine or on your VM. To load your credentials into your command line interface:
 
