@@ -5,7 +5,12 @@ ISB-CGC APIs
 About
 ======
 
-There are two Application Programming Interfaces (APIs) for interacting with ISB-CGC hosted data. The first API, recommended for interacting with Big Query Tables is the `Google SDK <https://cloud.google.com/bigquery/docs/reference/rest/>`_. ISB-CGC also provides a `Swagger API <https://api-dot-isb-cgc.appspot.com/v4/swagger/>`_, intended for interacting with our webapp and data generated through our webapp via the command line. The ISB-CGC APIs can also be used via Python and R. We have tutorial notebooks available in our `Community Notebook Repository <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowTos.html#i-m-a-novice-how-do-i>`_.
+There are two Application Programming Interfaces (APIs) for interacting with ISB-CGC hosted data. The first API, recommended for interacting with Big Query Tables is the `Google SDK <https://cloud.google.com/bigquery/docs/reference/rest/>`_. ISB-CGC also provides a `Swagger API <https://api-dot-isb-cgc.appspot.com/v4/swagger/>`_, intended for interacting with our webapp and data generated through our webapp via the command line.
+
+The ISB-CGC APIs can also be used via Python and R. We have tutorial notebooks available in our `Community Notebook Repository <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowTos.html#i-m-a-novice-how-do-i>`_. 
+
+- `Python Notebook <https://github.com/isb-cgc/Community-Notebooks/blob/Staging-Notebooks/Notebooks/How_to_use_ISB_CGC_APIs.ipynb>`_
+- `R Notebook <https://github.com/isb-cgc/Community-Notebooks/blob/Staging-Notebooks/Notebooks/How_to_use_ISB_CGC_APIs.Rmd>`_
 
 Some example use-cases that the ISB-CGC API is intended to address are:
 
