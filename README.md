@@ -1,19 +1,18 @@
 ## Documentation for the ISB-CGC on Read the Docs.
 
-This github repository is source control for the content on http://isb-cancer-genomics-cloud.readthedocs.org.  You can read it [there](http://isb-cancer-genomics-cloud.readthedocs.org) or, if you want to contribute, you can edit it *here*.
+This github repository is source control for the content for the [ISB-CGC](https://isb-cgc.appspot.com/) documentation at [http://isb-cancer-genomics-cloud.readthedocs.org](http://isb-cancer-genomics-cloud.readthedocs.org).
 
-ISB-CGC source code and example repositories are also on gitub:
-* See https://github.com/isb-cgc/examples-Python if you are looking for examples using Python
-* See https://github.com/isb-cgc/examples-R if you are looking for examples using R and Bioconductor
-* See https://github.com/isb-cgc/examples-Compute if you are looking for computational-pipeline examples
+Please be sure to visit our [Community Notebook Repository](https://github.com/isb-cgc/Community-Notebooks/tree/master), where we have a collection of notebooks, demonstrating the powerful combination of BigData from the NCI cancer programs (like TCGA), and powerful cloud-based tools.
 
-The [docs/include](https://github.com/isb-cgc/readthedocs/tree/master/docs/include) folder contains some tutorial material in PDF form -- each tutorial should take between 5 and 20 minutes:
-* Introduction to ISB-CGC Web App ([pdf](https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/Intro_to_Webapp.pdf))
-  + Introduction to using IGV in the Web App ([pdf](https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/Intro_to_Webapp_IGV.pdf))
-  + Introduction to using SeqPeek in the Web App ([pdf](https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/Intro_to_Webapp_SeqPeek.pdf))
-* A Quick Tour of the Google Cloud Console ([pdf](https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_Console.pdf))
-* How to Enable APIs for your GCP Project ([pdf](https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/enabling_new_APIs.pdf))
-* Introduction to BigQuery ([pdf](https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_BigQuery.pdf))
-* Introduction to Cloud Shell ([pdf](https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_Cloud_Shell.pdf))
-* Introduction to Cloud Datalab ([pdf](https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/include/intro_to_Cloud_Datalab.pdf))
+How to get started materials:
+* [How to Get Started on ISB-CGC](https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowToGetStartedonISB-CGC.html)
+* [Introduction to ISB-CGC Web App](https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Web-UI.html)
+  + [Introduction to using IGV in the Web App](https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/IGV-Browser.html)
+* [ISB-CGC Tutorials and How-To Guides](https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/TutorialsAndHow-ToGuides.html)
+* [Google Cloud Console Overview](https://cloud.google.com/docs/overview)
+* [How to Enable APIs for your GCP Project](https://cloud.google.com/apis/docs/getting-started)
+* [Introduction to BigQuery](https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform.html)
 
+For general information about the ISB-CGC, please contact us at feedback@isb-cgc.org. We are especially keen on learning about your particular use-cases, and how we can help you take advantage of the latest in cloud-computing technologies to answer your research questions.
+
+For feature-requests or bug-reports, please send e-mail to feedback@isb-cgc.org.

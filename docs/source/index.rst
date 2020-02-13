@@ -49,7 +49,7 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    sections/RegulomeExplorerNotebooks
    sections/HowTos
    sections/TutorialsAndHow-ToGuides
-   sections/updates_and_releases/FeatureAlerts
+   sections/updates/FeatureAlerts
    sections/Releases
    sections/Quick-links-updated
    sections/FAQ

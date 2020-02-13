@@ -2,29 +2,136 @@
 ISB-CGC WebApp Release Notes
 #############################
 
-Introduction text
-
 **Please note:** Work is underway to rework our cohort creation page to better display images associated with samples.
 
-**April 25, 2019**
+*January 30, 2020* `v1.22 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.22>`_
+
+
+The following datasets (open and controlled access) have been added to the ISB-CGC for service account registration:
+
+ 1. Genomics Evidence Neoplasia Information Exchange (GENIE)
+ 2. The Pancreas Cancer Organoid Profiling (ORGANOID)
+ 3. The Multiple Myeloma CoMMpass Study (MMRF)
+ 4. Burkitt Lymphoma Genome Sequencing Project (CGCI)
+ 5. Acute Lymphoblastic Leukemia - Phase I (TARGET-ALL-P1)
+ 6. Acute Lymphoblastic Leukemia - Phase II (TARGET-ALL-P2)
+ 7. Functional Genomic Landscape of Acute Myeloid Leukemia (BEATAML1.0-COHORT)
+ 
+**New Features**
+
+- The File Browser is enabled to define cancer names under the Disease Code filter in the left panel.
+
+**Bug Fixes**
+
+- The Cohorts share button is now enabled from the cohorts list page.
+- The Cohort builder - filters, when using Pathologic Stage filter, the filters display in the correct format.
+- Add a gene & miRNA variable favorite list from menu bar selection is now enabled. 
+
+
+*November 26, 2019* `v1.21 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.21>`_
+
+**New Features**
+
+APIs
+
+- Endpoint GET/data/available/registration lists all possible open and controlled programs available for registration with a service account. 
+- Endpoint GET/data/available/cohorts list all possible programs and projects available to use to make a cohort of the data available. 
+
+**Known Issues**
+
+- Analysis Type: Seq peek Formatting is Elongated on occasion.
+- If the user shares a Cohort, neither the owner nor the person who was granted access to the Cohort will receive a confirmation email when sharing a Cohort.
+- CCLE data cannot be plotted when working with workbooks. ISB-CGC will resolve this functionality after the GDC formally releases CCLE data.
+- When a user duplicates a Worksheet, then tries to implement the log scale, it will not function properly.
+- The set operation for existing Cohorts complement is behaving exceptionally slow.
+- The mouse-over feature is currently disabled for program TARGET with disease code ALL.
+- When uploading TARGET files using the cohort barcode creation feature from the GDC, you may get an invalid barcode error message and unable to upload all the barcodes.
+- On the File Browser page for Diagnostic images, there is no GDC file UUID associated with them.
+- Sharing a workbook with someone else will cause the analysis to reset.
+- Work is underway to rework our cohort creation page to better display images associated with samples.
+
+*August 27, 2019* `v1.20 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.20>`_
+
+The following datasets (open and controlled access) have been added to the ISB-CGC for service account registration:
+
+ 1. The Human Cancer Models Initiative (HCMI)
+ 2. The Functional Genomic Landscape of Acute Myeloid Leukemia (BEATAML1.0)
+ 
+**New Features**
+ 
+- Mitelman Database mirror released on the ISB-CGC.
+
+Please go to `Mitelman Database Chromosome Aberrations and Gene Fusions in Cancer <https://mitelmandatabase.isb-cgc.org/>`_. 
+
+All search databases available listed below.  
+
+ - Cases Cytogenetics Searcher
+ - Gene Fusions Searcher
+ - Clinical Associations Searcher
+ - Recurrent Chromosome Aberrations Searcher
+ - References Searcher
+
+- ISB-CGC APIs have been updated to a Swagger user interface as well as Google Endpoints OpenAPI, now known as APIsv4.
+
+**Known Issues**
+
+- Analysis Type: Seq peek Formatting is Elongated on occasion
+- If the user shares a Cohort, neither the owner nor the person who was granted access to the Cohort will receive a confirmation email when sharing a Cohort.
+- CCLE data cannot be plotted when working with workbooks. ISB-CGC will resolve this functionality after the GDC formally releases CCLE data.
+- When a user duplicates a Worksheet, then tries to implement the log scale, it will not function properly.
+- The set operation for existing Cohorts complement is behaving exceptionally slow.
+- The mouse-over feature is currently disabled for program TARGET with disease code ALL.
+- When uploading TARGET files using the cohort barcode creation feature from the GDC, you may get an invalid barcode error message and unable to upload all the barcodes.
+- On the File Browser page for Diagnostic images, there is no GDC file UUID associated with them.
+- Sharing a workbook with someone else will cause the analysis to reset.
+- Work is underway to rework our cohort creation page to better display images associated with samples.
+
+*July 18, 2019* `v3.19 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.19>`_
+
+The following datasets (open and controlled access) have been added to the ISB-CGC for service account registration:
+
+ 1. The Clinical Proteomic Tumor Analysis Consortium (CPTAC)
+
+**New Features**
+
+Workbooks
+
+- Edit plot settings feature provides the ability to plot by either cases or samples barcode count for a bar chart, histogram, scatter plot, violin plot, and cubby hole plot analyses.
+- Detailed information provided by dbGaP for every program available when registering a Google service account. 
+
+**Known Issues**
+
+- Analysis Type: Seq peek Formatting is Elongated on occasion
+- If the user shares a Cohort, neither the owner nor the person who was granted access to the Cohort will receive a confirmation email when sharing a Cohort.
+- CCLE data cannot be plotted when working with workbooks. ISB-CGC will resolve this functionality after the GDC formally releases CCLE data.
+- When a user duplicates a Worksheet, then tries to implement the log scale, it will not function properly.
+- The set operation for existing Cohorts complement is behaving exceptionally slow.
+- The mouse-over feature is currently disabled for program TARGET with disease code ALL.
+- When uploading TARGET files using the cohort barcode creation feature from the GDC, you may get an invalid barcode error message and unable to upload all the barcodes.
+- On the File Browser page for Diagnostic images, there is no GDC file UUID associated with them.
+- Sharing a workbook with someone else will cause the analysis to reset.
+- Work is underway to rework our cohort creation page to better display images associated with samples.
+
+*April 25, 2019* `v3.18 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.18>`_
  
 The following datasets (open and controlled access) have been added to the ISB-CGC for service account registration:
 
  1. The National Cancer Institute Center for Cancer Research (NCICCR)
- 2. Foundation Medicine(FM)
+ 2. Foundation Medicine (FM)
  3. Clinical Trial Sequencing Project (CTSP)
  4. Veterans Research for Precision Oncology Program (VAREPOP) 
+ 5. Acute Lymphoblastic Leukemia - Phase III (TARGET-ALL-P3)
   
 **Enhancements** 
 
-- When working with Oncogrid, OncoPrint, or a SeqPeek plot on a workbook you will receive an automatic list of genes ready for analysis.
-- When on a workbook additional text has been added to guide the user to select edit plot settings to select a gene/miRNA/variable filter and cohort to used in analysis selected.
+- When working with Oncogrid, OncoPrint, or a SeqPeek plot on a workbook, you will receive an automated list of genes ready for analysis.
+- When on an additional workbook, text has been added to guide the user to select edit plot settings to choose a gene/miRNA/variable filter and cohort to used in the selected analysis.
 - The Workbook comments section has been reformatted to better align with analysis displayed.
-- On the cohort creation - filter page the filters have been updated in the left filter panel to specify the count type displayed (samples).
+- On the cohort creation - filter page, the filters have been updated in the left filter panel to specify the count type displayed (samples).
 
 **Bug Fixes**
 
-- Clicking on a legend entry to toggle display of the data points on a scatter or violin plot will now work correctly, even if the legend text has a space.
+- Clicking on a legend entry to toggle the display of the data points on a scatter or violin plot will now work correctly, even if the legend text has a space.
 - Plotting with sample type filter on a workbook will now display counts correctly.
 - When working with the color by feature on either a Scatter plot or a Violin plot, the numerical values are now displayed as a color-gradient legend.
 - When using a workbook with OncoGrid analysis you are now able to plot using genomic build hg19.
@@ -33,18 +140,18 @@ The following datasets (open and controlled access) have been added to the ISB-C
 **Known Issues**
 
 - Analysis Type: Seq peek Formatting is Elongated on occasion
-- If the user shares a Cohort, neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort.
+- If the user shares a Cohort, neither the owner nor the person who was granted access to the Cohort will receive a confirmation email when sharing a Cohort.
 - CCLE data cannot be plotted when working with workbooks. ISB-CGC will resolve this functionality after the GDC formally releases CCLE data.
 - When a user duplicates a Worksheet, then tries to implement the log scale, it will not function properly.
 - The set operation for existing Cohorts complement is behaving exceptionally slow.
 - The mouse-over feature is currently disabled for program TARGET with disease code ALL.
-- When uploading TARGET files using the cohort barcode creation feature from the GDC, you may get an invalid barcodes error message and unable to upload all the barcodes.
-- On the File Browser page for Diagnostic images there is no GDC file UUID associated to them.
+- When uploading TARGET files using the cohort barcode creation feature from the GDC, you may get an invalid barcode error message and unable to upload all the barcodes.
+- On the File Browser page for Diagnostic images, there is no GDC file UUID associated with them.
 - Sharing a workbook with someone else will cause the analysis to reset.
 - Work is underway to rework our cohort creation page to better display images associated with samples.
 
 
-**March 8, 2019**
+*March 8, 2019* `v3.17 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.17>`_
 
 **Enhancements**
 
@@ -63,17 +170,18 @@ The following datasets (open and controlled access) have been added to the ISB-C
 
 **Known Issues**
 
-- Analysis Type: Seq peek Formatting is Elongated on occasion 
-- If the user shares a Cohort, neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort. 
-- CCLE data cannot be plotted when working with workbooks. ISB-CGC will resolve this functionality after the GDC formally releases CCLE data. 
-- When a user duplicates a Worksheet, then tries to implement the log scale, it will not function properly. 
+- Analysis Type: Seq peek Formatting is Elongated on occasion
+- If the user shares a Cohort, neither the owner nor the person who was granted access to the Cohort will receive a confirmation email when sharing a Cohort.
+- CCLE data cannot be plotted when working with workbooks. ISB-CGC will resolve this functionality after the GDC formally releases CCLE data.
+- When a user duplicates a Worksheet, then tries to implement the log scale, it will not function properly.
 - The set operation for existing Cohorts complement is behaving exceptionally slow.
 - The mouse-over feature is currently disabled for program TARGET with disease code ALL.
-- When uploading TARGET files using the cohort barcode creation feature from the GDC, you may get an invalid barcodes error message and unable to upload all the barcodes.
-- On the File Browser page for Diagnostic images there is no GDC file UUID associated to them.
+- When uploading TARGET files using the cohort barcode creation feature from the GDC, you may get an invalid barcode error message and unable to upload all the barcodes.
+- On the File Browser page for Diagnostic images, there is no GDC file UUID associated with them.
 - Sharing a workbook with someone else will cause the analysis to reset.
+- Work is underway to rework our cohort creation page to better display images associated with samples.
 
-**January 22, 2019** `v3.16 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.16>`_
+*January 22, 2019* `v3.16 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.16>`_
 
 **Enhancements**
   
@@ -88,19 +196,19 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - If you have not linked to the Data Commons Framework at all you are able to unregister a Google Cloud Project. If you are not linked to the Data Commons Framework, but others in the Google Cloud project are, only they will be able to unregister the GCP.  
  
 **Known Issues**
-  
-- Analysis Type: Seq peek Formatting is Elongated on occasion 
-- If the user shares a Cohort, neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort. 
-- CCLE data cannot be plotted when working with workbooks. ISB-CGC will resolve this functionality after the GDC formally releases CCLE data. 
-- When a user duplicates a Worksheet, then tries to implement the log scale, it will not function properly. 
-- The set operation for existing Cohorts complement is behaving exceptionally slow.
-- The mouse-over feature is currently disabled for program TARGET with disease code ALL. 
-- When uploading TARGET files using the cohort barcode creation feature from the GDC, you may get an invalid barcodes error message and unable to upload all the barcodes. 
-- On the File Browser page for Diagnostic images there is no GDC file UUID associated to them. 
-- Sharing a workbook with someone else will cause the analysis to reset. 
-- Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
 
-**December 5, 2018** `v3.15 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.15>`_
+- Analysis Type: Seq peek Formatting is Elongated on occasion
+- If the user shares a Cohort, neither the owner nor the person who was granted access to the Cohort will receive a confirmation email when sharing a Cohort.
+- CCLE data cannot be plotted when working with workbooks. ISB-CGC will resolve this functionality after the GDC formally releases CCLE data.
+- When a user duplicates a Worksheet, then tries to implement the log scale, it will not function properly.
+- The set operation for existing Cohorts complement is behaving exceptionally slow.
+- The mouse-over feature is currently disabled for program TARGET with disease code ALL.
+- When uploading TARGET files using the cohort barcode creation feature from the GDC, you may get an invalid barcode error message and unable to upload all the barcodes.
+- On the File Browser page for Diagnostic images, there is no GDC file UUID associated with them.
+- Sharing a workbook with someone else will cause the analysis to reset.
+- Work is underway to rework our cohort creation page to better display images associated with samples.
+
+*December 5, 2018* `v3.15 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.15>`_
  
 **Enhancements**
  
@@ -124,18 +232,18 @@ The following datasets (open and controlled access) have been added to the ISB-C
   
 **Known Issues**
  
-- Analysis Type: Seq peek Formatting is Elongated on occasion 
-- If the user shares a Cohort, neither the owner nor the person who was granted access to Cohort will receive a confirmation email when sharing a Cohort.
-- CCLE data cannot be plotted when working with workbooks. ISB-CGC will resolve this functionality after the GDC formally releases CCLE data. 
-- When a user duplicates a Worksheet, then tries to implement the log scale, it will not function properly. 
+- Analysis Type: Seq peek Formatting is Elongated on occasion
+- If the user shares a Cohort, neither the owner nor the person who was granted access to the Cohort will receive a confirmation email when sharing a Cohort.
+- CCLE data cannot be plotted when working with workbooks. ISB-CGC will resolve this functionality after the GDC formally releases CCLE data.
+- When a user duplicates a Worksheet, then tries to implement the log scale, it will not function properly.
 - The set operation for existing Cohorts complement is behaving exceptionally slow.
-- The mouse-over feature is currently disabled for program TARGET with disease code ALL. 
-- When uploading TARGET files using the cohort barcode creation feature from the GDC, you may get an invalid barcodes error message and unable to upload all the barcodes. 
-- On the File Browser page for Diagnostic images there is no GDC file UUID associated to them. 
+- The mouse-over feature is currently disabled for program TARGET with disease code ALL.
+- When uploading TARGET files using the cohort barcode creation feature from the GDC, you may get an invalid barcode error message and unable to upload all the barcodes.
+- On the File Browser page for Diagnostic images, there is no GDC file UUID associated with them.
 - Sharing a workbook with someone else will cause the analysis to reset.
-- Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
+- Work is underway to rework our cohort creation page to better display images associated with samples.
 
-**September 20, 2018** `v3.14 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.14>`_
+*September 20, 2018* `v3.14 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.14>`_
  
 **Enhancements**
   
@@ -162,7 +270,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - When using a workbook, a gene with symbol “_” will produce a error message saying, “There was an error retrieving plot data. Please try again.” 
 - Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
 
-**July 31, 2018** `v3.13 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.13>`_
+*July 31, 2018* `v3.13 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.13>`_
 
 **Enhancements**
  
@@ -197,7 +305,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - When downloading the CSV file for Radiology Images tab on the File Browser page you will noticed there are no samples barcodes associated to Radiology Images. ISB-CGC will add a case barocde to the CSV file export table in the next release. 
 - Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
 
-**June 18, 2018** `v3.12 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.12>`_
+*June 18, 2018* `v3.12 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.12>`_
 
 **Enhancements**
   
@@ -235,7 +343,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - A Workbook using a cohort that has user uploaded data and public TCGA data present will not return data for any analysis. 
 - Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
 
-**May 3, 2018** `v3.11 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.11>`_
+*May 3, 2018* `v3.11 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.11>`_
  
 **Enhancements**
  
@@ -271,7 +379,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - On the File Browser page for Diagnostic images there is no GDC file UUID associated to them.
 - Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
 
-**April 2, 2018** `v3.10 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.10>`_
+*April 2, 2018* `v3.10 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.10>`_
  
 **Enhancements**
 
@@ -302,7 +410,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - On the cohort File List Browser page, while you are downloading CSV files, other filters can be selected.
 - Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
 
-**February 28, 2018** `v3.9 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.9>`_
+*February 28, 2018* `v3.9 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.9>`_
  
 **Enhancements**
  
@@ -338,7 +446,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - On the File Browser page, while you are downloading CSV files, other filters can be selected. 
 - Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
 
-**February 1, 2018** `v3.8 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.8>`_
+*February 1, 2018* `v3.8 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.8>`_
 
 **Enhancements**
  
@@ -373,7 +481,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - Certain genes will produce a blank chart with no data on a worksheet when working with a histogram.
 - Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
 
-**December 20, 2017** `v3.7 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.7>`_
+*December 20, 2017* `v3.7 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.7>`_
  
 **Enhancements**
 
@@ -399,7 +507,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - When uploading TARGET files using the cohort barcode creation feature from the GDC you may get an invalid barcodes error message and unable to upload all the barcodes.
 - Work is underway to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
 
-**November 20, 2017** `v3.6 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.6>`_
+*November 20, 2017* `v3.6 <https://github.com/isb-cgc/ISB-CGC-WebApp/releases/tag/3.6>`_
  
 **Enhancements**
  
@@ -431,7 +539,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - If you have uploaded a lot of data using the User Data Upload feature, it is likely you will experience 502 error page when attempting to create a new variable favorite list. 
 - When working with the API endpoints the sample.get for all three programs will return a 503 internal server error.
 
-**October 13, 2017** `v3.5 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.5>`_
+*October 13, 2017* `v3.5 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.5>`_
  
 **Enhancements**
  
@@ -459,7 +567,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - When working on Firefox browser a violin plot does not display the data plotted correctly when working on a Worksheet. 
 - We need to rework our cohort creation page to better differentiate between samples which are from image data vs. those which are not.
 
-**September 21,2017** `v3.4 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.4>`_
+*September 21,2017* `v3.4 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.4>`_
  
 **Enhancements**
  
@@ -495,7 +603,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - A very small amount of bam files for program TARGET currently have the wrong file name and cannot be used with the IGV browser. 
 - When working on Firefox browser a violin plot does not display the data plotted correctly when working on a Worksheet. 
 
-**August 23, 2017**: `v3.3 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.3>`_
+*August 23, 2017* `v3.3 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.3>`_
  
 **Enhancements**
  
@@ -536,7 +644,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - When plotting, certain values will be displayed as numerical when it should be a categorical value e.g Tobacco Smoking History.
 - The mouse over feature is currently disabled for program TARGET with disease code ALL. 
 
-**July 31, 2017**: `v3.2 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.2>`_
+*July 31, 2017* `v3.2 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.2>`_
 
 **Enhancements**
 
@@ -573,7 +681,7 @@ The following datasets (open and controlled access) have been added to the ISB-C
 - The user.get CCLE program API endpoint will return a 503 internal server error.
 - When creating large cohort you will be given a red error message saying, “There was an error saving your cohort; it may not have been saved correctly.” 
 
-**June 14, 2017**: `v3.1 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.1>`_
+*June 14, 2017* `v3.1 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.1>`_
 
 **Known Issues**
  
@@ -623,7 +731,7 @@ LS123, LS1034
 - Cohorts created with API specific filters are now accessible to access by their cohort details page. 
 - You are now able to plot miRNA data with genomic build hg38 for TARGET data. 
    
-**May 25, 2017**: `v3.0 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.0>`_
+*May 25, 2017* `v3.0 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.0>`_
 
 In collaboration with the GDC we now have TARGET pediatric cancer data available for analysis in the user interface. You are now able to create cohorts and plot analysis with information from TARGET, TCGA, and CCLE data. 
  
@@ -674,13 +782,13 @@ LS123, LS1034
 - The user data upload is enabled and users can now upload their own datasets and create cohorts using existing programs and newly uploaded data by the user.
 - You can now have multiple Google Cloud Projects associated to your account and use only one bucket and dataset on one project with no interference. 
 
-**April 12, 2017**:
+*April 12, 2017* `v1.15 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.15>`_
 
 **Known Issues**
 
 - We are currently having issues viewing bam files using the IGV browser for TCGA and CCLE data. We are working to fix the issue and it should be resolved as soon as possible.
 
-**February 26, 2017**: 
+*February 26, 2017* `v1.14 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.14>`_
 
 **Known Issues**
   
@@ -707,7 +815,7 @@ LS123, LS1034
   
 - User will no longer be sent to the Social Network Login page when trying to login. If this occurs, please feel free to send ISB-CGC feedback using this link `feedback <https://groups.google.com/a/isb-cgc.org/forum/#!newtopic/feedback>`_.
 
-**November 30, 2016**: `v1.13 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.13>`_
+*November 30, 2016* `v1.13 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.13>`_
 
 **Known Issues**
   
@@ -732,7 +840,7 @@ LS123, LS1034
 - Worksheets added to an existing workbook now behave the same as the original worksheet.
 - Cohort set operations no longer performing exceptionally slow.
   
-**November 16, 2016**: `v1.12 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.12>`_
+*November 16, 2016* `v1.12 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.12>`_
 
 **Known Issues**
   
@@ -768,7 +876,7 @@ LS123, LS1034
 - The upload data button is disabled on the review files page when no buckets or datasets are associated. 
 - Someone with multiple eRA accounts will be no longer have issues when trying to access controlled data. 
   
-**November 2, 2016**: `v1.11 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.11>`_
+*November 2, 2016* `v1.11 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.11>`_
 
 **Known Issues**
 
@@ -813,7 +921,22 @@ LS123, LS1034
 - Create cohort from plot selection now works with all analysis types. 
 - Data inconsistencies between the create new cohort histogram filter and the most recent BigQuery datasets has been addressed and resolved.
 
-**September 21, 2016**: `v1.10 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.10>`_
+*September 21, 2016* `v1.10 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.10>`_
+
+**Enhancements**
+  
+- Text in confirmation box of a duplication of a workbook has been enhanced. 
+- On the registered Google Cloud Projects page, icon has been added for the user to go directly to the Google Cloud Console page if desired. 
+- When the a Service Account is removed from the Access Control List, the project owner is sent an email with an explanation as to why the account was removed. 
+- IGV File List page displays of which page user is browsing. 
+
+**Bug Fixes**
+
+- For a Cubby hole plot the x - axis name can be seen clearly. 
+- On a duplicate worksheet when working with gene specifications, user is able to select between all options multiple times. 
+- Page becomes elongated when the user builds a Cubby Hole plot. 
+- The selected variables for the plot setting on a worksheet are saved after the user leaves the workbook. 
+- When registering a Google Cloud Project the user is displayed the list of emails associated to the GCP only once. 
 
 **Known Issues**
   
@@ -831,40 +954,7 @@ LS123, LS1034
 - When a user duplicates a worksheet, then tries to implement the log scale it will not function properly. 
 - There are duplicate rows in the molecular data table in BigQuery. 
 
-**Enhancements**
-  
-- Text in confirmation box of a duplication of a workbook has been enhanced. 
-- On the registered Google Cloud Projects page, icon has been added for the user to go directly to the Google Cloud Console page if desired. 
-- When the a Service Account is removed from the Access Control List, the project owner is sent an email with an explanation as to why the account was removed. 
-- IGV File List page displays of which page user is browsing. 
-
-**Bug Fixes**
-
-- For a Cubby hole plot the x - axis name can be seen clearly. 
-- On a duplicate worksheet when working with gene specifications, user is able to select between all options multiple times. 
-- Page becomes elongated when the user builds a Cubby Hole plot. 
-- The selected variables for the plot setting on a worksheet are saved after the user leaves the workbook. 
-- When registering a Google Cloud Project the user is displayed the list of emails associated to the GCP only once. 
-
-**September 7, 2016**: `v1.9 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.9>`_
-  
-**Known Issues**
-
-- The user can add same gene twice if list to the same worksheet it they have different names.
-- The Bar chart on the worksheet panel renders overlapping text.
-- Analysis Type : Seq peek Formatting Elongated 
-- The CCLE data in GUI is not parallel to the CCLE data in BigQuery. 
-- If a user creates a cohort with sample type filter Cell Lines and CCLE the total number of samples count off by one.
-- User will occasionally be sent to the Social Network Login page when trying to login. If this occurs, please go the the home page of the Web Application and try again.
-- Page becomes elongated when the user builds a Cubby Hole plot. 
-- X-axis name cut off for cubby hole plot when x-axis has only 3 criteria.
-- If the user shares a cohort they do not receive a confirmation email.
-- The Legend is displayed elongated when you use multiple cohort for color by feature for violin plot.
-- When the user selects multiple cohorts for color by feature for scatter plot they do not display in chart.
-- When the user creates a duplicate worksheet,the bar chart with a gene with specification protein can freeze when selecting an option for the Select Feature.
-- Cannot plot any data if you use CCLE data cohort on a worksheet.
-- When the user plots a graph with NA values the UI returns a blank graph.
-- When a user duplicates a worksheet, some functionality related to plotting will not function properly on the duplicate worksheet. 
+*September 7, 2016* `v1.9 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.9>`_
 
 **Enhancements**
   
@@ -883,9 +973,27 @@ LS123, LS1034
 - When a user shares a workbook with someone the person who received viewer access to the workbook is sent a confirmation email. If the person who shared the workbook then deletes the workbook before it's opened, then the person clicks the invitation link the person is sent to the unknown invitation page. The button to go back to the Dashboard page appears like this, "Your Dashboard"
 - The user is sent an email when the Service Account is removed the Access controlled list for having a user associated to the project who is not dbGaP authorized.
 
-**August 24, 2016**: `v1.8 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.8>`_
+**Known Issues**
+
+- The user can add same gene twice if list to the same worksheet it they have different names.
+- The Bar chart on the worksheet panel renders overlapping text.
+- Analysis Type : Seq peek Formatting Elongated 
+- The CCLE data in GUI is not parallel to the CCLE data in BigQuery. 
+- If a user creates a cohort with sample type filter Cell Lines and CCLE the total number of samples count off by one.
+- User will occasionally be sent to the Social Network Login page when trying to login. If this occurs, please go the the home page of the Web Application and try again.
+- Page becomes elongated when the user builds a Cubby Hole plot. 
+- X-axis name cut off for cubby hole plot when x-axis has only 3 criteria.
+- If the user shares a cohort they do not receive a confirmation email.
+- The Legend is displayed elongated when you use multiple cohort for color by feature for violin plot.
+- When the user selects multiple cohorts for color by feature for scatter plot they do not display in chart.
+- When the user creates a duplicate worksheet,the bar chart with a gene with specification protein can freeze when selecting an option for the Select Feature.
+- Cannot plot any data if you use CCLE data cohort on a worksheet.
+- When the user plots a graph with NA values the UI returns a blank graph.
+- When a user duplicates a worksheet, some functionality related to plotting will not function properly on the duplicate worksheet. 
+
+*August 24, 2016* `v1.8 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.8>`_
   
-**Known issues in Sprint 9 as of 8/24/2016**
+**Known Issues**
   
 - The user can add same gene twice if list to the same worksheet it they have different names. 
 - The Bar chart on the worksheet panel renders overlapping text. 
@@ -923,7 +1031,7 @@ LS123, LS1034
 - The user can now unlink an eRA commons account from their Google Identity in the user detail page. 
 - The violin plot was inconsistently failing. We have updated the JavaScript, therefore the Violin plot no longer fail. 
 
-**August 10, 2016**: `v1.7 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.7>`_
+*August 10, 2016* `v1.7 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.7>`_
   
 **New Features**
   
@@ -969,7 +1077,7 @@ LS123, LS1034
 - In the create new cohort page for the data type tab, the user can now select either True or False for DNA Sequencing, Protein, and SNP Copy Number filters. 
 - When the user edits a new cohort and sets the edited cohort to return zero samples, the user will be prompted to select different set of filters.
 
-**July 20, 2016**: `v1.6 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.6>`_
+*July 20, 2016* `v1.6 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.6>`_
   
 **Known Issues**
   
@@ -1002,7 +1110,7 @@ LS123, LS1034
 - After 24 hour dbGaP authorization runs out the user is able to re authenticate.
 - User can not create new gene list without giving the gene list a name.
 
-**July 6, 2016**: `v1.5 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.5>`_
+*July 6, 2016* `v1.5 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.5>`_
   
 **Known Issues**
   
@@ -1044,7 +1152,7 @@ LS123, LS1034
 - The Save cohort Endpoint default example for v1 now works properly.
 - For the cohort_list API endpoint v1 will now pull only the cohort_id you specified.
 
-**June 8, 2016**: `v1.4 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.4>`_
+*June 8, 2016* `v1.4 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.4>`_
   
 **Known Issues**
   
@@ -1085,7 +1193,7 @@ LS123, LS1034
 - The user is now able to plot gene’s with a hyphen(-) in the gene name itself.
 - The user is now able to download a maximum of 85,000 files at a time, in the File List page for a selected cohort. 
 
-**May 10, 2016**: `v1.3 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.3>`_
+*May 10, 2016* `v1.3 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.3>`_
  
 **Known Issues**
   
@@ -1127,7 +1235,7 @@ LS123, LS1034
 - When user switches gene in plot settings the feature choices for that specification will refresh. 
 - The variable clinical search feature works properly when the user searches for clinical variables and then are used for analysis.
 
-**April 27, 2016**: `v1.2 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.2>`_
+*April 27, 2016* `v1.2 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.2>`_
 
 **Known Issues** 
 
@@ -1165,7 +1273,7 @@ LS123, LS1034
 - The user must have text to add a comment.
 - All columns in file list table will be transferred/displayed when exported as csv file.
 
-**April 14, 2016**: `v1.1 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.1>`_
+*April 14, 2016* `v1.1 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.1>`_
   
 **Known Issues** 
 
@@ -1206,17 +1314,17 @@ LS123, LS1034
 - The user can now search for variable favorite with the miRNA feature
 - The user can now search for a variable favorite through the clinical search feature
 
-**March 14, 2016**: `v1.0 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.0>`_
+*March 14, 2016* `v1.0 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/2.0>`_
 
 - When working with a worksheet two plots will be generated occasionally.
 - Axis labels and tick values sometimes overlap and get cutoff.
 - Page elongated when Cubby Hole plot generated and there are lots of values in the y axis.
 
-**December 23, 2015**: `v0.2 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/1.1>`_
+*December 23, 2015* `v0.2 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/1.1>`_
 
 - Treemap graphs in cohort details and cohort creation pages will not apply its own filters to itself. For example, if you select a study, the study treemap graph will not update.
 - Cohort file list download not working.
 
-**December 3, 2015**: `v0.1 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/1.0>`_
+*December 3, 2015* `v0.1 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/1.0>`_
 
 - First tagged release of the web-app
