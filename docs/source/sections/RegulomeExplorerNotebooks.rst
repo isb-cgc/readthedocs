@@ -29,7 +29,7 @@ Within the heterogeneous TCGA dataset, information may be represented as categor
      - `T-test score <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/RE-StudentTest.ipynb>`_   
    * - Gene expression
      - Gene expression
-     - Spearman Correlation <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/RE-SpearmanCorrelation.ipynb>`__
+     - `Spearman Correlation <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/RE-SpearmanCorrelation.ipynb>`__
    * - Somatic mutation
      - Clinical
      - `Chi Square test <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/RE-Chisquare.ipynb>`_
