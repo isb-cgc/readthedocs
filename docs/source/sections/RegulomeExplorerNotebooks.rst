@@ -1,6 +1,6 @@
-*****************
-Regulome Explorer 
-*****************
+************************************
+Regulome Explorer Inspired Notebooks
+************************************
 
 `Regulome Explorer <http://explorer.cancerregulome.org/>`_, a popular web interface developed in close collaboration between the Institute for Systems Biology and the MD Anderson Cancer Center, enables exploration of significant pairwise associations within the TCGA dataset. 
 
@@ -29,7 +29,7 @@ Within the heterogeneous TCGA dataset, information may be represented as categor
      - `T-test score <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/RE-StudentTest.ipynb>`_   
    * - Gene expression
      - Gene expression
-     - Spearman Correlation (Coming Soon!)
+     - Spearman Correlation <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/RE-SpearmanCorrelation.ipynb>`__
    * - Somatic mutation
      - Clinical
      - `Chi Square test <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/RE-Chisquare.ipynb>`_
