@@ -7,7 +7,7 @@ Regulome Explorer Inspired Notebooks
 We implemented a series of Python notebooks that replicate Regulome Explorer based on 
 BigQuery TCGA tables of heterogeneous data such as clinical and molecular data for hundreds of patients. The clinical information includes features such as age, tumor-stage, and histology, while the molecular data may include 
 any or all of the following types of high-throughput data: microRNA expression levels, copy-number alterations, DNA methylation, and somatic mutations. 
-The Regulome Explorer is implemented in the following notebook:
+Some of Regulome Explorer's capabilities are implemented in the following notebook:
 
 - `Regulome Explorer notebook <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/RegulomeExplorer-notebook.ipynb>`_
 
