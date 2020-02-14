@@ -7,6 +7,11 @@ About
 
 There are two Application Programming Interfaces (APIs) for interacting with ISB-CGC hosted data. The first API, recommended for interacting with Big Query Tables is the `Google SDK <https://cloud.google.com/bigquery/docs/reference/rest/>`_. ISB-CGC also provides a `Swagger API <https://api-dot-isb-cgc.appspot.com/v4/swagger/>`_, intended for interacting with our webapp and data generated through our webapp via the command line.
 
+The ISB-CGC APIs can also be used via Python and R. We have tutorial notebooks available in our `Community Notebook Repository <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowTos.html#i-m-a-novice-how-do-i>`_. 
+
+- `Python Notebook <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_use_ISB_CGC_APIs.ipynb>`_
+- `R Notebook <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_use_ISB_CGC_APIs.Rmd>`_
+
 Some example use-cases that the ISB-CGC API is intended to address are:
 
 - Obtaining detailed metadata about a particular patient or sample
@@ -19,7 +24,7 @@ Some example use-cases that the ISB-CGC API is intended to address are:
 Authorization
 =============
 
-The ISB-CGC APIs can be used via R and python. Some of the APIs - such as the programs, samples, and cases - can be accessed without authorization. APIs that call on information saved in a users account, such as the cohorts and gcp APIs, necessarily require account authorization to access.
+Some of the APIs - such as the programs, samples, and cases - can be accessed without authorization. APIs that call on information saved in a users account, such as the cohorts and gcp APIs, necessarily require account authorization to access.
 
 In order to access the APIs that require ISB-CGC authorization, you will need to generate a credentials file on your local machine or on your VM. To load your credentials into your command line interface:
 
@@ -97,7 +102,7 @@ Swagger UI submits the request and shows the curl code that was submitted. The �
   "notes": "string"
  }
 
-The JSON formatted response can be downloaded by selecting the ‘Download’ button. We provide API calls that allow for calls pertaining to specific samples, cases, files, cohorts, and users. The syntax for all of these is available on the `ISB-CGC API v4.0 UI <https://api-dot-isb-cgc.appspot.com/v4/swagger/>`_ webpage. For any questions or feedback on the API, please do not hesistate to contact us at feedback@isb-cgc.org.
+The JSON formatted response can be downloaded by selecting the ‘Download’ button. We provide API calls that allow for calls pertaining to specific samples, cases, files, cohorts, and users. The syntax for all of these is available on the `ISB-CGC API v4.0 UI <https://api-dot-isb-cgc.appspot.com/v4/swagger/>`_ webpage. For any questions or feedback on the API, please do not hesitate to contact us at feedback@isb-cgc.org.
 
 
 
