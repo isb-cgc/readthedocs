@@ -35,6 +35,7 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    :caption: USER GUIDE
    
    sections/Hosted-Data
+   sections/data/Mitelman_about
    sections/BigQuery
    sections/BigQueryTableSearchUI
    sections/Web-UI
@@ -46,8 +47,8 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    :maxdepth: 1
    :caption: MORE INFORMATION
    
-   sections/RegulomeExplorerNotebooks
    sections/HowTos
+   sections/RegulomeExplorerNotebooks
    sections/TutorialsAndHow-ToGuides
    sections/updates/FeatureAlerts
    sections/Releases

@@ -23,7 +23,6 @@ Data Sets
    data/NCICCR_about
    data/HCMI-CMDC_about
    data/BEATAML_about
-   data/Mitelman_about
 
 NCI Genomic Data Commons
 ------------------------
