@@ -9,6 +9,9 @@ The ISB-CGC started with The Cancer Genome Atlas (TCGA) data sets but has expand
 Data Sets
 ---------
 
+From Genomic Data Commons
+========================
+
 .. toctree::
    :maxdepth: 1
    
@@ -16,14 +19,22 @@ Data Sets
    data/TCGA-images
    data/TARGET_top
    data/CCLE_top
-   data/COSMIC_about
    data/FM-AD_about
    data/CTSP_about
    data/VAREPOP_about
    data/NCICCR_about
    data/HCMI-CMDC_about
    data/BEATAML_about
+
+From Other Sources
+==================
+
+.. toctree::
+   :maxdepth: 1
+   
+   data/COSMIC_about
    data/Mitelman_about
+   
 
 NCI Genomic Data Commons
 ------------------------
