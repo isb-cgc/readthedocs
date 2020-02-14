@@ -102,7 +102,7 @@ Swagger UI submits the request and shows the curl code that was submitted. The �
   "notes": "string"
  }
 
-The JSON formatted response can be downloaded by selecting the ‘Download’ button. We provide API calls that allow for calls pertaining to specific samples, cases, files, cohorts, and users. The syntax for all of these is available on the `ISB-CGC API v4.0 UI <https://api-dot-isb-cgc.appspot.com/v4/swagger/>`_ webpage. For any questions or feedback on the API, please do not hesistate to contact us at feedback@isb-cgc.org.
+The JSON formatted response can be downloaded by selecting the ‘Download’ button. We provide API calls that allow for calls pertaining to specific samples, cases, files, cohorts, and users. The syntax for all of these is available on the `ISB-CGC API v4.0 UI <https://api-dot-isb-cgc.appspot.com/v4/swagger/>`_ webpage. For any questions or feedback on the API, please do not hesitate to contact us at feedback@isb-cgc.org.
 
 
 
