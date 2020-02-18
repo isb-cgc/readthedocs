@@ -1,13 +1,13 @@
-************************
-PROGRAM Data Set
-***********************
+****************
+MMRF CoMMpass Data Set
+****************
 
-About the PROGRAM
+About the MMRF CoMMpass
 ---------------
 
 Text here
 
-About the PROGRAM Data
+About the MMRF CoMMpass Data
 --------------------
 
 Text here
