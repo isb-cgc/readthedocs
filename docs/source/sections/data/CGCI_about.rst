@@ -12,6 +12,6 @@ About the CGCI Data
 
 Some of the data available for BLGSP is RNA sequencing, miRNA sequencing, and Whole Genome Sequencing through `GDC <https://portal.gdc.cancer.gov/projects/CGCI-BLGSP>`_. More information on this data set is available from the `GDC Portal <https://portal.gdc.cancer.gov/projects/CGCI-BLGSP>`_ and the `CGCI Data Matrix <https://ocg.cancer.gov/programs/cgci/data-matrix>`_ page.
 
-Data sets and tables available in BigQuery from ISB-CGC are explorable through the BigQuery Table Search. Files can be found within the isb-cgc.GDC_metadata tables in BigQuery.
+Data sets and tables available in BigQuery from ISB-CGC are explorable through the BigQuery Table Search. Files can be found within the ``isb-cgc.GDC_metadata`` tables in BigQuery.
 
-The Data Use Agreement for Foundation Medicine can be found `here <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000235.v14.p2>`_.
+The Data Use Agreement can be found `here <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000235.v14.p2>`_.
