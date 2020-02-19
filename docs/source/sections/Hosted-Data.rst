@@ -19,11 +19,12 @@ From Genomic Data Commons
    data/TCGA-images
    data/TARGET_top
    data/CCLE_top
-   data/FM-AD_about
+   data/COSMIC_about
+   data/FM_about
    data/CTSP_about
    data/VAREPOP_about
    data/NCICCR_about
-   data/HCMI-CMDC_about
+   data/HCMI_about
    data/BEATAML_about
 
 From Other Sources
