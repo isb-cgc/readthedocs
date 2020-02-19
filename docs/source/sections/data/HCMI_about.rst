@@ -7,7 +7,7 @@ About the Human Cancer Models Initiative
 
 The `Human Cancer Models Initiative <https://ocg.cancer.gov/programs/HCMI>`_ (HCMI) is a collaborative international consortium that is generating novel, next-generation, tumor-derived culture models annotated with genomic and clinical data. The collaborating institutions are `National Cancer Institute <https://www.cancer.gov/>`_ (NCI), `Cancer Research UK <https://www.cancerresearchuk.org/funding-for-researchers/how-we-deliver-research/our-research-partnerships/human-cancer-models-initiative>`_ (CRUK), `Wellcome Sanger Institute <https://www.sanger.ac.uk/science/collaboration/human-cancer-model-initiative-hcmi>`_ (WSI), and foundation `Hubrecht Organoid Technology <https://hub4organoids.eu/>`_ (HUB). The four `Cancer Model Development Centers <https://ocg.cancer.gov/programs/hcmi/nci-cancer-model-development>`_ (CMDCs), which are supported by the NCI as part of the HCMI, are Broad Institute of MIT and Harvard (BROD), Cold Spring Harbor Laboratory (CSHL), Stanford University, and Weill Cornell Medical College. The program identification in the GDC is `HCMI-CMDC <https://portal.gdc.cancer.gov/projects/HCMI-CMDC>`_.
 
-About the Human Cancer Models Initiative data
+About the Human Cancer Models Initiative Data
 ----------------------------------------------
 
 HCMI data consists of over 450 phenotyped subjects with Whole Exome Sequencing, RNA Sequencing, and Whole Genome Sequencing data. The NCI GDC houses all the clinical, biospecimen, and molecular characterization data with over 100 VCF, 80 BAM, 40 TXT, 25 TSV, and 5 BRC XML files in around 2.7 TB of data.
