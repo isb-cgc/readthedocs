@@ -21,7 +21,7 @@ Data Sets
    data/CTSP_about
    data/VAREPOP_about
    data/NCICCR_about
-   data/HCMI-CMDC_about
+   data/HCMI_about
    data/BEATAML_about
    data/Mitelman_about
 
