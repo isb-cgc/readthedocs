@@ -1,6 +1,6 @@
-***************************************
-Human Cancer Models Initiative Data Set
-***************************************
+*************
+HCMI Data Set
+*************
 
 About the Human Cancer Models Initiative
 ----------------------------------------
