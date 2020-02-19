@@ -1,6 +1,6 @@
-***************************************
-NCI Center for Cancer Research Data Set
-***************************************
+***************
+NCICCR Data Set
+***************
 
 About the NCI Center for Cancer Research
 -----------------------------------------
