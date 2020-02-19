@@ -9,4 +9,12 @@ The `AACR Project Genomics Evidence Neoplasia Information Exchange <https://gdc.
 
 The program identification in the GDC is ` GENIE-MSK <https://portal.gdc.cancer.gov/projects/GENIE-MSK>`_. 
 
+About the AACR Project Genomics Evidence Neoplasia Information Exchange Data Set
+---------------------------------------------------------------------------------
 
+The data set includes masked annotations somatic mutations, gene level copy number scores, and transcript fusion analysis data on matched tumor and normal tissues. 
+
+Data sets and tables available in BigQuery from ISB-CGC are explorable through the BigQuery Table Search. Files can be found within the ``isb-cgc.GDC_metadata`` tables in BigQuery.
+
+
+The Data Use Agreement can be found `here <https://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?view_pdf&stacc=phs001337.v1.p1>`_.
