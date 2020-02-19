@@ -17,7 +17,7 @@ Data Sets
    data/TARGET_top
    data/CCLE_top
    data/COSMIC_about
-   data/FM-AD_about
+   data/FM_about
    data/CTSP_about
    data/VAREPOP_about
    data/NCICCR_about
