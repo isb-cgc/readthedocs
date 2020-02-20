@@ -10,7 +10,7 @@ The `Oregon Health & Science University <https://www.ohsu.edu/>`_ contains data 
 About the Oregon Health & Science University Data
 -------------------------------------------------
 
-Whole-exome and RNA-sequencing on a cohort of over 100 cases of these rare hematologic malignancies and present the most complete survey of the genomic landscape of these diseases to date. The program identification in the GDC is `OHSU-CNL <https://portal.gdc.cancer.gov/projects/OHSU-CNL>`_. 
+Whole-exome and RNA sequencing on a cohort of over 100 cases of these rare hematologic malignancies and present the most complete survey of the genomic landscape of these diseases to date. The program identification in the GDC is `OHSU-CNL <https://portal.gdc.cancer.gov/projects/OHSU-CNL>`_. 
 
 For more information on the OHSU data, please refer to these sites:
 
