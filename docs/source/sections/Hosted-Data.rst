@@ -27,6 +27,8 @@ From Genomic Data Commons
    data/HCMI_about
    data/BEATAML_about
    data/OHSU_about
+   data/CPTAC_about
+   data/GENIE_about
 
 From Other Sources
 ==================
