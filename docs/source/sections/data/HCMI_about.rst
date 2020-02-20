@@ -20,4 +20,4 @@ For more information on the HCMI data, please refer to these sites:
 
 Data sets and tables available in BigQuery from ISB-CGC are explorable through the BigQuery Table Search. Files can be found within the ``isb-cgc.GDC_metadata`` tables in BigQuery.
 
-The Data Use Agreement can be found `here <https://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?view_pdf&stacc=phs001486.v2.p2>`_.
+The Data Use Agreement can be found on the dbGap site.
