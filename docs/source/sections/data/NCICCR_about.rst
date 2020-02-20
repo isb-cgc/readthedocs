@@ -10,7 +10,7 @@ The `NCI Center for Cancer Research <https://ccr.cancer.gov/>`_ (NCICCR) conduct
 About the NCI Center for Cancer Research Data
 ---------------------------------------------
 
-There were around 489 study subjects that were phenotyped contributing Authorized-Access, individual-level data. The Genomic Data Commons currently has around 957 controlled access BAM files available.  To see the GDC data portal with Genomic Variation in Diffuse Large B Cell Lymphomas Project please select `here <https://portal.gdc.cancer.gov/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22NCICCR%22%5D%7D%7D%5D%7D>`_. The program identification in the GDC is `NCICCR-DLBCL <https://portal.gdc.cancer.gov/projects/NCICCR-DLBCL>`_.
+There were around 489 study subjects that were phenotyped contributing Authorized-Access, individual-level data. The Genomic Data Commons currently has around 957 controlled access BAM files available. The program identification in the GDC is `NCICCR-DLBCL <https://portal.gdc.cancer.gov/projects/NCICCR-DLBCL>`_. To see the GDC data portal with Genomic Variation in Diffuse Large B Cell Lymphomas Project please select `here <https://portal.gdc.cancer.gov/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22NCICCR%22%5D%7D%7D%5D%7D>`_.
 
 Data sets and tables available in BigQuery from ISB-CGC are explorable through the BigQuery Table Search. Files can be found within the ``isb-cgc.GDC_metadata`` tables in BigQuery.
 
