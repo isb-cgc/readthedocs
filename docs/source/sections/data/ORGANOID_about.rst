@@ -19,4 +19,4 @@ For more information on the ORGANOID data, please refer to these sites:
 
 Data sets and tables available in BigQuery from ISB-CGC are explorable through the BigQuery Table Search. Files can be found within the isb-cgc.GDC_metadata tables in BigQuery.
 
-The Data Use Agreement can be found `here <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs001611.v1.p1>`_.
+The Data Use Agreement can be found on the dbGap site.
