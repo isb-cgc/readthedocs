@@ -9,6 +9,9 @@ The `National Cancer Institute’s Clinical Proteomic Tumor Analysis Consortium 
 About the NCI Clinical Proteomic Tumor Analysis Consortium Data Set
 ---------------------------------------------------------------------
 
+CPTAC data consists of whole-genome sequencing, whole-exome sequencing, RNA sequencing, and miRNA sequencing. The Genomic Data Commons (GDC) currently has controlled VCF, TSV, and BAM data available. The project identification in the GDC is `CPTAC-2 <https://portal.gdc.cancer.gov/projects/CPTAC-2>`_ and `CPTAC-3 <https://portal.gdc.cancer.gov/projects/CPTAC-3>`_.
+
+
 For more information on the CPTAC data, please refer to these sites:
 
 - `CPTAC-2 dbGaP site <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000892>`_
