@@ -14,7 +14,7 @@ About the AACR Project Genomics Evidence Neoplasia Information Exchange Data
 
 The GENIE data set includes masked annotations somatic mutations, gene level copy number scores, and transcript fusion analysis. The Genomic Data Commons (GDC) currently has MAF, TXT, and TSV controlled data available. 
 
-For more information on the HCMI data, please refer to these sites:
+For more information on GENIE data, please refer to the site below:
 
 - `GDC Data Portal <https://portal.gdc.cancer.gov/repository?facetTab=cases&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22GENIE%22%5D%7D%7D%5D%7D&searchTableTab=files>`_
 
