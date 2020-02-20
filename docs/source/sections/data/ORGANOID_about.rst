@@ -5,7 +5,7 @@ ORGANOID Data Set
 About the Pancreas Cancer Organoid Profiling Program
 ---------------
 
-The Pancreas Cancer Organoid Profiling Program is from the `*Organoid Profiling Identifies Common Responders to Chemotherapy in Pancreatic Cancer* study <https://pubmed.ncbi.nlm.nih.gov/29853643-organoid-profiling-identifies-common-responders-to-chemotherapy-in-pancreatic-cancer/>`_ and contains data generated from a collection of patient-derived pancreatic normal and cancer organoids. 
+The Pancreas Cancer Organoid Profiling Program is from the `Organoid Profiling Identifies Common Responders to Chemotherapy in Pancreatic Cancer <https://pubmed.ncbi.nlm.nih.gov/29853643-organoid-profiling-identifies-common-responders-to-chemotherapy-in-pancreatic-cancer/>`_ study and contains data generated from a collection of patient-derived pancreatic normal and cancer organoids. 
 
 About the Pancreas Cancer Organoid Profiling Data Set
 --------------------
