@@ -19,5 +19,4 @@ For more information on the OHSU data, please refer to these sites:
 
 Data sets and tables available in BigQuery from ISB-CGC are explorable through the BigQuery Table Search. Files can be found within the ``isb-cgc.GDC_metadata`` tables in BigQuery.
 
-
-
+Data sets and tables available in BigQuery from ISB-CGC are explorable through the `BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_. Files can be found within the ``isb-cgc.GDC_metadata`` tables in BigQuery.
