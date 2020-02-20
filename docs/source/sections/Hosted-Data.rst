@@ -26,6 +26,7 @@ From Genomic Data Commons
    data/NCICCR_about
    data/HCMI_about
    data/BEATAML_about
+   data/OHSU_about
 
 From Other Sources
 ==================
