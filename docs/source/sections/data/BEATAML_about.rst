@@ -13,7 +13,7 @@ About the BEATAML1.0 Data
 The BEATAML1.0 consists of over 220 files with 56 phenotyped subjects and over 3.5 TB of data. The data is made up of mainly BAM and VCF files. The majority of the data is whole-exome sequencing along with RNA Sequencing. The project identification in the GDC is `BEATAML1.0-CRENOLANIB <https://portal.gdc.cancer.gov/projects/BEATAML1.0-CRENOLANIB>`_ and `BEATAML1.0-COHORT <https://portal.gdc.cancer.gov/projects/BEATAML1.0-COHORT>`_.
 
 
-For more information on the HCMI data, please refer to these sites:
+For more information on the BEATAML1.0 data, please refer to these sites:
 
 - `BEATAML1.0-CRENOLANIB dbGaP site <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs001628.v1.p1>`_
 - `BEATAML1.0-COHORT dbGaP site <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs001657.v1.p1>`_
