@@ -5,12 +5,14 @@ BEATAML1.0 Data Set
 About the BEATAML1.0
 -------------------------------
 
-The `BEATAML1.0 <https://www.lls.org/beat-aml>`_ data is from several studies focused on the effect of the drug Crenolanib on Acute Myeloid Leukemia (AML). It has been found that FLT3 mutations are associated with poor prognosis and commonly detected in AML patients. Crenolanib is a potent type I pan-FLT3 (GeneID:2322) inhibitor. Additionally, The implementation of targeted therapies for acute myeloid leukemia has been challenged by complex mutational patterns within and across patients as well as a dearth of pharmacologic agents for most mutational events. Here, we report initial findings from the Beat AML program on a cohort of 672 tumor specimens collected from 562 patients.  
+The `BEATAML1.0 <https://www.lls.org/beat-aml>`_ data is from several studies focused on acute myeloid leukemia (AML) and the effect of different therapies such as the drug Crenolanib. The implementation of targeted therapies for AML is challenging due to complex mutational patterns within and across patients as well as a dearth of pharmacologic agents for most mutational events.
+
+The Crenolanib drug was studied because it is a potent type I pan-FLT3 (GeneID:2322) inhibitor and FLT3 mutations are associated with poor prognosis and commonly detected in AML patients.
 
 About the BEATAML1.0 Data
 ------------------------------------
 
-The BEATAML1.0 consists of over 220 files with 56 phenotyped subjects and over 3.5 TB of data. The data is made up of mainly BAM and VCF files. The majority of the data is whole-exome sequencing along with RNA Sequencing. The project identification in the GDC is `BEATAML1.0-CRENOLANIB <https://portal.gdc.cancer.gov/projects/BEATAML1.0-CRENOLANIB>`_ and `BEATAML1.0-COHORT <https://portal.gdc.cancer.gov/projects/BEATAML1.0-COHORT>`_.
+The BEATAML1.0 consists of over 220 files with 56 phenotyped subjects, 672 tumor specimens collected from 562 patients, and over 36 TB of data. The data is made up of mainly BAM, VCF, TXT, and TSV files. The majority of the data is whole-exome sequencing along with RNA sequencing. The project identification in the GDC is `BEATAML1.0-CRENOLANIB <https://portal.gdc.cancer.gov/projects/BEATAML1.0-CRENOLANIB>`_ and `BEATAML1.0-COHORT <https://portal.gdc.cancer.gov/projects/BEATAML1.0-COHORT>`_.
 
 
 For more information on the BEATAML1.0 data, please refer to these sites:
