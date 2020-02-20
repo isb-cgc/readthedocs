@@ -10,7 +10,7 @@ Data Sets
 ---------
 
 From Genomic Data Commons
-========================
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. toctree::
    :maxdepth: 1
@@ -33,7 +33,7 @@ From Genomic Data Commons
    data/WCDT_about
 
 From Other Sources
-==================
+~~~~~~~~~~~~~~~~~~
 
 .. toctree::
    :maxdepth: 1
