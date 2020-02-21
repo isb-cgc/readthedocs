@@ -12,7 +12,7 @@ The Crenolanib drug was studied because it is a potent type I pan-FLT3 (GeneID:2
 About the BEATAML1.0 Data
 ------------------------------------
 
-The BEATAML1.0 consists of over 220 files with 56 phenotyped subjects, 672 tumor specimens collected from 562 patients, and over 36 TB of data. The data is made up of mainly BAM, VCF, TXT, and TSV files. The majority of the data is whole-exome sequencing along with RNA sequencing. The project identification in the GDC is `BEATAML1.0-CRENOLANIB <https://portal.gdc.cancer.gov/projects/BEATAML1.0-CRENOLANIB>`_ and `BEATAML1.0-COHORT <https://portal.gdc.cancer.gov/projects/BEATAML1.0-COHORT>`_.
+The BEATAML1.0 consists of over 220 files with 56 phenotyped subjects, 672 tumor specimens collected from 562 cases, and over 36 TB of data. The data is made up of mainly BAM, VCF, TXT, and TSV files. The majority of the data is whole-exome sequencing along with RNA sequencing. The project identification in the GDC is `BEATAML1.0-CRENOLANIB <https://portal.gdc.cancer.gov/projects/BEATAML1.0-CRENOLANIB>`_ and `BEATAML1.0-COHORT <https://portal.gdc.cancer.gov/projects/BEATAML1.0-COHORT>`_.
 
 
 For more information on the BEATAML1.0 data, please refer to these sites:
