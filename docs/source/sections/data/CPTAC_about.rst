@@ -4,7 +4,7 @@ CPTAC Data Set
 
 About the NCI Clinical Proteomic Tumor Analysis Consortium
 ------------------------------------------------------------
-The `National Cancer Institute’s Clinical Proteomic Tumor Analysis Consortium <https://proteomics.cancer.gov/programs/cptac>`_ (CPTAC) is a national effort to accelerate the understanding of the molecular basis of cancer through the application of large-scale proteome and genome analysis, or proteogenomics.
+The `National Cancer Institute’s Clinical Proteomic Tumor Analysis Consortium <https://proteomics.cancer.gov/programs/cptac>`_ (CPTAC) is a national effort to accelerate the understanding of the molecular basis of cancer through the application of large-scale proteome and genome analysis or proteogenomics.
 
 About the NCI Clinical Proteomic Tumor Analysis Consortium Data Set
 ---------------------------------------------------------------------
