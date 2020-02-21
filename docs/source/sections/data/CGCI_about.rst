@@ -10,8 +10,12 @@ The `Cancer Genome Characterization Initiative <https://ocg.cancer.gov/programs/
 About the CGCI Data
 --------------------
 
-Some of the data available for BLGSP is RNA sequencing, miRNA sequencing, and Whole Genome Sequencing through `GDC <https://portal.gdc.cancer.gov/projects/CGCI-BLGSP>`_. More information on this data set is available from the `GDC Portal <https://portal.gdc.cancer.gov/projects/CGCI-BLGSP>`_ and the `CGCI Data Matrix <https://ocg.cancer.gov/programs/cgci/data-matrix>`_ page.
+CGCI data consists of 120 cases with RNA sequencing, miRNA sequencing, and whole-genome sequencing data. The NCI GDC houses all the clinical, biospecimen, and molecular characterization data with over 589 BAM, 339 TXT, 402 TSV, 237 BRC XML, 120 BRC PPS XML, and 93 BCR SSF XML files in around 50.28 TB of data. The project identification in the GDC is `CGCI-BLGSP <https://portal.gdc.cancer.gov/projects/CGCI-BLGSP>`_.
 
-Data sets and tables available in BigQuery from ISB-CGC are explorable through the `BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_. Files can be found within the ``isb-cgc.GDC_metadata`` tables in BigQuery.
+For more information on the HCMI data, please refer to these sites:
 
-The Data Use Agreement can be found `here <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000235.v14.p2>`_.
+- `CGCI Data Matrix <https://ocg.cancer.gov/programs/cgci/data-matrix>`_
+- `dbGaP site <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000235.v14.p2>`_
+- `GDC Data Portal <https://portal.gdc.cancer.gov/projects?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22projects.program.name%22%2C%22value%22%3A%5B%22CGCI%22%5D%7D%7D%5D%7D>`_
+
+Data sets and tables available in BigQuery from ISB-CGC are explorable through the `ISB-CGC BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_. The file locations are available within the ``isb-cgc.GDC_metadata`` tables in BigQuery.
