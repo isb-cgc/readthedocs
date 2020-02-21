@@ -10,7 +10,7 @@ The `Multiple Myeloma Research Foundation <https://themmrf.org/>`_ (MMRF) seeks 
 About the MMRF CoMMpass Data
 --------------------
 
-The `CoMMpass <https://themmrf.org/we-are-curing-multiple-myeloma/mmrf-commpass-study/>`_ trial is a longitudinal observation study of 1000 newly diagnosed myeloma patients receiving various standard approved treatments. This trial aims to collect tissue samples and genetic information along with Quality of Life, disease, and clinical outcomes. The project identification in the GDC is `MMRF-COMMPASS <https://portal.gdc.cancer.gov/projects/MMRF-COMMPASS>`_.
+The `CoMMpass <https://themmrf.org/we-are-curing-multiple-myeloma/mmrf-commpass-study/>`_ trial is a longitudinal observation study of 1000 newly diagnosed myeloma patients receiving various standard approved treatments. This trial aims to collect tissue samples and genetic information along with Quality of Life, disease, and clinical outcomes. CoMMpass data consists of 995 cases with RNA, whole-exome, and whole-genome sequencing data. The NCI GDC houses all the molecular characterization data with over 10,918 VCF, 6,577 BAM, 2,577 TXT, and 1718 TSV files in around 206.63 TB of data The project identification in the GDC is `MMRF-COMMPASS <https://portal.gdc.cancer.gov/projects/MMRF-COMMPASS>`_.
 
 For more information on the HCMI data, please refer to these sites:
 
