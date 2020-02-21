@@ -7,7 +7,7 @@ About the COSMIC
 
 The `Catalogue Of Somatic Mutations In Cancer <https://cancer.sanger.ac.uk/cosmic>`_ (COSMIC) is the world's largest and most comprehensive resource for exploring the impact of somatic mutations in human cancer. The COSMIC tables in BigQuery were produced in collaboration with the `Wellcome Trust Sanger Institute <http://www.sanger.ac.uk/>`_ to provide a new way to explore and understand the mutations driving cancer. 
 
-About the COSMIC data
+About the COSMIC Data
 ---------------------
 
 The BigQuery datasets contain *all* of the tables available for download from the `COSMIC ftp site <http://cancer.sanger.ac.uk/cosmic/download>`_. The availability of these additional tables will support many more types of queries -- please explore them at (after registering for access as described below):
