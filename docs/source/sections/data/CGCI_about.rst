@@ -10,7 +10,7 @@ The `Cancer Genome Characterization Initiative <https://ocg.cancer.gov/programs/
 About the CGCI Data
 --------------------
 
-Some of the data available for BLGSP is RNA sequencing, miRNA sequencing, and Whole Genome Sequencing through GDC. The project identification in the GDC is `CGCI-BLGSP <https://portal.gdc.cancer.gov/projects/CGCI-BLGSP>`_.
+CGCI data consists of 23 cases with RNA sequencing, miRNA sequencing, and whole-genome sequencing data. The NCI GDC houses all the clinical, biospecimen, and molecular characterization data with over 460 VCF, 261 BAM, 123 TXT, 57 TSV, and 23 BRC XML files in around 9.1 TB of data. The project identification in the GDC is `CGCI-BLGSP <https://portal.gdc.cancer.gov/projects/CGCI-BLGSP>`_.
 
 For more information on the HCMI data, please refer to these sites:
 
