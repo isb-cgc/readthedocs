@@ -5,9 +5,9 @@ BEATAML1.0 Data Set
 About the BEATAML1.0
 -------------------------------
 
-The `BEATAML1.0 <https://www.lls.org/beat-aml>`_ data is from several studies focused on acute myeloid leukemia (AML) and the effect of different therapies such as the drug Crenolanib. The implementation of targeted therapies for AML is challenging due to complex mutational patterns within and across patients as well as a dearth of pharmacologic agents for most mutational events.
+The `BEATAML1.0 <https://www.lls.org/beat-aml>`_ data is from several studies focused on acute myeloid leukemia (AML) and the effect of different therapies such as the drug Crenolanib. The implementation of targeted therapies for AML was challenging due to two reasons. First, due to the intricate mutational patterns within and across patients. Second, a shortage of pharmacologic agents for most mutational events.
 
-The Crenolanib drug was studied because it is a potent type I pan-FLT3 (GeneID:2322) inhibitor and FLT3 mutations are associated with poor prognosis and commonly detected in AML patients.
+The Crenolanib drug was studied because it is a potent type I pan-FLT3 (GeneID:2322) inhibitor, and FLT3 mutations are associated with poor prognosis and commonly detected in AML patients.
 
 About the BEATAML1.0 Data
 ------------------------------------
