@@ -12,7 +12,7 @@ The `AACR Project Genomics Evidence Neoplasia Information Exchange <https://gdc.
 About the AACR Project Genomics Evidence Neoplasia Information Exchange Data
 ---------------------------------------------------------------------------------
 
-The GENIE data set includes masked annotations somatic mutations, gene level copy number scores, and transcript fusion analysis. The project analyzed more than 44,000 cases. The Genomic Data Commons (GDC) currently has MAF, TXT, and TSV controlled data available. 
+The GENIE data set includes masked annotations somatic mutations, gene level copy number scores, and transcript fusion analysis. The program analyzed more than 44,000 cases. The Genomic Data Commons (GDC) currently has MAF, TXT, and TSV controlled data available. 
 
 For more information on GENIE data, please refer to the site below:
 
