@@ -30,7 +30,7 @@ I'm a novice, how do I...
 
 **How do I plot a BigQuery result?** `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_plot_BigQuery_results.ipynb>`_ / `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_plot_BigQuery_results.md>`_
 
-**How do I plot a heatmap using data in BigQuery?** `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_make_a_heatmap_using_BigQuery.ipynb>`_
+**How do I plot a heatmap using data in BigQuery?** `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_make_a_heatmap_using_BigQuery.ipynb>`_ / `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_make_a_heatmap_using_BigQuery.md>`_
 
 **How do I work with cloud storage?** `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_work_with_cloud_storage.ipynb>`_
 
