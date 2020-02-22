@@ -1,7 +1,7 @@
 ***************************************
 Statistical associations using BigQuery
 ***************************************
-Integrated statistical analysis and exploration of multiple genomic and clinical data types provides researchers with a great possibility to expand our current knowledge of cancer. ISB-CGC offers a great source of heterogeneous data types including gene expression, somatic mutations, clinical data, etc. We have developed a series of notebooks that use BigQuery to compute the statistical association between different combinations of data types available in ISB-CGC.
+Integrated statistical analysis and exploration of multiple genomic and clinical data types provides researchers with a great possibility to expand our current knowledge of cancer. ISB-CGC offers a great source of heterogeneous data types including gene expression, somatic mutations, clinical data, etc. We have developed a series of notebooks that use BigQuery to compute the statistical associations between different combinations of the data types available in ISB-CGC.
 
 The statistical significance of each pairwise association is assessed using rank-ordered data and a statistical test appropriate to each data type pair, which are categorized as categorical or numerical. The following table lists the statistical methods implemented in the notebooks, and the data types used as examples. Regulome explorer is a special notebook that allows to compute associations between all possible data types available the TCGA dataset, more details below.
 
