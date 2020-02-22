@@ -10,7 +10,7 @@ The overarching goal of the Genomic Characterization of Metastatic Castration-Re
 About the WCDT Data
 --------------------
 
-WCDT data is available from the biopsies of castration-resistant prostate cancer metastases collected during the study. The data consists of 101 cases with over 202 whole-genome sequencing files and 792 RNA sequencing files consisting of 83TB of data. The project identification in the GDC is `HCMI-CMDC <https://portal.gdc.cancer.gov/projects/HCMI-CMDC>`_.
+WCDT data is available from the biopsies of castration-resistant prostate cancer metastases collected during the study. The data consists of 101 cases with over 202 whole-genome sequencing files and 792 RNA sequencing files consisting of 83TB of data. The project identification in the GDC is `WCDT-MCRPC <https://portal.gdc.cancer.gov/projects/WCDT-MCRPC>`_.
 
 For more information on the HCMI data, please refer to these sites:
 
