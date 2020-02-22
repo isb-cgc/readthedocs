@@ -18,7 +18,7 @@ Currently, ISB-CGC hosts over 300 open access BigQuery tables. Each table has be
    :align: center
 
 
-Links to various helpful documentation pages are available, including Google BigQuery's documentation and ISB-CGC's Community Notebook repository which contains example use-cases on how to access BigQuery tables programmatically via Jupyter notebooks or R scripts.
+Links to various helpful documentation pages are available, including Google BigQuery's documentation and ISB-CGC's BigQuery documentation and the ISB-CGC Release Notes.
 
 
 .. image:: BigQuery/BigQueryTableSearch-Documentation.png
@@ -49,18 +49,23 @@ By default, the Status filter is set to Current.
 .. image:: BigQuery/Status-filter.png
    :align: center
    
+**Name**   
+
+The **Name** filter is a free-form text field; the user can type all or a portion of the name into the field to perform the search. It will match against the Name column. 
+
+Note that this Name field is not the Table ID (which is used in SQL queries) but is a **Friendly Name**; that is, a descriptive, user-friendly name for the table. 
    
 **Categories**
 
 The tables are grouped into four high-level categories: 
 
-* Clinical Biospecimen Data : Patient case and sample information (includes clinical tables with patient demographic data, and                               biospecimen data with detailed sample information)
+* **Clinical Biospecimen Data**: Patient case and sample information (includes clinical tables with patient demographic data, and biospecimen data with detailed sample information)
 
-* File Metadata : Information about raw data files including Google Cloud Storage Paths (includes tables with information                       about files available at the GDC, including GCS paths, creation dates, sizes, etc.)
+* **File Metadata**: Information about raw data files including Google Cloud Storage Paths (includes tables with information                       about files available at the GDC, including GCS paths, creation dates, sizes, etc.)
 
-* Genomic Reference Database: Genomic information that can be used to cross-reference against processed-omics data tables                                   (examples include  COSMIC, ClinVar, cytoBand, dbSNP, Ensembl, Ensembl2Reactome)
+* **Genomic Reference Database**: Genomic information that can be used to cross-reference against processed-omics data tables                                   (examples include  COSMIC, ClinVar, cytoBand, dbSNP, Ensembl, Ensembl2Reactome)
 
-* Processed-omics  Datasets: Processed data primarily from the GDC (i.e. raw data that has gone through GDC pipeline                                        processing e.g. gene expression, miRNA expression, copy number, somatic mutations, methylation)
+* **Processed-omics Datasets**: Processed data primarily from the GDC (i.e. raw data that has gone through GDC pipeline                                        processing e.g. gene expression, miRNA expression, copy number, somatic mutations, methylation)
 
 
 Click on one or more checkboxes to select categories. 
@@ -106,29 +111,54 @@ These fields are most useful for users already familiar with the BigQuery tables
 
 **Labels**
 
-Each table was tagged with labels relating to the source, data type, reference genome build, status, and access. Users can search on any of these tags on the Labels filter field. Users can find the **Labels** search filter under the **Show More Filters** option. 
+Each table was tagged with labels relating to the source, data type, reference genome build, status, and access. Users can search on any of these labels on the Labels filter field. Users can find the **Labels** search filter under the **Show More Filters** option. 
 
-The labels for a table can be viewed when the blue plus sign (+) to the left of the table row is clicked. See the screen shot below.
+The labels for a table can be viewed when the blue plus sign (+) to the left of the table row is clicked. See the screen shot in the Schema section below.
 
 
 Search Results
 --------------
 
-Each row will display the Dataset ID, Table ID, Status, Category, Source, Data Type, number of rows and Created Date of the table. 
+By default, each row will display the Name, Category, Source, Data Type, Status, number of rows, and Created Date of the table.
 
 Click on the column header to sort the displayed results by that column.
 
+**Columns Selector**
+
+Columns can be added or removed from the display by using the Columns selector. For instance, the Dataset ID and Table ID are not initially displayed, but they can be added to the display.
+
+.. image:: BigQuery/BigQueryTableSearch-ColumnSelector.png
+   :align: center
+
+**Search Box**
+
 To further filter the results, use the **Search** box above the results, on the right-hand side. This is a free-form text field; the user can type all or a portion of the search item into the field to perform the query. This searches all fields in the table.
+
+**Export**
 
 To export the results of your search to a file in Comma Separated Values (CSV) format, click the **CSV Download** button.
 
 Schema Description
 ++++++++++++++++++
 
-For detailed table information, including full table ID, table description and field descriptions, click on the blue plus sign (+) on the left-hand side. Table labels (as described above) will also display.
+For detailed table information, click on the blue plus sign (+) on the left-hand side. 
 
 .. image:: BigQuery/BigQueryTableSearchUI-descriptions.png
    :align: center
+
+The following information is displayed:
+
+   * **Full ID** - This is the Project, Dataset ID, and Table ID concatenated with periods between them. The Full ID is used in SQL queries.
+   * **Dataset ID** - The BigQuery dataset of the table. A data set is a group of related tables.
+   * **Table ID** - The BiqQuery table ID.
+   * **Description** - A description of the table, which includes information such as how the data was created, its source, data type, and contents.
+   * **Schema** - The schema displays the Field Name, Type, Mode and Field Description for each field in the table.
+   * **Labels** - Labels are table metadata describing the source, data type, reference genome build, status, and access of the table data.
+
+
+**Copy button**
+
+Next to the Full ID is a **Copy** button. When the user clicks this, the Full ID is copied to the clipboard. The Full ID can then be pasted into an SQL query within the BiqQuery Query editor.
 
 Table Preview
 ++++++++++++++
@@ -141,10 +171,11 @@ A few rows of the data in a BigQuery table can be viewed by clicking on the **Pr
  
  
 Table Access
-++++++++++++
+-------------
 
 For full-access to the tables including the ability to query the tables, please see the following ISB-CGC documentation pages:
 
-`How to create a Google Cloud Platform (GCP) project <HowToGetStartedonISB-CGC.html>`_ 
+`How to create a Google Cloud Platform (GCP) project <sections/HowToGetStartedonISB-CGC.html>`_ 
 
-`How to link ISB-CGC BigQuery tables to your Google Cloud Platform (GCP) project <progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_ 
+`How to link ISB-CGC BigQuery tables to your Google Cloud Platform (GCP) project <sections/progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_ 
+
