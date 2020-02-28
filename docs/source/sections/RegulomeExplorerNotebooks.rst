@@ -1,5 +1,5 @@
 ***************************************
-Statistical associations using BigQuery
+Statistical Notebooks
 ***************************************
 Integrated statistical analysis and exploration of multiple genomic and clinical data types provides researchers with a great possibility to expand our current knowledge of cancer. ISB-CGC offers a great source of heterogeneous data types including gene expression, somatic mutations, clinical data, etc. We have developed a series of notebooks that use BigQuery to compute the statistical associations between different combinations of the data types available in ISB-CGC.
 
@@ -33,7 +33,7 @@ The statistical significance of each pairwise association is assessed using rank
      - `Regulome Explorer inspired notebook <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/RegulomeExplorer-notebook.ipynb>`_
 
 
-Regulome Explorer inspired notebook
+Regulome Explorer Inspired Notebook
 ===================================
 `Regulome Explorer <http://explorer.cancerregulome.org/>`_ is a well-established web tool for the exploration and visualization of associations between clinical and molecular features of TCGA data. Regulome Explorer was developed in 2012 in close collaboration between the Institute for Systems Biology and the MD Anderson Cancer Center Regulome, and enables users to search and visualize precomputed statistical data filtered according to user-specified parameters. 
 
