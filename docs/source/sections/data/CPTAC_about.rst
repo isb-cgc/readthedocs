@@ -18,8 +18,8 @@ For more information on the CPTAC data, please refer to these sites:
 - `CPTAC-3 dbGaP site <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000892>`_
 - `GDC Data Portal <https://portal.gdc.cancer.gov/repository?facetTab=cases&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22CPTAC%22%5D%7D%7D%5D%7D&searchTableTab=files>`_
 
-Accessing CPTAC Data on the Cloud
---------------------------------
+Accessing the NCI Clinical Proteomic Tumor Analysis Consortium Data on the Cloud
+----------------------------------------------------------------------------------
 
 Besides accessing the files on the GDC Data Portal, you can also access them from the GDC Google Cloud Storage Bucket, which means that you don’t need to download them to perform analysis. ISB-CGC stores the cloud file locations in tables in the ``isb-cgc.GDC_metadata`` data set in BigQuery.
 
