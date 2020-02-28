@@ -1,5 +1,5 @@
 ********************
-Community Notebooks
+ISB-CGC Tutorial Notebooks
 ********************
 
 What's a notebook?
@@ -87,15 +87,3 @@ I'm an advanced user, how do I...
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_Nearest_Centroid_Classification_with_BigQuery.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_Nearest_Centroid_Classification_with_BigQuery.md>`_
      
-
-
------------------------
-
-Provided by the ISB-CGC team, featuring special efforts by:
-
-- Kawther Abdilleh (kawther.abdilleh  ( ~ at ~ ) gdit (~ dot ~) com)
-- Boris Aguilar (boris.aguilar ( ~ at ~ ) systemsbiology ( ~ dot ~ ) org)
-- Lauren Hagen (lauren.hagen ( ~ at ~ ) systemsbiology ( ~ dot ~ ) org)
-- David L Gibbs  (david.gibbs ( ~ at ~ ) systemsbiology ( ~ dot ~ ) org)
-- Fabian Seidl (fabian.seidl ( ~ at ~ ) gdit ( ~ dot ~ ) com)
-- Ronald Taylor (ronald.taylor1 ( ~ at ~ ) gdit ( ~ dot ~ ) com)
