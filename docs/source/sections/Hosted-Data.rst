@@ -29,7 +29,7 @@ From Genomic Data Commons
    data/CPTAC_about
    data/GENIE_about
    data/CGCI_about
-   date/MMRF_about
+   data/MMRF_about
    data/OHSU_about
    data/ORGANOID_about
    data/WCDT_about
