@@ -5,7 +5,7 @@ ISB-CGC Notebook Tutorials
 What's a notebook?
 ------------------------
 
-`Notebooks <https://towardsdatascience.com/jupyter-lab-evolution-of-the-jupyter-notebook-5297cacde6b>`_ provide an interface to an interactive analysis environment. They are a mix of code (usually R or python), descriptive explanations, and visualizations. They're often used to demonstrate an analysis in a step by step fashion. We provide a set of notebooks below as tutorials for several frequently run analyses. You can run these through `Jupyter Lab <https://jupyterlab.readthedocs.io/en/stable/>`_, `R Studio <https://bookdown.org/yihui/rmarkdown/notebook.html>`_, or `Google Colaboratory <https://colab.research.google.com/>`_.
+`Notebooks <https://towardsdatascience.com/jupyter-lab-evolution-of-the-jupyter-notebook-5297cacde6b>`_ provide an interface to an interactive analysis environment. They are a mix of code (usually R or Python), descriptive explanations, and visualizations. They're often used to demonstrate an analysis in a step by step fashion. We provide a set of notebooks below as tutorials for several frequently run analyses. You can run these through `Jupyter Lab <https://jupyterlab.readthedocs.io/en/stable/>`_, `R Studio <https://bookdown.org/yihui/rmarkdown/notebook.html>`_, or `Google Colaboratory <https://colab.research.google.com/>`_.
   
   
 I'm a novice, how do I...
