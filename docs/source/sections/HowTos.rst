@@ -1,5 +1,5 @@
 ********************
-ISB-CGC Notebook Tutorials
+Community Notebook Tutorials
 ********************
 
 What's a notebook?
