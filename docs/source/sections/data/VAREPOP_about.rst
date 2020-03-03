@@ -15,7 +15,7 @@ The VARePOP data set consists of 7 cases with somatic mutation and targeted sequ
 
 For more information on the VAREPOP data, please refer to these sites:
 
-- `dbGaP site <https://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?view_pdf&stacc=phs001374.v1.p1>`_
+- `dbGaP site <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs001374.v1.p1>`_
 - `GDC Data Portal <https://portal.gdc.cancer.gov/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22VAREPOP%22%5D%7D%7D%5D%7D>`_
 
 Accessing the Human Cancer Models Initiative Data on the Cloud
