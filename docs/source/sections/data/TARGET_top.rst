@@ -30,6 +30,17 @@ For more information on TARGET data, please refer to the site below:
 
 - `GDC Data Portal <https://portal.gdc.cancer.gov/projects?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22projects.program.name%22%2C%22value%22%3A%5B%22TARGET%22%5D%7D%7D%5D%7D>`_
 
-Data sets and tables available in BigQuery from ISB-CGC are explorable through the `ISB-CGC BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_. The file locations are available within the ``isb-cgc.GDC_metadata`` tables in BigQuery.
+Accessing the Human Cancer Models Initiative Data on the Cloud
+---------------------------------------------------------------
 
+Besides accessing the files on the GDC Data Portal, you can also access them from the GDC Google Cloud Storage Bucket, which means that you don’t need to download them to perform analysis. ISB-CGC stores the cloud file locations in tables in the ``isb-cgc.GDC_metadata`` data set in BigQuery.
 
+- To access these metadata files, go to the Google BigQuery console.
+- Perform SQL queries to find the TARGET files. Here is an example:
+
+.. code-block:: sql
+
+  SELECT active.*, file_gdc_url
+  FROM `isb-cgc.GDC_metadata.rel22_fileData_active` as active, `isb-cgc.GDC_metadata.rel22_GDCfileID_to_GCSurl` as GCSurl
+  WHERE program_name = 'TARGET'
+  AND active.file_gdc_id = GCSurl.file_gdc_id
