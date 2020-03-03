@@ -31,5 +31,3 @@ Besides accessing the files on the GDC Data Portal, you can also access them fro
   FROM `isb-cgc.GDC_metadata.rel22_fileData_active` as active, `isb-cgc.GDC_metadata.rel22_GDCfileID_to_GCSurl` as GCSurl
   WHERE program_name = 'MMRF'
   AND active.file_gdc_id = GCSurl.file_gdc_id
-Data sets and tables available in BigQuery from ISB-CGC are explorable through the `ISB-CGC BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_. The file locations are available within the ``isb-cgc.GDC_metadata`` tables in BigQuery.
-
