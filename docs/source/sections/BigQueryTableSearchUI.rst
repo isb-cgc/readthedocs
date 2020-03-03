@@ -179,5 +179,5 @@ Quickly access a BigQuery table by clicking the **Open** button on the right-han
 
 Please see the following ISB-CGC documentation pages for guidance:
 
-* `How to create a Google Cloud Platform (GCP) project <sections/HowToGetStartedonISB-CGC.html>`_ 
-* `How to link ISB-CGC BigQuery tables to your Google Cloud Platform (GCP) project <sections/progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_ 
+* `How to create a Google Cloud Platform (GCP) project <HowToGetStartedonISB-CGC.html>`_ 
+* `How to link ISB-CGC BigQuery tables to your Google Cloud Platform (GCP) project <progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_ 
