@@ -172,10 +172,12 @@ A few rows of the data in a BigQuery table can be viewed by clicking on the **Pr
  
 Table Access
 -------------
+Quickly access a BigQuery table by clicking the Open button on the right-hand side. This button opens the table in the BigQuery Google Cloud Platform Console. You may need to log in with a Google ID and select a project before accessing the table.
 
-For full-access to the tables including the ability to query the tables, please see the following ISB-CGC documentation pages:
+.. image:: BigQuery/BigQueryOpenButton.gif
+   :align: center
 
-`How to create a Google Cloud Platform (GCP) project <sections/HowToGetStartedonISB-CGC.html>`_ 
+Please see the following ISB-CGC documentation pages for guidance:
 
-`How to link ISB-CGC BigQuery tables to your Google Cloud Platform (GCP) project <sections/progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_ 
-
+* `How to create a Google Cloud Platform (GCP) project <sections/HowToGetStartedonISB-CGC.html>`_ 
+* `How to link ISB-CGC BigQuery tables to your Google Cloud Platform (GCP) project <sections/progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_ 
