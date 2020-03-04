@@ -5,7 +5,7 @@ FM Data Set
 About the Foundation Medicine
 ------------------------------
 
-The `Foundation Medicine Adult Cancer Clinical Data set <https://gdc.cancer.gov/about-gdc/contributed-genomic-data-cancer-research/foundation-medicine/foundation-medicine>`_ (FM) was a study conducted by Foundation Medicine Inc. (FMI), which is a molecular information company that specializes in precision medicine. FMI has generated genomic profiles for thousands of cancer patients, which they designed to match each patient with a personalized treatment plan.
+The `Foundation Medicine Adult Cancer Clinical Data Set <https://gdc.cancer.gov/about-gdc/contributed-genomic-data-cancer-research/foundation-medicine/foundation-medicine>`_ (FM) was a study conducted by Foundation Medicine Inc. (FMI), which is a molecular information company that specializes in precision medicine. FMI has generated genomic profiles for thousands of cancer patients, which they designed to match each patient with a personalized treatment plan.
 
 About the Foundation Medicine Data
 ------------------------------------
@@ -17,7 +17,6 @@ For more information on the FM data, please refer to these sites:
 - `dbGaP site <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs001179.v1.p1>`_
 - `GDC Data Portal <https://portal.gdc.cancer.gov/repository?facetTab=cases&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22FM%22%5D%7D%7D%5D%7D&searchTableTab=files>`_
 
-Data sets and tables available in BigQuery from ISB-CGC are explorable through the `ISB-CGC BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_. The file locations are available within the ``isb-cgc.GDC_metadata`` tables in BigQuery.
 
 Accessing the Foundation Medicine Data on the Cloud
 ----------------------------------------------------
