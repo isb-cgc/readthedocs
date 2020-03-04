@@ -10,13 +10,13 @@ The `Cancer Genome Characterization Initiative <https://ocg.cancer.gov/programs/
 About the Cancer Genome Characterization Initiative Data
 --------------------
 
-CGCI data consists of 120 cases with RNA sequencing, miRNA sequencing, and whole-genome sequencing data. The NCI GDC houses all the clinical, biospecimen, and molecular characterization data with over 589 BAM, 339 TXT, 402 TSV, 237 BRC XML, 120 BRC PPS XML, and 93 BCR SSF XML files in around 50.28 TB of data. The project identification in the GDC is `CGCI-BLGSP <https://portal.gdc.cancer.gov/projects/CGCI-BLGSP>`_.
+CGCI data consists of 120 cases with RNA sequencing, miRNA sequencing, and whole-genome sequencing data. The NCI GDC houses all the clinical, biospecimen, and molecular characterization data with over 589 BAM, 339 TXT, 402 TSV, 237 BRC XML, 120 BRC PPS XML, and 93 BCR SSF XML files in around 50.28 TB of data. The project identification in the GDC Data Portal is `CGCI-BLGSP <https://portal.gdc.cancer.gov/projects/CGCI-BLGSP>`_.
 
 For more information on the CGCI data, please refer to these sites:
 
 - `CGCI Data Matrix <https://ocg.cancer.gov/programs/cgci/data-matrix>`_
 - `dbGaP site <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000235.v14.p2>`_
-- `GDC Data Portal <https://portal.gdc.cancer.gov/projects?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22projects.program.name%22%2C%22value%22%3A%5B%22CGCI%22%5D%7D%7D%5D%7D>`_
+- `GDC Data Portal <https://portal.gdc.cancer.gov/repository?facetTab=cases&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22CGCI%22%5D%7D%7D%5D%7D>`_
 
 Accessing Cancer Genome Characterization Initiative Data on the Cloud
 --------------------------------
