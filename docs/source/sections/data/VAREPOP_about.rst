@@ -11,12 +11,12 @@ The `Research for Precision Oncology Program (RePOP) <https://www.research.va.go
 About the VA Research for Precision Oncology Program Data
 ----------------------
 
-The VARePOP data set consists of 7 cases with somatic mutation and targeted sequencing data. The Genomic Data Commons currently has controlled access BAM and VCF files. The project identification in the GDC is `VAREPOP-APOLLO <https://portal.gdc.cancer.gov/projects/VAREPOP-APOLLO>`_.
+The VARePOP data set consists of 7 cases with somatic mutation and targeted sequencing data. The Genomic Data Commons currently has controlled access BAM and VCF files. The project identification in the GDC Data Portal is `VAREPOP-APOLLO <https://portal.gdc.cancer.gov/projects/VAREPOP-APOLLO>`_.
 
 For more information on the VAREPOP data, please refer to these sites:
 
 - `dbGaP site <https://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?view_pdf&stacc=phs001374.v1.p1>`_
-- `GDC Data Portal <https://portal.gdc.cancer.gov/repository?facetTab=files&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22VAREPOP%22%5D%7D%7D%5D%7D>`_
+- `GDC Data Portal <https://portal.gdc.cancer.gov/repository?facetTab=cases&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22VAREPOP%22%5D%7D%7D%5D%7D>`_
 
 Accessing the Human Cancer Models Initiative Data on the Cloud
 ---------------------------------------------------------------
