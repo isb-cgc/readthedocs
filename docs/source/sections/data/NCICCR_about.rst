@@ -10,7 +10,7 @@ The `NCI Center for Cancer Research <https://ccr.cancer.gov/>`_ (NCICCR) conduct
 About the NCI Center for Cancer Research Data
 ---------------------------------------------
 
-There were around 489 cases that were phenotyped contributing Authorized-Access, individual-level data. The Genomic Data Commons currently has around 957 controlled access BAM files available. The project identification in the GDC is `NCICCR-DLBCL <https://portal.gdc.cancer.gov/projects/NCICCR-DLBCL>`_.
+There were around 489 cases that were phenotyped contributing Authorized-Access, individual-level data. The Genomic Data Commons currently has around 957 controlled access BAM files available. The project identification in the GDC Data Portal is `NCICCR-DLBCL <https://portal.gdc.cancer.gov/projects/NCICCR-DLBCL>`_.
 
 For more information on the NCICCR data, please refer to these sites:
 

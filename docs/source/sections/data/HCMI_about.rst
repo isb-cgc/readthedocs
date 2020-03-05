@@ -10,7 +10,7 @@ The `Human Cancer Models Initiative <https://ocg.cancer.gov/programs/HCMI>`_ (HC
 About the Human Cancer Models Initiative Data
 ----------------------------------------------
 
-HCMI data consists of 23 cases with over 450 phenotyped subjects with whole-exome sequencing, RNA sequencing, and whole-genome sequencing data. The NCI GDC houses all the clinical, biospecimen, and molecular characterization data with over 100 VCF, 80 BAM, 40 TXT, 25 TSV, and 5 BRC XML files in around 2.7 TB of data. The project identification in the GDC is `HCMI-CMDC <https://portal.gdc.cancer.gov/projects/HCMI-CMDC>`_.
+HCMI data consists of 23 cases with over 450 phenotyped subjects with whole-exome sequencing, RNA sequencing, and whole-genome sequencing data. The NCI GDC houses all the clinical, biospecimen, and molecular characterization data with over 460 VCF, 261 BAM, 123 TXT, 57 TSV, and 23 BRC XML files. The project identification in the GDC is `HCMI-CMDC <https://portal.gdc.cancer.gov/projects/HCMI-CMDC>`_.
 
 For more information on the HCMI data, please refer to these sites:
 
