@@ -170,7 +170,7 @@ A few rows of the data in a BigQuery table can be viewed by clicking on the **Pr
    :align: center
  
  
-Table Access
+Table Access in Google BigQuery
 -------------
 Quickly access a BigQuery table by clicking the **Open** button on the right-hand side. This button opens the table in the BigQuery Google Cloud Platform Console. If not logged in, a prompt will appear to log in with your Google ID and to select a project.
 
