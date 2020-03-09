@@ -101,6 +101,13 @@ The **Data Type** filter also allows you to filter for data types of interest. L
 .. image:: BigQuery/DataType-filter.png
    :align: center
 
+**Experimental Strategy**
+
+The **Experimental Strategy** filter also allows you to filter for experimental strategies of interest. Multiple Experimental Strategies can be selected.
+
+.. image:: BigQuery/ExperimentalStrategy-filter.png
+   :align: center
+
 
 **More Filters**
 
@@ -111,7 +118,7 @@ These fields are most useful for users already familiar with the BigQuery tables
 
 **Labels**
 
-Each table was tagged with labels relating to the source, data type, reference genome build, status, and access. Users can search on any of these labels on the Labels filter field. Users can find the **Labels** search filter under the **Show More Filters** option. 
+Each table was tagged with labels relating to the status, program, reference genome build, source, data type, experimental strategy and access. Users can search on any of these labels on the Labels filter field. Users can find the **Labels** search filter under the **Show More Filters** option. 
 
 The labels for a table can be viewed when the blue plus sign (+) to the left of the table row is clicked. See the screen shot in the Schema section below.
 
@@ -172,7 +179,7 @@ A few rows of the data in a BigQuery table can be viewed by clicking on the **Pr
  
 Table Access in Google BigQuery
 -------------
-Quickly access a BigQuery table by clicking the **Open** button on the right-hand side. This button opens the table in the BigQuery Google Cloud Platform Console. If not logged in, a prompt will appear to log in with your Google ID and to select a project.
+Quickly access a BigQuery table by clicking the **Open** button on the right-hand side. This button opens the table in the BigQuery Google Cloud Platform Console. If not logged in, a prompt will appear which allows you to log in with your Google ID and to select a project.
 
 .. image:: BigQuery/BigQueryOpenButton.gif
    :align: center
