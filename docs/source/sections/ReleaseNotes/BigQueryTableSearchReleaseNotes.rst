@@ -6,6 +6,12 @@ For more detailed information about this discovery tool created by the ISB-CGC, 
 
 For more detailed information about the data stored in ISB-CGC BigQuery tables please visit `ISB-CGC BigQuery Tables <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQuery.html>`_.
 
+*March 11, 2020* `v1.02 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.23>`_
+
+**New Features**
+ 
+- An open button will send you to the Google Cloud Console, which enables then end-user to query the table with their own Google Cloud Project or by using the Google Platform Free-Tier. 
+
 *January 30,2020* `v1.01 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.22>`_
 
 **New Features**
