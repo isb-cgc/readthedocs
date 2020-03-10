@@ -4,8 +4,30 @@ ISB-CGC WebApp Release Notes
 
 **Please note:** Work is underway to rework our cohort creation page to better display images associated with samples.
 
-*January 30, 2020* `v1.22 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.22>`_
+*March 11, 2020* `v1.23 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.23>`_
 
+**New Features**
+
+- Opt-in page was created for end-user to sign up for ISB-CGC annoucements.
+
+**Bug Fixes**
+
+- When working with the ISB-CGC API DELETE/cohorts/{cohort_id}, only able to delete cohorts owned by authenticated user.
+
+**Known Issues**
+
+- Analysis Type: Seq peek Formatting is Elongated on occasion.
+- If the user shares a Cohort, neither the owner nor the person who was granted access to the Cohort will receive a confirmation email when sharing a Cohort.
+- CCLE data cannot be plotted when working with workbooks. ISB-CGC will resolve this functionality after the GDC formally releases CCLE data.
+- When a user duplicates a Worksheet, then tries to implement the log scale, it will not function properly.
+- The set operation for existing Cohorts complement is behaving exceptionally slow.
+- The mouse-over feature is currently disabled for program TARGET with disease code ALL.
+- When uploading TARGET files using the cohort barcode creation feature from the GDC, you may get an invalid barcode error message and unable to upload all the barcodes.
+- On the File Browser page for Diagnostic images, there is no GDC file UUID associated with them.
+- Sharing a workbook with someone else will cause the analysis to reset.
+- Work is underway to rework our cohort creation page to better display images associated with samples.
+
+*January 30, 2020* `v1.22 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.22>`_
 
 The following datasets (open and controlled access) have been added to the ISB-CGC for service account registration:
 
