@@ -2,11 +2,11 @@
 Google Compute Engine
 **********************
 
-For those ISB-CGC users whose research goals require the ability to run large compute jobs, all of the power and infrastructure behind Google Compute (Compute Engine, Container Engine, Dataproc, and Dataflow) and Google Genomics, are at your disposal.
+For those ISB-CGC users whose research goals require the ability to run large compute jobs, all of the power and infrastructure behind Google Compute (Compute Engine, Container Engine, Dataproc, and Dataflow) and Google Genomics are at your disposal.
 
 Google Compute Engine (GCE) is the Infrastructure as a Service (IaaS) component of Google Cloud Platform (GCP).  `GCE <https://cloud.google.com/compute/docs/>`_ offers scale, performance and value, letting you easily create and run virtual machines (VMs) on Google infrastructure. 
 
-We have tried to put together some basic documentation for ISB-CGC users who are new to the Google Cloud Platform, but your main source of information should generally be the official Google Cloud Platform `documentation <https://cloud.google.com/docs>`_.
+We have put together some basic documentation for ISB-CGC users who are new to the Google Cloud Platform, but your main source of information should generally be the official Google Cloud Platform `documentation <https://cloud.google.com/docs>`_.
 
 
 .. toctree::
