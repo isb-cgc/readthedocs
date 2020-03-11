@@ -13,7 +13,7 @@ For more detailed information about the data stored in ISB-CGC BigQuery tables p
 - Users now have the ability to access, query and inspect in detail BigQuery tables in Google Cloud Platform's BigQuery console directly from the Table Search UI. Every table has a "Open" option which when clicked will send the user to the table in the BigQuery console on the Google Cloud. 
 - An Open button, with the same functionality as described above, has been added to the Schema Description section.
 - Program and Experimental Strategy filters were added. 
-- Values for Data Type and Source have been modified in order to align more closely with GDC naming conventions. 
+- Values for the Data Type and Source filters have been modified in order to align more closely with GDC naming conventions. 
 
 *January 30,2020* `v1.01 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.22>`_
 
