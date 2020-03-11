@@ -23,7 +23,7 @@ Accessing and Analyzing Data via BigQuery
 -----------------------------------------------
 
 - BigQuery is Google’s native big data analysis tool. It is a serverless, highly scalable data warehouse tool that allows researchers to find meaningful insights from data using standard SQL queries CHEAPLY, and FAST!
-- ISB-CGC has leveraged this powerful tool and uploaded multiple cancer genomics datasets into BigQuery tables that are open to the public. `ISB-CGC Datasets in BigQuery <BigQuery/data_in_BQ.html>`_ and the always freshly updated `ISB-CGC Data Release Notes <ReleaseNotes/ISB-CGCDataReleases.html>`_. 
+- ISB-CGC has leveraged this powerful tool and uploaded multiple cancer genomics datasets into BigQuery tables that are open to the public. See `ISB-CGC Datasets in BigQuery <BigQuery/data_in_BQ.html>`_ and the always freshly updated `ISB-CGC Data Release Notes <ReleaseNotes/ISB-CGCDataReleases.html>`_. 
 - To obtain access to the ISB-CGC open access project tables in BigQuery, users can link these tables to their GCP project as described `here <progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_.
 - To obtain access to the ISB-CGC controlled access project tables in BigQuery, users can link these tables to their GCP project as described `here <progapi/bigqueryGUI/LinkingISB-CGCtoCABQ.html>`_.
 - ISB-CGC provides quickstart guides, tutorials and examples in both R and Jupyter notebooks for BigQuery in the  `Tutorials <TutorialsAndHow-ToGuides.html>`_ and `Community Notebooks <HowTos.html>`_ sections of the documentation page. 
