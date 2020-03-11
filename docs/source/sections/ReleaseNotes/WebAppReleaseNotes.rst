@@ -8,7 +8,7 @@ ISB-CGC WebApp Release Notes
 
 **New Features**
 
-- Opt-in page was created for end-user to sign up for ISB-CGC annoucements.
+- An Opt-in page was created for the user to sign up for ISB-CGC announcements.
 
 **Bug Fixes**
 
