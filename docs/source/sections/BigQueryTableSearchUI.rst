@@ -54,6 +54,14 @@ By default, the Status filter is set to Current.
 The **Name** filter is a free-form text field; the user can type all or a portion of the name into the field to perform the search. It will match against the Name column. 
 
 Note that this Name field is not the Table ID (which is used in SQL queries) but is a **Friendly Name**; that is, a descriptive, user-friendly name for the table. 
+
+**Program**
+
+Filter the BigQuery tables by programs such as CCLE, TARGET and TCGA by using the **Program** filter. Click the Program box to see the dropdown list and click on a program to select it. Additional programs can be selected by clicking in the Program box again. 
+
+
+.. image:: BigQuery/Program-filter.png
+   :align: center
    
 **Categories**
 
@@ -166,6 +174,10 @@ The following information is displayed:
 **Copy button**
 
 Next to the Full ID is a **Copy** button. When the user clicks this, the Full ID is copied to the clipboard. The Full ID can then be pasted into an SQL query within the BiqQuery Query editor.
+
+**Open button**
+
+Next to the Copy button is an **Open** button. Clicking on this button opens the table in the BigQuery Google Cloud Platform Console. For more details, see the **Table Access in Google BigQuery** section below.
 
 Table Preview
 ++++++++++++++
