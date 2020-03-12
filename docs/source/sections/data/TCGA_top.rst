@@ -2,8 +2,8 @@
 TCGA Data Set
 *************
 
-About the TCGA
----------------
+About The Cancer Genome Atlas
+------------------------------
 
 `The Cancer Genome Atlas <https://cancergenome.nih.gov/>`_ (TCGA) is a comprehensive and coordinated effort to accelerate the understanding of the molecular basis of cancer through the application of genome analysis technologies, including large-scale genome sequencing.
 
@@ -11,8 +11,8 @@ The overarching goal of TCGA is to improve our ability to diagnose, treat and pr
 
 This massive effort was launched in 2006. The final samples were shipped in mid-2014, and analysis of the data produced by this program continues to this day.
 
-About the TCGA Data
--------------------
+About The Cancer Genome Atlas Data
+-----------------------------------
 
 The ISB-CGC hosts several TCGA datasets in BigQuery_ and more data is available through the `Genomic Data Commons <https://gdc.cancer.gov/>`_ (GDC).
 
@@ -25,13 +25,13 @@ The vast majority (over 99%) of this **petabyte** of data consists of low-level 
    :scale: 50
    :align: center
 
-TCGA Data Platforms
-+++++++++++++++++++
+The Cancer Genome Atlas Data Platforms
+++++++++++++++++++++++++++++++++++++++++
 
 When working with any of the data types, it is important to also be aware of both the *platform* that was used to generate the underlying raw data as well as the *pipeline* that was used to process the data.  For example, over the course of the TCGA study, DNA methylation data were obtained using first the Illumina HumanMethylation27 platform, and later using the HumanMethylation450 platform.  Any analysis that combines data from these two platforms across a cohort of samples should take this into consideration.  Another example where multiple platforms and/or pipelines were used to produce a single data type is the Level-3 gene expression data: most tumor samples were processed at UNC and the normalized gene-expression values are based on the RSEM method, while some tumor samples were processed at BCGSC and the normalized gene-expression values are based on RPKM.
 
-TCGA Data Levels
-++++++++++++++++
+The Cancer Genome Atlas Data Levels
+++++++++++++++++++++++++++++++++++++
 
 For each *type* of data, there are typically three *levels* of data:
 
@@ -41,8 +41,8 @@ For each *type* of data, there are typically three *levels* of data:
 
 The results of integrative or pan-cancer analyses are sometimes referred to as "Level 4" data.  More information about `Data Level Classification <https://gdc.cancer.gov/resources-tcga-users/tcga-code-tables/data-levels>`_ can be found on the NCI page.
 
-TCGA Data Types
-+++++++++++++++
+The Cancer Genome Atlas Data Types
++++++++++++++++++++++++++++++++++++
 
 The TCGA data set is unique in that the tumor samples were assayed using a standard set of platforms and pipelines in order to produce a comprehensive data set including:
 
@@ -54,8 +54,8 @@ The TCGA data set is unique in that the tumor samples were assayed using a stand
 
 In addition, protein expression for a significant fraction (~20%) of all tumor samples was obtained using RPPA (reverse phase protein array).
 
-Open-Access TCGA Data
-=====================
+Open-Access The Cancer Genome Atlas Data
+=========================================
 
 The open-access TCGA data includes:
 
@@ -72,8 +72,8 @@ The information scattered over tens of thousands of XML and TSV files at the GDC
 
 For more details, please see our `Community Notebook Repository <https://github.com/isb-cgc/Community-Notebooks>`_ for tutorials and code examples in Python and R.
 
-Controlled-Access TCGA Data
-===========================
+Controlled-Access The Cancer Genome Atlas Data
+===============================================
 
 The controlled-access TCGA data includes:
 
@@ -89,8 +89,9 @@ The controlled-access TCGA data includes:
    - over 16,000 miRNA-seq BAM files are available in GCS
 * mRNA-seq FASTQ files:  these Level-1 data files were provided by CGHub and include over 11,000 tar files
 
-TCGA Data Repository History
-++++++++++++++++++++++++++++++
+The Cancer Genome Atlas Data Repository History
+++++++++++++++++++++++++++++++++++++++++++++++++
+
 Historically, the data was obtained from two former TCGA data repositories:
 
 * **TCGA DCC**: the TCGA Data Coordinating Center which provided a **Data Portal** from which users could download open-access or controlled-access data.  This portal provided access to all TCGA data *except* for the low-level sequence data. 
@@ -98,8 +99,8 @@ Historically, the data was obtained from two former TCGA data repositories:
 
 In June of 2016, the official data repository for all TCGA and other NCI CCG data is the NCI's `Genomic Data Commons <https://gdc.cancer.gov/>`_ (GDC).  The original TCGA data, aligned to the hg19 human reference genome is available from the GDC's `legacy archive <https://portal.gdc.cancer.gov/legacy-archive/search/f>`_ while the new "harmonized" data, realigned to hg38 is available from the GDC's main `data portal <https://portal.gdc.cancer.gov/>`_.
 
-Accessing TCGA Data on the Cloud
-----------------------------------
+Accessing The Cancer Genome Atlas Data on the Cloud
+----------------------------------------------------
 
 Besides accessing the files on the GDC Data Portal, you can also access them from the GDC Google Cloud Storage Bucket, which means that you don’t need to download them to perform analysis. ISB-CGC stores the cloud file locations in tables in the ``isb-cgc.GDC_metadata`` data set in BigQuery.
 
