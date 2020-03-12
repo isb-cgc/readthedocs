@@ -97,3 +97,19 @@ Historically, the data was obtained from two former TCGA data repositories:
 * **CGHub**:  the **Cancer Genomics Hub** was NCI's secure data repository for all TCGA BAM and FASTQ sequence data files.
 
 In June of 2016, the official data repository for all TCGA and other NCI CCG data is the NCI's `Genomic Data Commons <https://gdc.cancer.gov/>`_ (GDC).  The original TCGA data, aligned to the hg19 human reference genome is available from the GDC's `legacy archive <https://portal.gdc.cancer.gov/legacy-archive/search/f>`_ while the new "harmonized" data, realigned to hg38 is available from the GDC's main `data portal <https://portal.gdc.cancer.gov/>`_.
+
+Accessing TCGA Data on the Cloud
+----------------------------------
+
+Besides accessing the files on the GDC Data Portal, you can also access them from the GDC Google Cloud Storage Bucket, which means that you don’t need to download them to perform analysis. ISB-CGC stores the cloud file locations in tables in the ``isb-cgc.GDC_metadata`` data set in BigQuery.
+
+- To access these metadata files, go to the Google BigQuery console.
+- Perform SQL queries to find the TCGA files. Here is an example:
+
+.. code-block:: sql
+
+  SELECT active.*, file_gdc_url
+  FROM `isb-cgc.GDC_metadata.rel22_fileData_active` as active, `isb-cgc.GDC_metadata.rel22_GDCfileID_to_GCSurl` as GCSurl
+  WHERE program_name = 'TCGA'
+  AND active.file_gdc_id = GCSurl.file_gdc_id
+
