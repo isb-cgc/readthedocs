@@ -2,9 +2,9 @@
 How To Get Started on ISB-CGC
 ******************
 
-The ISB-CGC provides both interactive (through a `web application <https://isb-cgc.appspot.com/>`_) and programmatic access to data hosted by institutes such as the Genomic Data Commons GDC of the National Cancer Institute (NCI), and the Wellcome Trust Sanger Institute, leveraging many aspects of the Google Cloud Platform. ISB-CGC hosts both open-access and controlled-access cancer genomics data from the NCI from `a variety of Programs and Data Sets <Hosted-Data.html>`_. Some of these are controlled-access data `which require dbGaP authorization to access <Gaining-Access-To-Controlled-Access-Data.html>`_.
+The ISB-CGC provides both interactive (through a `web application <https://isb-cgc.appspot.com/>`_) and programmatic access to data hosted by institutes such as the Genomic Data Commons (GDC) of the National Cancer Institute (NCI), and the Wellcome Trust Sanger Institute, leveraging many aspects of the Google Cloud Platform. ISB-CGC hosts both open-access and controlled-access cancer genomics data from the NCI from `a variety of Programs and Data Sets <Hosted-Data.html>`_. Some of these are controlled-access data `which require dbGaP authorization to access <Gaining-Access-To-Controlled-Access-Data.html>`_.
 
-`More about ISB-CGC <About-ISB-CGC.html>`_, `ISB-CGC Main Landing Page <https://isb-cgc.appspot.com/>`_ and `FAQS <FAQ.html>`_.
+Click here to go to the `ISB-CGC Home Page <https://isb-cgc.appspot.com/>`_.
 
 Data Access and Google Cloud Project Setup
 -----------------------------------------------
@@ -23,7 +23,7 @@ Accessing and Analyzing Data via BigQuery
 -----------------------------------------------
 
 - BigQuery is Google’s native big data analysis tool. It is a serverless, highly scalable data warehouse tool that allows researchers to find meaningful insights from data using standard SQL queries CHEAPLY, and FAST!
-- ISB-CGC has leveraged this powerful tool and uploaded multiple cancer genomics datasets into BigQuery tables that are open to the public. `ISB-CGC Datasets in BigQuery <BigQuery/data_in_BQ.html>`_ and the always freshly updated `Data Release Notes and Future Plans <updates_and_releases/Data_Releases.html>`_. 
+- ISB-CGC has leveraged this powerful tool and uploaded multiple cancer genomics datasets into BigQuery tables that are open to the public. See `ISB-CGC Datasets in BigQuery <BigQuery/data_in_BQ.html>`_ and the always freshly updated `ISB-CGC Data Release Notes <ReleaseNotes/ISB-CGCDataReleases.html>`_. 
 - To obtain access to the ISB-CGC open access project tables in BigQuery, users can link these tables to their GCP project as described `here <progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_.
 - To obtain access to the ISB-CGC controlled access project tables in BigQuery, users can link these tables to their GCP project as described `here <progapi/bigqueryGUI/LinkingISB-CGCtoCABQ.html>`_.
 - ISB-CGC provides quickstart guides, tutorials and examples in both R and Jupyter notebooks for BigQuery in the  `Tutorials <TutorialsAndHow-ToGuides.html>`_ and `Community Notebooks <HowTos.html>`_ sections of the documentation page. 
