@@ -18,7 +18,7 @@ Accessing the CCLE Data on the Cloud
 Besides accessing the files on the GDC Data Portal, you can also access them from the GDC Google Cloud Storage Bucket, which means that you don’t need to download them to perform analysis. ISB-CGC stores the cloud file locations in tables in the ``isb-cgc.GDC_metadata`` data set in BigQuery.
 
 - To access these metadata files, go to the Google BigQuery console.
-- Perform SQL queries to find the HCMI files. Here is an example:
+- Perform SQL queries to find the CCLE files. Here is an example:
 
 .. code-block:: sql
 
