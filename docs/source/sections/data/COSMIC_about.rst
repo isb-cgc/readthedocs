@@ -2,13 +2,13 @@
 COSMIC Data Set
 ***************
 
-About the COSMIC
-----------------
+About the Catalog Of Somatic Mutations In Cancer
+-------------------------------------------------
 
 The `Catalogue Of Somatic Mutations In Cancer <https://cancer.sanger.ac.uk/cosmic>`_ (COSMIC) is the world's largest and most comprehensive resource for exploring the impact of somatic mutations in human cancer. The COSMIC tables in BigQuery were produced in collaboration with the `Wellcome Trust Sanger Institute <http://www.sanger.ac.uk/>`_ to provide a new way to explore and understand the mutations driving cancer. 
 
-About the COSMIC Data
----------------------
+About the Catalog Of Somatic Mutations In Cancer Data
+------------------------------------------------------
 
 The BigQuery datasets contain *all* of the tables available for download from the `COSMIC ftp site <http://cancer.sanger.ac.uk/cosmic/download>`_. The availability of these additional tables will support many more types of queries -- please explore them at (after registering for access as described below):
 
@@ -17,8 +17,8 @@ The BigQuery datasets contain *all* of the tables available for download from th
 Details about the underlying COSMIC export files used to create these BigQuery tables can be found in the README files for `GRCh38 <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/source/sections/cosmic/README-cosmic-grch38.txt>`_ 
 and `GRCh37 <https://raw.githubusercontent.com/isb-cgc/readthedocs/master/docs/source/sections/cosmic/README-cosmic-grch37.txt>`_.
 
-Gaining Access to the Data
-++++++++++++++++++++++++++
+Gaining Access to Catalog Of Somatic Mutations In Cancer Data
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 `Register <https://cancer.sanger.ac.uk/cosmic/register>`_ for access to `COSMIC <https://cancer.sanger.ac.uk/cosmic/about>`_ in `BigQuery <https://cloud.google.com/bigquery/what-is-bigquery>`_:
 
