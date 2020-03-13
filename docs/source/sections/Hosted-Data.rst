@@ -25,23 +25,6 @@ From Genomic Data Commons
    data/NCICCR_about
    data/HCMI_about
    data/BEATAML_about
-   data/CPTAC_about
-   data/GENIE_about
-   data/CGCI_about
-   data/MMRF_about
-   data/OHSU_about
-   data/ORGANOID_about
-   data/WCDT_about
-
-From Other Sources
-~~~~~~~~~~~~~~~~~~
-
-.. toctree::
-   :maxdepth: 1
-   
-   data/COSMIC_about
-   data/Mitelman_about
-   
 
 NCI Genomic Data Commons
 ------------------------
