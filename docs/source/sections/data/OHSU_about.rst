@@ -5,12 +5,12 @@ OHSU Data Set
 About the Oregon Health & Science University
 --------------------------------------------
 
-The `Oregon Health & Science University <https://www.ohsu.edu/>`_ contains data generated from Chronic neutrophilic leukemia (CNL), atypical chronic myeloid leukemia (aCML), and unclassified myelodysplastic syndrome/myeloproliferative neoplasms (MDS/MPN-U) are a group of rare, heterogeneous myeloid disorders. 
+The `Oregon Health & Science University <https://www.ohsu.edu/>`_ contains data generated from chronic neutrophilic leukemia (CNL), atypical chronic myeloid leukemia (aCML), and unclassified myelodysplastic syndrome/myeloproliferative neoplasms (MDS/MPN-U), which are a group of rare, heterogeneous myeloid disorders. 
 
 About the Oregon Health & Science University Data
 -------------------------------------------------
 
-Whole-exome and RNA sequencing on a cohort of over 100 cases of these rare hematologic malignancies and present the complete survey of the genomic landscape of these diseases to date. The project identification in the GDC Data Portal is `OHSU-CNL <https://portal.gdc.cancer.gov/projects/OHSU-CNL>`_. 
+The data set consists of whole-exome and RNA sequencing on a cohort of over 100 cases of these rare hematologic malignancies. It presents the complete survey of the genomic landscape of these diseases to date. The Project ID in the GDC Data Portal is `OHSU-CNL <https://portal.gdc.cancer.gov/projects/OHSU-CNL>`_. 
 
 For more information on the OHSU data, please refer to these sites:
 
