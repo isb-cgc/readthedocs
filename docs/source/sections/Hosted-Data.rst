@@ -9,6 +9,9 @@ The ISB-CGC started with The Cancer Genome Atlas (TCGA) data sets but has expand
 Data Sets
 ---------
 
+From Genomic Data Commons
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. toctree::
    :maxdepth: 1
    
@@ -16,13 +19,28 @@ Data Sets
    data/TCGA-images
    data/TARGET_top
    data/CCLE_top
-   data/COSMIC_about
-   data/FM-AD_about
+   data/FM_about
    data/CTSP_about
    data/VAREPOP_about
    data/NCICCR_about
-   data/HCMI-CMDC_about
+   data/HCMI_about
    data/BEATAML_about
+   data/CPTAC_about
+   data/GENIE_about
+   data/CGCI_about
+   data/MMRF_about
+   data/OHSU_about
+   data/ORGANOID_about
+   data/WCDT_about
+
+From Other Sources
+~~~~~~~~~~~~~~~~~~
+
+.. toctree::
+   :maxdepth: 1
+   
+   data/COSMIC_about
+   data/Mitelman_about
 
 NCI Genomic Data Commons
 ------------------------
@@ -61,8 +79,8 @@ Google Genomics
 
 `Google Genomics <https://cloud.google.com/genomics/>`_ (GG) provides a storage platform and a way to work with sequence-level data which can also be worked through the `Global Alliance for Genomics and Health <https://www.ga4gh.org/#/>`_ (GA4GH) APIs. GA4GH is a policy-framing and technical standards-setting organization, seeking to enable responsible genomic data sharing within a human rights framework. GA4GH tools can be found `here <https://www.ga4gh.org/genomic-data-toolkit/>`_.
 
-Security
---------
+Security and Access
+-------------------
 
 It is recommended that you review important information about data security and data access.
 
