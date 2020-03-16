@@ -1,9 +1,30 @@
-**********************
+********************
 Statistical Notebooks
-**********************
-Integrated statistical analysis and exploration of multiple genomic and clinical data types provides researchers with a great possibility to expand our current knowledge of cancer. ISB-CGC offers a great source of diverse data types including gene expression, somatic mutations, clinical data, etc. We have developed a series of notebooks that use BigQuery to compute the statistical associations between different combinations of the data types available in ISB-CGC.
+********************
+Integrated statistical analysis and exploration of multiple genomic and clinical data types provides researchers with a great possibility to expand our current knowledge of cancer. ISB-CGC offers a great source of diverse data types including gene expression, somatic mutations, clinical data, etc. We have developed a series of notebooks that use BigQuery to compute statistical associations between different combinations of the data types available in ISB-CGC.
 
-The statistical significance of each pairwise association is assessed using rank-ordered data and a statistical test appropriate to each data type pair, which are categorized as categorical or numerical. The following table lists the statistical methods implemented in the notebooks, and the data types used as examples. The Regulome Explorer inspired notebook is a special notebook that allows computation of associations between all possible data types available in the TCGA dataset; more details are below.
+Bioinformatic notebooks
+=======================
+.. list-table:: 
+   :widths: 100 10 10
+   :align: center
+   :header-rows: 0
+  
+   * - One-way ANOVA with BigQuery
+     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_an_ANOVA_test_in_BigQuery.ipynb>`_
+     - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_an_ANOVA_test_in_BigQuery.md>`_
+   * - Score gene sets in BigQuery
+     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_score_gene_sets_with_BigQuery.ipynb>`_
+     - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_an_ANOVA_test_in_BigQuery.md>`_
+   * - Nearest Centroid Classification using BigQuery
+     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_Nearest_Centroid_Classification_with_BigQuery.ipynb>`_
+     - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_Nearest_Centroid_Classification_with_BigQuery.md>`_
+
+
+
+Standard pairwise statistics
+============================
+The statistical significance of association between pairs of data types is assessed using rank-ordered data and a statistical test appropriate to each data type pair, which are categorized as categorical or numerical. The following table lists the statistical methods implemented in the notebooks, and the data types used as examples. The Regulome Explorer inspired notebook is a special notebook that allows computation of associations between all possible data types available in the TCGA dataset; more details are below.
 
 .. list-table:: 
    :widths: 25 25 50
