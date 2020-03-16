@@ -15,7 +15,7 @@ From Genomic Data Commons
 .. toctree::
    :maxdepth: 1
    
-     data/TCGA_top
+   data/TCGA_top
    data/TCGA-images
    data/TARGET_top
    data/CCLE_top
