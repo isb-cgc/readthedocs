@@ -1,7 +1,8 @@
 ********************
 Statistical Notebooks
 ********************
-Integrated statistical analysis and exploration of multiple genomic and clinical data types provide researchers with a great possibility to expand our current knowledge of cancer. The ISB-CGC offers a vast source of diverse data types, including gene expression, somatic mutations, clinical data, etc. We have developed a series of notebooks that use BigQuery to compute statistical associations between different combinations of the data types available in ISB-CGC.
+
+Integrated statistical analysis and exploration of multiple genomic and clinical data types provide researchers with a great possibility to expand our current knowledge of cancer. ISB-CGC has developed a series of notebooks that use BigQuery to compute statistical associations between different combinations of data from ISB-CGC vast source of diverse data types, including gene expression, somatic mutations, clinical data, etc.
 
 Bioinformatic notebooks
 =======================
@@ -22,7 +23,8 @@ Bioinformatic notebooks
 
 Standard pairwise statistics
 ============================
-Statistical significance assessment for an association between pairs of data types uses rank-ordered data and a statistical test appropriate to each data type pair depending on categorical or numerical categorization. The following table lists the statistical methods implemented in the notebooks, and the data types used as examples. The Regulome Explorer inspired notebook is a special notebook that allows the computation of associations between all possible data types available in the TCGA dataset; more details are below.
+
+The following table lists notebooks for the statistical methods implemented in each one with the example data types used. They assess the statistical significance for an association between pairs of data types using rank-ordered data and a statistical test appropriate to each data type pair depending on categorical or numerical categorization. The notebooks inspired by Regulome Explorer inspired notebook are special notebooks that allow computation of associations between all possible data types available in the TCGA dataset. 
 
 .. list-table:: 
    :widths: 25 25 50
@@ -53,6 +55,6 @@ Statistical significance assessment for an association between pairs of data typ
 
 Regulome Explorer Inspired Notebook
 ===================================
-`Regulome Explorer <http://explorer.cancerregulome.org/>`_ is a well-established web tool for the exploration and visualization of associations between clinical and molecular features of TCGA data. Institute for Systems Biology and the MD Anderson Cancer Center collaborated closely to develop Regulome Explorer. It allowed users to search and visualize pre-computed statistical data filtered according to user-specified parameters for 20 of the 38 TCGA data sets. Although Regulome Explorer has broad functionality and high-quality graphics make it a valuable tool, it does not contain an analysis of recent releases of TCGA and difficult to apply to data sets other than TCGA. 
+`Regulome Explorer <http://explorer.cancerregulome.org/>`_ is a well-established web tool for the exploration and visualization of associations between clinical and molecular features of TCGA data. The Institute for Systems Biology and the MD Anderson Cancer Center collaborated closely to develop Regulome Explorer. It allows users to search and visualize pre-computed statistical data filtered according to user-specified parameters for 20 of the 38 TCGA data sets. Although Regulome Explorer has broad functionality and high-quality graphics make it a valuable tool, it does not contain an analysis of recent releases of TCGA and difficult to apply to data sets other than TCGA. 
 
 The `Regulome Explorer Inspired Notebook <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/RegulomeExplorer-notebook.ipynb>`_ is a more flexible version of Regulome Explorer developed by ISB-CGC. It replicates the capabilities of Regulome Explorer, as a Python notebook using the Google Cloud resources and performs statistical analyses dynamically using the cloud rather than using static data. Furthermore, it is extendable to additional data sets available In BigQuery from the ISB-CGC, such as TCGA, TARGET, CCLE, and COSMIC.
