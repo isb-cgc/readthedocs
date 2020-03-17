@@ -1,6 +1,6 @@
-********************
+*********************
 Statistical Notebooks
-********************
+*********************
 
 Integrated statistical analysis and exploration of multiple genomic and clinical data types provide researchers with a great possibility to expand our current knowledge of cancer. ISB-CGC has developed a series of notebooks that use BigQuery to compute statistical associations between different combinations of data from ISB-CGC vast source of diverse data types, including gene expression, somatic mutations, clinical data, etc.
 
@@ -24,7 +24,7 @@ Bioinformatic notebooks
 Standard pairwise statistics
 ============================
 
-The following table lists notebooks for the statistical methods implemented in each one with the example data types used. They assess the statistical significance for an association between pairs of data types using rank-ordered data and a statistical test appropriate to each data type pair depending on categorical or numerical categorization. The notebooks inspired by Regulome Explorer inspired notebook are special notebooks that allow computation of associations between all possible data types available in the TCGA dataset. 
+The following table lists notebooks that compute associations between pairs of data types available in ISB-CGC. They assess the statistical significance for an association between pairs of data types using rank-ordered data and a statistical test appropriate to each data type pair depending on categorical or numerical categorization. The Regulome Explorer inspired notebook is a special notebooks that allow computation of associations between all possible data types available in the TCGA dataset. 
 
 .. list-table:: 
    :widths: 25 25 50
