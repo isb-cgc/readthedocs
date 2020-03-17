@@ -1,5 +1,5 @@
 ****************************************
-TCGA Radiology and Pathology Image Data
+TCGA Radiology and Pathology Image Data Set
 ****************************************
 
 The TCGA images from `The Cancer Imaging Archive <http://www.cancerimagingarchive.net/>`_ (TCIA) as well as the pathology and diagnostic images previously available from the `Cancer Digital Slide Archive <http://cancer.digitalslidearchive.net/>`_ (CDSA) are all now available in open-access Google Cloud Storage (GCS) buckets and can be explored through the Web App.
