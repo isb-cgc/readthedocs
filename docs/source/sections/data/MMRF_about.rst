@@ -1,5 +1,5 @@
 ****************
-MMRF CoMMpass Data Set
+MMRF Data Set
 ****************
 
 About the Multiple Myeloma Research Foundation
