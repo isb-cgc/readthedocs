@@ -15,22 +15,22 @@ From Genomic Data Commons
 .. toctree::
    :maxdepth: 1
    
-   data/TCGA_top
-   data/TCGA-images
-   data/TARGET_top
-   data/CCLE_top
-   data/FM_about
-   data/CTSP_about
-   data/VAREPOP_about
-   data/NCICCR_about
-   data/HCMI_about
    data/BEATAML_about
-   data/CPTAC_about
-   data/GENIE_about
+   data/CCLE_top
    data/CGCI_about
+   data/CPTAC_about
+   data/CTSP_about
+   data/FM_about
+   data/GENIE_about
+   data/HCMI_about
    data/MMRF_about
+   data/NCICCR_about
    data/OHSU_about
    data/ORGANOID_about
+   data/TARGET_top
+   data/TCGA_top
+   data/TCGA-images
+   data/VAREPOP_about
    data/WCDT_about
 
 From Other Sources
