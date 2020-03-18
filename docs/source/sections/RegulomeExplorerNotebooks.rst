@@ -24,7 +24,7 @@ Bioinformatic notebooks
 Standard pairwise statistics
 ============================
 
-The following table lists notebooks that compute associations between pairs of data types available in ISB-CGC. They assess the statistical significance for an association between pairs of data types using rank-ordered data and a statistical test appropriate to each data type pair depending on categorical or numerical categorization. The Regulome Explorer inspired notebook is a special notebooks that allow computation of associations between all possible data types available in the TCGA dataset. 
+The following table lists notebooks that compute associations between pairs of data types available in ISB-CGC. They assess the statistical significance for an association using rank-ordered data and a statistical test appropriate to each data type pair depending on categorical or numerical categorization. The Regulome Explorer inspired notebook is a special notebooks that allow computation of associations between all possible data types available in the TCGA dataset. 
 
 .. list-table:: 
    :widths: 25 25 50
