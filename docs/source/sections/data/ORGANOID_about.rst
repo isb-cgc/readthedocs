@@ -5,12 +5,12 @@ ORGANOID Data Set
 About the Pancreas Cancer Organoid Profiling Program
 ---------------
 
-The Pancreas Cancer Organoid Profiling Program is from the `Organoid Profiling Identifies Common Responders to Chemotherapy in Pancreatic Cancer <https://pubmed.ncbi.nlm.nih.gov/29853643-organoid-profiling-identifies-common-responders-to-chemotherapy-in-pancreatic-cancer/>`_ study and contains data generated from a collection of patient-derived pancreatic normal and cancer organoids. 
+The Pancreas Cancer Organoid Profiling Program is from the `Organoid Profiling Identifies Common Responders to Chemotherapy in Pancreatic Cancer <https://www.ncbi.nlm.nih.gov/pubmed?Db=pubmed&DbFrom=gap&Cmd=Link&IdsFromResult=1898172&LinkName=gap_pubmed>`_ study and contains data generated from a collection of patient-derived pancreatic normal and cancer organoids. 
 
 About the Pancreas Cancer Organoid Profiling Data Set
 --------------------
 
-The data set consists of 70 cases and includes whole-genome, targeted exome, and RNA sequencing data on organoids as well as matched tumor and normal tissues. This dataset is a valuable resource for pancreas cancer researchers, and those looking to compare primary tissue to organoid culture. The NCI GDC houses all the clinical, biospecimen, and molecular characterization data with over 130 VCF, 298 BAM, 165 TXT, and 110 TSV files in around 21.89 TB of data.  The project identification in the GDC Data Portal is `ORGANOID-PANCREATIC <https://portal.gdc.cancer.gov/projects/ORGANOID-PANCREATIC>`_.
+The data set consists of 70 cases and includes whole-genome, targeted exome, and RNA sequencing data on organoids as well as matched tumor and normal tissues. This data set is a valuable resource for pancreas cancer researchers, and those looking to compare primary tissue to organoid culture. The NCI GDC houses all the clinical, biospecimen, and molecular characterization data with over 130 VCF, 298 BAM, 165 TXT, and 110 TSV files in around 21.89 TB of data.  The Project ID in the GDC Data Portal is `ORGANOID-PANCREATIC <https://portal.gdc.cancer.gov/projects/ORGANOID-PANCREATIC>`_.
 
 For more information on the ORGANOID data, please refer to these sites:
 

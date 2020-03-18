@@ -15,22 +15,22 @@ From Genomic Data Commons
 .. toctree::
    :maxdepth: 1
    
-   data/TCGA_top
-   data/TCGA-images
-   data/TARGET_top
-   data/CCLE_top
-   data/FM_about
-   data/CTSP_about
-   data/VAREPOP_about
-   data/NCICCR_about
-   data/HCMI_about
    data/BEATAML_about
-   data/CPTAC_about
-   data/GENIE_about
+   data/CCLE_top
    data/CGCI_about
+   data/CPTAC_about
+   data/CTSP_about
+   data/FM_about
+   data/GENIE_about
+   data/HCMI_about
    data/MMRF_about
+   data/NCICCR_about
    data/OHSU_about
    data/ORGANOID_about
+   data/TARGET_top
+   data/TCGA_top
+   data/TCGA-images
+   data/VAREPOP_about
    data/WCDT_about
 
 From Other Sources
@@ -64,7 +64,7 @@ ISB-CGC hosts a series of reference tables in BigQuery with information that des
 
 Storage Platforms
 ----------------
-As part of its mission, the ISB-CGC has been exploring the best ways to use available cloud technologies to provide access to the data. To this end, the data is made available using these three main Google Cloud Platform technologies:
+As part of its mission, the ISB-CGC has been exploring the best ways to use available cloud technologies to provide access to the data. To this end, the data is made available using these Google Cloud Platform technologies:
 
 Google BigQuery
 ~~~~~~~~~~~~~~~~
@@ -72,12 +72,7 @@ Google BigQuery
 
 Google Cloud Storage
 ~~~~~~~~~~~~~~~~~~~~
-`Google Cloud Storage <https://cloud.google.com/storage/>`_ (GCS) is a cloud-based object-store that is used to store other types of (typically binary) data which is typically processed by custom software pipelines. The data hosted by GDC is contained within Google Cloud Storage. The ISB-CGC Web App
-
-Google Genomics
-~~~~~~~~~~~~~~~
-
-`Google Genomics <https://cloud.google.com/genomics/>`_ (GG) provides a storage platform and a way to work with sequence-level data which can also be worked through the `Global Alliance for Genomics and Health <https://www.ga4gh.org/#/>`_ (GA4GH) APIs. GA4GH is a policy-framing and technical standards-setting organization, seeking to enable responsible genomic data sharing within a human rights framework. GA4GH tools can be found `here <https://www.ga4gh.org/genomic-data-toolkit/>`_.
+`Google Cloud Storage <https://cloud.google.com/storage/>`_ (GCS) is a cloud-based object-store that is used to store other types of (typically binary) data which is typically processed by custom software pipelines. The data hosted by GDC is contained within Google Cloud Storage.
 
 Security and Access
 -------------------

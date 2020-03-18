@@ -1,7 +1,8 @@
-********************
+*********************
 Statistical Notebooks
-********************
-Integrated statistical analysis and exploration of multiple genomic and clinical data types provides researchers with a great possibility to expand our current knowledge of cancer. ISB-CGC offers a great source of diverse data types including gene expression, somatic mutations, clinical data, etc. We have developed a series of notebooks that use BigQuery to compute statistical associations between different combinations of the data types available in ISB-CGC.
+*********************
+
+Integrated statistical analysis and exploration of multiple genomic and clinical data types provide researchers with a great possibility to expand our current knowledge of cancer. ISB-CGC has developed a series of notebooks that use BigQuery to compute statistical associations between different combinations of data from ISB-CGC vast source of diverse data types, including gene expression, somatic mutations, clinical data, etc.
 
 Bioinformatic notebooks
 =======================
@@ -20,11 +21,10 @@ Bioinformatic notebooks
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_Nearest_Centroid_Classification_with_BigQuery.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_Nearest_Centroid_Classification_with_BigQuery.md>`_
 
-
-
 Standard pairwise statistics
 ============================
-The statistical significance of association between pairs of data types is assessed using rank-ordered data and a statistical test appropriate to each data type pair, which are categorized as categorical or numerical. The following table lists the statistical methods implemented in the notebooks, and the data types used as examples. The Regulome Explorer inspired notebook is a special notebook that allows computation of associations between all possible data types available in the TCGA dataset; more details are below.
+
+The following table lists notebooks that compute associations between pairs of data types available in ISB-CGC. They assess the statistical significance for an association between pairs of data types using rank-ordered data and a statistical test appropriate to each data type pair depending on categorical or numerical categorization. The Regulome Explorer inspired notebook is a special notebooks that allow computation of associations between all possible data types available in the TCGA dataset. 
 
 .. list-table:: 
    :widths: 25 25 50
@@ -53,10 +53,8 @@ The statistical significance of association between pairs of data types is asses
      - All types
      - `Regulome Explorer inspired notebook <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/RegulomeExplorer-notebook.ipynb>`_
 
-
 Regulome Explorer Inspired Notebook
 ===================================
-`Regulome Explorer <http://explorer.cancerregulome.org/>`_ is a well-established web tool for the exploration and visualization of associations between clinical and molecular features of TCGA data. Regulome Explorer was developed in 2012 in close collaboration between the Institute for Systems Biology and the MD Anderson Cancer Center Regulome, and enables users to search and visualize precomputed statistical data filtered according to user-specified parameters. Although Regulome Explorer's broad functionality and high-quality graphics make it a valuable tool for exploring and visualizing 20 of the 33 TCGA data sets, it does not yet contain analysis of recent releases of TCGA and cannot be easily applied to data sets other than TCGA. 
+`Regulome Explorer <http://explorer.cancerregulome.org/>`_ is a well-established web tool for the exploration and visualization of associations between clinical and molecular features of TCGA data. The Institute for Systems Biology and the MD Anderson Cancer Center collaborated closely to develop Regulome Explorer. It allows users to search and visualize pre-computed statistical data filtered according to user-specified parameters for 20 of the 38 TCGA data sets. Although Regulome Explorer has broad functionality and high-quality graphics make it a valuable tool, it does not contain an analysis of recent releases of TCGA and difficult to apply to data sets other than TCGA. 
 
-We developed a more flexible version, replicating capabilities of Regulome Explorer, as a Python notebook that uses Google Cloud resources. Rather than working with precomputed, fixed cohorts and fixed results, statistical analyses are dynamically performed in the cloud, with user defined patient cohorts. Moreover, the notebook can be extended so that users can analyze additional data sets available as part of the 'ISB-CGC BigQuery ecosystem' such as TCGA, TARGET,  CCLE, COSMIC, and others. The notebook can be accessed in `Regulome Explorer inspired notebook <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/RegulomeExplorer-notebook.ipynb>`_.
-
+The `Regulome Explorer Inspired Notebook <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/RegulomeExplorer-notebook.ipynb>`_ is a more flexible version of Regulome Explorer developed by ISB-CGC. It replicates the capabilities of Regulome Explorer, as a Python notebook using the Google Cloud resources and performs statistical analyses dynamically using the cloud rather than using static data. Furthermore, it is extendable to additional data sets available In BigQuery from the ISB-CGC, such as TCGA, TARGET, CCLE, and COSMIC.

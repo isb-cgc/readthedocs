@@ -11,14 +11,14 @@ The `Research for Precision Oncology Program (RePOP) <https://www.research.va.go
 About the VA Research for Precision Oncology Program Data
 ----------------------
 
-The VARePOP data set consists of 7 cases with somatic mutation and targeted sequencing data. The Genomic Data Commons currently has controlled access BAM and VCF files. The project identification in the GDC Data Portal is `VAREPOP-APOLLO <https://portal.gdc.cancer.gov/projects/VAREPOP-APOLLO>`_.
+The VARePOP data set consists of 7 cases with somatic mutation and targeted sequencing data. The Genomic Data Commons currently has controlled access BAM and VCF files. The Project ID in the GDC Data Portal is `VAREPOP-APOLLO <https://portal.gdc.cancer.gov/projects/VAREPOP-APOLLO>`_.
 
 For more information on the VAREPOP data, please refer to these sites:
 
 - `dbGaP site <https://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?view_pdf&stacc=phs001374.v1.p1>`_
 - `GDC Data Portal <https://portal.gdc.cancer.gov/repository?facetTab=cases&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22VAREPOP%22%5D%7D%7D%5D%7D>`_
 
-Accessing the Human Cancer Models Initiative Data on the Cloud
+Accessing the VA Research for Precision Oncology Program on the Cloud
 ---------------------------------------------------------------
 
 Besides accessing the files on the GDC Data Portal, you can also access them from the GDC Google Cloud Storage Bucket, which means that you don’t need to download them to perform analysis. ISB-CGC stores the cloud file locations in tables in the ``isb-cgc.GDC_metadata`` data set in BigQuery.
