@@ -4,11 +4,9 @@ Moving from GDC to ISB-CGC
 **************************
 
 If you've been using the National Cancer Institute's `Genomic Data Commons Portal 
-<https://portal.gdc.cancer.gov/>`_ you've probably discovered that while you can identify patients and files that might be interesting, the analysis options are limited and you need to download files to your own system in order to do anything unique.
+<https://portal.gdc.cancer.gov/>`_ you've probably discovered that while you can identify patients and files that might be interesting, you need to download files to your own system in order to do perform unique analysis.
 
-But isn't the point of having data on the cloud that you shouldn't have to download anything?
-
-Fortunately, since the ISB-CGC stores data from the GDC, you can do your analysis on the cloud without having to move data at all!  The only thing you need from GDC is a case manifest or a file manifest and in the following tutorials, we'll show you how to turn those manifests into usable analysis starting points.
+Fortunately, since the ISB-CGC stores data from the GDC, you can do your analysis on the cloud without having to move data. The only thing you need from GDC is a case manifest or a file manifest and in the following tutorials, we'll show you how to turn those manifests into usable analysis starting points.
 
 Differences between GDC and ISB-CGC
 ====================================
