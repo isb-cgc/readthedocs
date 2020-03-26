@@ -54,6 +54,14 @@ By default, the Status filter is set to Current.
 The **Name** filter is a free-form text field; the user can type all or a portion of the name into the field to perform the search. It will match against the Name column. 
 
 Note that this Name field is not the Table ID (which is used in SQL queries) but is a **Friendly Name**; that is, a descriptive, user-friendly name for the table. 
+
+**Program**
+
+Filter the BigQuery tables by programs such as CCLE, TARGET and TCGA by using the **Program** filter. Click the Program box to see the dropdown list and click on a program to select it. Additional programs can be selected by clicking in the Program box again. 
+
+
+.. image:: BigQuery/Program-filter.png
+   :align: center
    
 **Categories**
 
@@ -101,6 +109,13 @@ The **Data Type** filter also allows you to filter for data types of interest. L
 .. image:: BigQuery/DataType-filter.png
    :align: center
 
+**Experimental Strategy**
+
+The **Experimental Strategy** filter also allows you to filter for experimental strategies of interest. Multiple Experimental Strategies can be selected.
+
+.. image:: BigQuery/ExperimentalStrategy-filter.png
+   :align: center
+
 
 **More Filters**
 
@@ -111,7 +126,7 @@ These fields are most useful for users already familiar with the BigQuery tables
 
 **Labels**
 
-Each table was tagged with labels relating to the source, data type, reference genome build, status, and access. Users can search on any of these labels on the Labels filter field. Users can find the **Labels** search filter under the **Show More Filters** option. 
+Each table was tagged with labels relating to the status, program, reference genome build, source, data type, experimental strategy and access. Users can search on any of these labels on the Labels filter field. Users can find the **Labels** search filter under the **Show More Filters** option. 
 
 The labels for a table can be viewed when the blue plus sign (+) to the left of the table row is clicked. See the screen shot in the Schema section below.
 
@@ -160,6 +175,10 @@ The following information is displayed:
 
 Next to the Full ID is a **Copy** button. When the user clicks this, the Full ID is copied to the clipboard. The Full ID can then be pasted into an SQL query within the BiqQuery Query editor.
 
+**Open button**
+
+Next to the Copy button is an **Open** button. Clicking on this button opens the table in the BigQuery Google Cloud Platform Console. For more details, see the **Table Access in Google BigQuery** section below.
+
 Table Preview
 ++++++++++++++
 
@@ -170,12 +189,21 @@ A few rows of the data in a BigQuery table can be viewed by clicking on the **Pr
    :align: center
  
  
-Table Access
-++++++++++++
+Table Access in Google BigQuery
+-------------
+To access the BigQuery tables in Google Cloud Console directly from the Table Search UI, simply click on the **Open** button on the right-hand side. 
 
-For full-access to the tables including the ability to query the tables, please see the following ISB-CGC documentation pages:
+**Note:** 
+ * If you have previously accessed the Google Cloud Platform and have a Google Cloud Platform project already set up, this button will automatically open up the table in the Google BigQuery Console as depicted in the image below.
 
-`How to create a Google Cloud Platform (GCP) project <sections/HowToGetStartedonISB-CGC.html>`_ 
+ * If you have never accessed Google Cloud Platform, you will be presented with a Google login page. You can use any Google ID to log in. Instuctions on how to create a Google identity if you don't already have one can be found `here <HowToGetStartedonISB-CGC.html#data-access-and-google-cloud-project-setup>`_. You will be prompted to create a project, free of charge. Once you create the project, you will be directed to the BigQuery table you wished to open in the Google BigQuery Cloud Platform Console. 
 
-`How to link ISB-CGC BigQuery tables to your Google Cloud Platform (GCP) project <sections/progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_ 
+`Google Cloud Platform's free tier <https://cloud.google.com/free>`_ allows users to access many common Google Cloud resources including BigQuery free of charge and query up to 1 TB of data per month for free.
 
+.. image:: BigQuery/BigQueryOpenButton.gif
+   :align: center
+
+Please see the following ISB-CGC documentation pages for guidance:
+
+* `How to create a Google Cloud Platform (GCP) project <HowToGetStartedonISB-CGC.html>`_ 
+* `How to link ISB-CGC BigQuery tables to your Google Cloud Platform (GCP) project <progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_ 

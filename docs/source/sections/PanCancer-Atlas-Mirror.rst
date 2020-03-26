@@ -6,7 +6,7 @@ PanCancer Atlas BigQuery Data
 collaboration with the `TCGA research network <https://cancergenome.nih.gov/>`_,
 the `GDC <https://gdc.cancer.gov/>`_, and the `NCI <https://www.cancer.gov/>`_ -- provide
 a new way to explore and understand the processes driving cancer.
-The availability of PanCaner Atlas data in BigQuery enables easy integration of this
+The availability of PanCancer Atlas data in BigQuery enables easy integration of this
 resource with other public datasets in BigQuery, including other
 open-access datasets made available by the ISB-CGC
 (see `this <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/data2/data_in_BQ.html>`_
