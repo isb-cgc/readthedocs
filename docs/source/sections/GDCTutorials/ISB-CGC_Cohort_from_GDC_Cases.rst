@@ -72,9 +72,3 @@ Essentially you just need to assign the list of case IDs to the "case_gdc_id" ke
 
 If there have been no errors, the new cohort will be visible in both the cohorts.list() API endpoint and in the ISB-CGC Webapp
 
-Links to other GDC tutorial pages:
-++++++++++++++++++++++++++++++++++
-
-* `Introduction to Moving from GDC to ISB-CGC <FromGDCtoISBCGC.html>`__
-* `Importing a GDC File Manifest <ImportGDCFileManifest.html>`__
-* `Importing a GDC Case List <ImportGDCCaseDownload.html>`__
