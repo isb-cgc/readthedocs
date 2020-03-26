@@ -32,4 +32,12 @@ Once on the file page, a file manifest can be downloaded simply by clicking on t
 
 .. image:: FileManifestButton4.png
   
+Links to other GDC tutorial pages:
+++++++++++++++++++++++++++++++++++ 
 
+.. toctree::
+   :maxdepth: 1
+   
+   ImportGDCFileManifest
+   ImportGDCCaseDownload
+   ISB-CGC_Cohort_from_GDC_Cases
