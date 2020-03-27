@@ -34,6 +34,9 @@ I'm a novice, how do I...
    * - How do I create cohorts of patients?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_create_cohorts.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_create_cohorts.md>`_
+   * - How to use PyPika or dbplyr to build a query?
+     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_use_PyPika_to_create_a_BigQuery_SQL_query.ipynb>`_
+     - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_use_dbplyr_to_create_a_BigQuery_SQL_query.md>`_  
    * - How do I create a complex cohort?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_create_a_complex_cohort.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_create_a_complex_cohort.md>`_
