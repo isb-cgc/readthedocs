@@ -1,11 +1,13 @@
 Importing a GDC File Manifest into ISB-CGC
 ===========================================
-  
-The easiest way to make a GDC File manifest useful is to import it into BigQuery as its own table.  One way of keeping your file manifests organized is to create a data set specifically for the tables created to hold the manifests.  New data sets can be created by clicking on the **Create Dataset** button within your project in BigQuery.
+   
+Importing a GDC file manifest into its own BigQuery table will enable you to join that table with an ISB-CGC BigQuery table containing the file locations on the Google Cloud. Here's how to do it.
+
+One way of keeping your file manifests organized is to create a data set specifically for those tables. New data sets can be created by clicking on the **Create Dataset** button within your project in BigQuery.
   
 Creating a table from a GDC file manifest is remarkably easy:
  
-* Click on the **Create Table** button while you are within your new dataset.  
+* Click on the **Create Table** button while you are within your new data set.  
 * In the resulting screen, for **Create table from**, select **Upload**. Select your manifest file and set the **File format** to **CSV**. (Tab delimited will work with this setting.)
 * Have BigQuery automatically create the schema by checking the **Auto detect** box for Schema.
 * Click on **Advanced options**. Select **Tab** for **Field delimiter**; enter **1** for **Header rows to skip**.
@@ -15,7 +17,7 @@ Creating a table from a GDC file manifest is remarkably easy:
 .. image:: BQ-CreateKidneyManifestTable.png
 
 
-Now that you have a table containing the GDC file identifiers, the next step is to find the locations for the Level 1 files on the Google Cloud.  To help with that task, ISB-CGC maintains BiqQuery tables that contain the GDC file identifier and the Google bucket location for the file in data set GDC_metadata.  Adding the Google bucket location to our GDC information can be done via a very simple SQL query:
+Now that you have a table containing the GDC file identifiers, the next step is to find the locations for the Level 1 files on the Google Cloud.  To help with that task, ISB-CGC maintains BiqQuery tables that contain the GDC file identifier and the Google bucket location for the file in data set GDC_metadata.  Adding the Google bucket location to our GDC information can be done via a simple SQL query:
 
 .. code-block:: sql
 
