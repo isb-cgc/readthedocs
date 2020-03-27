@@ -1,10 +1,10 @@
 Creating an ISB-CGC Cohort from a GDC Case JSON file
 ====================================================
 
-This example is a little more difficult than the previous two since it involves a bit more extensive Python script and using the `ISB-CGC APIs <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/Programmatic-API.html>`__, however it is relatively straight-forward to understand.
+This example is a little more difficult than the previous two since it involves a bit more extensive Python script and using the `ISB-CGC APIs <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/Programmatic-API.html>`__; however, it is relatively straight-forward to understand.
 
-Pre-requisites
-==============
+**Prerequisites**
+
 There are a couple of libraries that will make it much easier to use the ISB-CGC APIs (which are derived from Google's APIs)
 
 * `Google API Client Library for Python <https://developers.google.com/api-client-library/python/>`__
@@ -13,8 +13,7 @@ There are a couple of libraries that will make it much easier to use the ISB-CGC
 
 * The `Google API Explorer <https://apis-explorer.appspot.com/apis-explorer/?base=https://api-dot-isb-cgc.appspot.com/_ah/api#p/>`__ can be of great help in understanding how to use the ISB-CGC APIs.
 
-Creating the Cohort
-===================
+**Creating the Cohort**
 
 There are really only two steps to creating a cohort from the GDC case file:
 
@@ -23,8 +22,7 @@ There are really only two steps to creating a cohort from the GDC case file:
  
 We have a Python script in our github repository called `gdcCase2Cohort.py <https://github.com/isb-cgc/examples-Python/tree/master/python>`__ that performs both of those tasks but we'll pull a couple of snippets to discuss here.
 
-Parsing GDC JSON
-++++++++++++++++
+**Parsing GDC JSON**
 
 .. code-block:: python
 
