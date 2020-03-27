@@ -22,15 +22,14 @@ Output from  GDC
 
 For the purpose of bringing GDC information into ISB-CGC, GDC has two useful outputs: the file manifest and the case table export. On the GDC Data Portal, first use the selection filters to create your cohort. In the example shown below, the filters of Program: TCGA, Primary Site: kidney, Vital Status: dead and Gender: female were set to produce a cohort of 84 cases with 2332 files.  
  
-To download a File Manifest, which we'll use later to find the files in ISB-CGC, on the *Repository* screen, click on the
- *Manifest* button.  
+To download a File Manifest, which we'll use later to find the files in ISB-CGC, on the **Repository** screen, click on the
+**Manifest** button.  
  
-A list of Cases can be created by clicking on either the *JSON* or *TSV* button on the uppper right of the table. Later in this tutorial, we'll use the JSON file to bring the cases into Big Query.
+A list of Cases can be created by clicking on either the **JSON** or **TSV** button on the uppper right of the table. Later in this tutorial, we'll use the JSON file to bring the cases into Big Query.
 
 .. image:: GDC-KidneyExample.png
   
-Links to other GDC tutorial pages:
-++++++++++++++++++++++++++++++++++ 
+**To continue the tutorial, go to these pages:**
 
 .. toctree::
    :maxdepth: 1
