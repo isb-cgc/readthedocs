@@ -7,8 +7,7 @@ In addition to the file manifest, GDC also allows users to export case lists fro
   
 Note that the ability to export a case list in JSON format exists in multiple places in the GDC Data Portal, however in all instances the process and the results are the same.  As we did with the file manifest, in this tutorial we'll look at how to bring that case list into BigQuery and create a table that you can use as the basis for analyzing data in the ISB-CGC system.  In this case, the GDC file is in JSON format, and while BigQuery does understand JSON there are special characteristics that BigQuery needs that unfortunately are not provided by the GDC file.  So to get around the incompatibility, the first step is to convert the JSON into something that BigQuery can understand.
 
-Converting JSON to tab delimited
-================================
+**Converting JSON to tab delimited**
 
 Let's start by looking at the data that GDC has provided.  The data in your JSON file may be different, but the structure of the JSON will be exactly the same and that is the important point for this tutorial:
 
