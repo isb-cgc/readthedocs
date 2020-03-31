@@ -4,7 +4,7 @@ Importing a GDC File Manifest into ISB-CGC
 ******************************************
 
 If you've been using the National Cancer Institute's `Genomic Data Commons Portal 
-<https://portal.gdc.cancer.gov/>`_ you know that while you can identify interesting cases and files, you need to download files to your own system in order to perform unique analysis.
+<https://portal.gdc.cancer.gov/>`_, you know that while you can identify interesting cases and files, you need to download files to your own system in order to perform unique analysis.
 
 Since the ISB-CGC stores Google Cloud file references for the GDC data, you can do your analysis on the cloud without having to move data. This tutorial will show you how to take a downloaded file manifest from the GDC, and use ISB-CGC to find the file locations on the cloud, providing a useful analysis starting point.
 
