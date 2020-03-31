@@ -20,6 +20,11 @@ To download a File Manifest, which we'll use to find the file locations in ISB-C
 
 Importing a GDC file manifest into its own BigQuery table will enable you to join that table with an ISB-CGC BigQuery table containing the file locations on the Google Cloud. Here's how to do it.
 
+If you don't already have a Google Cloud Project, please see the following ISB-CGC documentation pages for guidance:
+
+* `How to create a Google Cloud Platform (GCP) project <HowToGetStartedonISB-CGC.html>`_ 
+* `How to link ISB-CGC BigQuery tables to your Google Cloud Platform (GCP) project <progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_ 
+
 One way of keeping your file manifests organized is to create a data set specifically for those tables. New data sets can be created by clicking on the **Create Dataset** button within your project in BigQuery.
   
 Creating a table from a GDC file manifest is remarkably easy:
