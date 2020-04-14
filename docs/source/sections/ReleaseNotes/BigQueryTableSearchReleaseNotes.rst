@@ -6,6 +6,15 @@ For more detailed information about this discovery tool created by the ISB-CGC, 
 
 For more detailed information about the data stored in ISB-CGC BigQuery tables please visit `ISB-CGC BigQuery Tables <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQuery.html>`_.
 
+*March 11, 2020* `v1.02 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.23>`_
+
+**New Features**
+ 
+- Users now have the ability to access, query and inspect in detail BigQuery tables in Google Cloud Platform's BigQuery console directly from the Table Search UI. Every table has a "Open" option which when clicked will send the user to the table in the BigQuery console on the Google Cloud. 
+- An Open button, with the same functionality as described above, has been added to the Schema Description section.
+- Program and Experimental Strategy filters were added. 
+- Values for the Data Type and Source filters have been modified in order to align more closely with GDC naming conventions. 
+
 *January 30,2020* `v1.01 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.22>`_
 
 **New Features**
