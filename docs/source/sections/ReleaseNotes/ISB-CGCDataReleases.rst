@@ -7,9 +7,14 @@ ISB-CGC Data Release Notes
 Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer was updated.
 
 **Updated totals**
-Total number of cases 70,236
-Total number of unique gene fusions 31,626
-Total number of genes involved 13,913
+
+- Total number of cases 70,236
+- Total number of unique gene fusions 31,626
+- Total number of genes involved 13,913
+
+**Other changes**
+
+- New Mitelman Database Logo
 
 *January 11, 2020*
 
