@@ -24,6 +24,7 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    :caption: GETTING STARTED
 
    sections/About-ISB-CGC
+   sections/ExploringISB-CGC
    sections/HowToGetStartedonISB-CGC
    sections/HowtoRequestCloudCredits
    sections/BestPractices
