@@ -29,12 +29,13 @@ Exploring the Cancer Data
 -------------------------
 
 There are several entry points for exploring cancer data on ISB-CGC.
-  * The ISB-CGC Web Application allows users to interactively create cohorts of interest.
-  * The ISB-CGC API gives users the ability to programmatically deal with data such as cases, samples, cohorts, files and cloud projects.
-  * The ISB-CGC BigQuery Table Search is a discovery tool that allows the user to explore and search for ISB-CGC BiqQuery tables.
-  * On the Google Cloud Platform, ISB-CGC tables can be viewed and queried directly.
-  * Python and R can interface with the ISB-CGC tables, retrieving and analyzing data.
-  * Using Google Compute Engines and VMs, workflows can be run to perform data analysis. 
+
+  * The **ISB-CGC Web Application** allows users to interactively create cohorts of interest.
+  * The **ISB-CGC API** gives users the ability to programmatically deal with data such as cases, samples, cohorts, files and cloud projects.
+  * The **ISB-CGC BigQuery Table Search** is a discovery tool that allows the user to explore and search for ISB-CGC BiqQuery tables.
+  * On the **Google Cloud Platform**, ISB-CGC tables can be viewed and queried directly.
+  * **Python and R** can interface with the ISB-CGC tables, retrieving and analyzing data.
+  * Using **Google Compute Engines and VMs**, workflows can be run to perform data analysis. 
   
   Please see the USER GUIDE section to learn more about each of these tools and the MORE INFORMATION section to see examples, tutorials, Jupyter and R Notebooks, Frequently Asked Questions and more.
 
