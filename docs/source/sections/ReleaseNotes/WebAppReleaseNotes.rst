@@ -24,6 +24,7 @@ ISB-CGC WebApp Release Notes
 
 - The workbook zoom-out feature will cause text overlap in the y-axis panel of analysis.
 - Work is underway to rework our cohort creation page to better display images associated with samples.
+- The user data upload feature will return an error message stating, "Error submitting response : Could not connect to data upload server."
 - Analysis Type: Seq peek Formatting is Elongated on occasion.
 - If the user shares a Cohort, neither the owner nor the person who was granted access to the Cohort will receive a confirmation email when sharing a Cohort.
 - CCLE data cannot be plotted when working with workbooks. ISB-CGC will resolve this functionality after the GDC formally releases CCLE data.
