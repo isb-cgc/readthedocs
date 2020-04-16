@@ -27,3 +27,11 @@ Google Cloud Storage
 -----
 Tools
 -----
+
+There are several entry points for exploring cancer data on ISB-CGC.
+To learn more about the ISB-CGC Tables, see this section.
+The ISB-CGC BigQuery Table Search is a discovery tool that allows the user to explore and search for ISB-CGC BiqQuery tables.
+
+
+.. image:: ToolsForISBCGC.png
+   :align: center
