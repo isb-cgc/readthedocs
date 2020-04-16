@@ -40,7 +40,6 @@ From Other Sources
    :maxdepth: 1
    
    data/COSMIC_about
-   data/Mitelman_about
 
 NCI Genomic Data Commons
 ------------------------
