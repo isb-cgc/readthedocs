@@ -8,16 +8,13 @@ The ISB-CGC Web App is accessed through a Google Account Identity (freely availa
    :scale: 50
    :align: center
 
-You login through the "Sign In" link in the upper right (label "A" in the image above).  
+You login through the "Sign In" link in the upper right.  
 
-Also on this page are links to project documentation (B), our public video tutorials (C), our public GitHub repository (D), 
-a link to provide feedback (E), a link to submit an issue to Github (F), and our required "Warning Notice" (G) indicating that this is a U.S. Government Sponsored Website and by using it you are accepting the policies associated with its use.
+Also on this page are links to the ISB-CGC BiGQuery table search, data explorer, Mitelman database, project documentation, our public video tutorials, community notebooks, a need help section for new users, and our required "Warning Notice" indicating that this is a U.S. Government Sponsored Website and by using it you are accepting the policies associated with its use.
+
 
 **IF YOUR SCREEN LOOKS LIKE THIS:** 
-If your screen looks like the image below, indicating that you are logged in, but you don't see "Your Dashboard", 
-that is because some browsers save your Google Login as a cookie, and automatically sign you in.  
-To get to "Your Dashboard", click on the "ISB-CGC" icon in the upper left (B in the image).  
-This will take you to the Dashboard screen.
+You have successfully logged into ISB-CGC Web App! Please opt-in for updates provided by ISB-CGC. 
 
 .. image:: IfYourScreenLooksLikeThis.png
    :scale: 50
