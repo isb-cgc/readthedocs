@@ -4,8 +4,7 @@ Login to Web App
 
 The ISB-CGC Web App is accessed through a Google Account Identity (freely available `with a new account <https://accounts.google.com/signupwithoutgmail?hl=en>`_ or `by linking to an existing email account <https://accounts.google.com/SignUpWithoutGmail>`_).  If you are not logged into the ISB-CGC Web App, you will be presented with this page:
 
-.. image:: startscreen-nologin.PNG
-   :scale: 50
+.. image:: startscreen-nologin.png
    :align: center
 
 You login through the "Sign In" link in the upper right.  
@@ -17,5 +16,4 @@ Also on this page are links to the ISB-CGC BiGQuery table search, data explorer,
 You have successfully logged into ISB-CGC Web App! Please opt-in for updates provided by ISB-CGC. 
 
 .. image:: IfYourScreenLooksLikeThis.png
-   :scale: 50
    :align: center
