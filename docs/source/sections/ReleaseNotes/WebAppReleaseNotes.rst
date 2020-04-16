@@ -12,7 +12,6 @@ ISB-CGC WebApp Release Notes
 - All lists are now paginated.
 - When using a workbook, an interactive to complete analysis is now available.
 
-
 **Bug Fixes**
 
 - On the File Browser, the search by case ID filter on the Radiology tab has been fixed. 
@@ -20,9 +19,6 @@ ISB-CGC WebApp Release Notes
 - When working with a workbook, the zoom-out feature is now working as expected. 
 - When using a workbook, an info icon was added for a detailed explanation of all analyses options. 
 - The user data upload functionality was fixed. 
-
-**Known Issues**
-
 
 **Known Issues**
 
