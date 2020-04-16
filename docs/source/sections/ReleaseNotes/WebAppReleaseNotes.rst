@@ -8,17 +8,17 @@ ISB-CGC WebApp Release Notes
 
 **New Features**
 
-- The cohort creation by filter builder can now be accessed without having to login to ISB-CGC.
-- All lists are now paginated, and can be easily searched. 
-- When working with a workbook, an interactive to complete analysis has been implemented.
+- The cohort creation by filter builder can now accessible without having to log in to ISB-CGC.
+- All lists are now paginated.
+- When using a workbook, an interactive to complete analysis is now available.
 
 
 **Bug Fixes**
 
-- On the File Browser the search by case ID filter on the Radiology tab has been fixed. 
+- On the File Browser, the search by case ID filter on the Radiology tab has been fixed. 
 - How to cite us text has been updated to reflect the entire platform. 
 - When working with a workbook, the zoom-out feature is now working as expected. 
-- When using a workbook, an info icon was added for detailed explanation of all analyses options. 
+- When using a workbook, an info icon was added for a detailed explanation of all analyses options. 
 - The user data upload functionality was fixed. 
 
 **Known Issues**
@@ -26,7 +26,7 @@ ISB-CGC WebApp Release Notes
 
 **Known Issues**
 
-- Workbook zoom-out feature will cause text overlap in the y-axis panel of analysis.
+- The workbook zoom-out feature will cause text overlap in the y-axis panel of analysis.
 - Work is underway to rework our cohort creation page to better display images associated with samples.
 - Analysis Type: Seq peek Formatting is Elongated on occasion.
 - If the user shares a Cohort, neither the owner nor the person who was granted access to the Cohort will receive a confirmation email when sharing a Cohort.
