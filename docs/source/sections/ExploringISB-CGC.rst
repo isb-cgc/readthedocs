@@ -1,5 +1,5 @@
 *****************************************
-Intro to Exploring ISB-CGC Data and Tools
+Introduction to ISB-CGC Data and Tools
 *****************************************
 
 -------------------
@@ -7,9 +7,7 @@ Storing Cancer Data
 -------------------
 
 ISB-CGC provides access to data from several research programs, such as TCGA, TARGET, CCLE and COSMIC. The full list 
-is available `here <Hosted-Data.html>`_.
-
-This data is stored on these Google Cloud Platform technologies:
+is available `here <Hosted-Data.html>`_.  The data is stored on these Google Cloud Platform technologies:
 
 Google BigQuery
 ~~~~~~~~~~~~~~~~
@@ -25,7 +23,7 @@ Google Cloud Storage
    :align: center
 
 -------------------------
-Exploring the Cancer Data
+Exploring Cancer Data
 -------------------------
 
 There are several entry points for exploring cancer data on ISB-CGC.
