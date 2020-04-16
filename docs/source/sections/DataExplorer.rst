@@ -2,7 +2,10 @@
 Data Explorer
 *************
 
-Cohorts are a way of creating custom groupings of the samples and/or cases that you are interested in analyzing further. You may frequently re-use a cohort in multiple analyses. Creating a "saved cohort" allows you to do this. If you have any existing saved cohorts, they will appear here for you to view, edit and share.
+Cohorts are a way of creating custom groupings of the samples and/or cases that you are interested in analyzing further. 
+Selecting the Data Explorer menu option on the ISB-CGC Home screen, will display the below screen. You will able to use the available filters to create a cohort, without logging into the ISB-CGC Web Application.
+
+You may frequently re-use a cohort in multiple analyses. Creating a "saved cohort" allows you to do this. If you have any existing saved cohorts, they will appear here for you to view, edit and share.
 
 Create a New Cohort
 ###################
