@@ -11,13 +11,13 @@ ISB-CGC WebApp Release Notes
 - The Cohort Creation by Filter builder is now accessible without having to log in to ISB-CGC.
 - The Cohort, Workbooks, and Gene and Variable Favorites lists are now paginated to display 10 to 15 records at a time.
 - The 'To complete this analysis' section on the workbook creation page has changed from a checklist to an interactive tool. After each step is completed, its icon changes from an orange arrow to a green checkmark.
+- A link 'Learn more about our available Analyses' was added next to the Analysis Type selection field. Clicking on this link opens up a screen with a detailed explanation of all the analysis options. 
 
 **Bug Fixes**
 
 - On the File Browser, the search by CASE filter on the Radiology Images tab has been fixed. 
 - 'How to Cite Us' text on the Home page has been updated to reflect the entire ISB-CGC platform. 
 - When working with a workbook, the zoom-out feature is now working as expected. 
-- On the Analysis page, an info icon was added with a detailed explanation of all the analysis options. 
 - The user data upload functionality was fixed. 
 
 **Known Issues**
