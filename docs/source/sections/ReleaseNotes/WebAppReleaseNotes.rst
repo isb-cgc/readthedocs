@@ -8,23 +8,21 @@ ISB-CGC WebApp Release Notes
 
 **New Features**
 
-- The cohort creation by filter builder can now accessible without having to log in to ISB-CGC.
-- All lists are now paginated.
-- When using a workbook, an interactive to complete analysis is now available.
+- The Cohort Creation by Filter builder is now accessible without having to log in to ISB-CGC.
+- The Cohort, Workbooks and Gene and Variable Favorites lists are now paginated to display 10 to 15 records at a time.
+- The 'To complete this analysis' section on the workbook creation page has changed from a checklist to an interactive tool. After each step is completed, its icon changes from an orange arrow to a green checkmark.
 
 **Bug Fixes**
 
-- On the File Browser, the search by case ID filter on the Radiology tab has been fixed. 
-- How to cite us text has been updated to reflect the entire platform. 
+- On the File Browser, the search by CASE filter on the Radiology Images tab has been fixed. 
+- 'How to Cite Us' text on the Home page has been updated to reflect the entire ISB-CGC platform. 
 - When working with a workbook, the zoom-out feature is now working as expected. 
-- When using a workbook, an info icon was added for a detailed explanation of all analyses options. 
+- On the Analysis page, an info icon was added with a detailed explanation of all the analysis options. 
 - The user data upload functionality was fixed. 
 
 **Known Issues**
 
-- The workbook zoom-out feature will cause text overlap in the y-axis panel of analysis.
 - Work is underway to rework our cohort creation page to better display images associated with samples.
-- The user data upload feature will return an error message stating, "Error submitting response : Could not connect to data upload server."
 - Analysis Type: Seq peek Formatting is Elongated on occasion.
 - If the user shares a Cohort, neither the owner nor the person who was granted access to the Cohort will receive a confirmation email when sharing a Cohort.
 - CCLE data cannot be plotted when working with workbooks. ISB-CGC will resolve this functionality after the GDC formally releases CCLE data.
