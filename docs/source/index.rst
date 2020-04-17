@@ -38,6 +38,7 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    sections/data/Mitelman_about
    sections/BigQuery
    sections/BigQueryTableSearchUI
+   sections/DataExplorer
    sections/Web-UI
    sections/progapi/progAPI-v4/Programmatic-Demo
    sections/Gaining-Access-To-Controlled-Access-Data
