@@ -17,12 +17,13 @@ ISB-CGC WebApp Release Notes
 
 - On the File Browser, the search by CASE filter on the Radiology Images tab has been fixed. 
 - 'How to Cite Us' text on the Home page has been updated to reflect the entire ISB-CGC platform. 
-- When working with a workbook, the zoom-out feature is now working as expected. 
-- The user data upload functionality was fixed. 
+- When using a workbook, if you completely zoomed out of a plot, the chart was being reduced to half of the screen. This has been corrected.
 
 **Known Issues**
 
 - Work is underway to rework our cohort creation page to better display images associated with samples.
+- The workbook zoom-out feature will cause text overlap in the y-axis panel of analysis.
+- The user data upload feature will return an error message stating, "Error submitting response : Could not connect to data upload server."
 - Analysis Type: Seq peek Formatting is Elongated on occasion.
 - If the user shares a Cohort, neither the owner nor the person who was granted access to the Cohort will receive a confirmation email when sharing a Cohort.
 - CCLE data cannot be plotted when working with workbooks. ISB-CGC will resolve this functionality after the GDC formally releases CCLE data.
