@@ -9,7 +9,7 @@ ISB-CGC WebApp Release Notes
 **New Features**
 
 - The Cohort Creation by Filter builder is now accessible without having to log in to ISB-CGC.
-- The Cohort, Workbooks and Gene and Variable Favorites lists are now paginated to display 10 to 15 records at a time.
+- The Cohort, Workbooks, and Gene and Variable Favorites lists are now paginated to display 10 to 15 records at a time.
 - The 'To complete this analysis' section on the workbook creation page has changed from a checklist to an interactive tool. After each step is completed, its icon changes from an orange arrow to a green checkmark.
 
 **Bug Fixes**
