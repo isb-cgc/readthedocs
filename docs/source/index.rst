@@ -7,9 +7,9 @@
 ISB-CGC
 *****************************
 
-Welcome to the ISB-CGC Documentation on Read the Docs!
+*Democratizing access to cancer data in the cloud*
 
-Contained within the documentation are descriptions of ISB-CGC features along with guides and tips for exploring data sets hosted on the Google Cloud Platform.
+Contained within this documentation are descriptions of ISB-CGC features along with guides and tips for exploring data sets hosted on the Google Cloud Platform.
 
 .. image:: overview_image.png
    :align: left
