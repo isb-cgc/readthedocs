@@ -2,24 +2,24 @@ Launching a Virtual Machine (VM)
 ################################
 
 You can launch a virtual machine (which we will generally refer to as a VM) from the
-Console or from the command line using the Google Cloud SDK.  We will describe both
+Google Cloud Console or from the command line using the Google Cloud SDK.  We will describe both
 of these approaches here.
 
 You should already be somewhat familiar with the Console, and hopefully you have tried
 invoking the **gcloud** command from your command-line.
 The **gcloud** command-line tool can be used to manage both your development workflow
-and your GCP resources.  (For more details, please look at the official 
+and your Google Cloud Platform (GCP) resources.  (For more details, please look at the official 
 `gcloud Tool Guide <https://cloud.google.com/sdk/gcloud/>`_.)
 
 Bundled into the `gcloud <https://cloud.google.com/sdk/gcloud/reference/>`_ 
 CLI are several **commands** and **groups** of sub-commands.  The group of sub-commands
-that allows you to read and manipulate GCE resources is 
+that allows you to read and manipulate Google Compute Engine (GCE) resources is 
 `gcloud compute <https://cloud.google.com/sdk/gcloud/reference/compute/>`_.
 
 Launch a VM using the Console
 =============================
 
-After you have enabled the Compute Engine API for you project, you can go the Compute Engine
+After you have enabled the Compute Engine API for your project, you can go the Compute Engine
 section of the Console.  (Select the menu icon in the far upper-left corner, and then choose
 "Compute Engine" from the flyout panel.)  The first time, you may need to wait a minute or
 so while "Compute Engine is getting ready."
@@ -34,17 +34,17 @@ with a CPU utilization graph.  At the top of this page, you will see options to 
 After selecting the "Create Instance" option, you will be sent to the "Create an instance" page
 where defaults will be selected for the Name, Zone, Machine type, etc:
 
-    * Name: this name is relatively arbitrary, choose something that is meaningful to you;
-    * Zone: choose one of the us-east or us-central zones;
-    * Machine type:  you can specify a VM with anywhere between 1 and 16 cores (aka vCPUs), and with up to 100 GB of RAM (you can try the "Customize" view if you prefer a more graphical approach);  note that as you change the specifications of the VM, the estimated cost shown on this page will update;
-    * Boot disk:  the default boot disk and OS will be shown, but you can change this as you wish: the "Change" button will result in a flyout panel where you can choose from a variety of Preconfigured images (Debian, CentOS, Ubuntu, RedHat, etc) or previously created images or disks; you can also choose between "standard disks" and faster (and more expensive) solid-state drives (SSDs), and specify the size of the disk (up to 64TB).
+    * **Name**: this name is relatively arbitrary, choose something that is meaningful to you;
+    * **Zone**: choose one of the us-east or us-central zones;
+    * **Machine type**:  you can specify a VM with anywhere between 1 and 16 cores (aka vCPUs), and with up to 100 GB of RAM (you can try the "Customize" view if you prefer a more graphical approach);  note that as you change the specifications of the VM, the estimated cost shown on this page will update;
+    * **Boot disk**:  the default boot disk and OS will be shown, but you can change this as you wish: the "Change" button will result in a flyout panel where you can choose from a variety of Preconfigured images (Debian, CentOS, Ubuntu, RedHat, etc) or previously created images or disks; you can also choose between "standard disks" and faster (and more expensive) solid-state drives (SSDs), and specify the size of the disk (up to 64TB).
 
 Other options below the "Management, disk, ..." line include Preemptibility (default is OFF), 
 Automatic restart (default is ON), and what to do during infrastructure maintenance (default 
 is to "migrate VM" so that you will not experience any downtime).
 
 Once you have all of the options set, you can click on the blue **Create** button.  You can also 
-see you could use the REST or command-line interfaces to do perform the exact same option.  
+see the equivalent REST or command-line interfaces which perform the exact same option.  
 (The Console is just a friendlier interface between you and more direct REST-based access to the same
 functionality.)
 
@@ -93,7 +93,7 @@ Note that resources that are *attached* to a stopped VM (such as persistent disk
 continue to incur charges.  Compared to the cost of the VM, though, the cost of a persistent disk
 is typically negligible:  a 50 GB standard persistent disk only costs $2 per month, and 1 TB costs $40.
 
-If you know that you won't never need this specific VM again, or you don't want to continue paying for
+If you know that you won't ever need this specific VM again, or you don't want to continue paying for
 the persistent disk, or you would rather start a fresh VM with an updated OS next time, then you can go 
 ahead and **delete** the VM rather than just stopping it.
 
