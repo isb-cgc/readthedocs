@@ -40,7 +40,6 @@ From Other Sources
    :maxdepth: 1
    
    data/COSMIC_about
-   data/Mitelman_about
 
 NCI Genomic Data Commons
 ------------------------
@@ -61,16 +60,6 @@ ISB-CGC hosts a series of reference tables in BigQuery with information that des
    :maxdepth: 1
    
    data/Reference-Data
-
-Security and Access
--------------------
-
-It is recommended that you review important information about data security and data access.
-
-.. toctree::
-   :maxdepth: 1
-   
-   data/TCGA_Data_Security
    
 **A note about legacy and harmonized data sets**
 
