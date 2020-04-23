@@ -31,8 +31,7 @@ Accessing and Analyzing Data via BigQuery
 Accessing and Analyzing Data Stored in Google Cloud Storage 
 ---------------------------------------------------------------
 
-- All open-access data are stored on Google Cloud Storage (GCS) in either the ISB-CGC publicly available GCS bucket (gs://isb-cgc-open) or the GDC.
-- All controlled-access data are stored in Google Cloud Storage (GCS) in their original form as obtained from the GDC. 
+- All data are stored in GDC-owned Google Cloud Storage buckets. Both raw and processed data are stored in these buckets. Most of the raw data is controlled-access and requires proper TCGA authorization to access it. Processed data for the most part are open-access. The individual processed data files are stored both in GDC-owned Google Cloud storage bucket but also in ISB-CGC hosted BigQuery tables. See BigQuery section for more details.
 - To access controlled data, users must first be authenticated by NIH (`via the ISB-CGC web-app <Gaining-Access-To-Controlled-Access-Data.html#interactive-access-to-controlled-data>`_). Upon successful authentication, user dbGaP authorization will be verified. These two steps are required before the user’s Google identity is added to the access control list (ACL) for the controlled data. At this time, this access must be renewed every 24 hours.
 - `Summary of programs, data types and data formats available <Hosted-Data.html>`_
 - Working with large-scale data hosted by the ISB-CGC in Google Cloud Storage requires some familiarity with tools such as the `Google Cloud SDK <https://cloud.google.com/sdk/>`_, `Google Compute Engine <https://cloud.google.com/compute/>`_, `Virtual Machines <https://en.wikipedia.org/wiki/Virtual_machine>`_ and `Docker <https://www.docker.com/why-docker#/VM>`_.
