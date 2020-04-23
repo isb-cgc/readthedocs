@@ -1,7 +1,7 @@
 ************************************************
 Accessing Controlled Data
 ************************************************
-Accessing **controlled data** is done in two different manners, depending if you are doing it through interactive computing (*e.g.* the Web App or R Studio), or programmatically (*e.g.* a program running from a Google Virtual Machine Compute Engine you have started).  In some cases you will be using your *personal* credentials while in other cases a "service account" will be acting on your behalf, using its own credentials.  Below the methods are described.  Please note, you can use both methods at the same time, they are not mutually exclusive.
+Accessing **controlled data** is achieved in two different ways, depending whether you are using interactive computing (*e.g.* the Web App or R Studio), or programmatic computing (*e.g.* a program running from a Google Virtual Machine Compute Engine you have started).  In some cases you will be using your *personal* credentials while in other cases a "service account" will be acting on your behalf, using its own credentials.  The methods are described below.  Please note, you can use both methods at the same time; they are not mutually exclusive.
 
 Interactive Access to Controlled Data 
 ======================================
@@ -13,16 +13,13 @@ first be redirected to an NIH login page, and once you have successfully authent
 ISB-CGC will store an association between your NIH identity and your Google identity.
 (Note that this should be a one-to-one association.)
 
-Once you have authenticated, ISB-CGC will check which dataset(s) e.g TCGA controlled data and/or TARGET controlled data you have been
-authorized (by dbGaP) to access.  ISB-CGC obtains an updated whitelist for each of the hosted datasets from
+Once you have authenticated, ISB-CGC will check which datasets, e.g. TCGA controlled data and/or TARGET controlled data you have been authorized (by dbGaP) to access.  ISB-CGC obtains an updated whitelist for each of the hosted datasets from
 dbGaP every day.  If you have just recently been granted access by dbGaP, there may be a 24 hour
 delay before you will be able to request access to these data on ISB-CGC.
 
-
-
 Visit `electronic Research Administration (eRA) <http://era.nih.gov>`_ for more information on 
 registering for a NIH eRA account. NIH staff may utilize their NIH log-in. 
-(For additional instructions, please refer to `Tips on Preparing a Successful Data Access Request <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/GetPdf.cgi?document_name=GeneralAAInstructions.pdf>`_, 
+(For additional instructions, please refer to `Tips for Preparing a Successful Data Access Request <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/GetPdf.cgi?document_name=GeneralAAInstructions.pdf>`_, 
 and `Understanding Data Security <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/TCGA_Data_Security.html>`_).  Please be sure to review the Data Use Certification Agreement for `TCGA controlled data <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000178.v9.p8>`_ and `TARGET controlled data <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000218.v17.p6>`_. 
 
 Once you have authenticated to NIH via the Web App, and your dbGaP authorization has been verified, the 
@@ -37,20 +34,17 @@ To link your NIH identity with your Google identity (ie the Google account you u
 select the "persona" icon next to your login name (A in the image below) after you have signed in to the ISB-CGC Web App.  
 
 .. image:: webapp/personaeicon-NIHLoginAssoc.png
-   :scale: 50
    :align: center
 
 You will then see the following page:
 
 .. image:: webapp/NIHAssociationPage.png
-   :scale: 50
    :align: center
 
 
-You will see a pop up describing all the steps needed to link you NIH Identity to the Data Commons Framework(DCF).
+You will see a pop up describing all the steps needed to link you NIH Identity to the Data Commons Framework (DCF).
 
 .. image:: webapp/LinkNIHIDInstructions.PNG
-   :scale: 50
    :align: center
 
 Now you need to associate your Google identity with your NIH identity.  (Your NIH identity is the one associated
@@ -59,7 +53,6 @@ To do this, select the "Associate with eRA Commons Account" link (highlighted in
 You will then be redirected to an NIH login page to be authenticated by NIH:
 
 .. image:: webapp/iTrust.png
-   :scale: 50
    :align: center
 
 If you have an eRA identification, use this to sign in through panel A (see example above).  
@@ -68,26 +61,23 @@ Once you have been authenticated by NIH, and your NIH identity has been verified
 the current dbGaP whitelist, you will have access to controlled data for 24 hours.  
 
 .. image:: webapp/Gen3authPage.PNG
-   :scale: 50
    :align: center
    
 
 Select the Yes, I Authorize button at the bottom right of the page to authorize the Data Commons Framework to authorize your Google identity with controlled data.
 
 .. image:: webapp/datacommons.ioLogIn.PNG
-   :scale: 50
    :align: center
 
 Select the email you used to originally log into the ISB-CGC web application to finalize the authorization.
 
-Once logged in through eRA identification you are redirected to the user details page and given Warning Notice referring to abiding by the rules and regulations provided by the DUCA Use Agreement.  Please refer to image below.
-
+Once logged in through eRA identification you are redirected to the user details page and given a Warning Notice referring to abiding by the rules and regulations provided by the DUCA Use Agreement.  Please refer to image below.
+,
 .. image:: webapp/warningNotice.png
-   :scale: 50
    :align: center
 
 Please note: the ISB-CGC system will enforce a one-to-one relationship between NIH identities
-and Google identities.  In other words, a single NIH identity may not be used to attempt to
+and Google identities.  In other words, a single NIH identity may not be used to
 gain access to controlled data by multiple, different Google identities.
 If you need to *unlink* your eRA account from your Google account (for example if you want to
 change which Google identity you use to sign in to the ISB-CGC platform), you may do so by
@@ -97,10 +87,9 @@ In the unusual instance that your NIH identity has been registered with another 
 (*eg* with another Google identity you own), you will see the screen below:
 
 .. image:: webapp/eRAlinkedtoAnotherGoogle.png
-   :scale: 50
    :align: center
    
-If this happens, please sign in with that other account and "unlink" your eRA from that account i
+If this happens, please sign in with that other account and "unlink" your eRA from that account
 (see description above).  You will then be able to register your eRA account with the desired Google identity.  
 If you are not able to resolve the issue, contact us at feedback@isb-cgc.org and we will help you resolve it.   
 
@@ -109,7 +98,6 @@ To end your Web App session, just "Sign Out" by using the pull-down below your n
 still be signed in to your browser, so you may want to also sign out of the browser.
 
 .. image:: webapp/SignOut.png
-   :scale: 50
    :align: center
 
 Extending Your Access by 24 hours 
@@ -122,7 +110,6 @@ period to 24 hours from now" (red box on figure below).
 Your time of access will be extended to 24 hours from the time you push the link. 
 
 .. image:: webapp/24hrExtension.png
-   :scale: 50
    :align: center
 
 Accessing Controlled Data from a GCE VM
@@ -146,8 +133,8 @@ data for up to 7 days.
 
 NOTES: 
 
-- to allow flexibility while working with different research teams and different processes, you can have many GCPs registered with ISB-CGC, as well as many service accounts registered per GCP
-- if the service account (*ie* any program running on a VM using the service account's credentials) tries to access controlled data after the 7 day expiration, it will get an Access Denied error; to prevent this from causing problems with long-running jobs, you can extend access by another 7 days (see below);
+- To allow flexibility while working with different research teams and different processes, you can have many GCPs registered with ISB-CGC, as well as many service accounts registered per GCP.
+- If the service account (*ie* any program running on a VM using the service account's credentials) tries to access controlled data after the 7 day expiration, it will get an Access Denied error; to prevent this from causing problems with long-running jobs, you can extend access by another 7 days (see below).
 
 Requirements for Registering a Google Cloud Project Service Account
 --------------------------------------------------------------------
@@ -156,10 +143,10 @@ To be able to register your GCP Project and at least one service account to acce
 - You must be an **owner** of the GCP project (because you will need to add an ISB-CGC service account as a new project member and a DCF service account as a new project member)
  - 907668440978-oskt05du3ao083cke14641u35deokgjj@developer.gserviceaccount.com
  - fence-service@dcf-prod.iam.gserviceaccount.com
-- At any time, ALL members of the project MUST be authorized to use the data set (*ie* be a registered dbGaP "PI" or "downloader") (see dbGap Data Access `Request Portal <http://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login>`_, and `Understanding Data Security <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/data/data2/TCGA_Data_Security.html>`_ for more details).
+- At any time, ALL members of the project MUST be authorized to use the data set (*ie* be a registered dbGaP "PI" or "downloader") (see dbGap Data Access `Request Portal <http://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login>`_, and `Understanding Data Security <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/data//TCGA_Data_Security.html>`_ for more details).
 - All members of the project have signed in to the ISB-CGC Web App *at least once*
 - All members of the project have authenticated via the NIH login page and thereby linked their NIH identity to their Google identity
-- The GCP project can not be associated with an Organization
+- The GCP project cannot be associated with an Organization
 - No Google Groups or other multi-member identifiers (e.g. all authenticated Google users) have been provided with a project role
 - The GCP project must have the ISB-CGC monitoring service account (SA) assigned to an Editor role
 - All SAs with roles in the project must belong to the project, with the exception of the ISB-CGC monitoring SA; this means that all Google-managed SAs with project roles must belong to the project as well
@@ -174,19 +161,16 @@ Registering your Google Cloud Project Service Account
 To register your GCP and its Service Account with ISB-CGC, select the "persona" icon next to your login name (see first image above), which takes you to the following page:
 
 .. image:: webapp/RegisteredGCPs.png
-   :scale: 50
    :align: center
    
 Select the "Register a Google Cloud Project" link.  That takes you to the following page:
 
 .. image:: webapp/RegisterAGCPForm.png
-   :scale: 50
    :align: center
    
 Please fill out the form following the instructions that are provided.  You can "hide" the instructions by selecting the blue Instructions button.  You must enter your GCP ID and enable the isb-cgc service account as an editor in your project to move on to the next step.  
 
 .. image:: webapp/project_info.PNG
-   :scale: 50
    :align: center
    
 
@@ -199,41 +183,34 @@ Please be sure to add both service accounts listed below. If you don't add both 
 Once you have completed these steps you will be presented at the bottom of the same page a listing of the members of your GCP you registering (see screenshot below):
 
 .. image:: webapp/GCPMembers.png
-   :scale: 50
    :align: center
    
 Pushing the "Register" button will take you to the next screen:
 
 .. image:: webapp/0007projectregistered.PNG
-   :scale: 50
    :align: center
    
 Select "Register Service Account" from the drop down menu on the left of the GCP you want to add a service account to.  By default, there will be the Compute Engine Default service account in the Enter the service account ID text box (see screenshot below).  Additionally, select the programs you wish to gain access to by selecting the checkbox to the associated Controlled Dataset(s) you plan to access.  Currently you can select either Controlled TCGA data or controlled TARGET data to gain access  to.
 
 .. image:: webapp/RegisterAServiceAccountFirstScreen.PNG
-   :scale: 50
    :align: center
 
 If you receive the error message listed below, this signifies you need to enable the Default Compute Engine API for your Google Cloud Project.  For more information on how to enable all the API's you will need to work on a Google Cloud Project please go `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DIYWorkshop.html#enabling-required-google-apis>`_.
 
 .. image:: webapp/EnableComputeEngineError.PNG
-   :scale: 50
    :align: center
 
 Once you click the "Verify Service Account Users" at the bottom of the page, you will be presented with multiple lists. You will be presented with the Verification Results, Google Cloud Project User ISB-CGC Registration and Identity Linkages, Dataset Permissions Verification, Registered Service Account Verification Results, Google Cloud Project Verification Results, and the Google Cloud Project Service Account Verification Results (see screenshots below).  All columns MUST have a green check-marks in them for each user before your service account can be registered.
 
 .. image:: webapp/ServiceAcctRegTable.png
-   :scale: 50
    :align: center
    
 .. image:: webapp/ServiceAcctRegTable2.png
-   :scale: 50
    :align: center
 
 If all the requirements for registering a service account are met, the account will be registered.  If not, the service account will only be registered for Open Datasets.  The final screen below shows the final registered data set (shown by selecting the drop-down menu beside the service account count highlighted in red).
 
 .. image:: webapp/ServiceAcctRegSuccess.png
-   :scale: 50
    :align: center
 
 Managing your Google Cloud Project(s) and Service Account(s)
@@ -248,7 +225,6 @@ To add additional Google Cloud Projects (GCPs) that you own to be able run progr
 select the "+ Register New Google Cloud Project" button from the "Registered Google Cloud Projects" page (see screenshot below).
 
 .. image:: webapp/RegisterAnotherGCP.PNG
-   :scale: 50
    :align: center
 
 Deleting Google Cloud Projects
@@ -256,7 +232,6 @@ Deleting Google Cloud Projects
 To delete a GCP that is registered, select the "Unregister Project" button from the dropdown menu beside the project your are removing on the "Registered Google Cloud Projects" page (see screenshot below).
 
 .. image:: webapp/UnregisterAGCP.PNG
-   :scale: 50
    :align: center
 
 Adding additional service accounts to a given Google Cloud Project
@@ -264,7 +239,6 @@ Adding additional service accounts to a given Google Cloud Project
 To add additional service accounts to a given GCP reselect the "Register Service Account" from the dropdown menu beside the project that has the service account (see screenshot below). 
 
 .. image:: webapp/0007projectregistered.PNG
-   :scale: 50
    :align: center
 
 
@@ -274,7 +248,6 @@ To add or remove a controlled dataset from one specific service account from thi
 
 
 .. image:: webapp/AdjustServiceAccount.png
-   :scale: 50
    :align: center
 
 
@@ -283,7 +256,6 @@ Deleting Service Accounts from Google Cloud Projects
 To delete a service account from a GCP (not allowing it to be used to programmatically access controlled data), push the "trashcan" icon beside the service account (see screenshot below).
 
 .. image:: webapp/DeleteServiceAccount.png
-   :scale: 50
    :align: center
 
 Extending Your Service Account Access by 7 Days 
@@ -291,7 +263,6 @@ Extending Your Service Account Access by 7 Days
 Once you have registered a Service Account, you have 7 days before the access is automatically revoked.  To extend the service account access another 7 days (*e.g.* if your program is still running), select the "refresh" icon beside the service account (see screenshot below).
 
 .. image:: webapp/RefreshServiceAccount.png
-   :scale: 50
    :align: center
 
 Reauthorizing a Google Cloud Project(s) Service Account(s)
@@ -305,17 +276,15 @@ To reauthorize the service account 1) remedy the problem that resulted in access
 and 2) select the "adjust" icon beside the service account (see screenshot below) and add the controlled datasets to the service account.
 
 .. image:: webapp/AdjustServiceAccount.png
-   :scale: 50
    :align: center
 
 
 Google Cloud Project Associated to an Organization Will NOT Work with controlled data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-If your Google Cloud Project is associated to an organization you will be unable to register the service account to controlled data.  You will return an error message similar to this saying, "GCP cgc-08-0126 was found to be in organization ID 8784632854871; its service accounts cannot be registered for use with controlled data."  This is mainly to due with the fact ISB-CGC cannot see the permissions associated to the organization project therefore is a security risk.  We are currently working with Google to resolve this issue.
+If your Google Cloud Project is associated to an organization, you will be unable to register the service account to controlled data.  An error message similar to this one will display: "GCP cgc-08-0126 was found to be in organization ID 8784632854871; its service accounts cannot be registered for use with controlled data."  This is mainly because ISB-CGC cannot see the permissions associated to the organization's project; therefore, it is considered a security risk.  We are currently working with Google to resolve this issue.
 
 
 .. image:: webapp/OrganizationFound.PNG
-   :scale: 50
    :align: center
 
 
@@ -328,7 +297,7 @@ compute-cluster at your own institution. Your responsibilities for data protecti
 cloud environment. For more information, please refer to the
 `NIH Security Best Practices for Controlled-Access Data <http://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/GetPdf.cgi?document_name=dbgap_2b_security_procedures.pdf>`_.
 
-NIH has tried to provide as much information as possible for PIs, institutional signing officials (SOs) and 
-the IT staff who will be supporting these projects, to make sure they understand their responsibilities.” 
+"NIH has tried to provide as much information as possible for PIs, institutional signing officials (SOs) and 
+the IT staff who will be supporting these projects, to make sure they understand their responsibilities." 
 (Ref: `The Cloud, dbGaP and the NIH blog post 03.27.2015 <http://datascience.nih.gov/blog/cloud>`_)
 
