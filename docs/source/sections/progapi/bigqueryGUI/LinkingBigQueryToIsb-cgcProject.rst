@@ -1,5 +1,5 @@
 ================================
-Access
+Linking to ISB-CGC BigQuery tables
 ================================
 
 Follow the images below to link the ISB-CGC BigQuery tables to your Google Cloud Project. Click on image to zoom in.
