@@ -27,9 +27,9 @@ Most of the same linux commands, scripts, pipelines/workflows, genomics software
 
  b.) Compute Engine instances can run the public images for Linux and Windows Server that Google provides as well as private custom images that you can `create <https://cloud.google.com/compute/docs/images/create-delete-deprecate-private-images>`_ or `import from your existing systems <https://cloud.google.com/compute/docs/images/importing-virtual-disks>`_. 
  
-  - Be careful as you spin up a machine, as larger machines cost you more.  If you are not using a machine, shut it down. You can always restart it easily when you need it.
+   Be careful as you spin up a machine, as larger machines cost you more.  If you are not using a machine, shut it down. You can always restart it easily when you need it.
  
-  - Example use-case: You would like to run Windows-only genomics software package on the TCGA data. You can create a Windows based VM instance.
+   Example use-case: You would like to run Windows-only genomics software package on the TCGA data. You can create a Windows based VM instance.
 
  
  c.) More details on how to deploy docker containers on VMs are described here in Google’s documentation: `deploying containers <https://cloud.google.com/compute/docs/containers/deploying-containers>`_
