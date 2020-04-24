@@ -22,4 +22,4 @@ The ISB-CGC hosts several metadata tables to help users determine which files ar
    * - rel#_GDCfileID_to_GCSurl
      - Gives the Google Cloud Storage location for each file
 
-For examples of querying the metadata tables, please see the `ISB-CGC Community Notebook GitHub Repository <https://github.com/isb-cgc/Community-Notebooks>`_. If you have used the GDC portal to create cohorts or file lists, you can follow `these <https://isb-cancer-genomics-cloud.readthedocs.io/en/lauren-staging-theme/sections/GDCTutorials/FromGDCtoISBCGC.html>`_ tutorials to bring that information into ISB-CGC for use.
+For examples of querying the metadata tables, please see the `ISB-CGC Community Notebook GitHub Repository <https://github.com/isb-cgc/Community-Notebooks>`_. 
