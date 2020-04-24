@@ -10,9 +10,9 @@ In general, almost all raw data is controlled-access and is accessible through G
 
 GDC processed data, however, are generally open-access. ISB-CGC allows users to utilize this processed data in two ways on the platform: 
 
-  - Google Cloud Storage: All individual processed data files are accessible through GDC Google Cloud Storage buckets; ISB-CGC provides pointers to these files. 
+  - **Google Cloud Storage:**  All individual processed data files are accessible through GDC Google Cloud Storage buckets; ISB-CGC provides pointers to these files. 
 
-  - Google BigQuery: Processed data are consolidated by datatype (ex. Clinical, DNA Methylation, RNAseq, Somatic Mutation, etc.) and transformed into ISB-CGC Google BigQuery tables for ease of access and analysis. This novel approach allows our users to quickly analyze information from thousands of patients in our curated BigQuery tables. 
+  - **Google BigQuery:**  Processed data are consolidated by datatype (ex. Clinical, DNA Methylation, RNAseq, Somatic Mutation, etc.) and transformed into ISB-CGC Google BigQuery tables for ease of access and analysis. This novel approach allows our users to quickly analyze information from thousands of patients in our curated BigQuery tables. 
 
 .. image:: DataStorageOnISBCGC.png
    :align: center
