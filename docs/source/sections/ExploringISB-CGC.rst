@@ -13,6 +13,9 @@ GDC processed data, however, are generally open-access. ISB-CGC allows users to 
    - All individual processed data files are accessible through GDC Google Cloud Storage buckets; ISB-CGC provides pointers to these files. 
    - Processed data are consolidated by datatype (ex. Clinical, DNA Methylation, RNAseq, Somatic Mutation, etc.) and transformed into ISB-CGC Google BigQuery tables for ease of access and analysis. This novel approach allows our users to quickly analyze information from thousands of patients in our curated BigQuery tables.  
 
+.. image:: DataStorageOnISBCGC.png
+   :align: center
+
 -------------------
 Storage Platforms
 -------------------
@@ -26,6 +29,3 @@ Google BigQuery
 `Google BigQuery <https://cloud.google.com/bigquery/>`_ (BQ) is a columnar database ideal for storing tabular data. Its query speed is automatically scaled by multiprocessing. Data is accessed using a powerful SQL language interface.
 
 ISB-CGC stores high-level clinical, biospecimen, and molecular data from the main NCI programs in the BigQuery project isb-cgc. It also stores a large amount of metadata about files that are stored in the GDC Google Cloud Storage, as well as genome reference sources (*e.g.* GENCODE, miRBase, *etc.*). All of these data sets and tables are completely *open access* and available to the research community.
-
-.. image:: DataStorageOnISBCGC.png
-   :align: center
