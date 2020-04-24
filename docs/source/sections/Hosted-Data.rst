@@ -6,8 +6,8 @@ Between the ISB-CGC and the Genomic Data Commons (GDC), there are many cancer da
 
 The ISB-CGC started with The Cancer Genome Atlas (TCGA) data sets but has expanded to include other data sets from programs such as Therapeutically Applicable Research To Generate Effective Treatments (TARGET) program. Accompanying the NCI data sets, ISB-CGC hosts several data sets from programs such as Catalogue Of Somatic Mutations In Cancer (COSMIC) from the `Wellcome Trust Sanger Institute <http://www.sanger.ac.uk/>`_. We are always interested in adding new data sets, so if you have any suggestions or requests for additional data, please let us know (feedback@isb-cgc.org).
 
-Data Sets
----------
+Clinical, Biospecimen and Processed -Omics Data Sets
+----------------------------------------------------
 
 From Genomic Data Commons
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -60,6 +60,11 @@ ISB-CGC hosts reference tables in BigQuery with information that describes or an
    :maxdepth: 1
    
    data/Reference-Data
+   
+File Metadata Data Sets
+------------------------
+ISB-CGC hosts tables in BigQuery with information that points to the raw and processed cancer data in the NCI GDC Google Cloud Storage buckets.
+
    
 **A note about legacy and harmonized data sets**
 
