@@ -65,6 +65,10 @@ File Metadata Data Sets
 ------------------------
 ISB-CGC hosts tables in BigQuery with information that points to the raw and processed cancer data in the NCI GDC Google Cloud Storage buckets.
 
+.. toctree::
+   :maxdepth: 1
+   
+   data/FileMetadata
    
 **A note about legacy and harmonized data sets**
 
