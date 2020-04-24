@@ -2,11 +2,15 @@
 ISB-CGC Data Overview
 ***********************
 
-ISB-CGC provides access to data from several research programs, such as The Cancer Genome Atlas (TCGA), Therapeutically Applicable Research to Generate Effective Treatments (TARGET), Cancer Cell Line Encyclopedia (CCLE) and Catalogue of Somatic Mutations in Cancer (COSMIC). The full list is available `here <Hosted-Data.html>`_.  
+ISB-CGC provides access to data from several research programs, such as **The Cancer Genome Atlas (TCGA)**, **Therapeutically Applicable Research to Generate Effective Treatments (TARGET)**, **Cancer Cell Line Encyclopedia (CCLE)** and **Catalogue of Somatic Mutations in Cancer (COSMIC)**. The full list is available `here <Hosted-Data.html>`_.  
 
-Most of this data originates at the NCI `Genomic Data Commons <https://gdc.cancer.gov/>`_ (GDC). The GDC stores raw and processed data from cancer patients on both Google and Amazon Web Services (AWS) cloud platforms. ISB-CGC points to the GDC-owned Google Cloud Storage buckets. The GDC has established workflows that they run on the raw data to generate the processed data. Thus users have access to the processed data, bypassing the need to run compute intensive workflows themselves. Users who wish to run their own pipelines or workflows have access to the raw data as well. In general, almost all raw data is controlled-access and only those with proper authentication can access them. 
+The majority of the data made available through ISB-CGC originates from NCI `Genomic Data Commons <https://gdc.cancer.gov/>`_ (GDC). In addition to accessing data via the GDC data portal, through ISB-CGC authenticated users can access GDC Google Cloud Storage buckets. 
 
-GDC processed data, however, are generally open-access and ISB-CGC has transformed the processed data, stored in a large number of files in the GDC-owned Google Cloud Storage buckets, into ISB-CGC Google BigQuery tables consolidated by datatype (ex. clinical, sample, DNA Methylation, RNAseq,Copy Number Segmentation, Protein Expression, Mutation) for ease of access and analysis. This novel approach allows our users to quickly analyze information from thousands of patients in our curated BigQuery tables.  
+Users have access to both raw and processed data from cancer patients.  In general, almost all raw data is controlled-access, only those with proper authorization can access them. The GDC has established bioinformatics workflows/pipelines executed on the raw data to generate processed data. For example, in the case of RNAseq data, users have access to RNAseq bam files as well as processed RNAseq quantification files that are generated from a GDC RNAseq analysis pipeline.  In this way, users can directly access the processed data without having to run compute-intensive workflows themselves. However, users who wish to run their own pipelines or workflows still have access to the raw data as well. 
+
+GDC processed data, however, are generally open-access. ISB-CGC allows user to make use of the processed data in two ways on the platform: 
+   - all individual processed data files are accessible through GDC Google Cloud Storage buckets 
+   - processed data are transformed into ISB-CGC Google BigQuery tables consolidated by datatype (ex. clinical, sample, DNA Methylation, RNAseq,Copy Number Segmentation, Protein Expression, Mutation) for ease of access and analysis. This novel approach allows our users to quickly analyze information from thousands of patients in our curated BigQuery tables.  
 
 -------------------
 Storage Platforms
