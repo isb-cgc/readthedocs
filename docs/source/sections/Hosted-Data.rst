@@ -2,13 +2,15 @@
 Programs and Data Sets
 **********************
 
-Between the ISB-CGC and the Genomic Data Commons (GDC), there are many cancer data sets available on the Google Cloud Platform. ISB-CGC hosts some high-level clinical, biospecimen and molecular data in a series of carefully curated datasets and tables in BigQuery and radiology and pathology images in Google Cloud Storage. The GDC hosts several more data sets that include low-level sequencing data.
+Between the ISB-CGC and the Genomic Data Commons (GDC), there are many cancer data sets available on the Google Cloud Platform. ISB-CGC hosts some high-level clinical, biospecimen and molecular data in a series of carefully curated data sets and tables in BigQuery and radiology and pathology images in Google Cloud Storage. The GDC hosts several more data sets that include low-level sequencing data.
 
 The ISB-CGC started with The Cancer Genome Atlas (TCGA) data sets but has expanded to include other data sets from programs such as Therapeutically Applicable Research To Generate Effective Treatments (TARGET) program. Accompanying the NCI data sets, ISB-CGC hosts several data sets from programs such as Catalogue Of Somatic Mutations In Cancer (COSMIC) from the `Wellcome Trust Sanger Institute <http://www.sanger.ac.uk/>`_. We are always interested in adding new data sets, so if you have any suggestions or requests for additional data, please let us know (feedback@isb-cgc.org).
 
 NCI Genomic Data Commons
 ------------------------
-The NCI hosts a variety of data from cancer genomic studies in the `Genomic Data Commons <https://gdc.cancer.gov/>`_ (GDC), providing the cancer research community a unified data repository enabling data sharing to support precision medicine. The `GDC Data Portal <https://portal.gdc.cancer.gov/>`_ allows users to search for and download data directly via your web browser or using the GDC Data Transfer Tool. There are two sets of data available in the GDC: legacy data and harmonized data. The legacy data is from previous data coordinating centers, such as TCGA-DCC and CGHub, that the GDC inherited. The current data available in the GDC is harmonized data from the coordination centers that were realigned to GRCh38/hg38 and reprocessed by GDC along with new data sets.
+The NCI's `Genomic Data Commons <https://gdc.cancer.gov/>`_ (GDC) provides the cancer research community with a unified data repository that enables data sharing across cancer genomic studies in support of precision medicine. The `GDC Data Portal <https://portal.gdc.cancer.gov/>`_ allows users to search for and download data directly via your web browser or using the GDC Data Transfer Tool. There are two sets of data available in the GDC: legacy data and harmonized data. The legacy data is from previous data coordinating centers, such as TCGA-DCC and CGHub, that the GDC inherited. The current data available in the GDC is harmonized data from the coordination centers that were realigned to GRCh38/hg38 and reprocessed by GDC along with new data sets.
+
+If you have used the GDC portal to create cohorts or file lists, you can follow `these <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/GDCTutorials/FromGDCtoISBCGC.html>`_ tutorials to bring that information into ISB-CGC for use.
 
 Clinical, Biospecimen and Processed -Omics Data Sets
 ----------------------------------------------------
