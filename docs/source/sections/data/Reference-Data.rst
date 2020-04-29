@@ -53,6 +53,8 @@ between the Schema and Preview buttons, beneath the table name.)
      - Ensembl2Reactome
    * - Reactome
      - miRBase2Reactome
+   * - Genome-Wide SNP Array
+     - The technical documentation for the Affymetrix Genome-Wide Human SNP Array 6.0 array can be found `here <http://www.affymetrix.com/catalog/131533/AFFY/Genome-Wide+Human+SNP+Array+6.0#1_3>`_.
     
 
 .. _liftOver: https://genome.ucsc.edu/cgi-bin/hgLiftOver
@@ -84,8 +86,6 @@ to see hosted in BigQuery tables, please let us know at feedback@isb-cgc.org.
      - Although additional details can be found at the `Illumina <https://www.illumina.com/>`_ webpage, we have uploaded the platform annotation information into the BigQuery table ``isb-cgc.platform_reference.methylation_annotation``. Each CpG locus is uniquely identified as described in this `technical note <http://www.illumina.com/content/dam/illumina-marketing/documents/products/technotes/technote_cpg_loci_identification.pdf>`_ and this unique identifier can be used to look up and cross-reference data between the TCGA DNA methylation data table and the platform annotation table. 
    * - DNA Methylation Annotation Liftover to HG38 Coordinates
      - The original Illumina-provided CpG coordinates have been *"lifted over"* from hg19 to hg38.
-   * - Genome-Wide SNP Array
-     - The technical documentation for the Affymetrix Genome-Wide Human SNP Array 6.0 array can be found `here <http://www.affymetrix.com/catalog/131533/AFFY/Genome-Wide+Human+SNP+Array+6.0#1_3>`_.
      
 
 Other Reference Data Sources
