@@ -72,20 +72,21 @@ Illumina DNA Methylation array, or the Affymetrix Genome-Wide Human SNP Array 6.
 provide links to existing sources of information elsewhere on the web, or will describe additional resources
 that are hosted by the ISB-CGC.  If there are additional platform reference sources that you would like
 to see hosted in BigQuery tables, please let us know at feedback@isb-cgc.org.
-
-* **DNA Methylation Platform**:
-    - Most of the DNA Methylation data produced by the TCGA project was obtained using the Illumina Infinium HumanMethylation450 (aka 450k) BeadChip array.  Some of the earlier tumor types were assayed on the older, 27k array.
-
-    - Although additional details can be found at the `Illumina <https://www.illumina.com/>`_ webpage, we have uploaded the platform annotation information into the BigQuery table ``isb-cgc.platform_reference.methylation_annotation``
-
-    - Each CpG locus is uniquely identified as described in this `technical note <http://www.illumina.com/content/dam/illumina-marketing/documents/products/technotes/technote_cpg_loci_identification.pdf>`_ and this unique identifier can be used to look up and cross-reference data between the TCGA DNA methylation data table and the platform annotation table. 
-
-    - The original Illumina-provided CpG coordinates have been *"lifted over"* from hg19 to hg38
-
-
-* **Genome-Wide SNP Array**:
-    - The technical documentation for the Affymetrix Genome-Wide Human SNP Array 6.0 array can be found `here <http://www.affymetrix.com/catalog/131533/AFFY/Genome-Wide+Human+SNP+Array+6.0#1_3>`_.
-
+    
+.. list-table::
+   :header-rows: 1 
+   
+   * - Table
+     - Description
+   * - DNA Methylation Platform
+     - Most of the DNA Methylation data produced by the TCGA project was obtained using the Illumina Infinium HumanMethylation450 (aka 450k) BeadChip array.  Some of the earlier tumor types were assayed on the older, 27k array.
+   * - DNA Methylation Annotation
+     - Although additional details can be found at the `Illumina <https://www.illumina.com/>`_ webpage, we have uploaded the platform annotation information into the BigQuery table ``isb-cgc.platform_reference.methylation_annotation``. Each CpG locus is uniquely identified as described in this `technical note <http://www.illumina.com/content/dam/illumina-marketing/documents/products/technotes/technote_cpg_loci_identification.pdf>`_ and this unique identifier can be used to look up and cross-reference data between the TCGA DNA methylation data table and the platform annotation table. 
+   * - DNA Methylation Annotation Liftover to HG38 Coordinates
+     - The original Illumina-provided CpG coordinates have been *"lifted over"* from hg19 to hg38.
+   * - Genome-Wide SNP Array
+     - The technical documentation for the Affymetrix Genome-Wide Human SNP Array 6.0 array can be found `here <http://www.affymetrix.com/catalog/131533/AFFY/Genome-Wide+Human+SNP+Array+6.0#1_3>`_.
+     
 
 Other Reference Data Sources
 ############################
