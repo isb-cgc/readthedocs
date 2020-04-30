@@ -20,6 +20,7 @@ From Genomic Data Commons
 
 .. toctree::
    :maxdepth: 1
+   :hidden
    
    data/BEATAML_about
    data/CCLE_top
@@ -38,6 +39,83 @@ From Genomic Data Commons
    data/TCGA-images
    data/VAREPOP_about
    data/WCDT_about
+   
+   
+.. list-table:: 
+   :header-rows: 1 
+   
+   * - Program
+     - GDC Google Cloud Storage
+     - ISB-CGC BigQuery Tables
+     - ISB-CGC Cohort Builder
+   * - `BEATAML <data/BEATAML_about>`_
+     - Yes
+     - No
+     - No
+   * - `CCLE <data/CCLE_top>`_
+     - Yes
+     - Yes
+     - Yes
+   * - `CGCI <data/CGCI_about>`_
+     - Yes
+     - No
+     - No
+   * - `CPTAC <data/CPTAC_about>`_
+     - Yes
+     - No
+     - No
+   * - `CTSP <data/CTSP_about>`_
+     - Yes
+     - No
+     - No
+   * - `FM <data/FM_about>`_
+     - Yes
+     - No
+     - No
+   * - `GENIE <data/GENIE_about>`_
+     - Yes
+     - No
+     - No
+   * - `HCMI <data/GENIE_about>`_
+     - Yes
+     - No
+     - No
+   * - `MMRF <data/MMRF_about>`_
+     - Yes
+     - No
+     - No
+   * - `NCICCR <data/NCICCR_about>`_
+     - Yes
+     - No
+     - No
+   * - `OHSU <data/OHSU_about>`_
+     - Yes
+     - No
+     - No
+   * - `ORGANOID <data/ORGANOID_about>`_
+     - Yes
+     - No
+     - No
+   * - `TARGET <data/TARGET_top>`_
+     - Yes
+     - Yes
+     - Yes   
+   * - `TCGA <data/TCGA_top>`_
+     - Yes
+     - Yes
+     - Yes
+   * - `TCGA images <data/TCGA_images>`_
+     - Yes
+     - Yes
+     - Yes
+   * - `VAREPOP <data/VAREPOP_about>`_
+     - Yes
+     - No
+     - No
+   * - `WCDT <data/WCDT_about>`_
+     - Yes
+     - No
+     - No
 
 From Other Sources
 ~~~~~~~~~~~~~~~~~~
