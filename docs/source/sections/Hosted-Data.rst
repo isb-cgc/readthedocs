@@ -20,6 +20,7 @@ From Genomic Data Commons
 
 .. image:: omicsData.png
    :align: left
+   :size: 75
 
 .. sidebar:: -Omics Data
    :subtitle: Optional Subtitle
