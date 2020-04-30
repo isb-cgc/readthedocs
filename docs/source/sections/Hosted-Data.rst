@@ -24,10 +24,10 @@ From Genomic Data Commons
     :target: omicsData.png
 
 
-Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are available in the GDC Cloud Storage buckets, in ISB-CGC BigQuery tables and through ISB-CGC web tools. The table below lists each Program and where (through ISB-CGC) that you can its data. 
+Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are available in the GDC Cloud Storage buckets, in ISB-CGC BigQuery tables and through ISB-CGC web tools. The table below lists each Program and where (through ISB-CGC) that you can find its data. 
 
 - Within the detailed documentation on each Program (click on the Program name), there is an example of how to use the metadata stored in ISB-CGC BigQuery tables to locate the Program's files on the GDC Google Cloud Storage buckets. 
-- To learn more about using this data with ISB-CGC web tools, go to the ISB-CGC Web Application section of this document.
+- To learn more about using this data with ISB-CGC web tools, go to the ISB-CGC Web Interface section of this document.
 - To locate these tables in the ISB-CGC BigQuery project, use the ISB-CGC BigQuery Table Search.
    
    
