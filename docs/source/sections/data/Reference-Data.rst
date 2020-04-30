@@ -24,7 +24,7 @@ For additional details about each of these tables, please use the `BigQuery web 
 to access each of these tables and look at the information on the **Details** page.  (Look for the Details button
 between the Schema and Preview buttons, beneath the table name.)
     
-.. list-table::
+.. list-table:: **Data set isb-cgc.genome_reference**
    :header-rows: 1 
    
    * - Table
@@ -75,7 +75,7 @@ provide links to existing sources of information elsewhere on the web, or will d
 that are hosted by the ISB-CGC.  If there are additional platform reference sources that you would like
 to see hosted in BigQuery tables, please let us know at feedback@isb-cgc.org.
     
-.. list-table::
+.. list-table:: **Data set isb-cgc.platform_reference**
    :header-rows: 1 
    
    * - Table
