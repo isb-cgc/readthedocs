@@ -28,7 +28,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
 
 - Within the detailed documentation on each Program (click on the Program name), there is an example of how to use the metadata stored in ISB-CGC BigQuery tables to locate the Program's files on the GDC Google Cloud Storage buckets. 
 - To learn more about using this data with ISB-CGC web tools, go to the ISB-CGC Web Application section of this document.
-- To locate these tables in the ISB-CGC BigQueryproject, use the ISB-CGC BigQuery Table Search.
+- To locate these tables in the ISB-CGC BigQuery project, use the ISB-CGC BigQuery Table Search.
    
    
 .. list-table:: 
