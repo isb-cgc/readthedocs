@@ -2,7 +2,7 @@
 ISB-CGC Data Release Notes
 ############################
 
-*May 5, 2020*
+*May 8, 2020*
 
 GDC data release 23.0 was posted on April 7, 2020.
 
