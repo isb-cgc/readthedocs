@@ -30,6 +30,7 @@ GDC data release 23.0 was posted on April 7, 2020.
 - isb-cgc:GDC_metadata.rel23_fileData_active
 - isb-cgc:GDC_metadata.rel23_fileData_legacy
 - isb-cgc:GDC_metadata.rel23_slide2caseIDmap
+- isb-cgc:GDC_metadata.rel23_GDCfileID_to_GCSurl
 
 *April 15, 2020*
 
