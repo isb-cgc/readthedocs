@@ -91,12 +91,12 @@ to see hosted in BigQuery tables, please let us know at feedback@isb-cgc.org.
 Genotype Tissue Expression (GTEx) Project Data
 =======================
 
-This dataset contains tables with molecular and clinical data (gene read, gene expression, sample attributes, subject phenotype) loaded from the Genotype-Tissue Expression (GTEx) Project Data Portal on November 2017. See the  `GTEx Portal <https://gtexportal.org/>`_ for more information.
+The `GTEx_v7 data set <https://console.cloud.google.com/bigquery?p=isb-cgc&d=GTEx_v7&page=dataset>`_ contains tables with molecular and clinical data (gene read, gene expression, sample attributes, subject phenotype) loaded from the Genotype-Tissue Expression (GTEx) Project Data Portal on November 2017. See the  `GTEx Portal <https://gtexportal.org/>`_ for more information.
 
 University of California Santa Cruz (UCSC) TOIL RNA-seq recompute project Data
 =======================
 
-This dataset contains data made available by the UCSC TOIL RNA-seq recompute project. The goal of the project was to process ~20,000 RNA-seq samples to create a consistent meta-analysis of four datasets free of computational batch effects. This is best used to compare TCGA cohorts to TARGET or GTEx cohorts. For more details, see the `Zena Browser Data Pages <https://xenabrowser.net/datapages/>`_.
+The `Toil_recompute data set <https://console.cloud.google.com/bigquery?p=isb-cgc&d=Toil_recompute&page=dataset>`_ contains data made available by the UCSC TOIL RNA-seq recompute project. The goal of the project was to process ~20,000 RNA-seq samples to create a consistent meta-analysis of four datasets free of computational batch effects. This is best used to compare TCGA cohorts to TARGET or GTEx cohorts. For more details, see the `Zena Browser Data Pages <https://xenabrowser.net/datapages/>`_.
     
 
 Other Reference Data Sources
