@@ -13,6 +13,7 @@ using a variety of built-in visualization tools.*
 
  
 .. list-table::
+   :header-rows: 0
  
    * - **Patient Cohort Data Explorer**: Interactively create and explore cohorts of interest.
      - https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DataExplorer.html
@@ -35,6 +36,7 @@ into ISB-CGC Google BigQuery tables for ease of access and analysis. This novel 
 information from thousands of patients in our curated BigQuery tables.*
 
 .. list-table::
+   :header-rows: 0
  
    * - **BigQuery Table Search User Interface**: Learn more about ISB-CGC hosted BigQuery tables 
      - https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQueryTableSearchUI.html
