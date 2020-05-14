@@ -18,10 +18,12 @@ A Google Cloud Project (GCP) is required to make use of all of the data, tools, 
   - Do you have a Google identity already (e.g. a Gmail account)? Your institutional email may be a Google identity (if your institution uses Google Apps), or you may have a personal Gmail address.
   - If not, it only takes a minute to `create a Google identity <https://accounts.google.com/signup/v2/webcreateaccount?dsh=308321458437252901&continue=https%3A%2F%2Faccounts.google.com%2FManageAccount&flowName=GlifWebSignIn&flowEntry=SignUp#FirstName=&LastName=>`_.  You can even link a non-Gmail account (eg. scientist@nih.gov) as a Google identity by `this <https://accounts.google.com/signup/v2/webcreateaccount?flowName=GlifWebSignIn&flowEntry=SignUp&nogm=true>`_ method.
 
-2) Set up a Google Cloud Project:
+2) Ways to fund your Google Cloud work:
 
   - Create your own GCP project and take advantage of a one-time `$300 Google Credit <https://cloud.google.com/free/>`_.
   - If you have already used this one-time offer (or there is some other reason you cannot use it), please see the information here about how to request `ISB-CGC Cloud Credits <HowtoRequestCloudCredits.html>`_.
+
+3) Set up a Google Cloud Project:
 
   - `Registering the GCP project <Gaining-Access-To-Controlled-Access-Data.html#requirements-for-registering-a-google-cloud-project-service-account>`_
  
