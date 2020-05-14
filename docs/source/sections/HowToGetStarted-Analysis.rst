@@ -9,6 +9,7 @@ filter data from one or more public data sets (such as TCGA, CCLE, and TARGET), 
 using a variety of built-in visualization tools.
 
 .. list-table::
+   :widths: 65, 35
    :header-rows: 0 
 
    * - **Patient Cohort Data Explorer**: Interactively create and explore cohorts of interest.
@@ -29,6 +30,7 @@ into ISB-CGC Google BigQuery tables for ease of access and analysis. This novel 
 information from thousands of patients in our curated BigQuery tables.
 
 .. list-table::
+   :widths: 65, 35
    :header-rows: 0
  
    * - **BigQuery Table Search User Interface**: Learn more about ISB-CGC hosted BigQuery tables 
@@ -43,6 +45,7 @@ Cancer data analysis using APIs and Google Cloud Virtual Machines
 ISB-CGC enables as many workflow technologies as possible through documentation, support, necessary infrastructure.
 
 .. list-table::
+   :widths: 65, 35
    :header-rows: 0
  
    * - **ISB-CGC APIs**: Programmatically access data and user-generated cancer patient cohort information 
