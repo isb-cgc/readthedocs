@@ -12,12 +12,10 @@ using a variety of built-in visualization tools.
    :widths: 65, 35
    :header-rows: 0 
 
-   * - **Patient Cohort Data Explorer**
-       
+   * - **Patient Cohort Data Explorer**:
        *Interactively create and explore cohorts of interest.*
      - `ISB-CGC Data Explorer Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DataExplorer.html>`_ 
-   * - **Interactive Pathology and Radiology Image Viewers** 
-   
+   * - **Interactive Pathology and Radiology Image Viewers**:  
        *View images from cancer patients seamlessly using integrated image viewers.*
      - `ISB-CGC Web Browser Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/OsimisWebViewer.html>`_ 
    * - **Integrative Genomics Viewer (IGV)**: 
