@@ -6,31 +6,30 @@ This table lists multiple analysis pathways.
 
 Interactive web-based Cancer Data Analysis and Exploration
 ##########################################################
-
-*Explore and analyze ISB-CGC cancer data through a suite of graphical user interfaces (GUIs) that allow users to select and
+Explore and analyze ISB-CGC cancer data through a suite of graphical user interfaces (GUIs) that allow users to select and
 filter data from one or more public data sets (such as TCGA, CCLE, and TARGET), combine with your own uploaded data and analyze
-using a variety of built-in visualization tools.*
+using a variety of built-in visualization tools.
 
- 
 .. list-table::
-   :header-rows: 0
- 
-   * - **Patient Cohort Data Explorer**: Interactively create and explore cohorts of interest.
-     - https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DataExplorer.html
-   * - **Interactive Pathology and Radiology Image Viewers**: View images from cancer patients seamlessly using integrated image 
+   :header-rows: 1 
+   
+   * - Table
+     - Description
+   * - Patient Cohort Data Explorer: Interactively create and explore cohorts of interest.
+     - `ISB-CGC Data Explorer Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DataExplorer.html>`_ 
+   * - Interactive Pathology and Radiology Image Viewers: View images from cancer patients seamlessly using integrated image 
    viewers.
-     - https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/OsimisWebViewer.html
-   * - **Integrative Genomics Viewer (IGV)**: Interactively explore and visualize genomic data
-     - https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/IGV-Browser.html
-   * - **Cancer Data File Browser**:Browse and identify files associated with cohorts of interest
-     - https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html#file-browser
-   * - **Mitelman Database for Chromosome Aberrations and Gene Fusions in Cancer**:Explore relationships between 
+     - `ISB-CGC Web Browser Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/OsimisWebViewer.html>`_ 
+   * - Integrative Genomics Viewer (IGV): Interactively explore and visualize genomic data
+     - `ISB-CGC Integrative Genomics Viewer (IGV) Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/OsimisWebViewer.html>`_
+   * - Cancer Data File Browser: Browse and identify files associated with cohorts of interest
+     - `ISB-CGC Cancer Data File Browser Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html#file-browser>`_
+   * - Mitelman Database for Chromosome Aberrations and Gene Fusions in Cancer: Explore relationships between 
    chromosomal changes and cancer
-     - https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/Mitelman_about.html
+     - `ISB-CGC Mitelman Database Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/Mitelman_about.html>`_
      
 Cancer data analysis using Google BigQuery
 ##########################################################
-
 *Processed data are consolidated by data type (ex. Clinical, DNA Methylation, RNAseq, Somatic Mutation, etc.) and transformed
 into ISB-CGC Google BigQuery tables for ease of access and analysis. This novel approach allows users to quickly analyze
 information from thousands of patients in our curated BigQuery tables.*
