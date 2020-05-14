@@ -2,9 +2,12 @@
 How To Get Started on ISB-CGC
 ******************
 
-The ISB-CGC provides both interactive (through a `web application <https://isb-cgc.appspot.com/>`_) and programmatic access to data hosted by institutes such as the Genomic Data Commons (GDC) of the National Cancer Institute (NCI), and the Wellcome Trust Sanger Institute, leveraging many aspects of the Google Cloud Platform. ISB-CGC hosts both open-access and controlled-access cancer genomics data from the NCI from `a variety of Programs and Data Sets <Hosted-Data.html>`_. Some of these are controlled-access data `which require dbGaP authorization to access <Gaining-Access-To-Controlled-Access-Data.html>`_.
+The ISB-CGC provides both interactive (through a `web application <https://isb-cgc.appspot.com/>`_) and programmatic access to data hosted by institutes such as the Genomic Data Commons (GDC) of the National Cancer Institute (NCI), and the Wellcome Trust Sanger Institute, leveraging many aspects of the Google Cloud Platform. 
 
-Click here to go to the `ISB-CGC Home Page <https://isb-cgc.appspot.com/>`_.
+To get started:
+
+  - To access open or controlled data, you'll need a Google Cloud Project.
+  - To access controlled data, you'll need `dbGaP authorization <Gaining-Access-To-Controlled-Access-Data.html>`_.
 
 Data Access and Google Cloud Project Setup
 -----------------------------------------------
