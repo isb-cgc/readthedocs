@@ -56,4 +56,9 @@ All data are stored in GDC-owned Google Cloud Storage buckets. Both raw and proc
 8) Work with Google Compute and Virtual Machines (VMs):
 
   - Working with large-scale data hosted by the ISB-CGC in Google Cloud Storage requires some familiarity with tools such as the `Google Cloud SDK <https://cloud.google.com/sdk/>`_, `Google Compute Engine <https://cloud.google.com/compute/>`_, `Virtual Machines <https://en.wikipedia.org/wiki/Virtual_machine>`_ and `Docker <https://www.docker.com/why-docker#/VM>`_.
+  
+.. toctree::
+   :maxdepth: 1
+   
+   HowToGetStarted-Analysis
  
