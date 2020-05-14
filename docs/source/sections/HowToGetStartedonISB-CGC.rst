@@ -26,22 +26,34 @@ A Google Cloud Project (GCP) is required to make use of all of the data, tools, 
  
   - `Enable Required Google Cloud APIs <https://cloud.google.com/apis/docs/getting-started#enabling_apis>`_
   
+Accessing and Analyzing Data via BigQuery
+-----------------------------------------------
 BigQuery is Google’s native big data analysis tool. It is a serverless, highly scalable data warehouse tool that allows researchers to find meaningful insights from data using standard SQL queries CHEAPLY, and FAST!
 
- 4) Connect to ISB-CGC's cancer data tables in Google BigQuery:
+4) Connect to ISB-CGC's cancer data tables in Google BigQuery:
  
   - To obtain access to the ISB-CGC open access project tables in BigQuery, users can link these tables to their GCP project as described `here <progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_.
   - To obtain access to the ISB-CGC controlled access project tables in BigQuery, users can link these tables to their GCP project as described `here <progapi/bigqueryGUI/LinkingISB-CGCtoCABQ.html>`_.
   
- 5) Analyze, using ISB-CGC BiqQuery data: 
+5) Analyze, using ISB-CGC BiqQuery data: 
+
   - ISB-CGC provides quickstart guides, tutorials and examples in both R and Jupyter notebooks for BigQuery in the  `Tutorials <TutorialsAndHow-ToGuides.html>`_ and `Community Notebooks <HowTos.html>`_ sections of the documentation page. 
  
 
 Accessing and Analyzing Data Stored in Google Cloud Storage 
 ---------------------------------------------------------------
 
-- All data are stored in GDC-owned Google Cloud Storage buckets. Both raw and processed data are stored in these buckets. Most of the raw data is controlled-access and requires proper TCGA authorization to access it. Processed data for the most part are open-access. The individual processed data files are stored both in GDC-owned Google Cloud storage bucket but also in ISB-CGC hosted BigQuery tables. See BigQuery section for more details. 
-- To access controlled data, users must first be authenticated by NIH (`via the ISB-CGC web-app <Gaining-Access-To-Controlled-Access-Data.html#interactive-access-to-controlled-data>`_). Upon successful authentication, user dbGaP authorization will be verified. These two steps are required before the user’s Google identity is added to the access control list (ACL) for the controlled data. At this time, this access must be renewed every 24 hours.
-- `Summary of programs, data types and data formats available <Hosted-Data.html>`_
-- Working with large-scale data hosted by the ISB-CGC in Google Cloud Storage requires some familiarity with tools such as the `Google Cloud SDK <https://cloud.google.com/sdk/>`_, `Google Compute Engine <https://cloud.google.com/compute/>`_, `Virtual Machines <https://en.wikipedia.org/wiki/Virtual_machine>`_ and `Docker <https://www.docker.com/why-docker#/VM>`_.
+All data are stored in GDC-owned Google Cloud Storage buckets. Both raw and processed data are stored in these buckets. Most of the raw data is controlled-access and requires proper authorization to access it. Processed data for the most part are open-access. The individual processed data files are stored in GDC-owned Google Cloud storage bucket.
+
+6) Access open-access Google Cloud Storage buckets: 
+
+  - All individual processed data files are accessible through GDC Google Cloud Storage buckets; ISB-CGC provides pointers to these files. Examples of how to find these URLs are in the section <Hosted-Data.html>`_, on each Program's documentation page.
+
+7) Access controlled data, if needed: 
+
+  - To access controlled data, users must first be authenticated by NIH (`via the ISB-CGC web-app <Gaining-Access-To-Controlled-Access-Data.html#interactive-access-to-controlled-data>`_). Upon successful authentication, user dbGaP authorization will be verified. These two steps are required before the user’s Google identity is added to the access control list (ACL) for the controlled data. At this time, this access must be renewed every 24 hours.
+  
+8) Work with Google Compute and Virtual Machines (VMs):
+
+  - Working with large-scale data hosted by the ISB-CGC in Google Cloud Storage requires some familiarity with tools such as the `Google Cloud SDK <https://cloud.google.com/sdk/>`_, `Google Compute Engine <https://cloud.google.com/compute/>`_, `Virtual Machines <https://en.wikipedia.org/wiki/Virtual_machine>`_ and `Docker <https://www.docker.com/why-docker#/VM>`_.
  
