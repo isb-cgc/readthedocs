@@ -12,15 +12,25 @@ using a variety of built-in visualization tools.
    :widths: 65, 35
    :header-rows: 0 
 
-   * - **Patient Cohort Data Explorer**: Interactively create and explore cohorts of interest.
+   * - **Patient Cohort Data Explorer**
+       
+       *Interactively create and explore cohorts of interest.*
      - `ISB-CGC Data Explorer Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DataExplorer.html>`_ 
-   * - **Interactive Pathology and Radiology Image Viewers**: View images from cancer patients seamlessly using integrated image viewers.
+   * - **Interactive Pathology and Radiology Image Viewers** 
+   
+       *View images from cancer patients seamlessly using integrated image viewers.*
      - `ISB-CGC Web Browser Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/OsimisWebViewer.html>`_ 
-   * - **Integrative Genomics Viewer (IGV)**: Interactively explore and visualize genomic data
+   * - **Integrative Genomics Viewer (IGV)**: 
+   
+       *Interactively explore and visualize genomic data.*
      - `ISB-CGC Integrative Genomics Viewer (IGV) Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/OsimisWebViewer.html>`_
-   * - **Cancer Data File Browser**: Browse and identify files associated with cohorts of interest
+   * - **Cancer Data File Browser**
+       
+       *Browse and identify files associated with cohorts of interest*
      - `ISB-CGC Cancer Data File Browser Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html#file-browser>`_
-   * - **Mitelman Database for Chromosome Aberrations and Gene Fusions in Cancer**: Explore relationships between chromosomal changes and cancer
+   * - **Mitelman Database for Chromosome Aberrations and Gene Fusions in Cancer**
+   
+       *Explore relationships between chromosomal changes and cancer.*
      - `ISB-CGC Mitelman Database Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/Mitelman_about.html>`_
      
 Cancer data analysis using Google BigQuery
