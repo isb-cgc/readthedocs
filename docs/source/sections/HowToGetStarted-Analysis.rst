@@ -26,20 +26,19 @@ using a variety of built-in visualization tools.
      
 Cancer data analysis using Google BigQuery
 ##########################################################
-*Processed data are consolidated by data type (ex. Clinical, DNA Methylation, RNAseq, Somatic Mutation, etc.) and transformed
+Processed data are consolidated by data type (ex. Clinical, DNA Methylation, RNAseq, Somatic Mutation, etc.) and transformed
 into ISB-CGC Google BigQuery tables for ease of access and analysis. This novel approach allows users to quickly analyze
-information from thousands of patients in our curated BigQuery tables.*
+information from thousands of patients in our curated BigQuery tables.
 
 .. list-table::
    :header-rows: 0
  
    * - **BigQuery Table Search User Interface**: Learn more about ISB-CGC hosted BigQuery tables 
-     - https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQueryTableSearchUI.html
-   * - **Google BigQuery Console**: Use SQL to analyze and query ISB-CGC cancer data store in Google’s cloud-based data
-   warehouse 
-     - https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQuery.html
+     - `ISB-CGC BigQuery Table Search Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQueryTableSearchUI.html>`_
+   * - **Google BigQuery Console**: Use SQL to analyze and query ISB-CGC cancer data store in Google’s cloud-based data warehouse 
+     - `ISB-CGC BigQuery Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQuery.html>`_
    * - **Notebooks**: Seamlessly integrate ISB-CGC tables with R and Python to conduct robust analyses
-     - https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowTos.html
-       https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/RegulomeExplorerNotebooks.html
+     - `ISB-CGC Notebook Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowTos.html>`_ `ISB-CGC Statistical Notebook Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/RegulomeExplorerNotebooks.html>`_
+
 
    
