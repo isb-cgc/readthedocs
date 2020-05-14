@@ -7,20 +7,25 @@ The ISB-CGC provides both interactive (through a `web application <https://isb-c
 To get started:
 
   - To access open or controlled data, you'll need a Google Cloud Project.
-  - To access controlled data, you'll need `dbGaP authorization <Gaining-Access-To-Controlled-Access-Data.html>`_.
+  - To access controlled data, you'll also need `dbGaP authorization <Gaining-Access-To-Controlled-Access-Data.html>`_.
 
 Data Access and Google Cloud Project Setup
 -----------------------------------------------
+A Google Cloud Project (GCP) is required to make use of all of the data, tools, and Google Cloud functionality.
 
-- A GCP project is required to make use of all of the data, tools, and Google Cloud functionality.
-- Do you have a Google identity already (e.g. a Gmail account)? Your institutional email may be a Google identity (if your institution uses Google Apps), or you may have a personal Gmail address.
-- If not, it only takes a minute to `create a Google identity <https://accounts.google.com/signup/v2/webcreateaccount?dsh=308321458437252901&continue=https%3A%2F%2Faccounts.google.com%2FManageAccount&flowName=GlifWebSignIn&flowEntry=SignUp#FirstName=&LastName=>`_.  You can even link a non-Gmail account (eg. scientist@nih.gov) as a Google identity by `this <https://accounts.google.com/signup/v2/webcreateaccount?flowName=GlifWebSignIn&flowEntry=SignUp&nogm=true>`_ method.
-- Create your own GCP project and take advantage of a one-time `$300 Google Credit <https://cloud.google.com/free/>`_.
-- If you have already used this one-time offer (or there is some other reason you cannot use it), please see the information here about how to request `ISB-CGC Cloud Credits <HowtoRequestCloudCredits.html>`_.
+1) Obtain a Google identity:
 
-- `Registering the GCP project <Gaining-Access-To-Controlled-Access-Data.html#requirements-for-registering-a-google-cloud-project-service-account>`_
+  - Do you have a Google identity already (e.g. a Gmail account)? Your institutional email may be a Google identity (if your institution uses Google Apps), or you may have a personal Gmail address.
+  - If not, it only takes a minute to `create a Google identity <https://accounts.google.com/signup/v2/webcreateaccount?dsh=308321458437252901&continue=https%3A%2F%2Faccounts.google.com%2FManageAccount&flowName=GlifWebSignIn&flowEntry=SignUp#FirstName=&LastName=>`_.  You can even link a non-Gmail account (eg. scientist@nih.gov) as a Google identity by `this <https://accounts.google.com/signup/v2/webcreateaccount?flowName=GlifWebSignIn&flowEntry=SignUp&nogm=true>`_ method.
+
+2) Set up a Google Cloud Project:
+
+  - Create your own GCP project and take advantage of a one-time `$300 Google Credit <https://cloud.google.com/free/>`_.
+  - If you have already used this one-time offer (or there is some other reason you cannot use it), please see the information here about how to request `ISB-CGC Cloud Credits <HowtoRequestCloudCredits.html>`_.
+
+  - `Registering the GCP project <Gaining-Access-To-Controlled-Access-Data.html#requirements-for-registering-a-google-cloud-project-service-account>`_
  
-- `Enable Required Google Cloud APIs <https://cloud.google.com/apis/docs/getting-started#enabling_apis>`_
+  - `Enable Required Google Cloud APIs <https://cloud.google.com/apis/docs/getting-started#enabling_apis>`_
 
 Accessing and Analyzing Data via BigQuery
 -----------------------------------------------
