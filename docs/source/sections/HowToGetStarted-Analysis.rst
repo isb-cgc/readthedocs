@@ -51,7 +51,7 @@ information from thousands of patients in our curated BigQuery tables.
 
 Cancer data analysis using APIs & Google Cloud Virtual Machines
 #################################################################
-ISB-CGC enables as many workflow technologies as possible through documentation, support, necessary infrastructure.
+ISB-CGC enables the use of as many workflow technologies as possible through documentation, support, and necessary infrastructure.
 
 .. list-table::
    :widths: 60, 40
@@ -59,7 +59,8 @@ ISB-CGC enables as many workflow technologies as possible through documentation,
  
    * - **ISB-CGC APIs:**
        *Programmatically access data and user-generated cancer patient cohort information* 
-     - `ISB-CGC API Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/progAPI-v4/Programmatic-Demo.html>`_
+     - * `ISB-CGC API Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/progAPI-v4/Programmatic-Demo.html>`_
+       * `ISB-CGC API <https://api-dot-isb-cgc.appspot.com/v4/swagger/>`_
    * - **Connecting to GA4GH and Cloud Life Sciences APIs:**
        *Easily connect to APIs from ISB-CGC*
      - * `How to find a tool using GA4GH TRS Notebook <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_find_a_tool_using_GA4GH_TRS.ipynb>`_ 
@@ -67,6 +68,7 @@ ISB-CGC enables as many workflow technologies as possible through documentation,
        * `Google API Documentation <https://cloud.google.com/life-sciences/docs/apis>`_
    * - **Running workflows on ISB-CGC:**
        *Execute custom pipelines & algorithms on scalable virtual machines*
-     - `ISB-CGC Workflow Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/workflows_top.htm>`_  
+     - * `ISB-CGC Workflow Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/workflows_top.html>`_  
+       * Working with large-scale data hosted by the ISB-CGC in Google Cloud Storage requires some familiarity with tools such as the `Google Cloud SDK <https://cloud.google.com/sdk/>`_, `Google Compute Engine <https://cloud.google.com/compute/>`_, `Virtual Machines <https://en.wikipedia.org/wiki/Virtual_machine>`_ and `Docker <https://www.docker.com/why-docker#/VM>`_.
 
    
