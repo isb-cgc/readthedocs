@@ -40,10 +40,13 @@ information from thousands of patients in our curated BigQuery tables.
  
    * - **BigQuery Table Search User Interface:**
        *Learn more about ISB-CGC hosted BigQuery tables* 
-     - `ISB-CGC BigQuery Table Search Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQueryTableSearchUI.html>`_
+     - * `ISB-CGC BigQuery Table Search Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQueryTableSearchUI.html>`_
+       * `ISB-CGC BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_
    * - **Google BigQuery Console:**
-       *Use SQL to analyze and query ISB-CGC cancer data store in Google’s cloud-based data warehouse* 
-     - `ISB-CGC BigQuery Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQuery.html>`_
+       *Use SQL to analyze and query ISB-CGC cancer data stored in Google’s cloud-based data warehouse* 
+     - * `ISB-CGC BigQuery Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQuery.html>`_
+       * `Google BigQuery Documentation <https://cloud.google.com/bigquery/what-is-bigquery>`_
+       * `Google Cloud BigQuery Console <https://console.cloud.google.com/bigquery>`_
    * - **Notebooks:** 
        *Seamlessly integrate ISB-CGC tables with R and Python to conduct robust analyses*
      - * `ISB-CGC Notebook Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowTos.html>`_  
