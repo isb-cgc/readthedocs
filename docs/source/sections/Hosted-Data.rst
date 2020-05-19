@@ -40,71 +40,71 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - ISB-CGC BigQuery Tables
      - ISB-CGC Cohort Builder
    * - `BEATAML <data/BEATAML_about.html>`_
-     - Yes
+     - **Yes**
      - No
      - No
    * - `CCLE <data/CCLE_top.html>`_
-     - Yes
-     - Yes
-     - Yes
+     - **Yes**
+     - **Yes**
+     - **Yes**
    * - `CGCI <data/CGCI_about.html>`_
-     - Yes
+     - **Yes**
      - No
      - No
    * - `CPTAC <data/CPTAC_about.html>`_
-     - Yes
+     - **Yes**
      - No
      - No
    * - `CTSP <data/CTSP_about.html>`_
-     - Yes
+     - **Yes**
      - No
      - No
    * - `FM <data/FM_about.html>`_
-     - Yes
+     - **Yes**
      - No
      - No
    * - `GENIE <data/GENIE_about.html>`_
-     - Yes
+     - **Yes**
      - No
      - No
-   * - `HCMI <data/GENIE_about.html>`_
-     - Yes
+   * - `HCMI <data/HCMI_about.html>`_
+     - **Yes**
      - No
      - No
    * - `MMRF <data/MMRF_about.html>`_
-     - Yes
+     - **Yes**
      - No
      - No
    * - `NCICCR <data/NCICCR_about.html>`_
-     - Yes
+     - **Yes**
      - No
      - No
    * - `OHSU <data/OHSU_about.html>`_
-     - Yes
+     - **Yes**
      - No
      - No
    * - `ORGANOID <data/ORGANOID_about.html>`_
-     - Yes
+     - **Yes**
      - No
      - No
    * - `TARGET <data/TARGET_top.html>`_
-     - Yes
-     - Yes
-     - Yes   
+     - **Yes**
+     - **Yes**
+     - **Yes**   
    * - `TCGA <data/TCGA_top.html>`_
-     - Yes
-     - Yes
-     - Yes
-   * - `TCGA images <data/TCGA_images.html>`_
-     - Yes
-     - Yes
-     - Yes
+     - **Yes**
+     - **Yes**
+     - **Yes**
+   * - `TCGA Radiology and Pathology images from TCIA <data/TCGA-images.html>`_
+     - **Yes**
+     - **Yes**
+     - **Yes**
    * - `VAREPOP <data/VAREPOP_about.html>`_
-     - Yes
+     - **Yes**
      - No
      - No
    * - `WCDT <data/WCDT_about.html>`_
-     - Yes
+     - **Yes**
      - No
      - No
 
