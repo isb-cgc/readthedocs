@@ -7,9 +7,9 @@
 ISB-CGC
 *****************************
 
-Welcome to the ISB-CGC Documentation on Read the Docs!
+*Democratizing access to cancer data in the cloud*
 
-Contained within the documentation are descriptions of ISB-CGC features along with guides and tips for exploring data sets hosted on the Google Cloud Platform.
+Contained within this documentation are descriptions of ISB-CGC features along with guides and tips for exploring data sets hosted on the Google Cloud Platform.
 
 .. image:: overview_image.png
    :align: left
@@ -24,6 +24,7 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    :caption: GETTING STARTED
 
    sections/About-ISB-CGC
+   sections/ExploringISB-CGC
    sections/HowToGetStartedonISB-CGC
    sections/HowtoRequestCloudCredits
    sections/BestPractices
@@ -38,6 +39,7 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    sections/data/Mitelman_about
    sections/BigQuery
    sections/BigQueryTableSearchUI
+   sections/DataExplorer
    sections/Web-UI
    sections/progapi/progAPI-v4/Programmatic-Demo
    sections/Gaining-Access-To-Controlled-Access-Data
