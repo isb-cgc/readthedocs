@@ -2,6 +2,72 @@
 ISB-CGC Data Release Notes
 ############################
 
+*May 8, 2020*
+
+GDC data release 23.0 was posted on April 7, 2020.
+
+**Updates to existing programs and projects**
+
+- HCMI-CMDC Aliquot-level MAFs were released
+- TARGET-ALL-P2 Aliquot-level MAFs were released
+- TARGET-ALL-P3 Aliquot-level MAFs were released
+- TARGET-AML Aliquot-level MAFs were released
+- TARGET-NBL Aliquot-level MAFs were released
+- TARGET-OS Aliquot-level MAFs were released
+- TARGET-WT Aliquot-level MAFs were released
+- All TCGA Projects Copy number segment and estimate files from SNP6 ASCAT were released
+- TARGET-ALL-P2 Copy number segment and estimate files from SNP6 ASCAT were released
+- TARGET-AML Copy number segment and estimate files from SNP6 ASCAT were released
+- HCMI-CMDC RNA-seq data was released
+- CGCI-BLGSP clinical data was updated
+- HCMI-CMDC clinical data was updated
+- WCDT-MCRPC clinical data was updated
+
+**BigQuery tables created**
+
+- isb-cgc:GDC_metadata.rel23_aliquot2caseIDmap
+- isb-cgc:GDC_metadata.rel23_caseData
+- isb-cgc:GDC_metadata.rel23_fileData_active
+- isb-cgc:GDC_metadata.rel23_fileData_legacy
+- isb-cgc:GDC_metadata.rel23_slide2caseIDmap
+- isb-cgc:GDC_metadata.rel23_GDCfileID_to_GCSurl
+
+*April 15, 2020*
+
+Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer was updated.
+
+**Updated totals**
+
+- Total number of cases 70,236
+- Total number of unique gene fusions 31,626
+- Total number of genes involved 13,913
+
+**Other changes**
+
+- New Mitelman Database Logo
+
+*March 16, 2020*
+
+GDC data release 22.0 was posted on January 16, 2020.
+
+**New programs and projects available in Google Cloud Storage**
+
+- WCDT-MCRPC (Genomic Characterization of Metastatic Castration Resistant Prostate Cancer), RNA-Seq and WGS Data included
+
+**Updates to existing programs and projects**
+
+- HCMI-CMDC new RNA-Seq, WXS, WGS data was released.
+- CPTAC-3 new WXS, WGS, and RNA-Seq data and miRNA-Seq data for currently released cases was released
+
+**BigQuery tables created**
+
+- isb-cgc:GDC_metadata.rel22_aliquot2caseIDmap
+- isb-cgc:GDC_metadata.rel22_caseData
+- isb-cgc:GDC_metadata.rel22_fileData_active
+- isb-cgc:GDC_metadata.rel22_fileData_legacy
+- isb-cgc:GDC_metadata.rel22_slide2caseIDmap
+- isb-cgc:GDC_metadata.rel22_GDCfileID_to_GCSurl
+
 *January 11, 2020*
 
 GDC data release 21.0 was posted on December 10, 2019.
