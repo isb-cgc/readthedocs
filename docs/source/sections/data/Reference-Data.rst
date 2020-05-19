@@ -8,9 +8,7 @@ ISB-CGC Hosted Reference Data
 To facilitate working with the TCGA and other program data tables that the ISB-CGC is hosting in BigQuery, additional
 reference data tables have been created. Others are hosted by Google Cloud Life Sciences. Suggestions for more are welcome at feedback@isb-cgc.org.
 
-For additional details about each of these tables, please use the `BigQuery web UI <https://console.cloud.google.com/bigquery>`_ 
-to access each of these tables and look at the information on the **Details** page.  (Look for the Details button
-between the Schema and Preview buttons, beneath the table name.)
+For additional details about each of these tables, please use the `BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_. To find the reference tables, select **Genomic Reference Database** under **Category**.  
 
 Genome Reference Data
 =====================
