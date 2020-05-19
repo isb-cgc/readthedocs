@@ -16,7 +16,7 @@ A Google Cloud Project (GCP) is required to make use of all of the data, tools, 
  - Do you or your institution already have a Google identity, such as a Gmail account? If so, you can proceed to the next step.
  - If not, it only takes a minute to `create a Google identity <https://accounts.google.com/signup/v2/webcreateaccount?dsh=308321458437252901&continue=https%3A%2F%2Faccounts.google.com%2FManageAccount&flowName=GlifWebSignIn&flowEntry=SignUp#FirstName=&LastName=>`_.  You can even link a non-Gmail account (eg. scientist@nih.gov) as a Google identity by `this <https://accounts.google.com/signup/v2/webcreateaccount?flowName=GlifWebSignIn&flowEntry=SignUp&nogm=true>`_ method.
 
-**Ways to fund your Google Cloud work**
+**Request Google Cloud Credits**
 
  - Take advantage of a one-time `$300 Google Credit <https://cloud.google.com/free/>`_.
  - If you have already used this one-time offer (or there is some other reason you cannot use it), see this information about how to request `ISB-CGC Cloud Credits <HowtoRequestCloudCredits.html>`_.
@@ -37,7 +37,7 @@ A Google Cloud Project (GCP) is required to make use of all of the data, tools, 
 
  - All individual processed data files are accessible through GDC Google Cloud Storage buckets; ISB-CGC provides pointers to these files. Examples of how to find these URLs are in `this section <Hosted-Data.html>`_, on each Program's documentation page; these SQL queries can also be incorporated into notebooks or workflows.
 
-**Access controlled data, if needed**
+**Access controlled data (with proper authorization)**
 
  - To access controlled data (primarily raw data files in the GDC Google Cloud Storage buckets), users must first be authenticated by NIH (`via the ISB-CGC web-app <Gaining-Access-To-Controlled-Access-Data.html#interactive-access-to-controlled-data>`_). Upon successful authentication, user dbGaP authorization will be verified. These two steps are required before the user’s Google identity is added to the access control list (ACL) for the controlled data. At this time, this access must be renewed every 24 hours.
   
