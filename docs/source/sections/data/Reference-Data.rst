@@ -45,6 +45,17 @@ to tables with genomic-coordinate based data or tables that use other gene ident
      - Tables based on GO_ annotations and the GO_ ontology.
    * - Genome-Wide SNP Array
      - The technical documentation for the Affymetrix Genome-Wide Human SNP Array 6.0 array can be found `here <http://www.affymetrix.com/catalog/131533/AFFY/Genome-Wide+Human+SNP+Array+6.0#1_3>`_.
+   * - gnomAD  
+     - * `gnomAD <https://gnomad.broadinstitute.org/>`_ aggregates and harmonizes both exome and genome sequencing data from a wide variety of large-scale sequencing projects.
+       * GRCH37
+   * - ICD
+     - * `International Classification of Diseases <https://www.who.int/classifications/icd/en/>`_
+       * ICD-10 Chapters
+       * ICD-10 Codes
+       * ICD-O-3 Morphology
+       * ICD-O-3 Site
+   * - ISB-CGC
+     - Gene Names Mapping: Data was loaded from multiple sources including NCBI, HGNC, ENSEMBL in Feb 2018 to simplify mapping between HGNC IDs, HGNC symbols, Entrez Gene IDs, Ensembl Gene IDs, Pubmed IDs,and RefSeq IDs.
    * - Kaviar
      - The latest hg19- and hg38-based Kaviar_ databases are available.  Kaviar_ is a compilation of SNVs, indels, and complex variants observed in humans, designed to facilitate testing for the novelty and frequency of observed variants.
    * - liftOver_hg19_to_hg38
