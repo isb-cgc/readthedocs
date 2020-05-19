@@ -66,8 +66,9 @@ to tables with genomic-coordinate based data or tables that use other gene ident
    * - miRBase
      - * GRCh37: The human portion of version 20 of the miRBase_ database; including genomic coordinates for human microRNAs.  
        * GRCh38: The human portion of version 21 of the miRBase_ database; including genomic coordinates for human microRNAs.
+       * GRCh38: The human portion of version 22 of the miRBase_ database; including genomic coordinates for human microRNAs.
    * - miRTarBase
-     - The recently updated miRTarBase_ database (release 6.1)
+     - The updated miRTarBase_ database (release 6.1)
    * - Reactome
      - * Ensembl2Reactome
        * miRBase2Reactome
@@ -94,14 +95,14 @@ Illumina DNA Methylation array. The `platform_reference data set <https://consol
 .. list-table::
    :header-rows: 1 
    
-   * - Table
+   * - Program/Source
      - Description
-   * - HG38 DNA Methylation
-     - Most of the DNA Methylation data produced by the TCGA project was obtained using the Illumina Infinium HumanMethylation450 (aka 450k) BeadChip array.  Some of the earlier tumor types were assayed on the older, 27k array.
-   * - Illumina DNA Methylation Annotation
-     - Although additional details can be found at the `Illumina <https://www.illumina.com/>`_ webpage, platform annotation information has been uploaded into the BigQuery table ``isb-cgc.platform_reference.methylation_annotation``. Each CpG locus is uniquely identified as described in this `technical note <http://www.illumina.com/content/dam/illumina-marketing/documents/products/technotes/technote_cpg_loci_identification.pdf>`_ and this unique identifier can be used to look up and cross-reference data between the TCGA DNA methylation data table and the platform annotation table. 
-   * - DNA Methylation Annotation Liftover to HG38 Coordinates
-     - The original Illumina-provided CpG coordinates have been *"lifted over"* from hg19 to hg38.
+   * - GDC
+     - HG38 DNA Methylation - Most of the DNA Methylation data produced by the TCGA project was obtained using the Illumina Infinium HumanMethylation450 (aka 450k) BeadChip array.  Some of the earlier tumor types were assayed on the older, 27k array.
+   * - Infinium
+     -  `Illumina <https://www.illumina.com/>`_ DNA Methylation Annotation - Platform annotation information has been uploaded into BigQuery; each CpG locus is uniquely identified as described in this `technical note <http://www.illumina.com/content/dam/illumina-marketing/documents/products/technotes/technote_cpg_loci_identification.pdf>`_ and this unique identifier can be used to look up and cross-reference data between the TCGA DNA methylation data table and the platform annotation table. 
+   * - Cytoband/UCSC
+     - DNA Methylation Annotation Liftover to HG38 Coordinates - The original Illumina-provided CpG coordinates have been *"lifted over"* from hg19 to hg38.
      
      
 Genotype Tissue Expression (GTEx) Project Data
