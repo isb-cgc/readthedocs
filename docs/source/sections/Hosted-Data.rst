@@ -132,8 +132,21 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
 From Other Sources
 ~~~~~~~~~~~~~~~~~~
 
+.. list-table:: 
+   :header-rows: 1 
+   
+   * - Program
+     - GDC Google Cloud Storage
+     - ISB-CGC BigQuery Tables
+     - ISB-CGC Cohort Builder
+   * - `COSMIC <data/COSMIC_about.html>`_
+     - Yes
+     - No
+     - No
+
 .. toctree::
    :maxdepth: 1
+   :hidden:
    
    data/COSMIC_about
 
