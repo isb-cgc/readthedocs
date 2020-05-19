@@ -13,7 +13,7 @@ For additional details about each of these tables, please use the `BigQuery Tabl
 Genome Reference Data
 =====================
 
-Reference data that describes or annotates the human (or other) genome(s) is described in this section.  
+Reference data that describes or annotates the human or other genomes is described in this section.  
 Reference data hosted by the ISB-CGC in BigQuery tables are available in the ``isb-cgc.genome_reference`` 
 `data set <https://console.cloud.google.com/bigquery?p=isb-cgc&d=genome_reference&page=dataset>`_.  Tables based on 
 gene-sets such as Ensembl and GENCODE can be used to find the genomic coordinates and identifiers
@@ -23,8 +23,12 @@ to tables with genomic-coordinate based data or tables that use other gene ident
 .. list-table::
    :header-rows: 1 
    
-   * - Table
+   * - Program/Source
      - Description
+   * - ClinVar
+     - * `ClinVar <https://www.ncbi.nlm.nih.gov/clinvar/intro/>`_ contains reports of the relationships among human variations and phenotypes.
+       * GRCh37
+       * GRCh38
    * - Ensembl
      - * GRCh37: Release 75, the final build of the Ensembl_ gene-set mapped to GRCh37
        * GRCh38: Release 87, the most recent Ensembl_ gene-set mapped to GRCh38
@@ -33,6 +37,8 @@ to tables with genomic-coordinate based data or tables that use other gene ident
        * GRCh38: Releases 22, 23, and 24 from GENCODE_ are all available (because the TCGA data has been reprocessed by at least one center using each of these three different releases) 
    * - Gene Ontology Consortium
      - Tables based on GO_ annotations and the GO_ ontology.
+   * - Genome-Wide SNP Array
+     - The technical documentation for the Affymetrix Genome-Wide Human SNP Array 6.0 array can be found `here <http://www.affymetrix.com/catalog/131533/AFFY/Genome-Wide+Human+SNP+Array+6.0#1_3>`_.
    * - Kaviar
      - The latest hg19- and hg38-based Kaviar_ databases are available.  Kaviar_ is a compilation of SNVs, indels, and complex variants observed in humans, designed to facilitate testing for the novelty and frequency of observed variants.
    * - liftOver_hg19_to_hg38
@@ -45,9 +51,7 @@ to tables with genomic-coordinate based data or tables that use other gene ident
    * - Reactome
      - * Ensembl2Reactome
        * miRBase2Reactome
-   * - Genome-Wide SNP Array
-     - The technical documentation for the Affymetrix Genome-Wide Human SNP Array 6.0 array can be found `here <http://www.affymetrix.com/catalog/131533/AFFY/Genome-Wide+Human+SNP+Array+6.0#1_3>`_.
-    
+       
 
 .. _liftOver: https://genome.ucsc.edu/cgi-bin/hgLiftOver
 .. _GO: http://www.geneontology.org/
