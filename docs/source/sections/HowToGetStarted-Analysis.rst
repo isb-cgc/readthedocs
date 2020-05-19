@@ -44,7 +44,7 @@ information from thousands of patients in our curated BigQuery tables.
    * - **BigQuery Table Search User Interface**
         | *Learn more about ISB-CGC hosted BigQuery tables* 
      - * `ISB-CGC BigQuery Table Search Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQueryTableSearchUI.html>`_
-        | * `ISB-CGC BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_
+       * `ISB-CGC BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_
    * - **Google BigQuery Console**
         | *Use SQL to analyze and query ISB-CGC cancer data stored in Google’s cloud-based data warehouse* 
      - * `ISB-CGC BigQuery Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQuery.html>`_
