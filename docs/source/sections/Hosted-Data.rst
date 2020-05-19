@@ -142,8 +142,8 @@ From Other Sources
      - ISB-CGC BigQuery Tables
      - ISB-CGC Cohort Builder
    * - `COSMIC <data/COSMIC_about.html>`_
-     - No, the COSMIC database is maintained by the Wellcome Sanger Institute, UK
-     - Yes, COSMIC data is in BigQuery for registered users. Learn more about how to gain access to the COSMIC data `here <data/COSMIC_about.html>`_   
+     - No, the COSMIC database is maintained by the Wellcome Sanger Institute, UK. 
+     - Yes, COSMIC data is in BigQuery for registered users. Learn more about how to gain access to the COSMIC data `here <data/COSMIC_about.html>`_.   
      - No
 
 .. toctree::
