@@ -30,7 +30,8 @@ to tables with genomic-coordinate based data or tables that use other gene ident
        * GRCh37
        * GRCh38
    * - Cytoband/UCSC  
-     - Cytoband to Genomic Coordinate Conversion 
+     - * Cytoband to Genomic Coordinate Conversion
+       * liftOver_hg19_to_hg38 - This table provides a mapping of each hg19 position to the corresponding position in hg38, and can be used to perform a liftOver_ operation in BigQuery.
    * - dbSNP
      - * `dbSNP <https://www.ncbi.nlm.nih.gov/snp/>`_ contains human single nucleotide variations, microsatellites, and small-scale insertions and deletions along with publication, population frequency, molecular consequence, and genomic and RefSeq mapping information for both common variations and clinical mutations
        * B150 GRCH37P13
@@ -54,12 +55,14 @@ to tables with genomic-coordinate based data or tables that use other gene ident
        * ICD-10 Codes
        * ICD-O-3 Morphology
        * ICD-O-3 Site
+   * - Infinium   
+     - * Infinium EPIC HG19 and HG38 Manifests
+       * Infinium HM27 HG19 and HG38 Manifests
+       * Infinium HM450 HG19 and HG38 Manifests
    * - ISB-CGC
      - Gene Names Mapping: Data was loaded from multiple sources including NCBI, HGNC, ENSEMBL in Feb 2018 to simplify mapping between HGNC IDs, HGNC symbols, Entrez Gene IDs, Ensembl Gene IDs, Pubmed IDs,and RefSeq IDs.
    * - Kaviar
      - The latest hg19- and hg38-based Kaviar_ databases are available.  Kaviar_ is a compilation of SNVs, indels, and complex variants observed in humans, designed to facilitate testing for the novelty and frequency of observed variants.
-   * - liftOver_hg19_to_hg38
-     - This table provides a mapping of each hg19 position to the corresponding position in hg38, and can be used to perform a liftOver_ operation in BigQuery.
    * - miRBase
      - * GRCh37: The human portion of version 20 of the miRBase_ database; including genomic coordinates for human microRNAs.  
        * GRCh38: The human portion of version 21 of the miRBase_ database; including genomic coordinates for human microRNAs.
@@ -68,6 +71,9 @@ to tables with genomic-coordinate based data or tables that use other gene ident
    * - Reactome
      - * Ensembl2Reactome
        * miRBase2Reactome
+   * - UniProtKB
+     - * `UniProtKB <https://www.uniprot.org/help/uniprotkb>`_ is the central hub for the collection of functional information on proteins, with accurate, consistent and rich annotation.
+       * UniProtKB Mapping
        
 
 .. _liftOver: https://genome.ucsc.edu/cgi-bin/hgLiftOver
