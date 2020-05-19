@@ -130,6 +130,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
    data/VAREPOP_about
    data/WCDT_about
    
+   
 From Other Sources
 ~~~~~~~~~~~~~~~~~~
 
@@ -141,8 +142,8 @@ From Other Sources
      - ISB-CGC BigQuery Tables
      - ISB-CGC Cohort Builder
    * - `COSMIC <data/COSMIC_about.html>`_
-     - Yes
-     - No
+     - No, the COSMIC database is maintained by the Wellcome Sanger Institute, UK
+     - Yes, COSMIC data is in BigQuery for registered users. Learn more about how to gain access to the COSMIC data `here            <data/COSMIC_about.html>`_   
      - No
 
 .. toctree::
