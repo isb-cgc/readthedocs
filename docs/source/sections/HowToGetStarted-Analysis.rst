@@ -14,11 +14,11 @@ filter data from one or more public data sets (such as TCGA, CCLE, and TARGET), 
    :header-rows: 0 
 
    * - **Patient Cohort Data Explorer:**
-       *Create and explore cohorts of interest*
+         | *Create and explore cohorts of interest*
      - * `ISB-CGC Data Explorer Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DataExplorer.html>`_ 
        * `ISB-CGC Data Explorer <https://isb-cgc.appspot.com/cohorts/new_cohort/>`_ 
    * - **Interactive Pathology and Radiology Image Viewers:**  
-       *View images from cancer patients seamlessly using integrated image viewers*
+        | *View images from cancer patients seamlessly using integrated image viewers*
      - * `ISB-CGC Image Viewers Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/OsimisWebViewer.html>`_ 
    * - **Integrative Genomics Viewer (IGV):**
        *Explore and visualize genomic data*
