@@ -29,6 +29,12 @@ to tables with genomic-coordinate based data or tables that use other gene ident
      - * `ClinVar <https://www.ncbi.nlm.nih.gov/clinvar/intro/>`_ contains reports of the relationships among human variations and phenotypes.
        * GRCh37
        * GRCh38
+   * - Cytoband/UCSC  
+     - Cytoband to Genomic Coordinate Conversion 
+   * - dbSNP
+     - * `dbSNP <https://www.ncbi.nlm.nih.gov/snp/>`_ contains human single nucleotide variations, microsatellites, and small-scale insertions and deletions along with publication, population frequency, molecular consequence, and genomic and RefSeq mapping information for both common variations and clinical mutations
+       * B150 GRCH37P13
+       * B151 GRCH37P13
    * - Ensembl
      - * GRCh37: Release 75, the final build of the Ensembl_ gene-set mapped to GRCh37
        * GRCh38: Release 87, the most recent Ensembl_ gene-set mapped to GRCh38
