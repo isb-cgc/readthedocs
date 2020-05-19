@@ -33,7 +33,7 @@ A Google Cloud Project (GCP) is required to make use of all of the data, tools, 
  - To obtain access to the ISB-CGC open access project tables in BigQuery, users can link these tables to their GCP project as described `here <progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_.
  - To obtain access to the ISB-CGC controlled access project tables in BigQuery, users can link these tables to their GCP project as described `here <progapi/bigqueryGUI/LinkingISB-CGCtoCABQ.html>`_.
   
-**Access open-access Google Cloud Storage buckets**
+**Access open-access data**
 
  - All individual processed data files are accessible through GDC Google Cloud Storage buckets; ISB-CGC provides pointers to these files. Examples of how to find these URLs are in `this section <Hosted-Data.html>`_, on each Program's documentation page; these SQL queries can also be incorporated into notebooks or workflows.
 
