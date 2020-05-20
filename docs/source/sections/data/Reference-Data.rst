@@ -43,9 +43,9 @@ to tables with genomic-coordinate based data or tables that use other gene ident
      - * GRCh37: Release 19, the final build of the GENCODE_ gene-set mapped to GRCH37
        * GRCh38: Releases 22, 23, and 24 from GENCODE_ are all available (because the TCGA data has been reprocessed by at least one center using each of these three different releases) 
    * - Gene Ontology Consortium
-     - Tables based on GO_ annotations and the GO_ ontology.
+     - * Tables based on GO_ annotations and the GO_ ontology.
    * - Genome-Wide SNP Array
-     - The technical documentation for the Affymetrix Genome-Wide Human SNP Array 6.0 array can be found `here <http://www.affymetrix.com/catalog/131533/AFFY/Genome-Wide+Human+SNP+Array+6.0#1_3>`_.
+     - * The technical documentation for the Affymetrix Genome-Wide Human SNP Array 6.0 array can be found `here <http://www.affymetrix.com/catalog/131533/AFFY/Genome-Wide+Human+SNP+Array+6.0#1_3>`_.
    * - gnomAD  
      - * `gnomAD <https://gnomad.broadinstitute.org/>`_ aggregates and harmonizes both exome and genome sequencing data from a wide variety of large-scale sequencing projects.
        * GRCH37
@@ -60,15 +60,15 @@ to tables with genomic-coordinate based data or tables that use other gene ident
        * Infinium HM27 HG19 and HG38 Manifests
        * Infinium HM450 HG19 and HG38 Manifests
    * - ISB-CGC
-     - Gene Names Mapping: Data was loaded from multiple sources including NCBI, HGNC, ENSEMBL in Feb 2018 to simplify mapping between HGNC IDs, HGNC symbols, Entrez Gene IDs, Ensembl Gene IDs, Pubmed IDs,and RefSeq IDs.
+     - * Gene Names Mapping: Data was loaded from multiple sources including NCBI, HGNC, ENSEMBL in Feb 2018 to simplify mapping between HGNC IDs, HGNC symbols, Entrez Gene IDs, Ensembl Gene IDs, Pubmed IDs,and RefSeq IDs.
    * - Kaviar
-     - The latest hg19- and hg38-based Kaviar_ databases are available.  Kaviar_ is a compilation of SNVs, indels, and complex variants observed in humans, designed to facilitate testing for the novelty and frequency of observed variants.
+     - * The latest hg19- and hg38-based Kaviar_ databases are available.  Kaviar_ is a compilation of SNVs, indels, and complex variants observed in humans, designed to facilitate testing for the novelty and frequency of observed variants.
    * - miRBase
      - * GRCh37: The human portion of version 20 of the miRBase_ database; including genomic coordinates for human microRNAs.  
        * GRCh38: The human portion of version 21 of the miRBase_ database; including genomic coordinates for human microRNAs.
        * GRCh38: The human portion of version 22 of the miRBase_ database; including genomic coordinates for human microRNAs.
    * - miRTarBase
-     - The updated miRTarBase_ database (release 6.1)
+     - * The updated miRTarBase_ database (release 6.1)
    * - Reactome
      - * Ensembl2Reactome
        * miRBase2Reactome
@@ -98,11 +98,11 @@ Illumina DNA Methylation array. The `platform_reference data set <https://consol
    * - Program/Source
      - Description
    * - GDC
-     - HG38 DNA Methylation - Most of the DNA Methylation data produced by the TCGA project was obtained using the Illumina Infinium HumanMethylation450 (aka 450k) BeadChip array.  Some of the earlier tumor types were assayed on the older, 27k array.
+     - * HG38 DNA Methylation - Most of the DNA Methylation data produced by the TCGA project was obtained using the Illumina Infinium HumanMethylation450 (aka 450k) BeadChip array.  Some of the earlier tumor types were assayed on the older, 27k array.
    * - Infinium
-     -  `Illumina <https://www.illumina.com/>`_ DNA Methylation Annotation - Platform annotation information has been uploaded into BigQuery; each CpG locus is uniquely identified as described in this `technical note <http://www.illumina.com/content/dam/illumina-marketing/documents/products/technotes/technote_cpg_loci_identification.pdf>`_ and this unique identifier can be used to look up and cross-reference data between the TCGA DNA methylation data table and the platform annotation table. 
+     - * `Illumina <https://www.illumina.com/>`_ DNA Methylation Annotation - Platform annotation information has been uploaded into BigQuery; each CpG locus is uniquely identified as described in this `technical note <http://www.illumina.com/content/dam/illumina-marketing/documents/products/technotes/technote_cpg_loci_identification.pdf>`_ and this unique identifier can be used to look up and cross-reference data between the TCGA DNA methylation data table and the platform annotation table. 
    * - Cytoband/UCSC
-     - DNA Methylation Annotation Liftover to HG38 Coordinates - The original Illumina-provided CpG coordinates have been *"lifted over"* from hg19 to hg38.
+     - * DNA Methylation Annotation Liftover to HG38 Coordinates - The original Illumina-provided CpG coordinates have been *"lifted over"* from hg19 to hg38.
      
      
 Genotype Tissue Expression (GTEx) Project Data
