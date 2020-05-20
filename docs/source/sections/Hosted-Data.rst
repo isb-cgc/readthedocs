@@ -40,73 +40,75 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - ISB-CGC BigQuery Tables
      - ISB-CGC Cohort Builder
    * - `BEATAML <data/BEATAML_about.html>`_
-     - ``*``
+     - |checkmark|
      - 
      - 
    * - `CCLE <data/CCLE_top.html>`_
-     - ``*``
-     - ``*``
-     - ``*``
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
    * - `CGCI <data/CGCI_about.html>`_
-     - ``*``
+     - |checkmark|
      - 
      - 
    * - `CPTAC <data/CPTAC_about.html>`_
-     - ``*``
+     - |checkmark|
      - 
      - 
    * - `CTSP <data/CTSP_about.html>`_
-     - ``*``
+     - |checkmark|
      - 
      - 
    * - `FM <data/FM_about.html>`_
-     - ``*``
+     - |checkmark|
      - 
      - 
    * - `GENIE <data/GENIE_about.html>`_
-     - ``*``
+     - |checkmark|
      - 
      - 
    * - `HCMI <data/HCMI_about.html>`_
-     - ``*``
+     - |checkmark|
      - 
      - 
    * - `MMRF <data/MMRF_about.html>`_
-     - ``*``
+     - |checkmark|
      - 
      - 
    * - `NCICCR <data/NCICCR_about.html>`_
-     - ``*``
+     - |checkmark|
      - 
      - 
    * - `OHSU <data/OHSU_about.html>`_
-     - ``*``
+     - |checkmark|
      - 
      - 
    * - `ORGANOID <data/ORGANOID_about.html>`_
-     - ``*``
+     - |checkmark|
      - 
      - 
    * - `TARGET <data/TARGET_top.html>`_
-     - ``*``
-     - ``*``
-     - ``*``   
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|   
    * - `TCGA <data/TCGA_top.html>`_
-     - ``*``
-     - ``*``
-     - ``*``
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
    * - `TCGA Radiology and Pathology images from TCIA <data/TCGA-images.html>`_
-     - ``*``
-     - ``*``
-     - ``*``
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
    * - `VAREPOP <data/VAREPOP_about.html>`_
-     - ``*``
+     - |checkmark|
      - 
      - 
    * - `WCDT <data/WCDT_about.html>`_
-     - ``*``
+     - |checkmark|
      - 
      - 
+     
+.. |checkmark| image:: GreenCheckmark.png
 
 .. toctree::
    :maxdepth: 1
