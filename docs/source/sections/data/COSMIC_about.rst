@@ -21,19 +21,19 @@ Accessing the Catalog Of Somatic Mutations In Cancer Data
 
 You will need to link your Google identity with COSMIC to access BigQuery tables.
 
-Registered COSMIC user:
+1. `Register <https://cancer.sanger.ac.uk/cosmic/register>`_, agree to the Terms and Conditions, and supply a valid Google identity in the Google ID box
 
-* Navigate to the `your account <https://cancer.sanger.ac.uk/cosmic/myaccount>`_ page, then add a valid "Google identity" in the Google ID box
-  - If the Email Address that you initially used when registering for COSMIC is already a valid Google identity, you may simply reenter the same email address into the Google ID box
-  - If you are not sure whether your institutional (or other) email address is a Google identity, you can check by entering it in the Google `password-assistance page <https://accounts.google.com/ForgotPasswd>`_; or by asking your IT staff
+2. Navigate to the `your account <https://cancer.sanger.ac.uk/cosmic/myaccount>`_ page
 
-Not a registered COSMIC user:
-
-* first need to `register <https://cancer.sanger.ac.uk/cosmic/register>`_, agree to the Terms and Conditions, and supply a valid Google identity in the Google ID box
+3. Add a valid "Google identity" in the Google ID box
 
 Once you have completed these steps, ISB-CGC will obtain the Google identity that you provided and you will be given "viewer" access to the COSMIC tables in BigQuery.  You will also be added to an exploratory Google Cloud Platform (GCP) project called isb-cgc-cosmic which will allow you to run queries at no cost to you.
  
 A few important notes:
+
+* If the Email Address that you initially used when registering for COSMIC is already a valid Google identity, you may simply reenter the same email address into the Google ID box
+
+* If you are not sure whether your institutional (or other) email address is a Google identity, you can check by entering it in the Google `password-assistance page <https://accounts.google.com/ForgotPasswd>`_; or by asking your IT staff
 
 * If you are not sure what a "Google ID" is, it is the name associated with a  "Google account", this includes any Gmail address
 
