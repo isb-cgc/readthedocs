@@ -41,52 +41,52 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - ISB-CGC Cohort Builder
    * - `BEATAML <data/BEATAML_about.html>`_
      - **Yes**
-     - No
-     - No
+     - 
+     - 
    * - `CCLE <data/CCLE_top.html>`_
      - **Yes**
      - **Yes**
      - **Yes**
    * - `CGCI <data/CGCI_about.html>`_
      - **Yes**
-     - No
-     - No
+     - 
+     - 
    * - `CPTAC <data/CPTAC_about.html>`_
      - **Yes**
-     - No
-     - No
+     - 
+     - 
    * - `CTSP <data/CTSP_about.html>`_
      - **Yes**
-     - No
-     - No
+     - 
+     - 
    * - `FM <data/FM_about.html>`_
      - **Yes**
-     - No
-     - No
+     - 
+     - 
    * - `GENIE <data/GENIE_about.html>`_
      - **Yes**
-     - No
-     - No
+     - 
+     - 
    * - `HCMI <data/HCMI_about.html>`_
      - **Yes**
-     - No
-     - No
+     - 
+     - 
    * - `MMRF <data/MMRF_about.html>`_
-     - **Yes**
-     - No
-     - No
+     - ``*``
+     - 
+     - 
    * - `NCICCR <data/NCICCR_about.html>`_
-     - **Yes**
-     - No
-     - No
+     - &#x2713
+     - 
+     - 
    * - `OHSU <data/OHSU_about.html>`_
      - **Yes**
-     - No
-     - No
+     - 
+     - 
    * - `ORGANOID <data/ORGANOID_about.html>`_
      - **Yes**
-     - No
-     - No
+     - 
+     - 
    * - `TARGET <data/TARGET_top.html>`_
      - **Yes**
      - **Yes**
@@ -101,12 +101,12 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - **Yes**
    * - `VAREPOP <data/VAREPOP_about.html>`_
      - **Yes**
-     - No
-     - No
+     - 
+     - 
    * - `WCDT <data/WCDT_about.html>`_
      - **Yes**
-     - No
-     - No
+     - 
+     - 
 
 .. toctree::
    :maxdepth: 1
@@ -144,7 +144,7 @@ From Other Sources
    * - `COSMIC <data/COSMIC_about.html>`_
      - No, the COSMIC database is maintained by the Wellcome Sanger Institute, UK
      - Yes, COSMIC data is in BigQuery for registered users. Learn more about how to gain access to the COSMIC data `here <data/COSMIC_about.html>`_   
-     - No
+     - 
 
 .. toctree::
    :maxdepth: 1
