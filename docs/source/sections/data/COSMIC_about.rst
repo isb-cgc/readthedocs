@@ -21,7 +21,7 @@ Accessing the Catalog Of Somatic Mutations In Cancer Data
 
 You will need to link your Google identity with COSMIC to access BigQuery tables.
 
-1. `Register <https://cancer.sanger.ac.uk/cosmic/register>`_, agree to the Terms and Conditions, and supply a valid Google identity in the Google ID box
+1. `Register <https://cancer.sanger.ac.uk/cosmic/register>`_ for access to COSMIC data and agree to the Terms and Conditions
 
 2. Navigate to the `your account <https://cancer.sanger.ac.uk/cosmic/myaccount>`_ page
 
