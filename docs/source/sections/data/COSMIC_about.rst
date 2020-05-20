@@ -42,8 +42,6 @@ Notes
 
 * If you mistype your Google ID or enter a string that is not a valid Google ID, you will not be able to access the COSMIC tables in BigQuery
 
-  - Google IDs are not being automatically verified at this time, so please double-check that the Google ID you provided is correct
-
 * Please enter the 'base' name and avoid using an alias
 
   - *e.g.* the base account tb@mylab.org might have a longer-form alias like thomas.brown@mylab.org
