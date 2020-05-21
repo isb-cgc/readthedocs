@@ -34,8 +34,8 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
    
 .. list-table:: 
    :header-rows: 1 
-   :stub-columns: 3
-   :widths: 30 5 5 5
+   :stub-columns: 1
+   :widths: 25 5 5 5
   
    
    * - Program
