@@ -3,9 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-*****************************
+********
 ISB-CGC
-*****************************
+********
 
 *Democratizing access to cancer data in the cloud*
 
@@ -26,6 +26,7 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    sections/About-ISB-CGC
    sections/ExploringISB-CGC
    sections/HowToGetStartedonISB-CGC
+   sections/HowToGetStarted-Analysis
    sections/HowtoRequestCloudCredits
    sections/BestPractices
    sections/Benefits
@@ -35,14 +36,15 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    :maxdepth: 1
    :caption: USER GUIDE
    
-   sections/Hosted-Data
    sections/data/Mitelman_about
+   sections/Hosted-Data
+   sections/data/TCGA_Data_Security
+   sections/Gaining-Access-To-Controlled-Access-Data
    sections/BigQuery
    sections/BigQueryTableSearchUI
    sections/DataExplorer
    sections/Web-UI
    sections/progapi/progAPI-v4/Programmatic-Demo
-   sections/Gaining-Access-To-Controlled-Access-Data
    
 .. toctree::
    :hidden:
