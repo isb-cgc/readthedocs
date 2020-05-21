@@ -33,6 +33,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
    
    
 .. list-table:: 
+   :widths: 15 5 5 5
    :header-rows: 1 
    :stub-columns: 1
   
@@ -42,7 +43,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - ISB-CGC BigQuery Tables
      - ISB-CGC Cohort Builder
    * - `BEATAML <data/BEATAML_about.html>`_
-     - |checkmark|
+     - |checkmark| 
      - 
      - 
    * - `CCLE <data/CCLE_top.html>`_
