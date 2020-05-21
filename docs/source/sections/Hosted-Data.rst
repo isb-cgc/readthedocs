@@ -98,7 +98,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - |checkmark|
      - |checkmark|
      - |checkmark|
-   * - `TCGA Radiology and Pathology images from TCIA <data/TCGA-images.html>`_
+   * - `TCGA Pathology and Radiology images <data/TCGA-images.html>`_
      - |checkmark|
      - |checkmark|
      - |checkmark|
