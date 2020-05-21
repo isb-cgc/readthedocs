@@ -138,7 +138,8 @@ From Other Sources
 ~~~~~~~~~~~~~~~~~~
 
 .. list-table:: 
-   :header-rows: 1 
+   :header-rows: 1
+   :stub-columns: 1
    
    * - Program
      - GDC Google Cloud Storage
