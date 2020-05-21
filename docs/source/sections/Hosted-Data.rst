@@ -109,7 +109,9 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - 
      - 
      
-.. |checkmark| image:: GreenCheckmark.png
+.. |checkmark| image:: CheckMark.png
+    :width: 20pt
+    :height: 20pt
 
 .. toctree::
    :maxdepth: 1
