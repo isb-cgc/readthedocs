@@ -33,80 +33,86 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
    
    
 .. list-table:: 
+   :widths: 10 3 3 3
    :header-rows: 1 
+   :stub-columns: 1
+  
    
    * - Program
      - GDC Google Cloud Storage
      - ISB-CGC BigQuery Tables
      - ISB-CGC Cohort Builder
    * - `BEATAML <data/BEATAML_about.html>`_
-     - **Yes**
+     - |checkmark| 
      - 
      - 
    * - `CCLE <data/CCLE_top.html>`_
-     - **Yes**
-     - **Yes**
-     - **Yes**
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
    * - `CGCI <data/CGCI_about.html>`_
-     - **Yes**
+     - |checkmark|
      - 
      - 
    * - `CPTAC <data/CPTAC_about.html>`_
-     - **Yes**
+     - |checkmark|
      - 
      - 
    * - `CTSP <data/CTSP_about.html>`_
-     - **Yes**
+     - |checkmark|
      - 
      - 
    * - `FM <data/FM_about.html>`_
-     - **Yes**
+     - |checkmark|
      - 
      - 
    * - `GENIE <data/GENIE_about.html>`_
-     - **Yes**
+     - |checkmark|
      - 
      - 
    * - `HCMI <data/HCMI_about.html>`_
-     - **Yes**
+     - |checkmark|
      - 
      - 
    * - `MMRF <data/MMRF_about.html>`_
-     - **Yes**
+     - |checkmark|
      - 
      - 
    * - `NCICCR <data/NCICCR_about.html>`_
-     - **Yes**
+     - |checkmark|
      - 
      - 
    * - `OHSU <data/OHSU_about.html>`_
-     - **Yes**
+     - |checkmark|
      - 
      - 
    * - `ORGANOID <data/ORGANOID_about.html>`_
-     - **Yes**
+     - |checkmark|
      - 
      - 
    * - `TARGET <data/TARGET_top.html>`_
-     - **Yes**
-     - **Yes**
-     - **Yes**   
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|   
    * - `TCGA <data/TCGA_top.html>`_
-     - **Yes**
-     - **Yes**
-     - **Yes**
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
    * - `TCGA Radiology and Pathology images from TCIA <data/TCGA-images.html>`_
-     - **Yes**
-     - **Yes**
-     - **Yes**
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
    * - `VAREPOP <data/VAREPOP_about.html>`_
-     - **Yes**
+     - |checkmark|
      - 
      - 
    * - `WCDT <data/WCDT_about.html>`_
-     - **Yes**
+     - |checkmark|
      - 
      - 
+     
+.. |checkmark| image:: CheckMark.png 
+   
 
 .. toctree::
    :maxdepth: 1
@@ -135,15 +141,16 @@ From Other Sources
 ~~~~~~~~~~~~~~~~~~
 
 .. list-table:: 
-   :header-rows: 1 
+   :header-rows: 1
+   :stub-columns: 1
    
    * - Program
      - GDC Google Cloud Storage
      - ISB-CGC BigQuery Tables
      - ISB-CGC Cohort Builder
    * - `COSMIC <data/COSMIC_about.html>`_
-     - The COSMIC database is maintained by the Wellcome Sanger Institute, UK. 
-     - Yes, COSMIC data is in BigQuery for registered users. Learn more about how to gain access to the COSMIC data `here <data/COSMIC_about.html>`_.   
+     - No, the COSMIC database is maintained by the Wellcome Sanger Institute, UK
+     - Yes, COSMIC data is in BigQuery for registered users. Learn more about how to gain access to the COSMIC data `here <data/COSMIC_about.html>`_   
      - 
 
 .. toctree::
