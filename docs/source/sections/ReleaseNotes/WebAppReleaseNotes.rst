@@ -7,10 +7,13 @@ ISB-CGC WebApp Release Notes
 *May 27, 2020* `v1.25 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.25>`_
 
 **New Features**
--
+
+
 **Bug Fixes**
--
+
+
 **Known Issues**
+
 - The workbook zoom-out feature will cause text overlap in the y-axis panel of analysis.
 - Work is underway to rework our cohort creation page to better display images associated with samples.
 - The user data upload feature will return an error message stating, "Error submitting response : Could not connect to data upload server."
