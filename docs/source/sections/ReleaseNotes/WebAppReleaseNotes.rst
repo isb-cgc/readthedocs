@@ -12,6 +12,10 @@ ISB-CGC WebApp Release Notes
 
 - Modify opt-in form to have an "Ask me later" option.
 
+- Deleted obsolete pathology imaging buckets.
+
+-
+
 **Bug Fixes**
 
 - When writing and saving a comment in the cohort details or worksheet sections, the system displayed underlying code (such as escape characters) along with the text entered in the Comments panel. This has been corrected.
