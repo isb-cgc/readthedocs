@@ -11,6 +11,10 @@ ISB-CGC WebApp Release Notes
 
 **Bug Fixes**
 
+- When writing and saving a comment in the cohort details or worksheet sections, the system displayed underlying code (such as escape characters) along with the text entered in the Comments panel. This has been corrected.
+
+- Some data results were not displaying when working with OncoGrid due to it being unable to handle the amount of data being processed. This has been fixed.
+
 
 **Known Issues**
 
