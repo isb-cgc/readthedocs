@@ -4,6 +4,26 @@ ISB-CGC WebApp Release Notes
 
 **Please note:** Work is underway to rework our cohort creation page to better display images associated with samples.
 
+*May 27, 2020* `v1.25 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.25>`_
+
+**New Features**
+-
+**Bug Fixes**
+-
+**Known Issues**
+- The workbook zoom-out feature will cause text overlap in the y-axis panel of analysis.
+- Work is underway to rework our cohort creation page to better display images associated with samples.
+- The user data upload feature will return an error message stating, "Error submitting response : Could not connect to data upload server."
+- Analysis Type: Seq peek Formatting is Elongated on occasion.
+- If the user shares a Cohort, neither the owner nor the person who was granted access to the Cohort will receive a confirmation email when sharing a Cohort.
+- CCLE data cannot be plotted when working with workbooks. ISB-CGC will resolve this functionality after the GDC formally releases CCLE data.
+- When a user duplicates a Worksheet, then tries to implement the log scale, it will not function properly.
+- The set operation for existing Cohorts complement is behaving exceptionally slow.
+- The mouse-over feature is currently disabled for program TARGET with disease code ALL.
+- When uploading TARGET files using the cohort barcode creation feature from the GDC, you may get an invalid barcode error message and unable to upload all the barcodes.
+- On the File Browser page for Diagnostic images, there is no GDC file UUID associated with them.
+- Sharing a workbook with someone else will cause the analysis to reset.
+
 *April 16, 2020* `v1.24 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.24>`_
 
 **New Features**
