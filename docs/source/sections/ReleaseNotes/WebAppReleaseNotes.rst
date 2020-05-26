@@ -14,8 +14,6 @@ ISB-CGC WebApp Release Notes
 
 - Deleted obsolete pathology imaging buckets.
 
--
-
 **Bug Fixes**
 
 - When writing and saving a comment in the cohort details or worksheet sections, the system displayed underlying code (such as escape characters) along with the text entered in the Comments panel. This has been corrected.
@@ -28,11 +26,8 @@ ISB-CGC WebApp Release Notes
 
 - On the Create Cohorts - Filters page, when using the program TARGET with the filter Days to Birth, the Total Number of Cases and Total Number of Samples were not displaying. Also, the Save As New Cohort button was disabled. This has been corrected.
 
-- An error occurred when the user attempted to upload via the Upload feature. This problem has been resolved.
-
 **Known Issues**
 
-- The workbook zoom-out feature will cause text overlap in the y-axis panel of analysis.
 - Work is underway to rework our cohort creation page to better display images associated with samples.
 - The user data upload feature will return an error message stating, "Error submitting response : Could not connect to data upload server."
 - Analysis Type: Seq peek Formatting is Elongated on occasion.
