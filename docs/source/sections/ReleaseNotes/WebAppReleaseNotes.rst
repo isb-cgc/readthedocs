@@ -10,6 +10,8 @@ ISB-CGC WebApp Release Notes
 
 - Provide a link (https://isb-cgc.appspot.com/opt_in/form_reg_user/) to the opt-in page. The link will first prompt the user to login with their google ID (if they are not already logged in). After the login, the feedback page will open.
 
+- Modify opt-in form to have an "Ask me later" option.
+
 **Bug Fixes**
 
 - When writing and saving a comment in the cohort details or worksheet sections, the system displayed underlying code (such as escape characters) along with the text entered in the Comments panel. This has been corrected.
@@ -18,6 +20,9 @@ ISB-CGC WebApp Release Notes
 
 - All plotting components under the Plot settings should be disabled when user views a shared workbook; however, 'Plot by' and 'Plot as Log' were not. This has been fixed.
 
+- On analysis plots for workbooks, sometimes the y-axis tick marks would overlap the y-axis label when using the zoom out feature. this has been fixed. 
+
+- On the Create Cohorts - Filters page, when using the program TARGET with the filter Days to Birth, the Total Number of Cases and Total Number of Samples were not displaying. Also, the Save As New Cohort button was disabled. This has been corrected.
 
 
 
