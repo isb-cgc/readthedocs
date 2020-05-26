@@ -24,7 +24,7 @@ ISB-CGC WebApp Release Notes
 
 - On the Create Cohorts - Filters page, when using the program TARGET with the filter Days to Birth, the Total Number of Cases and Total Number of Samples were not displaying. Also, the Save As New Cohort button was disabled. This has been corrected.
 
-
+- An error occurred when the user attempted to upload via the Upload feature. This problem has been resolved.
 
 **Known Issues**
 
