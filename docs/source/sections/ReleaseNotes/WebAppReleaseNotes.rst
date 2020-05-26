@@ -8,12 +8,17 @@ ISB-CGC WebApp Release Notes
 
 **New Features**
 
+- Provide a link (https://isb-cgc.appspot.com/opt_in/form_reg_user/) to the opt-in page. The link will first prompt the user to login with their google ID (if they are not already logged in). After the login, the feedback page will open.
 
 **Bug Fixes**
 
 - When writing and saving a comment in the cohort details or worksheet sections, the system displayed underlying code (such as escape characters) along with the text entered in the Comments panel. This has been corrected.
 
 - Some data results were not displaying when working with OncoGrid due to it being unable to handle the amount of data being processed. This has been fixed.
+
+- All plotting components under the Plot settings should be disabled when user views a shared workbook; however, 'Plot by' and 'Plot as Log' were not. This has been fixed.
+
+
 
 
 **Known Issues**
