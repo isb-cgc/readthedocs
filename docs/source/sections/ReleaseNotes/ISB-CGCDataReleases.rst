@@ -4,11 +4,11 @@ ISB-CGC Data Release Notes
 
 *May 27, 2020*
 
-PanCancer tables were added to the isb-cgc project.
+PanCancer tables were added to the isb-cgc project. The Pan-Cancer Atlas tables include clinical, methylation, RPPA and copy number data.
 
 **BigQuery tables created**
 
-The following tables were created under the isb-cgc:pancer-altas data set
+The following tables were created under the isb-cgc:pancer-altas data set:
 
 - BarcodeMap
 - clinical_PANCAN_patient_with_followup
@@ -30,8 +30,6 @@ The following tables were created under the isb-cgc:pancer-altas data set
 - TCGA_CDR
 - TCGA_RPPA_pancan_clean
 - Whitelist_ParticipantBarcodes
-
-The Pan-Cancer Atlas tables includes clinical, methylation, RPPA and copy number data.
 
 *May 8, 2020*
 
