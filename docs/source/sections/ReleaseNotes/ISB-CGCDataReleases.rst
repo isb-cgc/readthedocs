@@ -9,6 +9,7 @@ PanCancer tables were added to the isb-cgc project.
 **BigQuery tables created**
 
 The following tables were created under the isb-cgc:pancer-altas data set
+
 - BarcodeMap
 - clinical_PANCAN_patient_with_followup
 - EBpp_AdjustPANCAN_IlluminaHiSeq_RNASeqV2_genExp
