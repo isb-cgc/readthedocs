@@ -8,26 +8,29 @@ PanCancer tables were added to the isb-cgc project.
 
 **BigQuery tables created**
 
-- isb-cgc:pancancer-altas.BarcodeMap
-- isb-cgc:pancancer_atlas.clinical_PANCAN_patient_with_followup
-- isb-cgc:pancancer_atlas.EBpp_AdjustPANCAN_IlluminaHiSeq_RNASeqV2_genExp
-- isb-cgc:pancancer_atlas.Filtered_all_CNVR_data_by_gene
-- isb-cgc:pancancer_atlas.Filtered_clinical_PANCAN_patient_with_followup
-- isb-cgc:pancancer_atlas.Filtered_EBpp_AdjustPANCAN_IlluminaHiSeq_RNASeqV2_genExp
-- isb-cgc:pancancer_atlas.Filtered_jhu_usc_edu_PANCAN_HumanMethylation27_betaValue_whitelisted
-- isb-cgc:pancancer_atlas.Filtered_jhu_usc_edu_PANCAN_HumanMethylation450_betaValue_whitelisted
-- isb-cgc:pancancer_atlas.Filtered_jhu_usc_edu_PANCAN_merged_HumanMethylation27_HumanMethylation450_betaValue_whitelisted
-- isb-cgc:pancancer_atlas.Filtered_MC3_MAF_V5_one_per_tumor_sample
-- isb-cgc:pancancer_atlas.Filtered_pancanMiRs_EBadjOnProtocolPlatformWithoutRepsWithUnCorrectMiRs_08_04_16
-- isb-cgc:pancancer_atlas.Filtered_TCGA_RPPA_pancan_clean
-- isb-cgc:pancancer_atlas.jhu_usc_edu_PANCAN_HumanMethylation27_betaValue_whitelisted
-- isb-cgc:pancancer_atlas.jhu_usc_edu_PANCAN_HumanMethylation450_betaValue_whitelisted
-- isb-cgc:pancancer_atlas.jhu_usc_edu_PANCAN_merged_HumanMethylation27_HumanMethylation450_betaValue_whitelisted
-- isb-cgc:pancancer_atlas.merged_sample_quality_annotations
-- isb-cgc:pancancer_atlas.pancanMiRs_EBadjOnProtocolPlatformWithoutRepsWithUnCorrectMiRs_08_04_16
-- isb-cgc:pancancer_atlas.TCGA_CDR
-- isb-cgc:pancancer_atlas.TCGA_RPPA_pancan_clean
-- isb-cgc:pancancer_atlas.Whitelist_ParticipantBarcodes
+The following tables were created under the isb-cgc:pancer-altas data set
+- BarcodeMap
+- clinical_PANCAN_patient_with_followup
+- EBpp_AdjustPANCAN_IlluminaHiSeq_RNASeqV2_genExp
+- Filtered_all_CNVR_data_by_gene
+- Filtered_clinical_PANCAN_patient_with_followup
+- Filtered_EBpp_AdjustPANCAN_IlluminaHiSeq_RNASeqV2_genExp
+- Filtered_jhu_usc_edu_PANCAN_HumanMethylation27_betaValue_whitelisted
+- Filtered_jhu_usc_edu_PANCAN_HumanMethylation450_betaValue_whitelisted
+- Filtered_jhu_usc_edu_PANCAN_merged_HumanMethylation27_HumanMethylation450_betaValue_whitelisted
+- Filtered_MC3_MAF_V5_one_per_tumor_sample
+- Filtered_pancanMiRs_EBadjOnProtocolPlatformWithoutRepsWithUnCorrectMiRs_08_04_16
+- Filtered_TCGA_RPPA_pancan_clean
+- jhu_usc_edu_PANCAN_HumanMethylation27_betaValue_whitelisted
+- jhu_usc_edu_PANCAN_HumanMethylation450_betaValue_whitelisted
+- jhu_usc_edu_PANCAN_merged_HumanMethylation27_HumanMethylation450_betaValue_whitelisted
+- merged_sample_quality_annotations
+- pancanMiRs_EBadjOnProtocolPlatformWithoutRepsWithUnCorrectMiRs_08_04_16
+- TCGA_CDR
+- TCGA_RPPA_pancan_clean
+- Whitelist_ParticipantBarcodes
+
+The Pan-Cancer Atlas tables includes clinical, methylation, RPPA and copy number data.
 
 *May 8, 2020*
 
