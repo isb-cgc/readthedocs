@@ -31,6 +31,35 @@ The following tables were created under the isb-cgc:pancer-altas data set:
 - TCGA_RPPA_pancan_clean
 - Whitelist_ParticipantBarcodes
 
+GDC data release 24.0 was released on May 7, 2020.
+
+**Updates to existing programs and projects**
+
+- 110 new cases were released from the HNSCC cohort of CPTAC-3. This includes WXS, WGS, RNA-Seq and miRNA-Seq data.
+ - Aliquot-level WXS MAFs are now available from the following projects: CPTAC-2 and CPTAC-3
+ 
+**BigQuery tables created**
+
+- isb-cgc:GDC_metadata.rel24_aliquot2caseIDmap
+- isb-cgc:GDC_metadata.rel24_caseData
+- isb-cgc:GDC_metadata.rel24_fileData_active
+- isb-cgc:GDC_metadata.rel24_fileData_legacy
+- isb-cgc:GDC_metadata.rel24_slide2caseIDmap
+
+**New programs and projects available in Google Cloud Storage**
+
+- New project released: CGCI-HTMCP-CC - HIV+ Tumor Molecular Characterization Project - Cervical Cancer
+ - RNA-Seq: Alignments and gene expression levels
+ - miRNA-Seq: Alignments and miRNA expression levels
+ - WGS: Alignments
+ - Targeted Sequencing: Alignments
+
+New data sets and RNA Sequence tables derived data tables added to isb-cgc.
+
+**BigQuery tables created**
+ - isb-cgc:BEATAML1_0.RNA_hg38_r19
+ - isb-cgc:ORGANOID.RNA_hg38_r18
+
 *May 8, 2020*
 
 GDC data release 23.0 was posted on April 7, 2020.
