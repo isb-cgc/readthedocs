@@ -14,7 +14,7 @@ Also on this page are links to the ISB-CGC BigQuery Table Search, Data Explorer,
 
 **IF YOUR SCREEN LOOKS LIKE THIS:** 
 
-You have successfully logged into ISB-CGC Web App! Please opt-in for updates provided by ISB-CGC. 
+You have successfully logged into ISB-CGC Web App! Please subscribe for updates provided by ISB-CGC. 
 
 .. image:: IfYourScreenLooksLikeThis.png
    :align: center
