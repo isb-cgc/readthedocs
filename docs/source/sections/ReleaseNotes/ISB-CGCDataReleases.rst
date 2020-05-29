@@ -2,11 +2,12 @@
 ISB-CGC Data Release Notes
 ############################
 
-* May 28, 2020*
+*May 28, 2020*
 
 New data sets and RNA Sequence tables derived data tables added to isb-cgc.
 
 **BigQuery tables created**
+ 
  - isb-cgc:TARGET.RNAseq_hg38_r22
 
 *May 27, 2020*
@@ -64,7 +65,8 @@ GDC data release 24.0 was released on May 7, 2020.
 New data sets and RNA Sequence tables derived data tables added to isb-cgc.
 
 **BigQuery tables created**
- - isb-cgc:BEATAML1_0.RNA_hg38_r19
+
+- isb-cgc:BEATAML1_0.RNA_hg38_r19
  - isb-cgc:ORGANOID.RNA_hg38_r18
 
 *May 8, 2020*
