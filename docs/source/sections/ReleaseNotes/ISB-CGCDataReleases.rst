@@ -2,6 +2,13 @@
 ISB-CGC Data Release Notes
 ############################
 
+* May 28, 2020*
+
+New data sets and RNA Sequence tables derived data tables added to isb-cgc.
+
+**BigQuery tables created**
+ - isb-cgc:TARGET.RNAseq_hg38_r22
+
 *May 27, 2020*
 
 PanCancer tables were added to the isb-cgc project. The Pan-Cancer Atlas tables include clinical, methylation, RPPA and copy number data.
