@@ -8,7 +8,7 @@ New data set and RNA Sequence table derived data tables added to isb-cgc.
 
 **BigQuery tables created**
  
- - isb-cgc:TARGET.RNAseq_hg38_r22
+- isb-cgc:TARGET.RNAseq_hg38_r22
 
 *May 27, 2020*
 
