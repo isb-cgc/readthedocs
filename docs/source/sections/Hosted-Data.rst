@@ -44,7 +44,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - ISB-CGC Cohort Builder
    * - `BEATAML <data/BEATAML_about.html>`_
      - |checkmark| 
-     - 
+     - |checkmark| *
      - 
    * - `CCLE <data/CCLE_top.html>`_
      - |checkmark|
@@ -88,7 +88,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - 
    * - `ORGANOID <data/ORGANOID_about.html>`_
      - |checkmark|
-     - 
+     - |checkmark| *
      - 
    * - `TARGET <data/TARGET_top.html>`_
      - |checkmark|
@@ -113,6 +113,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      
 .. |checkmark| image:: CheckMark.png 
    
+*RNA-seq data available
 
 .. toctree::
    :maxdepth: 1
@@ -152,7 +153,11 @@ From Other Sources
      - No, the COSMIC database is maintained by the Wellcome Sanger Institute, UK
      - Yes, COSMIC data is in BigQuery for registered users. Learn more about how to gain access to the COSMIC data `here <data/COSMIC_about.html>`_   
      - 
-
+   * - Pan-Cancer Atlas
+     - 
+     - |checkmark|
+     - 
+     
 .. toctree::
    :maxdepth: 1
    :hidden:
