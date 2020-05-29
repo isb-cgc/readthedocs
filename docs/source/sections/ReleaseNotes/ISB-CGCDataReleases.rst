@@ -4,7 +4,7 @@ ISB-CGC Data Release Notes
 
 *May 28, 2020*
 
-New data sets and RNA Sequence tables derived data tables added to isb-cgc.
+New data set and RNA Sequence table derived data tables added to isb-cgc.
 
 **BigQuery tables created**
  
