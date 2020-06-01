@@ -3,7 +3,7 @@ Statistical Notebooks
 *********************
 Integrated statistical analysis and exploration of multiple genomic and clinical data types provides researchers with a great possibility to expand our current knowledge of cancer. ISB-CGC offers a great source of diverse data types including gene expression, somatic mutations, clinical data, etc. We have developed a series of notebooks that use BigQuery to compute the statistical associations between different combinations of the data types available in ISB-CGC.
 
-Bioinformatic notebooks
+Bioinformatics notebooks
 =======================
 .. list-table:: 
    :widths: 100 10 10

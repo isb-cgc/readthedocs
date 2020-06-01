@@ -2,12 +2,12 @@
 Benefits of Using The Cloud
 ***************************
 
-Working in the cloud is exceptionally scalable and versatile, you only use as much as you need, whether that's in terms of storage space or processing cores. Cloud-based data is easily read by massively parallel processes, expediting results. When you're done, they disappear! You don't have idle resources sitting around collecting dust. 
+Working in the cloud is exceptionally scalable and versatile; you only use as much as you need, whether that's in terms of storage space or processing cores. Cloud-based data is easily read by massively parallel processes, expediting results. When you're done, resources disappear! You don't have idle resources sitting around collecting dust. 
 
-Don’t be intimidated by the cloud! Scale your analyses using the data on ISB-CGC. If you’ve conducted bioinformatics before using the command line or SQL, this will be just as easy (if not easier) and we are also here to help! Email feedback@isb-cgc.org or visit our `Community Notebooks page <HowTos.html>`_ for guides and tutorials.
+Don’t be intimidated by the cloud! Scale your analyses using the data on ISB-CGC. If you’ve conducted bioinformatics before using the command line or SQL, this will be just as easy (if not easier) and we are also here to help. Email feedback@isb-cgc.org or visit our `Community Notebooks page <HowTos.html>`_ for guides and tutorials.
 
 
-Most bioinformaticians today are most likely accustomed to using the high performance compute (HPC) resources provided by their institution to conduct high-throughput bioinformatics analyses. Here’s a breakdown on how the Google Cloud Platform compares to your institution’s HPC resources. 
+Most bioinformaticians today are likely accustomed to using the high performance compute (HPC) resources provided by their institution to conduct high-throughput bioinformatics analyses. Here’s a breakdown on how the Google Cloud Platform compares to your institution’s HPC resources. 
 
 +-----------+-------------------------------------+-----------------------------------------+
 |           | Your University's HPC Resource      | Google Cloud Platform                   |
@@ -48,18 +48,18 @@ Most bioinformaticians today are most likely accustomed to using the high perfor
 +-----------+-------------------------------------+-----------------------------------------+
 | Do you    | Yes                                 | No                                      |
 | have to   |                                     |                                         |
-| wait?     | - Resources are shared amongst users| - Once you've set up a Google Cloud     |
+| wait?     | - Resources are shared among users  | - Once you've set up a Google Cloud     |
 |           | - Scheduler systems used to schedule|   Platform account, you can spin up a   |
 |           |   jobs based on resource            |   virtual machine and begin computing   |
 |           |   availability                      |   quickly                               |
 +-----------+-------------------------------------+-----------------------------------------+
 | Is        | Yes and no, depends on what you're  | Compute resources and storage are       |
-| machine   | trying to do often it's a no        | unlimited but, you have to pay for it*  |
+| machine   | trying to do; often it's a no       | unlimited, but you have to pay for it*  |
 | powerful  |                                     |                                         |
 | enough?   |                                     |                                         |
 |           |                                     |                                         |
 +-----------+-------------------------------------+-----------------------------------------+
-| Accessing | Typically not stored on the HPC, you| Data is stored on the cloud             |
+| Accessing | Typically not stored on the HPC; you| Data is stored on the cloud             |
 | Cancer    | have to download to your local      |                                         |
 | Genomics  | machine                             |                                         |
 | Data      |                                     |                                         |
