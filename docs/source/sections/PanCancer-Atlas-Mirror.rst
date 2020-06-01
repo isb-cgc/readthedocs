@@ -4,8 +4,8 @@ PanCancer Atlas BigQuery Data
 
 `The PanCancer BigQuery Mirror <https://console.cloud.google.com/bigquery?project=isb-cgc&page=dataset&d=pancancer_atlas&p=isb-cgc&redirect_from_classic=true>`_ -- produced in
 collaboration with the `TCGA research network <https://cancergenome.nih.gov/>`_,
-the `GDC <https://gdc.cancer.gov/>`_, and the `NCI <https://www.cancer.gov/>`_ -- provides
-a new way to explore, analyze, and understand the processes driving cancer.
+the `GDC <https://gdc.cancer.gov/>`_, and the `NCI <https://www.cancer.gov/>`_ -- allows an integrated examination of the full set of tumors characterized in the robust TCGA dataset, thus providing a new way to explore and analyze the processes driving cancer.
+
 The availability of PanCancer Atlas data in BigQuery enables easy integration of this
 resource with other public datasets in BigQuery, including other
 open-access datasets made available by the ISB-CGC
