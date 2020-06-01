@@ -2,7 +2,7 @@
 PanCancer Atlas BigQuery Data
 *******************************
 
-`The PanCancer BigQuery Mirror <https://bigquery.cloud.google.com/dataset/isb-cgc:pancancer_atlas>`_ -- produced in
+`The PanCancer BigQuery Mirror <https://console.cloud.google.com/bigquery?project=isb-cgc&page=dataset&d=pancancer_atlas&p=isb-cgc&redirect_from_classic=true>`_ -- produced in
 collaboration with the `TCGA research network <https://cancergenome.nih.gov/>`_,
 the `GDC <https://gdc.cancer.gov/>`_, and the `NCI <https://www.cancer.gov/>`_ -- provides
 a new way to explore, analyze, and understand the processes driving cancer.
@@ -16,7 +16,7 @@ for more details on other publicly accessible BigQuery datasets).
 About
 #####
 
-The Google BigQuery tables (`here <https://bigquery.cloud.google.com/dataset/isb-cgc:pancancer_atlas>`_) mirror the files shared by the PanCancer Atlas initiative on the `GDC <https://gdc.cancer.gov/about-data/publications/pancanatlas>`_.
+The Google BigQuery tables (`here <https://console.cloud.google.com/bigquery?project=isb-cgc&page=dataset&d=pancancer_atlas&p=isb-cgc&redirect_from_classic=true>`_) mirror the files shared by the PanCancer Atlas initiative on the `GDC <https://gdc.cancer.gov/about-data/publications/pancanatlas>`_.
 
 The tables are generally unmodified uploads of the files in `GDC <https://gdc.cancer.gov/about-data/publications/pancanatlas>`_. The Filtered_* tables were annotated as appropriate with ParticipantBarcode, SampleBarcode, AliquotBarcode, SampleTypeLetterCode, SampleType and TCGA Study, subsequently the tables were filtered using the PanCancer Atlas whitelist. Two exceptions are the (public) *MC3 MAF file* and the *TCGA-CDR resource*, recommended for outcome data. 
 
@@ -75,7 +75,7 @@ Interactive Web-based Exploration
 Ready to query? Great! follow the steps below to run your first BigQuery!
 
 * `login <https://accounts.google.com/Login>`_ to your Google account (`Chrome <https://www.google.com/chrome/browser/desktop/index.html>`_ is the preferred browser);
-* go to the `BigQuery web UI <https://console.cloud.google.com/bigquery?p=pancancer_atlas&page=isb-cgc>`_  --  if you see a welcome screen inviting you to **Create a Project** then please do so.
+* go to the `BigQuery web UI <https://console.cloud.google.com/bigquery?project=isb-cgc&page=dataset&d=pancancer_atlas&p=isb-cgc&redirect_from_classic=true>`_  --  if you see a welcome screen inviting you to **Create a Project** then please do so.
 
 Let's query using the MC3 somatic mutation table.
 
