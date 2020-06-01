@@ -52,7 +52,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'ISB Cancer Genomics Cloud'
-copyright = u'2015-2019, the ISB-CGC team'
+copyright = u'2015-2020, the ISB-CGC team'
 author = u'the ISB-CGC team'
 
 # The version info for the project you're documenting, acts as replacement for

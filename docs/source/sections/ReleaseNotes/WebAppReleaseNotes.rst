@@ -2,28 +2,59 @@
 ISB-CGC WebApp Release Notes
 #############################
 
-**Please note:** Work is underway to rework our cohort creation page to better display images associated with samples.
+*May 27, 2020* `v1.25 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.25>`_
+
+**New Features**
+
+- Modify the opt-in (subscription) form to have an "Ask me later" option.
+
+- Provide a link (https://isb-cgc.appspot.com/opt_in/form_reg_user/) to the opt-in page. The link will first prompt the user to login with their google ID (if they are not already logged in). After the login, the feedback page will open.
+
+**Bug Fixes**
+
+- When writing and saving a comment in the cohort details or worksheet sections, the system displayed underlying code (such as escape characters) along with the text entered in the Comments panel. This has been corrected.
+
+- Some data results were not displaying when working with OncoGrid due to it being unable to handle the amount of data being processed. This has been fixed.
+
+- All plotting components under the Plot settings should be disabled when user views a shared workbook; however, 'Plot by' and 'Plot as Log' were not. This has been fixed.
+
+- On analysis plots for workbooks, sometimes the y-axis tick marks would overlap the y-axis label when using the zoom out feature. This has been fixed. 
+
+- On the Create Cohorts - Filters page, when using the program TARGET with the filter Days to Birth, the Total Number of Cases and Total Number of Samples were not displaying. Also, the Save As New Cohort button was disabled. This has been corrected.
+
+**Known Issues**
+
+- Work is underway to rework our cohort creation page to better display images associated with samples.
+- The user data upload feature will return an error message stating, "Error submitting response : Could not connect to data upload server."
+- Analysis Type: Seq peek Formatting is Elongated on occasion.
+- If the user shares a Cohort, neither the owner nor the person who was granted access to the Cohort will receive a confirmation email when sharing a Cohort.
+- CCLE data cannot be plotted when working with workbooks. ISB-CGC will resolve this functionality after the GDC formally releases CCLE data.
+- When a user duplicates a Worksheet, then tries to implement the log scale, it will not function properly.
+- The set operation for existing Cohorts complement is behaving exceptionally slow.
+- The mouse-over feature is currently disabled for program TARGET with disease code ALL.
+- When uploading TARGET files using the cohort barcode creation feature from the GDC, you may get an invalid barcode error message and unable to upload all the barcodes.
+- On the File Browser page for Diagnostic images, there is no GDC file UUID associated with them.
+- Sharing a workbook with someone else will cause the analysis to reset.
 
 *April 16, 2020* `v1.24 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.24>`_
 
 **New Features**
 
-- The cohort creation by filter builder can now accessible without having to log in to ISB-CGC.
-- All lists are now paginated.
-- When using a workbook, an interactive to complete analysis is now available.
+- The Cohort Creation by Filter builder is now accessible without having to log in to ISB-CGC.
+- The Cohort, Workbooks, and Gene and Variable Favorites lists are now paginated to display 10 to 15 records at a time.
+- The 'To complete this analysis' section on the workbook creation page has changed from a checklist to an interactive tool. After each step is completed, its icon changes from an orange arrow to a green checkmark.
+- A link 'Learn more about our available Analyses' was added next to the Analysis Type selection field. Clicking on this link opens up a screen with a detailed explanation of all the analysis options. 
 
 **Bug Fixes**
 
-- On the File Browser, the search by case ID filter on the Radiology tab has been fixed. 
-- How to cite us text has been updated to reflect the entire platform. 
-- When working with a workbook, the zoom-out feature is now working as expected. 
-- When using a workbook, an info icon was added for a detailed explanation of all analyses options. 
-- The user data upload functionality was fixed. 
+- On the File Browser, the search by CASE filter on the Radiology Images tab has been fixed. 
+- 'How to Cite Us' text on the Home page has been updated to reflect the entire ISB-CGC platform. 
+- When using a workbook, if you completely zoomed out of a plot, the chart was being reduced to half of the screen. This has been corrected.
 
 **Known Issues**
 
-- The workbook zoom-out feature will cause text overlap in the y-axis panel of analysis.
 - Work is underway to rework our cohort creation page to better display images associated with samples.
+- The workbook zoom-out feature will cause text overlap in the y-axis panel of analysis.
 - The user data upload feature will return an error message stating, "Error submitting response : Could not connect to data upload server."
 - Analysis Type: Seq peek Formatting is Elongated on occasion.
 - If the user shares a Cohort, neither the owner nor the person who was granted access to the Cohort will receive a confirmation email when sharing a Cohort.

@@ -40,6 +40,9 @@ I'm a novice, how do I...
    * - How do I create a complex cohort?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_create_a_complex_cohort.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_create_a_complex_cohort.md>`_
+   * - How do I join multiple tables?
+     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_complex_joins.ipynb>`_
+     -
    * - How do I convert a .bam file to a .fastq file with samtools?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_convert_bams_to_fastq_with_samtools.ipynb>`_
      - 

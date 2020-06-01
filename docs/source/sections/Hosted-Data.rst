@@ -2,18 +2,122 @@
 Programs and Data Sets
 **********************
 
-Between the ISB-CGC and the Genomic Data Commons (GDC), there are many cancer data sets available on the Google Cloud Platform. ISB-CGC hosts some high-level clinical, biospecimen and molecular data in a series of carefully curated datasets and tables in BigQuery and radiology and pathology images in Google Cloud Storage. The GDC hosts several more data sets that include low-level sequencing data.
+The National Cancer Institute (NCI) `Genomic Data Commons <https://gdc.cancer.gov/>`_ (GDC) provides the cancer research community with a unified data repository that enables data sharing across cancer genomic studies (known as Programs) in support of precision medicine. For more information about the GDC, see the `GDC Overview <data/GDC_top.html>`_.
 
-The ISB-CGC started with The Cancer Genome Atlas (TCGA) data sets but has expanded to include other data sets from programs such as Therapeutically Applicable Research To Generate Effective Treatments (TARGET) program. Accompanying the NCI data sets, ISB-CGC hosts several data sets from programs such as Catalogue Of Somatic Mutations In Cancer (COSMIC) from the `Wellcome Trust Sanger Institute <http://www.sanger.ac.uk/>`_. We are always interested in adding new data sets, so if you have any suggestions or requests for additional data, please let us know (feedback@isb-cgc.org).
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   
+   data/GDC_top
 
-Data Sets
----------
+Between ISB-CGC and the NCI GDC, there are many cancer data sets available on the Google Cloud Platform. ISB-CGC hosts some carefully curated, high-level clinical, biospecimen and molecular data sets and tables in Google BigQuery as well as radiology and pathology images in Google Cloud Storage. The GDC hosts several more data sets that include low-level sequencing data.
+
+The ISB-CGC started with The Cancer Genome Atlas (TCGA) data sets but has expanded to include other data sets from programs such as Therapeutically Applicable Research To Generate Effective Treatments (TARGET). Along with the NCI GDC data sets, ISB-CGC hosts data sets from programs such as Catalogue Of Somatic Mutations In Cancer (COSMIC) from the `Wellcome Trust Sanger Institute <http://www.sanger.ac.uk/>`_. We are always interested in adding new data sets, so if you have any suggestions or requests for additional data, please let us know (feedback@isb-cgc.org).
+
+Clinical, Biospecimen and Processed -Omics Data Sets
+----------------------------------------------------
 
 From Genomic Data Commons
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. figure:: omicsData.png
+    :align: right
+    :figwidth: 300px
+
+
+Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are available in the GDC Cloud Storage buckets, in ISB-CGC BigQuery tables and through ISB-CGC web tools. The table below lists each Program and where (through ISB-CGC) that you can find its data. 
+
+- Within the detailed documentation on each Program (click on the Program name), there is an example of how to use the metadata stored in ISB-CGC BigQuery tables to locate the Program's files on the GDC Google Cloud Storage buckets. 
+- To learn more about using this data with ISB-CGC web tools, go to the ISB-CGC Web Interface section of this document.
+- To locate these tables in the ISB-CGC BigQuery project, use the ISB-CGC BigQuery Table Search.
+   
+   
+.. list-table:: 
+   :widths: 10 3 3 3
+   :header-rows: 1 
+   :stub-columns: 1
+  
+   
+   * - Program
+     - GDC Google Cloud Storage
+     - ISB-CGC BigQuery Tables
+     - ISB-CGC Cohort Builder
+   * - `BEATAML <data/BEATAML_about.html>`_
+     - |checkmark| 
+     - |checkmark| *
+     - 
+   * - `CCLE <data/CCLE_top.html>`_
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+   * - `CGCI <data/CGCI_about.html>`_
+     - |checkmark|
+     - 
+     - 
+   * - `CPTAC <data/CPTAC_about.html>`_
+     - |checkmark|
+     - 
+     - 
+   * - `CTSP <data/CTSP_about.html>`_
+     - |checkmark|
+     - 
+     - 
+   * - `FM <data/FM_about.html>`_
+     - |checkmark|
+     - 
+     - 
+   * - `GENIE <data/GENIE_about.html>`_
+     - |checkmark|
+     - 
+     - 
+   * - `HCMI <data/HCMI_about.html>`_
+     - |checkmark|
+     - 
+     - 
+   * - `MMRF <data/MMRF_about.html>`_
+     - |checkmark|
+     - 
+     - 
+   * - `NCICCR <data/NCICCR_about.html>`_
+     - |checkmark|
+     - 
+     - 
+   * - `OHSU <data/OHSU_about.html>`_
+     - |checkmark|
+     - 
+     - 
+   * - `ORGANOID <data/ORGANOID_about.html>`_
+     - |checkmark|
+     - |checkmark| *
+     - 
+   * - `TARGET <data/TARGET_top.html>`_
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|   
+   * - `TCGA <data/TCGA_top.html>`_
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+   * - `TCGA Pathology and Radiology images <data/TCGA-images.html>`_
+     - |checkmark|
+     - |checkmark|
+     - |checkmark|
+   * - `VAREPOP <data/VAREPOP_about.html>`_
+     - |checkmark|
+     - 
+     - 
+   * - `WCDT <data/WCDT_about.html>`_
+     - |checkmark|
+     - 
+     - 
+     
+.. |checkmark| image:: CheckMark.png 
+   
+*RNA-seq data available
+
 .. toctree::
    :maxdepth: 1
+   :hidden:
    
    data/BEATAML_about
    data/CCLE_top
@@ -32,57 +136,52 @@ From Genomic Data Commons
    data/TCGA-images
    data/VAREPOP_about
    data/WCDT_about
-
+   
+   
 From Other Sources
 ~~~~~~~~~~~~~~~~~~
 
+.. list-table:: 
+   :header-rows: 1
+   :stub-columns: 1
+   
+   * - Program
+     - GDC Google Cloud Storage
+     - ISB-CGC BigQuery Tables
+     - ISB-CGC Cohort Builder
+   * - `COSMIC <data/COSMIC_about.html>`_
+     - No, the COSMIC database is maintained by the Wellcome Sanger Institute, UK
+     - Yes, COSMIC data is in BigQuery for registered users. Learn more about how to gain access to the COSMIC data `here <data/COSMIC_about.html>`_   
+     - 
+   * - Pan-Cancer Atlas
+     - 
+     - |checkmark|
+     - 
+     
 .. toctree::
    :maxdepth: 1
+   :hidden:
    
    data/COSMIC_about
-
-NCI Genomic Data Commons
-------------------------
-
-The NCI’s `Genomic Data Commons <https://gdc.cancer.gov/>`_ (GDC) provides the cancer research community with a unified data repository that enables data sharing across cancer genomic studies in support of precision medicine.
-
-.. toctree::
-   :maxdepth: 1
-   
-   data/GDC_top
 
 Reference Data Sets
 -------------------
 
-ISB-CGC hosts a series of reference tables in BigQuery with information that describes or annotates the human (or other) genome(s) or is necessary to work with data generated by specific platforms.
+ISB-CGC hosts `reference tables <data/Reference-Data.html>`_  in BigQuery with information that describes or annotates human or other genomes, or is necessary to work with data generated by specific platforms.
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
    
    data/Reference-Data
-
-Storage Platforms
-----------------
-As part of its mission, the ISB-CGC has been exploring the best ways to use available cloud technologies to provide access to the data. To this end, the data is made available using these Google Cloud Platform technologies:
-
-Google BigQuery
-~~~~~~~~~~~~~~~~
-`Google BigQuery <https://cloud.google.com/bigquery/>`_ (BQ) is a massively-parallel analytics engine that is ideal for working with data that is essentially tabular in nature. This includes the high-level clinical, biospecimen, and molecular data from the main NCI programs. It is also where we store a large amount of metadata about files that are more appropriately stored in Google Cloud Storage, as well as genome reference sources (*e.g.* GENCODE, miRBase, *etc.*). All of these datasets and tables are completely *open access* and available to the research community.
-
-Google Cloud Storage
-~~~~~~~~~~~~~~~~~~~~
-`Google Cloud Storage <https://cloud.google.com/storage/>`_ (GCS) is a cloud-based object-store that is used to store other types of (typically binary) data which is typically processed by custom software pipelines. The data hosted by GDC is contained within Google Cloud Storage.
-
-Security and Access
--------------------
-
-It is recommended that you review important information about data security and data access.
+   
+File Metadata Data Sets
+------------------------
+ISB-CGC hosts `metadata tables <data/FileMetadata.html>`_ in BigQuery with information that points to the raw and processed cancer data in the NCI GDC Google Cloud Storage buckets.
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
    
-   data/TCGA_Data_Security
+   data/FileMetadata
    
-**A note about legacy and harmonized data sets**
-
-Programs like TCGA that predate the Genomic Data Commons will have both legacy data sets (data as originally generated by the program) and harmonized data sets created by the Genomic Data Commons.  While these data sets do have much in common, as part of the GDC harmonization process several changes can occur including removal or addition of cases and samples or changes in terminology.  One of the goals of the ISB-CGC is to stay current with changes introduced by GDC and therefore you may find differences between legacy data and harmonized data.
