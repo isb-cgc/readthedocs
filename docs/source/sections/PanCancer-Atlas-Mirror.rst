@@ -49,30 +49,19 @@ Additional projects with public BigQuery datasets which you may want to explore 
 the same process will add these to your BigQuery side-panel) include genomics-public-data and
 google.com:biggene.
 
-Troubleshooting
-###############
-
-After going through the registration process described above, there will be a short
-delay before your Google identity is granted the necessary access to BigQuery and the PanCancer Atlas
-data resources.  If you get an error when running the sample query in this section, please
-wait 10-15 minutes and then try again. If you are still not successful, please
-`verify <https://accounts.google.com/ForgotPasswd>`_
-that the Google ID you have provided is a valid Google account.  If you are still not able
-to run the sample query given below, please contact us at feedback@isb-cgc.org.
-
 
 Interactive Web-based Exploration
 #################################
 
-Ready to query? Great! follow the steps below to run your first BigQuery!
+Ready to query? Great! follow the steps below to run your first BigQuery! More detailas `here <https://cloud.google.com/bigquery/docs/quickstarts/quickstart-web-ui>`_
 
 * `login <https://accounts.google.com/Login>`_ to your Google account (`Chrome <https://www.google.com/chrome/browser/desktop/index.html>`_ is the preferred browser);
 * go to the `BigQuery web UI <https://console.cloud.google.com/bigquery?project=isb-cgc&page=dataset&d=pancancer_atlas&p=isb-cgc&redirect_from_classic=true>`_  --  if you see a welcome screen inviting you to **Create a Project** then please do so.
 
 Let's query using the MC3 somatic mutation table.
 
-* click on the big red **COMPOSE NEW QUERY** button in the upper left corner;
-* paste the sample query below into the New Query text-box, the following `link<https://cloud.google.com/bigquery/docs/quickstarts/quickstart-web-ui>`_ describe how to run queries in Google BigQuery;
+* click on **COMPOSE NEW QUERY** button;
+* paste the sample query below into the text-box. 
 * within a second or two you should see a green circle with a check-mark below the lower-right-corner of the New Query text-box  --  if instead you see a red circle with an exclamation mark, click on it to see what your Syntax Error is;
 * once you do have the green circle, you can click on it to see a message like: "Valid: This query will process 76.3 MB when run."
 * to execute the query, click on **RUN** !
@@ -110,3 +99,15 @@ Let's query using the MC3 somatic mutation table.
     AND HGVSc is not null
  ORDER BY
     ratio DESC
+
+
+Troubleshooting
+###############
+
+After going through the registration process described above, there will be a short
+delay before your Google identity is granted the necessary access to BigQuery and the PanCancer Atlas
+data resources.  If you get an error when running the sample query in this section, please
+wait 10-15 minutes and then try again. If you are still not successful, please
+`verify <https://accounts.google.com/ForgotPasswd>`_
+that the Google ID you have provided is a valid Google account.  If you are still not able
+to run the sample query given below, please contact us at feedback@isb-cgc.org.
