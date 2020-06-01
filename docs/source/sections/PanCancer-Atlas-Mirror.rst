@@ -49,14 +49,6 @@ Additional projects with public BigQuery datasets which you may want to explore 
 the same process will add these to your BigQuery side-panel) include genomics-public-data and
 google.com:biggene.
 
-Consider the ``isb-cgc:genomic_reference.SwissProt`` table;
-a complete BigQuery table name has three components:
-
-   * the first part of the name (isb-cgc) is the Google Cloud Platform (GCP) project name;
-   * the second part (genomic_reference) is the dataset name; and
-   * the third part (SwissProt) is the table name.
-
-
 Troubleshooting
 ###############
 
