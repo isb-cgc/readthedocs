@@ -80,7 +80,7 @@ Ready to query? Great! follow the steps below to run your first BigQuery!
 Let's query using the MC3 somatic mutation table.
 
 * click on the big red **COMPOSE NEW QUERY** button in the upper left corner;
-* paste the sample query below into the New Query text-box, the following `link <https://console.cloud.google.com/bigquery?p=pancancer_atlas&page=isb-cgc>`_ describe how to run queries in Google BigQuery;
+* paste the sample query below into the New Query text-box, the following `link<https://cloud.google.com/bigquery/docs/quickstarts/quickstart-web-ui>`_ describe how to run queries in Google BigQuery;
 * within a second or two you should see a green circle with a check-mark below the lower-right-corner of the New Query text-box  --  if instead you see a red circle with an exclamation mark, click on it to see what your Syntax Error is;
 * once you do have the green circle, you can click on it to see a message like: "Valid: This query will process 76.3 MB when run."
 * to execute the query, click on **RUN** !
