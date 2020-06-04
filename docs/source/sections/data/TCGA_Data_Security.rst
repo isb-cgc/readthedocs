@@ -36,7 +36,7 @@ Additionally, they must:
 *  Protect data confidentiality (any data which has been designated "controlled" **must** be protected accordingly, unless prior release authorization is obtained from an NCI data custodian)
 *  Ensure that appropriate data security measures are in place
 
-**Google Clould Platform and Access Control** 
+**Google Cloud Platform and Access Control** 
 
 In the context of Google Cloud Platform (GCP) projects, it is important to realize that all members of a GCP project must have at least read access to all data stored within that project, as well as to all virtual machines, boot disks, and persistent disks attached to that project. 
 
