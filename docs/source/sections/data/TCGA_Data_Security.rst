@@ -9,9 +9,8 @@ Understanding Data Access Levels
 * **Open-Access Data**  Depending on how you categorize the data, *most* of the TCGA data is open-access data.  This includes all de-identified clinical and biospecimen data, as well as all Level-3 molecular data including gene expression data, DNA methylation data, DNA copy-number data, protein expression data, somatic mutation calls, etc. 
 * **Controlled-Access Data**  All low-level sequence data (both DNA-seq and RNA-seq), the raw SNP array data (CEL files), germline mutation calls, and a small amount of other data are treated as *controlled* data and require that a user is properly authenticated and have dbGaP authorization prior to accessing these data.
 
-Note that many public, open-access datasets may still be **restricted** in various ways.  Typically, a **License** document containing explicit terms of use will be associated with each dataset.  Some institutions have their own licenses, though many uses one of the `Creative Commons <https://creativecommons.org/>`_ licenses.  License terms apply to both data and source-code, so please be aware of the terms of a license whenever you plan to reuse data or source code produced by someone else.
+Note that many public, open-access datasets may still be **restricted** in various ways.  Typically, a **License** document containing explicit terms of use will be associated with each dataset.  Some institutions have their own licenses, though many uses one of the `Creative Commons <https://creativecommons.org/>`_ licenses.  License terms apply to both data and source-code, so please be aware of the terms of a license whenever you plan to reuse data or source code produced by someone else. We  recommend that you review the `TCGA Publication Guidelines <https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/using-tcga/citing-tcga>`_.
 
-In the earlier days of the TCGA data, although the data was made public as quickly as possible, it was generally under **embargo** for some period of time, to allow the TCGA analysis working groups to produce the initial "marker paper" for each tumor type.  Now that the TCGA project is nearing completion, none of the TCGA data is under embargo anymore, but we still recommend that you review the `TCGA Publication Guidelines <https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/using-tcga/citing-tcga>`_.
 
 Understanding Data Security
 ---------------------------
@@ -37,13 +36,15 @@ Additionally, they must:
 *  Protect data confidentiality (any data which has been designated "controlled" **must** be protected accordingly, unless prior release authorization is obtained from an NCI data custodian)
 *  Ensure that appropriate data security measures are in place
 
-In the context of Google Cloud Platform (GCP) projects, it is important to realize that all members of a GCP project have (at least) read access
-to all data stored within that project, as well as to all virtual machines, boot disks, and persistent disks attached to that project.
-Therefore, if a PI establishes a GCP project (project-A) for the purposes of analyzing controlled data (*eg* performing mutation analysis on TCGA sequence
-data), then *all* members of project-A must be authorized to view controlled data.  The outputs of certain analyses performed on controlled data,
-if they are summary in nature, may no longer be controlled data and could be copied to a second GCP project (project-B) for further downstream
-analyses by researchers who are not authorized to view controlled data.  Researchers who are not authorized to view controlled data could be made
-members of project-B, while users who *are* authorized could be members of both project-A *and* project-B.
+**Google Clould Platform and Access Control** 
+
+In the context of Google Cloud Platform (GCP) projects, it is important to realize that all members of a GCP project must have at least read access to all data stored within that project, as well as to all virtual machines, boot disks, and persistent disks attached to that project. 
+
+Therefore, if a principle investigator (PI) establishes a GCP project (project-A) for the purposes of analyzing controlled data (*eg* performing mutation analysis on TCGA sequence data), then:
+
+- *All* members of project-A must be authorized to view controlled data.  
+- The outputs of certain analyses performed on controlled data, if they are summary in nature, may no longer be controlled data and could be copied to a second GCP project (project-B) for further downstream analyses by researchers who are not authorized to view controlled data.  
+- Researchers who are not authorized to view controlled data could be made members of project-B, while users who *are* authorized could be members of both project-A *and* project-B.
 
 **Your Responsibilities** 
 
@@ -56,5 +57,4 @@ own institution.  Your responsibilities regarding the appropriate use of the dat
 For more information, please refer to the
 `NIH Security Best Practices for Controlled-Access Data <http://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/GetPdf.cgi?document_name=dbgap_2b_security_procedures.pdf>`_.  
 
-*"The Investigator and their associated institution assume the responsibility for the security of the dbGaP data.  As such, NIH has tried to provide as much information as possible for PIs, institutional signing officials (SOs) and the IT staff who will be supporting these projects, to make sure they understand their responsibilities."* (Ref: `The Cloud, dbGaP and the NIH <http://datascience.nih.gov/blog/cloud>`_ blog post 03.27.2015)
 
