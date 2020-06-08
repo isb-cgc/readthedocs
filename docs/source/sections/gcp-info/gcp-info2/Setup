@@ -20,11 +20,10 @@ It also shows the charges incurred by this project so far this month.
 Enable the Compute Engine API
 =============================
 The Compute Engine API is probably enabled by default on your GCP project, but you
-can verify this through the Console: click on the menu icon in the upper left hand corner, and then select the APIs & Services.
+can verify this through the Console: click on the menu icon in the upper left hand corner, and then select the **APIs & Services**.
 On the APIs & Services Dashboard, there will be a list of APIs.
 
-You can check your list of "Enabled APIs", or simply select the "Compute Engine API" link
-which should be at the very top of the list of "Popular APIs".  Once you are on the 
+Select the "Compute Engine API" link which should be at the very top of the list of APIs.  Once you are on the 
 "Google Compute Engine" page, you should either see a blue button with the word "Enable"
 or a white "Disable button.  
 If the button says Enable, click on it.  This process will take a minute or two,
