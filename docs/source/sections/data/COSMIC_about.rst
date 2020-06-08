@@ -33,6 +33,8 @@ Once you have completed these steps, ISB-CGC will obtain the Google identity tha
 Notes
 *****
 
+* A COSMIC account and acedemic use of the data is free though commercial use of the COSMIC data is subject to licensing fees. Please review the `COSMIC terms <https://cancer.sanger.ac.uk/cosmic/terms>`_ for more information.
+
 * If the Email Address that you initially used when registering for COSMIC is already a valid Google identity, you may simply reenter the same email address into the Google ID box
 
 * If you are not sure whether your institutional (or other) email address is a Google identity, you can check by entering it in the Google `password-assistance page <https://accounts.google.com/ForgotPasswd>`_; or by asking your IT staff
