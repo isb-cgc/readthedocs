@@ -2,8 +2,7 @@ Setting up your GCP project
 ###########################
 
 This setup guide assumes that you are already a member of a GCP project with either
-"Owner" or "Editor" rights.  If you need a GCP project, you may request one as part of
-the ISB-CGC community evaluation phase going on now.
+"Owner" or "Editor" rights. 
 
 Google Cloud Console
 ====================
@@ -21,11 +20,8 @@ It also shows the charges incurred by this project so far this month.
 Enable the Compute Engine API
 =============================
 The Compute Engine API is probably enabled by default on your GCP project, but you
-can verify this through the Console: click on the menu icon 
-in the upper left hand corner (when you hover over it you will see "Products and services"),
-and then select the API Manager.  The API Manager page has two sections: Overview and
-Credentials.  Within the Overview page, you can see a list of all "Google APIs" and
-a list of the "Enabled APIs".
+can verify this through the Console: click on the menu icon in the upper left hand corner, and then select the APIs & Services.
+On the APIs & Services Dashboard, there will be a list of APIs.
 
 You can check your list of "Enabled APIs", or simply select the "Compute Engine API" link
 which should be at the very top of the list of "Popular APIs".  Once you are on the 
