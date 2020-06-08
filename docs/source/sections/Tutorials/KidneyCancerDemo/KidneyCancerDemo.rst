@@ -31,3 +31,34 @@ We are interested in analyzing gene expression and protein abundance differences
 
 .. image:: BQTableSearch-Open.png
 
+6)	On the GCP BigQuery Console we can preview the table, look at the schema, and perform queries. The image below shows the preview of the contents of the TCGA Clinical BigQuery table. 
+
+.. image:: BQConsole-TCGA.png
+
+7)	Here’s an example short SQL query that completes in 0.3 seconds to identify how many patients there are with TCGA kidney cancers. SQL query to input: 
+
+.. code-block:: sql
+
+   SELECT distinct (case_barcode)  
+   FROM `isb-cgc.TCGA_bioclin_v0.clinical_v1`
+   WHERE project_short_name LIKE "TCGA-KIR%"
+   
+.. image:: BQConsole-Barcodes.png
+
+8)	From here, we’ll use either R or Python to perform higher level analyses. We will be running our notebook in the Google Cloud AI Platform notebook environment. But we have also provided R scripts of the code which can be run in local R environments as well. 
+
+.. image:: AI-Platform.png
+
+9)	Users can create notebook instances in both R or Python. We’ll create our notebook in R. 
+
+.. image:: GCP-Notebooks.png
+
+10)	 The Google Cloud AI platform R notebook environment looks very similar to other Jupyter notebook environments. Users can create interactive R notebooks or simpler R console notebooks. 
+
+.. image:: GCP-R-environment.png
+
+Here’s an example of an interactive R notebook. 
+
+.. image:: GCP-R-notebook.png
+
+
