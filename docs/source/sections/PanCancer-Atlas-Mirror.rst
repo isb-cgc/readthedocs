@@ -29,7 +29,7 @@ If you are new to using ISB-CGC Google BigQuery data sets, see the `Quickstart G
 
 To add public BigQuery data sets and tables to your "view" in the `Google BigQuery Console <https://bigquery.cloud.google.com/dataset/isb-cgc:pancancer_atlas>`_ you need to know the name of the GCP project that owns the dataset(s). 
 To add the publicly accessible ISB-CGC datasets (project name: ``isb-cgc``) which includes the Pan-Cancer Atlas data set ( dataset name: ``pancancer_atlas``) 
-follow these steps_:
+follow these steps_.
 
 .. _steps: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html
 
