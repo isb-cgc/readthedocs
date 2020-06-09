@@ -30,4 +30,4 @@ To access the BigQuery tables, you will need to link your Google identity with a
 Once you have linked your Google Identity to a COSMIC account, ISB-CGC will obtain your Google Identity. After a short delay, you will have "viewer" access to the COSMIC tables in BigQuery. You will then be able to view the data sets in the BigQuery UI under the ``isb-cgc`` Google Cloud project. You will also be able to use the ``isb-cgc-cosmic`` Google Cloud Project (GCP) to run queries at no cost to you to explore the data sets.
 
 If you can't successfully run a query or see the COSMIC tables under the isb-cgc project, please `verify <https://accounts.google.com/ForgotPasswd>`_
-that the Google ID you have provided is a valid Google account.  If you are still not able to run a query or view the data sets under the isb-cgc Google Cloud Project, please contact us at feedback@isb-cgc.org.
+that the Google ID you have provided is a valid Google account.  If you are still unable to run a query or view the data sets under the isb-cgc Google Cloud Project, please contact us at feedback@isb-cgc.org.
