@@ -20,11 +20,11 @@ Accessing the Catalog Of Somatic Mutations In Cancer Data
 
 You will need to link your Google identity with COSMIC to access BigQuery tables.
 
-**New COSMIC User:** `Register <https://cancer.sanger.ac.uk/cosmic/register>`_ for access to COSMIC data and agree to the Terms and Conditions and fill in the 'Google ID' field with your base Google Identity (*e.g.* the base account tb@mylab.org might have a longer-form alias like thomas.brown@mylab.org).
+* **New COSMIC User:** `Register <https://cancer.sanger.ac.uk/cosmic/register>`_ for access to COSMIC data and agree to the Terms and Conditions and fill in the 'Google ID' field with your base Google Identity (*e.g.* the base account tb@mylab.org might have a longer-form alias like thomas.brown@mylab.org).
 
 *A COSMIC account and acedemic use of the data is free though commercial use of the COSMIC data is subject to licensing fees. Please review the* `COSMIC terms <https://cancer.sanger.ac.uk/cosmic/terms>`_ *for more information.*
 
-**Registered COSMIC User:** Navigate to the `Account Settings <https://cancer.sanger.ac.uk/cosmic/myaccount>`_ page and fill in teh 'Google ID' field with your base Google Identity (*e.g.* the base account tb@mylab.org might have a longer-form alias like thomas.brown@mylab.org).
+* **Registered COSMIC User:** Navigate to the `Account Settings <https://cancer.sanger.ac.uk/cosmic/myaccount>`_ page and fill in teh 'Google ID' field with your base Google Identity (*e.g.* the base account tb@mylab.org might have a longer-form alias like thomas.brown@mylab.org).
 
 Once you have completed these steps, ISB-CGC will obtain the Google identity that you provided and you will be given "viewer" access to the COSMIC tables in BigQuery after a short delay. You will then be able to view the data sets in the BigQuery UI under the ``isb-cgc`` Google Cloud project. You will also be able to use the ``isb-cgc-cosmic`` Google Cloud Project (GCP) to run queries at no cost to you to explore the data sets.
 
