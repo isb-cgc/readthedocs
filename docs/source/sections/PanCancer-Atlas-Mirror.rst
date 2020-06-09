@@ -45,10 +45,10 @@ You can also search for and learn about Pan-Cancer Atlas tables through the `ISB
 Pan-Cancer Atlas BiqQuery Query Example
 #######################################
 
-Ready to query? Follow the steps below to run a query in the Google BigQuery Console. More details are `here <https://cloud.google.com/bigquery/docs/quickstarts/quickstart-web-ui>`_
+Ready to query? Follow the steps below to run a query in the Google BigQuery Console. More details are `here <https://cloud.google.com/bigquery/docs/quickstarts/quickstart-web-ui>`_.
 
 * `Login <https://accounts.google.com/Login>`_ to your Google account (`Chrome <https://www.google.com/chrome/browser/desktop/index.html>`_ is the preferred browser);
-* Go to the `BigQuery Console <https://console.cloud.google.com/bigquery?project=isb-cgc&page=dataset&d=pancancer_atlas&p=isb-cgc&redirect_from_classic=true>`_  
+* Go to the `BigQuery Console <https://console.cloud.google.com/bigquery?project=isb-cgc&page=dataset&d=pancancer_atlas&p=isb-cgc&redirect_from_classic=true>`_. 
 
 Let's query using the MC3 somatic mutation table.
 
