@@ -56,7 +56,7 @@ Let's query using the MC3 somatic mutation table.
 * Paste the sample query below into the text-box. 
 * Within a second or two you should see a green circle with a checkmark below the lower right corner of the New Query text-box.  --  If instead you see a red circle with an exclamation mark, click on it to see what your Syntax Error is.
 * Once you do have the green circle, you can click on it to see a message like: "Valid: This query will process 76.3 MB when run."
-* To execute the query, click on **RUN** !
+* To execute the query, click on **RUN**!
 
 
 .. code-block:: sql
@@ -91,15 +91,3 @@ Let's query using the MC3 somatic mutation table.
     AND HGVSc is not null
  ORDER BY
     ratio DESC
-
-
-Troubleshooting
-###############
-
-After going through the set-up process described above, there will be a short
-delay before your Google identity is granted the necessary access to BigQuery and the Pan-Cancer Atlas
-data resources.  If you get an error when running the sample query in this section, please
-wait 10-15 minutes and then try again. If you are still not successful, please
-`verify <https://accounts.google.com/ForgotPasswd>`_
-that the Google ID you have provided is a valid Google account.  If you are still not able
-to run the sample query given above, please contact us at feedback@isb-cgc.org.
