@@ -2,7 +2,7 @@
 ISB-CGC Data Release Notes
 ############################
 
-* June 09, 2020*
+*June 09, 2020*
 
 New GDC file ID to GCS url tables added to isb-cgc for GDC release 24.
 
