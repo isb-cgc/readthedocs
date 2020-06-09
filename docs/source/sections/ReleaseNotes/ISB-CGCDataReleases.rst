@@ -2,6 +2,14 @@
 ISB-CGC Data Release Notes
 ############################
 
+* June 09, 2020*
+
+New GDC file ID to GCS url tables added to isb-cgc for GDC release 24.
+
+**BigQuery tables created**
+
+- isb-cgc:GDC_metadata.rel24_GDCfileID_to_GCSurl
+
 *May 28, 2020*
 
 New data set and RNA Sequence table derived data tables added to isb-cgc.
