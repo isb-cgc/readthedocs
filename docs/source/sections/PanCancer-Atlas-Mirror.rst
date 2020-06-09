@@ -14,7 +14,7 @@ for more details on other publicly accessible BigQuery data sets).
 About Pan-Cancer Atlas Data
 ###########################
 
-The Pan-Cancer Atlas BigQuery tables  (`accessed here <https://console.cloud.google.com/bigquery?project=isb-cgc&page=dataset&d=pancancer_atlas&p=isb-cgc&redirect_from_classic=true>`_) mirror most of the files shared by the Pan-Cancer Atlas initiative on the `GDC PanCanAtlas Publications page<https://gdc.cancer.gov/about-data/publications/pancanatlas>`_.
+The Pan-Cancer Atlas BigQuery tables  (`accessed here <https://console.cloud.google.com/bigquery?project=isb-cgc&page=dataset&d=pancancer_atlas&p=isb-cgc&redirect_from_classic=true>`_) mirror most of the files shared by the Pan-Cancer Atlas initiative on the `GDC PanCanAtlas Publications page <https://gdc.cancer.gov/about-data/publications/pancanatlas>`_.
 
 The tables are generally unmodified uploads of the files in the `GDC Pan-Cancer Atlas <https://gdc.cancer.gov/about-data/publications/pancanatlas>`_. The Filtered_* tables were annotated as appropriate with ParticipantBarcode, SampleBarcode, AliquotBarcode, SampleTypeLetterCode, SampleType and TCGA Study. Subsequently the tables were filtered using the Pan-Cancer Atlas whitelist (which is the list of TCGA barcodes included in the Pan-Cancer Atlas). Two exceptions are the (public) *MC3 MAF file* and the *TCGA-CDR resource*. 
 
@@ -47,16 +47,16 @@ Pan-Cancer Atlas BiqQuery Query Example
 
 Ready to query? Follow the steps below to run a query in the Google BigQuery Console. More details are `here <https://cloud.google.com/bigquery/docs/quickstarts/quickstart-web-ui>`_
 
-* `login <https://accounts.google.com/Login>`_ to your Google account (`Chrome <https://www.google.com/chrome/browser/desktop/index.html>`_ is the preferred browser);
-* go to the `BigQuery web UI <https://console.cloud.google.com/bigquery?project=isb-cgc&page=dataset&d=pancancer_atlas&p=isb-cgc&redirect_from_classic=true>`_  --  if you see a welcome screen inviting you to **Create a Project** then please do so.
+* `Login <https://accounts.google.com/Login>`_ to your Google account (`Chrome <https://www.google.com/chrome/browser/desktop/index.html>`_ is the preferred browser);
+* Go to the `BigQuery Console <https://console.cloud.google.com/bigquery?project=isb-cgc&page=dataset&d=pancancer_atlas&p=isb-cgc&redirect_from_classic=true>`_  
 
 Let's query using the MC3 somatic mutation table.
 
-* click on **COMPOSE NEW QUERY** button;
-* paste the sample query below into the text-box. 
-* within a second or two you should see a green circle with a check-mark below the lower-right-corner of the New Query text-box  --  if instead you see a red circle with an exclamation mark, click on it to see what your Syntax Error is;
-* once you do have the green circle, you can click on it to see a message like: "Valid: This query will process 76.3 MB when run."
-* to execute the query, click on **RUN** !
+* Click on **COMPOSE NEW QUERY** button.
+* Paste the sample query below into the text-box. 
+* Within a second or two you should see a green circle with a checkmark below the lower right corner of the New Query text-box.  --  If instead you see a red circle with an exclamation mark, click on it to see what your Syntax Error is.
+* Once you do have the green circle, you can click on it to see a message like: "Valid: This query will process 76.3 MB when run."
+* To execute the query, click on **RUN** !
 
 
 .. code-block:: sql
