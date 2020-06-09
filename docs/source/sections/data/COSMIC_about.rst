@@ -20,8 +20,7 @@ Accessing the Catalog Of Somatic Mutations In Cancer Data
 
 To access the BigQuery tables, you will need to link your Google identity with a COSMIC account.
 
-* **New COSMIC User:** `Register <https://cancer.sanger.ac.uk/cosmic/register>`_ for a new COSMIC account. During registration, fill in the 'Google ID' field with your base Google Identity.
- * Avoid using an alias (*e.g.* The base account tb@mylab.org might have a longer-form alias like thomas.brown@mylab.org.)
+* **New COSMIC User:** `Register <https://cancer.sanger.ac.uk/cosmic/register>`_ for a new COSMIC account. During registration, fill in the 'Google ID' field with your base Google Identity. (Avoid using an alias, *e.g.* The base account tb@mylab.org might have a longer-form alias like thomas.brown@mylab.org.)
 
 *A COSMIC account and academic use of the data is free, though commercial use of the COSMIC data is subject to licensing fees. Please review the* `COSMIC terms <https://cancer.sanger.ac.uk/cosmic/terms>`_ *for more information.*
 
