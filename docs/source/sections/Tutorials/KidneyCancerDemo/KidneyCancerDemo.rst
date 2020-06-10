@@ -61,6 +61,125 @@ Here’s an example of an interactive R notebook.
 
 .. image:: GCP-R-Notebook.png
 
+Type into the R terminal:
+
+.. code-block::
+
+  install.packages("bigrquery")
+  library(bigrquery)
+  project <- "isb-cgc-outreach"
+
+  # query the clinical table for our cohort
+  sql <- "Select case_barcode, age_at_diagnosis, project_short_name, clinical_stage
+  from `isb-cgc.TCGA_bioclin_v0.Clinical` as clin
+  where project_short_name like 'TCGA-KIR%'"
+  data <- query_exec(sql, project = project, use_legacy_sql = FALSE,max_pages = Inf)
+  head(data)
+
+  # plot two histograms of age data of our cohort
+  layout(matrix(1:2, 2, 1))
+  hist(data[data$project_short_name == "TCGA-KIRP",]$age_at_diagnosis, 
+     xlim=c(15,100), ylim=c(0,40), breaks=seq(15,100,2),
+     col="#FFCC66", main='TCGA-KIRP', xlab='Age at diagnosis')
+  hist(data[data$project_short_name == "TCGA-KIRC",]$age_at_diagnosis, 
+     xlim=c(15,100), ylim=c(0,40), breaks=seq(15,100,2), 
+     col="#99CCFF", main='TCGA-KIRC', xlab='Age at diagnosis')
+
+  # perform our sql query in R and load it into a dataframe
+  sql_join <- "with gexp as (
+     select project_short_name, case_barcode, gene_name, avg(HTSeq__FPKM) as mean_gexp
+     from `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
+     where project_short_name like 'TCGA-KIR%' and gene_type = 'protein_coding'
+     group by project_short_name, case_barcode, gene_name
+  ), pexp as (
+     select project_short_name, case_barcode, gene_name, avg(protein_expression) as mean_pexp
+     from `isb-cgc.TCGA_hg38_data_v0.Protein_Expression`
+     where project_short_name like 'TCGA-KIR%'
+     group by project_short_name, case_barcode, gene_name
+  )
+  
+  select gexp.project_short_name, gexp.case_barcode, gexp.gene_name, gexp.mean_gexp, pexp.mean_pexp 
+  from gexp inner join pexp 
+  on gexp.project_short_name = pexp.project_short_name 
+    and gexp.case_barcode = pexp.case_barcode 
+    and gexp.gene_name = pexp.gene_name"
+    
+  df_join <- query_exec(sql_join, project = project, use_legacy_sql = FALSE, max_pages = Inf)
+  head(df_join)
+
+  # determine the number of cases from each project again
+  length(unique(df_join$case_barcode[df_join$project_short_name == "TCGA-KIRP"]))
+  length(unique(df_join$case_barcode[df_join$project_short_name == "TCGA-KIRC"]))
+
+  df_join$id <- paste(df_join$project_short_name, df_join$case, sep='.')
+  cases <- unique(df_join$id)
+  # transform the data frame, columns are samples, rows are genes
+  list_exp <- lapply(cases, function(case){
+     temp <- df_join[df_join$id == case, c('gene_name', 'mean_gexp')]
+     names(temp) <- c('gene_name', case)
+     return(temp)
+  })
+  
+  gene_exps <- Reduce(function(x, y) merge(x, y, all=T, by="gene_name"), list_exp)
+  head(gene_exps)
+  dim(gene_exps)
+
+  # perform the same transform for protein abundance
+  list_abun <- lapply(cases, function(case){
+      temp <- df_join[df_join$id == case, c('gene_name', 'mean_pexp')]
+      names(temp) <- c('gene_name', case)
+      return(temp)
+  })
+  pep_abun <- Reduce(function(x, y) merge(x, y, all=T, by="gene_name"), list_abun)
+  head(pep_abun)
+  dim(pep_abun)
+
+  # separate the cohorts into two dataframes and 
+  # generate a scatterplot of gene expression and protein abundance
+  # gene expression first
+  exp_p <- gene_exps[,grep('KIRP', names(gene_exps))]
+  exp_c <- gene_exps[,grep('KIRC', names(gene_exps))]
+  plot(log(rowMeans(exp_p)), log(rowMeans(exp_c)), 
+       xlab='log(FPKM KIRP)', ylab='log(FPKM KIRC)', 
+       xlim=c(-3.5,7.5), ylim=c(-3.5,7.5), pch=19, cex=2,
+       col=rgb(178,34,34,max=255,alpha=150))
+
+   # peptide expression second
+   abun_p <- pep_abun[,grep('KIRP', names(pep_abun))]
+   abun_c <- pep_abun[,grep('KIRC', names(pep_abun))]
+   plot(rowMeans(abun_p), rowMeans(abun_c), 
+      xlab='KIRP protein abundance', ylab="KIRC protein abundance", 
+      xlim=c(-0.25,0.3), ylim=c(-0.25,0.3), pch=19, cex=2,
+      col=rgb(140,140,230,max=255,alpha=150))
+
+   # load the Bioconductor package maftools
+   install.packages("maftools")
+   library("maftools")
+
+   # use BigQuery to load maf data for our cancers
+   sql_kirc<-"SELECT Hugo_Symbol, Chromosome, Start_Position, End_Position, Reference_Allele, 
+   Tumor_Seq_Allele2, Variant_Classification, Variant_Type, sample_barcode_tumor FROM 
+   `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation` WHERE project_short_name = 'TCGA-KIRC'"
+   sql_kirp<-"SELECT Hugo_Symbol, Chromosome, Start_Position, End_Position, Reference_Allele, 
+   Tumor_Seq_Allele2, Variant_Classification, Variant_Type, sample_barcode_tumor FROM 
+   `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation` WHERE project_short_name = 'TCGA-KIRP'"
+   maf_kirc <- query_exec(sql_kirc, project = project, use_legacy_sql = FALSE,max_pages = Inf)
+   maf_kirp <- query_exec(sql_kirp, project = project, use_legacy_sql = FALSE,max_pages = Inf)
+   # column name conversion
+   colnames(maf_kirc)[9] <- "Tumor_Sample_Barcode"
+   colnames(maf_kirp)[9] <- "Tumor_Sample_Barcode"
+
+   # conver data frames to maftools objects
+   kirc <- read.maf(maf_kirc)
+   kirp <- read.maf(maf_kirp)
+   # leverage maftools plotting functionality
+   plotmafSummary(maf = kirp, rmOutlier = TRUE, addStat = 'median', dashboard = TRUE, titvRaw = FALSE)
+   plotmafSummary(maf = kirc, rmOutlier = TRUE, addStat = 'median', dashboard = TRUE, titvRaw = FALSE)
+
+   oncoplot(maf = kirp, top = 10)
+   oncoplot(maf = kirc, top = 10)
+
+
 Queries to try out:
 
 .. code-block:: sql
