@@ -67,14 +67,13 @@ about the Cloud Shell, see the next section).  You should see something like thi
 Google Cloud Shell
 ==================
 `Google Cloud Shell <https://cloud.google.com/shell/docs/>`_ provides you with command-line
-access to computing resources hosted on GCP is available from the Console.  Cloud Shell provides
+access to computing resources hosted on GCP, available from the Console.  Cloud Shell provides
 you with a temporary VM running a Debian-based Linux OS, with 5 GB of persistent disk storage
 per user, and the Google Cloud SDK and other tools pre-installed.
 
 From the Console, you will find the icon for the Cloud Shell in the top-most blue bar, near
-the right-hand corner, between your GCP project name and the "Send feedback" icon.  If you
-click on that icon (the hover-card should read "Activate Google Cloud Shell"), 
-it will take a minute or two for you VM
+the right-hand corner. Hovering over the icon will display "Activate Cloud Shell".  If you
+click on that icon, it will take a minute or two for your VM
 to be provisioned, after which you will see a prompt saying "Welcome to Cloud Shell" in the
 new window that has appeared at the bottom of your Console page.  You can "pop" that 
 window out of your browser page by clicking on the "Open in new window" icon in the upper
