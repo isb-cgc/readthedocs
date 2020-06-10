@@ -61,10 +61,12 @@ Here’s an example of an interactive R notebook.
 
 .. image:: GCP-R-notebook.png
 
+Queries to try out:
 
 .. code-block:: sql
 
    # A query to determine the number of cases per cancer type
+   
    SELECT DISTINCT project_name, count(case_barcode) AS cases
    FROM `isb-cgc.TCGA_bioclin_v0.Clinical` 
    GROUP BY project_name
@@ -72,6 +74,7 @@ Here’s an example of an interactive R notebook.
 .. code-block:: sql
 
    # A query to get some summary information about these cancer types
+   
    SELECT DISTINCT project_short_name, 
    count(case_barcode) AS cases, 
    min(age_at_diagnosis) AS minimum_age, 
@@ -94,47 +97,50 @@ Here’s an example of an interactive R notebook.
    
    # Moving into the derived biological data, 
    # query to determine number of cases with expression data
+   
    SELECT DISTINCT project_short_name, count(distinct case_barcode) AS cases
    FROM `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
    WHERE project_short_name LIKE "TCGA-KIR%"
-   
+   GROUP BY project_short_name
+ 
 .. code-block:: sql   
    
-   # query to determine number of genes per gene type in the table
-   select distinct gene_type, count(distinct gene_name) as type
-   from `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
-   where project_short_name like "TCGA-KIR%"
-   group by gene_type
+   # Query to determine number of genes per gene type in the table
+   SELECT DISTINCT gene_type, count(distinct gene_name) AS type
+   FROM `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
+   WHERE project_short_name like "TCGA-KIR%"
+   GROUP BY gene_type
    
 .. code-block:: sql   
 
-   # query to determine number of genes measured per case
-   select distinct case_barcode, count(distinct gene_name) as genes
-   from `isb-cgc.TCGA_hg38_data_v0.Protein_Expression`
-   where project_short_name like "TCGA-KIR%"
-   group by case_barcode
+   # Query to determine number of genes measured per case
+   SELECT distinct case_barcode, count(distinct gene_name) AS genes
+   FROM `isb-cgc.TCGA_hg38_data_v0.Protein_Expression`
+   WHERE project_short_name like "TCGA-KIR%"
+   GROUP BY case_barcode
    
 .. code-block:: sql      
    
-   # query to join gene expression and protein abundance for these two cancer types
-   with gexp as (
-       select project_short_name, case_barcode, gene_name, avg(HTSeq__FPKM) as mean_gexp
-       from `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
-       where project_short_name like 'TCGA-KIR%' and gene_type = 'protein_coding' 
-       group by project_short_name, case_barcode, gene_name
-   ), pexp as (
-       select project_short_name, case_barcode, gene_name, avg(protein_expression) as mean_pexp
-       from `isb-cgc.TCGA_hg38_data_v0.Protein_Expression`
-       where project_short_name like 'TCGA-KIR%'
-       group by project_short_name, case_barcode, gene_name
+   # Query to join gene expression and protein abundance for these two cancer types
+   
+   with gexp AS (
+       SELECT project_short_name, case_barcode, gene_name, avg(HTSeq__FPKM) as mean_gexp
+       FROM `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
+       WHERE project_short_name like 'TCGA-KIR%' and gene_type = 'protein_coding' 
+       GROUP BY project_short_name, case_barcode, gene_name
+   ), pexp AS (
+       SELECT project_short_name, case_barcode, gene_name, avg(protein_expression) AS mean_pexp
+       FROM `isb-cgc.TCGA_hg38_data_v0.Protein_Expression`
+       WHERE project_short_name like 'TCGA-KIR%'
+       GROUP BY project_short_name, case_barcode, gene_name
    )
    
 .. code-block:: sql    
    
-   select gexp.project_short_name, gexp.case_barcode, gexp.gene_name, gexp.mean_gexp, pexp.mean_pexp 
-   from gexp inner join pexp 
-   on gexp.project_short_name = pexp.project_short_name 
-	    and gexp.case_barcode = pexp.case_barcode 
-	    and gexp.gene_name = pexp.gene_name
+   SELECT gexp.project_short_name, gexp.case_barcode, gexp.gene_name, gexp.mean_gexp, pexp.mean_pexp 
+   FROM gexp inner join pexp 
+   ON gexp.project_short_name = pexp.project_short_name 
+       AND gexp.case_barcode = pexp.case_barcode 
+       AND gexp.gene_name = pexp.gene_name
    
    
