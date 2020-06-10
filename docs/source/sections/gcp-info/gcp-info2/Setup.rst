@@ -98,7 +98,7 @@ There are two approaches:
 
 These approaches may ask you to cut-and-paste a long URL into a browser, sign in using your Google
 credentials, click "Allow" to allow Google to access certain information about you, and may also
-ask that you cut-and-paste an authorization token from your browser back into the Linux shell.
+ask that you cut and paste an authorization token from your browser back into the Linux shell.
 
 Once you have authenticated, you can see information about your current configuration by
 typing ``gcloud config list``.  You can set additional properties using the ``gcloud config set``
