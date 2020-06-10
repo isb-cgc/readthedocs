@@ -59,7 +59,7 @@ We are interested in analyzing gene expression and protein abundance differences
 
 Here’s an example of an interactive R notebook. 
 
-.. image:: GCP-R-notebook.png
+.. image:: GCP-R-Notebook.png
 
 Queries to try out:
 
