@@ -63,83 +63,83 @@ Here’s an example of an interactive R notebook.
 
 Type into the R terminal:
 
-.. code-block::
+.. code-block:: R
 
-  install.packages("bigrquery")
-  library(bigrquery)
-  project <- "isb-cgc-outreach"
+   install.packages("bigrquery")
+   library(bigrquery)
+   project <- "isb-cgc-outreach"
 
-  # query the clinical table for our cohort
-  sql <- "Select case_barcode, age_at_diagnosis, project_short_name, clinical_stage
-  from `isb-cgc.TCGA_bioclin_v0.Clinical` as clin
-  where project_short_name like 'TCGA-KIR%'"
-  data <- query_exec(sql, project = project, use_legacy_sql = FALSE,max_pages = Inf)
-  head(data)
+   # query the clinical table for our cohort
+   sql <- "Select case_barcode, age_at_diagnosis, project_short_name, clinical_stage
+   from `isb-cgc.TCGA_bioclin_v0.Clinical` as clin
+   where project_short_name like 'TCGA-KIR%'"
+   data <- query_exec(sql, project = project, use_legacy_sql = FALSE,max_pages = Inf)
+   head(data)
 
-  # plot two histograms of age data of our cohort
-  layout(matrix(1:2, 2, 1))
-  hist(data[data$project_short_name == "TCGA-KIRP",]$age_at_diagnosis, 
+   # plot two histograms of age data of our cohort
+   layout(matrix(1:2, 2, 1))
+   hist(data[data$project_short_name == "TCGA-KIRP",]$age_at_diagnosis, 
      xlim=c(15,100), ylim=c(0,40), breaks=seq(15,100,2),
      col="#FFCC66", main='TCGA-KIRP', xlab='Age at diagnosis')
-  hist(data[data$project_short_name == "TCGA-KIRC",]$age_at_diagnosis, 
+   hist(data[data$project_short_name == "TCGA-KIRC",]$age_at_diagnosis, 
      xlim=c(15,100), ylim=c(0,40), breaks=seq(15,100,2), 
      col="#99CCFF", main='TCGA-KIRC', xlab='Age at diagnosis')
 
-  # perform our sql query in R and load it into a dataframe
-  sql_join <- "with gexp as (
+   # perform our sql query in R and load it into a dataframe
+   sql_join <- "with gexp as (
      select project_short_name, case_barcode, gene_name, avg(HTSeq__FPKM) as mean_gexp
      from `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
      where project_short_name like 'TCGA-KIR%' and gene_type = 'protein_coding'
      group by project_short_name, case_barcode, gene_name
-  ), pexp as (
+   ), pexp as (
      select project_short_name, case_barcode, gene_name, avg(protein_expression) as mean_pexp
      from `isb-cgc.TCGA_hg38_data_v0.Protein_Expression`
      where project_short_name like 'TCGA-KIR%'
      group by project_short_name, case_barcode, gene_name
-  )
+   )
   
-  select gexp.project_short_name, gexp.case_barcode, gexp.gene_name, gexp.mean_gexp, pexp.mean_pexp 
-  from gexp inner join pexp 
-  on gexp.project_short_name = pexp.project_short_name 
-    and gexp.case_barcode = pexp.case_barcode 
-    and gexp.gene_name = pexp.gene_name"
+   select gexp.project_short_name, gexp.case_barcode, gexp.gene_name, gexp.mean_gexp, pexp.mean_pexp 
+   from gexp inner join pexp 
+   on gexp.project_short_name = pexp.project_short_name 
+     and gexp.case_barcode = pexp.case_barcode 
+     and gexp.gene_name = pexp.gene_name"
     
-  df_join <- query_exec(sql_join, project = project, use_legacy_sql = FALSE, max_pages = Inf)
-  head(df_join)
+   df_join <- query_exec(sql_join, project = project, use_legacy_sql = FALSE, max_pages = Inf)
+   head(df_join)
 
-  # determine the number of cases from each project again
-  length(unique(df_join$case_barcode[df_join$project_short_name == "TCGA-KIRP"]))
-  length(unique(df_join$case_barcode[df_join$project_short_name == "TCGA-KIRC"]))
+   # determine the number of cases from each project again
+   length(unique(df_join$case_barcode[df_join$project_short_name == "TCGA-KIRP"]))
+   length(unique(df_join$case_barcode[df_join$project_short_name == "TCGA-KIRC"]))
 
-  df_join$id <- paste(df_join$project_short_name, df_join$case, sep='.')
-  cases <- unique(df_join$id)
-  # transform the data frame, columns are samples, rows are genes
-  list_exp <- lapply(cases, function(case){
+   df_join$id <- paste(df_join$project_short_name, df_join$case, sep='.')
+   cases <- unique(df_join$id)
+   # transform the data frame, columns are samples, rows are genes
+   list_exp <- lapply(cases, function(case){
      temp <- df_join[df_join$id == case, c('gene_name', 'mean_gexp')]
      names(temp) <- c('gene_name', case)
      return(temp)
-  })
+   })
   
-  gene_exps <- Reduce(function(x, y) merge(x, y, all=T, by="gene_name"), list_exp)
-  head(gene_exps)
-  dim(gene_exps)
+   gene_exps <- Reduce(function(x, y) merge(x, y, all=T, by="gene_name"), list_exp)
+   head(gene_exps)
+   dim(gene_exps)
 
-  # perform the same transform for protein abundance
-  list_abun <- lapply(cases, function(case){
+   # perform the same transform for protein abundance
+   list_abun <- lapply(cases, function(case){
       temp <- df_join[df_join$id == case, c('gene_name', 'mean_pexp')]
       names(temp) <- c('gene_name', case)
       return(temp)
-  })
-  pep_abun <- Reduce(function(x, y) merge(x, y, all=T, by="gene_name"), list_abun)
-  head(pep_abun)
-  dim(pep_abun)
+   })
+   pep_abun <- Reduce(function(x, y) merge(x, y, all=T, by="gene_name"), list_abun)
+   head(pep_abun)
+   dim(pep_abun)
 
-  # separate the cohorts into two dataframes and 
-  # generate a scatterplot of gene expression and protein abundance
-  # gene expression first
-  exp_p <- gene_exps[,grep('KIRP', names(gene_exps))]
-  exp_c <- gene_exps[,grep('KIRC', names(gene_exps))]
-  plot(log(rowMeans(exp_p)), log(rowMeans(exp_c)), 
+   # separate the cohorts into two dataframes and 
+   # generate a scatterplot of gene expression and protein abundance
+   # gene expression first
+   exp_p <- gene_exps[,grep('KIRP', names(gene_exps))]
+   exp_c <- gene_exps[,grep('KIRC', names(gene_exps))]
+   plot(log(rowMeans(exp_p)), log(rowMeans(exp_c)), 
        xlab='log(FPKM KIRP)', ylab='log(FPKM KIRC)', 
        xlim=c(-3.5,7.5), ylim=c(-3.5,7.5), pch=19, cex=2,
        col=rgb(178,34,34,max=255,alpha=150))
