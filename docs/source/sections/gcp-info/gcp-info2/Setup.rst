@@ -20,12 +20,11 @@ It also shows the charges incurred by this project so far this month.
 Enable the Compute Engine API
 =============================
 The Compute Engine API is probably enabled by default on your GCP project, but you
-can verify this through the Console: click on the menu icon in the upper left hand corner, and then select the **APIs & Services**.
+can verify this through the Console: click on the menu icon in the upper left-hand corner, and then select the **APIs & Services**.
 On the APIs & Services Dashboard, there will be a list of APIs.
 
 Select the "Compute Engine API" link which should be at the very top of the list of APIs.  Once you are on the 
-"Google Compute Engine" page, you should either see a blue button with the word "Enable"
-or a white "Disable button.  
+"Compute Engine API" page, you should either see a button with the words "Enable API" or "Disable API".  
 If the button says Enable, click on it.  This process will take a minute or two,
 after which you will be prompted to "Go to Credentials".  You should not need to create 
 new credentials at this time -- you will typically be using 
@@ -44,8 +43,7 @@ Google Cloud SDK
 Depending on how you choose to interact with the Google Cloud Platform, you may want
 to install the `Google Cloud SDK <https://cloud.google.com/sdk/>`_ on your local workstation.  
 The Google Cloud SDK is a set of command-line interface (CLI) tools 
-that you can use to manage resources and applications
-hosted on GCP.  
+that you can use to manage resources and applications hosted on GCP.  
 (Note that components of the the SDK are updated quite frequently.  You will be notified
 when updates are available anytime you use one of the SDK tools.  The command will still run,
 but you will be notified that
