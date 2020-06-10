@@ -47,7 +47,7 @@ We are interested in analyzing gene expression and protein abundance differences
 
 8)	From here, we’ll use either R or Python to perform higher level analyses. We will be running our notebook in the Google Cloud AI Platform notebook environment. But we have also provided R scripts of the code which can be run in local R environments as well. 
 
-.. image:: AI-Platform.png
+.. image:: GCP-AI-Platform.png
 
 9)	Users can create notebook instances in both R or Python. We’ll create our notebook in R. 
 
@@ -62,3 +62,79 @@ Here’s an example of an interactive R notebook.
 .. image:: GCP-R-notebook.png
 
 
+.. code-block:: sql
+
+   # A query to determine the number of cases per cancer type
+   SELECT DISTINCT project_name, count(case_barcode) AS cases
+   FROM `isb-cgc.TCGA_bioclin_v0.Clinical` 
+   GROUP BY project_name
+   
+.. code-block:: sql
+
+   # A query to get some summary information about these cancer types
+   SELECT DISTINCT project_short_name, 
+   count(case_barcode) AS cases, 
+   min(age_at_diagnosis) AS minimum_age, 
+   max(age_at_diagnosis) AS maximum_age
+   FROM `isb-cgc.TCGA_bioclin_v0.Clinical` 
+   WHERE project_short_name like "TCGA-KIR%"
+   GROUP BY project_short_name
+   
+.. code-block:: sql
+   
+   SELECT DISTINCT project_short_name, 
+   count(case_barcode) as cases, 
+   FROM `isb-cgc.TCGA_bioclin_v0.Clinical` 
+   WHERE project_short_name LIKE "TCGA-KIR%"
+   AND age_at_diagnosis < 81
+   AND age_at_diagnosis > 29
+   GROUP BY project_short_name
+   
+.. code-block:: sql
+   
+   # Moving into the derived biological data, 
+   # query to determine number of cases with expression data
+   SELECT DISTINCT project_short_name, count(distinct case_barcode) AS cases
+   FROM `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
+   WHERE project_short_name LIKE "TCGA-KIR%"
+   
+.. code-block:: sql   
+   
+   # query to determine number of genes per gene type in the table
+   select distinct gene_type, count(distinct gene_name) as type
+   from `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
+   where project_short_name like "TCGA-KIR%"
+   group by gene_type
+   
+.. code-block:: sql   
+
+   # query to determine number of genes measured per case
+   select distinct case_barcode, count(distinct gene_name) as genes
+   from `isb-cgc.TCGA_hg38_data_v0.Protein_Expression`
+   where project_short_name like "TCGA-KIR%"
+   group by case_barcode
+   
+.. code-block:: sql      
+   
+   # query to join gene expression and protein abundance for these two cancer types
+   with gexp as (
+       select project_short_name, case_barcode, gene_name, avg(HTSeq__FPKM) as mean_gexp
+       from `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
+       where project_short_name like 'TCGA-KIR%' and gene_type = 'protein_coding' 
+       group by project_short_name, case_barcode, gene_name
+   ), pexp as (
+       select project_short_name, case_barcode, gene_name, avg(protein_expression) as mean_pexp
+       from `isb-cgc.TCGA_hg38_data_v0.Protein_Expression`
+       where project_short_name like 'TCGA-KIR%'
+       group by project_short_name, case_barcode, gene_name
+   )
+   
+.. code-block:: sql    
+   
+   select gexp.project_short_name, gexp.case_barcode, gexp.gene_name, gexp.mean_gexp, pexp.mean_pexp 
+   from gexp inner join pexp 
+   on gexp.project_short_name = pexp.project_short_name 
+	    and gexp.case_barcode = pexp.case_barcode 
+	    and gexp.gene_name = pexp.gene_name
+   
+   
