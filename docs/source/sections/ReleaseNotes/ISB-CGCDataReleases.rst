@@ -2,6 +2,50 @@
 ISB-CGC Data Release Notes
 ############################
 
+*June 16, 2020*
+
+The new COSMIC release v91 data is available in BigQuery.
+
+**BigQuery tables created**
+
+- isb-cgc:COSMIC_v91_grch37.ASCAT_Purity_Ploidy
+- isb-cgc:COSMIC_v91_grch37.Breakpoints
+- isb-cgc:COSMIC_v91_grch37.Cancer_Gene_Census
+- isb-cgc:COSMIC_v91_grch37.Complete_CNA
+- isb-cgc:COSMIC_v91_grch37.Complete_Differential_Methylation
+- isb-cgc:COSMIC_v91_grch37.Complete_Gene_Expression
+- isb-cgc:COSMIC_v91_grch37.Complete_Targeted_Screens_Mutant
+- isb-cgc:COSMIC_v91_grch37.Fusion
+- isb-cgc:COSMIC_v91_grch37.Genome_Screens_Mutant
+- isb-cgc:COSMIC_v91_grch37.HGNC
+- isb-cgc:COSMIC_v91_grch37.Mutant
+- isb-cgc:COSMIC_v91_grch37.Mutant_Census
+- isb-cgc:COSMIC_v91_grch37.Mutation_Tracking
+- isb-cgc:COSMIC_v91_grch37.NCV
+- isb-cgc:COSMIC_v91_grch37.Resistance_Mutations
+- isb-cgc:COSMIC_v91_grch37.Sample
+- isb-cgc:COSMIC_v91_grch37.Structural_Variants
+- isb-cgc:COSMIC_v91_grch37.Transcripts
+- isb-cgc:COSMIC_v91_grch38.ASCAT_Purity_Ploidy
+- isb-cgc:COSMIC_v91_grch38.Breakpoints
+- isb-cgc:COSMIC_v91_grch38.Cancer_Gene_Census
+- isb-cgc:COSMIC_v91_grch38.Classification
+- isb-cgc:COSMIC_v91_grch38.Complete_CNA
+- isb-cgc:COSMIC_v91_grch38.Complete_Differential_Methylation
+- isb-cgc:COSMIC_v91_grch38.Complete_Gene_Expression
+- isb-cgc:COSMIC_v91_grch38.Complete_Targeted_Screens_Mutant
+- isb-cgc:COSMIC_v91_grch38.Fusion
+- isb-cgc:COSMIC_v91_grch38.Genome_Screens_Mutant
+- isb-cgc:COSMIC_v91_grch38.HGNC
+- isb-cgc:COSMIC_v91_grch38.Mutant
+- isb-cgc:COSMIC_v91_grch38.Mutant_Census
+- isb-cgc:COSMIC_v91_grch38.Mutation_Tracking
+- isb-cgc:COSMIC_v91_grch38.NCV
+- isb-cgc:COSMIC_v91_grch38.Resistance_Mutations
+- isb-cgc:COSMIC_v91_grch38.Sample
+- isb-cgc:COSMIC_v91_grch38.Structural_Variants
+- isb-cgc:COSMIC_v91_grch38.Transcripts
+
 *June 09, 2020*
 
 New GDC file ID to GCS url tables added to isb-cgc for GDC release 24.
