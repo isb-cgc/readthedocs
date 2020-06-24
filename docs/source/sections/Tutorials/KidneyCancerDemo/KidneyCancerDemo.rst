@@ -15,6 +15,7 @@ We are interested in analyzing gene expression and protein abundance differences
 1)	Navigate to the ISB-CGC homepage: https://isb-cgc.org and click on the BigQuery Table Search.
 
 .. image:: ISB-homepage.png
+   :target: ISB-homepage.png
 
 
 2)	For this demo, we will search for ISB-CGC hosted BigQuery tables that contain information for TCGA gene expression, protein expression and clinical data. 
