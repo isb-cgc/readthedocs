@@ -13,12 +13,14 @@ We are interested in analyzing gene expression and protein abundance differences
 1)	Navigate to the ISB-CGC homepage: https://isb-cgc.org and click on the BigQuery Table Search.
 
 .. image:: ISB-homepage.png
+   :scale: 30
+   :align: center
 
 2)	For this demo, we will search for ISB-CGC hosted BigQuery tables that contain information for TCGA gene expression, protein expression and clinical data. 
 
 .. image:: BQTableSearch-demo.png
 
-3)	We want to build a cohort of TCGA patients for which both gene expression and protein abundance data exists. Let’s search for TCGA in the Program filter and Clinical Data, Gene Expression, and Protein Expression in the Data Type filter. 
+3)	We want to build a cohort of TCGA patients for which both gene expression and protein abundance data exists. Let’s search for **TCGA** in the **Program** filter and **Clinical Data**, **Gene Expression**, and **Protein Expression** in the **Data Type** filter. 
 
 4)	We can preview the clinical table and see the table schema by clicking the (+) icon.
 
@@ -32,7 +34,8 @@ We are interested in analyzing gene expression and protein abundance differences
 
 .. image:: BQConsole-TCGA.png
 
-7)	Here’s an example short SQL query that completes in 0.3 seconds to identify how many patients there are with TCGA kidney cancers. SQL query to input: 
+7)	Here’s an example short SQL query that completes in 0.3 seconds to identify how many patients there are with TCGA kidney cancers. 
+Enter this SQL query in the BigQuery Console and click Run: 
 
 .. code-block:: sql
 
@@ -42,7 +45,9 @@ We are interested in analyzing gene expression and protein abundance differences
    
 .. image:: BQConsole-Barcodes.png
 
-8)	From here, we’ll use either R or Python to perform higher level analyses. We will be running our notebook in the Google Cloud AI Platform notebook environment. But we have also provided R scripts of the code which can be run in local R environments as well. 
+8)	From here, we’ll use either R or Python to perform higher level analyses. We will be running our notebook in the Google Cloud AI Platform Notebooks environment. But we have also provided R scripts of the code which can be run in local R environments as well. 
+
+To use Google Cloud AI Platform Notebooks, on the Google Cloud Platform Navigation menu, select AI Platform -> Notebooks under the Artificial Intelligence section.
 
 .. image:: GCP-AI-Platform.png
 
