@@ -2,8 +2,6 @@
 A guided tour of cancer data analysis using ISB-CGC
 ***************************************************
 
-**Demo Use-Case**
-
 We are interested in analyzing gene expression and protein abundance differences between two types of TCGA kidney cancers, Kidney Renal Clear Cell Carcinoma (KIRC) and Kidney Renal Papillary Carcinoma (KIRP). In this demo, we build our cohort of patients with these cancer types and extract their respective gene expression and protein abundance data all from Google BigQuery. We will demonstrate how to: 
 
 - Identify tables of interest using ISB-CGC BigQuery Table Search UI 
@@ -15,7 +13,7 @@ We are interested in analyzing gene expression and protein abundance differences
 1)	Navigate to the ISB-CGC homepage: https://isb-cgc.org and click on the BigQuery Table Search.
 
 .. image:: ISB-homepage.png
-   :target: ISB-homepage.png
+   :scale: 75
 
 
 2)	For this demo, we will search for ISB-CGC hosted BigQuery tables that contain information for TCGA gene expression, protein expression and clinical data. 
