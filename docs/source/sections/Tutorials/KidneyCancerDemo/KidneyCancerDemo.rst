@@ -75,8 +75,8 @@ Type into the R terminal:
    sql <- "Select case_barcode, age_at_diagnosis, project_short_name, clinical_stage
    from `isb-cgc.TCGA_bioclin_v0.Clinical` as clin
    where project_short_name like 'TCGA-KIR%'"
-   data <- query_exec(sql, project = project, use_legacy_sql = FALSE,max_pages = Inf)
-   head(data)
+   bq_perform_query (query = sql, billing = project, destination_table = "kids-first-drc.demo.kidney_cancer_data")
+   head(bq_table_download("kids-first-drc.demo.kidney_cancer_data"))
 
    # plot two histograms of age data of our cohort
    layout(matrix(1:2, 2, 1))
