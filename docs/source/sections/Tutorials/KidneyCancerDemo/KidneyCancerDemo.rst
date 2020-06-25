@@ -19,20 +19,28 @@ We are interested in analyzing gene expression and protein abundance differences
 2)	For this demo, we will search for ISB-CGC hosted BigQuery tables that contain information for TCGA gene expression, protein expression and clinical data. 
 
 .. image:: BQTableSearch-demo.png
+   :scale: 30
+   :align: center
 
 3)	We want to build a cohort of TCGA patients for which both gene expression and protein abundance data exists. Let’s search for **TCGA** in the **Program** filter and **Clinical Data**, **Gene Expression**, and **Protein Expression** in the **Data Type** filter. 
 
 4)	We can preview the clinical table and see the table schema by clicking the (+) icon.
 
 .. image:: BQTableSearch-TCGA.png
+   :scale: 30
+   :align: center
 
 5)	We can navigate to the Google Cloud Platform (GCP) BigQuery Console by clicking on the “open” button under the table preview or on the “magnifying glass” icon on the right hand side of the Table Search row. 
 
 .. image:: BQTableSearch-Open.png
+   :scale: 30
+   :align: center
 
 6)	On the GCP BigQuery Console we can preview the table, look at the schema, and perform queries. The image below shows the preview of the contents of the TCGA Clinical BigQuery table. 
 
 .. image:: BQConsole-TCGA.png
+   :scale: 30
+   :align: center
 
 7)	Here’s an example short SQL query that completes in 0.3 seconds to identify how many patients there are with TCGA kidney cancers. 
 Enter this SQL query in the BigQuery Console and click Run: 
@@ -44,32 +52,43 @@ Enter this SQL query in the BigQuery Console and click Run:
    WHERE project_short_name LIKE "TCGA-KIR%"
    
 .. image:: BQConsole-Barcodes.png
+   :scale: 30
+   :align: center
 
 8)	From here, we’ll use either R or Python to perform higher level analyses. We will be running our notebook in the Google Cloud AI Platform Notebooks environment. But we have also provided R scripts of the code which can be run in local R environments as well. 
 
 To use Google Cloud AI Platform Notebooks, on the Google Cloud Platform Navigation menu, select AI Platform -> Notebooks under the Artificial Intelligence section.
 
 .. image:: GCP-AI-Platform.png
+   :scale: 30
+   :align: center
 
 9)	Users can create notebook instances in both R or Python. We’ll create our notebook in R. 
 
 .. image:: GCP-Notebooks.png
+   :scale: 30
+   :align: center
 
 10)	 The Google Cloud AI platform R notebook environment looks very similar to other Jupyter notebook environments. Users can create interactive R notebooks or simpler R console notebooks. 
 
 .. image:: GCP-R-environment.png
+   :scale: 30
+   :align: center
 
 Here’s an example of an interactive R notebook. 
 
 .. image:: GCP-R-Notebook.png
+   :scale: 30
+   :align: center
 
-Type into the R terminal:
-
+Copy each block into the R terminal. Click Run after each block to see the results.
 .. code-block:: R
 
    install.packages("bigrquery")
    library(bigrquery)
    project <- "isb-cgc-outreach"
+   
+.. code-block:: R
 
    # query the clinical table for our cohort
    sql <- "Select case_barcode, age_at_diagnosis, project_short_name, clinical_stage
@@ -77,6 +96,8 @@ Type into the R terminal:
    where project_short_name like 'TCGA-KIR%'"
    bq_perform_query (query = sql, billing = project, destination_table = "kids-first-drc.demo.kidney_cancer_data")
    head(bq_table_download("kids-first-drc.demo.kidney_cancer_data"))
+
+.. code-block:: R
 
    # plot two histograms of age data of our cohort
    layout(matrix(1:2, 2, 1))
@@ -86,6 +107,8 @@ Type into the R terminal:
    hist(data[data$project_short_name == "TCGA-KIRC",]$age_at_diagnosis, 
      xlim=c(15,100), ylim=c(0,40), breaks=seq(15,100,2), 
      col="#99CCFF", main='TCGA-KIRC', xlab='Age at diagnosis')
+
+.. code-block:: R
 
    # perform our sql query in R and load it into a dataframe
    sql_join <- "with gexp as (
@@ -100,6 +123,8 @@ Type into the R terminal:
      group by project_short_name, case_barcode, gene_name
    )
   
+.. code-block:: R
+  
    select gexp.project_short_name, gexp.case_barcode, gexp.gene_name, gexp.mean_gexp, pexp.mean_pexp 
    from gexp inner join pexp 
    on gexp.project_short_name = pexp.project_short_name 
@@ -108,6 +133,8 @@ Type into the R terminal:
     
    df_join <- query_exec(sql_join, project = project, use_legacy_sql = FALSE, max_pages = Inf)
    head(df_join)
+
+.. code-block:: R
 
    # determine the number of cases from each project again
    length(unique(df_join$case_barcode[df_join$project_short_name == "TCGA-KIRP"]))
@@ -126,6 +153,8 @@ Type into the R terminal:
    head(gene_exps)
    dim(gene_exps)
 
+.. code-block:: R
+
    # perform the same transform for protein abundance
    list_abun <- lapply(cases, function(case){
       temp <- df_join[df_join$id == case, c('gene_name', 'mean_pexp')]
@@ -135,6 +164,8 @@ Type into the R terminal:
    pep_abun <- Reduce(function(x, y) merge(x, y, all=T, by="gene_name"), list_abun)
    head(pep_abun)
    dim(pep_abun)
+
+.. code-block:: R
 
    # separate the cohorts into two dataframes and 
    # generate a scatterplot of gene expression and protein abundance
@@ -146,6 +177,8 @@ Type into the R terminal:
        xlim=c(-3.5,7.5), ylim=c(-3.5,7.5), pch=19, cex=2,
        col=rgb(178,34,34,max=255,alpha=150))
 
+.. code-block:: R
+
    # peptide expression second
    abun_p <- pep_abun[,grep('KIRP', names(pep_abun))]
    abun_c <- pep_abun[,grep('KIRC', names(pep_abun))]
@@ -154,9 +187,13 @@ Type into the R terminal:
       xlim=c(-0.25,0.3), ylim=c(-0.25,0.3), pch=19, cex=2,
       col=rgb(140,140,230,max=255,alpha=150))
 
+.. code-block:: R
+
    # load the Bioconductor package maftools
    install.packages("maftools")
    library("maftools")
+
+.. code-block:: R
 
    # use BigQuery to load maf data for our cancers
    sql_kirc<-"SELECT Hugo_Symbol, Chromosome, Start_Position, End_Position, Reference_Allele, 
@@ -170,6 +207,8 @@ Type into the R terminal:
    # column name conversion
    colnames(maf_kirc)[9] <- "Tumor_Sample_Barcode"
    colnames(maf_kirp)[9] <- "Tumor_Sample_Barcode"
+
+.. code-block:: R
 
    # conver data frames to maftools objects
    kirc <- read.maf(maf_kirc)
