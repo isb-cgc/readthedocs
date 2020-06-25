@@ -1,6 +1,7 @@
 Launching a Virtual Machine (VM)
 ################################
 `Video: Create a VM <https://youtu.be/1XH0gLlGDdk>`_.
+
 Launch a VM using the Cloud shell command line 
 ==============================================
 Notice when you create your VM by going to Compute Engine/VM instances/Create Instance, at the end of the page there was an line that said 
