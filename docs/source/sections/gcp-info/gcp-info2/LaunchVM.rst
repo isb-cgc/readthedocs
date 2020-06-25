@@ -1,5 +1,6 @@
 Launching a Virtual Machine (VM)
 ################################
+`Video: Create a VM <https://cloud.google.com/sdk/gcloud/reference/compute/>`_.
 
 You can launch a virtual machine (which we will generally refer to as a VM) from the
 Google Cloud Console or from the command line using the Google Cloud SDK.  We will describe both
