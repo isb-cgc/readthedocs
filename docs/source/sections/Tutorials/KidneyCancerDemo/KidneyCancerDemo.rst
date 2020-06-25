@@ -87,59 +87,62 @@ Copy each block into the R terminal. Click Run after each block to see the resul
 
    install.packages("bigrquery")
    library(bigrquery)
-   project <- "isb-cgc-outreach"
+   project <- "your project" #Replace with your project name
    
 .. code-block:: R
 
-   # query the clinical table for our cohort
+   # Query the clinical table for our cohort.
+   # Retrieve Age at Diagnosis and Clinical Stage for Kidney Cancer data.
    sql <- "Select case_barcode, age_at_diagnosis, project_short_name, clinical_stage
-   from `isb-cgc.TCGA_bioclin_v0.Clinical` as clin
-   where project_short_name like 'TCGA-KIR%'"
-   bq_perform_query (query = sql, billing = project, destination_table = "kids-first-drc.demo.kidney_cancer_data")
-   head(bq_table_download("kids-first-drc.demo.kidney_cancer_data"))
+           from `isb-cgc.TCGA_bioclin_v0.Clinical` as clin
+           where project_short_name like 'TCGA-KIR%'"
+
+   clinical_tbl <- bq_project_query (project, query = sql) #Put data in temporary BQ table
+   clinical_data <- bq_table_download(clinical_tbl) #Put data into a dataframe
+   head(clinical_data)
 
 .. code-block:: R
 
-   # plot two histograms of age data of our cohort
+   # Plot two histograms of age of diagnosis data of our cohort.
    layout(matrix(1:2, 2, 1))
-   hist(data[data$project_short_name == "TCGA-KIRP",]$age_at_diagnosis, 
-     xlim=c(15,100), ylim=c(0,40), breaks=seq(15,100,2),
-     col="#FFCC66", main='TCGA-KIRP', xlab='Age at diagnosis')
-   hist(data[data$project_short_name == "TCGA-KIRC",]$age_at_diagnosis, 
-     xlim=c(15,100), ylim=c(0,40), breaks=seq(15,100,2), 
-     col="#99CCFF", main='TCGA-KIRC', xlab='Age at diagnosis')
+   hist(clinical_data[clinical_data$project_short_name == "TCGA-KIRP",]$age_at_diagnosis, 
+       xlim=c(15,100), ylim=c(0,40), breaks=seq(15,100,2),
+       col="#FFCC66", main='TCGA-KIRP', xlab='Age at diagnosis')
+
+   hist(clinical_data[clinical_data$project_short_name == "TCGA-KIRC",]$age_at_diagnosis, 
+       xlim=c(15,100), ylim=c(0,40), breaks=seq(15,100,2), 
+       col="#99CCFF", main='TCGA-KIRC', xlab='Age at diagnosis')
 
 .. code-block:: R
 
-   # perform our sql query in R and load it into a dataframe
-   sql_join <- "with gexp as (
-     select project_short_name, case_barcode, gene_name, avg(HTSeq__FPKM) as mean_gexp
-     from `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
-     where project_short_name like 'TCGA-KIR%' and gene_type = 'protein_coding'
-     group by project_short_name, case_barcode, gene_name
+   # Create SQL query to retrieve the mean gene expression and mean protein expression per project/case.
+   # load it into a dataframe.
+   sql_expression <- "with gexp as (
+       select project_short_name, case_barcode, gene_name, avg(HTSeq__FPKM) as mean_gexp
+       from `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
+       where project_short_name like 'TCGA-KIR%' and gene_type = 'protein_coding'
+       group by project_short_name, case_barcode, gene_name
    ), pexp as (
-     select project_short_name, case_barcode, gene_name, avg(protein_expression) as mean_pexp
-     from `isb-cgc.TCGA_hg38_data_v0.Protein_Expression`
-     where project_short_name like 'TCGA-KIR%'
-     group by project_short_name, case_barcode, gene_name
+       select project_short_name, case_barcode, gene_name, avg(protein_expression) as mean_pexp
+       from `isb-cgc.TCGA_hg38_data_v0.Protein_Expression`
+       where project_short_name like 'TCGA-KIR%'
+       group by project_short_name, case_barcode, gene_name
    )
-  
-.. code-block:: R
-  
    select gexp.project_short_name, gexp.case_barcode, gexp.gene_name, gexp.mean_gexp, pexp.mean_pexp 
    from gexp inner join pexp 
    on gexp.project_short_name = pexp.project_short_name 
      and gexp.case_barcode = pexp.case_barcode 
      and gexp.gene_name = pexp.gene_name"
-    
-   df_join <- query_exec(sql_join, project = project, use_legacy_sql = FALSE, max_pages = Inf)
-   head(df_join)
+
+   expression_data <- bq_table_download(bq_project_query (project, query = sql_expression)) #Put data into a dataframe
+   head(expression_data)
 
 .. code-block:: R
 
-   # determine the number of cases from each project again
-   length(unique(df_join$case_barcode[df_join$project_short_name == "TCGA-KIRP"]))
-   length(unique(df_join$case_barcode[df_join$project_short_name == "TCGA-KIRC"]))
+   # Determine the number of cases from each project.
+   length(unique(expression_data$case_barcode[expression_data$project_short_name == "TCGA-KIRP"]))
+   length(unique(expression_data$case_barcode[expression_data$project_short_name == "TCGA-KIRC"]))
+
 
    df_join$id <- paste(df_join$project_short_name, df_join$case, sep='.')
    cases <- unique(df_join$id)
