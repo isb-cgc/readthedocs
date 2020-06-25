@@ -82,6 +82,7 @@ Here’s an example of an interactive R notebook.
    :align: center
 
 Copy each block into the R terminal. Click Run after each block to see the results.
+
 .. code-block:: R
 
    install.packages("bigrquery")
