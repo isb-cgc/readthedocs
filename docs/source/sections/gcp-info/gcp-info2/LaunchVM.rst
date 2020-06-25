@@ -8,6 +8,8 @@ Notice when you create your VM by going to Compute Engine/VM instances/Create In
 "Equivalent REST or command line" when you click the command line option a popup will appears and show you the command to create the exact VM with the selected configuration.
 you can save it and reuse to create an quick VM instance.
 
+--------------------------------------------end of Kyle edit------------------------------------------------------------------
+
 You can launch a virtual machine (which we will generally refer to as a VM) from the
 Google Cloud Console or from the command line using the Google Cloud SDK.  We will describe both
 of these approaches here.
