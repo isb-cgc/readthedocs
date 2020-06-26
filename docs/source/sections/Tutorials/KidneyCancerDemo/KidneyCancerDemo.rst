@@ -101,6 +101,9 @@ Copy each block into the R terminal. Click Run after each block to see the resul
    clinical_data <- bq_table_download(clinical_tbl) #Put data into a dataframe
    head(clinical_data)
 
+.. image:: Clinical-dataframe.png
+
+
 .. code-block:: R
 
    # Plot two histograms of age of diagnosis data of our cohort.
@@ -112,11 +115,13 @@ Copy each block into the R terminal. Click Run after each block to see the resul
    hist(clinical_data[clinical_data$project_short_name == "TCGA-KIRC",]$age_at_diagnosis, 
        xlim=c(15,100), ylim=c(0,40), breaks=seq(15,100,2), 
        col="#99CCFF", main='TCGA-KIRC', xlab='Age at diagnosis')
+       
+.. image:: Clinical-histograms.png       
 
 .. code-block:: R
 
    # Create SQL query to retrieve the mean gene expression and mean protein expression per project/case.
-   # load it into a dataframe.
+   # Load it into a dataframe.
    sql_expression <- "with gexp as (
        select project_short_name, case_barcode, gene_name, avg(HTSeq__FPKM) as mean_gexp
        from `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
@@ -137,37 +142,49 @@ Copy each block into the R terminal. Click Run after each block to see the resul
    expression_data <- bq_table_download(bq_project_query (project, query = sql_expression)) #Put data into a dataframe
    head(expression_data)
 
+
+.. image:: Expression-dataframe.png  
+
 .. code-block:: R
 
    # Determine the number of cases from each project.
    length(unique(expression_data$case_barcode[expression_data$project_short_name == "TCGA-KIRP"]))
    length(unique(expression_data$case_barcode[expression_data$project_short_name == "TCGA-KIRC"]))
 
+.. image:: Num-cases.png  
 
-   df_join$id <- paste(df_join$project_short_name, df_join$case, sep='.')
-   cases <- unique(df_join$id)
-   # transform the data frame, columns are samples, rows are genes
+.. code-block:: R
+
+   #Create a dataframe that lists all the cases.
+   expression_data$id <- paste(expression_data$project_short_name, expression_data$case_barcode, sep='.')
+   cases <- unique(expression_data$id)
+
+   # Transform the expression_data data frame, so that columns are samples, rows are genes.
    list_exp <- lapply(cases, function(case){
-     temp <- df_join[df_join$id == case, c('gene_name', 'mean_gexp')]
-     names(temp) <- c('gene_name', case)
-     return(temp)
+       temp <- expression_data[expression_data$id == case, c('gene_name', 'mean_gexp')]
+       names(temp) <- c('gene_name', case)
+       return(temp)
    })
-  
+
    gene_exps <- Reduce(function(x, y) merge(x, y, all=T, by="gene_name"), list_exp)
    head(gene_exps)
    dim(gene_exps)
 
+.. image:: gene-exp-dataframe.png 
+
 .. code-block:: R
 
-   # perform the same transform for protein abundance
-   list_abun <- lapply(cases, function(case){
-      temp <- df_join[df_join$id == case, c('gene_name', 'mean_pexp')]
-      names(temp) <- c('gene_name', case)
-      return(temp)
-   })
-   pep_abun <- Reduce(function(x, y) merge(x, y, all=T, by="gene_name"), list_abun)
-   head(pep_abun)
-   dim(pep_abun)
+   # Perform the same transform for protein abundance.
+     list_abun <- lapply(cases, function(case){
+         temp <- expression_data[expression_data$id == case, c('gene_name', 'mean_pexp')]
+         names(temp) <- c('gene_name', case)
+         return(temp)
+     })
+     pep_abun <- Reduce(function(x, y) merge(x, y, all=T, by="gene_name"), list_abun)
+     head(pep_abun)
+     dim(pep_abun)
+
+.. image:: pep-abun-dataframe.png 
 
 .. code-block:: R
 
@@ -225,86 +242,3 @@ Copy each block into the R terminal. Click Run after each block to see the resul
    oncoplot(maf = kirc, top = 10)
 
 
-Queries to try out:
-
-.. code-block:: sql
-
-   # A query to determine the number of cases per cancer type
-   
-   SELECT DISTINCT project_name, count(case_barcode) AS cases
-   FROM `isb-cgc.TCGA_bioclin_v0.Clinical` 
-   GROUP BY project_name
-   
-.. code-block:: sql
-
-   # A query to get some summary information about these cancer types
-   
-   SELECT DISTINCT project_short_name, 
-   count(case_barcode) AS cases, 
-   min(age_at_diagnosis) AS minimum_age, 
-   max(age_at_diagnosis) AS maximum_age
-   FROM `isb-cgc.TCGA_bioclin_v0.Clinical` 
-   WHERE project_short_name like "TCGA-KIR%"
-   GROUP BY project_short_name
-   
-.. code-block:: sql
-   
-   SELECT DISTINCT project_short_name, 
-   count(case_barcode) as cases, 
-   FROM `isb-cgc.TCGA_bioclin_v0.Clinical` 
-   WHERE project_short_name LIKE "TCGA-KIR%"
-   AND age_at_diagnosis < 81
-   AND age_at_diagnosis > 29
-   GROUP BY project_short_name
-   
-.. code-block:: sql
-   
-   # Moving into the derived biological data, 
-   # query to determine number of cases with expression data
-   
-   SELECT DISTINCT project_short_name, count(distinct case_barcode) AS cases
-   FROM `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
-   WHERE project_short_name LIKE "TCGA-KIR%"
-   GROUP BY project_short_name
- 
-.. code-block:: sql   
-   
-   # Query to determine number of genes per gene type in the table
-   SELECT DISTINCT gene_type, count(distinct gene_name) AS type
-   FROM `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
-   WHERE project_short_name like "TCGA-KIR%"
-   GROUP BY gene_type
-   
-.. code-block:: sql   
-
-   # Query to determine number of genes measured per case
-   SELECT distinct case_barcode, count(distinct gene_name) AS genes
-   FROM `isb-cgc.TCGA_hg38_data_v0.Protein_Expression`
-   WHERE project_short_name like "TCGA-KIR%"
-   GROUP BY case_barcode
-   
-.. code-block:: sql      
-   
-   # Query to join gene expression and protein abundance for these two cancer types
-   
-   with gexp AS (
-       SELECT project_short_name, case_barcode, gene_name, avg(HTSeq__FPKM) as mean_gexp
-       FROM `isb-cgc.TCGA_hg38_data_v0.RNAseq_Gene_Expression`
-       WHERE project_short_name like 'TCGA-KIR%' and gene_type = 'protein_coding' 
-       GROUP BY project_short_name, case_barcode, gene_name
-   ), pexp AS (
-       SELECT project_short_name, case_barcode, gene_name, avg(protein_expression) AS mean_pexp
-       FROM `isb-cgc.TCGA_hg38_data_v0.Protein_Expression`
-       WHERE project_short_name like 'TCGA-KIR%'
-       GROUP BY project_short_name, case_barcode, gene_name
-   )
-   
-.. code-block:: sql    
-   
-   SELECT gexp.project_short_name, gexp.case_barcode, gexp.gene_name, gexp.mean_gexp, pexp.mean_pexp 
-   FROM gexp inner join pexp 
-   ON gexp.project_short_name = pexp.project_short_name 
-       AND gexp.case_barcode = pexp.case_barcode 
-       AND gexp.gene_name = pexp.gene_name
-   
-   
