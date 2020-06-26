@@ -16,33 +16,27 @@ We are interested in analyzing gene expression and protein abundance differences
    :scale: 30
    :align: center
 
-2)	For this demo, we will search for ISB-CGC hosted BigQuery tables that contain information for TCGA gene expression, protein expression and clinical data. 
+2)	For this demo, we will search for ISB-CGC hosted BigQuery tables that contain information for TCGA gene expression, protein expression and clinical data. We want to build a cohort of TCGA patients for which both gene expression and protein abundance data exists. Let’s search for **TCGA** in the **Program** filter and **Clinical Data**, **Gene Expression**, and **Protein Expression** in the **Data Type** filter. 
 
-.. image:: BQTableSearch-demo.png
-   :scale: 30
-   :align: center
-
-3)	We want to build a cohort of TCGA patients for which both gene expression and protein abundance data exists. Let’s search for **TCGA** in the **Program** filter and **Clinical Data**, **Gene Expression**, and **Protein Expression** in the **Data Type** filter. 
-
-4)	We can preview the clinical table and see the table schema by clicking the (+) icon.
+To see the table schema of the clinical table, click on the (+) icon.
 
 .. image:: BQTableSearch-TCGA.png
    :scale: 30
    :align: center
 
-5)	We can navigate to the Google Cloud Platform (GCP) BigQuery Console by clicking on the “open” button under the table preview or on the “magnifying glass” icon on the right hand side of the Table Search row. 
+3)	Navigate to the Google Cloud Platform (GCP) BigQuery Console by clicking on the “open” button under the table preview or on the “magnifying glass” icon on the right hand side of the Table Search row. 
 
 .. image:: BQTableSearch-Open.png
    :scale: 30
    :align: center
 
-6)	On the GCP BigQuery Console we can preview the table, look at the schema, and perform queries. The image below shows the preview of the contents of the TCGA Clinical BigQuery table. 
+4)	On the GCP BigQuery Console we can preview the table, look at the schema, and perform queries. The image below shows the preview of the contents of the TCGA Clinical BigQuery table. 
 
 .. image:: BQConsole-TCGA.png
    :scale: 30
    :align: center
 
-7)	Here’s an example short SQL query that completes in 0.3 seconds to identify how many patients there are with TCGA kidney cancers. 
+5)	Here’s an example short SQL query that completes in 0.3 seconds to identify how many patients there are with TCGA kidney cancers. 
 Enter this SQL query in the BigQuery Console and click Run: 
 
 .. code-block:: sql
@@ -55,7 +49,7 @@ Enter this SQL query in the BigQuery Console and click Run:
    :scale: 30
    :align: center
 
-8)	From here, we’ll use either R or Python to perform higher level analyses. We will be running our notebook in the Google Cloud AI Platform Notebooks environment. But we have also provided R scripts of the code which can be run in local R environments as well. 
+6)	From here, we’ll use either R or Python to perform higher level analyses. We will be running our notebook in the Google Cloud AI Platform Notebooks environment. But we have also provided R scripts of the code which can be run in local R environments as well. 
 
 To use Google Cloud AI Platform Notebooks, on the Google Cloud Platform Navigation menu, select AI Platform -> Notebooks under the Artificial Intelligence section.
 
@@ -63,25 +57,25 @@ To use Google Cloud AI Platform Notebooks, on the Google Cloud Platform Navigati
    :scale: 30
    :align: center
 
-9)	Users can create notebook instances in both R or Python. We’ll create our notebook in R. 
+7)	Users can create notebook instances in both R or Python. We’ll create our notebook in R. 
 
 .. image:: GCP-Notebooks.png
    :scale: 30
    :align: center
 
-10)	 The Google Cloud AI platform R notebook environment looks very similar to other Jupyter notebook environments. Users can create interactive R notebooks or simpler R console notebooks. 
+8) The Google Cloud AI platform R notebook environment looks very similar to other Jupyter notebook environments. Users can create interactive R notebooks or simpler R console notebooks. 
 
 .. image:: GCP-R-environment.png
    :scale: 30
    :align: center
 
-Here’s an example of an interactive R notebook. 
+Here’s an example of an interactive R notebook. Click the image to enlarge it.
 
 .. image:: GCP-R-Notebook.png
    :scale: 30
    :align: center
 
-Copy each block into the R terminal. Click Run after each block to see the results.
+Enter or copy each block into the R terminal. Click **Run** after each block to see the results.
 
 .. code-block:: R
 
@@ -188,25 +182,29 @@ Copy each block into the R terminal. Click Run after each block to see the resul
 
 .. code-block:: R
 
-   # separate the cohorts into two dataframes and 
-   # generate a scatterplot of gene expression and protein abundance
-   # gene expression first
+   # Separate the cohorts (types of kidney cancer) into two dataframes and 
+   # generate a scatterplot of gene expression and protein abundance.
+   # Gene expression first.
    exp_p <- gene_exps[,grep('KIRP', names(gene_exps))]
    exp_c <- gene_exps[,grep('KIRC', names(gene_exps))]
    plot(log(rowMeans(exp_p)), log(rowMeans(exp_c)), 
        xlab='log(FPKM KIRP)', ylab='log(FPKM KIRC)', 
        xlim=c(-3.5,7.5), ylim=c(-3.5,7.5), pch=19, cex=2,
        col=rgb(178,34,34,max=255,alpha=150))
+       
+.. image:: gene-scatterplot.png
 
 .. code-block:: R
 
-   # peptide expression second
+   # Peptide expression second.
    abun_p <- pep_abun[,grep('KIRP', names(pep_abun))]
    abun_c <- pep_abun[,grep('KIRC', names(pep_abun))]
    plot(rowMeans(abun_p), rowMeans(abun_c), 
       xlab='KIRP protein abundance', ylab="KIRC protein abundance", 
       xlim=c(-0.25,0.3), ylim=c(-0.25,0.3), pch=19, cex=2,
       col=rgb(140,140,230,max=255,alpha=150))
+      
+.. image:: peptide-scatterplot.png
 
 .. code-block:: R
 
