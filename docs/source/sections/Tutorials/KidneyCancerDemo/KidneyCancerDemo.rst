@@ -244,12 +244,19 @@ Enter or copy each block into the R terminal. Click **Run** after each block to 
    plotmafSummary(maf = kirc, rmOutlier = TRUE, addStat = 'median', dashboard = TRUE, titvRaw = FALSE)
 
 .. image:: plotmafSummary-kirp.png
+   :scale: 35
+   :align: center
 
 .. code-block:: R
 
    oncoplot(maf = kirp, top = 10)
    oncoplot(maf = kirc, top = 10)
 
+
+Here is the oncoplot for Kidney Renal Papillary Carcinoma.
+
 .. image:: oncoplot-kirp.png
+   :scale: 35
+   :align: center
 
 
