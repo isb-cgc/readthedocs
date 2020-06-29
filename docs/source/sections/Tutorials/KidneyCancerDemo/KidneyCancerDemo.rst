@@ -14,31 +14,31 @@ This tutorial demonstrates how to:
 
 Click on screenshots below to enlarge them.
 
-1)	Navigate to the ISB-CGC homepage: https://isb-cgc.org and click on the BigQuery Table Search button.
+Navigate to the ISB-CGC homepage: https://isb-cgc.org and click on the BigQuery Table Search button.
 
 .. image:: ISB-homepage.png
    :scale: 30
    :align: center
 
-2)	Let's search for ISB-CGC hosted BigQuery tables that contain information for TCGA gene expression, protein expression and clinical data. We want to build a cohort of TCGA patients for which both gene expression and protein abundance data exists. Enter **TCGA** in the **Program** filter and **Clinical Data**, **Gene Expression**, and **Protein Expression** in the **Data Type** filter. To see the table schema of the clinical table, click on the (+) icon.
+Let's search for ISB-CGC hosted BigQuery tables that contain information for TCGA gene expression, protein expression and clinical data. We want to build a cohort of TCGA patients for which both gene expression and protein abundance data exists. Enter **TCGA** in the **Program** filter and **Clinical Data**, **Gene Expression**, and **Protein Expression** in the **Data Type** filter. To see the table schema of the clinical table, click on the (+) icon.
 
 .. image:: BQTableSearch-TCGA.png
    :scale: 30
    :align: center
 
-3)	Navigate to the Google Cloud Platform (GCP) BigQuery Console by clicking on the “open” button under the table preview or on the “magnifying glass” icon on the right hand side of the Table Search row. 
+Navigate to the Google Cloud Platform (GCP) BigQuery Console by clicking on the “open” button under the table preview or on the “magnifying glass” icon on the right hand side of the Table Search row. 
 
 .. image:: BQTableSearch-Open.png
    :scale: 30
    :align: center
 
-4)	On the GCP BigQuery Console we can preview the table, look at the schema, and perform queries. The image below shows the preview of the contents of the TCGA Clinical BigQuery table. 
+On the GCP BigQuery Console we can preview the table, look at the schema, and perform queries. The image below shows the preview of the contents of the TCGA Clinical BigQuery table. 
 
 .. image:: BQConsole-TCGA.png
    :scale: 30
    :align: center
 
-5)	Here’s a short SQL query (that completes in 0.3 seconds) which identifies how many patients there are with TCGA kidney cancers. 
+Here’s a short SQL query (that completes in 0.3 seconds) which identifies how many patients there are with TCGA kidney cancers. 
 Enter this SQL query in the BigQuery Console and click **Run**: 
 
 .. code-block:: sql
@@ -51,7 +51,7 @@ Enter this SQL query in the BigQuery Console and click **Run**:
    :scale: 30
    :align: center
 
-6)	From here, we can use either R or Python to perform higher level analyses. In this example, we will be running an R notebook in the Google Cloud AI Platform Notebooks environment.  
+From here, we can use either R or Python to perform higher level analyses. In this example, we will be running an R notebook in the Google Cloud AI Platform Notebooks environment.  
 If you prefer, you can run this example in a local R environment instead.
 
 To use Google Cloud AI Platform Notebooks, from the Google Cloud Platform Navigation menu (on the left), select AI Platform -> Notebooks under the Artificial Intelligence section.
@@ -60,13 +60,13 @@ To use Google Cloud AI Platform Notebooks, from the Google Cloud Platform Naviga
    :scale: 30
    :align: center
 
-7)	Notebooks can be created in both R or Python. We’ll create our notebook in R. 
+Notebooks can be created in both R or Python. We’ll create our notebook in R. 
 
 .. image:: GCP-Notebooks.png
    :scale: 30
    :align: center
 
-8) The Google Cloud AI platform R notebook environment looks very similar to other Jupyter notebook environments. Users can create interactive R notebooks or simpler R console notebooks. 
+The Google Cloud AI platform R notebook environment looks very similar to other Jupyter notebook environments. Users can create interactive R notebooks or simpler R console notebooks. 
 
 .. image:: GCP-R-environment.png
    :scale: 30
