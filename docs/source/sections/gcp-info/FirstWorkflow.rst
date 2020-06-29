@@ -47,7 +47,6 @@ It should look like this:
 .. image:: YourFirstWorkflow_1.png
    :align: left
 
-
 Congratulations! you are now ready to run your first workflow using snakemake
 
 Step 1: Creating Index files from reference genome using hisat2-build
@@ -83,7 +82,35 @@ snakemake will run and use hisat2 to build index files from file rnaseq-snake/da
 
 Let's take a quick look at the code:
 
+::
 
+  #Snakefile
+  rule targets:
+    input:
+        "index.done"
+  include: "indexing.smk"
+
+
+The first rule's input of a Snakefile (rule targets) will determine what's the output that workflow. In this case, index.done is the target file what snakemake will look for. **Include: "indexing.smk"** will call the following helper script:
+
+.. note:: Only the first very first Snakefile rule's input behave like this, other input will be the actual inputs of your workflow.
+
+::
+
+  #Indexing.smk
+  rule indexing:
+    input:
+        "../data/reference.fa"
+    output:
+        touch('index.done')
+    shell:
+        """
+        mkdir reference
+        hisat2-build {input} index
+        mv index.* reference/
+        """
+
+In **Indexing.smk** file we have an actual input "../data/reference.fa" and the output section tell snakemake to create an empty file "index.done" and this is the file that the first rule will check to make sure that this helper script actually run. Then the shell script is executed as follow: a folder called reference got created, then Hisat2 will create index files from the fasta file, and then all the index files got moved to the reference folder.
 
 After **Step 1**:
 
@@ -99,7 +126,7 @@ After **Step 1**:
    |           |_________indexing.smk
    |           |_________Snakefile
    |           |_________[index.done]
-   |           |_________reference
+   |           |_________[reference]
    |                           |_________[index.1.ht2]
    |                           |              [(2-7)]
    |                           |_________[index.8.ht2]
@@ -108,6 +135,19 @@ After **Step 1**:
    |           |_________Snakefile
    |_________environment.yml
 
+
+Step 2: Creating Bam file and Transcript from reads and index files
+-------------------------------------------------------------------
+
+Step 2 is similar to Step 1
+
+From folder step1, to run step 2:
+
+::
+
+   $cd ..
+   $cd step2
+   $snakemake
 
 After **Step 2**:
 
@@ -142,3 +182,40 @@ After **Step 2**:
    |           |_________[ggal_gut.cutadapt.bam]
    |           |_________[ggal_gut.cutadapt.bam.bai]
    |_________environment.yml
+
+The script will call hisat2, samtools, and stringtie to do the work.
+
+Creating a visualization for your workflow
+------------------------------------------
+
+In the step2 folder:
+::
+
+ $snakemake --dag | dot -Tsvg > visual.svg
+
+A file named **visual.svg** will be created in the same folder, it can be downloaded and open with any web browser. It should look like this:
+
+
+.. image:: YourFirstWorkflow_2.png
+   :align: left
+
+
+About environment.yml
+---------------------
+
+::
+
+ channels:
+  - conda-forge
+  - bioconda
+  - main
+  - r
+ dependencies:
+  - snakemake-minimal =5.10.0
+  - python =3.7.6
+  - samtools =1.9
+  - bowtie2 =2.3.5.1
+  - hisat2 =2.2.0
+  - stringtie =2.1.2
+  - gffread =0.11.7
+  - graphviz =2.42.3e
