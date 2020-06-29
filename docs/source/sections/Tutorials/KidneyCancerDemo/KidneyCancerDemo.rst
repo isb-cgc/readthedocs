@@ -1,6 +1,6 @@
-****************************************************************************************
-Cancer Data Analysis Using ISB-CGC BiqQuery Search, Google BigQuery, R and Bioconductor
-****************************************************************************************
+******************************************
+Analysis Using BigQuery, R & Bioconductor
+******************************************
 
 In this tutorial, we are interested in analyzing gene expression and protein abundance differences between two types of TCGA kidney cancers, Kidney Renal Clear Cell Carcinoma (KIRC) and Kidney Renal Papillary Carcinoma (KIRP). We will build a cohort of patients with these cancer types and extract their respective gene expression and protein abundance data using  Google BigQuery. 
 
@@ -22,7 +22,8 @@ ISB-CGC documentation for guidance:
 
 Click on the screenshots below to enlarge them.
 
-**Using the ISB-CGC BigQuery Table Search**
+Using the ISB-CGC BigQuery Table Search
+---------------------------------------
 
 Navigate to the ISB-CGC homepage: https://isb-cgc.org and click on the BigQuery Table Search button.
 
@@ -42,7 +43,8 @@ Navigate to the Google Cloud Platform (GCP) BigQuery Console by clicking on the 
    :scale: 30
    :align: center
 
-**Using the Google Cloud BigQuery Console**
+Using the Google Cloud BigQuery Console
+---------------------------------------
 
 On the GCP BigQuery Console we can preview the table, look at the schema, and perform queries. The image below shows the preview of the contents of the TCGA Clinical BigQuery table. 
 
@@ -63,7 +65,8 @@ Enter this SQL query in the BigQuery Console and click **Run**:
    :scale: 30
    :align: center
    
-**Using a Google Cloud AI Platform R Notebook and Bioconductor**
+Using a Google Cloud AI Platform R Notebook and Bioconductor
+------------------------------------------------------------
 
 From here, we can use either R or Python to perform higher level analyses. In this example, we will be running an R notebook in the Google Cloud AI Platform Notebooks environment.  
 If you prefer, you can run this example in a local R environment instead.
