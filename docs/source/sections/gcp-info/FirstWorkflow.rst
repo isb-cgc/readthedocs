@@ -197,7 +197,7 @@ A file named **visual.svg** will be created in the same folder, it can be downlo
 
 
 .. image:: YourFirstWorkflow_2.jpg
-   :align: left
+   :align: center
 
 
 
