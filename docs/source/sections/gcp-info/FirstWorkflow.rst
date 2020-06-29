@@ -196,7 +196,7 @@ In the step2 folder:
 A file named **visual.svg** will be created in the same folder, it can be downloaded and open with any web browser. It should look like this:
 
 
-.. image:: YourFirstWorkflow_2.png
+.. image:: YourFirstWorkflow_2.jpg
    :align: left
 
 
