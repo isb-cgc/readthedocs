@@ -211,11 +211,14 @@ About environment.yml
   - main
   - r
  dependencies:
+  #snakemake and python will be included
   - snakemake-minimal =5.10.0
   - python =3.7.6
+  #all other bioinformatics tools
   - samtools =1.9
   - bowtie2 =2.3.5.1
   - hisat2 =2.2.0
   - stringtie =2.1.2
   - gffread =0.11.7
+  #visualization tool
   - graphviz =2.42.3e
