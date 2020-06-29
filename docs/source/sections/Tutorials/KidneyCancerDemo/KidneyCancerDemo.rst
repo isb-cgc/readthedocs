@@ -1,6 +1,6 @@
-***************************************************
-A guided tour of cancer data analysis using ISB-CGC
-***************************************************
+**************************************************************************
+Cancer Data Analysis Using ISB-CGC BiqQuery Search, Google BigQuery and R
+**************************************************************************
 
 In this tutorial, we are interested in analyzing gene expression and protein abundance differences between two types of TCGA kidney cancers, Kidney Renal Clear Cell Carcinoma (KIRC) and Kidney Renal Papillary Carcinoma (KIRP). We will build a cohort of patients with these cancer types and extract their respective gene expression and protein abundance data using  Google BigQuery. 
 
@@ -12,6 +12,7 @@ This tutorial demonstrates how to:
 - Link to R notebooks in the Google AI Platform for data interrogation and plot visualization 
 - Use Bioconductor packages designed for TCGA data on ISB-CGC BigQuery tables
 
+Click on screenshots below to enlarge them.
 
 1)	Navigate to the ISB-CGC homepage: https://isb-cgc.org and click on the BigQuery Table Search button.
 
@@ -19,9 +20,7 @@ This tutorial demonstrates how to:
    :scale: 30
    :align: center
 
-2)	Let's search for ISB-CGC hosted BigQuery tables that contain information for TCGA gene expression, protein expression and clinical data. We want to build a cohort of TCGA patients for which both gene expression and protein abundance data exists. Enter **TCGA** in the **Program** filter and **Clinical Data**, **Gene Expression**, and **Protein Expression** in the **Data Type** filter. 
-
-To see the table schema of the clinical table, click on the (+) icon.
+2)	Let's search for ISB-CGC hosted BigQuery tables that contain information for TCGA gene expression, protein expression and clinical data. We want to build a cohort of TCGA patients for which both gene expression and protein abundance data exists. Enter **TCGA** in the **Program** filter and **Clinical Data**, **Gene Expression**, and **Protein Expression** in the **Data Type** filter. To see the table schema of the clinical table, click on the (+) icon.
 
 .. image:: BQTableSearch-TCGA.png
    :scale: 30
@@ -39,8 +38,8 @@ To see the table schema of the clinical table, click on the (+) icon.
    :scale: 30
    :align: center
 
-5)	Here’s an example short SQL query that completes in 0.3 seconds to identify how many patients there are with TCGA kidney cancers. 
-Enter this SQL query in the BigQuery Console and click Run: 
+5)	Here’s a short SQL query (that completes in 0.3 seconds) which identifies how many patients there are with TCGA kidney cancers. 
+Enter this SQL query in the BigQuery Console and click **Run**: 
 
 .. code-block:: sql
 
@@ -52,15 +51,16 @@ Enter this SQL query in the BigQuery Console and click Run:
    :scale: 30
    :align: center
 
-6)	From here, we’ll use either R or Python to perform higher level analyses. We will be running our notebook in the Google Cloud AI Platform Notebooks environment. But we have also provided R scripts of the code which can be run in local R environments as well. 
+6)	From here, we can use either R or Python to perform higher level analyses. In this example, we will be running an R notebook in the Google Cloud AI Platform Notebooks environment.  
+If you prefer, you can run this example in a local R environment instead.
 
-To use Google Cloud AI Platform Notebooks, on the Google Cloud Platform Navigation menu, select AI Platform -> Notebooks under the Artificial Intelligence section.
+   To use Google Cloud AI Platform Notebooks, from the Google Cloud Platform Navigation menu (on the left), select AI Platform -> Notebooks under the Artificial Intelligence section.
 
 .. image:: GCP-AI-Platform.png
    :scale: 30
    :align: center
 
-7)	Users can create notebook instances in both R or Python. We’ll create our notebook in R. 
+7)	Notebooks can be created in both R or Python. We’ll create our notebook in R. 
 
 .. image:: GCP-Notebooks.png
    :scale: 30
@@ -72,7 +72,7 @@ To use Google Cloud AI Platform Notebooks, on the Google Cloud Platform Navigati
    :scale: 30
    :align: center
 
-Here’s an example of an interactive R notebook. Click the image to enlarge it.
+   Here’s an example of an interactive R notebook. Click the image to enlarge it.
 
 .. image:: GCP-R-Notebook.png
    :scale: 30
