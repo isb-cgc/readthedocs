@@ -47,6 +47,7 @@ It should look like this:
 .. image:: YourFirstWorkflow_1.png
    :align: left
 
+
 Congratulations! you are now ready to run your first workflow using snakemake
 
 Step 1: Creating Index files from reference genome using hisat2-build
