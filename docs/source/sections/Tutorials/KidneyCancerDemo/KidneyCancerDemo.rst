@@ -1,6 +1,6 @@
-**************************************************************************
-Cancer Data Analysis Using ISB-CGC BiqQuery Search, Google BigQuery and R
-**************************************************************************
+****************************************************************************************
+Cancer Data Analysis Using ISB-CGC BiqQuery Search, Google BigQuery, R and Bioconductor
+****************************************************************************************
 
 In this tutorial, we are interested in analyzing gene expression and protein abundance differences between two types of TCGA kidney cancers, Kidney Renal Clear Cell Carcinoma (KIRC) and Kidney Renal Papillary Carcinoma (KIRP). We will build a cohort of patients with these cancer types and extract their respective gene expression and protein abundance data using  Google BigQuery. 
 
@@ -54,7 +54,7 @@ Enter this SQL query in the BigQuery Console and click **Run**:
 6)	From here, we can use either R or Python to perform higher level analyses. In this example, we will be running an R notebook in the Google Cloud AI Platform Notebooks environment.  
 If you prefer, you can run this example in a local R environment instead.
 
-   To use Google Cloud AI Platform Notebooks, from the Google Cloud Platform Navigation menu (on the left), select AI Platform -> Notebooks under the Artificial Intelligence section.
+To use Google Cloud AI Platform Notebooks, from the Google Cloud Platform Navigation menu (on the left), select AI Platform -> Notebooks under the Artificial Intelligence section.
 
 .. image:: GCP-AI-Platform.png
    :scale: 30
@@ -245,6 +245,8 @@ Enter or copy each block into the R terminal. Click **Run** after each block to 
    # Leverage maftools plotting functionality.
    plotmafSummary(maf = kirp, rmOutlier = TRUE, addStat = 'median', dashboard = TRUE, titvRaw = FALSE)
    plotmafSummary(maf = kirc, rmOutlier = TRUE, addStat = 'median', dashboard = TRUE, titvRaw = FALSE)
+
+Here is the MAF Plot Summary for Kidney Renal Papillary Carcinoma.
 
 .. image:: plotmafSummary-kirp.png
 
