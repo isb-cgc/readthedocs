@@ -2,21 +2,24 @@
 A guided tour of cancer data analysis using ISB-CGC
 ***************************************************
 
-We are interested in analyzing gene expression and protein abundance differences between two types of TCGA kidney cancers, Kidney Renal Clear Cell Carcinoma (KIRC) and Kidney Renal Papillary Carcinoma (KIRP). In this demo, we build our cohort of patients with these cancer types and extract their respective gene expression and protein abundance data all from Google BigQuery. We will demonstrate how to: 
+In this tutorial, we are interested in analyzing gene expression and protein abundance differences between two types of TCGA kidney cancers, Kidney Renal Clear Cell Carcinoma (KIRC) and Kidney Renal Papillary Carcinoma (KIRP). We will build a cohort of patients with these cancer types and extract their respective gene expression and protein abundance data using  Google BigQuery. 
 
-- Identify tables of interest using ISB-CGC BigQuery Table Search UI 
-- Navigate to tables and build queries in Google BigQuery Console directly from the ISB-CGC BigQuery Table Search page 
+This tutorial demonstrates how to: 
+
+- Identify tables of interest using the ISB-CGC BigQuery Table Search UI 
+- Navigate to tables in the Google BigQuery Console directly from the ISB-CGC BigQuery Table Search
+- Build and run queries in the Google BigQuery Console
 - Link to R notebooks in the Google AI Platform for data interrogation and plot visualization 
 - Use Bioconductor packages designed for TCGA data on ISB-CGC BigQuery tables
 
 
-1)	Navigate to the ISB-CGC homepage: https://isb-cgc.org and click on the BigQuery Table Search.
+1)	Navigate to the ISB-CGC homepage: https://isb-cgc.org and click on the BigQuery Table Search button.
 
 .. image:: ISB-homepage.png
    :scale: 30
    :align: center
 
-2)	For this demo, we will search for ISB-CGC hosted BigQuery tables that contain information for TCGA gene expression, protein expression and clinical data. We want to build a cohort of TCGA patients for which both gene expression and protein abundance data exists. Let’s search for **TCGA** in the **Program** filter and **Clinical Data**, **Gene Expression**, and **Protein Expression** in the **Data Type** filter. 
+2)	Let's search for ISB-CGC hosted BigQuery tables that contain information for TCGA gene expression, protein expression and clinical data. We want to build a cohort of TCGA patients for which both gene expression and protein abundance data exists. Enter **TCGA** in the **Program** filter and **Clinical Data**, **Gene Expression**, and **Protein Expression** in the **Data Type** filter. 
 
 To see the table schema of the clinical table, click on the (+) icon.
 
