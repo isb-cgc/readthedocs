@@ -50,7 +50,7 @@ It should look like this:
 Congratulations! you are now ready to run your first workflow using snakemake
 
 Step 1: Creating Index files from reference genome using hisat2-build
----------------------------------------------------------------------
+=====================================================================
 
 
 From folder rnaseq-snake:
@@ -137,7 +137,7 @@ After **Step 1**:
 
 
 Step 2: Creating Bam file and Transcript from reads and index files
--------------------------------------------------------------------
+===================================================================
 
 Step 2 is similar to Step 1
 
@@ -186,7 +186,7 @@ After **Step 2**:
 The script will call hisat2, samtools, and stringtie to do the work.
 
 Creating a visualization for your workflow
-------------------------------------------
+==========================================
 
 In the step2 folder:
 ::
