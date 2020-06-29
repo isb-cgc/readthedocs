@@ -13,6 +13,7 @@ We have put together some basic documentation for ISB-CGC users who are new to t
    :maxdepth: 1
 
    gcp-info2/LaunchVM.rst
+   LaunchBucket.rst
    gcp-info2/Disks.rst
    Cheatsheet.rst
 
