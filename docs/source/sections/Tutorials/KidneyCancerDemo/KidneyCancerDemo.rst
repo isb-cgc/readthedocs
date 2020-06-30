@@ -124,11 +124,11 @@ Enter or copy each block into the R terminal. Click **Run** after each block to 
    layout(matrix(1:2, 2, 1))
    hist(clinical_data[clinical_data$project_short_name == "TCGA-KIRP",]$age_at_diagnosis, 
        xlim=c(15,100), ylim=c(0,40), breaks=seq(15,100,2),
-       col="#FFCC66", main='TCGA-KIRP', xlab='Age at diagnosis')
+       col="#FFCC66", main='TCGA-KIRP', xlab='Age at diagnosis (years)')
 
    hist(clinical_data[clinical_data$project_short_name == "TCGA-KIRC",]$age_at_diagnosis, 
        xlim=c(15,100), ylim=c(0,40), breaks=seq(15,100,2), 
-       col="#99CCFF", main='TCGA-KIRC', xlab='Age at diagnosis')
+       col="#99CCFF", main='TCGA-KIRC', xlab='Age at diagnosis (years)')
        
 .. image:: Clinical-histograms.png       
 
