@@ -17,7 +17,7 @@ Starting folder:
 
 ::
 
-   rnaseq-snake
+   rnaseq-snakemake
    |_________data
    |           |_________ggal_gut_1.fq
    |           |_________ggal_gut_2.fq
@@ -37,7 +37,7 @@ Setting up your Conda environment using the environment.yml file
 The file **environment.yml** contains a list of all the softwares required to run this tutorial
 ::
 
-  $cd rnaseq-snake
+  $cd rnaseq-snakemake
   $conda env create --name tutorial --file environment.yml
   $conda activate tutorial
 
@@ -117,7 +117,7 @@ After **Step 1**:
 
 ::
 
-   rnaseq-snake
+   rnaseq-snakemake
    |_________data
    |           |_________ggal_gut_1.fq
    |           |_________ggal_gut_2.fq
@@ -154,7 +154,7 @@ After **Step 2**:
 
 ::
 
-   rnaseq-snake
+   rnaseq-snakemake
    |_________data
    |           |_________ggal_gut_1.fq
    |           |_________ggal_gut_2.fq
