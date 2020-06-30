@@ -7,6 +7,7 @@ The links on this page connect to How-To guides, examples and other helpful tuto
 .. toctree::
    :maxdepth: 1
 
+   Tutorials/Video_Tutorials
    QueryOfTheMonthClub
    GDCTutorials/FromGDCtoISBCGC
    Tutorials/KidneyCancerDemo/KidneyCancerDemo
