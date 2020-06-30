@@ -2,6 +2,14 @@
 Running NEXTFLOW pipeline on public Bam file From ISB-CGC
 =========================================================
 
+The same pipeline in Snakemake can be found at
+
+.. toctree::
+   :maxdepth: 1
+
+   RunningSnakemakeWithBam.rst
+
+
 Requirements:
 =============
 
@@ -28,7 +36,7 @@ Download this tutorial:
  $sudo apt install subversion
 
  #cloning this tutorial
- $svn checkout https://github.com/isb-cgc/RunningWorkflows-on-the- GoogleCloud/trunk/Nextflow-GCgather
+ $svn checkout https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/trunk/Nextflow-GCgather
 
 Running Nextflow
 ================
