@@ -7,9 +7,12 @@ Requirements:
 
 Download this tutorial:
 ::
+    
+  $sudo add-apt-repository universe
+  $sudo apt update
+  $sudo apt install subversion
 
-   $insert git link
-    ===============
+  $svn checkout https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/trunk/rnaseq-snakemake
 
 Starting folder:
 
