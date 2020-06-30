@@ -15,3 +15,4 @@ We have put together some basic documentation for ISB-CGC users who are new to t
    FirstWorkflow.rst
    WorkflowWithGCSFUSE.rst
    RunningNextflowWithBam.rst
+   RunningSnakemakeWithBam.rst
