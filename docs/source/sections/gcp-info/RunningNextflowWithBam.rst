@@ -3,6 +3,7 @@ Running NEXTFLOW pipeline on public Bam file From ISB-CGC
 =========================================================
 
 Requirements:
+=============
 
 - Docker
 - Gcsfuse
@@ -19,6 +20,7 @@ To install Docker and Nextflow, you can visit our **Cheatsheet**, and to set up 
 
 
 Download this tutorial:
+=======================
 ::
 
  $sudo add-apt-repository universe
@@ -28,6 +30,8 @@ Download this tutorial:
  #cloning this tutorial
  $svn checkout https://github.com/isb-cgc/RunningWorkflows-on-the- GoogleCloud/trunk/Nextflow-GCgather
 
+Running Nextflow
+================
 You should have a **Nextflow-GCgather** directory with 1 file called **Nextflow-GCgather.nf** inside. We are going to change the address in this file to the one you created in the **Running Workflow with GCSFUSE** tutorial
 
 ::
@@ -57,3 +61,18 @@ Replace "/home/thinh_vo/sample/\*.bam" with your new address from the gcsfuse tu
 .. note:: This Bam file is quite large, it may take about 15 mins ~ 20 mins to run.
 
 Once Nextflow is finished, the result will be on the screen, or you can find it at **Nextflow-GCgather/Sam_results/final_gc_stats_out.txt**
+
+Running Nextflow with visualization
+-----------------------------------
+You can use this command instead to run Nextflow, it will out put a visualization file named "flowchart.png"
+
+
+::
+
+  $./nextflow run Nextflow-GCgather/Nextflow-GCgather.nf -with-dag flowchart.png
+
+
+It should look like this:
+
+.. image:: RunningNextflowWithBam.png
+   :align: left
