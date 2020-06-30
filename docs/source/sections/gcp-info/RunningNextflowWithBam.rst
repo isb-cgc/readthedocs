@@ -2,13 +2,14 @@
 Running NEXTFLOW pipeline on public Bam file From ISB-CGC
 =========================================================
 
-The same pipeline in Snakemake can be found at
+The same pipeline in Snakemake, CWL, WDL can be found at:
 
 .. toctree::
    :maxdepth: 1
 
    RunningSnakemakeWithBam.rst
-
+   RunningCWLWithBam.rst
+   RunningWDLWithBam.rst
 
 Requirements:
 =============
