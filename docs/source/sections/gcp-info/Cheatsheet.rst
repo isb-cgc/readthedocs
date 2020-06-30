@@ -139,6 +139,16 @@ Try:
   $sudo usermod -aG docker ${USER}
   close VM and reopen
 
+
+
+Git/github
+==========
+
+::
+
+  $sudo apt install git
+  
+
 *******
 GCSFUSE
 *******
