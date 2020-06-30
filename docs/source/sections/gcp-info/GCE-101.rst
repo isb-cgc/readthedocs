@@ -16,3 +16,5 @@ We have put together some basic documentation for ISB-CGC users who are new to t
    WorkflowWithGCSFUSE.rst
    RunningNextflowWithBam.rst
    RunningSnakemakeWithBam.rst
+   RunningCWLWithBam.rst
+   RunningWDLWithBam.rst
