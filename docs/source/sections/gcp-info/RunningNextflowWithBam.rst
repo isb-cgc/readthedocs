@@ -13,14 +13,11 @@ Requirements:
 
 To install Docker and Nextflow, you can visit our **Cheatsheet**, and to set up the gcsfuse to get access to the bam file please visit **Running Workflow with GCSFUSE** listed below:
 
-.. toctree::
-   :maxdepth: 1
-
-   Cheatsheet.rst
-   WorkflowWithGCSFUSE.rst
-   RunningSnakemakeWithBam.rst
-   RunningCWLWithBam.rst
-   RunningWDLWithBam.rst
+- `Cheatsheet <http://insertlink>`_
+- `WorkflowWithGCSFUSE <http://insertlink>`_
+- `RunningSnakemakeWithBam <http://insertlink>`_
+- `RunningCWLWithBam <http://insertlink>`_
+- `RunningWDLWithBam <http://insertlink>`_
 
 Download this tutorial:
 =======================

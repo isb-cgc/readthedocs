@@ -12,14 +12,11 @@ Requirements:
 
 To install and set up Anaconda/Miniconda, you can visit the first tutorial **Your First Workflow on Google Cloud Virtual Machine**, and to set up gcsfuse to get access to the bam file please visit **Running Workflow with GCSFUSE** listed below:
 
-.. toctree::
-   :maxdepth: 1
-
-   FirstWorkflow.rst
-   WorkflowWithGCSFUSE.rst
-   RunningNextflowWithBam.rst
-   RunningCWLWithBam.rst
-   RunningWDLWithBam.rst
+- `FirstWorkflow <http://insertlink>`_
+- `WorkflowWithGCSFUSE <http://insertlink>`_
+- `RunningNextflowWithBam <http://insertlink>`_
+- `RunningCWLWithBam <http://insertlink>`_
+- `RunningWDLWithBam <http://insertlink>`_
 
 Download this tutorial:
 =======================
