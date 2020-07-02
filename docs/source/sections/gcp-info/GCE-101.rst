@@ -9,12 +9,12 @@ We have put together some basic documentation for ISB-CGC users who are new to t
    :maxdepth: 1
 
    gcp-info2/LaunchVM.rst
-   readthedocs/docs/source/sections/gcp-info/LaunchBucket.rst
+   LaunchBucket.rst
    gcp-info2/Disks.rst
-   readthedocs/docs/source/sections/gcp-info/Cheatsheet.rst
-   readthedocs/docs/source/sections/gcp-info/FirstWorkflow.rst
-   readthedocs/docs/source/sections/gcp-info/WorkflowWithGCSFUSE.rst
-   readthedocs/docs/source/sections/gcp-info/RunningNextflowWithBam.rst
-   readthedocs/docs/source/sections/gcp-info/RunningSnakemakeWithBam.rst
-   readthedocs/docs/source/sections/gcp-info/RunningCWLWithBam.rst
-   readthedocs/docs/source/sections/gcp-info/RunningWDLWithBam.rst
+   Cheatsheet.rst
+   FirstWorkflow.rst
+   WorkflowWithGCSFUSE.rst
+   RunningNextflowWithBam.rst
+   RunningSnakemakeWithBam.rst
+   RunningCWLWithBam.rst
+   RunningWDLWithBam.rst
