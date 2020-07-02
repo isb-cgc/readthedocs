@@ -228,13 +228,14 @@ Enter or copy each block into the R terminal. Click **Run** after each block to 
 
 .. code-block:: R
 
-   # load the Bioconductor package maftools
+   # Load the Bioconductor package maftools, which has capabilities to summarize, 
+   # analyze and visualize Mutation Annotation Format (MAF) data.
    install.packages("maftools")
    library("maftools")
 
 .. code-block:: R
 
-   # Use BigQuery to load maf data for our cancers of interest.
+   # Use BigQuery to load TCGA somatic mutation data for our cancers of interest.
    sql_kirc<-"SELECT Hugo_Symbol, Chromosome, Start_Position, End_Position, Reference_Allele, 
    Tumor_Seq_Allele2, Variant_Classification, Variant_Type, sample_barcode_tumor FROM 
    `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation` WHERE project_short_name = 'TCGA-KIRC'"
@@ -246,6 +247,7 @@ Enter or copy each block into the R terminal. Click **Run** after each block to 
    maf_kirc <- bq_table_download(bq_project_query (project, query = sql_kirc)) #Put data into a dataframe
    maf_kirp <- bq_table_download(bq_project_query (project, query = sql_kirp)) #Put data into a dataframe
 
+   #Rename column 9 to the field name required by maftools.
    colnames(maf_kirc)[9] <- "Tumor_Sample_Barcode"
    colnames(maf_kirp)[9] <- "Tumor_Sample_Barcode"
 
