@@ -6,7 +6,7 @@ We have put together some basic documentation for ISB-CGC users who are new to t
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    gcp-info2/LaunchVM.rst
    readthedocs/docs/source/sections/gcp-info/LaunchBucket.rst
