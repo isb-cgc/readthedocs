@@ -2,17 +2,6 @@
 Running NEXTFLOW pipeline on public Bam file From ISB-CGC
 =========================================================
 
-The same pipeline in Snakemake, CWL, WDL can be found at:
-
-
-.. toctree::
-   :maxdepth: 1
-
-   RunningSnakemakeWithBam.rst
-   RunningCWLWithBam.rst
-   RunningWDLWithBam.rst
-
-
 
 Requirements:
 =============
@@ -29,7 +18,9 @@ To install Docker and Nextflow, you can visit our **Cheatsheet**, and to set up 
 
    Cheatsheet.rst
    WorkflowWithGCSFUSE.rst
-
+   RunningSnakemakeWithBam.rst
+   RunningCWLWithBam.rst
+   RunningWDLWithBam.rst
 
 Download this tutorial:
 =======================
@@ -44,7 +35,7 @@ Download this tutorial:
 
 Running Nextflow
 ================
-You should have a **Nextflow-GCgather** directory with 1 file called **Nextflow-GCgather.nf** inside. We are going to change the address in this file to the one you created in the **Running Workflow with GCSFUSE** tutorial
+  You should have a **Nextflow-GCgather** directory with 1 file called **Nextflow-GCgather.nf** inside. We are going to change the address in this file to the one you created in the **Running Workflow with GCSFUSE** tutorial
 
 ::
 
@@ -84,7 +75,7 @@ You can use this command instead to run Nextflow, it will out put a visualizatio
   $./nextflow run Nextflow-GCgather/Nextflow-GCgather.nf -with-dag flowchart.png
 
 
-It should look like this:
+  It should look like this:
 
-.. image:: RunningNextflowWithBam.png
-   :align: left
+  .. image:: RunningNextflowWithBam.png
+     :align: left

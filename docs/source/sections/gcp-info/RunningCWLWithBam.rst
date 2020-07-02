@@ -2,16 +2,6 @@
 Running CWL pipeline on public Bam file From ISB-CGC
 ====================================================
 
-The same pipeline in Snakemake, WDL, Nextflow can be found at:
-
-.. toctree::
-   :maxdepth: 1
-
-   RunningSnakemakeWithBam.rst
-   RunningWDLWithBam.rst
-   RunningNextflowWithBam.rst
-
-
 
 Requirements:
 =============
@@ -28,6 +18,9 @@ To install Docker and CWL, you can visit our **Cheatsheet**, and to set up the g
 
    Cheatsheet.rst
    WorkflowWithGCSFUSE.rst
+   RunningSnakemakeWithBam.rst
+   RunningWDLWithBam.rst
+   RunningNextflowWithBam.rst
 
 
 

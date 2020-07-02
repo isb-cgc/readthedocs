@@ -2,16 +2,6 @@
 Running WDL pipeline on public Bam file From ISB-CGC
 ====================================================
 
-The same pipeline in Snakemake, CWL, Nextflow can be found at:
-
-.. toctree::
-   :maxdepth: 1
-
-   RunningSnakemakeWithBam.rst
-   RunningCWLWithBam.rst
-   RunningNextflowWithBam.rst
-
-
 
 Requirements:
 =============
@@ -30,7 +20,9 @@ To install Java, Docker, Graphviz and WDL, you can visit our **Cheatsheet**, and
 
    Cheatsheet.rst
    WorkflowWithGCSFUSE.rst
-
+   RunningSnakemakeWithBam.rst
+   RunningCWLWithBam.rst
+   RunningNextflowWithBam.rst
 
 Installing Cromwell and Womtool:
 ================================
