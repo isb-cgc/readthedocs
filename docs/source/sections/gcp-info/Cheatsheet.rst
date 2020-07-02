@@ -114,7 +114,7 @@ Install:
 Check docker status:
 --------------------
 ::
-  
+
   $sudo systemctl status docker
 
 DOCKER Daemon not running:
@@ -139,7 +139,12 @@ Try:
   $sudo usermod -aG docker ${USER}
   close VM and reopen
 
+Graphviz
+========
 
+::
+
+  $sudo apt-get install graphviz
 
 Git/github
 ==========
@@ -147,7 +152,7 @@ Git/github
 ::
 
   $sudo apt install git
-  
+
 
 *******
 GCSFUSE
