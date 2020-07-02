@@ -37,7 +37,7 @@ Upload them to your VM:
 It should look like this after uploading:
 
 .. image:: RunningWDLWithBam_2.png
-   :align: left
+   :align: center
 
 
 Download this tutorial:
