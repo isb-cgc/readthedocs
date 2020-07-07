@@ -2,7 +2,11 @@
 File Metadata
 *****************
 
-The ISB-CGC hosts several metadata tables to help users determine which files are available in Google BigQuery. Preview and query these tables conveniently and interactively from the BigQuery web UI or scripting languages such as R and Python, or the command-line using the cloud SDK utility bq. The metadata is split up into several tables per release as follows:
+The ISB-CGC hosts several metadata tables to help users determine which files are available in Google BigQuery. Preview and query these tables conveniently and interactively from the BigQuery web UI or scripting languages such as R and Python, or the command-line using the cloud SDK utility bq. 
+
+For additional details about each of these tables, please use the `BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_. To find the metadata tables, select **File Metadata** under **Category**.  
+
+Below, the '#' represents the GDC release number and should be replaced by it when using the tables, for example: isb-cgc.GDC_metadata.rel24_caseData. The metadata is split up into several tables per GDC release as follows:
 
 .. list-table::
    :header-rows: 1

@@ -10,7 +10,7 @@ There are two Application Programming Interfaces (APIs) for interacting with ISB
 The ISB-CGC APIs can also be used via Python and R. We have tutorial notebooks available in our `Community Notebook Repository <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowTos.html#i-m-a-novice-how-do-i>`_. 
 
 - `Python Notebook <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_use_ISB_CGC_APIs.ipynb>`_
-- `R Notebook <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_use_ISB_CGC_APIs.Rmd>`_
+- `R Notebook <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_use_ISB-CGC_APIs.Rmd>`_
 
 Some example use-cases that the ISB-CGC API is intended to address are:
 
