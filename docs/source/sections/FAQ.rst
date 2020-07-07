@@ -28,7 +28,7 @@ How do I connect my Google Cloud Project to the ISB-CGC?
 ---------------------------------------------------------
 
 Your Google Cloud Project gives you access to all of the technologies that make
-up the Google Cloud Platform.  These technologies include BigQuery, Cloud Storage, Compute Engine, etc.  The ISB-CGC makes use of a variety of these technologies to provide access to the TCGA data, as well as many other data sets. Please follow this helpful guide on our How To Get Started page in the `Data Access and Google Cloud Project Setup <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowToGetStartedonISB-CGC.html#data-access-and-google-cloud-project-setup>`_ section.
+up the Google Cloud Platform.  These technologies include BigQuery, Cloud Storage, Compute Engine, etc.  The ISB-CGC makes use of a variety of these technologies to provide access to the TCGA data, as well as many other data sets. Please follow this helpful guide on our Quick-Start Guide page in the `Google Cloud Project Setup and Data Access<https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowToGetStartedonISB-CGC.html#data-access-and-google-cloud-project-setup>`_ section.
 
 The connection between your Google Cloud Project (whether it is an ISB-CGC sponsored and funded project
 or your own personal project) and the ISB-CGC is your Google identity 
@@ -106,8 +106,8 @@ Why do I sometimes get a "Do you want to leave this site?" pop-up box when leavi
 
 This is a security feature when working with forms found in most web browsers; it lets you know that you may have made some changes which will be lost when you navigate away from the page. If you intend to cancel what you were doing, you can safely ignore it.
 
-Which web browser is recommended to use when working with the site?
-----------------------------------------------------------------------------------
+Which web browser is recommended when working with the site?
+------------------------------------------------------------
 
 We recommend using Google Chrome browser.  Currently a chart will display slightly off when working with workbooks on a FireFox browser. 
 
@@ -150,7 +150,7 @@ and enter "isb-cgc" (without quotes) in the text box labeled "Project ID".  All 
 datasets and tables will now be visible in the left side-bar of the BigQuery web interface.
 *Note that in order to use BigQuery, you need to be a member of a Google Cloud Project.*
 
-How can I apply for access to the low-level DNA and RNA sequence data?
+How can I apply for access to low-level DNA and RNA sequence data?
 -----------------------------------------------------------------------
 
 In order to access the TCGA or All other controlled-access data available, you will need to apply to dbGaP_.
@@ -169,7 +169,7 @@ verify your dbGaP authorization.  You will be redirected to the NIH iTrust login
 successfully authenticate, you will be brought back to the ISB-CGC Web App.  After you successfully
 authenticate, we will verify that you also have dbGaP authorization for the TCGA controlled-access data and other programs you have dbGaP access to.
 
-We also ask that you review our section on `Understanding Data Security <data/TCGA_Data_Security.html>`_ .
+We also ask that you review our section on `Understanding Data Security <data/TCGA_Data_Security.html>`_.
 
 My professor has dbGaP authorization.  Do I have to have my own authorization too?
 ---------------------------------------------------------------------------------------
@@ -223,7 +223,7 @@ Regulome Explorer Users
 ###########################
 
 Can I run Regulome Explorer Analyses using TCGA tables of heterogeneous data in BigQuery?
-----------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
 
 Yes, of course! A series of Python Notebooks have been created to replicate Regulome Explorer and includes detailed information on the statistical methods implemented. To get started, please visit our `Regulome Explorer <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/RegulomeExplorerNotebooks.html>`_ page in readthedocs or our Repository in `Regulome Explorer GitHub <https://github.com/isb-cgc/Community-Notebooks/tree/master/RegulomeExplorer>`_. 
 
