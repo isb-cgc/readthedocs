@@ -44,7 +44,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - ISB-CGC Cohort Builder
    * - `BEATAML <data/BEATAML_about.html>`_
      - |checkmark| 
-     - 
+     - |checkmark| *
      - 
    * - `CCLE <data/CCLE_top.html>`_
      - |checkmark|
@@ -88,7 +88,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - 
    * - `ORGANOID <data/ORGANOID_about.html>`_
      - |checkmark|
-     - 
+     - |checkmark| *
      - 
    * - `TARGET <data/TARGET_top.html>`_
      - |checkmark|
@@ -98,7 +98,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - |checkmark|
      - |checkmark|
      - |checkmark|
-   * - `TCGA Radiology and Pathology images from TCIA <data/TCGA-images.html>`_
+   * - `TCGA Pathology and Radiology images <data/TCGA-images.html>`_
      - |checkmark|
      - |checkmark|
      - |checkmark|
@@ -113,6 +113,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      
 .. |checkmark| image:: CheckMark.png 
    
+*RNA-seq data available
 
 .. toctree::
    :maxdepth: 1
@@ -152,12 +153,17 @@ From Other Sources
      - No, the COSMIC database is maintained by the Wellcome Sanger Institute, UK
      - Yes, COSMIC data is in BigQuery for registered users. Learn more about how to gain access to the COSMIC data `here <data/COSMIC_about.html>`_   
      - 
-
+   * - `Pan-Cancer Atlas <PanCancer-Atlas-Mirror.html>`_
+     - 
+     - |checkmark|
+     - 
+     
 .. toctree::
    :maxdepth: 1
    :hidden:
    
    data/COSMIC_about
+   PanCancer-Atlas-Mirror
 
 Reference Data Sets
 -------------------
