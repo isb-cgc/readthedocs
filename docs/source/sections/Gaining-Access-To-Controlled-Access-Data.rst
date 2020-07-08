@@ -88,7 +88,7 @@ Select the Yes, I Authorize button at the bottom right of the page to authorize 
 Select the email you used to originally log into the ISB-CGC web application to finalize the authorization.
 
 Once logged in through eRA identification you are redirected to the user details page and given a Warning Notice referring to abiding by the rules and regulations provided by the DUCA Use Agreement.  Please refer to image below.
-,
+
 .. image:: webapp/warningNotice.png
    :align: center
 
@@ -302,18 +302,4 @@ If your Google Cloud Project is associated to an organization, you will be unabl
 
 .. image:: webapp/OrganizationFound.PNG
    :align: center
-
-
-Your Responsibilities 
----------------------
-
-You should think about securing controlled data within the context of your GCP project in the same way 
-that you would think about securing controlled data that you might download to a file-server or 
-compute-cluster at your own institution. Your responsibilities for data protection are the same in a 
-cloud environment. For more information, please refer to the
-`NIH Security Best Practices for Controlled-Access Data <http://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/GetPdf.cgi?document_name=dbgap_2b_security_procedures.pdf>`_.
-
-"NIH has tried to provide as much information as possible for PIs, institutional signing officials (SOs) and 
-the IT staff who will be supporting these projects, to make sure they understand their responsibilities." 
-(Ref: `The Cloud, dbGaP and the NIH blog post 03.27.2015 <http://datascience.nih.gov/blog/cloud>`_)
 
