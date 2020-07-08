@@ -16,30 +16,32 @@ refer to the Google `documentation <https://cloud.google.com/iam/docs/service-ac
 
 In order for this **service account** to access controlled data, you must register it with ISB-CGC.
 Once this process has completed successfully, this service account will be able to access controlled
-data for up to 7 days.
+data for up to 7 days. If the service account (*ie* any program running on a VM using the service account's credentials) tries to access controlled data
+after the 7 day expiration, it will get an Access Denied error; to prevent this from causing problems with long-running jobs, you can extend access by
+another 7 days (see below).
 
-NOTES: 
+To allow flexibility while working with different research teams and different processes, you can have many GCPs registered with ISB-CGC, as well as many service accounts registered per GCP.
 
-- To allow flexibility while working with different research teams and different processes, you can have many GCPs registered with ISB-CGC, as well as many service accounts registered per GCP.
-- If the service account (*ie* any program running on a VM using the service account's credentials) tries to access controlled data after the 7 day expiration, it will get an Access Denied error; to prevent this from causing problems with long-running jobs, you can extend access by another 7 days (see below).
 
 Requirements for Registering a Google Cloud Project Service Account
 --------------------------------------------------------------------
 To be able to register your GCP Project and at least one service account to access controlled data the following must all be true:
 
-- You must be an **owner** of the GCP project (because you will need to add an ISB-CGC service account as a new project member and a DCF service account as a new project member)
- - 907668440978-oskt05du3ao083cke14641u35deokgjj@developer.gserviceaccount.com
- - fence-service@dcf-prod.iam.gserviceaccount.com
-- At any time, ALL members of the project MUST be authorized to use the data set (*ie* be a registered dbGaP "PI" or "downloader") (see dbGap Data Access `Request Portal <http://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login>`_, and `Understanding Data Security <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/data//TCGA_Data_Security.html>`_ for more details).
-- All members of the project have signed in to the ISB-CGC Web App *at least once*
-- All members of the project have authenticated via the NIH login page and thereby linked their NIH identity to their Google identity
-- The GCP project cannot be associated with an Organization
-- No Google Groups or other multi-member identifiers (e.g. all authenticated Google users) have been provided with a project role
-- The GCP project must have the ISB-CGC monitoring service account (SA) assigned to an Editor role
-- All SAs with roles in the project must belong to the project, with the exception of the ISB-CGC monitoring SA; this means that all Google-managed SAs with project roles must belong to the project as well
-- The SA you are registering cannot be the ISB-CGC monitoring SA, or SAs from other projects
-- You have not created any keys for any SAs in the project
-- No IDs have been assigned roles on any SAs in the project
+.. list-table:: 
+
+   * - You must be an **owner** of the GCP project (because you will need to add an ISB-CGC service account as a new project member and a DCF service account as a new project member)
+        - 907668440978-oskt05du3ao083cke14641u35deokgjj@developer.gserviceaccount.com
+        - fence-service@dcf-prod.iam.gserviceaccount.com
+   * - At any time, ALL members of the project MUST be authorized to use the data set (*ie* be a registered dbGaP "PI" or "downloader") (see dbGap Data Access `Request Portal <http://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login>`_, and `Understanding Data Security <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/data//TCGA_Data_Security.html>`_ for more details).
+   * - All members of the project have signed in to the ISB-CGC Web App *at least once*
+   * - All members of the project have authenticated via the NIH login page and thereby linked their NIH identity to their Google identity
+   * - The GCP project cannot be associated with an Organization
+   * - No Google Groups or other multi-member identifiers (e.g. all authenticated Google users) have been provided with a project role
+   * - The GCP project must have the ISB-CGC monitoring service account (SA) assigned to an Editor role
+   * - All SAs with roles in the project must belong to the project, with the exception of the ISB-CGC monitoring SA; this means that all Google-managed SAs with project roles must belong to the project as well
+   * - The SA you are registering cannot be the ISB-CGC monitoring SA, or SAs from other projects
+   * - You have not created any keys for any SAs in the project
+   * - No IDs have been assigned roles on any SAs in the project
 
 If ANY of these requirements are not met, your GCP and ANY associated service accounts will **not** be able to access controlled data.  An automated email will be sent to the GCP project owner(s) if data access is revoked.
 
