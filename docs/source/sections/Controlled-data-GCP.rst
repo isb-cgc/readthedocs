@@ -51,32 +51,31 @@ To register your GCP and its Service Account with ISB-CGC, select the "persona" 
 which takes you to the following page:
 
 .. image:: webapp/RegisteredGCPs.png
+   :scale: 30
    :align: center
    
 Select the "Register a Google Cloud Project" link.  That takes you to the following page:
 
 .. image:: webapp/RegisterAGCPForm.png
+   :scale: 30
    :align: center
    
-Please fill out the form following the provided instructions. You can hide the instructions by selecting the blue Instructions button.  
-You must enter your GCP ID and enable the isb-cgc service account as an editor in your project to move on to the next step.  
-
-.. image:: webapp/project_info.PNG
-   :align: center
-   
+The instructions will walk you through how to add the necessary Service Accounts to your project. Follow these steps in the Google Cloud Platform.
+You can hide the instructions by selecting the blue **Instructions** button.  
 
 Please be sure to add both service accounts listed below. If you don't add both service accounts you will run into issues viewing the controlled data in ISB-CGC.
+Then return to the ISB-CGC Register a Google Cloud Project page, enter your Google Cloud Project ID and click **Verify**.
 
 .. image:: webapp/RegisterServiceAccountsList.PNG
    :scale: 50
    :align: center
 
-Once you have completed these steps you will be presented at the bottom of the same page a listing of the members of your GCP you registering (see screenshot below):
+Once you have completed these steps, a listing of the Google Cloud Project members will display (see screenshot below):
 
 .. image:: webapp/GCPMembers.png
    :align: center
    
-Pushing the "Register" button will take you to the next screen:
+Click the **Register** button to go to the next screen:
 
 .. image:: webapp/0007projectregistered.PNG
    :align: center
