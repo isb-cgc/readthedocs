@@ -1,11 +1,16 @@
 ************************************************
 Accessing Controlled Data
 ************************************************
+
 Accessing **controlled data** is achieved in two different ways, depending on how you are using it: 
   - Interactive computing (*e.g.* the Web App or R Studio) or, 
   - Programmatic computing (*e.g.* a program running from a Google Virtual Machine Compute Engine you have started).  
   
 In some cases you will be using your *personal* credentials while in other cases a "service account" will be acting on your behalf, using its own credentials.  The methods are described below.  Please note, you can use both methods at the same time; they are not mutually exclusive.
+
+
+.. image:: Controlled-Access-Flowchart.png
+   :align: center
 
 Interactive Access to Controlled Data 
 ======================================
