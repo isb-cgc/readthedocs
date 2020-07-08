@@ -1,17 +1,33 @@
 ************************************************
 Accessing Controlled Data
 ************************************************
-Accessing **controlled data** is achieved in two different ways, depending whether you are using interactive computing (*e.g.* the Web App or R Studio), or programmatic computing (*e.g.* a program running from a Google Virtual Machine Compute Engine you have started).  In some cases you will be using your *personal* credentials while in other cases a "service account" will be acting on your behalf, using its own credentials.  The methods are described below.  Please note, you can use both methods at the same time; they are not mutually exclusive.
+Accessing **controlled data** is achieved in two different ways, depending on how you are using it: 
+  - Interactive computing (*e.g.* the Web App or R Studio) or, 
+  - Programmatic computing (*e.g.* a program running from a Google Virtual Machine Compute Engine you have started).  
+  
+In some cases you will be using your *personal* credentials while in other cases a "service account" will be acting on your behalf, using its own credentials.  The methods are described below.  Please note, you can use both methods at the same time; they are not mutually exclusive.
 
 Interactive Access to Controlled Data 
 ======================================
+
+This section explains how to get access to controlled data through the ISB-CGC WebApp. It shows you how to associate your Google Identity to your NIH or eRA 
+account through the WebApp.
+
+**You must have a Google identity**
+
+If you don't have a Google Identity yet, please see the  `ISB-CGC Quick-Start Guide <HowToGetStartedonISB-CGC.html>`_. 
+
+**You must have either an NIH or eRA account.**
+
 Before you can access *any* controlled-data hosted by the ISB-CGC,
-you must first associate (or "link") your Google identity (which you use to sign in to the ISB-CGC Web App and
+you must first associate (or "link") your Google identity (which you use to sign in to the ISB-CGC WebApp and
 access the Google Cloud) with a valid NIH login associated with a dbGaP data-access request
 (either an eRA account ID or an NIH account User ID).  This is done through the Web App: you will 
 first be redirected to an NIH login page, and once you have successfully authenticated,
 ISB-CGC will store an association between your NIH identity and your Google identity.
 (Note that this should be a one-to-one association.)
+
+**Your eRA (or NIH) account must be linked to dbGaP permissions.**
 
 Once you have authenticated, ISB-CGC will check which datasets, e.g. TCGA controlled data and/or TARGET controlled data you have been authorized (by dbGaP) to access.  ISB-CGC obtains an updated whitelist for each of the hosted datasets from
 dbGaP every day.  If you have just recently been granted access by dbGaP, there may be a 24 hour
