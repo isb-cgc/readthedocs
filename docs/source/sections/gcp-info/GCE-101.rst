@@ -13,8 +13,10 @@ We have put together some basic documentation for ISB-CGC users who are new to t
    gcp-info2/Disks.rst
    Cheatsheet.rst
    FirstWorkflow.rst
+   CWL-RNAseq.rst
    WorkflowWithGCSFUSE.rst
    RunningNextflowWithBam.rst
    RunningSnakemakeWithBam.rst
    RunningCWLWithBam.rst
    RunningWDLWithBam.rst
+   
