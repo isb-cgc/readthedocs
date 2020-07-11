@@ -1,5 +1,5 @@
 *************************************
-Running Workflows on Google Cloud
+Running Workflows on ISB-CGC
 *************************************
 
 We have put together some basic documentation for ISB-CGC users who are new to the Google Cloud Platform, but your main source of information should generally be the official Google Cloud Platform `documentation <https://cloud.google.com/docs>`_.
