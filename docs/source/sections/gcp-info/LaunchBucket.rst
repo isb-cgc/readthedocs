@@ -1,7 +1,7 @@
-Launching a Storage Bucket
-##########################
+Creating a Google Cloud Storage Bucket 
+####################################
 
-Launch a bucket using the Console
+Launch a bucket using the Google Cloud Console
 =================================
 `Video: Create a storage bucket <https://youtu.be/TfOO-fSzTNA>`_.
 
