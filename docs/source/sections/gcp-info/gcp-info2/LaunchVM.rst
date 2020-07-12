@@ -1,32 +1,13 @@
 Launching a Virtual Machine (VM)
 ################################
+
+Via the Google Cloud Console
+=============================
+
 `Video: Create a VM <https://youtu.be/1XH0gLlGDdk>`_.
 
-Launch a VM using the Cloud shell command line 
-==============================================
-Notice when you create your VM by going to Compute Engine/VM instances/Create Instance, at the end of the page there was an line that said 
-"Equivalent REST or command line" when you click the command line option a popup will appears and show you the command to create the exact VM with the selected configuration.
-you can save it and reuse to create an quick VM instance.
+   .. youtube:: 1XH0gLlGDdk
 
---------------------------------------------end of Kyle edit------------------------------------------------------------------
-
-You can launch a virtual machine (which we will generally refer to as a VM) from the
-Google Cloud Console or from the command line using the Google Cloud SDK.  We will describe both
-of these approaches here.
-
-You should already be somewhat familiar with the Console, and hopefully you have tried
-invoking the **gcloud** command from your command-line.
-The **gcloud** command-line tool can be used to manage both your development workflow
-and your Google Cloud Platform (GCP) resources.  (For more details, please look at the official 
-`gcloud Tool Guide <https://cloud.google.com/sdk/gcloud/>`_.)
-
-Bundled into the `gcloud <https://cloud.google.com/sdk/gcloud/reference/>`_ 
-CLI are several **commands** and **groups** of sub-commands.  The group of sub-commands
-that allows you to read and manipulate Google Compute Engine (GCE) resources is 
-`gcloud compute <https://cloud.google.com/sdk/gcloud/reference/compute/>`_.
-
-Launch a VM using the Console
-=============================
 
 After you have enabled the Compute Engine API for your project, you can go the Compute Engine
 section of the Console.  (Select the menu icon in the far upper-left corner, and then choose
@@ -60,6 +41,35 @@ functionality.)
 Creating the VM should take less than a minute, after which you will see it listed on the "VM instances"
 page, with the Name, Zone, Disk, Network, and External IP address shown.  There is also an SSH button
 that you can use directly from the Console.
+
+
+
+
+
+
+
+Launch a VM using the Cloud shell command line 
+==============================================
+Notice when you create your VM by going to Compute Engine/VM instances/Create Instance, at the end of the page there was an line that said 
+"Equivalent REST or command line" when you click the command line option a popup will appears and show you the command to create the exact VM with the selected configuration.
+you can save it and reuse to create an quick VM instance.
+
+
+You can launch a virtual machine (which we will generally refer to as a VM) from the
+Google Cloud Console or from the command line using the Google Cloud SDK.  We will describe both
+of these approaches here.
+
+You should already be somewhat familiar with the Console, and hopefully you have tried
+invoking the **gcloud** command from your command-line.
+The **gcloud** command-line tool can be used to manage both your development workflow
+and your Google Cloud Platform (GCP) resources.  (For more details, please look at the official 
+`gcloud Tool Guide <https://cloud.google.com/sdk/gcloud/>`_.)
+
+Bundled into the `gcloud <https://cloud.google.com/sdk/gcloud/reference/>`_ 
+CLI are several **commands** and **groups** of sub-commands.  The group of sub-commands
+that allows you to read and manipulate Google Compute Engine (GCE) resources is 
+`gcloud compute <https://cloud.google.com/sdk/gcloud/reference/compute/>`_.
+
 
 Launch a VM using the CLI
 =========================
