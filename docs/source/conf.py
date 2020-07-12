@@ -33,7 +33,7 @@ from docutils.utils import get_source_line
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.todo',
+    'sphinx.ext.todo','sphinxcontrib.youtube'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
