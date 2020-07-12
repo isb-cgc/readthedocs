@@ -6,7 +6,7 @@ Via the Google Cloud Console
 
 `Video: Create a VM <https://youtu.be/1XH0gLlGDdk>`_.
 
-  .. youtube:: 1XH0gLlGDdk
+.. youtube:: 1XH0gLlGDdk
 
 
 After you have enabled the Compute Engine API for your project, you can go the Compute Engine
