@@ -1,11 +1,11 @@
 Creating a Google Cloud Storage Bucket 
 ####################################
 
-Launch a bucket using the Google Cloud Console
+Via the Google Cloud Console
 =================================
 `Video: Create a storage bucket <https://youtu.be/TfOO-fSzTNA>`_.
 
-Launch a bucket using the Cloud shell command line
+Via gcloud command-line tool
 ==================================================
 Use the gsutil mb command:
 
@@ -15,7 +15,8 @@ Use the gsutil mb command:
 
 Where:
 
-- [BUCKET_NAME] is the name you want to give your bucket, subject to naming requirements. For example, my-bucket. Set the following optional flags to have greater control over the creation of your bucket:
+- [BUCKET_NAME] is the name you want to give your bucket, subject to naming requirements. For example, my-bucket. 
+Set the following optional flags to have greater control over the creation of your bucket:
 - p: Specify the project with which your bucket will be associated. For example, my-project.
 - c: Specify the default storage class of your bucket. For example, NEARLINE.
 - l: Specify the location of your bucket. For example, US-EAST1.
@@ -41,7 +42,7 @@ output:
    gs://my-cloud-bucket/myOtherFile.txt
 
 
-Accessing data in your bucket by gcsfuse
+Accessing data in your bucket via GCSFuse
 ========================================
 `How-to video <https://www.youtube.com/watch?v=mE6dLYOf8BA>`_ | `Installing Page <https://github.com/GoogleCloudPlatform/gcsfuse/blob/master/docs/installing.md>`_
 
