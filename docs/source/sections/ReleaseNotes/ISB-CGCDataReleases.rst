@@ -14,9 +14,9 @@ Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer was updat
 
 *July 9, 2020*
 
-New per same file metadata tables added to isb-cgc-bq for GDC release 24.
+New per sample file metadata tables added to isb-cgc-bq for GDC release 24.
 
-**BigQuery table created**
+**BigQuery tables created**
 
 - isb-cgc-bq:BEATAML1_0.per_sample_file_metadata_hg38_gdc_current
 - isb-cgc-bq:BEATAML1_0_versioned.per_sample_file_metadata_hg38_gdc_r24
