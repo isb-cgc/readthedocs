@@ -56,17 +56,20 @@ To link your NIH identity with your Google identity (ie the Google account you u
 select the "persona" icon next to your login name (A in the image below) after you have signed in to the ISB-CGC Web App.  
 
 .. image:: webapp/personaeicon-NIHLoginAssoc.png
+   :scale: 30
    :align: center
 
 You will then see the following page:
 
 .. image:: webapp/NIHAssociationPage.png
+   :scale: 30
    :align: center
 
 
 You will see a pop up describing all the steps needed to link you NIH Identity to the Data Commons Framework (DCF).
 
 .. image:: webapp/LinkNIHIDInstructions.PNG
+   :scale: 30
    :align: center
 
 Now you need to associate your Google identity with your NIH identity.  (Your NIH identity is the one associated
@@ -75,6 +78,7 @@ To do this, select the "Associate with eRA Commons Account" link (highlighted in
 You will then be redirected to an NIH login page to be authenticated by NIH:
 
 .. image:: webapp/iTrust.png
+   :scale: 30
    :align: center
 
 If you have an eRA identification, use this to sign in through panel A (see example above).  
@@ -83,12 +87,14 @@ Once you have been authenticated by NIH, and your NIH identity has been verified
 the current dbGaP whitelist, you will have access to controlled data for 24 hours.  
 
 .. image:: webapp/Gen3authPage.PNG
+   :scale: 30
    :align: center
    
 
 Select the Yes, I Authorize button at the bottom right of the page to authorize the Data Commons Framework to authorize your Google identity with controlled data.
 
 .. image:: webapp/datacommons.ioLogIn.PNG
+   :scale: 30
    :align: center
 
 Select the email you used to originally log into the ISB-CGC web application to finalize the authorization.
@@ -96,6 +102,7 @@ Select the email you used to originally log into the ISB-CGC web application to 
 Once logged in through eRA identification you are redirected to the user details page and given a Warning Notice referring to abiding by the rules and regulations provided by the DUCA Use Agreement.  Please refer to image below.
 
 .. image:: webapp/warningNotice.png
+   :scale: 30
    :align: center
 
 Please note: the ISB-CGC system will enforce a one-to-one relationship between NIH identities
@@ -109,6 +116,7 @@ In the unusual instance that your NIH identity has been registered with another 
 (*eg* with another Google identity you own), you will see the screen below:
 
 .. image:: webapp/eRAlinkedtoAnotherGoogle.png
+   :scale: 30
    :align: center
    
 If this happens, please sign in with that other account and "unlink" your eRA from that account
@@ -120,6 +128,7 @@ To end your Web App session, just "Sign Out" by using the pull-down below your n
 still be signed in to your browser, so you may want to also sign out of the browser.
 
 .. image:: webapp/SignOut.png
+   :scale: 30
    :align: center
 
 Extending Your Access by 24 hours 
@@ -132,6 +141,7 @@ period to 24 hours from now" (red box on figure below).
 Your time of access will be extended to 24 hours from the time you push the link. 
 
 .. image:: webapp/24hrExtension.png
+   :scale: 30
    :align: center
 
 
