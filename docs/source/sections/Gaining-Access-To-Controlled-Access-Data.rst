@@ -14,7 +14,7 @@ Accessing **controlled data** is achieved in two different ways, depending on ho
   
     * Provides access to controlled data for seven days at a time
     * Uses the credentials of a *service account*, acting on your behalf
-    * Example uses: using a Google Cloud Project; running a program from a Google Compute Engine (GCE) Virtual Machine (VM) Compute Engine
+    * Example uses: using a Google Cloud Project; running a program from a Google Compute Engine (GCE) Virtual Machine (VM)
     
 You can use both methods at the same time; they are not mutually exclusive.
 
@@ -22,7 +22,7 @@ You can use both methods at the same time; they are not mutually exclusive.
 No matter which way you intend to request controlled access via ISB-CGC, you'll need the following first:
 
    * A Google identity
-   * An NIH or eRA account
+   * An NIH or electronic Research Administration (eRA) account
    * dbGaP permission for each type of controlled access data of interest, linked to your NIH or eRA account
    * Link your Google identify to your NIH/eRA account via the ISB-CGC Web App.
    
@@ -30,21 +30,29 @@ No matter which way you intend to request controlled access via ISB-CGC, you'll 
 .. image:: Controlled-Access-Flowchart.png
    :align: center
 
-**You must have a Google identity**
+**You must have a Google identity**.
 
 If you don't have a Google identity yet, please see the  `ISB-CGC Quick-Start Guide <HowToGetStartedonISB-CGC.html>`_. 
 
 **You must have either an NIH or eRA account.**
 
-Visit `electronic Research Administration (eRA) <http://era.nih.gov>`_ for more information on 
-registering for a NIH eRA account. NIH staff may utilize their NIH log-in. 
+Intramural researchers can use their NIH log-in account, and extramural researchers will need to have a personal eRA account. Either way, the user's NIH/eRA
+account needs to be affiliated with their institution's eRA account. Your principal investigator (PI) or other authorized person can create
+your personal eRA account and link it to your institution's eRA account. 
+
+If you already have an NIH/eRA account, you can log into eRA at <https://public.era.nih.gov/commons>`_. 
+
+ * If the Institution listed for you is not your current one, ask your PI to change it for you.
+ * If you are the PI or other authorized person, you can create, link and update accounts from here.
+
+Visit `electronic Research Administration (eRA) <http://era.nih.gov>`_ for more information on registering for a NIH eRA account.
 
 For additional instructions, please refer to `Tips for Preparing a Successful Data Access Request <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/GetPdf.cgi?document_name=GeneralAAInstructions.pdf>`_, 
-and `Understanding Data Security <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/TCGA_Data_Security.html>`).  Please be sure to review the Data Use Certification Agreement for `TCGA controlled data <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000178.v9.p8>`_ and `TARGET controlled data <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000218.v17.p6>`_. 
+and `Understanding Data Security </data/TCGA_Data_Security.html>`_.  Please be sure to review the Data Use Certification Agreement for `TCGA controlled data <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000178.v9.p8>`_ and `TARGET controlled data <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000218.v17.p6>`_. 
 
 **Your eRA (or NIH) account must be linked to dbGaP permissions.**
 
-Your principal investigator (PI) can link your eRA/NIH account though dbGaP. 
+Your principal investigator (PI) can link your NIH/eRA account though dbGaP. 
 
 For more information on applying for dbGaP authorization to access controlled data, please see 
 the "How to" `Apply for Controlled Access Data Video <http://www.youtube.com/watch?v=-3tUBeKbP5c>`_.
