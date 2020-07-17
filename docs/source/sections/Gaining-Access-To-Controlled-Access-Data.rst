@@ -14,8 +14,6 @@ Accessing **controlled data** is achieved in two different ways, depending on ho
     
 You can use both methods at the same time; they are not mutually exclusive.
 
-.. image:: Controlled-Access-Flowchart.png
-   :align: center
 
 No matter which way you intend to request controlled access via ISB-CGC, you'll need the following first:
 
