@@ -1,6 +1,6 @@
-===================================================
-Your First Workflow on Google Cloud Virtual Machine
-===================================================
+======================================================================
+Your First Workflow on Google Cloud Virtual Machine (RNAseq-Snakemake)
+======================================================================
 Requirements:
 
 -  `Anaconda/Miniconda <https://conda.io/projects/conda/en/latest/user-guide/install/index.html>`_
@@ -13,7 +13,7 @@ Download this tutorial:
   $sudo apt install subversion
 
   #cloning this tutorial
-  $svn checkout https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/trunk/rnaseq-snakemake
+  $svn checkout https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/trunk/Snakemake-RNAseq
 
 Starting folder:
 
