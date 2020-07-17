@@ -5,18 +5,27 @@ Accessing Controlled Data
 Accessing **controlled data** is achieved in two different ways, depending on how you are using it: 
 
   - `Interactive computing <Controlled-data-Interactive.html>`_ (*e.g.* the Web App or R Studio) or, 
-  - `Programmatic computing <Controlled-data-GCP.html>`_ (*e.g.* a program running from a Google Virtual Machine Compute Engine you have started).  
-  
-In some cases you will be using your *personal* credentials while in other cases a "service account" will be acting on your behalf, using its own credentials.  The methods are described below.  Please note, you can use both methods at the same time; they are not mutually exclusive.
-
+    * Provides access to controlled data for 24 hours at a time
+    * Uses your *personal* credentials
+      
+  - `Programmatic computing <Controlled-data-GCP.html>`_ (*e.g.* a program running from a Google Virtual Machine Compute Engine you have started).
+    * Provides access to controlled data for seven days at a time
+    * Uses the credentials of a *service account*, acting on your behalf
+    
+You can use both methods at the same time; they are not mutually exclusive.
 
 .. image:: Controlled-Access-Flowchart.png
    :align: center
 
 No matter which way you intend to request controlled access via ISB-CGC, you'll need the following first:
-  * A Google identity
-  * An NIH or eRA account
-  * dbGaP permission for each type of controlled access data of interest, linked to your NIH or eRA account
+
+   * A Google identity
+   * An NIH or eRA account
+   * dbGaP permission for each type of controlled access data of interest, linked to your NIH or eRA account
+   
+
+.. image:: Controlled-Access-Flowchart.png
+   :align: center
 
 **You must have a Google identity**
 
