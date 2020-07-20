@@ -7,6 +7,7 @@ Requirements:
 =============
 
 - Docker
+- Java (required to install Nextflow)
 - Gcsfuse
 - Nextflow
 - A public bam file from ISB-CGC at the address: gs://gdc-ccle-open/692a845c-7957-41f2-b679-5434c69ba25b/G27328.Calu-6.1.bam
