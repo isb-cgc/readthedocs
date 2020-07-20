@@ -14,6 +14,7 @@ We have put together some basic documentation for ISB-CGC users who are new to t
    Cheatsheet.rst
    FirstWorkflow.rst
    CWL-RNAseq.rst
+   Nextflow-RNAseq.rst
    WorkflowWithGCSFUSE.rst
    RunningNextflowWithBam.rst
    RunningSnakemakeWithBam.rst
