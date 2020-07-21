@@ -15,7 +15,7 @@ Currently, ISB-CGC hosts over 300 open access BigQuery tables. Each table has be
 
 
 .. image:: BigQuery/BigQueryTableSearch-UI-homepage.png
-   :scale: 40
+   :scale: 50
    :align: center
 
 
