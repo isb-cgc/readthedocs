@@ -10,7 +10,6 @@ We have put together some basic documentation for ISB-CGC users who are new to t
 
    gcp-info2/LaunchVM.rst
    LaunchBucket.rst
-   gcp-info2/Disks.rst
    Cheatsheet.rst
    FirstWorkflow.rst
    CWL-RNAseq.rst
