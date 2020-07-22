@@ -11,6 +11,14 @@ New TCGA controlled-access MAF tables.
 - isb-cgc-cbq:TCGA.maf_hg38_gdc_current
 - isb-cgc-cbq:TCGA_versioned.maf_hg38_gdc_r14
 
+*July 22, 2020*
+
+New HCMI RNA seq table.
+
+**BigQuery tables created**
+
+- isb-cgc.HCMI.RNAseq_hg38_gdc_r23
+
 *July 15, 2020*
 
 Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer was updated.
