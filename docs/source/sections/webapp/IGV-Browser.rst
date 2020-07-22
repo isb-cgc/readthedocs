@@ -33,7 +33,7 @@ Using IGV Desktop Application to View Aligned Reads in Google Cloud Storage
 
 You can also download and use the IGV desktop application to view aligned reads stored in BAM files in Google Cloud Storage. To do this, `download <http://www.broadinstitute.org/software/igv/download>`_ the most recent version of IGV.  After launching IGV, go to the "Settings" menu to enable the Google Menu item in the application (`directions <http://googlegenomics.readthedocs.io/en/latest/use_cases/browse_genomic_data/igv.html>`_ on how to do this).
 
-To load BAM files from ISB-CGC Google Cloud Storage, use the "File" > "Load from URL..."  menu item in the IGV application, entering the path to the bam file in GCS.  Paths to BAM files stored by ISB-CGC can be found using the ``cohorts().cloud_storage_file_paths()`` and ``samples().cloud_storage_file_paths()`` APIs described `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/progapi3_api/cohorts_cloud_storage_file_paths.html>`_.
+To load BAM files from ISB-CGC Google Cloud Storage, use the "File" > "Load from URL..."  menu item in the IGV application, entering the path to the bam file in GCS.  Paths to BAM files stored by ISB-CGC can be found using the ``cohorts().cloud_storage_file_paths()`` and ``samples().cloud_storage_file_paths()`` APIs described `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/progAPI-v4/Programmatic-Demo.html>`_.
 
 
 NOTE:
