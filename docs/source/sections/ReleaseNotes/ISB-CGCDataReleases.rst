@@ -11,7 +11,7 @@ New TCGA controlled-access MAF tables.
 - isb-cgc-cbq:TCGA.maf_hg38_gdc_current
 - isb-cgc-cbq:TCGA_versioned.maf_hg38_gdc_r14
 
-*July 22, 2020*
+*July 21, 2020*
 
 New HCMI RNA seq table.
 
