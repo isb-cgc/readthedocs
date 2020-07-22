@@ -5,11 +5,18 @@ ISB-CGC Data Release Notes
 *July 22, 2020*
 
 New TCGA controlled-access MAF tables.
+New TARGET GDC release 24 RNAseq and miRNAseq tables.
 
 **BigQuery tables created**
 
 - isb-cgc-cbq:TCGA.maf_hg38_gdc_current
 - isb-cgc-cbq:TCGA_versioned.maf_hg38_gdc_r14
+
+- isb-cgc-bq:TARGET_versioned.miRNAseq_hg38_gdc_r22
+- isb-cgc-bq:TARGET_versioned.RNAseq_hg38_gdc_r22
+- isb-cgc-bq:TARGET.miRNAseq_hg38_gdc_current
+- isb-cgc-bq:TARGET.RNAseq_hg38_gdc_current
+
 
 *July 21, 2020*
 
