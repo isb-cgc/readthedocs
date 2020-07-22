@@ -83,6 +83,7 @@ Let's take a look at the folder after cwltool finishes:
       │   ├── sample.fa
       │   └── sample.gtf
       ├── [final_ref.gtf]
+      ├── [final_transcript.gtf]
       ├── [final.tsv]
       ├── hisat2_align.cwl
       ├── [hisat2_align_out]
