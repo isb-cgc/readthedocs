@@ -18,7 +18,7 @@ Download this tutorial:
 
 To install Docker and CWL, you can visit our **Cheatsheet** listed below:
 
-- `Cheatsheet <http://insertlink>`_
+- `Cheatsheet <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/Cheatsheet.html>`_
 
 Starting folder **CWL-RNAseq** should look like this:
 
