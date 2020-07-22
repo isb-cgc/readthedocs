@@ -12,6 +12,7 @@ Requirements:
 
 
 To install Docker and Nextflow, you can visit our **Cheatsheet**.
+
 - `Cheatsheet <http://insertlink>`_
 
 Download this tutorial:
