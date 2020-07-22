@@ -9,14 +9,12 @@ ISB-CGC WebApp Release Notes
 - To increase system speed when filtering cohorts, switched metadata counting to use Apache Solr (instead of MySQL).
 - The WebApp is now performing its data retrieval and counts on ISB-CGC Google BigQuery tables which are based on the latest GDC data release. This means that you will see current data, but that the same queries in the WebApp could produce different results if they were run during different time periods, when the WebApp was based on different GDC data releases.
 - On the Create Cohorts – Filters page, on the left-hand filter panel, display the number of cases available for each filter, instead of the number of samples.
-- On the Current Filters panel, when there are more filters than what fits on the initial screen, display the selected cohort filters in a gradient (fade-away) overlay instead of a clipped design.
+- Within the Cohort Details page, on the Current Filters panel, when there are more filters than what fits on the initial screen, display the selected cohort filters in a gradient (fade-away) overlay instead of a clipped design.
 - The video tutorials have been moved to the ISB-CGC YouTube channel.
 
 **Bug Fixes**
 
-- When a user tried to register for controlled access for 12 or more programs, this caused an error from Data Commons Framework (DCF) to occur. This was fixed by DCF limiting the number of registered programs for controlled access to six.
 - Clicking on the X on an existing cohort filter token in the Selected Filter panel did not delete the existing cohort filter token. (This issue was caused by a jQuery update.) It has now been fixed.
-- Building a cohort using a filter with a 0 count caused the screen to be unresponsive. This has been fixed.
 
 **Known Issues**
 
