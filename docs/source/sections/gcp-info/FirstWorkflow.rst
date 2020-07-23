@@ -1,5 +1,5 @@
 ======================================================================
-Your First Workflow on Google Cloud Virtual Machine (Snakemake-RNAseq)
+Your First Workflow on Google Cloud Virtual Machine (SNAKEMAKE RNAseq)
 ======================================================================
 Requirements:
 
