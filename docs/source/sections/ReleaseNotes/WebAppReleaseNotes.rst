@@ -18,6 +18,7 @@ ISB-CGC WebApp Release Notes
 
 **Known Issues**
 
+- The Program filter is listing 'NA' as an option. 
 - Work is underway to rework our cohort creation page to better display images associated with samples.
 - The user data upload feature will return an error message stating, "Error submitting response : Could not connect to data upload server."
 - Analysis Type: Seq peek Formatting is Elongated on occasion.
