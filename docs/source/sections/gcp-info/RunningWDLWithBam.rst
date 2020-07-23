@@ -15,7 +15,7 @@ Requirements:
 
 To install Java, Docker, Graphviz and WDL, you can visit our **Cheatsheet**, and to set up the gcsfuse to get access to the bam file please visit **Running Workflow with GCSFUSE** listed below:
 
-- `Cheatsheet <http://insertlink>`_
+- `Cheatsheet <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/Cheatsheet.html>`_
 - `WorkflowWithGCSFUSE <http://insertlink>`_
 - `RunningSnakemakeWithBam <http://insertlink>`_
 - `RunningCWLWithBam <http://insertlink>`_
@@ -31,13 +31,13 @@ Download the **cromwell-XY.jar** and **womtool-XY.jar** at https://github.com/br
 
 Upload them to your VM:
 
-.. image:: RunningWDLWithBam_1.png
+.. image:: images/RunningWDLWithBam_1.png
    :align: left
 
 It should look like this after uploading:
 
-.. image:: RunningWDLWithBam_2.png
-   :align: center
+.. image:: images/RunningWDLWithBam_2.png
+   :align: left
 
 
 Download this tutorial:
@@ -90,11 +90,11 @@ Once the Cromwell finished, the result will be located inside the folder called 
 
 It should look like this, the **final_gc_stats_out.txt** is the final output of this workflow :
 
-.. image:: RunningWDLWithBam_4.png
+.. image:: images/RunningWDLWithBam_4.png
    :align: left
 
 
-.. image:: RunningWDLWithBam_3.png
+.. image:: images/RunningWDLWithBam_3.png
    :align: left
 
 
@@ -112,5 +112,5 @@ A file named "visual.png" will be created and ready to be downloaded
 
 It should look like this:
 
-.. image:: RunningWDLWithBam_5.png
+.. image:: images/RunningWDLWithBam_5.png
    :align: left
