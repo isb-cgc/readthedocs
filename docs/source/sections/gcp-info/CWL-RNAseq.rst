@@ -1,6 +1,6 @@
-==========
-RNAseq-CWL
-==========
+==================
+Running CWL RNAseq
+==================
 Requirements:
 
 -  CWLtool
