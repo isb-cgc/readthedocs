@@ -73,7 +73,7 @@ You can use this command instead to run Nextflow, it will out put a visualizatio
   $./nextflow run Nextflow-GCgather/Nextflow-GCgather.nf -with-dag flowchart.png
 
 
-  It should look like this:
+It should look like this:
 
   .. image:: images/RunningNextflowWithBam.png
      :align: left
