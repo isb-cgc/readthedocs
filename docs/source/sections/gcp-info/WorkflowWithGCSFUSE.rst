@@ -67,12 +67,12 @@ and you only need to mount to that directory that hold that bam file:
 
 You should see something like this:
 
-.. image:: WorkflowWithGCSFUSE.jpg
+.. image:: images/WorkflowWithGCSFUSE.jpg
    :align: left
 
 Step 4: running your workflow with a local VM directory
 =======================================================
 Write your workflow with the input pointing to that directory, as followed:
 
-.. image:: WorkflowWithGCSFUSE_1.jpg
+.. image:: images/WorkflowWithGCSFUSE_1.jpg
    :align: left
