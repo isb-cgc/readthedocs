@@ -9,9 +9,10 @@ Requirements:
 - Docker
 - Java (required to install Nextflow)
 - Nextflow
+- Graphviz
 
 
-To install Docker and Nextflow, you can visit our **Cheatsheet**.
+To install Docker, Graphviz and Nextflow, you can visit our **Cheatsheet**.
 
 
 - `Cheatsheet <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/Cheatsheet.html>`_
@@ -75,3 +76,21 @@ After finish running the folder should look like this:
                 ├── [sample.bam]
                 ├── [sample.sam]
                 └── [sample.tsv]
+
+
+
+Running Nextflow with visualization
+===================================
+
+Use the following command:
+::
+
+ #Assume the executable file "nextflow" is installed in the same directory with the folder you download "Nextflow-RNAseq"
+ $./nextflow run Nextflow-RNAseq -with-dag flowchart.png
+
+
+An image file with the name **flowchart.png** will be available to download.
+It should look like this:
+
+.. image:: images/Nextflow-RNAseq.png
+   :align: center
