@@ -1,6 +1,6 @@
-============================
-Running RNAseq with Nextflow
-============================
+=======================
+Running NEXTFLOW RNAseq
+=======================
 
 
 Requirements:
