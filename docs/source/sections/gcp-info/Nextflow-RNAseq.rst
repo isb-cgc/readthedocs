@@ -1,6 +1,6 @@
-=======================
-Running NEXTFLOW RNAseq
-=======================
+============================
+Running RNAseq with Nextflow
+============================
 
 
 Requirements:
@@ -12,8 +12,7 @@ Requirements:
 
 
 To install Docker and Nextflow, you can visit our **Cheatsheet**.
-
-- `Cheatsheet <http://insertlink>`_
+- `Cheatsheet <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/Cheatsheet.html>`_
 
 Download this tutorial:
 =======================
