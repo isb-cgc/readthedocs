@@ -73,5 +73,5 @@ You can use this command instead to run Snakemake, it will out put a visualizati
 
 It should look like this:
 
-.. image:: RunningSnakemakeWithBam.png
+.. image:: images/RunningSnakemakeWithBam.png
    :align: left

@@ -14,7 +14,7 @@ Requirements:
 
 To install Docker and Nextflow, you can visit our **Cheatsheet**, and to set up the gcsfuse to get access to the bam file please visit **Running Workflow with GCSFUSE** listed below:
 
-- `Cheatsheet <http://insertlink>`_
+- `Cheatsheet <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/Cheatsheet.html>`_
 - `WorkflowWithGCSFUSE <http://insertlink>`_
 - `RunningSnakemakeWithBam <http://insertlink>`_
 - `RunningCWLWithBam <http://insertlink>`_
@@ -75,5 +75,5 @@ You can use this command instead to run Nextflow, it will out put a visualizatio
 
   It should look like this:
 
-  .. image:: RunningNextflowWithBam.png
+  .. image:: images/RunningNextflowWithBam.png
      :align: left
