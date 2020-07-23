@@ -1,5 +1,5 @@
 ======================================================================
-Your First Workflow on Google Cloud Virtual Machine (RNAseq-Snakemake)
+Your First Workflow on Google Cloud Virtual Machine (Snakemake-RNAseq)
 ======================================================================
 Requirements:
 
@@ -48,7 +48,7 @@ The file **environment.yml** contains a list of all the softwares required to ru
 
 It should look like this:
 
-.. image:: YourFirstWorkflow_1.png
+.. image:: images/YourFirstWorkflow_1.png
    :align: left
 
 Congratulations! you are now ready to run your first workflow using snakemake
@@ -200,7 +200,7 @@ In the step2 folder:
 A file named **visual.svg** will be created in the same folder, it can be downloaded and open with any web browser. It should look like this:
 
 
-.. image:: YourFirstWorkflow_2.jpg
+.. image:: images/YourFirstWorkflow_2.jpg
    :align: center
 
 
