@@ -1,5 +1,5 @@
 ==========================================================
-Running Snakemake pipeline on public Bam file From ISB-CGC
+Running Snakemake pipeline on public Bam file from ISB-CGC
 ==========================================================
 
 
@@ -12,11 +12,11 @@ Requirements:
 
 To install and set up Anaconda/Miniconda, you can visit the first tutorial **Your First Workflow on Google Cloud Virtual Machine**, and to set up gcsfuse to get access to the bam file please visit **Running Workflow with GCSFUSE** listed below:
 
-- `FirstWorkflow <http://insertlink>`_
-- `WorkflowWithGCSFUSE <http://insertlink>`_
-- `RunningNextflowWithBam <http://insertlink>`_
-- `RunningCWLWithBam <http://insertlink>`_
-- `RunningWDLWithBam <http://insertlink>`_
+- `FirstWorkflow <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/FirstWorkflow.html>`_
+- `WorkflowWithGCSFUSE <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/WorkflowWithGCSFUSE.html>`_
+- `RunningNextflowWithBam <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/RunningNextflowWithBam.html>`_
+- `RunningCWLWithBam <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/RunningCWLWithBam.html>`_
+- `RunningWDLWithBam <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/RunningWDLWithBam.html>`_
 
 Download this tutorial:
 =======================

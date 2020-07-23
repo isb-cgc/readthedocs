@@ -1,5 +1,5 @@
 ====================================================
-Running CWL pipeline on public Bam file From ISB-CGC
+Running CWL pipeline on public Bam file from ISB-CGC
 ====================================================
 
 
@@ -13,11 +13,11 @@ Requirements:
 
 To install Docker and CWL, you can visit our **Cheatsheet**, and to set up the gcsfuse to get access to the bam file please visit **Running Workflow with GCSFUSE** listed below:
 
-- `Cheatsheet <http://insertlink>`_
-- `WorkflowWithGCSFUSE <http://insertlink>`_
-- `RunningSnakemakeWithBam <http://insertlink>`_
-- `RunningWDLWithBam <http://insertlink>`_
-- `RunningNextflowWithBam <http://insertlink>`_
+- `Cheatsheet <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/Cheatsheet.html>`_
+- `WorkflowWithGCSFUSE <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/WorkflowWithGCSFUSE.html>`_
+- `RunningSnakemakeWithBam <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/RunningSnakemakeWithBam.html>`_
+- `RunningWDLWithBam <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/RunningWDLWithBam.html>`_
+- `RunningNextflowWithBam <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/RunningNextflowWithBam.html>`_
 
 
 
@@ -70,7 +70,7 @@ Try:
 
   $sudo groupadd docker
   $sudo usermod -aG docker ${USER}
-  close 0and reopen VM then run the script again
+  close and reopen VM then run the script again
 
 
 .. note:: This Bam file is quite large, it may take about 15 mins ~ 20 mins to run.

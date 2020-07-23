@@ -1,5 +1,5 @@
 =========================================================
-Running NEXTFLOW pipeline on public Bam file From ISB-CGC
+Running NEXTFLOW pipeline on public Bam file from ISB-CGC
 =========================================================
 
 
@@ -15,10 +15,10 @@ Requirements:
 To install Docker and Nextflow, you can visit our **Cheatsheet**, and to set up the gcsfuse to get access to the bam file please visit **Running Workflow with GCSFUSE** listed below:
 
 - `Cheatsheet <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/Cheatsheet.html>`_
-- `WorkflowWithGCSFUSE <http://insertlink>`_
-- `RunningSnakemakeWithBam <http://insertlink>`_
-- `RunningCWLWithBam <http://insertlink>`_
-- `RunningWDLWithBam <http://insertlink>`_
+- `WorkflowWithGCSFUSE <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/WorkflowWithGCSFUSE.html>`_
+- `RunningSnakemakeWithBam <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/RunningSnakemakeWithBam.html>`_
+- `RunningCWLWithBam <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/RunningCWLWithBam.html>`_
+- `RunningWDLWithBam <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/RunningWDLWithBam.html>`_
 
 Download this tutorial:
 =======================
