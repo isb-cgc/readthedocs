@@ -2,7 +2,7 @@
 ISB-CGC WebApp Release Notes
 #############################
 
-*July 22, 2020* 
+*July 23, 2020* 
 
 **New Features**  `v1.26 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.26>`_
 
