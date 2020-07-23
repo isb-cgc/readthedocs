@@ -1,5 +1,5 @@
 ==========================================================
-Running Snakemake pipeline on public Bam file from ISB-CGC
+Running SNAKEMAKE pipeline on public Bam file from ISB-CGC
 ==========================================================
 
 
