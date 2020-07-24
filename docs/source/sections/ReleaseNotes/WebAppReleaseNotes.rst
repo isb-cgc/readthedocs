@@ -15,6 +15,7 @@ ISB-CGC WebApp Release Notes
 **Bug Fixes**
 
 - Clicking on the X on an existing cohort filter token in the Selected Filter panel did not delete the existing cohort filter token. (This issue was caused by a jQuery update.) It has now been fixed.
+- When a user tried to register for controlled access for 12 or more programs, this caused an error from Data Commons Framework (DCF) to occur. This was fixed by limiting the number of controlled access programs that a user could register for at one time to six.
 
 **Known Issues**
 
