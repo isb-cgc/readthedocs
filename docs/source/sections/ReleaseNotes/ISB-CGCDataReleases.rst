@@ -2,6 +2,30 @@
 ISB-CGC Data Release Notes
 ############################
 
+*July 23, 2020*
+
+New TCGA controlled-access MAF tables.
+New TARGET GDC release 22 RNAseq and miRNAseq tables.
+
+**BigQuery tables created**
+
+- isb-cgc-cbq:TCGA.maf_hg38_gdc_current
+- isb-cgc-cbq:TCGA_versioned.maf_hg38_gdc_r14
+
+- isb-cgc-bq:TARGET_versioned.miRNAseq_hg38_gdc_r22
+- isb-cgc-bq:TARGET_versioned.RNAseq_hg38_gdc_r22
+- isb-cgc-bq:TARGET.miRNAseq_hg38_gdc_current
+- isb-cgc-bq:TARGET.RNAseq_hg38_gdc_current
+
+
+*July 21, 2020*
+
+New HCMI RNA seq table.
+
+**BigQuery tables created**
+
+- isb-cgc.HCMI.RNAseq_hg38_gdc_r23
+
 *July 15, 2020*
 
 Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer was updated.

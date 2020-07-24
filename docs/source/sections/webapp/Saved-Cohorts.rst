@@ -253,7 +253,7 @@ This panel displays current filters on this cohort or any of its ancestors. Save
 
 **Cohort Details Panel**
 
-This panel displays the Internal ISB-CGC Cohort ID (the identifier you use to programmatically use this cohort through the `APIs <../progapi/Programmatic-API.html#id4>`_), and the number of samples and cases in this cohort. The number of samples may be larger than the number of cases because some cases may have provided multiple samples. This panel also displays "Your Permissions" which can be either Owner or Reader, as well as Revision History.  If you have edited the cohort, the filters that were used to originally create the cohort are displayed under the "Creation Filters" header. The newly applied filters (afteroriginal creation) are displayed under the "Applied Filters" header.
+This panel displays the Internal ISB-CGC Cohort ID (the identifier you use to programmatically use this cohort through the `APIs <../progapi/progAPI-v4/Programmatic-Demo.html>`_), and the number of samples and cases in this cohort. The number of samples may be larger than the number of cases because some cases may have provided multiple samples. This panel also displays "Your Permissions" which can be either Owner or Reader, as well as Revision History.  If you have edited the cohort, the filters that were used to originally create the cohort are displayed under the "Creation Filters" header. The newly applied filters (afteroriginal creation) are displayed under the "Applied Filters" header.
 
 **TCGA DATA, CCLE DATA, TARGET DATA and USER DATA Tabs**
 
