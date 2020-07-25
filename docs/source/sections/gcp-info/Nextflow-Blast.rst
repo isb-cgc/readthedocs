@@ -57,7 +57,7 @@ The file **main.nf** contains all the codes to execute the workflow, and **nextf
 To run:
 ::
 
- #Assume the executable file "nextflow" is installed in the same directory with the folder you download "Nextflow-RNAseq"
+ #Assume the executable file "nextflow" is installed in the same directory with the folder you download "Nextflow-Blast"
  $./nextflow run Nextflow-Blast
 
 After finish running the folder should look like this:
