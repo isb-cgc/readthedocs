@@ -31,9 +31,9 @@ Download this tutorial:
  $svn checkout https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/trunk/Nextflow-Blast
 
 
- Running Nextflow
- ================
- You should have a **Nextflow-Blast** directory :
+Running Nextflow
+================
+You should have a **Nextflow-Blast** directory :
 
  ::
 
