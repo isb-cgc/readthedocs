@@ -17,8 +17,10 @@ To install Docker, Java, Python, Graphviz and Nextflow, you can visit our **Chea
 
 - `Cheatsheet <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/Cheatsheet.html>`_
 
+
 Download this tutorial:
 =======================
+
 ::
 
  $sudo add-apt-repository universe
