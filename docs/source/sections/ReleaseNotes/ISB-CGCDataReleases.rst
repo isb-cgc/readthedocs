@@ -2,6 +2,131 @@
 ISB-CGC Data Release Notes
 ############################
 
+*July 23, 2020*
+
+New TCGA controlled-access MAF tables.
+New TARGET GDC release 22 RNAseq and miRNAseq tables.
+
+**BigQuery tables created**
+
+- isb-cgc-cbq:TCGA.maf_hg38_gdc_current
+- isb-cgc-cbq:TCGA_versioned.maf_hg38_gdc_r14
+
+- isb-cgc-bq:TARGET_versioned.miRNAseq_hg38_gdc_r22
+- isb-cgc-bq:TARGET_versioned.RNAseq_hg38_gdc_r22
+- isb-cgc-bq:TARGET.miRNAseq_hg38_gdc_current
+- isb-cgc-bq:TARGET.RNAseq_hg38_gdc_current
+
+
+*July 21, 2020*
+
+New HCMI RNA seq table.
+
+**BigQuery tables created**
+
+- isb-cgc.HCMI.RNAseq_hg38_gdc_r23
+
+*July 15, 2020*
+
+Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer was updated.
+
+**Updated totals**
+
+- Total number of cases 70,469
+- Total number of unique gene fusions 32,551
+- Total number of genes involved 14,014
+
+*July 9, 2020*
+
+New per sample file metadata tables added to isb-cgc-bq for GDC release 24.
+
+**BigQuery tables created**
+
+- isb-cgc-bq:BEATAML1_0.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq:BEATAML1_0_versioned.per_sample_file_metadata_hg38_gdc_r24
+- isb-cgc-bq:TCGA.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq:TCGA_versioned.per_sample_file_metadata_hg38_gdc_r24
+- isb-cgc-bq:TARGET.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq:TARGET_versioned.per_sample_file_metadata_hg38_gdc_r24
+- isb-cgc-bq:GENIE.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq:GENIE_versioned.per_sample_file_metadata_hg38_gdc_r24
+- isb-cgc-bq:CGCI.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq:CGCI_versioned.per_sample_file_metadata_hg38_gdc_r24
+- isb-cgc-bq:CPTAC.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq:CPTAC_versioned.per_sample_file_metadata_hg38_gdc_r24
+- isb-cgc-bq:CTSP.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq:CTSP_versioned.per_sample_file_metadata_hg38_gdc_r24
+- isb-cgc-bq:FM.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq:FM_versioned.per_sample_file_metadata_hg38_gdc_r24
+- isb-cgc-bq:HCMI.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq:HCMI_versioned.per_sample_file_metadata_hg38_gdc_r24
+- isb-cgc-bq:MMRF.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq:MMRF_versioned.per_sample_file_metadata_hg38_gdc_r24
+- isb-cgc-bq:NCICCR.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq:NCICCR_versioned.per_sample_file_metadata_hg38_gdc_r24
+- isb-cgc-bq:OHSU.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq:OHSU_versioned.per_sample_file_metadata_hg38_gdc_r24
+- isb-cgc-bq:ORGANOID.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq:ORGANOID_versioned.per_sample_file_metadata_hg38_gdc_r24
+- isb-cgc-bq:VAREPOP.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq:VAREPOP_versioned.per_sample_file_metadata_hg38_gdc_r24
+- isb-cgc-bq:WCDT.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq:WCDT_versioned.per_sample_file_metadata_hg38_gdc_r24
+- isb-cgc-bq:CCLE.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq:CCLE_versioned.per_sample_file_metadata_hg38_gdc_r24
+
+*June 16, 2020*
+
+The new COSMIC release v91 data is available in BigQuery.
+
+**BigQuery tables created**
+
+- isb-cgc:COSMIC_v91_grch37.ASCAT_Purity_Ploidy
+- isb-cgc:COSMIC_v91_grch37.Breakpoints
+- isb-cgc:COSMIC_v91_grch37.Cancer_Gene_Census
+- isb-cgc:COSMIC_v91_grch37.Complete_CNA
+- isb-cgc:COSMIC_v91_grch37.Complete_Differential_Methylation
+- isb-cgc:COSMIC_v91_grch37.Complete_Gene_Expression
+- isb-cgc:COSMIC_v91_grch37.Complete_Targeted_Screens_Mutant
+- isb-cgc:COSMIC_v91_grch37.Fusion
+- isb-cgc:COSMIC_v91_grch37.Genome_Screens_Mutant
+- isb-cgc:COSMIC_v91_grch37.HGNC
+- isb-cgc:COSMIC_v91_grch37.Mutant
+- isb-cgc:COSMIC_v91_grch37.Mutant_Census
+- isb-cgc:COSMIC_v91_grch37.Mutation_Tracking
+- isb-cgc:COSMIC_v91_grch37.NCV
+- isb-cgc:COSMIC_v91_grch37.Resistance_Mutations
+- isb-cgc:COSMIC_v91_grch37.Sample
+- isb-cgc:COSMIC_v91_grch37.Structural_Variants
+- isb-cgc:COSMIC_v91_grch37.Transcripts
+- isb-cgc:COSMIC_v91_grch38.ASCAT_Purity_Ploidy
+- isb-cgc:COSMIC_v91_grch38.Breakpoints
+- isb-cgc:COSMIC_v91_grch38.Cancer_Gene_Census
+- isb-cgc:COSMIC_v91_grch38.Classification
+- isb-cgc:COSMIC_v91_grch38.Complete_CNA
+- isb-cgc:COSMIC_v91_grch38.Complete_Differential_Methylation
+- isb-cgc:COSMIC_v91_grch38.Complete_Gene_Expression
+- isb-cgc:COSMIC_v91_grch38.Complete_Targeted_Screens_Mutant
+- isb-cgc:COSMIC_v91_grch38.Fusion
+- isb-cgc:COSMIC_v91_grch38.Genome_Screens_Mutant
+- isb-cgc:COSMIC_v91_grch38.HGNC
+- isb-cgc:COSMIC_v91_grch38.Mutant
+- isb-cgc:COSMIC_v91_grch38.Mutant_Census
+- isb-cgc:COSMIC_v91_grch38.Mutation_Tracking
+- isb-cgc:COSMIC_v91_grch38.NCV
+- isb-cgc:COSMIC_v91_grch38.Resistance_Mutations
+- isb-cgc:COSMIC_v91_grch38.Sample
+- isb-cgc:COSMIC_v91_grch38.Structural_Variants
+- isb-cgc:COSMIC_v91_grch38.Transcripts
+
+*June 09, 2020*
+
+New GDC file ID to GCS url tables added to isb-cgc for GDC release 24.
+
+**BigQuery tables created**
+
+- isb-cgc:GDC_metadata.rel24_GDCfileID_to_GCSurl
+
 *May 28, 2020*
 
 New data set and RNA Sequence table derived data tables added to isb-cgc.

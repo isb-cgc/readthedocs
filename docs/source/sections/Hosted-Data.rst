@@ -153,7 +153,7 @@ From Other Sources
      - No, the COSMIC database is maintained by the Wellcome Sanger Institute, UK
      - Yes, COSMIC data is in BigQuery for registered users. Learn more about how to gain access to the COSMIC data `here <data/COSMIC_about.html>`_   
      - 
-   * - Pan-Cancer Atlas
+   * - `Pan-Cancer Atlas <PanCancer-Atlas-Mirror.html>`_
      - 
      - |checkmark|
      - 
@@ -163,6 +163,7 @@ From Other Sources
    :hidden:
    
    data/COSMIC_about
+   PanCancer-Atlas-Mirror
 
 Reference Data Sets
 -------------------
