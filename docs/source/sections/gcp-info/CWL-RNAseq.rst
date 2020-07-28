@@ -2,6 +2,8 @@
 Running CWL RNAseq
 ==================
 Requirements:
+=============
+
 
 -  CWLtool
 -  Docker
@@ -14,7 +16,7 @@ Download this tutorial:
   $sudo apt install subversion
 
   #cloning this tutorial
-  $svn checkout https://github.com/votb92/RunningWorkflows-on-the-GoogleCloud/trunk/CWL-RNAseq
+  $svn checkout https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/trunk/CWL-RNAseq
 
 To install Docker and CWL, you can visit our **Cheatsheet** listed below:
 
