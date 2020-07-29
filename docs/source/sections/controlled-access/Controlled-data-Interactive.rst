@@ -1,28 +1,28 @@
 ************************************************
 Interactive Access to Controlled Data 
 ************************************************
-This section explains how to get access to controlled data through the ISB-CGC WebApp. It shows you how to associate your Google Identity to your NIH or eRA 
-account through the WebApp.
+This section explains how to get access to controlled data through the ISB-CGC Web App. It shows you how to associate your Google identity to your NIH or eRA 
+account through the Web App.
 
 Linking your NIH and Google identities
 --------------------------------------
 To link your NIH identity with your Google identity (ie the Google account you used to login to the ISB-CGC system), 
 select the "persona" icon next to your login name (A in the image below) after you have signed in to the ISB-CGC Web App.  
 
-.. image:: webapp/personaeicon-NIHLoginAssoc.png
+.. image:: ../webapp/personaeicon-NIHLoginAssoc.png
    :scale: 30
    :align: center
 
 You will then see the following page:
 
-.. image:: webapp/NIHAssociationPage.png
+.. image:: ../webapp/NIHAssociationPage.png
    :scale: 30
    :align: center
 
 
 You will see a pop up describing all the steps needed to link you NIH Identity to the Data Commons Framework (DCF).
 
-.. image:: webapp/LinkNIHIDInstructions.PNG
+.. image:: ../webapp/LinkNIHIDInstructions.PNG
    :scale: 30
    :align: center
 
@@ -31,7 +31,7 @@ with your dbGaP application and authorization to work with controlled data.)
 To do this, select the "Associate with eRA Commons Account" link (highlighted in the diagram above, and labeled A).  
 You will then be redirected to an NIH login page to be authenticated by NIH:
 
-.. image:: webapp/iTrust.png
+.. image:: ../webapp/iTrust.png
    :scale: 30
    :align: center
 
@@ -40,13 +40,13 @@ If you have an NIH PIV card, use that to sign in through panel B on this page (s
 Once you have been authenticated by NIH, and your NIH identity has been verified to be on
 the current dbGaP whitelist, you will have access to controlled data for 24 hours.  
 
-.. image:: webapp/Gen3authPage.PNG
+.. image:: ../webapp/Gen3authPage.PNG
    :scale: 30
    :align: center
    
 Select the Yes, I Authorize button at the bottom right of the page to authorize the Data Commons Framework to authorize your Google identity with controlled data.
 
-.. image:: webapp/datacommons.ioLogIn.PNG
+.. image:: ../webapp/datacommons.ioLogIn.PNG
    :scale: 30
    :align: center
 
@@ -54,7 +54,7 @@ Select the email you used to originally log into the ISB-CGC web application to 
 
 Once logged in through eRA identification you are redirected to the user details page and given a Warning Notice referring to abiding by the rules and regulations provided by the DUCA Use Agreement.  Please refer to image below.
 
-.. image:: webapp/warningNotice.png
+.. image:: ../webapp/warningNotice.png
    :scale: 30
    :align: center
 
@@ -68,7 +68,7 @@ selecting "Unlink <GoogleID> from the NIH username <eRA Commons ID>" (link B in 
 In the unusual instance that your NIH identity has been registered with another Google identity 
 (*eg* with another Google identity you own), you will see the screen below:
 
-.. image:: webapp/eRAlinkedtoAnotherGoogle.png
+.. image:: ../webapp/eRAlinkedtoAnotherGoogle.png
    :scale: 30
    :align: center
    
@@ -80,7 +80,7 @@ To end your Web App session, just "Sign Out" by using the pull-down below your n
 (see image below, A).  After you sign out from the ISB-CGC Web App, your Google identity may 
 still be signed in to your browser, so you may want to also sign out of the browser.
 
-.. image:: webapp/SignOut.png
+.. image:: ../webapp/SignOut.png
    :scale: 30
    :align: center
 
@@ -93,7 +93,7 @@ controlled data and it is still running), select the link "Extend controlled acc
 period to 24 hours from now" (red box on figure below).  
 Your time of access will be extended to 24 hours from the time you push the link. 
 
-.. image:: webapp/24hrExtension.png
+.. image:: ../webapp/24hrExtension.png
    :scale: 30
    :align: center
 
