@@ -21,8 +21,7 @@ Use the gsutil mb command:
 Where:
 
 
-- [BUCKET_NAME] is the name you want to give your bucket, subject to naming requirements. For example, my-bucket. 
-Set the following optional flags to have greater control over the creation of your bucket:
+- [BUCKET_NAME] is the name you want to give your bucket, subject to naming requirements. For example, my-bucket.
 - p: Specify the project with which your bucket will be associated. For example, my-project.
 - c: Specify the default storage class of your bucket. For example, NEARLINE.
 - l: Specify the location of your bucket. For example, US-EAST1.
