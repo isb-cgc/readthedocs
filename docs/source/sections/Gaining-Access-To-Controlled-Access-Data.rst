@@ -56,6 +56,10 @@ the "How to" `Apply for Controlled Access Data Video <http://www.youtube.com/wat
 For additional instructions, please refer to `Tips for Preparing a Successful Data Access Request <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/GetPdf.cgi?document_name=GeneralAAInstructions.pdf>`_, 
 and `Understanding Data Security </data/TCGA_Data_Security.html>`_.  Please be sure to review the Data Use Certification Agreement for `TCGA controlled data <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000178.v9.p8>`_ and `TARGET controlled data <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000218.v17.p6>`_. 
 
+------------------------------------------
+Linking your NIH/eRA and Google identities
+------------------------------------------
+
 **4) Link your NIH/eRA and Google identities.**
 
 Before you can access *any* controlled-data hosted by the ISB-CGC, you must first associate your Google identity (which you use to sign in to the ISB-CGC Web App and
@@ -70,6 +74,9 @@ delay before you will be able to request access to these data on ISB-CGC.
 
 Once you have authenticated to NIH via the Web App, and your dbGaP authorization has been verified, the 
 Google identity associated with your account will have access to the controlled-data for 24 hours.
+
+Follow these steps to link NIH/eRA and Google identities via the Web App:
+   *  `Link your NIH/eRA and Google identities <controlled-access/Controlled-data-Interactive.html>`_
 
 **5) Requesting controlled access via the ISB Web App.**
 
@@ -87,13 +94,9 @@ sign into the Web App, click on your persona (or Account Details in the drop dow
 ------------------
 Programmatic Access
 ------------------
-Follow these steps for programmatic access.
+Follow these steps for programmatic access:
+   * `Programmatic computing <controlled-access/Controlled-data-GCP.html>`_
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-   
-   controlled-access/Controlled-data-Interactive
-   controlled-access/Controlled-data-GCP
+
    
    
