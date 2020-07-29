@@ -50,7 +50,7 @@ Updating current environment
 
     $conda env update -f environment.yml
 
-.. note:: for more command for conda visiting: `Conda Cheatsheet <https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf>`_
+.. note:: for more conda commands, visit: `Conda Cheat sheet <https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf>`_
 
 
 
