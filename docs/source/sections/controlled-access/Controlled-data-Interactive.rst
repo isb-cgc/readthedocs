@@ -1,16 +1,19 @@
 ---------------------------------------
 Interactive Access to Controlled Data 
 ---------------------------------------
-This section explains how to get access to controlled data through the ISB-CGC Web App. It shows you how to associate your Google identity to your NIH or eRA 
-account through the Web App.
+
+This section shows you how to associate your Google identity to your NIH or eRA account through the Web App. This is a necessary step for gaining access to controlled data.
+
+Click on screen shots to enlarge them.
 
 Linking your NIH and Google identities
 --------------------------------------
-To link your NIH identity with your Google identity (ie the Google account you used to login to the ISB-CGC system), 
-select the "persona" icon next to your login name (A in the image below) after you have signed in to the ISB-CGC Web App.  
+To link your NIH identity with your Google identity (the Google account you use to login to the ISB-CGC system), 
+select the "persona" icon next to your login name (A in the image below) after you have signed in to the ISB-CGC Web App. 
+Or, you can click on the drop down menu next to your name, and click on Account Details.
 
 .. image:: ../webapp/personaeicon-NIHLoginAssoc.png
-   :scale: 30
+   :scale: 50
    :align: center
 
 You will then see the following page:
