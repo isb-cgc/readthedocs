@@ -2,7 +2,8 @@
 Interactive Access to Controlled Data 
 ---------------------------------------
 
-This section shows you how to associate your Google identity to your NIH or eRA account through the Web App. This is a necessary step for gaining access to controlled data.
+This section shows you how to associate your Google identity to your NIH or eRA identity through the Web App. (Your NIH/eRA identity is the one associated
+with your dbGaP application and authorization to work with controlled data.) This is a necessary step for gaining access to controlled data.
 
 Click on screen shots to enlarge them.
 
@@ -22,17 +23,18 @@ You will then see the following page:
    :scale: 30
    :align: center
 
+Click the **Associate with eRA Commons Account** link.
 
-You will see a pop up describing all the steps needed to link you NIH Identity to the Data Commons Framework (DCF).
+You will see a pop up describing all the steps needed to link your NIH Identity to the Data Commons Framework (DCF).' a
+In this case, 'NIH Identity' also refers to your eRA Commons account identity.
+
+Click on the **Go to DCF** button.
 
 .. image:: ../webapp/LinkNIHIDInstructions.PNG
    :scale: 30
    :align: center
 
-Now you need to associate your Google identity with your NIH identity.  (Your NIH identity is the one associated
-with your dbGaP application and authorization to work with controlled data.) 
-To do this, select the "Associate with eRA Commons Account" link (highlighted in the diagram above, and labeled A).  
-You will then be redirected to an NIH login page to be authenticated by NIH:
+You will then redirected to an NIH login page to be authenticated by NIH:
 
 .. image:: ../webapp/iTrust.png
    :scale: 30
@@ -40,6 +42,7 @@ You will then be redirected to an NIH login page to be authenticated by NIH:
 
 If you have an eRA identification, use this to sign in through panel A (see example above).  
 If you have an NIH PIV card, use that to sign in through panel B on this page (see above).  
+
 Once you have been authenticated by NIH, and your NIH identity has been verified to be on
 the current dbGaP whitelist, you will have access to controlled data for 24 hours.  
 
@@ -47,23 +50,27 @@ the current dbGaP whitelist, you will have access to controlled data for 24 hour
    :scale: 30
    :align: center
    
-Select the Yes, I Authorize button at the bottom right of the page to authorize the Data Commons Framework to authorize your Google identity with controlled data.
+Select the **Yes, I Authorize** button at the bottom right of the page to authorize the Data Commons Framework to associate your Google identity with controlled data.
 
 .. image:: ../webapp/datacommons.ioLogIn.PNG
    :scale: 30
    :align: center
 
-Select the email you used to originally log into the ISB-CGC web application to finalize the authorization.
+To finalize the authorization, select the email you used when you logged into the ISB-CGC web application.
 
-Once logged in through eRA identification you are redirected to the user details page and given a Warning Notice referring to abiding by the rules and regulations provided by the DUCA Use Agreement.  Please refer to image below.
+You are redirected back to the ISB-CGC Web App. A Warning Notice displays, indicating that you must abide by the rules and regulations provided by the DUCA Use Agreement. In the **Data Access** panel, it will indicate "dbGaP Access Authorized".  
 
 .. image:: ../webapp/warningNotice.png
    :scale: 30
    :align: center
 
-Please note: the ISB-CGC system will enforce a one-to-one relationship between NIH identities
-and Google identities.  In other words, a single NIH identity may not be used to
+Note that the ISB-CGC system will enforce a one-to-one relationship between NIH/eRA identities
+and Google identities.  In other words, a single NIH or eRA identity may not be used to
 gain access to controlled data by multiple, different Google identities.
+
+Unlink Google identity from NIH/eRA identity
+--------------------------------------------
+
 If you need to *unlink* your eRA account from your Google account (for example if you want to
 change which Google identity you use to sign in to the ISB-CGC platform), you may do so by
 selecting "Unlink <GoogleID> from the NIH username <eRA Commons ID>" (link B in the screen above).
