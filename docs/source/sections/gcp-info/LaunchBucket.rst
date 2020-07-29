@@ -1,6 +1,8 @@
 Creating a Google Cloud Storage Bucket 
 ####################################
 
+Why should you create a Google Cloud Storage Bucket, while your Virtual Machine can also store your data? Because the cost to maintain a storage bucket will be less than maintain a Virtual Machine.
+
 Via the Google Cloud Console
 =================================
 `Video: Create a storage bucket <https://youtu.be/TfOO-fSzTNA>`_.
