@@ -25,8 +25,8 @@ Step 1 install Miniconda:
 `Installer  <https://docs.conda.io/en/latest/miniconda.html#linux-installers>`_
 | `Instruction <https://conda.io/projects/conda/en/latest/user-guide/install/index.html>`_
 
-.. note::  after “conda init fish” step **restarting your VM command line** is needed.
- In addition, if the conda command is not find, try: $export PATH=./miniconda3/bin/:$PATH
+.. note::  After “conda init fish” step **restarting your VM command line** is needed.
+ In addition, if the conda command is not found, try: $export PATH=./miniconda3/bin/:$PATH
 
 
 
