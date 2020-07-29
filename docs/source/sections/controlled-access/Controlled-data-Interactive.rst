@@ -1,6 +1,6 @@
-************************************************
+---------------------------------------
 Interactive Access to Controlled Data 
-************************************************
+---------------------------------------
 This section explains how to get access to controlled data through the ISB-CGC Web App. It shows you how to associate your Google identity to your NIH or eRA 
 account through the Web App.
 
