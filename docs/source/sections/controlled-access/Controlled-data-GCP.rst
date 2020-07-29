@@ -55,13 +55,13 @@ Registering your Google Cloud Project Service Account
 To register your Google Cloud Project and its Service Account with ISB-CGC, select the "persona" icon next to your login name on the ISB-CGC WebApp, 
 which takes you to the following page:
 
-.. image:: webapp/RegisteredGCPs.png
+.. image:: ../webapp/RegisteredGCPs.png
    :scale: 30
    :align: center
    
 Click the "Register a Google Cloud Project" link.  That takes you to the following page:
 
-.. image:: webapp/RegisterAGCPForm.png
+.. image:: ../webapp/RegisterAGCPForm.png
    :scale: 30
    :align: center
    
@@ -71,19 +71,19 @@ You can hide the instructions by selecting the blue **Instructions** button.
 Please be sure to add both service accounts listed below. If you don't add both service accounts you will run into issues viewing the controlled data in ISB-CGC.
 Then return to the ISB-CGC Register a Google Cloud Project page, enter your Google Cloud Project ID and click **Verify**.
 
-.. image:: webapp/RegisterServiceAccountsList.PNG
+.. image:: ../webapp/RegisterServiceAccountsList.PNG
    :scale: 30
    :align: center
 
 Once you have completed these steps, a listing of the Google Cloud Project members will display:
 
-.. image:: webapp/GCPMembers.png
+.. image:: ../webapp/GCPMembers.png
    :scale: 30
    :align: center
    
 Click the **Register** button to go to the next screen:
 
-.. image:: webapp/0007projectregistered.PNG
+.. image:: ../webapp/0007projectregistered.PNG
    :scale: 30
    :align: center
    
@@ -92,14 +92,14 @@ Compute Engine Default service account in the **Enter the service account ID** t
 to gain access to by selecting the checkbox to the associated Controlled Dataset(s) you plan to access.  Currently you can select either Controlled TCGA data
 or controlled TARGET data.
 
-.. image:: webapp/RegisterAServiceAccountFirstScreen.PNG
+.. image:: ../webapp/RegisterAServiceAccountFirstScreen.PNG
    :align: center
 
 If you receive the error message listed below, this signifies you need to enable the Default Compute Engine API for your Google Cloud Project.  
 For more information on how to enable all the API's you will need to work on a Google Cloud Project please go
 `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DIYWorkshop.html#enabling-required-google-apis>`_.
 
-.. image:: webapp/EnableComputeEngineError.PNG
+.. image:: ../webapp/EnableComputeEngineError.PNG
    :scale: 30
    :align: center
 
@@ -108,18 +108,18 @@ Verification Results, Google Cloud Project User ISB-CGC Registration and Identit
 Results, Google Cloud Project Verification Results, and the Google Cloud Project Service Account Verification Results (see screenshots below).
 All columns must have a green checkmark in them for each user before your service account can be registered.
 
-.. image:: webapp/ServiceAcctRegTable.png
+.. image:: ../webapp/ServiceAcctRegTable.png
    :scale: 30
    :align: center
    
-.. image:: webapp/ServiceAcctRegTable2.png
+.. image:: ../webapp/ServiceAcctRegTable2.png
    :scale: 30
    :align: center
 
 If all the requirements for registering a service account are met, the account will be registered for controlled access.  If not, the service account can only use
 open access data.  The final screen below shows the final registered data set (shown by selecting the drop-down menu beside the service account count highlighted in red).
 
-.. image:: webapp/ServiceAcctRegSuccess.png
+.. image:: ../webapp/ServiceAcctRegSuccess.png
    :scale: 30
    :align: center
 
@@ -134,7 +134,7 @@ Adding additional Google Cloud Projects
 To add additional Google Cloud Projects (GCPs) that you own to be able run programs programmatically, 
 select the **+ Register New Google Cloud Project** button from the "Registered Google Cloud Projects" page (see screenshot below).
 
-.. image:: webapp/RegisterAnotherGCP.PNG
+.. image:: ../webapp/RegisterAnotherGCP.PNG
    :scale: 30
    :align: center
 
@@ -142,7 +142,7 @@ Deleting Google Cloud Projects
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 To delete a GCP that is registered, select the **Unregister Project** button from the dropdown menu beside the project you are removing on the "Registered Google Cloud Projects" page (see screenshot below).
 
-.. image:: webapp/UnregisterAGCP.PNG
+.. image:: ../webapp/UnregisterAGCP.PNG
    :scale: 30
    :align: center
 
@@ -151,7 +151,7 @@ Adding additional service accounts to a Google Cloud Project
 To add additional service accounts to a GCP, reselect **Register Service Account** from the dropdown menu beside the project
 (see screenshot below). 
 
-.. image:: webapp/0007projectregistered.PNG
+.. image:: ../webapp/0007projectregistered.PNG
    :scale: 30
    :align: center
 
@@ -162,7 +162,7 @@ Add or remove a controlled data set from one specific service account using this
 (see screenshot below).
 
 
-.. image:: webapp/AdjustServiceAccount.png
+.. image:: ../webapp/AdjustServiceAccount.png
    :scale: 30
    :align: center
 
@@ -172,7 +172,7 @@ Deleting Service Accounts from Google Cloud Projects
 To delete a service account from a GCP (not allowing it to be used to programmatically access controlled data), click the "trash can" icon beside the service account
 (see screenshot below).
 
-.. image:: webapp/DeleteServiceAccount.png
+.. image:: ../webapp/DeleteServiceAccount.png
    :scale: 30
    :align: center
 
@@ -181,7 +181,7 @@ Extending Your Service Account Access by Seven Days
 Once you have registered a Service Account, you have seven days before the access is automatically revoked.  To extend the service account access for another seven days
 (*e.g.* if your program is still running), select the "refresh" icon beside the service account (see screenshot below).
 
-.. image:: webapp/RefreshServiceAccount.png
+.. image:: ../webapp/RefreshServiceAccount.png
    :scale: 30
    :align: center
 
@@ -195,7 +195,7 @@ To reauthorize the service account:
 1) Remedy the problem that resulted in access being denied, and
 2) Select the "adjust" icon beside the service account (see screenshot below) and add the controlled datasets to the service account.
 
-.. image:: webapp/AdjustServiceAccount.png
+.. image:: ../webapp/AdjustServiceAccount.png
    :scale: 30
    :align: center
 
@@ -208,6 +208,6 @@ controlled data."  This is mainly because ISB-CGC cannot see the permissions ass
 We are currently working with Google to resolve this issue.
 
 
-.. image:: webapp/OrganizationFound.PNG
+.. image:: ../webapp/OrganizationFound.PNG
    :align: center
 
