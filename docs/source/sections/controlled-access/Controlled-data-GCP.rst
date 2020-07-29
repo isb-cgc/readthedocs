@@ -1,6 +1,6 @@
-************************************************
+---------------------------------------
 Accessing Controlled Data from a GCE VM
-************************************************
+---------------------------------------
 This section only applies to ISB-CGC users with access to a Google Cloud Platform (GCP) 
 `project <https://cloud.google.com/resource-manager/docs/creating-managing-projects>`_.
 GCP projects are automatically configured with a "Compute Engine default service account"
