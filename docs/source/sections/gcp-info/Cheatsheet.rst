@@ -1,5 +1,5 @@
-CHEAT SHEET
-###########
+VM Cheat Sheet
+##############
 
 When working with a new Virtual Machine (VM), more often than not reinstalling softwares, packages and dependencies is required, and the process can be cumbersome. This cheat sheet was created with running workflows on Google Cloud VM in mind. It contains quick shortcuts to install common softwares, dependencies, and quick fixes.
 
