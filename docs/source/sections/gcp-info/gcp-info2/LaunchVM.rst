@@ -8,6 +8,7 @@ Via the Google Cloud Console
 
 .. youtube:: 1XH0gLlGDdk
 
+You can launch a virtual machine (which we will generally refer to as a VM) from the Google Cloud Console or from the command line using the Google Cloud SDK. We will describe both of these approaches here.
 
 After you have enabled the Compute Engine API for your project, you can go the Compute Engine
 section of the Console.  (Select the menu icon in the far upper-left corner, and then choose
@@ -54,10 +55,6 @@ Notice when you create your VM by going to Compute Engine/VM instances/Create In
 "Equivalent REST or command line" when you click the command line option a popup will appears and show you the command to create the exact VM with the selected configuration.
 you can save it and reuse to create an quick VM instance.
 
-
-You can launch a virtual machine (which we will generally refer to as a VM) from the
-Google Cloud Console or from the command line using the Google Cloud SDK.  We will describe both
-of these approaches here.
 
 You should already be somewhat familiar with the Console, and hopefully you have tried
 invoking the **gcloud** command from your command-line.
