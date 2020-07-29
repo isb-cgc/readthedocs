@@ -7,6 +7,7 @@ Via the Google Cloud Console
 =================================
 `Video: Create a storage bucket <https://youtu.be/TfOO-fSzTNA>`_.
 
+
 Via gcloud command-line tool
 ==================================================
 Use the gsutil mb command:
@@ -14,8 +15,11 @@ Use the gsutil mb command:
 ::
 
     $gsutil mb gs://[BUCKET_NAME]/
+    
+    
 
 Where:
+
 
 - [BUCKET_NAME] is the name you want to give your bucket, subject to naming requirements. For example, my-bucket. 
 Set the following optional flags to have greater control over the creation of your bucket:
