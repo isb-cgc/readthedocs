@@ -8,7 +8,7 @@ Via the Google Cloud Console
 
 .. youtube:: 1XH0gLlGDdk
 
-You can launch a virtual machine (which we will generally refer to as a VM) from the Google Cloud Console or from the command line using the Google Cloud SDK. We will describe both of these approaches here.
+You can launch a virtual machine (which we will generally refer to as a VM) from the Google Cloud Console or from the command line interface (CLI) using the Google Cloud SDK. We will describe both of these approaches here.
 
 After you have enabled the Compute Engine API for your project, you can go the Compute Engine
 section of the Console.  (Select the menu icon in the far upper-left corner, and then choose
@@ -68,10 +68,10 @@ that allows you to read and manipulate Google Compute Engine (GCE) resources is
 `gcloud compute <https://cloud.google.com/sdk/gcloud/reference/compute/>`_.
 
 
-Launch a VM using the CLI
+Launch a VM using the CLI 
 =========================
 The command to create a new GCE VM instance is ``gcloud compute instances create``.  The complete
-documentaiton can be found 
+documentation can be found 
 `online <https://cloud.google.com/sdk/gcloud/reference/compute/instances/create>`_ 
 or by typing ``gcloud compute instances create --help`` on the command line.
 
