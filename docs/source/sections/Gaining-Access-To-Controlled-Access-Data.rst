@@ -15,20 +15,19 @@ You can gain access to  **controlled data** by two different methods via ISB-CGC
     * Provides access to controlled data for seven days at a time;
     * Uses the credentials of a *service account*, acting on your behalf;
     * Example uses: using a Google Cloud Project; running a program from a Google Compute Engine (GCE) Virtual Machine (VM)
+ 
+ .. image:: controlled-access/Controlled-Access-Flowchart.png
+   :align: center
    
-**************
+--------------
 Prerequisites
-**************
+--------------
 You'll need the following before requesting controlled access via ISB-CGC:
 
   * A Google identity;
   * An NIH or electronic Research Administration (eRA) account;
   * Database of Genotypes and Phenotypes (dbGaP) permission for each type of controlled access data of interest, linked to your NIH or eRA account;
   * Your Google identify linked `linked <controlled-access/Controlled-data-Interactive.html>`_ to your NIH/eRA account via the ISB-CGC Web App.
-   
-
-.. image:: controlled-access/Controlled-Access-Flowchart.png
-   :align: center
 
 **1) Google identity**.
 
@@ -59,8 +58,7 @@ and `Understanding Data Security </data/TCGA_Data_Security.html>`_.  Please be s
 
 **4) Link your NIH/eRA and Google identities.**
 
-Before you can access *any* controlled-data hosted by the ISB-CGC,
-you must first associate your Google identity (which you use to sign in to the ISB-CGC Web App and
+Before you can access *any* controlled-data hosted by the ISB-CGC, you must first associate your Google identity (which you use to sign in to the ISB-CGC Web App and
 access the Google Cloud) with a valid NIH or eRA account associated with a dbGaP data-access request.
 
 This is done through the Web App: you will first be redirected to an NIH login page, and once you have successfully authenticated,
@@ -72,6 +70,24 @@ delay before you will be able to request access to these data on ISB-CGC.
 
 Once you have authenticated to NIH via the Web App, and your dbGaP authorization has been verified, the 
 Google identity associated with your account will have access to the controlled-data for 24 hours.
+
+**5) Requesting controlled access via the ISB Web App.**
+
+The above steps only need to be done once, unless your accounts become unlinked, you need access to another dbGaP controlled data set, or some other reason.
+
+------------------
+Interactive Access
+------------------
+The first time that you do the above steps, you are automatically granted access for interactive computing. This access lasts for 24 hours. After that, to obtain access, 
+sign into the Web App, click on your persona (or Account Details in the drop down under your name). Click **Obtain controlled access for 24 Hours.**
+
+.. image:: controlled-access/DataAccess-24hours.png
+   :align: center
+
+------------------
+Programmatic Access
+------------------
+Follow these steps for programmatic access.
 
 .. toctree::
    :maxdepth: 1
