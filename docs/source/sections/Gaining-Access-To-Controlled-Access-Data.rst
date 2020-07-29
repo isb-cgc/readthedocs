@@ -4,13 +4,13 @@ Accessing Controlled Data
 
 Accessing **controlled data** is achieved in two different ways, depending on how you are using it: 
 
-  - `Interactive computing <Controlled-data-Interactive.html>`_  
+  - `Interactive computing <controlled-access/Controlled-data-Interactive.html>`_  
   
     * Provides access to controlled data for 24 hours at a time
     * Uses your *personal* credentials
-    * Example uses: the Web App or R Studio
+    * Example uses: the ISB-CSC Web App or R Studio
       
-  - `Programmatic computing <Controlled-data-GCP.html>`_ 
+  - `Programmatic computing <controlled-access/Controlled-data-GCP.html>`_ 
   
     * Provides access to controlled data for seven days at a time
     * Uses the credentials of a *service account*, acting on your behalf
@@ -26,7 +26,7 @@ No matter which way you intend to request controlled access via ISB-CGC, you'll 
    * Link your Google identify to your NIH/eRA account via the ISB-CGC Web App.
    
 
-.. image:: Controlled-Access-Flowchart.png
+.. image:: controlled-access/Controlled-Access-Flowchart.png
    :align: center
 
 **You must have a Google identity**.
@@ -77,7 +77,7 @@ Google identity associated with your account will have access to the controlled-
    :maxdepth: 1
    :hidden:
    
-   Controlled-data-Interactive
-   Controlled-data-GCP
+   controlled-access/Controlled-data-Interactive
+   controlled-access/Controlled-data-GCP
    
    
