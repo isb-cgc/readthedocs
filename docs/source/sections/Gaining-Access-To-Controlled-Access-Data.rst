@@ -80,6 +80,12 @@ Follow these steps to link NIH/eRA and Google identities via the Web App:
 
 The above steps only need to be done once, unless your accounts become unlinked, you need access to another dbGaP controlled data set, or some other reason.
 
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   
+   controlled-access/Controlled-data-Interactive
+
 **5) Requesting controlled access via the ISB Web App.**
 
 -----------------------------
@@ -100,6 +106,11 @@ To access controlled data in a programmatic manner, such as through a Google Clo
 Follow these steps for programmatic access:
    * `Registering a Google Cloud Project & Service Account <controlled-access/Controlled-data-GCP.html>`_
 
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   
+   controlled-access/Controlled-data-GCP
 
    
    
