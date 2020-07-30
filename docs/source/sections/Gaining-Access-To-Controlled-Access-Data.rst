@@ -4,18 +4,21 @@ Accessing Controlled Data
 
 You can gain access to  **controlled data** by two different methods via ISB-CGC. The methods can be used simultaneously if needed.
 
-  - Select this method for `Interactive computing <controlled-access/Controlled-data-Interactive.html>`_: 
+Select this method for `Interactive computing <controlled-access/Controlled-data-Interactive.html>`_: 
   
-    * Provides access to controlled data for 24 hours at a time;
-    * Uses your *personal* credentials;
-    * Example uses: the ISB-CSC Web App or R Studio
+  * Provides access to controlled data for 24 hours at a time;
+  * Uses your *personal* credentials;
+  * Example uses: the ISB-CSC Web App or R Studio
       
-  - Select this method for `Programmatic computing <controlled-access/Controlled-data-GCP.html>`_:
+Select this method for `Programmatic computing <controlled-access/Controlled-data-GCP.html>`_:
   
-    * Provides access to controlled data for seven days at a time;
-    * Uses the credentials of a *service account*, acting on your behalf;
-    * Example uses: using a Google Cloud Project; running a program from a Google Compute Engine (GCE) Virtual Machine (VM)
+  * Provides access to controlled data for seven days at a time;
+  * Uses the credentials of a *service account*, acting on your behalf;
+  * Example uses: using a Google Cloud Project; running a program from a Google Compute Engine (GCE) Virtual Machine (VM)
  
+This diagram details the processing of acquiring controlled access. The blue rectangles represent entities, the gray boxes represent steps that need to be taken, 
+and the ovals represent the results of those steps.
+
  .. image:: controlled-access/Controlled-Access-Flowchart.png
    :align: center
    
