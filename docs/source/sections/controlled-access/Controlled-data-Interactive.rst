@@ -3,7 +3,7 @@ Interactive Access to Controlled Data
 ---------------------------------------
 
 This section shows you how to associate your Google identity to your NIH or eRA identity through the Web App. (Your NIH/eRA identity is the one associated
-with your dbGaP application and authorization to work with controlled data.) This is a necessary step for gaining access to controlled data.
+with dbGaP, authorizing you to work with controlled data.) This is a necessary step for gaining access to controlled data.
 
 Click on screen shots to enlarge them.
 
@@ -73,7 +73,10 @@ Unlink Google identity from NIH/eRA identity
 
 If you need to *unlink* your eRA account from your Google account (for example if you want to
 change which Google identity you use to sign in to the ISB-CGC platform), you may do so by
-selecting "Unlink <GoogleID> from the NIH username <eRA Commons ID>" (link B in the screen above).
+clicking on "Unlink <GoogleID> from the NIH identity <eRA Commons ID>".
+
+.. image:: DataAccessPanel.png
+   :align: center
 
 In the unusual instance that your NIH identity has been registered with another Google identity 
 (*eg* with another Google identity you own), you will see the screen below:
@@ -85,14 +88,6 @@ In the unusual instance that your NIH identity has been registered with another 
 If this happens, please sign in with that other account and "unlink" your eRA from that account
 (see description above).  You will then be able to register your eRA account with the desired Google identity.  
 If you are not able to resolve the issue, contact us at feedback@isb-cgc.org and we will help you resolve it.   
-
-To end your Web App session, just "Sign Out" by using the pull-down below your name 
-(see image below, A).  After you sign out from the ISB-CGC Web App, your Google identity may 
-still be signed in to your browser, so you may want to also sign out of the browser.
-
-.. image:: ../webapp/SignOut.png
-   :scale: 30
-   :align: center
 
 Extending Your Access by 24 hours 
 -----------------------------------
