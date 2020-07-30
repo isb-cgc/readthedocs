@@ -1,11 +1,7 @@
----------------------------------------
-Accessing Controlled Data from a GCE VM
----------------------------------------
-This section will show you how to:
-  * Register a Google Cloud Project (GCP);
-  * Register a Service Account for the GCP, thereby gaining access to controlled data.
-
-Users need to have access to a Google Cloud Project to perform the steps in this section. If you don't, see the the  `ISB-CGC Quick-Start Guide <../HowToGetStartedonISB-CGC.html>`_.
+----------------------------------------------------
+Registering a Google Cloud Project & Service Account
+----------------------------------------------------
+This section will show you how to register a Google Cloud Project (GCP) and a Service Account for the GCP, thereby gaining access to controlled data. Users need to have access to a Google Cloud Project to perform the steps in this section. If you don't, see the the  `ISB-CGC Quick-Start Guide <../HowToGetStartedonISB-CGC.html>`_.
 
 GCP projects are automatically configured with a "Compute Engine default service account" which you can find on the
 `IAM & Admin page <https://console.cloud.google.com/iam-admin/iam/project>`_ of the `Cloud Console <https://console.cloud.google.com/home/dashboard>`_.  When running on a Google Compute Engine (GCE) virtual machine (VM), a service account associated with your Google Cloud Project (GCP) is acting on your behalf and those are the credentials being
@@ -19,11 +15,11 @@ To allow flexibility while working with different research teams and different p
 
 Requirements for Registering a Google Cloud Project Service Account
 --------------------------------------------------------------------
-To be able to register your GCP Project and at least one service account to access controlled data, the following must all be true:
+To be able to register your GCP and at least one service account to access controlled data, the following must all be true:
 
 .. list-table:: 
 
-   * - You must have the role of "owner" on the Google Cloud project, because you will need to add an ISB-CGC service account as a new project member and a DCF service account as a new project member. The screen shots below will show you how to add these service accounts to your project:
+   * - You must have the role of "owner" on the Google Cloud Project, because you will need to add an ISB-CGC service account as a new project member and a DCF service account as a new project member. The screen shots below will show you how to add these service accounts to your project:
         - ISB-CGC service account -- 907668440978-oskt05du3ao083cke14641u35deokgjj@developer.gserviceaccount.com
         - DCF service account -- fence-service@dcf-prod.iam.gserviceaccount.com
         
@@ -48,14 +44,14 @@ Registering your Google Cloud Project Service Account
 --------------------------------------------------------------
 Click on screen shots to enlarge them.
 
-To register your Google Cloud Project and its Service Account with ISB-CGC, select the "persona" icon next to your login name on the ISB-CGC Web App, 
+To register your Google Cloud Project and its service account with ISB-CGC, select the "persona" icon next to your login name on the ISB-CGC Web App, 
 which takes you to the following page:
 
 .. image:: ../webapp/RegisteredGCPs.png
    :scale: 30
    :align: center
    
-Click the "Register a Google Cloud Project" link.  That takes you to the following page:
+Click the **Register a Google Cloud Project** link.  That takes you to the following page:
 
 .. image:: ../webapp/RegisterAGCPForm.png
    :scale: 30
@@ -65,7 +61,7 @@ The instructions will walk you through how to add the necessary ISB-CGC and DCF 
 You can hide the instructions by selecting the blue **Instructions** button.  
 
 Please be sure to add both service accounts listed below. If you don't add both service accounts you will run into issues viewing the controlled data in ISB-CGC.
-Then return to the ISB-CGC Register a Google Cloud Project page, enter your Google Cloud Project ID and click **Verify**.
+Then return to the ISB-CGC Register a Google Cloud Project page, enter your Google Cloud Project ID and, click **Verify**.
 
 .. image:: ../webapp/RegisterServiceAccountsList.PNG
    :scale: 30
@@ -118,7 +114,7 @@ open access data.  View the registered data set name by selecting the drop down 
    :scale: 30
    :align: center
 
-Managing your Google Cloud Projects and Service Accounts
+Managing your Google Cloud Projects & Service Accounts
 ---------------------------------------------------
 Once your GCP and Service Account are registered, you can add or remove additional service accounts by following the instructions below.
 You can also extend the use of a service account for another seven days, or reauthorize a service account after you have corrected errors that
