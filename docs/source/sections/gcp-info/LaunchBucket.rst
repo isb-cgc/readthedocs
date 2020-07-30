@@ -8,6 +8,8 @@ Via the Google Cloud Console
 `Video: Create a storage bucket <https://youtu.be/TfOO-fSzTNA>`_.
 
 From Google Cloud Platform Console:
+
+
 1) Click on Cloud Storage browser on the left of the page
 
 
