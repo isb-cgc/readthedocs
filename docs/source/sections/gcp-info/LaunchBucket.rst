@@ -7,6 +7,11 @@ Via the Google Cloud Console
 =================================
 `Video: Create a storage bucket <https://youtu.be/TfOO-fSzTNA>`_.
 
+From Google Cloud Platform Console:
+1) Click on Cloud Storage browser on the left of the page
+2) Click **Create a bucket**
+3) Give the bucket a unique name, with all lower cap, no space.
+4) Select region and Location and click **Create**
 
 Via gcloud command-line tool
 ==================================================
