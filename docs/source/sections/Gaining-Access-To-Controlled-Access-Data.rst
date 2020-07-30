@@ -4,13 +4,13 @@ Accessing Controlled Data
 
 You can gain access to  **controlled data** by two different methods via ISB-CGC. The methods can be used simultaneously if needed.
 
-  - For `Interactive computing <controlled-access/Controlled-data-Interactive.html>`_, select this method: 
+  - Select this method for `Interactive computing <controlled-access/Controlled-data-Interactive.html>`_: 
   
     * Provides access to controlled data for 24 hours at a time;
     * Uses your *personal* credentials;
     * Example uses: the ISB-CSC Web App or R Studio
       
-  - For `Programmatic computing <controlled-access/Controlled-data-GCP.html>`_, select this method:
+  - Select this method for `Programmatic computing <controlled-access/Controlled-data-GCP.html>`_:
   
     * Provides access to controlled data for seven days at a time;
     * Uses the credentials of a *service account*, acting on your behalf;
@@ -51,10 +51,10 @@ Visit `electronic Research Administration (eRA) <http://era.nih.gov>`_ for more 
 Your principal investigator (PI) can link your NIH/eRA account to `dbGaP <http://dbgap.ncbi.nlm.nih.gov>`_ permissions for selected controlled access data sets. 
 
 For more information on applying for dbGaP authorization to access controlled data, please see 
-the "How to" `Apply for Controlled Access Data Video <http://www.youtube.com/watch?v=-3tUBeKbP5c>`_.
+this dbGap How to Video: `Apply for Controlled Access Data <http://www.youtube.com/watch?v=-3tUBeKbP5c>`_.
 
-For additional instructions, please refer to `Tips for Preparing a Successful Data Access Request <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/GetPdf.cgi?document_name=GeneralAAInstructions.pdf>`_, 
-and `Understanding Data Security </data/TCGA_Data_Security.html>`_.  Please be sure to review the Data Use Certification Agreement for `TCGA controlled data <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000178.v9.p8>`_ and `TARGET controlled data <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000218.v17.p6>`_. 
+For additional information, refer to `Tips for Preparing a Successful Data Access Request <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/GetPdf.cgi?document_name=GeneralAAInstructions.pdf>`_, 
+and `Understanding Data Security <data/TCGA_Data_Security.html>`_.  Please be sure to review the Data Use Certification Agreement for `TCGA controlled data <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000178.v9.p8>`_ and `TARGET controlled data <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000218.v17.p6>`_. 
 
 ------------------------------------------
 Linking your NIH/eRA and Google identities
@@ -66,14 +66,14 @@ Before you can access *any* controlled-data hosted by the ISB-CGC, you must firs
 access the Google Cloud) with a valid NIH or eRA account associated with a dbGaP data-access request.
 
 This is done through the Web App: you will first be redirected to an NIH login page, and once you have successfully authenticated,
-ISB-CGC will store an association between your NIH identity and your Google identity. (Note that this should be a one-to-one association.)
+ISB-CGC will store an association between your NIH/eRA identity and your Google identity. (Note that this should be a one-to-one association.)
 
-Once you have authenticated, ISB-CGC will check which datasets (such as TCGA, TARGET controlled data, etc.) that you have been authorized (by dbGaP) to access.  
+Once you have authenticated, ISB-CGC will check which data sets (such as TCGA, TARGET controlled data, etc.) that you have been authorized (by dbGaP) to access.  
 ISB-CGC obtains an updated whitelist for each of the hosted data sets from dbGaP every day.  If you have just recently been granted access by dbGaP, there may be a 24 hour
-delay before you will be able to request access to these data on ISB-CGC.
+delay before you will be able to request access to this data on ISB-CGC.
 
 Once you have authenticated to NIH via the Web App, and your dbGaP authorization has been verified, the 
-Google identity associated with your account will have access to the controlled-data for 24 hours.
+Google identity associated with your account will have access to the controlled data for 24 hours.
 
 Follow these steps to link NIH/eRA and Google identities via the Web App:
    *  `Link your NIH/eRA and Google identities <controlled-access/Controlled-data-Interactive.html>`_
@@ -82,20 +82,23 @@ The above steps only need to be done once, unless your accounts become unlinked,
 
 **5) Requesting controlled access via the ISB Web App.**
 
-------------------
-Interactive Access
-------------------
-The first time that you do the above steps, you are automatically granted access for interactive computing. This access lasts for 24 hours. After that, to obtain access, 
-sign into the Web App, click on your persona (or Account Details in the drop down under your name). Click **Obtain controlled access for 24 Hours.**
+-----------------------------
+Interactive Controlled Access
+-----------------------------
+
+The first time that you perform the above steps, you are automatically granted controlled access for interactive computing. This access lasts for 24 hours, though it can be extended. Subsequently, to obtain access, sign into the Web App, click on your persona (or **Account Details** on the drop down menu next to your name). Click **Obtain controlled access for 24 Hours.**
 
 .. image:: controlled-access/DataAccess-24hours.png
    :align: center
 
-------------------
-Programmatic Access
-------------------
+------------------------------
+Programmatic Controlled Access
+------------------------------
+
+To access controlled data in a programmatic manner, such as through a Google Cloud Project or when running a VM, you'll need to register a GCP and service account.
+
 Follow these steps for programmatic access:
-   * `Programmatic computing <controlled-access/Controlled-data-GCP.html>`_
+   * `Registering a Google Cloud Project & Service Account <controlled-access/Controlled-data-GCP.html>`_
 
 
    
