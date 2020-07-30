@@ -1,6 +1,6 @@
-------------------------------------------
-Linking your NIH/eRA and Google identities
-------------------------------------------
+-----------------------------------------------
+How to linking your NIH/eRA & Google identities
+-----------------------------------------------
 
 This section shows you how to associate your Google identity to your NIH or eRA identity through the Web App. (Your NIH/eRA identity is the one associated
 with dbGaP, authorizing you to work with controlled data.) This is a necessary step for gaining access to controlled data.
