@@ -16,7 +16,7 @@ Select this method for `Programmatic computing <controlled-access/Controlled-dat
   * Uses the credentials of a *service account*, acting on your behalf;
   * Example uses: using a Google Cloud Project; running a program from a Google Compute Engine (GCE) Virtual Machine (VM)
  
-This diagram details the processing of acquiring controlled access. The blue rectangles represent entities, the gray boxes represent steps that need to be taken, 
+This diagram details the process of acquiring controlled access. The blue rectangles represent entities, the gray boxes represent steps that need to be taken, 
 and the ovals represent the results of those steps.
 
  .. image:: controlled-access/Controlled-Access-Flowchart.png
@@ -30,7 +30,7 @@ You'll need the following before requesting controlled access via ISB-CGC:
   * A Google identity;
   * An NIH or electronic Research Administration (eRA) account;
   * Database of Genotypes and Phenotypes (dbGaP) permission for each type of controlled access data of interest, linked to your NIH or eRA account;
-  * Your Google identify linked `linked <controlled-access/Controlled-data-Interactive.html>`_ to your NIH/eRA account via the ISB-CGC Web App.
+  * Your Google identify `linked <controlled-access/Controlled-data-Interactive.html>`_ to your NIH/eRA account via the ISB-CGC Web App.
 
 **1) Google identity**.
 
