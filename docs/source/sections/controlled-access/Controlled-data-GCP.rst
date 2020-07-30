@@ -1,7 +1,7 @@
 ----------------------------------------------------
 Registering a Google Cloud Project & Service Account
 ----------------------------------------------------
-This section will show you how to register a Google Cloud Project (GCP) and a Service Account for the GCP, thereby gaining access to controlled data. Users need to have access to a Google Cloud Project to perform the steps in this section. If you don't, see the the  `ISB-CGC Quick-Start Guide <../HowToGetStartedonISB-CGC.html>`_.
+This section will show you how to register a Google Cloud Project (GCP) and a Service Account for the GCP, thereby gaining access to controlled data which you can use programmatically. Users need to have access to a Google Cloud Project to perform the steps in this section. If you don't, see the the  `ISB-CGC Quick-Start Guide <../HowToGetStartedonISB-CGC.html>`_.
 
 GCP projects are automatically configured with a "Compute Engine default service account" which you can find on the
 `IAM & Admin page <https://console.cloud.google.com/iam-admin/iam/project>`_ of the `Cloud Console <https://console.cloud.google.com/home/dashboard>`_.  When running on a Google Compute Engine (GCE) virtual machine (VM), a service account associated with your Google Cloud Project (GCP) is acting on your behalf and those are the credentials being
@@ -19,7 +19,7 @@ To be able to register your GCP and at least one service account to access contr
 
 .. list-table:: 
 
-   * - You must have the role of "owner" on the Google Cloud Project, because you will need to add an ISB-CGC service account as a new project member and a DCF service account as a new project member. The screen shots below will show you how to add these service accounts to your project:
+   * - You must have the role of "owner" on the Google Cloud Project, because you will need to add an ISB-CGC service account as a new project member and a DCF service account as a new project member. The screenshots below will show you how to add these service accounts to your project:
         - ISB-CGC service account -- 907668440978-oskt05du3ao083cke14641u35deokgjj@developer.gserviceaccount.com
         - DCF service account -- fence-service@dcf-prod.iam.gserviceaccount.com
         
