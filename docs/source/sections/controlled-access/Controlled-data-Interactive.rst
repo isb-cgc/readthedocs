@@ -1,5 +1,5 @@
 -----------------------------------------------
-How to linking your NIH/eRA & Google identities
+How to link your NIH/eRA & Google identities
 -----------------------------------------------
 
 This section shows you how to associate your Google identity to your NIH or eRA identity through the Web App. (Your NIH/eRA identity is the one associated
