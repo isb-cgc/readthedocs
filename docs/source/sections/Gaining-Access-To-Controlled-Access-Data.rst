@@ -78,9 +78,9 @@ Google identity associated with your account will have access to the controlled-
 Follow these steps to link NIH/eRA and Google identities via the Web App:
    *  `Link your NIH/eRA and Google identities <controlled-access/Controlled-data-Interactive.html>`_
 
-**5) Requesting controlled access via the ISB Web App.**
-
 The above steps only need to be done once, unless your accounts become unlinked, you need access to another dbGaP controlled data set, or some other reason.
+
+**5) Requesting controlled access via the ISB Web App.**
 
 ------------------
 Interactive Access
