@@ -3,6 +3,10 @@ Running CWL Blast
 ==================
 
 
+This workflow extracts contigs of interest from a mixed library of DNA, uses Blastn and Python Script
+
+
+
 Requirements:
 =============
 
@@ -59,7 +63,7 @@ You should have a **CWL-Blast** directory :
        ├── Count_Nucleotides.py
        ├── Extract_Contigs.py
        └── Extract_Headers.py
-       
+
 
 Let's run it by using:
 

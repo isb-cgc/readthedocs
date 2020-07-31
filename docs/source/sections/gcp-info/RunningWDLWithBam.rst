@@ -3,6 +3,9 @@ Running WDL pipeline on public Bam file from ISB-CGC
 ====================================================
 
 
+This workflow gathers GC content from a bam file/ or a list of Bam file to a text file
+
+
 Requirements:
 =============
 
@@ -17,9 +20,6 @@ To install Java, Docker, Graphviz and WDL, you can visit our **Cheatsheet**, and
 
 - `Cheatsheet <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/Cheatsheet.html>`_
 - `WorkflowWithGCSFUSE <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/WorkflowWithGCSFUSE.html>`_
-- `RunningSnakemakeWithBam <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/RunningSnakemakeWithBam.html>`_
-- `RunningCWLWithBam <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/RunningCWLWithBam.html>`_
-- `RunningNextflowWithBam <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/RunningNextflowWithBam.html>`_
 
 Installing Cromwell and Womtool:
 ================================

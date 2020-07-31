@@ -2,6 +2,10 @@
 Running NEXTFLOW Blast
 ======================
 
+
+This workflow extracts contigs of interest from a mixed library of DNA, uses Blastn and Python Script
+
+
 Requirements:
 =============
 

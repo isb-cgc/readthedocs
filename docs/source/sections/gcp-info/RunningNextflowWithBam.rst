@@ -3,6 +3,9 @@ Running NEXTFLOW pipeline on public Bam file from ISB-CGC
 =========================================================
 
 
+This workflow gathers GC content from a bam file/ or a list of Bam file to a text file
+
+
 Requirements:
 =============
 
@@ -16,9 +19,6 @@ To install Docker and Nextflow, you can visit our **Cheatsheet**, and to set up 
 
 - `Cheatsheet <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/Cheatsheet.html>`_
 - `WorkflowWithGCSFUSE <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/WorkflowWithGCSFUSE.html>`_
-- `RunningSnakemakeWithBam <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/RunningSnakemakeWithBam.html>`_
-- `RunningCWLWithBam <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/RunningCWLWithBam.html>`_
-- `RunningWDLWithBam <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/RunningWDLWithBam.html>`_
 
 Download this tutorial:
 =======================
