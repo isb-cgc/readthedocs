@@ -27,7 +27,7 @@ To access the BigQuery tables, you will need to link your Google identity with a
 * **Registered COSMIC User:** After logging in, navigate to the `Account Settings <https://cancer.sanger.ac.uk/cosmic/myaccount>`_ page and fill in the 'Google ID' field with your base* Google Identity.
 
 
-Once you have linked your Google identity to a COSMIC account, ISB-CGC will obtain your Google Identity. After a short delay, you will have "viewer" access to the COSMIC tables in BigQuery. You will then be able to view the data sets in the BigQuery UI under the ``isb-cgc`` Google Cloud project and query the tables with your own Google Cloud Project. 
+Once you have linked your Google identity to a COSMIC account, ISB-CGC will obtain your Google Identity. After a short delay, you will have "viewer" access to the COSMIC tables in BigQuery. You will then be able to view the data sets in the BigQuery UI under the ``isb-cgc`` Google Cloud project and query the tables with your own Google Cloud Project. We also have tutorials on using the COSMIC data sets with BigQuery in our `Community Notebook Repository <../HowTos.html>`_ that you can check out.
 
 If you are new to using ISB-CGC Google BigQuery data sets, see the `Quickstart Guide <../HowToGetStartedonISB-CGC.html>`_ to learn how to obtain a Google identity and how to set up a Google Cloud Project. Additionally, we offer free cloud credits for cancer research; you can find out more `here <../HowtoRequestCloudCredits.html>`_.
 
