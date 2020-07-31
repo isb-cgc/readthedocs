@@ -3,6 +3,9 @@ Running NEXTFLOW RNAseq
 =======================
 
 
+This workflow maps read-pairs to reference genome and produces the transcript
+
+
 Requirements:
 =============
 
