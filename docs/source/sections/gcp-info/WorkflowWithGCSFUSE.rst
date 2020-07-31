@@ -1,6 +1,10 @@
-=============================
-Running Workflow with GCSFUSE
-=============================
+==================================
+Setting up GCSFUSE to run workflow
+==================================
+
+When you are running workflow on a Virtual Machine (VM), if your inputs are a link to a storage bucket, an service account is needed to run your workflow.
+In order to avoid using a service account, using Google user credential to mount your data to the VM is one way to circumvent that. 
+
 
 `How-to video <https://www.youtube.com/watch?v=mE6dLYOf8BA>`_ | `Installing Page <https://github.com/GoogleCloudPlatform/gcsfuse/blob/master/docs/installing.md>`_
 
