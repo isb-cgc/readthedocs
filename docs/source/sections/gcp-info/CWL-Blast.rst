@@ -3,7 +3,7 @@ Running CWL Blast
 ==================
 
 
-This workflow extracts contigs of interest from a mixed library of DNA, uses Blastn and Python Script
+This workflow extracts contigs of interest from a mixed library of DNA, uses Blastn and Python scripts
 
 
 
@@ -30,10 +30,10 @@ Download this tutorial:
   #cloning this tutorial
   $svn checkout https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/trunk/CWL-Blast
 
-Rationales
+Rationale
 ==========
 
-The input of this workflow (**sample.fa**) is produced by genome assembly software. It contains contigs from multiple organisms (eukaryote, prokaryotes) due to the way the sample was prepared and sequenced.
+The input of this workflow (**sample.fa**) is produced by genome assembly software. It contains contigs from multiple organisms (eukaryote, prokaryotes) because of the way the sample was prepared and sequenced.
 In this example, we are interested in the prokaryotes' genome only, and will separate their contigs from the eukaryote ones. In order to do that, Blastn will do sequence alignment between the contigs and the prepared blast database (files in the folder **db**).
 The output of Blastn will be a table, which maps the contigs' headers to the appropriate species. Then we demonstrate how to incorporate the use of python helper scripts in our pipeline to extract the prokaryotes' headers (**scripts/Extract_Headers.py**), contigs (**scripts/Extract_Contigs.py**), and nucleotide count (**scripts/Count_Nucleotides.py**) from the original Fasta file using the Blastn result.
 The final output of the workflow will be 3 text files: **extracted_contigs.txt**, **Headers.txt**, **NucleoCount.txt**.
