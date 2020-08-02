@@ -34,12 +34,12 @@ Download this tutorial:
  $svn checkout https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/trunk/Nextflow-Blast
 
 
-Rationales
+Rationale
 ==========
 
-The input of this workflow (**sample.fa**) is produced by genome assembly software. It contains contigs from multiple organisms (eukaryote, prokaryotes) due to the way the sample was prepared and sequenced.
+The input of this workflow (**sample.fa**) is produced by genome assembly software. It contains contigs from multiple organisms (eukaryote, prokaryotes) because of the way the sample was prepared and sequenced.
 In this example, we are interested in the prokaryotes' genome only, and will separate their contigs from the eukaryote ones. In order to do that, Blastn will do sequence alignment between the contigs and the prepared blast database (files in the folder **db**).
-The output of Blastn will be a table, which maps the contigs' headers to the appropriate species. Then we demonstrate how to incorporate the use of python helper scripts in our pipeline to extract the prokaryotes' headers (**scripts/Extract_Headers.py**), contigs (**scripts/Extract_Contigs.py**), and nucleotide count (**scripts/Count_Nucleotides.py**) from the original Fasta file using the Blastn result.
+The output of Blastn will be a table, which maps the contigs' headers to the appropriate species. Here, we also demonstrate how to incorporate the use of python helper scripts in our pipeline to extract the prokaryotes' headers (**scripts/Extract_Headers.py**), contigs (**scripts/Extract_Contigs.py**), and nucleotide count (**scripts/Count_Nucleotides.py**) from the original Fasta file using the Blastn result.
 The final output of the workflow will be 3 text files: **extracted_contigs.txt**, **Headers.txt**, **NucleoCount.txt**.
 
 
@@ -66,14 +66,14 @@ You should have a **Nextflow-Blast** directory :
 
 
 
-The file **main.nf** contains all the codes to execute the workflow, and **nextflow.config** provide the name of docker image that contains all the tool for this run.
+The file **main.nf** contains all the code necessary to execute the workflow, and **nextflow.config** provides the name of docker image that contains all the tools for this run.
 To run:
 ::
 
  #Assume the executable file "nextflow" is installed in the same directory with the folder you download "Nextflow-Blast"
  $./nextflow run Nextflow-Blast
 
-After finish running the folder should look like this:
+Once complete, the folder should look like this:
 
 ::
 
@@ -97,8 +97,8 @@ After finish running the folder should look like this:
             └── Extract_Headers.py
 
 
-Running Nextflow with visualization
-===================================
+Running Nextflow with the Visualization Option
+==============================================
 
 Use the following command:
 ::
