@@ -43,6 +43,9 @@ I'm a novice, how do I...
    * - How do I join multiple tables?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_complex_joins.ipynb>`_
      -
+   * - How do I get started working with the COSMIC datasets?
+     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/Intro_to_COSMIC_in_BigQuery.ipynb>`_
+     -
    * - How do I convert a .bam file to a .fastq file with samtools?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_convert_bams_to_fastq_with_samtools.ipynb>`_
      - 
