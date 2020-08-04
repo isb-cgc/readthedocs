@@ -21,4 +21,5 @@ We have put together some basic documentation for ISB-CGC users who are new to t
    RunningWDLWithBam.rst
    Nextflow-Blast.rst
    CWL-Blast.rst
+   Workflow-Costs.rst
    
