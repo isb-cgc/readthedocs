@@ -7,7 +7,7 @@ Before running your workflow, it's important to consider the factors involved in
 GCE Price Make Up 
 ================
 
- - GCE charges are based on a pricing sheet
+ - GCE charges are based on a `pricing sheet <https://cloud.google.com/compute/vm-instance-pricing>`_
  
    - Should be checked once in a while as the sheet does update
    
@@ -20,4 +20,4 @@ GCE Price Make Up
     
  - Google provides an on site preview of costs and discounts per machine type
  
-   - Google Platform Pricing Calculator  
+   - `Google Platform Pricing Calculator  <https://cloud.google.com/products/calculator>`_
