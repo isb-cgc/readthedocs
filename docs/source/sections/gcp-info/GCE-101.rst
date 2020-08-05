@@ -4,13 +4,40 @@ Running Workflows on ISB-CGC
 
 We have put together some basic documentation for ISB-CGC users who are new to the Google Cloud Platform, but your main source of information should generally be the official Google Cloud Platform `documentation <https://cloud.google.com/docs>`_.
 
+Getting Started with Google Cloud Platform
 
+ -  `Launching a Virtual Machine <gcp-info2/LaunchVM.rst>`_
+ -  `Creating a Google Cloud Storage Bucket <LaunchBucket.rst>`_
+ -  `VM Cheatsheet <Cheatsheet.rst>`_
+ -  `Workflow Cost Considerations <Workflow-Costs.rst>`_
+
+Your First Workflows on the Google Cloud Virtual Machine
+
+ -  `Snakemake RNA-seq <FirstWorkflow.rst>`_
+ -  `CWL RNA-seq <CWL-RNAseq.rst>`_
+ -  `Nextflow RNA-seq <Nextflow-RNAseq.rst>`_
+ 
+ Example Workflows using public ISB-CGC data
+ 
+ -  WorkflowWithGCSFUSE.rst
+ -  RunningNextflowWithBam.rst
+ -  RunningSnakemakeWithBam.rst
+ -  RunningCWLWithBam.rst
+ -  RunningWDLWithBam.rst
+   
+   Example Workflows using BLAST
+
+   - Nextflow-Blast.rst
+   - CWL-Blast.rst
+   
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
    gcp-info2/LaunchVM.rst
    LaunchBucket.rst
    Cheatsheet.rst
+   Workflow-Costs.rst
    FirstWorkflow.rst
    CWL-RNAseq.rst
    Nextflow-RNAseq.rst
@@ -21,5 +48,5 @@ We have put together some basic documentation for ISB-CGC users who are new to t
    RunningWDLWithBam.rst
    Nextflow-Blast.rst
    CWL-Blast.rst
-   Workflow-Costs.rst
+  
    
