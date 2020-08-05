@@ -19,16 +19,16 @@ Your First Workflows on the Google Cloud Virtual Machine
  
  Example Workflows using public ISB-CGC data
  
- -  WorkflowWithGCSFUSE.rst
- -  RunningNextflowWithBam.rst
- -  RunningSnakemakeWithBam.rst
- -  RunningCWLWithBam.rst
- -  RunningWDLWithBam.rst
+ -  `Setting Up GCSFUSE <WorkflowWithGCSFUSE.rst>`_
+ -  `Running Nextflow pipeline on public BAM file from ISB-CGC <RunningNextflowWithBam.rst>`_
+ -  `Running Snakemake pipeline on public BAM file from ISB-CGC <RunningSnakemakeWithBam.rst>`_
+ -  `Running CWL pipeline on public BAM file from ISB-CGC <RunningCWLWithBam.rst>`_
+ -  `Running WDL pipeline on public BAM file from ISB-CGC <RunningWDLWithBam.rst>`_
    
-   Example Workflows using BLAST
+ Example Workflows using BLAST
 
-   - Nextflow-Blast.rst
-   - CWL-Blast.rst
+ - `Running NEXTFLOW Blast <Nextflow-Blast.rst>`_
+ - `Running CWL Blast <CWL-Blast.rst>`_
    
 .. toctree::
    :maxdepth: 1
