@@ -1,14 +1,11 @@
 ==================
-Running CWL RNAseq
+Running CWL RNA-seq
 ==================
 
-
-This workflow maps read-pairs to reference genome and produces the transcript
-
+This Common Workflow Language (CWL) workflow maps read-pairs to a reference genome and produces a transcript. CWL enables the user to connect command line tools to create workflows; it is a specification and is therefore portable across platforms that support CWL.
 
 Requirements:
 =============
-
 
 -  CWLtool
 -  Docker
