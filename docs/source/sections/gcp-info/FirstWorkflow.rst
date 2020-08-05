@@ -1,6 +1,9 @@
 ======================================================================
-Your First Workflow on Google Cloud Virtual Machine (SNAKEMAKE RNAseq)
+Your First Workflow on Google Cloud Virtual Machine (Snakemake RNA-seq)
 ======================================================================
+
+This Snakemake workflow maps read-pairs to a reference genome and produces a transcript. `Snakemake <https://snakemake.readthedocs.io/en/stable/workflows>`_ workflows are Python based, extended by declarative code which defines rules. The rules indicate how the output files are created from the input files.
+
 Requirements:
 
 -  `Anaconda/Miniconda <https://conda.io/projects/conda/en/latest/user-guide/install/index.html>`_
@@ -51,7 +54,7 @@ It should look like this:
 .. image:: images/YourFirstWorkflow_1.png
    :align: left
 
-Congratulations! you are now ready to run your first workflow using snakemake
+Congratulations! You are now ready to run your first workflow using snakemake.
 
 Step 1: Creating Index files from reference genome using hisat2-build
 =====================================================================
@@ -72,8 +75,8 @@ Let's take a look at the 2 files in this folder: **Snakefile** and **indexing.sm
              |_________Snakefile
 
 
-Snakefile is the default name for snakemake's script, "$snakemake"
-command will automatically find a file name Snakefile and execute it. While **indexing.smk** is a helper file that will be called within the Snakefile.
+Snakefile is the default name for snakemake's script. The "$snakemake"
+command will automatically find a file name Snakefile and execute it;  **indexing.smk** is a helper file that will be called within the Snakefile.
 
 Let's run it by using:
 
@@ -82,7 +85,7 @@ Let's run it by using:
   $snakemake
 
 
-snakemake will run and use hisat2 to build index files from file rnaseq-snake/data/**reference.fa** . And all the index files will be moved to rnaseq-snake/step1/**reference**
+Snakemake will run and use hisat2 to build index files from file rnaseq-snake/data/**reference.fa**. All the index files will be moved to rnaseq-snake/step1/**reference**.
 
 Let's take a quick look at the code:
 
@@ -95,9 +98,9 @@ Let's take a quick look at the code:
   include: "indexing.smk"
 
 
-The first rule's input of a Snakefile (rule targets) will determine what's the output that workflow. In this case, index.done is the target file what snakemake will look for. **Include: "indexing.smk"** will call the following helper script:
+The first rule's input of a Snakefile (rule targets) will determine what's the output of that workflow. In this case, index.done is the target file that snakemake will look for. **Include: "indexing.smk"** will call the following helper script:
 
-.. note:: Only the first very first Snakefile rule's input behave like this, other input will be the actual inputs of your workflow.
+.. note:: Only the very first Snakefile rule's input behaves like this; other input will be the actual inputs of your workflow.
 
 ::
 
@@ -114,7 +117,7 @@ The first rule's input of a Snakefile (rule targets) will determine what's the o
         mv index.* reference/
         """
 
-In **Indexing.smk** file we have an actual input "../data/reference.fa" and the output section tell snakemake to create an empty file "index.done" and this is the file that the first rule will check to make sure that this helper script actually run. Then the shell script is executed as follow: a folder called reference got created, then Hisat2 will create index files from the fasta file, and then all the index files got moved to the reference folder.
+In **Indexing.smk** file we have an actual input "../data/reference.fa" and the output section tells snakemake to create an empty file "index.done", which is the file that the first rule will check to make sure that this helper script actually run. Then the shell script is executed as follows: a folder called reference got created, then Hisat2 created index files from the fasta file, and then all the index files got moved to the reference folder.
 
 After **Step 1**:
 
@@ -140,10 +143,10 @@ After **Step 1**:
    |_________environment.yml
 
 
-Step 2: Creating Bam file and Transcript from reads and index files
-===================================================================
+Step 2: Creating the BAM file and the Transcript from reads and index files
+==========================================================================
 
-Step 2 is similar to Step 1
+Step 2 is similar to Step 1.
 
 From folder step1, to run step 2:
 
@@ -197,7 +200,7 @@ In the step2 folder:
 
  $snakemake --dag | dot -Tsvg > visual.svg
 
-A file named **visual.svg** will be created in the same folder, it can be downloaded and open with any web browser. It should look like this:
+A file named **visual.svg** will be created in the same folder; it can be downloaded and open with any web browser. It should look like this:
 
 
 .. image:: images/YourFirstWorkflow_2.jpg
