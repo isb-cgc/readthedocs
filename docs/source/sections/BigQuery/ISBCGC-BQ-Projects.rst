@@ -30,7 +30,7 @@ This new project is a work in progress. The migration of existing tables from th
 isb-cgc-bq Data Set and Table Organization
 ------------------------------------------
 
-Each Program has two data sets. 
+Each Program has two data sets, one containing the most current data that ISB-CGC has, and one containing versioned tables, which serves as an archive of previously released tables. See below for more details.
 
 .. list-table::
    :header-rows: 1
@@ -40,7 +40,7 @@ Each Program has two data sets.
      - Table Name Format
      - Table Status
    * - <Program>
-     - Latest tables for each data type (ex. miRNA Expression, File Metadata) that ISB-CGC per Program
+     - Latest tables for each data type (ex. miRNA Expression, File Metadata) that ISB-CGC has, per Program
      - Data Type, Reference Genome, Source, Current. Ex. ``TARGET.miRNAseq_h38_gdc_current``
      - When using the `BigQuery Table Search UI <https://isb-cgc.appspot.com/bq_meta_search/>`_ to find these tables, select Status of **Current**.
    * - <Program>_versioned
