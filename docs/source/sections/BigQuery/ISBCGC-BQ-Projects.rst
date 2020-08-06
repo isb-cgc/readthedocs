@@ -2,7 +2,7 @@
 ISB-CGC BigQuery Projects
 *************************
 
-ISB-CGC has two Google BigQuery projects.  In order to see and query the ISB-CGC tables from the BigQuery Console, you'll need to link to these projects. This process, know as "pinning a project", is described `here <../progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_.
+ISB-CGC has two Google BigQuery projects.  In order to see and query the ISB-CGC tables from the Google BigQuery Console, you'll need to link to these projects. This process, know as "pinning a project", is described `here <../progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_.
 
  - **isb-cgc** - This project has been in use since ISB-CGC's inception.
  - **isb-cgc-bq** - This is a new project as of July 2020. It will hold all new ISB-CGC tables, and many of the tables in the isb-cgc project will be migrated here over time.
@@ -34,27 +34,22 @@ Each Program has two data sets.
 
 .. list-table::
    :header-rows: 1
-   :stub-columns: 1
 
    * - Data Set Name
-     - Data Set Description
+     - Data Set Contents
      - Table Name Format
      - Table Status
    * - <Program>
-     - It has (or will have after the migration) the latest tables for each data type (ex. miRNA Expression, File Metadata) that ISB-CGC has for that Program.
+     - Latest tables for each data type (ex. miRNA Expression, File Metadata) that ISB-CGC per Program
      - Data Type, Reference Genome, Source, Current. Ex. ``TARGET.miRNAseq_h38_gdc_current``
      - When using the `BigQuery Table Search UI <https://isb-cgc.appspot.com/bq_meta_search/>`_ to find these tables, select Status of **Current**.
    * - <Program>_versioned
-     - It contains (or will) previously released tables, as well as the most current table. Here, though, the name of the most current table will be appended with the release number or year and not "Current".
-     - Data Type, Reference Genome, Source, Release Number or Year. Ex. ``TARGET.miRNAseq_h38_gdc_r22``
+     - Previously released tables, as well as the most current table. 
+     - Data Type, Reference Genome, Source, Release Number or Year. Ex. ``TARGET.miRNAseq_h38_gdc_r22``. Here, the name of the most current table will end with the release number or year and not "current". 
      - When using the `BigQuery Table Search UI <https://isb-cgc.appspot.com/bq_meta_search/>`_ to find these tables, select Status of **Archived**. 
  
-.. figure:: ISBCGC-BQ-datasets.png
+See below for a snapshot of the isb-cgc-bq data set and table organization in the Google BigQuery Console.
+
+.. image:: ISBCGC-BQ-tables.png
     :align: center
     
-    **isb-cgc-bq Data Set Name Format**
-    
-.. figure:: ISBCGC-BQ-tables.png
-    :align: center
-    
-    **isb-cgc-bq Table Name Format**
