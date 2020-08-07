@@ -8,7 +8,7 @@ We have put together some basic documentation for ISB-CGC users who are new to t
 
  -  `Launching a Virtual Machine <gcp-info2/LaunchVM.html>`_
  -  `Creating a Google Cloud Storage Bucket <LaunchBucket.html>`_
- -  `VM Cheatsheet <Cheatsheet.html>`_
+ -  `VM Workflow Tools Installation Cheatsheet <Cheatsheet.html>`_
  -  `Workflow Cost Considerations <Workflow-Costs.html>`_
 
 **Your First Workflows on the Google Cloud Virtual Machine**
