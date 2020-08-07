@@ -2,7 +2,8 @@
 Running Workflows on ISB-CGC
 *************************************
 
-We have put together some basic documentation for ISB-CGC users who are new to the Google Cloud Platform, but your main source of information should generally be the official Google Cloud Platform `documentation <https://cloud.google.com/docs>`_.
+ISB-CGC is a thin layer on top of the Google Cloud Platform. Users have at their disposal all of the tools and techologies that the Google Cloud Platform has to offer including full **sudo** access to Google Cloud virtual machines. 
+We have put together some basic documentation for ISB-CGC users who are new to the Google Cloud Platform as well as the commonly used workflow languages in bioinformatics research.  Your main source of information for the official Google Cloud Platform `documentation is: <https://cloud.google.com/docs>`_.
 
 **Getting Started with Google Cloud Platform**
 
@@ -11,13 +12,15 @@ We have put together some basic documentation for ISB-CGC users who are new to t
  -  `VM Workflow Tools Installation Cheatsheet <Cheatsheet.html>`_
  -  `Workflow Cost Considerations <Workflow-Costs.html>`_
 
-**Your First Workflows on the Google Cloud Virtual Machine**
+**Example "Hello World" bioinformatics workflows running on Google Cloud virtual machines**
 
  -  `Snakemake RNA-seq <FirstWorkflow.html>`_
  -  `CWL RNA-seq <CWL-RNAseq.html>`_
  -  `Nextflow RNA-seq <Nextflow-RNAseq.html>`_
+ -  `Running Nextflow Blast <Nextflow-Blast.html>`_
+ -  `Running CWL Blast <CWL-Blast.html>`_
  
-**Example Workflows using public ISB-CGC data**
+**Example workflows accessing data in Google Cloud Storage buckets**
  
  -  `Setting Up GCSFUSE <WorkflowWithGCSFUSE.html>`_
  -  `Running Nextflow pipeline on public BAM file from ISB-CGC <RunningNextflowWithBam.html>`_
@@ -25,10 +28,9 @@ We have put together some basic documentation for ISB-CGC users who are new to t
  -  `Running CWL pipeline on public BAM file from ISB-CGC <RunningCWLWithBam.html>`_
  -  `Running WDL pipeline on public BAM file from ISB-CGC <RunningWDLWithBam.html>`_
    
- **Example Workflows using BLAST**
 
- - `Running Nextflow Blast <Nextflow-Blast.html>`_
- - `Running CWL Blast <CWL-Blast.html>`_
+
+ 
    
 .. toctree::
    :maxdepth: 1
