@@ -30,7 +30,12 @@ This new project is a work in progress. The migration of existing tables from th
 isb-cgc-bq Data Set and Table Organization
 ------------------------------------------
 
-Each Program has two data sets, one containing the most current data that ISB-CGC has, and one containing versioned tables, which serves as an archive of previously released tables. See below for more details.
+Each Program has two data sets, one containing the most current data that ISB-CGC has, and one containing versioned tables, which serves as an archive of previously released tables.
+
+As new data releases occur, the data in the "_current" tables will be replaced with this new data. If you want the most up-to-date data, use these tables in your queries.
+However, if you want to ensure that your queries create a reproducible result, use a table from the "_versioned" data set. The most current data is also in this data set; however, the name of the table will end with the release number or year and not "current".
+
+See below for more details.
 
 .. list-table::
    :header-rows: 1
