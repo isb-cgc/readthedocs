@@ -41,12 +41,12 @@ Each Program has two data sets, one containing the most current data that ISB-CG
      - Table Status
    * - <Program>
      - Latest tables for each data type (ex. miRNA Expression, File Metadata) that ISB-CGC has, per Program
-     - Data Type, Reference Genome, Source, Current. Ex. ``TARGET.miRNAseq_h38_gdc_current``
+     - Data Type, Reference Genome, Source, Current. Ex. ``TARGET.miRNAseq_hg38_gdc_current``
      - When using the `BigQuery Table Search UI <https://isb-cgc.appspot.com/bq_meta_search/>`_ to find these tables, select Status of **Current**.
    * - <Program>_versioned
      - Previously released tables, as well as the most current table 
-     - Data Type, Reference Genome, Source, Release Number or Year. Ex. ``TARGET_versioned.miRNAseq_h38_gdc_r22``. Here, the name of the most current table will end with the release number or year and not "current". 
-     - When using the `BigQuery Table Search UI <https://isb-cgc.appspot.com/bq_meta_search/>`_ to find these tables, select Status of **Archived**. 
+     - Data Type, Reference Genome, Source, Release Number or Year. Ex. ``TARGET_versioned.miRNAseq_hg38_gdc_r22``. Here, the name of the most current table will end with the release number or year and not "current". 
+     - Previously released tables have status **Archived**. The most current table has status **Current**.
  
 See below for a snapshot of the isb-cgc-bq data set and table organization in the Google BigQuery Console.
 
