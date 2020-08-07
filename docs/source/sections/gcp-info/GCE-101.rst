@@ -6,29 +6,29 @@ We have put together some basic documentation for ISB-CGC users who are new to t
 
 **Getting Started with Google Cloud Platform**
 
- -  `Launching a Virtual Machine <gcp-info2/LaunchVM.rst>`_
- -  `Creating a Google Cloud Storage Bucket <LaunchBucket.rst>`_
- -  `VM Cheatsheet <Cheatsheet.rst>`_
- -  `Workflow Cost Considerations <Workflow-Costs.rst>`_
+ -  `Launching a Virtual Machine <gcp-info2/LaunchVM.html>`_
+ -  `Creating a Google Cloud Storage Bucket <LaunchBucket.html>`_
+ -  `VM Cheatsheet <Cheatsheet.html>`_
+ -  `Workflow Cost Considerations <Workflow-Costs.html>`_
 
 **Your First Workflows on the Google Cloud Virtual Machine**
 
- -  `Snakemake RNA-seq <FirstWorkflow.rst>`_
- -  `CWL RNA-seq <CWL-RNAseq.rst>`_
- -  `Nextflow RNA-seq <Nextflow-RNAseq.rst>`_
+ -  `Snakemake RNA-seq <FirstWorkflow.html>`_
+ -  `CWL RNA-seq <CWL-RNAseq.html>`_
+ -  `Nextflow RNA-seq <Nextflow-RNAseq.html>`_
  
 **Example Workflows using public ISB-CGC data**
  
- -  `Setting Up GCSFUSE <WorkflowWithGCSFUSE.rst>`_
- -  `Running Nextflow pipeline on public BAM file from ISB-CGC <RunningNextflowWithBam.rst>`_
- -  `Running Snakemake pipeline on public BAM file from ISB-CGC <RunningSnakemakeWithBam.rst>`_
- -  `Running CWL pipeline on public BAM file from ISB-CGC <RunningCWLWithBam.rst>`_
- -  `Running WDL pipeline on public BAM file from ISB-CGC <RunningWDLWithBam.rst>`_
+ -  `Setting Up GCSFUSE <WorkflowWithGCSFUSE.html>`_
+ -  `Running Nextflow pipeline on public BAM file from ISB-CGC <RunningNextflowWithBam.html>`_
+ -  `Running Snakemake pipeline on public BAM file from ISB-CGC <RunningSnakemakeWithBam.html>`_
+ -  `Running CWL pipeline on public BAM file from ISB-CGC <RunningCWLWithBam.html>`_
+ -  `Running WDL pipeline on public BAM file from ISB-CGC <RunningWDLWithBam.html>`_
    
  **Example Workflows using BLAST**
 
- - `Running NEXTFLOW Blast <Nextflow-Blast.rst>`_
- - `Running CWL Blast <CWL-Blast.rst>`_
+ - `Running NEXTFLOW Blast <Nextflow-Blast.html>`_
+ - `Running CWL Blast <CWL-Blast.html>`_
    
 .. toctree::
    :maxdepth: 1
