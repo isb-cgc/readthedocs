@@ -3,7 +3,7 @@ Running Workflows on ISB-CGC
 *************************************
 
 ISB-CGC is a thin layer on top of the Google Cloud Platform. Users have at their disposal all of the tools and techologies that the Google Cloud Platform has to offer including full **sudo** access to Google Cloud virtual machines. 
-We have put together some basic documentation for ISB-CGC users who are new to the Google Cloud Platform as well as the commonly used workflow languages in bioinformatics research.  Your main source of information for the official Google Cloud Platform `documentation is: <https://cloud.google.com/docs>`_.
+We have put together some basic documentation for ISB-CGC users who are new to the Google Cloud Platform as well as the commonly used workflow languages in bioinformatics research.  Your main source of information for the official Google Cloud Platform `documentation <https://cloud.google.com/docs>`_.
 
 **Getting Started with Google Cloud Platform**
 
