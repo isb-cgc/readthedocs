@@ -20,9 +20,7 @@ Download this tutorial:
   #cloning this tutorial
   $svn checkout https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/trunk/CWL-RNAseq
 
-To install Docker and CWL, you can visit our **Cheatsheet** listed below:
-
-- `Cheatsheet <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/Cheatsheet.html>`_
+To install Docker and CWL, see our `VM Workflow Tools Installation Cheatsheet <Cheatsheet.html>`_ for instructions.
 
 Starting folder **CWL-RNAseq** should look like this:
 
@@ -63,12 +61,12 @@ Try:
 
 After CWLtool finishes:
 
--  **CWL-RNAseq.cwl** is the main cwl file that connects all other cwl tools together
--  **CWL-RNAseq.yml** is the file that contains all the inputs that are necessary to run the pipeline
--  **index_build.cwl** builds index files from a Fasta file, using Hisat2-build
--  **hisat2_align.cwl** builds a sam file from forward and reverse reads, and the indices built from previous step, using Hisat2
--  **create_bam.cwl** builds a bam file from the newly built sam file, using Samtools
--  **create_transcript.cwl** creates transcript from the bam file from previous step, using Stringtie
+-  **CWL-RNAseq.cwl** is the main cwl file that connects all other cwl tools together.
+-  **CWL-RNAseq.yml** is the file that contains all the inputs that are necessary to run the pipeline.
+-  **index_build.cwl** builds index files from a Fasta file, using Hisat2-build.
+-  **hisat2_align.cwl** builds a sam file from forward and reverse reads, and the indices built from previous step, using Hisat2.
+-  **create_bam.cwl** builds a bam file from the newly built sam file, using Samtools.
+-  **create_transcript.cwl** creates transcript from the bam file from previous step, using Stringtie.
 
 
 Let's take a look at the folder after cwltool finishes:
