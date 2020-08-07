@@ -27,7 +27,7 @@ We have put together some basic documentation for ISB-CGC users who are new to t
    
  **Example Workflows using BLAST**
 
- - `Running NEXTFLOW Blast <Nextflow-Blast.html>`_
+ - `Running Nextflow Blast <Nextflow-Blast.html>`_
  - `Running CWL Blast <CWL-Blast.html>`_
    
 .. toctree::
