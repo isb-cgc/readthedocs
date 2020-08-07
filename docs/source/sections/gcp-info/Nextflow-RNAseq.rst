@@ -1,9 +1,9 @@
 =======================
-Running NEXTFLOW RNAseq
+Running Nextflow RNA-seq
 =======================
 
 
-This workflow maps read-pairs to reference genome and produces the transcript
+This Nextflow workflow maps read-pairs to a reference genome and produces a transcript. By using software containers, `Nextflow <https://www.nextflow.io>`_ enables scalable and reproducible scientific workflows. Pipelines can be written in the most common scripting languages.
 
 
 Requirements:
@@ -15,10 +15,7 @@ Requirements:
 - Graphviz
 
 
-To install Docker, Graphviz and Nextflow, you can visit our **Cheatsheet**.
-
-
-- `Cheatsheet <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/Cheatsheet.html>`_
+To install Docker, Graphviz and Nextflow, see our `VM Workflow Tools Installation Cheatsheet <Cheatsheet.html>`_ for instructions.
 
 Download this tutorial:
 =======================
@@ -45,14 +42,14 @@ You should have a **Nextflow-RNAseq** directory :
             ├── main.nf
             └── nextflow.config
 
-The file **main.nf** contains all the codes to execute the workflow, and **nextflow.config** provide the name of docker image that contains all the tool for this run.
+The file **main.nf** contains all the code to execute the workflow, and **nextflow.config** provides the name of the Docker image that contains all of the tools for this run.
 To run:
 ::
 
- #Assume the executable file "nextflow" is installed in the same directory with the folder you download "Nextflow-RNAseq"
+ #Assume the executable file "nextflow" is installed in the same directory with the folder you downloaded "Nextflow-RNAseq".
  $./nextflow run Nextflow-RNAseq
 
-After finish running the folder should look like this:
+After the workflow finishes running, the folder should look like this:
 
 ::
 
@@ -88,7 +85,7 @@ Running Nextflow with visualization
 Use the following command:
 ::
 
- #Assume the executable file "nextflow" is installed in the same directory with the folder you download "Nextflow-RNAseq"
+ #Assume the executable file "nextflow" is installed in the same directory with the folder you downloaded "Nextflow-RNAseq".
  $./nextflow run Nextflow-RNAseq -with-dag flowchart.png
 
 
