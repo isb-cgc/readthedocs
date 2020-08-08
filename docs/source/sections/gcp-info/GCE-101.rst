@@ -2,11 +2,12 @@
 Running Workflows on ISB-CGC
 *************************************
 
-ISB-CGC is a thin layer on top of the Google Cloud Platform. Users have at their disposal all of the tools and techologies that the Google Cloud Platform has to offer including full **sudo** access to Google Cloud virtual machines. 
+ISB-CGC is a thin layer on top of the Google Cloud Platform. Users have at their disposal all of the tools and techologies that the Google Cloud Platform has to offer including full **sudo** access to Google Cloud virtual machines. Your main source of information for official Google Cloud Platform is their `documentation <https://cloud.google.com/docs>`_.
 
-We have put together some basic documentation for ISB-CGC users who are new to the Google Cloud Platform as well as the commonly used workflow languages in bioinformatics research.  Your main source of information for the official Google Cloud Platform `documentation <https://cloud.google.com/docs>`_.
+We have put together some basic documentation for ISB-CGC users who are new to the Google Cloud Platform as well as the commonly used workflow languages (CWL, Nextflow, Snakemake and WDL) in bioinformatics research.  
 
-**Getting Started with Google Cloud Platform**
+
+**Getting Started**
 ==============================================
 
  -  `Launching a Virtual Machine <gcp-info2/LaunchVM.html>`_
@@ -17,6 +18,7 @@ We have put together some basic documentation for ISB-CGC users who are new to t
 **Example "Hello World" bioinformatics workflows**
 ====================================================
 
+These workflow examples serve to demonstrate how demonstrate the language syntax of Nextflow, CWL, WDL and Snakemake. 
  -  `Snakemake RNA-seq <FirstWorkflow.html>`_
  -  `CWL RNA-seq <CWL-RNAseq.html>`_
  -  `Nextflow RNA-seq <Nextflow-RNAseq.html>`_
