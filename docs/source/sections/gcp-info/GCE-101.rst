@@ -14,8 +14,8 @@ We have put together some basic documentation for ISB-CGC users who are new to t
  -  `VM Workflow Tools Installation Cheatsheet <Cheatsheet.html>`_
  -  `Workflow Cost Considerations <Workflow-Costs.html>`_
 
-**Example "Hello World" bioinformatics workflows running on Google Cloud virtual machines**
-==========================================================================================
+**Example "Hello World" bioinformatics workflows**
+====================================================
 
  -  `Snakemake RNA-seq <FirstWorkflow.html>`_
  -  `CWL RNA-seq <CWL-RNAseq.html>`_
