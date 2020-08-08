@@ -7,6 +7,7 @@ ISB-CGC is a thin layer on top of the Google Cloud Platform. Users have at their
 We have put together some basic documentation for ISB-CGC users who are new to the Google Cloud Platform as well as the commonly used workflow languages in bioinformatics research.  Your main source of information for the official Google Cloud Platform `documentation <https://cloud.google.com/docs>`_.
 
 **Getting Started with Google Cloud Platform**
+==============================================
 
  -  `Launching a Virtual Machine <gcp-info2/LaunchVM.html>`_
  -  `Creating a Google Cloud Storage Bucket <LaunchBucket.html>`_
@@ -14,6 +15,7 @@ We have put together some basic documentation for ISB-CGC users who are new to t
  -  `Workflow Cost Considerations <Workflow-Costs.html>`_
 
 **Example "Hello World" bioinformatics workflows running on Google Cloud virtual machines**
+==========================================================================================
 
  -  `Snakemake RNA-seq <FirstWorkflow.html>`_
  -  `CWL RNA-seq <CWL-RNAseq.html>`_
@@ -22,6 +24,7 @@ We have put together some basic documentation for ISB-CGC users who are new to t
  -  `Running CWL Blast <CWL-Blast.html>`_
  
 **Example workflows accessing data in Google Cloud Storage buckets**
+====================================================================
  
  -  `Setting Up GCSFUSE <WorkflowWithGCSFUSE.html>`_
  -  `Running Nextflow pipeline on public BAM file from ISB-CGC <RunningNextflowWithBam.html>`_
