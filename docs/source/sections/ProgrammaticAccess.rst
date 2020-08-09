@@ -17,5 +17,5 @@ ISB-CGC does not make the choice for users but instead enables as many workflow 
    :maxdepth: 1
    :hidden:
    
-   sections/progapi/progAPI-v4/Programmatic-Demo
-   sections/gcp-info/GCE-101.rst
+   progapi/progAPI-v4/Programmatic-Demo
+   gcp-info/GCE-101.rst
