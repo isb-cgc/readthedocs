@@ -2,31 +2,30 @@
 Running Workflows on ISB-CGC
 *************************************
 
-ISB-CGC is a thin layer on top of the Google Cloud Platform. Users have at their disposal all of the tools and techologies that the Google Cloud Platform has to offer including full **sudo** access to Google Cloud virtual machines. Your main source of information for official Google Cloud Platform is their `documentation <https://cloud.google.com/docs>`_.
+ISB-CGC is a thin layer on top of the Google Cloud Platform. Users have at their disposal all of the tools and techologies that the Google Cloud Platform has to offer including full **sudo** access to Google Cloud virtual machines. For more detailed information about Google CLoud Platform tools and techonologies, Your main source of information for official Google Cloud Platform is their `documentation <https://cloud.google.com/docs>`_.
 
 We have put together some basic documentation for ISB-CGC users who are new to the Google Cloud Platform as well as the commonly used workflow languages (CWL, Nextflow, Snakemake and WDL) in bioinformatics research.  
 
 
-**Getting Started**
-==============================================
+Getting Started
+================
 
  -  `Launching a Virtual Machine <gcp-info2/LaunchVM.html>`_
  -  `Creating a Google Cloud Storage Bucket <LaunchBucket.html>`_
  -  `VM Workflow Tools Installation Cheatsheet <Cheatsheet.html>`_
  -  `Workflow Cost Considerations <Workflow-Costs.html>`_
 
-**Example "Hello World" bioinformatics workflows**
+Example "Hello World" bioinformatics workflows
 ====================================================
-
-These workflow examples serve to demonstrate how demonstrate the language syntax of Nextflow, CWL, WDL and Snakemake. 
+Use these examples to learn about the syntax of these 
  -  `Snakemake RNA-seq <FirstWorkflow.html>`_
  -  `CWL RNA-seq <CWL-RNAseq.html>`_
  -  `Nextflow RNA-seq <Nextflow-RNAseq.html>`_
  -  `Running Nextflow Blast <Nextflow-Blast.html>`_
  -  `Running CWL Blast <CWL-Blast.html>`_
  
-**Example workflows accessing data in Google Cloud Storage buckets**
-====================================================================
+Example workflows accessing data in Google Cloud Storage
+=========================================================
  
  -  `Setting Up GCSFUSE <WorkflowWithGCSFUSE.html>`_
  -  `Running Nextflow pipeline on public BAM file from ISB-CGC <RunningNextflowWithBam.html>`_
