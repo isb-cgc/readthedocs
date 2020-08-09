@@ -12,9 +12,10 @@ ISB-CGC is a thin layer on top of the Google Cloud Platform. Users have at their
 
 ISB-CGC does not make the choice for users but instead enables as many workflow technologies as possible through documentation, support, and where necessary infrastructure.
 
+
 .. toctree::
    :maxdepth: 1
    :hidden:
    
-  sections/progapi/progAPI-v4/Programmatic-Demo
-  sections/gcp-info/GCE-101.rst
+   sections/progapi/progAPI-v4/Programmatic-Demo
+   sections/gcp-info/GCE-101.rst
