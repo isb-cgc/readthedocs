@@ -10,7 +10,7 @@ Select this method for `controlled access via personal user credentials <control
   * Uses your *personal* credentials;
   * Example uses: the ISB-CGC Web App or R Studio
       
-Select this method for `controlled access via service account <controlled-access/Controlled-data-GCP.html>`_:
+Select this method for `controlled access via service account credentials <controlled-access/Controlled-data-GCP.html>`_:
   
   * Provides access to controlled data for seven days at a time;
   * Uses the credentials of a *service account*, acting on your behalf;
@@ -68,18 +68,15 @@ Linking your NIH/eRA and Google identities
 Before you can access *any* controlled-data hosted by the ISB-CGC, you must first associate your Google identity (which you use to sign in to the ISB-CGC Web App and
 access the Google Cloud) with a valid NIH or eRA account associated with a dbGaP data-access request.
 
-This is done through the Web App: you will first be redirected to an NIH login page, and once you have successfully authenticated,
-ISB-CGC will store an association between your NIH/eRA identity and your Google identity. (Note that this should be a one-to-one association.)
+   * This is done through the Web App: Follow these steps to  `link NIH/eRA and Google identities <controlled-access/Controlled-data-Interactive.html>`_ via the Web App
+   
+      - You will first be redirected to an NIH login page, and once you have successfully authenticated, ISB-CGC will store an association between your NIH/eRA identity and your Google identity. (Note that this should be a one-to-one association.)
 
-Once you have authenticated, ISB-CGC will check which data sets (such as TCGA, TARGET controlled data, etc.) that you have been authorized (by dbGaP) to access.  
+      - Once you have authenticated, ISB-CGC will check which data sets (such as TCGA, TARGET controlled data, etc.) that you have been authorized (by dbGaP) to access.  
 ISB-CGC obtains an updated whitelist for each of the hosted data sets from dbGaP every day.  If you have just recently been granted access by dbGaP, there may be a 24 hour
 delay before you will be able to request access to this data on ISB-CGC.
 
-Once you have authenticated to NIH via the Web App, and your dbGaP authorization has been verified, the 
-Google identity associated with your account will have access to the controlled data for 24 hours.
-
-Follow these steps to link NIH/eRA and Google identities via the Web App:
-   *  `Link your NIH/eRA and Google identities <controlled-access/Controlled-data-Interactive.html>`_
+      - Once you have authenticated to NIH via the Web App, and your dbGaP authorization has been verified, the Google identity associated with your account will have access to the controlled data for 24 hours.
 
 The above steps only need to be done once, unless your accounts become unlinked, you need access to another dbGaP controlled data set, or some other reason.
 
@@ -91,18 +88,18 @@ The above steps only need to be done once, unless your accounts become unlinked,
 
 **5) Requesting controlled access via the ISB Web App.**
 
------------------------------
-Interactive Controlled Access
------------------------------
+-----------------------------------------------
+Controlled Access Via Personal User Credentials
+-----------------------------------------------
 
 The first time that you perform the above steps, you are automatically granted controlled access for interactive computing. This access lasts for 24 hours, though it can be extended. Subsequently, to obtain access, sign into the Web App, click on your persona (or **Account Details** on the drop down menu next to your name). Click **Obtain controlled access for 24 Hours.**
 
 .. image:: controlled-access/DataAccess-24hours.png
    :align: center
 
-------------------------------
-Programmatic Controlled Access
-------------------------------
+--------------------------------------------------
+Controlled Access Via Service Account Credentials
+-------------------------------------------------
 
 To access controlled data programmatically, such as through Google Cloud or when running a VM, you'll need to register a GCP and service account.
 
