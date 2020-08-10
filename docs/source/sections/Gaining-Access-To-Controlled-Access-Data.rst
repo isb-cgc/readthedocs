@@ -4,13 +4,13 @@ Accessing Controlled Data
 
 You can gain access to  **controlled data** by two different methods via ISB-CGC. The methods can be used simultaneously if needed.
 
-Select this method for `Interactive computing <controlled-access/Controlled-data-Interactive.html>`_: 
+Select this method for `controlled access via personal user credentials <controlled-access/Controlled-data-Interactive.html>`_: 
   
   * Provides access to controlled data for 24 hours at a time;
   * Uses your *personal* credentials;
-  * Example uses: the ISB-CSC Web App or R Studio
+  * Example uses: the ISB-CGC Web App or R Studio
       
-Select this method for `Programmatic computing <controlled-access/Controlled-data-GCP.html>`_:
+Select this method for `controlled access via service account <controlled-access/Controlled-data-GCP.html>`_:
   
   * Provides access to controlled data for seven days at a time;
   * Uses the credentials of a *service account*, acting on your behalf;
@@ -104,7 +104,7 @@ The first time that you perform the above steps, you are automatically granted c
 Programmatic Controlled Access
 ------------------------------
 
-To access controlled data in a programmatic manner, such as through a Google Cloud Project or when running a VM, you'll need to register a GCP and service account.
+To access controlled data programmatically, such as through Google Cloud or when running a VM, you'll need to register a GCP and service account.
 
 Follow these steps for programmatic access:
    * `Registering a Google Cloud Project & Service Account <controlled-access/Controlled-data-GCP.html>`_
