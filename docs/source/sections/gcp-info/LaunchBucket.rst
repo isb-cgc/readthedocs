@@ -1,7 +1,8 @@
 Creating a Google Cloud Storage Bucket 
-####################################
+######################################
 
-Why should you create a Google Cloud Storage Bucket, while your Virtual Machine can also store your data? Because the cost to maintain a storage bucket will be less than maintain a Virtual Machine.
+Why should you create a Google Cloud Storage buckets when your VM can also store your data? Because Google Cloud Storage buckets are much less expensive to maintain compared to VM disks.
+
 
 Via the Google Cloud Console
 =================================
@@ -70,9 +71,7 @@ If you have access to a bucket and want to "clone" that bucket to your VM instan
 Pros:
 
 
-- Data can be accessed without using **gsutil** nor **gs://** address, i.e your bucket data become local in your VM instance
-- Bypass the need for service account when running an application that need access to google cloud bucket
-
+- Data can be accessed without using **gsutil** nor **gs://** address, i.e your bucket data become local to your VM instance
 
 Cons:
 
