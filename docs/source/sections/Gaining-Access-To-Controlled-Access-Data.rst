@@ -76,8 +76,7 @@ During this process:
    
    * You will first be redirected to an NIH login page, and once you have successfully authenticated, ISB-CGC will store an association between your NIH/eRA identity and your Google identity. (Note that this should be a one-to-one association.)
 
-   * Once you have authenticated, ISB-CGC will check which data sets (such as TCGA, TARGET controlled data, etc.) that you have been authorized (by dbGaP) to access. ISB-CGC obtains an updated whitelist for each of the hosted data sets from dbGaP every day.  If you have just recently been granted access by dbGaP, there may be a 24 hour
-delay before you will be able to request access to this data on ISB-CGC.
+   * Once you have authenticated, ISB-CGC will check which data sets (such as TCGA, TARGET controlled data, etc.) that you have been authorized (by dbGaP) to access. ISB-CGC obtains an updated whitelist for each of the hosted data sets from dbGaP every day.  If you have just recently been granted access by dbGaP, there may be a 24 hour delay before you will be able to request access to this data on ISB-CGC.
 
    * Once you have authenticated to NIH via the Web App, and your dbGaP authorization has been verified, the Google identity associated with your account will have access to the controlled data for 24 hours.
 
@@ -93,7 +92,7 @@ These prerequisite steps only need to be done once, unless your accounts become 
 Controlled Access Via Personal User Credentials
 -----------------------------------------------
 
-The first time that you perform the above steps, you are automatically granted controlled access for interactive computing. This access lasts for 24 hours, though it can be extended. Subsequently, to obtain access, sign into the Web App, click on your persona (or **Account Details** on the drop down menu next to your name). Click **Obtain controlled access for 24 Hours.**
+The first time that you perform the above steps, you are automatically granted controlled access via your personal uer credentials. This access lasts for 24 hours, though it can be extended. Subsequently, to obtain access, sign into the Web App, click on your persona (or **Account Details** on the drop down menu next to your name). Click **Obtain controlled access for 24 Hours.**
 
 .. image:: controlled-access/DataAccess-24hours.png
    :align: center
@@ -102,9 +101,7 @@ The first time that you perform the above steps, you are automatically granted c
 Controlled Access Via Service Account Credentials
 -------------------------------------------------
 
-To access controlled data programmatically, such as through Google Cloud or when running a VM, you'll need to register a GCP and service account.
-
-Follow these steps for programmatic access:
+To access controlled data programmatically, such as through Google Cloud or when running a VM, you'll need to register a GCP and service account. Follow these steps:
 
    * `Registering a Google Cloud Project & Service Account <controlled-access/Controlled-data-GCP.html>`_
 
