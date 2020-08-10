@@ -16,12 +16,6 @@ Select this method for `controlled access via service account credentials <contr
   * Uses the credentials of a *service account*, acting on your behalf;
   * Example uses: using a Google Cloud Project; running a program from a Google Compute Engine (GCE) Virtual Machine (VM)
  
-This diagram details the process of acquiring controlled access. The blue rectangles represent entities, the gray boxes represent steps that need to be taken, 
-and the ovals represent the results of those steps.
-
- .. image:: controlled-access/Controlled-Access-Flowchart.png
-   :align: center
-   
 
 Prerequisites
 --------------
