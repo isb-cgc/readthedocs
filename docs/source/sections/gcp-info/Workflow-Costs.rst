@@ -21,3 +21,12 @@ GCE Price Make Up
  - Google provides an on site preview of costs and discounts per machine type
  
    - `Google Platform Pricing Calculator  <https://cloud.google.com/products/calculator>`_
+   
+   
+   Compute engine comparisons between the workflow examples (cloud shell vs compute engine for public bam file). 
+   Screenshot of the N1 instance to show how much it would cost 
+   
+   Contact us, looking to run large jobs, we can help you optimize your costs. 
+   
+   Relatively inexpensive 
+   Preemptible VMs as a option to cut costs 
