@@ -32,10 +32,10 @@ We have put together these examples to **(1)** demonstrate the syntax of these w
  
 Example workflows accessing data in Google Cloud Storage
 =========================================================
- We demonstrate here: **(1)** how to use the `Google Cloud Storage FUSE <https://cloud.google.com/storage/docs/gcs-fuse>`_ tool to mount a Cloud Storage bucket to your virtual machine instance. Despite the fact that the Cloud storage buckets are object store, once mounted it behaves like a persistent disk.  **(2)** 
+ We demonstrate here: **(1)** how to use the `Google Cloud Storage FUSE (GCSFuse) <https://cloud.google.com/storage/docs/gcs-fuse>`_ tool to mount a Cloud Storage bucket to your virtual machine instance. Despite the fact that the Cloud storage buckets are object store, once mounted it behaves like a persistent disk.  **(2)** 
  **(3)** how to use GCSFuse to mount a cloud storage bucket that contains CCLE open-access bam files to a virtual machine to run on your workflow of choice. 
  
- -  `Setting Up GCSFUSE <WorkflowWithGCSFUSE.html>`_
+ -  `Setting Up GCSFuse <WorkflowWithGCSFUSE.html>`_
  -  `Running Nextflow pipeline on public BAM file from ISB-CGC <RunningNextflowWithBam.html>`_
  -  `Running Snakemake pipeline on public BAM file from ISB-CGC <RunningSnakemakeWithBam.html>`_
  -  `Running CWL pipeline on public BAM file from ISB-CGC <RunningCWLWithBam.html>`_
