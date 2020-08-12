@@ -1,17 +1,17 @@
 Creating a Google Cloud Storage Bucket 
 ######################################
 
-Why should you create a Google Cloud Storage buckets (hereto referred to as buckets) when your virtual machine can also store your data? Because Google Cloud Storage buckets are much less expensive to maintain compared to VM disks. Please see this link for the most up-to-date pricing on the different storage options offered by the Google Cloud Platform. 
+Why should you create Google Cloud Storage buckets (hereto referred to as buckets) when your virtual machine can also store your data? Because Google Cloud Storage buckets are much less expensive to maintain compared to VM disks. Please see this link for the most up-to-date pricing on the different storage options offered by the Google Cloud Platform. 
 
 
 Via the Google Cloud Console
 =============================
 
-`Instructional video on how to create a Google Cloud Storage bucket provided by  Google Cloud Platform: Create a storage bucket <https://youtu.be/TfOO-fSzTNA>`_.
+Instructional video provided by the Google Cloud Platform:
+`How to Create a Google Cloud Storage Bucket through the Console <https://youtu.be/TfOO-fSzTNA>`_.
 
 
-
-Try it yourself:
+**Try it out yourself**:
 
 1) Click on Cloud Storage browser on the left of the page
 
@@ -19,10 +19,11 @@ Try it yourself:
 2) Click **Create a bucket**
 
 
-3) Give the bucket a unique name, with all lower cap, no space.
+3) Give the bucket a unique name, with all lowercase letters and no spaces.
 
 
-4) Select region and Location and click **Create**
+4) Select region, location and click **Create**
+
 
 
 Via gsutil commandline tool
@@ -90,8 +91,8 @@ Cons:
 **(2)** `Step-by-Step installation guide <https://github.com/GoogleCloudPlatform/gcsfuse/blob/master/docs/installing.md>`_
 
 
-Quicktips
----------
+GCSFuse Quicktips
+-----------------
 
 
 Mount a bucket to your folder:
@@ -99,6 +100,7 @@ Mount a bucket to your folder:
 ::
 
   $gcsfuse bucketname myfolder/to/mount
+
 
 Mount a subdirectory from your bucket to your VM folder:
 ::
