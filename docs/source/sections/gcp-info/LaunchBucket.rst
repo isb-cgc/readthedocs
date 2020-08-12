@@ -4,16 +4,15 @@ Creating a Google Cloud Storage Bucket
 Why should you create a Google Cloud Storage buckets (hereto referred to as buckets) when your virtual machine can also store your data? Because Google Cloud Storage buckets are much less expensive to maintain compared to VM disks. Please see this link for the most up-to-date pricing on the different storage options offered by the Google Cloud Platform. 
 
 
-How to create a Google Cloud Storage bucket: 
-
 Via the Google Cloud Console
 =============================
 
-`Video: Create a storage bucket <https://youtu.be/TfOO-fSzTNA>`_.
+`Instructional video on how to create a Google Cloud Storage bucket provided by  Google Cloud Platform: Create a storage bucket <https://youtu.be/TfOO-fSzTNA>`_.
 
 
 
 Try it yourself:
+
 1) Click on Cloud Storage browser on the left of the page
 
 
@@ -25,8 +24,10 @@ Try it yourself:
 
 4) Select region and Location and click **Create**
 
-Via gsutil
-===========
+
+Via gsutil commandline tool
+===========================
+
 Use the gsutil mb command:
 
 ::
@@ -34,10 +35,10 @@ Use the gsutil mb command:
     $gsutil mb gs://[BUCKET_NAME]/ 
     
     
-
 Where:
 
 - [BUCKET_NAME] is the name you want to give your bucket, subject to naming requirements. For example, my-bucket.
+
 
 You can set the following optional flags to have greater control over the creation of your bucket:
 
@@ -45,6 +46,7 @@ You can set the following optional flags to have greater control over the creati
 - c: Specify the default storage class (https://cloud.google.com/storage/docs/storage-classes)) of your bucket. For example, NEARLINE.
 - l: Specify the location  (https://cloud.google.com/storage/docs/locations of your bucket. For example, US-EAST1.
 - b: Enable uniform bucket-level access (https://cloud.google.com/storage/docs/uniform-bucket-level-access) for your bucket.
+
 
 Accessing data in your bucket by gsutil
 =======================================
