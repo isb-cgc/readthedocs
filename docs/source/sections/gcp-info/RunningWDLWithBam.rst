@@ -40,16 +40,19 @@ It should look like this after uploading:
    :align: left
 
 
+
+
+
 Download this tutorial:
 =======================
 ::
 
-  $sudo add-apt-repository universe
-  $sudo apt update
-  $sudo apt install subversion
+  $ sudo add-apt-repository universe
+  $ sudo apt update
+  $ sudo apt install subversion
 
   #cloning this tutorial
-  $svn checkout https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/trunk/WDL-GCgather
+  $ svn checkout https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/trunk/WDL-GCgather
 
 Running WDL
 ===========
@@ -58,7 +61,7 @@ to simplify the command, I will move the **cromwell-51.jar** and **womtool-51.ja
 
 ::
 
-  $mv *-51.jar WDL-GCgather/
+  $ mv *-51.jar WDL-GCgather/
 
 
 We are going to change the address in **bamfiles.txt** file to the one you created in the **Running Workflow with GCSFUSE** tutorial
@@ -66,8 +69,8 @@ We are going to change the address in **bamfiles.txt** file to the one you creat
 ::
 
   #go into the folder
-  $cd WDL-GCgather
-  $nano bamfiles.txt
+  $ cd WDL-GCgather
+  $ nano bamfiles.txt
 
 
 At the top of the file you will see this:
@@ -82,7 +85,7 @@ Save the change, then run the script with this command:
 
 ::
 
-  $java -jar cromwell-51.jar run gcstats.wdl -i gcstats.inputs
+  $ java -jar cromwell-51.jar run gcstats.wdl -i gcstats.inputs
 
 .. note:: This Bam file is quite large, it may take about 15 mins ~ 20 mins to run. Also make sure you have installed Java.
 
@@ -105,7 +108,7 @@ Run this command:
 
 ::
 
-  $java -jar womtool-51.jar graph gcstats.wdl | dot -Tpng > visual.png
+  $ java -jar womtool-51.jar graph gcstats.wdl | dot -Tpng > visual.png
 
 
 A file named "visual.png" will be created and ready to be downloaded
@@ -114,3 +117,6 @@ It should look like this:
 
 .. image:: images/RunningWDLWithBam_5.png
    :align: left
+
+
+To see the result of this workflow, you can check it `here <https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/tree/master/Results/GC-gather>`_

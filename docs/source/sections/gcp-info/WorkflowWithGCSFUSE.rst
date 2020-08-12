@@ -3,7 +3,7 @@ Setting up GCSFUSE to run workflow
 ==================================
 
 When you are running workflow on a Virtual Machine (VM), if your inputs are a link to a storage bucket, an service account is needed to run your workflow.
-In order to avoid using a service account, using Google user credential to mount your data to the VM is one way to circumvent that. 
+In order to avoid using a service account, using Google user credential to mount your data to the VM is one way to circumvent that.
 
 
 `How-to video <https://www.youtube.com/watch?v=mE6dLYOf8BA>`_ | `Installing Page <https://github.com/GoogleCloudPlatform/gcsfuse/blob/master/docs/installing.md>`_
@@ -22,14 +22,14 @@ Step 2: installing gcsfuse
 The following codes can be used to install gcsfuse
 ::
 
-   $sudo -i
-   $cd /
-   $cd opt
-   $export GCSFUSE_REPO=gcsfuse-`lsb_release -c -s`
-   $echo "deb http://packages.cloud.google.com/apt $GCSFUSE_REPO main" | sudo tee /etc/apt/sources.list.d/gcsfuse.list
-   $curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
-   $sudo apt-get update
-   $sudo apt-get install gcsfuse
+   $ sudo -i
+   $ cd /
+   $ cd opt
+   $ export GCSFUSE_REPO=gcsfuse-`lsb_release -c -s`
+   $ echo "deb http://packages.cloud.google.com/apt $GCSFUSE_REPO main" | sudo tee /etc/apt/sources.list.d/gcsfuse.list
+   $ curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+   $ sudo apt-get update
+   $ sudo apt-get install gcsfuse
 
 
 Step 3: mounting/ linking the target bucket to your VM directory
@@ -40,7 +40,7 @@ Making a directory to hold your bucket:
    ### After the installation, while still in your opt/ ###
    ### in this tutorial yourNewDirectory will be testGcsfuse ###
 
-   $mkdir <yourNewDirectory>
+   $ mkdir <yourNewDirectory>
 
 .. note:: to access restricted data with your Google credential, before going further use this command: $gcloud auth application-default login
 
@@ -48,26 +48,26 @@ Mount a bucket to your folder:
 
 ::
 
-   $gcsfuse <bucketname> <myfolder/to/mount>
+   $ gcsfuse <bucketname> <myfolder/to/mount>
 
 example: gs://gdc-ccle-open/ is the bucket you want to mount to your VM
 
 ::
 
-   $gcsfuse gdc-ccle-open testGcsfuse
+   $ gcsfuse gdc-ccle-open testGcsfuse
 
 Mount a subdirectory from your bucket to your VM folder:
 
 ::
 
-   $gcsfuse --only-dir <subdirectory> <bucketName> <myFolder/to/mount>
+   $ gcsfuse --only-dir <subdirectory> <bucketName> <myFolder/to/mount>
 
 example: you have a bam file with the address gs://gdc-ccle-open/692a845c-7957-41f2-b679-5434c69ba25b/G27328.Calu-6.1.bam,
 and you only need to mount to that directory that hold that bam file:
 
 ::
 
-   $gcsfuse --only-dir 692a845c-7957-41f2-b679-5434c69ba25b gdc-ccle-open testGcsfuse
+   $ gcsfuse --only-dir 692a845c-7957-41f2-b679-5434c69ba25b gdc-ccle-open testGcsfuse
 
 You should see something like this:
 

@@ -11,9 +11,9 @@ Install:
 ========
 ::
 
-    $export NXF_VER=20.01.0
-    $export NXF_MODE=google
-    $curl https://get.nextflow.io | bash
+    $ export NXF_VER=20.01.0
+    $ export NXF_MODE=google
+    $ curl https://get.nextflow.io | bash
 
 
 
@@ -41,14 +41,14 @@ Snakemake environment:
 Create and activate Environment for Snakemake from a file (yml/yaml):
 ::
 
-  $conda env create --name <yourEnvironmentName> --file environment.yaml
-  $source activate <yourEnvironmentName>
+  $ conda env create --name <yourEnvironmentName> --file environment.yaml
+  $ source activate <yourEnvironmentName>
 
 Updating current environment
 
 ::
 
-    $conda env update -f environment.yml
+    $ conda env update -f environment.yml
 
 .. note:: for more conda commands, visit: `Conda Cheat sheet <https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf>`_
 
@@ -65,9 +65,9 @@ CWL
 ***
 ::
 
-  $sudo apt-get install python-pip
-  $pip install --upgrade pip
-  $pip install cwltool
+  $ sudo apt-get install python-pip
+  $ pip install --upgrade pip
+  $ pip install cwltool
 
 
 
@@ -80,23 +80,23 @@ Java
 
 ::
 
-  $sudo apt install default-jre
+  $ sudo apt install default-jre
 
 Python
 ======
 
 ::
 
-  $sudo apt-get update
-  $sudo apt-get install python3.6
+  $ sudo apt-get update
+  $ sudo apt-get install python3.6
 
 Pip install/Python-pip
 ======================
 
 ::
 
-  $sudo apt-get install python-pip
-  $pip install --upgrade pip
+  $ sudo apt-get install python-pip
+  $ pip install --upgrade pip
 
 DOCKER
 ======
@@ -105,24 +105,28 @@ Install:
 --------
 ::
 
-  $curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-  $sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-  $sudo apt-get update
-  $apt-cache policy docker-ce
-  $sudo apt-get install -y docker-ce
+  $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  $ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  $ sudo apt-get update
+  $ apt-cache policy docker-ce
+  $ sudo apt-get install -y docker-ce
 
 Check docker status:
 --------------------
 ::
 
-  $sudo systemctl status docker
+  $ sudo systemctl status docker
 
-DOCKER Daemon not running:
---------------------------
+Check docker installation:
+--------------------
 ::
 
-  $sudo service docker start
-  $sudo dockerd
+  $ docker run hello-world
+
+if docker doesn't run try the fix right below or read more `here <https://linoxide.com/linux-how-to/use-docker-without-sudo-ubuntu/>`_
+.
+
+
 
 Permission denied
 -----------------
@@ -135,23 +139,33 @@ error prompt:
 Try:
 ::
 
-  $sudo groupadd docker
-  $sudo usermod -aG docker ${USER}
+  $ sudo groupadd docker
+  $ sudo usermod -aG docker ${USER}
   close VM and reopen
+
+
+DOCKER Daemon not running:
+--------------------------
+::
+
+  $ sudo service docker start
+  $ sudo dockerd
+
+
 
 Graphviz
 ========
 
 ::
 
-  $sudo apt-get install graphviz
+  $ sudo apt-get install graphviz
 
 Git/github
 ==========
 
 ::
 
-  $sudo apt install git
+  $ sudo apt install git
 
 
 *******
@@ -162,12 +176,12 @@ Mount a bucket to your folder:
 
 ::
 
-  $gcsfuse bucketname myfolder/to/mount
+  $ gcsfuse bucketname myfolder/to/mount
 
 Mount a subdirectory from your bucket to your VM folder:
 ::
 
-  $gcsfuse --only-dir subdirectory bucketName myFolder/to/mount
+  $ gcsfuse --only-dir subdirectory bucketName myFolder/to/mount
 
 ****************************
 Set PATH for executable file
@@ -175,4 +189,4 @@ Set PATH for executable file
 
 ::
 
-  $export PATH=~/where/you/install/theProgram:$PATH
+  $ export PATH=~/where/you/install/theProgram:$PATH

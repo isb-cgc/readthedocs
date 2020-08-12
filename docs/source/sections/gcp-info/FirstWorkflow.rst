@@ -2,28 +2,33 @@
 Your First Workflow on Google Cloud Virtual Machine (Snakemake RNA-seq)
 ======================================================================
 
-This Snakemake workflow maps read-pairs to a reference genome and produces a transcript. `Snakemake <https://snakemake.readthedocs.io/en/stable/workflows>`_ workflows are Python based, extended by declarative code which defines rules. The rules indicate how the output files are created from the input files.
+This Snakemake `RNA-seq <https://www.technologynetworks.com/genomics/articles/rna-seq-basics-applications-and-protocol-299461#:~:text=RNA%2Dseq%20(RNA%2Dsequencing,patterns%20encoded%20within%20our%20RNA.>`_
+ workflow maps read-pairs to a reference genome and quantify the produce to produce a transcript. `Snakemake <https://snakemake.readthedocs.io/en/stable/workflows>`_ workflows are Python based, extended by declarative code which defines rules. The rules indicate how the output files are created from the input files.
 
 Requirements:
 
 -  `Anaconda/Miniconda <https://conda.io/projects/conda/en/latest/user-guide/install/index.html>`_
 
+
+.. note:: Requirements is crucial in order to run this workflow, please make sure you have them installed properly prior to running this workflow.
+
+
 Download this tutorial:
 ::
 
-  $sudo add-apt-repository universe
-  $sudo apt update
-  $sudo apt install subversion
+  $ sudo add-apt-repository universe
+  $ sudo apt update
+  $ sudo apt install subversion
 
   #cloning this tutorial
-  $svn checkout https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/trunk/Snakemake-RNAseq
+  $ svn checkout https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/trunk/Snakemake-RNAseq
 
 Starting folder:
 
 
 ::
 
-   rnaseq-snakemake
+   Snakemake-RNAseq
    |_________data
    |           |_________ggal_gut_1.fq
    |           |_________ggal_gut_2.fq
@@ -43,9 +48,9 @@ Setting up your Conda environment using the environment.yml file
 The file **environment.yml** contains a list of all the softwares required to run this tutorial
 ::
 
-  $cd rnaseq-snakemake
-  $conda env create --name tutorial --file environment.yml
-  $conda activate tutorial
+  $ cd Snakemake-RNAseq
+  $ conda env create --name tutorial --file environment.yml
+  $ conda activate tutorial
 
 .. note:: Syntax: conda env create --name <yourEnvironmentName> --file environment.yml. For this tutorial <yourEnvironmentName> = tutorial
 
@@ -63,7 +68,7 @@ Step 1: Creating Index files from reference genome using hisat2-build
 From folder rnaseq-snake:
 ::
 
-  $cd step1
+  $ cd step1
 
 Let's take a look at the 2 files in this folder: **Snakefile** and **indexing.smk**
 
@@ -75,14 +80,14 @@ Let's take a look at the 2 files in this folder: **Snakefile** and **indexing.sm
              |_________Snakefile
 
 
-Snakefile is the default name for snakemake's script. The "$snakemake"
+Snakefile is the default name for snakemake's script. The "snakemake"
 command will automatically find a file name Snakefile and execute it;  **indexing.smk** is a helper file that will be called within the Snakefile.
 
 Let's run it by using:
 
 ::
 
-  $snakemake
+  $ snakemake
 
 
 Snakemake will run and use hisat2 to build index files from file rnaseq-snake/data/**reference.fa**. All the index files will be moved to rnaseq-snake/step1/**reference**.
@@ -152,9 +157,9 @@ From folder step1, to run step 2:
 
 ::
 
-   $cd ..
-   $cd step2
-   $snakemake
+   $ cd ..
+   $ cd step2
+   $ snakemake
 
 After **Step 2**:
 
@@ -190,7 +195,11 @@ After **Step 2**:
    |           |_________[ggal_gut.cutadapt.bam.bai]
    |_________environment.yml
 
-The script will call hisat2, samtools, and stringtie to do the work.
+The script will call `hisat2 <http://daehwankimlab.github.io/hisat2/>`_ , `samtools <http://www.htslib.org/>`_, and `stringtie <https://ccb.jhu.edu/software/stringtie/>`_ to do the work.
+The same principle as step 1 applies to this step, the **Snakefile** will contains the final outputs, and call to the helper script **therest.smk**. **ggal_gut.cutadapt.sam** file will contains the sequence alignment data produced by mapping reads to the reference genome, **ggal_gut.cutadapt.bam**
+ file will contains the compressed binary data from Sam. More description on ctab files, gtf outputs, and tsv of stringtie can be found `here <http://ccb.jhu.edu/software/stringtie/index.shtml?t=manual>`_. The **ggal_gut_transcript.gtf** contains details of the transcripts that StringTie assembles from RNA-Seq data, while
+ **ggal_gut.tsv** contains gene abundances.
+
 
 Creating a visualization for your workflow
 ==========================================
@@ -198,7 +207,7 @@ Creating a visualization for your workflow
 In the step2 folder:
 ::
 
- $snakemake --dag | dot -Tsvg > visual.svg
+ $ snakemake --dag | dot -Tsvg > visual.svg
 
 A file named **visual.svg** will be created in the same folder; it can be downloaded and open with any web browser. It should look like this:
 
@@ -230,3 +239,5 @@ About environment.yml
   - gffread =0.11.7
   #visualization tool
   - graphviz =2.42.3e
+
+To see the result of this workflow, you can check it `here <https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/tree/master/Results/RNAseq>`_

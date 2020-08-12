@@ -22,12 +22,12 @@ Download this tutorial:
 =======================
 ::
 
- $sudo add-apt-repository universe
- $sudo apt update
- $sudo apt install subversion
+ $ sudo add-apt-repository universe
+ $ sudo apt update
+ $ sudo apt install subversion
 
  #cloning this tutorial
- $svn checkout https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/trunk/Snakemake-GCgather
+ $ svn checkout https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/trunk/Snakemake-GCgather
 
 Running Snakemake
 =================
@@ -37,8 +37,8 @@ You should have a **Snakemake-GCgather** directory with 2 files **Snakefile** an
 ::
 
   #go into the folder
-  $cd Snakemake-GCgather
-  $nano Snakefile
+  $ cd Snakemake-GCgather
+  $ nano Snakefile
 
 At the top of the file you will see this:
 
@@ -55,7 +55,7 @@ Replace "/opt/testGcsfuse/{sample}.bam" with your new address from the gcsfuse t
 
 ::
 
-  $snakemake
+  $ snakemake
 
 .. note:: This Bam file is quite large, it may take about 15 mins ~ 20 mins to run.
 
@@ -68,10 +68,13 @@ You can use this command instead to run Snakemake, it will out put a visualizati
 
 ::
 
-  $snakemake --dag | dot -Tsvg > flowchart.svg
+  $ snakemake --dag | dot -Tsvg > flowchart.svg
 
 
 It should look like this:
 
 .. image:: images/RunningSnakemakeWithBam.png
    :align: left
+
+
+To see the result of this workflow, you can check it `here <https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/tree/master/Results/GC-gather>`_

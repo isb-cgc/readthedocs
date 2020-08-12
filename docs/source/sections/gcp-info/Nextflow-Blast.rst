@@ -26,20 +26,20 @@ Download this tutorial:
 
 ::
 
- $sudo add-apt-repository universe
- $sudo apt update
- $sudo apt install subversion
+ $ sudo add-apt-repository universe
+ $ sudo apt update
+ $ sudo apt install subversion
 
  #cloning this tutorial
- $svn checkout https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/trunk/Nextflow-Blast
+ $ svn checkout https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/trunk/Nextflow-Blast
 
 
 Rationale
 ==========
 
 The input of this workflow (**sample.fa**) is produced by genome assembly software. It contains contigs from multiple organisms (eukaryote, prokaryotes) because of the way the sample was prepared and sequenced.
-In this example, we are interested in the prokaryotes' genome only, and will separate their contigs from the eukaryote ones. In order to do that, Blastn will do sequence alignment between the contigs and the prepared blast database (files in the folder **db**).
-The output of Blastn will be a table, which maps the contigs' headers to the appropriate species. Here, we also demonstrate how to incorporate the use of python helper scripts in our pipeline to extract the prokaryotes' headers (**scripts/Extract_Headers.py**), contigs (**scripts/Extract_Contigs.py**), and nucleotide count (**scripts/Count_Nucleotides.py**) from the original Fasta file using the Blastn result.
+In this example, we are interested in the prokaryote genome only, and will separate their contigs from the eukaryote ones. In order to do that, Blastn will do sequence alignment between the contigs and the prepared blast database (files in the folder **db**).
+The output of Blastn will be a table, which maps the contig header to the appropriate species. Here, we also demonstrate how to incorporate the use of python helper scripts in our pipeline to extract the prokaryotes' headers (**scripts/Extract_Headers.py**), contigs (**scripts/Extract_Contigs.py**), and nucleotide count (**scripts/Count_Nucleotides.py**) from the original Fasta file using the Blastn result.
 The final output of the workflow will be 3 text files: **extracted_contigs.txt**, **Headers.txt**, **NucleoCount.txt**.
 
 
@@ -71,7 +71,7 @@ To run:
 ::
 
  #Assume the executable file "nextflow" is installed in the same directory with the folder you download "Nextflow-Blast"
- $./nextflow run Nextflow-Blast
+ $ ./nextflow run Nextflow-Blast
 
 Once complete, the folder should look like this:
 
@@ -104,7 +104,7 @@ Use the following command:
 ::
 
  #Assume the executable file "nextflow" is installed in the same directory with the folder you download "Nextflow-Blast"
- $./nextflow run Nextflow-Blast -with-dag flowchart.png
+ $ ./nextflow run Nextflow-Blast -with-dag flowchart.png
 
 
 An image file with the name **flowchart.png** will be available to download.
@@ -112,3 +112,7 @@ It should look like this:
 
 .. image:: images/Nextflow-Blast.png
    :align: center
+
+
+
+To see the result of this workflow, you can check it `here <https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/tree/master/Results/Blast>`_

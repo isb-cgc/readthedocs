@@ -27,12 +27,12 @@ Download this tutorial:
 
 ::
 
- $sudo add-apt-repository universe
- $sudo apt update
- $sudo apt install subversion
+ $ sudo add-apt-repository universe
+ $ sudo apt update
+ $ sudo apt install subversion
 
  #cloning this tutorial
- $svn checkout https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/trunk/CWL-GCgather
+ $ svn checkout https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/trunk/CWL-GCgather
 
 
 Running CWLtool
@@ -43,8 +43,8 @@ You should have a **CWL-GCgather** directory with 6 files inside: 1 main workflo
 ::
 
   #go into the folder
-  $cd CWL-GCgather
-  $nano scatter_gather_pipeline.yml
+  $ cd CWL-GCgather
+  $ nano scatter_gather_pipeline.yml
 
 At the top of the file you will see this:
 
@@ -60,7 +60,7 @@ Save the change, then run the script with this command:
 
 ::
 
- $cwltool CWL-GCgather.cwl scatter_gather_pipeline.yml
+ $ cwltool CWL-GCgather.cwl scatter_gather_pipeline.yml
 
 If you receive this error: "docker: Got permission denied while trying to connect to the Docker daemon socket at unix"
 
@@ -68,11 +68,13 @@ Try:
 
 ::
 
-  $sudo groupadd docker
-  $sudo usermod -aG docker ${USER}
+  $ sudo groupadd docker
+  $ sudo usermod -aG docker ${USER}
   close and reopen VM then run the script again
 
 
 .. note:: This Bam file is quite large, it may take about 15 mins ~ 20 mins to run.
 
 Once CWLtool is finished, the result will be in the same folder called "final_output.txt"
+
+To see the result of this workflow, you can check it `here <https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/tree/master/Results/GC-gather>`_

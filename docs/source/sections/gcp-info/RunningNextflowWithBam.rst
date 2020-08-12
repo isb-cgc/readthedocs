@@ -21,12 +21,12 @@ Download this tutorial:
 =======================
 ::
 
- $sudo add-apt-repository universe
- $sudo apt update
- $sudo apt install subversion
+ $ sudo add-apt-repository universe
+ $ sudo apt update
+ $ sudo apt install subversion
 
  #cloning this tutorial
- $svn checkout https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/trunk/Nextflow-GCgather
+ $ svn checkout https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/trunk/Nextflow-GCgather
 
 Running Nextflow
 ================
@@ -35,8 +35,8 @@ Running Nextflow
 ::
 
   #go into the folder
-  $cd Nextflow-GCgather
-  $nano Nextflow-GCgather.nf
+  $ cd Nextflow-GCgather
+  $ nano Nextflow-GCgather.nf
 
 At the top of the file you will see this:
 
@@ -52,9 +52,9 @@ Replace "/home/thinh_vo/sample/\*.bam" with your new address from the gcsfuse tu
 
   #Go to where the Nextflow executable file was installed in this example. It will be outside the Nextflow-GCgather directory.
   #First, we get out of Nextflow-GCgather directory.
-  $cd ..
+  $ cd ..
   #execute nextflow with docker image:
-  $./nextflow run Nextflow-GCgather/Nextflow-GCgather.nf -with-docker gcr.io/genomics-tools/samtools
+  $ ./nextflow run Nextflow-GCgather/Nextflow-GCgather.nf -with-docker gcr.io/genomics-tools/samtools
 
 .. note:: This Bam file is quite large, it may take about 15 mins ~ 20 mins to run.
 
@@ -67,10 +67,12 @@ You can use this command instead to run Nextflow; it will out put a visualizatio
 
 ::
 
-  $./nextflow run Nextflow-GCgather/Nextflow-GCgather.nf -with-dag flowchart.png
+  $ ./nextflow run Nextflow-GCgather/Nextflow-GCgather.nf -with-dag flowchart.png
 
 
 It should look like this:
 
   .. image:: images/RunningNextflowWithBam.png
      :align: left
+
+To see the result of this workflow, you can check it `here <https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/tree/master/Results/GC-gather>`_
