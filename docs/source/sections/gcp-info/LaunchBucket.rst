@@ -81,7 +81,7 @@ Pros:
 Cons:
 
 - Since gcsfuse will actually download the data to your directory, make sure your VM instance has enough available storage to clone data from the bucket
-- Consume available storage space
+- Consumes available storage space
 - May slow down your performance
 
 
