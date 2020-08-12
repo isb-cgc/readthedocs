@@ -1,16 +1,19 @@
 Creating a Google Cloud Storage Bucket 
 ######################################
 
-Why should you create a Google Cloud Storage buckets when your VM can also store your data? Because Google Cloud Storage buckets are much less expensive to maintain compared to VM disks.
+Why should you create a Google Cloud Storage buckets (hereto referred to as buckets) when your virtual machine can also store your data? Because Google Cloud Storage buckets are much less expensive to maintain compared to VM disks. Please see this link for the most up-to-date pricing on the different storage options offered by the Google Cloud Platform. 
 
+
+How to create a Google Cloud Storage bucket: 
 
 Via the Google Cloud Console
-=================================
+=============================
+
 `Video: Create a storage bucket <https://youtu.be/TfOO-fSzTNA>`_.
 
-From Google Cloud Platform Console:
 
 
+Try it yourself:
 1) Click on Cloud Storage browser on the left of the page
 
 
@@ -22,24 +25,26 @@ From Google Cloud Platform Console:
 
 4) Select region and Location and click **Create**
 
-Via gcloud command-line tool
-==================================================
+Via gsutil
+===========
 Use the gsutil mb command:
 
 ::
 
-    $gsutil mb gs://[BUCKET_NAME]/
+    $gsutil mb gs://[BUCKET_NAME]/ 
     
     
 
 Where:
 
-
 - [BUCKET_NAME] is the name you want to give your bucket, subject to naming requirements. For example, my-bucket.
+
+You can set the following optional flags to have greater control over the creation of your bucket:
+
 - p: Specify the project with which your bucket will be associated. For example, my-project.
-- c: Specify the default storage class of your bucket. For example, NEARLINE.
-- l: Specify the location of your bucket. For example, US-EAST1.
-- b: Enable uniform bucket-level access for your bucket.
+- c: Specify the default storage class (https://cloud.google.com/storage/docs/storage-classes)) of your bucket. For example, NEARLINE.
+- l: Specify the location  (https://cloud.google.com/storage/docs/locations of your bucket. For example, US-EAST1.
+- b: Enable uniform bucket-level access (https://cloud.google.com/storage/docs/uniform-bucket-level-access) for your bucket.
 
 Accessing data in your bucket by gsutil
 =======================================
@@ -62,11 +67,8 @@ output:
 
 
 Accessing data in your bucket via GCSFuse
-========================================
-`How-to video <https://www.youtube.com/watch?v=mE6dLYOf8BA>`_ | `Installing Page <https://github.com/GoogleCloudPlatform/gcsfuse/blob/master/docs/installing.md>`_
-
-
-If you have access to a bucket and want to "clone" that bucket to your VM instance, gcsfuse can mount that bucket/ or a sub-directory of that bucket to your VM directory of your choice.
+==========================================
+If you have access to a bucket and want to "clone" that bucket to your VM instance, gcsfuse can mount that bucket/or a sub-directory of that bucket to your VM directory of your choice.
 
 Pros:
 
@@ -78,6 +80,12 @@ Cons:
 - Since gcsfuse will actually download the data to your directory, make sure your VM instance has enough available storage to clone data from the bucket
 - Consume available storage space
 - May slow down your performance
+
+
+**(1)** `How-to instructional video <https://www.youtube.com/watch?v=mE6dLYOf8BA>`_ 
+
+
+**(2)** `Step-by-Step installation guide <https://github.com/GoogleCloudPlatform/gcsfuse/blob/master/docs/installing.md>`_
 
 
 Quicktips
