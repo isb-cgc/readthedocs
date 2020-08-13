@@ -17,16 +17,7 @@ These links in this section: **(1)** help new users get familiar with the Google
  -  `VM Workflow Tools Installation Cheatsheet <Cheatsheet.html>`_
  -  `Workflow Cost Considerations <Workflow-Costs.html>`_
  
- 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   gcp-info2/LaunchVM.rst
-   LaunchBucket.rst
-   Workflow-Costs.rst
-   Cheatsheet.rst
-   
+    
 
 Example "Hello World" bioinformatics workflows
 ====================================================
