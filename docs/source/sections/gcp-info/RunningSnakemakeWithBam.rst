@@ -45,13 +45,12 @@ At the top of the file you will see this:
 ::
 
   #line 1:
-  IDS, = glob_wildcards("/opt/testGcsfuse/{sample}.bam")
+  IDS, = glob_wildcards("/home/thinh_vo/testGcsfuse/{sample}.bam")
   #line 7-8:
   input:
-      "/opt/testGcsfuse/{sample}.bam"
+      "/home/thinh_vo/testGcsfuse/{sample}.bam"
 
-
-Replace "/opt/testGcsfuse/{sample}.bam" with your new address from the gcsfuse tutorial for example: "/opt/testGcsfuse/{sample}.bam". Now the script is ready to run with Snakemake.
+Replace "/home/thinh_vo/testGcsfuse/{sample}.bam" with your new address from the gcsfuse tutorial for example: "/home/thinh_vo/testGcsfuse/{sample}.bam". Now the script is ready to run with Snakemake.
 
 ::
 
