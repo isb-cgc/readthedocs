@@ -11,6 +11,11 @@ Requirements:
 -  CWLtool
 -  Docker
 
+
+.. note:: Requirements is crucial in order to run this workflow, please make sure you have them installed properly prior to running this workflow.
+
+
+
 Download this tutorial:
 ::
 
