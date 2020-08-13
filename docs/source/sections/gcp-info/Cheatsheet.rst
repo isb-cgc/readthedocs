@@ -34,6 +34,8 @@ Step 2 install Snakemake:
 =========================
 
 `Instruction <https://snakemake.readthedocs.io/en/stable/getting_started/installation.html#conda-install>`_
+
+
 Installer:
 ::
 
