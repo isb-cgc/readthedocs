@@ -99,4 +99,4 @@ I'm an advanced user, how do I...
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_Nearest_Centroid_Classification_with_BigQuery.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_Nearest_Centroid_Classification_with_BigQuery.md>`_
      
-*Notebook inspired by a `Query of the Month Blog </QueryOfTheMonthClub.html>`_ post
+*Notebook inspired by a `Query of the Month Blog <QueryOfTheMonthClub.html>`_ post
