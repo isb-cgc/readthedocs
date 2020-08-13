@@ -74,10 +74,10 @@ I'm an advanced user, how do I...
    * - How do I quickly compare cohorts with survival analysis and feature comparison?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/Staging-Notebooks/Notebooks/How_to_quickly_compare_cohorts.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/Staging-Notebooks/Notebooks/How_to_quickly_compare_cohorts.md>`_
-   * - How do I run an ANOVA with BigQuery?
+   * - How do I run an ANOVA with BigQuery?*
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_an_ANOVA_test_in_BigQuery.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_an_ANOVA_test_in_BigQuery.md>`_
-   * - How do I score gene sets in BigQuery?
+   * - How do I score gene sets in BigQuery?*
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_score_gene_sets_with_BigQuery.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_an_ANOVA_test_in_BigQuery.md>`_
    * - How do I correlate gene expression and copy number variation?
@@ -99,3 +99,4 @@ I'm an advanced user, how do I...
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_Nearest_Centroid_Classification_with_BigQuery.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_Nearest_Centroid_Classification_with_BigQuery.md>`_
      
+*Notebook inspired by a `Query of the Month Blog </QueryOfTheMonthClub.html>`_ post
