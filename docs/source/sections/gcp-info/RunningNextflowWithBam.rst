@@ -17,6 +17,11 @@ Requirements:
 
 To install Docker and Nextflow, see our `VM Workflow Tools Installation Cheatsheet <Cheatsheet.html>`_ for instructions. To set up gcsfuse in order to get access to the BAM file, please visit `Running Workflow with GCSFUSE <WorkflowWithGCSFUSE.html>`_.
 
+
+.. note:: Requirements is crucial in order to run this workflow, please make sure you have them installed properly prior to running this workflow.
+
+
+
 Download this tutorial:
 =======================
 ::
