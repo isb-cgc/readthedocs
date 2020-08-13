@@ -116,6 +116,12 @@ The **Experimental Strategy** filter also allows you to filter for experimental 
 .. image:: BigQuery/ExperimentalStrategy-filter.png
    :align: center
 
+**Access**
+
+The **Access** filter has options of All, Open Access and Controlled Access. Controlled Access tables will be displayed with a Lock icon to the right of the table name. Controlled Access data cannot be previewed, but can be opened in the Google BigQuery Console, if the user has the required permissions. 
+
+.. image:: BigQuery/Access-filter.png
+   :align: center
 
 **More Filters**
 
