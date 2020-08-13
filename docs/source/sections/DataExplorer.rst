@@ -10,6 +10,6 @@ You will be able to use the available filters to create a cohort, without needin
 
 You may want to frequently reuse a cohort in multiple analyses. Creating a "saved cohort" allows you to do this. If this is the case, click on the **Login to Save New Cohort** button.
 
-.. image:: CreateCohorts-noSignIn.png
+.. image:: webapp/CreateCohorts-noSignIn.png
    :align: center
 
