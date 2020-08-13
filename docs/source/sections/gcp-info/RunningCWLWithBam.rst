@@ -21,6 +21,11 @@ To install Docker and CWL, you can visit our **Cheatsheet**, and to set up the g
 
 
 
+.. note:: Requirements is crucial in order to run this workflow, please make sure you have them installed properly prior to running this workflow.
+
+
+
+
 
 Download this tutorial:
 =======================
