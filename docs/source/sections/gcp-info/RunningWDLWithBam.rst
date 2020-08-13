@@ -29,16 +29,12 @@ Download the **cromwell-XY.jar** and **womtool-XY.jar** at https://github.com/br
 
 .. note:: "XY" in **cromwell-XY.jar** and **womtool-XY.jar** is the version of the software. At the time of this tutorial, the latest version is "51". For all the code from here "XY" will be "51" e.g. **cromwell-XY.jar** becomes **cromwell-51.jar**. Please change the code accordingly to reflect the version that you have.
 
-Upload them to your VM:
+Example using Wget:
 
-.. image:: images/RunningWDLWithBam_1.png
-   :align: left
+::
 
-It should look like this after uploading:
-
-.. image:: images/RunningWDLWithBam_2.png
-   :align: left
-
+  $ wget https://github.com/broadinstitute/cromwell/releases/download/52/cromwell-52.jar
+  $ wget https://github.com/broadinstitute/cromwell/releases/download/52/womtool-52.jar
 
 
 
@@ -77,10 +73,10 @@ At the top of the file you will see this:
 
 ::
 
-  /opt/testGcsfuse/G27328.Calu-6.1.bam	bam1
+  /home/thinh_vo/testGcsfuse/G27328.Calu-6.1.bam	bam1
 
 
-Replace "/opt/testGcsfuse/G27328.Calu-6.1.bam" with your new address from the gcsfuse tutorial for example: "/opt/testGcsfuse/G27328.Calu-6.1.bam". Now the script is ready to run with CWLtool.
+Replace "/home/thinh_vo/testGcsfuse/G27328.Calu-6.1.bam" with your new address from the gcsfuse tutorial for example: "/home/thinh_vo/testGcsfuse/G27328.Calu-6.1.bam". Now the script is ready to run with WDL.
 Save the change, then run the script with this command:
 
 ::
