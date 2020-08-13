@@ -25,7 +25,9 @@ Over time we will be updating and enhancing this web interface based on your fee
 
 **Data used by the Web App**
 
+
 The Web App performs its data retrieval and counts on ISB-CGC Google BigQuery tables which are based on the latest GDC data release. This means that you will see current data, but that the same queries in the WebApp  could produce different results if they were run during different time periods, when the WebApp  was based on different GDC data releases.
+
 
 **Sharing Cohorts between the Web App and the API**
 
