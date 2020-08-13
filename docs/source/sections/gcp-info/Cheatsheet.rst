@@ -168,6 +168,24 @@ Git/github
   $ sudo apt install git
 
 
+Wget
+====
+::
+
+  $ sudo apt-get install wget
+  
+
+Subversion
+==========
+
+::
+
+  $ sudo add-apt-repository universe
+  $ sudo apt update
+  $ sudo apt install subversion
+
+
+
 *******
 GCSFUSE
 *******
