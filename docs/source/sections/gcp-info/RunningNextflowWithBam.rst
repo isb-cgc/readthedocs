@@ -46,7 +46,7 @@ At the top of the file you will see this:
   myBamSample = Channel.fromPath('/home/thinh_vo/sample/*.bam')
 
 
-Replace "/home/thinh_vo/sample/\*.bam" with your new address from the gcsfuse tutorial for example: "/opt/testGcsfuse/\*.bam". Now the script is ready to run with Nextflow.
+Replace "/home/thinh_vo/sample/\*.bam" with your new address from the gcsfuse tutorial for example: "/home/thinh_vo/testGcsfuse/\*.bam". Now the script is ready to run with Nextflow.
 
 ::
 
