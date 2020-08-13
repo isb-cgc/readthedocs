@@ -30,6 +30,7 @@ The following codes can be used to install gcsfuse
    $ curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
    $ sudo apt-get update
    $ sudo apt-get install gcsfuse
+   #### Close the VM console and reopen #####
 
 
 Step 3: mounting/ linking the target bucket to your VM directory
@@ -37,7 +38,7 @@ Step 3: mounting/ linking the target bucket to your VM directory
 Making a directory to hold your bucket:
 ::
 
-   ### After the installation, while still in your opt/ ###
+   ### at your home directory and not in opt ###
    ### in this tutorial yourNewDirectory will be testGcsfuse ###
 
    $ mkdir <yourNewDirectory>
@@ -74,6 +75,9 @@ You should see something like this:
 .. image:: images/WorkflowWithGCSFUSE.jpg
    :align: left
 
+.. image:: images/WorkflowWithGCSFUSE_2.jpg
+   :align: left
+   
 Step 4: running your workflow with a local VM directory
 =======================================================
 Write your workflow with the input pointing to that directory, as followed:
