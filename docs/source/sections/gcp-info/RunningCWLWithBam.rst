@@ -54,7 +54,7 @@ At the top of the file you will see this:
     - {class: File, path: /opt/testGcsfuse/G27328.Calu-6.1.bam}
 
 
-Replace "/opt/testGcsfuse/G27328.Calu-6.1.bam" with your new address from the gcsfuse tutorial for example: "/opt/testGcsfuse/G27328.Calu-6.1.bam". Now the script is ready to run with CWLtool.
+Replace "/home/thinh_vo/testGcsfuse/G27328.Calu-6.1.bam" with your new address from the gcsfuse tutorial for example: "/home/thinh_vo/testGcsfuse/G27328.Calu-6.1.bam". Now the script is ready to run with CWLtool.
 Save the change, then run the script with this command:
 
 
