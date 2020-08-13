@@ -8,13 +8,13 @@ Select this method for `controlled access via personal user credentials <control
   
   * Provides access to controlled data for 24 hours at a time;
   * Uses your *personal* credentials;
-  * Example uses: the ISB-CGC Web App or R Studio
+  * Example uses: the ISB-CGC Web App, R Studio or running short jobs on Google Compute Engine that complete in under 24 hours
       
 Select this method for `controlled access via service account credentials <controlled-access/Controlled-data-GCP.html>`_:
   
   * Provides access to controlled data for seven days at a time;
-  * Uses the credentials of a *service account*, acting on your behalf;
-  * Example uses: using a Google Cloud Project; running a program from a Google Compute Engine (GCE) Virtual Machine (VM)
+  * Uses the credentials of a *service account*, acting on your behalf (To learn about service accounts, refer to the Google `documentation <https://cloud.google.com/iam/docs/service-accounts>`_.);
+  * Example uses: using a Google Cloud Project; running a program from a Google Compute Engine (GCE) Virtual Machine (VM) that takes longer than 24 hours to complete
  
 
 Prerequisites
