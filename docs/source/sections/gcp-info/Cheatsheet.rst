@@ -34,8 +34,11 @@ Step 2 install Snakemake:
 =========================
 
 `Instruction <https://snakemake.readthedocs.io/en/stable/getting_started/installation.html#conda-install>`_
+Installer:
+::
 
-
+  $ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+  
 Snakemake environment:
 ----------------------
 Create and activate Environment for Snakemake from a file (yml/yaml):
@@ -60,6 +63,12 @@ WDL
 
 `Installers <https://github.com/broadinstitute/cromwell/releases>`_ for Cromwell and Womtool
 
+::
+
+   $ wget https://github.com/broadinstitute/cromwell/releases/download/52/cromwell-52.jar
+   $ wget https://github.com/broadinstitute/cromwell/releases/download/52/womtool-52.jar
+   
+   
 ***
 CWL
 ***
