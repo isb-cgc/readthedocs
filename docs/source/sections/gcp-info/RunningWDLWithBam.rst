@@ -21,6 +21,12 @@ To install Java, Docker, Graphviz and WDL, you can visit our **Cheatsheet**, and
 - `Cheatsheet <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/Cheatsheet.html>`_
 - `WorkflowWithGCSFUSE <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/WorkflowWithGCSFUSE.html>`_
 
+
+
+.. note:: Requirements is crucial in order to run this workflow, please make sure you have them installed properly prior to running this workflow.
+
+
+
 Installing Cromwell and Womtool:
 ================================
 
