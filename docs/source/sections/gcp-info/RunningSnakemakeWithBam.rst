@@ -18,6 +18,11 @@ To install and set up Anaconda/Miniconda, you can visit the first tutorial **You
 - `FirstWorkflow <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/FirstWorkflow.html>`_
 - `WorkflowWithGCSFUSE <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/WorkflowWithGCSFUSE.html>`_
 
+
+.. note:: Requirements is crucial in order to run this workflow, please make sure you have them installed properly prior to running this workflow.
+
+
+
 Download this tutorial:
 =======================
 ::
