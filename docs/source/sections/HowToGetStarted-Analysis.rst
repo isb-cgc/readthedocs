@@ -13,10 +13,10 @@ filter data from one or more public data sets (such as TCGA, CCLE, and TARGET), 
    :widths: 60, 40
    :header-rows: 0 
 
-   * - **Patient Cohort Data Explorer**
+   * - **Interactive Patient Cohort Data Explorer**
          | *Create and explore cohorts of interest*
-     - * `ISB-CGC Data Explorer Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DataExplorer.html>`_ 
-       * `ISB-CGC Data Explorer <https://isb-cgc.appspot.com/cohorts/new_cohort/>`_ 
+     - * `ISB-CGC Interactive Patient Cohort Data Explorer Documentation <DataExplorer.html>`_ 
+       * `ISB-CGC Interactive Patient Cohort Data Explorer <https://isb-cgc.appspot.com/cohorts/new_cohort/>`_ 
    * - **Interactive Pathology and Radiology Image Viewers**  
         | *View images from cancer patients using integrated image viewers*
      - * `ISB-CGC Image Viewers Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/OsimisWebViewer.html>`_ 
@@ -25,7 +25,8 @@ filter data from one or more public data sets (such as TCGA, CCLE, and TARGET), 
      - * `ISB-CGC Integrative Genomics Viewer (IGV) Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/IGV-Browser.html>`_
    * - **Cancer Data File Browser**   
         | *Browse and identify files associated with cohorts of interest*
-     - * `ISB-CGC Cancer Data File Browser Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html#file-browser>`_
+     - * `ISB-CGC Cancer Data File Browser Documentation <DataBrowser.html>`_
+       * `ISB-CGC Cancer Data File Browser <https://isb-cgc.appspot.com/cohorts/filelist/>`_ 
    * - **Mitelman Database for Chromosome Aberrations and Gene Fusions in Cancer**
         | *Explore relationships between chromosomal changes and cancer*
      - * `ISB-CGC Mitelman Database Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/Mitelman_about.html>`_
