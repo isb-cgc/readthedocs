@@ -75,7 +75,7 @@ ISB-CGC enables the use of as many workflow technologies as possible through doc
        * `Google API Documentation <https://cloud.google.com/life-sciences/docs/apis>`_
    * - **Running workflows on ISB-CGC**
         | *Execute open-source and custom pipelines/algorithms on scalable virtual machines*
-     - * `ISB-CGC Workflow Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/workflows_top.html>`_  
+     - * `ISB-CGC Workflow Documentation <gcp-info/GCE-101.html>`_  
        * We recommend tools such as the `Google Cloud SDK <https://cloud.google.com/sdk/>`_, `Google Compute Engine <https://cloud.google.com/compute/>`_, `Virtual Machines <https://en.wikipedia.org/wiki/Virtual_machine>`_ and `Docker <https://www.docker.com/why-docker#/VM>`_ to assist your analyses. 
 
    
