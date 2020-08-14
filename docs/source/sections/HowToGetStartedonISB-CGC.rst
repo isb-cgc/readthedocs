@@ -25,7 +25,7 @@ A Google Cloud Project (GCP) is required to make use of all of the data, tools, 
 
  - See Google's documentation about how to `create a Google Cloud Project <https://cloud.google.com/resource-manager/docs/creating-managing-projects>`_.
  - Learn about how to `add members and roles to a project <https://cloud.google.com/iam/docs/quickstart>`_.
- - If you'll be accessing controlled data, `register the GCP project <Gaining-Access-To-Controlled-Access-Data.html#requirements-for-registering-a-google-cloud-project-service-account>`_.
+ - If you'll be accessing controlled data, `register the GCP project <controlled-access/Controlled-data-GCP.html>`_.
  - `Enable Required Google Cloud APIs <https://cloud.google.com/apis/docs/getting-started#enabling_apis>`_
 
 **Connect to ISB-CGC's cancer data tables in Google BigQuery**
