@@ -40,7 +40,7 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    sections/Web-UI
    sections/BigQuery
    
-   .. toctree::
+.. toctree::
    :hidden:
    :maxdepth: 1
    :caption: Data Browsers
@@ -49,7 +49,7 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    sections/DataBrowser
    sections/data/Mitelman_about
    
-   .. toctree::
+.. toctree::
    :hidden:
    :maxdepth: 1
    :caption: Resources
