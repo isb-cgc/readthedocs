@@ -1,6 +1,18 @@
 #############################
-ISB-CGC WebApp Release Notes
+ISB-CGC Web App Release Notes
 #############################
+
+*August 19, 2020* 
+
+**New Features**  `v1.27 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.27>`_
+
+- ISB-CGC has a new home page, which prominently features ISB-CGC Data Browsers and Resources.
+- A Cancer Data File Browser, which is not dependent on cohort builts through the Web App, is now available from the ISB-CGC home page. The user does not need to sign in to the ISB-CGC Web App to use it.
+
+
+**Bug Fixes**
+
+
 
 *July 23, 2020* 
 
