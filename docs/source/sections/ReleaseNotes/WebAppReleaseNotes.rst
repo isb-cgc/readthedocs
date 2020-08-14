@@ -7,7 +7,11 @@ ISB-CGC Web App Release Notes
 **New Features**  `v1.27 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.27>`_
 
 - ISB-CGC has a new home page, which prominently features ISB-CGC Data Browsers and Resources.
-- A Cancer Data File Browser, which is not dependent on cohort builts through the Web App, is now available from the ISB-CGC home page. The user does not need to sign in to the ISB-CGC Web App to use it.
+- A Cancer Data File Browser is now available directly from the ISB-CGC home page. It is similar to the existing File Browser within the Web App, except:
+  * Sign in is not needed.
+  * It is not dependent on cohorts built through the Web App.
+  * Output can be downloaded to CSV; in order to download to Google Storage Buckets or Google BigQuery tables, the user has the option to sign in.
+  * Program filter has been added.
 
 
 **Bug Fixes**
