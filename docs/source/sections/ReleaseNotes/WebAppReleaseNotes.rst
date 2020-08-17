@@ -22,6 +22,8 @@ ISB-CGC Web App Release Notes
    
 - All NA filters have been renamed to None in both the File Browser page and the Cohort Builder page.
 
+- User details page has been modified to include more icons and buttons. The essential functionality and contents are not modified.
+
 **Bug Fixes**
 
 - Service account kick-off email notification from DCF was broken. It has been fixed.
