@@ -44,14 +44,15 @@ Registering your Google Cloud Project Service Account
 --------------------------------------------------------------
 Click on screen shots to enlarge them.
 
-To register your Google Cloud Project and its service account with ISB-CGC, select the "persona" icon next to your login name on the ISB-CGC Web App, 
+To register your Google Cloud Project and its service account with ISB-CGC, go to the Account Details page. After signing into the ISB-CGC Web App, 
+either select the "persona" icon next to your login name or select **Account Details** from the drop down menu under your login name, 
 which takes you to the following page:
 
 .. image:: ../webapp/RegisteredGCPs.png
    :scale: 30
    :align: center
    
-Click the **Register a Google Cloud Project** link.  That takes you to the following page:
+Click the **Register** button in the Google Cloud Platform section.  That takes you to the following page:
 
 .. image:: ../webapp/RegisterAGCPForm.png
    :scale: 30
