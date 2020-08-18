@@ -9,20 +9,21 @@ data via your personal user credentials. If you are looking to access controlled
 Click on screenshots to enlarge them.
 
 To link your NIH/eRA identity with your Google identity (the Google account you use to login to the ISB-CGC system), 
-select the "persona" icon next to your login name (A in the image below) after you have signed in to the ISB-CGC Web App. 
+select the "persona" icon next to your login name after you have signed in to the ISB-CGC Web App. 
 Or, you can click on the drop down menu next to your name, and click on **Account Details**.
-
-.. image:: ../webapp/personaeicon-NIHLoginAssoc.png
-   :scale: 50
-   :align: center
 
 You will then see the following page:
 
-.. image:: ../webapp/NIHAssociationPage.png
+.. image:: ../webapp/AccountDetails.png
    :scale: 30
    :align: center
 
-Click the **Associate with eRA Commons Account** link.
+Click the **Associate with eRA Account** button.
+
+.. image:: ../webapp/AssociateWithERA.png
+   :scale: 50
+   :align: center
+
 
 You will see a pop up describing all the steps needed to link your NIH Identity to the Data Commons Framework (DCF).
 In this case, 'NIH Identity' also refers to your eRA Commons account identity.
@@ -35,7 +36,7 @@ Click on the **Go to DCF** button.
 
 You will then be redirected to an NIH login page, in order to be authenticated by NIH:
 
-.. image:: ../webapp/iTrust.png
+.. image:: ../webapp/NIHLogin.png
    :scale: 30
    :align: center
 
