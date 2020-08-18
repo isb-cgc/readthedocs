@@ -74,14 +74,6 @@ If you are not able to resolve the issue, contact us at feedback@isb-cgc.org and
 
 Extending Your Access by 24 hours 
 -----------------------------------
-Once you have received permission to view controlled access data, your user login page will look 
-like the screenshot below. If you need to extend your access to controlled data for another 24 
-hours from now (*eg* if you have a compute job which is using these Google credentials to access 
-controlled data and it is still running), select the link "Extend controlled access 
-period to 24 hours from now" (red box on figure below).  
+If you need to extend your access to controlled data for another 24 hours from now (*eg* if you have a compute job which is using these Google credentials to access 
+controlled data and it is still running), click the **Extend** button on the Data Access panel on the Account Details screen (pictured above).
 Your access will be extended by 24 hours from the time that you push the link. 
-
-.. image:: ../webapp/24hrExtension.png
-   :scale: 30
-   :align: center
-
