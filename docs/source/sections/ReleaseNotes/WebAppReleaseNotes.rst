@@ -4,7 +4,7 @@ ISB-CGC Web App Release Notes
 
 *August 19, 2020* 
 
-**New Features**  `v1.27 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.27>`_
+**New Features**  
 
 - ISB-CGC has a new home page, which prominently features ISB-CGC Data Browsers and Resources.
 - A Cancer Data File Browser is now available directly from the ISB-CGC home page. It is similar to the existing File Browser within the Web App, except:
@@ -42,7 +42,7 @@ ISB-CGC Web App Release Notes
 
 *July 23, 2020* 
 
-**New Features**  `v1.26 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.26>`_
+**New Features** 
 
 - To increase system speed when filtering cohorts, switched metadata counting to use Apache Solr (instead of MySQL).
 - The WebApp is now performing its data retrieval and counts on ISB-CGC Google BigQuery tables which are based on the latest GDC data release. This means that you will see current data, but that the same queries in the WebApp could produce different results if they were run during different time periods, when the WebApp was based on different GDC data releases.
@@ -71,7 +71,7 @@ ISB-CGC Web App Release Notes
 - Sharing a workbook with someone else will cause the analysis to reset.
 
 
-*May 27, 2020* `v1.25 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.25>`_
+*May 27, 2020* 
 
 **New Features**
 
@@ -105,7 +105,7 @@ ISB-CGC Web App Release Notes
 - On the File Browser page for Diagnostic images, there is no GDC file UUID associated with them.
 - Sharing a workbook with someone else will cause the analysis to reset.
 
-*April 16, 2020* `v1.24 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.24>`_
+*April 16, 2020* 
 
 **New Features**
 
@@ -136,7 +136,7 @@ ISB-CGC Web App Release Notes
 - Sharing a workbook with someone else will cause the analysis to reset.
 
 
-*March 11, 2020* `v1.23 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.23>`_
+*March 11, 2020* 
 
 **New Features**
 
@@ -159,7 +159,7 @@ ISB-CGC Web App Release Notes
 - Sharing a workbook with someone else will cause the analysis to reset.
 - Work is underway to rework our cohort creation page to better display images associated with samples.
 
-*January 30, 2020* `v1.22 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.22>`_
+*January 30, 2020* 
 
 The following datasets (open and controlled access) have been added to the ISB-CGC for service account registration:
 
