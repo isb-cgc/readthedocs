@@ -15,13 +15,12 @@ Or, you can click on the drop down menu next to your name, and click on **Accoun
 You will then see the following page:
 
 .. image:: ../webapp/AccountDetails.png
-   :scale: 30
+   :scale: 50
    :align: center
 
 Click the **Associate with eRA Account** button.
 
 .. image:: ../webapp/AssociateWithERA.png
-   :scale: 50
    :align: center
 
 
@@ -30,24 +29,23 @@ In this case, 'NIH Identity' also refers to your eRA Commons account identity.
 
 Click on the **Go to DCF** button.
 
-.. image:: ../webapp/LinkNIHIDInstructions.PNG
+.. image:: ../webapp/LinkNIHIDInstructions.png
    :scale: 30
    :align: center
 
 You will then be redirected to an NIH login page, in order to be authenticated by NIH:
 
 .. image:: ../webapp/NIHLogin.png
-   :scale: 30
    :align: center
 
-If you have an eRA identification, use this to sign in through panel A (see example above).  
-If you have an NIH PIV card, use that to sign in through panel B on this page (see above).  
+If you have an eRA identification, use your eRA Commons username and password to log in.  
+If you have an NIH PIV card, use the Smart Card Login.  
 
 Once you have been authenticated by NIH, and your NIH identity has been verified to be on
 the current dbGaP whitelist, you will have access to controlled data for 24 hours.  
 
-.. image:: ../webapp/Gen3authPage.PNG
-   :scale: 30
+.. image:: ../webapp/Gen3-DCF-RAS.png
+   :scale: 50
    :align: center
    
 Select the **Yes, I Authorize** button at the bottom right of the page to authorize the Data Commons Framework to associate your Google identity with controlled data.
