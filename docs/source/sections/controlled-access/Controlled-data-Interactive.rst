@@ -15,7 +15,7 @@ Or, you can click on the drop down menu next to your name, and click on **Accoun
 You will then see the following page:
 
 .. image:: ../webapp/AccountDetails.png
-   :scale: 50
+   :scale: 40
    :align: center
 
 Click the **Associate with eRA Account** button.
@@ -30,7 +30,6 @@ In this case, 'NIH Identity' also refers to your eRA Commons account identity.
 Click on the **Go to DCF** button.
 
 .. image:: ../webapp/LinkNIHIDInstructions.png
-   :scale: 30
    :align: center
 
 You will then be redirected to an NIH login page, in order to be authenticated by NIH:
@@ -44,22 +43,18 @@ If you have an NIH PIV card, use the Smart Card Login.
 Once you have been authenticated by NIH, and your NIH identity has been verified to be on
 the current dbGaP whitelist, you will have access to controlled data for 24 hours.  
 
-.. image:: ../webapp/Gen3-DCF-RAS.png
+.. image:: ../webapp/GEN3-DCF-RAS.png
    :scale: 50
    :align: center
    
 Select the **Yes, I Authorize** button at the bottom right of the page to authorize the Data Commons Framework to associate your Google identity with controlled data.
 
-.. image:: ../webapp/datacommons.ioLogIn.PNG
-   :scale: 30
-   :align: center
+When presented with a "Sign in with Google" page, select the email that you used when you logged into the ISB-CGC web application.
 
-To finalize the authorization, select the email you used when you logged into the ISB-CGC web application.
-
-You are redirected back to the ISB-CGC Web App. A Warning Notice displays, indicating that you must abide by the rules and regulations provided by the DUCA Use Agreement. In the **Data Access** panel, it will indicate "dbGaP Access Authorized".  
+You will be redirected back to the ISB-CGC Web App. A Warning Notice displays, indicating that you must abide by the rules and regulations provided by the DUCA Use Agreement. In the **Data Access** panel, it will indicate "dbGaP Access Authorized".  
 
 .. image:: ../webapp/DataAccess-WarningMsg.png
-   :scale: 50
+   :scale: 40
    :align: center
 
 Note that the ISB-CGC system will enforce a one-to-one relationship between NIH/eRA identities and Google identities.  In other words, a single NIH or eRA identity may not be used to gain access to controlled data by multiple, different Google identities.
@@ -67,22 +62,14 @@ Note that the ISB-CGC system will enforce a one-to-one relationship between NIH/
 Unlink Google identity from NIH/eRA identity
 --------------------------------------------
 
-If you need to *unlink* your eRA account from your Google account (for example if you want to
-change which Google identity you use to sign in to the ISB-CGC platform), you may do so by
-clicking on the **Unlink** button below "<GoogleID> is linked to NIH identity <NIH/eRA Commons ID>".
+If you need to *unlink* your eRA account from your Google account (for example if you want to change which Google identity you use to sign in to the ISB-CGC platform), you may do so by clicking on the **Unlink** button below "<GoogleID> is linked to NIH identity <NIH/eRA Commons ID>".
 
 .. image:: DataAccessPanel.png
    :align: center
 
-In the unusual instance that your NIH identity has been registered with another Google identity 
-(*eg* with another Google identity that you have), you will see the screen below:
-
-.. image:: ../webapp/eRAlinkedtoAnotherGoogle.png
-   :scale: 30
-   :align: center
+In the unusual circumstance that your NIH identity has been registered with another Google identity (*eg* with another Google identity that you have), you will see a message, "You tried to link your email address to NIH account <username>, but it is already linked to <Google identity email address>."
    
-If this happens, please sign in with that other account and "unlink" your NIH/eRA from that account
-(see description above).  You will then be able to register your NIH/eRA account with the desired Google identity.  
+If this happens, please sign in with that other Google identity and "unlink" your NIH/eRA account from that identity (see description above).  You will then be able to register your NIH/eRA account with the desired Google identity.  
 If you are not able to resolve the issue, contact us at feedback@isb-cgc.org and we will help you resolve it.   
 
 Extending Your Access by 24 hours 
