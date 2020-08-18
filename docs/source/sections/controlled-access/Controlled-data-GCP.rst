@@ -49,7 +49,7 @@ either select the "persona" icon next to your login name or select **Account Det
 which takes you to the following page:
 
 .. image:: ../webapp/RegisteredGCPs.png
-   :scale: 30
+   :scale: 40
    :align: center
    
 Click the **Register** button in the Google Cloud Platform section.  That takes you to the following page:
