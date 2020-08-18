@@ -6,8 +6,8 @@ This section shows you how to associate your Google identity to your NIH or eRA 
 with dbGaP, authorizing you to work with controlled data.) This is a necessary step for gaining access to controlled data. When you are done, you'll be able to access controlled
 data via your personal user credentials. If you are looking to access controlled data via a service account, this is a prerequisite step.
 
-Click on screenshots to enlarge them.
-
+Some screenshots can be enlarged by clicking on them.
+ 
 To link your NIH/eRA identity with your Google identity (the Google account you use to login to the ISB-CGC system), 
 select the "persona" icon next to your login name after you have signed in to the ISB-CGC Web App. 
 Or, you can click on the drop down menu next to your name, and click on **Account Details**.
@@ -24,10 +24,8 @@ Click the **Associate with eRA Account** button.
    :align: center
 
 
-You will see a pop up describing all the steps needed to link your NIH Identity to the Data Commons Framework (DCF).
-In this case, 'NIH Identity' also refers to your eRA Commons account identity.
-
-Click on the **Go to DCF** button.
+You will see a pop up describing all the steps needed to link your Google identy (email address) to your NIH identity via the Data Commons Framework (DCF).
+In this case, 'NIH identity' also refers to your eRA Commons account identity. Click on the **Go to DCF** button.
 
 .. image:: ../webapp/LinkNIHIDInstructions.png
    :align: center
@@ -44,7 +42,6 @@ Once you have been authenticated by NIH, and your NIH identity has been verified
 the current dbGaP whitelist, you will have access to controlled data for 24 hours.  
 
 .. image:: ../webapp/GEN3-DCF-RAS.png
-   :scale: 50
    :align: center
    
 Select the **Yes, I Authorize** button at the bottom right of the page to authorize the Data Commons Framework to associate your Google identity with controlled data.
@@ -69,11 +66,11 @@ If you need to *unlink* your eRA account from your Google account (for example i
 
 In the unusual circumstance that your NIH identity has been registered with another Google identity (*eg* with another Google identity that you have), you will see a message, "You tried to link your email address to NIH account <username>, but it is already linked to <Google identity email address>."
    
-If this happens, please sign in with that other Google identity and "unlink" your NIH/eRA account from that identity (see description above).  You will then be able to register your NIH/eRA account with the desired Google identity.  
+If this happens, please sign in with that other Google identity and "unlink" your NIH/eRA account from that identity, as described above.  You will then be able to register your NIH/eRA account with the desired Google identity.  
 If you are not able to resolve the issue, contact us at feedback@isb-cgc.org and we will help you resolve it.   
 
 Extending Your Access by 24 hours 
 -----------------------------------
 If you need to extend your access to controlled data for another 24 hours from now (*eg* if you have a compute job which is using these Google credentials to access 
 controlled data and it is still running), click the **Extend** button on the Data Access panel on the Account Details screen (pictured above).
-Your access will be extended by 24 hours from the time that you push the link. 
+Your access will be extended by 24 hours from the time that you click the button. 
