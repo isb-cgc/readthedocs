@@ -58,20 +58,18 @@ To finalize the authorization, select the email you used when you logged into th
 
 You are redirected back to the ISB-CGC Web App. A Warning Notice displays, indicating that you must abide by the rules and regulations provided by the DUCA Use Agreement. In the **Data Access** panel, it will indicate "dbGaP Access Authorized".  
 
-.. image:: ../webapp/warningNotice.png
-   :scale: 30
+.. image:: ../webapp/DataAccess-WarningMsg.png
+   :scale: 50
    :align: center
 
-Note that the ISB-CGC system will enforce a one-to-one relationship between NIH/eRA identities
-and Google identities.  In other words, a single NIH or eRA identity may not be used to
-gain access to controlled data by multiple, different Google identities.
+Note that the ISB-CGC system will enforce a one-to-one relationship between NIH/eRA identities and Google identities.  In other words, a single NIH or eRA identity may not be used to gain access to controlled data by multiple, different Google identities.
 
 Unlink Google identity from NIH/eRA identity
 --------------------------------------------
 
 If you need to *unlink* your eRA account from your Google account (for example if you want to
 change which Google identity you use to sign in to the ISB-CGC platform), you may do so by
-clicking on "Unlink <GoogleID> from the NIH identity <eRA Commons ID>".
+clicking on the **Unlink** button below "<GoogleID> is linked to NIH identity <NIH/eRA Commons ID>".
 
 .. image:: DataAccessPanel.png
    :align: center
