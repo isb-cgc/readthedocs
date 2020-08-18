@@ -19,8 +19,8 @@ These links in this section: **(1)** help new users get familiar with the Google
  
     
 
-Example "Hello World" bioinformatics workflows
-====================================================
+Example introductory bioinformatics workflows
+==============================================
 We have put together these examples to **(1)** demonstrate the syntax of these workflow languages 
 **(2)** illustrate them with two commonly used bioinformatics and -omics use-cases (RNAseq and Blast) 
 **(3)** allow users to adapt these examples to their own use-cases 
