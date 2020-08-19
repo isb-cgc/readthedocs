@@ -16,11 +16,7 @@ Requirements:
 - WDL (Cromwell and Womtool)
 - A public bam file from ISB-CGC at the address: gs://gdc-ccle-open/692a845c-7957-41f2-b679-5434c69ba25b/G27328.Calu-6.1.bam
  
-To install Java, Docker, Graphviz and WDL, you can visit our **Cheatsheet**, and to set up the gcsfuse to get access to the bam file please visit **Running Workflow with GCSFUSE** listed below:
-
-- `Cheatsheet <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/Cheatsheet.html>`_
-- `WorkflowWithGCSFUSE <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/WorkflowWithGCSFUSE.html>`_
-
+To install Java, Docker, Graphviz and WDL, see our `VM Workflow Tools Installation Cheatsheet <Cheatsheet.html>`_ for instructions. To set up gcsfuse in order to get access to the BAM file, please visit `Running Workflow with GCSFUSE <WorkflowWithGCSFUSE.html>`_.
 
 
 .. note:: The requirements above are crucial to running this workflow. Please make sure you have them installed properly prior to running this workflow
