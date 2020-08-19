@@ -16,6 +16,7 @@ Select this method for `controlled access via service account credentials <contr
   * Uses the credentials of a *service account*, acting on your behalf (To learn about service accounts, refer to the Google `documentation <https://cloud.google.com/iam/docs/service-accounts>`_.);
   * Example uses: using a Google Cloud Project; running a program from a Google Compute Engine (GCE) Virtual Machine (VM) that takes longer than 24 hours to complete
  
+.. note:: If you are looking to gain access to COSMIC data, please see the `COSMIC documentation <data/COSMIC_about.html>`_.
 
 Prerequisites
 --------------
