@@ -23,7 +23,7 @@ Google Compute Engine (GCE) Price Make Up
    - `Google Platform Pricing Calculator  <https://cloud.google.com/products/calculator>`_
    
   
- - Check out our best practices for computing on the cloud: BestPractices.html
+ - For more cost-saving tips and tricks, check out the best practices for computing on the cloud: <Best Practices.html>`_.
   
  - If you're looking to run large job, contact us (feedback AT isb-cgc.org) and we'll help optimize your cloud costs.
  
