@@ -1,5 +1,5 @@
-Creating and Managing Persistent Disks
-######################################
+Creating and Managing Persistent Disks on VMs
+#############################################
 
 As described in the previous section, you can specify the boot disk when launching a VM from
 the Console and from the command-line.  There are times when you may want to create and attach

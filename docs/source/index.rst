@@ -44,7 +44,9 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    sections/BigQueryTableSearchUI
    sections/DataExplorer
    sections/Web-UI
-   sections/progapi/progAPI-v4/Programmatic-Demo
+   sections/ProgrammaticAccess
+   #sections/progapi/progAPI-v4/Programmatic-Demo
+   #sections/gcp-info/GCE-101.rst
    
 .. toctree::
    :hidden:

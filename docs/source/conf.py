@@ -12,7 +12,7 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import sys
+import sys; sys.setrecursionlimit(1500)
 import os
 import sphinx.environment
 import shlex
@@ -33,7 +33,7 @@ from docutils.utils import get_source_line
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.todo',
+    'sphinx.ext.todo'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
