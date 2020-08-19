@@ -6,31 +6,25 @@ You can launch a virtual machine (which we will generally refer to as a VM) from
 Prerequisites 
 =============
 
-1) Enable the following APIs in your Google Cloud Project:
-* Google Compute Engine
-* Google Cloud Storage
-2) Check the IAM & Admin section of the Cloud Console to verify that you have "Editor" or "Owner" privileges in your Google Cloud Project, otherwise you won’t be    able to create any VMs!
+#. Enable the following APIs in your Google Cloud Project: 
+  * Google Compute Engine
+  * Google Cloud Storage
+#. Check the IAM & Admin section of the Cloud Console to verify that you have "Editor" or "Owner" privileges in your Google Cloud Project, otherwise you won’t be    able to create any VMs.
 
 
 Via the Google Cloud Console
 =============================
 
-An instructional video on how to launch a VM can be found on the Google CLoud Platform youtube page:  `Video: How to launch a VM <https://youtu.be/1XH0gLlGDdk>`_.
+An instructional video on how to launch a VM can be found on the Google Cloud Platform youtube page:  `How to launch a VM <https://youtu.be/1XH0gLlGDdk>`_.
 
 
 Try it yourself: 
-On your Google Cloud Platform console page for your project
-Navigate to the menu icon in the far upper Select the menu icon in the far upper-left corner, and then choose
-"Compute Engine" from the flyout panel.
-  
+On your Google Cloud Platform project console page:  
 
-You will now be on the "VM instances" page.  (There are may other pages that are accessible
-from the left side-panel.)
-The first time you visit this page, you will see two options: "Create Instance" or "Take the quickstart".
-After the first time, you may see a different page with a list of existing (running or stopped) VMs
-with a CPU utilization graph.  At the top of this page, you will see options to "CREATE INSTANCE",
-"CREATE INSTANCE GROUP", "RESET", "START", "STOP", and "DELETE" VM instances.
+#. Navigate to the menu icon in the far upper-left corner, and then choose "Compute Engine" from the panel. Choose the "VM" instances page. 
 
+#. The first time you visit this page, you will see two options: "Create Instance" or "Take the quickstart".
+After the first time, you may see a different page with a list of existing (running or stopped) VMs.   At the top of this page, you will see options to "CREATE INSTANCE". 
 After selecting the "Create Instance" option, you will be sent to the "Create an instance" page
 where defaults will be selected for the Name, Zone, Machine type, etc:
 
@@ -55,14 +49,6 @@ that you can use directly from the Console.
 
 https://cloud.google.com/shell/docs/how-cloud-shell-works
 
-
-Launch a VM using the Cloud shell command line 
-==============================================
-Notice when you create your VM by going to Compute Engine/VM instances/Create Instance, at the end of the page there was an line that said 
-"Equivalent REST or command line" when you click the command line option a popup will appears and show you the command to create the exact VM with the selected configuration.
-you can save it and reuse to create an quick VM instance.
-
-
 The **gcloud** command-line tool can be used to manage Google Cloud Platform (GCP) resources.  (For more details, please look at the official 
 `gcloud Tool Guide <https://cloud.google.com/sdk/gcloud/>`_.)
 
@@ -74,26 +60,25 @@ that allows you to read and manipulate Google Compute Engine (GCE) resources is
 
 Launch a VM using the Command Line Interface 
 ============================================
-The command to create a new GCE VM instance is ``gcloud compute instances create``.  The complete
+The command to create a new VM instance is **gcloud compute instances create**.  The complete
 documentation can be found 
 `online <https://cloud.google.com/sdk/gcloud/reference/compute/instances/create>`_ 
-or by typing ``gcloud compute instances create --help`` on the command line.
+or by typing **gcloud compute instances create --help** on the command line.
 
-Some defaults can be obtained (if available) 
-from your configuration settings.  For example, if you don't want
+Some defaults can be obtained (if available) from your configuration settings.  For example, if you don't want
 to have to specify the zone of the instances, you can set the compute/zone property, for example:
-```
-gcloud config set compute/zone us-central1-a
-```
+
+**gcloud config set compute/zone us-central1-a**
+
 A list of zones can be fetched by running:
-```
-gcloud compute zones list
-```
+
+**gcloud compute zones list**
+
 
 Here is a very simple command to create a VM:
-```
-gcloud compute instances create my-instance --machine-type g1-small
-```
+
+**gcloud compute instances create my-instance --machine-type g1-small**
+
 
 Accessing your new VM
 =====================
@@ -117,6 +102,6 @@ If you know that you won't ever need this specific VM again, or you don't want t
 the persistent disk, or you would rather start a fresh VM with an updated OS next time, then you can go 
 ahead and **delete** the VM rather than just stopping it.
 
-From the command-line, the relevant commands are ``gcloud compute instances stop`` and 
-``gcloud compute instances delete``.
+From the command-line, the relevant commands are **gcloud compute instances stop** and 
+**gcloud compute instances delete**.
 
