@@ -1,12 +1,12 @@
 ***********************************
-ISB-CGC Data Browser
+Cancer Data File Browser
 ***********************************
 
-The `Data Browser <https://isb-cgc.appspot.com/cohorts/filelist/>`_ is an ISB-CGC web interface which allows you to 
+The `Cancer Data File Browser <https://isb-cgc.appspot.com/cohorts/filelist/>`_ is an ISB-CGC web interface which allows you to 
 explore a comprehensive selection of cancer related data files in Google Cloud Storage Buckets, such as raw sequencing, cancer nucleotide variation, pathology or radiology images.
 
-Selecting  **Data Browser** from the **Data Browsers** drop down menu on the ISB-CGC home screen will display the **Data Browser** screen. 
-Another way to get to this screen is to click on the **Launch** icon in the **Data Browser** box in the **Data Browsers** section of the ISB-CGC home page.
+Selecting  **Cancer Data File Browser** from the **Data Browsers** drop down menu on the ISB-CGC home screen will display the **Cancer Data File Browser** screen. 
+Another way to get to this screen is to click on the **Launch** icon in the **Cancer Data File Browser** box in the **Data Browsers** section of the ISB-CGC home page.
 
 You will be able to use the available filters to select a file record list. Click on the CSV button to download this list which includes barcodes and GCS locations, 
 without needing to log into the ISB-CGC Web Application. Except for the ability to save output results to a Google BigQuery table or to a Google Cloud Storage Bucket (GCS), 
