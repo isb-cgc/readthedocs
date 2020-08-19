@@ -58,20 +58,20 @@ Click the **Register** button in the Google Cloud Platform section.  That takes 
    :scale: 30
    :align: center
    
-The instructions will walk you through how to add the necessary ISB-CGC and DCF service accounts to your project. Follow these steps in the Google Cloud Platform.
+The instructions will walk you through how to add the necessary ISB-CGC and DCF service accounts to your project. Go to the `Google Cloud Platform <https://console.cloud.google.com/>`_ and follow these steps.
 You can hide the instructions by selecting the blue **Instructions** button.  
 
 Please be sure to add both service accounts listed below. If you don't add both service accounts you will run into issues viewing the controlled data in ISB-CGC.
 Then return to the ISB-CGC Register a Google Cloud Project page, enter your Google Cloud Project ID and, click **Verify**.
 
-.. image:: ../webapp/RegisterServiceAccountsList.PNG
+.. image:: ../webapp/RegisterServiceAccountsList.png
    :scale: 30
    :align: center
 
 Once you have completed these steps, a listing of the Google Cloud Project members will display:
 
 .. image:: ../webapp/GCPMembers.png
-   :scale: 30
+   :scale: 100
    :align: center
    
 Click the **Register** button to go to the next screen:
