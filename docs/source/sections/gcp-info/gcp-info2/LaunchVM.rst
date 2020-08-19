@@ -21,10 +21,9 @@ An instructional video on how to launch a VM can be found on the Google Cloud Pl
 
 
 Try it yourself: 
-
 On your Google Cloud Platform project console page:  
 
-* Choose the Compute Engine option from the menu icon in the upper-left corner.
+* **Choose the Compute Engine option from the menu icon in the upper-left corner.**
   
 * Choose the VM instances page.
    #. Note: the first time you visit the page, you will see two options: "Create Instance" or "Take the quickstart".) After that, you will see a page with a list    of existing (running or stopped) VMs. 
