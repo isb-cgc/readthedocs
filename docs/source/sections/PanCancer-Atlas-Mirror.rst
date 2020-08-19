@@ -2,7 +2,7 @@
 Pan-Cancer Atlas BigQuery Data
 *******************************
 
-`The Pan-Cancer Atlas BigQuery data set <https://console.cloud.google.com/bigquery?project=isb-cgc&page=dataset&d=pancancer_atlas&p=isb-cgc&redirect_from_classic=true>`_ was produced in
+`The Pan-Cancer Atlas BigQuery data set <https://console.cloud.google.com/bigquery?page=dataset&d=pancancer_atlas&p=isb-cgc&redirect_from_classic=true>`_ was produced in
 collaboration with the `TCGA research network <https://cancergenome.nih.gov/>`_,
 the `GDC <https://gdc.cancer.gov/>`_, and the `NCI <https://www.cancer.gov/>`_. This rich data set allows for an integrated examination of the full set of tumors characterized in the robust TCGA dataset and provides a new way to explore and analyze the processes driving cancer.
 
@@ -14,7 +14,7 @@ for more details on other publicly accessible BigQuery data sets).
 About Pan-Cancer Atlas Data
 ###########################
 
-The Pan-Cancer Atlas BigQuery tables  (`accessed here <https://console.cloud.google.com/bigquery?project=isb-cgc&page=dataset&d=pancancer_atlas&p=isb-cgc&redirect_from_classic=true>`_) mirror most of the files shared by the Pan-Cancer Atlas initiative on the `GDC PanCanAtlas Publications page <https://gdc.cancer.gov/about-data/publications/pancanatlas>`_.
+The Pan-Cancer Atlas BigQuery tables  (`accessed here <https://console.cloud.google.com/bigquery?page=dataset&d=pancancer_atlas&p=isb-cgc&redirect_from_classic=true>`_) mirror most of the files shared by the Pan-Cancer Atlas initiative on the `GDC PanCanAtlas Publications page <https://gdc.cancer.gov/about-data/publications/pancanatlas>`_.
 
 The tables are generally unmodified uploads of the files in the `GDC Pan-Cancer Atlas <https://gdc.cancer.gov/about-data/publications/pancanatlas>`_. The Filtered_* tables were annotated as appropriate with ParticipantBarcode, SampleBarcode, AliquotBarcode, SampleTypeLetterCode, SampleType and TCGA Study. Subsequently the tables were filtered using the Pan-Cancer Atlas whitelist (which is the list of TCGA barcodes included in the Pan-Cancer Atlas). Two exceptions are the (public) *MC3 MAF file* and the *TCGA-CDR resource*. 
 
@@ -48,7 +48,7 @@ Pan-Cancer Atlas BiqQuery Query Example
 Ready to query? Follow the steps below to run a query in the Google BigQuery Console. More details are `here <https://cloud.google.com/bigquery/docs/quickstarts/quickstart-web-ui>`_.
 
 * `Login <https://accounts.google.com/Login>`_ to your Google account (`Chrome <https://www.google.com/chrome/browser/desktop/index.html>`_ is the preferred browser);
-* Go to the `BigQuery Console <https://console.cloud.google.com/bigquery?project=isb-cgc&page=dataset&d=pancancer_atlas&p=isb-cgc&redirect_from_classic=true>`_. 
+* Go to the `BigQuery Console <https://console.cloud.google.com/bigquery?page=dataset&d=pancancer_atlas&p=isb-cgc&redirect_from_classic=true>`_. 
 
 Let's query using the MC3 somatic mutation table.
 
