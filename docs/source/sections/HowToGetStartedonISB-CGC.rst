@@ -31,7 +31,7 @@ A Google Cloud Project (GCP) is required to make use of all of the data, tools, 
 **Connect to ISB-CGC's cancer data tables in Google BigQuery**
  
  - To obtain access to the ISB-CGC open access project tables in BigQuery, users can link these tables to their GCP project as described `here <progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_.
- - To obtain access to the ISB-CGC controlled access project tables in BigQuery, users can link these tables to their GCP project as described `here <progapi/bigqueryGUI/LinkingISB-CGCtoCABQ.html>`_.
+ - To obtain access to the ISB-CGC controlled access project tables in BigQuery, users can link these tables to their GCP project as described `here <controlled-access/Controlled-data-Interactive.html#linking-controlled-access-data-to-your-google-bigquery-console>`_.
   
 **Access open-access data**
 
