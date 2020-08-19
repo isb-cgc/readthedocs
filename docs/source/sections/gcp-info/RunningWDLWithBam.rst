@@ -3,7 +3,7 @@ Running WDL pipeline on public Bam file from ISB-CGC
 ====================================================
 
 
-This workflow gathers GC content from a bam file/ or a list of Bam files to a text file
+This workflow gathers GC content from a BAM file (or a list of BAM files) to a text file.
 
 
 Requirements:
