@@ -9,7 +9,7 @@ We have put together some basic documentation and workflow examples for ISB-CGC 
 
 Getting Started
 ================
-These links in this section: **(1)** help new users get familiar with the Google Cloud Platform tools and technologies (virtual machines and cloud storage) necessary to run workflows with your ISB-CGC Google Cloud Platform project, **(2)** provide a cheatsheet of the packages and dependencies required on the virtual machines to successfully execute the workflow examples provided below.   **(3)** Calculating cloud costs before running large workflows is very crucial. We provide here some tips and tricks to determining costs before running workflows.  
+The links in this section: **(1)** help new users get familiar with the Google Cloud Platform tools and technologies (virtual machines and cloud storage) necessary to run workflows with your ISB-CGC Google Cloud Platform project, **(2)** provide a cheatsheet of the packages and dependencies required on the virtual machines to successfully execute the workflow examples provided below.   **(3)** Calculating cloud costs before running large workflows is very crucial. We provide here some tips and tricks to determining costs before running workflows.  
 
 
  -  `Launching a Virtual Machine <gcp-info2/LaunchVM.html>`_
