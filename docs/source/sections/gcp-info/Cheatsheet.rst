@@ -134,8 +134,7 @@ Check docker installation:
 
   $ docker run hello-world
 
-if docker doesn't run try the fix right below or read more `here <https://linoxide.com/linux-how-to/use-docker-without-sudo-ubuntu/>`_
-.
+If docker doesn't run, try the fix right below or read more `here <https://linoxide.com/linux-how-to/use-docker-without-sudo-ubuntu/>`_.
 
 
 
