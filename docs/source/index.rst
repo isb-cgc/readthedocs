@@ -43,11 +43,12 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    sections/DataBrowser
    sections/data/Mitelman_about
    sections/DataExplorer
-   sections/progapi/progAPI-v4/Programmatic-Demo
+   sections/ProgrammaticAccess
    sections/HowTos
    sections/RegulomeExplorerNotebooks
    sections/data/TCGA_Data_Security
-   sections/Gaining-Access-To-Controlled-Access-Data
+   sections/Gaining-Access-To-Controlled-Access-Data 
+   
    
 .. toctree::
    :hidden:
