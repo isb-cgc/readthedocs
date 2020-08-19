@@ -76,35 +76,3 @@ Extending Your Access by 24 hours
 If you need to extend your access to controlled data for another 24 hours from now (*eg* if you have a compute job which is using these Google credentials to access 
 controlled data and it is still running), click the **Extend** button on the Data Access panel on the Account Details screen (pictured above).
 Your access will be extended by 24 hours from the time that you click the button. 
-
-Linking controlled access data to your Google BigQuery Console
------------------------------------------------------
-
-To obtain access to the ISB-CGC project tables in BigQuery you must link these tables to your project so that they will show up in the left panel of your BigQuery web UI. 
-
-When you access BigQuery from your Google Cloud Platform Console (see `here <../progapi/bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform.html>`_ for more information on this), you will be presented with the following page:
-
-.. image:: ../progapi/bigqueryGUI/BlueArrowDropdown.PNG
-   :scale: 25
-   :align: center
-
-The blue arrow will produce a drop down list; select 'Switch to Project'; then click 'display project...'
-
-You will then be presented with the following page:
-
-.. image:: ../progapi/bigqueryGUI/SearchProjectSection.PNG
-   :scale: 25
-   :align: center
-
-As shown in the image below you will need to type in "isb-cgc-cbq" in the project id and then click okay. The BigQuery project "isb-cgc-cbq" contains the ISB-CGC controlled access data which is stored in BigQuery tables.
-
-.. image:: ../progapi/bigqueryGUI/CABQisb-cgc-pinning.PNG
-   :scale: 25
-   :align: center
-
-Once this has been completed you will be able to the appropriate controlled access ISB-CGC BigQuery data sets on the left hand side (see screenshot below).
-
-.. image:: ../progapi/bigqueryGUI/isb-cgc-cbq_tablename.PNG
-   :scale: 25
-   :align: center
-
