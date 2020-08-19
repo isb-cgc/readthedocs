@@ -107,8 +107,8 @@ To access controlled data programmatically, such as through Google Cloud or when
    controlled-access/Controlled-data-GCP
 
    
-Linking controlled access data to your Google BigQuery Console
---------------------------------------------------------------
+Controlled access data in the Google BigQuery Console
+------------------------------------------------------
 
 The BigQuery project "isb-cgc-cbq" contains the ISB-CGC controlled access data which is stored in BigQuery tables. To obtain access to these ISB-CGC tables within the Google BigQuery Console, you must link to them within the BiqQuery Console. 
  
