@@ -54,7 +54,7 @@ which takes you to the following page:
    
 Click the **Register** button in the Google Cloud Platform section.  That takes you to the following page:
 
-.. image:: ../webapp/RegisteredAGCPForm.png
+.. image:: ../webapp/RegisterAGCPForm.png
    :scale: 40
    :align: center
    
