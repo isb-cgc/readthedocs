@@ -16,6 +16,7 @@ Select this method for `controlled access via service account credentials <contr
   * Uses the credentials of a *service account*, acting on your behalf (To learn about service accounts, refer to the Google `documentation <https://cloud.google.com/iam/docs/service-accounts>`_.);
   * Example uses: using a Google Cloud Project; running a program from a Google Compute Engine (GCE) Virtual Machine (VM) that takes longer than 24 hours to complete
  
+.. note:: If you are looking to gain access to COSMIC data, please see the `COSMIC documentation <data/COSMIC_about.html>`_.
 
 Prerequisites
 --------------
@@ -86,7 +87,7 @@ These prerequisite steps only need to be done once, unless your accounts become 
 Controlled Access Via Personal User Credentials
 -----------------------------------------------
 
-The first time that you perform the above steps, you are automatically granted controlled access via your personal uer credentials. This access lasts for 24 hours, though it can be extended. Subsequently, to obtain access, sign into the Web App, click on your persona (or **Account Details** on the drop down menu next to your name). Click **Obtain controlled access for 24 Hours.**
+The first time that you perform the above steps, you are automatically granted controlled access via your personal uer credentials. This access lasts for 24 hours, though it can be extended. Subsequently, to obtain access, sign into the Web App, click on your persona (or **Account Details** on the drop down menu next to your name). Click the **Get Controlled Access** button below **Obtain controlled access for 24 hours**.
 
 .. image:: controlled-access/DataAccess-24hours.png
    :align: center
@@ -106,4 +107,33 @@ To access controlled data programmatically, such as through Google Cloud or when
    controlled-access/Controlled-data-GCP
 
    
-   
+Controlled Access in the Google BigQuery Console
+------------------------------------------------------
+
+The BigQuery project "isb-cgc-cbq" contains the ISB-CGC controlled access data which is stored in BigQuery tables. To obtain access to these ISB-CGC tables within the Google BigQuery Console, you must link to them within the BiqQuery Console. Before doing so, you must have followed all the prerequisites above, including  `linking your Google identity to your NIH/eRA account  <controlled-access/Controlled-data-Interactive.html>`_ via the ISB-CGC Web App.
+ 
+When you access BigQuery from your Google Cloud Platform Console (see `here <progapi/bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform.html>`_ for more information on this), you will be presented with the following page:
+
+.. image:: progapi/bigqueryGUI/BlueArrowDropdown.PNG
+   :scale: 25
+   :align: center
+
+The blue arrow will produce a drop down list; select 'Switch to Project'; then click 'display project...'
+
+You will then be presented with the following page:
+
+.. image:: progapi/bigqueryGUI/SearchProjectSection.PNG
+   :scale: 25
+   :align: center
+
+As shown in the image below you will need to type in "isb-cgc-cbq" in the project id and then click okay. 
+
+.. image:: progapi/bigqueryGUI/CABQisb-cgc-pinning.PNG
+   :scale: 25
+   :align: center
+
+Once this has been completed you will be able to see the appropriate controlled access ISB-CGC BigQuery data sets on the left hand side (see screenshot below).
+
+.. image:: progapi/bigqueryGUI/isb-cgc-cbq_tablename.PNG
+   :scale: 25
+   :align: center

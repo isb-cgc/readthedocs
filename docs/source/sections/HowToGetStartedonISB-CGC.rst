@@ -25,13 +25,13 @@ A Google Cloud Project (GCP) is required to make use of all of the data, tools, 
 
  - See Google's documentation about how to `create a Google Cloud Project <https://cloud.google.com/resource-manager/docs/creating-managing-projects>`_.
  - Learn about how to `add members and roles to a project <https://cloud.google.com/iam/docs/quickstart>`_.
- - If you'll be accessing controlled data, `register the GCP project <Gaining-Access-To-Controlled-Access-Data.html#requirements-for-registering-a-google-cloud-project-service-account>`_.
+ - If you'll be accessing controlled data, `register the GCP project <controlled-access/Controlled-data-GCP.html>`_.
  - `Enable Required Google Cloud APIs <https://cloud.google.com/apis/docs/getting-started#enabling_apis>`_
 
 **Connect to ISB-CGC's cancer data tables in Google BigQuery**
  
  - To obtain access to the ISB-CGC open access project tables in BigQuery, users can link these tables to their GCP project as described `here <progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_.
- - To obtain access to the ISB-CGC controlled access project tables in BigQuery, users can link these tables to their GCP project as described `here <progapi/bigqueryGUI/LinkingISB-CGCtoCABQ.html>`_.
+ - To obtain access to the ISB-CGC controlled access project tables in BigQuery, users can link these tables to their GCP project as described `here <Gaining-Access-To-Controlled-Access-Data.html#controlled-access-in-the-google-bigquery-console>`_.
   
 **Access open-access data**
 
@@ -39,7 +39,7 @@ A Google Cloud Project (GCP) is required to make use of all of the data, tools, 
 
 **Access controlled data (with proper authorization)**
 
- - To access controlled data (primarily raw data files in the GDC Google Cloud Storage buckets), users must first be authenticated by NIH (`via the ISB-CGC web-app <Gaining-Access-To-Controlled-Access-Data.html#interactive-access-to-controlled-data>`_). Upon successful authentication, user dbGaP authorization will be verified. These two steps are required before the user’s Google identity is added to the access control list (ACL) for the controlled data. At this time, this access must be renewed every 24 hours.
+ - To access controlled data (primarily raw data files in the GDC Google Cloud Storage buckets), users must first be authenticated by NIH (`via the ISB-CGC web-app <Gaining-Access-To-Controlled-Access-Data.html>`_). Upon successful authentication, user dbGaP authorization will be verified. These two steps are required before the user’s Google identity is added to the access control list (ACL) for the controlled data. At this time, this access must be renewed every 24 hours.
   
 **Getting Started with Analysis**
 

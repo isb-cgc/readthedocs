@@ -36,23 +36,25 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    :maxdepth: 1
    :caption: USER GUIDE
    
-   sections/data/Mitelman_about
    sections/Hosted-Data
-   sections/data/TCGA_Data_Security
-   sections/Gaining-Access-To-Controlled-Access-Data
+   sections/Web-UI
    sections/BigQuery
    sections/BigQueryTableSearchUI
+   sections/DataBrowser
+   sections/data/Mitelman_about
    sections/DataExplorer
-   sections/Web-UI
-   sections/progapi/progAPI-v4/Programmatic-Demo
+   sections/ProgrammaticAccess
+   sections/HowTos
+   sections/RegulomeExplorerNotebooks
+   sections/data/TCGA_Data_Security
+   sections/Gaining-Access-To-Controlled-Access-Data 
+   
    
 .. toctree::
    :hidden:
    :maxdepth: 1
    :caption: MORE INFORMATION
    
-   sections/HowTos
-   sections/RegulomeExplorerNotebooks
    sections/TutorialsAndHow-ToGuides
    sections/Releases
    sections/Quick-links-updated
