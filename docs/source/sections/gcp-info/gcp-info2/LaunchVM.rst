@@ -38,12 +38,17 @@ On your Google Cloud Platform project console page:
    #. Creating the VM should take less than a minute, after which you will see it listed on the "VM instances" page, with the Name, Zone, Disk, Network, and     External IP address shown.  There is also an SSH button that you can use directly from the Console.
 
 
-Launch a VM using the Command Line Interface 
-============================================
+Launch a VM using the Command Line Interface (CLI)
+==================================================
 The command line argument to create a new VM instance is **gcloud compute instances create**.  The complete
 documentation can be found 
 `online <https://cloud.google.com/sdk/gcloud/reference/compute/instances/create>`_ 
 or by typing **gcloud compute instances create --help** on the command line.
+
+Here is a very simple command to create a VM:
+
+**gcloud compute instances create my-instance --machine-type g1-small**
+
 
 Some defaults can be obtained (if available) from your configuration settings.  For example, if you don't want
 to have to specify the zone of the instances, you can set the compute/zone property, for example:
@@ -55,14 +60,9 @@ A list of zones can be fetched by running:
 **gcloud compute zones list**
 
 
-Here is a very simple command to create a VM:
-
-**gcloud compute instances create my-instance --machine-type g1-small**
-
-
 Accessing your new VM
 =====================
-Whether you have created your VM from the Console or using the gcloud CLI, you can find it and 
+Whether you have created your VM from the Console or using the CLI, you can find it and 
 ssh to it, again using either the Console or the CLI:
 
   * From the Console, go to Compute Engine > VM instances, and then click on the **SSH** button on the far-right of the row describing the specific VM you would like to connect to.
