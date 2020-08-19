@@ -62,7 +62,7 @@ Replace "/home/thinh_vo/sample/\*.bam" with your new address from the gcsfuse tu
   #execute nextflow with docker image:
   $ ./nextflow run Nextflow-GCgather/Nextflow-GCgather.nf -with-docker gcr.io/genomics-tools/samtools
 
-.. note:: This Bam file is quite large, it may take about 15 mins ~ 20 mins to run.
+.. note:: This Bam file is quite large; it may take about 15 mins ~ 20 mins to run.
 
 Once Nextflow is finished, the result will be on the screen, or you can find it at **Nextflow-GCgather/Sam_results/final_gc_stats_out.txt**.
 
@@ -79,6 +79,6 @@ You can use this command instead to run Nextflow; it will out put a visualizatio
 It should look like this:
 
   .. image:: images/RunningNextflowWithBam.png
-     :align: left
+     :align: center
 
 To see the result of this workflow, you can check it `here <https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/tree/master/Results/GC-gather>`_
