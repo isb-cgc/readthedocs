@@ -13,7 +13,7 @@ Step 1: create a Virtual Machine (VM) instance big enough to hold your data
 This guide recommends your VM be created with: **Ubuntu 16.04 LTS**, and with the **Allow full access to all Cloud APIs** option.
 
 
-.. note:: it's very important to have a VM big enough, or your gcsfuse will not mount properly.
+.. note:: It's very important to have a VM big enough, or your gcsfuse will not mount properly.
 
 Step 2: installing gcsfuse
 ==========================
@@ -41,7 +41,7 @@ Making a directory to hold your bucket:
 
    $ mkdir <yourNewDirectory>
 
-.. note:: to access restricted data with your Google credential, before going further use this command: $gcloud auth application-default login
+.. note:: To access restricted data with your Google credential, before going further, use this command: $gcloud auth application-default login
 
 Mount a bucket to your folder:
 
@@ -49,7 +49,7 @@ Mount a bucket to your folder:
 
    $ gcsfuse <bucketname> <myfolder/to/mount>
 
-example: gs://gdc-ccle-open/ is the bucket you want to mount to your VM
+Example: gs://gdc-ccle-open/ is the bucket you want to mount to your VM
 
 ::
 
@@ -61,7 +61,7 @@ Mount a subdirectory from your bucket to your VM folder:
 
    $ gcsfuse --only-dir <subdirectory> <bucketName> <myFolder/to/mount>
 
-example: you have a bam file with the address gs://gdc-ccle-open/692a845c-7957-41f2-b679-5434c69ba25b/G27328.Calu-6.1.bam,
+Example: you have a bam file with the address gs://gdc-ccle-open/692a845c-7957-41f2-b679-5434c69ba25b/G27328.Calu-6.1.bam,
 and you only need to mount the directory that holds that bam file:
 
 ::
