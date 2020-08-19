@@ -21,7 +21,7 @@ To be able to register your GCP and at least one service account to access contr
 
    * - You must have the role of "owner" on the Google Cloud Project, because you will need to add an ISB-CGC service account as a new project member and a DCF service account as a new project member. The screenshots below will show you how to add these service accounts to your project:
         - ISB-CGC service account -- 907668440978-oskt05du3ao083cke14641u35deokgjj@developer.gserviceaccount.com
-        - DCF service account -- fence-service@dcf-prod.iam.gserviceaccount.com
+        - DCF service account --  fence-service@dcf-prod.iam.gserviceaccount.com
         
    * - ALL members of the Google Cloud project:
         - Must be authorized to use the data set; that is, each of them must be a registered dbGaP "PI" or "downloader". (See dbGap Data Access `Request Portal <http://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login>`_, and `Understanding Data Security <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/data//TCGA_Data_Security.html>`_ for more details).
@@ -44,46 +44,47 @@ Registering your Google Cloud Project Service Account
 --------------------------------------------------------------
 Click on screen shots to enlarge them.
 
-To register your Google Cloud Project and its service account with ISB-CGC, select the "persona" icon next to your login name on the ISB-CGC Web App, 
+To register your Google Cloud Project and its service account with ISB-CGC, go to the Account Details page. After signing into the ISB-CGC Web App, 
+either select the "persona" icon next to your login name or select **Account Details** from the drop down menu under your login name, 
 which takes you to the following page:
 
 .. image:: ../webapp/RegisteredGCPs.png
-   :scale: 30
+   :scale: 35
    :align: center
    
-Click the **Register a Google Cloud Project** link.  That takes you to the following page:
+Click the **Register** button in the Google Cloud Platform section.  That takes you to the following page:
 
 .. image:: ../webapp/RegisterAGCPForm.png
-   :scale: 30
+   :scale: 35
    :align: center
    
-The instructions will walk you through how to add the necessary ISB-CGC and DCF service accounts to your project. Follow these steps in the Google Cloud Platform.
+The instructions will walk you through how to add the necessary ISB-CGC and DCF service accounts to your project. Go to the `Google Cloud Platform <https://console.cloud.google.com/>`_ and follow these steps.
 You can hide the instructions by selecting the blue **Instructions** button.  
 
 Please be sure to add both service accounts listed below. If you don't add both service accounts you will run into issues viewing the controlled data in ISB-CGC.
 Then return to the ISB-CGC Register a Google Cloud Project page, enter your Google Cloud Project ID and, click **Verify**.
 
-.. image:: ../webapp/RegisterServiceAccountsList.PNG
-   :scale: 30
+.. image:: ../webapp/RegisterServiceAccountsList.png
+   :scale: 35
    :align: center
 
 Once you have completed these steps, a listing of the Google Cloud Project members will display:
 
 .. image:: ../webapp/GCPMembers.png
-   :scale: 30
+     :scale: 50
    :align: center
    
 Click the **Register** button to go to the next screen:
 
 .. image:: ../webapp/0007projectregistered.PNG
-   :scale: 30
+   :scale: 35
    :align: center
    
 Select **Register Service Account** from the drop down menu on the left of the GCP to which you want to add a service account.  By default, there will be the 
 Compute Engine Default service account in the **Enter the service account ID** text box (see screenshot below).  Under **Which dataset(s) would you like to use?**, select the programs for which you would like to have controlled access.
 
 .. image:: ../webapp/RegisterAServiceAccountFirstScreen.PNG
-   :scale: 30
+   :scale: 35
    :align: center
 
 If you receive the error message listed below, this signifies you need to enable the Default Compute Engine API for your Google Cloud Project.  
@@ -125,7 +126,7 @@ Adding additional Google Cloud Projects
 To register additional Google Cloud Projects, select the **+ Register New Google Cloud Project** button from the "Registered Google Cloud Projects" page (see screenshot below).
 
 .. image:: ../webapp/RegisterAnotherGCP.PNG
-   :scale: 30
+   :scale: 35
    :align: center
 
 Deleting Google Cloud Projects
@@ -133,7 +134,7 @@ Deleting Google Cloud Projects
 To unregister a GCP, select the **Unregister Project** button from the drop down menu beside the project on the "Registered Google Cloud Projects" page (see screenshot below).
 
 .. image:: ../webapp/UnregisterAGCP.PNG
-   :scale: 30
+   :scale: 35
    :align: center
 
 Adding additional service accounts to a Google Cloud Project
@@ -141,7 +142,7 @@ Adding additional service accounts to a Google Cloud Project
 To add additional service accounts to a GCP, select **Register Service Account** from the drop down menu beside the project (see screenshot below). 
 
 .. image:: ../webapp/0007projectregistered.PNG
-   :scale: 30
+   :scale: 35
    :align: center
 
 
@@ -151,7 +152,7 @@ Add or remove a controlled data set from one specific service account using this
 the service account names, then select the plus "+" sign icon next to the trash can (see screenshot below).
 
 .. image:: ../webapp/AdjustServiceAccount.png
-   :scale: 30
+   :scale: 40
    :align: center
 
 
@@ -161,7 +162,7 @@ To delete a service account from a GCP (not allowing it to be used for programma
 (see screenshot below).
 
 .. image:: ../webapp/DeleteServiceAccount.png
-   :scale: 30
+   :scale: 40
    :align: center
 
 Extending Your Service Account Access by Seven Days 
@@ -170,7 +171,7 @@ Once you have registered a Service Account, you have seven days before the acces
 (*e.g.* if your program is still running), select the "refresh" icon beside the service account (see screenshot below).
 
 .. image:: ../webapp/RefreshServiceAccount.png
-   :scale: 30
+   :scale: 40
    :align: center
 
 Reauthorizing a Google Cloud Project(s) Service Account(s)
@@ -184,7 +185,7 @@ To reauthorize the service account:
 2) Select the "adjust" icon beside the service account (see screenshot below) and add the controlled datasets to the service account.
 
 .. image:: ../webapp/AdjustServiceAccount.png
-   :scale: 30
+   :scale: 40
    :align: center
 
 
@@ -197,6 +198,6 @@ We are currently working with Google to resolve this issue.
 
 
 .. image:: ../webapp/OrganizationFound.PNG
-   :scale: 30
+   :scale: 45
    :align: center
 
