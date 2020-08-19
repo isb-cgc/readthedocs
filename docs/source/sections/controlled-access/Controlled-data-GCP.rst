@@ -20,8 +20,8 @@ To be able to register your GCP and at least one service account to access contr
 .. list-table:: 
 
    * - You must have the role of "owner" on the Google Cloud Project, because you will need to add an ISB-CGC service account as a new project member and a DCF service account as a new project member. The screenshots below will show you how to add these service accounts to your project:
-        - ISB-CGC service account -- 144657163696-utjumdn9c03fof16ig7bjak44hfj53o6@developer.gserviceaccount.com
-        - DCF service account -- fence-service@dcf-staging-202214.iam.gserviceaccount.com
+        - ISB-CGC service account -- 907668440978-oskt05du3ao083cke14641u35deokgjj@developer.gserviceaccount.com
+        - DCF service account --  fence-service@dcf-prod.iam.gserviceaccount.com
         
    * - ALL members of the Google Cloud project:
         - Must be authorized to use the data set; that is, each of them must be a registered dbGaP "PI" or "downloader". (See dbGap Data Access `Request Portal <http://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login>`_, and `Understanding Data Security <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/data//TCGA_Data_Security.html>`_ for more details).
