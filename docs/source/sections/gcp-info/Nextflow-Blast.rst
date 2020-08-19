@@ -16,10 +16,7 @@ Requirements:
 - Graphviz
 
 
-To install Docker, Java, Python, Graphviz and Nextflow, you can visit our **Cheatsheet**.
-
-
-- `Cheatsheet <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/Cheatsheet.html>`_
+To install Docker, Java, Python, Graphviz and Nextflow, see our `VM Workflow Tools Installation Cheatsheet <Cheatsheet.html>`_ for instructions.
 
 
 .. note:: The requirements above are crucial to running this workflow. Please make sure you have them installed properly prior to running this workflow.
