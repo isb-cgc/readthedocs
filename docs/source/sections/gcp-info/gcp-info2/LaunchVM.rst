@@ -5,10 +5,12 @@ You can launch a virtual machine (which we will generally refer to as a VM) from
 
 Prerequisites 
 =============
+#. Enable the following APIs in your Google Cloud Project:
 
-#. Enable the following APIs in your Google Cloud Project: 
-  * Google Compute Engine
-  * Google Cloud Storage
+    * Google Compute Engine
+
+    * Google Cloud Storage
+
 #. Check the IAM & Admin section of the Cloud Console to verify that you have "Editor" or "Owner" privileges in your Google Cloud Project, otherwise you won’t be    able to create any VMs.
 
 
@@ -19,48 +21,29 @@ An instructional video on how to launch a VM can be found on the Google Cloud Pl
 
 
 Try it yourself: 
+
 On your Google Cloud Platform project console page:  
 
 #. Navigate to the menu icon in the far upper-left corner, and then choose "Compute Engine" from the panel. Choose the "VM" instances page. 
-
-#. The first time you visit this page, you will see two options: "Create Instance" or "Take the quickstart".
-After the first time, you may see a different page with a list of existing (running or stopped) VMs.   At the top of this page, you will see options to "CREATE INSTANCE". 
-After selecting the "Create Instance" option, you will be sent to the "Create an instance" page
+#. he first time you visit this page, you will see two options: "Create Instance" or "Take the quickstart".
+After the first time, you may see a different page with a list of existing (running or stopped) VMs.   At the top of this page, you will see options to "CREATE INSTANCE".
+#. After selecting the "Create Instance" option, you will be sent to the "Create an instance" page
 where defaults will be selected for the Name, Zone, Machine type, etc:
-
     * **Name**: this name is relatively arbitrary, choose something that is meaningful to you;
     * **Zone**: choose one of the us-east or us-central zones;
     * **Machine type**:  you can specify a VM with anywhere between 1 and 16 cores (aka vCPUs), and with up to 100 GB of RAM (you can try the "Customize" view if you prefer a more graphical approach);  note that as you change the specifications of the VM, the estimated cost shown on this page will update;
     * **Boot disk**:  the default boot disk and OS will be shown, but you can change this as you wish: the "Change" button will result in a flyout panel where you can choose from a variety of Preconfigured images (Debian, CentOS, Ubuntu, RedHat, etc) or previously created images or disks; you can also choose between "standard disks" and faster (and more expensive) solid-state drives (SSDs), and specify the size of the disk (up to 64TB).
 
-Other options below the "Management, disk, ..." line include Preemptibility (default is OFF), 
+Other options below the "Management, disk, ..." line include Preemptibility (default is OFF),
 Automatic restart (default is ON), and what to do during infrastructure maintenance (default 
 is to "migrate VM" so that you will not experience any downtime).
 
-Once you have all of the options set, you can click on the blue **Create** button.  You can also 
-see the equivalent REST or command-line interfaces which perform the exact same option.  
-(The Console is just a friendlier interface between you and more direct REST-based access to the same
-functionality.)
-
-Creating the VM should take less than a minute, after which you will see it listed on the "VM instances"
-page, with the Name, Zone, Disk, Network, and External IP address shown.  There is also an SSH button
-that you can use directly from the Console.
-
-
-https://cloud.google.com/shell/docs/how-cloud-shell-works
-
-The **gcloud** command-line tool can be used to manage Google Cloud Platform (GCP) resources.  (For more details, please look at the official 
-`gcloud Tool Guide <https://cloud.google.com/sdk/gcloud/>`_.)
-
-Bundled into the `gcloud <https://cloud.google.com/sdk/gcloud/reference/>`_ 
-CLI are several **commands** and **groups** of sub-commands.  The group of sub-commands
-that allows you to read and manipulate Google Compute Engine (GCE) resources is 
-`gcloud compute <https://cloud.google.com/sdk/gcloud/reference/compute/>`_.
+Once you have all of the options set, you can click on the blue **Create** button. Creating the VM should take less than a minute, after which you will see it listed on the "VM instances" page, with the Name, Zone, Disk, Network, and External IP address shown.  There is also an SSH button that you can use directly from the Console.
 
 
 Launch a VM using the Command Line Interface 
 ============================================
-The command to create a new VM instance is **gcloud compute instances create**.  The complete
+The command line argument to create a new VM instance is **gcloud compute instances create**.  The complete
 documentation can be found 
 `online <https://cloud.google.com/sdk/gcloud/reference/compute/instances/create>`_ 
 or by typing **gcloud compute instances create --help** on the command line.
@@ -86,7 +69,7 @@ Whether you have created your VM from the Console or using the gcloud CLI, you c
 ssh to it, again using either the Console or the CLI:
 
   * From the Console, go to Compute Engine > VM instances, and then click on the **SSH** button on the far-right of the row describing the specific VM you would like to connect to.
-  * Using the CLI, simply use the command ``gcloud cmopute ssh`` followed by the instance name.
+  * Using the CLI, simply use the command **gcloud compute ssh** followed by the instance name.
 
 
 Shutting down your VM
