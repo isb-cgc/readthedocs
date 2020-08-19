@@ -54,7 +54,7 @@ which takes you to the following page:
    
 Click the **Register** button in the Google Cloud Platform section.  That takes you to the following page:
 
-.. image:: ../webapp/RegisterAGCPForm.png
+.. image:: ../webapp/RegisteredAGCPForm.png
    :scale: 40
    :align: center
    
@@ -65,7 +65,7 @@ Please be sure to add both service accounts listed below. If you don't add both 
 Then return to the ISB-CGC Register a Google Cloud Project page, enter your Google Cloud Project ID and, click **Verify**.
 
 .. image:: ../webapp/RegisterServiceAccountsList.png
-   :scale: 40
+   :scale: 50
    :align: center
 
 Once you have completed these steps, a listing of the Google Cloud Project members will display:
@@ -76,14 +76,14 @@ Once you have completed these steps, a listing of the Google Cloud Project membe
 Click the **Register** button to go to the next screen:
 
 .. image:: ../webapp/0007projectregistered.PNG
-   :scale: 30
+   :scale: 40
    :align: center
    
 Select **Register Service Account** from the drop down menu on the left of the GCP to which you want to add a service account.  By default, there will be the 
 Compute Engine Default service account in the **Enter the service account ID** text box (see screenshot below).  Under **Which dataset(s) would you like to use?**, select the programs for which you would like to have controlled access.
 
 .. image:: ../webapp/RegisterAServiceAccountFirstScreen.PNG
-   :scale: 30
+   :scale: 40
    :align: center
 
 If you receive the error message listed below, this signifies you need to enable the Default Compute Engine API for your Google Cloud Project.  
@@ -125,7 +125,7 @@ Adding additional Google Cloud Projects
 To register additional Google Cloud Projects, select the **+ Register New Google Cloud Project** button from the "Registered Google Cloud Projects" page (see screenshot below).
 
 .. image:: ../webapp/RegisterAnotherGCP.PNG
-   :scale: 30
+   :scale: 40
    :align: center
 
 Deleting Google Cloud Projects
@@ -133,7 +133,7 @@ Deleting Google Cloud Projects
 To unregister a GCP, select the **Unregister Project** button from the drop down menu beside the project on the "Registered Google Cloud Projects" page (see screenshot below).
 
 .. image:: ../webapp/UnregisterAGCP.PNG
-   :scale: 30
+   :scale: 40
    :align: center
 
 Adding additional service accounts to a Google Cloud Project
@@ -141,7 +141,7 @@ Adding additional service accounts to a Google Cloud Project
 To add additional service accounts to a GCP, select **Register Service Account** from the drop down menu beside the project (see screenshot below). 
 
 .. image:: ../webapp/0007projectregistered.PNG
-   :scale: 30
+   :scale: 40
    :align: center
 
 
@@ -151,7 +151,7 @@ Add or remove a controlled data set from one specific service account using this
 the service account names, then select the plus "+" sign icon next to the trash can (see screenshot below).
 
 .. image:: ../webapp/AdjustServiceAccount.png
-   :scale: 30
+   :scale: 40
    :align: center
 
 
@@ -161,7 +161,7 @@ To delete a service account from a GCP (not allowing it to be used for programma
 (see screenshot below).
 
 .. image:: ../webapp/DeleteServiceAccount.png
-   :scale: 30
+   :scale: 40
    :align: center
 
 Extending Your Service Account Access by Seven Days 
@@ -170,7 +170,7 @@ Once you have registered a Service Account, you have seven days before the acces
 (*e.g.* if your program is still running), select the "refresh" icon beside the service account (see screenshot below).
 
 .. image:: ../webapp/RefreshServiceAccount.png
-   :scale: 30
+   :scale: 40
    :align: center
 
 Reauthorizing a Google Cloud Project(s) Service Account(s)
@@ -184,7 +184,7 @@ To reauthorize the service account:
 2) Select the "adjust" icon beside the service account (see screenshot below) and add the controlled datasets to the service account.
 
 .. image:: ../webapp/AdjustServiceAccount.png
-   :scale: 30
+   :scale: 40
    :align: center
 
 
@@ -197,6 +197,6 @@ We are currently working with Google to resolve this issue.
 
 
 .. image:: ../webapp/OrganizationFound.PNG
-   :scale: 30
+   :scale: 40
    :align: center
 
