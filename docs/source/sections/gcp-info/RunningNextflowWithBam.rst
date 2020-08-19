@@ -3,7 +3,8 @@ Running Nextflow pipeline on public BAM file from ISB-CGC
 =========================================================
 
 
-This Nextflow workflow gathers GC content from a BAM file (or a list of BAM files) to a text file. By using software containers, `Nextflow <https://www.nextflow.io>`_ enables scalable and reproducible scientific workflows. Pipelines can be written in the most common scripting languages.
+This Nextflow workflow gathers GC content from a BAM file (or a list of BAM files) to a text file. 
+By using software containers, `Nextflow <https://www.nextflow.io>`_ enables scalable and reproducible scientific workflows. Pipelines can be written in the most common scripting languages.
 
 
 Requirements:
