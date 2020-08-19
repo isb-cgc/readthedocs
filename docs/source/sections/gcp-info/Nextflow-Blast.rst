@@ -3,7 +3,7 @@ Running NEXTFLOW Blast
 ======================
 
 
-This workflow extracts contigs of interest from a mixed library of DNA, uses Blastn and Python Script
+This workflow extracts contigs of interest from a mixed library of DNA; it uses Blastn and Python.
 
 
 Requirements:
@@ -22,7 +22,7 @@ To install Docker, Java, Python, Graphviz and Nextflow, you can visit our **Chea
 - `Cheatsheet <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/Cheatsheet.html>`_
 
 
-.. note:: Requirements is crucial in order to run this workflow, please make sure you have them installed properly prior to running this workflow.
+.. note:: The requirements above are crucial to running this workflow. Please make sure you have them installed properly prior to running this workflow.
 
 
 
