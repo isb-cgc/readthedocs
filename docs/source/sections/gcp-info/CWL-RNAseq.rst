@@ -2,8 +2,9 @@
 Running CWL RNA-seq
 ==================
 
-This Common Workflow Language (`CWL <https://www.commonwl.org/>`_) `RNA-seq <https://www.technologynetworks.com/genomics/articles/rna-seq-basics-applications-and-protocol-299461#:~:text=RNA%2Dseq%20(RNA%2Dsequencing,patterns%20encoded%20within%20our%20RNA.>`_
- workflow maps read-pairs to a reference genome and produces a transcript. CWL enables the user to connect command line tools to create workflows; it is a specification and is therefore portable across platforms that support CWL.
+This Common Workflow Language (`CWL <https://www.commonwl.org/>`_) `RNA-seq <https://www.technologynetworks.com/genomics/articles/rna-seq-basics-applications-and-protocol-299461#:~:text=RNA%2Dseq%20(RNA%2Dsequencing,patterns%20encoded%20within%20our%20RNA.>`_workflow maps read-pairs to a reference genome and produces a transcript. 
+
+CWL enables the user to connect command line tools to create workflows; it is a specification and is therefore portable across platforms that support CWL.
 
 Requirements:
 =============
@@ -12,7 +13,7 @@ Requirements:
 -  Docker
 
 
-.. note:: Requirements is crucial in order to run this workflow, please make sure you have them installed properly prior to running this workflow.
+.. note:: The requirements above are crucial to running this workflow. Please make sure you have them installed properly prior to running this workflow.
 
 
 
