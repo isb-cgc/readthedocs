@@ -49,13 +49,13 @@ either select the "persona" icon next to your login name or select **Account Det
 which takes you to the following page:
 
 .. image:: ../webapp/RegisteredGCPs.png
-   :scale: 40
+   :scale: 35
    :align: center
    
 Click the **Register** button in the Google Cloud Platform section.  That takes you to the following page:
 
 .. image:: ../webapp/RegisterAGCPForm.png
-   :scale: 40
+   :scale: 35
    :align: center
    
 The instructions will walk you through how to add the necessary ISB-CGC and DCF service accounts to your project. Go to the `Google Cloud Platform <https://console.cloud.google.com/>`_ and follow these steps.
@@ -65,25 +65,26 @@ Please be sure to add both service accounts listed below. If you don't add both 
 Then return to the ISB-CGC Register a Google Cloud Project page, enter your Google Cloud Project ID and, click **Verify**.
 
 .. image:: ../webapp/RegisterServiceAccountsList.png
-   :scale: 50
+   :scale: 35
    :align: center
 
 Once you have completed these steps, a listing of the Google Cloud Project members will display:
 
 .. image:: ../webapp/GCPMembers.png
+     :scale: 50
    :align: center
    
 Click the **Register** button to go to the next screen:
 
 .. image:: ../webapp/0007projectregistered.PNG
-   :scale: 40
+   :scale: 35
    :align: center
    
 Select **Register Service Account** from the drop down menu on the left of the GCP to which you want to add a service account.  By default, there will be the 
 Compute Engine Default service account in the **Enter the service account ID** text box (see screenshot below).  Under **Which dataset(s) would you like to use?**, select the programs for which you would like to have controlled access.
 
 .. image:: ../webapp/RegisterAServiceAccountFirstScreen.PNG
-   :scale: 40
+   :scale: 35
    :align: center
 
 If you receive the error message listed below, this signifies you need to enable the Default Compute Engine API for your Google Cloud Project.  
@@ -125,7 +126,7 @@ Adding additional Google Cloud Projects
 To register additional Google Cloud Projects, select the **+ Register New Google Cloud Project** button from the "Registered Google Cloud Projects" page (see screenshot below).
 
 .. image:: ../webapp/RegisterAnotherGCP.PNG
-   :scale: 40
+   :scale: 35
    :align: center
 
 Deleting Google Cloud Projects
@@ -133,7 +134,7 @@ Deleting Google Cloud Projects
 To unregister a GCP, select the **Unregister Project** button from the drop down menu beside the project on the "Registered Google Cloud Projects" page (see screenshot below).
 
 .. image:: ../webapp/UnregisterAGCP.PNG
-   :scale: 40
+   :scale: 35
    :align: center
 
 Adding additional service accounts to a Google Cloud Project
@@ -141,7 +142,7 @@ Adding additional service accounts to a Google Cloud Project
 To add additional service accounts to a GCP, select **Register Service Account** from the drop down menu beside the project (see screenshot below). 
 
 .. image:: ../webapp/0007projectregistered.PNG
-   :scale: 40
+   :scale: 35
    :align: center
 
 
@@ -197,6 +198,6 @@ We are currently working with Google to resolve this issue.
 
 
 .. image:: ../webapp/OrganizationFound.PNG
-   :scale: 40
+   :scale: 45
    :align: center
 
