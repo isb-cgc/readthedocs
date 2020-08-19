@@ -41,7 +41,7 @@ Once you have created a bucket and a dataset in the Google Cloud Console of your
 
 .. image:: Register_Step_3.png
 
-**Step 4**: Use the "Register Cloud Storage Bucket" or "Register BigQuery Dataset" links to add buckets and datasets as needed
+**Step 4**: Use the "Register Cloud Storage Bucket" or "Register BigQuery Dataset" links to add buckets and datasets as needed.
 
 
 .. image:: Register_Step_4.png
@@ -211,7 +211,7 @@ This is the data type of the uploaded file.  Currently the allowed data types ar
 
 All files must be tab delimited and meet the formatting requirements described in `Files and File Formats`_.
 
-.. image:: MouseProjectAnnotated.PNG
+.. image:: MouseProjectAnnotated.png
 
 Saved Programs
 ##############
