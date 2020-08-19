@@ -23,7 +23,7 @@ Example introductory bioinformatics workflows
 ==============================================
 We have put together these examples to **(1)** demonstrate the syntax of these workflow languages 
 **(2)** illustrate them with two commonly used bioinformatics and -omics use-cases (RNAseq and Blast) 
-**(3)** allow users to adapt these examples to their own use-cases 
+**(3)** allow users to adapt these examples to their own use-cases.
 
  -  `Snakemake RNA-seq <FirstWorkflow.html>`_
  -  `CWL RNA-seq <CWL-RNAseq.html>`_
