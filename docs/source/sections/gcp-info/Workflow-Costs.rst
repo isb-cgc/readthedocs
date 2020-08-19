@@ -4,9 +4,6 @@ Workflow Costs
 
 Before running your workflow, it's important to consider the factors involved in the cost.
 
-Google Compute Engine (GCE) Price Make Up 
-=========================================
-
  - GCE charges are based on a `pricing sheet <https://cloud.google.com/compute/vm-instance-pricing>`_
  
    - Check this periodically as pricing is routinely updated    
@@ -24,6 +21,7 @@ Google Compute Engine (GCE) Price Make Up
    
   
  - For more cost-saving tips and tricks, check out the best practices for computing on the cloud: <Best Practices.html>`_.
+ 
   
  - If you're looking to run large job, contact us (feedback AT isb-cgc.org) and we'll help optimize your cloud costs.
  
