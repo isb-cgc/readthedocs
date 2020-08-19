@@ -3,8 +3,9 @@ Running Nextflow RNA-seq
 =======================
 
 
-This Nextflow `RNA-seq <https://www.technologynetworks.com/genomics/articles/rna-seq-basics-applications-and-protocol-299461#:~:text=RNA%2Dseq%20(RNA%2Dsequencing,patterns%20encoded%20within%20our%20RNA.>`_
- workflow maps read-pairs to a reference genome and produces a transcript. By using soft ware containers, `Nextflow <https://www.nextflow.io>`_ enables scalable and reproducible scientific workflows. Pipelines can be written in the most common scripting languages.
+This Nextflow `RNA-seq <https://www.technologynetworks.com/genomics/articles/rna-seq-basics-applications-and-protocol-299461#:~:text=RNA%2Dseq%20(RNA%2Dsequencing,patterns%20encoded%20within%20our%20RNA.>`_workflow maps read-pairs to a reference genome and produces a transcript. 
+
+By using software containers, `Nextflow <https://www.nextflow.io>`_ enables scalable and reproducible scientific workflows. Pipelines can be written in the most common scripting languages.
 
 
 Requirements:
@@ -18,7 +19,7 @@ Requirements:
 
 To install Docker, Graphviz and Nextflow, see our `VM Workflow Tools Installation Cheatsheet <Cheatsheet.html>`_ for instructions.
 
-.. note:: Requirements is crucial in order to run this workflow, please make sure you have them installed properly prior to running this workflow.
+.. note:: The requirements above are crucial to running this workflow. Please make sure you have them installed properly prior to running this workflow.
 
 Download this tutorial:
 =======================
