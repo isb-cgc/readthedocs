@@ -76,7 +76,7 @@ If you have access to a bucket and want to "clone" that bucket to your VM instan
 Pros:
 
 
-- Data can be accessed without using **gsutil** nor **gs://** address, i.e your bucket data become local to your VM instance
+- Data can be accessed without using **gsutil** or **gs://** address, i.e your bucket data become local to your VM instance
 
 Cons:
 
