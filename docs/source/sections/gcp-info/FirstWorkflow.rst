@@ -2,9 +2,7 @@
 Your First Workflow on Google Cloud Virtual Machine (Snakemake RNA-seq)
 ======================================================================
 
-This Snakemake `RNA-seq <https://www.technologynetworks.com/genomics/articles/rna-seq-basics-applications-and-protocol-299461#:~:text=RNA%2Dseq%20(RNA%2Dsequencing,patterns%20encoded%20within%20our%20RNA.>`_ workflow maps read-pairs to a reference genome and quantify the produce to produce a transcript. 
-
-`Snakemake <https://snakemake.readthedocs.io/en/stable/>`_ workflows are Python based, extended by declarative code which defines rules. The rules indicate how the output files are created from the input files.
+This Snakemake `RNA-seq <https://www.technologynetworks.com/genomics/articles/rna-seq-basics-applications-and-protocol-299461#:~:text=RNA%2Dseq%20(RNA%2Dsequencing,patterns%20encoded%20within%20our%20RNA.>`_ workflow maps read-pairs to a reference genome and quantify the produce to produce a transcript. `Snakemake <https://snakemake.readthedocs.io/en/stable/>`_ workflows are Python based, extended by declarative code which defines rules. The rules indicate how the output files are created from the input files.
 
 Requirements:
 
