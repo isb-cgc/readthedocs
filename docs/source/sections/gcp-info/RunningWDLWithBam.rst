@@ -19,7 +19,7 @@ Requirements:
 To install Java, Docker, Graphviz and WDL, see our `VM Workflow Tools Installation Cheatsheet <Cheatsheet.html>`_ for instructions. To set up gcsfuse in order to get access to the BAM file, please visit `Running Workflow with GCSFUSE <WorkflowWithGCSFUSE.html>`_.
 
 
-.. note:: The requirements above are crucial to running this workflow. Please make sure you have them installed properly prior to running this workflow
+.. note:: The requirements above are crucial to running this workflow. Please make sure you have them installed properly prior to running this workflow.
 
 
 
@@ -117,4 +117,4 @@ It should look like this:
    :align: left
 
 
-To see the result of this workflow, you can check it `here <https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/tree/master/Results/GC-gather>`_
+To see the result of this workflow, you can check it `here <https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/tree/master/Results/GC-gather>`_.
