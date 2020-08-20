@@ -33,7 +33,6 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    
 .. toctree::
    :hidden:
-   :maxdepth: 1
    :caption: USER GUIDE
    
    sections/Hosted-Data
