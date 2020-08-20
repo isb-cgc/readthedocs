@@ -18,7 +18,7 @@ The links in this section: **(1)** help new users get familiar with the Google C
  -  `Workflow Cost Considerations <Workflow-Costs.html>`_
  
 .. toctree::
-   :maxdepth: 5
+   :maxdepth: 1
    :hidden:
    
    gcp-info2/LaunchVM
@@ -40,7 +40,7 @@ We have put together these examples to **(1)** demonstrate the syntax of these w
  -  `Running CWL Blast <CWL-Blast.html>`_
  
 .. toctree::
-   :maxdepth: 5
+   :maxdepth: 1
    :hidden:
    
    FirstWorkflow
@@ -61,7 +61,7 @@ We demonstrate here: **(1)** how to use the `Google Cloud Storage FUSE (GCSFuse)
  -  `Running WDL pipeline on public BAM file from ISB-CGC <RunningWDLWithBam.html>`_
 
 .. toctree::
-   :maxdepth: 5
+   :maxdepth: 1
    :hidden:
    
    WorkflowWithGCSFUSE
