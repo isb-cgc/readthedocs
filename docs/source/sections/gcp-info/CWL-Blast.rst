@@ -101,4 +101,4 @@ Let's take a look at the folder after cwltool finishes:
 
 
 
-Full resulting files from running this workflow are deposited in the github repo `here <https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/tree/master/Results/Blast>`_
+Full resulting files from running this workflow are deposited in the github repo `here <https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/tree/master/Results/Blast>`_.
