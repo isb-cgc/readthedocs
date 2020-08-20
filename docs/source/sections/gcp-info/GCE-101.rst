@@ -39,7 +39,15 @@ We have put together these examples to **(1)** demonstrate the syntax of these w
  -  `Running Nextflow Blast <Nextflow-Blast.html>`_
  -  `Running CWL Blast <CWL-Blast.html>`_
  
- 
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   
+   FirstWorkflow
+   CWL-RNAseq
+   Nextflow-RNAseq
+   Nextflow-Blast
+   CWL-Blast
  
 Example workflows accessing data in Google Cloud Storage
 =========================================================
@@ -52,5 +60,13 @@ We demonstrate here: **(1)** how to use the `Google Cloud Storage FUSE (GCSFuse)
  -  `Running CWL pipeline on public BAM file from ISB-CGC <RunningCWLWithBam.html>`_
  -  `Running WDL pipeline on public BAM file from ISB-CGC <RunningWDLWithBam.html>`_
 
-  
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   
+   WorkflowWithGCSFUSE
+   RunningNextflowWithBam
+   RunningSnakemakeWithBam
+   RunningCWLWithBam
+   RunningWDLWithBam 
    
