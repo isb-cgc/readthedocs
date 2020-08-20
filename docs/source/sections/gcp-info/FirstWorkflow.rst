@@ -2,9 +2,7 @@
 Your First Workflow on Google Cloud Virtual Machine (Snakemake RNA-seq)
 ======================================================================
 
-This Snakemake `RNA-seq <https://www.technologynetworks.com/genomics/articles/rna-seq-basics-applications-and-protocol-299461#:~:text=RNA%2Dseq%20(RNA%2Dsequencing,patterns%20encoded%20within%20our%20RNA.>`_ workflow maps read-pairs to a reference genome and quantify the produce to produce a transcript. 
-
-`Snakemake <https://snakemake.readthedocs.io/en/stable/workflows>`_ workflows are Python based, extended by declarative code which defines rules. The rules indicate how the output files are created from the input files.
+This Snakemake `RNA-seq <https://www.technologynetworks.com/genomics/articles/rna-seq-basics-applications-and-protocol-299461#:~:text=RNA%2Dseq%20(RNA%2Dsequencing,patterns%20encoded%20within%20our%20RNA.>`_ workflow maps read-pairs to a reference genome and quantify the produce to produce a transcript. `Snakemake <https://snakemake.readthedocs.io/en/stable/>`_ workflows are Python based, extended by declarative code which defines rules. The rules indicate how the output files are created from the input files.
 
 Requirements:
 
@@ -71,7 +69,7 @@ From folder rnaseq-snake:
 
   $ cd step1
 
-Let's take a look at the 2 files in this folder: **Snakefile** and **indexing.smk**
+Let's take a look at the 2 files in this folder: **Snakefile** and **indexing.smk**.
 
 
 ::
@@ -197,9 +195,7 @@ After **Step 2**:
    |_________environment.yml
 
 The script will call `hisat2 <http://daehwankimlab.github.io/hisat2/>`_ , `samtools <http://www.htslib.org/>`_, and `stringtie <https://ccb.jhu.edu/software/stringtie/>`_ to do the work.
-The same principle as step 1 applies to this step, the **Snakefile** will contains the final outputs, and call to the helper script **therest.smk**. **ggal_gut.cutadapt.sam** file will contains the sequence alignment data produced by mapping reads to the reference genome, **ggal_gut.cutadapt.bam**
- file will contains the compressed binary data from Sam. More description on ctab files, gtf outputs, and tsv of stringtie can be found `here <http://ccb.jhu.edu/software/stringtie/index.shtml?t=manual>`_. The **ggal_gut_transcript.gtf** contains details of the transcripts that StringTie assembles from RNA-Seq data, while
- **ggal_gut.tsv** contains gene abundances.
+The same principle as step 1 applies to this step, the **Snakefile** will contains the final outputs, and call to the helper script **therest.smk**. **ggal_gut.cutadapt.sam** file will contains the sequence alignment data produced by mapping reads to the reference genome. **ggal_gut.cutadapt.bam** file will contain the compressed binary data from Sam. More description on ctab files, gtf outputs, and tsv of stringtie can be found `here <http://ccb.jhu.edu/software/stringtie/index.shtml?t=manual>`_. The **ggal_gut_transcript.gtf** contains details of the transcripts that StringTie assembles from RNA-Seq data, while **ggal_gut.tsv** contains gene abundances.
 
 
 Creating a visualization for your workflow
@@ -241,4 +237,4 @@ About environment.yml
   #visualization tool
   - graphviz =2.42.3e
 
-To see the result of this workflow, you can check it `here <https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/tree/master/Results/RNAseq>`_
+To see the result of this workflow, you can check it `here <https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/tree/master/Results/RNAseq>`_.
