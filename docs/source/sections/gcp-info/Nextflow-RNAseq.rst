@@ -121,10 +121,7 @@ After the workflow finishes running, the folder should look like this:
                 └── [sample.tsv]
 
 
-The script will call `hisat2 <http://daehwankimlab.github.io/hisat2/>`_ , `samtools <http://www.htslib.org/>`_, and `stringtie <https://ccb.jhu.edu/software/stringtie/>`_ to do the work.
-**sample.sam** file will contains the sequence alignment data produced by mapping reads to the reference genome, **sample.bam**
- file will contains the compressed binary data from Sam. More description on gtf outputs, and tsv of stringtie can be found `here <http://ccb.jhu.edu/software/stringtie/index.shtml?t=manual>`_. The **final_transcript.gtf** contains details of the transcripts that StringTie assembles from RNA-Seq data, while
- **final.tsv** contains gene abundances.
+The script will call `hisat2 <http://daehwankimlab.github.io/hisat2/>`_ , `samtools <http://www.htslib.org/>`_, and `stringtie <https://ccb.jhu.edu/software/stringtie/>`_ to do the work. **sample.sam** file will contains the sequence alignment data produced by mapping reads to the reference genome, **sample.bam** file will contains the compressed binary data from Sam. More description on gtf outputs, and tsv of stringtie can be found `here <http://ccb.jhu.edu/software/stringtie/index.shtml?t=manual>`_. The **final_transcript.gtf** contains details of the transcripts that StringTie assembles from RNA-Seq data, while **final.tsv** contains gene abundances.
 
 
 Running Nextflow with visualization

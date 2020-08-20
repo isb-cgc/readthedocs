@@ -15,14 +15,9 @@ Requirements:
 -  Docker
 -  Python (to run the scripts)
 
-To install Docker, Python, and CWL, you can visit our **Cheatsheet** listed below:
-
-- `Cheatsheet <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/Cheatsheet.html>`_
-
+To install Docker, Python, and CWL, see our `VM Workflow Tools Installation Cheatsheet <Cheatsheet.html>`_ for instructions.
 
 .. note:: The requirements above are crucial to running this workflow. Please make sure you have them installed properly prior to running this workflow.
-
-
 
 
 Download this tutorial:
@@ -38,8 +33,8 @@ Download this tutorial:
 Rationale
 ==========
 
-The input of this workflow (**sample.fa**) is produced by genome assembly software. It contains contigs from multiple organisms (eukaryote, prokaryotes) because of the way the sample was prepared and sequenced.
-In this example, we are interested in the prokaryote genome only, and will separate their contigs from the eukaryote ones. In order to do that, Blastn will do sequence alignment between the contigs and the prepared blast database (files in the folder **db**).
+The input of this workflow (**sample.fa**) is produced by genome assembly software. It contains contigs from multiple organisms (eukaryotes, prokaryotes) because of the way the sample was prepared and sequenced.
+In this example, we are interested in the prokaryotic genomes only, and will separate their contigs from the eukaryotic ones. In order to do that, Blastn will do sequence alignment between the contigs and the prepared blast database (files in the folder **db**).
 The output of Blastn will be a table, which maps the contig headers to the appropriate species. Then we demonstrate how to incorporate the use of python helper scripts in our pipeline to extract the prokaryotes' headers (**scripts/Extract_Headers.py**), contigs (**scripts/Extract_Contigs.py**), and nucleotide count (**scripts/Count_Nucleotides.py**) from the original Fasta file using the Blastn result.
 The final output of the workflow will be 3 text files: **extracted_contigs.txt**, **Headers.txt**, **NucleoCount.txt**.
 
@@ -106,4 +101,4 @@ Let's take a look at the folder after cwltool finishes:
 
 
 
-To see the result of this workflow, you can check it `here <https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/tree/master/Results/Blast>`_
+Full resulting files from running this workflow are deposited in the github repo `here <https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/tree/master/Results/Blast>`_

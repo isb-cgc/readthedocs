@@ -3,7 +3,8 @@ Running Nextflow pipeline on public BAM file from ISB-CGC
 =========================================================
 
 
-This Nextflow workflow gathers GC content from a BAM file (or a list of BAM files) to a text file. By using software containers, `Nextflow <https://www.nextflow.io>`_ enables scalable and reproducible scientific workflows. Pipelines can be written in the most common scripting languages.
+This Nextflow workflow gathers GC content from a BAM file (or a list of BAM files) to a text file. 
+By using software containers, `Nextflow <https://www.nextflow.io>`_ enables scalable and reproducible scientific workflows. Pipelines can be written in the most common scripting languages.
 
 
 Requirements:
@@ -18,7 +19,7 @@ Requirements:
 To install Docker and Nextflow, see our `VM Workflow Tools Installation Cheatsheet <Cheatsheet.html>`_ for instructions. To set up gcsfuse in order to get access to the BAM file, please visit `Running Workflow with GCSFUSE <WorkflowWithGCSFUSE.html>`_.
 
 
-.. note:: Requirements is crucial in order to run this workflow, please make sure you have them installed properly prior to running this workflow.
+.. note:: The requirements above are crucial to running this workflow. Please make sure you have them installed properly prior to running this workflow.
 
 
 
@@ -61,7 +62,7 @@ Replace "/home/thinh_vo/sample/\*.bam" with your new address from the gcsfuse tu
   #execute nextflow with docker image:
   $ ./nextflow run Nextflow-GCgather/Nextflow-GCgather.nf -with-docker gcr.io/genomics-tools/samtools
 
-.. note:: This Bam file is quite large, it may take about 15 mins ~ 20 mins to run.
+.. note:: This Bam file is quite large; it may take about 15 mins ~ 20 mins to run.
 
 Once Nextflow is finished, the result will be on the screen, or you can find it at **Nextflow-GCgather/Sam_results/final_gc_stats_out.txt**.
 
@@ -78,6 +79,6 @@ You can use this command instead to run Nextflow; it will out put a visualizatio
 It should look like this:
 
   .. image:: images/RunningNextflowWithBam.png
-     :align: left
+     :align: center
 
 To see the result of this workflow, you can check it `here <https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/tree/master/Results/GC-gather>`_

@@ -3,7 +3,7 @@ Running SNAKEMAKE pipeline on public Bam file from ISB-CGC
 ==========================================================
 
 
-This workflow gathers GC content from a bam file/ or a list of Bam file to a text file
+This workflow gathers GC content from a bam file or a list of Bam files to a text file.
 
 
 Requirements:
@@ -13,13 +13,10 @@ Requirements:
 - Gcsfuse
 - A public bam file from ISB-CGC at the address: gs://gdc-ccle-open/692a845c-7957-41f2-b679-5434c69ba25b/G27328.Calu-6.1.bam
 
-To install and set up Anaconda/Miniconda, you can visit the first tutorial **Your First Workflow on Google Cloud Virtual Machine**, and to set up gcsfuse to get access to the bam file please visit **Running Workflow with GCSFUSE** listed below:
-
-- `FirstWorkflow <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/FirstWorkflow.html>`_
-- `WorkflowWithGCSFUSE <https://isb-cancer-genomics-cloud.readthedocs.io/en/kyle-staging/sections/gcp-info/WorkflowWithGCSFUSE.html>`_
+To install and set up Anaconda/Miniconda, you can visit the first tutorial `Your First Workflow on Google Cloud Virtual Machine <FirstWorkflow.html>`_, To set up gcsfuse in order to get access to the BAM file, please visit `Running Workflow with GCSFUSE <WorkflowWithGCSFUSE.html>`_.
 
 
-.. note:: Requirements is crucial in order to run this workflow, please make sure you have them installed properly prior to running this workflow.
+.. note:: The requirements above are crucial to running this workflow. Please make sure you have them installed properly prior to running this workflow
 
 
 
