@@ -4,7 +4,7 @@ Running Workflows on ISB-CGC
 
 The ISB-CGC platform is intentionally designed to be a light-weight infrastructure above the Google Cloud Platform (GCP). As a result, our end-users have at their disposal all of the tools and technologies that the GCP has to offer. This includes full **sudo** acccess to Google Cloud Compute Engines and Virtual Machines.  For more detailed information about GCP tools and technologies, please see their in-depth `documentation page <https://cloud.google.com/docs>`_.
 
-We have put together some basic documentation and workflow examples for ISB-CGC users who are both new to the GCP as well as to the commonly used workflow languages in -omics research. We have chosen the workflow languages of CWL, NextFlow, Snakemake and WDL. If there are other workflow languages you are interested in, please let us know and we'll put together some examples for them as well (email us at feedback@isb-cgc.org)
+We have put together some basic documentation and workflow examples for ISB-CGC users who are both new to the GCP as well as to the commonly used workflow languages in -omics research. We have chosen the workflow languages of CWL, NextFlow, Snakemake and WDL. If there are other workflow languages you are interested in, please let us know and we'll put together some examples for them as well (email us at feedback@isb-cgc.org).
 
 
 Getting Started
@@ -17,6 +17,14 @@ The links in this section: **(1)** help new users get familiar with the Google C
  -  `VM Workflow Tools Installation Cheatsheet <Cheatsheet.html>`_
  -  `Workflow Cost Considerations <Workflow-Costs.html>`_
  
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   
+   gcp-info2/LaunchVM
+   LaunchBucket
+   Cheatsheet
+   Workflow-Costs
     
 
 Example introductory bioinformatics workflows
