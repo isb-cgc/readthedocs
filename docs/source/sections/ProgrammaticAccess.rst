@@ -22,7 +22,7 @@ We have compiled a collection of tutorials and sample workflows designed to intr
 
 
 .. toctree::
-   :maxdepth: 5
+   :maxdepth: 1
    :hidden:
    
    gcp-info/GCE-101.rst
