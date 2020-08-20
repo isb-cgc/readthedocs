@@ -138,5 +138,8 @@ An image file with the name **flowchart.png** will be available to download.
 It should look like this:
 
 .. image:: images/Nextflow-RNAseq.png
+   :align: center
 
- To see the result of this workflow, you can check it `here <https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/tree/master/Results/RNAseq>`_.
+
+
+To see the result of this workflow, you can check it `here <https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/tree/master/Results/RNAseq>`_.
