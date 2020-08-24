@@ -17,6 +17,8 @@ Query of the Month is produced by the ISB-CGC team, with special effort by:
 
 - Kawther Abdilleh (kawther.abdilleh  ( ~ at ~ ) gdit (~ dot ~) com)
 
+- Owais A Shahzada (owais.shahzada  ( ~ at ~ ) gdit (~ dot ~) com)
+
 - Sheila M Reynolds (sheila.reynolds ( ~ at ~ ) systemsbiology ( ~ dot ~ ) org)
 
 
