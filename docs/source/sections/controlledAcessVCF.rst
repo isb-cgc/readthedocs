@@ -4,7 +4,7 @@ Controlled Access VCF
 
 Accessing Controlled Data 
 ============
-ISB-CGC Bigquery interface contains tables which hold senstivie information about patients. These type of files are known as controlled access files. To obtain access to our controlled data please follow the steps in the our `Accessing Controlled Data <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Gaining-Access-To-Controlled-Access-Data.html#controlled-access-in-the-google-bigquery-console>`_ page to obtain the required permission.   
+ISB-CGC Bigquery interface contains tables which hold senstivie information about patients. These type of files are known as controlled access files. To obtain access to our controlled data please follow the steps in the our `Accessing Controlled Data <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Gaining-Access-To-Controlled-Access-Data.html>`_ page to obtain the required permission.   
 
 
 
