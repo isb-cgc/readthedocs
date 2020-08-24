@@ -2,6 +2,35 @@
 ISB-CGC WebApp Release Notes
 #############################
 
+*July 22, 2020* 
+
+**New Features**  `v1.26 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.26>`_
+
+- To increase system speed when filtering cohorts, switched metadata counting to use Apache Solr (instead of MySQL).
+- The WebApp is now performing its data retrieval and counts on ISB-CGC Google BigQuery tables which are based on the latest GDC data release. This means that you will see current data, but that the same queries in the WebApp could produce different results if they were run during different time periods, when the WebApp was based on different GDC data releases.
+- On the Create Cohorts – Filters page, on the left-hand filter panel, display the number of cases available for each filter, instead of the number of samples.
+- Within the Cohort Details page, on the Current Filters panel, when there are more filters than what fits on the initial screen, display the selected cohort filters in a gradient (fade-away) overlay instead of a clipped design.
+- The video tutorials have been moved to the ISB-CGC YouTube channel.
+
+**Bug Fixes**
+
+- Clicking on the X on an existing cohort filter token in the Selected Filter panel did not delete the existing cohort filter token. (This issue was caused by a jQuery update.) It has now been fixed.
+
+**Known Issues**
+
+- Work is underway to rework our cohort creation page to better display images associated with samples.
+- The user data upload feature will return an error message stating, "Error submitting response : Could not connect to data upload server."
+- Analysis Type: Seq peek Formatting is Elongated on occasion.
+- If the user shares a Cohort, neither the owner nor the person who was granted access to the Cohort will receive a confirmation email when sharing a Cohort.
+- CCLE data cannot be plotted when working with workbooks. ISB-CGC will resolve this functionality after the GDC formally releases CCLE data.
+- When a user duplicates a Worksheet, then tries to implement the log scale, it will not function properly.
+- The set operation for existing Cohorts complement is behaving exceptionally slow.
+- The mouse-over feature is currently disabled for program TARGET with disease code ALL.
+- When uploading TARGET files using the cohort barcode creation feature from the GDC, you may get an invalid barcode error message and unable to upload all the barcodes.
+- On the File Browser page for Diagnostic images, there is no GDC file UUID associated with them.
+- Sharing a workbook with someone else will cause the analysis to reset.
+
+
 *May 27, 2020* `v1.25 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.25>`_
 
 **New Features**

@@ -2,9 +2,15 @@
 ISB-CGC BigQuery Table Search Release Notes
 #################################################
 
-For more detailed information about this discovery tool created by the ISB-CGC, please visit `ISB-CGC BigQuery Table Search <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQueryTableSearchUI.html>`_.
+To learn about this discovery tool created by the ISB-CGC, please visit `ISB-CGC BigQuery Table Search <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQueryTableSearchUI.html>`_.
 
 For more detailed information about the data stored in ISB-CGC BigQuery tables please visit `ISB-CGC BigQuery Tables <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQuery.html>`_.
+
+*July 22, 2020* `v1.03 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.24>`_
+
+**New Features**
+ 
+- The Access filter has been added, which has options of All, Open Access and Controlled Access. Controlled Access data cannot be previewed, but can be opened in the Google BigQuery Console, if the user has the required permissions.
 
 *March 11, 2020* `v1.02 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.23>`_
 

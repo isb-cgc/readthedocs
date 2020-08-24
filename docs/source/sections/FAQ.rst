@@ -101,6 +101,12 @@ There is a Google forum discussion that can be found `here <https://groups.googl
 ISB-CGC Web Interface
 ########################
 
+I ran the same query in the Web App that I've run before, but the results were different. Why is that?
+-------------------------------------------------------------------------------------------------------
+
+The Web App performs its data retrieval and counts on ISB-CGC Google BigQuery tables which are based on the latest GDC data release. So, it's possible that a new GDC release
+occurred since you last performed that query.
+
 Why do I sometimes get a "Do you want to leave this site?" pop-up box when leaving a page or canceling a workflow edit?
 --------------------------------------------------------------------------------------------------------------------------
 

@@ -21,19 +21,19 @@ The **MENU** bar supplies links for the following Web App features:
      
 * **PROGRAMS** - This menu item provides a shortcut to the programs you have created if you uploaded your own data.
    
-   - Saved Programs - Here you can: 
+    - Saved Programs - Here you can: 
 
-       * Edit or delete a Saved Program
-       * Start a New Workbook
-       * Create a New Program
+      * Edit or delete a Saved Program
+      * Start a New Workbook
+      * Create a New Program
        
-   - Upload Program Data - Here you can:
+    - Upload Program Data - Here you can:
      
-        * Create a new program for analysis. To create a new program you provide a name for program, name for your project, and attach files that meet our Data Type requirements. Please see `Program Data Upload <program_data_upload.html>`_ for more information on data type accepted by the ISB-CGC. 
+      * Create a new program for analysis. To create a new program you provide a name for program, name for your project, and attach files that meet our Data Type requirements. Please see `Program Data Upload <program_data_upload.html>`_ for more information on data type accepted by the ISB-CGC. 
         
     - Public Programs - Here you can:
         
-        *  View the public programs (TCGA, CCLE, TARGET) that are currently in the ISB-CGC system. 
+      *  View the public programs (TCGA, CCLE, TARGET) that are currently in the ISB-CGC system. 
 
 * **ANALYSES** - From here you can Create, Edit Details, Duplicate, Delete, or Share Analyses. You can use a specific analysis type to create a new workbook customized with the specific data (Genes and miRNAs, Variables, Cohorts) you have selected.  The plot types that you can select are:
     
