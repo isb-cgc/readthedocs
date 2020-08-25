@@ -21,6 +21,8 @@ When you click on "Pin a Project", you will be presented with a pop-up box that 
 
 You will now see the isb-cgc open access BigQuery tables on the left-hand side pinned to your project. Repeat these steps for "isb-cgc-bq".
 
+.. note:: If the data sets and tables within the project don't display immediately, refresh your screen until they do.
+
 .. image:: PinnedProject.png
    :scale: 30
    :align: center
