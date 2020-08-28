@@ -19,7 +19,7 @@ As variant data is increasing and growing in size researchers face the problem o
 Flattened VCF BQ Table
 ================
 
-.. figure:: Bigquery_VCF_Flattened.png 
+.. figure:: webapp/Bigquery_VCF_Flattened.png 
    :scale: 80
    :align: center 
 
