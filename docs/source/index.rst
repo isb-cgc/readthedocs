@@ -31,6 +31,7 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    sections/BestPractices
    sections/Benefits
    
+   
 .. toctree::
    :hidden:
    :maxdepth: 1
@@ -42,13 +43,7 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    sections/BigQueryTableSearchUI
    sections/DataBrowser
    sections/data/Mitelman_about
-   sections/DataExplorer
-   sections/ProgrammaticAccess
-   sections/HowTos
-   sections/RegulomeExplorerNotebooks
-   sections/data/TCGA_Data_Security
-   sections/Gaining-Access-To-Controlled-Access-Data 
-   
+   sections/DataExplorer   
    
 .. toctree::
    :hidden:
