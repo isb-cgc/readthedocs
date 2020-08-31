@@ -13,10 +13,10 @@ filter data from one or more public data sets (such as TCGA, CCLE, and TARGET), 
    :widths: 60, 40
    :header-rows: 0 
 
-   * - **Patient Cohort Data Explorer**
+   * - **Cohort Builder/Data Explorer**
          | *Create and explore cohorts of interest*
-     - * `ISB-CGC Data Explorer Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DataExplorer.html>`_ 
-       * `ISB-CGC Data Explorer <https://isb-cgc.appspot.com/cohorts/new_cohort/>`_ 
+     - * `ISB-CGC Cohort Builder/Data Explorer Documentation <DataExplorer.html>`_ 
+       * `ISB-CGC Cohort Builder/Data Explorer <https://isb-cgc.appspot.com/cohorts/new_cohort/>`_ 
    * - **Interactive Pathology and Radiology Image Viewers**  
         | *View images from cancer patients using integrated image viewers*
      - * `ISB-CGC Image Viewers Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/OsimisWebViewer.html>`_ 
@@ -25,7 +25,8 @@ filter data from one or more public data sets (such as TCGA, CCLE, and TARGET), 
      - * `ISB-CGC Integrative Genomics Viewer (IGV) Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/IGV-Browser.html>`_
    * - **Cancer Data File Browser**   
         | *Browse and identify files associated with cohorts of interest*
-     - * `ISB-CGC Cancer Data File Browser Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Saved-Cohorts.html#file-browser>`_
+     - * `ISB-CGC Cancer Data File Browser Documentation <DataBrowser.html>`_
+       * `ISB-CGC Cancer Data File Browser <https://isb-cgc.appspot.com/cohorts/filelist/>`_ 
    * - **Mitelman Database for Chromosome Aberrations and Gene Fusions in Cancer**
         | *Explore relationships between chromosomal changes and cancer*
      - * `ISB-CGC Mitelman Database Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/Mitelman_about.html>`_
@@ -74,7 +75,7 @@ ISB-CGC enables the use of as many workflow technologies as possible through doc
        * `Google API Documentation <https://cloud.google.com/life-sciences/docs/apis>`_
    * - **Running workflows on ISB-CGC**
         | *Execute open-source and custom pipelines/algorithms on scalable virtual machines*
-     - * `ISB-CGC Workflow Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/workflows_top.html>`_  
+     - * `ISB-CGC Workflow Documentation <gcp-info/GCE-101.html>`_  
        * We recommend tools such as the `Google Cloud SDK <https://cloud.google.com/sdk/>`_, `Google Compute Engine <https://cloud.google.com/compute/>`_, `Virtual Machines <https://en.wikipedia.org/wiki/Virtual_machine>`_ and `Docker <https://www.docker.com/why-docker#/VM>`_ to assist your analyses. 
 
    

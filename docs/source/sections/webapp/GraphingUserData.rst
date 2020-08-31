@@ -6,7 +6,7 @@ Once a user has `uploaded their own data`_ to the Web App, that data can be visu
 
 .. _uploaded their own data: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html
 
-Important sections on the Web App front page
+Important sections on the Web App Dashboard
 ############################################
 The boxes in the figure below are links that are used to graph user data.
 

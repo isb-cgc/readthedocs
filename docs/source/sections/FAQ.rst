@@ -13,7 +13,7 @@ No, you can just "sign in" to the Web App using your Google identity.
 I want to be able to run big jobs using Google Compute Engine on the TCGA data hosted by the ISB-CGC.  What should I do?
 -------------------------------------------------------------------------------------------------------------------------
 
-You will need to request a Google Cloud Platform (GCP) project.  Please see `How to Request Cloud Credits <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowtoRequestCloudCredits.html>`_ for more details
+You will need to request a Google Cloud Platform (GCP) project.  Please see `How to Request Cloud Credits <HowtoRequestCloudCredits.html>`_ for more details
 about requesting a project.
 
 Can I use any email address as a Google identity?
@@ -28,7 +28,7 @@ How do I connect my Google Cloud Project to the ISB-CGC?
 ---------------------------------------------------------
 
 Your Google Cloud Project gives you access to all of the technologies that make
-up the Google Cloud Platform.  These technologies include BigQuery, Cloud Storage, Compute Engine, etc.  The ISB-CGC makes use of a variety of these technologies to provide access to the TCGA data, as well as many other data sets. Please follow this helpful guide on our Quick-Start Guide page in the `Google Cloud Project Setup and Data Access<https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowToGetStartedonISB-CGC.html#data-access-and-google-cloud-project-setup>`_ section.
+up the Google Cloud Platform.  These technologies include BigQuery, Cloud Storage, Compute Engine, etc.  The ISB-CGC makes use of a variety of these technologies to provide access to the TCGA data, as well as many other data sets. Please see the `Google Cloud Project Setup and Data Access <HowToGetStartedonISB-CGC.html#data-access-and-google-cloud-project-setup>`_ section in the Quick Start Guide.
 
 The connection between your Google Cloud Project (whether it is an ISB-CGC sponsored and funded project
 or your own personal project) and the ISB-CGC is your Google identity 
@@ -53,7 +53,7 @@ This service account is needed in your Google Cloud Project IAM page for the ISB
 What service account do I use on the Register a Service Account page to be able to gain access to protected data?
 -------------------------------------------------------------------------------------------------------------------------
 
-On the Register a Service account page you are asked to input a service account ID.  You need to go to the IAM and Admin page which can be found in your `console <https://console.cloud.google.com/home/dashboard?>`_ for your Google Cloud Project to find the correct service account.  The service account you would like to use is named, "Compute Engine default service account". This service account is the default option on the Register A Service Account page. *Please DO NOT use the service account 907668440978-oskt05du3ao083cke14641u35deokgjj@developer.gserviceaccount.com (you will be prevented from using this account by our software and an error message will be sent indicating this).* 
+On the Register a Service account page you are asked to input a service account ID.  You need to go to the IAM and Admin page which can be found in your `console <https://console.cloud.google.com/home/dashboard?>`_ for your Google Cloud Project to find the correct service account.  The service account you would like to use is named, "Compute Engine default service account". This service account is the default option on the Register A Service Account page. *Please DO NOT use the service account 144657163696-utjumdn9c03fof16ig7bjak44hfj53o6@developer.gserviceaccount.com (you will be prevented from using this account by our software and an error message will be sent indicating this).* 
 
 Why can't I reauthorize my Service Account on my Google Cloud Project?
 ------------------------------------------------------------------------
@@ -214,7 +214,7 @@ Python Users
 I want to write Python scripts that access the TCGA data hosted by the ISB-CGC.  Do you have some examples that can get me started?
 -------------------------------------------------------------------------------------------------------------------------------------
 
-Yes, of course!  The best place to start is with our `Community Notebooks <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowTos.html>`_  or our repository in `GitHub <https://github.com/isb-cgc/Community-Notebooks>`_. You can run any of these examples yourself. It includes an introduction explaining what Notebooks are, how to get started as a novice user, and how to run more advanced analyses once you are comfortable. 
+Yes, of course!  The best place to start is with our `Community Notebooks <HowTos.html>`_  or our repository in `GitHub <https://github.com/isb-cgc/Community-Notebooks>`_. You can run any of these examples yourself. It includes an introduction explaining what Notebooks are, how to get started as a novice user, and how to run more advanced analyses once you are comfortable. 
 
 R Users
 ########
@@ -223,7 +223,7 @@ I want to use R and Bioconductor packages to work with the TCGA data.  How can I
 ---------------------------------------------------------------------------------------------
 
 You can run RStudio locally or deploy a dockerized version on a Google Compute Engine VM.  You can
-find some great examples to get you started in our  `Community Notebooks <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowTos.html>`_  or our repository in `Community Notebooks GitHub <https://github.com/isb-cgc/Community-Notebooks>`_.
+find some great examples to get you started in our  `Community Notebooks <HowTos.html>`_  or our repository in `Community Notebooks GitHub <https://github.com/isb-cgc/Community-Notebooks>`_.
 
 Regulome Explorer Users
 ###########################
@@ -231,6 +231,6 @@ Regulome Explorer Users
 Can I run Regulome Explorer Analyses using TCGA tables of heterogeneous data in BigQuery?
 ------------------------------------------------------------------------------------------
 
-Yes, of course! A series of Python Notebooks have been created to replicate Regulome Explorer and includes detailed information on the statistical methods implemented. To get started, please visit our `Regulome Explorer <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/RegulomeExplorerNotebooks.html>`_ page in readthedocs or our Repository in `Regulome Explorer GitHub <https://github.com/isb-cgc/Community-Notebooks/tree/master/RegulomeExplorer>`_. 
+Yes, of course! A series of Python Notebooks have been created to replicate Regulome Explorer and includes detailed information on the statistical methods implemented. To get started, please visit our `Regulome Explorer <RegulomeExplorerNotebooks.html>`_ page in readthedocs or our Repository in `Regulome Explorer GitHub <https://github.com/isb-cgc/Community-Notebooks/tree/master/RegulomeExplorer>`_. 
 
 

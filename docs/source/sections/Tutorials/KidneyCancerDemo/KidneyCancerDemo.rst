@@ -25,7 +25,7 @@ Click on the screenshots below to enlarge them.
 Using the ISB-CGC BigQuery Table Search
 ---------------------------------------
 
-Navigate to the ISB-CGC homepage: https://isb-cgc.org and click on the BigQuery Table Search button.
+Navigate to the ISB-CGC homepage: https://isb-cgc.org and click on the **Launch** icon in the **BigQuery Table Search** box.
 
 .. image:: ISB-homepage.png
    :scale: 30

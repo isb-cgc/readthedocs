@@ -7,7 +7,7 @@ Don't Download the Data
 ===========================
 
 
-The ISB-CGC platform is one of NCI’s `Cancer Genomics Cloud Resources <https://datascience.cancer.gov/data-commons/cloud-resources>`_ and our mission is to host cancer data (such as TCGA and TARGET data) in the cloud so that researchers around the world may work with data without needing to download and store the data at their own local institutions.  
+The ISB-CGC platform is one of NCI’s `Cancer Cloud Resources <https://datascience.cancer.gov/data-commons/cloud-resources>`_ and our mission is to host cancer data (such as TCGA and TARGET data) in the cloud so that researchers around the world may work with data without needing to download and store the data at their own local institutions.  
 
 Remember those times when you had to wait weeks to download the data - you don’t need to do that any more!  The data is already on the cloud, so you can collaborate with other researchers much more easily.
 Be mindful that if you download data, you’ll incur egress charges.  

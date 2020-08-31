@@ -72,7 +72,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - 
    * - `HCMI <data/HCMI_about.html>`_
      - |checkmark|
-     - 
+     - |checkmark| *
      - 
    * - `MMRF <data/MMRF_about.html>`_
      - |checkmark|

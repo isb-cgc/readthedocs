@@ -1,10 +1,48 @@
 #############################
-ISB-CGC WebApp Release Notes
+ISB-CGC Web App Release Notes
 #############################
+
+*August 19, 2020* 
+
+**New Features**  
+
+- ISB-CGC has a new home page, which prominently features ISB-CGC Data Browsers and Resources.
+- A Cancer Data File Browser is now available directly from the ISB-CGC home page. It is similar to the existing File Browser within the Web App, except:
+
+  * Sign in is not needed.
+  * It is not dependent on cohorts built through the Web App.
+  * Output can be downloaded to CSV. To download to Google Storage Buckets or Google BigQuery tables, the user must sign in.
+  * Program filter has been added.
+
+- The ISB-CGC home page includes a Programmatic API section. The Launch functionality includes links to:
+  
+  * ISB-CGC API;
+  * Tutorials for Workflow on Google Cloud;
+  * Comparison of Workflow Languages.
+   
+- All NA filters have been renamed to None in both the File Browser page and the Cohort Builder page.
+
+- User details page has been modified to include more icons and buttons. The essential functionality and contents are not modified.
+
+
+**Known Issues**
+
+- Work is underway to rework our cohort creation page to better display images associated with samples.
+- The user data upload feature will return an error message stating, "Error submitting response : Could not connect to data upload server."
+- Analysis Type: Seq peek Formatting is Elongated on occasion.
+- If the user shares a Cohort, neither the owner nor the person who was granted access to the Cohort will receive a confirmation email when sharing a Cohort.
+- CCLE data cannot be plotted when working with workbooks. ISB-CGC will resolve this functionality after the GDC formally releases CCLE data.
+- When a user duplicates a Worksheet, then tries to implement the log scale, it will not function properly.
+- The set operation for existing Cohorts complement is behaving exceptionally slow.
+- The mouse-over feature is currently disabled for program TARGET with disease code ALL.
+- When uploading TARGET files using the cohort barcode creation feature from the GDC, you may get an invalid barcode error message and unable to upload all the barcodes.
+- On the File Browser page for Diagnostic images, there is no GDC file UUID associated with them.
+- Sharing a workbook with someone else will cause the analysis to reset.
+
 
 *July 23, 2020* 
 
-**New Features**  `v1.26 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.26>`_
+**New Features** 
 
 - To increase system speed when filtering cohorts, switched metadata counting to use Apache Solr (instead of MySQL).
 - The WebApp is now performing its data retrieval and counts on ISB-CGC Google BigQuery tables which are based on the latest GDC data release. This means that you will see current data, but that the same queries in the WebApp could produce different results if they were run during different time periods, when the WebApp was based on different GDC data releases.
@@ -33,7 +71,7 @@ ISB-CGC WebApp Release Notes
 - Sharing a workbook with someone else will cause the analysis to reset.
 
 
-*May 27, 2020* `v1.25 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.25>`_
+*May 27, 2020* 
 
 **New Features**
 
@@ -67,7 +105,7 @@ ISB-CGC WebApp Release Notes
 - On the File Browser page for Diagnostic images, there is no GDC file UUID associated with them.
 - Sharing a workbook with someone else will cause the analysis to reset.
 
-*April 16, 2020* `v1.24 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.24>`_
+*April 16, 2020* 
 
 **New Features**
 
@@ -98,7 +136,7 @@ ISB-CGC WebApp Release Notes
 - Sharing a workbook with someone else will cause the analysis to reset.
 
 
-*March 11, 2020* `v1.23 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.23>`_
+*March 11, 2020* 
 
 **New Features**
 
@@ -121,7 +159,7 @@ ISB-CGC WebApp Release Notes
 - Sharing a workbook with someone else will cause the analysis to reset.
 - Work is underway to rework our cohort creation page to better display images associated with samples.
 
-*January 30, 2020* `v1.22 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.22>`_
+*January 30, 2020* 
 
 The following datasets (open and controlled access) have been added to the ISB-CGC for service account registration:
 
