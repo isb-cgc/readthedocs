@@ -20,7 +20,7 @@ Flattened VCF BigQuery Table
 ================
 
 .. figure:: BigQuery_VCF_Flattened.png 
-   :scale: 75
+   :scale: 50
    :align: center 
 
 
