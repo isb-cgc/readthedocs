@@ -44,7 +44,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - ISB-CGC Cohort Builder
    * - `BEATAML <data/BEATAML_about.html>`_
      - |checkmark| 
-     - |checkmark| *
+     - |checkmark| * ** 
      - 
    * - `CCLE <data/CCLE_top.html>`_
      - |checkmark|
@@ -52,7 +52,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - |checkmark|
    * - `CGCI <data/CGCI_about.html>`_
      - |checkmark|
-     - 
+     - |checkmark| **
      - 
    * - `CPTAC <data/CPTAC_about.html>`_
      - |checkmark|
@@ -114,6 +114,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
 .. |checkmark| image:: CheckMark.png 
    
 *RNA-seq data available
+**Clinical data available
 
 .. toctree::
    :maxdepth: 1
