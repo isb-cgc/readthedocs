@@ -68,7 +68,6 @@ Emulating VCFTools
       
 --maxDP
 
- .. code-block:: sql
       
      SELECT * FROM `isb-cgc-etl.STAGING.Clustered_test2`
      WHERE DP_Normal >’ 10’
