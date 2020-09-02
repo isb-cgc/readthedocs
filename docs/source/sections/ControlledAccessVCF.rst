@@ -49,9 +49,9 @@ In this query, let's find all information for patients who have ALL-P2 and a Thy
 Emulating VCFTools
 ------------------
 
- --chr
+--chr
 
- .. code-block:: sql
+.. code-block:: sql
       
       SELECT * FROM `isb-cgc-etl.STAGING.Clustered_test2` 
       WHERE CHROM = 'chr22'
@@ -59,7 +59,7 @@ Emulating VCFTools
       
 --remove-filter-all
 
- .. code-block:: sql
+.. code-block:: sql
       
       
       SELECT * FROM `isb-cgc-etl.STAGING.Clustered_test2` 
@@ -68,7 +68,8 @@ Emulating VCFTools
       
 --maxDP
 
-      
+.. code-block:: sql    
+
      SELECT * FROM `isb-cgc-etl.STAGING.Clustered_test2`
      WHERE DP_Normal >’ 10’
      AND DP_Tumor > ‘50’
