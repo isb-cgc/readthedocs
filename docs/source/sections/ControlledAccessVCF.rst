@@ -42,7 +42,7 @@ Here are examples on how to leverage SQL queries on the Google Cloud Console to 
 Emulating VCFTools
 ------------------
 
----chr
+- -chr
 
 .. code-block:: sql
       
@@ -50,7 +50,7 @@ Emulating VCFTools
       WHERE CHROM = 'chr22'
       LIMIT 1000
       
----remove-filter-all
+- -remove-filter-all
 
 .. code-block:: sql
       
@@ -59,7 +59,7 @@ Emulating VCFTools
       WHERE FILTER = 'PASS'
       LIMIT 1000
       
----maxDP
+- -maxDP
 
 .. code-block:: sql    
 
