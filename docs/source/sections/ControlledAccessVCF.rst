@@ -35,6 +35,44 @@ The approach that the ISB-CGC variant transforms tools took was to engineer an o
 SQL Query Examples 
 ===================
 
+Here are examples on how to leverage data wrangling using SQL queries on the Google Cloud Console. In addition to example queries we add a list of snippets which emulates the commands from VCFTools. 
+
+
+
+Emulating VCFTools
+------------------
+
+---chr
+
+.. code-block:: sql
+      
+      SELECT * FROM `isb-cgc-etl.STAGING.Clustered_test2` 
+      WHERE CHROM = 'chr22'
+      LIMIT 1000
+      
+---remove-filter-all
+
+.. code-block:: sql
+      
+      
+      SELECT * FROM `isb-cgc-etl.STAGING.Clustered_test2` 
+      WHERE FILTER = 'PASS'
+      LIMIT 1000
+      
+---maxDP
+
+.. code-block:: sql    
+
+     SELECT * FROM `isb-cgc-etl.STAGING.Clustered_test2`
+     WHERE DP_Normal > ’10’
+     AND DP_Tumor > ‘50’
+     LIMIT 1000
+     
+
+
+In-Depth Queries
+------------------
+
 Notes to include examples on caveats: 
 POS is a integer, so in sql query don't use the quotes 
 
@@ -46,33 +84,5 @@ In this query, let's find all information for patients who have ALL-P2 and a Thy
       WHERE project_short_name = "TARGET-ALL-P2" AND CHROM = "chr1" 
       AND POS = 161550724  AND ALT = "T"
 
-Emulating VCFTools
-------------------
 
---chr
-
-.. code-block:: sql
-      
-      SELECT * FROM `isb-cgc-etl.STAGING.Clustered_test2` 
-      WHERE CHROM = 'chr22'
-      LIMIT 1000
-      
---remove-filter-all
-
-.. code-block:: sql
-      
-      
-      SELECT * FROM `isb-cgc-etl.STAGING.Clustered_test2` 
-      WHERE FILTER = 'PASS'
-      LIMIT 1000
-      
---maxDP
-
-.. code-block:: sql    
-
-     SELECT * FROM `isb-cgc-etl.STAGING.Clustered_test2`
-     WHERE DP_Normal >’ 10’
-     AND DP_Tumor > ‘50’
-     LIMIT 1000
-     
       
