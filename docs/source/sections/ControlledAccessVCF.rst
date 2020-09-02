@@ -50,7 +50,7 @@ Emulating VCFTools
 ------------------
 
 --chr
-
+-----
  .. code-block:: sql
       
       SELECT * FROM `isb-cgc-etl.STAGING.Clustered_test2` 
@@ -58,8 +58,8 @@ Emulating VCFTools
       LIMIT 1000
       
 --remove-filter-all
-
-  .. code-block:: sql
+-------------------
+ .. code-block:: sql
       
       
       SELECT * FROM `isb-cgc-etl.STAGING.Clustered_test2` 
@@ -67,7 +67,7 @@ Emulating VCFTools
       LIMIT 1000
       
 --maxDP
-
+-------
  .. code-block:: sql    
 
      SELECT * FROM `isb-cgc-etl.STAGING.Clustered_test2`
