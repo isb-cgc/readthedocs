@@ -23,9 +23,12 @@ ISB-CGC has developed an ETL pipeline to take controlled access VCF files found 
 Flattened VCF BigQuery Table
 ============================
 
+The approach that the ISB-CGC variant transforms tools took was to engineer an output that mimics a VCF file format. The flattened table format allows for an easy and familiar read if you have worked with VCF files in the past. The BigQuery table presented in the picture is a randomly generated file which is meant to resemble a controlled access VCF file. In this case we generated one that emulates a TCGA vcf file. The first 11 columns seen in the image begin just as a VCF file. In addition to keeping a similar structure to allow further analysis of information, columns such as NORMAL and TUMOR are split into their own individual columns. The objective of the flattened file is to bring ease and understandability to our users that work with VCF files in the past or brand new to this area of research. 
+
 .. figure:: BigQuery_VCF_Flattened.png 
    :scale: 50
-   :align: center 
+   :align: center
+  
 
 
 
