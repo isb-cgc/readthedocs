@@ -40,5 +40,6 @@ In this query, let's find all information for patients who have ALL-P2 and a Thy
 .. code-block:: sql
 
       SELECT * FROM `isb-cgc-etl.STAGING.Clustered_test2` 
-      WHERE project_short_name = "TARGET-ALL-P2" AND CHROM = "chr1" AND POS = 161550724  AND ALT = "T"
+      WHERE project_short_name = "TARGET-ALL-P2" AND CHROM = "chr1" 
+      AND POS = 161550724  AND ALT = "T"
 
