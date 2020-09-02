@@ -35,7 +35,7 @@ The approach that the ISB-CGC variant transforms tools took was to engineer an o
 SQL Query Examples 
 ===================
 
-Here are examples on how to leverage data wrangling using SQL queries on the Google Cloud Console. In addition to example queries we add a list of snippets which emulates the commands from VCFTools. 
+Here are examples on how to leverage SQL queries on the Google Cloud Console to analyze the data in our tables. In addition to example queries we added a list of snippets which emulates the commands from VCFTools. 
 
 
 
