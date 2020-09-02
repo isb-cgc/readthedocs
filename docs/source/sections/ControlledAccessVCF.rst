@@ -50,16 +50,16 @@ Emulating VCFTools
 ------------------
 
 --chr
------
- .. code-block:: sql
+
+.. code-block:: sql
       
       SELECT * FROM `isb-cgc-etl.STAGING.Clustered_test2` 
       WHERE CHROM = 'chr22'
       LIMIT 1000
       
 --remove-filter-all
--------------------
- .. code-block:: sql
+
+.. code-block:: sql
       
       
       SELECT * FROM `isb-cgc-etl.STAGING.Clustered_test2` 
@@ -67,8 +67,8 @@ Emulating VCFTools
       LIMIT 1000
       
 --maxDP
--------
- .. code-block:: sql    
+
+.. code-block:: sql    
 
      SELECT * FROM `isb-cgc-etl.STAGING.Clustered_test2`
      WHERE DP_Normal >’ 10’
