@@ -29,7 +29,7 @@ The approach that the ISB-CGC variant transforms tools took was to engineer an o
    :scale: 50
    :align: center
   
-
+.. note:: The tables found in our repository are clustered based on CHROM, ID, analysis_workflow_type, and project_short_name. This will help with faster queries and reducing costs. 
 
 
 SQL Query Examples 
@@ -37,6 +37,7 @@ SQL Query Examples
 
 Here are examples on how to leverage SQL queries on the Google Cloud Console to analyze the data in our tables. In addition to example queries we added a list of snippets which emulates the commands from VCFTools. 
 
+.. note:: Best practices to keep costs down for queries is to avoid using '*' and choosing specefic columns.
 
 
 Emulating VCFTools
