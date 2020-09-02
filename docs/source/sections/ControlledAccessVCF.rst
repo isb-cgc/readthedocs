@@ -51,7 +51,7 @@ Emulating VCFTools
 
  --chr
 
-.. code-block:: sql
+ .. code-block:: sql
       
       SELECT * FROM `isb-cgc-etl.STAGING.Clustered_test2` 
       WHERE CHROM = 'chr22'
@@ -59,7 +59,7 @@ Emulating VCFTools
       
 --remove-filter-all
 
-.. code-block:: sql
+ .. code-block:: sql
       
       
       SELECT * FROM `isb-cgc-etl.STAGING.Clustered_test2` 
