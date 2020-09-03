@@ -2,6 +2,109 @@
 ISB-CGC Data Release Notes
 ############################
 
+*September 3, 2020*
+
+Existing CCLE tables in the isb-cgc project were copied to the isb-cgc-bq project, CCLE and CCLE_versioned data sets.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.CCLE_versioned.clinical_2019_06
+- isb-cgc-bq.CCLE.clinical_current
+- isb-cgc-bq.CCLE_versioned.biospecimen_2019_04
+- isb-cgc-bq.CCLE.biospecimen_current
+- isb-cgc-bq.CCLE_versioned.sample_information_hg19_2016_02
+- isb-cgc-bq.CCLE.sample_information_hg19_current
+- isb-cgc-bq.CCLE_versioned.RMA_expression_hg19_2016_02
+- isb-cgc-bq.CCLE.RMA_expression_hg19_current
+- isb-cgc-bq.CCLE_versioned.copy_number_segment_hg19_2016_02
+- isb-cgc-bq.CCLE.copy_number_segment_hg19_current
+- isb-cgc-bq.CCLE_versioned.somatic_mutation_hg19_2016_02
+- isb-cgc-bq.CCLE.somatic_mutation_hg19_current
+- isb-cgc-bq.CCLE_versioned.file_metadata_hg19_2016_03
+- isb-cgc-bq.CCLE_versioned.fastqc_metrics_hg19_2016_03
+- isb-cgc-bq.CCLE.fastqc_metrics_hg19_current
+- isb-cgc-bq.CCLE_versioned.per_sample_file_metadata_hg19_gdc_r14
+
+
+*September 2, 2020*
+
+New GENCODE data, version 34 and 35.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.GENCODE_versioned.annotation_gtf_hg38_v34
+- isb-cgc-bq.GENCODE_versioned.annotation_gtf_hg38_v35
+- isb-cgc-bq.GENCODE.annotation_gtf_hg38_current
+
+
+*August 28, 2020*
+
+New GDC release 24 clinical tables.
+
+**BigQuery tables created**
+
+- isb-cgc-bq:BEATAML1_0.clinical_gdc_current
+- isb-cgc-bq:BEATAML1_0_versioned.clinical_gdc_r24
+- isb-cgc-bq:CGCI.clinical_diagnoses_gdc_current
+- isb-cgc-bq:CGCI.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq:CGCI.clinical_follow_ups_gdc_current
+- isb-cgc-bq:CGCI.clinical_follow_ups_molecular_tests_gdc_current
+- isb-cgc-bq:CGCI.clinical_gdc_current
+- isb-cgc-bq:CGCI_versioned.clinical_diagnoses_gdc_r24
+- isb-cgc-bq:CGCI_versioned.clinical_diagnoses_treatments_gdc_r24
+- isb-cgc-bq:CGCI_versioned.clinical_follow_ups_gdc_r24
+- isb-cgc-bq:CGCI_versioned.clinical_follow_ups_molecular_tests_gdc_r24
+- isb-cgc-bq:CGCI_versioned.clinical_gdc_r24
+- isb-cgc-bq:CPTAC.clinical_gdc_current
+- isb-cgc-bq:CPTAC_versioned.clinical_gdc_r24
+- isb-cgc-bq:CTSP.clinical_gdc_current
+- isb-cgc-bq:CTSP_versioned.clinical_gdc_r24
+- isb-cgc-bq:FM.clinical_gdc_current
+- isb-cgc-bq:FM_versioned.clinical_gdc_r24
+- isb-cgc-bq:GENIE.clinical_gdc_current
+- isb-cgc-bq:GENIE_versioned.clinical_gdc_r24
+- isb-cgc-bq:HCMI.clinical_diagnoses_gdc_current
+- isb-cgc-bq:HCMI.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq:HCMI.clinical_follow_ups_gdc_current
+- isb-cgc-bq:HCMI.clinical_follow_ups_molecular_tests_gdc_current
+- isb-cgc-bq:HCMI.clinical_gdc_current
+- isb-cgc-bq:HCMI_versioned.clinical_diagnoses_gdc_r24
+- isb-cgc-bq:HCMI_versioned.clinical_diagnoses_treatments_gdc_r24
+- isb-cgc-bq:HCMI_versioned.clinical_follow_ups_gdc_r24
+- isb-cgc-bq:HCMI_versioned.clinical_follow_ups_molecular_tests_gdc_r24
+- isb-cgc-bq:HCMI_versioned.clinical_gdc_r24
+- isb-cgc-bq:MMRF.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq:MMRF.clinical_family_histories_gdc_current
+- isb-cgc-bq:MMRF.clinical_follow_ups_gdc_current
+- isb-cgc-bq:MMRF.clinical_follow_ups_molecular_tests_gdc_current
+- isb-cgc-bq:MMRF.clinical_gdc_current
+- isb-cgc-bq:MMRF_versioned.clinical_diagnoses_treatments_gdc_r24
+- isb-cgc-bq:MMRF_versioned.clinical_family_histories_gdc_r24
+- isb-cgc-bq:MMRF_versioned.clinical_follow_ups_gdc_r24
+- isb-cgc-bq:MMRF_versioned.clinical_follow_ups_molecular_tests_gdc_r24
+- isb-cgc-bq:MMRF_versioned.clinical_gdc_r24
+- isb-cgc-bq:NCICCR.clinical_gdc_current
+- isb-cgc-bq:NCICCR_versioned.clinical_gdc_r24
+- isb-cgc-bq:OHSU.clinical_gdc_current
+- isb-cgc-bq:OHSU_versioned.clinical_gdc_r24
+- isb-cgc-bq:ORGANOID.clinical_gdc_current
+- isb-cgc-bq:ORGANOID_versioned.clinical_gdc_r24
+- isb-cgc-bq:TARGET.clinical_gdc_current
+- isb-cgc-bq:TARGET_versioned.clinical_gdc_r24
+- isb-cgc-bq:TCGA.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq:TCGA.clinical_gdc_current
+- isb-cgc-bq:TCGA_versioned.clinical_diagnoses_treatments_gdc_r24
+- isb-cgc-bq:TCGA_versioned.clinical_gdc_r24
+- isb-cgc-bq:VAREPOP.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq:VAREPOP.clinical_family_histories_gdc_current
+- isb-cgc-bq:VAREPOP.clinical_gdc_current
+- isb-cgc-bq:VAREPOP_versioned.clinical_diagnoses_treatments_gdc_r24
+- isb-cgc-bq:VAREPOP_versioned.clinical_family_histories_gdc_r24
+- isb-cgc-bq:VAREPOP_versioned.clinical_gdc_r24
+- isb-cgc-bq:WCDT.clinical_gdc_current
+- isb-cgc-bq:WCDT_versioned.clinical_gdc_r24
+
+
 *July 23, 2020*
 
 New TCGA controlled-access MAF tables.

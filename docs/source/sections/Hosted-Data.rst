@@ -44,7 +44,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - ISB-CGC Cohort Builder
    * - `BEATAML <data/BEATAML_about.html>`_
      - |checkmark| 
-     - |checkmark| *
+     - |checkmark| 
      - 
    * - `CCLE <data/CCLE_top.html>`_
      - |checkmark|
@@ -52,43 +52,43 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - |checkmark|
    * - `CGCI <data/CGCI_about.html>`_
      - |checkmark|
-     - 
+     - |checkmark| *
      - 
    * - `CPTAC <data/CPTAC_about.html>`_
      - |checkmark|
-     - 
+     - |checkmark| *
      - 
    * - `CTSP <data/CTSP_about.html>`_
      - |checkmark|
-     - 
+     - |checkmark| *
      - 
    * - `FM <data/FM_about.html>`_
      - |checkmark|
-     - 
+     - |checkmark| *
      - 
    * - `GENIE <data/GENIE_about.html>`_
      - |checkmark|
-     - 
+     - |checkmark| *
      - 
    * - `HCMI <data/HCMI_about.html>`_
      - |checkmark|
-     - |checkmark| *
+     - |checkmark| 
      - 
    * - `MMRF <data/MMRF_about.html>`_
      - |checkmark|
-     - 
+     - |checkmark| *
      - 
    * - `NCICCR <data/NCICCR_about.html>`_
      - |checkmark|
-     - 
+     - |checkmark| *
      - 
    * - `OHSU <data/OHSU_about.html>`_
      - |checkmark|
-     - 
+     - |checkmark| *
      - 
    * - `ORGANOID <data/ORGANOID_about.html>`_
      - |checkmark|
-     - |checkmark| *
+     - |checkmark| 
      - 
    * - `TARGET <data/TARGET_top.html>`_
      - |checkmark|
@@ -104,16 +104,17 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - |checkmark|
    * - `VAREPOP <data/VAREPOP_about.html>`_
      - |checkmark|
-     - 
+     - |checkmark| *
      - 
    * - `WCDT <data/WCDT_about.html>`_
      - |checkmark|
-     - 
+     - |checkmark| *
      - 
      
 .. |checkmark| image:: CheckMark.png 
    
-*RNA-seq data available
+*Clinical and metadata only available
+
 
 .. toctree::
    :maxdepth: 1
