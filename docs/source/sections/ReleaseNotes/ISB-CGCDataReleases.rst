@@ -2,6 +2,39 @@
 ISB-CGC Data Release Notes
 ############################
 
+*September 3, 2020*
+
+**BigQuery tables created**
+
+- isb-cgc-bq.CCLE_versioned.clinical_2019_06
+- isb-cgc-bq.CCLE.clinical_current
+- isb-cgc-bq.CCLE_versioned.biospecimen_2019_04
+- isb-cgc-bq.CCLE.biospecimen_current
+- isb-cgc-bq.CCLE_versioned.sample_information_hg19_2016_02
+- isb-cgc-bq.CCLE.sample_information_hg19_current
+- isb-cgc-bq.CCLE_versioned.RMA_expression_hg19_2016_02
+- isb-cgc-bq.CCLE.RMA_expression_hg19_current
+- isb-cgc-bq.CCLE_versioned.copy_number_segment_hg19_2016_02
+- isb-cgc-bq.CCLE.copy_number_segment_hg19_current
+- isb-cgc-bq.CCLE_versioned.somatic_mutation_hg19_2016_02
+- isb-cgc-bq.CCLE.somatic_mutation_hg19_current
+- isb-cgc-bq.CCLE_versioned.file_metadata_hg19_2016_03
+- isb-cgc-bq.CCLE_versioned.fastqc_metrics_hg19_2016_03
+- isb-cgc-bq.CCLE.fastqc_metrics_hg19_current
+- isb-cgc-bq.CCLE_versioned.per_sample_file_metadata_hg19_gdc_r14
+
+
+*September 2, 2020*
+
+New GENCODE data, version 34 and 35.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.GENCODE_versioned.annotation_gtf_hg38_v34
+- isb-cgc-bq.GENCODE_versioned.annotation_gtf_hg38_v35
+- isb-cgc-bq.GENCODE.annotation_gtf_hg38_current
+
+
 *August 28, 2020*
 
 New GDC release 24 clinical tables.
