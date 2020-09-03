@@ -4,7 +4,7 @@ ISB-CGC Data Release Notes
 
 *September 3, 2020*
 
-Existing CCLE tables in the isb-cgc project were copied and organized into the isb-cgc-bq project.
+Existing CCLE tables in the isb-cgc project were copied to the isb-cgc-bq project, CCLE and CCLE_versioned data sets.
 
 **BigQuery tables created**
 
