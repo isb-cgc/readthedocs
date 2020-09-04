@@ -13,6 +13,7 @@ VCFs
    
 SQL examples
 =============
+
 .. toctree::
    :maxdepth: 1
    :hidden:
