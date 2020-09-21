@@ -15,6 +15,17 @@ New GDC release 25 file metadata tables.
 - isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r25
 - isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r25
 
+Current file metadata tables updated to GDC release 25.
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.GDC_case_file_metadata.GDCfileID_to_GCSurl_current
+- isb-cgc-bq.GDC_case_file_metadata.fileData_legacy_current
+- isb-cgc-bq.GDC_case_file_metadata.fileData_active_current
+- isb-cgc-bq.GDC_case_file_metadata.caseData_current
+- isb-cgc-bq.GDC_case_file_metadata.aliquot2caseIDmap_current
+- isb-cgc-bq.GDC_case_file_metadata.slide2caseIDmap_current
+
 *September 8, 2020*
 
 Table generated as part of an analysis for a poster submitted to the ACM-BCB2020 conference. 
