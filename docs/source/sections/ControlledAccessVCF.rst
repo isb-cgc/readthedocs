@@ -2,9 +2,7 @@
 Variant Call Format (VCF)
 ========================
 
-ADD NORMAL TUMOR BAM CAVEAT 
-SQL JOIN EXAMPLES 
-TARGET WGS vs WXS VCFs - SQL examples 
+
 
 Variant Call Format files (VCF) are the standard file format to store identified variants within sequenced data. The creation of VCF files start from sequencing whole genomes (WGS) or whole exome sequencing (WXS) that create FASTQ files. The file containing the sequenced genome is then aligned to the appropriate reference genome which then generates a SAM, BAM, or CRAM files. The last step to generate the VCF file from either of the three alignment files, the differing aligned reads will be identified when comparing to the reference genome and written out to a VCF file.
 
