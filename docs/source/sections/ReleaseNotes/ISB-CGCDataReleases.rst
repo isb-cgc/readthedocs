@@ -2,6 +2,27 @@
 ISB-CGC Data Release Notes
 ############################
 
+*September 18, 2020*
+
+New GDC release 25 file metadata tables.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.GDC_case_file_metadata_versioned.GDCfileID_to_GCSurl_r25
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_legacy_r25
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_active_r25
+- isb-cgc-bq.GDC_case_file_metadata_versioned.caseData_r25
+- isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r25
+- isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r25
+
+*September 8, 2020*
+
+Table generated as part of an analysis for a poster submitted to the ACM-BCB2020 conference. 
+
+**BigQuery tables created**
+
+ - isb-cgc-bq.supplementary_tables.Abdilleh_etal_ACM_BCB_2020_TCGA_bioclin_v0_Clinical_UNPIVOT
+
 *September 3, 2020*
 
 Existing CCLE tables in the isb-cgc project were copied to the isb-cgc-bq project, CCLE and CCLE_versioned data sets.
