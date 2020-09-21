@@ -12,7 +12,7 @@ ISB-CGC has developed an ETL pipeline to take controlled access VCF files found 
    :maxdepth: 1
    :hidden:
    
-   ControlledAccessVcf
+   ControlledAccessVCF
    
  
 How To Query The Tables
