@@ -16,11 +16,6 @@ Accessing Controlled Variant Data
 Some ISB-CGC Bigquery tables contain sensitive information about patients. These type of files are known as controlled access files. To obtain access to our controlled data please follow the steps in our `Accessing Controlled Data <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Gaining-Access-To-Controlled-Access-Data.html>`_ page to obtain permission.   
 
 
-Variant Data to BigQuery Tables
-===============================
-
-ISB-CGC has developed an ETL pipeline to take controlled access VCF files found at Genomic Data Commons (GDC). This transforms pipeline is able to take the terabytes of variant data found at GDC and transform them into one large and flattened Google BigQuery table. The transforms pipeline ISB-CGC has developed allows researchers to query, use command line tools, or use a programming language of your choice to gain statistical insights of an analysis someone might be interested in. 
-
 
 Flattened VCF BigQuery Table
 ============================
