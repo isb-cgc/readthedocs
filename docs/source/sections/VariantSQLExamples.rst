@@ -65,4 +65,16 @@ In this query, let us look at chromosome 1. We want to find positions between 20
          AND POS BETWEEN 20000 and 5000000
          AND project_short_name = "TARGET-WT"
          AND analysis_workflow_type = "MuTect2"
-      
+   
+The query below returns the ref and alt alleles found between base positions 20,000 and 5,000,000 on chromosome 1 along with genotype information for whole genome tumor and normal samples (using filter analysis_workflow_type like %LiftOver%) across all TARGET projects.
+   
+.. code-block:: sql
+
+      SELECT CHROM,POS,REF,ALT,project_short_name, GT_TUMOR,GT_NORMAL
+      FROM
+      `isb-cgc-etl.STAGING.Clustered_test2`
+      WHERE
+       CHROM = 'chr1'
+      AND POS BETWEEN 20000 and 5000000
+      AND analysis_workflow_type like "%LiftOver%"
+
