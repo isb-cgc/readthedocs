@@ -78,3 +78,16 @@ The query below returns the ref and alt alleles found between base positions 20,
       AND POS BETWEEN 20000 and 5000000
       AND analysis_workflow_type like "%LiftOver%"
 
+We demonstrate a join in the query below between the TARGET vcf table and the TARGET RNAseq table to get information for the TARGET-ALL-P3 to identify mutations in the FOXD4 gene.
+
+.. code-block:: sql
+
+      SELECT CHROM,POS,REF,ALT,vcf.project_short_name, HTSeq__FPKM, GT_TUMOR,GT_NORMAL
+      FROM
+      `isb-cgc-etl.STAGING.Clustered_test2` as vcf
+       join `isb-cgc-bq.TARGET.RNAseq_hg38_gdc_current` as rna
+       on rna.case_barcode = vcf.case_barcode
+       WHERE
+       vcf.project_short_name = "TARGET-ALL-P3"
+       AND gene_name = "FOXD4"
+       ORDER By CHROM
