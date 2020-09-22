@@ -2,6 +2,40 @@
 ISB-CGC Data Release Notes
 ############################
 
+*September 21, 2020*
+
+Current file metadata tables updated to GDC release 25.
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.GDC_case_file_metadata.GDCfileID_to_GCSurl_current
+- isb-cgc-bq.GDC_case_file_metadata.fileData_legacy_current
+- isb-cgc-bq.GDC_case_file_metadata.fileData_active_current
+- isb-cgc-bq.GDC_case_file_metadata.caseData_current
+- isb-cgc-bq.GDC_case_file_metadata.aliquot2caseIDmap_current
+- isb-cgc-bq.GDC_case_file_metadata.slide2caseIDmap_current
+
+*September 18, 2020*
+
+New GDC release 25 file metadata tables.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.GDC_case_file_metadata_versioned.GDCfileID_to_GCSurl_r25
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_legacy_r25
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_active_r25
+- isb-cgc-bq.GDC_case_file_metadata_versioned.caseData_r25
+- isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r25
+- isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r25
+
+*September 8, 2020*
+
+Table generated as part of an analysis for a poster submitted to the ACM-BCB2020 conference. 
+
+**BigQuery tables created**
+
+ - isb-cgc-bq.supplementary_tables.Abdilleh_etal_ACM_BCB_2020_TCGA_bioclin_v0_Clinical_UNPIVOT
+
 *September 3, 2020*
 
 Existing CCLE tables in the isb-cgc project were copied to the isb-cgc-bq project, CCLE and CCLE_versioned data sets.
@@ -177,6 +211,24 @@ New per sample file metadata tables added to isb-cgc-bq for GDC release 24.
 - isb-cgc-bq:WCDT_versioned.per_sample_file_metadata_hg38_gdc_r24
 - isb-cgc-bq:CCLE.per_sample_file_metadata_hg38_gdc_current
 - isb-cgc-bq:CCLE_versioned.per_sample_file_metadata_hg38_gdc_r24
+
+Existing GDC Release 24 file metadata tables in the isb-cgc project were copied to the isb-cgc-bq project.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r24
+- isb-cgc-bq.GDC_case_file_metadata_versioned.GDCfileID_to_GCSurl_r24
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_legacy_r24
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_active_r24
+- isb-cgc-bq.GDC_case_file_metadata_versioned.caseData_r24
+- isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r24
+- isb-cgc-bq.GDC_case_file_metadata.slide2caseIDmap_current
+- isb-cgc-bq.GDC_case_file_metadata.GDCfileID_to_GCSurl_current
+- isb-cgc-bq.GDC_case_file_metadata.fileData_legacy_current
+- isb-cgc-bq.GDC_case_file_metadata.fileData_active_current
+- isb-cgc-bq.GDC_case_file_metadata.caseData_current
+- isb-cgc-bq.GDC_case_file_metadata.aliquot2caseIDmap_current
+
 
 *June 16, 2020*
 
