@@ -2,6 +2,19 @@
 ISB-CGC Data Release Notes
 ############################
 
+*September 21, 2020*
+
+Current file metadata tables updated to GDC release 25.
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.GDC_case_file_metadata.GDCfileID_to_GCSurl_current
+- isb-cgc-bq.GDC_case_file_metadata.fileData_legacy_current
+- isb-cgc-bq.GDC_case_file_metadata.fileData_active_current
+- isb-cgc-bq.GDC_case_file_metadata.caseData_current
+- isb-cgc-bq.GDC_case_file_metadata.aliquot2caseIDmap_current
+- isb-cgc-bq.GDC_case_file_metadata.slide2caseIDmap_current
+
 *September 18, 2020*
 
 New GDC release 25 file metadata tables.
@@ -14,17 +27,6 @@ New GDC release 25 file metadata tables.
 - isb-cgc-bq.GDC_case_file_metadata_versioned.caseData_r25
 - isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r25
 - isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r25
-
-Current file metadata tables updated to GDC release 25.
-
-**BigQuery tables updated**
-
-- isb-cgc-bq.GDC_case_file_metadata.GDCfileID_to_GCSurl_current
-- isb-cgc-bq.GDC_case_file_metadata.fileData_legacy_current
-- isb-cgc-bq.GDC_case_file_metadata.fileData_active_current
-- isb-cgc-bq.GDC_case_file_metadata.caseData_current
-- isb-cgc-bq.GDC_case_file_metadata.aliquot2caseIDmap_current
-- isb-cgc-bq.GDC_case_file_metadata.slide2caseIDmap_current
 
 *September 8, 2020*
 
