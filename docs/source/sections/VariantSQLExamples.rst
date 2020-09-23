@@ -3,7 +3,7 @@ SQL Query Examples
 
 Here are examples on how to leverage SQL queries on the Google Cloud Console to analyze the data in our tables. In addition to example queries we added a list of snippets which emulates the commands from VCFTools. 
 
-.. note:: Best practices to keep costs down for queries is to avoid using '*' and choosing specefic columns.
+.. note:: Best practices to keep costs down for queries is to avoid using '*' and instead select specific columns.
 
 
 Emulating VCFTools
@@ -31,8 +31,8 @@ Emulating VCFTools
 .. code-block:: sql    
 
      SELECT * FROM `isb-cgc-etl.STAGING.Clustered_test2`
-     WHERE DP_Normal > ’10’
-     AND DP_Tumor > ‘50’
+     WHERE DP_Normal > '10'
+     AND DP_Tumor > '50'
      LIMIT 1000
      
 
@@ -51,7 +51,7 @@ In this query, let's find all information for patients who have ALL-P2 and a Thy
       WHERE project_short_name = "TARGET-ALL-P2" AND CHROM = "chr1" 
       AND POS = 161550724  AND ALT = "T"
       
-In this query, let us look at chromosome 1. We want to find positions between 20thousand and 5million. Not only are we interested in chromosome and position but also from a specific project and analysis workflow type and in this case we want to look into the project TARGET-WT. These are patients that are diagnosed with wilms-tumor. For the analysis workflow type we are interested in MuTect2. 
+In this query, let us look at chromosome 1. We want to find positions between twenty thousand and five million. We interested in chromosome and position from a specific project and with a certain analysis workflow type. In this case, we want to look into the project TARGET-WT. These are patients that are diagnosed with Wilms tumor. For the analysis workflow type, we are interested in MuTect2. 
 
 
 .. code-block:: sql
@@ -78,7 +78,7 @@ The query below returns the ref and alt alleles found between base positions 20,
       AND POS BETWEEN 20000 and 5000000
       AND analysis_workflow_type like "%LiftOver%"
 
-We demonstrate a join in the query below between the TARGET vcf table and the TARGET RNAseq table to get information for the TARGET-ALL-P3 to identify mutations in the FOXD4 gene.
+We demonstrate a join in the query below between the TARGET VCF table and the TARGET RNAseq table to get information for the TARGET-ALL-P3 to identify mutations in the FOXD4 gene.
 
 .. code-block:: sql
 
