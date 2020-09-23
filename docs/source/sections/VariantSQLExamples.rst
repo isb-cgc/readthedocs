@@ -1,9 +1,9 @@
 SQL Query Examples 
 ===================
 
-Here are examples on how to leverage SQL queries on the Google Cloud Console to analyze the data in our tables. In addition to example queries we added a list of snippets which emulates the commands from VCFTools. 
+Here are examples on how to leverage SQL queries on the Google Cloud Console to analyze the data in our tables. In addition to example queries, we added a list of snippets which emulates the commands from VCFTools. 
 
-.. note:: Best practices to keep costs down for queries is to avoid using '*' and instead select specific columns.
+.. note:: Best practice to keep costs down for queries is to avoid using '*' and instead select specific columns.
 
 
 Emulating VCFTools
