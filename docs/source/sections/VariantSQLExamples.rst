@@ -15,8 +15,12 @@ Emulating VCFTools
 
 .. code-block:: sql
       
-      SELECT * FROM `isb-cgc-etl.STAGING.Clustered_test2` 
-      WHERE CHROM = 'chr22'
+      SELECT 
+          CHROM, POS, REF, ALT 
+      FROM 
+          `isb-cgc-cbq.TARGET_versioned.vcf_hg38_gdc_r22` 
+      WHERE 
+          CHROM = 'chr22'
       LIMIT 1000
       
 ---remove-filter-all: Removes the sites which do not have the tag PASS under the FILTER column. 
@@ -24,17 +28,25 @@ Emulating VCFTools
 .. code-block:: sql
       
       
-      SELECT * FROM `isb-cgc-etl.STAGING.Clustered_test2` 
-      WHERE FILTER = 'PASS'
+      SELECT 
+          CHROM, POS, REF, ALT, FILTER
+      FROM 
+          `isb-cgc-cbq.TARGET_versioned.vcf_hg38_gdc_r22` 
+      WHERE 
+          FILTER = 'PASS'
       LIMIT 1000
       
 ---maxDP: This function requires the “DP” tag to exist under the FORMAT column. The option will locate genotypes less than or equal to the “--maxDP” value.
 
 .. code-block:: sql    
 
-     SELECT * FROM `isb-cgc-etl.STAGING.Clustered_test2`
-     WHERE DP_Normal > '10'
-     AND DP_Tumor > '50'
+     SELECT 
+          CHROM, POS, REF, ALT, DP_Normal, DP_Tumor 
+     FROM 
+          `isb-cgc-cbq.TARGET_versioned.vcf_hg38_gdc_r22`
+     WHERE 
+          DP_Normal > '10'
+          AND DP_Tumor > '50'
      LIMIT 1000
      
 
@@ -49,9 +61,15 @@ In this query, let's find all information for patients who have ALL-P2 and a Thy
 
 .. code-block:: sql
 
-      SELECT * FROM `isb-cgc-etl.STAGING.Clustered_test2` 
-      WHERE project_short_name = "TARGET-ALL-P2" AND CHROM = "chr1" 
-      AND POS = 161550724  AND ALT = "T"
+      SELECT 
+          CHROM, POS, REF, ALT, project_short_name 
+      FROM 
+          `isb-cgc-cbq.TARGET_versioned.vcf_hg38_gdc_r22` 
+      WHERE 
+          project_short_name = "TARGET-ALL-P2" 
+          AND CHROM = "chr1" 
+          AND POS = 161550724  
+          AND ALT = "T"
       
 In this query, let us look at chromosome 1. We want to find positions between twenty thousand and five million. We interested in chromosome and position from a specific project and with a certain analysis workflow type. In this case, we want to look into the project TARGET-WT. These are patients that are diagnosed with Wilms tumor. For the analysis workflow type, we are interested in MuTect2. 
 
@@ -61,7 +79,7 @@ In this query, let us look at chromosome 1. We want to find positions between tw
       SELECT 
          CHROM,POS,REF,ALT,GT_TUMOR,GT_NORMAL
       FROM
-         `isb-cgc-etl.STAGING.Clustered_test2`
+         `isb-cgc-cbq.TARGET_versioned.vcf_hg38_gdc_r22`
       WHERE
          CHROM = 'chr1'
          AND POS BETWEEN 20000 and 5000000
@@ -72,9 +90,10 @@ The query below returns the ref and alt alleles found between base positions 20,
    
 .. code-block:: sql
 
-      SELECT CHROM,POS,REF,ALT,project_short_name, GT_TUMOR,GT_NORMAL
+      SELECT 
+          CHROM,POS,REF,ALT,project_short_name, GT_TUMOR,GT_NORMAL
       FROM
-      `isb-cgc-etl.STAGING.Clustered_test2`
+          `isb-cgc-cbq.TARGET_versioned.vcf_hg38_gdc_r22`
       WHERE
        CHROM = 'chr1'
       AND POS BETWEEN 20000 and 5000000
@@ -84,12 +103,13 @@ We demonstrate a join in the query below between the TARGET VCF table and the TA
 
 .. code-block:: sql
 
-      SELECT CHROM,POS,REF,ALT,vcf.project_short_name, HTSeq__FPKM, GT_TUMOR,GT_NORMAL
+      SELECT 
+          CHROM,POS,REF,ALT,vcf.project_short_name, HTSeq__FPKM, GT_TUMOR,GT_NORMAL
       FROM
-      `isb-cgc-etl.STAGING.Clustered_test2` as vcf
-       join `isb-cgc-bq.TARGET.RNAseq_hg38_gdc_current` as rna
-       on rna.case_barcode = vcf.case_barcode
+          `isb-cgc-cbq.TARGET_versioned.vcf_hg38_gdc_r22` as vcf
+          join `isb-cgc-bq.TARGET.RNAseq_hg38_gdc_current` as rna
+          on rna.case_barcode = vcf.case_barcode
        WHERE
-       vcf.project_short_name = "TARGET-ALL-P3"
-       AND gene_name = "FOXD4"
+          vcf.project_short_name = "TARGET-ALL-P3"
+          AND gene_name = "FOXD4"
        ORDER By CHROM
