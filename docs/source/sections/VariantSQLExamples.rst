@@ -1,7 +1,9 @@
 SQL Query Examples 
 ===================
 
-Here are examples on how to leverage SQL queries on the Google Cloud Console to analyze the data in our tables. In addition to example queries, we added a list of snippets which emulates the commands from VCFTools. 
+Here are examples on how to leverage SQL queries on the Google Cloud Console to analyze the data in our tables. In addition to example queries, we added a list of snippets which emulates the commands from VCFTools. VCFTools is a software that allows for processing, validating, analyzing, and more on VCF files.
+
+      * To learn more about the software please refer to VCFTools `documentation <http://vcftools.sourceforge.net/man_0112b.html>`_.
 
 .. note:: Best practice to keep costs down for queries is to avoid using '*' and instead select specific columns.
 
@@ -9,7 +11,7 @@ Here are examples on how to leverage SQL queries on the Google Cloud Console to 
 Emulating VCFTools
 ------------------
 
----chr
+---chr: Filter by position by including or excluding sites of interest; for example, searching for positions found or chromosome 22. 
 
 .. code-block:: sql
       
@@ -17,7 +19,7 @@ Emulating VCFTools
       WHERE CHROM = 'chr22'
       LIMIT 1000
       
----remove-filter-all
+---remove-filter-all: Removes the sites which do not have the tag PASS under the FILTER column. 
 
 .. code-block:: sql
       
@@ -26,7 +28,7 @@ Emulating VCFTools
       WHERE FILTER = 'PASS'
       LIMIT 1000
       
----maxDP
+---maxDP: This function requires the “DP” tag to exist under the FORMAT column. The option will locate genotypes less than or equal to the “--maxDP” value.
 
 .. code-block:: sql    
 
