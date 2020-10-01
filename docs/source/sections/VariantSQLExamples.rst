@@ -7,6 +7,9 @@ Here are examples on how to leverage SQL queries on the Google Cloud Console to 
 
 .. note:: Best practice to keep costs down for queries is to avoid using '*' and instead select specific columns.
 
+.. note:: In our VCF tables, the POS column is an integer, no quotes are necessary when querying for this columns. The CHROM column is a string and requries quotes when querying for example CHROM = 'chr1'. 
+
+ 
 
 Emulating VCFTools
 ------------------
@@ -54,8 +57,6 @@ Emulating VCFTools
 In-Depth Queries
 ------------------
 
-Notes to include examples on caveats: 
-POS is a integer, so in sql query don't use the quotes 
 
 In this query, let's find all information for patients who have ALL-P2 and a Thymine mutation at position 161550724 on Chromosome 1. 
 
