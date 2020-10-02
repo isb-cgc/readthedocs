@@ -25,23 +25,23 @@ Registering a Google Cloud Storage Bucket and a BigQuery Data Set is a prerequis
 
 Once you have created a bucket and a dataset in the Google Cloud Console of your Google Cloud Project, you will need to register them with your project name using the Web App.  
 
-**Step 1**: Click on your user icon in the upper right.
+**Step 1**: Click on your user icon in the upper right or **Account Details** from the drop down menu under your name.
 
 
 .. image:: Register_Step_1.png
 
-**Step 2**: Click on "View Registered Google Cloud Projects"
+**Step 2**: Click on the **View** button under **Google Cloud Projects**.
 
 
 .. image:: Register_Step_2.png
 
 **Step 3**: Click on the project you wish to use.  If you have not registered a project, follow the instructions `here`_.
 
-.. _here: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/Gaining-Access-To-TCGA-Contolled-Access-Data.html#requirements-for-registering-a-google-cloud-project-service-account
+.. _here: ../controlled-access/Controlled-data-GCP.html
 
 .. image:: Register_Step_3.png
 
-**Step 4**: Use the "Register Cloud Storage Bucket" or "Register BigQuery Dataset" links to add buckets and datasets as needed
+**Step 4**: Use the "Register Cloud Storage Bucket" or "Register BigQuery Dataset" links to add buckets and datasets as needed.
 
 
 .. image:: Register_Step_4.png
@@ -169,7 +169,7 @@ A New Project For An Existing Program
 -------------------------------------
 Adding a new project to an existing program follows the same steps as creating a new program.  However, instead of filling out the new program information fields, users should click on the **A New Project For An Existing Program** tab and select an existing program from the drop-down menu.  All other steps for describing and uploading the file will remain the same.
 
-  .. image:: MouseExisting.PNG
+  .. image:: MouseExisting.png
 
 
 
@@ -211,7 +211,7 @@ This is the data type of the uploaded file.  Currently the allowed data types ar
 
 All files must be tab delimited and meet the formatting requirements described in `Files and File Formats`_.
 
-.. image:: MouseProjectAnnotated.PNG
+.. image:: MouseProjectAnnotated.png
 
 Saved Programs
 ##############

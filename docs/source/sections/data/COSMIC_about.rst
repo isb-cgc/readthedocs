@@ -10,7 +10,7 @@ The `Catalogue Of Somatic Mutations In Cancer <https://cancer.sanger.ac.uk/cosmi
 About the Catalog Of Somatic Mutations In Cancer Data
 ------------------------------------------------------
 
-The BigQuery datasets contain *all* of the CSV and TSV files available for download from the `COSMIC Download page <http://cancer.sanger.ac.uk/cosmic/download>`_. Please explore the tables at (after registering for access):
+The BigQuery data sets contain *all* of the CSV and TSV files available for download from the `COSMIC Download page <http://cancer.sanger.ac.uk/cosmic/download>`_. Please explore the tables at (after registering for access):
 
 * `isb-cgc.COSMIC_v91_grch38 <https://console.cloud.google.com/bigquery?p=isb-cgc&d=COSMIC_v91_grch38&page=dataset>`_
 * `isb-cgc.COSMIC_v91_grch37 <https://console.cloud.google.com/bigquery?p=isb-cgc&d=COSMIC_v91_grch37&page=dataset>`_
@@ -20,14 +20,23 @@ Accessing the Catalog Of Somatic Mutations In Cancer Data
 
 To access the BigQuery tables, you will need to link your Google identity with a COSMIC account.
 
-* **New COSMIC User:** `Register <https://cancer.sanger.ac.uk/cosmic/register>`_ for a new COSMIC account. During registration, fill in the 'Google ID' field with your base Google Identity.
+* **New COSMIC User:** `Register <https://cancer.sanger.ac.uk/cosmic/register>`_ for a new COSMIC account. During registration, fill in the 'Google ID' field with your base* Google Identity.
 
-*A COSMIC account and academic use of the data is free though commercial use of the COSMIC data is subject to licensing fees. Please review the* `COSMIC terms <https://cancer.sanger.ac.uk/cosmic/terms>`_ *for more information.*
+*A COSMIC account and academic use of the data is free, though commercial use of the COSMIC data is subject to licensing fees. Please review the* `COSMIC terms <https://cancer.sanger.ac.uk/cosmic/terms>`_ *for more information.*
 
-* **Registered COSMIC User:** Navigate to the `Account Settings <https://cancer.sanger.ac.uk/cosmic/myaccount>`_ page and fill in the 'Google ID' field with your base Google Identity.
+* **Registered COSMIC User:** After logging in, navigate to the `Account Settings <https://cancer.sanger.ac.uk/cosmic/myaccount>`_ page and fill in the 'Google ID' field with your base* Google Identity.
 
 
-Once you have linked your Google Identity to a COSMIC account, ISB-CGC will obtain your Google Identity. After a short delay, you will have "viewer" access to the COSMIC tables in BigQuery. You will then be able to view the data sets in the BigQuery UI under the ``isb-cgc`` Google Cloud project. You will also be able to use the ``isb-cgc-cosmic`` Google Cloud Project (GCP) to run queries at no cost to you to explore the data sets.
+Once you have linked your Google identity to a COSMIC account, ISB-CGC will obtain your Google Identity. After a short delay, you will have "viewer" access to the COSMIC tables in BigQuery. You will then be able to view the data sets in the BigQuery UI under the ``isb-cgc`` Google Cloud project and query the tables with your own Google Cloud Project. 
+
+We also have tutorials on using the COSMIC data sets with BigQuery in our `Community Notebook Repository <../HowTos.html>`_ that you can check out.
+
+* `Intro to COSMIC in BigQuery Notebook (Python) <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/Intro_to_COSMIC_in_BigQuery.ipynb>`_
+
+If you are new to using ISB-CGC Google BigQuery data sets, see the `Quickstart Guide <../HowToGetStartedonISB-CGC.html>`_ to learn how to obtain a Google identity and how to set up a Google Cloud Project. Additionally, we offer free cloud credits for cancer research; you can find out more `here <../HowtoRequestCloudCredits.html>`_.
 
 If you can't successfully run a query or see the COSMIC tables under the isb-cgc project, please `verify <https://accounts.google.com/ForgotPasswd>`_
-that the Google ID you have provided is a valid Google account.  If you are still unable to run a query or view the data sets under the isb-cgc Google Cloud Project, please contact us at feedback@isb-cgc.org.
+that the Google ID you have provided is a valid Google account. If you are still unable to run a query or view the data sets under the ``isb-cgc`` Google Cloud Project, please contact us at feedback@isb-cgc.org.
+
+
+\* *e.g. the base account tb@mylab.org might have a longer-form alias like thomas.brown@mylab.org*
