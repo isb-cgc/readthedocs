@@ -2,6 +2,70 @@
 ISB-CGC Data Release Notes
 ############################
 
+*October 02, 2020*
+
+Open Somatic Mutation data tables released for the HCMI program.
+
+- isb-cgc-bq.HCMI.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.HCMI_versioned.masked_somatic_mutation_hg38_gdc_r23
+
+The new COSMIC release v92 data is available in BigQuery.
+
+- isb-cgc-bq.COSMIC.complete_differential_methylation_grch37_current
+- isb-cgc-bq.COSMIC.complete_differential_methylation_grch38_current
+- isb-cgc-bq.COSMIC.complete_gene_expression_grch37_current
+- isb-cgc-bq.COSMIC.complete_gene_expression_grch38_current
+- isb-cgc-bq.COSMIC.complete_targeted_screens_mutant_grch37_current
+- isb-cgc-bq.COSMIC.complete_targeted_screens_mutant_grch38_current
+- isb-cgc-bq.COSMIC.fusion_grch37_current
+- isb-cgc-bq.COSMIC.fusion_grch38_current
+- isb-cgc-bq.COSMIC.genome_screens_mutant_grch37_current
+- isb-cgc-bq.COSMIC.genome_screens_mutant_grch38_current
+- isb-cgc-bq.COSMIC.HGNC_grch37_current
+- isb-cgc-bq.COSMIC.HGNC_grch38_current
+- isb-cgc-bq.COSMIC.mutant_census_grch37_current
+- isb-cgc-bq.COSMIC.mutant_census_grch38_current
+- isb-cgc-bq.COSMIC.mutant_grch37_current
+- isb-cgc-bq.COSMIC.mutant_grch38_current
+- isb-cgc-bq.COSMIC.mutation_tracking_grch37_current
+- isb-cgc-bq.COSMIC.mutation_tracking_grch38_current
+- isb-cgc-bq.COSMIC.NCV_grch37_current
+- isb-cgc-bq.COSMIC.NCV_grch38_current
+- isb-cgc-bq.COSMIC.resistance_mutations_grch37_current
+- isb-cgc-bq.COSMIC.resistance_mutations_grch38_current
+- isb-cgc-bq.COSMIC.sample_grch37_current
+- isb-cgc-bq.COSMIC.sample_grch38_current
+- isb-cgc-bq.COSMIC.structural_variants_grch37_current
+- isb-cgc-bq.COSMIC.structural_variants_grch38_current
+- isb-cgc-bq.COSMIC.transcripts_grch37_current
+- isb-cgc-bq.COSMIC.transcripts_grch38_current
+- isb-cgc-bq.COSMIC_versioned.complete_gene_expression_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.complete_gene_expression_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.complete_targeted_screens_mutant_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.complete_targeted_screens_mutant_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.fusion_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.fusion_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.genome_screens_mutant_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.genome_screens_mutant_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.HGNC_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.HGNC_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.mutant_census_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.mutant_census_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.mutant_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.mutant_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.mutation_tracking_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.mutation_tracking_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.NCV_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.NCV_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.resistance_mutations_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.resistance_mutations_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.sample_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.sample_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.structural_variants_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.structural_variants_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.transcripts_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.transcripts_grch38_v92
+
 *September 21, 2020*
 
 Current file metadata tables updated to GDC release 25.
