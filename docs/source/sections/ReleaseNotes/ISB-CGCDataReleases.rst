@@ -11,6 +11,18 @@ Open Somatic Mutation data tables released for the HCMI program.
 
 The new COSMIC release v92 data is available in BigQuery.
 
+- isb-cgc-bq.COSMIC.ASCAT_purity_ploidy_grch37_current
+- isb-cgc-bq.COSMIC.ASCAT_purity_ploidy_grch38_current
+- isb-cgc-bq.COSMIC.breakpoints_grch37_current
+- isb-cgc-bq.COSMIC.breakpoints_grch38_current
+- isb-cgc-bq.COSMIC.cancer_gene_census_grch37_current
+- isb-cgc-bq.COSMIC.cancer_gene_census_grch38_current
+- isb-cgc-bq.COSMIC.cancer_gene_census_hallmarks_of_cancer_grch37_current
+- isb-cgc-bq.COSMIC.cancer_gene_census_hallmarks_of_cancer_grch38_current
+- isb-cgc-bq.COSMIC.classification_grch37_current
+- isb-cgc-bq.COSMIC.classification_grch38_current
+- isb-cgc-bq.COSMIC.complete_CNA_grch37_current
+- isb-cgc-bq.COSMIC.complete_CNA_grch38_current
 - isb-cgc-bq.COSMIC.complete_differential_methylation_grch37_current
 - isb-cgc-bq.COSMIC.complete_differential_methylation_grch38_current
 - isb-cgc-bq.COSMIC.complete_gene_expression_grch37_current
@@ -39,6 +51,20 @@ The new COSMIC release v92 data is available in BigQuery.
 - isb-cgc-bq.COSMIC.structural_variants_grch38_current
 - isb-cgc-bq.COSMIC.transcripts_grch37_current
 - isb-cgc-bq.COSMIC.transcripts_grch38_current
+- isb-cgc-bq.COSMIC_versioned.ASCAT_purity_ploidy_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.ASCAT_purity_ploidy_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.breakpoints_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.breakpoints_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.cancer_gene_census_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.cancer_gene_census_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.cancer_gene_census_hallmarks_of_cancer_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.cancer_gene_census_hallmarks_of_cancer_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.classification_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.classification_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.complete_CNA_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.complete_CNA_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.complete_differential_methylation_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.complete_differential_methylation_grch38_v92
 - isb-cgc-bq.COSMIC_versioned.complete_gene_expression_grch37_v92
 - isb-cgc-bq.COSMIC_versioned.complete_gene_expression_grch38_v92
 - isb-cgc-bq.COSMIC_versioned.complete_targeted_screens_mutant_grch37_v92
