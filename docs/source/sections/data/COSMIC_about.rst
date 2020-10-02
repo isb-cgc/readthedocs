@@ -35,7 +35,7 @@ We also have tutorials on using the COSMIC data sets with BigQuery in our `Commu
 
 If you are new to using ISB-CGC Google BigQuery data sets, see the `Quickstart Guide <../HowToGetStartedonISB-CGC.html>`_ to learn how to obtain a Google identity and how to set up a Google Cloud Project. Additionally, we offer free cloud credits for cancer research; you can find out more `here <../HowtoRequestCloudCredits.html>`_.
 
-If you can't successfully run a query or see the COSMIC tables under the isb-cgc-bq project, please `verify <https://accounts.google.com/ForgotPasswd>`_
+If you can't successfully run a query or see the COSMIC tables under the ``isb-cgc-bq project``, please `verify <https://accounts.google.com/ForgotPasswd>`_
 that the Google ID you have provided is a valid Google account. If you are still unable to run a query or view the data sets under the ``isb-cgc-bq`` Google Cloud Project, please contact us at feedback@isb-cgc.org.
 
 
