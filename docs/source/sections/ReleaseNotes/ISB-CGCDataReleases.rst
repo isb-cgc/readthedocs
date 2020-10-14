@@ -214,7 +214,7 @@ Table generated as part of an analysis for a poster submitted to the ACM-BCB2020
 
 **BigQuery tables created**
 
- - isb-cgc-bq.supplementary_tables.Abdilleh_etal_ACM_BCB_2020_TCGA_bioclin_v0_Clinical_UNPIVOT
+- isb-cgc-bq.supplementary_tables.Abdilleh_etal_ACM_BCB_2020_TCGA_bioclin_v0_Clinical_UNPIVOT
 
 *September 3, 2020*
 
