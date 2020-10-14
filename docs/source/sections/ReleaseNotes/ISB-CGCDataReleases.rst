@@ -2,6 +2,186 @@
 ISB-CGC Data Release Notes
 ############################
 
+*October 07, 2020*
+
+Existing TCGA tables in the isb-cgc project were copied to the isb-cgc-bq project, TCGA and TCGA_versioned data sets.
+Corresponding TCGA tables in the isb-cgc project were deprecated.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.TCGA.annotations_gdc_current
+- isb-cgc-bq.TCGA_versioned.annotations_gdc_2017_04
+- isb-cgc-bq.TCGA.biospecimen_gdc_current
+- isb-cgc-bq.TCGA_versioned.biospecimen_gdc_2017_02
+- isb-cgc-bq.TCGA_versioned.clinical_gdc_2018_06
+- isb-cgc-bq.TCGA_versioned.clinical_gdc_2019_06
+- isb-cgc-bq.TCGA.slide_images_gdc_current
+- isb-cgc-bq.TCGA_versioned.slide_images_gdc_r17
+- isb-cgc-bq.TCGA.radiology_images_tcia_current
+- isb-cgc-bq.TCGA_versioned.radiology_images_tcia_2018_06
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg19_gdc_r14
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_r14
+- isb-cgc-bq.TCGA_versioned.somatic_mutation_hg19_MC3_2017_02
+- isb-cgc-bq.TCGA_versioned.somatic_mutation_hg19_DCC_2017_02
+- isb-cgc-bq.TCGA_versioned.somatic_mutation_hg38_gdc_r6
+- isb-cgc-bq.TCGA_versioned.somatic_mutation_hg38_gdc_r7
+- isb-cgc-bq.TCGA.somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.TCGA_versioned.somatic_mutation_hg38_gdc_r10
+- isb-cgc-bq.TCGA.miRNAseq_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.miRNAseq_hg19_gdc_2017_03
+- isb-cgc-bq.TCGA.miRNAseq_hg38_gdc_current
+- isb-cgc-bq.TCGA_versioned.miRNAseq_hg38_gdc_r14
+- isb-cgc-bq.TCGA.protein_expression_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.protein_expression_hg19_gdc_2017_02
+- isb-cgc-bq.TCGA.protein_expression_hg38_gdc_current
+- isb-cgc-bq.TCGA_versioned.protein_expression_hg38_gdc_2017_02
+- isb-cgc-bq.TCGA.miRNAseq_isoform_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.miRNAseq_isoform_hg19_gdc_2017_02
+- isb-cgc-bq.TCGA.miRNAseq_isoform_hg38_gdc_current
+- isb-cgc-bq.TCGA_versioned.miRNAseq_isoform_hg38_gdc_r14
+- isb-cgc-bq.TCGA.RNAseq_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.RNAseq_hg19_gdc_2017_02
+- isb-cgc-bq.TCGA.RNAseq_hg38_gdc_current
+- isb-cgc-bq.TCGA_versioned.RNAseq_hg38_gdc_2017_12
+- isb-cgc-bq.TCGA_versioned.copy_number_segment_masked_hg38_gdc_2017_02
+- isb-cgc-bq.TCGA.copy_number_segment_masked_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.copy_number_segment_masked_hg19_gdc_2017_02
+- isb-cgc-bq.TCGA.copy_number_segment_masked_hg38_gdc_current
+- isb-cgc-bq.TCGA_versioned.copy_number_segment_masked_hg38_gdc_r14
+
+*October 06, 2020*
+
+New per sample file metadata tables added to isb-cgc-bq for GDC release 25.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.WCDT.per_sample_file_metadata_hg38_gdc
+- isb-cgc-bq.WCDT_versioned.per_sample_file_metadata_hg38_gdc_r25
+- isb-cgc-bq.GENIE.per_sample_file_metadata_hg38_gdc
+- isb-cgc-bq.GENIE_versioned.per_sample_file_metadata_hg38_gdc_r25
+- isb-cgc-bq.OHSU.per_sample_file_metadata_hg38_gdc
+- isb-cgc-bq.OHSU_versioned.per_sample_file_metadata_hg38_gdc_r25
+- isb-cgc-bq.FM.per_sample_file_metadata_hg38_gdc
+- isb-cgc-bq.FM_versioned.per_sample_file_metadata_hg38_gdc_r25
+- isb-cgc-bq.VAREPOP.per_sample_file_metadata_hg38_gdc
+- isb-cgc-bq.VAREPOP_versioned.per_sample_file_metadata_hg38_gdc_r25
+- isb-cgc-bq.CTSP.per_sample_file_metadata_hg38_gdc
+- isb-cgc-bq.CTSP_versioned.per_sample_file_metadata_hg38_gdc_r25
+- isb-cgc-bq.NCICCR.per_sample_file_metadata_hg38_gdc
+- isb-cgc-bq.NCICCR_versioned.per_sample_file_metadata_hg38_gdc_r25
+- isb-cgc-bq.ORGANOID.per_sample_file_metadata_hg38_gdc
+- isb-cgc-bq.ORGANOID_versioned.per_sample_file_metadata_hg38_gdc_r25
+- isb-cgc-bq.MMRF.per_sample_file_metadata_hg38_gdc
+- isb-cgc-bq.MMRF_versioned.per_sample_file_metadata_hg38_gdc_r25
+- isb-cgc-bq.CGCI.per_sample_file_metadata_hg38_gdc
+- isb-cgc-bq.CGCI_versioned.per_sample_file_metadata_hg38_gdc_r25
+- isb-cgc-bq.HCMI.per_sample_file_metadata_hg38_gdc
+- isb-cgc-bq.HCMI_versioned.per_sample_file_metadata_hg38_gdc_r25
+- isb-cgc-bq.BEATAML1_0.per_sample_file_metadata_hg38_gdc
+- isb-cgc-bq.BEATAML1_0_versioned.per_sample_file_metadata_hg38_gdc_r25
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_hg38_gdc
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_hg38_gdc_r25
+- isb-cgc-bq.TARGET.per_sample_file_metadata_hg38_gdc
+- isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg38_gdc_r25
+- isb-cgc-bq.TCGA.per_sample_file_metadata_hg38_gdc
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_r25
+- isb-cgc-bq.CCLE.per_sample_file_metadata_hg19_gdc
+- isb-cgc-bq.CCLE_versioned.per_sample_file_metadata_hg19_gdc_r25
+- isb-cgc-bq.TARGET.per_sample_file_metadata_hg19_gdc
+- isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg19_gdc_r25
+- isb-cgc-bq.TCGA.per_sample_file_metadata_hg19_gdc
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg19_gdc_r25
+
+*October 02, 2020*
+
+Open Somatic Mutation data tables released for the HCMI program.
+
+- isb-cgc-bq.HCMI.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.HCMI_versioned.masked_somatic_mutation_hg38_gdc_r23
+
+The new COSMIC release v92 data is available in BigQuery.
+
+- isb-cgc-bq.COSMIC.ASCAT_purity_ploidy_grch37_current
+- isb-cgc-bq.COSMIC.ASCAT_purity_ploidy_grch38_current
+- isb-cgc-bq.COSMIC.breakpoints_grch37_current
+- isb-cgc-bq.COSMIC.breakpoints_grch38_current
+- isb-cgc-bq.COSMIC.cancer_gene_census_grch37_current
+- isb-cgc-bq.COSMIC.cancer_gene_census_grch38_current
+- isb-cgc-bq.COSMIC.cancer_gene_census_hallmarks_of_cancer_grch37_current
+- isb-cgc-bq.COSMIC.cancer_gene_census_hallmarks_of_cancer_grch38_current
+- isb-cgc-bq.COSMIC.classification_grch37_current
+- isb-cgc-bq.COSMIC.classification_grch38_current
+- isb-cgc-bq.COSMIC.complete_CNA_grch37_current
+- isb-cgc-bq.COSMIC.complete_CNA_grch38_current
+- isb-cgc-bq.COSMIC.complete_differential_methylation_grch37_current
+- isb-cgc-bq.COSMIC.complete_differential_methylation_grch38_current
+- isb-cgc-bq.COSMIC.complete_gene_expression_grch37_current
+- isb-cgc-bq.COSMIC.complete_gene_expression_grch38_current
+- isb-cgc-bq.COSMIC.complete_targeted_screens_mutant_grch37_current
+- isb-cgc-bq.COSMIC.complete_targeted_screens_mutant_grch38_current
+- isb-cgc-bq.COSMIC.fusion_grch37_current
+- isb-cgc-bq.COSMIC.fusion_grch38_current
+- isb-cgc-bq.COSMIC.genome_screens_mutant_grch37_current
+- isb-cgc-bq.COSMIC.genome_screens_mutant_grch38_current
+- isb-cgc-bq.COSMIC.HGNC_grch37_current
+- isb-cgc-bq.COSMIC.HGNC_grch38_current
+- isb-cgc-bq.COSMIC.mutant_census_grch37_current
+- isb-cgc-bq.COSMIC.mutant_census_grch38_current
+- isb-cgc-bq.COSMIC.mutant_grch37_current
+- isb-cgc-bq.COSMIC.mutant_grch38_current
+- isb-cgc-bq.COSMIC.mutation_tracking_grch37_current
+- isb-cgc-bq.COSMIC.mutation_tracking_grch38_current
+- isb-cgc-bq.COSMIC.NCV_grch37_current
+- isb-cgc-bq.COSMIC.NCV_grch38_current
+- isb-cgc-bq.COSMIC.resistance_mutations_grch37_current
+- isb-cgc-bq.COSMIC.resistance_mutations_grch38_current
+- isb-cgc-bq.COSMIC.sample_grch37_current
+- isb-cgc-bq.COSMIC.sample_grch38_current
+- isb-cgc-bq.COSMIC.structural_variants_grch37_current
+- isb-cgc-bq.COSMIC.structural_variants_grch38_current
+- isb-cgc-bq.COSMIC.transcripts_grch37_current
+- isb-cgc-bq.COSMIC.transcripts_grch38_current
+- isb-cgc-bq.COSMIC_versioned.ASCAT_purity_ploidy_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.ASCAT_purity_ploidy_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.breakpoints_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.breakpoints_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.cancer_gene_census_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.cancer_gene_census_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.cancer_gene_census_hallmarks_of_cancer_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.cancer_gene_census_hallmarks_of_cancer_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.classification_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.classification_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.complete_CNA_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.complete_CNA_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.complete_differential_methylation_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.complete_differential_methylation_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.complete_gene_expression_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.complete_gene_expression_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.complete_targeted_screens_mutant_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.complete_targeted_screens_mutant_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.fusion_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.fusion_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.genome_screens_mutant_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.genome_screens_mutant_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.HGNC_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.HGNC_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.mutant_census_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.mutant_census_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.mutant_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.mutant_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.mutation_tracking_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.mutation_tracking_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.NCV_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.NCV_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.resistance_mutations_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.resistance_mutations_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.sample_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.sample_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.structural_variants_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.structural_variants_grch38_v92
+- isb-cgc-bq.COSMIC_versioned.transcripts_grch37_v92
+- isb-cgc-bq.COSMIC_versioned.transcripts_grch38_v92
+
 *September 21, 2020*
 
 Current file metadata tables updated to GDC release 25.
@@ -34,11 +214,12 @@ Table generated as part of an analysis for a poster submitted to the ACM-BCB2020
 
 **BigQuery tables created**
 
- - isb-cgc-bq.supplementary_tables.Abdilleh_etal_ACM_BCB_2020_TCGA_bioclin_v0_Clinical_UNPIVOT
+- isb-cgc-bq.supplementary_tables.Abdilleh_etal_ACM_BCB_2020_TCGA_bioclin_v0_Clinical_UNPIVOT
 
 *September 3, 2020*
 
 Existing CCLE tables in the isb-cgc project were copied to the isb-cgc-bq project, CCLE and CCLE_versioned data sets.
+Corresponding CCLE tables in the isb-cgc project were deprecated.
 
 **BigQuery tables created**
 
