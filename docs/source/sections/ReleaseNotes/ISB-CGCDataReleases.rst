@@ -2,6 +2,49 @@
 ISB-CGC Data Release Notes
 ############################
 
+*October 06, 2020*
+
+New per sample file metadata tables added to isb-cgc-bq for GDC release 25.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.WCDT.per_sample_file_metadata_hg38_gdc
+- isb-cgc-bq.WCDT_versioned.per_sample_file_metadata_hg38_gdc_r25
+- isb-cgc-bq.GENIE.per_sample_file_metadata_hg38_gdc
+- isb-cgc-bq.GENIE_versioned.per_sample_file_metadata_hg38_gdc_r25
+- isb-cgc-bq.OHSU.per_sample_file_metadata_hg38_gdc
+- isb-cgc-bq.OHSU_versioned.per_sample_file_metadata_hg38_gdc_r25
+- isb-cgc-bq.FM.per_sample_file_metadata_hg38_gdc
+- isb-cgc-bq.FM_versioned.per_sample_file_metadata_hg38_gdc_r25
+- isb-cgc-bq.VAREPOP.per_sample_file_metadata_hg38_gdc
+- isb-cgc-bq.VAREPOP_versioned.per_sample_file_metadata_hg38_gdc_r25
+- isb-cgc-bq.CTSP.per_sample_file_metadata_hg38_gdc
+- isb-cgc-bq.CTSP_versioned.per_sample_file_metadata_hg38_gdc_r25
+- isb-cgc-bq.NCICCR.per_sample_file_metadata_hg38_gdc
+- isb-cgc-bq.NCICCR_versioned.per_sample_file_metadata_hg38_gdc_r25
+- isb-cgc-bq.ORGANOID.per_sample_file_metadata_hg38_gdc
+- isb-cgc-bq.ORGANOID_versioned.per_sample_file_metadata_hg38_gdc_r25
+- isb-cgc-bq.MMRF.per_sample_file_metadata_hg38_gdc
+- isb-cgc-bq.MMRF_versioned.per_sample_file_metadata_hg38_gdc_r25
+- isb-cgc-bq.CGCI.per_sample_file_metadata_hg38_gdc
+- isb-cgc-bq.CGCI_versioned.per_sample_file_metadata_hg38_gdc_r25
+- isb-cgc-bq.HCMI.per_sample_file_metadata_hg38_gdc
+- isb-cgc-bq.HCMI_versioned.per_sample_file_metadata_hg38_gdc_r25
+- isb-cgc-bq.BEATAML1_0.per_sample_file_metadata_hg38_gdc
+- isb-cgc-bq.BEATAML1_0_versioned.per_sample_file_metadata_hg38_gdc_r25
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_hg38_gdc
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_hg38_gdc_r25
+- isb-cgc-bq.TARGET.per_sample_file_metadata_hg38_gdc
+- isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg38_gdc_r25
+- isb-cgc-bq.TCGA.per_sample_file_metadata_hg38_gdc
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_r25
+- isb-cgc-bq.CCLE.per_sample_file_metadata_hg19_gdc
+- isb-cgc-bq.CCLE_versioned.per_sample_file_metadata_hg19_gdc_r25
+- isb-cgc-bq.TARGET.per_sample_file_metadata_hg19_gdc
+- isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg19_gdc_r25
+- isb-cgc-bq.TCGA.per_sample_file_metadata_hg19_gdc
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg19_gdc_r25
+
 *October 02, 2020*
 
 Open Somatic Mutation data tables released for the HCMI program.
