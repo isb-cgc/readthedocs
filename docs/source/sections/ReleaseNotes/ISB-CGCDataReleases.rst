@@ -2,6 +2,53 @@
 ISB-CGC Data Release Notes
 ############################
 
+*October 07, 2020*
+
+Existing TCGA tables in the isb-cgc project were copied to the isb-cgc-bq project, TCGA and TCGA_versioned data sets.
+Corresponding TCGA tables in the isb-cgc project were deprecated.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.TCGA.annotations_gdc_current
+- isb-cgc-bq.TCGA_versioned.annotations_gdc_2017_04
+- isb-cgc-bq.TCGA.biospecimen_gdc_current
+- isb-cgc-bq.TCGA_versioned.biospecimen_gdc_2017_02
+- isb-cgc-bq.TCGA_versioned.clinical_gdc_2018_06
+- isb-cgc-bq.TCGA_versioned.clinical_gdc_2019_06
+- isb-cgc-bq.TCGA.slide_images_gdc_current
+- isb-cgc-bq.TCGA_versioned.slide_images_gdc_r17
+- isb-cgc-bq.TCGA.radiology_images_tcia_current
+- isb-cgc-bq.TCGA_versioned.radiology_images_tcia_2018_06
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg19_gdc_r14
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_r14
+- isb-cgc-bq.TCGA_versioned.somatic_mutation_hg19_MC3_2017_02
+- isb-cgc-bq.TCGA_versioned.somatic_mutation_hg19_DCC_2017_02
+- isb-cgc-bq.TCGA_versioned.somatic_mutation_hg38_gdc_r6
+- isb-cgc-bq.TCGA_versioned.somatic_mutation_hg38_gdc_r7
+- isb-cgc-bq.TCGA.somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.TCGA_versioned.somatic_mutation_hg38_gdc_r10
+- isb-cgc-bq.TCGA.miRNAseq_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.miRNAseq_hg19_gdc_2017_03
+- isb-cgc-bq.TCGA.miRNAseq_hg38_gdc_current
+- isb-cgc-bq.TCGA_versioned.miRNAseq_hg38_gdc_r14
+- isb-cgc-bq.TCGA.protein_expression_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.protein_expression_hg19_gdc_2017_02
+- isb-cgc-bq.TCGA.protein_expression_hg38_gdc_current
+- isb-cgc-bq.TCGA_versioned.protein_expression_hg38_gdc_2017_02
+- isb-cgc-bq.TCGA.miRNAseq_isoform_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.miRNAseq_isoform_hg19_gdc_2017_02
+- isb-cgc-bq.TCGA.miRNAseq_isoform_hg38_gdc_current
+- isb-cgc-bq.TCGA_versioned.miRNAseq_isoform_hg38_gdc_r14
+- isb-cgc-bq.TCGA.RNAseq_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.RNAseq_hg19_gdc_2017_02
+- isb-cgc-bq.TCGA.RNAseq_hg38_gdc_current
+- isb-cgc-bq.TCGA_versioned.RNAseq_hg38_gdc_2017_12
+- isb-cgc-bq.TCGA_versioned.copy_number_segment_masked_hg38_gdc_2017_02
+- isb-cgc-bq.TCGA.copy_number_segment_masked_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.copy_number_segment_masked_hg19_gdc_2017_02
+- isb-cgc-bq.TCGA.copy_number_segment_masked_hg38_gdc_current
+- isb-cgc-bq.TCGA_versioned.copy_number_segment_masked_hg38_gdc_r14
+
 *October 06, 2020*
 
 New per sample file metadata tables added to isb-cgc-bq for GDC release 25.
@@ -172,6 +219,7 @@ Table generated as part of an analysis for a poster submitted to the ACM-BCB2020
 *September 3, 2020*
 
 Existing CCLE tables in the isb-cgc project were copied to the isb-cgc-bq project, CCLE and CCLE_versioned data sets.
+Corresponding CCLE tables in the isb-cgc project were deprecated.
 
 **BigQuery tables created**
 
