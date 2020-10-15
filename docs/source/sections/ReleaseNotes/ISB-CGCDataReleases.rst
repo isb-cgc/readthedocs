@@ -10,7 +10,21 @@ Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer Quarterly
 
 - Total number of cases 70,818
 - Total number of unique gene fusions 32,578
-- Total number of genes involved 
+- Total number of genes involved 14014
+
+*October 14, 2020*
+
+New GDC release 26 file metadata tables.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.GDC_case_file_metadata_versioned.GDCfileID_to_GCSurl_r26
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_legacy_r26
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_active_r26
+- isb-cgc-bq.GDC_case_file_metadata_versioned.caseData_r26
+- isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r26
+- isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r26
+
 
 *October 07, 2020*
 
