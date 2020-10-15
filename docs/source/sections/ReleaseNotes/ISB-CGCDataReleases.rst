@@ -2,6 +2,16 @@
 ISB-CGC Data Release Notes
 ############################
 
+*October 15, 2020*
+
+Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer Quarterly Update Release.
+
+**Updated totals**
+
+- Total number of cases 70,818
+- Total number of unique gene fusions 32,578
+- Total number of genes involved 
+
 *October 07, 2020*
 
 Existing TCGA tables in the isb-cgc project were copied to the isb-cgc-bq project, TCGA and TCGA_versioned data sets.
