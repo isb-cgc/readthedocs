@@ -1,5 +1,5 @@
-SQL Query Examples 
-===================
+Variant Data SQL Query Examples 
+==============================
 
 Here are examples of how to leverage SQL queries to analyze the variant data in our tables on the Google Cloud Console. They include some SQL snippets which emulate the commands from VCFTools. `VCFTools <http://vcftools.sourceforge.net/man_0112b.html>`_ is a suite of functions for processing, validating, analyzing, and more on VCF files.
 
