@@ -11,7 +11,13 @@ As variant data is increasing and growing in size, researchers face the problem 
 Flattened VCF BigQuery Table
 ============================
 
-To solve this issue, ISB-CGC created a variant transforms tool which produces a Google BiqQuery table that mimics a VCF file format. The flattened table format allows for an easy and familiar format if you have worked with VCF files in the past. The output of the table is called “flat” because the structure of the generated table contains no form of nesting. The BigQuery table presented in the picture below is a file which was created through a Python script with randomized values for each column to mimic a controlled access VCF file. This randomly generated file was done because the nature of the VCF files found on GDC contains sensitive patient information, which cannot be displayed to the public. In this picture, we display a table generated to emulate a TCGA VCF file. The first 11 columns, seen in the image, begin just as a VCF file does. In addition to keeping a similar structure, the new table splits VCF columns such as NORMAL and TUMOR into their own individual columns. The objective of the flattened file is to bring ease and understandability to our users who have worked with VCF files in the past or who are brand new to this area of research. 
+To solve this issue, ISB-CGC created a variant transforms tool which produces a Google BiqQuery table that mimics a VCF file format. The flattened table format allows for an easy and familiar format if you have worked with VCF files in the past. The output of the table is called “flat” because the structure of the generated table contains no form of nesting. 
+
+The BigQuery table pictured below has randomized values for each column and mimics a controlled access VCF file. This randomly generated table was created for visualization puposes only, as VCF files found on GDC contain sensitive patient information which cannot be displayed to the public. In this picture, we display a table generated to emulate a TCGA VCF file. 
+
+.. note:: The actual BiqQuery variant data tables are not randomized and are controlled access.
+
+The first 11 columns, seen in the image, begin just as a VCF file does. In addition to keeping a similar structure, the new table splits VCF columns such as NORMAL and TUMOR into their own individual columns. The objective of the flattened file is to bring ease and understandability to our users who have worked with VCF files in the past or who are brand new to this area of research. 
 
 .. figure:: BigQuery_VCF_Flattened.png 
    :scale: 50
