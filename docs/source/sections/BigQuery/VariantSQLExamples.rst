@@ -1,20 +1,19 @@
 SQL Query Examples 
 ===================
 
-Here are examples on how to leverage SQL queries on the Google Cloud Console to analyze the data in our tables. In addition to example queries, we added a list of snippets which emulates the commands from VCFTools. VCFTools is a software that allows for processing, validating, analyzing, and more on VCF files.
+Here are examples of how to leverage SQL queries to analyze the variant data in our tables on the Google Cloud Console. They include some SQL snippets which emulate the commands from VCFTools. `VCFTools <http://vcftools.sourceforge.net/man_0112b.html>`_ is a suite of functions for processing, validating, analyzing, and more on VCF files.
 
-      * To learn more about the software please refer to VCFTools `documentation <http://vcftools.sourceforge.net/man_0112b.html>`_.
 
 .. note:: Best practice to keep costs down for queries is to avoid using '*' and instead select specific columns.
 
 .. note:: In our VCF tables, the POS column is an integer, no quotes are necessary when querying for this columns. The CHROM column is a string and requries quotes when querying for example CHROM = 'chr1'. 
 
  
-
+ 
 Emulating VCFTools
 ------------------
 
----chr: Filter by position by including or excluding sites of interest; for example, searching for positions found or chromosome 22. 
+---chr: Filter by position by including or excluding sites of interest; for example, searching for positions found at chromosome 22. 
 
 .. code-block:: sql
       
@@ -26,7 +25,7 @@ Emulating VCFTools
           CHROM = 'chr22'
       LIMIT 1000
       
----remove-filter-all: Removes the sites which do not have the tag PASS under the FILTER column. 
+---remove-filter-all: Removes the sites which do not have the tag PASS in the FILTER column. 
 
 .. code-block:: sql
       
@@ -39,7 +38,7 @@ Emulating VCFTools
           FILTER = 'PASS'
       LIMIT 1000
       
----maxDP: This function requires the “DP” tag to exist under the FORMAT column. The option will locate genotypes less than or equal to the “--maxDP” value.
+---maxDP: This function requires the “DP” tag to exist in the FORMAT column. The option will locate genotypes less than or equal to the “--maxDP” value.
 
 .. code-block:: sql    
 
@@ -58,7 +57,7 @@ In-Depth Queries
 ------------------
 
 
-In this query, let's find all information for patients who have ALL-P2 and a Thymine mutation at position 161550724 on Chromosome 1. 
+In this query, let's find information for patients who have ALL-P2 and a Thymine mutation at position 161550724 on Chromosome 1. 
 
 .. code-block:: sql
 
@@ -72,7 +71,7 @@ In this query, let's find all information for patients who have ALL-P2 and a Thy
           AND POS = 161550724  
           AND ALT = "T"
       
-In this query, let us look at chromosome 1. We want to find positions between twenty thousand and five million. We interested in chromosome and position from a specific project and with a certain analysis workflow type. In this case, we want to look into the project TARGET-WT. These are patients that are diagnosed with Wilms tumor. For the analysis workflow type, we are interested in MuTect2. 
+In this query, let's look at chromosome 1. We want to find positions between twenty thousand and five million. We are interested in chromosome and position from a specific project and with a certain analysis workflow type. In this case, we want to look at the project TARGET-WT. These are patients who are diagnosed with Wilms tumor. For the analysis workflow type, we are interested in MuTect2. 
 
 
 .. code-block:: sql
