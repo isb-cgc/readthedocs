@@ -18,7 +18,7 @@ ISB-CGC has developed an extract, transform and load (ETL) pipeline to take cont
 How To Query The Tables
 =======================
 
-The variant tables can used to queried using SQL.  
+The variant data tables can be queried using SQL.  For examples, see `Variant Data SQL Query Examples <VariantSQLExamples.html>`_.
 
 .. toctree::
    :maxdepth: 1
