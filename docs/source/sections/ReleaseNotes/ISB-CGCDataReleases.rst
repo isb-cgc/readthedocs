@@ -36,6 +36,52 @@ New GDC release 26 file metadata tables.
 - isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r26
 - isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r26
 
+New per sample file metadata tables added to isb-cgc-bq for GDC release 26.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.WCDT_versioned.per_sample_file_metadata_hg38_gdc_r26
+- isb-cgc-bq.GENIE_versioned.per_sample_file_metadata_hg38_gdc_r26
+- isb-cgc-bq.OHSU_versioned.per_sample_file_metadata_hg38_gdc_r26
+- isb-cgc-bq.FM_versioned.per_sample_file_metadata_hg38_gdc_r26
+- isb-cgc-bq.VAREPOP_versioned.per_sample_file_metadata_hg38_gdc_r26
+- isb-cgc-bq.CTSP_versioned.per_sample_file_metadata_hg38_gdc_r26
+- isb-cgc-bq.NCICCR_versioned.per_sample_file_metadata_hg38_gdc_r26
+- isb-cgc-bq.ORGANOID_versioned.per_sample_file_metadata_hg38_gdc_r26
+- isb-cgc-bq.MMRF_versioned.per_sample_file_metadata_hg38_gdc_r26
+- isb-cgc-bq.CGCI_versioned.per_sample_file_metadata_hg38_gdc_r26
+- isb-cgc-bq.HCMI_versioned.per_sample_file_metadata_hg38_gdc_r26
+- isb-cgc-bq.BEATAML1_0_versioned.per_sample_file_metadata_hg38_gdc_r26
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_hg38_gdc_r26
+- isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg38_gdc_r26
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_r26
+- isb-cgc-bq.CCLE_versioned.per_sample_file_metadata_hg19_gdc_r26
+- isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg19_gdc_r26
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg19_gdc_r26
+
+Current per sample file metadata tables updated to GDC release 26.
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.WCDT_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.GENIE_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.OHSU_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.FM_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.VAREPOP_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CTSP_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.NCICCR_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.ORGANOID_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.MMRF_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CGCI_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.HCMI_versioned.per_sample_file_metadata_hg38_gdc_r26
+- isb-cgc-bq.BEATAML1_0_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CCLE_versioned.per_sample_file_metadata_hg19_gdc_current
+- isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg19_gdc_current
+
 
 *October 07, 2020*
 
@@ -90,41 +136,23 @@ New per sample file metadata tables added to isb-cgc-bq for GDC release 25.
 
 **BigQuery tables created**
 
-- isb-cgc-bq.WCDT.per_sample_file_metadata_hg38_gdc
 - isb-cgc-bq.WCDT_versioned.per_sample_file_metadata_hg38_gdc_r25
-- isb-cgc-bq.GENIE.per_sample_file_metadata_hg38_gdc
 - isb-cgc-bq.GENIE_versioned.per_sample_file_metadata_hg38_gdc_r25
-- isb-cgc-bq.OHSU.per_sample_file_metadata_hg38_gdc
 - isb-cgc-bq.OHSU_versioned.per_sample_file_metadata_hg38_gdc_r25
-- isb-cgc-bq.FM.per_sample_file_metadata_hg38_gdc
 - isb-cgc-bq.FM_versioned.per_sample_file_metadata_hg38_gdc_r25
-- isb-cgc-bq.VAREPOP.per_sample_file_metadata_hg38_gdc
 - isb-cgc-bq.VAREPOP_versioned.per_sample_file_metadata_hg38_gdc_r25
-- isb-cgc-bq.CTSP.per_sample_file_metadata_hg38_gdc
 - isb-cgc-bq.CTSP_versioned.per_sample_file_metadata_hg38_gdc_r25
-- isb-cgc-bq.NCICCR.per_sample_file_metadata_hg38_gdc
 - isb-cgc-bq.NCICCR_versioned.per_sample_file_metadata_hg38_gdc_r25
-- isb-cgc-bq.ORGANOID.per_sample_file_metadata_hg38_gdc
 - isb-cgc-bq.ORGANOID_versioned.per_sample_file_metadata_hg38_gdc_r25
-- isb-cgc-bq.MMRF.per_sample_file_metadata_hg38_gdc
 - isb-cgc-bq.MMRF_versioned.per_sample_file_metadata_hg38_gdc_r25
-- isb-cgc-bq.CGCI.per_sample_file_metadata_hg38_gdc
 - isb-cgc-bq.CGCI_versioned.per_sample_file_metadata_hg38_gdc_r25
-- isb-cgc-bq.HCMI.per_sample_file_metadata_hg38_gdc
 - isb-cgc-bq.HCMI_versioned.per_sample_file_metadata_hg38_gdc_r25
-- isb-cgc-bq.BEATAML1_0.per_sample_file_metadata_hg38_gdc
 - isb-cgc-bq.BEATAML1_0_versioned.per_sample_file_metadata_hg38_gdc_r25
-- isb-cgc-bq.CPTAC.per_sample_file_metadata_hg38_gdc
 - isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_hg38_gdc_r25
-- isb-cgc-bq.TARGET.per_sample_file_metadata_hg38_gdc
 - isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg38_gdc_r25
-- isb-cgc-bq.TCGA.per_sample_file_metadata_hg38_gdc
 - isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_r25
-- isb-cgc-bq.CCLE.per_sample_file_metadata_hg19_gdc
 - isb-cgc-bq.CCLE_versioned.per_sample_file_metadata_hg19_gdc_r25
-- isb-cgc-bq.TARGET.per_sample_file_metadata_hg19_gdc
 - isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg19_gdc_r25
-- isb-cgc-bq.TCGA.per_sample_file_metadata_hg19_gdc
 - isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg19_gdc_r25
 
 *October 02, 2020*
