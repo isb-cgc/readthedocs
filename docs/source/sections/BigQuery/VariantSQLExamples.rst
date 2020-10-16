@@ -6,7 +6,7 @@ Here are examples of how to leverage SQL queries to analyze the variant data in 
 
 .. note:: Best practice to keep costs down for queries is to avoid using '*' and instead select specific columns.
 
-.. note:: In our VCF tables, the POS column is an integer, no quotes are necessary when querying for this columns. The CHROM column is a string and requries quotes when querying for example CHROM = 'chr1'. 
+.. note:: In our VCF tables, the POS column is an integer; no quotes are necessary when querying for this column. The CHROM column is a string and requries quotes when querying,  for example, CHROM = 'chr1'. 
 
  
  
