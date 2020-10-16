@@ -13,6 +13,8 @@ Here are examples of how to leverage SQL queries to analyze the variant data in 
 Emulating VCFTools
 ------------------
 
+These SQL queries replicate the functionality of the listed VCFTools command.
+
 ---chr: Filter by position by including or excluding sites of interest; for example, searching for positions found at chromosome 22. 
 
 .. code-block:: sql
