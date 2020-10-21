@@ -2,6 +2,15 @@
 ISB-CGC Data Release Notes
 ############################
 
+*October 21, 2020*
+
+RNA Seq data tables released for the CGCI program.
+
+**BigQuery tables created**
+
+- isb-cgc-bq:CGCI.RNAseq_hg38_gdc_current
+- isb-cgc-bq:CGCI_versioned.RNAseq_hg38_gdc_r24
+
 *October 15, 2020*
 
 Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer Quarterly Update Release.
@@ -159,10 +168,14 @@ New per sample file metadata tables added to isb-cgc-bq for GDC release 25.
 
 Open Somatic Mutation data tables released for the HCMI program.
 
+**BigQuery tables created**
+
 - isb-cgc-bq.HCMI.masked_somatic_mutation_hg38_gdc_current
 - isb-cgc-bq.HCMI_versioned.masked_somatic_mutation_hg38_gdc_r23
 
 The new COSMIC release v92 data is available in BigQuery.
+
+**BigQuery tables created**
 
 - isb-cgc-bq.COSMIC.ASCAT_purity_ploidy_grch37_current
 - isb-cgc-bq.COSMIC.ASCAT_purity_ploidy_grch38_current
