@@ -54,6 +54,10 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - |checkmark|
      - |checkmark| *
      - 
+   * - CMI
+     - |checkmark|
+     - metadata only
+     - 
    * - `CPTAC <data/CPTAC_about.html>`_
      - |checkmark|
      - |checkmark| *
