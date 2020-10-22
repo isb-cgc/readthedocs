@@ -67,6 +67,9 @@ New per sample file metadata tables added to isb-cgc-bq for GDC release 26.
 - isb-cgc-bq.CCLE_versioned.per_sample_file_metadata_hg19_gdc_r26
 - isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg19_gdc_r26
 - isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg19_gdc_r26
+- isb-cgc-bq.CMI_versioned.per_sample_file_metadata_hg19_gdc_r26
+- isb-cgc-bq.CMI.per_sample_file_metadata_hg19_gdc_current
+
 
 Current per sample file metadata tables updated to GDC release 26.
 
