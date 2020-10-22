@@ -15,7 +15,7 @@ Corresponding TARGET tables in the isb-cgc project were deprecated.
 - isb-cgc-bq.TARGET_versioned.miRNAseq_isoform_hg38_gdc_r14
 - isb-cgc-bq.TARGET_versioned.miRNAseq_hg38_gdc_r11
 - isb-cgc-bq.TARGET_versioned.miRNAseq_hg38_gdc_r14
-- isb-cgc-bq.TARGET_versioned.RNAseq_hg38_gdc_2017TARGET_bioclin_v0 and _12
+- isb-cgc-bq.TARGET_versioned.RNAseq_hg38_gdc_2017_12
 - isb-cgc-bq.TARGET.biospecimen_gdc_current
 - isb-cgc-bq.TARGET_versioned.biospecimen_gdc_2017_04
 - isb-cgc-bq.TARGET_versioned.clinical_gdc_2019_06
