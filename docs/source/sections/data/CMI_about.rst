@@ -1,5 +1,5 @@
 ******************************
-BEATAML1.0 Data Set
+CMI Data Set
 ******************************
 
 About the CMI
