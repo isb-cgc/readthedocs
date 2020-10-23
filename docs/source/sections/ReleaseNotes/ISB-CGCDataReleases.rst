@@ -2,6 +2,15 @@
 ISB-CGC Data Release Notes
 ############################
 
+*October 23, 2020*
+
+RNA Seq data tables released for the CMI program.
+
+**BigQuery tables created**
+
+- isb-cgc-bq:CMI.RNAseq_hg38_gdc_current
+- isb-cgc-bq:CMI_versioned.RNAseq_hg38_gdc_r26
+
 *October 22, 2020*
 
 Existing TARGET tables in the isb-cgc project (data sets TARGET_bioclin_v0 and TARGET_bioclin_v0) were copied to the isb-cgc-bq project, TARGET and TARGET_versioned data sets.
