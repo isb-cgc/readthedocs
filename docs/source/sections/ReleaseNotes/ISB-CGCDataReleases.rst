@@ -2,6 +2,25 @@
 ISB-CGC Data Release Notes
 ############################
 
+*October 22, 2020*
+
+Existing TARGET tables in the isb-cgc project (data sets TARGET_bioclin_v0 and TARGET_bioclin_v0) were copied to the isb-cgc-bq project, TARGET and TARGET_versioned data sets.
+Corresponding TARGET tables in the isb-cgc project were deprecated.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg38_gdc_r14
+- isb-cgc-bq.TARGET_versioned.miRNAseq_isoform_hg38_gdc_r11
+- isb-cgc-bq.TARGET.miRNAseq_isoform_hg38_gdc_current
+- isb-cgc-bq.TARGET_versioned.miRNAseq_isoform_hg38_gdc_r14
+- isb-cgc-bq.TARGET_versioned.miRNAseq_hg38_gdc_r11
+- isb-cgc-bq.TARGET_versioned.miRNAseq_hg38_gdc_r14
+- isb-cgc-bq.TARGET_versioned.RNAseq_hg38_gdc_2017_12
+- isb-cgc-bq.TARGET.biospecimen_gdc_current
+- isb-cgc-bq.TARGET_versioned.biospecimen_gdc_2017_04
+- isb-cgc-bq.TARGET_versioned.clinical_gdc_2019_06
+- isb-cgc-bq.TARGET_versioned.clinical_gdc_2017_04
+
 *October 21, 2020*
 
 RNA Seq data tables released for the CGCI program.
