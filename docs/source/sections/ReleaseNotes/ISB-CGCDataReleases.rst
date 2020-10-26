@@ -4,7 +4,7 @@ ISB-CGC Data Release Notes
 
 *October 23, 2020*
 
-Clinical data tables release for release 25 and 26.
+Clinical data tables released for GDC release 25 and 26.
 
 **BigQuery tables created**
 
@@ -70,6 +70,8 @@ Clinical data tables release for release 25 and 26.
 - isb-cgc-bq:NCICCR_versioned.clinical_family_histories_gdc_r26
 - isb-cgc-bq:MMRF_versioned.clinical_gdc_r26
 - isb-cgc-bq:CMI.clinical_gdc_current
+
+Current clinical tables were updated to GDC release 26.
 
 **BigQuery tables updated**
 
