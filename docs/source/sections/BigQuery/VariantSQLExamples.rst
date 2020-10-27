@@ -45,12 +45,11 @@ These SQL queries replicate the functionality of the listed VCFTools command.
 .. code-block:: sql    
 
      SELECT 
-          CHROM, POS, REF, ALT, DP_Normal, DP_Tumor 
+          CHROM, POS, REF, ALT, DP_Tumor 
      FROM 
           `isb-cgc-cbq.TARGET_versioned.vcf_hg38_gdc_r22`
-     WHERE 
-          DP_Normal > '10'
-          AND DP_Tumor > '50'
+     WHERE
+          AND DP_Tumor <= '50'
      LIMIT 1000
      
 
