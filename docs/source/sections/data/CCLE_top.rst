@@ -17,7 +17,7 @@ A set of BigQuery tables containing CCLE data are available in the ``isb-cgc.CCL
 Accessing the Cancer Cell Line Encyclopedia Data on the Cloud
 ---------------------------------------------------------------
 
-Besides accessing the files on the GDC Data Portal, you can also access them from the GDC Google Cloud Storage Bucket, which means that you don’t need to download them to perform analysis. ISB-CGC stores the cloud file locations in tables in the ``isb-cgc.GDC_metadata`` data set in BigQuery.
+Besides accessing the files on the GDC Data Portal, you can also access them from the GDC Google Cloud Storage Bucket, which means that you don’t need to download them to perform analysis. ISB-CGC stores the cloud file locations in tables in the ``isb-cgc-bq.GDC_case_file_metadata`` data set in BigQuery.
 
 - To access these metadata files, go to the Google BigQuery console.
 - Perform SQL queries to find the CCLE files. Here is an example:
@@ -25,6 +25,6 @@ Besides accessing the files on the GDC Data Portal, you can also access them fro
 .. code-block:: sql
 
   SELECT legacy.*, file_gdc_url
-  FROM `isb-cgc.GDC_metadata.rel22_fileData_legacy` as legacy, `isb-cgc.GDC_metadata.rel22_GDCfileID_to_GCSurl` as GCSurl
+  FROM `isb-cgc-bq.GDC_case_file_metadata.fileData_legacy_current` as legacy, `isb-cgc-bq.GDC_case_file_metadata.GDCfileID_to_GCSurl_current` as GCSurl
   WHERE program_name = 'CCLE'
   AND legacy.file_gdc_id = GCSurl.file_gdc_id

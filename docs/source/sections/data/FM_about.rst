@@ -21,7 +21,7 @@ For more information on the FM data, please refer to these sites:
 Accessing the Foundation Medicine Data on the Cloud
 ----------------------------------------------------
 
-Besides accessing the files on the GDC Data Portal, you can also access them from the GDC Google Cloud Storage Bucket, which means that you don’t need to download them to perform analysis. ISB-CGC stores the cloud file locations in tables in the ``isb-cgc.GDC_metadata`` data set in BigQuery.
+Besides accessing the files on the GDC Data Portal, you can also access them from the GDC Google Cloud Storage Bucket, which means that you don’t need to download them to perform analysis. ISB-CGC stores the cloud file locations in tables in the ``isb-cgc-bq.GDC_case_file_metadata`` data set in BigQuery.
 
 - To access these metadata files, go to the Google BigQuery console.
 - Perform SQL queries to find the FM files. Here is an example:
@@ -29,6 +29,6 @@ Besides accessing the files on the GDC Data Portal, you can also access them fro
 .. code-block:: sql
 
   SELECT active.*, file_gdc_url
-  FROM `isb-cgc.GDC_metadata.rel22_fileData_active` as active, `isb-cgc.GDC_metadata.rel22_GDCfileID_to_GCSurl` as GCSurl
+  FROM `isb-cgc-bq.GDC_case_file_metadata.fileData_active_current` as active, `isb-cgc-bq.GDC_case_file_metadata.GDCfileID_to_GCSurl_current` as GCSurl
   WHERE program_name = 'FM'
   AND active.file_gdc_id = GCSurl.file_gdc_id
