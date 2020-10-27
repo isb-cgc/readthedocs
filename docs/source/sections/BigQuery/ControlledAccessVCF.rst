@@ -36,7 +36,7 @@ To see the available BigQuery tables hosted on our Google Cloud projects we have
 
 Fileters to locate VCF Tables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-To retrieve all the metadata of the **CURRENT** controlled access VCF tables stored on our BigQuery the following filters can be applied:
+To retrieve all the metadata of the **CURRENT** controlled access VCF tables stored in our BigQuery the following filters can be applied:
 
 1. Status -> CURRENT 
 2. Data Type -> VARIANT CALL MUTATIONS 
