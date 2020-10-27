@@ -30,6 +30,8 @@ Accessing Controlled Variant Data
 =================================
 Some ISB-CGC BigQuery tables contain sensitive information about patients. These type of files are known as controlled access files. To obtain access to our controlled data, please follow the steps in our `Accessing Controlled Data <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Gaining-Access-To-Controlled-Access-Data.html>`_ page to obtain permission.   
 
+Controlled access VCF BigQuery tables can be found in the project **isb-cgc-cbq**. All VCF tables on BigQuery are stored under their parent program. For instance, GDC release 24 TARGET VCF BigQuery table will found in the dataset known as "TARGET" and "TARGET_versioned" in the project isb-cgc-cbq. 
+
 ISB-CGC BigQuery Table Search 
 -----------------------------
 To see the available BigQuery tables hosted on our Google Cloud projects we have made it available to the public to visit our `ISB-CGC BigQuery Table Seach <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQueryTableSearchUI.html>`_. 
