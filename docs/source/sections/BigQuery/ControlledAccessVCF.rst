@@ -41,8 +41,8 @@ Fileters to locate VCF Tables
 To retrieve all the metadata of the **CURRENT** controlled access VCF tables stored in our BigQuery the following filters can be applied:
 
 1. Status -> CURRENT 
-2. Data Type -> VARIANT CALL MUTATIONS 
-3. Access -> Controlled Access
+2. Data Type -> VARIANT CALL FORMAT
+3. Access -> CONTROLLED ACCESS
 
 VCF Programs Available
 ^^^^^^^^^^^^^^^^^^^^^^
