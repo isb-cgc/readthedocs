@@ -32,7 +32,7 @@ Some ISB-CGC BigQuery tables contain sensitive information about patients. These
 
 ISB-CGC BigQuery Table Search 
 -----------------------------
-To see the available BigQuery tables hosted on our Google Cloud projects we have made it available to the public to visit our ISB-CGC BigQuery Table Seach. 
+To see the available BigQuery tables hosted on our Google Cloud projects we have made it available to the public to visit our `ISB-CGC BigQuery Table Seach <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQueryTableSearchUI.html>`_. 
 
 Fileters to locate VCF Tables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
