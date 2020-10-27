@@ -1,6 +1,6 @@
-
+*************************
 Variant Call Format (VCF)
-========================
+*************************
 
 
 Variant Call Format (VCF) is the standard file format which stores identified variants within sequenced data. The creation of VCF files starts with the whole genome sequencing (WGS) or whole exome sequencing (WXS) process, resulting in FASTQ files. The file containing the sequenced genome is then aligned to the appropriate reference genome which then generates a SAM, BAM, or CRAM file. The last step is to generate the VCF file from either of the three alignment files; the differing aligned reads will be identified when comparing to the reference genome and written out to a VCF file.
@@ -29,5 +29,32 @@ The first 11 columns, seen in the image, begin just as a VCF file does. In addit
 Accessing Controlled Variant Data 
 =================================
 Some ISB-CGC BigQuery tables contain sensitive information about patients. These type of files are known as controlled access files. To obtain access to our controlled data, please follow the steps in our `Accessing Controlled Data <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Gaining-Access-To-Controlled-Access-Data.html>`_ page to obtain permission.   
+
+ISB-CGC BigQuery Table Search 
+-----------------------------
+To see the available BigQuery tables hosted on our Google Cloud projects we have made it available to the public to visit our ISB-CGC BigQuery Table Seach. 
+
+Fileters to locate VCF Tables
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+To retrieve all the metadata of the **CURRENT** controlled access VCF tables stored on our BigQuery the following filters can be applied:
+
+1. Status -> CURRENT 
+2. Data Type -> VARIANT CALL MUTATIONS 
+3. Access -> Controlled Access
+
+VCF Programs Available
+^^^^^^^^^^^^^^^^^^^^^^
+* TARGET 
+
+VCF Programs Coming Soon
+^^^^^^^^^^^^^^^^^^^^^^^^
+* TCGA 
+* FM 
+* HHMI 
+* VAREPOP
+* ORGANOID
+* CPTAC
+* BEATAML 1.0 
+
 
       
