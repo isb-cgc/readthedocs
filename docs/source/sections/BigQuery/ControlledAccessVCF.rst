@@ -5,15 +5,13 @@ Variant Call Format (VCF)
 
 Variant Call Format (VCF) is the standard file format which stores identified variants within sequenced data. The creation of VCF files starts with the whole genome sequencing (WGS) or whole exome sequencing (WXS) process, resulting in FASTQ files. The file containing the sequenced genome is then aligned to the appropriate reference genome which then generates a SAM, BAM, or CRAM file. The last step is to generate the VCF file from either of the three alignment files; the differing aligned reads will be identified when comparing to the reference genome and written out to a VCF file.
 
-As variant data is increasing and growing in size, researchers face the problem of being able to analyze all the new data arriving as well as the old data. The new and old VCF files that are being curated by all these programs (Ex. TCGA, TARGET, and FM) are stored as individual files on local computers or on High Performance Computing (HPCs) for download and therefore, researchers must process numerous large scale data files at once to gain insights from their analysis workflows. 
+As variant data is increasing and growing in size, researchers face the problem of being able to analyze all the new data arriving as well as the old data. The new and old VCF files that are being curated by all these programs (Ex. TCGA, TARGET, and FM) are stored as individual files on local computers or on High Performance Computing (HPCs) for download and therefore, researchers must process numerous large scale data files at once to gain insights from their analysis workflows. To solve this issue, ISB-CGC has created a VCF extract, transform and load (ETL) process which produces a Google BigQuery table that resembles the VCF file format researchers are familiar with.
 
 
-Flattened VCF BigQuery Table
-============================
+VCF BigQuery Table
+===================
 
-To solve this issue, ISB-CGC created a variant transforms tool which produces a Google BiqQuery table that mimics a VCF file format. The flattened table format allows for an easy and familiar format if you have worked with VCF files in the past. The output of the table is called “flat” because the structure of the generated table contains no form of nesting. 
-
-The BigQuery table pictured below has randomized values for each column and mimics a controlled access VCF file. This randomly generated table was created for visualization puposes only, as VCF files found on GDC contain sensitive patient information which cannot be displayed to the public. In this picture, we display a table generated to emulate a TCGA VCF file. 
+The BigQuery table shown below has randomized values for each column and mimics a controlled access VCF table. This randomly generated table was created for visualization puposes only, as VCF files found on GDC contain sensitive patient information which cannot be displayed to the public. In this picture, we display a table generated to emulate a TCGA VCF file. 
 
 .. note:: The actual BiqQuery variant data tables are not randomized and are controlled access.
 
@@ -30,15 +28,15 @@ Accessing Controlled Variant Data
 =================================
 Some ISB-CGC BigQuery tables contain sensitive information about patients. These type of files are known as controlled access files. To obtain access to our controlled data, please follow the steps in our `Accessing Controlled Data <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Gaining-Access-To-Controlled-Access-Data.html>`_ page to obtain permission.   
 
-Controlled access VCF BigQuery tables can be found in the project **isb-cgc-cbq**. All VCF tables on BigQuery are stored under their parent program. For instance, GDC release 24 TARGET VCF BigQuery table will found in the dataset known as "TARGET" and "TARGET_versioned" in the project isb-cgc-cbq. 
+Controlled access VCF BigQuery tables can be found in the project **isb-cgc-cbq**. All VCF tables on BigQuery are stored under their parent program. For instance, GDC release 24 TARGET VCF BigQuery table will found in the datasets known as "TARGET" and "TARGET_versioned" in the project isb-cgc-cbq. 
 
 ISB-CGC BigQuery Table Search 
 -----------------------------
 To see the available BigQuery tables hosted on our Google Cloud projects we have made it available to the public to visit our `ISB-CGC BigQuery Table Seach <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQueryTableSearchUI.html>`_. 
 
-Fileters to locate VCF Tables
+Filters to locate VCF Tables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-To retrieve all the metadata of the **CURRENT** controlled access VCF tables stored in our BigQuery the following filters can be applied:
+To retrieve all the metadata of the **CURRENT** controlled access VCF tables stored in our BigQuery Table Search UI the following filters can be applied:
 
 1. Status -> CURRENT 
 2. Data Type -> VARIANT CALL FORMAT
