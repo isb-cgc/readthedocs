@@ -126,6 +126,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
    data/BEATAML_about
    data/CCLE_top
    data/CGCI_about
+   data/CMI_about
    data/CPTAC_about
    data/CTSP_about
    data/FM_about
