@@ -112,7 +112,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - 
    * - `WCDT <data/WCDT_about.html>`_
      - |checkmark|
-     - |checkmark| *
+     - |checkmark|
      - 
      
 .. |checkmark| image:: CheckMark.png 
