@@ -2,6 +2,15 @@
 ISB-CGC Data Release Notes
 ############################
 
+*October 30, 2020*
+
+RNA Seq data tables released for the WCDT program.
+
+**BigQuery tables created**
+
+- isb-cgc-bq:WCDT.RNAseq_hg38_gdc_current
+- isb-cgc-bq:WCDT_versioned.RNAseq_hg38_gdc_r22
+
 *October 23, 2020*
 
 Clinical data tables released for GDC release 25 and 26.
