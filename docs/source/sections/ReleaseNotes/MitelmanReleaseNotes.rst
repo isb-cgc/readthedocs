@@ -14,7 +14,7 @@ Cases Cytogenetics Searcher: Using 'Sole Abnormality' flag with a 'Breakpoint' e
 
 *October 15, 2020*
 
-Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer Quarterly Update Release.
+Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer quarterly update.
 
 **Updated totals**
 
@@ -24,7 +24,7 @@ Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer Quarterly
 
 *July 15, 2020*
 
-Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer was updated.
+Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer quarterly update.
 
 **Updated totals**
 
@@ -34,7 +34,7 @@ Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer was updat
 
 *April 15, 2020*
 
-Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer was updated.
+Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer quarterly update.
 
 **Updated totals**
 
@@ -45,4 +45,20 @@ Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer was updat
 **Other changes**
 
 - New Mitelman Database Logo
+
+*August 27, 2019*
+
+**Initial Release**
+
+- Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer released on the ISB-CGC platform.
+
+The following searches are available:
+
+- Cases Cytogenetics Searcher
+- Gene Fusions Searcher
+- Clinical Associations Searcher
+- Recurrent Chromosome Aberrations Searcher
+- References Searcher
+
+
 
