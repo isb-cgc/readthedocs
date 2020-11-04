@@ -152,14 +152,6 @@ RNA Seq data tables released for the CGCI program.
 
 *October 15, 2020*
 
-Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer Quarterly Update Release.
-
-**Updated totals**
-
-- Total number of cases 70,818
-- Total number of unique gene fusions 32,578
-- Total number of genes involved 14,014
-
 Current file metadata tables updated to GDC release 26.
 
 **BigQuery tables updated**
@@ -562,16 +554,6 @@ New HCMI RNA seq table.
 
 - isb-cgc.HCMI.RNAseq_hg38_gdc_r23
 
-*July 15, 2020*
-
-Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer was updated.
-
-**Updated totals**
-
-- Total number of cases 70,469
-- Total number of unique gene fusions 32,551
-- Total number of genes involved 14,014
-
 *July 9, 2020*
 
 New per sample file metadata tables added to isb-cgc-bq for GDC release 24.
@@ -777,20 +759,6 @@ GDC data release 23.0 was posted on April 7, 2020.
 - isb-cgc:GDC_metadata.rel23_fileData_legacy
 - isb-cgc:GDC_metadata.rel23_slide2caseIDmap
 - isb-cgc:GDC_metadata.rel23_GDCfileID_to_GCSurl
-
-*April 15, 2020*
-
-Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer was updated.
-
-**Updated totals**
-
-- Total number of cases 70,236
-- Total number of unique gene fusions 31,626
-- Total number of genes involved 13,913
-
-**Other changes**
-
-- New Mitelman Database Logo
 
 *March 16, 2020*
 
