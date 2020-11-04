@@ -52,11 +52,11 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - |checkmark|
    * - `CGCI <data/CGCI_about.html>`_
      - |checkmark|
-     - |checkmark| *
-     - 
-   * - CMI
      - |checkmark|
-     - metadata only
+     - 
+   * - `CMI <data/CMI_about.html>`_
+     - |checkmark|
+     - |checkmark|
      - 
    * - `CPTAC <data/CPTAC_about.html>`_
      - |checkmark|
@@ -112,13 +112,12 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - 
    * - `WCDT <data/WCDT_about.html>`_
      - |checkmark|
-     - |checkmark| *
+     - |checkmark|
      - 
      
 .. |checkmark| image:: CheckMark.png 
    
 *Clinical and metadata only available
-
 
 .. toctree::
    :maxdepth: 1
@@ -127,6 +126,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
    data/BEATAML_about
    data/CCLE_top
    data/CGCI_about
+   data/CMI_about
    data/CPTAC_about
    data/CTSP_about
    data/FM_about
