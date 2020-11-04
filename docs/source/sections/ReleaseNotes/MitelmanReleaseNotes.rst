@@ -4,7 +4,7 @@ Mitelman Database Release Notes
 
 To search this database hosted by the ISB-CGC, please visit `Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer <https://mitelmandatabase.isb-cgc.org/>`_.
 
-For more detailed information about the Mitelman database, see `Mitelman Database <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/Mitelman_about.html>`_.
+For more detailed information about the Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer, see `Mitelman Database <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/Mitelman_about.html>`_.
 
 *October 26, 2020*
 
