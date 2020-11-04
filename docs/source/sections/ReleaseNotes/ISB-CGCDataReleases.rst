@@ -2,6 +2,126 @@
 ISB-CGC Data Release Notes
 ############################
 
+*October 30, 2020*
+
+RNA Seq data tables released for the WCDT program.
+
+**BigQuery tables created**
+
+- isb-cgc-bq:WCDT.RNAseq_hg38_gdc_current
+- isb-cgc-bq:WCDT_versioned.RNAseq_hg38_gdc_r22
+
+*October 23, 2020*
+
+Clinical data tables released for GDC release 25 and 26.
+
+**BigQuery tables created**
+
+- isb-cgc-bq:BEATAML1_0_versioned.clinical_gdc_r25
+- isb-cgc-bq:CGCI_versioned.clinical_gdc_r25
+- isb-cgc-bq:CGCI_versioned.clinical_diagnoses_gdc_r25
+- isb-cgc-bq:CGCI_versioned.clinical_diagnoses_treatments_gdc_r25
+- isb-cgc-bq:CGCI_versioned.clinical_follow_ups_gdc_r25
+- isb-cgc-bq:CGCI_versioned.clinical_follow_ups_molecular_tests_gdc_r25
+- isb-cgc-bq:CPTAC_versioned.clinical_gdc_r25
+- isb-cgc-bq:CTSP_versioned.clinical_gdc_r25
+- isb-cgc-bq:FM_versioned.clinical_gdc_r25
+- isb-cgc-bq:GENIE_versioned.clinical_gdc_r25
+- isb-cgc-bq:HCMI_versioned.clinical_gdc_r25
+- isb-cgc-bq:HCMI_versioned.clinical_diagnoses_gdc_r25
+- isb-cgc-bq:HCMI_versioned.clinical_diagnoses_treatments_gdc_r25
+- isb-cgc-bq:HCMI_versioned.clinical_follow_ups_gdc_r25
+- isb-cgc-bq:HCMI_versioned.clinical_follow_ups_molecular_tests_gdc_r25
+- isb-cgc-bq:MMRF_versioned.clinical_gdc_r25
+- isb-cgc-bq:MMRF_versioned.clinical_diagnoses_treatments_gdc_r25
+- isb-cgc-bq:MMRF_versioned.clinical_family_histories_gdc_r25
+- isb-cgc-bq:MMRF_versioned.clinical_follow_ups_gdc_r25
+- isb-cgc-bq:MMRF_versioned.clinical_follow_ups_molecular_tests_gdc_r25
+- isb-cgc-bq:NCICCR_versioned.clinical_gdc_r25
+- isb-cgc-bq:OHSU_versioned.clinical_gdc_r25
+- isb-cgc-bq:ORGANOID_versioned.clinical_gdc_r25
+- isb-cgc-bq:TARGET_versioned.clinical_gdc_r25
+- isb-cgc-bq:TCGA_versioned.clinical_gdc_r25
+- isb-cgc-bq:TCGA_versioned.clinical_diagnoses_treatments_gdc_r25
+- isb-cgc-bq:VAREPOP_versioned.clinical_gdc_r25
+- isb-cgc-bq:VAREPOP_versioned.clinical_diagnoses_treatments_gdc_r25
+- isb-cgc-bq:VAREPOP_versioned.clinical_family_histories_gdc_r25
+- isb-cgc-bq:WCDT_versioned.clinical_gdc_r25
+- isb-cgc-bq:BEATAML1_0_versioned.clinical_gdc_r26
+- isb-cgc-bq:CGCI_versioned.clinical_gdc_r26
+- isb-cgc-bq:CGCI_versioned.clinical_diagnoses_gdc_r26
+- isb-cgc-bq:CGCI_versioned.clinical_diagnoses_treatments_gdc_r26
+- isb-cgc-bq:CGCI_versioned.clinical_follow_ups_gdc_r26
+- isb-cgc-bq:CGCI_versioned.clinical_follow_ups_molecular_tests_gdc_r26
+- isb-cgc-bq:CMI_versioned.clinical_gdc_r26
+- isb-cgc-bq:CPTAC_versioned.clinical_gdc_r26
+- isb-cgc-bq:CTSP_versioned.clinical_gdc_r26
+- isb-cgc-bq:FM_versioned.clinical_gdc_r26
+- isb-cgc-bq:GENIE_versioned.clinical_gdc_r26
+- isb-cgc-bq:HCMI_versioned.clinical_gdc_r26
+- isb-cgc-bq:HCMI_versioned.clinical_diagnoses_gdc_r26
+- isb-cgc-bq:HCMI_versioned.clinical_diagnoses_treatments_gdc_r26
+- isb-cgc-bq:HCMI_versioned.clinical_follow_ups_gdc_r26
+- isb-cgc-bq:HCMI_versioned.clinical_follow_ups_molecular_tests_gdc_r26
+- isb-cgc-bq:MMRF_versioned.clinical_gdc_r26
+- isb-cgc-bq:MMRF_versioned.clinical_diagnoses_treatments_gdc_r26
+- isb-cgc-bq:MMRF_versioned.clinical_family_histories_gdc_r26
+- isb-cgc-bq:MMRF_versioned.clinical_follow_ups_gdc_r26
+- isb-cgc-bq:MMRF_versioned.clinical_follow_ups_molecular_tests_gdc_r26
+- isb-cgc-bq:NCICCR_versioned.clinical_gdc_r26
+- isb-cgc-bq:MMRF_versioned.clinical_gdc_r26
+- isb-cgc-bq:NCICCR_versioned.clinical_gdc_r26
+- isb-cgc-bq:MMRF_versioned.clinical_gdc_r26
+- isb-cgc-bq:NCICCR_versioned.clinical_gdc_r26
+- isb-cgc-bq:MMRF_versioned.clinical_diagnoses_treatments_gdc_r26
+- isb-cgc-bq:NCICCR_versioned.clinical_gdc_r26
+- isb-cgc-bq:MMRF_versioned.clinical_diagnoses_treatments_gdc_r26
+- isb-cgc-bq:NCICCR_versioned.clinical_family_histories_gdc_r26
+- isb-cgc-bq:MMRF_versioned.clinical_gdc_r26
+- isb-cgc-bq:CMI.clinical_gdc_current
+
+Current clinical tables were updated to GDC release 26.
+
+**BigQuery tables updated**
+
+- isb-cgc-bq:BEATAML1_0.clinical_gdc_current
+- isb-cgc-bq:CGCI.clinical_gdc_current
+- isb-cgc-bq:CGCI.clinical_diagnoses_gdc_current
+- isb-cgc-bq:CGCI.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq:CGCI.clinical_follow_ups_gdc_current
+- isb-cgc-bq:CGCI.clinical_follow_ups_molecular_tests_gdc_current
+- isb-cgc-bq:CPTAC.clinical_gdc_current
+- isb-cgc-bq:CTSP.clinical_gdc_current
+- isb-cgc-bq:FM.clinical_gdc_current
+- isb-cgc-bq:GENIE.clinical_gdc_current
+- isb-cgc-bq:HCMI.clinical_gdc_current
+- isb-cgc-bq:HCMI.clinical_diagnoses_gdc_current
+- isb-cgc-bq:HCMI.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq:HCMI.clinical_follow_ups_gdc_current
+- isb-cgc-bq:HCMI.clinical_follow_ups_molecular_tests_gdc_current
+- isb-cgc-bq:MMRF.clinical_gdc_current
+- isb-cgc-bq:MMRF.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq:MMRF.clinical_family_histories_gdc_current
+- isb-cgc-bq:MMRF.clinical_follow_ups_gdc_current
+- isb-cgc-bq:MMRF.clinical_follow_ups_molecular_tests_gdc_current
+- isb-cgc-bq:NCICCR.clinical_gdc_current
+- isb-cgc-bq:MMRF.clinical_gdc_current
+- isb-cgc-bq:NCICCR.clinical_gdc_current
+- isb-cgc-bq:MMRF.clinical_gdc_current
+- isb-cgc-bq:NCICCR.clinical_gdc_current
+- isb-cgc-bq:MMRF.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq:NCICCR.clinical_gdc_current
+- isb-cgc-bq:MMRF.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq:NCICCR.clinical_family_histories_gdc_current
+- isb-cgc-bq:MMRF.clinical_gdc_current
+
+RNA Seq data tables released for the CMI program.
+
+**BigQuery tables created**
+
+- isb-cgc-bq:CMI.RNAseq_hg38_gdc_current
+- isb-cgc-bq:CMI_versioned.RNAseq_hg38_gdc_r26
+
 *October 22, 2020*
 
 Existing TARGET tables in the isb-cgc project (data sets TARGET_bioclin_v0 and TARGET_bioclin_v0) were copied to the isb-cgc-bq project, TARGET and TARGET_versioned data sets.
@@ -31,14 +151,6 @@ RNA Seq data tables released for the CGCI program.
 - isb-cgc-bq:CGCI_versioned.RNAseq_hg38_gdc_r24
 
 *October 15, 2020*
-
-Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer Quarterly Update Release.
-
-**Updated totals**
-
-- Total number of cases 70,818
-- Total number of unique gene fusions 32,578
-- Total number of genes involved 14,014
 
 Current file metadata tables updated to GDC release 26.
 
@@ -442,16 +554,6 @@ New HCMI RNA seq table.
 
 - isb-cgc.HCMI.RNAseq_hg38_gdc_r23
 
-*July 15, 2020*
-
-Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer was updated.
-
-**Updated totals**
-
-- Total number of cases 70,469
-- Total number of unique gene fusions 32,551
-- Total number of genes involved 14,014
-
 *July 9, 2020*
 
 New per sample file metadata tables added to isb-cgc-bq for GDC release 24.
@@ -657,20 +759,6 @@ GDC data release 23.0 was posted on April 7, 2020.
 - isb-cgc:GDC_metadata.rel23_fileData_legacy
 - isb-cgc:GDC_metadata.rel23_slide2caseIDmap
 - isb-cgc:GDC_metadata.rel23_GDCfileID_to_GCSurl
-
-*April 15, 2020*
-
-Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer was updated.
-
-**Updated totals**
-
-- Total number of cases 70,236
-- Total number of unique gene fusions 31,626
-- Total number of genes involved 13,913
-
-**Other changes**
-
-- New Mitelman Database Logo
 
 *March 16, 2020*
 
