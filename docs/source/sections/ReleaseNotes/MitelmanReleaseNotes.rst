@@ -1,6 +1,6 @@
-########################################################################################
-Release Notes for Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer
-########################################################################################
+################################
+Mitelman Database Release Notes
+################################
 
 To search this database hosted by the ISB-CGC, please visit `Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer <https://mitelmandatabase.isb-cgc.org/>`_.
 
