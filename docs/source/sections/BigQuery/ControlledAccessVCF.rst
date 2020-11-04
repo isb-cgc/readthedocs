@@ -2,17 +2,15 @@
 Variant Call Format (VCF)
 *************************
 
+Variant Call Format (VCF) is the standard file format which stores variants (structrual variant such as SNPs and indels) identified from next generation sequencing data. More information on the specifications and the VCF file format can be found here: https://samtools.github.io/hts-specs/ 
 
-Variant Call Format (VCF) is the standard file format which stores identified variants within sequenced data. The creation of VCF files starts with the whole genome sequencing (WGS) or whole exome sequencing (WXS) process, resulting in FASTQ files. The file containing the sequenced genome is then aligned to the appropriate reference genome which then generates a SAM, BAM, or CRAM file. The last step is to generate the VCF file from either of the three alignment files; the differing aligned reads will be identified when comparing to the reference genome and written out to a VCF file.
-
-As variant data is increasing and growing in size, researchers face the problem of being able to analyze all the new data arriving as well as the old data. The new and old VCF files that are being curated by all these programs (Ex. TCGA, TARGET, and FM) are stored as individual files on local computers or on High Performance Computing (HPCs) for download and therefore, researchers must process numerous large scale data files at once to gain insights from their analysis workflows. To solve this issue, ISB-CGC has created a VCF extract, transform and load (ETL) process which produces a Google BigQuery table that resembles the VCF file format researchers are familiar with.
+As variant data continues to grow both in the amount of data generated as well as in size,  researchers face the challenge of having to identify ways to analyze large variant datasets in conjunction.  The traditional way of downloading individual VCF files to compute on local machines is untenable and prohibitive.  As a solution to this problem, ISB-CGC has created a VCF extract, transform and load (ETL) pipeline that produces Google BigQuery tables that serve as central repositories for VCF files for a given cancer program (e.g. TCGA, TARGET). For example, the ETL process takes all vcf files from TCGA and transforms them into a single BigQuery table. Instead of analyzing variant data one vcf file at a time, with the variant data all in one central BigQuery table users will be able to query and interrogate the data without the need to download. In addition, we have ensured that the ETL process maintains the column composition of the VCF file format that researchers are familiar with. 
 
 
 VCF BigQuery Table
 ===================
 
-The BigQuery table shown below has randomized values for each column and mimics a controlled access VCF table. This randomly generated table was created for visualization puposes only, as VCF files found on GDC contain sensitive patient information which cannot be displayed to the public. In this picture, we display a table generated to emulate a TCGA VCF file. 
-
+As VCF files at the GDC contain sensitive patient information which cannot be displayed to the public, they are deemed controlled-access meaning only authorized users can access the data. For the purposes of demonstration, we have generated a random VCF file that emulates a typical TCGA VCF file. The BigQuery table in the image below was generated using the randomized VCF file and mimics a controlled access VCF BigQuery table. 
 .. note:: The actual BiqQuery variant data tables are not randomized and are controlled access.
 
 The first 11 columns, seen in the image, begin just as a VCF file does. In addition to keeping a similar structure, the new table splits VCF columns such as NORMAL and TUMOR into their own individual columns. The objective of the flattened file is to bring ease and understandability to our users who have worked with VCF files in the past or who are brand new to this area of research. 
