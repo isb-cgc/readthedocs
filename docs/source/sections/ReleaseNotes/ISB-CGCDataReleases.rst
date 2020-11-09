@@ -2,6 +2,18 @@
 ISB-CGC Data Release Notes
 ############################
 
+*November 9, 2020*
+
+Existing GENCODE tables in the isb-cgc project were copied to the isb-cgc-bq project.
+Corresponding GENCODE tables in the isb-cgc project were deprecated.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.GENCODE_versioned.annotation_gtf_hg19_v19
+- isb-cgc-bq.GENCODE_versioned.annotation_gtf_hg38_v22
+- isb-cgc-bq.GENCODE_versioned.annotation_gtf_hg38_v23
+- isb-cgc-bq.GENCODE_versioned.annotation_gtf_hg38_v24
+
 *October 30, 2020*
 
 RNA Seq data tables released for the WCDT program.
