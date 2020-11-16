@@ -71,7 +71,7 @@ Then return to the ISB-CGC Register a Google Cloud Project page, enter your Goog
 Once you have completed these steps, a listing of the Google Cloud Project members will display:
 
 .. image:: ../webapp/GCPMembers.png
-     :scale: 50
+   :scale: 50
    :align: center
    
 Click the **Register** button to go to the next screen:
