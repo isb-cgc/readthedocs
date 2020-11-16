@@ -2,6 +2,23 @@
 ISB-CGC Data Release Notes
 ############################
 
+*November 13, 2020*
+
+Existing methylation annotation and liftover tables in the isb-cgc project were copied to the isb-cgc-bq project.
+Corresponding tables in the isb-cgc project were deprecated.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.annotations.methylation_annotation_hg19_illumina_current
+- isb-cgc-bq.annotations_versioned.methylation_annotation_hg19_illumina_2015_06
+- isb-cgc-bq.annotations.methylation_annotation_hg38_gdc_current
+- isb-cgc-bq.annotations_versioned.methylation_annotation_hg38_gdc_2016_11
+- isb-cgc-bq.annotations.liftover_hg19_to_hg38_current
+- isb-cgc-bq.annotations_versioned.liftover_hg19_to_hg38_2016_08
+- isb-cgc-bq.annotations.methylation_liftover_hg19_illumina_to_hg38_current
+- isb-cgc-bq.annotations_versioned.methylation_liftover_hg19_illumina_to_hg38_2016_08
+
+
 *November 9, 2020*
 
 Existing GENCODE tables in the isb-cgc project were copied to the isb-cgc-bq project.
