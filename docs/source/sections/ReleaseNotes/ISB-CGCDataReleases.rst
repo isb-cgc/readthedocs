@@ -2,6 +2,16 @@
 ISB-CGC Data Release Notes
 ############################
 
+*November 16, 2020*
+
+New TARGET controlled-access VCF tables.
+
+**BigQuery tables created**
+
+- isb-cgc-cbq.TARGET.vcf_hg38_gdc_current
+- isb-cgc-cbq.TARGET_versioned.vcf_hg38_gdc_r22
+
+
 *November 13, 2020*
 
 Existing methylation annotation and liftover tables in the isb-cgc project were copied to the isb-cgc-bq project.
