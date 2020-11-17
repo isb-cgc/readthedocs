@@ -1,7 +1,7 @@
 Variant Data SQL Query Examples 
 ==============================
 
-Here are examples of how to leverage SQL queries to analyze the variant data in our tables on the Google Cloud Console. They include some SQL snippets which emulate the commands from VCFTools. `VCFTools <http://vcftools.sourceforge.net/man_0112b.html>`_ is a suite of functions for processing, validating, analyzing, and more on VCF files.
+Here are examples of how to leverage SQL queries to analyze the variant data in our tables on the Google Cloud Console. They include some SQL snippets which emulate the commands from VCFTools. `VCFTools <http://vcftools.sourceforge.net/man_0112b.html>`_ is a suite of functions for processing, validating, analyzing, and more on VCF files. Because this is controlled data, it can only be queried if you have authorized access; see `here <ControlledAccessVCF.html>`_ for more information.
 
 
 .. note:: Best practice to keep costs down for queries is to avoid using '*' and instead select specific columns.
