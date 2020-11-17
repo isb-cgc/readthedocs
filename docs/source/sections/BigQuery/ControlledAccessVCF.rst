@@ -31,15 +31,8 @@ Controlled access VCF BigQuery tables can be found in the project **isb-cgc-cbq*
 
 ISB-CGC BigQuery Table Search 
 -----------------------------
-To see the available BigQuery tables hosted on our Google Cloud projects we have made it available to the public to visit our `ISB-CGC BigQuery Table Seach <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQueryTableSearchUI.html>`_. 
+To see the available VCF BigQuery tables hosted on our Google Cloud projects, visit our `ISB-CGC BigQuery Table Search <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQueryTableSearchUI.html>`_ and select **VCF** for the Filter **Data Type**.
 
-Filters to locate VCF Tables
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-To retrieve all the metadata of the **CURRENT** controlled access VCF tables stored in our BigQuery Table Search UI the following filters can be applied:
-
-1. Status -> CURRENT 
-2. Data Type -> VCF
-3. Access -> CONTROLLED ACCESS
 
 VCF Programs Available
 ^^^^^^^^^^^^^^^^^^^^^^
