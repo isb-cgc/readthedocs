@@ -96,9 +96,9 @@ The query below returns the ref and alt alleles found between base positions 20,
       FROM
           `isb-cgc-cbq.TARGET_versioned.vcf_hg38_gdc_r22`
       WHERE
-       CHROM = 'chr1'
-      AND POS BETWEEN 20000 and 5000000
-      AND analysis_workflow_type like "%LiftOver%"
+          CHROM = 'chr1'
+          AND POS BETWEEN 20000 and 5000000
+          AND analysis_workflow_type like "%LiftOver%"
 
 We demonstrate a join in the query below between the TARGET VCF table and the TARGET RNAseq table to get information for the TARGET-ALL-P3 to identify mutations in the FOXD4 gene.
 
