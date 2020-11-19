@@ -43,7 +43,7 @@ Information about the ISB-CGC BEATAML Google BigQuery tables can be found using 
 
 The BEATAML tables are in project isb-cgc-bq. To learn more about how to view and query tables in the Google BigQuery console, see documentation section `ISB-CGC BigQuery Tables <../BigQuery.html>`_.
 
-- Data set BEATAML contains the latest tables for each data type.
-- Data set BEATAML_versioned contains previously released tables, as well as the most current table.
+- Data set ``isb-cgc-bq.BEATAML`` contains the latest tables for each data type.
+- Data set ``isb-cgc-bq.BEATAML_versioned`` contains previously released tables, as well as the most current table.
 
 
