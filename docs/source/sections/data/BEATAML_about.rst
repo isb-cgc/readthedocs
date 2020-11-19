@@ -39,8 +39,11 @@ Besides accessing the files on the GDC Data Portal, you can also access them fro
 Accessing the BEATAML1.0 Data in Google BigQuery
 ------------------------------------------------
 
-Information about the ISB-CGC BEATAML Google BigQuery tables can be found using the `ISB-CGC BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_ with PROGRAM filter BEATAML. To learn more about this tool, see section `ISB-CGC BigQuery Table Search <../BigQueryTableSearchUI.html>`_.
+Information about the ISB-CGC BEATAML Google BigQuery tables can be found using the `ISB-CGC BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_ with PROGRAM filter BEATAML. To learn more about this tool, see documentation section `ISB-CGC BigQuery Table Search <../BigQueryTableSearchUI.html>`_.
 
-The BEATAML tables are in project isb-cgc-bq. 
+The BEATAML tables are in project isb-cgc-bq. To learn more about how to view and query tables in the Google BigQuery console, see documentation section `ISB-CGC BigQuery Tables <../BigQuery.html>`_.
+
 - Data set BEATAML contains the latest tables for each data type.
 - Data set BEATAML_versioned contains previously released tables, as well as the most current table.
+
+
