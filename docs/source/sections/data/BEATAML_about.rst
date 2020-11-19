@@ -35,3 +35,12 @@ Besides accessing the files on the GDC Data Portal, you can also access them fro
   FROM `isb-cgc-bq.GDC_case_file_metadata.fileData_active_current` as active, `isb-cgc-bq.GDC_case_file_metadata.GDCfileID_to_GCSurl_current` as GCSurl
   WHERE program_name = 'BEATAML1.0'
   AND active.file_gdc_id = GCSurl.file_gdc_id
+
+Accessing the BEATAML1.0 Data in Google BigQuery
+------------------------------------------------
+
+Information about the ISB-CGC BEATAML Google BigQuery tables can be found using the `ISB-CGC BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_ with PROGRAM filter BEATAML. To learn more about this tool, see section `ISB-CGC BigQuery Table Search <../BigQueryTableSearchUI.html>`_.
+
+The BEATAML tables are in project isb-cgc-bq. 
+- Data set BEATAML contains the latest tables for each data type.
+- Data set BEATAML_versioned contains previously released tables, as well as the most current table.
