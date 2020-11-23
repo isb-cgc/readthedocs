@@ -2,7 +2,7 @@
 Integrative Genomics Viewer (IGV)
 *********************************
 IGV is a widely used interactive tool for exploring genomic data.  A web-based version is integrated into the ISB-CGC Web App, 
-and the IGV desktop version can also be used to access cancer data in Google Cloud Storage (GCS). For more information about IGV, please follow the links in the Acknowledgements section at the bottom of this page.
+and the IGV desktop version can also be used to access cancer data in Google Cloud Storage (GCS). For more information about IGV, please follow the links in the Acknowledgments section at the bottom of this page.
   
 Accessing the IGV Browser from the Web App
 --------------------------------------------------
@@ -33,14 +33,14 @@ Using IGV Desktop Application to View Aligned Reads in Google Cloud Storage
 
 You can also download and use the IGV desktop application to view aligned reads stored in BAM files in Google Cloud Storage. To do this, `download <http://www.broadinstitute.org/software/igv/download>`_ the most recent version of IGV.  After launching IGV, go to the "Settings" menu to enable the Google Menu item in the application (`directions <http://googlegenomics.readthedocs.io/en/latest/use_cases/browse_genomic_data/igv.html>`_ on how to do this).
 
-To load BAM files from ISB-CGC Google Cloud Storage, use the "File" > "Load from URL..."  menu item in the IGV application, entering the path to the bam file in GCS.  Paths to BAM files stored by ISB-CGC can be found using the ``cohorts().cloud_storage_file_paths()`` and ``samples().cloud_storage_file_paths()`` APIs described `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/progapi3_api/cohorts_cloud_storage_file_paths.html>`_.
+To load BAM files from ISB-CGC Google Cloud Storage, use the "File" > "Load from URL..."  menu item in the IGV application, entering the path to the bam file in GCS.  Paths to BAM files stored by ISB-CGC can be found using the ``cohorts().cloud_storage_file_paths()`` and ``samples().cloud_storage_file_paths()`` APIs described `here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/progAPI-v4/Programmatic-Demo.html>`_.
 
 
 NOTE:
  - You will only be able to view controlled access sequence files if you have `logged in as a registered dbGaP authorized user <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Gaining-Access-To-Controlled-Access-Data.html>`_.
 
 
-Acknowledgements
+Acknowledgments
 ----------------
 
 The copyright to the Integrative Genomics Viewer is held by the Broad Institute, and the software has been 
@@ -48,7 +48,7 @@ released under the MIT License.  For more information about IGV please see the
 `IGV home page <http://www.broadinstitute.org/software/igv/home>`_ or the 
 `IGV github repo <https://github.com/igvteam/igv>`_.
 
-We are grateful to the IGV team for their assistance in integrating IGV into the ISB-CGC web-app.
+We are grateful to the IGV team for their assistance in integrating IGV into the ISB-CGC Web App.
 
 Robinson J T, Thorvaldsdottir H, Winckler W, Guttman M, Lander E S, Getz G & Mesirov J P, *Integrative genomics viewer*, 
 `Nature Biotechnology 29, 24-26 (2011) <http://www.nature.com/nbt/journal/v29/n1/abs/nbt.1754.html>`_.

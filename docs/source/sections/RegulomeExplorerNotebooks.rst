@@ -9,7 +9,10 @@ Bioinformatics notebooks
    :widths: 100 10 10
    :align: center
    :header-rows: 0
-  
+   
+   * - Significant correlations and their p-values using BigQuery
+     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/AllPairs-correlation-GeneExpression-MicroRNA.ipynb>`_
+     - 
    * - One-way ANOVA with BigQuery
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_an_ANOVA_test_in_BigQuery.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_an_ANOVA_test_in_BigQuery.md>`_

@@ -23,6 +23,12 @@ Over time we will be updating and enhancing this web interface based on your fee
    webapp/IGV-Browser
    webapp/OsimisWebViewer
 
+**Data used by the Web App**
+
+
+The Web App performs its data retrieval and counts on ISB-CGC Google BigQuery tables which are based on the latest GDC data release. This means that you will see current data, but that the same queries in the Web App could produce different results if they were run during different time periods, when the Web App was based on different GDC data releases.
+
+
 **Sharing Cohorts between the Web App and the API**
 
 Cohorts are one of the central concepts used when analyzing large datasets. Cohorts can be created either in the Web App or via the ISB-CGC REST API. What may not be as clear is that cohorts created by one of the systems can be viewed and used in the other. In other words, you can create a cohort using the API and use it in the Web App or you can create a cohort in the Web App and use it in the API. This can give users significant flexibility in creating and sharing their cohorts.

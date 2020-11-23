@@ -4,7 +4,7 @@ Dashboard
 
 Upon signing in with a Google account identity, you will be presented with the following page:
 
-.. image:: startscreen-login.png
+.. image:: My-Dashboard.png
    :align: center
 
 This is your personal "Dashboard" where your Analyses, Gene and miRNA Lists, Variable Lists, Cohorts, and Saved Programs are readily accessible.  Descriptions of how to use each component of this user interface are provided in the individual subsections of this user guide.

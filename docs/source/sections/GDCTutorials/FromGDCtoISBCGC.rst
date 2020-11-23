@@ -22,8 +22,8 @@ Importing a GDC file manifest into its own BigQuery table will enable you to joi
 
 If you don't already have a Google Cloud Project, please see the following ISB-CGC documentation pages for guidance:
 
-* `How to create a Google Cloud Platform (GCP) project <HowToGetStartedonISB-CGC.html>`_ 
-* `How to link ISB-CGC BigQuery tables to your Google Cloud Platform (GCP) project <progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_ 
+* `How to create a Google Cloud Platform (GCP) project <../HowToGetStartedonISB-CGC.html#google-cloud-project-setup-and-data-access>`_ 
+* `How to link ISB-CGC BigQuery tables to your Google Cloud Platform (GCP) project <../progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_ 
 
 One way of keeping your file manifests organized is to create a data set specifically for those tables. New data sets can be created by clicking on the **Create Dataset** button within your project in BigQuery.
   
