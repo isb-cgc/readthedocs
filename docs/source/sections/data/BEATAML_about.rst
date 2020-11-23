@@ -39,9 +39,9 @@ Besides accessing the files on the GDC Data Portal, you can also access them fro
 Accessing the BEATAML1.0 Data in Google BigQuery
 ------------------------------------------------
 
-ISB-CGC has BEATAML data, such as clinical and RNA-seq, stored in Google BigQuery tables. Information about these tables can be found using the `ISB-CGC BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_ with BEATAML selected for filter PROGRAM. To learn more about this tool, see documentation section **`ISB-CGC BigQuery Table Search <../BigQueryTableSearchUI.html>`_**.
+ISB-CGC has BEATAML data, such as clinical and RNA-seq, stored in Google BigQuery tables. Information about these tables can be found using the `ISB-CGC BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_ with BEATAML selected for filter PROGRAM. To learn more about this tool, see documentation section `**ISB-CGC BigQuery Table Search** <../BigQueryTableSearchUI.html>`_.
 
-The BEATAML tables are in project isb-cgc-bq. To learn more about how to view and query tables in the Google BigQuery console, see documentation section **`ISB-CGC BigQuery Tables <../BigQuery.html>`_**.
+The BEATAML tables are in project isb-cgc-bq. To learn more about how to view and query tables in the Google BigQuery console, see documentation section `**ISB-CGC BigQuery Tables** <../BigQuery.html>`_**.
 
 - Data set ``isb-cgc-bq.BEATAML`` contains the latest tables for each data type.
 - Data set ``isb-cgc-bq.BEATAML_versioned`` contains previously released tables, as well as the most current table.
