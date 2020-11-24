@@ -44,3 +44,19 @@ Besides accessing the files on the GDC Data Portal, you can also access them fro
   FROM `isb-cgc-bq.GDC_case_file_metadata.fileData_active_current` as active, `isb-cgc-bq.GDC_case_file_metadata.GDCfileID_to_GCSurl_current` as GCSurl
   WHERE program_name = 'TARGET'
   AND active.file_gdc_id = GCSurl.file_gdc_id
+
+
+Accessing the TARGET Data in Google BigQuery
+------------------------------------------------
+
+ISB-CGC has TARGET data, such as clinical, biospecimen, miRNA and RNA-seq, stored in Google BigQuery tables. Information about these tables can be found using the `ISB-CGC BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_ with TARGET selected for filter PROGRAM. To learn more about this tool, see the `ISB-CGC BigQuery Table Search documentation <../BigQueryTableSearchUI.html>`_.
+
+ISB_CGC also has controlled access TARGET VCF data in Google BigQuery tables; see `here <../BigQuery/VariantDataInBigQuery.html>`_ for more information. 
+
+The TARGET tables are in project isb-cgc-bq. To learn more about how to view and query tables in the Google BigQuery console, see the `ISB-CGC BigQuery Tables documentation <../BigQuery.html>`_.
+
+- Data set ``isb-cgc-bq.TARGET`` contains the latest tables for each data type.
+- Data set ``isb-cgc-bq.TARGET_versioned`` contains previously released tables, as well as the most current table.
+
+Note that some of the tables in the isb-cgc-bq project were migrated from the isb-cgc project. If you were using data sets ``isb-cgc.TARGET_bioclin_v0`` and ``isb-cgc.TARGET_hg38_data_v0``, they still exist but are deprecated.
+
