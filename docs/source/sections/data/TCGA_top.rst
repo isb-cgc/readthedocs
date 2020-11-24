@@ -81,10 +81,12 @@ The controlled-access TCGA data includes:
 * VCF files:  these Level-2 data files were provided by the DCC and include over 15,000 files produced by several different centers (primarily Broad and BCGSC)
 * MAF files:  these "protected" mutation files (Level-2) were provided by the DCC (note that these files were not generated uniformly for all tumor types)
 * DNA-seq BAM files:  these Level-1 data files were provided by CGHub
+
    - over 37,000 of these files are available in Google Cloud Storage (GCS)
    - roughly 90% of these BAM files contain exome data, the remaining 10% contain whole-genome data
    - BAM index (BAI) files are also available for all BAM files
 * mRNA- and microRNA-seq BAM files:  these Level-1 data files were provided by CGHub
+
    - over 13,000 mRNA-seq BAM files are available in GCS
    - over 16,000 miRNA-seq BAM files are available in GCS
 * mRNA-seq FASTQ files:  these Level-1 data files were provided by CGHub and include over 11,000 tar files
@@ -113,4 +115,16 @@ Besides accessing the files on the GDC Data Portal, you can also access them fro
   FROM `isb-cgc-bq.GDC_case_file_metadata.fileData_active_current` as active, `isb-cgc-bq.GDC_case_file_metadata.GDCfileID_to_GCSurl_current` as GCSurl
   WHERE program_name = 'TCGA'
   AND active.file_gdc_id = GCSurl.file_gdc_id
+
+Accessing the TCGA Data in Google BigQuery
+------------------------------------------------
+
+ISB-CGC has TCGA data, such as clinical, biospecimen, miRNA and RNA-seq, stored in Google BigQuery tables. Information about these tables can be found using the `ISB-CGC BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_ with TCGA selected for filter PROGRAM. To learn more about this tool, see the `ISB-CGC BigQuery Table Search documentation <../BigQueryTableSearchUI.html>`_.
+
+The TCGA tables are in project isb-cgc-bq. To learn more about how to view and query tables in the Google BigQuery console, see the `ISB-CGC BigQuery Tables documentation <../BigQuery.html>`_.
+
+- Data set ``isb-cgc-bq.TCGA`` contains the latest tables for each data type.
+- Data set ``isb-cgc-bq.TCGA_versioned`` contains previously released tables, as well as the most current table.
+
+Note that some of the tables in the isb-cgc-bq project were migrated from the isb-cgc project. If you were using data sets ``isb-cgc.TCGA_bioclin_v0``, ``isb-cgc.TCGA_hg19_data_v0`` and ``isb-cgc.TCGA_hg38_data_v0``, they still exist but are deprecated.
 
