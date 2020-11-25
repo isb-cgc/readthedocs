@@ -18,7 +18,7 @@ The following table lists all the functions avaiable in ISB-CGC.
    * - **UDF name**
      - **Description**
      - **Notebooks**
-   * - ``kmeans_curren``
+   * - ``kmeans_current``
      - K-means method for clustering data
      - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/Staging-Notebooks/Notebooks/How_to_cluster_data_using_a_BigQuery_function.ipynb>`_
    * - ``p_fisherexact_current``
