@@ -34,70 +34,12 @@ Program Selection Panel
 The panel in the center of the screen, with tabs called "TCGA DATA", "CCLE DATA", "TARGET DATA", "BEATAML1.0" and "USER DATA" will allow you to create a cohort with programs in the system and data that you have uploaded.
 
 - The TCGA, CCLE, TARGET and BEATAML1.0 DATA tabs each have three tabs called "CASE", "DATA TYPE", and "MOLECULAR" which allow you to apply filters to the cohorts you are creating using ISB-CGC hosted data. 
-  - The CASE tab displays clinical features applicable to the selected program.
+  - The CASE tab displays clinical and demographic features applicable to the selected program.
   - The DATA tab displays data types (ex. Aligned Reads, Copy Number Segment Masked) applicable to the selected program.
   - The MOLECULAR tab displays filters pertaining to mutations.
 - For the USER DATA tab, there is one tab called "PROJECTS & STUDIES" which allow you to filter by the projects or studies you have uploaded to the system.
 
 Note: Selecting the program filter will add all samples pertaining to the program. Also there is a mouse over feature that will display the disease code long name if it's part of the TCGA, CCLE, TARGET or BEATAML data set.
-
-Filter List by Program (Case and Data Tabs)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-          
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | TCGA Case Tab         | TCGA Data Tab                | CCLE Case Tab       | TARGET Case  Tab      | TARGET Data Tab             |
-   +=======================+==============================+=====================+=======================+=============================+
-   | Program               | Pathology Image              | Program             | Program               | mRNA Gene Quantification    |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Project Short Name    | Somatic Mutation             | Project Short Name  | Project Short Name    |miRNA Isoform Quantification |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Disease Code          | Copy Number Segment Masked   | Disease Code        | Disease Code          | miRNA Gene Quantification   |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Vital Status          | mRNA Gene Quantification     | Gender              | Vital Status          | Aligned Reads               |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Gender                | DNA Variation VCF            | Sample Type         | Gender                |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Age at Diagnosis      | Aligned Reads                | Site Primary        | Age at Diagnosis      |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Sample Type           | Protein Quantification       | Histology           | Sample Type           |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Tumor Tissue Site     |miRNA Isoform Quantification  | Histological        | Race                  |                             |
-   |                       |                              | SubType             |                       |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Histological Type     |miRNA Gene Quantification     |                     | Ethnicity             |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Pathologic Stage      |mRNA Isoform Quantification   |                     | WBC at Diagnosis      |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Person Neoplasm       |                              |                     |                       |                             |
-   | Cancer Status         | Genotypes                    |                     | Year of Diagnosis     |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Neoplasm Histologic   | DNA Methylation Beta         |                     | Event Free Survival   |                             |
-   | Grade                 |                              |                     |                       |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | BMI (Body Mass Index) |                              |                     | Days to Last Followup |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | HPV Status            |                              |                     | Days to Last Known    |                             |
-   |                       |                              |                     | Alive                 |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Residual Tumor        |                              |                     | Days to Birth         |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Tobacco Smoking       |                              |                     | Days to Death         |                             |
-   | History               |                              |                     |                       |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Race                  |                              |                     |                       |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Ethnicity             |                              |                     |                       |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Year of Diagnosis     |                              |                     |                       |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Menopause Status      |                              |                     |                       |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Days to Last          |                              |                     |                       |                             |
-   | Known Alive           |                              |                     |                       |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Preservation Method   |                              |                     |                       |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   
    
 Molecular Tab
 ^^^^^^^^^^^^^
