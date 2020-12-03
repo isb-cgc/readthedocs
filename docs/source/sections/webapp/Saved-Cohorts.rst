@@ -34,6 +34,7 @@ Program Selection Panel
 The panel in the center of the screen, with tabs called "TCGA DATA", "CCLE DATA", "TARGET DATA", "BEATAML1.0" and "USER DATA" will allow you to create a cohort with programs in the system and data that you have uploaded.
 
 - The TCGA, CCLE, TARGET and BEATAML1.0 DATA tabs each have three tabs called "CASE", "DATA TYPE", and "MOLECULAR" which allow you to apply filters to the cohorts you are creating using ISB-CGC hosted data. 
+
   - The CASE tab displays clinical and demographic features applicable to the selected program.
   - The DATA tab displays data types (ex. Aligned Reads, Copy Number Segment Masked) applicable to the selected program.
   - The MOLECULAR tab displays filters pertaining to mutations.
@@ -77,26 +78,9 @@ Clinical Features Panel
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 This panel shows a list of images (called "treemaps") that give a high level breakdown of the selected samples for a 
-handful of features for the selected program:
+handful of features (ex. Disease Code, Vital Status, Gender, Sample Type, Age at Diagnosis, etc.) for the selected program. 
 
-   +------------------------------+------------------------------+---------------------------------+
-   | TCGA Clinical Features Panel | CCLE Clinical Features Panel | TARGET Clinical Features Panel  |
-   +==============================+==============================+=================================+
-   | Disease Code                 | Disease Code                 | Disease Code                    |
-   +------------------------------+------------------------------+---------------------------------+
-   | Vital Status                 | Gender                       | Vital Status                    |
-   +------------------------------+------------------------------+---------------------------------+
-   | Sample Type                  | Site Primary                 | Gender                          |
-   +------------------------------+------------------------------+---------------------------------+
-   | Tumor Tissue Site            | Histology                    | Sample Type                     |
-   +------------------------------+------------------------------+---------------------------------+
-   | Gender                       | Histological SubType         | Age At Diagnosis                |
-   +------------------------------+------------------------------+---------------------------------+
-   | Age At Initial Pathologic    |                              |                                 |
-   | Diagnosis                    |                              |                                 |
-   +------------------------------+------------------------------+---------------------------------+
-
-By using the “Show More” button, you can see the last two tree maps.  Mousing over an image shows the details of each specific section of the image and the number of samples associated with it.
+By using the “Show More” button, you can see additional tree maps.  Mousing over an image shows the details of each specific section of the image and the number of samples associated with it.
 
 Programs & Projects Panel
 ^^^^^^^^^^^^^^^^^^^^^^^^^
