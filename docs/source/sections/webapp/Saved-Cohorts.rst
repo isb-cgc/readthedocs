@@ -7,7 +7,7 @@ Cohorts are a way of creating custom groupings of the samples and/or cases that 
 Create a New Cohort
 ###################
 
-To create a cohort from **Your Dashboard**, click on the **Create a Cohort** link in the **Saved Cohorts** panel at the bottom of the screen and select either "Filter" or the "Barcodes" from the dropdown. The Filter link will display the cohort creation page;  filters are explained below.  The Barcodes link will display a page where you can upload samples/cases barcodes and create a cohort from them. Currently you can only upload from three programs TCGA, CCLE, and TARGET. 
+To create a cohort from **Your Dashboard**, click on the **Create a Cohort** link in the **Saved Cohorts** panel at the bottom of the screen and select either "Filter" or the "Barcodes" from the dropdown. The Filter link will display the cohort creation page;  filters are explained below.  The Barcodes link will display a page where you can upload samples/cases barcodes and create a cohort from them. Currently you can upload from programs TCGA, CCLE, TARGET and BEATAML. 
 
 If you already have saved cohorts, they will be listed in the **Saved Cohorts** panel. Click on the **Saved Cohorts** link in that panel and a page that with the details of your saved cohorts will display. Alternatively, to go directly to a given cohort, click on its name and the cohort details page of that cohort will display.
 
@@ -19,7 +19,7 @@ These functions can also be navigated to by using the drop down options in the *
 Cohort Creation - Filters 
 =========================
 
-Using the list of filters on the left panel, you can select the attributes and features that you are interested in either from ISB-CGC data (TCGA, CCLE, TARGET) or user data. You are able to create a cohort with multiple program filters.  
+Using the list of filters on the left panel, you can select the attributes and features that you are interested in either from ISB-CGC data (TCGA, CCLE, TARGET, BEATAML) or user data. You are able to create a cohort with multiple program filters.  
 
 CCLE (The Cancer Cell Line Encyclopedia) data is an open access data set; therefore, a user does not need dbGaP permissions to view its sequence data with the IGV viewer.
 
@@ -31,12 +31,15 @@ Individual selections within a filter group are "ORed" together, meaning if any 
 
 Program Selection Panel
 -----------------------
-The panel in the center of the screen, with four tabs called "TCGA DATA", "CCLE DATA", "TARGET DATA", and "USER DATA" will allow you to create a cohort with programs in the system and data that you have uploaded.
+The panel in the center of the screen, with tabs called "TCGA DATA", "CCLE DATA", "TARGET DATA", "BEATAML1.0" and "USER DATA" will allow you to create a cohort with programs in the system and data that you have uploaded.
 
-- The TCGA, CCLE, and TARGET DATA tab each have three tabs called "CASE", "DATA TYPE", and "MOLECULAR" which allow you to apply filters to the cohorts you are creating using ISB-CGC hosted data. 
+- The TCGA, CCLE, TARGET and BEATAML1.0 DATA tabs each have three tabs called "CASE", "DATA TYPE", and "MOLECULAR" which allow you to apply filters to the cohorts you are creating using ISB-CGC hosted data. 
+  - The CASE tab displays clinical features applicable to the selected program.
+  - The DATA tab displays data types (ex. Aligned Reads, Copy Number Segment Masked) applicable to the selected program.
+  - The MOLECULAR tab displays filters pertaining to mutations.
 - For the USER DATA tab, there is one tab called "PROJECTS & STUDIES" which allow you to filter by the projects or studies you have uploaded to the system.
 
-Note: Selecting the program filter will add all samples pertaining to the program. Also there is a mouse over feature that will display the disease code long name if it's part of the TCGA, CCLE, or TARGET data set.
+Note: Selecting the program filter will add all samples pertaining to the program. Also there is a mouse over feature that will display the disease code long name if it's part of the TCGA, CCLE, TARGET or BEATAML data set.
 
 Filter List by Program (Case and Data Tabs)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
