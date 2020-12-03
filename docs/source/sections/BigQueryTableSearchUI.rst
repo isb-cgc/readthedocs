@@ -146,7 +146,7 @@ Click on the column header to sort the displayed results by that column.
 
 **Columns Selector**
 
-Columns can be added or removed from the display by using the Columns selector. For instance, the Dataset ID and Table ID are not initially displayed, but they can be added to the display.
+Columns can be added or removed from the display by using the Columns selector. For instance, the Bq Project, BQ Dataset and BQ Table are not initially displayed, but they can be added to the display.
 
 .. image:: BigQuery/BigQueryTableSearch-ColumnSelector.png
    :align: center
