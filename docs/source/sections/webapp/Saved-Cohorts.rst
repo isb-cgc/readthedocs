@@ -190,24 +190,10 @@ A program tab will be enabled if there are selected filters for that program. Wh
 
 **Clinical Features Panel**
 
-This panel shows a list of tree maps that give a high level break of the samples for a handful of features for the program view selected:
+This panel shows a list of images (called "treemaps") that give a high level breakdown of the selected samples for a 
+handful of features (ex. Disease Code, Vital Status, Gender, Sample Type, Age at Diagnosis, etc.) for the selected program. 
 
-   +------------------------------+------------------------------+---------------------------------+------------------------------------+
-   | TCGA Clinical Features Panel | CCLE Clinical Features Panel | TARGET Clinical Features Panel  | USER DATA Programs & Projects Panel|
-   +==============================+==============================+=================================+====================================+
-   | Disease Code                 | Disease Code                 | Disease Code                    | Program                            |
-   +------------------------------+------------------------------+---------------------------------+------------------------------------+
-   | Vital Status                 | Gender                       | Vital Status                    | Project                            |
-   +------------------------------+------------------------------+---------------------------------+------------------------------------+
-   | Sample Type                  | Site Primary                 | Gender                          |                                    |
-   +------------------------------+------------------------------+---------------------------------+------------------------------------+
-   | Tumor Tissue Site            | Histology                    | Sample Type                     |                                    |
-   +------------------------------+------------------------------+---------------------------------+------------------------------------+
-   | Gender                       | Histological SubType         | Age At Diagnosis                |                                    |
-   +------------------------------+------------------------------+---------------------------------+------------------------------------+
-   | Age At Initial Pathologic    |                              |                                 |                                    |
-   | Diagnosis                    |                              |                                 |                                    |
-   +------------------------------+------------------------------+---------------------------------+------------------------------------+
+By using the “Show More” button, you can see additional tree maps.  Mousing over an image shows the details of each specific section of the image and the number of samples associated with it.
 
 **Data File Availability Panel**
 
