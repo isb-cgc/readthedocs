@@ -101,5 +101,8 @@ I'm an advanced user, how do I...
    * - How do I analyze data in the COSMIC Cancer Gene Census dataset?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/Exploring_COSMICs_Cancer_Gene_Census_table.ipynb>`_
      -
+   * - How to use a BigQuery user defined function to cluster data using k-means clustering?
+     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_cluster_data_using_a_BigQuery_function.ipynb>`_
+     - 
      
 *Notebook inspired by a `Query of the Month Blog <QueryOfTheMonthClub.html>`_ post
