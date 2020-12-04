@@ -39,7 +39,75 @@ New CPTAC RNA Seq tables
 - isb-cgc-bq.CPTAC.RNAseq_hg38_gdc_current
 - isb-cgc-bq.CPTAC_versioned.RNAseq_hg38_gdc_r26
 
+*December 2, 2020*
 
+Clinical data tables released for GDC release 27.
+Current clinical tables were updated to GDC release 2.
+
+**BigQuery tables created and updated**
+
+- isb-cgc-bq.MMRF.clinical_gdc_current
+- isb-cgc-bq.MMRF_versioned.clinical_gdc_r27
+- isb-cgc-bq.NCICCR.clinical_gdc_current
+- isb-cgc-bq.NCICCR_versioned.clinical_gdc_r27
+- isb-cgc-bq.OHSU.clinical_gdc_current
+- isb-cgc-bq.OHSU_versioned.clinical_gdc_r27
+- isb-cgc-bq.HCMI.clinical_follow_ups_molecular_tests_gdc_current
+- isb-cgc-bq.HCMI_versioned.clinical_follow_ups_molecular_tests_gdc_r27
+- isb-cgc-bq.HCMI.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq.HCMI_versioned.clinical_diagnoses_treatments_gdc_r27
+- isb-cgc-bq.ORGANOID.clinical_gdc_current
+- isb-cgc-bq.ORGANOID_versioned.clinical_gdc_r27
+- isb-cgc-bq.CGCI.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq.CGCI_versioned.clinical_diagnoses_treatments_gdc_r27
+- isb-cgc-bq.MMRF.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq.MMRF_versioned.clinical_diagnoses_treatments_gdc_r27
+- isb-cgc-bq.MMRF.clinical_follow_ups_gdc_current
+- isb-cgc-bq.MMRF_versioned.clinical_follow_ups_gdc_r27
+- isb-cgc-bq.TCGA.clinical_gdc_current
+- isb-cgc-bq.TCGA_versioned.clinical_gdc_r27
+- isb-cgc-bq.TARGET.clinical_gdc_current
+- isb-cgc-bq.TARGET_versioned.clinical_gdc_r27
+- isb-cgc-bq.MMRF.clinical_follow_ups_molecular_tests_gdc_current
+- isb-cgc-bq.MMRF_versioned.clinical_follow_ups_molecular_tests_gdc_r27
+- isb-cgc-bq.GENIE.clinical_gdc_current
+- isb-cgc-bq.GENIE_versioned.clinical_gdc_r27
+- isb-cgc-bq.VAREPOP.clinical_gdc_current
+- isb-cgc-bq.VAREPOP_versioned.clinical_gdc_r27
+- isb-cgc-bq.CTSP.clinical_gdc_current
+- isb-cgc-bq.CTSP_versioned.clinical_gdc_r27
+- isb-cgc-bq.CGCI.clinical_follow_ups_molecular_tests_gdc_current
+- isb-cgc-bq.CGCI_versioned.clinical_follow_ups_molecular_tests_gdc_r27
+- isb-cgc-bq.VAREPOP.clinical_family_histories_gdc_current
+- isb-cgc-bq.VAREPOP_versioned.clinical_family_histories_gdc_r27
+- isb-cgc-bq.BEATAML1_0.clinical_gdc_current
+- isb-cgc-bq.BEATAML1_0_versioned.clinical_gdc_r27
+- isb-cgc-bq.MMRF.clinical_family_histories_gdc_current
+- isb-cgc-bq.MMRF_versioned.clinical_family_histories_gdc_r27
+- isb-cgc-bq.WCDT.clinical_gdc_current
+- isb-cgc-bq.WCDT_versioned.clinical_gdc_r27
+- isb-cgc-bq.VAREPOP.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq.VAREPOP_versioned.clinical_diagnoses_treatments_gdc_r27
+- isb-cgc-bq.HCMI.clinical_diagnoses_gdc_current
+- isb-cgc-bq.HCMI_versioned.clinical_diagnoses_gdc_r27
+- isb-cgc-bq.CGCI.clinical_diagnoses_gdc_current
+- isb-cgc-bq.CGCI_versioned.clinical_diagnoses_gdc_r27
+- isb-cgc-bq.CGCI.clinical_gdc_current
+- isb-cgc-bq.CGCI_versioned.clinical_gdc_r27
+- isb-cgc-bq.CGCI.clinical_follow_ups_gdc_current
+- isb-cgc-bq.CGCI_versioned.clinical_follow_ups_gdc_r27
+- isb-cgc-bq.TCGA.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq.TCGA_versioned.clinical_diagnoses_treatments_gdc_r27
+- isb-cgc-bq.CPTAC.clinical_gdc_current
+- isb-cgc-bq.CPTAC_versioned.clinical_gdc_r27
+- isb-cgc-bq.HCMI.clinical_gdc_current
+- isb-cgc-bq.HCMI_versioned.clinical_gdc_r27
+- isb-cgc-bq.CMI.clinical_gdc_current
+- isb-cgc-bq.CMI_versioned.clinical_gdc_r27
+- isb-cgc-bq.FM.clinical_gdc_current
+- isb-cgc-bq.FM_versioned.clinical_gdc_r27
+- isb-cgc-bq.HCMI.clinical_follow_ups_gdc_current
+- isb-cgc-bq.HCMI_versioned.clinical_follow_ups_gdc_r27
 
 *November 16, 2020*
 
