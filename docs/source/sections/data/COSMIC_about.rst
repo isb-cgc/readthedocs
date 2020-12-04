@@ -32,6 +32,7 @@ Once you have linked your Google identity to a COSMIC account, ISB-CGC will obta
 We also have tutorials on using the COSMIC data sets with BigQuery in our `Community Notebook Repository <../HowTos.html>`_ that you can check out.
 
 * `Intro to COSMIC in BigQuery Notebook (Python) <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/Intro_to_COSMIC_in_BigQuery.ipynb>`_
+* `Exploring the COSMIC Cancer Gene Census (Python) <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/Exploring_COSMICs_Cancer_Gene_Census_table.ipynb>`_
 
 If you are new to using ISB-CGC Google BigQuery data sets, see the `Quickstart Guide <../HowToGetStartedonISB-CGC.html>`_ to learn how to obtain a Google identity and how to set up a Google Cloud Project. Additionally, we offer free cloud credits for cancer research; you can find out more `here <../HowtoRequestCloudCredits.html>`_.
 
