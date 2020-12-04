@@ -2,6 +2,35 @@
 ISB-CGC Data Release Notes
 ############################
 
+*December 4, 2020*
+
+Existing pancancer_atlas tables in the isb-cgc project were copied to the isb-cgc-bq project.
+Corresponding tables in the isb-cgc project were deprecated.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.pancancer_atlas.Original_TCGA_RPPA_pancan_clean
+- isb-cgc-bq.pancancer_atlas.Original_pancanMiRs_EBadjOnProtocolPlatformWithoutRepsWithUnCorrectMiRs_08_04_16
+- isb-cgc-bq.pancancer_atlas.Original_jhu_usc_edu_PANCAN_merged_HumanMethylation27_HumanMethylation450_betaValue_whitelisted
+- isb-cgc-bq.pancancer_atlas.Original_jhu_usc_edu_PANCAN_HumanMethylation450_betaValue_whitelisted
+- isb-cgc-bq.pancancer_atlas.Original_jhu_usc_edu_PANCAN_HumanMethylation27_betaValue_whitelisted
+- isb-cgc-bq.pancancer_atlas.Original_EBpp_AdjustPANCAN_IlluminaHiSeq_RNASeqV2_genExp
+- isb-cgc-bq.pancancer_atlas.Original_clinical_PANCAN_patient_with_followup
+- isb-cgc-bq.pancancer_atlas.Filtered_TCGA_RPPA_pancan_clean
+- isb-cgc-bq.pancancer_atlas.Filtered_pancanMiRs_EBadjOnProtocolPlatformWithoutRepsWithUnCorrectMiRs_08_04_16
+- isb-cgc-bq.pancancer_atlas.Filtered_MC3_MAF_V5_one_per_tumor_sample
+- isb-cgc-bq.pancancer_atlas.Filtered_jhu_usc_edu_PANCAN_merged_HumanMethylation27_HumanMethylation450_betaValue_whitelisted
+- isb-cgc-bq.pancancer_atlas.Filtered_jhu_usc_edu_PANCAN_HumanMethylation450_betaValue_whitelisted
+- isb-cgc-bq.pancancer_atlas.Filtered_jhu_usc_edu_PANCAN_HumanMethylation27_betaValue_whitelisted
+- isb-cgc-bq.pancancer_atlas.Filtered_EBpp_AdjustPANCAN_IlluminaHiSeq_RNASeqV2_genExp
+- isb-cgc-bq.pancancer_atlas.Filtered_clinical_PANCAN_patient_with_followup
+- isb-cgc-bq.pancancer_atlas.Filtered_all_CNVR_data_by_gene
+- isb-cgc-bq.pancancer_atlas.merged_sample_quality_annotations
+- isb-cgc-bq.pancancer_atlas.TCGA_CDR
+- isb-cgc-bq.pancancer_atlas.Whitelist_ParticipantBarcodes
+- isb-cgc-bq.pancancer_atlas.BarcodeMap
+
+
 *November 16, 2020*
 
 New TARGET controlled-access VCF tables.
