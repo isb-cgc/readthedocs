@@ -30,6 +30,16 @@ Corresponding tables in the isb-cgc project were deprecated.
 - isb-cgc-bq.pancancer_atlas.Whitelist_ParticipantBarcodes
 - isb-cgc-bq.pancancer_atlas.BarcodeMap
 
+*December 3, 2020*
+
+New CPTAC RNA Seq tables
+
+**BigQuery tables created**
+
+- isb-cgc-bq.CPTAC.RNAseq_hg38_gdc_current
+- isb-cgc-bq.CPTAC_versioned.RNAseq_hg38_gdc_r26
+
+
 
 *November 16, 2020*
 
