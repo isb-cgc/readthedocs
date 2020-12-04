@@ -44,7 +44,7 @@ New CPTAC RNA Seq tables
 *December 2, 2020*
 
 Clinical data tables released for GDC release 27.
-Current clinical tables were updated to GDC release 2.
+Current clinical tables were updated to GDC release 27.
 
 **BigQuery tables created and updated**
 
