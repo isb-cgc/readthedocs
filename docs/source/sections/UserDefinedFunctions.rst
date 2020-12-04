@@ -34,8 +34,8 @@ The following table lists all the functions available in ISB-CGC.
      - Significance level of the two sided T test
      - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/AllPairs-correlation-GeneExpression-MicroRNA.ipynb>`_
    * - `complement_chisquare_cdf <https://github.com/isb-cgc/Community-Notebooks/tree/master/BQUserFunctions#complement_chisquare_cdf>`_
-     - One minus the cdf of the Chi Square distribution
+     - One minus the CDF of the Chi Square distribution
      -
    * - `jstat_normal_cdf <https://github.com/isb-cgc/Community-Notebooks/tree/master/BQUserFunctions#jstat_normal_cdf>`_
-     - Cdf of the Normal distribution
+     - CDF of the Normal distribution
      -
