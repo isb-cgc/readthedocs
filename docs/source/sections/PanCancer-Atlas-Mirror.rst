@@ -2,7 +2,7 @@
 Pan-Cancer Atlas BigQuery Data
 *******************************
 
-`The Pan-Cancer Atlas BigQuery data set <https://console.cloud.google.com/bigquery?page=dataset&d=pancancer_atlas&p=isb-cgc&redirect_from_classic=true>`_ was produced in
+`The Pan-Cancer Atlas BigQuery data set <https://console.cloud.google.com/bigquery?page=dataset&d=pancancer_atlas&p=isb-cgc-bq&redirect_from_classic=true>`_ was produced in
 collaboration with the `TCGA research network <https://cancergenome.nih.gov/>`_,
 the `GDC <https://gdc.cancer.gov/>`_, and the `NCI <https://www.cancer.gov/>`_. This rich data set allows for an integrated examination of the full set of tumors characterized in the robust TCGA dataset and provides a new way to explore and analyze the processes driving cancer.
 
@@ -27,9 +27,9 @@ Adding the Pan-Cancer Atlas tables to your workspace
 
 If you are new to using ISB-CGC Google BigQuery data sets, see the `Quickstart Guide <HowToGetStartedonISB-CGC.html>`_ to learn how to obtain a Google identity and how to set up a Google Cloud Project.
 
-To add public BigQuery data sets and tables to your "view" in the `Google BigQuery Console <https://bigquery.cloud.google.com/dataset/isb-cgc:pancancer_atlas>`_ you need to know the name of the GCP project that owns the dataset(s). 
-To add the publicly accessible ISB-CGC datasets (project name: ``isb-cgc``) which includes the Pan-Cancer Atlas data set ( dataset name: ``pancancer_atlas``) 
-follow these steps_.
+To add public BigQuery data sets and tables to your "view" in the `Google BigQuery Console <https://bigquery.cloud.google.com/dataset/isb-cgc-bq:pancancer_atlas>`_ you need to know the name of the GCP project that owns the dataset(s). 
+To add the publicly accessible ISB-CGC datasets (project name: ``isb-cgc-bq``) which includes the Pan-Cancer Atlas data set ( dataset name: ``pancancer_atlas``) 
+follow these steps_.  (Note that these tables also exist in project ``isb-cgc``, but that ISB-CGC is migrating current data to project ``isb-cgc-bq``. If you are using the pancancer_atlas tables in ``isb-cgc``, they are still available for you.)
 
 .. _steps: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html
 
@@ -68,7 +68,7 @@ Let's query using the MC3 somatic mutation table.
       Hugo_Symbol,
       HGVSc
    FROM
-      `isb-cgc.pancancer_atlas.Filtered_MC3_MAF_V5_one_per_tumor_sample`
+      `isb-cgc-bq.pancancer_atlas.Filtered_MC3_MAF_V5_one_per_tumor_sample`
    GROUP BY
       Hugo_Symbol,
       HGVSc
