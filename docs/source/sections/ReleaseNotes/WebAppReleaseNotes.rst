@@ -2,20 +2,15 @@
 ISB-CGC Web App Release Notes
 #############################
 
-*December 3, 2020* 
+*December 7, 2020* 
 
 **New Features** 
 
-- In the Cancer Data File Browser, BEATAML has been added as a choice under filter Program Name. It has also been added to the Cohort Builder/Data Explorer.
+- In the Cancer Data File Browser, BEATAML1.0 has been added as a choice under filter Program Name. It has also been added to the Cohort Builder/Data Explorer.
 - On the ISB-CGC home page, a Contact Us page has been added under the Help dropdown menu item.
 - On the ISB-CGC home page, a step by step guide called **How to Discover Cancer Data through ISB-CGC** has been added.
-- On the Controlled Access Data page, a banner has been added and wording has changed to indicate the switch to the NIH Researcher Auth Service (RAS).
-- There is a registration maximum of six programs/projects to a service account implementation from the DCF.
+- There is a registration maximum of six programs/datasets to a service account implementation from the DCF.
 - Bootstrap library upgraded from version 3.3.1 to 3.4.1.
-
-**Bug Fixes**
-
-- Fixed sorting in Cancer Data File Browser page.
 
 **Known Issues**
 
