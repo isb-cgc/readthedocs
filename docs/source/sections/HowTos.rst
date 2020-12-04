@@ -98,5 +98,8 @@ I'm an advanced user, how do I...
    * - How do I do Nearest Centroid Classification using BigQuery?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_Nearest_Centroid_Classification_with_BigQuery.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_Nearest_Centroid_Classification_with_BigQuery.md>`_
+   * - How do I analyze data in the COSMIC Cancer Gene Census dataset?
+     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/Staging-Notebooks/Notebooks/Exploring_COSMICs_Cancer_Gene_Census_table.ipynb>`_
+     -
      
 *Notebook inspired by a `Query of the Month Blog <QueryOfTheMonthClub.html>`_ post
