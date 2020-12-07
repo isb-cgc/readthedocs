@@ -32,15 +32,6 @@ The following tables were created under the isb-cgc-bq:pancer-altas data set:
 - Whitelist_ParticipantBarcodes
 - BarcodeMap
 
-*December 3, 2020*
-
-New CPTAC RNA Seq tables
-
-**BigQuery tables created**
-
-- isb-cgc-bq.CPTAC.RNAseq_hg38_gdc_current
-- isb-cgc-bq.CPTAC_versioned.RNAseq_hg38_gdc_r26
-
 *December 2, 2020*
 
 Clinical data tables released for GDC release 27.
