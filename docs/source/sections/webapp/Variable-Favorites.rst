@@ -17,17 +17,17 @@ To create a new Variable Favorite:
   
 - Select attributes and features for your variable list by performing one or more of these actions:
 
-  - *Common Filter Selection* - Click on a program (TCGA, CCLE, TARGET) to display relevant filters (attributes and features) under the **COMMON** tab.
+  - *Common Filter Selection* - Click on a program (TCGA, CCLE, TARGET, BEATAML1.0) to display relevant filters (attributes and features) under the **COMMON** tab.
   
     * Check the checkbox adjacent to each feature that you are interested in. They will display in the **Selected Variables** panel. (Note that checking these filters will also check the filters under the under programs, if they are on that list.)
     
-  - *Clinical Filter Feature Search* - Click on a program (TCGA, CCLE, TARGET) and then click the  **CLINICAL SEARCH** tab. This filter allows the user to search by any clinical feature in the selected program that is present in the most recent data uploaded for that program. 
+  - *Clinical Filter Feature Search* - Click on a program (TCGA, CCLE, TARGET, BEATAML1.0) and then click the  **CLINICAL SEARCH** tab. This filter allows the user to search by any clinical feature in the selected program that is present in the most recent data uploaded for that program. 
   
     * Enter one or more characters in the **Feature Search** field. A list of features containing these characters displays. Select a feature from the list and it will display in the **Selected Variables** panel.
     
-  - *Favorites Filter Selection* - Click on **FAVORITES** tab (in the same row as TCGA, CCLE and TARGET programs). This displays your existing Variable Favorite lists, and their component features. These features can now be selected for a new Variable Favorite list by checking the checkbox adjacent to each feature that you are interested in. They will display in the **Selected Variables** panel. 
+  - *Favorites Filter Selection* - Click on **FAVORITES** tab (in the same row as TCGA, CCLE, TARGET and BEATAML1.0 programs). This displays your existing Variable Favorite lists, and their component features. These features can now be selected for a new Variable Favorite list by checking the checkbox adjacent to each feature that you are interested in. They will display in the **Selected Variables** panel. 
 
-  - *User Data Filter Search*- Click on **USER DATA** tab (in the same row as TCGA, CCLE and TARGET programs). This option allows you to select by filters that you have uploaded using the upload data functionality. It's separated by projects within your program; a drop down list will display the associated features.
+  - *User Data Filter Search*- Click on **USER DATA** tab (in the same row as TCGA, CCLE, TARGET and BEATAML1.0 programs). This option allows you to select by filters that you have uploaded using the upload data functionality. It's separated by projects within your program; a drop down list will display the associated features.
   
 - Verify that all your selected filters are displayed in the **Selected Variables** panel on the right-hand side. Clicking **Clear All** will remove all selected filters. 
   
@@ -35,66 +35,6 @@ To create a new Variable Favorite:
 
 .. image:: Create_Variables.png
    :align: center
-
-
-Common Filter List by Program 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   +-----------------------+------------------------------+---------------------+
-   | TCGA Common  Filter   | CCLE Common  Filter List     | TARGET Common       |
-   | List                  |                              | Filter List         |
-   +=======================+==============================+=====================+
-   | Year of Diagnosis     | Program                      | WBC at              |
-   |                       |                              | Diagnosis           | 
-   +-----------------------+------------------------------+---------------------+
-   | Residual Tumor        | Project Short Name           | Year of Diagnosis   |
-   +-----------------------+------------------------------+---------------------+
-   | Neoplasm Histologic   | Disease Code                 | Event Free Survival |
-   | Grade                 |                              |                     |
-   +-----------------------+------------------------------+---------------------+
-   | Disease Code          | Sample Type                  | Days to Last Follow |
-   |                       |                              | Up                  |
-   +-----------------------+------------------------------+---------------------+
-   | Age at Diagnosis      | Gender                       | Gender              |
-   +-----------------------+------------------------------+---------------------+
-   | Vital Status          | Histology                    | Days to Last Known  |
-   |                       |                              | Alive               |
-   +-----------------------+------------------------------+---------------------+
-   | Ethnicity             | Histological SubType         | Sample Type         |
-   +-----------------------+------------------------------+---------------------+
-   | Person Neoplasm       | Site Primary                 | Project Short Name  |
-   | Cancer Status         |                              |                     |
-   +-----------------------+------------------------------+---------------------+
-   | Sample Type           |                              | Disease Code        |
-   +-----------------------+------------------------------+---------------------+
-   | Menopause Status      |                              | Race                |
-   +-----------------------+------------------------------+---------------------+
-   | Histological Type     |                              | Days to Birth       |
-   +-----------------------+------------------------------+---------------------+
-   | BMI (Body Mass Index) |                              | Age at Diagnosis    |
-   +-----------------------+------------------------------+---------------------+
-   | Tobacco Smoking       |                              | Vital Status        |
-   | History               |                              |                     |
-   +-----------------------+------------------------------+---------------------+
-   | Pathologic Stage      |                              | Days to Death       |
-   +-----------------------+------------------------------+---------------------+  
-   | HPV Status            |                              | Program             | 
-   +-----------------------+------------------------------+---------------------+
-   | Program               |                              | Ethnicity           |
-   +-----------------------+------------------------------+---------------------+
-   | Gender                |                              |                     |
-   +-----------------------+------------------------------+---------------------+
-   | Days to Last          |                              |                     |
-   | Known Alive           |                              |                     |
-   +-----------------------+------------------------------+---------------------+
-   | Preservation Method   |                              |                     |
-   +-----------------------+------------------------------+---------------------+
-   | Project Short Name    |                              |                     |
-   +-----------------------+------------------------------+---------------------+
-   | Race                  |                              |                     |
-   +-----------------------+------------------------------+---------------------+
-   | Tumor Tissue Site     |                              |                     |
-   +-----------------------+------------------------------+---------------------+
-
 
 Manage Variable Favorites List
 ###############################
