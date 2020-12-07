@@ -20,7 +20,7 @@ The following table lists all the functions available in ISB-CGC.
      - **Notebooks**
    * - `kmeans <https://github.com/isb-cgc/Community-Notebooks/tree/master/BQUserFunctions#kmeans>`_
      - K-means method for clustering data
-     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/Staging-Notebooks/Notebooks/How_to_cluster_data_using_a_BigQuery_function.ipynb>`_
+     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_cluster_data_using_a_BigQuery_function.ipynb>`_
    * - `p_fisherexact <https://github.com/isb-cgc/Community-Notebooks/tree/master/BQUserFunctions#p_fisherexact>`_
      - p value of the Fisher exact test
      -
@@ -29,10 +29,10 @@ The following table lists all the functions available in ISB-CGC.
      -
    * - `kruskal_walis <https://github.com/isb-cgc/Community-Notebooks/tree/master/BQUserFunctions#kruskal_wallis>`_
      - Kruskal Walis test
-     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/FeaturedNotebooks/ACM_BCB_2020_POSTER_Histogram_Associations_ProteinGeneExpression_vs_ClinicalFeatures.ipynb>`_
+     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/FeaturedNotebooks/ACM_BCB_2020_POSTER_Histogram_Associations_ProteinGeneExpression_vs_ClinicalFeatures.ipynb>`_
    * - `significance_level_ttest2 <https://github.com/isb-cgc/Community-Notebooks/tree/master/BQUserFunctions#significance_level_ttest2>`_
      - Significance level of the two sided T test
-     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/AllPairs-correlation-GeneExpression-MicroRNA.ipynb>`_
+     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/AllPairs-correlation-GeneExpression-MicroRNA.ipynb>`_
    * - `complement_chisquare_cdf <https://github.com/isb-cgc/Community-Notebooks/tree/master/BQUserFunctions#complement_chisquare_cdf>`_
      - One minus the CDF of the Chi Square distribution
      -
