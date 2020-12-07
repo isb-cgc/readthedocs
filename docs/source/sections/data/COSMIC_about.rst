@@ -15,7 +15,7 @@ The BigQuery data sets contain *all* of the CSV and TSV files available for down
 * `isb-cgc-bq.COSMIC <https://console.cloud.google.com/bigquery?p=isb-cgc-bq&d=COSMIC&page=dataset>`_
 * `isb-cgc-bq.COSMIC_versioned <https://console.cloud.google.com/bigquery?p=isb-cgc-bq&d=COSMIC_versioned&page=dataset>`_
 
-*Note: the project isb-cgc contains versions 85-91 except 88 and isb-cgc-bq contains versions 92 and higher*
+*Note: the project isb-cgc contains versions 85-91 except 88 and project isb-cgc-bq contains versions 92 and higher*
 
 Accessing the Catalog Of Somatic Mutations In Cancer Data
 ------------------------------------------------------
