@@ -2,7 +2,7 @@
 ISB-CGC Web App Release Notes
 #############################
 
-*December 7, 2020* 
+*December 8, 2020* 
 
 **New Features** 
 

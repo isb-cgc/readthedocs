@@ -6,7 +6,7 @@ To learn about this discovery tool created by the ISB-CGC, please visit `ISB-CGC
 
 For more detailed information about the data stored in ISB-CGC BigQuery tables please visit `ISB-CGC BigQuery Tables <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQuery.html>`_.
 
-*December 7, 2020* v1.04
+*December 8, 2020* v1.04
 
 **New Features**
  
