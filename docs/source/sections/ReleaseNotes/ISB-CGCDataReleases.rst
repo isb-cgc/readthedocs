@@ -2,6 +2,35 @@
 ISB-CGC Data Release Notes
 ############################
 
+*December 8, 2020*
+
+CPTAC2, CPTAC3, TCGA quant proteome data for PDC, released Sept. 2020.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.TCGA.quant_proteome_TCGA_ovarian_PNNL_pdc_current
+- isb-cgc-bq.TCGA_versioned.quant_proteome_TCGA_ovarian_PNNL_pdc_2020_09
+- isb-cgc-bq.TCGA.quant_proteome_TCGA_ovarian_JHU_pdc_current
+- isb-cgc-bq.TCGA_versioned.quant_proteome_TCGA_ovarian_JHU_pdc_2020_09
+- isb-cgc-bq.TCGA.quant_proteome_TCGA_breast_cancer_pdc_current
+- isb-cgc-bq.TCGA_versioned.quant_proteome_TCGA_breast_cancer_pdc_2020_09
+- isb-cgc-bq.CPTAC.quant_proteome_prospective_ovarian_PNNL_qeplus_pdc_current
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_prospective_ovarian_PNNL_qeplus_pdc_2020_09
+- isb-cgc-bq.CPTAC.quant_proteome_prospective_ovarian_JHU_pdc_current
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_prospective_ovarian_JHU_pdc_2020_09
+- isb-cgc-bq.CPTAC.quant_proteome_prospective_colon_PNNL_qeplus_pdc_current
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_prospective_colon_PNNL_qeplus_pdc_2020_09
+- isb-cgc-bq.CPTAC.quant_proteome_prospective_breast_BI_pdc_current
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_prospective_breast_BI_pdc_2020_09
+- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_UCEC_discovery_study_pdc_current
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_UCEC_discovery_study_pdc_2020_09
+- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_LUAD_discovery_study_pdc_current
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_LUAD_discovery_study_pdc_2020_09
+- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_CCRCC_discovery_study_pdc_current
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_CCRCC_discovery_study_pdc_2020_09
+
+
+
 *December 4, 2020*
 
 Existing pancancer_atlas tables in the isb-cgc project were copied to the isb-cgc-bq project.
