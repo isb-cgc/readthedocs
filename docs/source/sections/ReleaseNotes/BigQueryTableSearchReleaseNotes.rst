@@ -6,13 +6,23 @@ To learn about this discovery tool created by the ISB-CGC, please visit `ISB-CGC
 
 For more detailed information about the data stored in ISB-CGC BigQuery tables please visit `ISB-CGC BigQuery Tables <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQuery.html>`_.
 
-*July 23, 2020* `v1.03 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.24>`_
+*December 8, 2020* v1.04
+
+**New Features**
+ 
+- On the Filter panel, under Show More Filters, a filter BQ Project has been added. It has also been added to the Column selection dropdown list.
+
+**Bug Fixes**
+
+- On multi-select filters (Program, Source, Data Type, Experimental Strategy), the X button to delete the selected value did not completely display. It has been fixed so that the entire X button displays.
+
+*July 23, 2020* v1.03
 
 **New Features**
  
 - The Access filter has been added, which has options of All, Open Access and Controlled Access. Controlled Access data cannot be previewed, but can be opened in the Google BigQuery Console, if the user has the required permissions.
 
-*March 11, 2020* `v1.02 <https://github.com/isb-cgc/ISB-CGC-Webapp/releases/tag/3.23>`_
+*March 11, 2020* v1.02
 
 **New Features**
  

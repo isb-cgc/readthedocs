@@ -19,7 +19,7 @@ I'm a novice, how do I...
    * - How do I get started fast?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/Quick_Start_Guide_to_ISB_CGC.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/Quick_Start_Guide_for_ISB-CGC.md>`_
-   * - How to find GDC file locations?
+   * - How do I find GDC file locations?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_Find_GDC_File_Locations.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_Find_GDC_File_Locations.md>`_
    * - How do I plot a BigQuery result?
@@ -34,7 +34,7 @@ I'm a novice, how do I...
    * - How do I create cohorts of patients?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_create_cohorts.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_create_cohorts.md>`_
-   * - How to use PyPika or dbplyr to build a query?
+   * - How do I use PyPika or dbplyr to build a query?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_use_PyPika_to_create_a_BigQuery_SQL_query.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_use_dbplyr_to_create_a_BigQuery_SQL_query.md>`_  
    * - How do I create a complex cohort?
@@ -98,5 +98,11 @@ I'm an advanced user, how do I...
    * - How do I do Nearest Centroid Classification using BigQuery?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_Nearest_Centroid_Classification_with_BigQuery.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_Nearest_Centroid_Classification_with_BigQuery.md>`_
+   * - How do I analyze data in the COSMIC Cancer Gene Census dataset?
+     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/Exploring_COSMICs_Cancer_Gene_Census_table.ipynb>`_
+     -
+   * - How do I use a BigQuery user defined function to cluster data using k-means clustering?
+     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_cluster_data_using_a_BigQuery_function.ipynb>`_
+     - 
      
 *Notebook inspired by a `Query of the Month Blog <QueryOfTheMonthClub.html>`_ post

@@ -2,6 +2,31 @@
 ISB-CGC Web App Release Notes
 #############################
 
+*December 8, 2020* 
+
+**New Features** 
+
+- In the Cancer Data File Browser, BEATAML1.0 has been added as a choice under filter Program Name. It has also been added to the Cohort Builder/Data Explorer.
+- On the ISB-CGC home page, a Contact Us page has been added under the Help dropdown menu item.
+- On the ISB-CGC home page, a step by step guide called **How to Discover Cancer Data through ISB-CGC** has been added.
+- There is a registration maximum of six programs/datasets to a service account implementation from the DCF.
+- Bootstrap library upgraded from version 3.3.1 to 3.4.1.
+
+**Known Issues**
+
+- Work is underway to rework our cohort creation page to better display images associated with samples.
+- The user data upload feature will return an error message stating, "Error submitting response : Could not connect to data upload server."
+- Analysis Type: Seq peek Formatting is Elongated on occasion.
+- If the user shares a Cohort, neither the owner nor the person who was granted access to the Cohort will receive a confirmation email when sharing a Cohort.
+- CCLE data cannot be plotted when working with workbooks. ISB-CGC will resolve this functionality after the GDC formally releases CCLE data.
+- When a user duplicates a Worksheet, then tries to implement the log scale, it will not function properly.
+- The set operation for existing Cohorts complement is behaving exceptionally slow.
+- The mouse-over feature is currently disabled for program TARGET with disease code ALL.
+- When uploading TARGET files using the cohort barcode creation feature from the GDC, you may get an invalid barcode error message and unable to upload all the barcodes.
+- On the File Browser page for Diagnostic images, there is no GDC file UUID associated with them.
+- Sharing a workbook with someone else will cause the analysis to reset.
+
+
 *August 19, 2020* 
 
 **New Features**  

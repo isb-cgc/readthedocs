@@ -2,6 +2,147 @@
 ISB-CGC Data Release Notes
 ############################
 
+*December 9, 2020*
+
+New CPTAC RNA Seq tables
+
+**BigQuery tables created**
+
+- isb-cgc-bq.CPTAC.RNAseq_hg38_gdc_current
+- isb-cgc-bq.CPTAC_versioned.RNAseq_hg38_gdc_r25
+
+*December 8, 2020*
+
+CPTAC2, CPTAC3, TCGA quant proteome data from PDC, released Sept. 2020.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.TCGA.quant_proteome_TCGA_ovarian_PNNL_pdc_current
+- isb-cgc-bq.TCGA_versioned.quant_proteome_TCGA_ovarian_PNNL_pdc_2020_09
+- isb-cgc-bq.TCGA.quant_proteome_TCGA_ovarian_JHU_pdc_current
+- isb-cgc-bq.TCGA_versioned.quant_proteome_TCGA_ovarian_JHU_pdc_2020_09
+- isb-cgc-bq.TCGA.quant_proteome_TCGA_breast_cancer_pdc_current
+- isb-cgc-bq.TCGA_versioned.quant_proteome_TCGA_breast_cancer_pdc_2020_09
+- isb-cgc-bq.CPTAC.quant_proteome_prospective_ovarian_PNNL_qeplus_pdc_current
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_prospective_ovarian_PNNL_qeplus_pdc_2020_09
+- isb-cgc-bq.CPTAC.quant_proteome_prospective_ovarian_JHU_pdc_current
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_prospective_ovarian_JHU_pdc_2020_09
+- isb-cgc-bq.CPTAC.quant_proteome_prospective_colon_PNNL_qeplus_pdc_current
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_prospective_colon_PNNL_qeplus_pdc_2020_09
+- isb-cgc-bq.CPTAC.quant_proteome_prospective_breast_BI_pdc_current
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_prospective_breast_BI_pdc_2020_09
+- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_UCEC_discovery_study_pdc_current
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_UCEC_discovery_study_pdc_2020_09
+- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_LUAD_discovery_study_pdc_current
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_LUAD_discovery_study_pdc_2020_09
+- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_CCRCC_discovery_study_pdc_current
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_CCRCC_discovery_study_pdc_2020_09
+
+Pediatric Brain Cancer Pilot proteome study from PDC, released Sept. 2020.
+
+- isb-cgc-bq.CBTTC.quant_proteome_pediatric_brain_cancer_pilot_study_pdc_current
+- isb-cgc-bq.CBTTC_versioned.quant_proteome_pediatric_brain_cancer_pilot_study_pdc_2020_09
+
+*December 4, 2020*
+
+Existing pancancer_atlas tables in the isb-cgc project were copied to the isb-cgc-bq project.
+Corresponding tables in the isb-cgc project were deprecated.
+
+**BigQuery tables created**
+
+The following tables were created under the isb-cgc-bq:pancer-altas data set:
+
+- Original_TCGA_RPPA_pancan_clean
+- Original_pancanMiRs_EBadjOnProtocolPlatformWithoutRepsWithUnCorrectMiRs_08_04_16
+- Original_jhu_usc_edu_PANCAN_merged_HumanMethylation27_HumanMethylation450_betaValue_whitelisted
+- Original_jhu_usc_edu_PANCAN_HumanMethylation450_betaValue_whitelisted
+- Original_jhu_usc_edu_PANCAN_HumanMethylation27_betaValue_whitelisted
+- Original_EBpp_AdjustPANCAN_IlluminaHiSeq_RNASeqV2_genExp
+- Original_clinical_PANCAN_patient_with_followup
+- Filtered_TCGA_RPPA_pancan_clean
+- Filtered_pancanMiRs_EBadjOnProtocolPlatformWithoutRepsWithUnCorrectMiRs_08_04_16
+- Filtered_MC3_MAF_V5_one_per_tumor_sample
+- Filtered_jhu_usc_edu_PANCAN_merged_HumanMethylation27_HumanMethylation450_betaValue_whitelisted
+- Filtered_jhu_usc_edu_PANCAN_HumanMethylation450_betaValue_whitelisted
+- Filtered_jhu_usc_edu_PANCAN_HumanMethylation27_betaValue_whitelisted
+- Filtered_EBpp_AdjustPANCAN_IlluminaHiSeq_RNASeqV2_genExp
+- Filtered_clinical_PANCAN_patient_with_followup
+- Filtered_all_CNVR_data_by_gene
+- merged_sample_quality_annotations
+- TCGA_CDR
+- Whitelist_ParticipantBarcodes
+- BarcodeMap
+
+*December 2, 2020*
+
+Clinical data tables released for GDC release 27.
+Current clinical tables were updated to GDC release 27.
+
+**BigQuery tables created and updated**
+
+- isb-cgc-bq.MMRF.clinical_gdc_current
+- isb-cgc-bq.MMRF_versioned.clinical_gdc_r27
+- isb-cgc-bq.NCICCR.clinical_gdc_current
+- isb-cgc-bq.NCICCR_versioned.clinical_gdc_r27
+- isb-cgc-bq.OHSU.clinical_gdc_current
+- isb-cgc-bq.OHSU_versioned.clinical_gdc_r27
+- isb-cgc-bq.HCMI.clinical_follow_ups_molecular_tests_gdc_current
+- isb-cgc-bq.HCMI_versioned.clinical_follow_ups_molecular_tests_gdc_r27
+- isb-cgc-bq.HCMI.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq.HCMI_versioned.clinical_diagnoses_treatments_gdc_r27
+- isb-cgc-bq.ORGANOID.clinical_gdc_current
+- isb-cgc-bq.ORGANOID_versioned.clinical_gdc_r27
+- isb-cgc-bq.CGCI.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq.CGCI_versioned.clinical_diagnoses_treatments_gdc_r27
+- isb-cgc-bq.MMRF.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq.MMRF_versioned.clinical_diagnoses_treatments_gdc_r27
+- isb-cgc-bq.MMRF.clinical_follow_ups_gdc_current
+- isb-cgc-bq.MMRF_versioned.clinical_follow_ups_gdc_r27
+- isb-cgc-bq.TCGA.clinical_gdc_current
+- isb-cgc-bq.TCGA_versioned.clinical_gdc_r27
+- isb-cgc-bq.TARGET.clinical_gdc_current
+- isb-cgc-bq.TARGET_versioned.clinical_gdc_r27
+- isb-cgc-bq.MMRF.clinical_follow_ups_molecular_tests_gdc_current
+- isb-cgc-bq.MMRF_versioned.clinical_follow_ups_molecular_tests_gdc_r27
+- isb-cgc-bq.GENIE.clinical_gdc_current
+- isb-cgc-bq.GENIE_versioned.clinical_gdc_r27
+- isb-cgc-bq.VAREPOP.clinical_gdc_current
+- isb-cgc-bq.VAREPOP_versioned.clinical_gdc_r27
+- isb-cgc-bq.CTSP.clinical_gdc_current
+- isb-cgc-bq.CTSP_versioned.clinical_gdc_r27
+- isb-cgc-bq.CGCI.clinical_follow_ups_molecular_tests_gdc_current
+- isb-cgc-bq.CGCI_versioned.clinical_follow_ups_molecular_tests_gdc_r27
+- isb-cgc-bq.VAREPOP.clinical_family_histories_gdc_current
+- isb-cgc-bq.VAREPOP_versioned.clinical_family_histories_gdc_r27
+- isb-cgc-bq.BEATAML1_0.clinical_gdc_current
+- isb-cgc-bq.BEATAML1_0_versioned.clinical_gdc_r27
+- isb-cgc-bq.MMRF.clinical_family_histories_gdc_current
+- isb-cgc-bq.MMRF_versioned.clinical_family_histories_gdc_r27
+- isb-cgc-bq.WCDT.clinical_gdc_current
+- isb-cgc-bq.WCDT_versioned.clinical_gdc_r27
+- isb-cgc-bq.VAREPOP.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq.VAREPOP_versioned.clinical_diagnoses_treatments_gdc_r27
+- isb-cgc-bq.HCMI.clinical_diagnoses_gdc_current
+- isb-cgc-bq.HCMI_versioned.clinical_diagnoses_gdc_r27
+- isb-cgc-bq.CGCI.clinical_diagnoses_gdc_current
+- isb-cgc-bq.CGCI_versioned.clinical_diagnoses_gdc_r27
+- isb-cgc-bq.CGCI.clinical_gdc_current
+- isb-cgc-bq.CGCI_versioned.clinical_gdc_r27
+- isb-cgc-bq.CGCI.clinical_follow_ups_gdc_current
+- isb-cgc-bq.CGCI_versioned.clinical_follow_ups_gdc_r27
+- isb-cgc-bq.TCGA.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq.TCGA_versioned.clinical_diagnoses_treatments_gdc_r27
+- isb-cgc-bq.CPTAC.clinical_gdc_current
+- isb-cgc-bq.CPTAC_versioned.clinical_gdc_r27
+- isb-cgc-bq.HCMI.clinical_gdc_current
+- isb-cgc-bq.HCMI_versioned.clinical_gdc_r27
+- isb-cgc-bq.CMI.clinical_gdc_current
+- isb-cgc-bq.CMI_versioned.clinical_gdc_r27
+- isb-cgc-bq.FM.clinical_gdc_current
+- isb-cgc-bq.FM_versioned.clinical_gdc_r27
+- isb-cgc-bq.HCMI.clinical_follow_ups_gdc_current
+- isb-cgc-bq.HCMI_versioned.clinical_follow_ups_gdc_r27
+
 *November 16, 2020*
 
 New TARGET controlled-access VCF tables.
