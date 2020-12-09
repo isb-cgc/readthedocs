@@ -2,9 +2,18 @@
 ISB-CGC Data Release Notes
 ############################
 
+*December 9, 2020*
+
+New CPTAC RNA Seq tables
+
+**BigQuery tables created**
+
+- isb-cgc-bq.CPTAC.RNAseq_hg38_gdc_current
+- isb-cgc-bq.CPTAC_versioned.RNAseq_hg38_gdc_r25
+
 *December 8, 2020*
 
-CPTAC2, CPTAC3, TCGA quant proteome data for PDC, released Sept. 2020.
+CPTAC2, CPTAC3, TCGA quant proteome data from PDC, released Sept. 2020.
 
 **BigQuery tables created**
 
@@ -29,7 +38,10 @@ CPTAC2, CPTAC3, TCGA quant proteome data for PDC, released Sept. 2020.
 - isb-cgc-bq.CPTAC.quant_proteome_CPTAC_CCRCC_discovery_study_pdc_current
 - isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_CCRCC_discovery_study_pdc_2020_09
 
+Pediatric Brain Cancer Pilot proteome study from PDC, released Sept. 2020.
 
+- isb-cgc-bq.CBTTC.quant_proteome_pediatric_brain_cancer_pilot_study_pdc_current
+- isb-cgc-bq.CBTTC_versioned.quant_proteome_pediatric_brain_cancer_pilot_study_pdc_2020_09
 
 *December 4, 2020*
 
