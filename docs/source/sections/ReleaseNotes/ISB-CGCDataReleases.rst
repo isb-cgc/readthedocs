@@ -43,6 +43,16 @@ Pediatric Brain Cancer Pilot proteome study from PDC, released Sept. 2020.
 - isb-cgc-bq.CBTTC.quant_proteome_pediatric_brain_cancer_pilot_study_pdc_current
 - isb-cgc-bq.CBTTC_versioned.quant_proteome_pediatric_brain_cancer_pilot_study_pdc_2020_09
 
+Hepatitis B Virus (HBV) Related Hepatocellular Carcinoma Proteome study, released Sept. 2020.
+
+- isb-cgc-bq.ICPC.quant_proteome_HBV_related_hepatocellular_carcinoma_pdc_current
+- isb-cgc-bq.ICPC_versioned.quant_proteome_HBV_related_hepatocellular_carcinoma_pdc_2020_09
+ 
+Proteogenomics of Gastric Cancer Proteome study, released Sept. 2020.
+
+- isb-cgc-bq.ICPC.quant_proteome_proteogenomics_of_gastric_cancer_pdc_current
+- isb-cgc-bq.ICPC_versioned.quant_proteome_proteogenomics_of_gastric_cancer_pdc_2020_09
+
 *December 4, 2020*
 
 Existing pancancer_atlas tables in the isb-cgc project were copied to the isb-cgc-bq project.
