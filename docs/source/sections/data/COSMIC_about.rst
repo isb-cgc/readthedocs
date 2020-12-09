@@ -17,6 +17,7 @@ The BigQuery data sets contain *all* of the CSV and TSV files available for down
 
 *Note: the project isb-cgc contains versions 85-91 except 88 and project isb-cgc-bq contains versions 92 and higher*
 
+
 Accessing the Catalog Of Somatic Mutations In Cancer Data
 ------------------------------------------------------
 

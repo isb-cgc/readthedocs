@@ -45,7 +45,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
    * - `BEATAML <data/BEATAML_about.html>`_
      - |checkmark| 
      - |checkmark| 
-     - 
+     - |checkmark|
    * - `CCLE <data/CCLE_top.html>`_
      - |checkmark|
      - |checkmark|
