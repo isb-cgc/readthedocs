@@ -60,6 +60,30 @@ Corresponding TCGA tables in the isb-cgc project were deprecated.
 - isb-cgc-bq.TCGA.DNA_methylation_hg19_gdc_current
 - isb-cgc-bq.TCGA_versioned.DNA_methylation_hg19_gdc_2017_01
 
+*December 14, 2020*
+
+New GDC release 27 file metadata tables.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.GDC_case_file_metadata_versioned.GDCfileID_to_GCSurl_r27
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_legacy_r27
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_active_r27
+- isb-cgc-bq.GDC_case_file_metadata_versioned.caseData_r27
+- isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r27
+- isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r27
+
+Current file metadata tables updated to GDC release 27.
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.GDC_case_file_metadata.GDCfileID_to_GCSurl_current
+- isb-cgc-bq.GDC_case_file_metadata.fileData_legacy_current
+- isb-cgc-bq.GDC_case_file_metadata.fileData_active_current
+- isb-cgc-bq.GDC_case_file_metadata.caseData_current
+- isb-cgc-bq.GDC_case_file_metadata.aliquot2caseIDmap_current
+- isb-cgc-bq.GDC_case_file_metadata.slide2caseIDmap_current
+
 *December 11, 2020*
 
 Existing TCGA hg38 DNA Methylation tables in the isb-cgc project were copied to the isb-cgc-bq project, TCGA and TCGA_versioned data sets.
