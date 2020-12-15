@@ -2,6 +2,64 @@
 ISB-CGC Data Release Notes
 ############################
 
+*December 15, 2020*
+
+Existing TCGA hg19 DNA Methylation tables in the isb-cgc project were copied to the isb-cgc-bq project, TCGA and TCGA_versioned data sets.
+Corresponding TCGA tables in the isb-cgc project were deprecated.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.TCGA.DNA_methylation_chrY_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.DNA_methylation_chrY_hg19_gdc_2017_01
+- isb-cgc-bq.TCGA.DNA_methylation_chrX_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.DNA_methylation_chrX_hg19_gdc_2017_01
+- isb-cgc-bq.TCGA.DNA_methylation_chr22_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.DNA_methylation_chr22_hg19_gdc_2017_01
+- isb-cgc-bq.TCGA.DNA_methylation_chr21_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.DNA_methylation_chr21_hg19_gdc_2017_01
+- isb-cgc-bq.TCGA.DNA_methylation_chr20_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.DNA_methylation_chr20_hg19_gdc_2017_01
+- isb-cgc-bq.TCGA.DNA_methylation_chr19_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.DNA_methylation_chr19_hg19_gdc_2017_01
+- isb-cgc-bq.TCGA.DNA_methylation_chr18_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.DNA_methylation_chr18_hg19_gdc_2017_01
+- isb-cgc-bq.TCGA.DNA_methylation_chr17_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.DNA_methylation_chr17_hg19_gdc_2017_01
+- isb-cgc-bq.TCGA.DNA_methylation_chr16_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.DNA_methylation_chr16_hg19_gdc_2017_01
+- isb-cgc-bq.TCGA.DNA_methylation_chr15_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.DNA_methylation_chr15_hg19_gdc_2017_01
+- isb-cgc-bq.TCGA.DNA_methylation_chr14_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.DNA_methylation_chr14_hg19_gdc_2017_01
+- isb-cgc-bq.TCGA.DNA_methylation_chr13_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.DNA_methylation_chr13_hg19_gdc_2017_01
+- isb-cgc-bq.TCGA.DNA_methylation_chr12_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.DNA_methylation_chr12_hg19_gdc_2017_01
+- isb-cgc-bq.TCGA.DNA_methylation_chr11_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.DNA_methylation_chr11_hg19_gdc_2017_01
+- isb-cgc-bq.TCGA.DNA_methylation_chr10_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.DNA_methylation_chr10_hg19_gdc_2017_01
+- isb-cgc-bq.TCGA.DNA_methylation_chr9_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.DNA_methylation_chr9_hg19_gdc_2017_01
+- isb-cgc-bq.TCGA.DNA_methylation_chr8_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.DNA_methylation_chr8_hg19_gdc_2017_01
+- isb-cgc-bq.TCGA.DNA_methylation_chr7_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.DNA_methylation_chr7_hg19_gdc_2017_01
+- isb-cgc-bq.TCGA.DNA_methylation_chr6_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.DNA_methylation_chr6_hg19_gdc_2017_01
+- isb-cgc-bq.TCGA.DNA_methylation_chr5_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.DNA_methylation_chr5_hg19_gdc_2017_01
+- isb-cgc-bq.TCGA.DNA_methylation_chr4_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.DNA_methylation_chr4_hg19_gdc_2017_01
+- isb-cgc-bq.TCGA.DNA_methylation_chr3_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.DNA_methylation_chr3_hg19_gdc_2017_01
+- isb-cgc-bq.TCGA.DNA_methylation_chr2_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.DNA_methylation_chr2_hg19_gdc_2017_01
+- isb-cgc-bq.TCGA.DNA_methylation_chr1_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.DNA_methylation_chr1_hg19_gdc_2017_01
+- isb-cgc-bq.TCGA.DNA_methylation_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.DNA_methylation_hg19_gdc_2017_01
+
 *December 9, 2020*
 
 New CPTAC RNA Seq tables
