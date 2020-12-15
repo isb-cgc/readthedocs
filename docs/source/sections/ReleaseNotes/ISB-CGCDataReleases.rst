@@ -2,6 +2,30 @@
 ISB-CGC Data Release Notes
 ############################
 
+*December 14, 2020*
+
+New GDC release 27 file metadata tables.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.GDC_case_file_metadata_versioned.GDCfileID_to_GCSurl_r27
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_legacy_r27
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_active_r27
+- isb-cgc-bq.GDC_case_file_metadata_versioned.caseData_r27
+- isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r27
+- isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r27
+
+Current file metadata tables updated to GDC release 27.
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.GDC_case_file_metadata.GDCfileID_to_GCSurl_current
+- isb-cgc-bq.GDC_case_file_metadata.fileData_legacy_current
+- isb-cgc-bq.GDC_case_file_metadata.fileData_active_current
+- isb-cgc-bq.GDC_case_file_metadata.caseData_current
+- isb-cgc-bq.GDC_case_file_metadata.aliquot2caseIDmap_current
+- isb-cgc-bq.GDC_case_file_metadata.slide2caseIDmap_current
+
 *December 9, 2020*
 
 New CPTAC RNA Seq tables
