@@ -8,6 +8,7 @@ New per sample file metadata tables added to isb-cgc-bq for GDC release 27.
 
 **BigQuery tables created**
 
+- isb-cgc-bq.CMI_versioned.per_sample_file_metadata_hg38_gdc_r27
 - isb-cgc-bq.WCDT_versioned.per_sample_file_metadata_hg38_gdc_r27
 - isb-cgc-bq.GENIE_versioned.per_sample_file_metadata_hg38_gdc_r27
 - isb-cgc-bq.OHSU_versioned.per_sample_file_metadata_hg38_gdc_r27
@@ -26,12 +27,13 @@ New per sample file metadata tables added to isb-cgc-bq for GDC release 27.
 - isb-cgc-bq.CCLE_versioned.per_sample_file_metadata_hg19_gdc_r27
 - isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg19_gdc_r27
 - isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg19_gdc_r27
-- isb-cgc-bq.CMI_versioned.per_sample_file_metadata_hg38_gdc_r27
+
 
 Current per sample file metadata tables updated to GDC release 27.
 
 **BigQuery tables updated**
 
+- isb-cgc-bq.CMI.per_sample_file_metadata_hg38_gdc_current
 - isb-cgc-bq.WCDT.per_sample_file_metadata_hg38_gdc_current
 - isb-cgc-bq.GENIE.per_sample_file_metadata_hg38_gdc_current
 - isb-cgc-bq.OHSU.per_sample_file_metadata_hg38_gdc_current
@@ -598,7 +600,7 @@ Current per sample file metadata tables updated to GDC release 26.
 - isb-cgc-bq.BEATAML1_0.per_sample_file_metadata_hg38_gdc_current
 - isb-cgc-bq.CPTAC.per_sample_file_metadata_hg38_gdc_current
 - isb-cgc-bq.TARGET.per_sample_file_metadata_hg38_gdc_current
-- isb-cgc-bq.TCGA_.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TCGA.per_sample_file_metadata_hg38_gdc_current
 - isb-cgc-bq.CCLE.per_sample_file_metadata_hg19_gdc_current
 - isb-cgc-bq.TARGET.per_sample_file_metadata_hg19_gdc_current
 - isb-cgc-bq.TCGA.per_sample_file_metadata_hg19_gdc_current
