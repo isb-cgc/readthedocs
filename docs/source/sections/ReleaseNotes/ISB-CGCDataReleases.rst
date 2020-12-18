@@ -2,6 +2,17 @@
 ISB-CGC Data Release Notes
 ############################
 
+
+*December 17, 2020*
+
+New CPTAC Masked Somatic Mutation (MAF) tables.
+
+**BigQuery tables created**
+
+- isb-cgc-bq:CPTAC.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq:CPTAC_versioned.masked_somatic_mutation_hg38_gdc_r25
+
+
 *December 16, 2020*
 
 New per sample file metadata tables added to isb-cgc-bq for GDC release 27.
