@@ -1,5 +1,5 @@
 #####################################################
-ISB-CGC Migration to Project ISB-CGC-BQ Release Notes
+ISB-CGC Migration to Project isb-cgc-bq Release Notes
 #####################################################
 
 *December 15, 2020*
