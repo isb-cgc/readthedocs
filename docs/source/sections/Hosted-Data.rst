@@ -142,6 +142,23 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
    data/VAREPOP_about
    data/WCDT_about
    
+From Proteomics Data Commons
+~~~~~~~~~~~~~~~~~~~~~~~~~   
+
+.. list-table:: 
+   :widths: 10 3 3 3
+   :header-rows: 1 
+   :stub-columns: 1
+  
+   
+   * - Program
+     - GDC Google Cloud Storage
+     - ISB-CGC BigQuery Tables
+     - ISB-CGC Cohort Builder
+   * - `CPTAC <data/CPTAC_about.html>`_
+     - |checkmark|
+     - |checkmark| *
+     - 
    
 From Other Sources
 ~~~~~~~~~~~~~~~~~~
