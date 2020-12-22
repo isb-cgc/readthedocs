@@ -60,7 +60,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - 
    * - `CPTAC <data/CPTAC_about.html>`_
      - |checkmark|
-     - |checkmark| *
+     - |checkmark| 
      - 
    * - `CTSP <data/CTSP_about.html>`_
      - |checkmark|
@@ -157,9 +157,17 @@ From Proteomics Data Commons
      - ISB-CGC Cohort Builder
    * - `CPTAC <data/CPTAC_about.html>`_
      - |checkmark|
-     - |checkmark| *
+     - |checkmark| 
      - 
-   
+   * - CBTTC
+     - |checkmark|
+     - |checkmark| 
+     - 
+   * - ICPC
+     - |checkmark|
+     - |checkmark| 
+     - 
+     
 From Other Sources
 ~~~~~~~~~~~~~~~~~~
 
