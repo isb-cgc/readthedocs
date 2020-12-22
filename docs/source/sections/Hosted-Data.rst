@@ -152,20 +152,20 @@ From Proteomics Data Commons
   
    
    * - Program
-     - GDC Google Cloud Storage
+     - PDC AWS Cloud Storage
      - ISB-CGC BigQuery Tables
      - ISB-CGC Cohort Builder
    * - `CPTAC <data/CPTAC_about.html>`_
-     - |checkmark|
+     - 
      - |checkmark| 
      - 
    * - CBTTC
-     - |checkmark|
+     - 
      - |checkmark| 
      - 
    * - ICPC
+     - 
      - |checkmark|
-     - |checkmark| 
      - 
      
 From Other Sources
