@@ -4,9 +4,9 @@ ICPC Data Set
 
 About the International Cancer Proteogenome Consortium
 ------------------------------------------------------------
-The `International Cancer Proteogenome Consortium <https://proteomics.cancer.gov/programs/international-cancer-proteogenome-consortium>`_ (ICPC) is a voluntary scientific organization that provides a forum for collaboration among some of the world’s leading cancer and proteogenomic research centers.
+The `International Cancer Proteogenome Consortium <https://proteomics.cancer.gov/programs/international-cancer-proteogenome-consortium>`_ (ICPC) is a voluntary scientific organization that provides a forum for collaboration among some of the world’s leading cancer and proteogenomic research centers. Launched in late 2016, the ICPC includes researchers from over a dozen countries sharing data and results of proteogenomic analysis in predicting the success of cancer treatment.
 
-About the Pediatric Brain Cancer Pilot proteome study (PDC000180) Data Set
+About theInternational Cancer Proteogenome Consortium Data Set
 ---------------------------------------------------------------------
 
 CBTTC has data from over 3300 patients, with over 6500 samples available for access. It has whole genome and whole exome sequences, RNA-Seq and miRNA-Seq available for research.
