@@ -2,9 +2,9 @@
 ICPC Data Set
 *****************
 
-About the Children's Brain Tumor Tissue Consortium
+About the International Cancer Proteogenome Consortium
 ------------------------------------------------------------
-The `Children's Brain Tumor Tissue Consortium <cbttc.org>`_ (CBTTC) provides free and open access data to find a cure for pediatric brain cancer.
+The `International Cancer Proteogenome Consortium <https://proteomics.cancer.gov/programs/international-cancer-proteogenome-consortium>`_ (ICPC) is a voluntary scientific organization that provides a forum for collaboration among some of the world’s leading cancer and proteogenomic research centers.
 
 About the Pediatric Brain Cancer Pilot proteome study (PDC000180) Data Set
 ---------------------------------------------------------------------
