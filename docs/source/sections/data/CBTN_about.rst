@@ -9,7 +9,7 @@ The `Children's Brain Tumor Network <https://cbtn.org>`_ (CBTN) seeks to innovat
 About the Children's Brain Tumor Network Data Set
 ---------------------------------------------------------------------
 
-CBTN has the a Pediatric Branin Cancer Pilot Study available at the `Proteomics Data Commons (PDC) <https://pdc.cancer.gov/pdc/>`_. ISB-CGC has procured this data through the PDC API.
+CBTN has the Pediatric Brain Cancer Pilot Study available at the `Proteomics Data Commons (PDC) <https://pdc.cancer.gov/pdc/>`_. ISB-CGC has procured this data through the PDC API.
 
 Accessing the CBTN Data in Google BigQuery
 ------------------------------------------------
