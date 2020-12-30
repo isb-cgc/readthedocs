@@ -4,7 +4,7 @@ CBTN Data Set
 
 About the Children's Brain Tumor Network
 ------------------------------------------------------------
-The `Children's Brain Tumor Network <cbtn.org>`_ (CBTN) seeks to innovate discoveries, to pioneer new treatments and to support open science to improve the health of every child and young adult diagnosed with a brain tumor. Previously, it was named the `Children's Brain Tumor Tissue Consortium <cbttc.org>`_ (CBTTC).
+The `Children's Brain Tumor Network <https://cbtn.org>`_ (CBTN) seeks to innovate discoveries, to pioneer new treatments and to support open science to improve the health of every child and young adult diagnosed with a brain tumor. Previously, it was named the `Children's Brain Tumor Tissue Consortium <https://cbttc.org>`_ (CBTTC).
 
 About the Children's Brain Tumor Network Data Set
 ---------------------------------------------------------------------
