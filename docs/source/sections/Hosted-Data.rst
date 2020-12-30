@@ -159,14 +159,22 @@ From Proteomics Data Commons
      - 
      - |checkmark| 
      - 
-   * - CBTTC
+   * - `CBTTC <data/CBTTC_about.html>`_
      - 
      - |checkmark| 
      - 
-   * - ICPC
+   * - `ICPC <data/ICPC_about.html>`_
      - 
      - |checkmark|
      - 
+     
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   
+   data/CPTAC_about
+   data/CBTTC_about
+   data/ICPC_about     
      
 From Other Sources
 ~~~~~~~~~~~~~~~~~~
