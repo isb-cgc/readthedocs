@@ -1,18 +1,17 @@
 *****************
-CBTTC Data Set
+CBTN Data Set
 *****************
 
-About the Children's Brain Tumor Tissue Consortium
+About the Children's Brain Tumor Network
 ------------------------------------------------------------
-The `Children's Brain Tumor Tissue Consortium <cbttc.org>`_ (CBTTC) provides free and open access data to find a cure for pediatric brain cancer.
+The `Children's Brain Tumor Network <cbtn.org>`_ (CBTN) seeks to innovate discoveries, to pioneer new treatments and to support open science to improve the health of every child and young adult diagnosed with a brain tumor. Previously, it was named the `Children's Brain Tumor Tissue Consortium <cbttc.org>`_ (CBTTC).
 
 About the Pediatric Brain Cancer Pilot proteome study (PDC000180) Data Set
 ---------------------------------------------------------------------
 
-CBTTC has data from over 3300 patients, with over 6500 samples available for access. It has whole genome and whole exome sequences, RNA-Seq and miRNA-Seq available for research.
+ICPC has studies on the Proteogenomics of Gastric Cancer and HBV-Related Hepatocellular Carcinima available at the `Proteomics Data Commons (PDC) <https://pdc.cancer.gov/pdc/>`_. ISB-CGC has procured this data through the PDC API.
 
-CPTAC data consists of whole-genome sequencing, whole-exome sequencing, RNA sequencing, and miRNA sequencing.  The program analyzed more than 700 cases. The Genomic Data Commons (GDC) currently has controlled VCF, TSV, and BAM data available. The Project ID in the GDC Data Portal is `CPTAC-2 <https://portal.gdc.cancer.gov/projects/CPTAC-2>`_ and `CPTAC-3 <https://portal.gdc.cancer.gov/projects/CPTAC-3>`_.
-
+The CBTTC has a Pediatric Branin Cancer Pilot Study.
 
 
 
