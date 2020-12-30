@@ -145,7 +145,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
 From Proteomics Data Commons
 ~~~~~~~~~~~~~~~~~~~~~~~~~   
 
-PDC Protein expression data are available in ISB-CGC BigQuery tables. The table below lists each Program and where (through ISB-CGC) that you can find its data. 
+PDC protein expression data are available in ISB-CGC BigQuery tables. The table below lists each Program. 
 
 .. list-table:: 
    :widths: 10 3 3 3
