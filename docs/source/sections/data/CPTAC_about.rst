@@ -9,8 +9,9 @@ The `National Cancer Institute’s Clinical Proteomic Tumor Analysis Consortium 
 About the NCI Clinical Proteomic Tumor Analysis Consortium Data Set
 ---------------------------------------------------------------------
 
-CPTAC data consists of whole-genome sequencing, whole-exome sequencing, RNA sequencing, and miRNA sequencing.  The program analyzed more than 700 cases. The Genomic Data Commons (GDC) currently has controlled VCF, TSV, and BAM data available. The Project ID in the GDC Data Portal is `CPTAC-2 <https://portal.gdc.cancer.gov/projects/CPTAC-2>`_ and `CPTAC-3 <https://portal.gdc.cancer.gov/projects/CPTAC-3>`_.
+**From GDC**
 
+CPTAC data obtained through the Genomic Data Commons (GDC) consists of whole-genome sequencing, whole-exome sequencing, RNA sequencing, and miRNA sequencing.  The program analyzed more than 700 cases. The GDC currently has controlled VCF, TSV, and BAM data available. The Project ID in the GDC Data Portal is `CPTAC-2 <https://portal.gdc.cancer.gov/projects/CPTAC-2>`_ and `CPTAC-3 <https://portal.gdc.cancer.gov/projects/CPTAC-3>`_.
 
 For more information on the CPTAC data, please refer to these sites:
 
@@ -18,10 +19,14 @@ For more information on the CPTAC data, please refer to these sites:
 - `CPTAC-3 dbGaP site <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs001287.v5.p4>`_
 - `GDC Data Portal <https://portal.gdc.cancer.gov/repository?facetTab=cases&filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22cases.project.program.name%22%2C%22value%22%3A%5B%22CPTAC%22%5D%7D%7D%5D%7D&searchTableTab=files>`_
 
+**From PDC**
+
+ISB-CGC also has proteomic CPTAC data, obtained from the `Proteomics Data Commons (PDC) <https://pdc.cancer.gov/pdc/>`_ API. This includes protein expression data for breast, ovarian, colon, liver, lung, uterine and other cancers. 
+
 Accessing the NCI Clinical Proteomic Tumor Analysis Consortium Data on the Cloud
 ----------------------------------------------------------------------------------
 
-Besides accessing the files on the GDC Data Portal, you can also access them from the GDC Google Cloud Storage Bucket, which means that you don’t need to download them to perform analysis. ISB-CGC stores the cloud file locations in tables in the ``isb-cgc-bq.GDC_case_file_metadata`` data set in BigQuery.
+Besides accessing the GDC files on the GDC Data Portal, you can also access them from the GDC Google Cloud Storage Bucket, which means that you don’t need to download them to perform analysis. ISB-CGC stores the cloud file locations in tables in the ``isb-cgc-bq.GDC_case_file_metadata`` data set in BigQuery.
 
 - To access these metadata files, go to the Google BigQuery console.
 - Perform SQL queries to find the CPTAC files. Here is an example:
@@ -36,10 +41,9 @@ Besides accessing the files on the GDC Data Portal, you can also access them fro
 Accessing the CPTAC Data in Google BigQuery
 ------------------------------------------------
 
-ISB-CGC has CPTAC data, such as clinical and protein expression, stored in Google BigQuery tables. Information about these tables can be found using the `ISB-CGC BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_ with CPTAC selected for filter PROGRAM. To learn more about this tool, see the `ISB-CGC BigQuery Table Search documentation <../BigQueryTableSearchUI.html>`_.
+ISB-CGC has CPTAC data, such as clinical, RNA-Seq, somatic mutation and protein expression, stored in Google BigQuery tables. Information about these tables can be found using the `ISB-CGC BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_ with CPTAC selected for filter PROGRAM. To learn more about this tool, see the `ISB-CGC BigQuery Table Search documentation <../BigQueryTableSearchUI.html>`_.
 
 The CPTAC tables are in project isb-cgc-bq and isb-cgc. To learn more about how to view and query tables in the Google BigQuery console, see the `ISB-CGC BigQuery Tables documentation <../BigQuery.html>`_.
 
 - Data set ``isb-cgc-bq.CPTAC`` contains the latest tables for each data type.
 - Data set ``isb-cgc-bq.CPTAC_versioned`` contains previously released tables, as well as the most current table.
-- Data set ``isb-cgc.hg19_data_previews`` contains protein expression data.

@@ -26,7 +26,8 @@ isb-cgc-bq project
 
 The isb-cgc-bq project contains all new ISB-CGC BigQuery tables created after July 1, 2020 as well as tables that have been migrated from project isb-cgc. It features a more intuitive data set and table organization, as well as consistent table naming both within and across cancer research programs.
 
-This new project is a work in progress. The migration of existing tables from the isb-cgc project will be occurring over time, and will not be all at once.
+This new project is a work in progress. The migration of existing tables from the isb-cgc project will be occurring over time, and will not be all at once. See the `Migration to Project isb-cgc-bq Release Notes <../ReleaseNotes/MigrationToISB-CGC-BQ.html>`_ to find out which tables have been migrated as of this time. 
+
 **All new tables** will be created in this project.
 
 isb-cgc-bq Data Set and Table Organization
