@@ -2,6 +2,15 @@
 ISB-CGC Data Release Notes
 ############################
 
+*January 4, 2021*
+
+New TARGET RNA Seq tables
+
+**BigQuery tables created**
+
+- isb-cgc-bq.TARGET.RNAseq_hg38_gdc_current
+- isb-cgc-bq.TARGET_versioned.RNAseq_hg38_gdc_r25
+- isb-cgc-bq.TARGET_versioned.RNAseq_hg38_gdc_r26
 
 *December 17, 2020*
 
