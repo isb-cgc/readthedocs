@@ -2,7 +2,7 @@
 ISB-CGC Data Release Notes
 ############################
 
-*January 13, 2021*
+*January 12, 2021*
 
 New HCMI RNA Seq table
 
