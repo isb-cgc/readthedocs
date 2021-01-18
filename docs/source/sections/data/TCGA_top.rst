@@ -68,7 +68,7 @@ The open-access TCGA data includes:
 * Protein expression data:  these data were originally provided as TSV files (Level-3)
 * TCGA Annotations data:  annotations were originally obtained from the TCGA Annotations Manager, and can be found on the `GDC Data Portal <https://portal.gdc.cancer.gov/annotations>`_
 
-The information scattered over tens of thousands of XML and TSV files at the GDC is provided in a *much more accessible* form in a series of `BigQuery tables <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQuery/data_in_BQ.html#tcga-clinical-biospecimen-and-molecular-data>`_.  
+The information scattered over tens of thousands of XML and TSV files at the GDC is provided in a *much more accessible* form in a series of BigQuery tables; see the *Accessing the TCGA Data in Google BigQuery* section below.
 
 For more details, please see our `Community Notebook Repository <https://github.com/isb-cgc/Community-Notebooks>`_ for tutorials and code examples in Python and R.
 
