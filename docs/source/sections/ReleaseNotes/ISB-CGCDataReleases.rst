@@ -2,6 +2,15 @@
 ISB-CGC Data Release Notes
 ############################
 
+*January 27, 2021*
+
+New CTSP RNA Seq tables
+
+**BigQuery tables created**
+
+- isb-cgc-bq.CTSP.RNAseq_hg38_gdc_current
+- isb-cgc-bq.CTSP_versioned.RNAseq_hg38_gdc_r23
+
 *January 12, 2021*
 
 New HCMI RNA Seq table
