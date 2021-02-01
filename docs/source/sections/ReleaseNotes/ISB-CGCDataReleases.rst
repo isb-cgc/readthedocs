@@ -2,7 +2,7 @@
 ISB-CGC Data Release Notes
 ############################
 
-*January 27, 2021*
+*February 1, 2021*
 
 New CTSP RNA Seq tables
 
