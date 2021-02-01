@@ -57,7 +57,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - 
    * - `CTSP <data/CTSP_about.html>`_
      - |checkmark|
-     - |checkmark| *
+     - |checkmark|
      - 
    * - `FM <data/FM_about.html>`_
      - |checkmark|
