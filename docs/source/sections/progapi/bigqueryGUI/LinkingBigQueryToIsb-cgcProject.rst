@@ -13,10 +13,7 @@ When you access BigQuery from your Google Cloud Platform Console, you will see a
 
 When you click on "Pin a Project", you will be presented with a pop-up box that allows you to either enter a project name or to select one from a list. Choose the "Enter a Project Name" and enter in "isb-cgc" and then hit "Pin".
 
-.. note:: If the **isb-cgc** and **isb-cgc-bq** projects aren't found when you type them in, you are likely in Google's new BigQuery SQL Workspace, which is having issues pinning a project that you are not a member of. To resolve this problem, click the **Hide Preview Features** button to return to the former BiqQuery screen and perform the pinning steps there.
-.. image:: HidePreviewFeatures.png
-   :scale: 50
-   :align: center
+.. important:: If the **isb-cgc** and **isb-cgc-bq** projects aren't found when you type them in, you are likely in Google's new BigQuery SQL Workspace, which is having issues pinning a project that you are not a member of. To resolve this problem, click the  `Hide Preview Features <HidePreviewFeatures.png>`_ button (click to see pictures) to return to the former BiqQuery screen and perform the pinning steps there.
 
 .. image:: PinAProject.png
    :scale: 30
