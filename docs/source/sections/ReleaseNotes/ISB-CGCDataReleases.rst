@@ -2,6 +2,15 @@
 ISB-CGC Data Release Notes
 ############################
 
+*February 18, 2021*
+
+New CGCI Masked Somatic Mutation tables
+
+**BigQuery tables created**
+
+- isb-cgc-bq.CGCI.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.CGCI_versioned.masked_somatic_mutation_hg38_gdc_r27
+
 *February 1, 2021*
 
 New CTSP RNA Seq tables
