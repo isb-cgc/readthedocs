@@ -4,12 +4,70 @@ ISB-CGC Data Release Notes
 
 *February 18, 2021*
 
-New CGCI Masked Somatic Mutation tables
+Pediatric Brain Cancer Pilot Study clinical data from PDC
+
+- isb-cgc-bq.CBTTC.clinical_pediatric_brain_cancer_pdc_current
+- isb-cgc-bq.CBTTC_versioned.clinical_pediatric_brain_cancer_pdc_V1_9
+- isb-cgc-bq.CBTTC.clinical_diagnoses_pediatric_brain_cancer_pdc_current
+- isb-cgc-bq.CBTTC_versioned.clinical_diagnoses_pediatric_brain_cancer_pdc_V1_9
+
+Hepatitis B Virus (HBV) Related Hepatocellular Carcinoma clinical data from PDC
+
+- isb-cgc-bq.ICPC.clinical_HBV_related_hepatocellular_carcinoma_pdc_current
+- isb-cgc-bq.ICPC_versioned.clinical_HBV_related_hepatocellular_carcinoma_pdc_V1_9
+
+Proteogenomics of Gastric Cancer Proteome clinical data from PDC
+
+- isb-cgc-bq.ICPC.clinical_human_early_onset_gastric_cancer_pdc_current
+- isb-cgc-bq.ICPC_versioned.clinical_human_early_onset_gastric_cancer_pdc_V1_9
+
+Oral Squamous Cell Carcinoma clinical data from PDC
+
+- isb-cgc-bq.ICPC.clinical_oral_squamous_cell_carcinoma_pdc_current
+- isb-cgc-bq.ICPC_versioned.clinical_oral_squamous_cell_carcinoma_pdc_V1_9
+
+Academia Sinica LUAD-100 clinical data from PDC
+
+- isb-cgc-bq.ICPC.clinical_academia_sinica_LUAD_100_pdc_current
+- isb-cgc-bq.ICPC_versioned.clinical_academia_sinica_LUAD_100_pdc_V1_9
+
+Georgetown Lung Cancer clinical data from PDC
+
+- clinical_georgetown_lung_cancer_pdc_current
+- clinical_georgetown_lung_cancer_pdc_V1_9
+
+PJ25730263 project clinical data from PDC
+
+- clinical_PJ25730263_pdc_current
+- clinical_PJ25730263_pdc_V1_9
+
+CPTAC clincal data from PDC
+
+- isb-cgc-bq.TCGA.clinical_CPTAC_TCGA_pdc_current
+- isb-cgc-bq.TCGA_versioned.clinical_CPTAC_TCGA_pdc_V1_9
+- isb-cgc-bq.CPTAC.clinical_CPTAC_2_pdc_current
+- isb-cgc-bq.CPTAC_versioned.clinical_CPTAC_2_pdc_V1_9
+- isb-cgc-bq.CPTAC.clinical_CPTAC3_discovery_pdc_current
+- isb-cgc-bq.CPTAC_versioned.clinical_CPTAC3_discovery_pdc_V1_9
+
+PDC metadata
+
+- isb-cgc-bq.PDC_metadata.file_associated_entity_mapping_current
+- isb-cgc-bq.PDC_metadata_versioned.file_associated_entity_mapping_V1_9
+- isb-cgc-bq.PDC_metadata.file_metadata_current
+- isb-cgc-bq.PDC_metadata_versioned.file_metadata_V1_9
+
+New CGCI and HCMI Masked Somatic Mutation tables
 
 **BigQuery tables created**
 
 - isb-cgc-bq.CGCI.masked_somatic_mutation_hg38_gdc_current
 - isb-cgc-bq.CGCI_versioned.masked_somatic_mutation_hg38_gdc_r27
+- isb-cgc-bq.HCMI_versioned.masked_somatic_mutation_hg38_gdc_r27
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.HCMI.masked_somatic_mutation_hg38_gdc_current
 
 *February 1, 2021*
 
