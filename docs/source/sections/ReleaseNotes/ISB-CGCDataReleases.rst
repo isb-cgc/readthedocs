@@ -10,8 +10,11 @@ New CGCI and HCMI Masked Somatic Mutation tables
 
 - isb-cgc-bq.CGCI.masked_somatic_mutation_hg38_gdc_current
 - isb-cgc-bq.CGCI_versioned.masked_somatic_mutation_hg38_gdc_r27
-- isb-cgc-bq.HCMI.masked_somatic_mutation_hg38_gdc_current
 - isb-cgc-bq.HCMI_versioned.masked_somatic_mutation_hg38_gdc_r27
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.HCMI.masked_somatic_mutation_hg38_gdc_current
 
 *February 1, 2021*
 
