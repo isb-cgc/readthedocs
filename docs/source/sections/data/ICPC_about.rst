@@ -11,10 +11,17 @@ About the International Cancer Proteogenome Consortium Data Set
 
 ICPC has studies on the Proteogenomics of Gastric Cancer and HBV-Related Hepatocellular Carcinima available at the `Proteomics Data Commons (PDC) <https://pdc.cancer.gov/pdc/>`_. ISB-CGC has procured this data through the PDC API.
 
+ICPC has several studies available at the `Proteomics Data Commons (PDC) <https://pdc.cancer.gov/pdc/>`_. ISB-CGC has procured data for the following studies through the PDC API:
+
+- Proteogenomics of Gastric Cancer
+- HBV-Related Hepatocellular Carcinima
+- Oral Squamous Cell Carcinoma Study
+- Academia Sinica LUAD100
+
 Accessing the ICPC Data in Google BigQuery
 ------------------------------------------------
 
-ISB-CGC has ICPC protein expression data stored in Google BigQuery tables. Information about these tables can be found using the `ISB-CGC BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_ with ICPC selected for filter PROGRAM. To learn more about this tool, see the `ISB-CGC BigQuery Table Search documentation <../BigQueryTableSearchUI.html>`_.
+ISB-CGC has ICPC clinical and protein expression data stored in Google BigQuery tables. Information about these tables can be found using the `ISB-CGC BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_ with ICPC selected for filter PROGRAM. To learn more about this tool, see the `ISB-CGC BigQuery Table Search documentation <../BigQueryTableSearchUI.html>`_.
 
 The ICPC tables are in project isb-cgc-bq. To learn more about how to view and query tables in the Google BigQuery console, see the `ISB-CGC BigQuery Tables documentation <../BigQuery.html>`_.
 
