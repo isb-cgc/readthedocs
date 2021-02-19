@@ -31,6 +31,15 @@ Academia Sinica LUAD-100 clinical data from PDC
 - isb-cgc-bq.ICPC.clinical_academia_sinica_LUAD_100_pdc_current`
 - isb-cgc-bq.ICPC_versioned.clinical_academia_sinica_LUAD_100_pdc_V1_9`
 
+CPTAC clincal data from PDC
+
+- isb-cgc-bq.TCGA.clinical_CPTAC_TCGA_pdc_current
+- isb-cgc-bq.TCGA_versioned.clinical_CPTAC_TCGA_pdc_V1_9
+- isb-cgc-bq.CPTAC.clinical_CPTAC_2_pdc_current
+- isb-cgc-bq.CPTAC_versioned.clinical_CPTAC_2_pdc_V1_9
+- isb-cgc-bq.CPTAC.clinical_CPTAC3_discovery_pdc_current
+- isb-cgc-bq.CPTAC_versioned.clinical_CPTAC3_discovery_pdc_V1_9
+
 New CGCI and HCMI Masked Somatic Mutation tables
 
 **BigQuery tables created**
