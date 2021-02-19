@@ -40,6 +40,14 @@ CPTAC clincal data from PDC
 - isb-cgc-bq.CPTAC.clinical_CPTAC3_discovery_pdc_current
 - isb-cgc-bq.CPTAC_versioned.clinical_CPTAC3_discovery_pdc_V1_9
 
+PDC metadata
+
+- isb-cgc-bq.PDC_metadata.file_associated_entity_mapping_current
+- isb-cgc-bq.PDC_metadata_versioned.file_associated_entity_mapping_V1_9
+- isb-cgc-bq.PDC_metadata.file_metadata_current
+- isb-cgc-bq.PDC_metadata_versioned.file_metadata_V1_9
+
+
 New CGCI and HCMI Masked Somatic Mutation tables
 
 **BigQuery tables created**
