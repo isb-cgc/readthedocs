@@ -38,9 +38,8 @@ Georgetown Lung Cancer clinical data from PDC
 
 PJ25730263 project clinical data from PDC
 
-clinical_PJ25730263_pdc_current
-clinical_PJ25730263_pdc_V1_9
-
+- clinical_PJ25730263_pdc_current
+- clinical_PJ25730263_pdc_V1_9
 
 CPTAC clincal data from PDC
 
@@ -57,7 +56,6 @@ PDC metadata
 - isb-cgc-bq.PDC_metadata_versioned.file_associated_entity_mapping_V1_9
 - isb-cgc-bq.PDC_metadata.file_metadata_current
 - isb-cgc-bq.PDC_metadata_versioned.file_metadata_V1_9
-
 
 New CGCI and HCMI Masked Somatic Mutation tables
 
