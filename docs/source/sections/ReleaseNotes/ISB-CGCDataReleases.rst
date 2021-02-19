@@ -21,6 +21,16 @@ Proteogenomics of Gastric Cancer Proteome clinical data from PDC
 - isb-cgc-bq.ICPC.clinical_human_early_onset_gastric_cancer_pdc_current
 - isb-cgc-bq.ICPC_versioned.clinical_human_early_onset_gastric_cancer_pdc_V1_9
 
+Oral Squamous Cell Carcinoma clinical data from PDC
+
+- isb-cgc-bq.ICPC.clinical_oral_squamous_cell_carcinoma_pdc_current
+- isb-cgc-bq.ICPC_versioned.clinical_oral_squamous_cell_carcinoma_pdc_V1_9
+
+Academia Sinica LUAD-100 clinical data from PDC
+
+- isb-cgc-bq.ICPC.clinical_academia_sinica_LUAD_100_pdc_current`
+- isb-cgc-bq.ICPC_versioned.clinical_academia_sinica_LUAD_100_pdc_V1_9`
+
 New CGCI and HCMI Masked Somatic Mutation tables
 
 **BigQuery tables created**
