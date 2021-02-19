@@ -158,10 +158,18 @@ PDC protein expression data are available in ISB-CGC BigQuery tables. The table 
      - 
      - |checkmark| 
      - 
+   * - `Georgetown Proteomics Research Program <data/GPRP_about.html>`_
+     - 
+     - |checkmark| 
+     - 
    * - `ICPC <data/ICPC_about.html>`_
      - 
      - |checkmark|
      - 
+   * - `Quantitative Digital Maps of Tissue Biopsies <data/Quant_Maps_Tissue_Biopsies_about.html>`_
+     - 
+     - |checkmark|
+     -  
      
 .. toctree::
    :maxdepth: 1
@@ -169,7 +177,9 @@ PDC protein expression data are available in ISB-CGC BigQuery tables. The table 
    
    data/CBTN_about
    data/CPTAC_about
-   data/ICPC_about     
+   data/GPRP_about
+   data/ICPC_about 
+   data/Quant_Maps_Tissue_Biopsies_about
      
 From Other Sources
 ~~~~~~~~~~~~~~~~~~

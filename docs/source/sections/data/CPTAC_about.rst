@@ -21,7 +21,7 @@ For more information on the CPTAC data, please refer to these sites:
 
 **From PDC**
 
-ISB-CGC also has proteomic CPTAC data, obtained from the `Proteomics Data Commons (PDC) <https://pdc.cancer.gov/pdc/>`_ API. This includes protein expression data for breast, ovarian, colon, liver, lung, uterine and other cancers. 
+ISB-CGC also has proteomic CPTAC data, obtained from the `Proteomics Data Commons (PDC) <https://pdc.cancer.gov/pdc/>`_ API. This includes clinical and protein expression data for breast, ovarian, colon, liver, lung, uterine and other cancers. 
 
 Accessing the NCI Clinical Proteomic Tumor Analysis Consortium Data on the Cloud
 ----------------------------------------------------------------------------------
