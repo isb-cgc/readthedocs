@@ -28,8 +28,19 @@ Oral Squamous Cell Carcinoma clinical data from PDC
 
 Academia Sinica LUAD-100 clinical data from PDC
 
-- isb-cgc-bq.ICPC.clinical_academia_sinica_LUAD_100_pdc_current`
-- isb-cgc-bq.ICPC_versioned.clinical_academia_sinica_LUAD_100_pdc_V1_9`
+- isb-cgc-bq.ICPC.clinical_academia_sinica_LUAD_100_pdc_current
+- isb-cgc-bq.ICPC_versioned.clinical_academia_sinica_LUAD_100_pdc_V1_9
+
+Georgetown Lung Cancer clinical data from PDC
+
+- clinical_georgetown_lung_cancer_pdc_current
+- clinical_georgetown_lung_cancer_pdc_V1_9
+
+PJ25730263 project clinical data from PDC
+
+clinical_PJ25730263_pdc_current
+clinical_PJ25730263_pdc_V1_9
+
 
 CPTAC clincal data from PDC
 
