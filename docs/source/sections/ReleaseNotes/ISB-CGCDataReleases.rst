@@ -11,6 +11,15 @@ Pediatric Brain Cancer Pilot Study clinical data from PDC
 - isb-cgc-bq.CBTTC.clinical_diagnoses_pediatric_brain_cancer_pdc_current
 - isb-cgc-bq.CBTTC_versioned.clinical_diagnoses_pediatric_brain_cancer_pdc_V1_9
 
+Hepatitis B Virus (HBV) Related Hepatocellular Carcinoma clinical data from PDC
+
+- isb-cgc-bq.ICPC.clinical_HBV_related_hepatocellular_carcinoma_pdc_current
+- isb-cgc-bq.ICPC_versioned.clinical_HBV_related_hepatocellular_carcinoma_pdc_V1_9
+
+Proteogenomics of Gastric Cancer Proteome clinical data from PDC
+- isb-cgc-bq.ICPC.clinical_human_early_onset_gastric_cancer_pdc_current
+- isb-cgc-bq.ICPC_versioned.clinical_human_early_onset_gastric_cancer_pdc_V1_9
+
 New CGCI and HCMI Masked Somatic Mutation tables
 
 **BigQuery tables created**
