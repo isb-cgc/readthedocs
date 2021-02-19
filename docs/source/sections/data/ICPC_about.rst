@@ -9,8 +9,6 @@ The `International Cancer Proteogenome Consortium <https://proteomics.cancer.gov
 About the International Cancer Proteogenome Consortium Data Set
 ---------------------------------------------------------------------
 
-ICPC has studies on the Proteogenomics of Gastric Cancer and HBV-Related Hepatocellular Carcinima available at the `Proteomics Data Commons (PDC) <https://pdc.cancer.gov/pdc/>`_. ISB-CGC has procured this data through the PDC API.
-
 ICPC has several studies available at the `Proteomics Data Commons (PDC) <https://pdc.cancer.gov/pdc/>`_. ISB-CGC has procured data for the following studies through the PDC API:
 
 - Proteogenomics of Gastric Cancer
