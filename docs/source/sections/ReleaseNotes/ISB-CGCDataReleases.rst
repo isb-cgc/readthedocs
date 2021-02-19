@@ -4,6 +4,13 @@ ISB-CGC Data Release Notes
 
 *February 18, 2021*
 
+Pediatric Brain Cancer Pilot Study clinical data from PDC
+
+- isb-cgc-bq.CBTTC.clinical_pediatric_brain_cancer_pdc_current
+- isb-cgc-bq.CBTTC_versioned.clinical_pediatric_brain_cancer_pdc_V1_9
+- isb-cgc-bq.CBTTC.clinical_diagnoses_pediatric_brain_cancer_pdc_current
+- isb-cgc-bq.CBTTC_versioned.clinical_diagnoses_pediatric_brain_cancer_pdc_V1_9
+
 New CGCI and HCMI Masked Somatic Mutation tables
 
 **BigQuery tables created**
