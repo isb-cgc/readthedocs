@@ -31,15 +31,15 @@ Academia Sinica LUAD-100 clinical data from PDC
 - isb-cgc-bq.ICPC.clinical_academia_sinica_LUAD_100_pdc_current
 - isb-cgc-bq.ICPC_versioned.clinical_academia_sinica_LUAD_100_pdc_V1_9
 
-Georgetown Lung Cancer clinical data from PDC
+Georgetown Lung Cancer Proteomics Study clinical data from PDC
 
 - clinical_georgetown_lung_cancer_pdc_current
 - clinical_georgetown_lung_cancer_pdc_V1_9
 
-PJ25730263 project clinical data from PDC
+Quantitative digital maps of tissue biopsies clinical data from PDC
 
-- clinical_PJ25730263_pdc_current
-- clinical_PJ25730263_pdc_V1_9
+- isb-cgc-bq.Quant_Maps_Tissue_Biopsies.clinical_pct_swath_kidney_pdc_current
+- isb-cgc-bq.Quant_Maps_Tissue_Biopsies_versioned.clinical_pct_swath_kidney_pdc_V1_9
 
 CPTAC clincal data from PDC
 
