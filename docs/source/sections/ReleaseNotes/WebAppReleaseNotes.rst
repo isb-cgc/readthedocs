@@ -9,6 +9,7 @@ ISB-CGC Web App Release Notes
 - In the Cohort Builder (via filters), there is a new option to hide filter attributes with zero counts.
 - In the Cancer Data File Browser - Pathology Image Viewer, Pathology Report Viewer and Radiology Image Viewer, login is no longer required.
 - A survey link has been added to the ISB-CGC home page.
+- The icons next to the title in each box are now clickable and will bring the user to that function. 
 - Security update.
 
 **Bug Fixes**
