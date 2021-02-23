@@ -6,14 +6,14 @@ ISB-CGC Web App Release Notes
 
 **New Features** 
 
-New Feature - [Cohort Builder (via filters)] Option to hide filter attributes with zero counts
-Feature update - 1.[Cancer Data File Browser] Pathology Image Viewer, Pathology Report Viewer, Radiology Image Viewer: removal of login requirements
-Feature update - 2. Survey link is added to the landing page
-Security update
+- In the Cohort Builder (via filters), there is a new option to hide filter attributes with zero counts.
+- In the Cancer Data File Browser - Pathology Image Viewer, Pathology Report Viewer and Radiology Image Viewer, login is no longer required.
+- A survey link has been added to the ISB-CGC home page.
+- Security update.
 
 **Bug Fixes**
 
-- In the Cancer Data File Browser, Radiology Image Viewer, error handing for records with missing disease code or project short name has been added.
+- In the Cancer Data File Browser - Radiology Image Viewer, error handing for records with missing disease code or project short name has been added.
 - In the Cancer Data File Browser, the display of the 'Next' button for paginations has been fixed.
 - In the Cohort Builder (via filters), inaccurate filter and sample counts for numeric range type filters (e.g. Age at diagnosis) were corrected.
 
