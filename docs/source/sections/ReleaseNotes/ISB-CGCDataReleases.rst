@@ -2,6 +2,18 @@
 ISB-CGC Data Release Notes
 ############################
 
+*February 25, 2021*
+
+New TARGET miRNA-seq table
+
+**BigQuery tables created**
+
+- isb-cgc-bq.TARGET_versioned.miRNAseq_hg38_gdc_r25
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.TARGET.miRNAseq_hg38_gdc_current
+
 *February 18, 2021*
 
 Pediatric Brain Cancer Pilot Study clinical data from PDC
