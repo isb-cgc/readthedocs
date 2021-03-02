@@ -59,6 +59,11 @@ The CPTAC tables are in project isb-cgc-bq.
 - Data set ``isb-cgc-bq.CPTAC`` contains the latest tables for each data type.
 - Data set ``isb-cgc-bq.CPTAC_versioned`` contains previously released tables, as well as the most current table.
 
-In addition, there are some tables with CPTAC data derived from the 2017 paper `Proteogenomics connects somatic mutations to signalling in breast cancer <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5102256/>`_. These are in data set ``isb-cgc-bq.hg19_data_previews``. They are labeled with source 'LIT' (for literature).
+Note that some data are part of a CPTAC2 retrospective study of TCGA data. These tables are labeled as both program 'CPTAC2' and 'TCGA' and can be found be filtering for either. The tables are in project isb-cgc-bq.
+
+- Data set ``isb-cgc-bq.TCGA`` contains the latest tables for each data type.
+- Data set ``isb-cgc-bq.TCGA_versioned`` contains previously released tables, as well as the most current table.
+
+In addition, there are some tables with CPTAC data derived from the 2017 paper `Proteogenomics connects somatic mutations to signalling in breast cancer <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5102256/>`_. These are in data set ``isb-cgc-bq.hg19_data_previews``. They are labeled with programs 'CPTAC2' and 'TCGA' and source 'LIT' (for literature).
 
 To learn more about how to view and query tables in the Google BigQuery console, see the `ISB-CGC BigQuery Tables documentation <../BigQuery.html>`_.
