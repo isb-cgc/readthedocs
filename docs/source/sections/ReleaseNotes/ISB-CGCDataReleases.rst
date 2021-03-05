@@ -71,7 +71,6 @@ Current file metadata, per sample file metadata, and clinical tables updated to 
 - isb-cgc-bq.GDC_case_file_metadata.slide2caseIDmap_current
 - isb-cgc-bq.HCMI.clinical_follow_ups_molecular_tests_gdc_current
 - isb-cgc-bq.HCMI.clinical_diagnoses_treatments_gdc_current
-- isb-cgc-bq.ORGANOID.clinical_gdc_current
 - isb-cgc-bq.HCMI.clinical_diagnoses_gdc_current
 - isb-cgc-bq.CPTAC.clinical_gdc_current
 - isb-cgc-bq.HCMI.clinical_gdc_current
