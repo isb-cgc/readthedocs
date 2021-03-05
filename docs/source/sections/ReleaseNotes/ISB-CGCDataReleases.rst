@@ -2,6 +2,91 @@
 ISB-CGC Data Release Notes
 ############################
 
+*March 5, 2021*
+
+New file metadata, per sample file metadata, and clinical tables added to isb-cgc-bq for GDC release 28.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.CMI_versioned.per_sample_file_metadata_hg38_gdc_r28
+- isb-cgc-bq.WCDT_versioned.per_sample_file_metadata_hg38_gdc_r28
+- isb-cgc-bq.GENIE_versioned.per_sample_file_metadata_hg38_gdc_r28
+- isb-cgc-bq.OHSU_versioned.per_sample_file_metadata_hg38_gdc_r28
+- isb-cgc-bq.FM_versioned.per_sample_file_metadata_hg38_gdc_r28
+- isb-cgc-bq.VAREPOP_versioned.per_sample_file_metadata_hg38_gdc_r28
+- isb-cgc-bq.CTSP_versioned.per_sample_file_metadata_hg38_gdc_r28
+- isb-cgc-bq.NCICCR_versioned.per_sample_file_metadata_hg38_gdc_r28
+- isb-cgc-bq.ORGANOID_versioned.per_sample_file_metadata_hg38_gdc_r28
+- isb-cgc-bq.MMRF_versioned.per_sample_file_metadata_hg38_gdc_r28
+- isb-cgc-bq.CGCI_versioned.per_sample_file_metadata_hg38_gdc_r28
+- isb-cgc-bq.HCMI_versioned.per_sample_file_metadata_hg38_gdc_r28
+- isb-cgc-bq.BEATAML1_0_versioned.per_sample_file_metadata_hg38_gdc_r28
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_hg38_gdc_r28
+- isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg38_gdc_r28
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_r28
+- isb-cgc-bq.CCLE_versioned.per_sample_file_metadata_hg19_gdc_r28
+- isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg19_gdc_r28
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg19_gdc_r28
+- isb-cgc-bq.GDC_case_file_metadata_versioned.GDCfileID_to_GCSurl_r28
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_legacy_r28
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_active_r28
+- isb-cgc-bq.GDC_case_file_metadata_versioned.caseData_r28
+- isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r28
+- isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r28
+- isb-cgc-bq.HCMI_versioned.clinical_follow_ups_molecular_tests_gdc_r27
+- isb-cgc-bq.HCMI_versioned.clinical_diagnoses_treatments_gdc_r27
+- isb-cgc-bq.HCMI_versioned.clinical_diagnoses_gdc_r27
+- isb-cgc-bq.CPTAC_versioned.clinical_gdc_r27
+- isb-cgc-bq.HCMI_versioned.clinical_gdc_r27
+- isb-cgc-bq.CMI_versioned.clinical_gdc_r27
+- isb-cgc-bq.HCMI_versioned.clinical_follow_ups_gdc_r27
+
+Current file metadata, per sample file metadata, and clinical tables updated to GDC release 28.
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.CMI.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.WCDT.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.GENIE.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.OHSU.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.FM.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.VAREPOP.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CTSP.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.NCICCR.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.ORGANOID.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.MMRF.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CGCI.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.BEATAML1_0.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TARGET.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TCGA.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CCLE.per_sample_file_metadata_hg19_gdc_current
+- isb-cgc-bq.TARGET.per_sample_file_metadata_hg19_gdc_current
+- isb-cgc-bq.TCGA.per_sample_file_metadata_hg19_gdc_current
+- isb-cgc-bq.GDC_case_file_metadata.GDCfileID_to_GCSurl_current
+- isb-cgc-bq.GDC_case_file_metadata.fileData_legacy_current
+- isb-cgc-bq.GDC_case_file_metadata.fileData_active_current
+- isb-cgc-bq.GDC_case_file_metadata.caseData_current
+- isb-cgc-bq.GDC_case_file_metadata.aliquot2caseIDmap_current
+- isb-cgc-bq.GDC_case_file_metadata.slide2caseIDmap_current
+- isb-cgc-bq.HCMI.clinical_follow_ups_molecular_tests_gdc_current
+- isb-cgc-bq.HCMI.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq.ORGANOID.clinical_gdc_current
+- isb-cgc-bq.HCMI.clinical_diagnoses_gdc_current
+- isb-cgc-bq.CPTAC.clinical_gdc_current
+- isb-cgc-bq.HCMI.clinical_gdc_current
+- isb-cgc-bq.CMI.clinical_gdc_current
+- isb-cgc-bq.HCMI.clinical_follow_ups_gdc_current
+
+*March 3, 2021*
+
+PDC metadata
+
+- isb-cgc-bq.PDC_metadata.file_associated_entity_mapping_current
+- isb-cgc-bq.PDC_metadata_versioned.file_associated_entity_mapping_V1_9
+- isb-cgc-bq.PDC_metadata.file_metadata_current
+- isb-cgc-bq.PDC_metadata_versioned.file_metadata_V1_9
+
 *February 25, 2021*
 
 New TARGET miRNA-seq table
@@ -61,13 +146,6 @@ CPTAC clincal data from PDC
 - isb-cgc-bq.CPTAC_versioned.clinical_CPTAC_2_pdc_V1_9
 - isb-cgc-bq.CPTAC.clinical_CPTAC3_discovery_pdc_current
 - isb-cgc-bq.CPTAC_versioned.clinical_CPTAC3_discovery_pdc_V1_9
-
-PDC metadata
-
-- isb-cgc-bq.PDC_metadata.file_associated_entity_mapping_current
-- isb-cgc-bq.PDC_metadata_versioned.file_associated_entity_mapping_V1_9
-- isb-cgc-bq.PDC_metadata.file_metadata_current
-- isb-cgc-bq.PDC_metadata_versioned.file_metadata_V1_9
 
 New CGCI and HCMI Masked Somatic Mutation tables
 
