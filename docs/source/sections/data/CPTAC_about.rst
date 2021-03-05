@@ -29,21 +29,41 @@ Accessing the NCI Clinical Proteomic Tumor Analysis Consortium Data on the Cloud
 Besides accessing the GDC files on the GDC Data Portal, you can also access them from the GDC Google Cloud Storage Bucket, which means that you don’t need to download them to perform analysis. ISB-CGC stores the cloud file locations in tables in the ``isb-cgc-bq.GDC_case_file_metadata`` data set in BigQuery.
 
 - To access these metadata files, go to the Google BigQuery console.
-- Perform SQL queries to find the CPTAC files. Here is an example:
+- Perform SQL queries to find the CPTAC files. Here is an example to find CPTAC-2 GDC files:
 
 .. code-block:: sql
 
   SELECT active.*, file_gdc_url
   FROM `isb-cgc-bq.GDC_case_file_metadata.fileData_active_current` as active, `isb-cgc-bq.GDC_case_file_metadata.GDCfileID_to_GCSurl_current` as GCSurl
-  WHERE program_name = 'CPTAC'
+  WHERE program_name = 'CPTAC' and project_short_name = 'CPTAC-2'
   AND active.file_gdc_id = GCSurl.file_gdc_id
+  
+Here is an example to find CPTAC-3 GDC files:  
+
+.. code-block:: sql
+
+  SELECT active.*, file_gdc_url
+  FROM `isb-cgc-bq.GDC_case_file_metadata.fileData_active_current` as active, `isb-cgc-bq.GDC_case_file_metadata.GDCfileID_to_GCSurl_current` as GCSurl
+  WHERE program_name = 'CPTAC' and project_short_name = 'CPTAC-3'
+  AND active.file_gdc_id = GCSurl.file_gdc_id
+  
 
 Accessing the CPTAC Data in Google BigQuery
 ------------------------------------------------
 
-ISB-CGC has CPTAC data, such as clinical, RNA-Seq, somatic mutation and protein expression, stored in Google BigQuery tables. Information about these tables can be found using the `ISB-CGC BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_ with CPTAC selected for filter PROGRAM. To learn more about this tool, see the `ISB-CGC BigQuery Table Search documentation <../BigQueryTableSearchUI.html>`_.
+ISB-CGC has GDC CPTAC data, such as clinical, RNA-Seq and somatic mutation, and PDC CPTAC data, such as clinical and protein expression, stored in Google BigQuery tables. Information about these tables can be found using the `ISB-CGC BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_ with CPTAC2 and/or CPTAC3 selected for filter PROGRAM. 
+To learn more about this tool, see the `ISB-CGC BigQuery Table Search documentation <../BigQueryTableSearchUI.html>`_.
 
-The CPTAC tables are in project isb-cgc-bq and isb-cgc. To learn more about how to view and query tables in the Google BigQuery console, see the `ISB-CGC BigQuery Tables documentation <../BigQuery.html>`_.
+The CPTAC tables are in project isb-cgc-bq. 
 
 - Data set ``isb-cgc-bq.CPTAC`` contains the latest tables for each data type.
 - Data set ``isb-cgc-bq.CPTAC_versioned`` contains previously released tables, as well as the most current table.
+
+Note that some data are part of a CPTAC2 retrospective study of TCGA data. These tables are labeled as both program CPTAC2 and TCGA and can be found be filtering for either. The tables are in project isb-cgc-bq.
+
+- Data set ``isb-cgc-bq.TCGA`` contains the latest tables for each data type.
+- Data set ``isb-cgc-bq.TCGA_versioned`` contains previously released tables, as well as the most current table.
+
+In addition, there are some tables with CPTAC data derived from the 2017 paper `Proteogenomics connects somatic mutations to signalling in breast cancer <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5102256/>`_. These are in data set ``isb-cgc.hg19_data_previews``. They are labeled with programs CPTAC2 and TCGA and source LIT (for literature).
+
+To learn more about how to view and query tables in the Google BigQuery console, see the `ISB-CGC BigQuery Tables documentation <../BigQuery.html>`_.
