@@ -2,6 +2,18 @@
 ISB-CGC Data Release Notes
 ############################
 
+*March 11, 2021*
+
+New  HCMI Masked Somatic Mutation table
+
+**BigQuery tables created**
+
+- isb-cgc-bq.HCMI_versioned.masked_somatic_mutation_hg38_gdc_r28
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.HCMI.masked_somatic_mutation_hg38_gdc_current
+
 *March 5, 2021*
 
 New file metadata, per sample file metadata, and clinical tables added to isb-cgc-bq for GDC release 28.
