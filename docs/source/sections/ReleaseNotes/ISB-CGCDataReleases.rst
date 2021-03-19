@@ -2,6 +2,18 @@
 ISB-CGC Data Release Notes
 ############################
 
+*March 17, 2021*
+
+New  HCMI RNA Seq table
+
+**BigQuery tables created**
+
+- isb-cgc-bq.HCMI_versioned.RNAseq_hg38_gdc_r28
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.HCMI.RNAseq_hg38_gdc_current
+
 *March 11, 2021*
 
 New  HCMI Masked Somatic Mutation table
