@@ -1,38 +1,25 @@
 ***************
-BigQuery Syntax 
+BigQuery SQL Examples
 ***************
 
-Legacy SQL vs Standard SQL
-===========================
+Query versus Preview
+======================
 
-BigQuery introduced support for
-`Standard SQL <https://cloud.google.com/bigquery/docs/reference/standard-sql/>`_
-in 2016.  The previous version of SQL supported by
-BigQuery is now known as
-`Legacy SQL <https://cloud.google.com/bigquery/docs/reference/legacy-sql>`_.
-
-Note that when you first go to the BigQuery web UI,
-Standard SQL will be activated by default and you will need to enable Legacy SQL if you want to
-use Legacy SQL.  For simple queries, the same syntax will work in both, except for one
-important detail which is how you specify the table name.  A simple Standard SQL query might look like:
+Here is a simple query which retrieves all columns in a table.
 
 .. code-block:: sql
 
-    SELECT *
-      FROM `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
-      LIMIT 1000
+    SELECT * 
+    FROM `isb-cgc-bq.TCGA_versioned.clinical_gdc_r24` 
+    LIMIT 1000
 
-whereas the same query in Legacy SQL requires square brackets around the table name and a colon
-between the project name and the dataset name, like this:
+Note 
 
-.. code-block:: sql
+You can use the "Preview" feature in the BigQuery web UI, at no cost, instead of doing a SELECT * which will do a full table scan!
 
-    SELECT *
-      FROM [isb-cgc:TCGA_hg38_data_v0.Somatic_Mutation_DR10]
-      LIMIT 1000
-
-(Although please note that you can use the "Preview" feature in the BigQuery web UI, at no cost, instead of doing a SELECT * which will do a full table scan!)
-
+.. image:: BQ-console-tablePreview.png
+   :scale: 50 
+   :align: center
 
 Query Syntax Examples
 ======================
