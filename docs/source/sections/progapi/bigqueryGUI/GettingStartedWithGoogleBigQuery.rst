@@ -4,7 +4,7 @@ BigQuery SQL Examples
 
 .. figure:: BigQuery-menuItem.png
     :align: right
-    :figwidth: 200px
+    :figwidth: 180px
 
 You can write SQL queries to retrieve data from ISB-CGC BigQuery tables directly in the Google BigQuery console. To get to the console, click the Navigation menu in the upper left-hand corner of the Google Cloud Platform. Expand PRODUCTS and find BigQuery in the BIG DATA section. (If you pin BigQuery, BigQuery will also display in the upper part of the navigation menu, making it easier to find next time.)
 
@@ -44,7 +44,7 @@ WHERE Hugo_Symbol="KRAS"
 The screenshot below shows the query in the "Query Editor" box, and the results down below.  Just click on the "RUN QUERY" button to run the query. Notice the green checkmark indicating that the SQL query syntax looks good.
 
 .. image:: SimpleSQLExample1.png
-   :scale: 50 
+   :scale: 80
    :align: center
 
 
