@@ -2,7 +2,7 @@
 BigQuery SQL Examples
 ***************
 
-.. figure:: BigQuery-menuItem.png.png
+.. figure:: BigQuery-menuItem.png
     :align: right
     :figwidth: 250px
 
