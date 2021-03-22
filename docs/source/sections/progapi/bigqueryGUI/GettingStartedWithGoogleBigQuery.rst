@@ -2,6 +2,13 @@
 BigQuery SQL Examples
 ***************
 
+You can write SQL queries to retrieve data from ISB-CGC BigQuery tables directly in the Google BigQuery console. To get to the console, click the Navigation menu in the upper left-hand corner of the Google Cloud Platform. Expand PRODUCTS and find BigQuery in the BIG DATA section. (If you pin BigQuery, BigQuery will also display in the upper part of the navigation menu, making it easier to find next time.)
+
+.. image:: BigQuery-menuItem.png
+   :scale: 50 
+   :align: center
+
+
 Query versus Preview
 ======================
 
@@ -13,9 +20,8 @@ Here is a simple query which retrieves all columns in a table.
     FROM `isb-cgc-bq.TCGA_versioned.clinical_gdc_r24` 
     LIMIT 1000
 
-Note 
+.. note:: You can use the "Preview" feature in the BigQuery web UI, at no cost, instead of doing a SELECT * which will do a full table scan! See the picture below.
 
-You can use the "Preview" feature in the BigQuery web UI, at no cost, instead of doing a SELECT * which will do a full table scan!
 
 .. image:: BQ-console-tablePreview.png
    :scale: 50 
