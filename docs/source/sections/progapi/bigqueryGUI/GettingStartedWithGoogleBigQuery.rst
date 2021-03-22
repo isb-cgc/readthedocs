@@ -4,7 +4,7 @@ BigQuery SQL Examples
 
 .. figure:: BigQuery-menuItem.png
     :align: right
-    :figwidth: 150px
+    :figwidth: 200px
 
 You can write SQL queries to retrieve data from ISB-CGC BigQuery tables directly in the Google BigQuery console. To get to the console, click the Navigation menu in the upper left-hand corner of the Google Cloud Platform. Expand PRODUCTS and find BigQuery in the BIG DATA section. (If you pin BigQuery, BigQuery will also display in the upper part of the navigation menu, making it easier to find next time.)
 
@@ -19,7 +19,7 @@ Here is a simple query which retrieves all columns in a table.
     FROM `isb-cgc-bq.TCGA_versioned.clinical_gdc_r24` 
     LIMIT 1000
 
-.. note:: You can use the "Preview" feature in the BigQuery web UI, at no cost, instead of doing a SELECT * which will do a full table scan! See the picture below.
+You can use the "Preview" feature in the BigQuery web UI, at no cost, instead of doing a SELECT * which will do a full table scan! See the picture below.
 
 
 .. image:: BQ-console-tablePreview.png
@@ -31,18 +31,15 @@ Query Syntax Examples
 
 Simple Query Examples
 *********************
-Let's start with a few simple examples to get some practice using BigQuery. Note that all of these examples are in "Standard SQL". You can simply copy-and-paste any of the SQL queries on this page into the BigQuery web UI https://console.cloud.google.com/bigquery.
+Let's start with a few simple examples to get some practice using BigQuery. You can simply copy-and-paste any of the SQL queries on this page into the BigQuery web UI https://console.cloud.google.com/bigquery.
 
 **1. How many mutations have been observed in KRAS?**
 
 .. code-block:: sql
 
-    SELECT
-      COUNT(DISTINCT(sample_barcode_tumor)) AS numSamples
-    FROM
-      `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
-    WHERE
-      Hugo_Symbol="KRAS"
+SELECT COUNT(DISTINCT(sample_barcode_tumor)) AS numSamples
+FROM `isb-cgc-bq.TCGA_versioned.somatic_mutation_hg38_gdc_r10`
+WHERE Hugo_Symbol="KRAS"
 
 The following screen-shot below shows the query in the "Query Editor" box, and the results down below.  Just click on the "RUN QUERY" button to run the query. Notice the green check-mark indicating that the SQL query syntax looks good.
 
