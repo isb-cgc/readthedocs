@@ -31,20 +31,20 @@ Query Syntax Examples
 
 Simple Query Examples
 *********************
-Let's start with a few simple examples to get some practice using BigQuery. You can simply copy and paste any of the SQL queries on this page into the BigQuery web UI https://console.cloud.google.com/bigquery.
+Let's start with a few simple examples to get some practice using BigQuery. You can copy and paste any of the SQL queries on this page into the BigQuery web console at https://console.cloud.google.com/bigquery.
 
 **1. How many mutations have been observed in KRAS?**
 
 .. code-block:: sql
 
-SELECT COUNT(DISTINCT(sample_barcode_tumor)) AS numSamples
-FROM `isb-cgc-bq.TCGA_versioned.somatic_mutation_hg38_gdc_r10`
-WHERE Hugo_Symbol="KRAS"
+   SELECT COUNT(DISTINCT(sample_barcode_tumor)) AS numSamples
+   FROM `isb-cgc-bq.TCGA_versioned.somatic_mutation_hg38_gdc_r10`
+   WHERE Hugo_Symbol="KRAS"
 
 The screenshot below shows the query in the "Query Editor" box, and the results down below.  Just click on the "RUN QUERY" button to run the query. Notice the green checkmark indicating that the SQL query syntax looks good.
 
 .. image:: SimpleSQLExample1.png
-   :scale: 80
+   :scale: 100
    :align: center
 
 
@@ -55,85 +55,81 @@ In addition to answering the question above, this next query also illustrates us
 
 .. code-block:: sql
 
-WITH temp1 AS (
-   SELECT
-     project_short_name,
-     sample_barcode_tumor,
-     Hugo_Symbol,
-     Variant_Classification,
-     Variant_Type,
-     SIFT,
-     PolyPhen
-   FROM  `isb-cgc-bq.TCGA_versioned.somatic_mutation_hg38_gdc_r10`
-   WHERE Hugo_Symbol="KRAS"
-   GROUP BY
-     project_short_name,
-     sample_barcode_tumor,
-     Hugo_Symbol,
-     Variant_Classification,
-     Variant_Type,
-     SIFT,
-     PolyPhen )
-SELECT
-   COUNT(*) AS num,
-   Hugo_Symbol,
-   Variant_Classification,
-   Variant_Type,
-   SIFT,
-   PolyPhen
-FROM temp1
-GROUP BY
-   Hugo_Symbol,
-   Variant_Classification,
-   Variant_Type,
-   SIFT,
-   PolyPhen
-ORDER BY num DESC
-      
-      
-.. image:: SimpleSQLExample2.png
-   :scale: 40 
-   :align: center
-
-**3. What are the most frequently observed mutations and how often do they occur?**
-
-.. code-block:: sql
-
-    WITH
-      t1 AS (
+   WITH temp1 AS (
       SELECT
+        project_short_name,
         sample_barcode_tumor,
         Hugo_Symbol,
         Variant_Classification,
         Variant_Type,
         SIFT,
         PolyPhen
-      FROM
-        `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
+      FROM  `isb-cgc-bq.TCGA_versioned.somatic_mutation_hg38_gdc_r10`
+      WHERE Hugo_Symbol="KRAS"
       GROUP BY
+        project_short_name,
         sample_barcode_tumor,
         Hugo_Symbol,
         Variant_Classification,
         Variant_Type,
         SIFT,
         PolyPhen )
-    SELECT
-      COUNT(*) AS n,
+   SELECT
+      COUNT(*) AS num,
       Hugo_Symbol,
       Variant_Classification,
       Variant_Type,
       SIFT,
       PolyPhen
-    FROM
-      t1
+   FROM temp1
+   GROUP BY
+      Hugo_Symbol,
+      Variant_Classification,
+      Variant_Type,
+      SIFT,
+      PolyPhen
+   ORDER BY num DESC
+
+
+.. image:: SimpleSQLExample2.png
+   :scale: 100 
+   :align: center
+
+**3. What are the most frequently observed mutations and how often do they occur?**
+
+.. code-block:: sql
+
+    WITH temp1 AS (
+       SELECT
+         sample_barcode_tumor,
+         Hugo_Symbol,
+         Variant_Classification,
+         Variant_Type,
+         SIFT, 
+         PolyPhen
+       FROM `isb-cgc-bq.TCGA_versioned.somatic_mutation_hg38_gdc_r10`
+       GROUP BY
+         sample_barcode_tumor,
+         Hugo_Symbol,
+         Variant_Classification,
+         Variant_Type,
+         SIFT,
+         PolyPhen)
+    SELECT
+      COUNT(*) AS num,
+      Hugo_Symbol,
+      Variant_Classification,
+      Variant_Type,
+      SIFT,
+      PolyPhen
+    FROM temp1
     GROUP BY
       Hugo_Symbol,
       Variant_Classification,
       Variant_Type,
       SIFT,
       PolyPhen
-    ORDER BY
-      n DESC
+    ORDER BY num DESC
 
 .. image:: SQLSimpleExample3.png
    :scale: 40
