@@ -31,7 +31,7 @@ Query Syntax Examples
 
 Simple Query Examples
 *********************
-Let's start with a few simple examples to get some practice using BigQuery. You can simply copy-and-paste any of the SQL queries on this page into the BigQuery web UI https://console.cloud.google.com/bigquery.
+Let's start with a few simple examples to get some practice using BigQuery. You can simply copy and paste any of the SQL queries on this page into the BigQuery web UI https://console.cloud.google.com/bigquery.
 
 **1. How many mutations have been observed in KRAS?**
 
@@ -41,59 +41,54 @@ SELECT COUNT(DISTINCT(sample_barcode_tumor)) AS numSamples
 FROM `isb-cgc-bq.TCGA_versioned.somatic_mutation_hg38_gdc_r10`
 WHERE Hugo_Symbol="KRAS"
 
-The following screen-shot below shows the query in the "Query Editor" box, and the results down below.  Just click on the "RUN QUERY" button to run the query. Notice the green check-mark indicating that the SQL query syntax looks good.
+The screenshot below shows the query in the "Query Editor" box, and the results down below.  Just click on the "RUN QUERY" button to run the query. Notice the green checkmark indicating that the SQL query syntax looks good.
 
 .. image:: SimpleSQLExample1.png
-   :scale: 40 
+   :scale: 50 
    :align: center
 
 
 
-**2. What other information is available about these KRAS mutant tumours?**
+**2. What other information is available about these KRAS mutant tumors?**
 
 In addition to answering the question above, this next query also illustrates usage of the **WITH** construct to create an intermediate table on the fly, and then use it in a follow-up **SELECT**:
 
 .. code-block:: sql
 
-    WITH
-      t1 AS (
-      SELECT
-        project_short_name,
-        sample_barcode_tumor,
-        Hugo_Symbol,
-        Variant_Classification,
-        Variant_Type,
-        SIFT,
-        PolyPhen
-      FROM
-        `isb-cgc.TCGA_hg38_data_v0.Somatic_Mutation_DR10`
-      WHERE
-        Hugo_Symbol="KRAS"
-      GROUP BY
-        project_short_name,
-        sample_barcode_tumor,
-        Hugo_Symbol,
-        Variant_Classification,
-        Variant_Type,
-        SIFT,
-        PolyPhen )
-    SELECT
-      COUNT(*) AS n,
-      Hugo_Symbol,
-      Variant_Classification,
-      Variant_Type,
-      SIFT,
-      PolyPhen
-    FROM
-      t1
-    GROUP BY
-      Hugo_Symbol,
-      Variant_Classification,
-      Variant_Type,
-      SIFT,
-      PolyPhen
-    ORDER BY
-      n DESC
+WITH temp1 AS (
+   SELECT
+     project_short_name,
+     sample_barcode_tumor,
+     Hugo_Symbol,
+     Variant_Classification,
+     Variant_Type,
+     SIFT,
+     PolyPhen
+   FROM  `isb-cgc-bq.TCGA_versioned.somatic_mutation_hg38_gdc_r10`
+   WHERE Hugo_Symbol="KRAS"
+   GROUP BY
+     project_short_name,
+     sample_barcode_tumor,
+     Hugo_Symbol,
+     Variant_Classification,
+     Variant_Type,
+     SIFT,
+     PolyPhen )
+SELECT
+   COUNT(*) AS num,
+   Hugo_Symbol,
+   Variant_Classification,
+   Variant_Type,
+   SIFT,
+   PolyPhen
+FROM temp1
+GROUP BY
+   Hugo_Symbol,
+   Variant_Classification,
+   Variant_Type,
+   SIFT,
+   PolyPhen
+ORDER BY num DESC
       
       
 .. image:: SimpleSQLExample2.png
