@@ -143,12 +143,11 @@ Querying from more than one table (Joining)
 
 This question was chosen as an interesting example because the p53/Rb pathway is commonly involved in bladder cancer (see `TCGA Network paper <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3962515/>`_ "Comprehensive Molecular Characterization of Urothelial Bladder Carcinoma", Figure 4).
 
-This is a complex question that requires information from four tables.  We will build up this complex query in legacy SQL three steps. Change the query settings to legacy SQL.
+This is a complex question that requires information from four tables.  We will build up this complex query in three steps.
 
 Step 1
 ++++++
-Finding the patients with bladder cancer that have mutations in the CDKN2A gene, and displaying the patient ID and 
-the type of mutation
+Find the patients with bladder cancer who have mutations in the CDKN2A gene, and display the patient ID and the type of mutation.
 
 
 .. code-block:: sql
@@ -157,7 +156,7 @@ the type of mutation
       mutation.case_barcode,
       mutation.Variant_Type
     FROM
-      [isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_DCC] AS mutation
+      `isb-cgc-bq.TCGA_versioned.somatic_mutation_hg19_DCC_2017_02` AS mutation
     WHERE
       mutation.Hugo_Symbol = 'CDKN2A'
       AND project_short_name = 'TCGA-BLCA'
@@ -171,7 +170,7 @@ the type of mutation
    :scale: 40
    :align: center  
    
-We now have the list of patients that have a mutation in the CDKN2A gene and the type of mutation.
+We now have the list of patients who have a mutation in the CDKN2A gene and the type of mutation.
 
 Notice that we have named the "isb-cgc:TCGA_hg19_data_v0.Somatic_Mutation_DCC" table "mutation" using the AS statement.  This is useful for easier reading and composing of complex queries.
 
