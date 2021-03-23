@@ -181,19 +181,18 @@ Bringing in the patient data from the ISB-CGC TCGA Clinical table so that we can
 .. code-block:: sql
 
     SELECT
-      case_list.mutation.case_barcode AS case_barcode,
-      case_list.mutation.Variant_Type AS Variant_Type,
-      clinical.gender,
-      clinical.vital_status,
-      clinical.days_to_death
+      case_list.case_barcode AS case_barcode,
+      case_list.Variant_Type AS Variant_Type,
+      clinical.demo__gender,
+      clinical.demo__vital_status,
+      clinical.demo__days_to_death
     FROM
-      /* this will get the unique list of cases having the TP53 gene mutation in BRCA cases*/ (
-      
-      SELECT
+      /* this will get the unique list of cases having the TP53 gene mutation in BRCA cases*/     
+      ( SELECT
         mutation.case_barcode,
         mutation.Variant_Type
       FROM
-        [isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_DCC] AS mutation
+        isb-cgc-bq.TCGA_versioned.somatic_mutation_hg19_DCC_2017_02 AS mutation
       WHERE
         mutation.Hugo_Symbol = 'CDKN2A'
         AND project_short_name = 'TCGA-BLCA'
@@ -201,20 +200,19 @@ Bringing in the patient data from the ISB-CGC TCGA Clinical table so that we can
         mutation.case_barcode,
         mutation.Variant_Type
       ORDER BY
-        mutation.case_barcode,
+        mutation.case_barcode
         ) AS case_list /* end case_list */
     JOIN
-      [isb-cgc.TCGA_bioclin_v0.Clinical] AS clinical
+      isb-cgc-bq.TCGA.clinical_gdc_current AS clinical
     ON
-      case_list.case_barcode = clinical.case_barcode
+      case_list.case_barcode = clinical.submitter_id
   
 .. image:: BigQueryExample2.png
    :scale: 40
    :align: center
    
-We now have combined information from two tables through a join.  Notice in particular the join syntax, 
-and the fact that
-for the join (inner join by default), the fields that are identiical between the mutation table and the clinical table is "case_barcode".  
+We now have combined information from two tables through a join (inner join by default). The same information is stored in the case_barcode field
+in the mutations table and in the submitter_id in the clinical table, which enables us to join on them. 
 
 Step 3
 +++++++
