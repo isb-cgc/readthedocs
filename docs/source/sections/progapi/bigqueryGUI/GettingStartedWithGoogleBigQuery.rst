@@ -6,7 +6,7 @@ BigQuery SQL Examples
     :align: right
     :figwidth: 180px
 
-You can write SQL queries to retrieve data from ISB-CGC BigQuery tables directly in the Google BigQuery console. To get to the console, click the Navigation menu in the upper left-hand corner of the Google Cloud Platform. Expand PRODUCTS and find BigQuery in the BIG DATA section. (If you pin BigQuery, BigQuery will also display in the upper part of the navigation menu, making it easier to find next time.)
+You can write SQL queries to retrieve data from ISB-CGC BigQuery tables directly in the `Google BigQuery console <https://console.cloud.google.com/bigquery>`_. To get to the console from within the Google Cloud Platform, click the Navigation menu in the upper left-hand corner. Expand PRODUCTS and find BigQuery in the BIG DATA section. (If you pin BigQuery, BigQuery will also display in the upper part of the navigation menu, making it easier to find next time.)
 
 Query versus Preview
 ======================
@@ -23,7 +23,7 @@ You can use the "Preview" feature in the BigQuery web UI, at no cost, instead of
 
 
 .. image:: BQ-console-tablePreview.png
-   :scale: 50 
+   :scale: 75 
    :align: center
 
 Query Syntax Examples
@@ -139,7 +139,7 @@ In addition to answering the question above, this next query also illustrates us
 Querying from more than one table (Joining)
 *******************************************
 
-**Q: For bladder cancer patients that have mutations in the CDKN2A (cyclin-dependent kinase inhibitor 2A) gene, what types of mutations are they, what is their gender, vital status, and days to death - and for 3 downstream genes (MDM2 (MDM2 proto-oncogene), TP53 (tumor protein p53), CDKN1A (cyclin-dependent kinase inhibitor 1A)), what are the gene expression levels for each patient?**
+**Q: For bladder cancer patients who have mutations in the CDKN2A (cyclin-dependent kinase inhibitor 2A) gene, what types of mutations are they, what is their gender, vital status, and days to death - and for three downstream genes (MDM2 (MDM2 proto-oncogene), TP53 (tumor protein p53), CDKN1A (cyclin-dependent kinase inhibitor 1A)), what are the gene expression levels for each patient?**
 
 This question was chosen as an interesting example because the p53/Rb pathway is commonly involved in bladder cancer (see `TCGA Network paper <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3962515/>`_ "Comprehensive Molecular Characterization of Urothelial Bladder Carcinoma", Figure 4).
 
@@ -172,11 +172,11 @@ Find the patients with bladder cancer who have mutations in the CDKN2A gene, and
    
 We now have the list of patients who have a mutation in the CDKN2A gene and the type of mutation.
 
-Notice that we have named the "isb-cgc:TCGA_hg19_data_v0.Somatic_Mutation_DCC" table "mutation" using the AS statement.  This is useful for easier reading and composing of complex queries.
+Notice that we have named the "isb-cgc-bq.TCGA_versioned.somatic_mutation_hg19_DCC_2017_02" table "mutation" using the AS statement.  This is useful for easier reading and composing of complex queries.
 
 Step 2
 +++++++
-Bringing in the patient data from the ISB-CGC TCGA Clinical table so that we can see each patient's gender, vital status and days to death.
+Bring in the patient data from the ISB-CGC TCGA Clinical table so that we can see each patient's gender, vital status and days to death.
 
 .. code-block:: sql
 
@@ -216,7 +216,7 @@ in the mutations table and in the submitter_id in the clinical table, which enab
 
 Step 3
 +++++++
-Show the gene expression levels for the 4 genes of interest, and order them by case id (Case Barcode) and gene name (HGNC_gene_symbol).  
+Show the gene expression levels for the four genes of interest, and order them by case id (Case Barcode) and gene name (HGNC_gene_symbol).  
   
 .. code-block:: sql
 
