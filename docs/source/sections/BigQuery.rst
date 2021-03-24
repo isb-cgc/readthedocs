@@ -27,7 +27,6 @@ Note that dbGaP authorization is not required to access these tables.
    progapi/bigqueryGUI/GettingStartedWithGoogleBigQuery
    BigQuery/VariantDataInBigQuery
    BigQuery/UserDefinedFunctions
-   PanCancer-Atlas-Mirror
    BigQuery/BigQueryUsageCosts
 
    
