@@ -240,9 +240,8 @@ Show the gene expression levels for the four genes of interest, and order them b
         clinical.demo__vital_status,
         clinical.demo__days_to_death
       FROM
-        /* this will get the unique list of casess having the CDKN2A gene mutation in bladder cancer BLCA cases*/ (
-        
-        SELECT
+        /* this will get the unique list of cases having the CDKN2A gene mutation in bladder cancer BLCA cases*/  
+        (SELECT
           mutation.case_barcode,
           mutation.Variant_Type
         FROM
@@ -265,10 +264,7 @@ Show the gene expression levels for the four genes of interest, and order them b
     ON
       genex.case_barcode = clinical_info.case_barcode
     WHERE
-      genex.HGNC_gene_symbol IN ('MDM2',
-        'TP53',
-        'CDKN1A',
-        'CCNE1')
+      genex.HGNC_gene_symbol IN ('MDM2', 'TP53', 'CDKN1A','CCNE1')
     ORDER BY
       case_barcode,
       HGNC_gene_symbol
@@ -277,11 +273,9 @@ Show the gene expression levels for the four genes of interest, and order them b
    :scale: 40
    :align: center  
 
-We have now gotten all the data together in one table for further analysis.  
+We now have all the data together in one table for further analysis. Note that the final join surrounds the previous join top and bottom.  This is a common method of performing table  joins.
 
-Note that the final join surrounds the previous join top and bottom.  This is a common method of doing joins.
-
-You can either download the results from a query in either CSV or JSON format, or save it for further analysis in Google BigQuery by the "Save as Table" button.  As the next section describes, large queries continuing to combine multiple tables in a gene query may be limited by cost and resources, saving results as intermediate tables is a solution to these issues.
+You can either download the results from a query in either CSV or JSON format, or save it for further analysis into a Google BigQuery table; see the options under SAVE RESULTS.  As the next section describes, large queries combining multiple tables in a gene query may be limited by cost and resources; saving results as intermediate tables is a solution to these issues.
 
 
 Saving Query Results to other BigQuery Tables
