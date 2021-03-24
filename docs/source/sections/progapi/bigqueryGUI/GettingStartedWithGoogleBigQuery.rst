@@ -4,7 +4,7 @@ BigQuery SQL Examples
 
 .. figure:: BigQuery-menuItem.png
     :align: right
-    :figwidth: 180px
+    :figwidth: 185px
 
 You can write SQL queries to retrieve data from ISB-CGC BigQuery tables directly in the `Google BigQuery console <https://console.cloud.google.com/bigquery>`_. To get to the console from within the Google Cloud Platform, click the Navigation menu in the upper left-hand corner. Expand PRODUCTS and find BigQuery in the BIG DATA section. (If you pin BigQuery, BigQuery will also display in the upper part of the navigation menu, making it easier to find next time.)
 
@@ -25,7 +25,7 @@ You can use the "Preview" feature in the BigQuery web UI, at no cost, instead of
 
 
 .. image:: BQ-console-tablePreview.png
-   :scale: 100 
+   :scale: 65 
    :align: center
 
 Simple Query Examples
