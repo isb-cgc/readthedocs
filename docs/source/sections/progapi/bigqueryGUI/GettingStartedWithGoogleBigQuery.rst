@@ -8,6 +8,8 @@ BigQuery SQL Examples
 
 You can write SQL queries to retrieve data from ISB-CGC BigQuery tables directly in the `Google BigQuery console <https://console.cloud.google.com/bigquery>`_. To get to the console from within the Google Cloud Platform, click the Navigation menu in the upper left-hand corner. Expand PRODUCTS and find BigQuery in the BIG DATA section. (If you pin BigQuery, BigQuery will also display in the upper part of the navigation menu, making it easier to find next time.)
 
+These `instructions <https://cloud.google.com/bigquery/docs/bigquery-web-ui>`_ from Google will tell you more about using the BigQuery console.
+
 Query versus Preview
 ======================
 
@@ -23,14 +25,11 @@ You can use the "Preview" feature in the BigQuery web UI, at no cost, instead of
 
 
 .. image:: BQ-console-tablePreview.png
-   :scale: 75 
+   :scale: 100 
    :align: center
 
-Query Syntax Examples
-======================
-
 Simple Query Examples
-*********************
+======================
 Let's start with a few simple examples to get some practice using BigQuery. You can copy and paste any of the SQL queries on this page into the BigQuery web console at https://console.cloud.google.com/bigquery.
 
 **1. How many mutations have been observed in KRAS?**
@@ -132,12 +131,12 @@ In addition to answering the question above, this next query also illustrates us
     ORDER BY num DESC
 
 .. image:: SQLSimpleExample3.png
-   :scale: 40
+   :scale: 100
    :align: center
 
   
 Querying from more than one table (Joining)
-*******************************************
+===========================================
 
 **Q: For bladder cancer patients who have mutations in the CDKN2A (cyclin-dependent kinase inhibitor 2A) gene, what types of mutations are they, what is their gender, vital status, and days to death - and for three downstream genes (MDM2 (MDM2 proto-oncogene), TP53 (tumor protein p53), CDKN1A (cyclin-dependent kinase inhibitor 1A)), what are the gene expression levels for each patient?**
 
@@ -167,7 +166,7 @@ Find the patients with bladder cancer who have mutations in the CDKN2A gene, and
       mutation.case_barcode
 
 .. image:: BigQueryExample1.png
-   :scale: 40
+   :scale: 100
    :align: center  
    
 We now have the list of patients who have a mutation in the CDKN2A gene and the type of mutation.
@@ -208,7 +207,7 @@ Bring in the patient data from the ISB-CGC TCGA Clinical table so that we can se
       case_list.case_barcode = clinical.submitter_id
   
 .. image:: BigQueryExample2.png
-   :scale: 40
+   :scale: 100
    :align: center
    
 We now have combined information from two tables through a join (inner join by default). The same information is stored in the case_barcode field
@@ -270,17 +269,18 @@ Show the gene expression levels for the four genes of interest, and order them b
       HGNC_gene_symbol
 
 .. image:: BigQueryExample3.png
-   :scale: 40
+   :scale: 100
    :align: center  
 
 We now have all the data together in one table for further analysis. Note that the final join surrounds the previous join top and bottom.  This is a common method of performing table  joins.
 
-You can either download the results from a query in either CSV or JSON format, or save it for further analysis into a Google BigQuery table; see the options under SAVE RESULTS.  As the next section describes, large queries combining multiple tables in a gene query may be limited by cost and resources; saving results as intermediate tables is a solution to these issues.
-
 
 Saving Query Results to other BigQuery Tables
 ==============================================
-You can easily save query results in intermediate tables in your project, allowing others to view and use them.  Details from Google on how to do that is `here <https://cloud.google.com/bigquery/bigquery-web-ui>`_.  If your query gets too complex it can take too long to run.  Creating intermediate result tables can be a good approach to obtain the same result more quickly and at a lower cost. 
+
+You can download the results from a query in either CSV or JSON format, or save it for further analysis into a Google BigQuery table; see the options under SAVE RESULTS.  
+
+Running large queries combining multiple tables may be limited by cost and resources. If your query gets too complex it can take too long to run. Saving results as intermediate tables is a solution to these issues and can allow others to view and use them. Creating intermediate result tables can be a good approach to obtain the same result more quickly and at a lower cost. 
 
 
 SQL Functions
