@@ -225,20 +225,20 @@ Show the gene expression levels for the 4 genes of interest, and order them by c
       genex.sample_barcode AS sample_barcode,
       genex.aliquot_barcode AS aliquot_barcode,
       genex.HGNC_gene_symbol AS HGNC_gene_symbol,
-      case_list.Variant_Type AS Variant_Type,
+      clinical_info.Variant_Type AS Variant_Type,
       genex.gene_id AS gene_id,
       genex.normalized_count AS normalized_count,
       genex.project_short_name AS project_short_name,
-      clinical_info.clinical.gender AS gender,
-      clinical_info.clinical.vital_status AS vital_status,
-      clinical_info.clinical.days_to_death AS days_to_death
+      clinical_info.demo__gender AS gender,
+      clinical_info.demo__vital_status AS vital_status,
+      clinical_info.demo__days_to_death AS days_to_death
     FROM ( /* This will get the clinical information for the cases*/
       SELECT
-        case_list.mutation.Variant_Type AS Variant_Type,
-        case_list.mutation.case_barcode AS case_barcode,
-        clinical.gender,
-        clinical.vital_status,
-        clinical.days_to_death
+        case_list.Variant_Type AS Variant_Type,
+        case_list.case_barcode AS case_barcode,
+        clinical.demo__gender,
+        clinical.demo__vital_status,
+        clinical.demo__days_to_death
       FROM
         /* this will get the unique list of casess having the CDKN2A gene mutation in bladder cancer BLCA cases*/ (
         
@@ -246,7 +246,7 @@ Show the gene expression levels for the 4 genes of interest, and order them by c
           mutation.case_barcode,
           mutation.Variant_Type
         FROM
-          [isb-cgc.TCGA_hg19_data_v0.Somatic_Mutation_DCC] AS mutation
+          isb-cgc-bq.TCGA_versioned.somatic_mutation_hg19_DCC_2017_02 AS mutation
         WHERE
           mutation.Hugo_Symbol = 'CDKN2A'
           AND project_short_name = 'TCGA-BLCA'
@@ -254,16 +254,16 @@ Show the gene expression levels for the 4 genes of interest, and order them by c
           mutation.case_barcode,
           mutation.Variant_Type
         ORDER BY
-          mutation.case_barcode,
+          mutation.case_barcode
           ) AS case_list /* end case_list */
       INNER JOIN
-        [isb-cgc.TCGA_bioclin_v0.Clinical] AS clinical
+        isb-cgc-bq.TCGA.clinical_gdc_current AS clinical
       ON
-        case_list.case_barcode = clinical.case_barcode /* end clinical annotation */ ) AS clinical_info
+        case_list.case_barcode = clinical.submitter_id /* end clinical annotation */ ) AS clinical_info
     INNER JOIN
-      [isb-cgc.TCGA_hg19_data_v0.RNAseq_Gene_Expression_UNC_RSEM] AS genex
+      isb-cgc-bq.TCGA_versioned.RNAseq_hg19_gdc_2017_02 AS genex
     ON
-      genex.case_barcode = case_list.case_barcode
+      genex.case_barcode = clinical_info.case_barcode
     WHERE
       genex.HGNC_gene_symbol IN ('MDM2',
         'TP53',
@@ -279,7 +279,7 @@ Show the gene expression levels for the 4 genes of interest, and order them by c
 
 We have now gotten all the data together in one table for further analysis.  
 
-Note that the final join surrounds the previous join top and bottom.  This is common method of doing joins.
+Note that the final join surrounds the previous join top and bottom.  This is a common method of doing joins.
 
 You can either download the results from a query in either CSV or JSON format, or save it for further analysis in Google BigQuery by the "Save as Table" button.  As the next section describes, large queries continuing to combine multiple tables in a gene query may be limited by cost and resources, saving results as intermediate tables is a solution to these issues.
 
