@@ -18,7 +18,7 @@ For more information about Google BigQuery, see the following Google support pag
 
 - `Google BigQuery documentation <https://cloud.google.com/bigquery/docs>`_
 
-- `What is BigQuery?<https://cloud.google.com/bigquery/what-is-bigquery>`_
+- `What is BigQuery? <https://cloud.google.com/bigquery/what-is-bigquery>`_
 
 
 .. toctree::
