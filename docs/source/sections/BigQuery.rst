@@ -11,8 +11,7 @@ Using SQL in the Google BigQuery Console, in Juypter notebooks or in R, users wi
 
 Note that dbGaP authorization is not required to access these tables. 
 
-Additional Support
------------------
+**Additional Support**
 
 For more information about Google BigQuery, see the following Google support pages:
 
