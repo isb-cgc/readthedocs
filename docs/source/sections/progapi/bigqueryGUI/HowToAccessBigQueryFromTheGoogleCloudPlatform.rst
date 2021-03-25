@@ -10,21 +10,25 @@ Additionally, you will need a Google account identity (freely available with a n
 When first logging into the `Google Cloud Platform <http://cloud.google.com>`_, you will be presented with this page:
 
 .. image:: NewSignIntoGCP.png
+   :scale: 100
    :align: center
 
 
 You will be presented with the sign in page, prompting you to enter a Google account log in and password:
 
 .. image:: SignInPage.png
+   :scale: 100
    :align: center
    
 Once you sign in, click on Console at the top of the screen (see arrow in image below) to access a full range of Google cloud products and services including BigQuery.  
 
 .. image:: AfterSignInPage.png
+   :scale: 100
    :align: center
 
 
 At the home button, scroll down to open BigQuery.
 
 .. image:: AccessingBigQuery.png
+   :scale: 100
    :align: center
