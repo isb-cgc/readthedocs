@@ -15,41 +15,22 @@ While most of the cost is suprisingly low, it is always important to think caref
 Storage Costs
 ------------
 
-You want to upload your own data to BigQuery or to store results of your queries as new BigQuery tables. In BigQuery, storage costs are based on the amount of data stored. For example, ISB-CGC is hosting PanCancer Atlas tables in BigQuery and is paying for the storage costs (with support from NCI). The size of each PanCancer Atlas table is less than 1.5 GB and therefore costs less than $0.25 per year to store. 
-
-The image below summarizes BigQuery's storage costs (as of August 2019). Note, these prices are subject to change so check  Google's pricing page, https://cloud.google.com/bigquery/pricing for the most up-to-date costs. 
-
-.. image:: BigQueryCosts.png
-   :scale: 50
-   :align: center
-
- 
-
+You may want to upload your own data to BigQuery or to store results of your queries as new BigQuery tables. In BigQuery, storage costs are based on the amount of data stored. For example, ISB-CGC is hosting PanCancer Atlas tables in BigQuery and is paying for the storage costs (with support from NCI). The size of each PanCancer Atlas table is less than 1.5 GB and therefore costs less than $0.25 per year to store. 
 
 
 Additional Support
 -----------------
-Latest information about BigQuery can be found here:  https://cloud.google.com/bigquery 
 
-Some more helpful links:
-=======================
+For more information, see the following Google support pages:
 
-`Introductory Information from Google <https://cloud.google.com/bigquery/what-is-bigquery>`_
+- `Detailed information on Google pricing <https://cloud.google.com/bigquery/pricing>`_
 
-`Main Google BigQuery documentation <https://cloud.google.com/bigquery/docs>`_
+- `Estimating storage and query costs <https://cloud.google.com/bigquery/docs/estimate-costs>`_
 
-`QuickStart Guide <https://cloud.google.com/bigquery/docs/quickstarts/quickstart-web-ui>`_
+- `Best practices on how to control costs <https://cloud.google.com/bigquery/docs/best-practices-costs>`_
 
-`Query Syntax <https://cloud.google.com/bigquery/query-reference>`_
+- `Keep an eye on your GCP expenses on your Google Cloud Platform Console home page <https://console.cloud.google.com/home/dashboard>`_
 
-`Detailed information on Google pricing <https://cloud.google.com/bigquery/pricing>`_
 
-`Estimating storage and query costs <https://cloud.google.com/bigquery/docs/estimate-costs>`_
-
-`Best practices on how to control costs <https://cloud.google.com/bigquery/docs/best-practices-costs>`_
-
-`Keep an eye on your GCP expenses on your Google Cloud Platform Console home page <https://console.cloud.google.com/home/dashboard>`_
-
-`BigQuery Mate Chrome Web Extenstion <https://chrome.google.com/webstore/detail/bigquery-mate/nepgdloeceldecnoaaegljlichnfognh?hl=en-US>`_
 
 
