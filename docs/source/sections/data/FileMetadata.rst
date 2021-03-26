@@ -1,8 +1,8 @@
 *****************
-File Metadata
+Case and File Metadata
 *****************
 
-The ISB-CGC hosts several metadata tables to help users determine which files are available in Google BigQuery. Preview and query these tables conveniently and interactively from the BigQuery web UI or scripting languages such as R and Python, or the command-line using the cloud SDK utility bq. 
+The ISB-CGC hosts several metadata tables in Google BigQuery to help users find GDC files in Google Cloud Storage (GCS) or PDC files in Amazon Web Services (AWS) cloud storage. Preview and query these tables conveniently and interactively from the BigQuery web UI or scripting languages such as R and Python, or the command-line using the cloud SDK utility bq. 
 
 For additional details about each of these tables, please use the `BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_. To find the metadata tables, select **File Metadata** under **Category**.  
 
@@ -16,7 +16,7 @@ Below, the '#' represents the GDC release number and should be replaced by it wh
      - Description
    * - caseData_r#
      - List of all of the cases in GDC
-   * - fileData_current_r# or fileData_active_r#
+   * - fileData_active_r#
      - List of the currently active cases in GDC along with information related to those cases
    * - fileData_legacy_r#
      - Same as the previous table but with legacy data instead
