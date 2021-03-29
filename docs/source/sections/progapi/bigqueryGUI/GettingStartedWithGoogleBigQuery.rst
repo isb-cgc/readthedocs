@@ -290,34 +290,32 @@ Standard SQL includes a large variety of built-in
 `functions and operators <https://cloud.google.com/bigquery/docs/reference/standard-sql/functions-and-operators>`_
 including logical and statistical aggregate functions, and mathematical functions, just to name a few.
 `User-defined functions <https://cloud.google.com/bigquery/docs/reference/standard-sql/user-defined-functions>`_ (UDFs)
-are also supported and can be used to further extend the types of analyses possible in BigQuery.
+are also supported and can be used to further extend the types of analyses possible in BigQuery. ISB-CGC offers a set of UDFs that implement commonly used statistical tests and methods in cancer research and bioinformatics. Please refer to this page for information on how to use the ISB-CGC UDFs. 
 
-Using the bq Command Line Tool
+Composing Queries Using the bq Command Line Tool
 ==============================================
 The **bq** command line tool is part of the
 `cloud SDK <https://cloud.google.com/sdk/>`_ and can be used to interact directly
 with BigQuery from the command line.  The cloud SDK is easy to install and
-is available for most operating systems.  You can use **bq** to create and upload
-your own tables into BigQuery (if you have your own GCP project),
-and you can run queries at the command-line like this:
+is available for most operating systems.  It be can used to create and upload
+your own tables into BigQuery (if you have your own GCP project) as well as 
+run queries at the command-line like this:
 
 .. code-block:: none
 
-   bq query --allow_large_results \
-            --destination_table="myproj:dataset:query_output" \
-            --nouse_legacy_sql \
-            --nodry_run \
-            "$(cat myQuery.sql)"
+  bq query --use_legacy_sql=false \
+ 'SELECT COUNT(DISTINCT(sample_barcode_tumor)) AS numSamples
+   FROM `isb-cgc-bq.TCGA_versioned.somatic_mutation_hg38_gdc_r10`
+   WHERE Hugo_Symbol="KRAS"'
 
-(where myQuery.sql is a plain-text file containing the SQL, and the destination
-table is in an existing BigQuery dataset in your project).
 
 Using BigQuery from R
 ======================
 BigQuery can be accessed from R using one of two powerful R packages:
 `bigrquery <https://bigrquery.r-dbi.org/>`_ and
 `dplyr <https://cran.r-project.org/web/packages/dplyr/>`_.
-Please refer to the documentation provided with these packages for more information.
+Please refer to the documentation provided with these packages for more information. If you have a GCP, you can use the R notebooks available through the AI plaform to access BigQuery tables using the bigrquery package. Please refer to the Google documentation for more details: `https://cloud.google.com/ai-platform/notebooks/docs/use-r-bigquery>`_
+Explore our `Community Notebook Repository <HowTos.html>`_ for examples on how to access BigQuery from R.
 
 Using BigQuery from Python
 ==========================
@@ -325,12 +323,10 @@ BigQuery
 `client libraries <https://cloud.google.com/bigquery/docs/reference/libraries#client-libraries-install-python>`_
 are available that let you interact with BigQuery from Python or other languages.
 In addition, the `pandas.io.gbq <https://pandas.pydata.org/pandas-docs/version/0.19/generated/pandas.io.gbq.to_gbq.html>`_
-module provides a wrapper for BigQuery.
+module provides a wrapper for BigQuery. Explore our `Community Notebook Repository <HowTos.html>`_ for examples on how to access BigQuery using Python.
 
 Getting Help
 ============
-
-ISB-CGC has a `Community Notebook Repository <HowTos.html>`_ on GitHub with examples of using BigQuery from Python and R along with creating SQL queries.
 
 Aside from the documentation, the best place to look for help using BigQuery and tips
 and tricks with SQL is
