@@ -21,10 +21,22 @@ Below, the '#' represents the GDC release number and should be replaced by it wh
    * - fileData_legacy_r#
      - Same as the previous table but with legacy data instead
    * - aliquot2caseIDmap_r#
-     - “helper” table to help map between identifiers at different levels of aliquot data. The intrinsic hierarchy is program > project > case > sample > portion > analyte > aliquot
+     - “helper” table to map between identifiers at different levels of aliquot data. The intrinsic hierarchy is program > project > case > sample > portion > analyte > aliquot
    * - slide2caseIDmap_r#
-     - “helper” table to help map between identifiers at different levels of tissue slide data. The intrinsic hierarchy is program > project > case > sample > portion > slide
+     - “helper” table to map between identifiers at different levels of tissue slide data. The intrinsic hierarchy is program > project > case > sample > portion > slide
    * - GDCfileID_to_GCSurl_r#
      - Gives the Google Cloud Storage location for each file
+
+PDC metadata file and case metadata is stored in datasets  `PDC_metadata_versioned <https://console.cloud.google.com/bigquery?p=isb-cgc-bq&d=PDC_metadata_versioned&page=dataset>`_ and  `PDC_metadata <https://console.cloud.google.com/bigquery?p=isb-cgc-bq&d=PDC_metadata&page=dataset>`_. 
+
+.. list-table::
+   :header-rows: 1
+
+   * - Table
+     - Description
+   * - file_associated_entity_mapping_V#
+     - List of PDC entitites mapped to cases and file IDs
+   * - file_metadata_V#
+     - Gives the AWS location for each file, study information, as well an embargo date if it applies
 
 For examples of querying the metadata tables, please see the `ISB-CGC Community Notebook GitHub Repository <https://github.com/isb-cgc/Community-Notebooks>`_. 
