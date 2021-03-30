@@ -27,7 +27,7 @@ Below, the '#' represents the GDC release number and should be replaced by it wh
    * - GDCfileID_to_GCSurl_r#
      - Gives the Google Cloud Storage location for each file
 
-PDC metadata file and case metadata is stored in datasets  `PDC_metadata_versioned <https://console.cloud.google.com/bigquery?p=isb-cgc-bq&d=PDC_metadata_versioned&page=dataset>`_ and  `PDC_metadata <https://console.cloud.google.com/bigquery?p=isb-cgc-bq&d=PDC_metadata&page=dataset>`_. 
+PDC metadata file and case metadata is stored in data sets  `PDC_metadata_versioned <https://console.cloud.google.com/bigquery?p=isb-cgc-bq&d=PDC_metadata_versioned&page=dataset>`_ and  `PDC_metadata <https://console.cloud.google.com/bigquery?p=isb-cgc-bq&d=PDC_metadata&page=dataset>`_. 
 
 .. list-table::
    :header-rows: 1
@@ -37,6 +37,6 @@ PDC metadata file and case metadata is stored in datasets  `PDC_metadata_version
    * - file_associated_entity_mapping_V#
      - List of PDC entitites mapped to cases and file IDs
    * - file_metadata_V#
-     - Gives the AWS location for each file, study information, as well an embargo date if it applies
+     - Gives the AWS location for each file, study information, as well as an embargo date if it applies
 
 For examples of querying the metadata tables, please see the `ISB-CGC Community Notebook GitHub Repository <https://github.com/isb-cgc/Community-Notebooks>`_. 
