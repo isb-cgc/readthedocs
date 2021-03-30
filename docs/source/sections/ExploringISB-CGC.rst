@@ -29,3 +29,15 @@ Google BigQuery
 `Google BigQuery <https://cloud.google.com/bigquery/>`_ (BQ) is a columnar database ideal for storing tabular data. Its query speed is automatically scaled by multiprocessing. Data is accessed using a powerful SQL language interface.
 
 ISB-CGC stores high-level clinical, biospecimen, and molecular data from the main NCI programs in the BigQuery projects `isb-cgc-bq <https://console.cloud.google.com/bigquery?p=isb-cgc-bq&d=0_README&page=dataset>`_ and `isb-cgc <https://console.cloud.google.com/bigquery?p=isb-cgc&d=0_README&page=dataset>`_. It also stores a large amount of metadata about files that are stored in the GDC Google Cloud Storage, as well as genome reference sources (*e.g.* GENCODE, miRBase, *etc.*). Most of these data sets and tables are completely *open access* and available to the research community.
+
+
+Terms of Use
+~~~~~~~~~~~~~~~~~~~~
+
+Using the data stored in ISB-CGC is subject to the terms of use of its origin.
+
+- Genomic Data Commons (GDC) `Data Access Policies <https://gdc.cancer.gov/access-data/data-access-policies>`_
+
+- Proteomics Data Commons (PDC) `Data Use Guidelines <https://pdc.cancer.gov/pdc/data-use-guidelines>`_
+
+- The Cancer Imaging Archive (TCIA) `Data Usage Policies and Restrictions <https://wiki.cancerimagingarchive.net/display/Public/Data+Usage+Policies+and+Restrictions>`_
