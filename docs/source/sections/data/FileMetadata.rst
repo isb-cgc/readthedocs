@@ -27,7 +27,7 @@ Below, the '#' represents the GDC release number and should be replaced by it wh
    * - GDCfileID_to_GCSurl_r#
      - Gives the Google Cloud Storage location for each file
 
-PDC metadata file and case metadata is stored in data sets  `PDC_metadata_versioned <https://console.cloud.google.com/bigquery?p=isb-cgc-bq&d=PDC_metadata_versioned&page=dataset>`_ and  `PDC_metadata <https://console.cloud.google.com/bigquery?p=isb-cgc-bq&d=PDC_metadata&page=dataset>`_. 
+PDC metadata file and case metadata is stored in data sets  `isb-cgc-bq.PDC_metadata_versioned <https://console.cloud.google.com/bigquery?p=isb-cgc-bq&d=PDC_metadata_versioned&page=dataset>`_ and  `isb-cgc-bq.PDC_metadata <https://console.cloud.google.com/bigquery?p=isb-cgc-bq&d=PDC_metadata&page=dataset>`_. 
 
 .. list-table::
    :header-rows: 1
