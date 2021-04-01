@@ -335,7 +335,4 @@ Getting Help
 Aside from the documentation, the best place to look for help using BigQuery and tips
 and tricks with SQL is
 `StackOverflow <http://stackoverflow.com/>`_.  If you tag your question with ``google-bigquery``
-your question will quickly get the attention of Google BigQuery experts.  You may also find
-that your question has already been asked and answered among the nearly 10,000 questions
-that have already been asked about BigQuery on StackOverflow.
-
+your question will quickly get the attention of Google BigQuery experts.  
