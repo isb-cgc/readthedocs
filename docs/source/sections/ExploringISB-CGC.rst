@@ -43,3 +43,5 @@ Using the data stored in ISB-CGC is subject to the terms of use of its origin.
 - The Cancer Imaging Archive (TCIA) `Data Usage Policies and Restrictions <https://wiki.cancerimagingarchive.net/display/Public/Data+Usage+Policies+and+Restrictions>`_
 
 - The Cancer Research Data Commons (CRDC) `Data Use Policy Statement <https://datacommons.cancer.gov/data#policy>`_
+
+For reference and other tables, see the table description for specific information.
