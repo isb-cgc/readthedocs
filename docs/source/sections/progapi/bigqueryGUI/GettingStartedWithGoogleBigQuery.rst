@@ -313,12 +313,13 @@ Using BigQuery from R
 ======================
 There are a number of resources online as well as through ISB-CGC that demonstrate how to access BigQuery from R:
 
-- BigQuery can be accessed from R using one of two powerful R packages, please refer to the documentation provided with these packages for more information.
+- BigQuery can be accessed from R using one of two powerful R packages; please refer to the documentation provided with these packages for more information:
 
    - `bigrquery <https://bigrquery.r-dbi.org/>`_ 
    - `dplyr <https://cran.r-project.org/web/packages/dplyr/>`_
-- If you have a GCP, you can use also the R notebooks available through the AI plaform to access BigQuery tables using the bigrquery package. 
-  Please refer to the `Google documentation <https://cloud.google.com/ai-platform/notebooks/docs/use-r-bigquery>`_ for more detail.
+
+- If you have a GCP, you can use R with BigQuery through the Google AI plaform. Please refer to the `Google documentation <https://cloud.google.com/ai-               platform/notebooks/docs/use-r-bigquery>`_ for more detail.
+
 - Explore our `Community Notebook Repository <../../HowTos.html>`_ for examples on how to access BigQuery from R.
 
 Using BigQuery from Python
@@ -326,8 +327,11 @@ Using BigQuery from Python
 BigQuery
 `client libraries <https://cloud.google.com/bigquery/docs/reference/libraries#client-libraries-install-python>`_
 are available that let you interact with BigQuery from Python or other languages.
+
 In addition, the `pandas.io.gbq <https://pandas.pydata.org/pandas-docs/version/0.19/generated/pandas.io.gbq.to_gbq.html>`_
-module provides a wrapper for BigQuery. Explore our `Community Notebook Repository <../../HowTos.html>`_ for examples on how to access BigQuery using Python.
+module provides a wrapper for BigQuery. 
+
+Explore our `Community Notebook Repository <../../HowTos.html>`_ for examples on how to access BigQuery using Python.
 
 Getting Help
 ============
