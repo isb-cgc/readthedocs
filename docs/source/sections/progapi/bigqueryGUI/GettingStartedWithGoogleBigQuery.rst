@@ -275,8 +275,8 @@ Show the gene expression levels for the four genes of interest, and order them b
 We now have all the data together in one table for further analysis. Note that the final join surrounds the previous join top and bottom.  This is a common method of performing table  joins.
 
 
-Saving Query Results to other BigQuery Tables
-==============================================
+Saving Query Results 
+====================
 
 You can download the results from a query in either CSV or JSON format, or save it for further analysis into a Google BigQuery table; see the options under SAVE RESULTS.  
 
