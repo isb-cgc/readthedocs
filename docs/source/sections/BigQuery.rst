@@ -9,7 +9,7 @@ We have made the ability to explore and learn more about the ISB-CGC hosted BigQ
 
 Using SQL in the Google BigQuery Console, in Juypter notebooks or in R, users with Google Cloud Platform (GCP) projects can analyze patient, biospecimen, and molecular data for many cancer programs such as TCGA, TARGET, CCLE, GTEx from ISB-CGC's BigQuery tables. 
 
-Note that dbGaP authorization is not required to access these tables. 
+Note that dbGaP authorization is not required to access most tables. 
 
 **Additional Support**
 
