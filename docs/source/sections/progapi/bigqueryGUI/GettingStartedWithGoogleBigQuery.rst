@@ -290,7 +290,7 @@ Standard SQL includes a large variety of built-in
 `functions and operators <https://cloud.google.com/bigquery/docs/reference/standard-sql/functions-and-operators>`_
 including logical and statistical aggregate functions, and mathematical functions, just to name a few.
 `User-defined functions <https://cloud.google.com/bigquery/docs/reference/standard-sql/user-defined-functions>`_ (UDFs)
-are also supported and can be used to further extend the types of analyses possible in BigQuery. ISB-CGC offers a set of UDFs that implement commonly used statistical tests and methods in cancer research and bioinformatics. Please refer to this page for information on how to use the ISB-CGC UDFs. 
+are also supported and can be used to further extend the types of analyses possible in BigQuery. ISB-CGC offers a set of UDFs that implement commonly used statistical tests and methods in cancer research and bioinformatics. Please refer to `this page ../BigQuery/UserDefinedFunctions.html>`_ for information on how to use the ISB-CGC UDFs. 
 
 Composing Queries Using the bq Command Line Tool
 ==============================================
