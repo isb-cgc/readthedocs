@@ -281,7 +281,7 @@ Saving Query Results to other BigQuery Tables
 You can download the results from a query in either CSV or JSON format, or save it for further analysis into a Google BigQuery table; see the options under SAVE RESULTS.  
 
 .. image:: SaveResultsButton.png
-   :scale: 100
+   :scale: 75
    :align: center  
 
 Running large queries combining multiple tables may be limited by cost and resources. If your query gets too complex it can take too long to run. Saving results as intermediate tables is a solution to these issues and can allow others to view and use them. Creating intermediate result tables can be a good approach to obtain the same result more quickly and at a lower cost. 
