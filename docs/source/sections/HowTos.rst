@@ -104,5 +104,7 @@ I'm an advanced user, how do I...
    * - How do I use a BigQuery user defined function to cluster data using k-means clustering?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_cluster_data_using_a_BigQuery_function.ipynb>`_
      - 
-     
+   * - How do I explore CPTAC protein abundances?
+     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_explore_CPTAC_protein_abundances.ipynb>`_
+     -    
 *Notebook inspired by a `Query of the Month Blog <QueryOfTheMonthClub.html>`_ post
