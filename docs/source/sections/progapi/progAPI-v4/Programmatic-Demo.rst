@@ -116,6 +116,6 @@ The JSON formatted response can be downloaded by selecting the ‘Download’ bu
 
     - Sample centric requests pull file paths specific to sample entries.
 
-    - Cohorts made in CloudSQL (web app) will differ in sample counts from cohorts made with BigQuery tables (APIs). Samples which correspond to pathology slide images are available in the CloudSQL tables but not currently in the BigQuery tables.
+    - Cohorts made using the webapp will differ in sample counts from cohorts made using BigQuery tables. The webapp takes into to consideration samples which correspond to pathology slide images and this information is currently not in the BigQuery tables.
 
 
