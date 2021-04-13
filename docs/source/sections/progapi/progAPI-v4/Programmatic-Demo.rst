@@ -5,7 +5,7 @@ ISB-CGC APIs
 About
 ======
 
-ISB-CGC provides a `Swagger API <https://api-dot-isb-cgc.appspot.com/v4/swagger/>`_, intended for interacting with our webapp and data generated through our webapp via the command line.
+ISB-CGC provides a `Swagger API <https://api-dot-isb-cgc.appspot.com/v4/swagger/>`_, intended for interacting with our webapp and data generated through our webapp.
 
 The ISB-CGC APIs can also be used via Python and R. We have tutorial notebooks available in our `Community Notebook Repository <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowTos.html#i-m-a-novice-how-do-i>`_. 
 
