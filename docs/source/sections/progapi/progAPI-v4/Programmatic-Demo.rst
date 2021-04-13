@@ -19,7 +19,8 @@ Some example use-cases that the ISB-CGC API is intended to address are:
 - Retrieving a cohort's file manifest using the cohort ID or specific filters
 - Register, refresh, and unregister a specified Google Cloud Project
 
-**Note that all APIs calling user-generated data require identity credentials for use.**
+.. note::
+    APIs calling user-generated data require identity credentials for use.
 
 Authorization
 =============
