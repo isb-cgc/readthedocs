@@ -225,6 +225,8 @@ I want to use R and Bioconductor packages to work with the TCGA data.  How can I
 You can run RStudio locally or deploy a dockerized version on a Google Compute Engine VM.  You can
 find some great examples to get you started in our  `Community Notebooks <HowTos.html>`_  or our repository in `Community Notebooks GitHub <https://github.com/isb-cgc/Community-Notebooks>`_.
 
+For an example on how to use Bioconductor packages with TCGA data in BigQuery, please check out our interactive tutorial found `here <https://isb-cgc.appspot.com/how_to_discover/#0>`_.
+
 Regulome Explorer Users
 ###########################
 
