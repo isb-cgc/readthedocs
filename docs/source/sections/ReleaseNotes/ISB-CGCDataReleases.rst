@@ -21,8 +21,8 @@ New CPTAC miRNA expression tables.
 
 **BigQuery tables created**
 
- - isb-cgc-bq:CPTAC.miRNAseq_hg38_gdc_current
- - isb-cgc-bq:CPTAC_versioned.miRNAseq_hg38_gdc_r28
+ - isb-cgc-bq.CPTAC.miRNAseq_hg38_gdc_current
+ - isb-cgc-bq.CPTAC_versioned.miRNAseq_hg38_gdc_r28
 
 *March 22, 2021*
 
