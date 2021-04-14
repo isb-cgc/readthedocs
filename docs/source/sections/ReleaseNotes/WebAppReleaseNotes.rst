@@ -2,6 +2,16 @@
 ISB-CGC Web App Release Notes
 #############################
 
+*April 13, 2021* 
+
+**New Features** 
+
+- On the home page, the title in each box are now clickable and will bring the user to that function. 
+
+**Bug Fixes**
+
+- When using the Cancer Data File Browser and selecting Data Format of Zip, incorrect results were displayed. This has been corrected.
+
 *February 22, 2020* 
 
 **New Features** 
