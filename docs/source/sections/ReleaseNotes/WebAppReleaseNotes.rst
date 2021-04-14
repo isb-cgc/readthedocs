@@ -18,7 +18,7 @@ ISB-CGC Web App Release Notes
    - When selecting Build of HG19 and Program of TCGA, the incorrect number of entries was displayed under the File Listing.
    - When selecting Build of HG19 and Data Format of Raw sequencing data, the number of entries displayed under the File Listing was off by one.
 
-*February 22, 2020* 
+*February 22, 2021* 
 
 **New Features** 
 
