@@ -275,10 +275,14 @@ Show the gene expression levels for the four genes of interest, and order them b
 We now have all the data together in one table for further analysis. Note that the final join surrounds the previous join top and bottom.  This is a common method of performing table  joins.
 
 
-Saving Query Results to other BigQuery Tables
-==============================================
+Saving Query Results 
+====================
 
 You can download the results from a query in either CSV or JSON format, or save it for further analysis into a Google BigQuery table; see the options under SAVE RESULTS.  
+
+.. image:: SaveResultsButton.png
+   :scale: 75
+   :align: center  
 
 Running large queries combining multiple tables may be limited by cost and resources. If your query gets too complex it can take too long to run. Saving results as intermediate tables is a solution to these issues and can allow others to view and use them. Creating intermediate result tables can be a good approach to obtain the same result more quickly and at a lower cost. 
 
@@ -290,52 +294,50 @@ Standard SQL includes a large variety of built-in
 `functions and operators <https://cloud.google.com/bigquery/docs/reference/standard-sql/functions-and-operators>`_
 including logical and statistical aggregate functions, and mathematical functions, just to name a few.
 `User-defined functions <https://cloud.google.com/bigquery/docs/reference/standard-sql/user-defined-functions>`_ (UDFs)
-are also supported and can be used to further extend the types of analyses possible in BigQuery.
+are also supported and can be used to further extend the types of analyses possible in BigQuery. ISB-CGC offers a set of UDFs that implement commonly used statistical tests and methods in cancer research and bioinformatics. Please refer to `this page <../../BigQuery/UserDefinedFunctions.html>`_ for information on how to use the ISB-CGC UDFs. 
 
-Using the bq Command Line Tool
+Composing Queries Using the bq Command Line Tool
 ==============================================
 The **bq** command line tool is part of the
 `cloud SDK <https://cloud.google.com/sdk/>`_ and can be used to interact directly
 with BigQuery from the command line.  The cloud SDK is easy to install and
-is available for most operating systems.  You can use **bq** to create and upload
-your own tables into BigQuery (if you have your own GCP project),
-and you can run queries at the command-line like this:
+is available for most operating systems.  It be can used to create and upload
+your own tables into BigQuery (if you have your own GCP project) as well as 
+run queries at the command-line like this:
 
 .. code-block:: none
 
-   bq query --allow_large_results \
-            --destination_table="myproj:dataset:query_output" \
-            --nouse_legacy_sql \
-            --nodry_run \
-            "$(cat myQuery.sql)"
+  bq query --use_legacy_sql=false \
+ 'SELECT COUNT(DISTINCT(sample_barcode_tumor)) AS numSamples
+   FROM `isb-cgc-bq.TCGA_versioned.somatic_mutation_hg38_gdc_r10`
+   WHERE Hugo_Symbol="KRAS"'
 
-(where myQuery.sql is a plain-text file containing the SQL, and the destination
-table is in an existing BigQuery dataset in your project).
 
 Using BigQuery from R
 ======================
-BigQuery can be accessed from R using one of two powerful R packages:
-`bigrquery <https://bigrquery.r-dbi.org/>`_ and
-`dplyr <https://cran.r-project.org/web/packages/dplyr/>`_.
-Please refer to the documentation provided with these packages for more information.
+There are a number of resources online as well as through ISB-CGC that demonstrate how to access BigQuery from R:
+
+- BigQuery can be accessed from R using one of two powerful R packages; please refer to the documentation provided with these packages for more information:
+
+   - `bigrquery <https://bigrquery.r-dbi.org/>`_ 
+   - `dplyr <https://cran.r-project.org/web/packages/dplyr/>`_
+
+- If you have a GCP, you can use R with BigQuery through the Google AI plaform. Please refer to the `Google documentation <https://cloud.google.com/ai-               platform/notebooks/docs/use-r-bigquery>`_ for more detail.
+
+- Explore our `Community Notebook Repository <../../HowTos.html>`_ for examples on how to access BigQuery from R.
 
 Using BigQuery from Python
 ==========================
-BigQuery
-`client libraries <https://cloud.google.com/bigquery/docs/reference/libraries#client-libraries-install-python>`_
-are available that let you interact with BigQuery from Python or other languages.
-In addition, the `pandas.io.gbq <https://pandas.pydata.org/pandas-docs/version/0.19/generated/pandas.io.gbq.to_gbq.html>`_
-module provides a wrapper for BigQuery.
+- BigQuery `client libraries <https://cloud.google.com/bigquery/docs/reference/libraries#client-libraries-install-python>`_ are available that let you interact with BigQuery from Python or other languages.
+
+- In addition, the `pandas.io.gbq <https://pandas.pydata.org/pandas-docs/version/0.19/generated/pandas.io.gbq.to_gbq.html>`_ module provides a wrapper for BigQuery. 
+
+- Explore our `Community Notebook Repository <../../HowTos.html>`_ for examples on how to access BigQuery using Python.
 
 Getting Help
 ============
 
-ISB-CGC has a `Community Notebook Repository <HowTos.html>`_ on GitHub with examples of using BigQuery from Python and R along with creating SQL queries.
-
 Aside from the documentation, the best place to look for help using BigQuery and tips
 and tricks with SQL is
 `StackOverflow <http://stackoverflow.com/>`_.  If you tag your question with ``google-bigquery``
-your question will quickly get the attention of Google BigQuery experts.  You may also find
-that your question has already been asked and answered among the nearly 10,000 questions
-that have already been asked about BigQuery on StackOverflow.
-
+your question will quickly get the attention of Google BigQuery experts.  

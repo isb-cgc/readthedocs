@@ -2,6 +2,31 @@
 ISB-CGC Data Release Notes
 ############################
 
+*April 2, 2021*
+
+New GENCODE annotation tables.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.GENCODE_versioned.annotation_gtf_hg38_v36
+- isb-cgc-bq.GENCODE_versioned.annotation_gtf_hg38_v37
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.GENCODE.annotation_gtf_hg38_current
+
+*March 22, 2021*
+
+New TARGET miRNA isoform expression table.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.TARGET_versioned.miRNAseq_isoform_hg38_gdc_r25
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.TARGET.miRNAseq_isoform_hg38_gdc_current
+
 *March 17, 2021*
 
 New  HCMI RNA Seq table

@@ -37,12 +37,12 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    :caption: USER GUIDE
    
    sections/Hosted-Data
-   sections/Web-UI
-   sections/BigQuery
    sections/BigQueryTableSearchUI
+   sections/BigQuery
+   sections/Web-UI
+   sections/DataExplorer
    sections/DataBrowser
    sections/data/Mitelman_about
-   sections/DataExplorer
    sections/ProgrammaticAccess
    sections/data/TCGA_Data_Security
    sections/Gaining-Access-To-Controlled-Access-Data 
