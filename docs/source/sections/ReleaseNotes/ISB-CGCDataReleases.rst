@@ -17,7 +17,7 @@ New GENCODE annotation tables.
 
 *March 30, 2021*
 
-New CPTAC miRNA Seq table.
+New CPTAC miRNA expression tables.
 
 **BigQuery tables created**
 
@@ -26,7 +26,7 @@ New CPTAC miRNA Seq table.
 
 *March 22, 2021*
 
-New TARGET miRNA isoform expression table.
+New TARGET miRNA isoform expression tables.
 
 **BigQuery tables created**
 
