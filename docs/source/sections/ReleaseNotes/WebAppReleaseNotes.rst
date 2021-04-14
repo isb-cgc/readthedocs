@@ -2,7 +2,23 @@
 ISB-CGC Web App Release Notes
 #############################
 
-*February 22, 2020* 
+*April 13, 2021* 
+
+**New Features** 
+
+- On the home page, the title in each box is now clickable and will bring the user to that function. 
+- A Citations link has been added to the top level menu. Papers which reference ISB-CGC are listed.
+- In the Cancer Data File Browser, when viewing a cohort that only has HG19 data, the Build filter will automatically be set to HG19.
+
+**Bug Fixes**
+
+- Fixed the following issues in the Cancer Data File Browser:
+
+   - When selecting Build of HG19 and Data Format of Zip, incorrect results were displayed.
+   - When selecting Build of HG19 and Program of TCGA, the incorrect number of entries was displayed under the File Listing.
+   - When selecting Build of HG19 and Data Format of Raw sequencing data, the number of entries displayed under the File Listing was off by one.
+
+*February 22, 2021* 
 
 **New Features** 
 

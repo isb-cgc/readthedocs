@@ -15,6 +15,15 @@ New GENCODE annotation tables.
 
 - isb-cgc-bq.GENCODE.annotation_gtf_hg38_current
 
+*March 30, 2021*
+
+New CPTAC miRNA Seq table.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.CPTAC.miRNAseq_hg38_gdc_current
+- isb-cgc-bq.CPTAC_versioned.miRNAseq_hg38_gdc_r28
+
 *March 22, 2021*
 
 New TARGET miRNA isoform expression table.
