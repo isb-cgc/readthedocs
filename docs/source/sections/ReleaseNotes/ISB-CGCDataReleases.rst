@@ -26,7 +26,7 @@ New CPTAC miRNA expression tables.
 
 *March 22, 2021*
 
-New TARGET miRNA isoform expression table.
+New TARGET miRNA isoform expression tables.
 
 **BigQuery tables created**
 
