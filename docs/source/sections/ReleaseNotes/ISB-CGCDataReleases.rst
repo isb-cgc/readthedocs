@@ -2,6 +2,17 @@
 ISB-CGC Data Release Notes
 ############################
 
+*April 14, 2021*
+
+New PDC Aliquot and Case Metadata tables.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.PDC_metadata.aliquot_to_case_mapping_pdc_current
+- isb-cgc-bq.PDC_metadata_versioned.aliquot_to_case_mapping_pdc_V1_11
+- isb-cgc-bq.PDC_metadata.case_metadata_pdc_current
+- isb-cgc-bq.PDC_metadata_versioned.case_metadata_pdc_V1_11
+
 *April 2, 2021*
 
 New GENCODE annotation tables.
