@@ -18,7 +18,7 @@ Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer quarterly
 
 **Bug Fixes**
 
-Gene Fusion Search failed to return gene fusion results if searched by gene names with a hyphen (‘-’) in it (e.g. ARPC4-TTLL3). this has been fixed.
+Gene Fusion Search failed to return gene fusion results if searched by gene names with a hyphen (‘-’) in it (e.g. ARPC4-TTLL3). This has been fixed.
 
 *January 15, 2021*
 
