@@ -16,6 +16,10 @@ Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer quarterly
 - Total number of unique gene fusions 32,677
 - Total number of genes involved 14,020
 
+**Bug Fixes**
+
+Gene Fusion Search failed to return gene fusion results if searched by gene names with a hyphen (‘-’) in it (e.g. ARPC4-TTLL3). This has been fixed.
+
 *January 15, 2021*
 
 Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer quarterly update.
