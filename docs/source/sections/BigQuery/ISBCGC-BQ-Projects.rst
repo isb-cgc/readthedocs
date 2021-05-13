@@ -15,7 +15,7 @@ ISB-CGC has two open-access Google BigQuery projects.  To quickly access the ISB
 isb-cgc project
 ===============
  
-The isb-cgc project contains all of the ISB-CGC BiqQuery tables created before July 2020.
+The isb-cgc project contains all of the ISB-CGC BigQuery tables created before July 2020.
 
 Tables in isb-cgc will be retired and labeled as deprecated as we copy them over to the new project. Table descriptions will include the new table location. Eventually they will be turned into only views (with no preview ability) to ensure that existing references will continue to work correctly. Many older tables with light usage may remain in isb-cgc and not be copied over; tables with no logged recent usage may be deleted. When using the `BigQuery Table Search UI <https://isb-cgc.appspot.com/bq_meta_search/>`_ to find these retired tables, select Status of **Deprecated**. 
 
