@@ -34,9 +34,9 @@ filter data from one or more public data sets (such as TCGA, CCLE, and TARGET), 
      
 Cancer data analysis using Google BigQuery
 ##########################################################
-Processed data are consolidated by data type (ex. Clinical, DNA Methylation, RNAseq, Somatic Mutation, etc.) and transformed
-into ISB-CGC Google BigQuery tables for ease of access and analysis. This novel approach allows users to quickly analyze
-information from thousands of patients in our curated BigQuery tables.
+Processed data are consolidated by data type (ex. Clinical, DNA Methylation, RNAseq, Somatic Mutation, Protein Expression, etc.) from sources including 
+the Genomics Data Commons (GDC) and Proteomics Data Commons (PDC) and transformed
+into ISB-CGC Google BigQuery tables. This allows users to quickly analyze information from thousands of patients in curated BigQuery tables using Structured Query Language (SQL). SQL can be used from the Google BigQuery Console but can also be embedded within Python, R and complex workflows, providing users with flexibility. The easy, yet cost effective,  “burstability” of BigQuery allows you to, within minutes (as compared to days or weeks on a non-cloud based system), calculate statistical correlations across millions of combinations of data points. 
 
 .. list-table::
    :widths: 60, 40

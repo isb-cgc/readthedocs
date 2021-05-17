@@ -42,7 +42,7 @@ google.com:biggene.
 
 You can also search for and learn about Pan-Cancer Atlas tables through the `ISB-CGC BigQuery Table Search UI <https://isb-cgc.appspot.com/bq_meta_search/>`_. Type 'pancancer' in the **Search** box in the upper right-hand corner to filter for them.
 
-Pan-Cancer Atlas BiqQuery Query Example
+Pan-Cancer Atlas BigQuery Query Example
 #######################################
 
 Ready to query? Follow the steps below to run a query in the Google BigQuery Console. More details are `here <https://cloud.google.com/bigquery/docs/quickstarts/quickstart-web-ui>`_.

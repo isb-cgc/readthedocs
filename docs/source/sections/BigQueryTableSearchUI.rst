@@ -171,7 +171,7 @@ The following information is displayed:
 
    * **Full ID** - This is the Project, Dataset ID, and Table ID concatenated with periods between them. The Full ID is used in SQL queries.
    * **Dataset ID** - The BigQuery dataset of the table. A data set is a group of related tables.
-   * **Table ID** - The BiqQuery table ID.
+   * **Table ID** - The BigQuery table ID.
    * **Description** - A description of the table, which includes information such as how the data was created, its source, data type, and contents.
    * **Schema** - The schema displays the Field Name, Type, Mode and Field Description for each field in the table.
    * **Labels** - Labels are table metadata describing the source, data type, reference genome build, status, and access of the table data.
@@ -179,7 +179,7 @@ The following information is displayed:
 
 **Copy button**
 
-Next to the Full ID is a **Copy** button. When the user clicks this, the Full ID is copied to the clipboard. The Full ID can then be pasted into an SQL query within the BiqQuery Query editor.
+Next to the Full ID is a **Copy** button. When the user clicks this, the Full ID is copied to the clipboard. The Full ID can then be pasted into an SQL query within the BigQuery Query editor.
 
 **Open button**
 

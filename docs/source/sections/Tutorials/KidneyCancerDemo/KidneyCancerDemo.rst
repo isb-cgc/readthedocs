@@ -2,7 +2,10 @@
 Analysis Using BigQuery, R & Bioconductor
 ******************************************
 
+
 In this tutorial, we are interested in analyzing gene expression and protein abundance differences between two types of TCGA kidney cancers, Kidney Renal Clear Cell Carcinoma (KIRC) and Kidney Renal Papillary Carcinoma (KIRP). We will build a cohort of patients with these cancer types and extract their respective gene expression and protein abundance data using  Google BigQuery. 
+
+.. note:: An interactive step-by-step version of this tutorial can also be found on our homepage `here <https://isb-cgc.appspot.com/how_to_discover/#0>`_.
 
 This tutorial demonstrates how to: 
 

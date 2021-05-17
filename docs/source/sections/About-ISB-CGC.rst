@@ -15,7 +15,7 @@ The ISB-CGC Platform enables a wide range of users to bring their analysis tools
     - The **Cancer Data File Browser** allows users to explore a comprehensive selection of cancer related data files in Google Cloud Storage Buckets, such as raw sequencing, cancer nucleotide variation, pathology or radiology images.
     - The **Cohort Builder/Data Explorer** is a web interface which builds cohorts based on clinical demographics and molecular filters. Compare patient cohorts with various exploration tools including IGV viewer, image viewers, and analytical visualization.
   * The **ISB-CGC API** gives users the ability to programmatically work with data such as cases, samples, cohorts, files and cloud projects.
-  * The **ISB-CGC BigQuery Table Search** is a discovery tool that allows the user to explore and search for ISB-CGC Google BiqQuery tables.
+  * The **ISB-CGC BigQuery Table Search** is a discovery tool that allows the user to explore and search for ISB-CGC Google BigQuery tables.
   * On the **Google Cloud Platform BigQuery Console**, ISB-CGC tables can be viewed and queried directly.
   * **Python and R** can interface with the ISB-CGC tables, retrieving and analyzing data.
   * Using **Google Compute Engines and VMs**, workflows can be run to perform data analysis. 

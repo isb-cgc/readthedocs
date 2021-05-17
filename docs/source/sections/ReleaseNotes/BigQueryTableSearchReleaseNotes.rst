@@ -56,7 +56,7 @@ The ISB-CGC BigQuery Table Search UI is a discovery tool that allows users to ex
 
 Major features in the initial release include:
 
-- The ability to search for BiqQuery tables by multiple filters:
+- The ability to search for BigQuery tables by multiple filters:
  - Status 
  - Categories
  - Reference Genome Build
@@ -67,7 +67,7 @@ Major features in the initial release include:
  - Table Description
  - Labels
  - Field Name
-- Display of search results in a tabular format, with the following information about BiqQuery tables:
+- Display of search results in a tabular format, with the following information about BigQuery tables:
  - Dataset ID
  - Table ID 
  - Status 
