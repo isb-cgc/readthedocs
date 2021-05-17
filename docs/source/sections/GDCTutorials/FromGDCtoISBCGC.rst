@@ -40,7 +40,7 @@ Creating a table from a GDC file manifest is remarkably easy:
 
 **Find the file locations on the Google Cloud**
 
-Now that you have a table containing the GDC file identifiers, the next step is to find the locations for the Level 1 files on the Google Cloud.  To help with that task, ISB-CGC maintains BiqQuery tables that contain the GDC file identifier and the Google bucket location for the file in data set GDC_metadata.  Adding the Google bucket location to our GDC information can be done via a simple SQL query:
+Now that you have a table containing the GDC file identifiers, the next step is to find the locations for the Level 1 files on the Google Cloud.  To help with that task, ISB-CGC maintains BigQuery tables that contain the GDC file identifier and the Google bucket location for the file in data set GDC_metadata.  Adding the Google bucket location to our GDC information can be done via a simple SQL query:
 
 .. code-block:: sql
 
@@ -51,7 +51,7 @@ Now that you have a table containing the GDC file identifiers, the next step is 
 
 Note that you'll need to replace "Your-project.GDC_Import.GDC_Kidney_File_manifest" with your project and the data set and table that you created above.
 
-This query will return the results shown below and, as with any BiqQuery result, you can either export it as a file or save it as a new table in BigQuery.
+This query will return the results shown below and, as with any BigQuery result, you can either export it as a file or save it as a new table in BigQuery.
 
 
 .. image:: BQ-Results-KidneyManifestURLTable.png

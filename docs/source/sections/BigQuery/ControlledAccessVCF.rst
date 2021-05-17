@@ -12,7 +12,7 @@ VCF BigQuery Table
 
 Because VCF files at the GDC contain sensitive patient information which cannot be displayed to the public, they are deemed controlled-access, meaning only authorized users can access the data. For the purposes of demonstration, we have generated a random VCF file that emulates a typical TCGA VCF file. The BigQuery table in the image below was generated using the randomized VCF file and mimics a controlled access VCF BigQuery table. 
 
-.. note:: The actual BiqQuery variant data tables are not randomized and are controlled access.
+.. note:: The actual BigQuery variant data tables are not randomized and are controlled access.
 
 The first 11 columns, seen in the image, begin just as a VCF file does. In addition to keeping a similar structure, the new table splits VCF columns such as NORMAL and TUMOR into their own individual columns. The objective of the flattened file is to bring ease and understandability to our users who have worked with VCF files in the past or who are brand new to this area of research. 
 
