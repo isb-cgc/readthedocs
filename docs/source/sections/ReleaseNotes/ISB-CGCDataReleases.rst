@@ -2,6 +2,21 @@
 ISB-CGC Data Release Notes
 ############################
 
+*May 12, 2021*
+
+New file metadata tables added to isb-cgc-bq for GDC release 29.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_legacy_r29
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_active_r29
+- isb-cgc-bq.GDC_case_file_metadata_versioned.caseData_r29
+- isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r29
+- isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r29
+
+Current file metadata tables updated to GDC release 29.
+
+
 *April 14, 2021*
 
 New PDC Aliquot and Case Metadata tables.
