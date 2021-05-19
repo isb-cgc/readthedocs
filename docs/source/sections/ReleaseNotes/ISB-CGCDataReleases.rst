@@ -13,7 +13,7 @@ New file metadata tables added to isb-cgc-bq for GDC release 29 and New GENCODE 
 - isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_active_r29
 - isb-cgc-bq.GDC_case_file_metadata_versioned.caseData_r29
 - isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r29
-- isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r2
+- isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r29
 - isb-cgc-bq.GENCODE_versioned.annotation_gtf_hg38_v38
 
 **BigQuery tables updated**
