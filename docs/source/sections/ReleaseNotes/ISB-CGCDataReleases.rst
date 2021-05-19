@@ -4,7 +4,7 @@ ISB-CGC Data Release Notes
 
 *May 18, 2021*
 
-New file metadata tables added to isb-cgc-bq for GDC release 29.
+New file metadata tables added to isb-cgc-bq for GDC release 29 and New GENCODE annotation tables.
 
 **BigQuery tables created**
 
@@ -14,9 +14,17 @@ New file metadata tables added to isb-cgc-bq for GDC release 29.
 - isb-cgc-bq.GDC_case_file_metadata_versioned.caseData_r29
 - isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r29
 - isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r29
+- isb-cgc-bq.GENCODE_versioned.annotation_gtf_hg38_v38
 
-Current file metadata tables updated to GDC release 29.
+**BigQuery tables updated**
 
+- isb-cgc-bq.GDC_case_file_metadata.GDCfileID_to_GCSurl_current
+- isb-cgc-bq.GDC_case_file_metadata.fileData_legacy_current
+- isb-cgc-bq.GDC_case_file_metadata.fileData_active_current
+- isb-cgc-bq.GDC_case_file_metadata.caseData_current
+- isb-cgc-bq.GDC_case_file_metadata.aliquot2caseIDmap_current
+- isb-cgc-bq.GDC_case_file_metadata.slide2caseIDmap_current
+- isb-cgc-bq.GENCODE.annotation_gtf_hg38_current
 
 *April 14, 2021*
 
