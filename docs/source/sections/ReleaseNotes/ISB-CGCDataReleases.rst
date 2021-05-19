@@ -17,6 +17,15 @@ New file metadata tables added to isb-cgc-bq for GDC release 29.
 
 Current file metadata tables updated to GDC release 29.
 
+New GENCODE annotation tables.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.GENCODE_versioned.annotation_gtf_hg38_v38
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.GENCODE.annotation_gtf_hg38_current
 
 *April 14, 2021*
 
