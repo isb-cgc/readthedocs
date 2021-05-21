@@ -7,6 +7,7 @@ ISB-CGC Data Release Notes
 New clinical tables added to isb-cgc-bq for GDC release 29.
 
 **BigQuery tables created**
+
 - isb-cgc-bq.BEATAML1_0_versioned.clinical_gdc_r29
 - isb-cgc-bq.CGCI_versioned.clinical_gdc_r29
 - isb-cgc-bq.CGCI_versioned.clinical_diagnoses_gdc_r29
