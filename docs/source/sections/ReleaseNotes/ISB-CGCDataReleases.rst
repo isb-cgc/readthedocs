@@ -156,13 +156,13 @@ New file metadata, per sample file metadata, and clinical tables added to isb-cg
 - isb-cgc-bq.GDC_case_file_metadata_versioned.caseData_r28
 - isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r28
 - isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r28
-- isb-cgc-bq.HCMI_versioned.clinical_follow_ups_molecular_tests_gdc_r27
-- isb-cgc-bq.HCMI_versioned.clinical_diagnoses_treatments_gdc_r27
-- isb-cgc-bq.HCMI_versioned.clinical_diagnoses_gdc_r27
-- isb-cgc-bq.CPTAC_versioned.clinical_gdc_r27
-- isb-cgc-bq.HCMI_versioned.clinical_gdc_r27
-- isb-cgc-bq.CMI_versioned.clinical_gdc_r27
-- isb-cgc-bq.HCMI_versioned.clinical_follow_ups_gdc_r27
+- isb-cgc-bq.HCMI_versioned.clinical_follow_ups_molecular_tests_gdc_r28
+- isb-cgc-bq.HCMI_versioned.clinical_diagnoses_treatments_gdc_r28
+- isb-cgc-bq.HCMI_versioned.clinical_diagnoses_gdc_r28
+- isb-cgc-bq.CPTAC_versioned.clinical_gdc_r28
+- isb-cgc-bq.HCMI_versioned.clinical_gdc_r28
+- isb-cgc-bq.CMI_versioned.clinical_gdc_r28
+- isb-cgc-bq.HCMI_versioned.clinical_follow_ups_gdc_r28
 
 Current file metadata, per sample file metadata, and clinical tables updated to GDC release 28.
 
