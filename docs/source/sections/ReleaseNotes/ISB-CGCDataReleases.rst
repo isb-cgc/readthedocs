@@ -2,6 +2,43 @@
 ISB-CGC Data Release Notes
 ############################
 
+*May 21, 2021*
+
+New clinical tables added to isb-cgc-bq for GDC release 29.
+
+**BigQuery tables created**
+- isb-cgc-bq.BEATAML1_0_versioned.clinical_gdc_r29
+- isb-cgc-bq.CGCI_versioned.clinical_gdc_r29
+- isb-cgc-bq.CGCI_versioned.clinical_diagnoses_gdc_r29
+- isb-cgc-bq.CGCI_versioned.clinical_diagnoses_treatments_gdc_r29
+- isb-cgc-bq.CGCI_versioned.clinical_follow_ups_gdc_r29
+- isb-cgc-bq.CGCI_versioned.clinical_follow_ups_molecular_tests_gdc_r29
+- isb-cgc-bq.CMI_versioned.clinical_gdc_r29
+- isb-cgc-bq.CPTAC_versioned.clinical_gdc_r29
+- isb-cgc-bq.CTSP_versioned.clinical_gdc_r29
+- isb-cgc-bq.FM_versioned.clinical_gdc_r29
+- isb-cgc-bq.GENIE_versioned.clinical_gdc_r29
+- isb-cgc-bq.HCMI_versioned.clinical_gdc_r29
+- isb-cgc-bq.HCMI_versioned.clinical_diagnoses_gdc_r29
+- isb-cgc-bq.HCMI_versioned.clinical_diagnoses_treatments_gdc_r29
+- isb-cgc-bq.HCMI_versioned.clinical_follow_ups_gdc_r29
+- isb-cgc-bq.HCMI_versioned.clinical_follow_ups_molecular_tests_gdc_r29
+- isb-cgc-bq.MMRF_versioned.clinical_gdc_r29
+- isb-cgc-bq.MMRF_versioned.clinical_diagnoses_treatments_gdc_r29
+- isb-cgc-bq.MMRF_versioned.clinical_family_histories_gdc_r29
+- isb-cgc-bq.MMRF_versioned.clinical_follow_ups_gdc_r29
+- isb-cgc-bq.MMRF_versioned.clinical_follow_ups_molecular_tests_gdc_r29
+- isb-cgc-bq.NCICCR_versioned.clinical_gdc_r29
+- isb-cgc-bq.OHSU_versioned.clinical_gdc_r29
+- isb-cgc-bq.ORGANOID_versioned.clinical_gdc_r29
+- isb-cgc-bq.TARGET_versioned.clinical_gdc_r29
+- isb-cgc-bq.TCGA_versioned.clinical_gdc_r29
+- isb-cgc-bq.TCGA_versioned.clinical_diagnoses_treatments_gdc_r29
+- isb-cgc-bq.VAREPOP_versioned.clinical_gdc_r29
+- isb-cgc-bq.VAREPOP_versioned.clinical_diagnoses_treatments_gdc_r29
+- isb-cgc-bq.VAREPOP_versioned.clinical_family_histories_gdc_r29
+- isb-cgc-bq.WCDT_versioned.clinical_gdc_r29
+
 *May 18, 2021*
 
 New file metadata tables added to isb-cgc-bq for GDC release 29.
