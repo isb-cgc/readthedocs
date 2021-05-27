@@ -118,6 +118,15 @@ added to isb-cgc-bq from PDC V1.17.
 - isb-cgc-bq.TCGA.quant_proteome_TCGA_ovarian_JHU_pdc_current
 - isb-cgc-bq.TCGA.quant_proteome_TCGA_ovarian_PNNL_pdc_current
 
+New CPTAC controlled-access VCF tables.
+
+**BigQuery tables created**
+
+- isb-cgc-cbq.CPTAC3_versioned.vcf_hg38_gdc_r24
+- isb-cgc-cbq.CPTAC3.vcf_hg38_gdc_current
+- isb-cgc-cbq.CPTAC2_versioned.vcf_hg38_gdc_r24
+- isb-cgc-cbq.CPTAC2.vcf_hg38_gdc_current
+
 *May 24, 2021*
 
 New CPTAC RNA Seq table added to isb-cgc-bq for GDC release 28.
