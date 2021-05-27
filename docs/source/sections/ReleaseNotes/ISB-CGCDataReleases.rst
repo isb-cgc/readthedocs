@@ -21,6 +21,7 @@ added to isb-cgc-bq from PDC V1.17.
 - isb-cgc-bq.CPTAC_versioned.quant_acetylome_CPTAC_LUAD_discovery_study_pdc_V1_17
 - isb-cgc-bq.CPTAC_versioned.quant_acetylome_CPTAC_UCEC_discovery_study_pdc_V1_17
 - isb-cgc-bq.CPTAC_versioned.quant_acetylome_prospective_breast_BI_pdc_V1_17
+- isb-cgc-bq.CPTAC_versioned.quant_glycoproteome_prospective_ovarian_JHU_n_linked_glycosite_containing_peptide_pdc_V1_17
 - isb-cgc-bq.CPTAC_versioned.quant_phosphoproteome_CPTAC_CCRCC_discovery_study_pdc_V1_17
 - isb-cgc-bq.CPTAC_versioned.quant_phosphoproteome_CPTAC_GBM_discovery_study_pdc_V1_17
 - isb-cgc-bq.CPTAC_versioned.quant_phosphoproteome_CPTAC_HNSCC_discovery_study_pdc_V1_17
@@ -68,6 +69,7 @@ added to isb-cgc-bq from PDC V1.17.
 - isb-cgc-bq.CPTAC.quant_acetylome_CPTAC_LUAD_discovery_study_pdc_current
 - isb-cgc-bq.CPTAC.quant_acetylome_CPTAC_UCEC_discovery_study_pdc_current
 - isb-cgc-bq.CPTAC.quant_acetylome_prospective_breast_BI_pdc_current
+- isb-cgc-bq.CPTAC.quant_glycoproteome_prospective_ovarian_JHU_n_linked_glycosite_containing_peptide_pdc_current
 - isb-cgc-bq.CPTAC.quant_phosphoproteome_CPTAC_CCRCC_discovery_study_pdc_current
 - isb-cgc-bq.CPTAC.quant_phosphoproteome_CPTAC_GBM_discovery_study_pdc_current
 - isb-cgc-bq.CPTAC.quant_phosphoproteome_CPTAC_HNSCC_discovery_study_pdc_current
