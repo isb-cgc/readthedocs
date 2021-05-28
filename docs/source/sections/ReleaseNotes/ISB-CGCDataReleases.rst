@@ -2,6 +2,25 @@
 ISB-CGC Data Release Notes
 ############################
 
+*May 27, 2021*
+
+New controlled-access VCF tables.
+
+**BigQuery tables created**
+
+- isb-cgc-cbq.VAREPOP_versioned.vcf_hg38_gdc_r24
+- isb-cgc-cbq.VAREPOP.vcf_hg38_gdc_current
+- isb-cgc-cbq.TCGA_versioned.vcf_hg38_gdc_r24
+- isb-cgc-cbq.TCGA.vcf_hg38_gdc_current
+- isb-cgc-cbq.ORGANOID_versioned.vcf_hg38_gdc_r24
+- isb-cgc-cbq.ORGANOID.vcf_hg38_gdc_current
+- isb-cgc-cbq.MMRF_versioned.vcf_hg38_gdc_r24
+- isb-cgc-cbq.MMRF.vcf_hg38_gdc_current
+- isb-cgc-cbq.HCMI_versioned.vcf_hg38_gdc_r24
+- isb-cgc-cbq.HCMI.vcf_hg38_gdc_current
+- isb-cgc-cbq.FM_versioned.vcf_hg38_gdc_r24
+- isb-cgc-cbq.FM.vcf_hg38_gdc_current
+
 *May 26, 2021*
 
 New case metadata, file metadata, clinical, and quant data (for actylome, glycoproteome, phosphoproteome, and proteome) 
