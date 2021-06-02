@@ -2,6 +2,30 @@
 ISB-CGC Data Release Notes
 ############################
 
+*May 28, 2021*
+
+New  per sample file metadata added to isb-cgc-bq for GDC release 29.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.CMI_versioned.per_sample_file_metadata_hg38_gdc_r29
+- isb-cgc-bq.CGCI_versioned.per_sample_file_metadata_hg38_gdc_r29
+- isb-cgc-bq.HCMI_versioned.per_sample_file_metadata_hg38_gdc_r29
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_hg38_gdc_r29
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_r29
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg19_gdc_r29
+
+Current per sample file metadata tables updated to GDC release 29.
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.CMI.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CGCI.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.HCMI.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TCGA.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TCGA.per_sample_file_metadata_hg19_gdc_current
+
 *May 27, 2021*
 
 New controlled-access VCF tables.
