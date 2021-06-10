@@ -2,6 +2,49 @@
 ISB-CGC Data Release Notes
 ############################
 
+*May 28, 2021*
+
+New  per sample file metadata added to isb-cgc-bq for GDC release 29.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.CMI_versioned.per_sample_file_metadata_hg38_gdc_r29
+- isb-cgc-bq.CGCI_versioned.per_sample_file_metadata_hg38_gdc_r29
+- isb-cgc-bq.HCMI_versioned.per_sample_file_metadata_hg38_gdc_r29
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_hg38_gdc_r29
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_r29
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg19_gdc_r29
+
+Current per sample file metadata tables updated to GDC release 29.
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.CMI.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CGCI.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.HCMI.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TCGA.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TCGA.per_sample_file_metadata_hg19_gdc_current
+
+*May 27, 2021*
+
+New controlled-access VCF tables.
+
+**BigQuery tables created**
+
+- isb-cgc-cbq.VAREPOP_versioned.vcf_hg38_gdc_r24
+- isb-cgc-cbq.VAREPOP.vcf_hg38_gdc_current
+- isb-cgc-cbq.TCGA_versioned.vcf_hg38_gdc_r24
+- isb-cgc-cbq.TCGA.vcf_hg38_gdc_current
+- isb-cgc-cbq.ORGANOID_versioned.vcf_hg38_gdc_r24
+- isb-cgc-cbq.ORGANOID.vcf_hg38_gdc_current
+- isb-cgc-cbq.MMRF_versioned.vcf_hg38_gdc_r24
+- isb-cgc-cbq.MMRF.vcf_hg38_gdc_current
+- isb-cgc-cbq.HCMI_versioned.vcf_hg38_gdc_r24
+- isb-cgc-cbq.HCMI.vcf_hg38_gdc_current
+- isb-cgc-cbq.FM_versioned.vcf_hg38_gdc_r24
+- isb-cgc-cbq.FM.vcf_hg38_gdc_current
+
 *May 26, 2021*
 
 New case metadata, file metadata, clinical, and quant data (for actylome, glycoproteome, phosphoproteome, and proteome) 
@@ -117,6 +160,27 @@ added to isb-cgc-bq from PDC V1.17.
 - isb-cgc-bq.TCGA.quant_proteome_TCGA_breast_cancer_pdc_current
 - isb-cgc-bq.TCGA.quant_proteome_TCGA_ovarian_JHU_pdc_current
 - isb-cgc-bq.TCGA.quant_proteome_TCGA_ovarian_PNNL_pdc_current
+
+New CPTAC controlled-access VCF tables.
+
+**BigQuery tables created**
+
+- isb-cgc-cbq.CPTAC3_versioned.vcf_hg38_gdc_r24
+- isb-cgc-cbq.CPTAC3.vcf_hg38_gdc_current
+- isb-cgc-cbq.CPTAC2_versioned.vcf_hg38_gdc_r24
+- isb-cgc-cbq.CPTAC2.vcf_hg38_gdc_current
+
+*May 24, 2021*
+
+New CPTAC RNA Seq table added to isb-cgc-bq for GDC release 28.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.CPTAC_versioned.RNAseq_hg38_gdc_r28
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.CPTAC.RNAseq_hg38_gdc_current
 
 *May 21, 2021*
 
