@@ -2,6 +2,39 @@
 ISB-CGC Data Release Notes
 ############################
 
+*June 10, 2021*
+
+New study and project-level per sample file metadata tables added to isb-cgc-bq for PDC V1.17.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.PDC_metadata_versioned.studies_V1_17
+- isb-cgc-bq.CBTTC_versioned.per_sample_file_metadata_pediatric_brain_cancer_pdc_V1_17
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_CPTAC_2_pdc_V1_17
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_CPTAC2_other_pdc_V1_17
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_CPTAC3_discovery_pdc_V1_17
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_CPTAC3_other_pdc_V1_17
+- isb-cgc-bq.GPRP_versioned.per_sample_file_metadata_georgetown_lung_cancer_pdc_V1_17
+- isb-cgc-bq.ICPC_versioned.per_sample_file_metadata_academia_sinica_LUAD_100_pdc_V1_17
+- isb-cgc-bq.ICPC_versioned.per_sample_file_metadata_HBV_related_hepatocellular_carcinoma_pdc_V1_17
+- isb-cgc-bq.ICPC_versioned.per_sample_file_metadata_human_early_onset_gastric_cancer_pdc_V1_17
+- isb-cgc-bq.ICPC_versioned.per_sample_file_metadata_oral_squamous_cell_carcinoma_pdc_V1_17
+- isb-cgc-bq.Quant_Maps_Tissue_Biopsies_versioned.per_sample_file_metadata_pct_swath_kidney_pdc_V1_17
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_CPTAC_TCGA_pdc_V1_17
+- isb-cgc-bq.PDC_metadata.studies_current
+- isb-cgc-bq.CBTTC.per_sample_file_metadata_pediatric_brain_cancer_pdc_current
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC_2_pdc_current
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC2_other_pdc_current
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC3_discovery_pdc_current
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC3_other_pdc_current
+- isb-cgc-bq.GPRP.per_sample_file_metadata_georgetown_lung_cancer_pdc_current
+- isb-cgc-bq.ICPC.per_sample_file_metadata_academia_sinica_LUAD_100_pdc_current
+- isb-cgc-bq.ICPC.per_sample_file_metadata_HBV_related_hepatocellular_carcinoma_pdc_current
+- isb-cgc-bq.ICPC.per_sample_file_metadata_human_early_onset_gastric_cancer_pdc_current
+- isb-cgc-bq.ICPC.per_sample_file_metadata_oral_squamous_cell_carcinoma_pdc_current
+- isb-cgc-bq.Quant_Maps_Tissue_Biopsies.per_sample_file_metadata_pct_swath_kidney_pdc_current
+- isb-cgc-bq.TCGA.per_sample_file_metadata_CPTAC_TCGA_pdc_current
+
 *May 28, 2021*
 
 New  per sample file metadata added to isb-cgc-bq for GDC release 29.
