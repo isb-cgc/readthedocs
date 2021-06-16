@@ -26,6 +26,7 @@ ISB-CGC also has proteomic CPTAC data, obtained from the `Proteomics Data Common
 The NCI CPTAC has generated a tremendous amount of valuable quantitative proteomics data derived from clinical cancer specimens and makes them publicly accessible to the community. We have imported the data into Google BigQuery, where they can be queried via SQL and easily joined with data tables from TCGA using the BigQuery interface or programmatically with the BigQuery API.
 
 Which studies are available?
+
 - CCRCC - Clear cell renal cell carcinoma
 - GBM - glioblastoma multiforme
 - HNSCC - Head and neck squamous cell carcinoma
@@ -34,20 +35,26 @@ Which studies are available?
 - Breast cancer
 - Colon cancer
 - Ovarian cancer
-Most studies have both whole proteome as well as phosphoproteome. A few studies also have acetylome and glycoproteome data
+
+Most studies have both whole proteome as well as phosphoproteome. A few studies also have acetylome and glycoproteome data.
 
 What processing of the raw data is available here?
-- Most data have been processed by the original producers and presented in publications
-- The same raw data have been processed uniformly through the CPTAC Common Data Analysis Pipeline (CDAP)
-- We provide here the results from the CDAP sourced from the PDAC API
+
+- Most data have been processed by the original producers and presented in publications.
+- The same raw data have been processed uniformly through the CPTAC Common Data Analysis Pipeline (CDAP).
+- We provide here the results from the CDAP sourced from the PDAC API.
 
 Important considerations:
+
 - All abundances are presented as log2 ratios as computed by the CDAP
 - Abundances are comparable within each study since the same reference was used within each study
 - However, different controls were used for different studies, and therefore extreme caution should be used when comparing abundance values between different studies
-- Some PDC datasets are embargoed, which means that the data may be examined prior to the end of the embargo period, but no manuscripts may be published until the embargo expires. Currently, ISB-CGC does not host any embargoed data in our BQ datasets.
+- Some PDC datasets are embargoed, which means that the data may be examined prior to the end of the embargo period, but no manuscripts may be published until the embargo expires. 
+
+Currently, ISB-CGC does not host any embargoed data in our BQ datasets.
 
 How can the data be accessed?
+
 Use our search interface:
 https://isb-cgc.appspot.com/bq_meta_search/
 The Google BigQuery interface may be used to access the tables. E.g.:
