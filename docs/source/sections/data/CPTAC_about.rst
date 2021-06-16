@@ -23,6 +23,38 @@ For more information on the CPTAC data, please refer to these sites:
 
 ISB-CGC also has proteomic CPTAC data, obtained from the `Proteomics Data Commons (PDC) <https://pdc.cancer.gov/pdc/>`_ API. This includes clinical and protein expression data for breast, ovarian, colon, liver, lung, uterine and other cancers. 
 
+The NCI CPTAC has generated a tremendous amount of valuable quantitative proteomics data derived from clinical cancer specimens and makes them publicly accessible to the community. We have imported the data into Google BigQuery, where they can be queried via SQL and easily joined with data tables from TCGA using the BigQuery interface or programmatically with the BigQuery API.
+
+Which studies are available?
+- CCRCC - Clear cell renal cell carcinoma
+- GBM - glioblastoma multiforme
+- HNSCC - Head and neck squamous cell carcinoma
+- LUAD - lung adenocarcinoma
+- UCEC - Uterine Corpus Endometrial Carcinoma
+- Breast cancer
+- Colon cancer
+- Ovarian cancer
+Most studies have both whole proteome as well as phosphoproteome. A few studies also have acetylome and glycoproteome data
+
+What processing of the raw data is available here?
+- Most data have been processed by the original producers and presented in publications
+- The same raw data have been processed uniformly through the CPTAC Common Data Analysis Pipeline (CDAP)
+- We provide here the results from the CDAP sourced from the PDAC API
+
+Important considerations:
+- All abundances are presented as log2 ratios as computed by the CDAP
+- Abundances are comparable within each study since the same reference was used within each study
+- However, different controls were used for different studies, and therefore extreme caution should be used when comparing abundance values between different studies
+- Some PDC datasets are embargoed, which means that the data may be examined prior to the end of the embargo period, but no manuscripts may be published until the embargo expires. Currently, ISB-CGC does not host any embargoed data in our BQ datasets.
+
+How can the data be accessed?
+Use our search interface:
+https://isb-cgc.appspot.com/bq_meta_search/
+The Google BigQuery interface may be used to access the tables. E.g.:
+https://console.cloud.google.com/bigquery?p=isb-cgc-bq&d=CPTAC&t=quant_acetylome_prospective_breast_BI_pdc_current&page=table&project=idc-sandbox-002&ws=!1m5!1m4!4m3!1sisb-cgc-bq!2sCPTAC!3squant_acetylome_prospective_breast_BI_pdc_current
+ Example Python Jupyter Notebooks showing examples of queries is available at: GitHub repo xxxxx (four notebook: two simple, two mixed analysis)
+
+
 Accessing the NCI Clinical Proteomic Tumor Analysis Consortium Data on the Cloud
 ----------------------------------------------------------------------------------
 
