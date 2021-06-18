@@ -46,17 +46,13 @@ What processing of the raw data is available here?
 
 Important considerations:
 
-- All abundances are presented as log2 ratios as computed by the CDAP
-- Abundances are comparable within each study since the same reference was used within each study
-- However, different controls were used for different studies, and therefore extreme caution should be used when comparing abundance values between different studies
-- Some PDC datasets are embargoed, which means that the data may be examined prior to the end of the embargo period, but no manuscripts may be published until the embargo expires. 
+- All abundances are presented as log2 ratios as computed by the CDAP.
+- Abundances are comparable within each study since the same reference was used within each study.
+- However, different controls were used for different studies, and therefore extreme caution should be used when comparing abundance values between different studies.
+- Some PDC datasets are embargoed, which means that the data may be examined prior to the end of the embargo period, but no manuscripts may be published until the embargo expires. Currently, ISB-CGC does not host any embargoed data in our BQ datasets.
 
-Currently, ISB-CGC does not host any embargoed data in our BQ datasets.
-
-
-
- Example Python Jupyter Notebooks showing examples of queries is available at: GitHub repo xxxxx (four notebook: two simple, two mixed analysis)
-
+Python Jupyter Notebooks showing examples of queries of PDC CPTAC data are available at:
+* `How do I explore CPTAC protein abundances? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_explore_CPTAC_protein_abundances.ipynb>`_
 
 Accessing the NCI Clinical Proteomic Tumor Analysis Consortium Data on the Cloud
 ----------------------------------------------------------------------------------
