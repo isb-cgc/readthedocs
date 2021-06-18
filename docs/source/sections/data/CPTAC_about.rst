@@ -52,6 +52,7 @@ Important considerations:
 - Some PDC datasets are embargoed, which means that the data may be examined prior to the end of the embargo period, but no manuscripts may be published until the embargo expires. Currently, ISB-CGC does not host any embargoed data in our BQ datasets.
 
 Python Jupyter Notebooks showing examples of queries of PDC CPTAC data are available at:
+
 * `How do I explore CPTAC protein abundances? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_explore_CPTAC_protein_abundances.ipynb>`_
 
 Accessing the NCI Clinical Proteomic Tumor Analysis Consortium Data on the Cloud
