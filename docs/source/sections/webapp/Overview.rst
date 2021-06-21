@@ -2,23 +2,27 @@
 Login to Web App
 ****************
 
-The ISB-CGC Web App is accessed through a Google Account Identity (freely available `with a new account <https://accounts.google.com/signupwithoutgmail?hl=en>`_ or `by linking to an existing email account <https://accounts.google.com/SignUpWithoutGmail>`_).  If you are not logged into the ISB-CGC Web App, you will be presented with this page:
+The ISB-CGC Web App is accessed through a Google Account identity (freely available `with a new account <https://accounts.google.com/signupwithoutgmail?hl=en>`_ or `by linking to an existing email account <https://accounts.google.com/SignUpWithoutGmail>`_).  If you are not logged into the ISB-CGC Web App, you will be presented with this page:
 
-.. image:: startscreen-nologin.PNG
-   :scale: 50
+.. image:: startscreen-nologin.png
    :align: center
 
-You login through the "Sign In" link in the upper right (label "A" in the image above).  
+You login through the "Sign In" link in the upper right.  
 
-Also on this page are links to project documentation (B), our public video tutorials (C), our public GitHub repository (D), 
-a link to provide feedback (E), a link to submit an issue to Github (F), and our required "Warning Notice" (G) indicating that this is a U.S. Government Sponsored Website and by using it you are accepting the policies associated with its use.
+Also on this page are links to:
 
-**IF YOUR SCREEN LOOKS LIKE THIS:** 
-If your screen looks like the image below, indicating that you are logged in, but you don't see "Your Dashboard", 
-that is because some browsers save your Google Login as a cookie, and automatically sign you in.  
-To get to "Your Dashboard", click on the "ISB-CGC" icon in the upper left (B in the image).  
-This will take you to the Dashboard screen.
+- ISB-CGC BigQuery Table Search 
+- Cancer Data File Browser
+- Chromosomal Aberations & Gene Fusions (Mitelman) database 
+- Cohort Builder/Data Explorer
+- Pipelines and APIs
+- Notebooks
+- Controlled Access Data
+
+
+**If your screen looks like this:** 
+
+You have successfully logged into ISB-CGC Web App! Please subscribe for updates provided by ISB-CGC. 
 
 .. image:: IfYourScreenLooksLikeThis.png
-   :scale: 50
    :align: center

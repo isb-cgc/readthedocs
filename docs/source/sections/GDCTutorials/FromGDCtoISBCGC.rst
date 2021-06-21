@@ -1,35 +1,58 @@
 
-**************************
-Moving from GDC to ISB-CGC
-**************************
+******************************************
+Importing a GDC File Manifest into ISB-CGC
+******************************************
 
 If you've been using the National Cancer Institute's `Genomic Data Commons Portal 
-<https://portal.gdc.cancer.gov/>`_ you've probably discovered that while you can identify patients and files that might be interesting, the analysis options are limited and you need to download files to your own system in order to do anything unique.
+<https://portal.gdc.cancer.gov/>`_, you know that while you can identify interesting cases and files, you need to download files to your own system in order to perform unique analysis.
 
-But isn't the point of having data on the cloud that you shouldn't have to download anything?
+Since the ISB-CGC stores Google Cloud file references for the GDC data, you can do your analysis on the cloud without having to move data. This tutorial will show you how to take a downloaded file manifest from the GDC, and use ISB-CGC to find the file locations on the cloud, providing a useful analysis starting point.
 
-Fortunately, since the ISB-CGC stores data from the GDC, you can do your analysis on the cloud without having to move data at all!  The only thing you need from GDC is a case manifest or a file manifest and in the following tutorials, we'll show you how to turn those manifests into usable analysis starting points.
+**Download the File Manifest from GDC**
 
-Differences between GDC and ISB-CGC
-====================================
+On the GDC Data Portal, first use the selection filters to create your cohort. In the example shown below, the filters of Program: TCGA, Primary Site: kidney, Vital Status: dead and Gender: female were set to produce a cohort of 84 cases with 2332 files.  
+ 
+To download a File Manifest, which we'll use to find the file locations in ISB-CGC, on the **Repository** screen, click on the **Manifest** button.  
 
-Since the GDC is mostly aimed at storing data and the ISB-CGC is aimed at making use of that data there are some differences between the two that you need to understand before starting:
-
-* While the ISB-CGC does have all the *data* from the GDC, it doesn't have all the *files* from the GDC.  This is because we've stored the analyzed data ("Level 3") in BigQuery tables rather than as files.  In fact, the only files stored at ISB-CGC are the raw, "Level 1" files.  So unless you plan on re-analyzing data from scratch, you can dive straight into BigQuery.
-* GDC file manifests can be directly imported into BigQuery for use in ISB-CGC.
-* GDC case manifests aren't directly importable into ISB-CGC. A bit of manipulation needs to happen to make them useful in ISB-CGC.
+.. image:: GDC-KidneyExample.png
   
-Output from  GDC
-=================
+**Import the File Manifest into Google BigQuery**
 
-For the purpose of bringing GDC information into ISB-CGC, GDC has two different outputs to consider once users have finished doing their selections, the file manifest and the case table export.  In the example shown below, various filters were set to produce a cohort of 83 cases from the three TCGA kidney cancers and that cohort has 1,790 files on hand at the GDC.  To download a File Manifest, which we'll use later to find the files in ISB-CGC, you need to click on the *View Files in Repository* button:
+Importing a GDC file manifest into its own BigQuery table will enable you to join that table with an ISB-CGC BigQuery table containing the file locations on the Google Cloud. Here's how to do it.
 
-.. image:: GDCSetCreation4.png
+If you don't already have a Google Cloud Project, please see the following ISB-CGC documentation pages for guidance:
 
+* `How to create a Google Cloud Platform (GCP) project <../HowToGetStartedonISB-CGC.html#google-cloud-project-setup-and-data-access>`_ 
+* `How to link ISB-CGC BigQuery tables to your Google Cloud Platform (GCP) project <../progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_ 
+
+One way of keeping your file manifests organized is to create a data set specifically for those tables. New data sets can be created by clicking on the **Create Dataset** button within your project in BigQuery.
   
-  
-Once on the file page, a file manifest can be downloaded simply by clicking on the *Download Manifest* button.  A list of Cases can be created by clicking on the *Cases* tab and then clicking on either the *JSON* or *TSV* button on the uppper right of the table (This can also be done from the previous screen).  Later in this tutorial, we'll use the JSON file to bring the cases into Big Query:
+Creating a table from a GDC file manifest is remarkably easy:
+ 
+* Click on the **Create Table** button while you are within your new data set.  
+* In the resulting screen, for **Create table from**, select **Upload**. Select your manifest file and set the **File format** to **CSV**. (Tab delimited will work with this setting.)
+* Have BigQuery automatically create the schema by checking the **Auto detect** box for Schema.
+* Click on **Advanced options**. Select **Tab** for **Field delimiter**; enter **1** for **Header rows to skip**.
+* Click on the **Create Table** button.
+   
+   
+.. image:: BQ-CreateKidneyManifestTable.png
 
-.. image:: FileManifestButton4.png
-  
+**Find the file locations on the Google Cloud**
+
+Now that you have a table containing the GDC file identifiers, the next step is to find the locations for the Level 1 files on the Google Cloud.  To help with that task, ISB-CGC maintains BigQuery tables that contain the GDC file identifier and the Google bucket location for the file in data set GDC_metadata.  Adding the Google bucket location to our GDC information can be done via a simple SQL query:
+
+.. code-block:: sql
+
+        SELECT gdc.*, isb.file_gdc_url
+        FROM `Your-project.GDC_Import.GDC_Kidney_File_manifest` as gdc,
+             `isb-cgc.GDC_metadata.rel22_GDCfileID_to_GCSurl` as isb
+        WHERE gdc.id = isb.file_gdc_id
+
+Note that you'll need to replace "Your-project.GDC_Import.GDC_Kidney_File_manifest" with your project and the data set and table that you created above.
+
+This query will return the results shown below and, as with any BigQuery result, you can either export it as a file or save it as a new table in BigQuery.
+
+
+.. image:: BQ-Results-KidneyManifestURLTable.png
 

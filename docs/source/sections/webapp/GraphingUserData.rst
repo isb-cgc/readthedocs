@@ -2,11 +2,11 @@
 Graphing User Data
 ##############################
 
-Once a user has `uploaded their own data`_ to the Web App, that data can be visualized using the same graphing tools that are available for graphing TCGA, CCLE or TARGET data.  However, the process for graphing user data is slightly different from how it is done for that data.
+Once a user has `uploaded their own data`_ to the Web App, that data can be visualized using the same graphing tools that are available for graphing TCGA, CCLE, TARGET and BEATAML1.0 data.  However, the process for graphing user data is slightly different from how it is done for that data.
 
 .. _uploaded their own data: http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html
 
-Important sections on the Web App front page
+Important sections on the Web App Dashboard
 ############################################
 The boxes in the figure below are links that are used to graph user data.
 

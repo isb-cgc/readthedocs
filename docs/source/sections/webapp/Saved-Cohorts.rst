@@ -7,7 +7,7 @@ Cohorts are a way of creating custom groupings of the samples and/or cases that 
 Create a New Cohort
 ###################
 
-To create a cohort from **Your Dashboard**, click on the **Create a Cohort** link in the **Saved Cohorts** panel at the bottom of the screen and select either "Filter" or the "Barcodes" from the dropdown. The Filter link will display the cohort creation page;  filters are explained below.  The Barcodes link will display a page where you can upload samples/cases barcodes and create a cohort from them. Currently you can only upload from three programs TCGA, CCLE, and TARGET. 
+To create a cohort from **Your Dashboard**, click on the **Create a Cohort** link in the **Saved Cohorts** panel at the bottom of the screen and select either "Filter" or the "Barcodes" from the dropdown. The Filter link will display the cohort creation page;  filters are explained below.  The Barcodes link will display a page where you can upload samples/cases barcodes and create a cohort from them. Currently you can upload from programs TCGA, CCLE, TARGET and BEATAML1.0. 
 
 If you already have saved cohorts, they will be listed in the **Saved Cohorts** panel. Click on the **Saved Cohorts** link in that panel and a page that with the details of your saved cohorts will display. Alternatively, to go directly to a given cohort, click on its name and the cohort details page of that cohort will display.
 
@@ -19,7 +19,7 @@ These functions can also be navigated to by using the drop down options in the *
 Cohort Creation - Filters 
 =========================
 
-Using the list of filters on the left panel, you can select the attributes and features that you are interested in either from ISB-CGC data (TCGA, CCLE, TARGET) or user data. You are able to create a cohort with multiple program filters.  
+Using the list of filters on the left panel, you can select the attributes and features that you are interested in either from ISB-CGC data (TCGA, CCLE, TARGET, BEATAML1.0) or user data. You are able to create a cohort with multiple program filters.  
 
 CCLE (The Cancer Cell Line Encyclopedia) data is an open access data set; therefore, a user does not need dbGaP permissions to view its sequence data with the IGV viewer.
 
@@ -31,70 +31,16 @@ Individual selections within a filter group are "ORed" together, meaning if any 
 
 Program Selection Panel
 -----------------------
-The panel in the center of the screen, with four tabs called "TCGA DATA", "CCLE DATA", "TARGET DATA", and "USER DATA" will allow you to create a cohort with programs in the system and data that you have uploaded.
+The panel in the center of the screen, with tabs called "TCGA DATA", "CCLE DATA", "TARGET DATA", "BEATAML1.0" and "USER DATA" will allow you to create a cohort with programs in the system and data that you have uploaded.
 
-- The TCGA, CCLE, and TARGET DATA tab each have three tabs called "CASE", "DATA TYPE", and "MOLECULAR" which allow you to apply filters to the cohorts you are creating using ISB-CGC hosted data. 
+- The TCGA, CCLE, TARGET and BEATAML1.0 DATA tabs each have three tabs called "CASE", "DATA TYPE", and "MOLECULAR" which allow you to apply filters to the cohorts you are creating using ISB-CGC hosted data. 
+
+  - The CASE tab displays clinical and demographic features applicable to the selected program.
+  - The DATA tab displays data types (ex. Aligned Reads, Copy Number Segment Masked) applicable to the selected program.
+  - The MOLECULAR tab displays filters pertaining to mutations.
 - For the USER DATA tab, there is one tab called "PROJECTS & STUDIES" which allow you to filter by the projects or studies you have uploaded to the system.
 
-Note: Selecting the program filter will add all samples pertaining to the program. Also there is a mouse over feature that will display the disease code long name if it's part of the TCGA, CCLE, or TARGET data set.
-
-Filter List by Program (Case and Data Tabs)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-          
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | TCGA Case Tab         | TCGA Data Tab                | CCLE Case Tab       | TARGET Case  Tab      | TARGET Data Tab             |
-   +=======================+==============================+=====================+=======================+=============================+
-   | Program               | Pathology Image              | Program             | Program               | mRNA Gene Quantification    |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Project Short Name    | Somatic Mutation             | Project Short Name  | Project Short Name    |miRNA Isoform Quantification |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Disease Code          | Copy Number Segment Masked   | Disease Code        | Disease Code          | miRNA Gene Quantification   |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Vital Status          | mRNA Gene Quantification     | Gender              | Vital Status          | Aligned Reads               |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Gender                | DNA Variation VCF            | Sample Type         | Gender                |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Age at Diagnosis      | Aligned Reads                | Site Primary        | Age at Diagnosis      |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Sample Type           | Protein Quantification       | Histology           | Sample Type           |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Tumor Tissue Site     |miRNA Isoform Quantification  | Histological        | Race                  |                             |
-   |                       |                              | SubType             |                       |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Histological Type     |miRNA Gene Quantification     |                     | Ethnicity             |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Pathologic Stage      |mRNA Isoform Quantification   |                     | WBC at Diagnosis      |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Person Neoplasm       |                              |                     |                       |                             |
-   | Cancer Status         | Genotypes                    |                     | Year of Diagnosis     |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Neoplasm Histologic   | DNA Methylation Beta         |                     | Event Free Survival   |                             |
-   | Grade                 |                              |                     |                       |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | BMI (Body Mass Index) |                              |                     | Days to Last Followup |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | HPV Status            |                              |                     | Days to Last Known    |                             |
-   |                       |                              |                     | Alive                 |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Residual Tumor        |                              |                     | Days to Birth         |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Tobacco Smoking       |                              |                     | Days to Death         |                             |
-   | History               |                              |                     |                       |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Race                  |                              |                     |                       |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Ethnicity             |                              |                     |                       |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Year of Diagnosis     |                              |                     |                       |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Menopause Status      |                              |                     |                       |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Days to Last          |                              |                     |                       |                             |
-   | Known Alive           |                              |                     |                       |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   | Preservation Method   |                              |                     |                       |                             |
-   +-----------------------+------------------------------+---------------------+-----------------------+-----------------------------+
-   
+Note: Selecting the program filter will add all samples pertaining to the program. Also there is a mouse over feature that will display the disease code long name if it's part of the TCGA, CCLE, TARGET or BEATAML data set.
    
 Molecular Tab
 ^^^^^^^^^^^^^
@@ -132,26 +78,9 @@ Clinical Features Panel
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 This panel shows a list of images (called "treemaps") that give a high level breakdown of the selected samples for a 
-handful of features for the selected program:
+handful of features (ex. Disease Code, Vital Status, Gender, Sample Type, Age at Diagnosis, etc.) for the selected program. 
 
-   +------------------------------+------------------------------+---------------------------------+
-   | TCGA Clinical Features Panel | CCLE Clinical Features Panel | TARGET Clinical Features Panel  |
-   +==============================+==============================+=================================+
-   | Disease Code                 | Disease Code                 | Disease Code                    |
-   +------------------------------+------------------------------+---------------------------------+
-   | Vital Status                 | Gender                       | Vital Status                    |
-   +------------------------------+------------------------------+---------------------------------+
-   | Sample Type                  | Site Primary                 | Gender                          |
-   +------------------------------+------------------------------+---------------------------------+
-   | Tumor Tissue Site            | Histology                    | Sample Type                     |
-   +------------------------------+------------------------------+---------------------------------+
-   | Gender                       | Histological SubType         | Age At Diagnosis                |
-   +------------------------------+------------------------------+---------------------------------+
-   | Age At Initial Pathologic    |                              |                                 |
-   | Diagnosis                    |                              |                                 |
-   +------------------------------+------------------------------+---------------------------------+
-
-By using the “Show More” button, you can see the last two tree maps.  Mousing over an image shows the details of each specific section of the image and the number of samples associated with it.
+By using the “Show More” button, you can see additional tree maps.  Mousing over an image shows the details of each specific section of the image and the number of samples associated with it.
 
 Programs & Projects Panel
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -253,7 +182,7 @@ This panel displays current filters on this cohort or any of its ancestors. Save
 
 **Cohort Details Panel**
 
-This panel displays the Internal ISB-CGC Cohort ID (the identifier you use to programmatically use this cohort through the `APIs <../progapi/Programmatic-API.html#id4>`_), and the number of samples and cases in this cohort. The number of samples may be larger than the number of cases because some cases may have provided multiple samples. This panel also displays "Your Permissions" which can be either Owner or Reader, as well as Revision History.  If you have edited the cohort, the filters that were used to originally create the cohort are displayed under the "Creation Filters" header. The newly applied filters (afteroriginal creation) are displayed under the "Applied Filters" header.
+This panel displays the Internal ISB-CGC Cohort ID (the identifier you use to programmatically use this cohort through the `APIs <../progapi/progAPI-v4/Programmatic-Demo.html>`_), and the number of samples and cases in this cohort. The number of samples may be larger than the number of cases because some cases may have provided multiple samples. This panel also displays "Your Permissions" which can be either Owner or Reader, as well as Revision History.  If you have edited the cohort, the filters that were used to originally create the cohort are displayed under the "Creation Filters" header. The newly applied filters (afteroriginal creation) are displayed under the "Applied Filters" header.
 
 **TCGA DATA, CCLE DATA, TARGET DATA and USER DATA Tabs**
 
@@ -261,24 +190,10 @@ A program tab will be enabled if there are selected filters for that program. Wh
 
 **Clinical Features Panel**
 
-This panel shows a list of tree maps that give a high level break of the samples for a handful of features for the program view selected:
+This panel shows a list of images (called "treemaps") that give a high level breakdown of the selected samples for a 
+handful of features (ex. Disease Code, Vital Status, Gender, Sample Type, Age at Diagnosis, etc.) for the selected program. 
 
-   +------------------------------+------------------------------+---------------------------------+------------------------------------+
-   | TCGA Clinical Features Panel | CCLE Clinical Features Panel | TARGET Clinical Features Panel  | USER DATA Programs & Projects Panel|
-   +==============================+==============================+=================================+====================================+
-   | Disease Code                 | Disease Code                 | Disease Code                    | Program                            |
-   +------------------------------+------------------------------+---------------------------------+------------------------------------+
-   | Vital Status                 | Gender                       | Vital Status                    | Project                            |
-   +------------------------------+------------------------------+---------------------------------+------------------------------------+
-   | Sample Type                  | Site Primary                 | Gender                          |                                    |
-   +------------------------------+------------------------------+---------------------------------+------------------------------------+
-   | Tumor Tissue Site            | Histology                    | Sample Type                     |                                    |
-   +------------------------------+------------------------------+---------------------------------+------------------------------------+
-   | Gender                       | Histological SubType         | Age At Diagnosis                |                                    |
-   +------------------------------+------------------------------+---------------------------------+------------------------------------+
-   | Age At Initial Pathologic    |                              |                                 |                                    |
-   | Diagnosis                    |                              |                                 |                                    |
-   +------------------------------+------------------------------+---------------------------------+------------------------------------+
+By using the “Show More” button, you can see additional tree maps.  Mousing over an image shows the details of each specific section of the image and the number of samples associated with it.
 
 **Data File Availability Panel**
 

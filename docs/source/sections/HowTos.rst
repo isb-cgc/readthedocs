@@ -1,5 +1,5 @@
 ********************
-ISB-CGC Notebook Tutorials
+ISB-CGC Notebooks
 ********************
 
 What's a notebook?
@@ -19,7 +19,7 @@ I'm a novice, how do I...
    * - How do I get started fast?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/Quick_Start_Guide_to_ISB_CGC.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/Quick_Start_Guide_for_ISB-CGC.md>`_
-   * - How to find GDC file locations?
+   * - How do I find GDC file locations?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_Find_GDC_File_Locations.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_Find_GDC_File_Locations.md>`_
    * - How do I plot a BigQuery result?
@@ -34,9 +34,18 @@ I'm a novice, how do I...
    * - How do I create cohorts of patients?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_create_cohorts.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_create_cohorts.md>`_
+   * - How do I use PyPika or dbplyr to build a query?
+     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_use_PyPika_to_create_a_BigQuery_SQL_query.ipynb>`_
+     - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_use_dbplyr_to_create_a_BigQuery_SQL_query.md>`_  
    * - How do I create a complex cohort?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_create_a_complex_cohort.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_create_a_complex_cohort.md>`_
+   * - How do I join multiple tables?
+     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_complex_joins.ipynb>`_
+     -
+   * - How do I get started working with the COSMIC datasets?
+     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/Intro_to_COSMIC_in_BigQuery.ipynb>`_
+     -
    * - How do I convert a .bam file to a .fastq file with samtools?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_convert_bams_to_fastq_with_samtools.ipynb>`_
      - 
@@ -62,17 +71,20 @@ I'm an advanced user, how do I...
    * - How do I make a BigQuery table from an NCBI GEO data set?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_make_NCBI_GEO_BigQuery_tables.ipynb>`_
      - 
-   * - How do I run an ANOVA with BigQuery?
+   * - How do I quickly compare cohorts with survival analysis and feature comparison?
+     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/Staging-Notebooks/Notebooks/How_to_quickly_compare_cohorts.ipynb>`_
+     - `R <https://github.com/isb-cgc/Community-Notebooks/blob/Staging-Notebooks/Notebooks/How_to_quickly_compare_cohorts.md>`_
+   * - How do I run an ANOVA with BigQuery?*
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_an_ANOVA_test_in_BigQuery.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_an_ANOVA_test_in_BigQuery.md>`_
-   * - How do I score gene sets in BigQuery?
+   * - How do I score gene sets in BigQuery?*
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_score_gene_sets_with_BigQuery.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_an_ANOVA_test_in_BigQuery.md>`_
    * - How do I correlate gene expression and copy number variation?
-     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/RegulomeExplorer_GeneExpression_vs_CNV.ipynb>`_
+     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/Correlation_GeneExpression_vs_CNV.ipynb>`_
      - 
    * - How do I compute gene-gene expression correlation using BigQuery?
-     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/RegulomeExplorer_GeneExpression_vs_GeneExpression.ipynb>`_
+     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/BigQuery-SpearmanCorrelation.ipynb>`_
      - 
    * - How do I create randomized subsets of patients using BigQuery?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_create_a_random_sample_in_bigquery.ipynb>`_
@@ -86,4 +98,13 @@ I'm an advanced user, how do I...
    * - How do I do Nearest Centroid Classification using BigQuery?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_Nearest_Centroid_Classification_with_BigQuery.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_Nearest_Centroid_Classification_with_BigQuery.md>`_
-     
+   * - How do I analyze data in the COSMIC Cancer Gene Census dataset?
+     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/Exploring_COSMICs_Cancer_Gene_Census_table.ipynb>`_
+     -
+   * - How do I use a BigQuery user defined function to cluster data using k-means clustering?
+     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_cluster_data_using_a_BigQuery_function.ipynb>`_
+     - 
+   * - How do I explore CPTAC protein abundances?
+     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_explore_CPTAC_protein_abundances.ipynb>`_
+     -    
+*Notebook inspired by a `Query of the Month Blog <QueryOfTheMonthClub.html>`_ post

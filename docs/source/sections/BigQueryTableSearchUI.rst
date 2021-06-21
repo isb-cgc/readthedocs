@@ -2,7 +2,7 @@
 ISB-CGC BigQuery Table Search 
 ******************************
 
-The ISB-CGC BigQuery Table Search UI (`<https://isb-cgc.appspot.com/bq_meta_search/>`_) is a discovery tool that allows users to explore and search for ISB-CGC hosted BigQuery tables. It can be accessed directly from the ISB-CGC homepage (`<https://isb-cgc.org/>`_) as shown in red in the image below. 
+The ISB-CGC BigQuery Table Search UI (`<https://isb-cgc.appspot.com/bq_meta_search/>`_) is a discovery tool that allows users to explore and search for ISB-CGC hosted BigQuery tables. It can be accessed directly from the ISB-CGC homepage (`<https://isb-cgc.org/>`_) by clicking on **Launch** in the **BigQuery Table Search** box or selecting **BigQuery Table Search** from the **Data Browsers** drop down menu on the main menu bar. 
 
 **Note**: Users are not required to have a Google Cloud Platform (GCP) project or an account to learn more about the tables hosted by ISB-CGC.
 
@@ -11,7 +11,7 @@ The ISB-CGC BigQuery Table Search UI (`<https://isb-cgc.appspot.com/bq_meta_sear
 
 
 
-Currently, ISB-CGC hosts over 300 open access BigQuery tables. Each table has been curated to include detailed table and field descriptions as well as table labels allowing users to search for BigQuery tables of interest using a free-form text search or via available filters. 
+Currently, ISB-CGC hosts open access BigQuery tables containing data for over 25 research programs and for over 15 data types. Each table has been curated to include detailed table and field descriptions as well as table labels allowing users to search for BigQuery tables of interest using a free-form text search or via available filters. 
 
 
 .. image:: BigQuery/BigQueryTableSearch-UI-homepage.png
@@ -54,6 +54,14 @@ By default, the Status filter is set to Current.
 The **Name** filter is a free-form text field; the user can type all or a portion of the name into the field to perform the search. It will match against the Name column. 
 
 Note that this Name field is not the Table ID (which is used in SQL queries) but is a **Friendly Name**; that is, a descriptive, user-friendly name for the table. 
+
+**Program**
+
+Filter the BigQuery tables by programs such as CCLE, TARGET and TCGA by using the **Program** filter. Click the Program box to see the dropdown list and click on a program to select it. Additional programs can be selected by clicking in the Program box again. 
+
+
+.. image:: BigQuery/Program-filter.png
+   :align: center
    
 **Categories**
 
@@ -101,17 +109,30 @@ The **Data Type** filter also allows you to filter for data types of interest. L
 .. image:: BigQuery/DataType-filter.png
    :align: center
 
+**Experimental Strategy**
+
+The **Experimental Strategy** filter also allows you to filter for experimental strategies of interest. Multiple Experimental Strategies can be selected.
+
+.. image:: BigQuery/ExperimentalStrategy-filter.png
+   :align: center
+
+**Access**
+
+The **Access** filter has options of All, Open Access and Controlled Access. Controlled Access tables will be displayed with a Lock icon to the right of the table name. Controlled Access data cannot be previewed, but can be opened in the Google BigQuery Console, if the user has the required permissions. 
+
+.. image:: BigQuery/Access-filter.png
+   :align: center
 
 **More Filters**
 
-The **Show More Filters** button can be used to display **Dataset ID**, **Table ID**, **Table Description**, **Labels** and **Field Name** filters. These are free-form text fields; the user can type all or a portion of the name into the field to perform the query. For instance, for all datasets which have "alpha" in the name, type "alpha" into the field.
+The **Show More Filters** button can be used to display **BQ Project**, **BQ Dataset**, **BQ Table**, **Table Description**, **Labels** and **Field Name** filters. Except for BQ Project, these are free-form text fields; the user can type all or a portion of the name into the field to perform the query. For instance, for all datasets which have "alpha" in the name, type "alpha" into the field.
 
 These fields are most useful for users already familiar with the BigQuery tables.
 
 
 **Labels**
 
-Each table was tagged with labels relating to the source, data type, reference genome build, status, and access. Users can search on any of these labels on the Labels filter field. Users can find the **Labels** search filter under the **Show More Filters** option. 
+Each table was tagged with labels relating to the status, program, reference genome build, source, data type, experimental strategy and access. Users can search on any of these labels on the Labels filter field. Users can find the **Labels** search filter under the **Show More Filters** option. 
 
 The labels for a table can be viewed when the blue plus sign (+) to the left of the table row is clicked. See the screen shot in the Schema section below.
 
@@ -125,7 +146,7 @@ Click on the column header to sort the displayed results by that column.
 
 **Columns Selector**
 
-Columns can be added or removed from the display by using the Columns selector. For instance, the Dataset ID and Table ID are not initially displayed, but they can be added to the display.
+Columns can be added or removed from the display by using the Columns selector. For instance, the Bq Project, BQ Dataset and BQ Table are not initially displayed, but they can be added to the display.
 
 .. image:: BigQuery/BigQueryTableSearch-ColumnSelector.png
    :align: center
@@ -150,7 +171,7 @@ The following information is displayed:
 
    * **Full ID** - This is the Project, Dataset ID, and Table ID concatenated with periods between them. The Full ID is used in SQL queries.
    * **Dataset ID** - The BigQuery dataset of the table. A data set is a group of related tables.
-   * **Table ID** - The BiqQuery table ID.
+   * **Table ID** - The BigQuery table ID.
    * **Description** - A description of the table, which includes information such as how the data was created, its source, data type, and contents.
    * **Schema** - The schema displays the Field Name, Type, Mode and Field Description for each field in the table.
    * **Labels** - Labels are table metadata describing the source, data type, reference genome build, status, and access of the table data.
@@ -158,7 +179,11 @@ The following information is displayed:
 
 **Copy button**
 
-Next to the Full ID is a **Copy** button. When the user clicks this, the Full ID is copied to the clipboard. The Full ID can then be pasted into an SQL query within the BiqQuery Query editor.
+Next to the Full ID is a **Copy** button. When the user clicks this, the Full ID is copied to the clipboard. The Full ID can then be pasted into an SQL query within the BigQuery Query editor.
+
+**Open button**
+
+Next to the Copy button is an **Open** button. Clicking on this button opens the table in the BigQuery Google Cloud Platform Console. For more details, see the **Table Access in Google BigQuery** section below.
 
 Table Preview
 ++++++++++++++
@@ -170,12 +195,21 @@ A few rows of the data in a BigQuery table can be viewed by clicking on the **Pr
    :align: center
  
  
-Table Access
+Table Access in Google BigQuery
 -------------
+To access the BigQuery tables in Google Cloud Console directly from the Table Search UI, simply click on the **Open** button on the right-hand side. 
 
-For full-access to the tables including the ability to query the tables, please see the following ISB-CGC documentation pages:
+**Note:** 
+ * If you have previously accessed the Google Cloud Platform and have a Google Cloud Platform project already set up, this button will automatically open up the table in the Google BigQuery Console as depicted in the image below.
 
-`How to create a Google Cloud Platform (GCP) project <sections/HowToGetStartedonISB-CGC.html>`_ 
+ * If you have never accessed Google Cloud Platform, you will be presented with a Google login page. You can use any Google ID to log in. Instructions on how to create a Google identity if you don't already have one can be found `here <HowToGetStartedonISB-CGC.html#data-access-and-google-cloud-project-setup>`_. You will be prompted to create a project, free of charge. Once you create the project, you will be directed to the BigQuery table you wished to open in the Google BigQuery Cloud Platform Console. 
 
-`How to link ISB-CGC BigQuery tables to your Google Cloud Platform (GCP) project <sections/progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_ 
+`Google Cloud Platform's free tier <https://cloud.google.com/free>`_ allows users to access many common Google Cloud resources including BigQuery free of charge and query up to 1 TB of data per month for free.
 
+.. image:: BigQuery/BigQueryOpenButton.gif
+   :align: center
+
+Please see the following ISB-CGC documentation pages for guidance:
+
+* `How to create a Google Cloud Platform (GCP) project <HowToGetStartedonISB-CGC.html>`_ 
+* `How to link ISB-CGC BigQuery tables to your Google Cloud Platform (GCP) project <progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_ 
