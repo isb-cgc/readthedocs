@@ -2,7 +2,7 @@
 ISB-CGC Data Release Notes
 ############################
 
-*June 10, 2021*
+*June 21, 2021*
 
 Updated the release 28 miRNAseq tables to include the sample_type_name field
 
