@@ -7,7 +7,7 @@ ISB-CGC Web App Release Notes
 **New Features** 
 
 - The Citations link on the top-level menu has been replaced with a Publications link. The page now includes ISB-CGC publications and posters, as well as citations.
-- Enhance the Cohort Builder so that additional GDC and PDC Programs can be selected. The Programs now available are:
+- Enhance the Cohort Builder UI and Cohort Details UI so that additional node based GDC and PDC Programs can be selected and edited. The Programs now available are:
 
   - GDC
   
