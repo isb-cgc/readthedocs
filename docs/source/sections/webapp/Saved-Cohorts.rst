@@ -189,31 +189,26 @@ This panel displays current filters on this cohort or any of its ancestors. Save
 
 **Cohort Details Panel**
 
-This panel displays the Internal ISB-CGC Cohort ID (the identifier you use to programmatically use this cohort through the `APIs <../progapi/progAPI-v4/Programmatic-Demo.html>`_), and the number of samples and cases in this cohort. The number of samples may be larger than the number of cases because some cases may have provided multiple samples. This panel also displays "Your Permissions" which can be either Owner or Reader, as well as Revision History.  If you have edited the cohort, the filters that were used to originally create the cohort are displayed under the "Creation Filters" header. The newly applied filters (afteroriginal creation) are displayed under the "Applied Filters" header.
+This panel displays the Internal ISB-CGC Cohort ID (the identifier you use to access this cohort through the `APIs <../progapi/progAPI-v4/Programmatic-Demo.html>`_), and the number of samples and cases in this cohort. The number of samples may be larger than the number of cases because some cases may have provided multiple samples. This panel also displays "Your Permissions" which can be either Owner or Reader, as well as Revision History.  If you have edited the cohort, the filters that were used to originally create the cohort are displayed under the "Creation Filters" header. The newly applied filters (after original creation) are displayed under the "Applied Filters" header.
 
-**TCGA DATA, CCLE DATA, TARGET DATA and USER DATA Tabs**
+**Select Data Set**
 
-A program tab will be enabled if there are selected filters for that program. When a tab is selected, the Clinical Features panel and the Data File Availability panels for that program display. 
+This panel displays all the programs and user data sets that are included in the cohort; click on the drop down to see them.
 
-**Clinical Features Panel**
+By default, the list is sorted by Node (Genomics Data Commons, Proteomics Data Commons, User) with programs listed below each node header. The sort order can be changed by selecting Program next to **Sort By**.
+
+To see details about a program or data set, select it from the drop down list.
+
+**Data Set Details Panel**
+
+This panel shows the **Total Number of Samples** and **Total Number of Cases** for the data set or program selected from the Data Set drop down.
+
+**Data Set Clinical Features Panel**
 
 This panel shows a list of images (called "treemaps") that give a high level breakdown of the selected samples for a 
 handful of features (ex. Disease Code, Vital Status, Gender, Sample Type, Age at Diagnosis, etc.) for the selected program. 
 
 By using the “Show More” button, you can see additional tree maps.  Mousing over an image shows the details of each specific section of the image and the number of samples associated with it.
-
-**Data File Availability Panel**
-
-This panel shows a parallel sets graph of available data files for the selected samples in the cohort. The large headers over the vertical bars are data types. Each vertical bar may be broken up to represent different platforms used to generate that type of data (and "NA" for samples for which data type is not available).
-
-The sets of lines that "flow" from left to right indicate the number of samples for which each type of data files are
-available. If you hover over a horizontal segment between two bars, you will see the number of samples that have both those data
-type platforms. You can also reorder the vertical categories by dragging the headers left and right and reorder the
-platforms by dragging the platform names up and down.
-
-.. _viewfilelist:
-
-
 
 **Cohort Details Screen functions:**
 
