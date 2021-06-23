@@ -19,13 +19,13 @@ You can also navigate to these functions by using the drop down options in the *
 Cohort Creation - Filters 
 =========================
 
-Using the list of filters on the left panel, you can select the attributes and features that you are interested in either from ISB-CGC data (TCGA, CCLE, TARGET, BEATAML1.0) or user data. You are able to create a cohort with multiple program filters.  
+Using the list of filters on the left panel, you can select the attributes and features that interest you from ISB-CGC data or user data. You can create a cohort containing multiple programs.  
 
 CCLE (The Cancer Cell Line Encyclopedia) data is an open access data set; therefore, a user does not need dbGaP permissions to view its sequence data with the IGV viewer.
 
 By clicking on a feature, the field will expand and provide you with additional filtering options. For example, when you click on "Vital Status", it expands and provides a list containing "Alive", "Dead", and "NA" as options you may choose from. 
 
-Selecting one or more of these will cause the filter(s) to appear in the Selected Filters panel and will update the Program Details panel with the Total Number of Samples based on the selected filters.
+Selecting one or more of these will cause the filter(s) to appear in the Cohort Filters panel and will update the Data Set Details panel with the Total Number of Samples based on the selected filters.
 
 Individual selections within a filter group are "ORed" together, meaning if any of the conditions are met, they will be in the results.  On the other hand, filters are "ANDed" together, meaning that data must meet all filter criteria in order to be selected. There may be times where you have no cases and samples in the results, based on the combination of filters you have chosen.
 
@@ -56,25 +56,25 @@ NOTES:
 - If you use AND and do not see the data you are expecting in the filter, try OR instead.  AND is a more restrictive criteria requiring all filters to be met, OR is less restrictive, requiring only one criteria to be met for the data to appear.
 - Please add the term "AND" or "OR" in your saved cohort title since the type of combination used in your cohort does not display in the filters list for a saved cohort. 
           
-Programs & Projects Tab
+Programs & Projects Panel
 ^^^^^^^^^^^^^^^^^^^^^^^^
 The Programs & Projects Tab is only available for User Data. It displays the programs and projects that are part of the user data set. 
 
-Selected Filters Panel
+Cohort Filters Panel
 ^^^^^^^^^^^^^^^^^^^^^^
 
-This panel displays selected filters for each program. You have to toggle between program tabs to see the filters selected for each program.
+This panel displays the selected filters for the cohort. Filters are listed under the program name. If you click on the program name, the Select Data Set and Select Filters panels to the left will change to display that Program.
 
-If you have not saved the cohort yet, clicking on “Clear All” will remove all selected filters for that program and selecting an X beside a single filter will remove that filter.  
+Selecting an X beside a single filter will remove that filter.  
 
 Note that you cannot removed filters once the cohort has been saved. (See Set Operations below for more ways to add or remove filters from your cohorts.)
 
-Details Panel
+Data Set Details Panel
 ^^^^^^^^^^^^^
 
 This panel shows the **Total Number of Samples** and **Total Number of Cases** in a cohort based on the selected filters. If there is a small "timer" icon, the calculation is taking place; the results should appear soon.
 
-Clinical Features Panel
+Data Set Clinical Features Panel
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 This panel shows a list of images (called "treemaps") that give a high level breakdown of the selected samples for a 
@@ -85,7 +85,7 @@ By using the “Show More” button, you can see additional tree maps.  Mousing 
 Programs & Projects Panel
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This panel displays a list of images (called "treemaps") similar to the Clinical Features panel, but can only be found when the User Data tab is selected. This panel displays a high level breakdown of the projects and studies you have uploaded to the system. Another similarity to the Clinical Features panel is that hovering over the image will show details of the specific section of the image and the number of samples associated with it. 
+This panel displays a list of images (called "treemaps") similar to the Data Set Clinical Features panel, but can only be found when the User Data tab is selected. This panel displays a high level breakdown of the projects and studies you have uploaded to the system. Hovering over the image will show details of that specific section of the image and the number of samples associated with it. 
 
 Saving the Cohort
 ^^^^^^^^^^^^^^^^^^
