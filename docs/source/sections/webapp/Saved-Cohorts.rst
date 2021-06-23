@@ -7,7 +7,7 @@ Cohorts are a way of creating custom groupings of the samples and/or cases that 
 Create a New Cohort
 ###################
 
-To create a cohort from **Your Dashboard**, click on the **Create a Cohort** link in the **Saved Cohorts** panel at the bottom of the screen and select either "Filter" or  "Barcodes" from the dropdown. The Filter link will display the cohort creation page;  filters are explained below.  The Barcodes link will display a page where you can upload samples/cases barcodes and create a cohort from them. Currently you can upload from programs TCGA, CCLE, TARGET and BEATAML1.0. 
+To create a cohort from **Your Dashboard**, click on the **Create a Cohort** link in the **Saved Cohorts** panel at the bottom of the screen and select either "Filter" or  "Barcodes" from the dropdown. The Filter link will display the cohort creation page;  filters are explained below.  The Barcodes link will display a page where you can upload samples/cases barcodes and create a cohort from them.
 
 If you already have saved cohorts, they will be listed in the **Saved Cohorts** panel. Click on the **Saved Cohorts** link in that panel and a page with the details of your saved cohorts will display. Alternatively, to go directly to a given cohort, click on its name and the cohort details page of that cohort will display.
 
@@ -49,6 +49,9 @@ Selected filters will display in the Cohort Filters panel. The Data Set Details 
 
 Individual selections within a filter group are "ORed" together, meaning if any of the conditions are met, they will be in the results.  On the other hand, filters are "ANDed" together, meaning that data must meet all filter criteria in order to be selected. There may be times where you have no cases and samples in the results, based on the combination of filters you have chosen.
 
+ - If you use AND and do not see the data you are expecting in the filter, try OR instead.  AND is a more restrictive criteria requiring all filters to be met, OR is less restrictive, requiring only one criteria to be met for the data to appear.
+ - You may want to consider adding the term "AND" or "OR" in your saved cohort title since the type of combination used in your cohort does not display in the filters list for a saved cohort.
+
 Note: Hovering over the Disease Code name will display the disease code long name if it's part of the TCGA, CCLE, TARGET data set.
    
 Molecular Tab
@@ -59,11 +62,6 @@ The Molecular Tab is only available for TCGA data. It enables the user to filter
 To combine multiple gene filters, select AND (requires all filters to be met for the data to be filtered) or OR (at least one criteria needs to be met for the data to be displayed).
 
 You can also filter by different genomic builds.
-          
-NOTES:
- 
-- If you use AND and do not see the data you are expecting in the filter, try OR instead.  AND is a more restrictive criteria requiring all filters to be met, OR is less restrictive, requiring only one criteria to be met for the data to appear.
-- Please add the term "AND" or "OR" in your saved cohort title since the type of combination used in your cohort does not display in the filters list for a saved cohort. 
           
 Programs & Projects Tab
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -106,7 +104,7 @@ NOTE: When working with multiple programs you will see a yellow notification box
 Cohort Creation - Barcodes
 ==========================
 
-This feature will allow you upload or enter your own list of sample or cases barcodes from multiple programs.  There is a blue instructions button present on both the **UPLOAD** and **ENTER** tabs.  
+This feature allows you upload or enter your own list of sample or cases barcodes from multiple programs.  There is a blue Show Instructions button on both the **UPLOAD** and **ENTER** tabs.  
 
 Upload Tab
 -----------
@@ -167,7 +165,7 @@ On the **New Cohort** screen, enter a name for the new cohort and select a set o
 
 Click **Okay** to complete the set operation and create the new cohort.
 
-Note: To combine the user uploaded data and the ISB-CGC data, use the Set Operations function. This is possible since the list of barcodes is what is used to create the set operation. For example, to make a cohort of user data samples and ISB-CGC curated samples, Set Union must be used, and to filter user data which is an extension of TCGA or TARGET samples, Set Intersection must be used.
+Note: To combine the user uploaded data and the ISB-CGC data, use the Set Operations function. This is possible because the list of barcodes is what is used to create the set operation. For example, to make a cohort of user data samples and ISB-CGC curated samples, Set Union must be used, and to filter user data which is an extension of TCGA or TARGET samples, Set Intersection must be used.
 
 The figure below shows what the results of the set operations will be (represented by I for Intersect, U for Union, and C for Complement).  There are two types of sets shown, those that overlap (on the left) and those that are nested (on the right).  For the last row (complement operations), the "Subtracted" area is removed from the "Base" area to result in the Complement (C). 
 
