@@ -19,13 +19,7 @@ You can also navigate to these functions by using the drop down options in the *
 Cohort Creation - Filters 
 =========================
 
-Using the list of filters on the left panel, you can select the attributes and features that interest you from ISB-CGC data or user data. You can create a cohort containing multiple programs.  
-
-By clicking on a feature, the field will expand and provide you with additional filtering options. For example, when you click on "Vital Status", it expands and provides a list containing "Alive", "Dead", and "NA" as options you may choose from. 
-
-Selecting one or more of these will cause the filter(s) to appear in the Cohort Filters panel and will update the Data Set Details panel with the Total Number of Samples based on the selected filters.
-
-Individual selections within a filter group are "ORed" together, meaning if any of the conditions are met, they will be in the results.  On the other hand, filters are "ANDed" together, meaning that data must meet all filter criteria in order to be selected. There may be times where you have no cases and samples in the results, based on the combination of filters you have chosen.
+Using the list of data sets and filters on the left, you can select the attributes and features that interest you from ISB-CGC data or user data. You can create a cohort containing multiple programs.  
 
 Select Data Set
 -----------------
@@ -38,14 +32,24 @@ By default, the list is sorted by Node (Genomics Data Commons, Proteomics Data C
 .. image:: SelectDataSet.png
    :align: center
 
-- The TCGA, CCLE, TARGET and BEATAML1.0 DATA tabs each have three tabs called "CASE", "DATA TYPE", and "MOLECULAR" which allow you to apply filters to the cohorts you are creating using ISB-CGC hosted data. 
+Select Filters
+-----------------
+
+When an ISB-CGC hosted data set is selected, appropriate filters will display under three tabs. All tabs are not available for all programs, but all programs will have some features available on the CASE tab.
 
   - The CASE tab displays clinical and demographic features applicable to the selected program.
   - The DATA tab displays data types (ex. Aligned Reads, Copy Number Segment Masked) applicable to the selected program.
   - The MOLECULAR tab displays filters pertaining to mutations.
-- For the USER DATA tab, there is one tab called "PROJECTS & STUDIES" which allow you to filter by the projects or studies you have uploaded to the system.
+  
+For USER DATA, there is one tab called "PROJECTS & STUDIES" which allow you to filter by the projects or studies you have uploaded to the system.
+  
+Click on a filter name to see the selection values. For example, when you click on "Vital Status", it expands and provides a list containing "Alive", "Dead", and "NA" as options you may choose from. 
 
-Note: Selecting the program filter will add all samples pertaining to the program. Also there is a mouse over feature that will display the disease code long name if it's part of the TCGA, CCLE, TARGET or BEATAML data set.
+Selected filters will display in the Cohort Filters panel. The Data Set Details panel eill update the Total Number of Cases and the Total Number of Samples based on the selected filters.
+
+Individual selections within a filter group are "ORed" together, meaning if any of the conditions are met, they will be in the results.  On the other hand, filters are "ANDed" together, meaning that data must meet all filter criteria in order to be selected. There may be times where you have no cases and samples in the results, based on the combination of filters you have chosen.
+
+Note: Hovering over the Disease Code name will display the disease code long name if it's part of the TCGA, CCLE, TARGET data set.
    
 Molecular Tab
 ^^^^^^^^^^^^^
@@ -61,9 +65,9 @@ NOTES:
 - If you use AND and do not see the data you are expecting in the filter, try OR instead.  AND is a more restrictive criteria requiring all filters to be met, OR is less restrictive, requiring only one criteria to be met for the data to appear.
 - Please add the term "AND" or "OR" in your saved cohort title since the type of combination used in your cohort does not display in the filters list for a saved cohort. 
           
-Programs & Projects Panel
+Programs & Projects Tab
 ^^^^^^^^^^^^^^^^^^^^^^^^
-The Programs & Projects Panel is only available for User Data. It displays the programs and projects that are part of the user data set. 
+The Programs & Projects Tab is only available for User Data. It displays the programs and projects that are part of the user data set. 
 
 Cohort Filters Panel
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -90,7 +94,7 @@ By using the “Show More” button, you can see additional tree maps.  Mousing 
 Programs & Projects Panel
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This panel displays a list of images (called "treemaps") similar to the Data Set Clinical Features panel, but can only be found when the User Data tab is selected. This panel displays a high level breakdown of the projects and studies you have uploaded to the system. Hovering over the image will show details of that specific section of the image and the number of samples associated with it. 
+This panel displays a list of images (called "treemaps") similar to the Data Set Clinical Features panel, but is only available when the User Data tab is selected. This panel displays a high level breakdown of the projects and studies you have uploaded to the system. Hovering over the image will show details of that specific section of the image and the number of samples associated with it. 
 
 Saving the Cohort
 ^^^^^^^^^^^^^^^^^^
