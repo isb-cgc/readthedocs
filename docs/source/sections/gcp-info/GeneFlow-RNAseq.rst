@@ -185,14 +185,14 @@ To run the workflow:
 
 ::
 
-	# assuming the GeneFlow Python virtual environment has been activated, check command line help
+	# assuming the GeneFlow Python virtual environment has been activated, view the command line help
  	$ gf help GeneFlow-RNAseq
 
 	# run the workflow
 	$ cd GeneFlow-RNAseq
 	$ gf run . -o output 
 
-After the workflow finishes running, the output folder should look similar to this:
+After the workflow completes, the output folder should look similar to this:
 
 ::
 
