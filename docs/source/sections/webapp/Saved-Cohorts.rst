@@ -43,25 +43,25 @@ When an ISB-CGC hosted data set is selected, appropriate filters will display un
   
 For USER DATA, there is one tab called "PROJECTS & STUDIES" which allow you to filter by the projects or studies you have uploaded to the system.
   
-Click on a filter name to see the selection values. For example, when you click on "Vital Status", it expands and provides a list containing "Alive", "Dead", and "NA" as options you may choose from. 
+Click on a filter name to see the selection values. For example, when you click on "Vital Status", it expands and provides a list containing "Alive", "Dead", and "NA" as values you may choose. 
 
-Selected filters will display in the Cohort Filters panel. The Data Set Details panel eill update the Total Number of Cases and the Total Number of Samples based on the selected filters.
+Selected filters will display in the Cohort Filters panel. The Data Set Details panel will update the Total Number of Cases and the Total Number of Samples based on the selected filters.
 
 Individual selections within a filter group are "ORed" together, meaning if any of the conditions are met, they will be in the results.  On the other hand, filters are "ANDed" together, meaning that data must meet all filter criteria in order to be selected. There may be times where you have no cases and samples in the results, based on the combination of filters you have chosen.
 
- - If you use AND and do not see the data you are expecting in the filter, try OR instead.  AND is a more restrictive criteria requiring all filters to be met, OR is less restrictive, requiring only one criteria to be met for the data to appear.
+ - If you use AND and do not see the data you are expecting in the filter, try OR instead.  AND is a more restrictive criteria requiring all filters to be met; OR is less restrictive, requiring only one criteria to be met for the data to display.
  - You may want to consider adding the term "AND" or "OR" in your saved cohort title since the type of combination used in your cohort does not display in the filters list for a saved cohort.
 
-Note: Hovering over the Disease Code name will display the disease code long name if it's part of the TCGA, CCLE, TARGET data set.
+Note: Hovering over the Disease Code name will display the disease code long name if it's part of the TCGA, CCLE, or TARGET data set.
    
 Molecular Tab
 ^^^^^^^^^^^^^
 
-The Molecular Tab is only available for TCGA data. It enables the user to filter by Gene Mutation Status (creating a cohort based on the presence of a mutation (of various types) in a gene or genes).
+The Molecular Tab is only available for TCGA data. It enables the user to filter by Gene Mutation Status, creating a cohort based on the presence of a mutation (of various types) in a gene or genes.
 
 To combine multiple gene filters, select AND (requires all filters to be met for the data to be filtered) or OR (at least one criteria needs to be met for the data to be displayed).
 
-You can also filter by different genomic builds.
+You can also filter by Genomic Build.
           
 Programs & Projects Tab
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -70,7 +70,7 @@ The Programs & Projects Tab is only available for User Data. It displays the pro
 Cohort Filters Panel
 ^^^^^^^^^^^^^^^^^^^^^^
 
-This panel displays the selected filters for the cohort. Filters are listed under the program name. If you click on the program name, the Select Data Set and Select Filters panels to the left will change to display that Program.
+This panel displays the selected filters for the cohort. Filters are listed under the program name. If you click on the program name, the screeb will change to display the information for that program.
 
 Selecting an X beside a single filter will remove that filter.  
 
