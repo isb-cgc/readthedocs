@@ -25,9 +25,7 @@ Select Data Set
 -----------------
 This panel in the top left of the screen allows you to pick the programs and user data sets that you want included in the cohort.
 
-The drop down list will display the ISB-CGC data sets that the Web App is currently supporting, as well as your user data.
-
-By default, the list is sorted by Node (Genomics Data Commons, Proteomics Data Commons, User) with programs listed below each node header. The sort order can be changed by selecting Program next to **Sort By**.
+The drop down list will display the ISB-CGC data sets that the Web App is currently supporting, as well as your user data. By default, the list is sorted by Node (Genomics Data Commons, Proteomics Data Commons, User) with programs listed below each node header. The sort order can be changed by selecting Program next to **Sort By**.
 
 .. image:: SelectDataSet.png
    :align: center
@@ -49,7 +47,7 @@ Selected filters will display in the Cohort Filters panel. The Data Set Details 
 
 Individual selections within a filter group are "ORed" together, meaning if any of the conditions are met, they will be in the results.  On the other hand, filters are "ANDed" together, meaning that data must meet all filter criteria in order to be selected. There may be times where you have no cases and samples in the results, based on the combination of filters you have chosen.
 
- - If you use AND and do not see the data you are expecting in the filter, try OR instead.  AND is a more restrictive criteria requiring all filters to be met; OR is less restrictive, requiring only one criteria to be met for the data to display.
+ - If you use AND and do not see the data you are expecting in the filter, try OR instead. AND is a more restrictive criteria requiring all filters to be met; OR is less restrictive, requiring only one criteria to be met for the data to display.
  - You may want to consider adding the term "AND" or "OR" in your saved cohort title since the type of combination used in your cohort does not display in the filters list for a saved cohort.
 
 Note: Hovering over the Disease Code name will display the disease code long name if it's part of the TCGA, CCLE, or TARGET data set.
@@ -57,11 +55,9 @@ Note: Hovering over the Disease Code name will display the disease code long nam
 Molecular Tab
 ^^^^^^^^^^^^^
 
-The Molecular Tab is only available for TCGA data. It enables the user to filter by Gene Mutation Status, creating a cohort based on the presence of a mutation (of various types) in a gene or genes.
+The Molecular Tab is only available for TCGA data. It enables the user to filter by Gene Mutation Status, creating a cohort based on the presence of a mutation (of various types) in a gene or genes. 
 
-To combine multiple gene filters, select AND (requires all filters to be met for the data to be filtered) or OR (at least one criteria needs to be met for the data to be displayed).
-
-You can also filter by Genomic Build.
+To combine multiple gene filters, select AND (requires all filters to be met for the data to be filtered) or OR (at least one criteria needs to be met for the data to be displayed). You can also filter by Genomic Build.
           
 Programs & Projects Tab
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -72,9 +68,7 @@ Cohort Filters Panel
 
 This panel displays the selected filters for the cohort. Filters are listed under the program name. If you click on the program name, the screeb will change to display the information for that program.
 
-Selecting an X beside a single filter will remove that filter.  
-
-Note that you cannot removed filters once the cohort has been saved. (See Set Operations below for more ways to add or remove filters from your cohorts.)
+Selecting an X beside a single filter will remove that filter. Note that you cannot removed filters once the cohort has been saved. (See Set Operations below for more ways to add or remove filters from your cohorts.)
 
 Data Set Details Panel
 ^^^^^^^^^^^^^
@@ -87,7 +81,7 @@ Data Set Clinical Features Panel
 This panel shows a list of images (called "treemaps") that give a high level breakdown of the selected samples for a 
 handful of features (ex. Disease Code, Vital Status, Gender, Sample Type, Age at Diagnosis, etc.) for the currently displayed data set based on the selected filters. 
 
-By using the “Show More” button, you can see additional tree maps.  Mousing over an image shows the details of each specific section of the image and the number of samples associated with it.
+By using the **Show More** button, you can see additional tree maps.  Mousing over an image shows the details of each specific section of the image and the number of samples associated with it.
 
 Programs & Projects Panel
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -104,7 +98,7 @@ NOTE: When working with multiple programs you will see a yellow notification box
 Cohort Creation - Barcodes
 ==========================
 
-This feature allows you upload or enter your own list of sample or cases barcodes from multiple programs.  There is a blue Show Instructions button on both the **UPLOAD** and **ENTER** tabs.  
+This feature allows you upload or enter your own list of sample or cases barcodes from multiple programs.  There is a blue **Show Instructions** button on both the **UPLOAD** and **ENTER** tabs.  
 
 Upload Tab
 -----------
@@ -161,9 +155,7 @@ Set Operations
 
 Clicking the **Set Operations** button displays a **New Cohort** screen where you can create new cohorts from two or more existing cohorts using the union, intersection or complement operations. The Set Operations button will only be available if at least two cohorts are selected on the **Cohorts** screen. 
 
-On the **New Cohort** screen, enter a name for the new cohort and select a set operation. The intersect and union operations can take any number of cohorts and in any order. The complement operation requires that there is a base cohort, from which the other cohorts will be subtracted.
-
-Click **Okay** to complete the set operation and create the new cohort.
+On the **New Cohort** screen, enter a name for the new cohort and select a set operation. The intersect and union operations can take any number of cohorts and in any order. The complement operation requires that there is a base cohort, from which the other cohorts will be subtracted. Click **Okay** to complete the set operation and create the new cohort.
 
 Note: To combine the user uploaded data and the ISB-CGC data, use the Set Operations function. This is possible because the list of barcodes is what is used to create the set operation. For example, to make a cohort of user data samples and ISB-CGC curated samples, Set Union must be used, and to filter user data which is an extension of TCGA or TARGET samples, Set Intersection must be used.
 
@@ -185,7 +177,7 @@ The screen is divided into the following sections:
 
 **Current Filters Panel**
 
-This panel displays current filters on this cohort or any of its ancestors. Saved filters cannot be removed, but new ones can be added using Edit.
+This panel displays current filters on this cohort or any of its ancestors. Saved filters cannot be removed, but new ones can be added using **Edit**.
 
 **Cohort Details Panel**
 
@@ -195,9 +187,7 @@ This panel displays the Internal ISB-CGC Cohort ID (the identifier you use to ac
 
 This panel displays all the programs and user data sets that are included in the cohort; click on the drop down to see them.
 
-By default, the list is sorted by Node (Genomics Data Commons, Proteomics Data Commons, User) with programs listed below each node header. The sort order can be changed by selecting Program next to **Sort By**.
-
-To see details about a program or data set, select it from the drop down list.
+By default, the list is sorted by Node (Genomics Data Commons, Proteomics Data Commons, User) with programs listed below each node header. The sort order can be changed by selecting Program next to **Sort By**. To see details about a program or data set, select it from the drop down list.
 
 **Data Set Details Panel**
 
@@ -229,7 +219,7 @@ Clicking the **Comments** button displays the Comments panel. Here anyone who ca
 Copy a cohort
 =============
 
-To create a copy of the cohort, click on the **Duplicate** button. This will take you to a new copy of the cohort which has the same list of samples and cases and make you the owner of the copy.  
+To create a copy of the cohort, click on the **Duplicate** button. This will take you to a new copy of the cohort which has the same list of samples and cases;  you will be the owner of the copy.  
 
 This is how you create a copy of another researcher's cohort that they have shared with you. (Note: If they later change their cohort, your cohort will not be updated; it will remain the same as it was at the time you duplicated it).
 
