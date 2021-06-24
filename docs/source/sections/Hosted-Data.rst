@@ -61,7 +61,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - 
    * - `FM <data/FM_about.html>`_
      - |checkmark|
-     - |checkmark| *
+     - |checkmark|
      - |checkmark|
    * - `GENIE <data/GENIE_about.html>`_
      - |checkmark|
@@ -73,7 +73,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - 
    * - `MMRF <data/MMRF_about.html>`_
      - |checkmark|
-     - |checkmark| *
+     - |checkmark|
      - |checkmark|
    * - `NCICCR <data/NCICCR_about.html>`_
      - |checkmark|
