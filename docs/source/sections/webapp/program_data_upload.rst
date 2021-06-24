@@ -1,7 +1,7 @@
 *********
 Programs
 *********
-Uploading your own data is a way of creating custom groupings of the samples and/or cases that you are interested in analyzing further along with the data that is already preexisting in our system, using tools that are on the system. You may frequently re-use the data that was uploaded in multiple analyses. Creating a Program allows you to do this. If you have any existing Programs with data uploaded, they will appear here for you to view, edit and share.
+Uploading your own data is a way of creating custom groupings of the samples and/or cases that you are interested in analyzing further along with the data that is already preexisting in our system, using tools that are on the system. You may frequently reuse the data that was uploaded in multiple analyses. Creating a Program allows you to do this. If you have any existing Programs with data uploaded, they will appear here for you to view, edit and share.
 
 Upload Program Data
 ####################
@@ -224,7 +224,7 @@ Clicking on the **Upload Data** button will take you to the **Register a Google 
 Public Programs
 ###############
 
-Selecting **Public Program** from the **PROGRAMS** menu dropdown displays the **Programs** screen, **PUBLIC PROGRAMS** tab. This screen displays details about the public programs (TCGA, CCLE, TARGET and BEATAML1.0) currently available in the Web App. It displays the number of projects, the ownership and the last date each program was updated.
+Selecting **Public Program** from the **PROGRAMS** menu dropdown displays the **Programs** screen, **PUBLIC PROGRAMS** tab. This screen displays details about the public programs currently available in the Web App. It displays the number of projects, the ownership and the last date each program was updated.
 
 Clicking the + adjacent to each program will display a list of all projects in the program, and their last updated dates.
 

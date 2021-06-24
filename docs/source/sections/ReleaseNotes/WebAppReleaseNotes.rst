@@ -2,6 +2,28 @@
 ISB-CGC Web App Release Notes
 #############################
 
+*June xx, 2021* 
+
+**New Features** 
+
+- The Citations link on the top-level menu has been replaced with a Publications link. The page now includes ISB-CGC publications and posters, as well as citations.
+- Enhance the Cohort Builder UI and Cohort Details UI so that additional node based GDC and PDC Programs can be selected and edited. The Programs now available are:
+
+  - GDC
+  
+    - TCGA
+    - TARGET
+    - CCLE
+    - BEATAML1.0
+    - FM
+    - MMRF
+    - OHSU
+    
+  - PDC
+ 
+    - Georgetown Proteomics (GPRP) 
+- On the Cohort Builder, replace the Selected Filters panel with the Cohort Filters panel. This panel displays all selected filters for all selected Programs.
+
 *April 13, 2021* 
 
 **New Features** 
