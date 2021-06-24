@@ -18,6 +18,8 @@ Also on this page are links to:
 - Pipelines and APIs
 - Notebooks
 - Controlled Access Data
+- Documentation
+- ISB-CGC Publications and Citations
 
 
 **If your screen looks like this:** 

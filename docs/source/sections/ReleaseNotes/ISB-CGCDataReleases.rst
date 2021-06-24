@@ -46,7 +46,6 @@ New study, case metadata, file metadata, clinical, project-level per-sample file
 - isb-cgc-bq.TCGA_versioned.quant_proteome_TCGA_ovarian_JHU_pdc_V1_19
 - isb-cgc-bq.TCGA_versioned.quant_proteome_TCGA_ovarian_PNNL_pdc_V1_19
 
-
 **BigQuery tables updated**
 
 - isb-cgc-bq.CBTTC.quant_proteome_pediatric_brain_cancer_pilot_study_pdc_current

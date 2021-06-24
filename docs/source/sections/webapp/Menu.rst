@@ -33,7 +33,7 @@ The **MENU** bar supplies links for the following Web App features:
         
     - Public Programs - Here you can:
         
-      *  View the public programs (TCGA, CCLE, TARGET) that are currently in the ISB-CGC system. 
+      *  View the public programs that are currently in the ISB-CGC system. 
 
 * **ANALYSES** - From here you can Create, Edit Details, Duplicate, Delete, or Share Analyses. You can use a specific analysis type to create a new workbook customized with the specific data (Genes and miRNAs, Variables, Cohorts) you have selected.  The plot types that you can select are:
     
