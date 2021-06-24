@@ -4,7 +4,7 @@ Programs and Data Sets
 
 The National Cancer Institute (NCI) `Genomic Data Commons <https://gdc.cancer.gov/>`_ (GDC) and  `Proteomics Data Commons (PDC) <https://pdc.cancer.gov/pdc/>`_ provide the cancer research community with data repositories that enables data sharing across cancer genomic and proteomic studies (known as Programs) in support of precision medicine. 
 
-The ISB-CGC started with The Cancer Genome Atlas (TCGA) data sets but has expanded to include other data sets from programs such as Therapeutically Applicable Research To Generate Effective Treatments (TARGET). Along with the NCI GDC and PDC data sets, ISB-CGC hosts data sets from programs such as Catalogue Of Somatic Mutations In Cancer (COSMIC) from the `Wellcome Trust Sanger Institute <http://www.sanger.ac.uk/>`_. We are always interested in adding new data sets, so if you have any suggestions or requests for additional data, please let us know (feedback@isb-cgc.org).
+The ISB-CGC started with The Cancer Genome Atlas (TCGA) data sets but has expanded to include other data sets from programs such as Therapeutically Applicable Research to Generate Effective Treatments (TARGET). Along with the NCI GDC and PDC data sets, ISB-CGC hosts data sets from programs such as Catalogue Of Somatic Mutations In Cancer (COSMIC) from the `Wellcome Trust Sanger Institute <http://www.sanger.ac.uk/>`_. We are always interested in adding new data sets, so if you have any suggestions or requests for additional data, please let us know (feedback@isb-cgc.org).
 
 Clinical, Biospecimen and Processed -Omics Data Sets
 ----------------------------------------------------
