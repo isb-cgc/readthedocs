@@ -79,13 +79,13 @@ Note that you cannot removed filters once the cohort has been saved. (See Set Op
 Data Set Details Panel
 ^^^^^^^^^^^^^
 
-This panel shows the **Total Number of Samples** and **Total Number of Cases** in a cohort based on the selected filters. If there is a small "timer" icon, the calculation is taking place; the results should appear soon.
+This panel shows the **Total Number of Samples** and **Total Number of Cases** for the currently displayed data set based on the selected filters. If there is a small "timer" icon, the calculation is taking place; the results should appear soon.
 
 Data Set Clinical Features Panel
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 This panel shows a list of images (called "treemaps") that give a high level breakdown of the selected samples for a 
-handful of features (ex. Disease Code, Vital Status, Gender, Sample Type, Age at Diagnosis, etc.) for the selected program. 
+handful of features (ex. Disease Code, Vital Status, Gender, Sample Type, Age at Diagnosis, etc.) for the currently displayed data set based on the selected filters. 
 
 By using the “Show More” button, you can see additional tree maps.  Mousing over an image shows the details of each specific section of the image and the number of samples associated with it.
 
@@ -201,7 +201,7 @@ To see details about a program or data set, select it from the drop down list.
 
 **Data Set Details Panel**
 
-This panel shows the **Total Number of Samples** and **Total Number of Cases** for the data set or program selected from the Data Set drop down.
+This panel shows the **Total Number of Samples** and **Total Number of Cases** for the currently displayed data set (selected from the Data Set drop down) based on the selected filters.
 
 **Data Set Clinical Features Panel**
 
