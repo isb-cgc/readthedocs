@@ -2,6 +2,18 @@
 ISB-CGC Data Release Notes
 ############################
 
+*June 21, 2021*
+
+Updated the release 28 miRNAseq tables to include the sample_type_name field
+
+**BigQuery tables created**
+
+- isb-cgc-bq.CPTAC_versioned.miRNAseq_hg38_gdc_r28_v2
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.CPTAC.miRNAseq_hg38_gdc_current
+
 *June 18, 2021*
 
 New study, case metadata, file metadata, clinical, project-level per-sample file, and protein abundance log2ratio (quant) tables added to isb-cgc-bq for PDC V1.19.
