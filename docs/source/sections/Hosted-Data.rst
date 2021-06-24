@@ -62,7 +62,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
    * - `FM <data/FM_about.html>`_
      - |checkmark|
      - |checkmark| *
-     - 
+     - |checkmark|
    * - `GENIE <data/GENIE_about.html>`_
      - |checkmark|
      - |checkmark| *
@@ -74,7 +74,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
    * - `MMRF <data/MMRF_about.html>`_
      - |checkmark|
      - |checkmark| *
-     - 
+     - |checkmark|
    * - `NCICCR <data/NCICCR_about.html>`_
      - |checkmark|
      - |checkmark| *
@@ -82,7 +82,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
    * - `OHSU <data/OHSU_about.html>`_
      - |checkmark|
      - |checkmark| *
-     - 
+     - |checkmark|
    * - `ORGANOID <data/ORGANOID_about.html>`_
      - |checkmark|
      - |checkmark| 
@@ -161,7 +161,7 @@ PDC protein expression data are available in ISB-CGC BigQuery tables. The table 
    * - `Georgetown Proteomics Research Program <data/GPRP_about.html>`_
      - 
      - |checkmark| 
-     - 
+     - |checkmark|
    * - `ICPC <data/ICPC_about.html>`_
      - 
      - |checkmark|
