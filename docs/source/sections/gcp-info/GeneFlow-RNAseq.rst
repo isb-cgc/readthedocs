@@ -170,7 +170,7 @@ Let's take a look at the contents of the **workflow.yaml** file. The first block
 	      output: ${1}
 	...
 
-The **inputs** and **parameters** blocks define the inputs and paramaters that need to be passed to the workflow upon execution. Some of these inputs and parameters are optional or have default values. 
+The **inputs** and **parameters** blocks define the inputs and parameters that need to be passed to the workflow upon execution. Some of these inputs and parameters are optional or have default values. 
 
 The **apps** block lists all apps used by the workflow and links to other, reusable source repositories for each app. Learn more about how each app works by following the Git repository links below:
 
