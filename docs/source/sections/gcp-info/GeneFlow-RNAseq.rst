@@ -4,7 +4,7 @@ Running GeneFlow RNA-seq
 
 This GeneFlow `RNA-seq <https://www.technologynetworks.com/genomics/articles/rna-seq-basics-applications-and-protocol-299461#:~:text=RNA%2Dseq%20(RNA%2Dsequencing,patterns%20encoded%20within%20our%20RNA.>`_ workflow maps read-pairs to a reference genome and produces a transcript. 
 
-`GeneFlow <https://github.com/CDCgov/geneflow2>`_ enables modular and reproducible scientific workflows by leveraging re-usable, containerized steps. Custom workflow steps can be implemented using either Docker or Singularity containers. Additional documentation for GeneFlow can be found `here <https://geneflow.gitlab.io>`_. 
+`GeneFlow <https://github.com/CDCgov/geneflow2>`_ enables modular and reproducible scientific workflows by leveraging reusable, containerized steps. Custom workflow steps can be implemented using either Docker or Singularity containers. Additional documentation for GeneFlow can be found `here <https://geneflow.gitlab.io>`_. 
 
 Requirements
 ============
@@ -220,6 +220,6 @@ After the workflow completes, the output folder should look similar to this:
 		│   └── sample.bam-samtools-sort.stderr
 		└── sample.bam
 
-The script will run Docker containers for `hisat2 <http://daehwankimlab.github.io/hisat2/>`_ , `samtools <http://www.htslib.org/>`_, and `stringtie <https://ccb.jhu.edu/software/stringtie/>`_ to do the work. **sample.bam** contains the sequence alignment data produced by mapping reads to the reference genome **sample.bam**. Additional information about gtf and tsv outputs of stringtie can be found `here <http://ccb.jhu.edu/software/stringtie/index.shtml?t=manual>`_. The **sample_final_transcript.gtf** contains details of the transcripts that StringTie assembles from RNA-Seq data, while **sample.tsv** contains gene abundances.
+The script will run Docker containers for `hisat2 <http://daehwankimlab.github.io/hisat2/>`_, `samtools <http://www.htslib.org/>`_, and `stringtie <https://ccb.jhu.edu/software/stringtie/>`_ to do the work. **sample.bam** contains the sequence alignment data produced by mapping reads to the reference genome **sample.bam**. Additional information about gtf and tsv outputs of stringtie can be found `here <http://ccb.jhu.edu/software/stringtie/index.shtml?t=manual>`_. The **sample_final_transcript.gtf** contains details of the transcripts that StringTie assembles from RNA-Seq data, while **sample.tsv** contains gene abundances.
 
 View the results of this workflow `here <https://github.com/isb-cgc/RunningWorkflows-on-the-GoogleCloud/tree/master/Results/RNAseq>`_.
