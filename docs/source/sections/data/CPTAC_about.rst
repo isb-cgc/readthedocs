@@ -55,7 +55,7 @@ Python Jupyter Notebooks showing examples of queries of PDC CPTAC data are avail
 
 * `How do I explore CPTAC protein abundances? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_explore_CPTAC_protein_abundances.ipynb>`_
 
-* `How do I explore CPTAC protein abundances? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_compare_protein_and_gene_expression_CPTAC.ipynb>`_
+* `How do I compare protein and gene expression in CPTAC? <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_compare_protein_and_gene_expression_CPTAC.ipynb>`_
 
 * `Compute correlations of protein and gene expression in CPTAC <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/Correlations_Protein_and_Gene_expression_CPTAC.ipynb>`_
 
