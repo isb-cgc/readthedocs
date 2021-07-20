@@ -2,6 +2,13 @@
 ISB-CGC Web App Release Notes
 #############################
 
+*July 19, 2021* 
+
+- Log when users refresh their 24 hour access at DCF so this can be monitored
+- The Warning Notice about accessing a government website that should pop up when ISB-CGC is accessed was missing. It has been reinstated.
+- There was an issue loading the Variable selection page. This has been fixed.
+
+
 *June 24, 2021* 
 
 **New Features** 
