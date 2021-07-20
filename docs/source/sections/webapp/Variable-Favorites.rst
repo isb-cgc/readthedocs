@@ -27,9 +27,9 @@ To create a new Variable Favorite:
   
     * Enter one or more characters in the **Feature Search** field. A list of features containing these characters displays. Select a feature from the list and it will display in the **Selected Variables** panel.
     
-  - *Favorites Filter Selection* - Click on **FAVORITES** tab. This displays your existing Variable Favorite lists, and their component features. These features can now be selected for a new Variable Favorite list by checking the checkbox adjacent to each feature that you are interested in. They will display in the **Selected Variables** panel. 
+  - *Favorites Filter Selection* - From the Data Set drop down list, select **Favorites**. This displays your existing Variable Favorite lists, and their component features. These features can now be selected for a new Variable Favorite list by checking the checkbox adjacent to each feature that you are interested in. They will display in the **Selected Variables** panel. 
 
-  - *User Data Filter Search*- Click on **USER DATA** tab. This option allows you to select by filters that you have uploaded using the upload data functionality. It's separated by projects within your program; a drop down list will display the associated features.
+  - *User Data Filter Search*- From the Data Set drop down list, select **User Data-User**. This option allows you to select from filters that you have uploaded using the upload data functionality. It's separated by projects within your program; a drop down list will display the associated features.
   
 - Verify that all your selected filters are displayed in the **Selected Variables** panel on the right-hand side. Clicking **Clear All** will remove all selected filters. 
   
