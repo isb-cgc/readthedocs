@@ -2,11 +2,12 @@
 ISB-CGC Data Release Notes
 ############################
 
-*July 20, 2021*
+*July 14, 2021*
 
 Added release 28 miRNAseq isoform table for CPTAC
 
 **BigQuery tables created**
+
 - isb-cgc-bq.CPTAC_versioned.miRNAseq_isoform_hg38_gdc_r28
 - isb-cgc-bq.CPTAC.miRNAseq_isoform_hg38_gdc_current
 
