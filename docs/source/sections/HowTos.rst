@@ -62,7 +62,7 @@ I'm a novice, how do I...
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_explore_CPTAC_protein_abundances.ipynb>`_
      - 
    * - Compare protein and gene expression in CPTAC?
-     - `Python <https://https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebook/How_to_compare_protein_and_gene_expression_CPTAC.ipynb>`_
+     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebook/How_to_compare_protein_and_gene_expression_CPTAC.ipynb>`_
      - 
 
 I'm an advanced user, how do I...
