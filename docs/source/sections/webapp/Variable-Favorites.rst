@@ -16,18 +16,20 @@ To create a new Variable Favorite:
 - Name your new favorite; you can create many favorites and use them later when working with workbooks.
   
 - Select attributes and features for your variable list by performing one or more of these actions:
-
-  - *Common Filter Selection* - Click on a program to display relevant filters (attributes and features) under the **COMMON** tab.
   
-    * Check the checkbox adjacent to each feature that you are interested in. They will display in the **Selected Variables** panel. (Note that checking these filters will also check the filters under the under programs, if they are on that list.)
+  - Select a data set (program) from the **Select Data Set** drop down list. This will display features for that data set under the **COMMON** and **CLINICAL SEARCH** tabs.
+
+  - *Common Filter Selection* - Filters (attributes and features) that are fairly common across programs are displayed under the **COMMON** tab. Changing the data set will change the list of available filters.
+  
+    * Check the checkbox adjacent to each feature that you are interested in. They will display in the **Selected Variables** panel. 
     
-  - *Clinical Filter Feature Search* - Click on a program and then click the  **CLINICAL SEARCH** tab. This filter allows the user to search by any clinical feature in the selected program that is present in the most recent data uploaded for that program. 
+  - *Clinical Filter Feature Search* - Click the  **CLINICAL SEARCH** tab. This filter allows the user to search by any clinical feature in the selected data set (program). Changing the data set will change the list of available filters. 
   
     * Enter one or more characters in the **Feature Search** field. A list of features containing these characters displays. Select a feature from the list and it will display in the **Selected Variables** panel.
     
-  - *Favorites Filter Selection* - Click on **FAVORITES** tab. This displays your existing Variable Favorite lists, and their component features. These features can now be selected for a new Variable Favorite list by checking the checkbox adjacent to each feature that you are interested in. They will display in the **Selected Variables** panel. 
+  - *Favorites Filter Selection* - From the Data Set drop down list, select **Favorites**. This displays your existing Variable Favorite lists, and their component features. These features can now be selected for a new Variable Favorite list by checking the checkbox adjacent to each feature that you are interested in. They will display in the **Selected Variables** panel. 
 
-  - *User Data Filter Search*- Click on **USER DATA** tab. This option allows you to select by filters that you have uploaded using the upload data functionality. It's separated by projects within your program; a drop down list will display the associated features.
+  - *User Data Filter Search*- From the Data Set drop down list, select **User Data-User**. This option allows you to select from filters that you have uploaded using the upload data functionality. It's separated by projects within your program; a drop down list will display the associated features.
   
 - Verify that all your selected filters are displayed in the **Selected Variables** panel on the right-hand side. Clicking **Clear All** will remove all selected filters. 
   
