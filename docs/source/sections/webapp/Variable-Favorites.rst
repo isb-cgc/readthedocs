@@ -16,12 +16,14 @@ To create a new Variable Favorite:
 - Name your new favorite; you can create many favorites and use them later when working with workbooks.
   
 - Select attributes and features for your variable list by performing one or more of these actions:
-
-  - *Common Filter Selection* - Click on a program to display relevant filters (attributes and features) under the **COMMON** tab.
   
-    * Check the checkbox adjacent to each feature that you are interested in. They will display in the **Selected Variables** panel. (Note that checking these filters will also check the filters under the under programs, if they are on that list.)
+  - Select a data set (program) from the **Select Data Set** drop down list. This will display features for that data set under the **COMMON** and **CLINICAL SEARCH** tabs.
+
+  - *Common Filter Selection* - Filters (attributes and features) that are fairly common across programs are displayed under the **COMMON** tab. Changing the data set will change the list of available filters.
+  
+    * Check the checkbox adjacent to each feature that you are interested in. They will display in the **Selected Variables** panel. 
     
-  - *Clinical Filter Feature Search* - Click on a program and then click the  **CLINICAL SEARCH** tab. This filter allows the user to search by any clinical feature in the selected program that is present in the most recent data uploaded for that program. 
+  - *Clinical Filter Feature Search* - Click the  **CLINICAL SEARCH** tab. This filter allows the user to search by any clinical feature in the selected data set (program). Changing the data set will change the list of available filters. 
   
     * Enter one or more characters in the **Feature Search** field. A list of features containing these characters displays. Select a feature from the list and it will display in the **Selected Variables** panel.
     
