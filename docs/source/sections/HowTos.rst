@@ -58,7 +58,12 @@ I'm a novice, how do I...
    * - Use the ISB-CGC APIs?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_use_ISB_CGC_APIs.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_use_ISB-CGC_APIs.md>`_
-
+   * - Explore CPTAC protein abundances?
+     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_explore_CPTAC_protein_abundances.ipynb>`_
+     - 
+   * - Compare protein and gene expression in CPTAC?
+     - `Python <https://https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebook/How_to_compare_protein_and_gene_expression_CPTAC.ipynb>`_
+     - 
 
 I'm an advanced user, how do I...
 -------------------------
@@ -104,7 +109,6 @@ I'm an advanced user, how do I...
    * - Use a BigQuery user defined function to perform k-means clustering?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_cluster_data_using_a_BigQuery_function.ipynb>`_
      - 
-   * - Explore CPTAC protein abundances?
-     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_explore_CPTAC_protein_abundances.ipynb>`_
-     -    
+   
+     
 *Notebook inspired by a `Query of the Month Blog <QueryOfTheMonthClub.html>`_ post
