@@ -109,6 +109,11 @@ I'm an advanced user, how do I...
    * - Use a BigQuery user defined function to perform k-means clustering?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_cluster_data_using_a_BigQuery_function.ipynb>`_
      - 
-   
+   * - Compute correlations of protein and gene expression in CPTAC?
+     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/Correlations_Protein_and_Gene_expression_CPTAC.ipynb>`_
+     - 
+   * - Compare protein expression from different pipelines using CPTAC data?
+     - `Python <https://https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/Comparing_protein_expression_from_different_pipelines_CPTAC.ipynb>`_
+     - 
      
 *Notebook inspired by a `Query of the Month Blog <QueryOfTheMonthClub.html>`_ post
