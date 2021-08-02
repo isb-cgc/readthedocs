@@ -18,7 +18,7 @@ I'm a novice, how do I...
   
    * - Get started fast?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/Quick_Start_Guide_to_ISB_CGC.ipynb>`_
-     - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/Quick_Start_Guide_for_ISB-CGC.md>`_
+     - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/Quick_Start_Guide_to_ISB_CGC.md>`_
    * - Find GDC file locations?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_Find_GDC_File_Locations.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_Find_GDC_File_Locations.md>`_
