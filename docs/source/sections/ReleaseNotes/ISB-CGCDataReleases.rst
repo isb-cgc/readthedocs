@@ -2,7 +2,7 @@
 ISB-CGC Data Release Notes
 ############################
 
-*August 2, 2020*
+*August 2, 2021*
 
 New study, case metadata, file metadata, clinical, project-level per-sample file, and protein abundance log2ratio (quant) tables added to isb-cgc-bq for PDC V1.21.
 
