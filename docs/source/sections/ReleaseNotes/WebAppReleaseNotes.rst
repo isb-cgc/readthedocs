@@ -2,6 +2,37 @@
 ISB-CGC Web App Release Notes
 #############################
 
+*July 19, 2021* 
+
+- The Warning Notice about accessing a government website that should pop up when ISB-CGC is accessed was missing. It has been reinstated.
+- There was an issue loading the Variable selection page. This has been fixed.
+- On the Create and Edit Variable screens, the data set/programs tabs have been changed to a drop down.
+- In some cases when creating a cohort with multiple programs, the Data Set Clinical Features panel was not displaying the appropriate information. This has been corrected.
+- The system now logs when users refresh their 24 hour access at DCF so that this can be monitored.
+
+
+*June 24, 2021* 
+
+**New Features** 
+
+- The Citations link on the top-level menu has been replaced with a Publications link. The page now includes ISB-CGC publications and posters, as well as citations.
+- Enhance the Cohort Builder UI and Cohort Details UI so that additional node based GDC and PDC Programs can be selected and edited. The Programs now available are:
+
+  - GDC
+  
+    - TCGA
+    - TARGET
+    - CCLE
+    - BEATAML1.0
+    - FM
+    - MMRF
+    - OHSU
+    
+  - PDC
+ 
+    - Georgetown Proteomics (GPRP) 
+- On the Cohort Builder, replace the Selected Filters panel with the Cohort Filters panel. This panel displays all selected filters for all selected Programs.
+
 *April 13, 2021* 
 
 **New Features** 
