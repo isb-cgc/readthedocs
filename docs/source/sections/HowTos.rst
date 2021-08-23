@@ -114,6 +114,15 @@ I'm an advanced user, how do I...
      - 
    * - Compare protein expression from different pipelines using CPTAC data?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/RegulomeExplorer/Comparing_protein_expression_from_different_pipelines_CPTAC.ipynb>`_
+     -
+   * - Calculate associations between radiomics tumor imaging features and gene expression?
+     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_compare_tumor_features_with_gene_expression_data.ipynb>`_
+     -
+   * - Analyze the correlation between gene mutations and tumor imaging features?
+     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_compare_tumor_features_with_mutation_data.ipynb>`_
+     -
+   * - Compare gene expression in tumor against gene expression in normal tissue?
+     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_analyze_differential_expression_between_paired_tumor_and_normal_samples.ipynb>`_
      - 
      
 *Notebook inspired by a `Query of the Month Blog <QueryOfTheMonthClub.html>`_ post
