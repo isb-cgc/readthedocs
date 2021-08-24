@@ -114,16 +114,16 @@ Let's take a look at the contents of the **workflow.yaml** file. The first block
 	# apps
 	apps:
 	  hisat2-build:
-	    git: https://gitlab.com/geneflow/apps/hisat2-build-gf2.git
+	    git: https://github.com/geneflow-apps/hisat2-build-gf2.git
 	    version: '2.2.1-01'
 	  hisat2-align:
-	    git: https://gitlab.com/geneflow/apps/hisat2-align-gf2.git
+	    git: https://github.com/geneflow-apps/hisat2-align-gf2.git
 	    version: '2.2.1-01'
 	  bam-sort:
-	    git: https://gitlab.com/geneflow/apps/bam-sort-gf2.git
+	    git: https://github.com/geneflow-apps/bam-sort-gf2.git
 	    version: '1.10-07'
 	  stringtie:
-	    git: https://gitlab.com/geneflow/apps/stringtie-gf2.git
+	    git: https://github.com/geneflow-apps/stringtie-gf2.git
 	    version: '2.1.6-01'
 
 	# steps
@@ -174,10 +174,10 @@ The **inputs** and **parameters** blocks define the inputs and parameters that n
 
 The **apps** block lists all apps used by the workflow and links to other, reusable source repositories for each app. Learn more about how each app works by following the Git repository links below:
 
-* `HISAT2 Build <https://gitlab.com/geneflow/apps/hisat2-build-gf2.git>`_
-* `HISAT2 Align <https://gitlab.com/geneflow/apps/hisat2-align-gf2.git>`_
-* `BAM Sort <https://gitlab.com/geneflow/apps/bam-sort-gf2.git>`_
-* `StringTie <https://gitlab.com/geneflow/apps/stringtie-gf2.git>`_
+* `HISAT2 Build <https://github.com/geneflow-apps/hisat2-build-gf2.git>`_
+* `HISAT2 Align <https://github.com/geneflow-apps/hisat2-align-gf2.git>`_
+* `BAM Sort <https://github.com/geneflow-apps/bam-sort-gf2.git>`_
+* `StringTie <https://github.com/geneflow-apps/stringtie-gf2.git>`_
 
 The **steps** block defines the order of app execution as well as step dependencies for each app. It also defines how apps are chained together via their inputs and outputs. 
 
