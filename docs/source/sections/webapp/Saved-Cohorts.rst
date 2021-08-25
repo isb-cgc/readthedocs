@@ -262,9 +262,8 @@ Controlled access files will be viewable by sequence ONLY if you have `authentic
 Using the Image Pathology Viewer
 --------------------------------
 
-Note
-
-All tissue slide images from the TCGA program are currently unavailable for viewing. (Diagnostic images will display.)
+.. note::
+   All tissue slide images from the TCGA program are currently unavailable for viewing. (Diagnostic images will display.)
 
 When available, pathology images can be viewed using the caMicroscope tool (see more about caMicroscope provide `here <http://camicroscope.org>`_).  These are the pathology images that are associated with TCGA samples. To find images that can be viewed, open a saved cohort and select the **File Browser** button. You can also select the **File Browser** link from the Dashboard Saved Cohorts panel.  The files associated with your cohort will be shown. Click on **Pathology Images** to see a list of available pathology images. Hovering over the File Name and clicking on "Open in caMicroscope" will open the image file in a new tab using caMicroscope. (HINT: using a smaller cohort will provide faster response in creating the list of files available).
 
