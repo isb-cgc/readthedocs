@@ -7,6 +7,9 @@ and the IGV desktop version can also be used to access cancer data in Google Clo
 Accessing the IGV Browser from the Web App
 --------------------------------------------------
 
+.. note::
+   All tissue slide images from the TCGA program are currently unavailable for viewing.
+
 To access IGV, first select a cohort and then go to the cohort file list page by clicking on the "File Browser" button at the top of the page.
 
 .. image:: cohort.PNG
