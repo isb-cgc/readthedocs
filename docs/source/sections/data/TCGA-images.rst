@@ -22,6 +22,9 @@ The metadata table also includes the patient identifier in TCGA "barcode" format
 Pathology Images
 ################
 
+.. note::
+   All tissue slide images from the TCGA program are currently unavailable for viewing.  (Diagnostic images will display.)
+
 Over 30,000 TCGA tissue slide images in `SVS <http://openslide.org/formats/aperio/>`_ format, are also available in GCS, in the open-access bucket `gs://gdc-tcga-phs000178-open/ <https://console.cloud.google.com/storage/browser/gdc-tcga-phs000178-open/>`_.
 
 These files were uploaded from the `GDC legacy archive <https://portal.gdc.cancer.gov/legacy-archive/search/f?filters=%7B%22op%22:%22and%22,%22content%22:%5B%7B%22op%22:%22in%22,%22content%22:%7B%22field%22:%22files.data_format%22,%22value%22:%5B%22SVS%22%5D%7D%7D%5D%7D>`_.
