@@ -23,7 +23,7 @@ Pathology Images
 ################
 
 .. note::
-   All tissue slide images from the TCGA program are currently unavailable for viewing.
+   All tissue slide images from the TCGA program are currently unavailable for viewing.  (Diagnostic images will display.)
 
 Over 30,000 TCGA tissue slide images in `SVS <http://openslide.org/formats/aperio/>`_ format, are also available in GCS, in the open-access bucket `gs://gdc-tcga-phs000178-open/ <https://console.cloud.google.com/storage/browser/gdc-tcga-phs000178-open/>`_.
 
