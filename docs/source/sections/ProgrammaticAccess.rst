@@ -17,7 +17,7 @@ ISB-CGC provides programmatic access to cancer data (both open and controlled-ac
 Workflow Gallery
 ================
 
-We have compiled a collection of tutorials and sample workflows designed to introduce users to running workflows (CWL, Nextflow, Snakemake, WDL) on the Google Cloud Platform (GCP). ISB-CGC does not make the choice for users but instead enables as many workflow technologies as possible through documentation, support, and where necessary, infrastructure.
+We have compiled a collection of tutorials and sample workflows designed to introduce users to running workflows (CWL, Nextflow, Snakemake, WDL, and GeneFlow) on the Google Cloud Platform (GCP). ISB-CGC does not make the choice for users but instead enables as many workflow technologies as possible through documentation, support, and where necessary, infrastructure.
 
 
 
