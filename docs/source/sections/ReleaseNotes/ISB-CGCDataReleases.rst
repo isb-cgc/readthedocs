@@ -2,6 +2,22 @@
 ISB-CGC Data Release Notes
 ############################
 
+*September 1, 2021*
+
+New Reactome datasets and tables added to isb-cgc-bq.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.reactome.pathway_current
+- isb-cgc-bq.reactome.physical_entity_current
+- isb-cgc-bq.reactome.pe_to_pathway_current
+- isb-cgc-bq.reactome.pathway_hierarchy_current
+- isb-cgc-bq.reactome_versioned.pathway_v77
+- isb-cgc-bq.reactome_versioned.physical_entity_v77
+- isb-cgc-bq.reactome_versioned.pe_to_pathway_v77
+- isb-cgc-bq.reactome_versioned.pathway_hierarchy_v77
+
+
 *August 2, 2021*
 
 New study, case metadata, file metadata, clinical, project-level per-sample file, and protein abundance log2ratio (quant) tables added to isb-cgc-bq for PDC V1.21.
