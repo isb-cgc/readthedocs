@@ -10,12 +10,14 @@ The `Catalogue Of Somatic Mutations In Cancer <https://cancer.sanger.ac.uk/cosmi
 About the Catalog Of Somatic Mutations In Cancer Data
 ------------------------------------------------------
 
-The BigQuery data sets contain *all* of the CSV and TSV files available for download from the `COSMIC Download page <http://cancer.sanger.ac.uk/cosmic/download>`_. Please explore the tables at (after registering for access):
+The BigQuery data sets contain *all* of the CSV and TSV files available for download from the `COSMIC Download page <http://cancer.sanger.ac.uk/cosmic/download>`_ for versions 85-92 except version 88. ISB-CGC will not be hosting any version of COSMIC data past version 92 due to licensing costs. 
+
+Please explore the tables at (after registering for access):
 
 * `isb-cgc-bq.COSMIC <https://console.cloud.google.com/bigquery?p=isb-cgc-bq&d=COSMIC&page=dataset>`_
 * `isb-cgc-bq.COSMIC_versioned <https://console.cloud.google.com/bigquery?p=isb-cgc-bq&d=COSMIC_versioned&page=dataset>`_
 
-*Note: the project isb-cgc contains versions 85-91 except 88 and project isb-cgc-bq contains versions 92 and higher*
+*Note: the project isb-cgc contains versions 85-91 except 88 and project isb-cgc-bq contains versions 92*
 
 
 Accessing the Catalog Of Somatic Mutations In Cancer Data
