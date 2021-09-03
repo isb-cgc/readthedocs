@@ -6,11 +6,11 @@ ISB-CGC Data Release Notes
 
 **BigQuery tables created**
 
-- isb-cgc-bq:CPTAC_versioned.masked_somatic_mutation_hg38_gdc_r28
+- isb-cgc-bq.CPTAC_versioned.masked_somatic_mutation_hg38_gdc_r28
 
 **BigQuery tables updated**
 
-- isb-cgc-bq:CPTAC.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.CPTAC.masked_somatic_mutation_hg38_gdc_current
 
 *September 1, 2021*
 
