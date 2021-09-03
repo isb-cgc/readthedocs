@@ -2,6 +2,16 @@
 ISB-CGC Data Release Notes
 ############################
 
+*September 3, 2021*
+
+**BigQuery tables created**
+
+- isb-cgc-bq.CPTAC_versioned.masked_somatic_mutation_hg38_gdc_r28
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.CPTAC.masked_somatic_mutation_hg38_gdc_current
+
 *September 1, 2021*
 
 New Reactome datasets and tables added to isb-cgc-bq.
