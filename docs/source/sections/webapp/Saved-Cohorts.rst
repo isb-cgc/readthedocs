@@ -68,7 +68,8 @@ Cohort Filters Panel
 
 This panel displays the selected filters for the cohort. Filters are listed under the program name. If you click on the program name, the screeb will change to display the information for that program.
 
-Selecting an X beside a single filter will remove that filter. Note that you cannot removed filters once the cohort has been saved. (See Set Operations below for more ways to add or remove filters from your cohorts.)
+Selecting an X beside a single filter will remove that filter. Selecting **Clear All** in the top right of the panel will remove all the filters.
+Note that you cannot removed filters once the cohort has been saved. (See Set Operations below for more ways to add or remove filters from your cohorts.)
 
 Data Set Details Panel
 ^^^^^^^^^^^^^
