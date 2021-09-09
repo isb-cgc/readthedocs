@@ -2,7 +2,7 @@
 Programs
 *********
 
-The Programs screen displays information about public programs available through the WebApp. 
+The Programs screen displays information about public programs available through the Web App. 
 
 Public Programs
 ###############
