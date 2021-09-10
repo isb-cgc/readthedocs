@@ -30,6 +30,7 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    sections/HowtoRequestCloudCredits
    sections/BestPractices
    sections/Benefits
+   sections/office_hours
    
 .. toctree::
    :hidden:
