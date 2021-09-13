@@ -10,10 +10,12 @@ For more detailed information about the data stored in ISB-CGC BigQuery tables p
 
 **New Features**
 
-On the Search results, add an  “Example Joins” column. This column specifies the number of example join queries provided by the BigQuery Table Search that include this table. 
+On the Search results, added an “Example Joins” column. This column specifies the number of example join queries, for the table on that row, which are provided by the BigQuery Table Search.  
+
+Functionality includes:
 
 -	Click the number in the “Example Joins” column to see a list of examples. 
--	From there, click on View Details to see the SQL Query and a longer description. 
+-	From there, click on View Details for a particular example to see the SQL Query and a longer description. 
 -	On the View Details screen, click on COPY to copy the query to your clipboard.
 
 *December 8, 2020* v1.04
