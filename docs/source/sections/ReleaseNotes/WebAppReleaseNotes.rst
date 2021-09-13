@@ -6,7 +6,7 @@ ISB-CGC Web App Release Notes
 
 - On the ISB-CGC home page, the banner with the link to the survey has been removed.
 - On the Tutorials for Workflow on Google Cloud page, a GeneFlow RNA-seq workflow has been added. (From the ISB-CGC home page, on the Pipelines and APIs box, click Launch. Then on the displayed Pipelines and APIs page, click the Tutorials for Workflow on Google Cloud box.)
-- From the Web App Programs page, remove the ability to for the user to upload their own program.
+- From the Web App Programs page, remove the ability for the user to upload their own program.
 - On the Create Cohort – Filters page:
   
   - Add a Clear All option to the Cohort Filters panel.
