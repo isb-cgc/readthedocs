@@ -194,6 +194,19 @@ A few rows of the data in a BigQuery table can be viewed by clicking on the **Pr
 .. image:: BigQuery/BigQueryTableSearch-PreviewTableOption.png
    :align: center
  
+Example Joins
+++++++++++++++
+
+In the **Example Joins** column, the number indicates how many SQL query examples exist for this table. Clicking on the number will display a list of the examples.
+
+.. image:: BigQuery/BigQueryTableSearch-ExampleJoinList.png
+   :align: center
+
+The following information is displayed:
+
+   * **Join Subject** - This is the topic of the query. 
+   * **Joined Tables** - Here, the tables which are joined with the table in the row above are listed.
+   * **View** - The View Details button takes you to a screen which displays a more detailed description of the query and the SQL statement.
  
 Table Access in Google BigQuery
 -------------
