@@ -207,6 +207,24 @@ The following information is displayed:
    * **Join Subject** - This is the topic of the query. 
    * **Joined Tables** - Here, the tables which are joined with the table in the row above are listed.
    * **View** - The View Details button takes you to a screen which displays a more detailed description of the query and the SQL statement.
+   
+**Join Details**
+
+Clicking on the **View** button displays the **Join Details** screen.
+
+.. image:: BigQuery/BigQueryTableSearch-JoinDetails.png
+   :align: center
+   
+The following information is displayed:
+
+   * **Table identification** - Both the table name and the table Full ID are displayed. 
+   * **Join Subject** - This is the topic of the query. 
+   * **Description** - Here, the query is described in more detail. For instance, it will describe what kind of data is extracted.
+   * **Joined Tables** - Tables which are joined with the main table of interest are listed here. The table name is also a link, in case you would like to easily learn more about the joined table. Clicking on it will open up the ISB-CGC BigQuery Search in another tab, with the table information in the query results.
+   * **SQL Statement** - This is the SQL statement for the joined tables.
+   * **COPY** - Clicking this button copies the SQL Statement to your clipboard. You can then directly copy the SQL query into the Google Cloud Platform BigQuery Console, a Jupyter notebook, or anywhere that you would like. These queries can be run as they are, or you can tailor them to your needs.
+   * **Joined Condition** - There are the fields being joined between the two tables.
+   
  
 Table Access in Google BigQuery
 -------------
