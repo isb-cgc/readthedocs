@@ -8,6 +8,8 @@ For more detailed information about the data stored in ISB-CGC BigQuery tables p
 
 *September 8, 2021*
 
+**New Features**
+
 On the Search results, add an  “Example Joins” column. This column specifies the number of example join queries provided by the BigQuery Table Search that include this table. 
 
 -	Click the number in the “Example Joins” column to see a list of examples. 
