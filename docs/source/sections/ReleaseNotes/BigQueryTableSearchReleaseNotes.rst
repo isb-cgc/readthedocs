@@ -6,6 +6,14 @@ To learn about this discovery tool created by the ISB-CGC, please visit `ISB-CGC
 
 For more detailed information about the data stored in ISB-CGC BigQuery tables please visit `ISB-CGC BigQuery Tables <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQuery.html>`_.
 
+*September 8, 2021*
+
+On the Search results, add an  “Example Joins” column. This column specifies the number of example join queries provided by the BigQuery Table Search that include this table. 
+
+-	Click the number in the “Example Joins” column to see a list of examples. 
+-	From there, click on View Details to see the SQL Query and a longer description. 
+-	On the View Details screen, click on COPY to copy the query to your clipboard.
+
 *December 8, 2020* v1.04
 
 **New Features**
