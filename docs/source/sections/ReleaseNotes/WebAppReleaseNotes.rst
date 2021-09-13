@@ -2,6 +2,23 @@
 ISB-CGC Web App Release Notes
 #############################
 
+*September 8, 2021* 
+
+- On the ISB-CGC home page, the banner with the link to the survey has been removed.
+- On the Tutorials for Workflow on Google Cloud page, a GeneFlow RNA-seq workflow has been added. (From the ISB-CGC home page, on the Pipelines and APIs box, click Launch. Then on the displayed Pipelines and APIs page, click the Tutorials for Workflow on Google Cloud box.)
+- From the Web App Programs page, remove the ability to for the user to upload their own program.
+- On the Create Cohort – Filters page:
+  
+  - Add a Clear All option to the Cohort Filters panel.
+  - Previously, if all the filters under a program name were removed, the program name remained in the Cohort Filters box. It has been changed so that if the last filter for the program is removed, the program name is also removed from the Cohort Filters panel.
+
+- On the ISB-CGC BigQuery Table Search, on the search results, added an  “Example Joins” column. This column specifies the number of example join queries, for the table on that row, which are provided by the BigQuery Table Search. Functionality includes:
+
+  - Click the number in the “Example Joins” column to see a list of examples. 
+  - From there, click on View Details for a particular example to see the SQL Query and a longer description. 
+  - On the View Details screen, click on COPY to copy the query to your clipboard.
+
+
 *July 19, 2021* 
 
 - The Warning Notice about accessing a government website that should pop up when ISB-CGC is accessed was missing. It has been reinstated.
