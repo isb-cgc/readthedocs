@@ -15,7 +15,7 @@ Currently, ISB-CGC hosts open access BigQuery tables containing data for over 25
 
 
 .. image:: BigQuery/BigQueryTableSearch-UI-homepage.png
-   :scale: 65
+   :scale: 50
    :align: center
 
 
@@ -166,7 +166,7 @@ Schema Description
 For detailed table information, click on the blue plus sign (+) on the left-hand side. 
 
 .. image:: BigQuery/BigQueryTableSearchUI-descriptions.png
-   :scale: 65
+   :scale: 50
    :align: center
 
 The following information is displayed:
@@ -194,7 +194,7 @@ A few rows of the data in a BigQuery table can be viewed by clicking on the **Pr
 
 
 .. image:: BigQuery/BigQueryTableSearch-PreviewTableOption.png
-   :scale: 65
+   :scale: 50
    :align: center
  
 Example Joins
@@ -203,7 +203,7 @@ Example Joins
 The **Example Joins** column specifies the number of example SQL join queries, for the table on that row, which are provided by the BigQuery Table Search. Clicking on the number will display a list of the examples.
 
 .. image:: BigQuery/BigQueryTableSearch-ExampleJoinList.png
-   :scale: 65
+   :scale: 50
    :align: center
 
 The following information is displayed:
