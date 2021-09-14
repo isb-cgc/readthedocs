@@ -15,6 +15,7 @@ Currently, ISB-CGC hosts open access BigQuery tables containing data for over 25
 
 
 .. image:: BigQuery/BigQueryTableSearch-UI-homepage.png
+   :scale: 80
    :align: center
 
 
@@ -165,6 +166,7 @@ Schema Description
 For detailed table information, click on the blue plus sign (+) on the left-hand side. 
 
 .. image:: BigQuery/BigQueryTableSearchUI-descriptions.png
+   :scale: 80
    :align: center
 
 The following information is displayed:
@@ -197,16 +199,17 @@ A few rows of the data in a BigQuery table can be viewed by clicking on the **Pr
 Example Joins
 ++++++++++++++
 
-In the **Example Joins** column, the number indicates how many SQL query examples exist for this table. Clicking on the number will display a list of the examples.
+The **Example Joins** column specifies the number of example SQL join queries, for the table on that row, which are provided by the BigQuery Table Search. Clicking on the number will display a list of the examples.
 
 .. image:: BigQuery/BigQueryTableSearch-ExampleJoinList.png
+   :scale: 80
    :align: center
 
 The following information is displayed:
 
    * **Join Subject** - This is the topic of the query. 
-   * **Joined Tables** - Here, the tables which are joined with the table in the row above are listed.
-   * **View** - The View Details button takes you to a screen which displays a more detailed description of the query and the SQL statement.
+   * **Joined Tables** - Here, the tables which are joined with the table in the row are listed.
+   * **View** - The View Details button takes you to a screen which displays the SQL statement and a more detailed description of the query.
    
 **Join Details**
 
@@ -223,7 +226,7 @@ The following information is displayed:
    * **Joined Tables** - Tables which are joined with the main table of interest are listed here. The table name is also a link, in case you would like to easily learn more about the joined table. Clicking on it will open up the ISB-CGC BigQuery Search in another tab, with the table information in the query results.
    * **SQL Statement** - This is the SQL statement for the joined tables.
    * **COPY** - Clicking this button copies the SQL Statement to your clipboard. You can then directly copy the SQL query into the Google Cloud Platform BigQuery Console, a Jupyter notebook, or anywhere that you would like. These queries can be run as they are, or you can tailor them to your needs.
-   * **Joined Condition** - There are the fields being joined between the two tables.
+   * **Joined Condition** - There are the fields being joined between the tables.
    
  
 Table Access in Google BigQuery
