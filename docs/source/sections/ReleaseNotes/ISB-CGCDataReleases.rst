@@ -27,6 +27,17 @@ New Reactome datasets and tables added to isb-cgc-bq.
 - isb-cgc-bq.reactome_versioned.pe_to_pathway_v77
 - isb-cgc-bq.reactome_versioned.pathway_hierarchy_v77
 
+Added release 28 miRNAseq isoform table and RNAseq for TCGA
+
+**BigQuery tables created**
+
+- isb-cgc-bq.TCGA_versioned.miRNAseq_isoform_hg38_gdc_r28
+- isb-cgc-bq.TCGA_versioned.RNAseq_hg38_gdc_r28
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.TCGA.miRNAseq_isoform_hg38_gdc_current
+- isb-cgc-bq.TCGA.RNAseq_hg38_gdc_current
 
 *August 2, 2021*
 
