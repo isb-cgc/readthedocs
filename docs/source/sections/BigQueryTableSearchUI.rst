@@ -15,7 +15,7 @@ Currently, ISB-CGC hosts open access BigQuery tables containing data for over 25
 
 
 .. image:: BigQuery/BigQueryTableSearch-UI-homepage.png
-   :scale: 50
+   :scale: 40
    :align: center
 
 
@@ -166,7 +166,7 @@ Schema Description
 For detailed table information, click on the blue plus sign (+) on the left-hand side. 
 
 .. image:: BigQuery/BigQueryTableSearchUI-descriptions.png
-   :scale: 50
+   :scale: 40
    :align: center
 
 The following information is displayed:
@@ -194,7 +194,7 @@ A few rows of the data in a BigQuery table can be viewed by clicking on the **Pr
 
 
 .. image:: BigQuery/BigQueryTableSearch-PreviewTableOption.png
-   :scale: 50
+   :scale: 40
    :align: center
  
 Example Joins
