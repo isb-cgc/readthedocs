@@ -2,6 +2,23 @@
 ISB-CGC Data Release Notes
 ############################
 
+*September 22, 2021*
+
+**BigQuery tables created**
+
+New Copy Number Segment tables added to isb-cgc-bq.
+
+- isb-cgc-bq.CGCI.copy_number_segment_hg38_gdc_current
+- isb-cgc-bq.CGCI_versioned.copy_number_segment_hg38_gdc_r27
+- isb-cgc-bq.CPTAC.copy_number_segment_hg38_gdc_current
+- isb-cgc-bq.CPTAC_versioned.copy_number_segment_hg38_gdc_r28
+- isb-cgc-bq.HCMI.copy_number_segment_hg38_gdc_current
+- isb-cgc-bq.HCMI_versioned.copy_number_segment_hg38_gdc_r29
+- isb-cgc-bq.TARGET.copy_number_segment_allelic_hg38_gdc_current
+- isb-cgc-bq.TARGET_versioned.copy_number_segment_allelic_hg38_gdc_r23
+- isb-cgc-bq.TCGA.copy_number_segment_allelic_hg38_gdc_current
+- isb-cgc-bq.TCGA_versioned.copy_number_segment_allelic_hg38_gdc_r23
+
 *September 3, 2021*
 
 **BigQuery tables created**
