@@ -2,6 +2,23 @@
 ISB-CGC Data Release Notes
 ############################
 
+*October 1, 2021*
+
+New Targetome datasets and tables added to isb-cgc-bq.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.targetome.drug_synonyms_current
+- isb-cgc-bq.targetome.experiments_current
+- isb-cgc-bq.targetome.interactions_current
+- isb-cgc-bq.targetome.sources_current
+- isb-cgc-bq.targetome.target_synonyms_current
+- isb-cgc-bq.targetome_versioned.drug_synonyms_v1
+- isb-cgc-bq.targetome_versioned.experiments_v1
+- isb-cgc-bq.targetome_versioned.interactions_v1
+- isb-cgc-bq.targetome_versioned.sources_v1
+- isb-cgc-bq.targetome_versioned.target_synonyms_v1
+
 *September 22, 2021*
 
 **BigQuery tables created**
