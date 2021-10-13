@@ -9,7 +9,7 @@ The ISB Cancer Gateway in the Cloud (ISB-CGC) offers multiple avenues for workin
 The workshop included two hours of hands-on data analysis using BigQuery. The following notebooks are snapshots of our teaching materials. These notebooks can be executed in Google Colab or other Jupyter environments. 
 
 .. list-table:: 
-   :widths: 100 10 10
+   :widths: 100 10
    :align: center
    :header-rows: 0
 
