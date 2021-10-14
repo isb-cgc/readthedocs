@@ -11,6 +11,6 @@ The links on this page connect to How-To guides, workshop materials, examples an
    QueryOfTheMonthClub
    GDCTutorials/FromGDCtoISBCGC
    Tutorials/KidneyCancerDemo/KidneyCancerDemo
-   Tutorials/2021-10-NIHLibrarySession   
+   Tutorials/TeachingSessions_Workshops
 
 
