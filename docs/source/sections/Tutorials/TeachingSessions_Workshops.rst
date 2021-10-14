@@ -5,7 +5,7 @@ Teaching Sessions and Workshops
 NIH Library Session - October 14th, 2021
 ========================================
 
-We offered a half-day online bioinformatics workshop in collaboration with the NIH Library on October 14th, 2021. This workshop included a two hour interactive data science and bioinformatics component using the R statistical language and the Google Cloud (BigQuery) to explore NCI genomic and proteomics (TCGA) datasets. The following outline of the interactive workshop links to Jupyter notebooks used during the training. These notebooks can be executed in Google Colab or other Jupyter environments. 
+We offered a half-day online bioinformatics workshop in collaboration with the NIH Library on October 14th, 2021. This workshop included a two hour interactive data science and bioinformatics component using the R statistical language and Google Cloud (BigQuery) to explore NCI genomic and proteomics (TCGA) datasets. The following outline of the interactive workshop links to Jupyter notebooks used during the training. These notebooks can be executed in Google Colab or other Jupyter environments. 
 
     * `Exploration of BigQuery Datasets <https://github.com/isb-cgc/Community-Notebooks/blob/master/TeachingMaterials/2021-10-NIHLibrarySession/BigQueryExploration.ipynb>`_
      
