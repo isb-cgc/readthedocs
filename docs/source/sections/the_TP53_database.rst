@@ -32,3 +32,18 @@ The ongoing project involves:
 - Developing standard annotations of *TP53* variants
 - Performing research on *TP53* variants, their patterns, origins and clinical impacts.
 
+How to Cite
+-----------
+
+When using the database, authors should cite the following source:
+
+  The *TP53* Database (R20, July 2019): https://tp53.isb-cgc.org 
+
+and refer to Bouaoun et al. in the bibliography as below:
+
+  Bouaoun L, Sonkin D, Ardin M, Hollstein M, Byrnes G, Zavadil J, Olivier M. *TP53 Variations in Human Cancers: New Lessons from the IARC TP53 Database and Genomics Data*. Hum Mutat. 2016 Sep;37(9):865-76. doi: 10.1002/humu.23035. Epub 2016 Jul 8.
+
+More Information 
+----------------
+
+For information regarding releases, credits and disclaimers, please see the *TP53* `About <https://tp53.isb-cgc.org/about>`_ page.
