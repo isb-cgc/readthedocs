@@ -2,7 +2,7 @@
 The *TP53* Database
 ***********************
 
-The *TP53* Database compiles *TP53* variant data that have been reported in the published literature since 1989 or are available in other public databases. Database releases are identified by a number.
+The *TP53* Database (`<https://tp53.isb-cgc.org/>`_) compiles *TP53* variant data that have been reported in the published literature since 1989 or are available in other public databases. `Database releases <https://tp53.isb-cgc.org/about#database-dev-div>`_ are identified by a number.
 The current is R20 (July 2019). The following data are available:
 
 - *TP53* functional and structural data including validated polymorphisms
@@ -14,16 +14,16 @@ The current is R20 (July 2019). The following data are available:
 
 The *TP53* Database is meant to be a source of information on *TP53* variants for a broad range of scientists and clinicians who work in different research areas:
 
-- Basic research, to study the structural and functional aspects of the p53 protein and the *TP53* gene
-- Molecular pathology of cancer, to understand the clinical significance of *TP53* variants identified in cancer patients
-- Molecular epidemiology of cancer, to analyze the links between specific exposures and *TP53* variant patterns in order to make inferences about possible causes of cancer
-- Molecular genetics, to analyze genotype/phenotype relationships
+- **Basic research**, to study the structural and functional aspects of the p53 protein and the *TP53* gene
+- **Molecular pathology of cancer**, to understand the clinical significance of *TP53* variants identified in cancer patients
+- **Molecular epidemiology of cancer**, to analyze the links between specific exposures and *TP53* variant patterns in order to make inferences about possible causes of cancer
+- **Molecular genetics**, to analyze genotype/phenotype relationships
 
 The database includes various annotations on the predicted or experimentally assessed functional impact of *TP53* variants, clinicopathologic characteristics of tumors
 and demographic and life-style information on patients. This information is useful to compile tumor-specific variant patterns and to draw hypotheses on the nature of the
 molecular events involved in *TP53* mutagenesis and allows for the analysis of genotype/phenotype relationships.
 
-Detailed information on data and annotations available is provided in the User Manual.
+Detailed information on data and annotations available is provided in the `User Manual <https://tp53.isb-cgc.org/help>`_.
 
 The ongoing project involves:
 
