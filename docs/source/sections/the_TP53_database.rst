@@ -2,15 +2,15 @@
 The *TP53* Database
 ***********************
 
-The *TP53* Database (`<https://tp53.isb-cgc.org/>`_) compiles *TP53* variant data that have been reported in the published literature since 1989 or are available in other public databases. `Database releases <https://tp53.isb-cgc.org/about#database-dev-div>`_ are identified by a number.
-The current is R20 (July 2019). The following data are available:
+The *TP53* Database (`<https://tp53.isb-cgc.org>`_) compiles *TP53* variant data that have been reported in the published literature since 1989 or are available in other public databases. `Database releases <https://tp53.isb-cgc.org/about#database-dev-div>`_ are identified by a number.
+The following data are available:
 
-- *TP53* functional and structural data including validated polymorphisms
-- *TP53* somatic variants in sporadic cancers
-- *TP53* germline variants in cancer patients, families with cancers and control populations
-- *TP53* gene status in human cell-lines
-- Mouse models with engineered p53
-- Experimentally-induced *TP53* variants
+- *TP53* `functional and structural data <https://tp53.isb-cgc.org/explore_gv>`_ including `validated polymorphisms <https://tp53.isb-cgc.org/view_val_poly>`_
+- *TP53* `somatic variants <https://tp53.isb-cgc.org/explore_sm>`_ in sporadic cancers
+- *TP53* `germline variants <https://tp53.isb-cgc.org/explore_gm>`_ in cancer patients, families with cancers and control populations
+- *TP53* `gene status in human cell-lines <https://tp53.isb-cgc.org/explore_cl>`_
+- `Mouse models <https://tp53.isb-cgc.org/explore_mm>`_ with engineered p53
+- `Experimentally-induced variants <https://tp53.isb-cgc.org/explore_eim>`_ of *TP53*
 
 The *TP53* Database is meant to be a source of information on *TP53* variants for a broad range of scientists and clinicians who work in different research areas:
 
