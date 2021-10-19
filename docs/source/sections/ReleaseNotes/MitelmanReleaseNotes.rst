@@ -16,6 +16,11 @@ Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer quarterly
 - Total number of unique gene fusions 32,795
 - Total number of genes involved 14,023
 
+**Enhancements and New Features**
+
+- Removed the size limit on the search results: User can perform blank searches to retrieve the full data.
+- View SQL Statements: User can view and utilize the new SQL statement that was used to perform the search.
+
 *July 15, 2021*
 
 Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer quarterly update.
