@@ -13,28 +13,28 @@ filter data from one or more public data sets (such as TCGA, CCLE, and TARGET), 
    :widths: 60, 40
    :header-rows: 0 
 
-   * - **Cohort Builder/Data Explorer**
+   * - Cohort Builder/Data Explorer
          | *Create and explore cohorts of interest*
      - * `ISB-CGC Cohort Builder/Data Explorer Documentation <DataExplorer.html>`_ 
        * `ISB-CGC Cohort Builder/Data Explorer <https://isb-cgc.appspot.com/cohorts/new_cohort/>`_ 
-   * - **Interactive Pathology and Radiology Image Viewers**  
+   * - Interactive Pathology and Radiology Image Viewers  
         | *View images from cancer patients using integrated image viewers*
      - * `ISB-CGC Image Viewers Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/OsimisWebViewer.html>`_ 
-   * - **Integrative Genomics Viewer (IGV)**
+   * - Integrative Genomics Viewer (IGV)
         | *Explore and visualize genomic data*
      - * `ISB-CGC Integrative Genomics Viewer (IGV) Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/IGV-Browser.html>`_
-   * - **Cancer Data File Browser**   
+   * - Cancer Data File Browser   
         | *Browse and identify files associated with cohorts of interest*
      - * `ISB-CGC Cancer Data File Browser Documentation <DataBrowser.html>`_
        * `ISB-CGC Cancer Data File Browser <https://isb-cgc.appspot.com/cohorts/filelist/>`_ 
-   * - **Mitelman Database for Chromosome Aberrations and Gene Fusions in Cancer**
+   * - Mitelman Database for Chromosome Aberrations and Gene Fusions in Cancer
         | *Explore relationships between chromosomal changes and cancer*
      - * `ISB-CGC Mitelman Database Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/Mitelman_about.html>`_
        * `ISB-CGC Mitelman Database <https://mitelmandatabase.isb-cgc.org/>`_
-   * - **The TP53 Database**
+   * - The *TP53* Database
         | *Explore TP53 variant data that have been reported in the published literature or are available in other public databases.*
-     - * `ISB-CGC The *TP53* Database Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/the_TP53_databaset.html>`_
-       * `ISB-CGC The TP53 Database <https://tp53.isb-cgc.org/>`_
+     - * ISB-CGC The *TP53* Database `Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/the_TP53_databaset.html>`_
+       * ISB-CGC The *TP53* `Database <https://tp53.isb-cgc.org/>`_
      
 Cancer data analysis using Google BigQuery
 ##########################################################
