@@ -11,6 +11,7 @@ The ISB-CGC has created documentation to inform researchers about major changes 
    ReleaseNotes/MigrationToISB-CGC-BQ
    ReleaseNotes/BigQueryTableSearchReleaseNotes
    ReleaseNotes/MitelmanReleaseNotes
+   ReleaseNotes/TP53_release_notes
    ReleaseNotes/WebAppReleaseNotes
 
 

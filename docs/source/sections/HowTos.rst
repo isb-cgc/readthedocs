@@ -124,5 +124,8 @@ I'm an advanced user, how do I...
    * - Compare gene expression in tumor against gene expression in normal tissue?
      - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_analyze_differential_expression_between_paired_tumor_and_normal_samples.ipynb>`_
      - 
+   * - Identify cancer pathways from the Reactome database that are related to a set of genes?
+     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_use_the_Reactome_BQ_dataset.ipynb>`_
+     - 
      
 *Notebook inspired by a `Query of the Month Blog <QueryOfTheMonthClub.html>`_ post
