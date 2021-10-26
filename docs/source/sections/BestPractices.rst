@@ -1,6 +1,6 @@
-============
+==============
 Best Practices
-============
+==============
 
 
 Don't Download the Data
@@ -42,7 +42,7 @@ Most of the same linux commands, scripts, pipelines/workflows, genomics software
  
  **Example use-cases:**
   - Using preemptible VMs, researchers were able to quantify transcript levels on over 11K TGCA RNAseq samples for a total cost of $1,065.49.
-   Tatlow PJ, Piccolo SR. `A cloud-based workflow to quantify transcript-expression levels in public cancer compendia <https://www.nature.com/articles/srep39259>`_. Scientific Reports 6, 39259
+    Tatlow PJ, Piccolo SR. `A cloud-based workflow to quantify transcript-expression levels in public cancer compendia <https://www.nature.com/articles/srep39259>`_. Scientific Reports 6, 39259
   - Also Broad’s popular variant caller pipeline, GATK, was designed to be able to run on preemptible VMs. 
   
 
