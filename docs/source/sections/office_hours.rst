@@ -17,9 +17,12 @@ We have **virtual Office Hours on Tuesdays and Thursdays** for any questions on 
   * - Tuesday
     - 2:00pm – 3:00pm Eastern
     - Poojitha Gundluru
-    - http://meet.google.com/jag-qtjx-pqf
+    - http://meet.google.com/jkg-cxke-yzs
 
   * - Thursday
     - 11:00am – 12:00pm Eastern
     - John Phan
-    - http://meet.google.com/rgq-azxb-jxy
+    - http://meet.google.com/jai-kgkg-sii
+    
+    
+    > Note: if you are unable to join either meeting link, please email feedback@isb-cgc.org.
