@@ -42,6 +42,7 @@ Most of the same linux commands, scripts, pipelines/workflows, genomics software
  
  **Example use-cases:**
   - Using preemptible VMs, researchers were able to quantify transcript levels on over 11K TGCA RNAseq samples for a total cost of $1,065.49.
+  
     Tatlow PJ, Piccolo SR. `A cloud-based workflow to quantify transcript-expression levels in public cancer compendia <https://www.nature.com/articles/srep39259>`_. Scientific Reports 6, 39259
   - Also Broad’s popular variant caller pipeline, GATK, was designed to be able to run on preemptible VMs. 
   
@@ -62,7 +63,9 @@ The Google Cloud Platform offers a number of different storage options for your 
   - Unlike persistent disks, Cloud Storage buckets are not restricted to the zone where your instance is located. 
   - Additionally, you can read and write data to a bucket from multiple instances simultaneously.
   - You can mount a GCS bucket to your VM instance when latency is not a priority or when you need to share data easily between multiple instances or zones. 
-  An example use-case: You want to slice thousands of bam files and save the resulting slices to share with a collaborator who has instances in another zone to use for downstream statistical analyses.
+  
+    An example use-case: You want to slice thousands of bam files and save the resulting slices to share with a collaborator who has instances in another zone to use for downstream statistical analyses.
   - You can save objects to GCS buckets including images, videos, blobs and unstructured data. 
- A comparison table detailing the current pricing of Google’s storage options can be found here: `storage features <https://cloud.google.com/storage/features/>`_
+  
+    A comparison table detailing the current pricing of Google’s storage options can be found here: `storage features <https://cloud.google.com/storage/features/>`_
  
