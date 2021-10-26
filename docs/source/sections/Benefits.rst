@@ -68,6 +68,7 @@ Most bioinformaticians today are likely accustomed to using the high performance
 | connect   | protocol (SSH)                      | protocol (SSH)                          |
 |           |                                     |                                         |
 +-----------+-------------------------------------+-----------------------------------------+
+
 ***Be careful of costs** 
 
 
