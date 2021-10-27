@@ -26,15 +26,18 @@ On your Google Cloud Platform project console page:
 * **Choose the Compute Engine option from the menu icon in the upper-left corner.**
   
 * Choose the VM instances page.
+
    #. Note: the first time you visit the page, you will see two options: "Create Instance" or "Take the quickstart".) After that, you will see a page with a list    of existing (running or stopped) VMs. 
 
 * Select the Create Instance option, and customize your instance preferences:
+
    #. **Name:** this name is relatively arbitrary, choose something that is meaningful to you;
    #. **Zone**: choose one of the us-east or us-central zones;
    #. **Machine type**:  you can specify a VM with anywhere between 1 and 16 cores (aka vCPUs), and with up to 100 GB of RAM (you can try the "Customize" view if you      prefer a more graphical approach);  note that as you change the specifications of the VM, the estimated cost shown on this page will update;
    #. **Boot disk**:  the default boot disk and OS will be shown, but you can change this as you wish: the "Change" button will result in a flyout panel where you can choose from a variety of Preconfigured images (Debian, CentOS, Ubuntu, RedHat, etc) or previously created images or disks; you can also choose between "standard disks" and faster (and more expensive) solid-state drives (SSDs), and specify the size of the disk (up to 64TB).
 
 * Once you have all of the options set, you can click on the blue **Create** button. 
+
    #. Creating the VM should take less than a minute, after which you will see it listed on the "VM instances" page, with the Name, Zone, Disk, Network, and     External IP address shown.  There is also an SSH button that you can use directly from the Console.
 
 
