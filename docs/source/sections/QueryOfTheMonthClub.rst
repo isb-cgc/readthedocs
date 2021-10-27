@@ -586,13 +586,13 @@ the table is being partitioned by a date.
 
 Now, *Felipe* notes:
 
--  **CLUSTER BY wiki, title**: Whenever people query using the wiki
+-  CLUSTER BY wiki, title: Whenever people query using the wiki
        column, BigQuery will optimize these queries. These queries will
        be optimized even further if the user also filters by title. If
        the user only filters by title, clustering won’t work, as the
        order is important (think boxes inside boxes).
 
--  **require_partition_filter=true**: This option reminds my users to
+-  require_partition_filter=true: This option reminds my users to
        always add a date filtering clause to their queries. That’s how I
        remind them that their queries could be cheaper if they only
        query through a fraction of the year.
@@ -1691,8 +1691,10 @@ Next we're going to start up a set of VMs, link them together as a cluster, and 
 We're still going to use googleComputeEngineR to start up VMs, keeping them in a list, and 
 then using the future package to `create the cluster <https://cran.r-project.org/web/packages/future/index.html>`_.
 
-Here's a couple cloudyr links: `massively parallel <https://cloudyr.github.io/googleComputeEngineR/articles/massive-parallel.html>`_
- and `install and auth <https://cloudyr.github.io/googleComputeEngineR/articles/installation-and-authentication.html>`_.
+Here's a couple cloudyr links: 
+
+-  `massively parallel <https://cloudyr.github.io/googleComputeEngineR/articles/massive-parallel.html>`_
+-  `install and auth <https://cloudyr.github.io/googleComputeEngineR/articles/installation-and-authentication.html>`_.
 
 .. code-block:: r
 
@@ -2484,6 +2486,7 @@ really ramp up, otherwise the model is 'not getting any traction'.
 
 
 Once we have created a model, we have a few options of what to do with it:
+
     - evaluation functions: `ML.EVALUATE <https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-evaluate>`_ and `ML.ROC_CURVE <https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-roc>`_ (which only applies to logistic regression models)
     - prediction function: `ML.PREDICT <https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-predict>`_
     - inspection functions: `ML.TRAINING_INFO <https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-train>`_, `ML.FEATURE_INFO <https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-feature>`_, and `ML.WEIGHTS <https://cloud.google.com/bigquery/docs/reference/standard-sql/bigqueryml-syntax-weights>`_ 
@@ -5811,6 +5814,7 @@ with gene mutations. Therefore we'll be using two tables and a small set of
 variables:
 
 + `isb-cgc:TCGA_bioclin_v0.Clinical <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_bioclin_v0.Clinical>`_ for survival data
+
     - **days_to_last_known_alive**: This field indicates the number of days to the last
       follow up appointment (still alive) or until death, relative to "time zero" (typically
       the day of diagnosis).
@@ -5819,6 +5823,7 @@ variables:
       were known to still
       be "Alive", while 3622 were "Dead", and 4 were of unknown vital status.
 + `isb-cgc:TCGA_hg38_data_v0.Somatic_Mutation <https://bigquery.cloud.google.com/table/isb-cgc:TCGA_hg38_data_v0.Somatic_Mutation>`_ for mutation status
+
     - **Variant_Classification**: eg Missense_Mutation, Silent, 3'UTR, Intron, etc (18 different values occur in this table)
     - **Variant_Type**: one of 3 possible values: SNP, DEL, INS
     - **IMPACT**: one of 4 values: LOW, MODERATE, HIGH, or MODIFIER

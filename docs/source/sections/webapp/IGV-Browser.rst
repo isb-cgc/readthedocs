@@ -24,6 +24,7 @@ To view the selected files in the IGV Browser, click on the "Launch IGV" button 
 
 
 NOTES:
+
  - You will only be able to view controlled access sequence files if you have `logged in as a registered dbGaP authorized user <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Gaining-Access-To-Controlled-Access-Data.html>`_.
  - You will need to disable your browser pop-up blocker to view files with IGV.  If you see a 403 error when using the IGV viewer, the pop-up blocker is the cause of that error.  Turn off the blocker and try again.
 
@@ -37,6 +38,7 @@ To load BAM files from ISB-CGC Google Cloud Storage, use the "File" > "Load from
 
 
 NOTE:
+
  - You will only be able to view controlled access sequence files if you have `logged in as a registered dbGaP authorized user <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Gaining-Access-To-Controlled-Access-Data.html>`_.
 
 
