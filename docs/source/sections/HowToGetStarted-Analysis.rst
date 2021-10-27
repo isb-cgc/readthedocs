@@ -33,7 +33,7 @@ filter data from one or more public data sets (such as TCGA, CCLE, and TARGET), 
        * `ISB-CGC Mitelman Database <https://mitelmandatabase.isb-cgc.org/>`_
    * - The *TP53* Database
         | *Explore TP53 variant data that have been reported in the published literature or are available in other public databases.*
-     - * ISB-CGC The *TP53* Database `Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/the_TP53_databaset.html>`_
+     - * ISB-CGC The *TP53* Database `Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/the_TP53_database.html>`_
        * ISB-CGC The *TP53* `Database <https://tp53.isb-cgc.org/>`_
      
 Cancer data analysis using Google BigQuery

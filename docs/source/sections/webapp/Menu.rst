@@ -19,21 +19,11 @@ The **MENU** bar supplies links for the following Web App features:
    - Saved Workbooks - Displays all your saved workbooks and allows you to edit, duplicate or delete the workbooks.
    - Create a New Workbook - Allows you to create a new workbook by selecting the data source and analysis type.
      
-* **PROGRAMS** - This menu item provides a shortcut to the programs you have created if you uploaded your own data.
-   
-    - Saved Programs - Here you can: 
-
-      * Edit or delete a Saved Program
-      * Start a New Workbook
-      * Create a New Program
-       
-    - Upload Program Data - Here you can:
-     
-      * Create a new program for analysis. To create a new program you provide a name for program, name for your project, and attach files that meet our Data Type requirements. Please see `Program Data Upload <program_data_upload.html>`_ for more information on data type accepted by the ISB-CGC. 
+* **PROGRAMS** - This menu item provides a shortcut to view public programs which available in the ISB-CGC Web App.
         
     - Public Programs - Here you can:
         
-      *  View the public programs that are currently in the ISB-CGC system. 
+      *  View the public programs that are currently in the ISB-CGC Web App. 
 
 * **ANALYSES** - From here you can Create, Edit Details, Duplicate, Delete, or Share Analyses. You can use a specific analysis type to create a new workbook customized with the specific data (Genes and miRNAs, Variables, Cohorts) you have selected.  The plot types that you can select are:
     

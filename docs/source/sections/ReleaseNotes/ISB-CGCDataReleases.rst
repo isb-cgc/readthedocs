@@ -2,6 +2,40 @@
 ISB-CGC Data Release Notes
 ############################
 
+*October 1, 2021*
+
+New Targetome datasets and tables added to isb-cgc-bq.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.targetome.drug_synonyms_current
+- isb-cgc-bq.targetome.experiments_current
+- isb-cgc-bq.targetome.interactions_current
+- isb-cgc-bq.targetome.sources_current
+- isb-cgc-bq.targetome.target_synonyms_current
+- isb-cgc-bq.targetome_versioned.drug_synonyms_v1
+- isb-cgc-bq.targetome_versioned.experiments_v1
+- isb-cgc-bq.targetome_versioned.interactions_v1
+- isb-cgc-bq.targetome_versioned.sources_v1
+- isb-cgc-bq.targetome_versioned.target_synonyms_v1
+
+*September 22, 2021*
+
+**BigQuery tables created**
+
+New Copy Number Segment tables added to isb-cgc-bq.
+
+- isb-cgc-bq.CGCI.copy_number_segment_hg38_gdc_current
+- isb-cgc-bq.CGCI_versioned.copy_number_segment_hg38_gdc_r27
+- isb-cgc-bq.CPTAC.copy_number_segment_hg38_gdc_current
+- isb-cgc-bq.CPTAC_versioned.copy_number_segment_hg38_gdc_r28
+- isb-cgc-bq.HCMI.copy_number_segment_hg38_gdc_current
+- isb-cgc-bq.HCMI_versioned.copy_number_segment_hg38_gdc_r29
+- isb-cgc-bq.TARGET.copy_number_segment_allelic_hg38_gdc_current
+- isb-cgc-bq.TARGET_versioned.copy_number_segment_allelic_hg38_gdc_r23
+- isb-cgc-bq.TCGA.copy_number_segment_allelic_hg38_gdc_current
+- isb-cgc-bq.TCGA_versioned.copy_number_segment_allelic_hg38_gdc_r23
+
 *September 3, 2021*
 
 **BigQuery tables created**
@@ -32,11 +66,13 @@ Added release 28 miRNAseq isoform table and RNAseq for TCGA
 **BigQuery tables created**
 
 - isb-cgc-bq.TCGA_versioned.miRNAseq_isoform_hg38_gdc_r28
+- isb-cgc-bq.TCGA_versioned.miRNAseq_hg38_gdc_r28
 - isb-cgc-bq.TCGA_versioned.RNAseq_hg38_gdc_r28
 
 **BigQuery tables updated**
 
 - isb-cgc-bq.TCGA.miRNAseq_isoform_hg38_gdc_current
+- isb-cgc-bq.TCGA.miRNAseq_hg38_gdc_current
 - isb-cgc-bq.TCGA.RNAseq_hg38_gdc_current
 
 *August 2, 2021*

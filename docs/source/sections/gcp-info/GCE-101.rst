@@ -47,6 +47,7 @@ We have put together these examples to **(1)** demonstrate the syntax of these w
    FirstWorkflow
    CWL-RNAseq
    Nextflow-RNAseq
+   GeneFlow-RNAseq
    Nextflow-Blast
    CWL-Blast
  
