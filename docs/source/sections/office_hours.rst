@@ -25,6 +25,6 @@ We have **virtual Office Hours on Tuesdays and Thursdays** for any questions on 
     - http://meet.google.com/jai-kgkg-sii
     
     
-Note
+.. Note::
 
 If you are unable to join either meeting link, please email feedback@isb-cgc.org.
