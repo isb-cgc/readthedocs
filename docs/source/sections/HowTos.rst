@@ -129,6 +129,7 @@ I'm an advanced user, how do I...
      - 
    * - Integrate the Targetome and Reactome datasets to identify pathways affected by cancer drugs?
      - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_use_the_Targetome_and_Reactome_BQ_datasets.ipynb>`_
-     _
+     _ 
+
 
 *Notebook inspired by a `Query of the Month Blog <QueryOfTheMonthClub.html>`_ post
