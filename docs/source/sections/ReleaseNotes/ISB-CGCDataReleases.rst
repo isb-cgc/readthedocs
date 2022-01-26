@@ -2,6 +2,18 @@
 ISB-CGC Data Release Notes
 ############################
 
+*January 26, 2022*
+
+New GENCODE annotation tables.
+
+BigQuery tables created
+
+isb-cgc-bq.GENCODE_versioned.annotation_gtf_hg38_v39
+
+BigQuery tables updated
+
+isb-cgc-bq.GENCODE.annotation_gtf_hg38_current
+
 *October 1, 2021*
 
 New Targetome datasets and tables added to isb-cgc-bq.
