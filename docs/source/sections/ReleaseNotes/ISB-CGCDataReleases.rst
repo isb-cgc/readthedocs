@@ -8,11 +8,23 @@ New GENCODE annotation tables.
 
 BigQuery tables created
 
-isb-cgc-bq.GENCODE_versioned.annotation_gtf_hg38_v39
+- isb-cgc-bq.GENCODE_versioned.annotation_gtf_hg38_v39
 
 BigQuery tables updated
 
-isb-cgc-bq.GENCODE.annotation_gtf_hg38_current
+- isb-cgc-bq.GENCODE.annotation_gtf_hg38_current
+
+*January 13, 2022*
+
+New TCGA Radiology Images table
+
+BigQuery tables created
+
+- isb-cgc-bq.TCGA_versioned.radiology_images_tcia_2022_01
+
+BigQuery tables updated
+
+- isb-cgc-bq.TCGA.radiology_images_tcia_current
 
 *October 1, 2021*
 
