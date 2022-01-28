@@ -52,6 +52,27 @@ Current per sample file metadata tables updated to GDC release 30.
 - isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_current
 - isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg38_gdc_current
 
+*November 3, 2021 and December 3, 2021
+
+New file metadata tables added to isb-cgc-bq for GDC release 30.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.GDC_case_file_metadata_versioned.GDCfileID_to_GCSurl_r30
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_legacy_r30
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_active_r30
+- isb-cgc-bq.GDC_case_file_metadata_versioned.caseData_r30
+- isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r30
+- isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r30
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.GDC_case_file_metadata.fileData_legacy_current
+- isb-cgc-bq.GDC_case_file_metadata.fileData_active_current
+- isb-cgc-bq.GDC_case_file_metadata.caseData_current
+- isb-cgc-bq.GDC_case_file_metadata.aliquot2caseIDmap_current
+- isb-cgc-bq.GDC_case_file_metadata.slide2caseIDmap_current
+
 *October 19, 2021*
 
 New Pan-Cancer Atlas Clinical and Survival Data
