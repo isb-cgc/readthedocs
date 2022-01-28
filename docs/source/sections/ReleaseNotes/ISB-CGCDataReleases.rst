@@ -2,6 +2,85 @@
 ISB-CGC Data Release Notes
 ############################
 
+*January 26, 2022*
+
+New GENCODE annotation tables.
+
+BigQuery tables created
+
+- isb-cgc-bq.GENCODE_versioned.annotation_gtf_hg38_v39
+
+BigQuery tables updated
+
+- isb-cgc-bq.GENCODE.annotation_gtf_hg38_current
+
+*January 13, 2022*
+
+New TCGA Radiology Images tables.
+
+BigQuery tables created
+
+- isb-cgc-bq.TCGA_versioned.radiology_images_tcia_2022_01
+
+BigQuery tables updated
+
+- isb-cgc-bq.TCGA.radiology_images_tcia_current
+
+*December 7, 2021*
+
+New  per sample file metadata added to isb-cgc-bq for GDC release 30.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.GENIE_versioned.per_sample_file_metadata_hg38_gdc_r30
+- isb-cgc-bq.CTSP_versioned.per_sample_file_metadata_hg38_gdc_r30
+- isb-cgc-bq.CGCI_versioned.per_sample_file_metadata_hg38_gdc_r30
+- isb-cgc-bq.HCMI_versioned.per_sample_file_metadata_hg38_gdc_r30
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_hg38_gdc_r30
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_r30
+- isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg38_gdc_r30
+
+Current per sample file metadata tables updated to GDC release 30.
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.GENIE_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CTSP_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CGCI_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.HCMI_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg38_gdc_current
+
+*November 3, 2021 and December 3, 2021*
+
+New file metadata tables added to isb-cgc-bq for GDC release 30.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.GDC_case_file_metadata_versioned.GDCfileID_to_GCSurl_r30
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_legacy_r30
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_active_r30
+- isb-cgc-bq.GDC_case_file_metadata_versioned.caseData_r30
+- isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r30
+- isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r30
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.GDC_case_file_metadata.fileData_legacy_current
+- isb-cgc-bq.GDC_case_file_metadata.fileData_active_current
+- isb-cgc-bq.GDC_case_file_metadata.caseData_current
+- isb-cgc-bq.GDC_case_file_metadata.aliquot2caseIDmap_current
+- isb-cgc-bq.GDC_case_file_metadata.slide2caseIDmap_current
+
+*October 19, 2021*
+
+New Pan-Cancer Atlas Clinical and Survival Data
+
+**BigQuery table created**
+
+- isb-cgc-bq.pancancer_atlas.TCGA_Clinical_Data_Resource_Extra
+
 *October 1, 2021*
 
 New Targetome datasets and tables added to isb-cgc-bq.
