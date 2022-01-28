@@ -52,6 +52,13 @@ Current per sample file metadata tables updated to GDC release 30.
 - isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_current
 - isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg38_gdc_current
 
+*October 19, 2021*
+
+New Pan-Cancer Atlas Clinical and Survival Data
+
+**BigQuery table created**
+
+- isb-cgc-bq.pancancer_atlas.TCGA_Clinical_Data_Resource_Extra
 
 *October 1, 2021*
 
