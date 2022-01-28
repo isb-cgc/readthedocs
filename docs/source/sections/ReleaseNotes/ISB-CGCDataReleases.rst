@@ -16,7 +16,7 @@ BigQuery tables updated
 
 *January 13, 2022*
 
-New TCGA Radiology Images table
+New TCGA Radiology Images tables.
 
 BigQuery tables created
 
@@ -52,7 +52,7 @@ Current per sample file metadata tables updated to GDC release 30.
 - isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_current
 - isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg38_gdc_current
 
-*November 3, 2021 and December 3, 2021
+*November 3, 2021 and December 3, 2021*
 
 New file metadata tables added to isb-cgc-bq for GDC release 30.
 
