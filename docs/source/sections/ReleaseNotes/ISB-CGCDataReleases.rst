@@ -26,6 +26,33 @@ BigQuery tables updated
 
 - isb-cgc-bq.TCGA.radiology_images_tcia_current
 
+*December 7, 2021*
+
+New  per sample file metadata added to isb-cgc-bq for GDC release 30.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.GENIE_versioned.per_sample_file_metadata_hg38_gdc_r30
+- isb-cgc-bq.CTSP_versioned.per_sample_file_metadata_hg38_gdc_r30
+- isb-cgc-bq.CGCI_versioned.per_sample_file_metadata_hg38_gdc_r30
+- isb-cgc-bq.HCMI_versioned.per_sample_file_metadata_hg38_gdc_r30
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_hg38_gdc_r30
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_r30
+- isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg38_gdc_r30
+
+Current per sample file metadata tables updated to GDC release 30.
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.GENIE_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CTSP_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CGCI_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.HCMI_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg38_gdc_current
+
+
 *October 1, 2021*
 
 New Targetome datasets and tables added to isb-cgc-bq.
