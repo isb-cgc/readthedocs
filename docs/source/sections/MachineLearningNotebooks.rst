@@ -14,3 +14,7 @@ Machine learning methods have enabled researchers to leverage and integrate the 
    * - How to perform nearest centroid classification using BigQuery
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_Nearest_Centroid_Classification_with_BigQuery.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_Nearest_Centroid_Classification_with_BigQuery.md>`_
+   * - How to predict cancer survival with BigQuery ML
+     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/MachineLearning/How_to_predict_cancer_survival_with_BigQueryML.ipynb>`_
+     -
+     
