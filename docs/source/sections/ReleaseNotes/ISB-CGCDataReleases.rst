@@ -2,6 +2,68 @@
 ISB-CGC Data Release Notes
 ############################
 
+*February 10, 2022*
+
+New clinical tables added to isb-cgc-bq for GDC release 31.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.REBC_versioned.clinical_gdc_r31
+- isb-cgc-bq.REBC.clinical_gdc_current
+- isb-cgc-bq.REBC_versioned.clinical_diagnoses_treatments_gdc_r31
+- isb-cgc-bq.REBC.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq.TRIO_versioned.clinical_gdc_r31
+- isb-cgc-bq.TRIO.clinical_gdc_current
+- isb-cgc-bq.BEATAML1_0_versioned.clinical_gdc_r31
+- isb-cgc-bq.CGCI_versioned.clinical_gdc_r31
+- isb-cgc-bq.CGCI_versioned.clinical_diagnoses_gdc_r31
+- isb-cgc-bq.CGCI_versioned.clinical_diagnoses_treatments_gdc_r31
+- isb-cgc-bq.CGCI_versioned.clinical_follow_ups_gdc_r31
+- isb-cgc-bq.CPTAC_versioned.clinical_gdc_r31
+- isb-cgc-bq.CTSP_versioned.clinical_gdc_r31
+- isb-cgc-bq.FM_versioned.clinical_gdc_r31
+- isb-cgc-bq.GENIE_versioned.clinical_gdc_r31
+- isb-cgc-bq.HCMI_versioned.clinical_gdc_r31
+- isb-cgc-bq.HCMI_versioned.clinical_diagnoses_gdc_r31
+- isb-cgc-bq.HCMI_versioned.clinical_diagnoses_treatments_gdc_r31
+- isb-cgc-bq.HCMI_versioned.clinical_follow_ups_gdc_r31
+- isb-cgc-bq.HCMI_versioned.clinical_follow_ups_molecular_tests_gdc_r31
+- isb-cgc-bq.MMRF_versioned.clinical_gdc_r31
+- isb-cgc-bq.NCICCR_versioned.clinical_gdc_r31
+- isb-cgc-bq.OHSU_versioned.clinical_gdc_r31
+- isb-cgc-bq.ORGANOID_versioned.clinical_gdc_r31
+- isb-cgc-bq.TARGET_versioned.clinical_gdc_r31
+- isb-cgc-bq.TCGA_versioned.clinical_gdc_r31
+- isb-cgc-bq.VAREPOP_versioned.clinical_gdc_r31
+- isb-cgc-bq.WCDT_versioned.clinical_gdc_r31
+
+Current clinical tables updated to GDC release 31.
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.BEATAML1_0.clinical_gdc_current
+- isb-cgc-bq.CGCI.clinical_gdc_current
+- isb-cgc-bq.CGCI.clinical_diagnoses_gdc_current
+- isb-cgc-bq.CGCI.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq.CGCI.clinical_follow_ups_gdc_current
+- isb-cgc-bq.CPTAC.clinical_gdc_current
+- isb-cgc-bq.CTSP.clinical_gdc_current
+- isb-cgc-bq.FM.clinical_gdc_current
+- isb-cgc-bq.GENIE.clinical_gdc_current
+- isb-cgc-bq.HCMI.clinical_gdc_current
+- isb-cgc-bq.HCMI.clinical_diagnoses_gdc_current
+- isb-cgc-bq.HCMI.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq.HCMI.clinical_follow_ups_gdc_current
+- isb-cgc-bq.HCMI.clinical_follow_ups_molecular_tests_gdc_current
+- isb-cgc-bq.MMRF.clinical_gdc_current
+- isb-cgc-bq.NCICCR.clinical_gdc_current
+- isb-cgc-bq.OHSU.clinical_gdc_current
+- isb-cgc-bq.ORGANOID.clinical_gdc_current
+- isb-cgc-bq.TARGET.clinical_gdc_current
+- isb-cgc-bq.TCGA.clinical_gdc_current
+- isb-cgc-bq.VAREPOP.clinical_gdc_current
+- isb-cgc-bq.WCDT.clinical_gdc_current
+
 *January 26, 2022*
 
 New GENCODE annotation tables.
@@ -28,7 +90,7 @@ BigQuery tables updated
 
 *December 7, 2021*
 
-New  per sample file metadata added to isb-cgc-bq for GDC release 30.
+New per sample file metadata added to isb-cgc-bq for GDC release 30.
 
 **BigQuery tables created**
 
@@ -39,6 +101,10 @@ New  per sample file metadata added to isb-cgc-bq for GDC release 30.
 - isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_hg38_gdc_r30
 - isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_r30
 - isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg38_gdc_r30
+- isb-cgc-bq.REBC.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.REBC_versioned.per_sample_file_metadata_hg38_gdc_r30
+- isb-cgc-bq.TRIO.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TRIO_versioned.per_sample_file_metadata_hg38_gdc_r30
 
 Current per sample file metadata tables updated to GDC release 30.
 
@@ -51,6 +117,8 @@ Current per sample file metadata tables updated to GDC release 30.
 - isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_hg38_gdc_current
 - isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_current
 - isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg38_gdc_current
+
+New Datasets REBC, REBC_versioned, TRIO, and TRIO_versioned were created.
 
 *November 3, 2021 and December 3, 2021*
 
