@@ -90,6 +90,7 @@ New tables for Synthetic Lethality.
 - isb-cgc-bq.DEPMAP.Combined_gene_dep_score_DEMETER2_current
 - isb-cgc-bq.DEPMAP.RNAseq_IRPKM_DEMETER2_current
 - isb-cgc-bq.DEPMAP.Sample_Info_DEMETER2_current
+- isb-cgc-bq.DEPMAP.sample_info_DepMapPublic_current
 - isb-cgc-bq.DEPMAP.WES_SNP_CN_DEMETER2_current
 
 - isb-cgc-bq.DEPMAP_versioned.Achilles_gene_effect_DepMapPublic_20Q3
