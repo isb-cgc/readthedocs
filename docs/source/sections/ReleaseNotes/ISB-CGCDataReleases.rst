@@ -82,26 +82,26 @@ New tables for Synthetic Lethality.
 - isb-cgc-bq.annotations_versioned.Human2Yeast_mapping_Alliance_for_Genome_Resources_R3_0_1
 - isb-cgc-bq.annotations_versioned.Yeast2Human_mapping_Alliance_for_Genome_Resources_R3_0_1
 
-- isb-cgc-bq.DEPMAP.CCLE_mutation_DepMapPublic_current
-- isb-cgc-bq.DEPMAP.CCLE_gene_expression_DepMapPublic_current
-- isb-cgc-bq.DEPMAP.CCLE_gene_cn_DepMapPublic_current
 - isb-cgc-bq.DEPMAP.Achilles_gene_effect_DepMapPublic_current
+- isb-cgc-bq.DEPMAP.CCLE_gene_cn_DepMapPublic_current
+- isb-cgc-bq.DEPMAP.CCLE_gene_expression_DepMapPublic_current
+- isb-cgc-bq.DEPMAP.CCLE_mutation_DepMapPublic_current
+- isb-cgc-bq.DEPMAP.CCLE_SomaticMutation_DEMETER2_current
+- isb-cgc-bq.DEPMAP.Combined_gene_dep_score_DEMETER2_current
+- isb-cgc-bq.DEPMAP.RNAseq_IRPKM_DEMETER2_current
 - isb-cgc-bq.DEPMAP.Sample_Info_DEMETER2_current
 - isb-cgc-bq.DEPMAP.WES_SNP_CN_DEMETER2_current
-- isb-cgc-bq.DEPMAP.RNAseq_IRPKM_DEMETER2_current
-- isb-cgc-bq.DEPMAP.Combined_gene_dep_score_DEMETER2_current
-- isb-cgc-bq.DEPMAP.CCLE_SomaticMutation_DEMETER2_current
 
-- isb-cgc-bq.DEPMAP_versioned.sample_info_DepMapPublic_20Q3
-- isb-cgc-bq.DEPMAP_versioned.CCLE_mutation_DepMapPublic_20Q3
-- isb-cgc-bq.DEPMAP_versioned.CCLE_gene_expression_DepMapPublic_20Q3
-- isb-cgc-bq.DEPMAP_versioned.CCLE_gene_cn_DepMapPublic_20Q3
 - isb-cgc-bq.DEPMAP_versioned.Achilles_gene_effect_DepMapPublic_20Q3
-- isb-cgc-bq.DEPMAP_versioned.Sample_Info_DEMETER2_v6
-- isb-cgc-bq.DEPMAP_versioned.WES_SNP_CN_DEMETER2_v6
-- isb-cgc-bq.DEPMAP_versioned.RNAseq_IRPKM_DEMETER2_v6
-- isb-cgc-bq.DEPMAP_versioned.Combined_gene_dep_score_DEMETER2_v6
+- isb-cgc-bq.DEPMAP_versioned.CCLE_gene_cn_DepMapPublic_20Q3
+- isb-cgc-bq.DEPMAP_versioned.CCLE_gene_expression_DepMapPublic_20Q3
+- isb-cgc-bq.DEPMAP_versioned.CCLE_mutation_DepMapPublic_20Q3
 - isb-cgc-bq.DEPMAP_versioned.CCLE_SomaticMutation_DEMETER2_v6
+- isb-cgc-bq.DEPMAP_versioned.Combined_gene_dep_score_DEMETER2_v6
+- isb-cgc-bq.DEPMAP_versioned.RNAseq_IRPKM_DEMETER2_v6
+- isb-cgc-bq.DEPMAP_versioned.Sample_Info_DEMETER2_v6
+- isb-cgc-bq.DEPMAP_versioned.sample_info_DepMapPublic_20Q3
+- isb-cgc-bq.DEPMAP_versioned.WES_SNP_CN_DEMETER2_v6
 
 - isb-cgc-bq.supplementary_tables.Bailey_etal_Cell_2018_cancer_driver_genes
 - isb-cgc-bq.supplementary_tables.Constanzo_etal_Science_2016_SGA_Genetic_Interactions
