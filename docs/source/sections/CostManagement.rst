@@ -10,6 +10,7 @@ Estimating Costs for Common Bioinformatics and Data Analysis Tasks
 Summary of costs for common tasks:
 
 .. list-table::
+   :widths: 100 25 25
    :align: center
    :header-rows: 1
 
@@ -17,12 +18,13 @@ Summary of costs for common tasks:
      - Dataset(s)
      - Approx. Cost
    * - | Identify differentially expressed genes
-       | Example: 
+       | `Example Notebook <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_analyze_differential_expression_between_paired_tumor_and_normal_samples.ipynb>`_
      - TCGA
-     - $10
-   * - Train a prediction model
+     - $1.00
+   * - | Train a prediction model using RNA-seq data
+       | 
      - TCGA
-     - 
+     - $0.10
 
 
 Use Case: Identifying Differentially Expressed Genes in TCGA Data
