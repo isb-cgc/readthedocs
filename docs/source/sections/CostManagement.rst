@@ -2,7 +2,7 @@
 Cost Management
 ===============
 
-This section details a few use cases and their approximate costs in order to help users estimate cloud costs for their analysis. 
+This section details a few use cases and their approximate costs in order to help users estimate cloud costs for their analyses. 
 
 Estimating Costs for Common Bioinformatics and Data Analysis Tasks
 ==================================================================
