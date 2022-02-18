@@ -10,15 +10,14 @@ Estimating Costs for Common Bioinformatics and Data Analysis Tasks
 Summary of costs for common tasks:
 
 .. list-table::
-   :widths: 100 10 10
    :align: center
    :header-rows: 1
 
    * - Bioinformatics / Data Analysis Task
      - Dataset(s)
      - Approx. Cost
-   * - Identify differentially expressed genes
-       Example: 
+   * - | Identify differentially expressed genes
+       | Example: 
      - TCGA
      - $10
    * - Train a prediction model
