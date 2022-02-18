@@ -11,6 +11,9 @@ Machine learning methods have enabled researchers to leverage and integrate the 
    * - How to build an RNA-seq logistic regression classifier
      - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/MachineLearning/How_to_build_an_RNAseq_logistic_regression_classifier.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/MachineLearning/How_to_build_an_RNAseq_logistic_regression_classifier_R.ipynb>`_ 
+   * - How to build an RNA-seq logistic regression classifier with BigQuery ML
+     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/MachineLearning/How_to_build_an_RNAseq_logistic_regression_classifier_with_BigQuery_ML.ipynb>`_
+     - 
    * - How to perform nearest centroid classification using BigQuery
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_Nearest_Centroid_Classification_with_BigQuery.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_Nearest_Centroid_Classification_with_BigQuery.md>`_
