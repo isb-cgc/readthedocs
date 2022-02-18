@@ -36,7 +36,7 @@ The following bioinformatics tools and workflows developed by St. Jude have been
 .. list-table::
    :widths: 100 25
    :align: center
-   :header-rows: 1
+   :header-rows: 0
 
    * - **CICERO** (Clipped-reads Extended for RNA Optimization) is an assembly-based algorithm to detect diverse classes of driver gene fusions from RNA-seq.
      - `GitHub <https://github.com/stjude/CICERO>`_
