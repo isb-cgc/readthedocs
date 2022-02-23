@@ -7,7 +7,7 @@ This section details a few use cases and their approximate costs in order to hel
 Estimating Costs for Common Bioinformatics and Data Analysis Tasks
 ==================================================================
 
-The following table summarizes order-of-magnitude costs for common data analysis tasks. For example an order-of-magnitude cost of $10 indicates that the cost can be up to $10, estimated from the given example notebooks. Estimated costs between $10 and $15 are reported as the next order of magnitude, $100:
+The following table summarizes order-of-magnitude costs for common data analysis tasks. For example an order-of-magnitude cost of $10 indicates that the cost can be up to $10, estimated from the given example notebooks. Estimated costs between $10 and $100 are reported as the next order of magnitude, $100:
 
 .. list-table::
    :widths: 100 25 25
