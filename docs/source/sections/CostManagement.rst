@@ -34,8 +34,14 @@ The following table summarizes order-of-magnitude costs for common data analysis
      - TCGA
      - BigQuery, BigQuery ML, Colab, Python
      - $1.00 ($100) *
+   * - | Analyze RNA-seq data using the GDC workflow
+       | `Example: GDC RNA-seq CWL Workflow <https://github.com/NCI-GDC/gdc-rnaseq-cwl>`_
+     - TCGA
+     - Compute Engine, Cloud Storage, CWL
+     - $10 **
 
 * *BigQuery ML Note: The cost of BigQuery ML for model training greatly depends on the size of the input data. In the examples listed here, a subset of the input data was first extracted and stored in a temporary table. This temporary table was then used as the input to the BigQuery ML model creation command. By doing this, the cost of the BigQuery ML command is substantially reduced, but a small cost for storing the temporary table may be incurred. If using all gene features of a TCGA dataset, costs can grow to the order of $100.
+* **This is the approximate cost per sample and may vary depending on the size of the sample (i.e., number of reads). 
 
 
 

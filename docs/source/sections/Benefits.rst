@@ -69,7 +69,7 @@ Most bioinformaticians today are likely accustomed to using the high performance
 |           |                                     |                                         |
 +-----------+-------------------------------------+-----------------------------------------+
 
-***Be careful of costs** 
+***Be careful of costs**, See the `Cost Management <CostManagement.html>`_ page for more information.  
 
 
 
