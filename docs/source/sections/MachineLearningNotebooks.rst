@@ -20,4 +20,7 @@ Machine learning methods have enabled researchers to leverage and integrate the 
    * - How to predict cancer survival with BigQuery ML
      - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/MachineLearning/How_to_predict_cancer_survival_with_BigQueryML.ipynb>`_
      -
+   * - How to predict cancer survival with TensorFlow
+     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/MachineLearning/How_to_predict_cancer_survival_with_TensorFlow.ipynb>`_
+     -
      
