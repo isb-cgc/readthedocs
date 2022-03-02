@@ -45,11 +45,11 @@ The following table summarizes order-of-magnitude costs for common data analysis
      - Compute Engine, Cloud Storage, CWL
      - $10 \*\*\*
 
-* \*BigQuery ML Note: BigQuery ML costs depend on the data size. In these examples, a subset of data was extracted to a temporary table, which was used as the input to BigQuery ML. This reduces the BigQuery ML cost substantially with a small additional cost for storing the temporary table. If using all gene features of a TCGA dataset, costs can grow to the order of $100.
+* \*BigQuery ML costs depend on data size. In these examples, a subset of data was extracted to a temporary table, which was used as input to BigQuery ML. This reduces costs substantially. If using all gene features of a TCGA dataset, costs can grow to the order of $100.
 
-* \*\*With small datasets, use of GPUs in Colab does not cost extra (unless using `Colab Pro <https://research.google.com/colaboratory/faq.html>`_). However, if TensorFlow code is executed in a Compute Engine VM with GPUs, the hourly cost can range from $1 to $10.
+* \*\*With small datasets, use of GPUs in Colab does not cost extra (unless using `Colab Pro <https://research.google.com/colaboratory/faq.html>`_). However, if TensorFlow code is executed in a VM with GPUs, the hourly cost can range from $1 to $10.
 
-* \*\*\*Cost per sample may vary depending on sample size (i.e., number of reads) and processing time.
+* \*\*\*Cost per sample depends on sample size (i.e., number of reads) and processing time.
 
 * BigQuery ML vs. TensorFlow w/ Compute Engine or Colab GPUs: When choosing between these tools for machine learning, consider the following guidelines:
 
