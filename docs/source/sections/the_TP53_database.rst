@@ -6,7 +6,7 @@ The *TP53* Database (`<https://tp53.isb-cgc.org>`_) compiles *TP53* variant data
 The following data are available:
 
 - *TP53* `functional and structural data <https://tp53.isb-cgc.org/explore_gv>`_ including `validated polymorphisms <https://tp53.isb-cgc.org/view_val_poly>`_
-- *TP53* `somatic variants <https://tp53.isb-cgc.org/explore_sm>`_ in sporadic cancers
+- *TP53* `tumor variants <https://tp53.isb-cgc.org/explore_sm>`_ in sporadic cancers
 - *TP53* `germline variants <https://tp53.isb-cgc.org/explore_gm>`_ in cancer patients, families with cancers and control populations
 - *TP53* `gene status in human cell-lines <https://tp53.isb-cgc.org/explore_cl>`_
 - `Mouse models <https://tp53.isb-cgc.org/explore_mm>`_ with engineered p53
