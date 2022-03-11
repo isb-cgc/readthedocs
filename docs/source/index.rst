@@ -30,6 +30,7 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    sections/HowtoRequestCloudCredits
    sections/BestPractices
    sections/Benefits
+   sections/CostManagement
    sections/office_hours
    
 .. toctree::
@@ -45,6 +46,7 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    sections/DataBrowser
    sections/data/Mitelman_about
    sections/the_TP53_database
+   sections/SyntheticLethality_resource
    sections/ProgrammaticAccess
    sections/data/TCGA_Data_Security
    sections/Gaining-Access-To-Controlled-Access-Data 

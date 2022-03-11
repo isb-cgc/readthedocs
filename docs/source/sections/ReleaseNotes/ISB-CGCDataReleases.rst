@@ -2,6 +2,200 @@
 ISB-CGC Data Release Notes
 ############################
 
+*February 10, 2022*
+
+New clinical tables added to isb-cgc-bq for GDC release 31.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.REBC_versioned.clinical_gdc_r31
+- isb-cgc-bq.REBC.clinical_gdc_current
+- isb-cgc-bq.REBC_versioned.clinical_diagnoses_treatments_gdc_r31
+- isb-cgc-bq.REBC.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq.TRIO_versioned.clinical_gdc_r31
+- isb-cgc-bq.TRIO.clinical_gdc_current
+- isb-cgc-bq.BEATAML1_0_versioned.clinical_gdc_r31
+- isb-cgc-bq.CGCI_versioned.clinical_gdc_r31
+- isb-cgc-bq.CGCI_versioned.clinical_diagnoses_gdc_r31
+- isb-cgc-bq.CGCI_versioned.clinical_diagnoses_treatments_gdc_r31
+- isb-cgc-bq.CGCI_versioned.clinical_follow_ups_gdc_r31
+- isb-cgc-bq.CPTAC_versioned.clinical_gdc_r31
+- isb-cgc-bq.CTSP_versioned.clinical_gdc_r31
+- isb-cgc-bq.FM_versioned.clinical_gdc_r31
+- isb-cgc-bq.GENIE_versioned.clinical_gdc_r31
+- isb-cgc-bq.HCMI_versioned.clinical_gdc_r31
+- isb-cgc-bq.HCMI_versioned.clinical_diagnoses_gdc_r31
+- isb-cgc-bq.HCMI_versioned.clinical_diagnoses_treatments_gdc_r31
+- isb-cgc-bq.HCMI_versioned.clinical_follow_ups_gdc_r31
+- isb-cgc-bq.HCMI_versioned.clinical_follow_ups_molecular_tests_gdc_r31
+- isb-cgc-bq.MMRF_versioned.clinical_gdc_r31
+- isb-cgc-bq.NCICCR_versioned.clinical_gdc_r31
+- isb-cgc-bq.OHSU_versioned.clinical_gdc_r31
+- isb-cgc-bq.ORGANOID_versioned.clinical_gdc_r31
+- isb-cgc-bq.TARGET_versioned.clinical_gdc_r31
+- isb-cgc-bq.TCGA_versioned.clinical_gdc_r31
+- isb-cgc-bq.VAREPOP_versioned.clinical_gdc_r31
+- isb-cgc-bq.WCDT_versioned.clinical_gdc_r31
+
+Current clinical tables updated to GDC release 31.
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.BEATAML1_0.clinical_gdc_current
+- isb-cgc-bq.CGCI.clinical_gdc_current
+- isb-cgc-bq.CGCI.clinical_diagnoses_gdc_current
+- isb-cgc-bq.CGCI.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq.CGCI.clinical_follow_ups_gdc_current
+- isb-cgc-bq.CPTAC.clinical_gdc_current
+- isb-cgc-bq.CTSP.clinical_gdc_current
+- isb-cgc-bq.FM.clinical_gdc_current
+- isb-cgc-bq.GENIE.clinical_gdc_current
+- isb-cgc-bq.HCMI.clinical_gdc_current
+- isb-cgc-bq.HCMI.clinical_diagnoses_gdc_current
+- isb-cgc-bq.HCMI.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq.HCMI.clinical_follow_ups_gdc_current
+- isb-cgc-bq.HCMI.clinical_follow_ups_molecular_tests_gdc_current
+- isb-cgc-bq.MMRF.clinical_gdc_current
+- isb-cgc-bq.NCICCR.clinical_gdc_current
+- isb-cgc-bq.OHSU.clinical_gdc_current
+- isb-cgc-bq.ORGANOID.clinical_gdc_current
+- isb-cgc-bq.TARGET.clinical_gdc_current
+- isb-cgc-bq.TCGA.clinical_gdc_current
+- isb-cgc-bq.VAREPOP.clinical_gdc_current
+- isb-cgc-bq.WCDT.clinical_gdc_current
+
+*February 2, 2022*
+
+New tables for Synthetic Lethality.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.annotations.gene_info_human_NCBI_current
+- isb-cgc-bq.annotations.gene2ensembl_human_NCBI_current
+- isb-cgc-bq.annotations.gene2refseq_human_NCBI_current
+- isb-cgc-bq.annotations.Human2Yeast_mapping_Alliance_for_Genome_Resources_current
+- isb-cgc-bq.annotations.Yeast2Human_mapping_Alliance_for_Genome_Resources_current
+
+- isb-cgc-bq.annotations_versioned.gene_info_human_NCBI_2020_07
+- isb-cgc-bq.annotations_versioned.gene2ensembl_human_NCBI_2020_07
+- isb-cgc-bq.annotations_versioned.gene2refseq_human_NCBI_2020_07
+- isb-cgc-bq.annotations_versioned.Human2Yeast_mapping_Alliance_for_Genome_Resources_R3_0_1
+- isb-cgc-bq.annotations_versioned.Yeast2Human_mapping_Alliance_for_Genome_Resources_R3_0_1
+
+- isb-cgc-bq.DEPMAP.Achilles_gene_effect_DepMapPublic_current
+- isb-cgc-bq.DEPMAP.CCLE_gene_cn_DepMapPublic_current
+- isb-cgc-bq.DEPMAP.CCLE_gene_expression_DepMapPublic_current
+- isb-cgc-bq.DEPMAP.CCLE_mutation_DepMapPublic_current
+- isb-cgc-bq.DEPMAP.CCLE_SomaticMutation_DEMETER2_current
+- isb-cgc-bq.DEPMAP.Combined_gene_dep_score_DEMETER2_current
+- isb-cgc-bq.DEPMAP.RNAseq_IRPKM_DEMETER2_current
+- isb-cgc-bq.DEPMAP.Sample_Info_DEMETER2_current
+- isb-cgc-bq.DEPMAP.sample_info_DepMapPublic_current
+- isb-cgc-bq.DEPMAP.WES_SNP_CN_DEMETER2_current
+
+- isb-cgc-bq.DEPMAP_versioned.Achilles_gene_effect_DepMapPublic_20Q3
+- isb-cgc-bq.DEPMAP_versioned.CCLE_gene_cn_DepMapPublic_20Q3
+- isb-cgc-bq.DEPMAP_versioned.CCLE_gene_expression_DepMapPublic_20Q3
+- isb-cgc-bq.DEPMAP_versioned.CCLE_mutation_DepMapPublic_20Q3
+- isb-cgc-bq.DEPMAP_versioned.CCLE_SomaticMutation_DEMETER2_v6
+- isb-cgc-bq.DEPMAP_versioned.Combined_gene_dep_score_DEMETER2_v6
+- isb-cgc-bq.DEPMAP_versioned.RNAseq_IRPKM_DEMETER2_v6
+- isb-cgc-bq.DEPMAP_versioned.Sample_Info_DEMETER2_v6
+- isb-cgc-bq.DEPMAP_versioned.sample_info_DepMapPublic_20Q3
+- isb-cgc-bq.DEPMAP_versioned.WES_SNP_CN_DEMETER2_v6
+
+- isb-cgc-bq.supplementary_tables.Bailey_etal_Cell_2018_cancer_driver_genes
+- isb-cgc-bq.supplementary_tables.Constanzo_etal_Science_2016_SGA_Genetic_Interactions
+
+- isb-cgc-bq.synthetic_lethality.gene_info_human_HGNC_NCBI_2020_07
+- isb-cgc-bq.synthetic_lethality.sample_info_TCGAlabels_DepMapPublic_20Q3
+
+
+*January 26, 2022*
+
+New GENCODE annotation tables.
+
+BigQuery tables created
+
+- isb-cgc-bq.GENCODE_versioned.annotation_gtf_hg38_v39
+
+BigQuery tables updated
+
+- isb-cgc-bq.GENCODE.annotation_gtf_hg38_current
+
+*January 13, 2022*
+
+New TCGA Radiology Images tables.
+
+BigQuery tables created
+
+- isb-cgc-bq.TCGA_versioned.radiology_images_tcia_2022_01
+
+BigQuery tables updated
+
+- isb-cgc-bq.TCGA.radiology_images_tcia_current
+
+*December 7, 2021*
+
+New per sample file metadata added to isb-cgc-bq for GDC release 30.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.GENIE_versioned.per_sample_file_metadata_hg38_gdc_r30
+- isb-cgc-bq.CTSP_versioned.per_sample_file_metadata_hg38_gdc_r30
+- isb-cgc-bq.CGCI_versioned.per_sample_file_metadata_hg38_gdc_r30
+- isb-cgc-bq.HCMI_versioned.per_sample_file_metadata_hg38_gdc_r30
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_hg38_gdc_r30
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_r30
+- isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg38_gdc_r30
+- isb-cgc-bq.REBC.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.REBC_versioned.per_sample_file_metadata_hg38_gdc_r30
+- isb-cgc-bq.TRIO.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TRIO_versioned.per_sample_file_metadata_hg38_gdc_r30
+
+Current per sample file metadata tables updated to GDC release 30.
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.GENIE_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CTSP_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CGCI_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.HCMI_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg38_gdc_current
+
+New Datasets REBC, REBC_versioned, TRIO, and TRIO_versioned were created.
+
+*November 3, 2021 and December 3, 2021*
+
+New file metadata tables added to isb-cgc-bq for GDC release 30.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.GDC_case_file_metadata_versioned.GDCfileID_to_GCSurl_r30
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_legacy_r30
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_active_r30
+- isb-cgc-bq.GDC_case_file_metadata_versioned.caseData_r30
+- isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r30
+- isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r30
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.GDC_case_file_metadata.fileData_legacy_current
+- isb-cgc-bq.GDC_case_file_metadata.fileData_active_current
+- isb-cgc-bq.GDC_case_file_metadata.caseData_current
+- isb-cgc-bq.GDC_case_file_metadata.aliquot2caseIDmap_current
+- isb-cgc-bq.GDC_case_file_metadata.slide2caseIDmap_current
+
+*October 19, 2021*
+
+New Pan-Cancer Atlas Clinical and Survival Data
+
+**BigQuery table created**
+
+- isb-cgc-bq.pancancer_atlas.TCGA_Clinical_Data_Resource_Extra
+
 *October 1, 2021*
 
 New Targetome datasets and tables added to isb-cgc-bq.
