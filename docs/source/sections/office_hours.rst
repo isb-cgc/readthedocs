@@ -21,7 +21,7 @@ We have **virtual Office Hours on Tuesdays and Thursdays** for any questions on 
 
   * - Thursday
     - 11:00am – 12:00pm Eastern
-    - John Phan
+    - Poojitha Gundluru
     - http://meet.google.com/jai-kgkg-sii
     
     
