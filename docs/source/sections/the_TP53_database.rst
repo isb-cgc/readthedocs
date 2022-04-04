@@ -39,9 +39,9 @@ When using the database, authors should cite the following source:
 
   The *TP53* Database (R20, July 2019): https://tp53.isb-cgc.org 
 
-and refer to Bouaoun et al. in the bibliography as below:
-
-  Bouaoun L, Sonkin D, Ardin M, Hollstein M, Byrnes G, Zavadil J, Olivier M. *TP53 Variations in Human Cancers: New Lessons from the IARC TP53 Database and Genomics Data*. Hum Mutat. 2016 Sep;37(9):865-76. doi: 10.1002/humu.23035. Epub 2016 Jul 8.
+and refer to de Andrade K.C. et al. in the bibliography as below:
+  
+  de Andrade, K.C., Lee, E.E., Tookmanian, E.M. et al. The *TP53* Database: transition from the International Agency for Research on Cancer to the US National Cancer Institute. *Cell Death Differ* (2022). https://doi.org/10.1038/s41418-022-00976-3
 
 More Information 
 ----------------
