@@ -31,6 +31,10 @@ Cluster these TCGA DNA methylation and TCGA RNAseq tables to improve query perfo
 - isb-cgc-bq.TCGA.RNAseq_hg19_gdc_current
 - isb-cgc-bq.TCGA.RNAseq_hg38_gdc_current
 
+**BigQuery tables updated**
+
+- isb-cgc-bq.TCGA.per_sample_file_metadata_hg38_gdc_current
+
 *February 10, 2022*
 
 New clinical tables added to isb-cgc-bq for GDC release 31.
