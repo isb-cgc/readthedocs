@@ -28,7 +28,6 @@ For more information about Google BigQuery, see the following Google support pag
    BigQuery/ISBCGC-BQ-Projects
    progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject
    progapi/bigqueryGUI/GettingStartedWithGoogleBigQuery
-   BigQuery/VariantDataInBigQuery
    BigQuery/UserDefinedFunctions
    BigQuery/BigQueryUsageCosts
 
