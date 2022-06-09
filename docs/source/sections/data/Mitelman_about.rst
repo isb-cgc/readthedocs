@@ -10,6 +10,8 @@ The information in the Mitelman Database relates cytogenetic changes and their g
 Using the Mitelman Database
 ---------------------------
 
+It can be accessed from the ISB-CGC homepage (`<https://isb-cgc.org/>`_) by clicking on **Launch** in the **Chromosomal Aberrations & Gene Fusions DB** box or selecting **Chromosomal Aberrations & Gene Fusions DB** from the **Data Browsers** drop down menu on the main menu bar. It can also be accessed directly from https://mitelmandatabase.isb-cgc.org.
+
 The user queries the database by parameters such as topography, morphology, gene characteristics, cytogenetic aberrations, and journal references. There are five `searchers <https://mitelmandatabase.isb-cgc.org/search_menu>`_ available: 
 
 * Cases Cytogenetics Searcher
