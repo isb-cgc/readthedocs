@@ -50,3 +50,7 @@ In addition, when using information about chromosomal gains and losses (found on
   CytoConverter: a web-based tool to convert karyotypes to genomic coordinates. Wang, J., LaFramboise, T. BMC Bioinformatics 20, 467 (2019). https://doi.org/10.1186/s12859-019-3062-4
 
 
+More Information 
+----------------
+
+For more information, please see the Mitelman Database `About <https://mitelmandatabase.isb-cgc.org/about>`_ page and `User Guide <https://mitelmandatabase.isb-cgc.org/help>`_.
