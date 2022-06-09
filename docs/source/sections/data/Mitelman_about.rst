@@ -2,10 +2,13 @@
 Mitelman Database
 =================
 
-About Mitelman Database
------------------------
-
 The `Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer <https://mitelmandatabase.isb-cgc.org/>`_  is devoted to genes, chromosomes, and cancer. The Mitelman Database is supported by NCI (National Cancer Institute), the Swedish Cancer Society and the Swedish Childhood Cancer. `The Mitelman Database <https://mitelmandatabase.isb-cgc.org/>`_ is available from the ISB-CGC to access and search the data.
+
+The information in the Mitelman Database relates cytogenetic changes and their genomic consequences, in particular gene fusions, to tumor characteristics, based either on individual cases or associations. All the data have been manually culled from the literature by Felix Mitelman in collaboration with Bertil Johansson and Fredrik Mertens. The database is updated quarterly in January, April, July, and October. 
+
+
+Using the Mitelman Database
+---------------------------
 
 The user queries the database by parameters such as topography, morphology, gene characteristics, cytogenetic aberrations, and journal references. There are five `searchers <https://mitelmandatabase.isb-cgc.org/search_menu>`_ available: 
 
@@ -32,11 +35,6 @@ The user queries the database by parameters such as topography, morphology, gene
 Until June 2022, the resulting genetic location information retrieved from the database was only displayed in karyotypes.  Now, genomic coordinates are also displayed. Thanks to procedures incorporated from the web-based tool CytoConverter, karyotypes are converted to genomic coordinates and can be optionally viewed by the Mitelman Database user.
 
 The user has the option of viewing the genomic coordinate information for either individual karyotypes or for multiple karyotypes in a search result. For individual karyotypes, the corresponding chromosome and its start and end position are given. In addition, the type of imbalance (gain or loss) is noted. For multiple karyotypes in the search results, net imbalances across the selected group are displayed in chart, ideogram or tabular format; information includes the chromosome affected, start and end positions, and whether the segment has been lost or gained.
-
-About Mitelman Data
--------------------
-
-The information in the Mitelman Database relates cytogenetic changes and their genomic consequences, in particular gene fusions, to tumor characteristics, based either on individual cases or associations. All the data have been manually culled from the literature by Felix Mitelman in collaboration with Bertil Johansson and Fredrik Mertens. The database is updated quarterly in January, April, July, and October. The data can be accessed on the `ISB-CGC Mitelman Database <https://mitelmandatabase.isb-cgc.org/>`_.
 
 How to Cite
 -----------
