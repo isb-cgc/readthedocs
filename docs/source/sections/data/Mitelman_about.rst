@@ -38,3 +38,15 @@ About Mitelman Data
 
 The information in the Mitelman Database relates cytogenetic changes and their genomic consequences, in particular gene fusions, to tumor characteristics, based either on individual cases or associations. All the data have been manually culled from the literature by Felix Mitelman in collaboration with Bertil Johansson and Fredrik Mertens. The database is updated quarterly in January, April, July, and October. The data can be accessed on the `ISB-CGC Mitelman Database <https://mitelmandatabase.isb-cgc.org/>`_.
 
+How to Cite
+-----------
+
+To cite the use of the Mitelman Database, authors should cite the following source:
+
+  Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer (2022). Mitelman F, Johansson B and Mertens F (Eds.), https://mitelmandatabase.isb-cgc.org
+  
+In addition, when using information about chromosomal gains and losses (found on the Karyotype Info and Overall Chromosomal Imbalances pages), please also cite the following:
+
+  CytoConverter: a web-based tool to convert karyotypes to genomic coordinates. Wang, J., LaFramboise, T. BMC Bioinformatics 20, 467 (2019). https://doi.org/10.1186/s12859-019-3062-4
+
+
