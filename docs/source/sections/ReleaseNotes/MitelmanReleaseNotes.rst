@@ -6,6 +6,16 @@ To search this database hosted by the ISB-CGC, please visit `Mitelman Database o
 
 For more detailed information about the Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer, see `Mitelman Database <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/Mitelman_about.html>`_.
 
+*June 6, 2022*
+
+**Enhancements and New Features**
+
+Mitelman Database Now Includes Genomic Coordinates
+
+Until June 2022, the resulting genetic location information retrieved from the database was only displayed in karyotypes.  Now, genomic coordinates are also displayed. Thanks to procedures incorporated from the web-based tool CytoConverter, karyotypes are converted to genomic coordinates and can be optionally viewed by the Mitelman Database user.
+
+The user has the option of viewing the genomic coordinate information for either individual karyotypes or for multiple karyotypes in a search result. For individual karyotypes, the corresponding chromosome and its start and end position are given. In addition, the type of imbalance (gain or loss) is noted. For multiple karyotypes in the search results, net imbalances across the selected group are displayed in chart, ideogram or tabular format; information includes the chromosome affected, start and end positions, and whether the segment has been lost or gained.
+
 *April 18, 2022*
 
 **Updated totals**
