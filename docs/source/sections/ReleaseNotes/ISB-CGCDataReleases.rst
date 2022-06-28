@@ -2,6 +2,49 @@
 ISB-CGC Data Release Notes
 ############################
 
+*June 15, 2022*
+
+New clinical tables added to isb-cgc-bq for GDC release 33.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.TRIO.clinical_gdc_current
+- isb-cgc-bq.TRIO_versioned.clinical_gdc_r33
+- isb-cgc-bq.TARGET.clinical_gdc_current
+- isb-cgc-bq.TARGET_versioned.clinical_gdc_r33
+- isb-cgc-bq.HCMI.clinical_follow_ups_molecular_tests_gdc_current
+- isb-cgc-bq.HCMI_versioned.clinical_follow_ups_molecular_tests_gdc_r33
+- isb-cgc-bq.HCMI.clinical_follow_ups_gdc_current`
+- isb-cgc-bq.HCMI_versioned.clinical_follow_ups_gdc_r33
+- isb-cgc-bq.HCMI.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq.HCMI_versioned.clinical_diagnoses_treatments_gdc_r33
+- isb-cgc-bq.HCMI.clinical_diagnoses_gdc_current
+- isb-cgc-bq.HCMI_versioned.clinical_diagnoses_gdc_r33
+- isb-cgc-bq.CTSP.clinical_gdc_current
+- isb-cgc-bq.CTSP_versioned.clinical_gdc_r33
+- isb-cgc-bq.CMI.clinical_gdc_current
+- isb-cgc-bq.CMI_versioned.clinical_gdc_r33`
+- isb-cgc-bq.CGCI.clinical_follow_ups_molecular_tests_gdc_current`
+- isb-cgc-bq.CGCI_versioned.clinical_follow_ups_molecular_tests_gdc_r33`
+- isb-cgc-bq.CGCI.clinical_follow_ups_gdc_current`
+- isb-cgc-bq.CGCI_versioned.clinical_follow_ups_gdc_r33`
+- isb-cgc-bq.CGCI.clinical_diagnoses_treatments_gdc_current`
+- isb-cgc-bq.CGCI_versioned.clinical_diagnoses_treatments_gdc_r33`
+- isb-cgc-bq.CGCI.clinical_diagnoses_gdc_current`
+`isb-cgc-bq.CGCI_versioned.clinical_diagnoses_gdc_r33`
+`isb-cgc-bq.CGCI.clinical_gdc_current`
+`isb-cgc-bq.CGCI_versioned.clinical_gdc_r33`
+`isb-cgc-bq.MP2PRT.clinical_gdc_current`
+`isb-cgc-bq.MP2PRT_versioned.clinical_gdc_r33`
+`isb-cgc-bq.EXC_RESPONDERS.clinical_diagnoses_treatments_gdc_current`
+`isb-cgc-bq.EXC_RESPONDERS_versioned.clinical_diagnoses_treatments_gdc_r33`
+`isb-cgc-bq.EXC_RESPONDERS.clinical_diagnoses_gdc_current`
+`isb-cgc-bq.EXC_RESPONDERS_versioned.clinical_diagnoses_gdc_r33`
+`isb-cgc-bq.EXC_RESPONDERS.clinical_gdc_current`
+`isb-cgc-bq.EXC_RESPONDERS_versioned.clinical_gdc_r33`
+
+**BigQuery tables updated**
+
 
 *May 5, 2022*
 
