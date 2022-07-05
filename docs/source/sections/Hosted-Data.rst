@@ -75,6 +75,10 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - |checkmark|
      - |checkmark|
      - |checkmark|
+   * - `MP2PRT <data/MP2PRT_about.html>`_
+     - 
+     - |checkmark| **
+     - 
    * - `NCICCR <data/NCICCR_about.html>`_
      - |checkmark|
      - |checkmark| *
@@ -86,6 +90,10 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
    * - `ORGANOID <data/ORGANOID_about.html>`_
      - |checkmark|
      - |checkmark| 
+     - 
+   * - `REBC <data/REBC_about.html>`_
+     - |checkmark|
+     - |checkmark| *
      - 
    * - `TARGET <data/TARGET_top.html>`_
      - |checkmark|
