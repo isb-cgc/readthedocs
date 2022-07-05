@@ -99,6 +99,10 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - |checkmark|
      - |checkmark|
      - |checkmark|
+   * - `TRIO <data/TRIO_about.html>`_
+     - |checkmark|
+     - |checkmark| *
+     - 
    * - `VAREPOP <data/VAREPOP_about.html>`_
      - |checkmark|
      - |checkmark| 
@@ -132,6 +136,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
    data/TARGET_top
    data/TCGA_top
    data/TCGA-images
+   data/TRIO_about
    data/VAREPOP_about
    data/WCDT_about
    
