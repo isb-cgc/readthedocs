@@ -59,6 +59,10 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - |checkmark|
      - |checkmark|
      - 
+   * - `Exceptional Responders <data/EXC_RESPOND_about.html>`_
+     - 
+     - |checkmark| **
+     - 
    * - `FM <data/FM_about.html>`_
      - |checkmark|
      - |checkmark|
@@ -136,6 +140,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
    data/CMI_about
    data/CPTAC_about
    data/CTSP_about
+   data/EXC_RESPOND_about
    data/FM_about
    data/GENIE_about
    data/HCMI_about
