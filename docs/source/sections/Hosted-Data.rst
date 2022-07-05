@@ -116,6 +116,8 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
    
 *Clinical and metadata only available
 
+**Clinical data only available
+
 .. toctree::
    :maxdepth: 1
    :hidden:
@@ -130,9 +132,11 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
    data/GENIE_about
    data/HCMI_about
    data/MMRF_about
+   data/MP2PRT_about
    data/NCICCR_about
    data/OHSU_about
    data/ORGANOID_about
+   data/REBC_about
    data/TARGET_top
    data/TCGA_top
    data/TCGA-images
