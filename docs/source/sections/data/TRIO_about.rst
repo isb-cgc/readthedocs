@@ -10,11 +10,11 @@ The `Translational Research in Oncology <https://www.trioncology.org/>`_ contain
 About the Translational Research in Oncology Data
 ---------------------------------------------------------------------------------
 
-The TRIO data set includes masked annotations, somatic mutations, gene level copy number scores, and transcript fusion analysis. The program analyzed more than 44,000 cases. The Genomic Data Commons (GDC) currently has MAF, TXT, and TSV controlled data available. 
+The TRIO data set includes whole genome sequencing (WGS) sequencing reads for 339 cases in the project TRIO-CRU.
 
-For more information on GENIE data, please refer to the site below:
+For more information on TRIO data, please refer to the site below:
 
-- `GDC Data Portal <https://portal.gdc.cancer.gov/projects?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22projects.program.name%22%2C%22value%22%3A%5B%22GENIE%22%5D%7D%7D%5D%7D>`_
+- `GDC Data Portal <https://portal.gdc.cancer.gov/projects?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22projects.program.name%22%2C%22value%22%3A%5B%22TRIO%22%5D%7D%7D%5D%7D>`_
 
 Accessing the TRIO Data on the Cloud
 -------------------------------------------------------------------------------------------
