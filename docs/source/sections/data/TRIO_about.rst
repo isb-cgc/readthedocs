@@ -2,12 +2,13 @@
 TRIO Data Set
 *****************
 
-About Translational Research in Oncology
+About TRIO
 ------------------------------------------------------------------------
 
-The `Translational Research in Oncology <https://www.trioncology.org/>`_ contains data generated from an international pan-cancer registry to serve as an evidence base for the entire cancer community. Genomic and baseline clinical data from more than 40,000 tumors has been made available in the GDC, following the efforts of AACR’s strategic and technical partners, Sage Bionetworks and Memorial Sloan Kettering Cancer Center. 
+The Ukrainian National Research Center for Radiation Medicine Trio Study contains epidemiologic data of trios of parents (exposed to the radiation from the Chernobyl accident) and their unexposed offspring. The purpose of the study is to investigate the transgenerational effects following nuclear accidents to understand the consequences of parental exposure to ionizing radiation.
 
-About the Translational Research in Oncology Data
+
+About the TRIO Data
 ---------------------------------------------------------------------------------
 
 The TRIO data set includes whole genome sequencing (WGS) sequencing reads for 339 cases in the project TRIO-CRU.
