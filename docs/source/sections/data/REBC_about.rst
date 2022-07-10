@@ -5,7 +5,7 @@ REBC Data Set
 About REBC
 ------------------------------------------------------------------------
 
-The `REBC data <https://www.trioncology.org/>`_ is a study of Radiation-Related Genomic Profile of Papillary Thyroid Cancer after the Chernobyl Accident
+REBC studies comprehensive genomic characterization of radiation-related papillary thyroid cancer in the Ukraine after the 1986 Chernobyl nuclear power plan accident. This accident released radioactive contaminants into the surrounding areas in Ukraine, Belarus, and Russia, causing an increased occurrence of thyroid cancer among individuals who were children at the time of the accident or born not long afterwards.
 
 About REBC
 ---------------------------------------------------------------------------------
