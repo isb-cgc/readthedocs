@@ -2,19 +2,19 @@
 MP2PRT Data Set
 *****************
 
-About Translational Research in Oncology
+About MP2PRT
 ------------------------------------------------------------------------
 
-The `Translational Research in Oncology <https://www.trioncology.org/>`_ contains data generated from an international pan-cancer registry to serve as an evidence base for the entire cancer community. Genomic and baseline clinical data from more than 40,000 tumors has been made available in the GDC, following the efforts of AACR’s strategic and technical partners, Sage Bionetworks and Memorial Sloan Kettering Cancer Center. 
+The Molecular Profiling to Predict Response to Treatment (MP2PRT) program is part of the NCI's Cancer Moonshot Initiative. This study "Identification of Genetic Changes Associated with Relapse and/or Adaptive Resistance in Patients Registered as Favorable Histology Wilms Tumor on AREN03B2", performs genomic characterization on trio cases (normal tissue, tumor tissue at time of diagnosis, tumor tissue at time of relapse) from patients who relapsed with Favorable Histology Wilms Tumor. 
 
-About the Translational Research in Oncology Data
+About MP2PRT Data
 ---------------------------------------------------------------------------------
 
-The TRIO data set includes masked annotations, somatic mutations, gene level copy number scores, and transcript fusion analysis. The program analyzed more than 44,000 cases. The Genomic Data Commons (GDC) currently has MAF, TXT, and TSV controlled data available. 
+The MP2PRT data set includes one project MP2PRT-WT with 52 cases. Data categories include sequencing reads, transcriptome profiling, simple nucleotide variation and copy number variation.
 
-For more information on GENIE data, please refer to the site below:
+For more information on MP2PRT data, please refer to the site below:
 
-- `GDC Data Portal <https://portal.gdc.cancer.gov/projects?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22projects.program.name%22%2C%22value%22%3A%5B%22GENIE%22%5D%7D%7D%5D%7D>`_
+- `GDC Data Portal <https://portal.gdc.cancer.gov/projects?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22projects.program.name%22%2C%22value%22%3A%5B%22MP2PRT%22%5D%7D%7D%5D%7D>`_
 
 
 Accessing the MP2PRT Data in Google BigQuery
