@@ -59,6 +59,10 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - |checkmark|
      - |checkmark|
      - 
+   * - `Exceptional Responders <data/EXC_RESPOND_about.html>`_
+     - 
+     - |checkmark| **
+     - 
    * - `FM <data/FM_about.html>`_
      - |checkmark|
      - |checkmark|
@@ -75,6 +79,10 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - |checkmark|
      - |checkmark|
      - |checkmark|
+   * - `MP2PRT <data/MP2PRT_about.html>`_
+     - 
+     - |checkmark| **
+     - 
    * - `NCICCR <data/NCICCR_about.html>`_
      - |checkmark|
      - |checkmark| *
@@ -86,6 +94,10 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
    * - `ORGANOID <data/ORGANOID_about.html>`_
      - |checkmark|
      - |checkmark| 
+     - 
+   * - `REBC <data/REBC_about.html>`_
+     - |checkmark|
+     - |checkmark| *
      - 
    * - `TARGET <data/TARGET_top.html>`_
      - |checkmark|
@@ -99,6 +111,10 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - |checkmark|
      - |checkmark|
      - |checkmark|
+   * - `TRIO <data/TRIO_about.html>`_
+     - |checkmark|
+     - |checkmark| *
+     - 
    * - `VAREPOP <data/VAREPOP_about.html>`_
      - |checkmark|
      - |checkmark| 
@@ -112,6 +128,8 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
    
 *Clinical and metadata only available
 
+**Clinical data only available
+
 .. toctree::
    :maxdepth: 1
    :hidden:
@@ -122,16 +140,20 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
    data/CMI_about
    data/CPTAC_about
    data/CTSP_about
+   data/EXC_RESPOND_about
    data/FM_about
    data/GENIE_about
    data/HCMI_about
    data/MMRF_about
+   data/MP2PRT_about
    data/NCICCR_about
    data/OHSU_about
    data/ORGANOID_about
+   data/REBC_about
    data/TARGET_top
    data/TCGA_top
    data/TCGA-images
+   data/TRIO_about
    data/VAREPOP_about
    data/WCDT_about
    
