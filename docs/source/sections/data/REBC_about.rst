@@ -10,11 +10,11 @@ REBC studies comprehensive genomic characterization of radiation-related papilla
 About REBC
 ---------------------------------------------------------------------------------
 
-The REBC data set includes masked annotations, somatic mutations, gene level copy number scores, and transcript fusion analysis. The program analyzed more than 44,000 cases. The Genomic Data Commons (GDC) currently has MAF, TXT, and TSV controlled data available. 
+The REBC data set includes one project REBC-THYR with 440 cases. Data categories include sequencing reads, transcriptome profiling, simple nucleotide variation and copy number variation.
 
-For more information on GENIE data, please refer to the site below:
+For more information on REBC data, please refer to the site below:
 
-- `GDC Data Portal <https://portal.gdc.cancer.gov/projects?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22projects.program.name%22%2C%22value%22%3A%5B%22GENIE%22%5D%7D%7D%5D%7D>`_
+- `GDC Data Portal <https://portal.gdc.cancer.gov/projects?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22projects.program.name%22%2C%22value%22%3A%5B%22REBC%22%5D%7D%7D%5D%7D>`_
 
 Accessing the REBC Data on the Cloud
 -------------------------------------------------------------------------------------------
