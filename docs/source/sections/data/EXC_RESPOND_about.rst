@@ -10,7 +10,7 @@ The Exceptional Responders Initiative is a pilot study to investigate the underl
 About Exceptional Responders Data
 ---------------------------------------------------------------------------------
 
-Exceptional Responders has one project EXCEPTIONAL_RESPONDERS-ER with 84 cases spanning nine disease types and 20 primary sites. Data categories include sequencing reads, transcriptome profiling and simple nucleotide variation..
+Exceptional Responders has one project EXCEPTIONAL_RESPONDERS-ER with 84 cases spanning nine disease types and 20 primary sites. Data categories include sequencing reads, transcriptome profiling and simple nucleotide variation.
 
 For more information on Exceptional Responders data, please refer to the site below:
 
