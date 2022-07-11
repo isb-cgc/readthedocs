@@ -31,7 +31,7 @@ Besides accessing the files on the GDC Data Portal, you can also access them fro
   WHERE program_name = 'REBC'
   AND active.file_gdc_id = GCSurl.file_gdc_id
   
-Accessing the TRIO Data in Google BigQuery
+Accessing the REBC Data in Google BigQuery
 ------------------------------------------------
 
 ISB-CGC has REBC data, such as clinical and metadata, stored in Google BigQuery tables. Information about these tables can be found using the `ISB-CGC BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_ with REBC selected for filter PROGRAM. To learn more about this tool, see the `ISB-CGC BigQuery Table Search documentation <../BigQueryTableSearchUI.html>`_.
