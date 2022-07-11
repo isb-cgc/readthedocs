@@ -5,16 +5,16 @@ Exceptional Responders Data Set
 About Exceptional Responders
 ------------------------------------------------------------------------
 
-The `Translational Research in Oncology <https://www.trioncology.org/>`_ contains data generated from an international pan-cancer registry to serve as an evidence base for the entire cancer community. Genomic and baseline clinical data from more than 40,000 tumors has been made available in the GDC, following the efforts of AACR’s strategic and technical partners, Sage Bionetworks and Memorial Sloan Kettering Cancer Center. 
+The Exceptional Responders Initiative is a pilot study to investigate the underlying molecular factors driving exceptional treatment responses of cancer patients to drug therapies. 
 
-About the Translational Research in Oncology Data
+About Exceptional Responders Data
 ---------------------------------------------------------------------------------
 
-The TRIO data set includes masked annotations, somatic mutations, gene level copy number scores, and transcript fusion analysis. The program analyzed more than 44,000 cases. The Genomic Data Commons (GDC) currently has MAF, TXT, and TSV controlled data available. 
+Exceptional Responders has one project EXCEPTIONAL_RESPONDERS-ER with 84 cases spanning nine disease types and 20 primary sites. Data categories include sequencing reads, transcriptome profiling and simple nucleotide variation..
 
-For more information on GENIE data, please refer to the site below:
+For more information on Exceptional Responders data, please refer to the site below:
 
-- `GDC Data Portal <https://portal.gdc.cancer.gov/projects?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22projects.program.name%22%2C%22value%22%3A%5B%22GENIE%22%5D%7D%7D%5D%7D>`_
+- `GDC Data Portal <https://portal.gdc.cancer.gov/projects?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22projects.program.name%22%2C%22value%22%3A%5B%22EXCEPTIONAL_RESPONDERS%22%5D%7D%7D%5D%7D>`_
 
   
 Accessing the Exceptional Responders Data in Google BigQuery
