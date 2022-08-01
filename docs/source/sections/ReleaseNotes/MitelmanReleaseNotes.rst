@@ -6,6 +6,17 @@ To search this database hosted by the ISB-CGC, please visit `Mitelman Database o
 
 For more detailed information about the Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer, see `Mitelman Database <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/Mitelman_about.html>`_.
 
+*July 27, 2022*
+
+Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer quarterly update.
+
+**Updated totals**
+
+- Total number of cases 73,930
+- Total number of unique gene fusions 33,457
+- Total number of genes involved 14,061
+
+
 *June 6, 2022*
 
 **Enhancements and New Features**
@@ -17,6 +28,8 @@ Until June 2022, the resulting genetic location information retrieved from the d
 The user has the option of viewing the genomic coordinate information for either individual karyotypes or for multiple karyotypes in a search result. For individual karyotypes, the corresponding chromosome and its start and end position are given. In addition, the type of imbalance (gain or loss) is noted. For multiple karyotypes in the search results, net imbalances across the selected group are displayed in chart, ideogram or tabular format; information includes the chromosome affected, start and end positions, and whether the segment has been lost or gained.
 
 *April 18, 2022*
+
+Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer quarterly update.
 
 **Updated totals**
 
