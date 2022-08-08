@@ -5,17 +5,17 @@ HTAN Data Set
 About HTAN
 ------------------------------------------------------------------------
 
-The Ukrainian National Research Center for Radiation Medicine Trio Study contains epidemiologic data of trios of parents (exposed to the radiation from the Chernobyl accident) and their unexposed offspring. The purpose of the study is to investigate the transgenerational effects following nuclear accidents to understand the consequences of parental exposure to ionizing radiation.
+`HTAN <https://humantumoratlas.org/>`_ is a National Cancer Institute (NCI)-funded Cancer MoonshotSM initiative to construct 3-dimensional atlases of the dynamic cellular, morphological, and molecular features of human cancers as they evolve from precancerous lesions to advanced disease ( `Cell April 2020 <https://www.sciencedirect.com/science/article/pii/S0092867420303469>`_).
 
 
 About the HTAN Data
 ---------------------------------------------------------------------------------
 
-The TRIO data set includes whole genome sequencing (WGS) sequencing reads for 339 cases in the project TRIO-CRU.
+Data was extracted from HTAN Synapse projects in April 2022.
 
-For more information on TRIO data, please refer to the site below:
+For more information on HTAN data, please refer to the site below:
 
-- `GDC Data Portal <https://portal.gdc.cancer.gov/projects?filters=%7B%22op%22%3A%22and%22%2C%22content%22%3A%5B%7B%22op%22%3A%22in%22%2C%22content%22%3A%7B%22field%22%3A%22projects.program.name%22%2C%22value%22%3A%5B%22TRIO%22%5D%7D%7D%5D%7D>`_
+- `HTAN Data Portal <https://data.humantumoratlas.org/>`_
 
   
 Accessing the HTAN Data in Google BigQuery
