@@ -5,7 +5,7 @@ HTAN Data Set
 About HTAN
 ------------------------------------------------------------------------
 
-`HTAN <https://humantumoratlas.org/>`_ is a National Cancer Institute (NCI)-funded Cancer MoonshotSM initiative to construct 3-dimensional atlases of the dynamic cellular, morphological, and molecular features of human cancers as they evolve from precancerous lesions to advanced disease ( `Cell April 2020 <https://www.sciencedirect.com/science/article/pii/S0092867420303469>`_).
+Human Tumor Atlas Network (`HTAN <https://humantumoratlas.org/>`_) is focused on transitions in cancer. It is a National Cancer Institute (NCI)-funded Cancer MoonshotSM initiative to construct 3-dimensional atlases of the dynamic cellular, morphological, and molecular features of human cancers as they evolve from precancerous lesions to advanced disease ( `Cell April 2020 <https://www.sciencedirect.com/science/article/pii/S0092867420303469>`_).
 
 
 About the HTAN Data
