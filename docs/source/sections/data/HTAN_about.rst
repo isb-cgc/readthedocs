@@ -11,11 +11,10 @@ The Human Tumor Atlas Network (`HTAN <https://humantumoratlas.org/>`_) is focuse
 About the HTAN Data
 ---------------------------------------------------------------------------------
 
+HTAN data encompasses at least 11 atlases and 46 organs.
 Data was extracted from HTAN Synapse (https://humantumoratlas.org/data-download) projects.
 
-For explore HTAN data, please refer to the site below:
-
-- `HTAN Data Portal <https://humantumoratlas.org/explore/>`_
+To explore HTAN data, please see the `HTAN Data Portal <https://humantumoratlas.org/explore/>`_.
 
   
 Accessing the HTAN Data in Google BigQuery
