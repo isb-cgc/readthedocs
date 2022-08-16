@@ -5,17 +5,17 @@ HTAN Data Set
 About HTAN
 ------------------------------------------------------------------------
 
-Human Tumor Atlas Network (`HTAN <https://humantumoratlas.org/>`_) is focused on transitions in cancer. It is a National Cancer Institute (NCI)-funded Cancer MoonshotSM initiative to construct 3-dimensional atlases of the dynamic cellular, morphological, and molecular features of human cancers as they evolve from precancerous lesions to advanced disease ( `Cell April 2020 <https://www.sciencedirect.com/science/article/pii/S0092867420303469>`_).
+The Human Tumor Atlas Network (`HTAN <https://humantumoratlas.org/>`_) is focused on transitions in cancer. Funded by the National Cancer Institute (NCI) Cancer Moonshot initiative, its mission is to construct three-dimensional atlases of the dynamic cellular, morphological, and molecular features of human cancers as they evolve from precancerous lesions to advanced disease ( `Cell April 2020 <https://www.sciencedirect.com/science/article/pii/S0092867420303469>`_). Many HTAN studies focus on single cell and multiplex imaging modalities.
 
 
 About the HTAN Data
 ---------------------------------------------------------------------------------
 
-Data was extracted from HTAN Synapse projects in April 2022.
+Data was extracted from HTAN Synapse (https://humantumoratlas.org/data-download) projects.
 
-For more information on HTAN data, please refer to the site below:
+For explore HTAN data, please refer to the site below:
 
-- `HTAN Data Portal <https://data.humantumoratlas.org/>`_
+- `HTAN Data Portal <https://humantumoratlas.org/explore/>`_
 
   
 Accessing the HTAN Data in Google BigQuery
