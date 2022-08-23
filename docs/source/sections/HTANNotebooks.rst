@@ -16,6 +16,6 @@ HTAN Notebooks
      - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Investigating_Single_Cell_HTAN_Data.ipynb>`_
      - 
    * - Explore HTAN Clinicial, Biospecimen, and Assay Metadata
-     - 
+     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Explore_HTAN_Clinical_Biospecimen_Assay_Metadata.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/R%20Notebooks/Explore_HTAN_Clinical_Biospecimen_Assay_Metadata.md>`_
     
