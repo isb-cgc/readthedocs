@@ -1,16 +1,9 @@
-----------------------------------------------------
-Registering a Google Cloud Project & Service Account
-----------------------------------------------------
-This section will show you how to register a Google Cloud Project (GCP) and a Service Account for the GCP, thereby gaining access to controlled data which you can use programmatically. Users need to have access to a Google Cloud Project to perform the steps in this section. If you don't, see the the  `ISB-CGC Quick-Start Guide <../HowToGetStartedonISB-CGC.html>`_.
+-----------------------------------
+Registering a Google Cloud Project
+-----------------------------------
+This section will show you how to register a Google Cloud Project (GCP), thereby gaining access to controlled data which you can use programmatically. Users need to have access to a Google Cloud Project to perform the steps in this section. If you don't, see the the  `ISB-CGC Quick-Start Guide <../HowToGetStartedonISB-CGC.html>`_.
 
-GCP projects are automatically configured with a "Compute Engine default service account" which you can find on the
-`IAM & Admin page <https://console.cloud.google.com/iam-admin/iam/project>`_ of the `Cloud Console <https://console.cloud.google.com/home/dashboard>`_.  When running on a Google Compute Engine (GCE) virtual machine (VM), a service account associated with your Google Cloud Project (GCP) is acting on your behalf and those are the credentials being
-used rather than your personal credentials.  
-
-In order for this **service account** to access controlled data, you must register it with ISB-CGC. Once this process has completed successfully, this service account will be able to access controlled data for up to seven days. If the service account (*ie* any program running on a VM using the service account's credentials) tries to access controlled data
-after the seven day expiration, it will get an Access Denied error. To prevent this from causing problems with long-running jobs, you can extend access by another seven days (see below).
-
-To allow flexibility while working with different research teams and different processes, you can have many GCPs registered with ISB-CGC, as well as many service accounts registered per GCP.
+To allow flexibility while working with different research teams and different processes, you can have many GCPs registered with ISB-CGC.
 
 
 Requirements for Registering a Google Cloud Project Service Account
