@@ -115,11 +115,9 @@ open access data.  View the registered data set name by selecting the drop down 
    :scale: 30
    :align: center
 
-Managing your Google Cloud Projects & Service Accounts
+Managing your Google Cloud Projects
 ---------------------------------------------------
-Once your GCP and Service Account are registered, you can add or remove additional service accounts by following the instructions below.
-You can also extend the use of a service account for another seven days, or reauthorize a service account after you have corrected errors that
-previously caused it to have its permissions revoked.
+You can add or delete Google Cloud Projects by following the instructions below.
 
 Adding additional Google Cloud Projects
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -134,14 +132,6 @@ Deleting Google Cloud Projects
 To unregister a GCP, select the **Unregister Project** button from the drop down menu beside the project on the "Registered Google Cloud Projects" page (see screenshot below).
 
 .. image:: ../webapp/UnregisterAGCP.PNG
-   :scale: 35
-   :align: center
-
-Adding additional service accounts to a Google Cloud Project
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-To add additional service accounts to a GCP, select **Register Service Account** from the drop down menu beside the project (see screenshot below). 
-
-.. image:: ../webapp/0007projectregistered.PNG
    :scale: 35
    :align: center
 
