@@ -146,58 +146,6 @@ To add additional service accounts to a GCP, select **Register Service Account**
    :align: center
 
 
-Adjusting a Service Account using the Adjust Service Account page
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Add or remove a controlled data set from one specific service account using this feature. Selecting the drop down menu next to the number of service accounts to view 
-the service account names, then select the plus "+" sign icon next to the trash can (see screenshot below).
-
-.. image:: ../webapp/AdjustServiceAccount.png
-   :scale: 40
-   :align: center
 
 
-Deleting Service Accounts from Google Cloud Projects
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-To delete a service account from a GCP (not allowing it to be used for programmatic access to controlled data), click the "trash can" icon beside the service account
-(see screenshot below).
-
-.. image:: ../webapp/DeleteServiceAccount.png
-   :scale: 40
-   :align: center
-
-Extending Your Service Account Access by Seven Days 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Once you have registered a Service Account, you have seven days before the access is automatically revoked.  To extend the service account access for another seven days
-(*e.g.* if your program is still running), select the "refresh" icon beside the service account (see screenshot below).
-
-.. image:: ../webapp/RefreshServiceAccount.png
-   :scale: 40
-   :align: center
-
-Reauthorizing a Google Cloud Project(s) Service Account(s)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Your service account may have its permissions revoked (because, for example, the 7-day limit has expired, or you have added a member to the GCP who is not
-authorized to use that controlled data). If permissions were revoked because an unauthorized user was added to the project,  
-the Google Cloud Project owner will be sent an email specifying the Service Account, GCP Project, and the user who caused access to be revoked. 
-
-To reauthorize the service account: 
-1) Remedy the problem that resulted in access being denied, and
-2) Select the "adjust" icon beside the service account (see screenshot below) and add the controlled datasets to the service account.
-
-.. image:: ../webapp/AdjustServiceAccount.png
-   :scale: 40
-   :align: center
-
-
-Google Cloud Project Associated to an Organization Will NOT Work with controlled data
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-If your Google Cloud Project is associated to an organization, you will be unable to register the service account to controlled data.  An error message
-similar to this one will display: "GCP cgc-08-0126 was found to be in organization ID 8784632854871; its service accounts cannot be registered for use with
-controlled data."  This is mainly because ISB-CGC cannot see the permissions associated to the organization's project; therefore, it is considered a security risk.
-We are currently working with Google to resolve this issue.
-
-
-.. image:: ../webapp/OrganizationFound.PNG
-   :scale: 45
-   :align: center
 
