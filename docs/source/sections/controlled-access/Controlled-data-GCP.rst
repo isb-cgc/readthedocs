@@ -5,34 +5,6 @@ This section will show you how to register a Google Cloud Project (GCP), thereby
 
 To allow flexibility while working with different research teams and different processes, you can have many GCPs registered with ISB-CGC.
 
-
-Requirements for Registering a Google Cloud Project Service Account
---------------------------------------------------------------------
-To be able to register your GCP and at least one service account to access controlled data, the following must all be true:
-
-.. list-table:: 
-
-   * - You must have the role of "owner" on the Google Cloud Project, because you will need to add an ISB-CGC service account as a new project member and a DCF service account as a new project member. The screenshots below will show you how to add these service accounts to your project:
-        - ISB-CGC service account -- 907668440978-oskt05du3ao083cke14641u35deokgjj@developer.gserviceaccount.com
-        - DCF service account --  fence-service@dcf-prod.iam.gserviceaccount.com
-        
-   * - ALL members of the Google Cloud project:
-        - Must be authorized to use the data set; that is, each of them must be a registered dbGaP "PI" or "downloader". (See dbGap Data Access `Request Portal <http://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login>`_, and `Understanding Data Security <http://isb-cancer-genomics-cloud.readthedocs.org/en/latest/sections/data//TCGA_Data_Security.html>`_ for more details).
-        - Must have `linked their NIH/eRA identity to their Google identity <Controlled-data-Interactive.html>`_ via the ISB-CGC Web App, and therefore have been authenticated *at least once*.
-        
-   * - The Google Cloud project:     
-         - Cannot be associated with an Organization.
-         - Cannot have Google Groups or other multi-member identifiers (e.g. all authenticated Google users) which have been provided with a project role
-         - Must have the ISB-CGC monitoring service account (SA) assigned to an Editor role. (See instructions below.)
-   
-   * - Service Accounts on the GCP:   
-         - All SAs with roles in the project must belong to the project, with the exception of the ISB-CGC monitoring SA; this means that all Google-managed SAs with project roles must belong to the project as well
-         - The SA you are registering cannot be the ISB-CGC monitoring SA, or SAs from other projects
-         - You have not created any keys for any SAs in the project
-         - No IDs have been assigned roles on any SAs in the project
-
-If any of these requirements are not met, your GCP and any associated service accounts will **not** be able to access controlled data.  An automated email will be sent to the GCP project owner(s) if data access is revoked.
-
 Registering your Google Cloud Project Service Account
 --------------------------------------------------------------
 Click on screen shots to enlarge them.
