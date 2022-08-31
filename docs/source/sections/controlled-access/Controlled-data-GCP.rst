@@ -5,8 +5,8 @@ This section will show you how to register a Google Cloud Project (GCP), thereby
 
 To allow flexibility while working with different research teams and different processes, you can have many GCPs registered with ISB-CGC.
 
-Registering your Google Cloud Project Service Account
---------------------------------------------------------------
+Registering your Google Cloud Project
+--------------------------------------
 Click on screen shots to enlarge them.
 
 To register your Google Cloud Project and its service account with ISB-CGC, go to the Account Details page. After signing into the ISB-CGC Web App, 
@@ -42,13 +42,6 @@ Once you have completed these steps, a listing of the Google Cloud Project membe
 Click the **Register** button to go to the next screen:
 
 .. image:: ../webapp/0007projectregistered.PNG
-   :scale: 35
-   :align: center
-   
-Select **Register Service Account** from the drop down menu on the left of the GCP to which you want to add a service account.  By default, there will be the 
-Compute Engine Default service account in the **Enter the service account ID** text box (see screenshot below).  Under **Which dataset(s) would you like to use?**, select the programs for which you would like to have controlled access.
-
-.. image:: ../webapp/RegisterAServiceAccountFirstScreen.PNG
    :scale: 35
    :align: center
 
