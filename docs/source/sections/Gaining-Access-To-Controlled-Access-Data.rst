@@ -2,19 +2,11 @@
 Accessing Controlled Data
 ************************************************
 
-You can gain access to  **controlled data** by two different methods via ISB-CGC. The methods can be used simultaneously if needed.
-
-Select this method for `controlled access via personal user credentials <controlled-access/Controlled-data-Interactive.html>`_: 
+In ISB-CGC, you can gain access to `controlled data via personal user credentials <controlled-access/Controlled-data-Interactive.html>`_: 
   
   * Provides access to controlled data for 24 hours at a time;
   * Uses your *personal* credentials;
   * Example uses: the ISB-CGC Web App, R Studio or running short jobs on Google Compute Engine that complete in under 24 hours
-      
-Select this method for `controlled access via service account credentials <controlled-access/Controlled-data-GCP.html>`_:
-  
-  * Provides access to controlled data for seven days at a time;
-  * Uses the credentials of a *service account*, acting on your behalf (To learn about service accounts, refer to the Google `documentation <https://cloud.google.com/iam/docs/service-accounts>`_.);
-  * Example uses: using a Google Cloud Project; running a program from a Google Compute Engine (GCE) Virtual Machine (VM) that takes longer than 24 hours to complete
  
 .. note:: If you are looking to gain access to COSMIC data, please see the `COSMIC documentation <data/COSMIC_about.html>`_.
 
@@ -91,20 +83,6 @@ The first time that you perform the above steps, you are automatically granted c
 
 .. image:: controlled-access/DataAccess-24hours.png
    :align: center
-
-
-Controlled Access Via Service Account Credentials
--------------------------------------------------
-
-To access controlled data programmatically, such as through Google Cloud or when running a VM, you'll need to register a GCP and service account. Follow these steps:
-
-   * `Registering a Google Cloud Project & Service Account <controlled-access/Controlled-data-GCP.html>`_
-
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-   
-   controlled-access/Controlled-data-GCP
 
    
 Controlled Access in the Google BigQuery Console
