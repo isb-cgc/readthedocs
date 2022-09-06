@@ -41,7 +41,7 @@ Once you have completed these steps, a listing of the Google Cloud Project membe
    
 Click the **Register** button to go to the next screen:
 
-.. image:: ../webapp/kidsprojectregistered.PNG
+.. image:: ../webapp/kidsprojectregistered.png
    :scale: 35
    :align: center
 
