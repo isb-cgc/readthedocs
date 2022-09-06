@@ -59,6 +59,7 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    sections/HowTos
    sections/RegulomeExplorerNotebooks
    sections/MachineLearningNotebooks
+   sections/HTANNotebooks
    sections/TutorialsAndHow-ToGuides
    sections/Releases
    sections/Quick-links-updated
