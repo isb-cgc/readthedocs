@@ -41,36 +41,8 @@ Once you have completed these steps, a listing of the Google Cloud Project membe
    
 Click the **Register** button to go to the next screen:
 
-.. image:: ../webapp/0007projectregistered.PNG
+.. image:: ../webapp/kidsprojectregistered.PNG
    :scale: 35
-   :align: center
-
-If you receive the error message listed below, this signifies you need to enable the Default Compute Engine API for your Google Cloud Project.  
-For more information on how to enable all the API's you will need to work on a Google Cloud Project please go
-`here <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/DIYWorkshop.html#enabling-required-google-apis>`_.
-
-.. image:: ../webapp/EnableComputeEngineError.PNG
-   :scale: 30
-   :align: center
-
-Once you click the **Verify Service Account Users** at the bottom of the page, you will be presented with multiple lists. You will be presented with the
-Verification Results, Google Cloud Project User ISB-CGC Registration and Identity Linkages, Dataset Permissions Verification, Registered Service Account Verification
-Results, Google Cloud Project Verification Results, and the Google Cloud Project Service Account Verification Results (see screenshots below). 
-All columns must have a green checkmark in them for each user before your service account can be registered.
-
-.. image:: ../webapp/ServiceAcctRegTable.png
-   :scale: 30
-   :align: center
-   
-.. image:: ../webapp/ServiceAcctRegTable2.png
-   :scale: 30
-   :align: center
-
-If all the requirements for registering a service account are met, the account will be registered for controlled access.  If not, the service account can only use
-open access data.  View the registered data set name by selecting the drop down menu next to the number of service accounts (see below).
-
-.. image:: ../webapp/ServiceAcctRegSuccess.png
-   :scale: 30
    :align: center
 
 Managing your Google Cloud Projects
