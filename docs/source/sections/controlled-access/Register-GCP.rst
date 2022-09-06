@@ -61,7 +61,7 @@ Deleting Google Cloud Projects
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 To unregister a GCP, select the **Unregister Project** button from the drop down menu beside the project on the "Registered Google Cloud Projects" page (see screenshot below).
 
-.. image:: ../webapp/UnregisterAGCP.PNG
+.. image:: ../webapp/unregisterGCP.png
    :scale: 35
    :align: center
 
