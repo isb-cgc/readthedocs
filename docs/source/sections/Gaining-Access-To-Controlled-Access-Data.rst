@@ -79,7 +79,7 @@ These prerequisite steps only need to be done once, unless your accounts become 
 Controlled Access Via Personal User Credentials
 -----------------------------------------------
 
-The first time that you perform the above steps, you are automatically granted controlled access via your personal uer credentials. This access lasts for 24 hours, though it can be extended. Subsequently, to obtain access, sign into the Web App, click on your persona (or **Account Details** on the drop down menu next to your name). Click the **Get Controlled Access** button below **Obtain controlled access for 24 hours**.
+The first time that you perform the above steps, you are automatically granted controlled access via your personal user credentials. This access lasts for 24 hours, though it can be extended. Subsequently, to obtain access, sign into the Web App, click on your persona (or **Account Details** on the drop down menu next to your name). Click the **Get Controlled Access** button below **Obtain controlled access for 24 hours**.
 
 .. image:: controlled-access/DataAccess-24hours.png
    :align: center
