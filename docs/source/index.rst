@@ -50,6 +50,7 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    sections/ProgrammaticAccess
    sections/data/TCGA_Data_Security
    sections/Gaining-Access-To-Controlled-Access-Data
+   sections/controlled-access/Register-GCP
    sections/webapp/RegisterBucketsAndDatasets
    
 .. toctree::
