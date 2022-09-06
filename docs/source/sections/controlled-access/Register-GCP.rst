@@ -53,7 +53,7 @@ Adding additional Google Cloud Projects
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 To register additional Google Cloud Projects, select the **+ Register New Google Cloud Project** button from the "Registered Google Cloud Projects" page (see screenshot below).
 
-.. image:: ../webapp/RegisterAnotherGCP.PNG
+.. image:: ../webapp/registerAnotherGCP.png
    :scale: 35
    :align: center
 
