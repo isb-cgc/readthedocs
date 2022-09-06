@@ -222,6 +222,10 @@ From Other Sources
      - 
      - |checkmark|
      - 
+   * - `HTAN <data/HTAN_about.html>`_
+     - 
+     - |checkmark|
+     - 
      
 .. toctree::
    :maxdepth: 1
@@ -229,6 +233,7 @@ From Other Sources
    
    data/COSMIC_about
    PanCancer-Atlas-Mirror
+   data/HTAN_about
 
 Reference Data Sets
 -------------------
