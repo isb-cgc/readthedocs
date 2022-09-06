@@ -1,7 +1,7 @@
 -----------------------------------
 Registering a Google Cloud Project
 -----------------------------------
-This section will show you how to register a Google Cloud Project (GCP), thereby gaining access to controlled data which you can use programmatically. Users need to have access to a Google Cloud Project to perform the steps in this section. If you don't, see the the  `ISB-CGC Quick-Start Guide <../HowToGetStartedonISB-CGC.html>`_.
+This section will show you how to register a Google Cloud Project (GCP), which you can use to store data from ISB-CGC. Users need to have access to a Google Cloud Project to perform the steps in this section. If you don't, see the the  `ISB-CGC Quick-Start Guide <../HowToGetStartedonISB-CGC.html>`_.
 
 To allow flexibility while working with different research teams and different processes, you can have many GCPs registered with ISB-CGC.
 
@@ -9,9 +9,8 @@ Registering your Google Cloud Project
 --------------------------------------
 Click on screen shots to enlarge them.
 
-To register your Google Cloud Project and its service account with ISB-CGC, go to the Account Details page. After signing into the ISB-CGC Web App, 
-either select the "persona" icon next to your login name or select **Account Details** from the drop down menu under your login name, 
-which takes you to the following page:
+To register your Google Cloud Projectwith ISB-CGC, go to the Account Details page. After signing into the ISB-CGC Web App, 
+either select the "persona" icon next to your login name or select **Account Details** from the drop down menu under your login name, which takes you to the following page:
 
 .. image:: ../webapp/RegisteredGCPs.png
    :scale: 35
@@ -26,7 +25,7 @@ Click the **Register** button in the Google Cloud Platform section.  That takes 
 The instructions will walk you through how to add the necessary ISB-CGC and DCF service accounts to your project. Go to the `Google Cloud Platform <https://console.cloud.google.com/>`_ and follow these steps.
 You can hide the instructions by selecting the blue **Instructions** button.  
 
-Please be sure to add both service accounts listed below. If you don't add both service accounts you will run into issues viewing the controlled data in ISB-CGC.
+Please be sure to add both service accounts listed below. If you don't add both service accounts you will run into issues.
 Then return to the ISB-CGC Register a Google Cloud Project page, enter your Google Cloud Project ID and, click **Verify**.
 
 .. image:: ../webapp/RegisterServiceAccountsList.png
@@ -70,9 +69,10 @@ Registering Cloud Storage Buckets and BigQuery Datasets
 
 .. _registered:
 
-Registering a Google Cloud Storage Bucket and a BigQuery Data Set is a prerequisite for using your own data in ISB-CGC. (Please note: The names of the buckets and data sets are case sensitive.)
+Registering a Google Cloud Storage Bucket and a BigQuery Dataset is a prerequisite for storing data downloaded from the Web App to your own Google Cloud location. 
+(Please note: The names of the buckets and data sets are case sensitive.)
 
-**How To Register Buckets and Data sets**
+**How To Register Buckets and Datasets**
 
 Once you have created a bucket and a dataset in the Google Cloud Console of your Google Cloud Project, you will need to register them with your project name using the Web App.  
 
