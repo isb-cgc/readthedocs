@@ -19,14 +19,10 @@ You will then see the following page:
    :scale: 40
    :align: center
 
-Click the **Associate with eRA Account** button.
+Click the **Log-in to DCF** button.
 
-.. image:: ../webapp/AssociateWithERA.png
-   :align: center
-
-
-You will see a pop up describing all the steps needed to link your Google identy (email address) to your NIH identity via the Data Commons Framework (DCF).
-In this case, 'NIH identity' also refers to your eRA Commons account identity. Click on the **Go to DCF** button.
+You will see a pop up describing all the steps needed to link your Google identity (email address) to your NIH identity via the Data Commons Framework (DCF).
+In this case, 'RAS identity' also refers to your eRA Commons account identity. Click on the **Go to DCF** button.
 
 .. image:: ../webapp/LinkNIHIDInstructions.png
    :align: center
