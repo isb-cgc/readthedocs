@@ -85,33 +85,4 @@ The first time that you perform the above steps, you are automatically granted c
    :align: center
 
    
-Controlled Access in the Google BigQuery Console
-------------------------------------------------------
 
-The BigQuery project "isb-cgc-cbq" contains the ISB-CGC controlled access data which is stored in BigQuery tables. To obtain access to these ISB-CGC tables within the Google BigQuery Console, you must link to them within the BigQuery Console. Before doing so, you must have followed all the prerequisites above, including  `linking your Google identity to your NIH/eRA account  <controlled-access/Controlled-data-Interactive.html>`_ via the ISB-CGC Web App.
- 
-When you access BigQuery from your Google Cloud Platform Console (see `here <progapi/bigqueryGUI/HowToAccessBigQueryFromTheGoogleCloudPlatform.html>`_ for more information on this), you will be presented with the following page:
-
-.. image:: progapi/bigqueryGUI/BlueArrowDropdown.PNG
-   :scale: 25
-   :align: center
-
-The blue arrow will produce a drop down list; select 'Switch to Project'; then click 'display project...'
-
-You will then be presented with the following page:
-
-.. image:: progapi/bigqueryGUI/SearchProjectSection.PNG
-   :scale: 25
-   :align: center
-
-As shown in the image below you will need to type in "isb-cgc-cbq" in the project id and then click okay. 
-
-.. image:: progapi/bigqueryGUI/CABQisb-cgc-pinning.PNG
-   :scale: 25
-   :align: center
-
-Once this has been completed you will be able to see the appropriate controlled access ISB-CGC BigQuery data sets on the left hand side (see screenshot below).
-
-.. image:: progapi/bigqueryGUI/isb-cgc-cbq_tablename.PNG
-   :scale: 25
-   :align: center
