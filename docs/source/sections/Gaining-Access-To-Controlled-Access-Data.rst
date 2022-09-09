@@ -48,8 +48,7 @@ For more information on applying for dbGaP authorization to access controlled da
 this dbGap How to Video: `Apply for Controlled Access Data <http://www.youtube.com/watch?v=-3tUBeKbP5c>`_.
 
 For additional information, refer to `Tips for Preparing a Successful Data Access Request <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/GetPdf.cgi?document_name=GeneralAAInstructions.pdf>`_, 
-and `Understanding Data Security <data/TCGA_Data_Security.html>`_.  Please be sure to review the Data Use Certification Agreement for `TCGA controlled data <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000178.v9.p8>`_ and `TARGET controlled data <https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs000218.v17.p6>`_. 
-
+and `Understanding Data Security <data/TCGA_Data_Security.html>`_.  Please be sure to review any pertinent Data Use Certification Agreements on dbGaP.
 
 4) Link your NIH/eRA and Google identities.
 +++++++++++++++++++++++++++++++++++++++++++
