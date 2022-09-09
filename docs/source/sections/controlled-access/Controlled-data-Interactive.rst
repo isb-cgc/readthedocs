@@ -3,8 +3,7 @@ How to link your NIH/eRA & Google identities
 -----------------------------------------------
 
 This section shows you how to associate your Google identity to your NIH or eRA identity through the Web App. (Your NIH/eRA identity is the one associated
-with dbGaP, authorizing you to work with controlled data.) This is a necessary step for gaining access to controlled data. When you are done, you'll be able to access controlled
-data via your personal user credentials. If you are looking to access controlled data via a service account, this is a prerequisite step.
+with dbGaP, authorizing you to work with controlled data.) This is a necessary step for gaining access to controlled data. When you are done, you'll be able to access controlled data via your personal user credentials.
 
 At the bottom of this section, there are also instructions for pinning the ISB-CGC controlled access BigQuery project "isb-cgc-cbq" to your Google BigQuery Console.
 
@@ -20,14 +19,10 @@ You will then see the following page:
    :scale: 40
    :align: center
 
-Click the **Associate with eRA Account** button.
+Click the **Log-in to DCF** button.
 
-.. image:: ../webapp/AssociateWithERA.png
-   :align: center
-
-
-You will see a pop up describing all the steps needed to link your Google identy (email address) to your NIH identity via the Data Commons Framework (DCF).
-In this case, 'NIH identity' also refers to your eRA Commons account identity. Click on the **Go to DCF** button.
+You will see a pop up describing all the steps needed to link your Google identity (email address) to your NIH identity via the Data Commons Framework (DCF).
+In this case, 'RAS identity' also refers to your eRA Commons account identity. Click on the **Go to DCF** button.
 
 .. image:: ../webapp/LinkNIHIDInstructions.png
    :align: center
