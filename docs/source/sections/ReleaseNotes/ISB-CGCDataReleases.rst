@@ -2,6 +2,27 @@
 ISB-CGC Data Release Notes
 ############################
 
+*July 22, 2022*
+
+New per sample file metadata added to isb-cgc-bq for GDC release 32.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.GENIE_versioned.per_sample_file_metadata_hg38_gdc_r32
+- isb-cgc-bq.OHSU_versioned.per_sample_file_metadata_hg38_gdc_r32
+- isb-cgc-bq.WCDT_versioned.per_sample_file_metadata_hg38_gdc_r32
+- isb-cgc-bq.ORGANOID_versioned.per_sample_file_metadata_hg38_gdc_r32
+- isb-cgc-bq.VAREPOP_versioned.per_sample_file_metadata_hg38_gdc_r32
+- isb-cgc-bq.NCICCR_versioned.per_sample_file_metadata_hg38_gdc_r32
+- isb-cgc-bq.CMI_versioned.per_sample_file_metadata_hg38_gdc_r32
+- isb-cgc-bq.BEATAML1_0_versioned.per_sample_file_metadata_hg38_gdc_r32
+- isb-cgc-bq.MMRF_versioned.per_sample_file_metadata_hg38_gdc_r32
+- isb-cgc-bq.REBC_versioned.per_sample_file_metadata_hg38_gdc_r32
+- isb-cgc-bq.CTSP_versioned.per_sample_file_metadata_hg38_gdc_r32
+- isb-cgc-bq.HCMI_versioned.per_sample_file_metadata_hg38_gdc_r32
+- isb-cgc-bq.FM_versioned.per_sample_file_metadata_hg38_gdc_r32
+
+
 *June 23, 2022*
 
 HTAN data added
