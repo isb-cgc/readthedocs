@@ -2,7 +2,7 @@
 ISB-CGC Data Release Notes
 ############################
 
-*August 31, 2022*
+*August 31, 2022 and September 2, 2022*
 
 New file metadata tables added to isb-cgc-bq for GDC release 33 and 34.
 
@@ -23,6 +23,8 @@ New file metadata tables added to isb-cgc-bq for GDC release 33 and 34.
 - isb-cgc-bq.GDC_case_file_metadata_versioned.caseData_r33p1
 - isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r33p1
 - isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r33p1
+- isb-cgc-bq.GDC_case_file_metadata_versioned.GDCfileID_to_GCSurl_r34
+- isb-cgc-bq.GDC_case_file_metadata_versioned.GDCfileID_to_GCSurl_r33p1
 
 **BigQuery tables created**
 
