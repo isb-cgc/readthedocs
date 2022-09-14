@@ -2,6 +2,146 @@
 ISB-CGC Data Release Notes
 ############################
 
+*September 9, 2022*
+
+New PDC V2.10 tables
+
+**BigQuery tables created**
+
+- isb-cgc-bq.ICPC.per_sample_file_metadata_academia_sinica_LUAD_100_pdc_current
+- isb-cgc-bq.ICPC_versioned.per_sample_file_metadata_academia_sinica_LUAD_100_pdc_V2_10
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC3_other_pdc_current
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_CPTAC3_other_pdc_V2_10
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_proteogenomic_translational_research_centers_pdc_current
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_proteogenomic_translational_research_centers_pdc_V2_10
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC3_discovery_pdc_current
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_CPTAC3_discovery_pdc_V2_10
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC_2_pdc_current
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_CPTAC_2_pdc_V2_10
+- isb-cgc-bq.PDC_metadata.aliquot_to_case_mapping_current
+- isb-cgc-bq.PDC_metadata_versioned.aliquot_to_case_mapping_V2_10
+- isb-cgc-bq.PDC_metadata.case_metadata_current
+- isb-cgc-bq.PDC_metadata_versioned.case_metadata_V2_10
+- isb-cgc-bq.CPTAC.clinical_proteogenomic_translational_research_centers_pdc_current
+- isb-cgc-bq.CPTAC_versioned.clinical_proteogenomic_translational_research_centers_pdc_V2_10
+- isb-cgc-bq.Quant_Maps_Tissue_Biopsies.clinical_pct_swath_kidney_pdc_current
+- isb-cgc-bq.Quant_Maps_Tissue_Biopsies_versioned.clinical_pct_swath_kidney_pdc_V2_10
+- isb-cgc-bq.TCGA.clinical_CPTAC_TCGA_pdc_current
+- isb-cgc-bq.TCGA_versioned.clinical_CPTAC_TCGA_pdc_V2_10
+- isb-cgc-bq.CPTAC.clinical_CPTAC_2_pdc_current
+- isb-cgc-bq.CPTAC_versioned.clinical_CPTAC_2_pdc_V2_10
+- isb-cgc-bq.CPTAC.clinical_CPTAC3_other_pdc_current
+- isb-cgc-bq.CPTAC_versioned.clinical_CPTAC3_other_pdc_V2_10
+- isb-cgc-bq.CPTAC.clinical_CPTAC3_discovery_pdc_current
+- isb-cgc-bq.CPTAC_versioned.clinical_CPTAC3_discovery_pdc_V2_10
+- isb-cgc-bq.PDC_metadata.file_associated_entity_mapping_current
+- isb-cgc-bq.PDC_metadata_versioned.file_associated_entity_mapping_V2_10
+- isb-cgc-bq.PDC_metadata.file_metadata_current
+- isb-cgc-bq.PDC_metadata_versioned.file_metadata_V2_10
+- isb-cgc-bq.PDC_metadata.studies_current
+- isb-cgc-bq.PDC_metadata_versioned.studies_V2_10
+
+*September 6, 2022*
+
+New per sample file metadata added to isb-cgc-bq for GDC release 33 and 34.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.TRIO.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TRIO_versioned.per_sample_file_metadata_hg38_gdc_r34
+- isb-cgc-bq.GENIE.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.GENIE_versioned.per_sample_file_metadata_hg38_gdc_r34
+- isb-cgc-bq.VAREPOP.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.VAREPOP_versioned.per_sample_file_metadata_hg38_gdc_r34
+- isb-cgc-bq.WCDT.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.WCDT_versioned.per_sample_file_metadata_hg38_gdc_r34
+- isb-cgc-bq.ORGANOID.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.ORGANOID_versioned.per_sample_file_metadata_hg38_gdc_r34
+- isb-cgc-bq.OHSU.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.OHSU_versioned.per_sample_file_metadata_hg38_gdc_r34
+- isb-cgc-bq.NCICCR.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.NCICCR_versioned.per_sample_file_metadata_hg38_gdc_r34
+- isb-cgc-bq.BEATAML1_0.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.BEATAML1_0_versioned.per_sample_file_metadata_hg38_gdc_r34
+- isb-cgc-bq.MMRF.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.MMRF_versioned.per_sample_file_metadata_hg38_gdc_r34
+- isb-cgc-bq.REBC.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.REBC_versioned.per_sample_file_metadata_hg38_gdc_r34
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_hg38_gdc_r34
+- isb-cgc-bq.MP2PRT.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.MP2PRT_versioned.per_sample_file_metadata_hg38_gdc_r34
+- isb-cgc-bq.CTSP.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CTSP_versioned.per_sample_file_metadata_hg38_gdc_r34
+- isb-cgc-bq.CGCI.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CGCI_versioned.per_sample_file_metadata_hg38_gdc_r34
+- isb-cgc-bq.HCMI.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.HCMI_versioned.per_sample_file_metadata_hg38_gdc_r34
+- isb-cgc-bq.CMI.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CMI_versioned.per_sample_file_metadata_hg38_gdc_r34
+- isb-cgc-bq.FM.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.FM_versioned.per_sample_file_metadata_hg38_gdc_r34
+- isb-cgc-bq.TARGET.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg38_gdc_r34
+- isb-cgc-bq.TCGA.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_r34
+- isb-cgc-bq.CCLE.per_sample_file_metadata_hg19_gdc_current
+- isb-cgc-bq.CCLE_versioned.per_sample_file_metadata_hg19_gdc_r34
+- isb-cgc-bq.TCGA.per_sample_file_metadata_hg19_gdc_current
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg19_gdc_r34
+- isb-cgc-bq.TARGET.per_sample_file_metadata_hg19_gdc_current
+- isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg19_gdc_r34
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_hg38_gdc_r33p1
+- isb-cgc-bq.MP2PRT_versioned.per_sample_file_metadata_hg38_gdc_r33p1
+- isb-cgc-bq.CGCI_versioned.per_sample_file_metadata_hg38_gdc_r33p1
+- isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg38_gdc_r33p1
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_r33p1
+
+*August 31, 2022 and September 2, 2022*
+
+New file metadata tables added to isb-cgc-bq for GDC release 33 and 34.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.GDC_case_file_metadata.fileData_active_current
+- isb-cgc-bq.GDC_case_file_metadata.fileData_legacy_current
+- isb-cgc-bq.GDC_case_file_metadata.caseData_current
+- isb-cgc-bq.GDC_case_file_metadata.aliquot2caseIDmap_current
+- isb-cgc-bq.GDC_case_file_metadata.slide2caseIDmap_current
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_active_r34
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_legacy_r34
+- isb-cgc-bq.GDC_case_file_metadata_versioned.caseData_r34
+- isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r34
+- isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r34
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_active_r33p1
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_legacy_r33p1
+- isb-cgc-bq.GDC_case_file_metadata_versioned.caseData_r33p1
+- isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r33p1
+- isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r33p1
+- isb-cgc-bq.GDC_case_file_metadata_versioned.GDCfileID_to_GCSurl_r34
+- isb-cgc-bq.GDC_case_file_metadata_versioned.GDCfileID_to_GCSurl_r33p1
+
+*July 22, 2022*
+
+New per sample file metadata added to isb-cgc-bq for GDC release 32.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.GENIE_versioned.per_sample_file_metadata_hg38_gdc_r32
+- isb-cgc-bq.OHSU_versioned.per_sample_file_metadata_hg38_gdc_r32
+- isb-cgc-bq.WCDT_versioned.per_sample_file_metadata_hg38_gdc_r32
+- isb-cgc-bq.ORGANOID_versioned.per_sample_file_metadata_hg38_gdc_r32
+- isb-cgc-bq.VAREPOP_versioned.per_sample_file_metadata_hg38_gdc_r32
+- isb-cgc-bq.NCICCR_versioned.per_sample_file_metadata_hg38_gdc_r32
+- isb-cgc-bq.CMI_versioned.per_sample_file_metadata_hg38_gdc_r32
+- isb-cgc-bq.BEATAML1_0_versioned.per_sample_file_metadata_hg38_gdc_r32
+- isb-cgc-bq.MMRF_versioned.per_sample_file_metadata_hg38_gdc_r32
+- isb-cgc-bq.REBC_versioned.per_sample_file_metadata_hg38_gdc_r32
+- isb-cgc-bq.CTSP_versioned.per_sample_file_metadata_hg38_gdc_r32
+- isb-cgc-bq.HCMI_versioned.per_sample_file_metadata_hg38_gdc_r32
+- isb-cgc-bq.FM_versioned.per_sample_file_metadata_hg38_gdc_r32
+
+
 *June 23, 2022*
 
 HTAN data added
