@@ -8,38 +8,38 @@ New PDC V2.10 tables
 
 **BigQuery tables created**
 
-isb-cgc-bq.ICPC.per_sample_file_metadata_academia_sinica_LUAD_100_pdc_current
-isb-cgc-bq.ICPC_versioned.per_sample_file_metadata_academia_sinica_LUAD_100_pdc_V2_10
-isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC3_other_pdc_current
-isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_CPTAC3_other_pdc_V2_10
-isb-cgc-bq.CPTAC.per_sample_file_metadata_proteogenomic_translational_research_centers_pdc_current
-isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_proteogenomic_translational_research_centers_pdc_V2_10
-isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC3_discovery_pdc_current
-isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_CPTAC3_discovery_pdc_V2_10
-isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC_2_pdc_current
-isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_CPTAC_2_pdc_V2_10
-isb-cgc-bq.PDC_metadata.aliquot_to_case_mapping_current
-isb-cgc-bq.PDC_metadata_versioned.aliquot_to_case_mapping_V2_10
-isb-cgc-bq.PDC_metadata.case_metadata_current
-isb-cgc-bq.PDC_metadata_versioned.case_metadata_V2_10
-isb-cgc-bq.CPTAC.clinical_proteogenomic_translational_research_centers_pdc_current
-isb-cgc-bq.CPTAC_versioned.clinical_proteogenomic_translational_research_centers_pdc_V2_10
-isb-cgc-bq.Quant_Maps_Tissue_Biopsies.clinical_pct_swath_kidney_pdc_current
-isb-cgc-bq.Quant_Maps_Tissue_Biopsies_versioned.clinical_pct_swath_kidney_pdc_V2_10
-isb-cgc-bq.TCGA.clinical_CPTAC_TCGA_pdc_current
-isb-cgc-bq.TCGA_versioned.clinical_CPTAC_TCGA_pdc_V2_10
-isb-cgc-bq.CPTAC.clinical_CPTAC_2_pdc_current
-isb-cgc-bq.CPTAC_versioned.clinical_CPTAC_2_pdc_V2_10
-isb-cgc-bq.CPTAC.clinical_CPTAC3_other_pdc_current
-isb-cgc-bq.CPTAC_versioned.clinical_CPTAC3_other_pdc_V2_10
-isb-cgc-bq.CPTAC.clinical_CPTAC3_discovery_pdc_current
-isb-cgc-bq.CPTAC_versioned.clinical_CPTAC3_discovery_pdc_V2_10
-isb-cgc-bq.PDC_metadata.file_associated_entity_mapping_current
-isb-cgc-bq.PDC_metadata_versioned.file_associated_entity_mapping_V2_10
-isb-cgc-bq.PDC_metadata.file_metadata_current
-isb-cgc-bq.PDC_metadata_versioned.file_metadata_V2_10
-isb-cgc-bq.PDC_metadata.studies_current
-isb-cgc-bq.PDC_metadata_versioned.studies_V2_10
+- isb-cgc-bq.ICPC.per_sample_file_metadata_academia_sinica_LUAD_100_pdc_current
+- isb-cgc-bq.ICPC_versioned.per_sample_file_metadata_academia_sinica_LUAD_100_pdc_V2_10
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC3_other_pdc_current
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_CPTAC3_other_pdc_V2_10
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_proteogenomic_translational_research_centers_pdc_current
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_proteogenomic_translational_research_centers_pdc_V2_10
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC3_discovery_pdc_current
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_CPTAC3_discovery_pdc_V2_10
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC_2_pdc_current
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_CPTAC_2_pdc_V2_10
+- isb-cgc-bq.PDC_metadata.aliquot_to_case_mapping_current
+- isb-cgc-bq.PDC_metadata_versioned.aliquot_to_case_mapping_V2_10
+- isb-cgc-bq.PDC_metadata.case_metadata_current
+- isb-cgc-bq.PDC_metadata_versioned.case_metadata_V2_10
+- isb-cgc-bq.CPTAC.clinical_proteogenomic_translational_research_centers_pdc_current
+- isb-cgc-bq.CPTAC_versioned.clinical_proteogenomic_translational_research_centers_pdc_V2_10
+- isb-cgc-bq.Quant_Maps_Tissue_Biopsies.clinical_pct_swath_kidney_pdc_current
+- isb-cgc-bq.Quant_Maps_Tissue_Biopsies_versioned.clinical_pct_swath_kidney_pdc_V2_10
+- isb-cgc-bq.TCGA.clinical_CPTAC_TCGA_pdc_current
+- isb-cgc-bq.TCGA_versioned.clinical_CPTAC_TCGA_pdc_V2_10
+- isb-cgc-bq.CPTAC.clinical_CPTAC_2_pdc_current
+- isb-cgc-bq.CPTAC_versioned.clinical_CPTAC_2_pdc_V2_10
+- isb-cgc-bq.CPTAC.clinical_CPTAC3_other_pdc_current
+- isb-cgc-bq.CPTAC_versioned.clinical_CPTAC3_other_pdc_V2_10
+- isb-cgc-bq.CPTAC.clinical_CPTAC3_discovery_pdc_current
+- isb-cgc-bq.CPTAC_versioned.clinical_CPTAC3_discovery_pdc_V2_10
+- isb-cgc-bq.PDC_metadata.file_associated_entity_mapping_current
+- isb-cgc-bq.PDC_metadata_versioned.file_associated_entity_mapping_V2_10
+- isb-cgc-bq.PDC_metadata.file_metadata_current
+- isb-cgc-bq.PDC_metadata_versioned.file_metadata_V2_10
+- isb-cgc-bq.PDC_metadata.studies_current
+- isb-cgc-bq.PDC_metadata_versioned.studies_V2_10
 
 *September 6, 2022*
 
