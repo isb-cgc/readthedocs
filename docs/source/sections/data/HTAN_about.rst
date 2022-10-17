@@ -1,6 +1,6 @@
-*****************
-HTAN Data Set
-*****************
+******************************
+Human Tumor Atlas Network Data
+******************************
 
 About HTAN
 ------------------------------------------------------------------------
@@ -16,6 +16,7 @@ Data (Release 2) was extracted from the HTAN Data Portal via Synapse (https://hu
 
 To explore HTAN data, please see the `HTAN Data Portal <https://humantumoratlas.org/explore/>`_.
 
+Visit our `HTAN Notebooks <../HTANNotebooks.html>`_ page to see examples using the ISB-CGC hosted HTAN data.
   
 Accessing the HTAN Data in Google BigQuery
 ------------------------------------------------
