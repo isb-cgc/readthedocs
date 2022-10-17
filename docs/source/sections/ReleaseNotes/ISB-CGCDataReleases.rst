@@ -5,21 +5,29 @@ ISB-CGC Data Release Notes
 
 *September 23, 2022*
 
-- isb-cgc-bq.CTSP.clinical_gdc_current
+New clinical tables added to isb-cgc-bq for GDC release 34.
+
+**BigQuery tables created**
+
 - isb-cgc-bq.CTSP_versioned.clinical_gdc_r34
-- isb-cgc-bq.CPTAC.clinical_gdc_current
 - isb-cgc-bq.CPTAC_versioned.clinical_gdc_r34
-- isb-cgc-bq.BEATAML1_0.clinical_gdc_current
 - isb-cgc-bq.BEATAML1_0_versioned.clinical_gdc_r34
-- isb-cgc-bq.CTSP.clinical_follow_ups_molecular_tests_gdc_current
 - isb-cgc-bq.CTSP_versioned.clinical_follow_ups_molecular_tests_gdc_r34
-- isb-cgc-bq.CTSP.clinical_follow_ups_gdc_current
 - isb-cgc-bq.CTSP_versioned.clinical_follow_ups_gdc_r34
-- isb-cgc-bq.CTSP.clinical_diagnoses_treatments_gdc_current
 - isb-cgc-bq.CTSP_versioned.clinical_diagnoses_treatments_gdc_r34
-- isb-cgc-bq.CTSP.clinical_diagnoses_gdc_current
 - isb-cgc-bq.CTSP_versioned.clinical_diagnoses_gdc_r34
 
+Current clinical tables updated to GDC release 34.
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.CTSP.clinical_gdc_current
+- isb-cgc-bq.CPTAC.clinical_gdc_current
+- isb-cgc-bq.BEATAML1_0.clinical_gdc_current
+- isb-cgc-bq.CTSP.clinical_follow_ups_molecular_tests_gdc_current
+- isb-cgc-bq.CTSP.clinical_follow_ups_gdc_current
+- isb-cgc-bq.CTSP.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq.CTSP.clinical_diagnoses_gdc_current
 
 
 *September 22, 2022*
