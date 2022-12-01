@@ -146,6 +146,7 @@ New and updated file and case metadata for GDC release 35.
 *November 4, 2022*
 
 New and updated CPTAC Masked Somatic Mutation tables.
+
 **BigQuery tables created**
 
 - isb-cgc-bq.CPTAC_versioned.masked_somatic_mutation_hg38_gdc_r34
