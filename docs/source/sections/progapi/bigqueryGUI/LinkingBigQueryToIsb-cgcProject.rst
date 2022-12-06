@@ -10,7 +10,7 @@ When you access BigQuery from your Google Cloud Platform Console, you will see a
    :scale: 30
    :align: center
 
-Select "Star a Project by Name" and enter "isb-cgc-bq" in the new window, then click "Pin".
+Select "Star a Project by Name" and enter "isb-cgc-bq" in the new window, then click "Star".
 
 .. image:: PinAProject.png
    :scale: 30
