@@ -2,7 +2,7 @@
 Linking to ISB-CGC BigQuery tables
 ================================
 
-Follow the images below to link the ISB-CGC BigQuery tables in projects **isb-cgc** and **isb-cgc-bq** to your Google Cloud Project. Click on image to zoom in.
+Follow the images below to link the ISB-CGC BigQuery tables in project **isb-cgc-bq** to your Google Cloud Project. Click on image to zoom in.
 
 When you access BigQuery from your Google Cloud Platform Console, you will see an "Add Data" box, clicking this will open a new panel on the right allowing you to either enter a project name or to select one from a list among other options.
 
