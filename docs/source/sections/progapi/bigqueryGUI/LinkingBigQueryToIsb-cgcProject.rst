@@ -18,6 +18,7 @@ Select "Star a Project by Name" and enter "isb-cgc-bq" in the new window, then c
 
 
 You will now see the isb-cgc open access BigQuery tables on the left-hand side pinned to your project.
+
 .. note:: If the data sets and tables within the project don't display immediately, refresh your screen until they do. They may take a couple of minutes to appear.
 
 .. image:: PinnedProject.png
