@@ -8,41 +8,41 @@ New and updated PDC file, case, and clinical data for V2.15.
 
 **BigQuery datasets created**
 
- - APOLLO1
- - APOLLO1_versioned
+- APOLLO1
+- APOLLO1_versioned
  
 **BigQuery tables created**
  
- - isb-cgc-bq.APOLLO1_versioned.per_sample_file_metadata_APOLLO1_pdc_V2_15
- - isb-cgc-bq.APOLLO1.per_sample_file_metadata_APOLLO1_pdc_current
- - isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_CPTAC_TCGA_pdc_V2_15
- - isb-cgc-bq.PDC_metadata_versioned.aliquot_to_case_mapping_V2_15
- - isb-cgc-bq.PDC_metadata_versioned.case_metadata_V2_15
- - isb-cgc-bq.BROAD_versioned.clinical_Broad_pdc_V2_15
- - isb-cgc-bq.APOLLO1_versioned.clinical_APOLLO1_pdc_V2_15
- - isb-cgc-bq.PDC_metadata_versioned.file_associated_entity_mapping_V2_15
- - isb-cgc-bq.PDC_metadata_versioned.file_metadata_V2_15
- - isb-cgc-bq.PDC_metadata_versioned.studies_V2_15
+- isb-cgc-bq.APOLLO1_versioned.per_sample_file_metadata_APOLLO1_pdc_V2_15
+- isb-cgc-bq.APOLLO1.per_sample_file_metadata_APOLLO1_pdc_current
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_CPTAC_TCGA_pdc_V2_15
+- isb-cgc-bq.PDC_metadata_versioned.aliquot_to_case_mapping_V2_15
+- isb-cgc-bq.PDC_metadata_versioned.case_metadata_V2_15
+- isb-cgc-bq.BROAD_versioned.clinical_Broad_pdc_V2_15
+- isb-cgc-bq.APOLLO1_versioned.clinical_APOLLO1_pdc_V2_15
+- isb-cgc-bq.PDC_metadata_versioned.file_associated_entity_mapping_V2_15
+- isb-cgc-bq.PDC_metadata_versioned.file_metadata_V2_15
+- isb-cgc-bq.PDC_metadata_versioned.studies_V2_15
  
 **BigQuery tables updated**
 
- - isb-cgc-bq.TCGA.per_sample_file_metadata_CPTAC_TCGA_pdc_current
- - isb-cgc-bq.PDC_metadata.aliquot_to_case_mapping_current
- - isb-cgc-bq.PDC_metadata.case_metadata_current
- - isb-cgc-bq.BROAD.clinical_Broad_pdc_current
- - isb-cgc-bq.APOLLO1.clinical_APOLLO1_pdc_current
- - isb-cgc-bq.PDC_metadata.file_associated_entity_mapping_current
- - isb-cgc-bq.PDC_metadata.file_metadata_current
- - isb-cgc-bq.PDC_metadata.studies_current
+- isb-cgc-bq.TCGA.per_sample_file_metadata_CPTAC_TCGA_pdc_current
+- isb-cgc-bq.PDC_metadata.aliquot_to_case_mapping_current
+- isb-cgc-bq.PDC_metadata.case_metadata_current
+- isb-cgc-bq.BROAD.clinical_Broad_pdc_current
+- isb-cgc-bq.APOLLO1.clinical_APOLLO1_pdc_current
+- isb-cgc-bq.PDC_metadata.file_associated_entity_mapping_current
+- isb-cgc-bq.PDC_metadata.file_metadata_current
+- isb-cgc-bq.PDC_metadata.studies_current
 
 **BigQuery table deleted**
 
 The following tables were deleted as the tables names were updated to reflect the CPTAC3-Discovery to CPTAC3 Discovery and Confirmatory
 
- - isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC3_discovery_pdc_current 
-  - Superseded by isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC3_discovery_and_confirmatory_pdc_current
- - isb-cgc-bq.CPTAC.clinical_CPTAC3_discovery_pdc_current
-  - Supersede by isb-cgc-bq.CPTAC.clinical_CPTAC3_discovery_and_confirmatory_pdc_current
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC3_discovery_pdc_current 
+ - Superseded by isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC3_discovery_and_confirmatory_pdc_current
+- isb-cgc-bq.CPTAC.clinical_CPTAC3_discovery_pdc_current
+ - Supersede by isb-cgc-bq.CPTAC.clinical_CPTAC3_discovery_and_confirmatory_pdc_current
 
 *November 16, 2022*
 
