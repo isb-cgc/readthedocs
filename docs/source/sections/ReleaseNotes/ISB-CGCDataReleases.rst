@@ -4,7 +4,7 @@ ISB-CGC Data Release Notes
 
 *December 12, 2022*
 
-New and updated PDC file, case, and clinical data for V2.15.
+New and updated PDC file, case, and clinical data for V2.14. On December 20, 2022, tables were updated to the correct version number.
 
 **BigQuery datasets created**
 
@@ -13,16 +13,17 @@ New and updated PDC file, case, and clinical data for V2.15.
  
 **BigQuery tables created**
  
-- isb-cgc-bq.APOLLO1_versioned.per_sample_file_metadata_APOLLO1_pdc_V2_15
+- isb-cgc-bq.APOLLO1_versioned.per_sample_file_metadata_APOLLO1_pdc_V2_14
 - isb-cgc-bq.APOLLO1.per_sample_file_metadata_APOLLO1_pdc_current
-- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_CPTAC_TCGA_pdc_V2_15
-- isb-cgc-bq.PDC_metadata_versioned.aliquot_to_case_mapping_V2_15
-- isb-cgc-bq.PDC_metadata_versioned.case_metadata_V2_15
-- isb-cgc-bq.BROAD_versioned.clinical_Broad_pdc_V2_15
-- isb-cgc-bq.APOLLO1_versioned.clinical_APOLLO1_pdc_V2_15
-- isb-cgc-bq.PDC_metadata_versioned.file_associated_entity_mapping_V2_15
-- isb-cgc-bq.PDC_metadata_versioned.file_metadata_V2_15
-- isb-cgc-bq.PDC_metadata_versioned.studies_V2_15
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_CPTAC_TCGA_pdc_V2_14
+- isb-cgc-bq.PDC_metadata_versioned.aliquot_to_case_mapping_V2_14
+- isb-cgc-bq.PDC_metadata_versioned.case_metadata_V2_14
+- isb-cgc-bq.BROAD_versioned.clinical_Broad_pdc_V2_14
+- isb-cgc-bq.APOLLO1_versioned.clinical_APOLLO1_pdc_V2_14
+- isb-cgc-bq.APOLLO1.clinical_APOLLO1_pdc_current
+- isb-cgc-bq.PDC_metadata_versioned.file_associated_entity_mapping_V2_14
+- isb-cgc-bq.PDC_metadata_versioned.file_metadata_V2_14
+- isb-cgc-bq.PDC_metadata_versioned.studies_V2_14
  
 **BigQuery tables updated**
 
@@ -30,7 +31,6 @@ New and updated PDC file, case, and clinical data for V2.15.
 - isb-cgc-bq.PDC_metadata.aliquot_to_case_mapping_current
 - isb-cgc-bq.PDC_metadata.case_metadata_current
 - isb-cgc-bq.BROAD.clinical_Broad_pdc_current
-- isb-cgc-bq.APOLLO1.clinical_APOLLO1_pdc_current
 - isb-cgc-bq.PDC_metadata.file_associated_entity_mapping_current
 - isb-cgc-bq.PDC_metadata.file_metadata_current
 - isb-cgc-bq.PDC_metadata.studies_current
