@@ -2,6 +2,47 @@
 ISB-CGC Data Release Notes
 ############################
 
+*December 12, 2022*
+
+New and updated PDC file, case, and clinical data for V2.14. On December 20, 2022, tables were updated to the correct version number.
+
+**BigQuery datasets created**
+
+- APOLLO1
+- APOLLO1_versioned
+ 
+**BigQuery tables created**
+ 
+- isb-cgc-bq.APOLLO1_versioned.per_sample_file_metadata_APOLLO1_pdc_V2_14
+- isb-cgc-bq.APOLLO1.per_sample_file_metadata_APOLLO1_pdc_current
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_CPTAC_TCGA_pdc_V2_14
+- isb-cgc-bq.PDC_metadata_versioned.aliquot_to_case_mapping_V2_14
+- isb-cgc-bq.PDC_metadata_versioned.case_metadata_V2_14
+- isb-cgc-bq.BROAD_versioned.clinical_Broad_pdc_V2_14
+- isb-cgc-bq.APOLLO1_versioned.clinical_APOLLO1_pdc_V2_14
+- isb-cgc-bq.APOLLO1.clinical_APOLLO1_pdc_current
+- isb-cgc-bq.PDC_metadata_versioned.file_associated_entity_mapping_V2_14
+- isb-cgc-bq.PDC_metadata_versioned.file_metadata_V2_14
+- isb-cgc-bq.PDC_metadata_versioned.studies_V2_14
+ 
+**BigQuery tables updated**
+
+- isb-cgc-bq.TCGA.per_sample_file_metadata_CPTAC_TCGA_pdc_current
+- isb-cgc-bq.PDC_metadata.aliquot_to_case_mapping_current
+- isb-cgc-bq.PDC_metadata.case_metadata_current
+- isb-cgc-bq.BROAD.clinical_Broad_pdc_current
+- isb-cgc-bq.PDC_metadata.file_associated_entity_mapping_current
+- isb-cgc-bq.PDC_metadata.file_metadata_current
+- isb-cgc-bq.PDC_metadata.studies_current
+
+**BigQuery table deleted**
+
+The following tables were deleted as the tables names were updated to reflect the CPTAC3-Discovery to CPTAC3 Discovery and Confirmatory
+
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC3_discovery_pdc_current 
+ - Superseded by isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC3_discovery_and_confirmatory_pdc_current
+- isb-cgc-bq.CPTAC.clinical_CPTAC3_discovery_pdc_current
+ - Supersede by isb-cgc-bq.CPTAC.clinical_CPTAC3_discovery_and_confirmatory_pdc_current
 
 *November 16, 2022*
 
@@ -9,7 +50,7 @@ New and updated GDC clinical tables for GDC release 35. New and updated PDC file
 
 Note: CPTAC3-Discovery was updated to CPTAC3 Discovery and Confirmatory with related tables names updated to reflect the program name change. 
 
-**BigQuery dataset created**
+**BigQuery datasets created**
 
 - BROAD
 - BROAD_versioned
@@ -21,6 +62,7 @@ Note: CPTAC3-Discovery was updated to CPTAC3 Discovery and Confirmatory with rel
 - isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_CPTAC3_other_pdc_V2_13
 - isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_proteogenomic_translational_research_centers_pdc_V2_13
 - isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_CPTAC3_discovery_and_confirmatory_pdc_V2_13
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC3_discovery_and_confirmatory_pdc_current
 - isb-cgc-bq.BROAD.per_sample_file_metadata_Broad_pdc_current
 - isb-cgc-bq.BROAD_versioned.per_sample_file_metadata_Broad_pdc_V2_13
 - isb-cgc-bq.ICPC.quant_phosphoproteome_KU_PDAC_discovery_study_pdc_current
@@ -33,6 +75,7 @@ Note: CPTAC3-Discovery was updated to CPTAC3 Discovery and Confirmatory with rel
 - isb-cgc-bq.PDC_metadata_versioned.case_metadata_V2_13
 - isb-cgc-bq.ICPC_versioned.clinical_PDAC_pdc_V2_13
 - isb-cgc-bq.CPTAC_versioned.clinical_CPTAC3_discovery_and_confirmatory_pdc_V2_13
+- isb-cgc-bq.CPTAC.clinical_CPTAC3_discovery_and_confirmatory_pdc_current
 - isb-cgc-bq.BROAD.clinical_Broad_pdc_current
 - isb-cgc-bq.BROAD_versioned.clinical_Broad_pdc_V2_13
 - isb-cgc-bq.PDC_metadata_versioned.studies_V2_13
@@ -78,14 +121,12 @@ Note: CPTAC3-Discovery was updated to CPTAC3 Discovery and Confirmatory with rel
 - isb-cgc-bq.TCGA.per_sample_file_metadata_CPTAC_TCGA_pdc_current
 - isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC3_other_pdc_current
 - isb-cgc-bq.CPTAC.per_sample_file_metadata_proteogenomic_translational_research_centers_pdc_current
-- isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC3_discovery_and_confirmatory_pdc_current
 - isb-cgc-bq.ICPC.quant_phosphoproteome_KU_PDAC_discovery_study_pdc_current
 - isb-cgc-bq.PDC_metadata.gene_info_current
 - isb-cgc-bq.PDC_metadata.refseq_mapping_current
 - isb-cgc-bq.PDC_metadata.aliquot_to_case_mapping_current
 - isb-cgc-bq.PDC_metadata.case_metadata_current
 - isb-cgc-bq.ICPC.clinical_PDAC_pdc_current
-- isb-cgc-bq.CPTAC.clinical_CPTAC3_discovery_and_confirmatory_pdc_current
 - isb-cgc-bq.BROAD.clinical_Broad_pdc_current
 - isb-cgc-bq.PDC_metadata.studies_current
 - isb-cgc-bq.PDC_metadata.file_associated_entity_mapping_current
