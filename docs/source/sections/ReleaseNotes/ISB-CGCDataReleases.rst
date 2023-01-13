@@ -29,6 +29,7 @@ New and updated GDC open somatic mutation tables for r34.
 - isb-cgc-bq.CGCI.masked_somatic_mutation_hg38_gdc_current
 
 **BigQuery table deleted**
+
 The following tables were deleted to reflect the harmonization of datasets.
 
 - isb-cgc-bq.TCGA.somatic_mutation_hg38_gdc_current
