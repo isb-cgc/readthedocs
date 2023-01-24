@@ -2,6 +2,68 @@
 ISB-CGC Data Release Notes
 ############################
 
+*January 13, 2022*
+
+New and updated GDC open somatic mutation tables for r34.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.BEATAML1_0.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.CMI.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.EXC_RESPONDERS.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.MMRF.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.TARGET.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.TCGA.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.BEATAML1_0_versioned.masked_somatic_mutation_hg38_gdc_r34
+- isb-cgc-bq.CGCI_versioned.masked_somatic_mutation_hg38_gdc_r34
+- isb-cgc-bq.CMI_versioned.masked_somatic_mutation_hg38_gdc_r34
+- isb-cgc-bq.EXC_RESPONDERS_versioned.masked_somatic_mutation_hg38_gdc_r34
+- isb-cgc-bq.HCMI_versioned.masked_somatic_mutation_hg38_gdc_r34
+- isb-cgc-bq.MMRF_versioned.masked_somatic_mutation_hg38_gdc_r34
+- isb-cgc-bq.TARGET_versioned.masked_somatic_mutation_hg38_gdc_r34
+- isb-cgc-bq.TCGA_versioned.masked_somatic_mutation_hg38_gdc_r34
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.HCMI.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.CGCI.masked_somatic_mutation_hg38_gdc_current
+
+**BigQuery table deleted**
+
+The following tables were deleted to reflect the harmonization of datasets.
+
+- isb-cgc-bq.TCGA.somatic_mutation_hg38_gdc_current
+
+*January 12, 2022*
+
+New and updated PDC file, case, and clinical data for V2.15.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.PDC_metadata_versioned.studies_V2_15
+- isb-cgc-bq.PDC_metadata_versioned.file_metadata_V2_15
+- isb-cgc-bq.PDC_metadata_versioned.file_associated_entity_mapping_V2_15
+- isb-cgc-bq.BROAD_versioned.clinical_Broad_pdc_V2_15
+- isb-cgc-bq.CPTAC_versioned.clinical_CPTAC3_discovery_and_confirmatory_pdc_V2_15
+- isb-cgc-bq.PDC_metadata_versioned.case_metadata_V2_15
+- isb-cgc-bq.PDC_metadata_versioned.aliquot_to_case_mapping_V2_15
+- isb-cgc-bq.PDC_metadata_versioned.refseq_mapping_2022_05
+- isb-cgc-bq.PDC_metadata_versioned.gene_info_V2_15
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_CPTAC3_discovery_and_confirmatory_pdc_V2_15
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.PDC_metadata.studies_current
+- isb-cgc-bq.PDC_metadata.file_metadata_current
+- isb-cgc-bq.PDC_metadata.file_associated_entity_mapping_current
+- isb-cgc-bq.BROAD.clinical_Broad_pdc_current
+- isb-cgc-bq.CPTAC.clinical_CPTAC3_discovery_and_confirmatory_pdc_current
+- isb-cgc-bq.PDC_metadata.case_metadata_current
+- isb-cgc-bq.PDC_metadata.aliquot_to_case_mapping_current
+- isb-cgc-bq.PDC_metadata.refseq_mapping_current
+- isb-cgc-bq.PDC_metadata.gene_info_current
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC3_discovery_and_confirmatory_pdc_current
+
 *December 12, 2022*
 
 New and updated PDC file, case, and clinical data for V2.14. On December 20, 2022, tables were updated to the correct version number.
