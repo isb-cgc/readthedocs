@@ -21,7 +21,7 @@ More information about SL-Cloud can be found in the following links:
 
 - `Notebooks in MyBinder <https://mybinder.org/v2/gh/boaguilar/SL-Cloud/HEAD>`_ 
 - `GitHub Repository <https://github.com/IlyaLab/SL-Cloud/>`_ 
-- `Article describing SL-cloud <https://www.biorxiv.org/content/10.1101/2021.09.18.459450v1.abstract>`_
+- `Article describing SL-cloud <https://f1000research.com/articles/11-493>`_
 
 
 
