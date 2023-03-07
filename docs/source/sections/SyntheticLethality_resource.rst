@@ -19,8 +19,8 @@ to conduct highly customizable analysis based on their cancer type of interest a
 
 More information about SL-Cloud can be found in the following links:
 
-- `Notebooks in MyBinder <https://mybinder.org/v2/gh/boaguilar/SL-Cloud/HEAD>`_ 
-- `GitHub Repository <https://github.com/IlyaLab/SL-Cloud/>`_ 
+- `Notebooks in MyBinder <https://mybinder.org/v2/gh/isb-cgc/SL-Cloud-F1000/HEAD?labpath=MyBinder_Authentication.ipynb>`_ 
+- `GitHub Repository <https://github.com/isb-cgc/SL-Cloud-F1000>`_ 
 - `Article describing SL-cloud <https://f1000research.com/articles/11-493>`_
 
 
