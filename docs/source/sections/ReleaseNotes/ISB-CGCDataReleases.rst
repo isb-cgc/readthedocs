@@ -22,19 +22,10 @@ New and updated PDC file, case, and clinical data for V2.16
 
 *January 30, 2023*
 
-- isb-cgc-bq.TARGET.RNAseq_hg38_gdc_current
-- isb-cgc-bq.CTSP.RNAseq_hg38_gdc_current
-- isb-cgc-bq.EXC_RESPONDERS.RNAseq_hg38_gdc_current
-- isb-cgc-bq.BEATAML1_0.RNAseq_hg38_gdc_current
-- isb-cgc-bq.CMI.RNAseq_hg38_gdc_current
-- isb-cgc-bq.CPTAC.RNAseq_hg38_gdc_current
-- isb-cgc-bq.MMRF.RNAseq_hg38_gdc_current
-- isb-cgc-bq.HCMI.RNAseq_hg38_gdc_current
-- isb-cgc-bq.NCICCR.RNAseq_hg38_gdc_current
-- isb-cgc-bq.OHSU.RNAseq_hg38_gdc_current
-- isb-cgc-bq.ORGANOID.RNAseq_hg38_gdc_current
-- isb-cgc-bq.TCGA.RNAseq_hg38_gdc_current
-- isb-cgc-bq.WCDT.RNAseq_hg38_gdc_current
+**BigQuery tables created**
+
+New and updated RNAseq tables for GDC release 35
+
 - isb-cgc-bq.TARGET_versioned.RNAseq_hg38_gdc_r35
 - isb-cgc-bq.CTSP_versioned.RNAseq_hg38_gdc_r35
 - isb-cgc-bq.EXC_RESPONDERS_versioned.RNAseq_hg38_gdc_r35
@@ -49,6 +40,21 @@ New and updated PDC file, case, and clinical data for V2.16
 - isb-cgc-bq.WCDT_versioned.RNAseq_hg38_gdc_r35
 - isb-cgc-bq.CMI_versioned.RNAseq_hg38_gdc_r35
 
+**BigQuery tables updated**
+
+- isb-cgc-bq.TARGET.RNAseq_hg38_gdc_current
+- isb-cgc-bq.CTSP.RNAseq_hg38_gdc_current
+- isb-cgc-bq.EXC_RESPONDERS.RNAseq_hg38_gdc_current
+- isb-cgc-bq.BEATAML1_0.RNAseq_hg38_gdc_current
+- isb-cgc-bq.CMI.RNAseq_hg38_gdc_current
+- isb-cgc-bq.CPTAC.RNAseq_hg38_gdc_current
+- isb-cgc-bq.MMRF.RNAseq_hg38_gdc_current
+- isb-cgc-bq.HCMI.RNAseq_hg38_gdc_current
+- isb-cgc-bq.NCICCR.RNAseq_hg38_gdc_current
+- isb-cgc-bq.OHSU.RNAseq_hg38_gdc_current
+- isb-cgc-bq.ORGANOID.RNAseq_hg38_gdc_current
+- isb-cgc-bq.TCGA.RNAseq_hg38_gdc_current
+- isb-cgc-bq.WCDT.RNAseq_hg38_gdc_current
 
 *January 13, 2023*
 
