@@ -8,23 +8,18 @@ ISB-CGC Data Release Notes
 
 *February 27, 2023*
 
-- isb-cgc-bq.ICPC.quant_proteome_KU_PDAC_discovery_study_global_proteome_pdc_current
+New and updated PDC  data for V2.16
+
+**BigQuery tables created**
+
 - isb-cgc-bq.ICPC_versioned.quant_proteome_KU_PDAC_discovery_study_global_proteome_pdc_V2_16
-- isb-cgc-bq.ICPC.quant_proteome_proteogenomics_of_gastric_cancer_pdc_current
 - isb-cgc-bq.ICPC_versioned.quant_proteome_proteogenomics_of_gastric_cancer_pdc_V2_16
-- isb-cgc-bq.ICPC.quant_proteome_HBV_related_hepatocellular_carcinoma_pdc_current
 - isb-cgc-bq.ICPC_versioned.quant_proteome_HBV_related_hepatocellular_carcinoma_pdc_V2_16
-- isb-cgc-bq.ICPC.quant_proteome_academia_sinica_LUAD100_pdc_current
 - isb-cgc-bq.ICPC_versioned.quant_proteome_academia_sinica_LUAD100_pdc_V2_16
-- isb-cgc-bq.CPTAC.quant_proteome_AML_ex_vivo_drug_response_combination_treatment_pdc_current
 - isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_ex_vivo_drug_response_combination_treatment_pdc_V2_16
-- isb-cgc-bq.CPTAC.quant_proteome_PTRC_TNBC_PDX_pdc_current
 - isb-cgc-bq.CPTAC_versioned.quant_proteome_PTRC_TNBC_PDX_pdc_V2_16
-- isb-cgc-bq.CPTAC.quant_proteome_PTRC_TNBC_pdc_current
 - isb-cgc-bq.CPTAC_versioned.quant_proteome_PTRC_TNBC_pdc_V2_16
-- isb-cgc-bq.CPTAC.quant_proteome_AML_ex_vivo_drug_response_sorafenib_treatment_pdc_current
 - isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_ex_vivo_drug_response_sorafenib_treatment_pdc_V2_16
-- isb-cgc-bq.CPTAC.quant_proteome_AML_quizartinib_resistance_pdc_current
 - isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_quizartinib_resistance_pdc_V2_16
 - isb-cgc-bq.CPTAC.quant_proteome_AML_gilteritinib_timecourse_pdc_current
 - isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_gilteritinib_timecourse_pdc_V2_16
@@ -53,6 +48,17 @@ ISB-CGC Data Release Notes
 - isb-cgc-bq.PDC_metadata.gene_info_current
 - isb-cgc-bq.PDC_metadata_versioned.gene_info_V2_16
 
+**BigQuery tables updated**
+
+- isb-cgc-bq.ICPC.quant_proteome_KU_PDAC_discovery_study_global_proteome_pdc_current
+- isb-cgc-bq.ICPC.quant_proteome_proteogenomics_of_gastric_cancer_pdc_current
+- isb-cgc-bq.ICPC.quant_proteome_HBV_related_hepatocellular_carcinoma_pdc_current
+- isb-cgc-bq.ICPC.quant_proteome_academia_sinica_LUAD100_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_AML_ex_vivo_drug_response_combination_treatment_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_PTRC_TNBC_PDX_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_PTRC_TNBC_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_AML_ex_vivo_drug_response_sorafenib_treatment_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_AML_quizartinib_resistance_pdc_current
 
 *February 13, 2023*
 
