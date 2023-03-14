@@ -2,7 +2,13 @@
 ISB-CGC Data Release Notes
 ############################
 
-*January 13, 2022*
+*February 27, 2023*
+
+*February 13, 2023*
+
+*January 30, 2023*
+
+*January 13, 2023*
 
 New and updated GDC open somatic mutation tables for r34.
 
@@ -34,7 +40,7 @@ The following tables were deleted to reflect the harmonization of datasets.
 
 - isb-cgc-bq.TCGA.somatic_mutation_hg38_gdc_current
 
-*January 12, 2022*
+*January 12, 2023*
 
 New and updated PDC file, case, and clinical data for V2.15.
 
