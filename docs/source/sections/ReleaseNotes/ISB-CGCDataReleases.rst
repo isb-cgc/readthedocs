@@ -6,6 +6,20 @@ ISB-CGC Data Release Notes
 
 *February 13, 2023*
 
+New and updated PDC file, case, and clinical data for V2.16
+
+**BigQuery tables created**
+
+- isb-cgc-bq.PDC_metadata_versioned.case_metadata_V2_16
+- isb-cgc-bq.CPTAC_versioned.clinical_CPTAC3_discovery_and_confirmatory_pdc_V2_16
+- isb-cgc-bq.PDC_metadata_versioned.studies_V2_16
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.PDC_metadata.case_metadata_current
+- isb-cgc-bq.CPTAC.clinical_CPTAC3_discovery_and_confirmatory_pdc_current
+- isb-cgc-bq.PDC_metadata.studies_current
+
 *January 30, 2023*
 
 *January 13, 2023*
