@@ -21,31 +21,18 @@ New and updated PDC  data for V2.16
 - isb-cgc-bq.CPTAC_versioned.quant_proteome_PTRC_TNBC_pdc_V2_16
 - isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_ex_vivo_drug_response_sorafenib_treatment_pdc_V2_16
 - isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_quizartinib_resistance_pdc_V2_16
-- isb-cgc-bq.CPTAC.quant_proteome_AML_gilteritinib_timecourse_pdc_current
 - isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_gilteritinib_timecourse_pdc_V2_16
-- isb-cgc-bq.CPTAC.quant_phosphoproteome_PTRC_TNBC_pdc_current
 - isb-cgc-bq.CPTAC_versioned.quant_phosphoproteome_PTRC_TNBC_pdc_V2_16
-- isb-cgc-bq.CPTAC.quant_proteome_AML_ex_vivo_drug_response_primary_cohort_pdc_current
 - isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_ex_vivo_drug_response_primary_cohort_pdc_V2_16
-- isb-cgc-bq.CPTAC.quant_proteome_AML_gilteritinib_resistance_pdc_current
 - isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_gilteritinib_resistance_pdc_V2_16
-- isb-cgc-bq.CPTAC.quant_proteome_prospective_breast_BI_pdc_current
 - isb-cgc-bq.CPTAC_versioned.quant_proteome_prospective_breast_BI_pdc_V2_16
-- isb-cgc-bq.CPTAC.quant_proteome_prospective_ovarian_JHU_pdc_current
 - isb-cgc-bq.CPTAC_versioned.quant_proteome_prospective_ovarian_JHU_pdc_V2_16
-- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_LUAD_discovery_study_pdc_current
 - isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_LUAD_discovery_study_pdc_V2_16
-- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_GBM_discovery_study_pdc_current
 - isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_GBM_discovery_study_pdc_V2_16
-- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_UCEC_discovery_study_pdc_current
 - isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_UCEC_discovery_study_pdc_V2_16
-- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_HNSCC_discovery_study_pdc_current
 - isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_HNSCC_discovery_study_pdc_V2_16
-- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_PDA_discovery_study_pdc_current
 - isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_PDA_discovery_study_pdc_V2_16
-- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_LSCC_discovery_study_pdc_current
 - isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_LSCC_discovery_study_pdc_V2_16
-- isb-cgc-bq.PDC_metadata.gene_info_current
 - isb-cgc-bq.PDC_metadata_versioned.gene_info_V2_16
 
 **BigQuery tables updated**
@@ -59,6 +46,19 @@ New and updated PDC  data for V2.16
 - isb-cgc-bq.CPTAC.quant_proteome_PTRC_TNBC_pdc_current
 - isb-cgc-bq.CPTAC.quant_proteome_AML_ex_vivo_drug_response_sorafenib_treatment_pdc_current
 - isb-cgc-bq.CPTAC.quant_proteome_AML_quizartinib_resistance_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_AML_gilteritinib_timecourse_pdc_current
+- isb-cgc-bq.CPTAC.quant_phosphoproteome_PTRC_TNBC_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_AML_ex_vivo_drug_response_primary_cohort_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_AML_gilteritinib_resistance_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_prospective_breast_BI_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_prospective_ovarian_JHU_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_LUAD_discovery_study_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_GBM_discovery_study_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_UCEC_discovery_study_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_HNSCC_discovery_study_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_PDA_discovery_study_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_LSCC_discovery_study_pdc_current
+- isb-cgc-bq.PDC_metadata.gene_info_current
 
 *February 13, 2023*
 
