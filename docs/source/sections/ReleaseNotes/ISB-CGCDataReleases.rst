@@ -2,7 +2,126 @@
 ISB-CGC Data Release Notes
 ############################
 
-*January 13, 2022*
+*March 8, 2023*
+
+Version 2 of HTAN SCATACSEQ LEVEL 1 METADATA R2
+
+- isb-cgc-bq.HTAN.scATACseq_level1_metadata_current
+- isb-cgc-bq.HTAN_versioned.scATACseq_level1_metadata_r2_v2
+
+*February 28, 2023*
+
+New GDC File ID to GCS URLs for GDC release 36.
+
+- isb-cgc-bq.GDC_case_file_metadata_versioned.GDCfileID_to_GCSurl_r36
+
+*February 27, 2023*
+
+New and updated PDC  data for V2.16
+
+**BigQuery tables created**
+
+- isb-cgc-bq.ICPC_versioned.quant_proteome_KU_PDAC_discovery_study_global_proteome_pdc_V2_16
+- isb-cgc-bq.ICPC_versioned.quant_proteome_proteogenomics_of_gastric_cancer_pdc_V2_16
+- isb-cgc-bq.ICPC_versioned.quant_proteome_HBV_related_hepatocellular_carcinoma_pdc_V2_16
+- isb-cgc-bq.ICPC_versioned.quant_proteome_academia_sinica_LUAD100_pdc_V2_16
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_ex_vivo_drug_response_combination_treatment_pdc_V2_16
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_PTRC_TNBC_PDX_pdc_V2_16
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_PTRC_TNBC_pdc_V2_16
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_ex_vivo_drug_response_sorafenib_treatment_pdc_V2_16
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_quizartinib_resistance_pdc_V2_16
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_gilteritinib_timecourse_pdc_V2_16
+- isb-cgc-bq.CPTAC_versioned.quant_phosphoproteome_PTRC_TNBC_pdc_V2_16
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_ex_vivo_drug_response_primary_cohort_pdc_V2_16
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_gilteritinib_resistance_pdc_V2_16
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_prospective_breast_BI_pdc_V2_16
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_prospective_ovarian_JHU_pdc_V2_16
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_LUAD_discovery_study_pdc_V2_16
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_GBM_discovery_study_pdc_V2_16
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_UCEC_discovery_study_pdc_V2_16
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_HNSCC_discovery_study_pdc_V2_16
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_PDA_discovery_study_pdc_V2_16
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_LSCC_discovery_study_pdc_V2_16
+- isb-cgc-bq.PDC_metadata_versioned.gene_info_V2_16
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.ICPC.quant_proteome_KU_PDAC_discovery_study_global_proteome_pdc_current
+- isb-cgc-bq.ICPC.quant_proteome_proteogenomics_of_gastric_cancer_pdc_current
+- isb-cgc-bq.ICPC.quant_proteome_HBV_related_hepatocellular_carcinoma_pdc_current
+- isb-cgc-bq.ICPC.quant_proteome_academia_sinica_LUAD100_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_AML_ex_vivo_drug_response_combination_treatment_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_PTRC_TNBC_PDX_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_PTRC_TNBC_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_AML_ex_vivo_drug_response_sorafenib_treatment_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_AML_quizartinib_resistance_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_AML_gilteritinib_timecourse_pdc_current
+- isb-cgc-bq.CPTAC.quant_phosphoproteome_PTRC_TNBC_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_AML_ex_vivo_drug_response_primary_cohort_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_AML_gilteritinib_resistance_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_prospective_breast_BI_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_prospective_ovarian_JHU_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_LUAD_discovery_study_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_GBM_discovery_study_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_UCEC_discovery_study_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_HNSCC_discovery_study_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_PDA_discovery_study_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_LSCC_discovery_study_pdc_current
+- isb-cgc-bq.PDC_metadata.gene_info_current
+
+*February 13, 2023*
+
+New and updated PDC file, case, and clinical data for V2.16
+
+**BigQuery tables created**
+
+- isb-cgc-bq.PDC_metadata_versioned.case_metadata_V2_16
+- isb-cgc-bq.CPTAC_versioned.clinical_CPTAC3_discovery_and_confirmatory_pdc_V2_16
+- isb-cgc-bq.PDC_metadata_versioned.studies_V2_16
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.PDC_metadata.case_metadata_current
+- isb-cgc-bq.CPTAC.clinical_CPTAC3_discovery_and_confirmatory_pdc_current
+- isb-cgc-bq.PDC_metadata.studies_current
+
+*January 30, 2023*
+
+New and updated RNAseq tables for GDC release 35
+
+**BigQuery tables created**
+
+- isb-cgc-bq.TARGET_versioned.RNAseq_hg38_gdc_r35
+- isb-cgc-bq.CTSP_versioned.RNAseq_hg38_gdc_r35
+- isb-cgc-bq.EXC_RESPONDERS_versioned.RNAseq_hg38_gdc_r35
+- isb-cgc-bq.BEATAML1_0_versioned.RNAseq_hg38_gdc_r35
+- isb-cgc-bq.CPTAC_versioned.RNAseq_hg38_gdc_r35
+- isb-cgc-bq.MMRF_versioned.RNAseq_hg38_gdc_r35
+- isb-cgc-bq.HCMI_versioned.RNAseq_hg38_gdc_r35
+- isb-cgc-bq.NCICCR_versioned.RNAseq_hg38_gdc_r35
+- isb-cgc-bq.OHSU_versioned.RNAseq_hg38_gdc_r35
+- isb-cgc-bq.ORGANOID_versioned.RNAseq_hg38_gdc_r35
+- isb-cgc-bq.TCGA_versioned.RNAseq_hg38_gdc_r35
+- isb-cgc-bq.WCDT_versioned.RNAseq_hg38_gdc_r35
+- isb-cgc-bq.CMI_versioned.RNAseq_hg38_gdc_r35
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.TARGET.RNAseq_hg38_gdc_current
+- isb-cgc-bq.CTSP.RNAseq_hg38_gdc_current
+- isb-cgc-bq.EXC_RESPONDERS.RNAseq_hg38_gdc_current
+- isb-cgc-bq.BEATAML1_0.RNAseq_hg38_gdc_current
+- isb-cgc-bq.CMI.RNAseq_hg38_gdc_current
+- isb-cgc-bq.CPTAC.RNAseq_hg38_gdc_current
+- isb-cgc-bq.MMRF.RNAseq_hg38_gdc_current
+- isb-cgc-bq.HCMI.RNAseq_hg38_gdc_current
+- isb-cgc-bq.NCICCR.RNAseq_hg38_gdc_current
+- isb-cgc-bq.OHSU.RNAseq_hg38_gdc_current
+- isb-cgc-bq.ORGANOID.RNAseq_hg38_gdc_current
+- isb-cgc-bq.TCGA.RNAseq_hg38_gdc_current
+- isb-cgc-bq.WCDT.RNAseq_hg38_gdc_current
+
+*January 13, 2023*
 
 New and updated GDC open somatic mutation tables for r34.
 
@@ -34,7 +153,7 @@ The following tables were deleted to reflect the harmonization of datasets.
 
 - isb-cgc-bq.TCGA.somatic_mutation_hg38_gdc_current
 
-*January 12, 2022*
+*January 12, 2023*
 
 New and updated PDC file, case, and clinical data for V2.15.
 
