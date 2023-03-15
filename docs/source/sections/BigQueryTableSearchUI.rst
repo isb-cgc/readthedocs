@@ -242,9 +242,6 @@ To access the BigQuery tables in Google Cloud Console directly from the Table Se
 
 `Google Cloud Platform's free tier <https://cloud.google.com/free>`_ allows users to access many common Google Cloud resources including BigQuery free of charge and query up to 1 TB of data per month for free.
 
-.. image:: BigQuery/BigQueryOpenButton.gif
-   :align: center
-
 Please see the following ISB-CGC documentation pages for guidance:
 
 * `How to create a Google Cloud Platform (GCP) project <HowToGetStartedonISB-CGC.html>`_ 
