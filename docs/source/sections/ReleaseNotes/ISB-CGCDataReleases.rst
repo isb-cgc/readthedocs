@@ -6,10 +6,12 @@ ISB-CGC Data Release Notes
 
 Version 2 of HTAN SCATACSEQ LEVEL 1 METADATA R2
 
--isb-cgc-bq.HTAN.scATACseq_level1_metadata_current
--isb-cgc-bq.HTAN_versioned.scATACseq_level1_metadata_r2_v2
+- isb-cgc-bq.HTAN.scATACseq_level1_metadata_current
+- isb-cgc-bq.HTAN_versioned.scATACseq_level1_metadata_r2_v2
 
 *February 28, 2023*
+
+New GDC File ID to GCS URLs for GDC release 36.
 
 - isb-cgc-bq.GDC_case_file_metadata_versioned.GDCfileID_to_GCSurl_r36
 
