@@ -4,12 +4,12 @@ APOLLO1 Data Set
 
 About the Applied Proteogenomics Organizational Learning and Outcomes Program
 ------------------------------------------------------------
-The `Applied Proteogenomics Organizational Learning and Outcomes <https://proteomics.cancer.gov/programs/apollo-network>`_ (APOLLO) network seeks to innovate discoveries, to pioneer new treatments and to support open science to improve the health of every child and young adult diagnosed with a brain tumor. Previously, it was named the `Children's Brain Tumor Tissue Consortium <https://cbttc.org>`_ (CBTTC).
+The `Applied Proteogenomics Organizational Learning and Outcomes <https://proteomics.cancer.gov/programs/apollo-network>`_ (APOLLO) network is a collaboration between NCI, the Department of Defense (DoD), and the Department of Veterans Affairs (VA). It's purpose is to incorporate proteogenomics into tumor study and treatment to better pinpoint treatment therapies by examing both genetic abnormalities and protein information. It is part of NCI’s Cancer Moonshot Initiative. 
 
 About the Applied Proteogenomics Organizational Learning and Outcomes Data Set
 ---------------------------------------------------------------------
 
-CBTN has the Pediatric Brain Cancer Pilot Study available at the `Proteomics Data Commons (PDC) <https://pdc.cancer.gov/pdc/>`_. ISB-CGC has procured this data through the PDC API.
+CBTN has the Pediatric Brain Cancer Pilot Study available at the `Proteomics Data Commons (PDC) <https://pdc.cancer.gov/pdc/>`_. ISB-CGC has procured this data through the PDC API. The initial data is from lung cancer patients.
 
 Accessing the APOLLO1 Data in Google BigQuery
 ------------------------------------------------
