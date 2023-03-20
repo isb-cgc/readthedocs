@@ -60,7 +60,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - |checkmark|
      - 
    * - `Exceptional Responders <data/EXC_RESPOND_about.html>`_
-     - 
+     - |checkmark|
      - |checkmark|
      - 
    * - `FM <data/FM_about.html>`_
@@ -80,7 +80,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - |checkmark|
      - |checkmark|
    * - `MP2PRT <data/MP2PRT_about.html>`_
-     - 
+     - |checkmark|
      - |checkmark| *
      - 
    * - `NCICCR <data/NCICCR_about.html>`_
