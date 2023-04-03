@@ -11,7 +11,7 @@ About the Applied Proteogenomics Organizational Learning and Outcomes Data Set
 
 The intial studies from project APOLLO1 are available at the `Proteomics Data Commons (PDC) <https://pdc.cancer.gov/pdc/>`_. ISB-CGC has procured this data through the PDC API. This initial data is from lung cancer patients.
 
-Accessing the APOLLO1 Data in Google BigQuery
+Accessing the APOLLO Data in Google BigQuery
 ------------------------------------------------
 
 ISB-CGC has APOLLO1 data, such as clinical and metadata, stored in Google BigQuery tables. Information about these tables can be found using the `ISB-CGC BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_ with APOLLO1 selected for filter PROGRAM. To learn more about this tool, see the `ISB-CGC BigQuery Table Search documentation <../BigQueryTableSearchUI.html>`_.
