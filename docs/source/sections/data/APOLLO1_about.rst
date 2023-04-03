@@ -4,7 +4,7 @@ APOLLO Data Set
 
 About the Applied Proteogenomics Organizational Learning and Outcomes (APOLLO) Program
 ------------------------------------------------------------
-The `Applied Proteogenomics Organizational Learning and Outcomes <https://proteomics.cancer.gov/programs/apollo-network>`_ (APOLLO) network is a collaboration between NCI, the Department of Defense (DoD), and the Department of Veterans Affairs (VA). Its purpose is to incorporate proteogenomics into tumor study and treatment to better pinpoint treatment therapies by examing both genetic abnormalities and protein information. It is part of NCI’s Cancer Moonshot Initiative. 
+The `Applied Proteogenomics Organizational Learning and Outcomes <https://proteomics.cancer.gov/programs/apollo-network>`_ (APOLLO) network is a collaboration between NCI, the Department of Defense (DoD), and the Department of Veterans Affairs (VA). Its purpose is to incorporate proteogenomics into tumor study to better pinpoint treatment therapies by examing both genetic abnormalities and protein information. It is part of NCI’s Cancer Moonshot Initiative. 
 
 About the Applied Proteogenomics Organizational Learning and Outcomes Data Set
 ---------------------------------------------------------------------
