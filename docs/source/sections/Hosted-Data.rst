@@ -60,8 +60,8 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - |checkmark|
      - 
    * - `Exceptional Responders <data/EXC_RESPOND_about.html>`_
-     - 
-     - |checkmark| **
+     - |checkmark|
+     - |checkmark|
      - 
    * - `FM <data/FM_about.html>`_
      - |checkmark|
@@ -80,16 +80,16 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - |checkmark|
      - |checkmark|
    * - `MP2PRT <data/MP2PRT_about.html>`_
-     - 
-     - |checkmark| **
+     - |checkmark|
+     - |checkmark| *
      - 
    * - `NCICCR <data/NCICCR_about.html>`_
      - |checkmark|
-     - |checkmark| *
+     - |checkmark| 
      - 
    * - `OHSU <data/OHSU_about.html>`_
      - |checkmark|
-     - |checkmark| *
+     - |checkmark|
      - |checkmark|
    * - `ORGANOID <data/ORGANOID_about.html>`_
      - |checkmark|
@@ -172,6 +172,10 @@ PDC protein expression data are available in ISB-CGC BigQuery tables. The table 
      - PDC AWS Cloud Storage
      - ISB-CGC BigQuery Tables
      - ISB-CGC Cohort Builder
+   * - `APOLLO <data/APOLLO1_about.html>`_
+     - 
+     - |checkmark|
+     - 
    * - `CBTN <data/CBTN_about.html>`_  
      - 
      - |checkmark| 
@@ -197,6 +201,7 @@ PDC protein expression data are available in ISB-CGC BigQuery tables. The table 
    :maxdepth: 1
    :hidden:
    
+   data/APOLLO1_about
    data/CBTN_about
    data/CPTAC_about
    data/GPRP_about
