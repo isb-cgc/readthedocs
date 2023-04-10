@@ -2,6 +2,26 @@
 ISB-CGC Data Release Notes
 ############################
 
+*March 15, 2023*
+
+- isb-cgc-bq.TRIO.clinical_gdc_current
+- isb-cgc-bq.TRIO_versioned.clinical_gdc_r36
+- isb-cgc-bq.CMI.clinical_gdc_current
+- isb-cgc-bq.CMI_versioned.clinical_gdc_r36
+- isb-cgc-bq.MATCH.clinical_gdc_current
+- isb-cgc-bq.MATCH_versioned.clinical_gdc_r36
+- isb-cgc-bq.EXC_RESPONDERS.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq.EXC_RESPONDERS_versioned.clinical_diagnoses_treatments_gdc_r36
+- isb-cgc-bq.EXC_RESPONDERS.clinical_diagnoses_gdc_current
+- isb-cgc-bq.EXC_RESPONDERS_versioned.clinical_diagnoses_gdc_r36
+- isb-cgc-bq.EXC_RESPONDERS.clinical_gdc_current
+- isb-cgc-bq.EXC_RESPONDERS_versioned.clinical_gdc_r36
+- isb-cgc-bq.CDDP_EAGLE.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq.CDDP_EAGLE_versioned.clinical_diagnoses_treatments_gdc_r36
+- isb-cgc-bq.CDDP_EAGLE.clinical_gdc_current
+- isb-cgc-bq.CDDP_EAGLE_versioned.clinical_gdc_r36
+
+
 *March 8, 2023*
 
 Version 2 of HTAN SCATACSEQ LEVEL 1 METADATA R2
