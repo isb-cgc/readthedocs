@@ -4,23 +4,33 @@ ISB-CGC Data Release Notes
 
 *March 15, 2023*
 
-- isb-cgc-bq.TRIO.clinical_gdc_current
-- isb-cgc-bq.TRIO_versioned.clinical_gdc_r36
-- isb-cgc-bq.CMI.clinical_gdc_current
-- isb-cgc-bq.CMI_versioned.clinical_gdc_r36
+New GDC Programs MATCH and CDDP_EAGLE. New and updated clinical data for GDC Release 36.
+
+**BigQuery tables created**
+
 - isb-cgc-bq.MATCH.clinical_gdc_current
 - isb-cgc-bq.MATCH_versioned.clinical_gdc_r36
-- isb-cgc-bq.EXC_RESPONDERS.clinical_diagnoses_treatments_gdc_current
-- isb-cgc-bq.EXC_RESPONDERS_versioned.clinical_diagnoses_treatments_gdc_r36
-- isb-cgc-bq.EXC_RESPONDERS.clinical_diagnoses_gdc_current
-- isb-cgc-bq.EXC_RESPONDERS_versioned.clinical_diagnoses_gdc_r36
-- isb-cgc-bq.EXC_RESPONDERS.clinical_gdc_current
-- isb-cgc-bq.EXC_RESPONDERS_versioned.clinical_gdc_r36
 - isb-cgc-bq.CDDP_EAGLE.clinical_diagnoses_treatments_gdc_current
-- isb-cgc-bq.CDDP_EAGLE_versioned.clinical_diagnoses_treatments_gdc_r36
 - isb-cgc-bq.CDDP_EAGLE.clinical_gdc_current
+- isb-cgc-bq.CDDP_EAGLE_versioned.clinical_diagnoses_treatments_gdc_r36
 - isb-cgc-bq.CDDP_EAGLE_versioned.clinical_gdc_r36
 
+- isb-cgc-bq.TRIO_versioned.clinical_gdc_r36
+- isb-cgc-bq.CMI_versioned.clinical_gdc_r36
+- isb-cgc-bq.EXC_RESPONDERS_versioned.clinical_diagnoses_treatments_gdc_r36
+- isb-cgc-bq.EXC_RESPONDERS_versioned.clinical_diagnoses_gdc_r36
+- isb-cgc-bq.EXC_RESPONDERS_versioned.clinical_gdc_r36
+
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.TRIO.clinical_gdc_current
+- isb-cgc-bq.CMI.clinical_gdc_current
+- isb-cgc-bq.EXC_RESPONDERS.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq.EXC_RESPONDERS.clinical_diagnoses_gdc_current
+- isb-cgc-bq.EXC_RESPONDERS.clinical_gdc_current
+- isb-cgc-bq.CDDP_EAGLE.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq.CDDP_EAGLE.clinical_gdc_current
 
 *March 8, 2023*
 
