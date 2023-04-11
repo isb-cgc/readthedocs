@@ -2,6 +2,124 @@
 ISB-CGC Data Release Notes
 ############################
 
+
+*March 23, 2023*
+
+New per sample file metadata added to isb-cgc-bq for GDC release 36.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.TRIO_versioned.per_sample_file_metadata_hg38_gdc_r36
+- isb-cgc-bq.GENIE_versioned.per_sample_file_metadata_hg38_gdc_r36
+- isb-cgc-bq.VAREPOP_versioned.per_sample_file_metadata_hg38_gdc_r36
+- isb-cgc-bq.WCDT_versioned.per_sample_file_metadata_hg38_gdc_r36
+- isb-cgc-bq.ORGANOID_versioned.per_sample_file_metadata_hg38_gdc_r36
+- isb-cgc-bq.OHSU_versioned.per_sample_file_metadata_hg38_gdc_r36
+- isb-cgc-bq.NCICCR_versioned.per_sample_file_metadata_hg38_gdc_r36
+- isb-cgc-bq.CMI_versioned.per_sample_file_metadata_hg38_gdc_r36
+- isb-cgc-bq.BEATAML1_0_versioned.per_sample_file_metadata_hg38_gdc_r36
+- isb-cgc-bq.MMRF_versioned.per_sample_file_metadata_hg38_gdc_r36
+- isb-cgc-bq.REBC_versioned.per_sample_file_metadata_hg38_gdc_r36
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_hg38_gdc_r36
+- isb-cgc-bq.CDDP_EAGLE.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CDDP_EAGLE_versioned.per_sample_file_metadata_hg38_gdc_r36
+- isb-cgc-bq.EXC_RESPONDERS.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.EXC_RESPONDERS_versioned.per_sample_file_metadata_hg38_gdc_r36
+- isb-cgc-bq.MP2PRT_versioned.per_sample_file_metadata_hg38_gdc_r36
+- isb-cgc-bq.MATCH.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.MATCH_versioned.per_sample_file_metadata_hg38_gdc_r36
+- isb-cgc-bq.CTSP_versioned.per_sample_file_metadata_hg38_gdc_r36
+- isb-cgc-bq.CGCI_versioned.per_sample_file_metadata_hg38_gdc_r36
+- isb-cgc-bq.HCMI_versioned.per_sample_file_metadata_hg38_gdc_r36
+- isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg38_gdc_r36
+- isb-cgc-bq.FM_versioned.per_sample_file_metadata_hg38_gdc_r36
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_r36
+- isb-cgc-bq.CCLE_versioned.per_sample_file_metadata_hg19_gdc_r36
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg19_gdc_r36
+- isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg19_gdc_r36
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.TRIO.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.GENIE.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.VAREPOP.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.WCDT.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.ORGANOID.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.OHSU.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.NCICCR.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CMI.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.BEATAML1_0.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.MMRF.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.REBC.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.MP2PRT.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CTSP.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CGCI.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.HCMI.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TARGET.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.FM.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CCLE.per_sample_file_metadata_hg19_gdc_current
+- isb-cgc-bq.TCGA.per_sample_file_metadata_hg19_gdc_current
+- isb-cgc-bq.TARGET.per_sample_file_metadata_hg19_gdc_current
+
+*March 17, 2023*
+
+New and updated GDC open somatic mutation tables for GDC r35.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.MMRF_versioned.masked_somatic_mutation_hg38_gdc_r35
+- isb-cgc-bq.HCMI_versioned.masked_somatic_mutation_hg38_gdc_r35
+- isb-cgc-bq.TARGET_versioned.masked_somatic_mutation_hg38_gdc_r35
+- isb-cgc-bq.TCGA_versioned.masked_somatic_mutation_hg38_gdc_r35
+- isb-cgc-bq.CPTAC_versioned.masked_somatic_mutation_hg38_gdc_r35
+- isb-cgc-bq.CGCI_versioned.masked_somatic_mutation_hg38_gdc_r35
+- isb-cgc-bq.CMI_versioned.masked_somatic_mutation_hg38_gdc_r35
+- isb-cgc-bq.EXC_RESPONDERS_versioned.masked_somatic_mutation_hg38_gdc_r35
+- isb-cgc-bq.BEATAML1_0_versioned.masked_somatic_mutation_hg38_gdc_r35
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.MMRF.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.HCMI.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.TARGET.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.TCGA.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.CPTAC.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.CGCI.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.CMI.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.EXC_RESPONDERS.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.BEATAML1_0.masked_somatic_mutation_hg38_gdc_current
+
+*March 15, 2023*
+
+New GDC Programs MATCH and CDDP_EAGLE. New and updated clinical data for GDC Release 36.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.MATCH.clinical_gdc_current
+- isb-cgc-bq.MATCH_versioned.clinical_gdc_r36
+- isb-cgc-bq.CDDP_EAGLE.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq.CDDP_EAGLE.clinical_gdc_current
+- isb-cgc-bq.CDDP_EAGLE_versioned.clinical_diagnoses_treatments_gdc_r36
+- isb-cgc-bq.CDDP_EAGLE_versioned.clinical_gdc_r36
+
+- isb-cgc-bq.TRIO_versioned.clinical_gdc_r36
+- isb-cgc-bq.CMI_versioned.clinical_gdc_r36
+- isb-cgc-bq.EXC_RESPONDERS_versioned.clinical_diagnoses_treatments_gdc_r36
+- isb-cgc-bq.EXC_RESPONDERS_versioned.clinical_diagnoses_gdc_r36
+- isb-cgc-bq.EXC_RESPONDERS_versioned.clinical_gdc_r36
+
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.TRIO.clinical_gdc_current
+- isb-cgc-bq.CMI.clinical_gdc_current
+- isb-cgc-bq.EXC_RESPONDERS.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq.EXC_RESPONDERS.clinical_diagnoses_gdc_current
+- isb-cgc-bq.EXC_RESPONDERS.clinical_gdc_current
+- isb-cgc-bq.CDDP_EAGLE.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq.CDDP_EAGLE.clinical_gdc_current
+
 *March 8, 2023*
 
 Version 2 of HTAN SCATACSEQ LEVEL 1 METADATA R2
@@ -227,7 +345,7 @@ The following tables were deleted as the tables names were updated to reflect th
 
 *November 16, 2022*
 
-New and updated GDC clinical tables for GDC release 35. New and updated PDC file, case, and clinical data for V2.13. 
+New and updated GDC clinical tables and new per sample file metadata for GDC release 35. New and updated PDC file, case, and clinical data for V2.13. 
 
 Note: CPTAC3-Discovery was updated to CPTAC3 Discovery and Confirmatory with related tables names updated to reflect the program name change. 
 
