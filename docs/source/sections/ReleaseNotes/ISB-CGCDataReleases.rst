@@ -4,25 +4,31 @@ ISB-CGC Data Release Notes
 
 *March 17, 2023*
 
-- isb-cgc-bq.MMRF_versioned.masked_somatic_mutation_hg38_gdc_r35
-- isb-cgc-bq.MMRF.masked_somatic_mutation_hg38_gdc_current
-- isb-cgc-bq.HCMI_versioned.masked_somatic_mutation_hg38_gdc_r35
-- isb-cgc-bq.HCMI.masked_somatic_mutation_hg38_gdc_current
-- isb-cgc-bq.TARGET_versioned.masked_somatic_mutation_hg38_gdc_r35
-- isb-cgc-bq.TARGET.masked_somatic_mutation_hg38_gdc_current
-- isb-cgc-bq.TCGA_versioned.masked_somatic_mutation_hg38_gdc_r35
-- isb-cgc-bq.TCGA.masked_somatic_mutation_hg38_gdc_current
-- isb-cgc-bq.CPTAC_versioned.masked_somatic_mutation_hg38_gdc_r35
-- isb-cgc-bq.CPTAC.masked_somatic_mutation_hg38_gdc_current
-- isb-cgc-bq.CGCI_versioned.masked_somatic_mutation_hg38_gdc_r35
-- isb-cgc-bq.CGCI.masked_somatic_mutation_hg38_gdc_current
-- isb-cgc-bq.CMI_versioned.masked_somatic_mutation_hg38_gdc_r35
-- isb-cgc-bq.CMI.masked_somatic_mutation_hg38_gdc_current
-- isb-cgc-bq.EXC_RESPONDERS_versioned.masked_somatic_mutation_hg38_gdc_r35
-- isb-cgc-bq.EXC_RESPONDERS.masked_somatic_mutation_hg38_gdc_current
-- isb-cgc-bq.BEATAML1_0_versioned.masked_somatic_mutation_hg38_gdc_r35
-- isb-cgc-bq.BEATAML1_0.masked_somatic_mutation_hg38_gdc_current
+New and updated GDC open somatic mutation tables for GDC r35.
 
+**BigQuery tables created**
+
+- isb-cgc-bq.MMRF_versioned.masked_somatic_mutation_hg38_gdc_r35
+- isb-cgc-bq.HCMI_versioned.masked_somatic_mutation_hg38_gdc_r35
+- isb-cgc-bq.TARGET_versioned.masked_somatic_mutation_hg38_gdc_r35
+- isb-cgc-bq.TCGA_versioned.masked_somatic_mutation_hg38_gdc_r35
+- isb-cgc-bq.CPTAC_versioned.masked_somatic_mutation_hg38_gdc_r35
+- isb-cgc-bq.CGCI_versioned.masked_somatic_mutation_hg38_gdc_r35
+- isb-cgc-bq.CMI_versioned.masked_somatic_mutation_hg38_gdc_r35
+- isb-cgc-bq.EXC_RESPONDERS_versioned.masked_somatic_mutation_hg38_gdc_r35
+- isb-cgc-bq.BEATAML1_0_versioned.masked_somatic_mutation_hg38_gdc_r35
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.MMRF.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.HCMI.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.TARGET.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.TCGA.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.CPTAC.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.CGCI.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.CMI.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.EXC_RESPONDERS.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.BEATAML1_0.masked_somatic_mutation_hg38_gdc_current
 
 *March 15, 2023*
 
