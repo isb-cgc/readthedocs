@@ -186,6 +186,10 @@ PDC protein expression data are available in ISB-CGC BigQuery tables. The table 
      - 
      - |checkmark|
      - 
+   * - `Broad Institute <data/Broad_Institute_about.html>`_  
+     - 
+     - |checkmark| 
+     - 
    * - `CBTN <data/CBTN_about.html>`_  
      - 
      - |checkmark| 
