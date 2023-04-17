@@ -11,6 +11,22 @@ About the Molecular Analysis for Therapy Choice Data Set
 
 The intial studies from project MATCH are available at the `Genomics Data Commons (GDC) <https://portal.gdc.cancer.gov/>`_. 
 
+Accessing the MATCH Data on the Cloud
+-------------------------------------------------------------------------------------------
+
+Besides accessing the files on the GDC Data Portal, you can also access them from the GDC Google Cloud Storage Bucket, which means that you don’t need to download them to perform analysis. ISB-CGC stores the cloud file locations in tables in the ``isb-cgc-bq.GDC_case_file_metadata`` data set in BigQuery.
+
+- To access these metadata files, go to the Google BigQuery console.
+- Perform SQL queries to find the MP2PRT files. Here is an example:
+
+.. code-block:: sql
+
+  SELECT active.*, file_gdc_url
+  FROM `isb-cgc-bq.GDC_case_file_metadata.fileData_active_current` as active, `isb-cgc-bq.GDC_case_file_metadata.GDCfileID_to_GCSurl_current` as GCSurl
+  WHERE program_name = 'MATCH'
+  AND active.file_gdc_id = GCSurl.file_gdc_id
+
+
 Accessing the MATCH Data in Google BigQuery
 ------------------------------------------------
 
