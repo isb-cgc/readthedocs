@@ -8,8 +8,7 @@ About the Molecular Analysis for Therapy Choice (MATCH) Program
 
 About the Molecular Analysis for Therapy Choice Data Set
 ---------------------------------------------------------------------
-
-The intial studies from project MATCH are available at the `Genomics Data Commons (GDC) <https://portal.gdc.cancer.gov/>`_. 
+Data from the MATCH Program are available at the `Genomics Data Commons (GDC) <https://portal.gdc.cancer.gov/>`_.  It includes data for over 15 primary sites and at least eight disease types.
 
 Accessing the MATCH Data on the Cloud
 -------------------------------------------------------------------------------------------
