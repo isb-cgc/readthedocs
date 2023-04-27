@@ -4,7 +4,7 @@ MATCH Data Set
 
 About the Molecular Analysis for Therapy Choice (MATCH) Program
 ------------------------------------------------------------
-The `Molecular Analysis for Therapy Choice <https://www.cancer.gov/about-cancer/treatment/clinical-trials/nci-supported/nci-match>`_ (MATCH) network is a collaboration between NCI, the Department of Defense (DoD), and the Department of Veterans Affairs (VA). Its purpose is to incorporate proteogenomics into tumor study to better pinpoint treatment therapies by examing both genetic abnormalities and protein information. It is part of NCI’s Cancer Moonshot Initiative. 
+`Molecular Analysis for Therapy Choice <https://www.cancer.gov/about-cancer/treatment/clinical-trials/nci-supported/nci-match>`_ (MATCH) is a precision medicine cancer treatment clinical trial which investigated the effectiveness of treating cancer based on the specific genetic changes in a person's tumor.
 
 About the Molecular Analysis for Therapy Choice Data Set
 ---------------------------------------------------------------------
@@ -17,7 +17,7 @@ Accessing the MATCH Data on the Cloud
 Besides accessing the files on the GDC Data Portal, you can also access them from the GDC Google Cloud Storage Bucket, which means that you don’t need to download them to perform analysis. ISB-CGC stores the cloud file locations in tables in the ``isb-cgc-bq.GDC_case_file_metadata`` data set in BigQuery.
 
 - To access these metadata files, go to the Google BigQuery console.
-- Perform SQL queries to find the MP2PRT files. Here is an example:
+- Perform SQL queries to find the MATCH files. Here is an example:
 
 .. code-block:: sql
 
