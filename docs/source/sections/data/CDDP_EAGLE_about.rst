@@ -2,13 +2,13 @@
 CDDP EAGLE Data Set
 *****************
 
-About the Molecular Analysis for Therapy Choice (MATCH) Program
+About the CDDP Environment And Generics in Lung cancer Etiology (EAGLE) Program
 ------------------------------------------------------------
-`Molecular Analysis for Therapy Choice <https://www.cancer.gov/about-cancer/treatment/clinical-trials/nci-supported/nci-match>`_ (MATCH) is a precision medicine cancer treatment clinical trial which investigated the effectiveness of treating cancer based on the specific genetic changes in a person's tumor.
+`Environment And Generics in Lung cancer Etiology <https://dceg.cancer.gov/research/who-we-study/cancer-cases-controls/eagle-study>`_ (EAGLE) is a precision medicine cancer treatment clinical trial which investigated the effectiveness of treating cancer based on the specific genetic changes in a person's tumor.
 
-About the Molecular Analysis for Therapy Choice Data Set
+About the CDDP EAGLE Data Set
 ---------------------------------------------------------------------
-Data from the MATCH Program are available at the `Genomics Data Commons (GDC) <https://portal.gdc.cancer.gov/>`_.  It includes data for over 15 primary sites and at least eight disease types.
+Data from the CDDP EAGLE Program are available at the `Genomics Data Commons (GDC) <https://portal.gdc.cancer.gov/>`_.  It includes data from the Integrative Analysis of Lung Adenocarcinoma project.
 
 Accessing the CDDP EAGLE Data on the Cloud
 -------------------------------------------------------------------------------------------
