@@ -2,9 +2,9 @@
 CDDP EAGLE Data Set
 *****************
 
-About the CDDP Environment And Generics in Lung cancer Etiology (EAGLE) Program
+About the CDDP Environment And Genetics in Lung cancer Etiology (EAGLE) Program
 ------------------------------------------------------------
-The `Environment And Generics in Lung cancer Etiology <https://dceg.cancer.gov/research/who-we-study/cancer-cases-controls/eagle-study>`_ (EAGLE) program investigated the genetic and environmental determinants of lung cancer and smoking persistence. It integrated analysis of genetic, environmental, clinical, and behavioral data.
+The `Environment And Genetics in Lung cancer Etiology <https://dceg.cancer.gov/research/who-we-study/cancer-cases-controls/eagle-study>`_ (EAGLE) program investigated the genetic and environmental determinants of lung cancer and smoking persistence. It integrated analysis of genetic, environmental, clinical, and behavioral data.
 
 About the CDDP EAGLE Data Set
 ---------------------------------------------------------------------
