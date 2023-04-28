@@ -43,6 +43,10 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - |checkmark|
      - |checkmark|
      - |checkmark|
+   * - `CDDP EAGLE <data/CDDP_EAGLE_about.html>`_
+     - |checkmark|
+     - |checkmark| *
+     - 
    * - `CGCI <data/CGCI_about.html>`_
      - |checkmark|
      - |checkmark|
@@ -74,6 +78,10 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
    * - `HCMI <data/HCMI_about.html>`_
      - |checkmark|
      - |checkmark| 
+     - 
+   * - `MATCH <data/MATCH_about.html>`_
+     - |checkmark|
+     - |checkmark| *
      - 
    * - `MMRF <data/MMRF_about.html>`_
      - |checkmark|
@@ -136,6 +144,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
    
    data/BEATAML_about
    data/CCLE_top
+   data/CDDP_EAGLE_about
    data/CGCI_about
    data/CMI_about
    data/CPTAC_about
@@ -144,6 +153,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
    data/FM_about
    data/GENIE_about
    data/HCMI_about
+   data/MATCH_about
    data/MMRF_about
    data/MP2PRT_about
    data/NCICCR_about
@@ -175,6 +185,10 @@ PDC protein expression data are available in ISB-CGC BigQuery tables. The table 
    * - `APOLLO <data/APOLLO1_about.html>`_
      - 
      - |checkmark|
+     - 
+   * - Broad Institute
+     - 
+     - |checkmark| 
      - 
    * - `CBTN <data/CBTN_about.html>`_  
      - 
