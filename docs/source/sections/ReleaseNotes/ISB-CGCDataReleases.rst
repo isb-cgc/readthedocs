@@ -2,6 +2,22 @@
 ISB-CGC Data Release Notes
 ############################
 
+*May 1, 2023*
+
+New masked somatic mutation data added to isb-cgc-bq for GDC release 36
+
+**BigQuery tables created**
+
+ - isb-cgc-bq.CDDP_EAGLE_versioned.masked_somatic_mutation_hg38_gdc_r36
+ - isb-cgc-bq.CDDP_EAGLE.masked_somatic_mutation_hg38_gdc_current
+ - isb-cgc-bq.CMI_versioned.masked_somatic_mutation_hg38_gdc_r36
+ - isb-cgc-bq.TCGA_versioned.masked_somatic_mutation_hg38_gdc_r36
+
+**BigQuery tables updated**
+
+ - isb-cgc-bq.CMI.masked_somatic_mutation_hg38_gdc_current
+ - isb-cgc-bq.TCGA.masked_somatic_mutation_hg38_gdc_current
+
 *April 20, 2023*
 
 New genome reference table.
