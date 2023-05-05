@@ -2,6 +2,12 @@
 ISB-CGC Data Release Notes
 ############################
 
+*April 20, 2023*
+
+New genome reference table.
+
+**BigQuery tables created**
+ - isb-cgc.genome_reference.interpro_filtered_plus
 
 *March 23, 2023*
 
