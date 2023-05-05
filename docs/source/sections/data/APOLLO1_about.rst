@@ -14,9 +14,9 @@ The intial studies from project APOLLO1 are available at the `Proteomics Data Co
 Accessing the APOLLO Data in Google BigQuery
 ------------------------------------------------
 
-ISB-CGC has APOLLO1 data, such as clinical and metadata, stored in Google BigQuery tables. Information about these tables can be found using the `ISB-CGC BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_ with APOLLO1 selected for filter PROGRAM. To learn more about this tool, see the `ISB-CGC BigQuery Table Search documentation <../BigQueryTableSearchUI.html>`_.
+ISB-CGC has APOLLO1 data, such as clinical and metadata, stored in Google BigQuery tables. Information about these tables can be found using the `ISB-CGC BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_ with APOLLO selected for filter PROGRAM. To learn more about this tool, see the `ISB-CGC BigQuery Table Search documentation <../BigQueryTableSearchUI.html>`_.
 
 The APOLLO1 tables are in project isb-cgc-bq. To learn more about how to view and query tables in the Google BigQuery console, see the `ISB-CGC BigQuery Tables documentation <../BigQuery.html>`_.
 
-- Data set ``isb-cgc-bq.APOLLO1`` contains the latest tables for each data type.
-- Data set ``isb-cgc-bq.APOLLO1_versioned`` contains previously released tables, as well as the most current table.
+- Data set ``isb-cgc-bq.APOLLO`` contains the latest tables for each data type.
+- Data set ``isb-cgc-bq.APOLLO_versioned`` contains previously released tables, as well as the most current table.
