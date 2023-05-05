@@ -2,9 +2,45 @@
 ISB-CGC Data Release Notes
 ############################
 
+*May 4, 2023*
+
+New and updated PDC file, case, quant, and clinical data for V2.18.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.APOLLO_versioned.per_sample_file_metadata_APOLLO1_pdc_V2_18
+- isb-cgc-bq.APOLLO_versioned.quant_phosphoproteome_APOLLO_LUAD_fenta_pdc_V2_18
+- isb-cgc-bq.APOLLO_versioned.quant_phosphoproteome_APOLLO_LUAD_tio2_pdc_V2_18
+- isb-cgc-bq.APOLLO_versioned.quant_proteome_APOLLO_LUAD_pdc_V2_18
+- isb-cgc-bq.APOLLO.quant_phosphoproteome_APOLLO_LUAD_fenta_pdc_current
+- isb-cgc-bq.APOLLO.quant_phosphoproteome_APOLLO_LUAD_tio2_pdc_current
+- isb-cgc-bq.APOLLO.quant_proteome_APOLLO_LUAD_pdc_current
+- isb-cgc-bq.CPTAC_versioned.clinical_CPTAC3_discovery_and_confirmatory_pdc_V2_18
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_CPTAC3_discovery_and_confirmatory_pdc_V2_18
+- isb-cgc-bq.ICPC_versioned.clinical_PDAC_pdc_V2_18
+- isb-cgc-bq.PDC_metadata_versioned.aliquot_to_case_mapping_V2_18
+- isb-cgc-bq.PDC_metadata_versioned.case_metadata_V2_18
+- isb-cgc-bq.PDC_metadata_versioned.file_associated_entity_mapping_V2_18
+- isb-cgc-bq.PDC_metadata_versioned.file_metadata_V2_18
+- isb-cgc-bq.PDC_metadata_versioned.gene_info_V2_18
+- isb-cgc-bq.PDC_metadata_versioned.refseq_mapping_2023_01
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.APOLLO.per_sample_file_metadata_APOLLO1_pdc_current
+- isb-cgc-bq.CPTAC.clinical_CPTAC3_discovery_and_confirmatory_pdc_current
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC3_discovery_and_confirmatory_pdc_current
+- isb-cgc-bq.ICPC.clinical_PDAC_pdc_current
+- isb-cgc-bq.PDC_metadata.aliquot_to_case_mapping_current
+- isb-cgc-bq.PDC_metadata.case_metadata_current
+- isb-cgc-bq.PDC_metadata.file_associated_entity_mapping_current
+- isb-cgc-bq.PDC_metadata.file_metadata_current
+- isb-cgc-bq.PDC_metadata.gene_info_current
+- isb-cgc-bq.PDC_metadata.refseq_mapping_current
+
 *May 3, 2023*
 
-New and updated PDC file, case, and clinical data for V2.18. New and updated GDC file, case, and clinical data for r37.
+New and updated PDC study data for V2.18. New and updated GDC file, case, and clinical data for r37.
 
 **BigQuery tables created**
 
