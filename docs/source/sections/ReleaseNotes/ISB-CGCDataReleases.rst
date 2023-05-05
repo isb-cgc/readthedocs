@@ -2,28 +2,47 @@
 ISB-CGC Data Release Notes
 ############################
 
+*May 2, 2023*
+
+APOLLO1 dataset was removed and the APOLLO dataset was created to harmonize PDC and GDC data locations. The tables in APOLLO1 were moved to APOLLO.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.APOLLO_versioned.per_sample_file_metadata_APOLLO1_pdc_V2_14
+- isb-cgc-bq.APOLLO_versioned.clinical_APOLLO1_pdc_V2_14
+- isb-cgc-bq.APOLLO.per_sample_file_metadata_APOLLO1_pdc_current
+- isb-cgc-bq.APOLLO.clinical_APOLLO1_pdc_current
+
+**BigQuery tables removed**
+
+- isb-cgc-bq.APOLLO1_versioned.per_sample_file_metadata_APOLLO1_pdc_V2_14
+- isb-cgc-bq.APOLLO1_versioned.clinical_APOLLO1_pdc_V2_14
+- isb-cgc-bq.APOLLO1.per_sample_file_metadata_APOLLO1_pdc_current
+- isb-cgc-bq.APOLLO1.clinical_APOLLO1_pdc_current
+
 *May 1, 2023*
 
 New masked somatic mutation data added to isb-cgc-bq for GDC release 36
 
 **BigQuery tables created**
 
- - isb-cgc-bq.CDDP_EAGLE_versioned.masked_somatic_mutation_hg38_gdc_r36
- - isb-cgc-bq.CDDP_EAGLE.masked_somatic_mutation_hg38_gdc_current
- - isb-cgc-bq.CMI_versioned.masked_somatic_mutation_hg38_gdc_r36
- - isb-cgc-bq.TCGA_versioned.masked_somatic_mutation_hg38_gdc_r36
+- isb-cgc-bq.CDDP_EAGLE_versioned.masked_somatic_mutation_hg38_gdc_r36
+- isb-cgc-bq.CDDP_EAGLE.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.CMI_versioned.masked_somatic_mutation_hg38_gdc_r36
+- isb-cgc-bq.TCGA_versioned.masked_somatic_mutation_hg38_gdc_r36
 
 **BigQuery tables updated**
 
- - isb-cgc-bq.CMI.masked_somatic_mutation_hg38_gdc_current
- - isb-cgc-bq.TCGA.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.CMI.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.TCGA.masked_somatic_mutation_hg38_gdc_current
 
 *April 20, 2023*
 
 New genome reference table.
 
 **BigQuery tables created**
- - isb-cgc.genome_reference.interpro_filtered_plus
+
+- isb-cgc.genome_reference.interpro_filtered_plus
 
 *March 23, 2023*
 
@@ -329,11 +348,11 @@ New and updated GDC file and case data for r36.
 
 **BigQuery tables created**
 
- - isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_active_r36
- - isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_legacy_r36
- - isb-cgc-bq.GDC_case_file_metadata_versioned.caseData_r36
- - isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r36
- - isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r36
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_active_r36
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_legacy_r36
+- isb-cgc-bq.GDC_case_file_metadata_versioned.caseData_r36
+- isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r36
+- isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r36
 
 **BigQuery tables updated**
 
