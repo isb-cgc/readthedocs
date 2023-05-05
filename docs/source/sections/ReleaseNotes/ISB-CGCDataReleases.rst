@@ -301,6 +301,26 @@ New and updated PDC file, case, and clinical data for V2.15.
 - isb-cgc-bq.PDC_metadata.gene_info_current
 - isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC3_discovery_and_confirmatory_pdc_current
 
+*January 10, 2023*
+
+New and updated GDC file and case data for r36.
+
+**BigQuery tables created**
+
+ - isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_active_r36
+ - isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_legacy_r36
+ - isb-cgc-bq.GDC_case_file_metadata_versioned.caseData_r36
+ - isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r36
+ - isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r36
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.GDC_case_file_metadata.fileData_active_current
+- isb-cgc-bq.GDC_case_file_metadata.fileData_legacy_current
+- isb-cgc-bq.GDC_case_file_metadata.caseData_current
+- isb-cgc-bq.GDC_case_file_metadata.aliquot2caseIDmap_current
+- isb-cgc-bq.GDC_case_file_metadata.slide2caseIDmap_current
+
 *December 12, 2022*
 
 New and updated PDC file, case, and clinical data for V2.14. On December 20, 2022, tables were updated to the correct version number.
