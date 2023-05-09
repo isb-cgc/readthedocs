@@ -2,6 +2,142 @@
 ISB-CGC Data Release Notes
 ############################
 
+*May 4, 2023*
+
+New and updated PDC file, case, quant, and clinical data for V2.18.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.APOLLO_versioned.per_sample_file_metadata_APOLLO1_pdc_V2_18
+- isb-cgc-bq.APOLLO_versioned.quant_phosphoproteome_APOLLO_LUAD_fenta_pdc_V2_18
+- isb-cgc-bq.APOLLO_versioned.quant_phosphoproteome_APOLLO_LUAD_tio2_pdc_V2_18
+- isb-cgc-bq.APOLLO_versioned.quant_proteome_APOLLO_LUAD_pdc_V2_18
+- isb-cgc-bq.APOLLO.quant_phosphoproteome_APOLLO_LUAD_fenta_pdc_current
+- isb-cgc-bq.APOLLO.quant_phosphoproteome_APOLLO_LUAD_tio2_pdc_current
+- isb-cgc-bq.APOLLO.quant_proteome_APOLLO_LUAD_pdc_current
+- isb-cgc-bq.CPTAC_versioned.clinical_CPTAC3_discovery_and_confirmatory_pdc_V2_18
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_CPTAC3_discovery_and_confirmatory_pdc_V2_18
+- isb-cgc-bq.ICPC_versioned.clinical_PDAC_pdc_V2_18
+- isb-cgc-bq.PDC_metadata_versioned.aliquot_to_case_mapping_V2_18
+- isb-cgc-bq.PDC_metadata_versioned.case_metadata_V2_18
+- isb-cgc-bq.PDC_metadata_versioned.file_associated_entity_mapping_V2_18
+- isb-cgc-bq.PDC_metadata_versioned.file_metadata_V2_18
+- isb-cgc-bq.PDC_metadata_versioned.gene_info_V2_18
+- isb-cgc-bq.PDC_metadata_versioned.refseq_mapping_2023_01
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.APOLLO.per_sample_file_metadata_APOLLO1_pdc_current
+- isb-cgc-bq.CPTAC.clinical_CPTAC3_discovery_and_confirmatory_pdc_current
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC3_discovery_and_confirmatory_pdc_current
+- isb-cgc-bq.ICPC.clinical_PDAC_pdc_current
+- isb-cgc-bq.PDC_metadata.aliquot_to_case_mapping_current
+- isb-cgc-bq.PDC_metadata.case_metadata_current
+- isb-cgc-bq.PDC_metadata.file_associated_entity_mapping_current
+- isb-cgc-bq.PDC_metadata.file_metadata_current
+- isb-cgc-bq.PDC_metadata.gene_info_current
+- isb-cgc-bq.PDC_metadata.refseq_mapping_current
+
+*May 3, 2023*
+
+New and updated PDC study data for V2.18. New and updated GDC file, case, and clinical data for r37.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.PDC_metadata_versioned.studies_V2_18
+- isb-cgc-bq.TRIO_versioned.clinical_gdc_r37
+- isb-cgc-bq.TCGA_versioned.clinical_gdc_r37
+- isb-cgc-bq.MATCH_versioned.clinical_gdc_r37
+- isb-cgc-bq.HCMI_versioned.clinical_follow_ups_molecular_tests_gdc_r37
+- isb-cgc-bq.HCMI_versioned.clinical_follow_ups_gdc_r37
+- isb-cgc-bq.HCMI_versioned.clinical_diagnoses_treatments_gdc_r37
+- isb-cgc-bq.HCMI_versioned.clinical_diagnoses_gdc_r37
+- isb-cgc-bq.HCMI_versioned.clinical_gdc_r37
+- isb-cgc-bq.GENIE_versioned.clinical_gdc_r37
+- isb-cgc-bq.CTSP_versioned.clinical_diagnoses_gdc_r37
+- isb-cgc-bq.CTSP_versioned.clinical_gdc_r37
+- isb-cgc-bq.CPTAC_versioned.clinical_gdc_r37
+- isb-cgc-bq.CGCI_versioned.clinical_follow_ups_molecular_tests_gdc_r37
+- isb-cgc-bq.CGCI_versioned.clinical_follow_ups_gdc_r37
+- isb-cgc-bq.CGCI_versioned.clinical_diagnoses_treatments_gdc_r37
+- isb-cgc-bq.CGCI_versioned.clinical_diagnoses_gdc_r37
+- isb-cgc-bq.CGCI_versioned.clinical_gdc_r37
+- isb-cgc-bq.CDDP_EAGLE_versioned.clinical_gdc_r37
+- isb-cgc-bq.APOLLO_versioned.clinical_follow_ups_gdc_r37
+- isb-cgc-bq.APOLLO_versioned.clinical_diagnoses_treatments_gdc_r37
+- isb-cgc-bq.APOLLO_versioned.clinical_gdc_r37
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_active_r37
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_legacy_r37
+- isb-cgc-bq.GDC_case_file_metadata_versioned.caseData_r37
+- isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r37
+- isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r37
+- isb-cgc-bq.APOLLO.clinical_follow_ups_gdc_current
+- isb-cgc-bq.APOLLO.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq.APOLLO.clinical_gdc_current
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.PDC_metadata.studies_current
+- isb-cgc-bq.TRIO.clinical_gdc_current
+- isb-cgc-bq.TCGA.clinical_gdc_current
+- isb-cgc-bq.MATCH.clinical_gdc_current
+- isb-cgc-bq.HCMI.clinical_follow_ups_molecular_tests_gdc_current
+- isb-cgc-bq.HCMI.clinical_follow_ups_gdc_current
+- isb-cgc-bq.HCMI.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq.HCMI.clinical_diagnoses_gdc_current
+- isb-cgc-bq.HCMI.clinical_gdc_current
+- isb-cgc-bq.GENIE.clinical_gdc_current
+- isb-cgc-bq.CTSP.clinical_diagnoses_gdc_current
+- isb-cgc-bq.CTSP.clinical_gdc_current
+- isb-cgc-bq.CPTAC.clinical_gdc_current
+- isb-cgc-bq.CGCI.clinical_follow_ups_molecular_tests_gdc_current
+- isb-cgc-bq.CGCI.clinical_follow_ups_gdc_current
+- isb-cgc-bq.CGCI.clinical_diagnoses_treatments_gdc_current
+- isb-cgc-bq.CGCI.clinical_diagnoses_gdc_current
+- isb-cgc-bq.CGCI.clinical_gdc_current
+- isb-cgc-bq.CDDP_EAGLE.clinical_gdc_current
+
+*May 2, 2023*
+
+APOLLO1 dataset was removed and the APOLLO dataset was created to harmonize PDC and GDC data locations. The tables in APOLLO1 were moved to APOLLO.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.APOLLO_versioned.per_sample_file_metadata_APOLLO1_pdc_V2_14
+- isb-cgc-bq.APOLLO_versioned.clinical_APOLLO1_pdc_V2_14
+- isb-cgc-bq.APOLLO.per_sample_file_metadata_APOLLO1_pdc_current
+- isb-cgc-bq.APOLLO.clinical_APOLLO1_pdc_current
+
+**BigQuery tables removed**
+
+- isb-cgc-bq.APOLLO1_versioned.per_sample_file_metadata_APOLLO1_pdc_V2_14
+- isb-cgc-bq.APOLLO1_versioned.clinical_APOLLO1_pdc_V2_14
+- isb-cgc-bq.APOLLO1.per_sample_file_metadata_APOLLO1_pdc_current
+- isb-cgc-bq.APOLLO1.clinical_APOLLO1_pdc_current
+
+*May 1, 2023*
+
+New masked somatic mutation data added to isb-cgc-bq for GDC release 36
+
+**BigQuery tables created**
+
+- isb-cgc-bq.CDDP_EAGLE_versioned.masked_somatic_mutation_hg38_gdc_r36
+- isb-cgc-bq.CDDP_EAGLE.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.CMI_versioned.masked_somatic_mutation_hg38_gdc_r36
+- isb-cgc-bq.TCGA_versioned.masked_somatic_mutation_hg38_gdc_r36
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.CMI.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.TCGA.masked_somatic_mutation_hg38_gdc_current
+
+*April 20, 2023*
+
+New genome reference table.
+
+**BigQuery tables created**
+
+- isb-cgc.genome_reference.interpro_filtered_plus
 
 *March 23, 2023*
 
@@ -135,7 +271,7 @@ New GDC File ID to GCS URLs for GDC release 36.
 
 *February 27, 2023*
 
-New and updated PDC  data for V2.16
+New and updated PDC data for V2.16
 
 **BigQuery tables created**
 
@@ -300,6 +436,26 @@ New and updated PDC file, case, and clinical data for V2.15.
 - isb-cgc-bq.PDC_metadata.refseq_mapping_current
 - isb-cgc-bq.PDC_metadata.gene_info_current
 - isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC3_discovery_and_confirmatory_pdc_current
+
+*January 10, 2023*
+
+New and updated GDC file and case data for r36.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_active_r36
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_legacy_r36
+- isb-cgc-bq.GDC_case_file_metadata_versioned.caseData_r36
+- isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r36
+- isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r36
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.GDC_case_file_metadata.fileData_active_current
+- isb-cgc-bq.GDC_case_file_metadata.fileData_legacy_current
+- isb-cgc-bq.GDC_case_file_metadata.caseData_current
+- isb-cgc-bq.GDC_case_file_metadata.aliquot2caseIDmap_current
+- isb-cgc-bq.GDC_case_file_metadata.slide2caseIDmap_current
 
 *December 12, 2022*
 
