@@ -182,7 +182,7 @@ PDC protein expression data are available in ISB-CGC BigQuery tables. The table 
      - PDC AWS Cloud Storage
      - ISB-CGC BigQuery Tables
      - ISB-CGC Cohort Builder
-   * - `APOLLO <data/APOLLO1_about.html>`_
+   * - `APOLLO <data/APOLLO_about.html>`_
      - 
      - |checkmark|
      - 
@@ -215,7 +215,7 @@ PDC protein expression data are available in ISB-CGC BigQuery tables. The table 
    :maxdepth: 1
    :hidden:
    
-   data/APOLLO1_about
+   data/APOLLO_about
    data/CBTN_about
    data/CPTAC_about
    data/GPRP_about
