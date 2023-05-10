@@ -9,7 +9,7 @@ The `Applied Proteogenomics Organizational Learning and Outcomes <https://proteo
 About the Applied Proteogenomics Organizational Learning and Outcomes Data Set
 ---------------------------------------------------------------------
 
-The intial studies from project APOLLO1 are available at the `Proteomics Data Commons (PDC) <https://pdc.cancer.gov/pdc/>`_. ISB-CGC has procured this data through the PDC API. This initial data is from lung cancer patients.
+The intial studies from APOLLO are available at the `Proteomics Data Commons (PDC) <https://pdc.cancer.gov/pdc/>`_. ISB-CGC has procured this data through the PDC API. This initial data is from lung cancer patients.
 
 Accessing the APOLLO Data in Google BigQuery
 ------------------------------------------------
