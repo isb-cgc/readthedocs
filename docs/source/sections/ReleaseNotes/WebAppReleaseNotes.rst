@@ -2,6 +2,11 @@
 ISB-CGC Web App Release Notes
 #############################
 
+
+*May 3, 2023* 
+
+- On the Cancer Data File Browser, Build has been moved from being a separate filter, to being one of the selection attributes.
+
 *September 8, 2021* 
 
 - On the ISB-CGC home page, the banner with the link to the survey has been removed.
