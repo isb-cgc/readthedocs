@@ -2,49 +2,28 @@
 ISB-CGC Data Release Notes
 ############################
 
+*May 24, 2023*
+
+PDC v2.18 versioned tables, released on May 4, 2023, were removed and current tables were reverted to previous versions.
+
 *May 4, 2023*
 
-New and updated PDC file, case, quant, and clinical data for V2.18.
+New and updated UniProt Ref Seq mapping table.
 
 **BigQuery tables created**
 
-- isb-cgc-bq.APOLLO_versioned.per_sample_file_metadata_APOLLO1_pdc_V2_18
-- isb-cgc-bq.APOLLO_versioned.quant_phosphoproteome_APOLLO_LUAD_fenta_pdc_V2_18
-- isb-cgc-bq.APOLLO_versioned.quant_phosphoproteome_APOLLO_LUAD_tio2_pdc_V2_18
-- isb-cgc-bq.APOLLO_versioned.quant_proteome_APOLLO_LUAD_pdc_V2_18
-- isb-cgc-bq.APOLLO.quant_phosphoproteome_APOLLO_LUAD_fenta_pdc_current
-- isb-cgc-bq.APOLLO.quant_phosphoproteome_APOLLO_LUAD_tio2_pdc_current
-- isb-cgc-bq.APOLLO.quant_proteome_APOLLO_LUAD_pdc_current
-- isb-cgc-bq.CPTAC_versioned.clinical_CPTAC3_discovery_and_confirmatory_pdc_V2_18
-- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_CPTAC3_discovery_and_confirmatory_pdc_V2_18
-- isb-cgc-bq.ICPC_versioned.clinical_PDAC_pdc_V2_18
-- isb-cgc-bq.PDC_metadata_versioned.aliquot_to_case_mapping_V2_18
-- isb-cgc-bq.PDC_metadata_versioned.case_metadata_V2_18
-- isb-cgc-bq.PDC_metadata_versioned.file_associated_entity_mapping_V2_18
-- isb-cgc-bq.PDC_metadata_versioned.file_metadata_V2_18
-- isb-cgc-bq.PDC_metadata_versioned.gene_info_V2_18
 - isb-cgc-bq.PDC_metadata_versioned.refseq_mapping_2023_01
 
 **BigQuery tables updated**
 
-- isb-cgc-bq.APOLLO.per_sample_file_metadata_APOLLO1_pdc_current
-- isb-cgc-bq.CPTAC.clinical_CPTAC3_discovery_and_confirmatory_pdc_current
-- isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC3_discovery_and_confirmatory_pdc_current
-- isb-cgc-bq.ICPC.clinical_PDAC_pdc_current
-- isb-cgc-bq.PDC_metadata.aliquot_to_case_mapping_current
-- isb-cgc-bq.PDC_metadata.case_metadata_current
-- isb-cgc-bq.PDC_metadata.file_associated_entity_mapping_current
-- isb-cgc-bq.PDC_metadata.file_metadata_current
-- isb-cgc-bq.PDC_metadata.gene_info_current
 - isb-cgc-bq.PDC_metadata.refseq_mapping_current
 
 *May 3, 2023*
 
-New and updated PDC study data for V2.18. New and updated GDC file, case, and clinical data for r37.
+New and updated GDC file, case, and clinical data for r37.
 
 **BigQuery tables created**
 
-- isb-cgc-bq.PDC_metadata_versioned.studies_V2_18
 - isb-cgc-bq.TRIO_versioned.clinical_gdc_r37
 - isb-cgc-bq.TCGA_versioned.clinical_gdc_r37
 - isb-cgc-bq.MATCH_versioned.clinical_gdc_r37
@@ -77,7 +56,6 @@ New and updated PDC study data for V2.18. New and updated GDC file, case, and cl
 
 **BigQuery tables updated**
 
-- isb-cgc-bq.PDC_metadata.studies_current
 - isb-cgc-bq.TRIO.clinical_gdc_current
 - isb-cgc-bq.TCGA.clinical_gdc_current
 - isb-cgc-bq.MATCH.clinical_gdc_current
