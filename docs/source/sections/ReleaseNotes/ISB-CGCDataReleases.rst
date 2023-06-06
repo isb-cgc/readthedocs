@@ -89,7 +89,7 @@ New and Updated PDC v3.0 tables. New and Updated HTAN tables.
 - isb-cgc-bq.HTAN_versioned.clinical_tier3_breast_r3
 - isb-cgc-bq.HTAN_versioned.biospecimen_r3
 - isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_CPTAC3_discovery_and_confirmatory_pdc_V3_0
-- isb-cgc-bq.APOLLO_versioned.per_sample_file_metadata_APOLLO1_pdc_V3_
+- isb-cgc-bq.APOLLO_versioned.per_sample_file_metadata_APOLLO1_pdc_V3_0
 - isb-cgc-bq.CPTAC_versioned.quant_phosphoproteome_CPTAC_LUAD_discovery_study_pdc_V3_0
 - isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_LUAD_discovery_study_pdc_V3_0
 - isb-cgc-bq.CPTAC_versioned.quant_acetylome_CPTAC_LUAD_discovery_study_pdc_V3_0
