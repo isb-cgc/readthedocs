@@ -9,13 +9,22 @@ HTAN Notebooks
    :align: center
    :header-rows: 0
    
+   * - Integrating Controlled and Open Access 10X Visium Data in SB-CGC Data Studio
+     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Analyzing_HTAN_Data_in_SB_Data_Studio.ipynb>`_
+     - 
+   * - Utilizing the HTAN ID Provenance Google BigQuery Table
+     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/HTAN_ID_Provenance_In_BQ.ipynb>`_
+     - 
    * - Investigating HTAN scRNA-seq with BigQuery
      - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Building_AnnData_with_Subset_of_Cells_from_BQ.ipynb>`_
      -  
    * - Explore HTAN single cell RNA seq data
      - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Investigating_Single_Cell_HTAN_Data.ipynb>`_
      - 
+   * - Explore Spatial Cellular and Molecular Relationsips
+     - 
+     - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/R%20Notebooks/Explore_HTAN_Spatial_Cellular_Relationships.md>`_
    * - Explore HTAN Clinicial, Biospecimen, and Assay Metadata
      - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Explore_HTAN_Clinical_Biospecimen_Assay_Metadata.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/R%20Notebooks/Explore_HTAN_Clinical_Biospecimen_Assay_Metadata.md>`_
-    
+
