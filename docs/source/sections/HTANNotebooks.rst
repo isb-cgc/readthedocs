@@ -21,7 +21,7 @@ HTAN Notebooks
    * - Explore HTAN single cell RNA seq data
      - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Investigating_Single_Cell_HTAN_Data.ipynb>`_
      - 
-   * - Explore Spatial Cellular and Molecular Relationsips
+   * - Explore Spatial Cellular and Molecular Relationships
      - 
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/R%20Notebooks/Explore_HTAN_Spatial_Cellular_Relationships.md>`_
    * - Explore HTAN Clinicial, Biospecimen, and Assay Metadata
