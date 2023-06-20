@@ -7,8 +7,6 @@ In ISB-CGC, you can gain access to `controlled data via personal user credential
   * Provides access to controlled data for 24 hours at a time;
   * Uses your *personal* credentials;
   * Example uses: the ISB-CGC Web App, R Studio or running short jobs on Google Compute Engine that complete in under 24 hours
- 
-.. note:: If you are looking to gain access to COSMIC data, please see the `COSMIC documentation <data/COSMIC_about.html>`_.
 
 Prerequisites
 --------------

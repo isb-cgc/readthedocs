@@ -43,9 +43,6 @@ I'm a novice, how do I...
    * - Join multiple tables?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_complex_joins.ipynb>`_
      -
-   * - Get started working with the COSMIC datasets?
-     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/Intro_to_COSMIC_in_BigQuery.ipynb>`_
-     -
    * - Convert a .bam file to a .fastq file with samtools?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_convert_bams_to_fastq_with_samtools.ipynb>`_
      - 
@@ -103,9 +100,6 @@ I'm an advanced user, how do I...
    * - Compute Nearest Centroid Classification using BigQuery?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_Nearest_Centroid_Classification_with_BigQuery.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_Nearest_Centroid_Classification_with_BigQuery.md>`_
-   * - Analyze data in the COSMIC Cancer Gene Census dataset?
-     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/Exploring_COSMICs_Cancer_Gene_Census_table.ipynb>`_
-     -
    * - Use a BigQuery user defined function to perform k-means clustering?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_cluster_data_using_a_BigQuery_function.ipynb>`_
      - 
