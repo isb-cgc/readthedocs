@@ -4,7 +4,7 @@ Programs and Data Sets
 
 The National Cancer Institute (NCI) `Genomic Data Commons <https://gdc.cancer.gov/>`_ (GDC) and  `Proteomics Data Commons (PDC) <https://pdc.cancer.gov/pdc/>`_ provide the cancer research community with data repositories that enables data sharing across cancer genomic and proteomic studies (known as Programs) in support of precision medicine. 
 
-The ISB-CGC started with The Cancer Genome Atlas (TCGA) data sets but has expanded to include other data sets from programs such as Therapeutically Applicable Research to Generate Effective Treatments (TARGET). Along with the NCI GDC and PDC data sets, ISB-CGC hosts data sets from programs such as Catalogue Of Somatic Mutations In Cancer (COSMIC) from the `Wellcome Trust Sanger Institute <http://www.sanger.ac.uk/>`_. We are always interested in adding new data sets, so if you have any suggestions or requests for additional data, please let us know (feedback@isb-cgc.org).
+The ISB-CGC started with The Cancer Genome Atlas (TCGA) data sets but has expanded to include other data sets from programs such as Therapeutically Applicable Research to Generate Effective Treatments (TARGET). Along with the NCI GDC and PDC data sets, ISB-CGC hosts data sets from programs such as Pan-Cancer Atlas and HTAN. We are always interested in adding new data sets, so if you have any suggestions or requests for additional data, please let us know (feedback@isb-cgc.org).
 
 Clinical, Biospecimen and Processed -Omics Data Sets
 ----------------------------------------------------
@@ -233,10 +233,6 @@ From Other Sources
      - GDC Google Cloud Storage
      - ISB-CGC BigQuery Tables
      - ISB-CGC Cohort Builder
-   * - `COSMIC <data/COSMIC_about.html>`_
-     - No, the COSMIC database is maintained by the Wellcome Sanger Institute, UK
-     - Yes, COSMIC data is in BigQuery for registered users. Learn more about how to gain access to the COSMIC data `here <data/COSMIC_about.html>`_   
-     - 
    * - `Pan-Cancer Atlas <PanCancer-Atlas-Mirror.html>`_
      - 
      - |checkmark|
@@ -250,7 +246,6 @@ From Other Sources
    :maxdepth: 1
    :hidden:
    
-   data/COSMIC_about
    PanCancer-Atlas-Mirror
    data/HTAN_about
 
