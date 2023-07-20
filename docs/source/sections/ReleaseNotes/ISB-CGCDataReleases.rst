@@ -2,9 +2,33 @@
 ISB-CGC Data Release Notes
 ############################
 
+*July 20,2023*
+
+New GDC Gene Level Copy Number tables.
+
+**BigQuery tables created**
+- isb-cgc-bq.CPTAC_versioned.copy_number_gene_level_hg38_gdc_r36
+- isb-cgc-bq.TARGET_versioned.copy_number_gene_level_hg38_gdc_r36
+- isb-cgc-bq.REBC_versioned.copy_number_gene_level_hg38_gdc_r36
+- isb-cgc-bq.CGCI_versioned.copy_number_gene_level_hg38_gdc_r36
+- isb-cgc-bq.HCMI_versioned.copy_number_gene_level_hg38_gdc_r36
+- isb-cgc-bq.MP2PRT_versioned.copy_number_gene_level_hg38_gdc_r36
+- isb-cgc-bq.CDDP_EAGLE_versioned.copy_number_gene_level_hg38_gdc_r36
+- isb-cgc-bq.TCGA_versioned.copy_number_gene_level_hg38_gdc_r36
+- isb-cgc-bq.CPTAC.copy_number_gene_level_hg38_gdc_current
+- isb-cgc-bq.TARGET.copy_number_gene_level_hg38_gdc_current
+- isb-cgc-bq.REBC.copy_number_gene_level_hg38_gdc_current
+- isb-cgc-bq.CGCI.copy_number_gene_level_hg38_gdc_current
+- isb-cgc-bq.HCMI.copy_number_gene_level_hg38_gdc_current
+- isb-cgc-bq.MP2PRT.copy_number_gene_level_hg38_gdc_current
+- isb-cgc-bq.CDDP_EAGLE.copy_number_gene_level_hg38_gdc_current
+- isb-cgc-bq.TCGA.copy_number_gene_level_hg38_gdc_current
+
 *June 5, 2023*
 
 New and Updated PDC v3.0 tables. New and Updated HTAN tables.
+
+**BigQuery tables created**
 
 - isb-cgc-bq.HTAN.10xvisium_spatialtranscriptomics_scRNAseq_level3_metadata_current
 - isb-cgc-bq.HTAN.10xvisium_spatialtranscriptomics_scRNAseq_level2_metadata_current
