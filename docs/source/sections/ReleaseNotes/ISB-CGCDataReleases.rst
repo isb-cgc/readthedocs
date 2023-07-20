@@ -7,6 +7,7 @@ ISB-CGC Data Release Notes
 New GDC Gene Level Copy Number tables.
 
 **BigQuery tables created**
+
 - isb-cgc-bq.CPTAC_versioned.copy_number_gene_level_hg38_gdc_r36
 - isb-cgc-bq.TARGET_versioned.copy_number_gene_level_hg38_gdc_r36
 - isb-cgc-bq.REBC_versioned.copy_number_gene_level_hg38_gdc_r36
