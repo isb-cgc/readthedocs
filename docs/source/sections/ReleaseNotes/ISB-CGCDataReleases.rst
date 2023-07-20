@@ -2,7 +2,7 @@
 ISB-CGC Data Release Notes
 ############################
 
-*July 20,2023*
+*July 20, 2023*
 
 New GDC Gene Level Copy Number tables.
 
