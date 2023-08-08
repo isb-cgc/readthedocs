@@ -8,9 +8,9 @@ For more detailed information about the Mitelman Database of Chromosome Aberrati
 
 *August 3, 2023*
 
-**Updated totals**
-
 Added missing data, plus some additional new cases.
+
+**Updated totals**
 
 - Total number of cases 76,835
 - Total number of unique gene fusions 33,710
