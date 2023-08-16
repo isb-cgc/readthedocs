@@ -2,7 +2,7 @@
 Quick-Start Guide
 ******************
 
-ISB-CGC provides both interactive (through a `web application <https://isb-cgc.appspot.com/>`_) and programmatic access to data hosted by institutes such as the Genomic Data Commons (GDC) and the Protemoic Data Commons (PDC) of the National Cancer Institute (NCI), leveraging many aspects of the Google Cloud Platform. To get started, you'll need a Google Cloud Project. Additionally, to access controlled data, you'll also need `dbGaP authorization <Gaining-Access-To-Controlled-Access-Data.html>`_.
+ISB-CGC provides both interactive (through a `web application <https://isb-cgc.appspot.com/>`_) and programmatic access to data hosted by institutes such as the Genomic Data Commons (GDC) and the Protemoic Data Commons (PDC) of the National Cancer Institute (NCI) and Human Tumor Atlas Network (HTAN), leveraging many aspects of the Google Cloud Platform. To get started, you'll need a Google Cloud Project. Additionally, to access controlled data, you'll also need `dbGaP authorization <Gaining-Access-To-Controlled-Access-Data.html>`_.
 
 .. image:: GettingStarted.png
    :align: center
