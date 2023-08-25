@@ -2,6 +2,60 @@
 ISB-CGC Data Release Notes
 ############################
 
+*August 24, 2023*
+
+New and Updated PDC v3.4 tables.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_CPTAC_TCGA_pdc_V3_4
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_proteogenomic_translational_research_centers_pdc_V3_4
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_CPTAC3_discovery_and_confirmatory_pdc_V3_4
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_PTRC_HGSOC_FFPE_validation_pdc_V3_4
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_PTRC_HGSOC_FFPE_discovery_pdc_V3_4
+- isb-cgc-bq.CPTAC_versioned.quant_phosphoproteome_PTRC_HGSOC_frozen_validation_pdc_V3_4
+- isb-cgc-bq.CPTAC_versioned.quant_phosphoproteome_PTRC_HGSOC_FFPE_validation_pdc_V3_4
+- isb-cgc-bq.CPTAC_versioned.quant_phosphoproteome_PTRC_HGSOC_FFPE_discovery_pdc_V3_4
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_PTRC_HGSOC_frozen_validation_pdc_V3_4
+- isb-cgc-bq.CPTAC_versioned.quant_acetylome_CPTAC_UCEC_confirmatory_study_pdc_V3_4
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_UCEC_confirmatory_study_pdc_V3_4
+- isb-cgc-bq.CPTAC_versioned.quant_phosphoproteome_CPTAC_UCEC_confirmatory_study_pdc_V3_4
+- isb-cgc-bq.PDC_metadata_versioned.gene_info_V3_4
+- isb-cgc-bq.PDC_metadata_versioned.refseq_mapping_2023_03
+- isb-cgc-bq.PDC_metadata_versioned.aliquot_to_case_mapping_V3_4
+- isb-cgc-bq.PDC_metadata_versioned.case_metadata_V3_4
+- isb-cgc-bq.PDC_metadata_versioned.file_associated_entity_mapping_V3_4
+- isb-cgc-bq.PDC_metadata_versioned.file_metadata_V3_4
+- isb-cgc-bq.PDC_metadata_versioned.studies_V3_4
+- isb-cgc-bq.CPTAC.quant_proteome_PTRC_HGSOC_FFPE_validation_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_PTRC_HGSOC_FFPE_discovery_pdc_current
+- isb-cgc-bq.CPTAC.quant_phosphoproteome_PTRC_HGSOC_frozen_validation_pdc_current
+- isb-cgc-bq.CPTAC.quant_phosphoproteome_PTRC_HGSOC_FFPE_validation_pdc_current
+- isb-cgc-bq.CPTAC.quant_phosphoproteome_PTRC_HGSOC_FFPE_discovery_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_PTRC_HGSOC_frozen_validation_pdc_current
+- isb-cgc-bq.CPTAC.quant_acetylome_CPTAC_UCEC_confirmatory_study_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_UCEC_confirmatory_study_pdc_current
+- isb-cgc-bq.CPTAC.quant_phosphoproteome_CPTAC_UCEC_confirmatory_study_pdc_current
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.TCGA.per_sample_file_metadata_CPTAC_TCGA_pdc_current
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_proteogenomic_translational_research_centers_pdc_current
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC3_discovery_and_confirmatory_pdc_current
+- isb-cgc-bq.PDC_metadata.gene_info_current
+- isb-cgc-bq.PDC_metadata.refseq_mapping_current
+- isb-cgc-bq.PDC_metadata.aliquot_to_case_mapping_current
+- isb-cgc-bq.PDC_metadata.case_metadata_current
+- isb-cgc-bq.CPTAC.clinical_proteogenomic_translational_research_centers_pdc_current
+- isb-cgc-bq.CPTAC_versioned.clinical_proteogenomic_translational_research_centers_pdc_V3_4
+- isb-cgc-bq.CPTAC.clinical_diagnoses_proteogenomic_translational_research_centers_pdc_current
+- isb-cgc-bq.CPTAC_versioned.clinical_diagnoses_proteogenomic_translational_research_centers_pdc_V3_4
+- isb-cgc-bq.CPTAC.clinical_CPTAC3_discovery_and_confirmatory_pdc_current
+- isb-cgc-bq.CPTAC_versioned.clinical_CPTAC3_discovery_and_confirmatory_pdc_V3_4
+- isb-cgc-bq.PDC_metadata.file_associated_entity_mapping_current
+- isb-cgc-bq.PDC_metadata.file_metadata_current
+- isb-cgc-bq.PDC_metadata.studies_current
+
 *July 31, 2023*
 
 New and updated per sample file metadata added to isb-cgc-bq for GDC release 37.
