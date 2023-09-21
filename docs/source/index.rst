@@ -44,23 +44,36 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    sections/Web-UI
    sections/DataExplorer
    sections/DataBrowser
+   sections/data/TCGA_Data_Security
+   sections/Gaining-Access-To-Controlled-Access-Data
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :caption: MORE ISB-CGC RESOURCES
+
    sections/data/Mitelman_about
    sections/the_TP53_database
    sections/SyntheticLethality_resource
    sections/data/HTAN_about
    sections/ProgrammaticAccess
-   sections/data/TCGA_Data_Security
-   sections/Gaining-Access-To-Controlled-Access-Data
    
 .. toctree::
    :hidden:
    :maxdepth: 1
-   :caption: MORE INFORMATION
+   :caption: NOTEBOOKS
    
    sections/HowTos
    sections/RegulomeExplorerNotebooks
    sections/MachineLearningNotebooks
    sections/HTANNotebooks
+   sections/MitelmanDBNotebooks
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :caption: MORE INFORMATION
+
    sections/TutorialsAndHow-ToGuides
    sections/Releases
    sections/Quick-links-updated
