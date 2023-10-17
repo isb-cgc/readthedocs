@@ -6,6 +6,18 @@ To search this database hosted by the ISB-CGC, please visit `Mitelman Database o
 
 For more detailed information about the Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer, see `Mitelman Database <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/Mitelman_about.html>`_.
 
+*October 16, 2023*
+
+Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer quarterly update.
+
+More than 200 new cases were added, in addition to many new gene fusions. A number of genes that were reclassified as pseudogenes have also been removed, resulting in a small net gain in gene and fusion counts.
+
+**Updated totals**
+
+- Total number of cases 77,061
+- Total number of unique gene fusions 33,711
+- Total number of genes involved 14,046
+
 *August 3, 2023*
 
 Added missing data, plus some additional new cases.
