@@ -147,7 +147,7 @@ todo_include_todos = True
 #### html_theme = 'alabaster'
 #### html_theme = 'classic'
 #Change the theme from classic to sphinx_rtd_theme
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'sphinx-rtd-theme'
 
 
 # Theme options are theme-specific and customize the look and feel of a theme
