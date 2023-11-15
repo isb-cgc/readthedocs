@@ -15,16 +15,22 @@ HTAN Notebooks
    * - Utilizing the HTAN ID Provenance Google BigQuery Table
      - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/HTAN_ID_Provenance_In_BQ.ipynb>`_
      - 
-   * - Investigating HTAN scRNA-seq with BigQuery
+   * - Constructing AnnData Objects with scRNA-seq Data from BigQuery
      - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Building_AnnData_with_Subset_of_Cells_from_BQ.ipynb>`_
      -  
-   * - Explore HTAN single cell RNA seq data
+   * - Exploring HTAN scRNA-seq data
      - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Investigating_Single_Cell_HTAN_Data.ipynb>`_
      - 
-   * - Explore Spatial Cellular and Molecular Relationships
+   * - Identifying Assay Data by Primary Organ Type in ISB-CGC
+     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Identifying_HTAN_Data_Files_by_Organ_in_ISB-CGC.ipynb>`_
+     - 
+   * - Exploring HTAN MIBI Imaging data
+     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Analyzing_HTAN_MIBI_Imaging_Data.ipynb>`_
+     - 
+   * - Exploring Spatial Cellular and Molecular Relationships
      - 
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/R%20Notebooks/Explore_HTAN_Spatial_Cellular_Relationships.md>`_
-   * - Explore HTAN Clinicial, Biospecimen, and Assay Metadata
+   * - Exploring HTAN Clinical, Biospecimen, and Assay Metadata
      - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Explore_HTAN_Clinical_Biospecimen_Assay_Metadata.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/R%20Notebooks/Explore_HTAN_Clinical_Biospecimen_Assay_Metadata.md>`_
 
