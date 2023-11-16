@@ -6,7 +6,7 @@ Integrated statistical analysis and exploration of multiple genomic and clinical
 Bioinformatics notebooks
 =======================
 .. list-table:: 
-   :widths: 100 10 10
+   :widths: 95 15 10
    :align: center
    :header-rows: 0
    
