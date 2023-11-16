@@ -22,7 +22,7 @@ HTAN Notebooks
      - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Investigating_Single_Cell_HTAN_Data.ipynb>`_
      - 
    * - Identifying Assay Data by Primary Organ Type in ISB-CGC
-     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Identifying_HTAN_Data_Files_by_Organ_in_ISB-CGC.ipynb>`_
+     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Identifying_HTAN_Data_Files_by_Organ_in_ISB_CGC.ipynb>`_
      - 
    * - Exploring HTAN MIBI Imaging data
      - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Analyzing_HTAN_MIBI_Imaging_Data.ipynb>`_
