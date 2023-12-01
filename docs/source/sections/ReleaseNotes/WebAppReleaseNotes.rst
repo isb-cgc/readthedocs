@@ -2,6 +2,9 @@
 ISB-CGC Web App Release Notes
 #############################
 
+*November 27, 2023* 
+
+- On the ISB-CGC Help-->Video Tutorials page, the Introduction video has been replaced with a new version. Two obsolete videos "Image Viewers" and "Exporting Cohort" were removed.
 
 *May 3, 2023* 
 
