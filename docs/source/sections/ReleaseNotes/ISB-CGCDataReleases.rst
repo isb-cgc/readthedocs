@@ -2,9 +2,163 @@
 ISB-CGC Data Release Notes
 ############################
 
+*September 16, 2023*
+
+New masked somatic mutation data added to isb-cgc-bq for GDC release 37.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.CPTAC_versioned.masked_somatic_mutation_hg38_gdc_r36
+- isb-cgc-bq.HCMI_versioned.masked_somatic_mutation_hg38_gdc_r36
+- isb-cgc-bq.TARGET_versioned.masked_somatic_mutation_hg38_gdc_r36
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.CPTAC.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.HCMI.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.TARGET.masked_somatic_mutation_hg38_gdc_current
+
+*August 24, 2023*
+
+New and Updated PDC v3.4 tables.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_CPTAC_TCGA_pdc_V3_4
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_proteogenomic_translational_research_centers_pdc_V3_4
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_CPTAC3_discovery_and_confirmatory_pdc_V3_4
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_PTRC_HGSOC_FFPE_validation_pdc_V3_4
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_PTRC_HGSOC_FFPE_discovery_pdc_V3_4
+- isb-cgc-bq.CPTAC_versioned.quant_phosphoproteome_PTRC_HGSOC_frozen_validation_pdc_V3_4
+- isb-cgc-bq.CPTAC_versioned.quant_phosphoproteome_PTRC_HGSOC_FFPE_validation_pdc_V3_4
+- isb-cgc-bq.CPTAC_versioned.quant_phosphoproteome_PTRC_HGSOC_FFPE_discovery_pdc_V3_4
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_PTRC_HGSOC_frozen_validation_pdc_V3_4
+- isb-cgc-bq.CPTAC_versioned.quant_acetylome_CPTAC_UCEC_confirmatory_study_pdc_V3_4
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_UCEC_confirmatory_study_pdc_V3_4
+- isb-cgc-bq.CPTAC_versioned.quant_phosphoproteome_CPTAC_UCEC_confirmatory_study_pdc_V3_4
+- isb-cgc-bq.PDC_metadata_versioned.gene_info_V3_4
+- isb-cgc-bq.PDC_metadata_versioned.refseq_mapping_2023_03
+- isb-cgc-bq.PDC_metadata_versioned.aliquot_to_case_mapping_V3_4
+- isb-cgc-bq.PDC_metadata_versioned.case_metadata_V3_4
+- isb-cgc-bq.PDC_metadata_versioned.file_associated_entity_mapping_V3_4
+- isb-cgc-bq.PDC_metadata_versioned.file_metadata_V3_4
+- isb-cgc-bq.PDC_metadata_versioned.studies_V3_4
+- isb-cgc-bq.CPTAC.quant_proteome_PTRC_HGSOC_FFPE_validation_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_PTRC_HGSOC_FFPE_discovery_pdc_current
+- isb-cgc-bq.CPTAC.quant_phosphoproteome_PTRC_HGSOC_frozen_validation_pdc_current
+- isb-cgc-bq.CPTAC.quant_phosphoproteome_PTRC_HGSOC_FFPE_validation_pdc_current
+- isb-cgc-bq.CPTAC.quant_phosphoproteome_PTRC_HGSOC_FFPE_discovery_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_PTRC_HGSOC_frozen_validation_pdc_current
+- isb-cgc-bq.CPTAC.quant_acetylome_CPTAC_UCEC_confirmatory_study_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_UCEC_confirmatory_study_pdc_current
+- isb-cgc-bq.CPTAC.quant_phosphoproteome_CPTAC_UCEC_confirmatory_study_pdc_current
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.TCGA.per_sample_file_metadata_CPTAC_TCGA_pdc_current
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_proteogenomic_translational_research_centers_pdc_current
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC3_discovery_and_confirmatory_pdc_current
+- isb-cgc-bq.PDC_metadata.gene_info_current
+- isb-cgc-bq.PDC_metadata.refseq_mapping_current
+- isb-cgc-bq.PDC_metadata.aliquot_to_case_mapping_current
+- isb-cgc-bq.PDC_metadata.case_metadata_current
+- isb-cgc-bq.CPTAC.clinical_proteogenomic_translational_research_centers_pdc_current
+- isb-cgc-bq.CPTAC_versioned.clinical_proteogenomic_translational_research_centers_pdc_V3_4
+- isb-cgc-bq.CPTAC.clinical_diagnoses_proteogenomic_translational_research_centers_pdc_current
+- isb-cgc-bq.CPTAC_versioned.clinical_diagnoses_proteogenomic_translational_research_centers_pdc_V3_4
+- isb-cgc-bq.CPTAC.clinical_CPTAC3_discovery_and_confirmatory_pdc_current
+- isb-cgc-bq.CPTAC_versioned.clinical_CPTAC3_discovery_and_confirmatory_pdc_V3_4
+- isb-cgc-bq.PDC_metadata.file_associated_entity_mapping_current
+- isb-cgc-bq.PDC_metadata.file_metadata_current
+- isb-cgc-bq.PDC_metadata.studies_current
+
+*July 31, 2023*
+
+New and updated per sample file metadata added to isb-cgc-bq for GDC release 37.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.TRIO_versioned.per_sample_file_metadata_hg38_gdc_r37
+- isb-cgc-bq.GENIE_versioned.per_sample_file_metadata_hg38_gdc_r37
+- isb-cgc-bq.VAREPOP_versioned.per_sample_file_metadata_hg38_gdc_r37
+- isb-cgc-bq.WCDT_versioned.per_sample_file_metadata_hg38_gdc_r37
+- isb-cgc-bq.ORGANOID_versioned.per_sample_file_metadata_hg38_gdc_r37
+- isb-cgc-bq.OHSU_versioned.per_sample_file_metadata_hg38_gdc_r37
+- isb-cgc-bq.NCICCR_versioned.per_sample_file_metadata_hg38_gdc_r37
+- isb-cgc-bq.CMI_versioned.per_sample_file_metadata_hg38_gdc_r37
+- isb-cgc-bq.BEATAML1_0_versioned.per_sample_file_metadata_hg38_gdc_r37
+- isb-cgc-bq.MMRF_versioned.per_sample_file_metadata_hg38_gdc_r37
+- isb-cgc-bq.REBC_versioned.per_sample_file_metadata_hg38_gdc_r37
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_hg38_gdc_r37
+- isb-cgc-bq.CDDP_EAGLE_versioned.per_sample_file_metadata_hg38_gdc_r37
+- isb-cgc-bq.EXC_RESPONDERS_versioned.per_sample_file_metadata_hg38_gdc_r37
+- isb-cgc-bq.MP2PRT_versioned.per_sample_file_metadata_hg38_gdc_r37
+- isb-cgc-bq.MATCH_versioned.per_sample_file_metadata_hg38_gdc_r37
+- isb-cgc-bq.CTSP_versioned.per_sample_file_metadata_hg38_gdc_r37
+- isb-cgc-bq.CGCI_versioned.per_sample_file_metadata_hg38_gdc_r37
+- isb-cgc-bq.HCMI_versioned.per_sample_file_metadata_hg38_gdc_r37
+- isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg38_gdc_r37
+- isb-cgc-bq.FM_versioned.per_sample_file_metadata_hg38_gdc_r37
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_r37
+- isb-cgc-bq.CCLE_versioned.per_sample_file_metadata_hg19_gdc_r37
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg19_gdc_r37
+- isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg19_gdc_r37
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.TRIO.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.GENIE.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.VAREPOP.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.WCDT.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.ORGANOID.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.OHSU.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.NCICCR.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CMI.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.BEATAML1_0.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.MMRF.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.REBC.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.MP2PRT.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CTSP.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CGCI.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.HCMI.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TARGET.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.FM.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CCLE.per_sample_file_metadata_hg19_gdc_current
+- isb-cgc-bq.TCGA.per_sample_file_metadata_hg19_gdc_current
+- isb-cgc-bq.TARGET.per_sample_file_metadata_hg19_gdc_current
+- isb-cgc-bq.MATCH.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.EXC_RESPONDERS.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CDDP_EAGLE.per_sample_file_metadata_hg38_gdc_current
+
+*July 20, 2023*
+
+New GDC Gene Level Copy Number tables.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.CPTAC_versioned.copy_number_gene_level_hg38_gdc_r36
+- isb-cgc-bq.TARGET_versioned.copy_number_gene_level_hg38_gdc_r36
+- isb-cgc-bq.REBC_versioned.copy_number_gene_level_hg38_gdc_r36
+- isb-cgc-bq.CGCI_versioned.copy_number_gene_level_hg38_gdc_r36
+- isb-cgc-bq.HCMI_versioned.copy_number_gene_level_hg38_gdc_r36
+- isb-cgc-bq.MP2PRT_versioned.copy_number_gene_level_hg38_gdc_r36
+- isb-cgc-bq.CDDP_EAGLE_versioned.copy_number_gene_level_hg38_gdc_r36
+- isb-cgc-bq.TCGA_versioned.copy_number_gene_level_hg38_gdc_r36
+- isb-cgc-bq.CPTAC.copy_number_gene_level_hg38_gdc_current
+- isb-cgc-bq.TARGET.copy_number_gene_level_hg38_gdc_current
+- isb-cgc-bq.REBC.copy_number_gene_level_hg38_gdc_current
+- isb-cgc-bq.CGCI.copy_number_gene_level_hg38_gdc_current
+- isb-cgc-bq.HCMI.copy_number_gene_level_hg38_gdc_current
+- isb-cgc-bq.MP2PRT.copy_number_gene_level_hg38_gdc_current
+- isb-cgc-bq.CDDP_EAGLE.copy_number_gene_level_hg38_gdc_current
+- isb-cgc-bq.TCGA.copy_number_gene_level_hg38_gdc_current
+
 *June 5, 2023*
 
 New and Updated PDC v3.0 tables. New and Updated HTAN tables.
+
+**BigQuery tables created**
 
 - isb-cgc-bq.HTAN.10xvisium_spatialtranscriptomics_scRNAseq_level3_metadata_current
 - isb-cgc-bq.HTAN.10xvisium_spatialtranscriptomics_scRNAseq_level2_metadata_current
