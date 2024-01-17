@@ -12,7 +12,7 @@ I'm a novice, how do I...
 -------------------------
 
 .. list-table:: 
-   :widths: 100 10 10
+   :widths: 95 15 10
    :align: center
    :header-rows: 0
   
@@ -66,7 +66,7 @@ I'm an advanced user, how do I...
 -------------------------
   
 .. list-table:: 
-   :widths: 100 10 10
+   :widths: 95 15 10
    :align: center
    :header-rows: 0
   

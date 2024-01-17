@@ -5,7 +5,7 @@ HTAN Notebooks
 `HTAN <https://humantumoratlas.org/>`_ is a National Cancer Institute (NCI)-funded Cancer Moonshot initiative to construct 3-dimensional atlases of the dynamic cellular, morphological, and molecular features of human cancers as they evolve from precancerous lesions to advanced disease (`Cell April 2020 <https://www.sciencedirect.com/science/article/pii/S0092867420303469>`_).
 
 .. list-table:: 
-   :widths: 100 10 10
+   :widths: 95 15 10
    :align: center
    :header-rows: 0
    
@@ -22,7 +22,7 @@ HTAN Notebooks
      - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Investigating_Single_Cell_HTAN_Data.ipynb>`_
      - 
    * - Identifying Assay Data by Primary Organ Type in ISB-CGC
-     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Identifying_HTAN_Data_Files_by_Organ_in_ISB-CGC.ipynb>`_
+     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Identifying_HTAN_Data_Files_by_Organ_in_ISB_CGC.ipynb>`_
      - 
    * - Exploring HTAN MIBI Imaging data
      - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Analyzing_HTAN_MIBI_Imaging_Data.ipynb>`_

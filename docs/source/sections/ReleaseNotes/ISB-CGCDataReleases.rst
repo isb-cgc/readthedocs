@@ -4,7 +4,7 @@ ISB-CGC Data Release Notes
 
 *September 16, 2023*
 
-New masked somatic mutation data added to isb-cgc-bq for GDC release 37
+New masked somatic mutation data added to isb-cgc-bq for GDC release 37.
 
 **BigQuery tables created**
 
