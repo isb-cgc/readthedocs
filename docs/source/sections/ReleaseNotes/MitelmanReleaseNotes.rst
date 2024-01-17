@@ -10,6 +10,8 @@ For more detailed information about the Mitelman Database of Chromosome Aberrati
 
 Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer quarterly update.
 
+Additionally, there was a bug fix related to the result download button.
+
 **Updated totals**
 
 - Total number of cases 77,532
