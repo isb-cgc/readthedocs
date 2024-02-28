@@ -15,6 +15,9 @@ HTAN Notebooks
    * - Exploring HTAN Clinical, Biospecimen, and Assay Metadata
      - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Explore_HTAN_Clinical_Biospecimen_Assay_Metadata.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/R%20Notebooks/Explore_HTAN_Clinical_Biospecimen_Assay_Metadata.md>`_
+   * - Utilizing the HTAN ID Provenance Google BigQuery Table
+     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/HTAN_ID_Provenance_In_BQ.ipynb>`_
+     - 
    * - Identifying Assay Data by Primary Organ Type in ISB-CGC
      - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Identifying_HTAN_Data_Files_by_Organ_in_ISB_CGC.ipynb>`_
      - 
