@@ -109,6 +109,7 @@ rst_epilog = """
 .. container:: isbcgcfooter
 
   Have feedback or corrections?  Please email us at feedback@isb-cgc.org.
+  Follow us on `BlueSky <https://bsky.app/profile/isb-cgc.bsky.social>`_ and `X <https://twitter.com/isb_cgc>`_!
   
 .. GLOBAL LINK REPLACEMENTS CAN GO HERE
 
