@@ -32,9 +32,6 @@ HTAN Notebooks
    :align: center
    :header-rows: 0
    
-   * - Analyzing HTAN spatial data with BigQuery spatial analytics
-     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Analyzing_HTAN_spatial_data_with_BigQuery_geospatial_analytics.ipynb>`_
-     - 
    * - Exploring HTAN scRNA-seq data
      - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Investigating_Single_Cell_HTAN_Data.ipynb>`_
      - 
@@ -47,7 +44,9 @@ HTAN Notebooks
    * - Exploring Spatial Cellular and Molecular Relationships
      - 
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/R%20Notebooks/Explore_HTAN_Spatial_Cellular_Relationships.md>`_
-
+   * - Analyzing HTAN Spatial data with BigQuery Geospatial Analytics
+     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Analyzing_HTAN_spatial_data_with_BigQuery_geospatial_analytics.ipynb>`_
+     -        
 
 **HTAN Processing and Workflows**
 
