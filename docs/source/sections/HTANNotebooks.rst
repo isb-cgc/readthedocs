@@ -21,6 +21,9 @@ HTAN Notebooks
    * - Identifying Assay Data by Primary Organ Type in ISB-CGC
      - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Identifying_HTAN_Data_Files_by_Organ_in_ISB_CGC.ipynb>`_
      - 
+   * - Identifying and Compiling Precancer Cases and Samples in HTAN
+     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Identifying_and_Compiling_Precancer_Cases_and_Samples_in_HTAN.ipynb>`_
+     - 
 
 **Molecular and Cellular Data in HTAN**     
 
@@ -29,7 +32,9 @@ HTAN Notebooks
    :align: center
    :header-rows: 0
    
-
+   * - Analyzing HTAN spatial data with BigQuery spatial analytics
+     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Analyzing_HTAN_spatial_data_with_BigQuery_geospatial_analytics.ipynb>`_
+     - 
    * - Exploring HTAN scRNA-seq data
      - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Investigating_Single_Cell_HTAN_Data.ipynb>`_
      - 
