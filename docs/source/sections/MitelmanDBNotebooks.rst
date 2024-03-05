@@ -18,3 +18,6 @@ The `Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer <htt
    * - Correlations between Mitelman and TCGA datasets
      - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/MitelmanDB/Correlations_MitelmanDB_and_TCGA_datasets.ipynb>`_
      -  
+   * - Mitelman Gene Fusions in TCGA
+     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/MitelmanDB/Mitelman_Fusions_In_TCGA.ipynb>`_
+     - 
