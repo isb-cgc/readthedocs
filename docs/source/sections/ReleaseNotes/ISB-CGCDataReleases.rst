@@ -306,6 +306,10 @@ New and Updated PDC v3.0 tables. New and Updated HTAN tables.
 - isb-cgc-bq.HTAN.clinical_tier1_therapy_current
 - isb-cgc-bq.HTAN.schema_current
 
+*June, 2023*
+
+COSMIC tables removed from ISB-CGC BigQuery datasets.
+
 *May 30, 2023*
 
 New HTAN tables.
