@@ -37,7 +37,7 @@ Clinical, biospecimen and processed -omics data (such as RNASeq, etc.) are avail
      - ISB-CGC Cohort Builder
    * - `APOLLO <data/APOLLO_about.html>`_
      - |checkmark| 
-     - |checkmark| 
+     - |checkmark| *
      - 
    * - `BEATAML <data/BEATAML_about.html>`_
      - |checkmark| 
