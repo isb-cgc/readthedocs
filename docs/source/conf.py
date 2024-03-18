@@ -52,7 +52,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'ISB Cancer Gateway in the Cloud'
-copyright = u'2015-2023, the ISB-CGC team'
+copyright = u'2015-2024, the ISB-CGC team'
 author = u'the ISB-CGC team'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -109,6 +109,7 @@ rst_epilog = """
 .. container:: isbcgcfooter
 
   Have feedback or corrections?  Please email us at feedback@isb-cgc.org.
+  Follow us on `BlueSky <https://bsky.app/profile/isb-cgc.bsky.social>`_ and `X <https://twitter.com/isb_cgc>`_!
   
 .. GLOBAL LINK REPLACEMENTS CAN GO HERE
 
