@@ -2,6 +2,17 @@
 ISB-CGC Data Release Notes
 ############################
 
+*December 18, 2023*
+
+New HTAN tables.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.HTAN.scRNAseq_VUMC_VAL_DIS_NOEPI_cellxgene_current
+- isb-cgc-bq.HTAN.scRNAseq_VUMC_HTAN_VAL_EPI_cellxgene_current
+- isb-cgc-bq.HTAN.scRNAseq_VUMC_HTAN_DIS_EPI_cellxgene_current
+- isb-cgc-bq.HTAN.scRNAseq_MSK_SCLC_combined_samples_current
+
 *December 12, 2023*
 
 **BigQuery tables created**
