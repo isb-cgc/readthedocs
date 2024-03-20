@@ -136,6 +136,8 @@ ISB-CGC Data Release Notes
 - isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r38
 - isb-cgc-bq.GDC_case_file_metadata.aliquot2caseIDmap_current
 - isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r38
+- isb-cgc-bq.GDC_case_file_metadata_versioned.GDCfileID_to_GCSurl_r38
+
 
 
 *October 31, 2023*
