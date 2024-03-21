@@ -17,19 +17,12 @@ Updated HTAN tables.
 
 **BigQuery tables created**
 
-- isb-cgc-bq.TCGA.per_sample_file_metadata_hg38_gdc_current
 - isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_r38
-- isb-cgc-bq.TARGET.per_sample_file_metadata_hg38_gdc_current
 - isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg38_gdc_r38
-- isb-cgc-bq.OHSU.per_sample_file_metadata_hg38_gdc_current
 - isb-cgc-bq.OHSU_versioned.per_sample_file_metadata_hg38_gdc_r38
-- isb-cgc-bq.MP2PRT.per_sample_file_metadata_hg38_gdc_current
 - isb-cgc-bq.MP2PRT_versioned.per_sample_file_metadata_hg38_gdc_r38
-- isb-cgc-bq.MATCH.per_sample_file_metadata_hg38_gdc_current
 - isb-cgc-bq.MATCH_versioned.per_sample_file_metadata_hg38_gdc_r38
-- isb-cgc-bq.HCMI.per_sample_file_metadata_hg38_gdc_current
 - isb-cgc-bq.HCMI_versioned.per_sample_file_metadata_hg38_gdc_r38
-- isb-cgc-bq.GENIE.per_sample_file_metadata_hg38_gdc_current
 - isb-cgc-bq.GENIE_versioned.per_sample_file_metadata_hg38_gdc_r38
 - isb-cgc-bq.CTSP.per_sample_file_metadata_hg38_gdc_current
 - isb-cgc-bq.CTSP_versioned.per_sample_file_metadata_hg38_gdc_r38
@@ -149,6 +142,15 @@ Updated HTAN tables.
 - isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r38
 - isb-cgc-bq.GDC_case_file_metadata_versioned.GDCfileID_to_GCSurl_r38
 
+**BigQuery tables updated**
+
+- isb-cgc-bq.TCGA.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TARGET.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.OHSU.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.MP2PRT.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.MATCH.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.HCMI.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.GENIE.per_sample_file_metadata_hg38_gdc_current
 
 
 *October 31, 2023*
