@@ -2,6 +2,159 @@
 ISB-CGC Data Release Notes
 ############################
 
+*December 18, 2023*
+
+Updated HTAN tables.
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.HTAN.scRNAseq_VUMC_VAL_DIS_NOEPI_cellxgene_current
+- isb-cgc-bq.HTAN.scRNAseq_VUMC_HTAN_VAL_EPI_cellxgene_current
+- isb-cgc-bq.HTAN.scRNAseq_VUMC_HTAN_DIS_EPI_cellxgene_current
+- isb-cgc-bq.HTAN.scRNAseq_MSK_SCLC_combined_samples_current
+
+*December 12, 2023*
+
+New and updated GDC data for r38.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_r38
+- isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg38_gdc_r38
+- isb-cgc-bq.OHSU_versioned.per_sample_file_metadata_hg38_gdc_r38
+- isb-cgc-bq.MP2PRT_versioned.per_sample_file_metadata_hg38_gdc_r38
+- isb-cgc-bq.MATCH_versioned.per_sample_file_metadata_hg38_gdc_r38
+- isb-cgc-bq.HCMI_versioned.per_sample_file_metadata_hg38_gdc_r38
+- isb-cgc-bq.GENIE_versioned.per_sample_file_metadata_hg38_gdc_r38
+- isb-cgc-bq.CTSP_versioned.per_sample_file_metadata_hg38_gdc_r38
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_hg38_gdc_r38
+- isb-cgc-bq.CGCI_versioned.per_sample_file_metadata_hg38_gdc_r38
+- isb-cgc-bq.WCDT_versioned.clinical_gdc_r38
+- isb-cgc-bq.VAREPOP_versioned.clinical_family_history_gdc_r38
+- isb-cgc-bq.VAREPOP_versioned.clinical_diagnosis_treatment_gdc_r38
+- isb-cgc-bq.VAREPOP_versioned.clinical_gdc_r38
+- isb-cgc-bq.TRIO_versioned.clinical_gdc_r38
+- isb-cgc-bq.TCGA_versioned.clinical_diagnosis_treatment_gdc_r38
+- isb-cgc-bq.TCGA_versioned.clinical_gdc_r38
+- isb-cgc-bq.TARGET_versioned.clinical_gdc_r38
+- isb-cgc-bq.REBC_versioned.clinical_diagnosis_treatment_gdc_r38
+- isb-cgc-bq.REBC_versioned.clinical_gdc_r38
+- isb-cgc-bq.ORGANOID_versioned.clinical_gdc_r38
+- isb-cgc-bq.OHSU_versioned.clinical_gdc_r38
+- isb-cgc-bq.NCICCR_versioned.clinical_gdc_r38
+- isb-cgc-bq.MP2PRT_versioned.clinical_follow_up_molecular_test_gdc_r38
+- isb-cgc-bq.MP2PRT_versioned.clinical_gdc_r38
+- isb-cgc-bq.MMRF_versioned.clinical_follow_up_molecular_test_gdc_r38
+- isb-cgc-bq.MMRF_versioned.clinical_follow_up_gdc_r38
+- isb-cgc-bq.MMRF_versioned.clinical_family_history_gdc_r38
+- isb-cgc-bq.MMRF_versioned.clinical_diagnosis_treatment_gdc_r38
+- isb-cgc-bq.MMRF_versioned.clinical_gdc_r38
+- isb-cgc-bq.MATCH_versioned.clinical_gdc_r38
+- isb-cgc-bq.HCMI_versioned.clinical_follow_up_molecular_test_gdc_r38
+- isb-cgc-bq.HCMI_versioned.clinical_follow_up_gdc_r38
+- isb-cgc-bq.HCMI_versioned.clinical_diagnosis_treatment_gdc_r38
+- isb-cgc-bq.HCMI_versioned.clinical_diagnosis_pathology_detail_gdc_r38
+- isb-cgc-bq.HCMI_versioned.clinical_diagnosis_gdc_r38
+- isb-cgc-bq.HCMI_versioned.clinical_gdc_r38
+- isb-cgc-bq.GENIE_versioned.clinical_gdc_r38
+- isb-cgc-bq.FM_versioned.clinical_gdc_r38
+- isb-cgc-bq.EXC_RESPONDERS_versioned.clinical_diagnosis_treatment_gdc_r38
+- isb-cgc-bq.EXC_RESPONDERS_versioned.clinical_diagnosis_gdc_r38
+- isb-cgc-bq.EXC_RESPONDERS_versioned.clinical_gdc_r38
+- isb-cgc-bq.CTSP_versioned.clinical_follow_up_molecular_test_gdc_r38
+- isb-cgc-bq.CTSP_versioned.clinical_follow_up_gdc_r38
+- isb-cgc-bq.CTSP_versioned.clinical_diagnosis_treatment_gdc_r38
+- isb-cgc-bq.CTSP_versioned.clinical_diagnosis_gdc_r38
+- isb-cgc-bq.CTSP_versioned.clinical_gdc_r38
+- isb-cgc-bq.CPTAC_versioned.clinical_gdc_r38
+- isb-cgc-bq.CMI_versioned.clinical_gdc_r38
+- isb-cgc-bq.CGCI_versioned.clinical_follow_up_molecular_test_gdc_r38
+- isb-cgc-bq.CGCI_versioned.clinical_follow_up_gdc_r38
+- isb-cgc-bq.CGCI_versioned.clinical_diagnosis_treatment_gdc_r38
+- isb-cgc-bq.CGCI_versioned.clinical_diagnosis_pathology_detail_gdc_r38
+- isb-cgc-bq.CGCI_versioned.clinical_diagnosis_gdc_r38
+- isb-cgc-bq.CGCI_versioned.clinical_gdc_r38
+- isb-cgc-bq.CDDP_EAGLE_versioned.clinical_diagnosis_treatment_gdc_r38
+- isb-cgc-bq.CDDP_EAGLE_versioned.clinical_gdc_r38
+- isb-cgc-bq.BEATAML1_0_versioned.clinical_gdc_r38
+- isb-cgc-bq.APOLLO_versioned.clinical_follow_up_gdc_r38
+- isb-cgc-bq.APOLLO_versioned.clinical_diagnosis_treatment_gdc_r38
+- isb-cgc-bq.APOLLO_versioned.clinical_gdc_r38
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_active_r38
+- isb-cgc-bq.GDC_case_file_metadata_versioned.caseData_r38
+- isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r38
+- isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r38
+- isb-cgc-bq.GDC_case_file_metadata_versioned.GDCfileID_to_GCSurl_r38
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.TCGA.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TARGET.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.OHSU.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.MP2PRT.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.MATCH.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.HCMI.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.GENIE.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CTSP.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CGCI.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.WCDT.clinical_gdc_current
+- isb-cgc-bq.VAREPOP.clinical_family_history_gdc_current
+- isb-cgc-bq.VAREPOP.clinical_diagnosis_treatment_gdc_current
+- isb-cgc-bq.VAREPOP.clinical_gdc_current
+- isb-cgc-bq.TRIO.clinical_gdc_current
+- isb-cgc-bq.TCGA.clinical_diagnosis_treatment_gdc_current
+- isb-cgc-bq.TCGA.clinical_gdc_current
+- isb-cgc-bq.TARGET.clinical_gdc_current
+- isb-cgc-bq.REBC.clinical_diagnosis_treatment_gdc_current
+- isb-cgc-bq.REBC.clinical_gdc_current
+- isb-cgc-bq.ORGANOID.clinical_gdc_current
+- isb-cgc-bq.OHSU.clinical_gdc_current
+- isb-cgc-bq.NCICCR.clinical_gdc_current
+- isb-cgc-bq.MP2PRT.clinical_follow_up_molecular_test_gdc_current
+- isb-cgc-bq.MP2PRT.clinical_gdc_current
+- isb-cgc-bq.MMRF.clinical_follow_up_molecular_test_gdc_current
+- isb-cgc-bq.MMRF.clinical_follow_up_gdc_current
+- isb-cgc-bq.MMRF.clinical_family_history_gdc_current
+- isb-cgc-bq.MMRF.clinical_diagnosis_treatment_gdc_current
+- isb-cgc-bq.MMRF.clinical_gdc_current
+- isb-cgc-bq.MATCH.clinical_gdc_current
+- isb-cgc-bq.HCMI.clinical_follow_up_molecular_test_gdc_current
+- isb-cgc-bq.HCMI.clinical_follow_up_gdc_current
+- isb-cgc-bq.HCMI.clinical_diagnosis_treatment_gdc_current
+- isb-cgc-bq.HCMI.clinical_diagnosis_pathology_detail_gdc_current
+- isb-cgc-bq.HCMI.clinical_diagnosis_gdc_current
+- isb-cgc-bq.HCMI.clinical_gdc_current
+- isb-cgc-bq.GENIE.clinical_gdc_current
+- isb-cgc-bq.FM.clinical_gdc_current
+- isb-cgc-bq.EXC_RESPONDERS.clinical_diagnosis_treatment_gdc_current
+- isb-cgc-bq.EXC_RESPONDERS.clinical_diagnosis_gdc_current
+- isb-cgc-bq.EXC_RESPONDERS.clinical_gdc_current
+- isb-cgc-bq.CTSP.clinical_follow_up_molecular_test_gdc_current
+- isb-cgc-bq.CTSP.clinical_follow_up_gdc_current
+- isb-cgc-bq.CTSP.clinical_diagnosis_treatment_gdc_current
+- isb-cgc-bq.CTSP.clinical_diagnosis_gdc_current
+- isb-cgc-bq.CTSP.clinical_gdc_current
+- isb-cgc-bq.CPTAC.clinical_gdc_current
+- isb-cgc-bq.CMI.clinical_gdc_current
+- isb-cgc-bq.CGCI.clinical_follow_up_molecular_test_gdc_current
+- isb-cgc-bq.CGCI.clinical_follow_up_gdc_current
+- isb-cgc-bq.CGCI.clinical_diagnosis_treatment_gdc_current
+- isb-cgc-bq.CGCI.clinical_diagnosis_pathology_detail_gdc_current
+- isb-cgc-bq.CGCI.clinical_diagnosis_gdc_current
+- isb-cgc-bq.CGCI.clinical_gdc_current
+- isb-cgc-bq.CDDP_EAGLE.clinical_diagnosis_treatment_gdc_current
+- isb-cgc-bq.CDDP_EAGLE.clinical_gdc_current
+- isb-cgc-bq.BEATAML1_0.clinical_gdc_current
+- isb-cgc-bq.APOLLO.clinical_follow_up_gdc_current
+- isb-cgc-bq.APOLLO.clinical_diagnosis_treatment_gdc_current
+- isb-cgc-bq.APOLLO.clinical_gdc_current
+- isb-cgc-bq.GDC_case_file_metadata.fileData_active_current
+- isb-cgc-bq.GDC_case_file_metadata.caseData_current
+- isb-cgc-bq.GDC_case_file_metadata.slide2caseIDmap_current
+- isb-cgc-bq.GDC_case_file_metadata.aliquot2caseIDmap_current
+
+
 *October 31, 2023*
 
 New HTAN tables.
