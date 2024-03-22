@@ -15,6 +15,8 @@ Updated HTAN tables.
 
 *December 12, 2023*
 
+New and updated GDC data for r38.
+
 **BigQuery tables created**
 
 - isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_r38
