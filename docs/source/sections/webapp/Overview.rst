@@ -2,14 +2,36 @@
 Login to Web App
 ****************
 
-The ISB-CGC Web App is accessed through a Google Account identity (freely available `with a new account <https://accounts.google.com/signupwithoutgmail?hl=en>`_ or `by linking to an existing email account <https://accounts.google.com/SignUpWithoutGmail>`_).  If you are not logged into the ISB-CGC Web App, you will be presented with this page:
+To access, the ISB-CGC Web App, first you must login by clicking on the "Sign In" link in the upper right. 
 
 .. image:: startscreen-nologin.png
    :align: center
 
-You login through the "Sign In" link in the upper right.  
+A login screen with a few options will display.
 
-Also on this page are links to:
+.. image:: Sign-In-page.png
+   :align: center
+
+If you have a Google ID
+=======================
+
+The ISB-CGC Web App is accessed through a Google Account identity (freely available `with a new account <https://accounts.google.com/signupwithoutgmail?hl=en>`_ or `by linking to an existing email account <https://accounts.google.com/SignUpWithoutGmail>`_).  If you are not logged into the ISB-CGC Web App, you will be presented with this page:
+
+If you have a local CGC account
+===============================
+
+
+Forgot your password?
+=====================
+
+
+Create a local account with ISB-CGC
+===================================
+
+
+
+
+Also on the ISB-CGC home page are links to:
 
 - ISB-CGC BigQuery Table Search 
 - Cancer Data File Browser
