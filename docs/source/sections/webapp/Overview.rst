@@ -2,12 +2,12 @@
 Login to Web App
 ****************
 
-To access, the ISB-CGC Web App, first you must login by clicking on the "Sign In" link in the upper right. 
+To access the ISB-CGC Web App, first login by clicking on the "Sign In" link in the upper right. 
 
-.. image:: startscreen-nologin.png
+.. image:: Sign-In.png
    :align: center
 
-A login screen with a few options will display.
+A login screen will display. You can log in with an existing Google account or with your email.
 
 .. image:: Sign-In-page.png
    :align: center
