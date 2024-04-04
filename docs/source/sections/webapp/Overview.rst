@@ -33,7 +33,7 @@ To log in with an email only, first you need to create an ISB-CGC Web App accoun
 
 
 
-.. note:: If you attempt to log in with an email that is associated with a Google accout already registered with ISB-CGC Web App, a message "Please log into this account using Google (above)." will display.
+.. note:: If you attempt to log in with an email that is associated with a Google account already registered with the ISB-CGC Web App, a message "Please log into this account using Google (above)." will display.
 
 Forgot your password?
 =====================
@@ -43,7 +43,15 @@ Create a local account with ISB-CGC
 ===================================
 
 - Click the **Sign Up** button.
+- On the next screen, enter your email, and create a password for your ISB-CGC Web App account.
+  - The password must be at least 16 characters.
+  - The password must contain at least one each of the following: a lower-case letter, an upper-case letter, a number, and a special character from the set '!@#$%^&*+:;?'.
+- Click **Sign Up >>**
+- The next screen will instruct you to check your email for a verification email. Click the link in this email.
+- Clicking this link will display a **Confirm E-mail Address** screen. Click the **Confirm** button.
+- A message will indicate that you've confirmed this email address. You can now sign in to ISB-CGC with this email.
 
+.. note:: If you attempt to sign up with an email that is associated with a Google account already registered with the ISB-CGC Web App, a message "Please use Google login with this email address." will display.
 
 Also on the ISB-CGC home page are links to:
 
