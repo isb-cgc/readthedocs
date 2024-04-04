@@ -15,7 +15,7 @@ A login screen will display. You can log in with an existing Google account or w
 If you have a Google ID
 =======================
 
-If you have an existing Google account, you can use it to log into ISB-CGC. 
+If you have an existing Google account, you can use it to log into the ISB-CGC Web App. 
 
 - Click on the **Continue with Google** button.
 - On the next screen, enter your email address which you have previously associated with a Google account.
@@ -29,6 +29,8 @@ If you don't have a Google account and would like one, `create a Google account 
 If you have a local CGC account
 ===============================
 
+
+.. note:: If you attempt to log in with an email that is associated with a Google accout already registered with ISB-CGC Web App, a message "Please log into this account using Google (above)." will display.
 
 Forgot your password?
 =====================
