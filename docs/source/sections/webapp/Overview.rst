@@ -1,19 +1,22 @@
-****************
-Login to Web App
-****************
+*********************
+Log In to the Web App
+*********************
 
-To access the ISB-CGC Web App, first login by clicking on the "Sign In" link in the upper right. 
+To access the ISB-CGC Web App, first log in by clicking on the "Sign In" link in the upper right of the ISB-CGC home page. 
 
 .. image:: Sign-In.png
    :align: center
 
-A login screen will display. You can log in with an existing Google account or with your email.
+Sign In screen
+##############
+
+A **Sign In** screen will display. You can log in with an existing Google account or with your email.
 
 .. image:: Sign-In-page.png
    :align: center
 
-If you have a Google ID
-=======================
+Log in with a Google account
+============================
 
 If you have an existing Google account, you can use it to log into the ISB-CGC Web App. 
 
@@ -26,10 +29,10 @@ If you have saved workbooks, cohorts or other data that you previously entered u
 
 If you don't have a Google account and would like one, `create a Google account <https://accounts.google.com/SignUpWithoutGmail>`_. You can link the Google account to an existing email or use a Gmail address.
 
-If you have a local CGC account
+Log in with an email address
 ===============================
 
-To log in with an email only, first you need to create an ISB-CGC Web App account for that email. See the section below **Create a local account with ISB-CGC**. Once you've create that account:
+Alternatively, you can log in with only an email. First you need to create an ISB-CGC Web App account for that email. See the section below **Create an account with ISB-CGC using an email**. Once you've created that account:
 
 - Enter your email and password for your ISB-CGC Web App account.
 - Click the **Sign In** button.
@@ -47,8 +50,8 @@ To reset your password:
 - On the next screen, enter your email address, and then click on **Reset My Password**.
 - You will receive a Password Reset email. Click the link in this email to reset your password.
 
-Create a local account with ISB-CGC
-===================================
+Create an account with ISB-CGC using an email
+=============================================
 
 - Click the **Sign Up** button.
 - On the next screen, enter your email, and create a password for your ISB-CGC Web App account.
@@ -60,6 +63,9 @@ Create a local account with ISB-CGC
 - A message will indicate that you've confirmed this email address. You can now sign in to ISB-CGC with this email.
 
 .. note:: If you attempt to sign up with an email that is associated with a Google account already registered with the ISB-CGC Web App, a message "Please use Google login with this email address." will display.
+
+ISB-CGC Home Page
+#################
 
 Also on the ISB-CGC home page are links to:
 
@@ -75,9 +81,3 @@ Also on the ISB-CGC home page are links to:
 - ISB-CGC Publications and Citations
 
 
-**If your screen looks like this:** 
-
-You have successfully logged into ISB-CGC Web App! Please subscribe for updates provided by ISB-CGC. 
-
-.. image:: IfYourScreenLooksLikeThis.png
-   :align: center
