@@ -41,6 +41,11 @@ If you have saved workbooks, cohorts or other data that you previously entered u
 Forgot your password?
 =====================
 
+To reset your password:
+
+- Click the **Password Reset** button.
+- On the next screen, enter your email address, and then click on **Reset My Password**.
+- You will receive a Password Reset email. Click the link in this email to reset your password.
 
 Create a local account with ISB-CGC
 ===================================
