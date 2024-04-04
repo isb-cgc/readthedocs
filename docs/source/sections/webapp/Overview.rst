@@ -29,6 +29,9 @@ If you don't have a Google account and would like one, `create a Google account 
 If you have a local CGC account
 ===============================
 
+To log in with an email only, first you need to create an ISB-CGC Web App account for that email. See the section below **Create a local account with ISB-CGC**.
+
+
 
 .. note:: If you attempt to log in with an email that is associated with a Google accout already registered with ISB-CGC Web App, a message "Please log into this account using Google (above)." will display.
 
@@ -39,7 +42,7 @@ Forgot your password?
 Create a local account with ISB-CGC
 ===================================
 
-
+- Click the **Sign Up** button.
 
 
 Also on the ISB-CGC home page are links to:
