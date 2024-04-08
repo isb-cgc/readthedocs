@@ -44,11 +44,13 @@ If you have saved workbooks, cohorts or other data that you previously entered u
 Forgot your password?
 =====================
 
-To reset your password:
+To reset your password associated with your email for your ISB-CGC Web App account:
 
 - Click the **Password Reset** button.
 - On the next screen, enter your email address, and then click on **Reset My Password**.
 - You will receive a Password Reset email. Click the link in this email to reset your password.
+
+.. note:: If you need to reset your Google account password, you'll need do to that through the `Google Reset Password option  <https://support.google.com/googleone/answer/41078>`_.
 
 Create an account with ISB-CGC using an email
 =============================================
