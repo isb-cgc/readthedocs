@@ -7,7 +7,7 @@ There are two distinct ways to log in and access the ISB-CGC Web App:
 - Log into ISB-CGC via your Google account
 - Create an ISB-CGC account using your email address
 
-**If you plan to perform any functions that require Google authentication, such as access controlled data or perform BigQuery exports, then you'll need to log into ISB-CGC via your Google account.**
+**The two ways to log in are not completely equivalent. If you plan to perform any functions that require Google authentication, such as accessing controlled data in cloud buckets or exporting cohorts to BigQuery, then you’ll need to use the first route, and log into ISB-CGC via your Google account.**
 
 To access the ISB-CGC Web App, first log in by clicking on the "Sign In" link in the upper right of the ISB-CGC home page. 
 
@@ -25,7 +25,7 @@ A **Sign In** screen will display. You can log in with an existing Google accoun
 Log in with a Google account
 ============================
 
-If you have an existing Google account, you can use it to log into the ISB-CGC Web App. 
+If you have an existing Google account, you can use it to log into the ISB-CGC Web App. If you wish to access controlled data in cloud buckets or export cohorts to BigQuery tables, this is the method you *must* use.
 
 - Click on the **Continue with Google** button.
 - On the next screen, enter your email address which you have previously associated with a Google account.
@@ -39,7 +39,7 @@ If you don't have a Google account and would like one, `create a Google account 
 Log in with an email address
 ===============================
 
-Alternatively, you can log in with only an email. First you need to create an ISB-CGC Web App account for that email. See the section below **Create an account with ISB-CGC using an email**. Once you've created that account:
+Alternatively, you can log in with only an email. As noted above, if you plan to access controlled data in cloud buckets or export cohorts to BigQuery, do not use this method. First you need to create an ISB-CGC Web App account for that email. See the section below "Create an account with ISB-CGC using an email". Once you’ve created that account:
 
 - Enter your email and password for your ISB-CGC Web App account.
 - Click the **Sign In** button.
@@ -61,6 +61,8 @@ To reset your password associated with your email for your ISB-CGC Web App accou
 
 Create an account with ISB-CGC using an email
 =============================================
+
+If you are planning to create an ISB-CGC account using a Google email (e.g. johnDoe@gmail.com, or if your company or institution uses Gmail services, or you have made your email into a Google ID), you should instead use that email to log in using the first method ("Log in with a Google account").
 
 - Click the **Sign Up** button.
 - On the next screen, enter your email, and create a password for your ISB-CGC Web App account.
