@@ -62,12 +62,12 @@ To reset your password associated with your email for your ISB-CGC Web App accou
 Create an account with ISB-CGC using an email
 =============================================
 
-If you are planning to create an ISB-CGC account using a Google email (e.g. johnDoe@gmail.com, or if your company or institution uses Gmail services, or you have made your email into a Google ID), you should instead use that email to log in using the first method ("Log in with a Google account").
+If you are planning to create an ISB-CGC account using a Google email (e.g. ``johnDoe@gmail.com``, or if your company or institution uses Gmail services, or you have made your email into a Google ID), you should instead use that email to log in using the first method ("Log in with a Google account").
 
 - Click the **Sign Up** button.
 - On the next screen, enter your email, and create a password for your ISB-CGC Web App account.
   - The password must be at least 16 characters.
-  - The password must contain at least one each of the following: a lower-case letter, an upper-case letter, a number, and a special character from the set !@#$%^&*+:;?.
+  - The password must contain at least one each of the following: a lower-case letter, an upper-case letter, a number, and a special character from the set ``!@#$%^&*+:;``?.
 - Click **Sign Up >>**.
 - The next screen will instruct you to check your email for a verification email. Click the link in this email.
 - Clicking this link will display a **Confirm E-mail Address** screen. Click the **Confirm** button.
