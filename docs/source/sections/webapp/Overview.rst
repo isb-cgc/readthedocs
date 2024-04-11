@@ -7,7 +7,7 @@ There are two distinct ways to log in and access the ISB-CGC Web App:
 - Log into ISB-CGC via your Google account
 - Create an ISB-CGC account using your email address
 
-.. important:: If you plan to perform any functions that require Google authentication, such as access controlled data or perform BigQuery exports, then you'll need to  log into ISB-CGC via your Google account.
+If you plan to perform any functions that require Google authentication, such as access controlled data or perform BigQuery exports, then you'll need to log into ISB-CGC via your Google account.
 
 To access the ISB-CGC Web App, first log in by clicking on the "Sign In" link in the upper right of the ISB-CGC home page. 
 
