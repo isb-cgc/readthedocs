@@ -8,6 +8,8 @@ For more detailed information about the Mitelman Database of Chromosome Aberrati
 
 *April 15, 2024*
 
+Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer quarterly update.
+
 **Updated totals**
 
 - Total number of cases 77,578
