@@ -2,6 +2,34 @@
 ISB-CGC Data Release Notes
 ############################
 
+*May 09, 2024*
+
+New and updated GDC RNAseq data for r39.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.APOLLO.RNAseq_hg38_gdc_current
+- isb-cgc-bq.CDDP_EAGLE.RNAseq_hg38_gdc_current
+- isb-cgc-bq.CGCI.RNAseq_hg38_gdc_current
+- isb-cgc-bq.MP2PRT.RNAseq_hg38_gdc_current
+- isb-cgc-bq.REBC.RNAseq_hg38_gdc_current
+- isb-cgc-bq.APOLLO_versioned.RNAseq_hg38_gdc_r39
+- isb-cgc-bq.CDDP_EAGLE_versioned.RNAseq_hg38_gdc_r39
+- isb-cgc-bq.CGCI_versioned.RNAseq_hg38_gdc_r39
+- isb-cgc-bq.CMI_versioned.RNAseq_hg38_gdc_r39
+- isb-cgc-bq.CPTAC_versioned.RNAseq_hg38_gdc_r39
+- isb-cgc-bq.HCMI_versioned.RNAseq_hg38_gdc_r39
+- isb-cgc-bq.MP2PRT_versioned.RNAseq_hg38_gdc_r39
+- isb-cgc-bq.REBC_versioned.RNAseq_hg38_gdc_r39
+- isb-cgc-bq.TCGA_versioned.RNAseq_hg38_gdc_r39
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.CMI.RNAseq_hg38_gdc_current
+- isb-cgc-bq.CPTAC.RNAseq_hg38_gdc_current
+- isb-cgc-bq.HCMI.RNAseq_hg38_gdc_current
+- isb-cgc-bq.TCGA.RNAseq_hg38_gdc_current
+
 *March 29, 2024*
 
 New and updated GDC data for r39.
