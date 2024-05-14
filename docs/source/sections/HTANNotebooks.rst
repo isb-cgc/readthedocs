@@ -33,10 +33,10 @@ HTAN Notebooks
    :header-rows: 0
 
    * - A Guide to HTAN Data
-     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/A_Guide_to_HTAN_Data.ipynb`_
+     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/A_Guide_to_HTAN_Data.ipynb>`_
      - 
    * - Analyzing HTAN scRNASeq Data Using CellTypist
-     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Analyzing_HTAN_scRNASeq_Data_Using_CellTypist.ipynb`_
+     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Analyzing_HTAN_scRNASeq_Data_Using_CellTypist.ipynb>`_
      - 
    * - Exploring HTAN scRNA-seq data
      - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Investigating_Single_Cell_HTAN_Data.ipynb>`_
@@ -65,5 +65,5 @@ HTAN Notebooks
      - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Analyzing_HTAN_Data_in_SB_Data_Studio.ipynb>`_
      - 
    * - Creating CDS Data Import Manifests Using BQ
-     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Creating_CDS_Data_Import_Manifests_Using_BQ.ipynb`_
+     - `Python <https://github.com/isb-cgc/Community-Notebooks/blob/master/HTAN/Python%20Notebooks/Creating_CDS_Data_Import_Manifests_Using_BQ.ipynb>`_
      - 
