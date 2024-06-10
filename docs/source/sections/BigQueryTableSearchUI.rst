@@ -145,7 +145,7 @@ Each search filter and its selected value is saved as a parameter in the ISB Big
 Here’s an example: https://bq-search.isb-cgc.org/search?status=current&category=reference_database
 In this case, a Status of Current was selected, and a Category of Reference Database.
 
-.. image:: BigQuery/BigQueryTableSearch-SavingQuery.png
+.. image:: BigQuery/BigQuerySearchUI-SavingQuery.png
    :align: center
 
 
