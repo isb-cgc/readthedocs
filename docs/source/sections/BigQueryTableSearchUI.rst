@@ -70,11 +70,11 @@ The tables are grouped into four high-level categories:
 
 * **Clinical Biospecimen Data**: Patient case and sample information (includes clinical tables with patient demographic data, and biospecimen data with detailed sample information)
 
-* **File Metadata**: Information about raw data files including Google Cloud Storage Paths (includes tables with information                       about files available at the GDC, including GCS paths, creation dates, sizes, etc.)
+* **File Metadata**: Information about raw data files including Google Cloud Storage Paths (includes tables with information about files available at the GDC, including GCS paths, creation dates, sizes, etc.)
 
-* **Genomic Reference Database**: Genomic information that can be used to cross-reference against processed-omics data tables                                   (examples include ClinVar, cytoBand, dbSNP, Ensembl, Ensembl2Reactome)
+* **Genomic Reference Database**: Genomic information that can be used to cross-reference against processed-omics data tables (examples include ClinVar, cytoBand, dbSNP, Ensembl, Ensembl2Reactome)
 
-* **Processed-omics Datasets**: Processed data primarily from the GDC (i.e. raw data that has gone through GDC pipeline                                        processing e.g. gene expression, miRNA expression, copy number, somatic mutations, methylation)
+* **Processed-omics Datasets**: Processed data primarily from the GDC (i.e. raw data that has gone through GDC pipeline processing e.g. gene expression, miRNA expression, copy number, somatic mutations, methylation)
 
 
 Click on one or more checkboxes to select categories. 
