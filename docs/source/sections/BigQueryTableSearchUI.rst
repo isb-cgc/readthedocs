@@ -117,13 +117,6 @@ The **Experimental Strategy** filter also allows you to filter for experimental 
 .. image:: BigQuery/ExperimentalStrategy-filter.png
    :align: center
 
-**Access**
-
-The **Access** filter has options of All, Open Access and Controlled Access. Controlled Access tables will be displayed with a Lock icon to the right of the table name. Controlled Access data cannot be previewed, but can be opened in the Google BigQuery Console, if the user has the required permissions. 
-
-.. image:: BigQuery/Access-filter.png
-   :align: center
-
 **More Filters**
 
 The **Show More Filters** button can be used to display **BQ Project**, **BQ Dataset**, **BQ Table**, **Table Description**, **Labels** and **Field Name** filters. Except for BQ Project, these are free-form text fields; the user can type all or a portion of the name into the field to perform the query. For instance, for all datasets which have "alpha" in the name, type "alpha" into the field.
@@ -142,6 +135,7 @@ Saving a Search Query
 ---------------------
 
 Each search filter and its selected value is saved as a parameter in the ISB BigQuery Table Search URL. This URL can be saved and then used again.
+
 Here’s an example: https://bq-search.isb-cgc.org/search?status=current&category=reference_database
 In this case, a Status of Current was selected, and a Category of Reference Database.
 
