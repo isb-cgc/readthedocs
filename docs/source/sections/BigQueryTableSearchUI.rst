@@ -138,6 +138,16 @@ Each table was tagged with labels relating to the status, program, reference gen
 The labels for a table can be viewed when the blue plus sign (+) to the left of the table row is clicked. See the screen shot in the Schema section below.
 
 
+Saving a Search Query
+---------------------
+
+Each search filter and its selected value is saved as a parameter in the ISB BigQuery Table Search URL. This URL can be saved and then used again.
+Here’s an example: https://bq-search.isb-cgc.org/search?status=current&category=reference_database
+In this case, a Status of Current was selected, and a Category of Reference Database.
+
+
+
+
 Search Results
 --------------
 
