@@ -136,12 +136,15 @@ Saving a Search Query
 
 Each search filter and its selected value is saved as a parameter in the ISB BigQuery Table Search URL. This URL can be saved and then used again.
 
-Here’s an example: https://bq-search.isb-cgc.org/search?status=current&category=reference_database
+Here’s an example: 
+https://bq-search.isb-cgc.org/search?status=current&category=reference_database
+
 In this case, a Status of Current was selected, and a Category of Reference Database.
 
 .. image:: BigQuery/BigQuerySearchUI-SavingQuery.png
    :align: center
 
+In this case, a Status of Current was selected, and a Category of Reference Database.
 
 Search Results
 --------------
