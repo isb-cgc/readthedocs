@@ -19,7 +19,9 @@ Currently, ISB-CGC hosts open access BigQuery tables containing data for over 25
    :align: center
 
 
-Links to various helpful documentation pages are available, including Google BigQuery's documentation and ISB-CGC's BigQuery documentation and the ISB-CGC Release Notes.
+Links to various helpful documentation pages are available, including Google BigQuery's documentation and ISB-CGC's BigQuery documentation under the **Resources** dropdown. 
+This documentation page can be navigated to directly by clicking on **Help**. 
+A link to the Release Notes for the ISB-CGC BigQuery Table Search are on the **About** page.
 
 
 .. image:: BigQuery/BigQueryTableSearch-Documentation.png
@@ -139,12 +141,10 @@ Each search filter and its selected value is saved as a parameter in the ISB Big
 Here’s an example: 
 https://bq-search.isb-cgc.org/search?status=current&category=reference_database
 
-In this case, a Status of Current was selected, and a Category of Reference Database.
-
 .. image:: BigQuery/BigQuerySearchUI-SavingQuery.png
    :align: center
 
-In this case, a Status of Current was selected, and a Category of Reference Database.
+In this case, a **Status** of Current was selected, and a **Category** of Reference Database.
 
 Search Results
 --------------
