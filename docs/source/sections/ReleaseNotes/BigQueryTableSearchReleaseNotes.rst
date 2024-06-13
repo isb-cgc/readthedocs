@@ -7,7 +7,7 @@ To learn about this discovery tool created by the ISB-CGC, please visit `ISB-CGC
 For more detailed information about the data stored in ISB-CGC BigQuery tables please visit `ISB-CGC BigQuery Tables <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQuery.html>`_.
 
 
-*June 13, 2024*
+*June 13, 2024* v2.0
 
 - The ISB BigQuery Table Search now has a separate URL (https://bq-search.isb-cgc.org/) from the ISB-CGC webpage (https://isb-cgc.org/)
 - Each search filter and its selected value is saved as a parameter in the ISB BigQuery Table Search URL. This URL can be saved and then used again.
@@ -16,7 +16,7 @@ For more detailed information about the data stored in ISB-CGC BigQuery tables p
 - The Access filter has been removed.
 
 
-*September 8, 2021*
+*September 8, 2021* v1.05
 
 **New Features**
 
