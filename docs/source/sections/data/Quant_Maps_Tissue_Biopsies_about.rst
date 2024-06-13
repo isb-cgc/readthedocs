@@ -15,7 +15,7 @@ ISB-CGC has procured data from this study through the PDC API.
 Accessing the Quantitative Digital Maps of Tissue Biopsies Data in Google BigQuery
 ------------------------------------------------
 
-ISB-CGC has Quantitative Digital Maps of Tissue Biopsies clinical data stored in Google BigQuery tables. Information about these tables can be found using the `ISB-CGC BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_ with QUANT MAPS TISSUE BIOPSIES selected for filter PROGRAM. To learn more about this tool, see the `ISB-CGC BigQuery Table Search documentation <../BigQueryTableSearchUI.html>`_.
+ISB-CGC has Quantitative Digital Maps of Tissue Biopsies clinical data stored in Google BigQuery tables. Information about these tables can be found using the `ISB-CGC BigQuery Table Search <https://bq-search.isb-cgc.org/>`_ with QUANT MAPS TISSUE BIOPSIES selected for filter PROGRAM. To learn more about this tool, see the `ISB-CGC BigQuery Table Search documentation <../BigQueryTableSearchUI.html>`_.
 
 The tables are in project isb-cgc-bq. To learn more about how to view and query tables in the Google BigQuery console, see the `ISB-CGC BigQuery Tables documentation <../BigQuery.html>`_.
 

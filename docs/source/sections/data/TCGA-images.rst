@@ -4,7 +4,7 @@ TCGA Radiology and Pathology Image Data Set
 
 The TCGA images from `The Cancer Imaging Archive <http://www.cancerimagingarchive.net/>`_ (TCIA) as well as the pathology and diagnostic images previously available from the `Cancer Digital Slide Archive <http://cancer.digitalslidearchive.net/>`_ (CDSA) are available in open-access Google Cloud Storage (GCS) buckets and can be explored through the ISB-CGC Web App.
 
-Metadata for these files can be found in ISB-CGC Google BigQuery tables. Information about these tables can be found using the `ISB-CGC BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_ with TCGA selected for filter PROGRAM and FILE METADATA selected for filter CATEGORY. To learn more about this tool, see the `ISB-CGC BigQuery Table Search documentation <../BigQueryTableSearchUI.html>`_.
+Metadata for these files can be found in ISB-CGC Google BigQuery tables. Information about these tables can be found using the `ISB-CGC BigQuery Table Search <https://bq-search.isb-cgc.org/>`_ with TCGA selected for filter PROGRAM and FILE METADATA selected for filter CATEGORY. To learn more about this tool, see the `ISB-CGC BigQuery Table Search documentation <../BigQueryTableSearchUI.html>`_.
 
 Radiology Images
 ################

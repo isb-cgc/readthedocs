@@ -17,7 +17,7 @@ isb-cgc project
  
 The isb-cgc project contains all of the ISB-CGC BigQuery tables created before July 2020.
 
-Tables in isb-cgc will be retired and labeled as deprecated as we copy them over to the new project. Table descriptions will include the new table location. Eventually they will be turned into only views (with no preview ability) to ensure that existing references will continue to work correctly. Many older tables with light usage may remain in isb-cgc and not be copied over; tables with no logged recent usage may be deleted. When using the `BigQuery Table Search UI <https://isb-cgc.appspot.com/bq_meta_search/>`_ to find these retired tables, select Status of **Deprecated**. 
+Tables in isb-cgc will be retired and labeled as deprecated as we copy them over to the new project. Table descriptions will include the new table location. Eventually they will be turned into only views (with no preview ability) to ensure that existing references will continue to work correctly. Many older tables with light usage may remain in isb-cgc and not be copied over; tables with no logged recent usage may be deleted. When using the `BigQuery Table Search UI <https://bq-search.isb-cgc.org/>`_ to find these retired tables, select Status of **Deprecated**. 
 
 Many tables will continue to have the status of **Current**, at least for the time being, until they are copied to the new project. In addition, there are tables with the status of **Archived** in the isb-cgc project and more may become archived. **Archived** indicates that the table contains an older version of data; a newer version of the same data exists in another table.
 
@@ -50,7 +50,7 @@ See below for more details.
    * - <Program>
      - Latest tables for each data type (ex. miRNA Expression, File Metadata) that ISB-CGC has, per Program
      - Data Type, Reference Genome, Source, Current. Ex. ``TARGET.miRNAseq_hg38_gdc_current``
-     - When using the `BigQuery Table Search UI <https://isb-cgc.appspot.com/bq_meta_search/>`_ to find these tables, select Status of **Current**.
+     - When using the `BigQuery Table Search UI <https://bq-search.isb-cgc.org/>`_ to find these tables, select Status of **Current**.
    * - <Program>_versioned
      - Previously released tables, as well as the most current table 
      - Data Type, Reference Genome, Source, Release Number or Year. Ex. ``TARGET_versioned.miRNAseq_hg38_gdc_r22``. Here, the name of the most current table will end with the release number or year and not "current". 
