@@ -40,7 +40,7 @@ Additional projects with public BigQuery data sets which you may want to explore
 the same process will add these to your BigQuery side-panel) include genomics-public-data and
 google.com:biggene.
 
-You can also search for and learn about Pan-Cancer Atlas tables through the `ISB-CGC BigQuery Table Search UI <https://isb-cgc.appspot.com/bq_meta_search/>`_. Type 'pancancer' in the **Search** box in the upper right-hand corner to filter for them.
+You can also search for and learn about Pan-Cancer Atlas tables through the `ISB-CGC BigQuery Table Search UI <https://bq-search.isb-cgc.org/>`_. Type 'pancancer' in the **Search** box in the upper right-hand corner to filter for them.
 
 Pan-Cancer Atlas BigQuery Query Example
 #######################################

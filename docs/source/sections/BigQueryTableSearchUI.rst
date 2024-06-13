@@ -2,7 +2,7 @@
 ISB-CGC BigQuery Table Search 
 ******************************
 
-The ISB-CGC BigQuery Table Search UI (`<https://isb-cgc.appspot.com/bq_meta_search/>`_) is a discovery tool that allows users to explore and search for ISB-CGC hosted BigQuery tables. It can be accessed directly from the ISB-CGC homepage (`<https://isb-cgc.org/>`_) by clicking on **Launch** in the **BigQuery Table Search** box or selecting **BigQuery Table Search** from the **Data Browsers** drop down menu on the main menu bar. 
+The ISB-CGC BigQuery Table Search UI (`<https://bq-search.isb-cgc.org/>`_) is a discovery tool that allows users to explore and search for ISB-CGC hosted BigQuery tables. It can be accessed directly from the ISB-CGC homepage (`<https://isb-cgc.org/>`_) by clicking on **Launch** in the **BigQuery Table Search** box or selecting **BigQuery Table Search** from the **Data Browsers** drop down menu on the main menu bar. 
 
 **Note**: Users are not required to have a Google Cloud Platform (GCP) project or an account to learn more about the tables hosted by ISB-CGC.
 
@@ -19,7 +19,9 @@ Currently, ISB-CGC hosts open access BigQuery tables containing data for over 25
    :align: center
 
 
-Links to various helpful documentation pages are available, including Google BigQuery's documentation and ISB-CGC's BigQuery documentation and the ISB-CGC Release Notes.
+Links to various helpful documentation pages are available, including Google BigQuery's documentation and ISB-CGC's BigQuery documentation under the **Resources** dropdown. 
+This documentation page can be navigated to directly by clicking on **Help**. 
+A link to the Release Notes for the ISB-CGC BigQuery Table Search are on the **About** page.
 
 
 .. image:: BigQuery/BigQueryTableSearch-Documentation.png
@@ -70,11 +72,11 @@ The tables are grouped into four high-level categories:
 
 * **Clinical Biospecimen Data**: Patient case and sample information (includes clinical tables with patient demographic data, and biospecimen data with detailed sample information)
 
-* **File Metadata**: Information about raw data files including Google Cloud Storage Paths (includes tables with information                       about files available at the GDC, including GCS paths, creation dates, sizes, etc.)
+* **File Metadata**: Information about raw data files including Google Cloud Storage Paths (includes tables with information about files available at the GDC, including GCS paths, creation dates, sizes, etc.)
 
-* **Genomic Reference Database**: Genomic information that can be used to cross-reference against processed-omics data tables                                   (examples include ClinVar, cytoBand, dbSNP, Ensembl, Ensembl2Reactome)
+* **Genomic Reference Database**: Genomic information that can be used to cross-reference against processed-omics data tables (examples include ClinVar, cytoBand, dbSNP, Ensembl, Ensembl2Reactome)
 
-* **Processed-omics Datasets**: Processed data primarily from the GDC (i.e. raw data that has gone through GDC pipeline                                        processing e.g. gene expression, miRNA expression, copy number, somatic mutations, methylation)
+* **Processed-omics Datasets**: Processed data primarily from the GDC (i.e. raw data that has gone through GDC pipeline processing e.g. gene expression, miRNA expression, copy number, somatic mutations, methylation)
 
 
 Click on one or more checkboxes to select categories. 
@@ -117,13 +119,6 @@ The **Experimental Strategy** filter also allows you to filter for experimental 
 .. image:: BigQuery/ExperimentalStrategy-filter.png
    :align: center
 
-**Access**
-
-The **Access** filter has options of All, Open Access and Controlled Access. Controlled Access tables will be displayed with a Lock icon to the right of the table name. Controlled Access data cannot be previewed, but can be opened in the Google BigQuery Console, if the user has the required permissions. 
-
-.. image:: BigQuery/Access-filter.png
-   :align: center
-
 **More Filters**
 
 The **Show More Filters** button can be used to display **BQ Project**, **BQ Dataset**, **BQ Table**, **Table Description**, **Labels** and **Field Name** filters. Except for BQ Project, these are free-form text fields; the user can type all or a portion of the name into the field to perform the query. For instance, for all datasets which have "alpha" in the name, type "alpha" into the field.
@@ -137,6 +132,19 @@ Each table was tagged with labels relating to the status, program, reference gen
 
 The labels for a table can be viewed when the blue plus sign (+) to the left of the table row is clicked. See the screen shot in the Schema section below.
 
+
+Saving a Search Query
+---------------------
+
+Each search filter and its selected value is saved as a parameter in the ISB BigQuery Table Search URL. This URL can be saved and then used again.
+
+Here’s an example: 
+https://bq-search.isb-cgc.org/search?status=current&category=reference_database
+
+.. image:: BigQuery/BigQuerySearchUI-SavingQuery.png
+   :align: center
+
+In this case, a **Status** of Current was selected, and a **Category** of Reference Database.
 
 Search Results
 --------------

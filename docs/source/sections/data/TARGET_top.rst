@@ -49,7 +49,7 @@ Besides accessing the files on the GDC Data Portal, you can also access them fro
 Accessing the TARGET Data in Google BigQuery
 ------------------------------------------------
 
-ISB-CGC has TARGET data, such as clinical, biospecimen, miRNA and RNA-seq, stored in Google BigQuery tables. Information about these tables can be found using the `ISB-CGC BigQuery Table Search <https://isb-cgc.appspot.com/bq_meta_search/>`_ with TARGET selected for filter PROGRAM. To learn more about this tool, see the `ISB-CGC BigQuery Table Search documentation <../BigQueryTableSearchUI.html>`_.
+ISB-CGC has TARGET data, such as clinical, biospecimen, miRNA and RNA-seq, stored in Google BigQuery tables. Information about these tables can be found using the `ISB-CGC BigQuery Table Search <https://bq-search.isb-cgc.org/>`_ with TARGET selected for filter PROGRAM. To learn more about this tool, see the `ISB-CGC BigQuery Table Search documentation <../BigQueryTableSearchUI.html>`_.
 
 ISB_CGC also has controlled access TARGET VCF data in Google BigQuery tables; see `here <../BigQuery/VariantDataInBigQuery.html>`_ for more information. 
 
