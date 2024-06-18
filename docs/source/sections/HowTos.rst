@@ -61,6 +61,9 @@ I'm a novice, how do I...
    * - Compare protein and gene expression in CPTAC?
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_compare_protein_and_gene_expression_CPTAC.ipynb>`_
      - 
+   * - Find data from Cancer Data Aggregator?
+     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_cross_omics_with_CDA.ipynb>`_
+     - 
 
 I'm an advanced user, how do I...
 -------------------------
