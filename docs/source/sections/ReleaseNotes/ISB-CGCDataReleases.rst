@@ -2,6 +2,60 @@
 ISB-CGC Data Release Notes
 ############################
 
+*June 24, 2024*
+
+New and updated GDC Open Somatic Mutation data for r39.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.TARGET_versioned.masked_somatic_mutation_hg38_gdc_r39
+- isb-cgc-bq.TCGA_versioned.masked_somatic_mutation_hg38_gdc_r39
+- isb-cgc-bq.MP2PRT_versioned.masked_somatic_mutation_hg38_gdc_r39
+- isb-cgc-bq.HCMI_versioned.masked_somatic_mutation_hg38_gdc_r39
+- isb-cgc-bq.CPTAC_versioned.masked_somatic_mutation_hg38_gdc_r39
+- isb-cgc-bq.CGCI_versioned.masked_somatic_mutation_hg38_gdc_r39
+- isb-cgc-bq.BEATAML1_0_versioned.masked_somatic_mutation_hg38_gdc_r39
+- isb-cgc-bq.MP2PRT.masked_somatic_mutation_hg38_gdc_current
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.TARGET.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.TCGA.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.HCMI.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.CPTAC.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.CGCI.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.BEATAML1_0.masked_somatic_mutation_hg38_gdc_current
+
+*June 3, 2024*
+
+Updated GDC per sample metadata for r39.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.VAREPOP_versioned.per_sample_file_metadata_hg38_gdc_r39_v2
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_r39_v2
+- isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg38_gdc_r39_v2
+- isb-cgc-bq.ORGANOID_versioned.per_sample_file_metadata_hg38_gdc_r39_v2
+- isb-cgc-bq.MATCH_versioned.per_sample_file_metadata_hg38_gdc_r39_v2
+- isb-cgc-bq.HCMI_versioned.per_sample_file_metadata_hg38_gdc_r39_v2
+- isb-cgc-bq.CTSP_versioned.per_sample_file_metadata_hg38_gdc_r39_v2
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_hg38_gdc_r39_v2
+- isb-cgc-bq.CGCI_versioned.per_sample_file_metadata_hg38_gdc_r39_v2
+- isb-cgc-bq.BEATAML1_0_versioned.per_sample_file_metadata_hg38_gdc_r39_v2
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.VAREPOP.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TCGA.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TARGET.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.ORGANOID.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.MATCH.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.HCMI.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CTSP.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CGCI.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.BEATAML1_0.per_sample_file_metadata_hg38_gdc_current
+
 *May 09, 2024*
 
 New and updated GDC RNAseq data for r39.
