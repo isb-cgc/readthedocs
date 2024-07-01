@@ -32,6 +32,9 @@ New and updated GDC data for r40.
 - isb-cgc-bq.TARGET_versioned.clinical_follow_up_gdc_r40
 - isb-cgc-bq.TARGET_versioned.clinical_diagnosis_treatment_gdc_r40
 - isb-cgc-bq.TARGET_versioned.clinical_gdc_r40
+- isb-cgc-bq.TARGET.clinical_follow_up_molecular_test_gdc_current
+- isb-cgc-bq.TARGET.clinical_follow_up_gdc_current
+- isb-cgc-bq.TARGET.clinical_diagnosis_treatment_gdc_current
 - isb-cgc-bq.REBC_versioned.clinical_gdc_r40
 - isb-cgc-bq.MATCH_versioned.clinical_gdc_r40
 - isb-cgc-bq.HCMI_versioned.clinical_follow_up_molecular_test_gdc_r40
@@ -66,9 +69,6 @@ New and updated GDC data for r40.
 - isb-cgc-bq.CDDP_EAGLE.per_sample_file_metadata_hg38_gdc_current
 - isb-cgc-bq.BEATAML1_0.per_sample_file_metadata_hg38_gdc_current
 - isb-cgc-bq.APOLLO.per_sample_file_metadata_hg38_gdc_current
-- isb-cgc-bq.TARGET.clinical_follow_up_molecular_test_gdc_current
-- isb-cgc-bq.TARGET.clinical_follow_up_gdc_current
-- isb-cgc-bq.TARGET.clinical_diagnosis_treatment_gdc_current
 - isb-cgc-bq.TARGET.clinical_gdc_current
 - isb-cgc-bq.REBC.clinical_gdc_current
 - isb-cgc-bq.MATCH.clinical_gdc_current
