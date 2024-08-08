@@ -12,14 +12,9 @@ Over time we will be updating and enhancing this web interface based on your fee
 
    webapp/Overview
    webapp/Menu
-   webapp/Dashboard
-   webapp/Workbooks
    webapp/program_data_upload
    webapp/WebAppAnalyses
-   webapp/Gene-and-miRNA-Favorites
-   webapp/Variable-Favorites
    webapp/Saved-Cohorts
-   webapp/GraphingUserData
    webapp/IGV-Browser
    webapp/OsimisWebViewer
    webapp/Register-GCP
