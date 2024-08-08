@@ -11,9 +11,6 @@ Over time we will be updating and enhancing this web interface based on your fee
    :maxdepth: 1
 
    webapp/Overview
-   webapp/Menu
-   webapp/program_data_upload
-   webapp/WebAppAnalyses
    webapp/Saved-Cohorts
    webapp/IGV-Browser
    webapp/OsimisWebViewer
