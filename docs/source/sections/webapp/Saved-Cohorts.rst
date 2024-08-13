@@ -58,7 +58,7 @@ The Molecular Tab is only available for TCGA data. It enables the user to filter
 
 To combine multiple gene filters, select AND (requires all filters to be met for the data to be filtered) or OR (at least one criteria needs to be met for the data to be displayed). You can also filter by Genomic Build.
           
-Cohort Filters Panel
+Selected Filters Panel
 ^^^^^^^^^^^^^^^^^^^^^^
 
 This panel displays the selected filters for the cohort. Filters are listed under the program name. If you click on the program name, the screeb will change to display the information for that program.
@@ -69,67 +69,20 @@ Note that you cannot removed filters once the cohort has been saved. (See Set Op
 Data Set Details Panel
 ^^^^^^^^^^^^^
 
-This panel shows the **Total Number of Samples** and **Total Number of Cases** for the currently displayed data set based on the selected filters. If there is a small "timer" icon, the calculation is taking place; the results should appear soon.
+This panel shows the **Total Number of Cases** and **Total Number of Samples** for the currently displayed data set based on the selected filters. If there is a small "timer" icon, the calculation is taking place; the results should appear soon.
 
 Data Set Clinical Features Panel
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 This panel shows a list of images (called "treemaps") that give a high level breakdown of the selected samples for a 
-handful of features (ex. Disease Code, Vital Status, Gender, Sample Type, Age at Diagnosis, etc.) for the currently displayed data set based on the selected filters. 
+handful of features (ex. Project Short Name, Disease Type, Gender, Tissue/Organ of Origin, Vital Status, etc.) for the currently displayed data set based on the selected filters. 
 
-By using the **Show More** button, you can see additional tree maps.  Mousing over an image shows the details of each specific section of the image and the number of samples associated with it.
-
-Programs & Projects Panel
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This panel displays a list of images (called "treemaps") similar to the Data Set Clinical Features panel, but is only available when the User Data tab is selected. This panel displays a high level breakdown of the projects and studies you have uploaded to the system. Hovering over the image will show details of that specific section of the image and the number of samples associated with it. 
+Mousing over an image shows the details of each specific section of the image and the number of samples associated with it.
 
 Saving the Cohort
 ^^^^^^^^^^^^^^^^^^
 
 Click the **Save as New Cohort** button when you are ready to save the cohort based on the filters you have set.  You will be asked for a cohort name and the selected filters will be displayed.  Enter the name and click the **Create Cohort** button. 
-
-NOTE: When working with multiple programs you will see a yellow notification box stating, "Your cohort contains samples from multiple programs. Please note that filters will only apply to samples from the program indicated by the tab they were chosen on - they will not apply to samples from other programs in this cohort." 
-
-Cohort Creation - Barcodes
-==========================
-
-This feature allows you upload or enter your own list of sample or cases barcodes from multiple programs.  There is a blue **Show Instructions** button on both the **UPLOAD** and **ENTER** tabs.  
-
-Upload Tab
------------
-
-This feature allows uploading files with barcodes to create a cohort. Files must be in GDC Data Portal case manifest format, or in comma/tab-delimited case/sample/program format. The file can be a maximum of 32MB.  Also, files must be in tab- or comma-delimited 
-format (TSV or CSV) and have an extension of .txt, .csv, or .tsv. After selecting the file and uploading it, the entries will be validated. Any entries which are found to be invalid will be listed, and you can choose to omit them and continue with cohort creation, or select a new file for verification and upload. 
-
-**GDC Data Portal Case Manifest Files**
-
-GDC Data Portal case manifests can be obtained on the 'Cases' tab of the Exploration section of the data portal `here <https://portal.gdc.cancer.gov/exploration>`_.
-JSON case manifests must have a .json extension, and will be validated against the GDC's JSON schema. The minimum required properties for each entry in the JSON file are the project object and the submitter_id field. The project object must include the project_id property. All other properties will be ignored.
-
-TSV case manifests must have a .tsv extension, and must contain the first three columns of the GDC TSV case manifest in the following order: Case UUID, Case ID, Project. Any other columns will be ignored. Do not remove the header row of the TSV case manifest.
-
-Because the GDC Data Portal case manifest entries are cases, all samples from a case will be included in the cohort.
-
-Below are the instructions which display when the **Show Instructions** button is clicked.
-
-.. image:: CreateCohorts-Barcodes-Upload-Instructions1.png
-   :align: center
-
-.. image:: CreateCohorts-Barcodes-Upload-Instructions2.png
-   :align: center
-
-
-Enter Tab
----------
-
-This feature will allow you to manually input barcodes for cohort creation.  There is a maximum length of 10000 characters for the text box.
-Please use the file upload option if you need to upload more barcodes than will fit in that space.
-
-Below are the instructions which display when the **Show Instructions** button is clicked.
-
-.. image:: CreateCohorts-Barcodes-Enter-Instructions.png
-   :align: center
 
 Manage Saved Cohorts
 ####################
