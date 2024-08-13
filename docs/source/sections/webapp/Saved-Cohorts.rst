@@ -11,21 +11,19 @@ When you first log into the ISB-CGC Web App, the Create Cohort screen will be di
 
 If you already have saved cohorts, they will be listed in the **Saved Cohorts** panel. Click on the **Saved Cohorts** link in that panel and a page with the details of your saved cohorts will display. Alternatively, to go directly to a given cohort, click on its name and the cohort details page of that cohort will display.
 
-You can also navigate to these functions by using the drop down options in the **COHORTS** item on the menu bar.
-
 .. image:: CreateCohort.png
    :align: center
 
 Cohort Creation - Filters 
 =========================
 
-Using the list of data sets and filters on the left, you can select the attributes and features that interest you from ISB-CGC data or user data. You can create a cohort containing multiple programs.  
+Using the list of data sets and filters on the left, you can select the attributes and features that interest you from ISB-CGC data or user data. For a specific program, you can select data across nodes (GDC, PDC, IDC).
 
-Select Data Set
+Select Program
 -----------------
 This panel in the top left of the screen allows you to pick the programs and user data sets that you want included in the cohort.
 
-The drop down list will display the ISB-CGC data sets that the Web App is currently supporting, as well as your user data. By default, the list is sorted by Node (Genomics Data Commons, Proteomics Data Commons, User) with programs listed below each node header. The sort order can be changed by selecting Program next to **Sort By**.
+The drop down list will display the ISB-CGC programs that the Web App is currently supporting. Next to each progam, it will list the origin of this data (Genomics Data Commons (GDC), Proteomics Data Commons (PDC), Imaging Data Commons (IDC)).
 
 .. image:: SelectDataSet.png
    :align: center
