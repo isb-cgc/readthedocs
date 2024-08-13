@@ -2,17 +2,53 @@
 ISB-CGC Data Release Notes
 ############################
 
+*August 9, 2024*
+
+New and updated GDC Legacy Case File Metadata tables.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_legacy_r37_v2
+
+**BigQuery table updated**
+
+- isb-cgc-bq.GDC_case_file_metadata.fileData_legacy_current
+
+*July 23, 2024*
+
+New and updated GDC RNA seq and Somatic Mutation tables for GDC r40.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.TARGET_versioned.masked_somatic_mutation_hg38_gdc_r40
+- isb-cgc-bq.CPTAC_versioned.masked_somatic_mutation_hg38_gdc_r40
+- isb-cgc-bq.TCGA_versioned.RNAseq_hg38_gdc_r40
+- isb-cgc-bq.REBC_versioned.RNAseq_hg38_gdc_r40
+- isb-cgc-bq.CPTAC_versioned.RNAseq_hg38_gdc_r40
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.TARGET.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.CPTAC.masked_somatic_mutation_hg38_gdc_current
+- isb-cgc-bq.TCGA.RNAseq_hg38_gdc_current
+- isb-cgc-bq.REBC.RNAseq_hg38_gdc_current
+- isb-cgc-bq.CPTAC.RNAseq_hg38_gdc_current
+
 *July 1, 2024*
 
-New and updated GDC data for r40
+New and updated GDC data for r40. New and updated HTAN tables.
 
 **BigQuery tables created**
 
 - isb-cgc-bq.GDC_case_file_metadata_versioned.GDCfileID_to_GCSurl_r40
+- isb-cgc-bq.HTAN_versioned.clinical_tier1_followup_r5_v2
+- isb-cgc-bq.HTAN_versioned.clinical_tier1_followup_r4_v2
+- isb-cgc-bq.HTAN_versioned.clinical_tier1_followup_r3_v2
 
 **BigQuery tables updated**
 
 - isb-cgc-bq.GDC_case_file_metadata.GDCfileID_to_GCSurl_current
+- isb-cgc-bq.HTAN.clinical_tier1_followup_current
 
 *June 27, 2024*
 
