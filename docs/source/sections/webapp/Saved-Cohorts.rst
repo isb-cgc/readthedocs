@@ -324,31 +324,6 @@ The table will contain the following information (for each of the data type tabs
 * index_file_gdc_uuid
 * index_file_cloud_storage_location
 
-Export File List to Google Cloud Storage
-----------------------------------------
-
-To export the File List to Google Cloud Storage (GCS), select the **GCS** button on the **File Browser** screen.  You will need to have registered a Google Cloud Project and a GCS Object to be able to export to GCS. More information on how to register a GCS bucket can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_. You can also give the object a unique name; if left blank, a name will be provided for the bucket. You will be able to select either CSV or JSON as the file format for exporting into Cloud Storage. All exported files are converted into zip files.  
-
-The file will contain the following information (for each of the data type tabs):
-
-* sample_barcode
-* case_barcode
-* cloud_storage_location
-* file_size_bytes
-* platform
-* data_type
-* data_category 
-* exp_strategy
-* data_format
-* gdc_file_uuid 
-* gdc_case_uuid
-* project_short_name
-* cohort_id
-* build
-* index_file_storage_location
-* index_file_gdc_uuid
-* date_added
-
 Cohort export to CSV
 ===================
 
@@ -393,11 +368,7 @@ Clicking the **BigQuery** button allows you to create a new table or append to a
     }
   
 Note: You shouldn't ever set UUID to 'required' because sometimes a sample doesn't have a UUID, and the attempt to insert a 'null' will cause the cohort export to fail.
-
-Cohort export to Cloud Storage
-==============================
-
-Clicking the **GCS** button allows you to save the details of the cohort in a specified Google Cloud Storage location. You must have a registered Google Cloud Storage (GCS) bucket with a Google Cloud Project on the registered Google Cloud Projects details page. More information on how to register a GCS bucket can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_.  You will be able to select either CSV or JSON as the file format for exporting into Cloud Storage. All exported files are converted into zip files.  
+ 
 
 Share a cohort
 ==============
@@ -406,9 +377,3 @@ Clicking the **Share** button allows you to share the cohort in the Web App with
 
 If the email address you entered is not registered with ISB-CGC, a message displays, "The following user emails could not be found; please ask them to log into the site first:(email entered)."
 
-Public Cohorts
-##############
-
-Selecting **Public Cohorts** from the **COHORT** menu dropdown displays the **Cohorts** screen, **PUBLIC COHORTS** tab. This screen displays details about any public cohorts currently available in the Web App. It displays the cohort name, number of cases, number of samples and the last date each program was updated.  Public cohorts can be used for "New Workbook" and "Set Operations".
-
-To create new workbooks based on a public cohort, check the checkbox adjacent to the public cohort and click on the **New Workbook** button.
