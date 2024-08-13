@@ -7,7 +7,7 @@ Cohorts are a way of creating custom groupings of the samples and/or cases that 
 Create a New Cohort
 ###################
 
-To create a cohort from **Your Dashboard**, click on the **Create a Cohort** link in the **Saved Cohorts** panel at the bottom of the screen and select either "Filter" or  "Barcodes" from the dropdown. The Filter link will display the cohort creation page;  filters are explained below.  The Barcodes link will display a page where you can upload samples/cases barcodes and create a cohort from them.
+When you first log into the ISB-CGC Web App, the Create Cohort screen will be displayed. To get to it when you are on other screens, select "Create Cohort" from the Cohorts dropdown. If you are on the **Manage Saved Cohorts** screen, you can click on the **New Cohort** button.
 
 If you already have saved cohorts, they will be listed in the **Saved Cohorts** panel. Click on the **Saved Cohorts** link in that panel and a page with the details of your saved cohorts will display. Alternatively, to go directly to a given cohort, click on its name and the cohort details page of that cohort will display.
 
