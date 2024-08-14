@@ -60,12 +60,12 @@ This panel displays the selected filters for the cohort. Filters are listed unde
 Selecting an X beside a single filter will remove that filter. Selecting **Clear All** in the top right of the panel will remove all the filters.
 Note that you cannot removed filters once the cohort has been saved. (See Set Operations below for more ways to add or remove filters from your cohorts.)
 
-Data Set Details Panel
+Program Details Panel
 ^^^^^^^^^^^^^
 
 This panel shows the **Total Number of Cases** and **Total Number of Samples** for the currently displayed data set based on the selected filters. If there is a small "timer" icon, the calculation is taking place; the results should appear soon.
 
-Data Set Clinical Features Panel
+Program Clinical Features Panel
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 This panel shows a list of images (called "treemaps") that give a high level breakdown of the selected samples for a 
@@ -100,7 +100,13 @@ The cohort details screen displays the details of a specific cohort.  The title 
 
 The screen is divided into the following sections:
 
-**Current Filters Panel**
+**Select Program**
+
+This panel displays all the programs that are included in the cohort; click on the drop down to see them.
+
+Changing the selected program will change what is displayed on the Select Filters, Program Details and Clinical Features Panels.
+
+**Filters Panel**
 
 This panel displays current filters on this cohort or any of its ancestors. Saved filters cannot be removed, but new ones can be added using **Edit**.
 
@@ -108,29 +114,17 @@ This panel displays current filters on this cohort or any of its ancestors. Save
 
 This panel displays the Internal ISB-CGC Cohort ID (the identifier you use to access this cohort through the `APIs <../progapi/progAPI-v4/Programmatic-Demo.html>`_), and the number of samples and cases in this cohort. The number of samples may be larger than the number of cases because some cases may have provided multiple samples. This panel also displays "Your Permissions" which can be either Owner or Reader, as well as Revision History.  If you have edited the cohort, the filters that were used to originally create the cohort are displayed under the "Creation Filters" header. The newly applied filters (after original creation) are displayed under the "Applied Filters" header.
 
-**Select Data Set**
+**Select Filters Panel**
 
-This panel displays all the programs and user data sets that are included in the cohort; click on the drop down to see them.
+**Program Details Panel**
 
-By default, the list is sorted by Node (Genomics Data Commons, Proteomics Data Commons, User) with programs listed below each node header. The sort order can be changed by selecting Program next to **Sort By**. To see details about a program or data set, select it from the drop down list.
+This panel shows the **Total Number of Cases** and **Total Number of Samples** for the currently displayed program (selected from the Program drop down) based on the selected filters.
 
-**Data Set Details Panel**
+**Program Clinical Features Panel**
 
-This panel shows the **Total Number of Samples** and **Total Number of Cases** for the currently displayed data set (selected from the Data Set drop down) based on the selected filters.
-
-**Data Set Clinical Features Panel**
-
-This panel shows a list of images (called "treemaps") that give a high level breakdown of the selected samples for a 
-handful of features (ex. Disease Code, Vital Status, Gender, Sample Type, Age at Diagnosis, etc.) for the selected program. 
-
-By using the “Show More” button, you can see additional tree maps.  Mousing over an image shows the details of each specific section of the image and the number of samples associated with it.
+This panel shows a list of images (called "treemaps") that give a high level breakdown of the selected samples for a handful of features (ex. Project Short Name, Disease Type, Gender, Tissue/Organ of Origin, Vital Status, etc.) for the selected program. 
 
 **Cohort Details Screen functions:**
-
-Create a New Workbook
-=====================
-
-Clicking the **New Workbook** button brings you to a screen where you can create a new workbook using this cohort.
 
 Edit a cohort
 =============
