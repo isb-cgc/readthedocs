@@ -126,21 +126,9 @@ This panel shows a list of images (called "treemaps") that give a high level bre
 
 **Cohort Details Screen functions:**
 
-Edit a cohort
-=============
-
-Clicking the **Edit** button displays the Filters panel. Any filters selected will be added to existing filters. To return to the previous view, save any newly selected filters using the **Save Changes** button, or cancel adding any new filters by clicking the **Cancel** link.
-
 Comment on a cohort
 ===================
 Clicking the **Comments** button displays the Comments panel. Here anyone who can see this cohort (such as an owner or someone who has shared access to the cohort) can comment on it. Comments are shared with anyone who can view this cohort.  They are ordered by newest on the bottom.  Selecting the "X" on the Comments panel will close the panel.  
-
-Copy a cohort
-=============
-
-To create a copy of the cohort, click on the **Duplicate** button. This will take you to a new copy of the cohort which has the same list of samples and cases;  you will be the owner of the copy.  
-
-This is how you create a copy of another researcher's cohort that they have shared with you. (Note: If they later change their cohort, your cohort will not be updated; it will remain the same as it was at the time you duplicated it).
 
 Delete a cohort
 =================
@@ -152,7 +140,7 @@ Click the **Delete** button to delete the cohort. Confirm by clicking the second
 File Browser
 ============
 
-Clicking the **File Browser** button displays a screen with a list of data files associated with your current cohort.  
+Clicking the **View Files** button displays a screen with a list of data files associated with your current cohort.  
 This list includes all files which are stored on the Google Cloud, including both controlled access and open access data.
 
 .. image:: CohortFileBrowser.png
