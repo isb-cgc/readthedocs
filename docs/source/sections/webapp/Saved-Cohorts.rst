@@ -38,10 +38,12 @@ Select Filters
 When an ISB-CGC hosted data set is selected, appropriate filters will display under three tabs. All tabs are not available for all programs, but all programs will have some features available on the CASE tab.
 
   - The CASE tab displays clinical and demographic features applicable to the selected program.
-  - The DATA tab displays data types (ex. Aligned Reads, Copy Number Segment Masked) applicable to the selected program.
-  - The MOLECULAR tab displays filters pertaining to mutations.
+  - The DATA tab displays data attributes (ex. Build, Data Type, Data Category, Experimental Strategy, File Type, Data Format, Platform, Access) applicable to the selected program.
+  - The MOLECULAR tab is not currently in use.
   
 On the CASE tab, expand the GDC, PDC or IDC headings to see the available filters. At that point, click on a filter name to see the selection values. For example, when you click on "Vital Status", it expands and provides a list containing "Alive" and "Dead" values you may choose. You may select multiple filters and multiple values.
+
+On the DATA tab, click on a filter name to see the selection values.
 
 Selected filters will display in the **Selected Filters** panel. The Data Set Details panel will update the Total Number of Cases and the Total Number of Samples based on the selected filters.
 
@@ -49,14 +51,6 @@ Individual selections within a filter group are "ORed" together, meaning if any 
 
  - If you use AND and do not see the data you are expecting in the filter, try OR instead. AND is a more restrictive criteria requiring all filters to be met; OR is less restrictive, requiring only one criteria to be met for the data to display.
  - You may want to consider adding the term "AND" or "OR" in your saved cohort title since the type of combination used in your cohort does not display in the filters list for a saved cohort.
-
-   
-Molecular Tab
-^^^^^^^^^^^^^
-
-The Molecular Tab is only available for TCGA data. It enables the user to filter by Gene Mutation Status, creating a cohort based on the presence of a mutation (of various types) in a gene or genes. 
-
-To combine multiple gene filters, select AND (requires all filters to be met for the data to be filtered) or OR (at least one criteria needs to be met for the data to be displayed). You can also filter by Genomic Build.
           
 Selected Filters Panel
 ^^^^^^^^^^^^^^^^^^^^^^
