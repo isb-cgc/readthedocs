@@ -81,32 +81,14 @@ Click the **Save as New Cohort** button when you are ready to save the cohort ba
 Manage Saved Cohorts
 ####################
 
-Selecting **Manage Saved Cohorts** from the **COHORT** menu dropdown displays the **Cohorts** screen, **SAVED COHORTS** tab. This screen displays your saved cohorts and allows you to view, edit, delete, set operations, and share them. In addition, you can start a new workbook using selected cohorts.
+Selecting **Manage Saved Cohorts** from the **COHORT** menu dropdown displays the **Cohorts** screen, **SAVED COHORTS** tab. This screen displays your saved cohorts and allows you to view, edit, delete, set operations, and share them. 
 
-To view a cohort, click on the name of the cohort to display the cohort details. Alternately, you can view the cohort details by
-clicking on its name in the "Saved Cohorts" panel on the "Your Dashboard" page. 
+To view a cohort, click on the name of the cohort to display the cohort details. 
  
-From **Cohorts** screen, **SAVED COHORTS** tab, you can perform the following functions. Except for Set Operations, these functions are described in detail in the Cohort Details Screen section, as they are also available there.
+From **Cohorts** screen, **SAVED COHORTS** tab, you can perform the following functions. 
 
-* New Workbook
 * Delete
-* Set Operations
 * Share
-
-Set Operations
-==============
-
-Clicking the **Set Operations** button displays a **New Cohort** screen where you can create new cohorts from two or more existing cohorts using the union, intersection or complement operations. The Set Operations button will only be available if at least two cohorts are selected on the **Cohorts** screen. 
-
-On the **New Cohort** screen, enter a name for the new cohort and select a set operation. The intersect and union operations can take any number of cohorts and in any order. The complement operation requires that there is a base cohort, from which the other cohorts will be subtracted. Click **Okay** to complete the set operation and create the new cohort.
-
-Note: To combine the user uploaded data and the ISB-CGC data, use the Set Operations function. This is possible because the list of barcodes is what is used to create the set operation. For example, to make a cohort of user data samples and ISB-CGC curated samples, Set Union must be used, and to filter user data which is an extension of TCGA or TARGET samples, Set Intersection must be used.
-
-The figure below shows what the results of the set operations will be (represented by I for Intersect, U for Union, and C for Complement).  There are two types of sets shown, those that overlap (on the left) and those that are nested (on the right).  For the last row (complement operations), the "Subtracted" area is removed from the "Base" area to result in the Complement (C). 
-
-
-.. image:: SetOperations.PNG
-   :align: center
 
 Cohort Details Screen
 #####################
