@@ -14,7 +14,6 @@ Over time we will be updating and enhancing this web interface based on your fee
    webapp/Saved-Cohorts
    webapp/IGV-Browser
    webapp/OsimisWebViewer
-   webapp/Register-GCP
 
 **Data used by the Web App**
 
