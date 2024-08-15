@@ -83,11 +83,9 @@ Also on the ISB-CGC home page are links to:
 - ISB-CGC BigQuery Table Search 
 - Cancer Data File Browser
 - Chromosomal Aberations & Gene Fusions (Mitelman) database
-- The *TP53* Database
 - Cohort Builder/Data Explorer
 - Pipelines and APIs
 - Notebooks
-- Controlled Access Data
 - Documentation
 - ISB-CGC Publications and Citations
 
