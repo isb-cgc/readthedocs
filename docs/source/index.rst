@@ -52,7 +52,6 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    :caption: MORE ISB-CGC RESOURCES
 
    sections/data/Mitelman_about
-   sections/the_TP53_database
    sections/SyntheticLethality_resource
    sections/data/HTAN_about
    sections/ProgrammaticAccess
