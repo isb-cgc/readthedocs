@@ -32,9 +32,8 @@ filter data from one or more public data sets (such as TCGA, CCLE, and TARGET), 
      - * `ISB-CGC Mitelman Database Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/Mitelman_about.html>`_
        * `ISB-CGC Mitelman Database <https://mitelmandatabase.isb-cgc.org/>`_
    * - The *TP53* Database
-        | *Explore TP53 variant data that have been reported in the published literature or are available in other public databases.*
-     - * ISB-CGC The *TP53* Database `Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/the_TP53_database.html>`_
-       * ISB-CGC The *TP53* `Database <https://tp53.isb-cgc.org/>`_
+        | *The TP53 Database is no longer hosted by ISB-CGC. Explore TP53 variant data that have been reported in the published literature or are available in other public databases.*
+     - * The *TP53* `Database <https://tp53.cancer.gov//>`_
      
 Cancer data analysis using Google BigQuery
 ##########################################################
@@ -59,6 +58,10 @@ into ISB-CGC Google BigQuery tables. This allows users to quickly analyze inform
         | *Seamlessly integrate ISB-CGC tables with R and Python to conduct robust analyses*
      - * `ISB-CGC Notebook Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HowTos.html>`_  
        * `ISB-CGC Statistical Notebook Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/RegulomeExplorerNotebooks.html>`_
+       * `ISB-CGC Machine Learning Notebook Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/MachineLearningNotebooks.html>`_
+       * `ISB-CGC HTAN Notebook Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/HTANNotebooks.html>`_
+       * `ISB-CGC Mitelman Database Notebook Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/MitelmanDBNotebooks.html>`_
+
 
 Cancer data analysis using APIs & Google Cloud Virtual Machines
 #################################################################
