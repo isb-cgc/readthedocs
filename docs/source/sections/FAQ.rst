@@ -37,66 +37,6 @@ or your own personal project) and the ISB-CGC is your Google identity
 Access to all ISB-CGC hosted data is controlled using the `Data Commons Framework Gen3 <https://dcf.gen3.org/>`_ which defines the
 permissions attached to each data set, bucket, or object.
 
-What project information do I input on the Register a Google Cloud Project page?
----------------------------------------------------------------------------------
-
-You will need to input the Google Cloud Project ID which can be found on the Dashboard page of the Google Console under Project info.
-
-.. image:: project_info.PNG
-   :align: center
-
-Why do I add the service account 907668440978-oskt05du3ao083cke14641u35deokgjj@developer.gserviceaccount.com to my Google Cloud Project?
-----------------------------------------------------------------------------------------------------------------------------------------
-
-This service account is needed in your Google Cloud Project IAM page for the ISB-CGC project to be able to automatically verify that all users of your Google Cloud Project have the same appropriate access rights to the protected data that has been requested for the project.
-
-What service account do I use on the Register a Service Account page to be able to gain access to protected data?
--------------------------------------------------------------------------------------------------------------------------
-
-On the Register a Service account page you are asked to input a service account ID.  You need to go to the IAM and Admin page which can be found in your `console <https://console.cloud.google.com/home/dashboard?>`_ for your Google Cloud Project to find the correct service account.  The service account you would like to use is named, "Compute Engine default service account". This service account is the default option on the Register A Service Account page. *Please DO NOT use the service account 144657163696-utjumdn9c03fof16ig7bjak44hfj53o6@developer.gserviceaccount.com (you will be prevented from using this account by our software and an error message will be sent indicating this).* 
-
-Why can't I reauthorize my Service Account on my Google Cloud Project?
-------------------------------------------------------------------------
-
-Your service account may have had its permissions revoked (because, for example, the 7-day limit has been reached, or you have added a member to the GCP who is not authorized to use controlled data the service account is linked with or has not logged into the ISB-CGC UI and authenticated using their dbGaP credentials). If permissions were revoked because an unauthorized user was added to the project, the Google Cloud Project owner will be sent
-an email specifying the Service Account, and Google Cloud Project which resulted in the access being revoked. If the user has not logged into the ISB-CGC Web App and/or has not authenticated, you will be given a red error message saying, "There was an error in processing your service account. Please try again." when attempting to refresh using the refresh wheel.  To see which new user hasn't logged in or authenticated, please go to either the Register a Service Account page or the Adjust a Service Account page and see which user it is within the table for which the data set is not selected and there are X's in the Registered and Has NIH Identity.
-
-.. image:: authorizedtable.PNG
-   :align: center
-
-Ensure that the user has 1) Logged into the ISB-CGC web app and 2) Has registered their NIH Identity with their user interface identity.
-
-To reauthorize the service account 1) Remedy the problem that resulted in access being denied, and 2) Select the "Adjust A Service Account" icon(plus sign) next to Current Access Expires.
-
-Another reason could be if some users are marked as unable to access datasets they should have access to, make sure they have logged into the system and linked their eRA Commons/NIH Identity to their Google Identity.
-
-Why would I get an Authorization Failed page on NIH iTrust when attempting to link my Google Account with my NIH identity?
----------------------------------------------------------------------------------------------------------------------------
-
-.. image:: authfailednihItrustpage.PNG
-   :align: center
-   
-You can get this page for two reasons:  First, if you may have typed in your password incorrectly, please select the Click Here to continue link and try to log in again.  Second, if you have typed your password correctly, it could be time to refresh your NIH identity password.  Please reset your password by using this link `here <https://public.era.nih.gov/commons>`_ and try again.  This should allow you to link your NIH Identity to the ISB-CGC web app. 
-
-What happens if I accidently delete the default service account from a Google Cloud Project?
-----------------------------------------------------------------------------------------------
-
-If you accidently delete the default service account associated to the Google Cloud Project you are working in, you can no longer authorize the service account during instance creation, associate the service account to controlled access data, and many other functionalities will no longer work. 
-
-If you then try to add the service account back to the Google Cloud Project, this error occurs:
-
- *ERROR: (gcloud.compute.instances.create) Some requests did not succeed:*
- *- The resource 'xx...@project.gserviceaccount.com' of type 'serviceAccount' was not found.*
-
-Unfortunately at this time, there is no direct way to recover the default service account.
-
-One workaround to recreate the Google Compute Engine default service account is to disable and reenable Google Compute Engine API in your project. This will only work if you have no Google Compute Engine resources (e.g VMs, Disks, Snapshots etc) in your project; otherwise, you will get "Backend Provisioning Error" when you try to disable Compute Engine API.
-
-Another solution would be creating a new project and redeploying your instances there.
-
-Google has an internal feature request to prevent accidental deletion of default service accounts.
-
-There is a Google forum discussion that can be found `here <https://groups.google.com/forum/#!topic/gce-discussion/bQ_-qCWoUZw>`_ with more details and explanation.
 
 ISB-CGC Web Interface
 ########################
