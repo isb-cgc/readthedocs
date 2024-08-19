@@ -115,28 +115,8 @@ This is a security feature when working with forms found in most web browsers; i
 Which web browser is recommended when working with the site?
 ------------------------------------------------------------
 
-We recommend using Google Chrome browser.  Currently a chart will display slightly off when working with workbooks on a FireFox browser. 
+We recommend using Google Chrome browser. 
 
-Why did I get a 401 error on the IGV Browser?
-----------------------------------------------
-
-You will see the 401 error only if your pop-up blocker is enabled for the ISB-CGC website.  Please disable the pop-up blocker on the top right-hand side of the screen by selecting to always allow pop-ups from ISB-CGC.
-
-.. image:: 401ErrorIGVBrowser.PNG
-   :align: center
-   
-Why does the web browser crash if too many IGV Browser tabs are opened at once?
-----------------------------------------------------------------------------------
-
-The web browser may crash when too many IGV Browser tabs are open due to the memory intensive nature of loading bam files.  When working with the IGV Browser, please be mindful of having multiple tabs of the IGV Browser open.
-
-.. image:: IGVBrowserCrash.png
-   :align: center
-   
-Does SeqPeek and CNVR plotting only work with TCGA data?
----------------------------------------------------------
-
-We currently have no data associated with CNVR or Seqpeek for TARGET or CCLE.  Therefore, SeqPeek and CNVR will only work with TCGA data.
 
 Data Access
 ###########
