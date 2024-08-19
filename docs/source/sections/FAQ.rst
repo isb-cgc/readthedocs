@@ -164,42 +164,6 @@ Please also review our section on **Understanding Data Security**.
 
 .. _dbGaP: https://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login
 
-I have dbGaP authorization.  How do I provide this information to the ISB-CGC platform?
----------------------------------------------------------------------------------------
-
-In order for us to verify your dbGaP authorization, you first need to associate your Google Identity
-(used to sign-in to the Web App) with a valid NIH login (*eg* your eRA Commons ID).  After you have
-signed in, click on your avatar (next to your name in the upper-right corner) 
-and you will be taken to your account details page where you can 
-verify your dbGaP authorization.  You will be redirected to the NIH iTrust login page and after you
-successfully authenticate, you will be brought back to the ISB-CGC Web App.  After you successfully
-authenticate, we will verify that you also have dbGaP authorization for the TCGA controlled-access data and other programs you have dbGaP access to.
-
-We also ask that you review our section on `Understanding Data Security <data/TCGA_Data_Security.html>`_.
-
-My professor has dbGaP authorization.  Do I have to have my own authorization too?
----------------------------------------------------------------------------------------
-
-Yes, your professor will need to add you as a "data downloader" to his/her dbGaP application so that you
-have your own dbGaP authorization associated with your own eRA Commons ID.  
-(This `video <https://www.youtube.com/watch?v=Yem3OH26kX4>`_ explains how an authorized user of 
-controlled-access data can assign a downloader role to someone in his/her institution.)
-
-**I already authenticated using my eRA Commons ID but now I want to use a different Google identity to
-access the ISB-CGC Web App. Can I reauthenticate using the same eRA Commons ID?**
-
-Yes, but you will first need to sign in using your previous Google identity and "unlink" your eRA Commons
-ID from that one before you can link it with your new Google Identity.  An eRA Commons ID cannot be
-associated with more than one Google Identity within the ISB-CGC platform at any one time.
-
-Can I authenticate to NIH programmatically?
---------------------------------------------
-
-No, the current NIH authentication flow requires
-web-based authentication and must therefore be done from within the ISB-CGC Web App.  Once you have
-authenticated to NIH via the Web App, and your dbGaP authorization has been verified, the Google 
-identity associated with your account will have access to the controlled-data for 24 hours.
-
 Data Content
 ############
 
