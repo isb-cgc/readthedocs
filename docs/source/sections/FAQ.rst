@@ -145,7 +145,7 @@ Does all TCGA data require dbGaP authorization prior to access?
 ----------------------------------------------------------------
 No, generally only the low-level sequence (DNA and RNA) and SNP-array data (CEL files) require
 dbGaP authorization.  All of the "high-level" molecular data, as well as the clinical data are
-open-access and much of this has been made available in a convenient set of BigQuery tables. 
+open-access and much of this has been made available in a convenient set of BigQuery tables. Note that as of August 2024, only open access data is available through ISB-CGC.
 
 Where can I find the TCGA data that ISB-CGC has made publicly available in BigQuery tables?
 ----------------------------------------------------------------------------------------------
@@ -156,13 +156,7 @@ and enter "isb-cgc-bq" (without quotes) in the text box labeled "Project ID". Fo
 data sets and tables will now be visible in the left side-bar of the BigQuery web interface. 
 *Note that in order to use BigQuery, you need to be a member of a Google Cloud Project.*
 
-How can I apply for access to low-level DNA and RNA sequence data?
------------------------------------------------------------------------
 
-In order to access the TCGA or All other controlled-access data available, you will need to apply to dbGaP_.
-Please also review our section on **Understanding Data Security**.
-
-.. _dbGaP: https://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?login=&page=login
 
 Data Content
 ############
