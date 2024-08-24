@@ -44,7 +44,6 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    sections/Web-UI
    sections/DataExplorer
    sections/DataBrowser
-   sections/data/TCGA_Data_Security
 
 .. toctree::
    :hidden:
