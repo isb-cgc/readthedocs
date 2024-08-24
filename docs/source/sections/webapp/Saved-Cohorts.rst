@@ -29,7 +29,7 @@ To select more than one program for your cohort, after you **Select Filters** fo
 
 Selected programs and filters will display in the **Selected Filters** section.
 
-.. image:: SelectDataSet.png
+.. image:: SelectProgram.png
    :align: center
 
 Select Filters
