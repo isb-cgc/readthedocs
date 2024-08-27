@@ -144,6 +144,60 @@ Delete a cohort
 
 Click the **Delete** button to delete the cohort. Confirm by clicking the second **Delete** button presented.
 
+Share a cohort
+==============
+
+Clicking the **Share** button allows you to share the cohort in the Web App with users you select by entering the user's email. 
+
+If the email address you entered is not registered with ISB-CGC, a message displays, "The following user emails could not be found; please ask them to log into the site first:(email entered)."
+
+Cohort export to CSV
+===================
+
+Click the **CSV** button to download the cohort in CSV format. The file will contain a list of sample and cases IDs in the cohort.
+
+Cohort export to BigQuery
+=========================
+
+Clicking the **BQ** button allows you to create a new table or append to an existing table. You must have registered a BigQuery data set with a Google Cloud Project on the registered Google Cloud Projects details page. More information on how to register a BigQuery data set can be found `here <program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-data-sets>`_.
+
+  If a user wants to export a cohort to their own premade table, it is required to have the following columns: 
+
+.. code-block:: JSON
+
+  {
+        'fields': [
+            {
+                'name': 'cohort_id',
+                'type': 'INTEGER',
+                'mode': 'REQUIRED'
+            },{
+                'name': 'case_barcode',
+                'type': 'STRING',
+                'mode': 'REQUIRED'
+            },{
+                'name': 'sample_barcode',
+                'type': 'STRING',
+                'mode': 'REQUIRED'
+            },{
+                'name': 'project_short_name',
+                'type': 'STRING',
+                'mode': 'REQUIRED'
+            },{
+                'name': 'date_added',
+                'type': 'TIMESTAMP',
+                'mode': 'REQUIRED'
+            },{
+                'name': 'case_gdc_uuid',
+                'type': 'STRING'
+            }
+        ]
+    }
+  
+Note: You shouldn't ever set UUID to 'required' because sometimes a sample doesn't have a UUID, and the attempt to insert a 'null' will cause the cohort export to fail.
+ 
+
+
 .. _file-browser-page:
 
 File Browser
@@ -238,57 +292,4 @@ The table will contain the following information (for each of the data type tabs
 * file_size_bytes
 * index_file_gdc_uuid
 * index_file_cloud_storage_location
-
-Cohort export to CSV
-===================
-
-Click the **CSV** button to download the cohort in CSV format. The file will contain a list of sample and cases IDs in the cohort.
-
-Cohort export to BigQuery
-=========================
-
-Clicking the **BigQuery** button allows you to create a new table or append to an existing table. You must have registered a BigQuery data set with a Google Cloud Project on the registered Google Cloud Projects details page. More information on how to register a BigQuery data set can be found `here <program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-data-sets>`_.
-
-  If a user wants to export a cohort to their own premade table, it is required to have the following columns: 
-
-.. code-block:: JSON
-
-  {
-        'fields': [
-            {
-                'name': 'cohort_id',
-                'type': 'INTEGER',
-                'mode': 'REQUIRED'
-            },{
-                'name': 'case_barcode',
-                'type': 'STRING',
-                'mode': 'REQUIRED'
-            },{
-                'name': 'sample_barcode',
-                'type': 'STRING',
-                'mode': 'REQUIRED'
-            },{
-                'name': 'project_short_name',
-                'type': 'STRING',
-                'mode': 'REQUIRED'
-            },{
-                'name': 'date_added',
-                'type': 'TIMESTAMP',
-                'mode': 'REQUIRED'
-            },{
-                'name': 'case_gdc_uuid',
-                'type': 'STRING'
-            }
-        ]
-    }
-  
-Note: You shouldn't ever set UUID to 'required' because sometimes a sample doesn't have a UUID, and the attempt to insert a 'null' will cause the cohort export to fail.
- 
-
-Share a cohort
-==============
-
-Clicking the **Share** button allows you to share the cohort in the Web App with users you select by entering the user's email. 
-
-If the email address you entered is not registered with ISB-CGC, a message displays, "The following user emails could not be found; please ask them to log into the site first:(email entered)."
 
