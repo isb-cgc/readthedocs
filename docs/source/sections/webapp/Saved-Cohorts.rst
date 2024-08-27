@@ -200,10 +200,14 @@ Note: You shouldn't ever set UUID to 'required' because sometimes a sample doesn
 
 .. _file-browser-page:
 
-File Browser
+View Files
 ============
 
-Clicking the **View Files** button displays a screen with a list of data files associated with your current cohort.  
+Clicking the **View Files** button displays the Cancer Data File Browser screen with a list of data files associated with your current cohort.  
+
+Cancer Data File Browser
+#####################
+
 This list includes all files which are stored on the Google Cloud, including both controlled access and open access data.
 
 .. image:: CohortFileBrowser.png
