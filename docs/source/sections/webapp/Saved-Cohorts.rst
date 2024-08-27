@@ -7,7 +7,7 @@ Cohorts are a way of creating custom groupings of the samples and/or cases that 
 Create a New Cohort
 ###################
 
-When you first log into the ISB-CGC Web App, the Create Cohort screen will be displayed. To get to it when you are on other screens, select "Create Cohort" from the Cohorts dropdown. If you are on the **Manage Saved Cohorts** screen, you can click on the **New Cohort** button.
+When you first log into the ISB-CGC Web App, the Create Cohort screen will be displayed. To get to it when you are on other screens, select **Create Cohort** from the **Cohorts** dropdown. If you are on the **Saved Cohorts** screen, you can click on the **New Cohort** button.
 
 If you already have saved cohorts, they will be listed in the **Saved Cohorts** panel. Click on the **Saved Cohorts** link in that panel and a page with the details of your saved cohorts will display. Alternatively, to go directly to a given cohort, click on its name and the cohort details page of that cohort will display.
 
@@ -85,14 +85,17 @@ Click the **Save as New Cohort** button when you are ready to save the cohort ba
 Manage Saved Cohorts
 ####################
 
-Selecting **Manage Saved Cohorts** from the **COHORT** menu dropdown displays the **Cohorts** screen, **SAVED COHORTS** tab. This screen displays your saved cohorts and allows you to view, edit, delete, set operations, and share them. 
+Selecting **Manage Saved Cohorts** from the **Cohorts** menu dropdown displays the **Cohorts** screen, **Saved Cohorts** display. The number next to "Manage Saved Cohorts" indicates how many cohorts that you have saved.
 
-To view a cohort, click on the name of the cohort to display the cohort details. 
- 
-From **Cohorts** screen, **SAVED COHORTS** tab, you can perform the following functions. 
+.. image:: Cohorts-dropdown.png
+   :align: center
 
-* Delete
-* Share
+
+The **Saved Cohorts** screen displays your saved cohorts and allows you to view, edit, delete and share them. 
+
+* To view a cohort, click on the name of the cohort to display the cohort details. 
+* To delete a cohort, check the checkbox next to the cohort, and click on the **Delete** button.
+* To share a cohort, check the checkbox next to the cohort, and click on the **Share** button.
 
 Cohort Details Screen
 #####################
