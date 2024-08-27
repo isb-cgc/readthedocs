@@ -158,9 +158,9 @@ Click the **CSV** button to download the cohort in CSV format. The file will con
 Cohort export to BigQuery
 =========================
 
-Clicking the **BQ** button allows you to create a new table or append to an existing table. You must have registered a BigQuery data set with a Google Cloud Project on the registered Google Cloud Projects details page. More information on how to register a BigQuery data set can be found `here <program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-data-sets>`_.
+Clicking the **BQ** button allows you to create a new table or append to an existing table. You must have a BigQuery data set with a Google Cloud Project on the registered Google Cloud Projects details page. 
 
-  If a user wants to export a cohort to their own premade table, it is required to have the following columns: 
+If a user wants to export a cohort to their own premade table, it is required to have the following columns: 
 
 .. code-block:: JSON
 
@@ -229,32 +229,22 @@ Pathology Reports
 
 Click on the **Pathology Reports** tab to see a listing of all files containing Pathology Reports.
 
-To download a patholofy report, click on the File Name.
+To download a pathology report, click on the File Name.
 
 To download a list of pathology reports for this cohort, select the **CSV** button in the upper right corner. 
 
 
-Using the Image Pathology Viewer
---------------------------------
-
-.. note::
-   All tissue slide images from the TCGA program are currently unavailable for viewing. (Diagnostic images will display.)
-
-When available, pathology images can be viewed using the caMicroscope tool (see more about caMicroscope provide `here <http://camicroscope.org>`_).  These are the pathology images that are associated with TCGA samples. To find images that can be viewed, open a saved cohort and select the **File Browser** button. You can also select the **File Browser** link from the Dashboard Saved Cohorts panel.  The files associated with your cohort will be shown. Click on **Pathology Images** to see a list of available pathology images. Hovering over the File Name and clicking on "Open in caMicroscope" will open the image file in a new tab using caMicroscope. (HINT: using a smaller cohort will provide faster response in creating the list of files available).
-
-To zoom into the image, either click the left button or use your wheel to zoom in.  Use your mouse to move around the image.  To zoom out of the image, shift-slick the left mouse button or use your wheel to zoom out.  Selecting caMicroscope at the top of page will send you to the caMicroscope homepage. If you hover over the Slide Barcode section on the top right hand side you will see metadata information listed.
-
 Viewing a Radiology Image
--------------------------
+=========================
 
-To find images that can be viewed, open a saved cohort and select the **File Browser** button. You can also click the **File Browser** link from the Dashboard Saved Cohorts panel. The files associated with your cohort will be shown. Click the **Radiology Images** tab to view a list of available radiology images. Hovering over the Study Instance UID column and clicking on "Open in CHIF Viewer" will open the series Selection panel in a new tab using Osimis DICOM. (HINT: Using a smaller cohort will provide faster response in creating the list of files available.)
+To find images associated with your cohort that can be viewed, click on the **Viewable Images** tab. Hovering over the Study Instance UID column and clicking on "Open in CHIF Viewer" will open the series Selection panel in a new tab using Osimis DICOM. (HINT: Using a smaller cohort will provide faster response in creating the list of files available.)
 
 For a more detailed step-by-step process of Viewing Radiology Images using the Osimis DICOM viewer please go `here <OsimisWebViewer.html>`_.
 
 Download File List as CSV
 -------------------------
 
-To download a list of files that are part of this cohort, select the **CSV** button in the upper right on the File Listing panel (on all tabs) on the **File Browser** screen. 
+To download a list of files that are part of this cohort, select the **CSV** button in the upper right on the File Listing panel of the Cancer Data File Browser. 
 
 The file contains the following information for each file:
 
@@ -277,7 +267,7 @@ The file contains the following information for each file:
 Export File List to BigQuery
 ----------------------------
 
-To export the File List to BigQuery, select the **BigQuery** button on the **File Browser** screen.  You will need to have registered a Google Cloud Project and a BigQuery dataset to be able to export to BigQuery. More information on how to register a BigQuery Dataset can be found `here <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/program_data_upload.html#registering-cloud-storage-buckets-and-bigquery-datasets-a-pre-requisite-for-using-your-own-data-in-isb-cgc>`_. You can either make a new table or append to an existing table.  You can also give the table a unique name; if left blank, a name will be provided for the table.
+To export the File List to BigQuery, select the **BQ** button on the Cancer Data File Browser.  You will need to have a Google Cloud Project and a BigQuery dataset to be able to export to BigQuery.  You can either make a new table or append to an existing table.  You can also give the table a unique name; if left blank, a name will be provided for the table.
 
 The table will contain the following information (for each of the data type tabs):
 
