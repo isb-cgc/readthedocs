@@ -234,12 +234,27 @@ To download a pathology report, click on the File Name.
 To download a list of pathology reports for this cohort, select the **CSV** button in the upper right corner. 
 
 
-Viewing a Radiology Image
+Viewable Images
 =========================
 
-To find images associated with your cohort that can be viewed, click on the **Viewable Images** tab. Hovering over the Study Instance UID column and clicking on "Open in CHIF Viewer" will open the series Selection panel in a new tab using Osimis DICOM. (HINT: Using a smaller cohort will provide faster response in creating the list of files available.)
+To find images that can be viewed, click on the **Viewable Images** tab. There are two types which can be viewed, Radiology Images and Pathology Images. When you hover over the Study Instance UID, the appropriate viewer will be selected by the program.
+
+Radiology Images
+-----------------
+
+Hovering over the Study Instance UID column and clicking on "Open in CHIF Viewer" will open the series Selection panel in a new tab using Osimis DICOM. (HINT: Using a smaller cohort will provide faster response in creating the list of files available.)
 
 For a more detailed step-by-step process of Viewing Radiology Images using the Osimis DICOM viewer please go `here <OsimisWebViewer.html>`_.
+
+Pathology Images
+-----------------
+
+.. note::
+   All tissue slide images from the TCGA program are currently unavailable for viewing. (Diagnostic images will display.)
+
+When available, pathology images can be viewed using the caMicroscope tool (see more about caMicroscope provide `here <http://camicroscope.org>`_).  These are the pathology images that are associated with TCGA samples. Hovering over the File Name and clicking on "Open in caMicroscope" will open the image file in a new tab using caMicroscope. (HINT: using a smaller cohort will provide faster response in creating the list of files available).
+
+To zoom into the image, either click the left button or use your wheel to zoom in.  Use your mouse to move around the image.  To zoom out of the image, shift-slick the left mouse button or use your wheel to zoom out.  Selecting caMicroscope at the top of page will send you to the caMicroscope homepage. If you hover over the Slide Barcode section on the top right hand side you will see metadata information listed.
 
 Download File List as CSV
 -------------------------
