@@ -12,6 +12,7 @@ When you first log into the ISB-CGC Web App, the Create Cohort screen will be di
 If you already have saved cohorts, they will be listed in the **Saved Cohorts** panel. Click on the **Saved Cohorts** link in that panel and a page with the details of your saved cohorts will display. Alternatively, to go directly to a given cohort, click on its name and the cohort details page of that cohort will display.
 
 .. image:: CreateCohort.png
+   :scale: 50
    :align: center
 
 Cohort Creation
@@ -51,6 +52,9 @@ Individual selections within a filter group are "ORed" together, meaning if any 
 
  - If you use AND and do not see the data you are expecting in the filter, try OR instead. AND is a more restrictive criteria requiring all filters to be met; OR is less restrictive, requiring only one criteria to be met for the data to display.
  - You may want to consider adding the term "AND" or "OR" in your saved cohort title since the type of combination used in your cohort does not display in the filters list for a saved cohort.
+
+.. image:: SelectFilter.png
+   :align: center
           
 Selected Filters Panel
 ^^^^^^^^^^^^^^^^^^^^^^
