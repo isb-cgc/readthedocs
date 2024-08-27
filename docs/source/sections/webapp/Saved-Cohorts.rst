@@ -15,13 +15,12 @@ If you already have saved cohorts, they will be listed in the **Saved Cohorts** 
    :scale: 50
    :align: center
 
-Cohort Creation
-===============
 
 Using the list of data sets and filters on the left, you can select the attributes and features that interest you from ISB-CGC data. For a specific program, you can select data across nodes (GDC, PDC, IDC).
 
 Select Program
------------------
+===================
+
 This panel in the top left of the screen allows you to pick the programs and user data sets that you want included in the cohort.
 
 The drop down list will display the ISB-CGC programs that the Web App is currently supporting. Next to each progam, it will list the origin of this data (Genomics Data Commons (GDC), Proteomics Data Commons (PDC), Imaging Data Commons (IDC)).
@@ -34,7 +33,7 @@ Selected programs and filters will display in the **Selected Filters** section.
    :align: center
 
 Select Filters
------------------
+===================
 
 When an ISB-CGC hosted data set is selected, appropriate filters will display under three tabs. All tabs are not available for all programs, but all programs will have some features available on the CASE tab.
 
@@ -57,7 +56,7 @@ Individual selections within a filter group are "ORed" together, meaning if any 
    :align: center
           
 Selected Filters Panel
-^^^^^^^^^^^^^^^^^^^^^^
+----------------------
 
 This panel displays the selected filters for the cohort. Filters are listed under the program name. If you click on the program name, the screen will change to display the information for that program.
 
@@ -65,12 +64,12 @@ Selecting an X beside a single filter will remove that filter. Selecting **Clear
 Note that you cannot remove filters once the cohort has been saved. 
 
 Program Details Panel
-^^^^^^^^^^^^^
+---------------------
 
 This panel shows the **Total Number of Cases** and **Total Number of Samples** for the currently displayed data set based on the selected filters. If there is a small "timer" icon, the calculation is taking place; the results should appear soon.
 
 Program Clinical Features Panel
-^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------
 
 This panel shows a list of images (called "treemaps") that give a high level breakdown of the selected samples for a 
 handful of features (ex. Project Short Name, Disease Type, Gender, Tissue/Organ of Origin, Vital Status, etc.) for the currently displayed data set based on the selected filters. 
@@ -78,7 +77,7 @@ handful of features (ex. Project Short Name, Disease Type, Gender, Tissue/Organ 
 Mousing over an image shows the details of each specific section of the image and the number of samples associated with it.
 
 Saving the Cohort
-^^^^^^^^^^^^^^^^^^
+-----------------
 
 Click the **Save as New Cohort** button when you are ready to save the cohort based on the filters you have set.  You will be asked for a cohort name and the selected filters will be displayed.  Enter the name and click the **Create Cohort** button. 
 
