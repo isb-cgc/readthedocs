@@ -18,5 +18,6 @@ Note that the maximum number of file records that can be downloaded is 65000. Yo
 If you decide to log into the ISB-CGC Web App (using **Sign In** in the upper right-hand corner), you can register a Google Cloud Project and BigQuery data set and export the file record list to a BigQuery table or a Google Cloud Storage Bucket.
 
 .. image:: webapp/DataBrowser-noSignIn.png
+   :scale: 50
    :align: center
 
