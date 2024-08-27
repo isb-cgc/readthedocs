@@ -207,7 +207,12 @@ Clicking the **View Files** button displays the Cancer Data File Browser screen 
 Cancer Data File Browser
 #####################
 
-This list includes all files which are stored on the Google Cloud, including both controlled access and open access data.
+The Cancer Data File Browser displays a listing of all files associated with the cohort, pathology reports and viewable images.
+
+All Files
+============
+
+This list on the **All Files** tab includes all files which are stored on the Google Cloud, including both controlled access and open access data.
 
 .. image:: CohortFileBrowser.png
    :align: center
@@ -215,20 +220,9 @@ This list includes all files which are stored on the Google Cloud, including bot
 
 You can use "Show", "Page", "Previous" and "Next" to navigate through the list.  The columns are sortable by selecting the column header.  You can select a subset of the default columns to show by using the "Choose Columns to Display" tool.
 
-You can filter by full or partial Case Barcode on all tabs. To remove the search key word, click the "X" button adjacent to it. Filtering by Case Barcode updates the number to the right of all the other filters. 
+You can filter by full or partial Case Barcode on all tabs; click the CASE filter to expand it. To remove the search key word, click the "X" button adjacent to it. Filtering by Case Barcode updates the number to the right of all the other filters. 
 
-You may also filter by data type, data category, data format, platform, program, disease code, disease strategy, node (GDC, PDC), build (Hg38, Hg19) and/or experimental strategy.  Selecting a filter will update the associated list.  The numbers next to the filter refers to the number of files available for that filter.
-
-The tabs "IGV", "Pathology Images" and "Radiology Images" allow you to filter for files that show you respectively read-level sequence data (viewed using the IGV viewer), pathology images, and radiology images.  Please note: only if you have authenticated as a dbGaP authorized user will you be able to select controlled access files to view in the IGV viewer (CCLE data does not require authorization to view the sequence data in the IGV viewer).  Details of how to view Sequences, and Pathology and Radiology Images are provided below.
-
-Viewing a Sequence
-------------------
-
-When available, sequences in a cohort can be viewed using the IGV viewer.  To find those sequences that can be viewed, select the **IGV** link on the **File Browser** screen. The File Listing panel will display the files that can be viewed with the IGV viewer.  Selecting the checkbox in the "View" column (maximum of file files) and clicking the **Launch IGV** button in the upper panel will display an IGV view of the selected sequence(s) data.  
-
-Controlled access files will be viewable by sequence ONLY if you have `authenticated as a dbGaP-authorized user <http://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/Gaining-Access-To-Controlled-Access-Data.html>`_. 
-
-`More information about Viewing a Sequence in the IGV Viewer <IGV-Browser.html>`_.
+You may also filter by program name, build (Hg38, Hg19), data type, data category, experimental strategy, data format, platform, node (GDC, PDC, IDC) and/or access.  Selecting a filter will update the associated list.  The numbers next to the filter refers to the number of files available for that filter.
 
 Using the Image Pathology Viewer
 --------------------------------
