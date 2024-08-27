@@ -59,10 +59,10 @@ Individual selections within a filter group are "ORed" together, meaning if any 
 Selected Filters Panel
 ^^^^^^^^^^^^^^^^^^^^^^
 
-This panel displays the selected filters for the cohort. Filters are listed under the program name. If you click on the program name, the screeb will change to display the information for that program.
+This panel displays the selected filters for the cohort. Filters are listed under the program name. If you click on the program name, the screen will change to display the information for that program.
 
 Selecting an X beside a single filter will remove that filter. Selecting **Clear All** in the top right of the panel will remove all the filters.
-Note that you cannot removed filters once the cohort has been saved. (See Set Operations below for more ways to add or remove filters from your cohorts.)
+Note that you cannot remove filters once the cohort has been saved. 
 
 Program Details Panel
 ^^^^^^^^^^^^^
@@ -115,13 +115,15 @@ Changing the selected program will change what is displayed on the Select Filter
 
 **Filters Panel**
 
-This panel displays current filters on this cohort or any of its ancestors. Saved filters cannot be removed, but new ones can be added using **Edit**.
+This panel displays current filters on this cohort. Saved filters cannot be removed.
 
 **Cohort Details Panel**
 
-This panel displays the Internal ISB-CGC Cohort ID (the identifier you use to access this cohort through the `APIs <../progapi/progAPI-v4/Programmatic-Demo.html>`_), and the number of samples and cases in this cohort. The number of samples may be larger than the number of cases because some cases may have provided multiple samples. This panel also displays "Your Permissions" which can be either Owner or Reader, as well as Revision History.  If you have edited the cohort, the filters that were used to originally create the cohort are displayed under the "Creation Filters" header. The newly applied filters (after original creation) are displayed under the "Applied Filters" header.
+This panel displays the Internal ISB-CGC Cohort ID (the identifier you use to access this cohort through the `APIs <../progapi/progAPI-v4/Programmatic-Demo.html>`_), and the number of samples and cases in this cohort. The number of samples may be larger than the number of cases because some cases may have provided multiple samples. This panel also displays "Your Permissions" which can be either Owner or Reader, as well as Revision History.
 
 **Select Filters Panel**
+
+This panel displays the selected filters for the cohort. Filters are listed under the program name. If you click on the program name, the screen will change to display the information for that program.
 
 **Program Details Panel**
 
