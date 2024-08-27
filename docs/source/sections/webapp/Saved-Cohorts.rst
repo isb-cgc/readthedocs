@@ -202,10 +202,10 @@ Note: You shouldn't ever set UUID to 'required' because sometimes a sample doesn
 View Files
 ============
 
-Clicking the **View Files** button displays the Cancer Data File Browser screen with a list of data files associated with your current cohort.  
+Clicking the **View Files** button displays the **Cancer Data File Browser** screen with a list of data files associated with your current cohort.  
 
 Cancer Data File Browser
-#####################
+#######################
 
 The Cancer Data File Browser displays a listing of all files associated with the cohort, pathology reports and viewable images.
 
@@ -223,6 +223,16 @@ You can use "Show", "Page", "Previous" and "Next" to navigate through the list. 
 You can filter by full or partial Case Barcode on all tabs; click the CASE filter to expand it. To remove the search key word, click the "X" button adjacent to it. Filtering by Case Barcode updates the number to the right of all the other filters. 
 
 You may also filter by program name, build (Hg38, Hg19), data type, data category, experimental strategy, data format, platform, node (GDC, PDC, IDC) and/or access.  Selecting a filter will update the associated list.  The numbers next to the filter refers to the number of files available for that filter.
+
+Pathology Reports
+=================
+
+Click on the **Pathology Reports** tab to see a listing of all files containing Pathology Reports.
+
+To download a patholofy report, click on the File Name.
+
+To download a list of pathology reports for this cohort, select the **CSV** button in the upper right corner. 
+
 
 Using the Image Pathology Viewer
 --------------------------------
