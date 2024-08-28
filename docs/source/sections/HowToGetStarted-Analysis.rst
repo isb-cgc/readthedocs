@@ -21,8 +21,8 @@ filter data from one or more public data sets (such as TCGA, CCLE, and TARGET), 
         | *View images from cancer patients using integrated image viewers*
      - * `ISB-CGC Image Viewers Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/OsimisWebViewer.html>`_ 
    * - Integrative Genomics Viewer (IGV)
-        | *Explore and visualize genomic data*
-     - * `ISB-CGC Integrative Genomics Viewer (IGV) Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/IGV-Browser.html>`_
+        | *Explore and visualize genomic data. IGV is no longer integrated with ISB-CGC*
+     - * `Integrative Genomics Viewer (IGV) website <https://igv.org/>`_
    * - Cancer Data File Browser   
         | *Browse and identify files associated with cohorts of interest*
      - * `ISB-CGC Cancer Data File Browser Documentation <DataBrowser.html>`_
