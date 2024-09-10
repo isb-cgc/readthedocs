@@ -75,6 +75,11 @@ If you are planning to create an ISB-CGC account using a Google email (e.g. ``jo
 
 .. note:: If you attempt to sign up with an email that is associated with a Google account already registered with the ISB-CGC Web App, a message "Please use Google login with this email address." will display.
 
+Multi-factor authentication
+============================
+
+Logging into ISB-CGC Web App requires multi-factor authentication. You will be presented with a screen with a **Get Login Code** button. Clicking on this button will send an email to you with a login code. Enter this code into the **Login Code** field and click on **Validate Code**.
+
 ISB-CGC Home Page
 #################
 
