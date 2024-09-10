@@ -75,7 +75,7 @@ For more details, please see our `Community Notebook Repository <https://github.
 Controlled-Access The Cancer Genome Atlas Data
 ===============================================
 
-The controlled-access TCGA data includes:
+TCGA has the following controlled-access data; however, as of August 2024, it cannot be accessed through ISB-CGC:
 
 * SNP array CEL files:  these Level-1 data files were provided by the DCC and include over 22,000 files for both tumor and matched-normal samples
 * VCF files:  these Level-2 data files were provided by the DCC and include over 15,000 files produced by several different centers (primarily Broad and BCGSC)

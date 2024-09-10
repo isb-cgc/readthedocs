@@ -4,11 +4,13 @@ ISB-CGC Data Overview
 
 ISB-CGC provides access to data from several research programs, such as **The Cancer Genome Atlas (TCGA)**, **Therapeutically Applicable Research to Generate Effective Treatments (TARGET)**, and **Cancer Cell Line Encyclopedia (CCLE)**. The full list is available `here <Hosted-Data.html>`_.  
 
-The majority of the data made available through ISB-CGC originates from NCI `Genomic Data Commons <https://gdc.cancer.gov/>`_ (GDC). Users can access GDC data on the cloud through ISB-CGC. Users have access to both raw and processed data from cancer patients. 
+The majority of the data made available through ISB-CGC originates from NCI `Genomic Data Commons <https://gdc.cancer.gov/>`_ (GDC). Users can access GDC data on the cloud through ISB-CGC. Users have access to processed data from cancer patients. 
 
 NCI `Proteomics Data Commons <https://pdc.cancer.gov/pdc/>`_ (PDC) data is also available in ISB-CGC Google BigQuery tables.
 
-In general, almost all raw data is controlled-access and is accessible through Google Cloud Storage buckets; only those users with proper authorization can access them. The GDC has established bioinformatics workflows/pipelines executed on the raw data to generate processed data. In this way, users can directly access the processed data without having to run compute-intensive workflows themselves. However, users who wish to run their own workflows/pipelines still have access to the raw data as well. 
+In general, almost all raw data is controlled-access; as of August 2024, ISB-CGC no longer provides access to controlled-access data. 
+
+The GDC has established bioinformatics workflows/pipelines executed on the raw data to generate processed data. In this way, users can directly access the processed data without having to run compute-intensive workflows themselves. However, users can still run their own workflows/pipelines. 
 
 Processed data, however, are generally open-access. ISB-CGC allows users to utilize this processed data in two ways on the platform: 
 
