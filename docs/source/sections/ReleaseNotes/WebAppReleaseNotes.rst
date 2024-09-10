@@ -2,6 +2,12 @@
 ISB-CGC Web App Release Notes
 #############################
 
+*August 6, 2024* 
+
+- ISB-CGC no longer supports controlled access data or integrates with the IGV Genomic Viewer.
+- The WebApp has been streamlined; the dashboard and workbooks have been removed. This includes defining variables and genes as well as graphing. 
+- As of August 2024, ISB-CGC no longer hosts the TP53 database. It can now be found at https://tp53.cancer.gov/.
+
 *November 27, 2023* 
 
 - On the ISB-CGC Help-->Video Tutorials page, the Introduction video has been replaced with a new version. Two obsolete videos "Image Viewers" and "Exporting Cohort" were removed.
