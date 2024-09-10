@@ -2,7 +2,7 @@
 Cancer Data File Browser
 ***********************************
 
-The `Cancer Data File Browser <https://isb-cgc.appspot.com/cohorts/filelist/>`_ is an ISB-CGC web interface which allows you to 
+The `Cancer Data File Browser <https://portal.isb-cgc.org/cohorts/filelist/>`_ is an ISB-CGC web interface which allows you to 
 explore a comprehensive selection of cancer related data files in Google Cloud Storage Buckets, such as raw sequencing, cancer nucleotide variation, pathology or radiology images.
 
 Selecting  **Cancer Data File Browser** from the **Data Browsers** drop down menu on the ISB-CGC home screen will display the **Cancer Data File Browser** screen. 
@@ -18,5 +18,6 @@ Note that the maximum number of file records that can be downloaded is 65000. Yo
 If you decide to log into the ISB-CGC Web App (using **Sign In** in the upper right-hand corner), you can register a Google Cloud Project and BigQuery data set and export the file record list to a BigQuery table or a Google Cloud Storage Bucket.
 
 .. image:: webapp/DataBrowser-noSignIn.png
+   :scale: 50
    :align: center
 

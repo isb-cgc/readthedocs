@@ -7,7 +7,7 @@ There are two distinct ways to log in and access the ISB-CGC Web App:
 - Log into ISB-CGC via your Google account
 - Create an ISB-CGC account using your email address
 
-**The two ways to log in are not completely equivalent. If you plan to perform any functions that require Google authentication, such as accessing controlled data in cloud buckets or exporting cohorts to BigQuery, then you’ll need to use the first route, and log into ISB-CGC via your Google account.**
+**The two ways to log in are not completely equivalent. If you plan to perform any functions that require Google authentication, such as exporting cohorts to BigQuery, then you’ll need to use the first route, and log into ISB-CGC via your Google account.**
 
 To access the ISB-CGC Web App, first log in by clicking on the "Sign In" link in the upper right of the ISB-CGC home page. 
 
@@ -25,26 +25,26 @@ A **Sign In** screen will display. You can log in with an existing Google accoun
 Log in with a Google account
 ============================
 
-If you have an existing Google account, you can use it to log into the ISB-CGC Web App. If you wish to access controlled data in cloud buckets or export cohorts to BigQuery tables, this is the method you *must* use.
+If you have an existing Google account, you can use it to log into the ISB-CGC Web App. If you wish to export cohorts to BigQuery tables, this is the method you *must* use.
 
 - Click on the **Continue with Google** button.
 - On the next screen, enter your email address which you have previously associated with a Google account.
 - Click **Next**.
 - On the next screen, enter your Google account password and click **Next**.
 
-If you have saved workbooks, cohorts or other data that you previously entered using this Google account, they will display on **Your Dashboard**.
+If you have saved cohorts that you previously entered using this Google account, they will display on the **Manage Saved Cohorts** page.
 
 If you don't have a Google account and would like one, `create a Google account <https://accounts.google.com/SignUpWithoutGmail>`_. You can link the Google account to an existing email or use a Gmail address.
 
 Log in with an email address
 ===============================
 
-Alternatively, you can log in with only an email. As noted above, if you plan to access controlled data in cloud buckets or export cohorts to BigQuery, do not use this method. First you need to create an ISB-CGC Web App account for that email. See the section below "Create an account with ISB-CGC using an email". Once you’ve created that account:
+Alternatively, you can log in with only an email. As noted above, if you plan to export cohorts to BigQuery, do not use this method. First you need to create an ISB-CGC Web App account for that email. See the section below "Create an account with ISB-CGC using an email". Once you’ve created that account:
 
 - Enter your email and password for your ISB-CGC Web App account.
 - Click the **Sign In** button.
 
-If you have saved workbooks, cohorts or other data that you previously entered using this email, they will display on **Your Dashboard**.
+If you have saved cohorts that you previously entered using this email, they will display on the **Manage Saved Cohorts** page.
 
 .. note:: If you attempt to log in with an email that is associated with a Google account already registered with the ISB-CGC Web App, a message "Please log into this account using Google (above)." will display.
 
@@ -75,6 +75,11 @@ If you are planning to create an ISB-CGC account using a Google email (e.g. ``jo
 
 .. note:: If you attempt to sign up with an email that is associated with a Google account already registered with the ISB-CGC Web App, a message "Please use Google login with this email address." will display.
 
+Multi-factor authentication
+============================
+
+Logging into ISB-CGC Web App requires multi-factor authentication. You will be presented with a screen with a **Get Login Code** button. Clicking on this button will send an email to you with a login code. Enter this code into the **Login Code** field and click on **Validate Code**.
+
 ISB-CGC Home Page
 #################
 
@@ -83,11 +88,9 @@ Also on the ISB-CGC home page are links to:
 - ISB-CGC BigQuery Table Search 
 - Cancer Data File Browser
 - Chromosomal Aberations & Gene Fusions (Mitelman) database
-- The *TP53* Database
 - Cohort Builder/Data Explorer
 - Pipelines and APIs
 - Notebooks
-- Controlled Access Data
 - Documentation
 - ISB-CGC Publications and Citations
 
