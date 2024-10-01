@@ -2,6 +2,94 @@
 ISB-CGC Data Release Notes
 ############################
 
+*September 30, 2024*
+
+New and updated PDC data for V4.3.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.APOLLO_versioned.clinical_APOLLO1_pdc_V4_3
+- isb-cgc-bq.BROAD_versioned.clinical_Broad_pdc_V4_3
+- isb-cgc-bq.CBTN_versioned.clinical_diagnosis_pediatric_brain_cancer_pdc_V4_3
+- isb-cgc-bq.CBTN_versioned.clinical_pediatric_brain_cancer_pdc_V4_3
+- isb-cgc-bq.CBTN_versioned.per_sample_file_metadata_pediatric_brain_cancer_pdc_V4_3
+- isb-cgc-bq.CBTN.clinical_diagnosis_pediatric_brain_cancer_pdc_current
+- isb-cgc-bq.CBTN.clinical_pediatric_brain_cancer_pdc_current
+- isb-cgc-bq.CBTN.per_sample_file_metadata_pediatric_brain_cancer_pdc_current
+- isb-cgc-bq.CPTAC_versioned.clinical_CPTAC_2_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.clinical_CPTAC3_discovery_and_confirmatory_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.clinical_CPTAC3_other_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.clinical_diagnosis_proteogenomic_translational_research_centers_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.clinical_proteogenomic_translational_research_centers_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_CPTAC_2_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_CPTAC2_other_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_CPTAC3_discovery_and_confirmatory_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_CPTAC3_other_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_proteogenomic_translational_research_centers_pdc_V4_3
+- isb-cgc-bq.GPRP_versioned.clinical_georgetown_lung_cancer_pdc_V4_3
+- isb-cgc-bq.GPRP_versioned.per_sample_file_metadata_georgetown_lung_cancer_pdc_V4_3
+- isb-cgc-bq.ICPC_versioned.clinical_academia_sinica_LUAD_100_pdc_V4_3
+- isb-cgc-bq.ICPC_versioned.clinical_HBV_related_hepatocellular_carcinoma_pdc_V4_3
+- isb-cgc-bq.ICPC_versioned.clinical_human_early_onset_gastric_cancer_pdc_V4_3
+- isb-cgc-bq.ICPC_versioned.clinical_KNCC_Cancer_Proteogenomics_Group_pdc_V4_3
+- isb-cgc-bq.ICPC_versioned.clinical_NCC_iCC_pdc_V4_3
+- isb-cgc-bq.ICPC_versioned.clinical_oral_squamous_cell_carcinoma_pdc_V4_3
+- isb-cgc-bq.ICPC_versioned.clinical_PDAC_pdc_V4_3
+- isb-cgc-bq.ICPC_versioned.per_sample_file_metadata_academia_sinica_LUAD_100_pdc_V4_3
+- isb-cgc-bq.ICPC_versioned.per_sample_file_metadata_HBV_related_hepatocellular_carcinoma_pdc_V4_3
+- isb-cgc-bq.ICPC_versioned.per_sample_file_metadata_human_early_onset_gastric_cancer_pdc_V4_3
+- isb-cgc-bq.ICPC_versioned.per_sample_file_metadata_KNCC_Cancer_Proteogenomics_Group_pdc_V4_3
+- isb-cgc-bq.ICPC_versioned.per_sample_file_metadata_NCC_iCC_pdc_V4_3
+- isb-cgc-bq.ICPC_versioned.per_sample_file_metadata_oral_squamous_cell_carcinoma_pdc_V4_3
+- isb-cgc-bq.PDC_metadata_versioned.aliquot_to_case_mapping_V4_3
+- isb-cgc-bq.PDC_metadata_versioned.case_metadata_V4_3
+- isb-cgc-bq.PDC_metadata_versioned.file_associated_entity_mapping_V4_3
+- isb-cgc-bq.PDC_metadata_versioned.file_metadata_V4_3
+- isb-cgc-bq.PDC_metadata_versioned.studies_V4_3
+- isb-cgc-bq.Quant_Maps_Tissue_Biopsies_versioned.clinical_pct_swath_kidney_pdc_V4_3
+- isb-cgc-bq.Quant_Maps_Tissue_Biopsies_versioned.per_sample_file_metadata_pct_swath_kidney_pdc_V4_3
+- isb-cgc-bq.TCGA_versioned.clinical_CPTAC_TCGA_pdc_V4_3
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_CPTAC_TCGA_pdc_V4_3
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.APOLLO.clinical_APOLLO1_pdc_current
+- isb-cgc-bq.BROAD.clinical_Broad_pdc_current
+- isb-cgc-bq.CPTAC.clinical_CPTAC_2_pdc_current
+- isb-cgc-bq.CPTAC.clinical_CPTAC3_discovery_and_confirmatory_pdc_current
+- isb-cgc-bq.CPTAC.clinical_CPTAC3_other_pdc_current
+- isb-cgc-bq.CPTAC.clinical_diagnosis_proteogenomic_translational_research_centers_pdc_current
+- isb-cgc-bq.CPTAC.clinical_proteogenomic_translational_research_centers_pdc_current
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC_2_pdc_current
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC2_other_pdc_current
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC3_discovery_and_confirmatory_pdc_current
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_CPTAC3_other_pdc_current
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_proteogenomic_translational_research_centers_pdc_current
+- isb-cgc-bq.GPRP.clinical_georgetown_lung_cancer_pdc_current
+- isb-cgc-bq.GPRP.per_sample_file_metadata_georgetown_lung_cancer_pdc_current
+- isb-cgc-bq.ICPC.clinical_academia_sinica_LUAD_100_pdc_current
+- isb-cgc-bq.ICPC.clinical_HBV_related_hepatocellular_carcinoma_pdc_current
+- isb-cgc-bq.ICPC.clinical_human_early_onset_gastric_cancer_pdc_current
+- isb-cgc-bq.ICPC.clinical_KNCC_Cancer_Proteogenomics_Group_pdc_current
+- isb-cgc-bq.ICPC.clinical_NCC_iCC_pdc_current
+- isb-cgc-bq.ICPC.clinical_oral_squamous_cell_carcinoma_pdc_current
+- isb-cgc-bq.ICPC.clinical_PDAC_pdc_current
+- isb-cgc-bq.ICPC.per_sample_file_metadata_academia_sinica_LUAD_100_pdc_current
+- isb-cgc-bq.ICPC.per_sample_file_metadata_HBV_related_hepatocellular_carcinoma_pdc_current
+- isb-cgc-bq.ICPC.per_sample_file_metadata_human_early_onset_gastric_cancer_pdc_current
+- isb-cgc-bq.ICPC.per_sample_file_metadata_KNCC_Cancer_Proteogenomics_Group_pdc_current
+- isb-cgc-bq.ICPC.per_sample_file_metadata_NCC_iCC_pdc_current
+- isb-cgc-bq.ICPC.per_sample_file_metadata_oral_squamous_cell_carcinoma_pdc_current
+- isb-cgc-bq.PDC_metadata.aliquot_to_case_mapping_current
+- isb-cgc-bq.PDC_metadata.case_metadata_current
+- isb-cgc-bq.PDC_metadata.file_associated_entity_mapping_current
+- isb-cgc-bq.PDC_metadata.file_metadata_current
+- isb-cgc-bq.PDC_metadata.studies_current
+- isb-cgc-bq.Quant_Maps_Tissue_Biopsies.clinical_pct_swath_kidney_pdc_current
+- isb-cgc-bq.Quant_Maps_Tissue_Biopsies.per_sample_file_metadata_pct_swath_kidney_pdc_current
+- isb-cgc-bq.TCGA.clinical_CPTAC_TCGA_pdc_current
+- isb-cgc-bq.TCGA.per_sample_file_metadata_CPTAC_TCGA_pdc_current
+
 *August 9, 2024*
 
 New and updated GDC Legacy Case File Metadata tables.
