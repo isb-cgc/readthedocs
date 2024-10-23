@@ -77,8 +77,8 @@ I'm an advanced user, how do I...
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_make_NCBI_GEO_BigQuery_tables.ipynb>`_
      - 
    * - Compare cohorts with survival analysis and feature comparison?
-     - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/Staging-Notebooks/Notebooks/How_to_quickly_compare_cohorts.ipynb>`_
-     - `R <https://github.com/isb-cgc/Community-Notebooks/blob/Staging-Notebooks/Notebooks/How_to_quickly_compare_cohorts.md>`_
+     - `Python <https://nbviewer.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_quickly_compare_cohorts.ipynb>`_
+     - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_quickly_compare_cohorts.md>`_
    * - Run an ANOVA with BigQuery?*
      - `Python <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_an_ANOVA_test_in_BigQuery.ipynb>`_
      - `R <https://github.com/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_perform_an_ANOVA_test_in_BigQuery.md>`_
