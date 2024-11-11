@@ -6,7 +6,7 @@ ISB-CGC provides both interactive (through a `web application <https://isb-cgc.a
 
 Note that as of August 2024, ISB-CGC no longer supports controlled access data (including the IGV genomic viewer).
 
-.. image:: GettingStarted.png
+.. image:: GettingStarted-wo-controlled-access.png
    :align: center
 
 Google Cloud Project Setup and Data Access
