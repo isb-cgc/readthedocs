@@ -6,6 +6,28 @@ To search this database hosted by the ISB-CGC, please visit `Mitelman Database o
 
 For more detailed information about the Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer, see `Mitelman Database <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/Mitelman_about.html>`_.
 
+*November 21, 2024*
+
+**Enhancements and New Features**
+
+- New section: BigQuery and Data Analysis
+
+  - Lists and describes the Mitelman Database Tables
+  - Links to the ISB-CGC documentation and Google documentation
+  - SQL Query Examples
+  - Data Analysis Notebooks: Descriptions of current ISB-CGC Mitelman Notebooks and links to the notebooks and documentation.
+
+- New section: Data Browser
+
+  - Circos Plot
+  - Copy Number
+  - Gene Fusions
+
+- Contact page removed; contact information moved to About page
+
+
+
+
 *October 15, 2024*
 
 Mitelman Database of Chromosome Aberrations and Gene Fusions in Cancer quarterly update.
