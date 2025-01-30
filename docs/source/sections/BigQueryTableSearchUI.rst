@@ -52,6 +52,10 @@ By default, the Status filter is set to Current.
 .. image:: BigQuery/Status-filter.png
    :align: center
    
+**Include Always Newest tables**
+
+Setting this option to **On** includes tables that are updated regularly to the lastest version, as distinct duplicate entries. 
+
 **Name**   
 
 The **Name** filter is a free-form text field; the user can type all or a portion of the name into the field to perform the search. It will match against the Name column. 
@@ -128,7 +132,7 @@ These fields are most useful for users already familiar with the BigQuery tables
 
 **Labels**
 
-Each table was tagged with labels relating to the status, program, reference genome build, source, data type, experimental strategy and access. Users can search on any of these labels on the Labels filter field. Users can find the **Labels** search filter under the **Show More Filters** option. 
+Each table was tagged with labels relating to the status, program, categoryreference genome build, source, data type, experimental strategy, access and version. Users can search on any of these labels on the Labels filter field. Users can find the **Labels** search filter under the **Show More Filters** option. 
 
 The labels for a table can be viewed when the blue plus sign (+) to the left of the table row is clicked. See the screen shot in the Schema section below.
 
