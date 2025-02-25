@@ -1060,10 +1060,10 @@ OK! Next cell:
 	  SELECT
 	    project_short_name,
 	    case_barcode,
-	    IF (gender = 'FEMALE',
+	    IF (sex = 'FEMALE',
 	      1,
 	      0) AS F,
-	    IF (gender = 'MALE',
+	    IF (sex = 'MALE',
 	      1,
 	      0) AS M
 	  FROM
@@ -1073,7 +1073,7 @@ OK! Next cell:
 	  GROUP BY
 	    project_short_name,
 	    case_barcode,
-	    gender)
+	    sex)
 	    -- 
 	    --
 	SELECT
@@ -1117,10 +1117,10 @@ Let's change that query and get results for all types of cancer in TCGA.
 		  SELECT
 		    project_short_name,
 		    case_barcode,
-		    IF (gender = 'FEMALE',
+		    IF (sex = 'FEMALE',
 		      1,
 		      0) AS F,
-		    IF (gender = 'MALE',
+		    IF (sex = 'MALE',
 		      1,
 		      0) AS M
 		  FROM
@@ -1128,7 +1128,7 @@ Let's change that query and get results for all types of cancer in TCGA.
 		  GROUP BY
 		    project_short_name,
 		    case_barcode,
-		    gender)
+		    sex)
 		    -- 
 		    --
 		SELECT
