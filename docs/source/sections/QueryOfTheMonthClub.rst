@@ -1067,7 +1067,7 @@ OK! Next cell:
 	      1,
 	      0) AS M
 	  FROM
-	    `isb-cgc.TCGA_bioclin_v0.Clinical`
+	    `isb-cgc.TCGA_bioclin_v0.Clinical_View`
 	  WHERE
 	    project_short_name = 'TCGA-SKCM'
 	  GROUP BY
@@ -1124,7 +1124,7 @@ Let's change that query and get results for all types of cancer in TCGA.
 		      1,
 		      0) AS M
 		  FROM
-		    `isb-cgc.TCGA_bioclin_v0.Clinical`
+		    `isb-cgc.TCGA_bioclin_v0.Clinical_View`
 		  GROUP BY
 		    project_short_name,
 		    case_barcode,
@@ -1169,18 +1169,18 @@ Well, it turns out we can do the same thing with the pandas and pandas-gbq libra
 		  SELECT
 		    project_short_name,
 		    case_barcode,
-		    IF (gender = 'FEMALE',
+		    IF (sex = 'FEMALE',
 		      1,
 		      0) AS F,
-		    IF (gender = 'MALE',
+		    IF (sex = 'MALE',
 		      1,
 		      0) AS M
 		  FROM
-		    `isb-cgc.TCGA_bioclin_v0.Clinical`
+		    `isb-cgc.TCGA_bioclin_v0.Clinical_View`
 		  GROUP BY
 		    project_short_name,
 		    case_barcode,
-		    gender)
+		    sex)
 		    -- 
 		    --
 		SELECT
