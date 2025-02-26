@@ -178,19 +178,19 @@ clinical table.
     SELECT
       case_barcode,
       project_short_name,
-      gender,
+      sex,
       country,
       number_pack_years_smoked,
       (number_pack_years_smoked - mu) / sd AS z
     FROM
-      [isb-cgc:TCGA_bioclin_v0.Clinical] AS a
+      `isb-cgc.TCGA_bioclin_v0.Clinical_View` AS a
     JOIN (
       SELECT
         vital_status,
         AVG(number_pack_years_smoked) AS mu,
         STDDEV(number_pack_years_smoked) AS sd
       FROM
-        [isb-cgc:TCGA_bioclin_v0.Clinical]
+        `isb-cgc.TCGA_bioclin_v0.Clinical_View`
       WHERE
         vital_status = 'Alive'
       GROUP BY
