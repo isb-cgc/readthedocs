@@ -226,19 +226,17 @@ With summary tables, we can even compute statistics like a ChiSq.
 	FROM (
 	  SELECT (
 	    CASE
-              WHEN gender = 'MALE' AND hpv_status = 'Positive' THEN 'Male_and_HPV_Pos'
-              WHEN gender = 'MALE' AND hpv_status = 'Negative' THEN 'Male_and_HPV_Neg'
-              WHEN gender = 'FEMALE' AND hpv_status = 'Positive' THEN 'Female_and_HPV_Pos'
-              WHEN gender = 'FEMALE' AND hpv_status = 'Negative' THEN 'Female_and_HPV_Neg'
+              WHEN sex = 'MALE' AND hpv_status = 'Positive' THEN 'Male_and_HPV_Pos'
+              WHEN sex = 'MALE' AND hpv_status = 'Negative' THEN 'Male_and_HPV_Neg'
+              WHEN sex = 'FEMALE' AND hpv_status = 'Positive' THEN 'Female_and_HPV_Pos'
+              WHEN sex = 'FEMALE' AND hpv_status = 'Negative' THEN 'Female_and_HPV_Neg'
               ELSE 'None'
             END ) AS table_cell,
 	  FROM
-	    [isb-cgc:TCGA_bioclin_v0.Clinical]
+	    `isb-cgc.TCGA_bioclin_v0.Clinical_View`
 	  WHERE
 	    project_short_name IN ('TCGA-CESC',
-	      'HNSC')
-	  HAVING
-	    table_cell <> 'None' )
+	      'HNSC'))
 	GROUP BY
 	  table_cell
 	ORDER BY
