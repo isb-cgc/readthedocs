@@ -69,7 +69,7 @@ diseases, with an associated "primary solid tumor" sample. Note the use of the *
 	  case_barcode,
 	  Sample_Type_name
 	FROM
-	  [isb-cgc:TCGA_bioclin_v0.Biospecimen]
+	  `isb-cgc.TCGA_bioclin_v0.Biospecimen`
 	WHERE
 	  project_short_name IN ('TCGA-CESC', 'TCGA-HNSC')
 	  AND Sample_Type_name = 'Primary solid Tumor'
@@ -97,7 +97,7 @@ To do this we need to JOIN the clinical and biospecimen tables using the SQL **.
 		    Sample_Type_name,
 		    avg_percent_tumor_cells
 		  FROM
-		    [isb-cgc:TCGA_bioclin_v0.Biospecimen]
+		    `isb-cgc.TCGA_bioclin_v0.Biospecimen`
 		  WHERE
 		    project_short_name IN ('TCGA-CESC',
 		      'TCGA-HNSC')
@@ -107,7 +107,7 @@ To do this we need to JOIN the clinical and biospecimen tables using the SQL **.
 		    case_barcode,
 		    hpv_status
 		  FROM
-		    [isb-cgc:TCGA_bioclin_v0.Clinical] ) AS b
+		    `isb-cgc.TCGA_bioclin_v0.Clinical` ) AS b
 		ON
 		  a.case_barcode = b.case_barcode
 		GROUP BY
@@ -143,14 +143,14 @@ and then finally we sort by n.
 	  AVG(avg_percent_tumor_cells) AS avgPctTumor,
 	  COUNT(*) AS n
 	FROM
-	  [isb-cgc:TCGA_bioclin_v0.Biospecimen]
+	  `isb-cgc.TCGA_bioclin_v0.Biospecimen`
 	WHERE
 	  case_barcode IN (
 
 	  SELECT
 	    case_barcode
 	  FROM
-	    [isb-cgc:TCGA_bioclin_v0.Clinical]
+	    `isb-cgc.TCGA_bioclin_v0.Clinical`
 	  WHERE
 	    hpv_status = 'Positive'
 	    AND project_short_name IN ('TCGA-CESC', 'TCGA-HNSC')
@@ -171,7 +171,7 @@ as possible. That means we want to aggregate and compute functions that
 return summary data.
 
 In this query, we're going to look at some summary statistics in the
-clinical table.
+clinical table (using the clinical view).
 
 .. code-block:: sql
 
@@ -265,15 +265,15 @@ with one row for each of the input rows in the input annotation table.)
         CHR AS hg19_chr,
         MAPINFO AS hg19_pos
       FROM
-        [isb-cgc:platform_reference.methylation_annotation] ) a
-    LEFT OUTER JOIN EACH (
+        `isb-cgc.platform_reference.methylation_annotation` ) a
+    LEFT OUTER JOIN (
       SELECT
         LTRIM(hg19_ref,"chr") AS hg19_chr,
         hg19_pos,
         LTRIM(hg38_ref,"chr") AS hg38_chr,
         hg38_pos
       FROM
-        [isb-cgc:genome_reference.liftOver_hg19_to_hg38] ) b
+        `isb-cgc.genome_reference.liftOver_hg19_to_hg38` ) b
     ON
       a.hg19_chr=b.hg19_chr
       AND a.hg19_pos=b.hg19_pos
