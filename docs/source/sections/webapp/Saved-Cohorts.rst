@@ -12,7 +12,7 @@ When you first log into the ISB-CGC Web App, the Create Cohort screen will be di
 If you already have saved cohorts, they will be listed in the **Saved Cohorts** panel. Click on the **Saved Cohorts** link in that panel and a page with the details of your saved cohorts will display. Alternatively, to go directly to a given cohort, click on its name and the cohort details page of that cohort will display.
 
 .. image:: CreateCohort.png
-   :scale: 50
+   :scale: 100
    :align: center
 
 
