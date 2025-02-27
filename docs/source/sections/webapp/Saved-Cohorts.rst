@@ -72,7 +72,7 @@ Program Clinical Features Panel
 -------------------------------
 
 This panel shows a list of images (called "treemaps") that give a high level breakdown of the selected samples for a 
-handful of features (ex. Project Short Name, Disease Type, Gender, Tissue/Organ of Origin, Vital Status, etc.) for the currently displayed data set based on the selected filters. 
+handful of features (ex. Project Short Name, Disease Type, Tissue/Organ of Origin, Vital Status, etc.) for the currently displayed data set based on the selected filters. 
 
 Mousing over an image shows the details of each specific section of the image and the number of samples associated with it.
 
@@ -130,7 +130,7 @@ This panel shows the **Total Number of Cases** and **Total Number of Samples** f
 
 **Program Clinical Features Panel**
 
-This panel shows a list of images (called "treemaps") that give a high level breakdown of the selected samples for a handful of features (ex. Project Short Name, Disease Type, Gender, Tissue/Organ of Origin, Vital Status, etc.) for the selected program. 
+This panel shows a list of images (called "treemaps") that give a high level breakdown of the selected samples for a handful of features (ex. Project Short Name, Disease Type, Tissue/Organ of Origin, Vital Status, etc.) for the selected program. 
 
 **Cohort Details Screen functions:**
 
