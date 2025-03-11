@@ -2,6 +2,31 @@
 ISB-CGC Data Release Notes
 ############################
 
+*March 6, 2025*
+
+New tables created for GDC clinical from supplemental files from TARGET and TCGA.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.TARGET.clinical_from_supplement_files_gdc_current
+- isb-cgc-bq.TCGA.clinical_from_supplement_files_ablation_gdc_current
+- isb-cgc-bq.TCGA.clinical_from_supplement_files_column_metadata_gdc_current
+- isb-cgc-bq.TCGA.clinical_from_supplement_files_drug_gdc_current
+- isb-cgc-bq.TCGA.clinical_from_supplement_files_follow_up_gdc_current
+- isb-cgc-bq.TCGA.clinical_from_supplement_files_nte_gdc_current
+- isb-cgc-bq.TCGA.clinical_from_supplement_files_omf_gdc_current
+- isb-cgc-bq.TCGA.clinical_from_supplement_files_patient_gdc_current
+- isb-cgc-bq.TCGA.clinical_from_supplement_files_radiation_gdc_current
+- isb-cgc-bq.TARGET_versioned.clinical_from_supplement_files_gdc_r41
+- isb-cgc-bq.TCGA_versioned.clinical_from_supplement_files_ablation_gdc_r41
+- isb-cgc-bq.TCGA_versioned.clinical_from_supplement_files_column_metadata_gdc_r41
+- isb-cgc-bq.TCGA_versioned.clinical_from_supplement_files_drug_gdc_r41
+- isb-cgc-bq.TCGA_versioned.clinical_from_supplement_files_follow_up_gdc_r41
+- isb-cgc-bq.TCGA_versioned.clinical_from_supplement_files_nte_gdc_r41
+- isb-cgc-bq.TCGA_versioned.clinical_from_supplement_files_omf_gdc_r41
+- isb-cgc-bq.TCGA_versioned.clinical_from_supplement_files_patient_gdc_r41
+- isb-cgc-bq.TCGA_versioned.clinical_from_supplement_files_radiation_gdc_r41
+
 *September 30, 2024*
 
 New and updated PDC data for V4.3.
