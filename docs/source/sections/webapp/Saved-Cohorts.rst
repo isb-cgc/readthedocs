@@ -12,7 +12,7 @@ When you first log into the ISB-CGC Web App, the Create Cohort screen will be di
 If you already have saved cohorts, they will be listed in the **Saved Cohorts** panel. Click on the **Saved Cohorts** link in that panel and a page with the details of your saved cohorts will display. Alternatively, to go directly to a given cohort, click on its name and the cohort details page of that cohort will display.
 
 .. image:: CreateCohort.png
-   :scale: 50
+   :scale: 100
    :align: center
 
 
@@ -72,7 +72,7 @@ Program Clinical Features Panel
 -------------------------------
 
 This panel shows a list of images (called "treemaps") that give a high level breakdown of the selected samples for a 
-handful of features (ex. Project Short Name, Disease Type, Gender, Tissue/Organ of Origin, Vital Status, etc.) for the currently displayed data set based on the selected filters. 
+handful of features (ex. Project Short Name, Disease Type, Tissue/Organ of Origin, Vital Status, etc.) for the currently displayed data set based on the selected filters. 
 
 Mousing over an image shows the details of each specific section of the image and the number of samples associated with it.
 
@@ -130,7 +130,7 @@ This panel shows the **Total Number of Cases** and **Total Number of Samples** f
 
 **Program Clinical Features Panel**
 
-This panel shows a list of images (called "treemaps") that give a high level breakdown of the selected samples for a handful of features (ex. Project Short Name, Disease Type, Gender, Tissue/Organ of Origin, Vital Status, etc.) for the selected program. 
+This panel shows a list of images (called "treemaps") that give a high level breakdown of the selected samples for a handful of features (ex. Project Short Name, Disease Type, Tissue/Organ of Origin, Vital Status, etc.) for the selected program. 
 
 **Cohort Details Screen functions:**
 

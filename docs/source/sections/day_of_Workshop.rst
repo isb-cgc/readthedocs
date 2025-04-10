@@ -59,10 +59,10 @@ As soon as you've found a seat and opened up your laptop, please do the followin
 
 .. code-block:: sql
 
-  SELECT COUNT(*) AS n, project_short_name , gender
-  FROM [isb-cgc:TCGA_bioclin_v0.Clinical]
-  GROUP BY gender , project_short_name
-  ORDER BY n DESC, project_short_name , gender
+  SELECT COUNT(*) AS n, project_short_name , vital_status
+  FROM `isb-cgc.TCGA_bioclin_v0.Clinical`
+  GROUP BY vital_status , project_short_name
+  ORDER BY n DESC, project_short_name , vital_status
 
 Workshop Outline & Links
 ########################

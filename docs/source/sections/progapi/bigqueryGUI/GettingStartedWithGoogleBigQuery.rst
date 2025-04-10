@@ -138,7 +138,7 @@ In addition to answering the question above, this next query also illustrates us
 Querying from more than one table (Joining)
 ===========================================
 
-**Q: For bladder cancer patients who have mutations in the CDKN2A (cyclin-dependent kinase inhibitor 2A) gene, what types of mutations are they, what is their gender, vital status, and days to death - and for three downstream genes (MDM2 (MDM2 proto-oncogene), TP53 (tumor protein p53), CDKN1A (cyclin-dependent kinase inhibitor 1A)), what are the gene expression levels for each patient?**
+**Q: For bladder cancer patients who have mutations in the CDKN2A (cyclin-dependent kinase inhibitor 2A) gene, what types of mutations are they, what is their age, vital status, and days to death - and for three downstream genes (MDM2 (MDM2 proto-oncogene), TP53 (tumor protein p53), CDKN1A (cyclin-dependent kinase inhibitor 1A)), what are the gene expression levels for each patient?**
 
 This question was chosen as an interesting example because the p53/Rb pathway is commonly involved in bladder cancer (see `TCGA Network paper <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3962515/>`_ "Comprehensive Molecular Characterization of Urothelial Bladder Carcinoma", Figure 4).
 
@@ -175,14 +175,14 @@ Notice that we have named the "isb-cgc-bq.TCGA_versioned.somatic_mutation_hg19_D
 
 Step 2
 +++++++
-Bring in the patient data from the ISB-CGC TCGA Clinical table so that we can see each patient's gender, vital status and days to death.
+Bring in the patient data from the ISB-CGC TCGA Clinical table so that we can see each patient's age, vital status and days to death.
 
 .. code-block:: sql
 
     SELECT
       case_list.case_barcode AS case_barcode,
       case_list.Variant_Type AS Variant_Type,
-      clinical.demo__gender,
+      clinical.demo__age_at_index,
       clinical.demo__vital_status,
       clinical.demo__days_to_death
     FROM
@@ -228,14 +228,14 @@ Show the gene expression levels for the four genes of interest, and order them b
       genex.gene_id AS gene_id,
       genex.normalized_count AS normalized_count,
       genex.project_short_name AS project_short_name,
-      clinical_info.demo__gender AS gender,
+      clinical_info.demo__age_at_index AS age_at_index,
       clinical_info.demo__vital_status AS vital_status,
       clinical_info.demo__days_to_death AS days_to_death
     FROM ( /* This will get the clinical information for the cases*/
       SELECT
         case_list.Variant_Type AS Variant_Type,
         case_list.case_barcode AS case_barcode,
-        clinical.demo__gender,
+        clinical.demo__age_at_index,
         clinical.demo__vital_status,
         clinical.demo__days_to_death
       FROM

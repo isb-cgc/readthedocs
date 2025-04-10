@@ -10,7 +10,7 @@ Since the ISB-CGC stores Google Cloud file references for the GDC data, you can 
 
 **Download the File Manifest from GDC**
 
-On the GDC Data Portal, first use the selection filters to create your cohort. In the example shown below, the filters of Program: TCGA, Primary Site: kidney, Vital Status: dead and Gender: female were set to produce a cohort of 84 cases with 2332 files.  
+On the GDC Data Portal, first use the selection filters to create your cohort. In the example shown below, the filters of Program: TCGA, Primary Site: kidney, and Vital Status: dead were set to produce a cohort of 236 cases with 14,313 files.  
  
 To download a File Manifest, which we'll use to find the file locations in ISB-CGC, on the **Repository** screen, click on the **Manifest** button.  
 
