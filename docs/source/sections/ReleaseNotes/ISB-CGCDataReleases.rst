@@ -2,6 +2,48 @@
 ISB-CGC Data Release Notes
 ############################
 
+*April 17, 2025*
+
+New and updated GDC data from release 42.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.GDC_case_file_metadata_versioned.GDCfileID_to_GCSurl_r42
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_active_r42
+- isb-cgc-bq.GDC_case_file_metadata_versioned.caseData_r42
+- isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r42
+- isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r42
+- isb-cgc-bq.APOLLO_versioned.per_sample_file_metadata_hg38_gdc_r42
+- isb-cgc-bq.CGCI_versioned.per_sample_file_metadata_hg38_gdc_r42
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_hg38_gdc_r42
+- isb-cgc-bq.CTSP_versioned.per_sample_file_metadata_hg38_gdc_r42
+- isb-cgc-bq.HCMI_versioned.per_sample_file_metadata_hg38_gdc_r42
+- isb-cgc-bq.MMRF_versioned.per_sample_file_metadata_hg38_gdc_r42
+- isb-cgc-bq.MP2PRT_versioned.per_sample_file_metadata_hg38_gdc_r42
+- isb-cgc-bq.REBC_versioned.per_sample_file_metadata_hg38_gdc_r42
+- isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg38_gdc_r42
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_r42
+- isb-cgc-bq.WCDT_versioned.per_sample_file_metadata_hg38_gdc_r42
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.GDC_case_file_metadata.GDCfileID_to_GCSurl_current
+- isb-cgc-bq.GDC_case_file_metadata.fileData_active_current
+- isb-cgc-bq.GDC_case_file_metadata.caseData_current
+- isb-cgc-bq.GDC_case_file_metadata.slide2caseIDmap_current
+- isb-cgc-bq.GDC_case_file_metadata.aliquot2caseIDmap_current
+- isb-cgc-bq.APOLLO.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CGCI.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CTSP.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.HCMI.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.MMRF.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.MP2PRT.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.REBC.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TARGET.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TCGA.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.WCDT.per_sample_file_metadata_hg38_gdc_current
+
 *April 15, 2025*
 
 New and updated PDC data for V4.7.
