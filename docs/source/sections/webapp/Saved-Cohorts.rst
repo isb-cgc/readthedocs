@@ -12,11 +12,16 @@ When you first log into the ISB-CGC Web App, the Create Cohort screen will be di
 If you already have saved cohorts, they will be listed in the **Saved Cohorts** panel. Click on the **Saved Cohorts** link in that panel and a page with the details of your saved cohorts will display. Alternatively, to go directly to a given cohort, click on its name and the cohort details page of that cohort will display.
 
 .. image:: CreateCohort.png
-   :scale: 100
+   :scale: 75
    :align: center
 
 
 Using the list of data sets and filters on the left, you can select the attributes and features that interest you from ISB-CGC data. For a specific program, you can select data across nodes (GDC, PDC, IDC).
+
+CGC Data Version
+===================
+
+This panel in the top left of the screen displays the latest version of data ingested by ISB-CCC from the `Genomic Data Commons <https://gdc.cancer.gov/>`_ (GDC), the `Proteomics Data Commons <https://pdc.cancer.gov/pdc/>`_ (PDC) and the `Imaging Data Commons <https://portal.imaging.datacommons.cancer.gov/>`_ (IDC). Click the Information icon for detailed information.
 
 Select Program
 ===================
