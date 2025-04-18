@@ -15,7 +15,7 @@ Currently, ISB-CGC hosts open access BigQuery tables containing data for over 25
 
 
 .. image:: BigQuery/BigQueryTableSearch-UI-homepage.png
-   :scale: 50
+   :scale: 40
    :align: center
 
 
@@ -54,7 +54,10 @@ By default, the Status filter is set to Current.
    
 **Include Always Newest tables**
 
-Setting this option to **On** includes tables that are updated regularly to the lastest version, as distinct duplicate entries. 
+   * When set to **Off**, only stable tables will display. These tables will never change. The **Version** is based on the version of the source data (such as GDC or PDC).
+   * When set to **On**, **Always Newest** tables will display along with the stable tables. These tables are a copy of the latest versioned stable table. Because they are a copy of the latest versioned table, they will be updated every time a table is created for a new version of data. 
+
+Note: Setting to **On** when the selected Status is **ARCHIVED** or **DEPRECATED** will not change what is displayed on the list, as archived and deprecated tables are by definition not the newest tables.
 
 **Name**   
 
