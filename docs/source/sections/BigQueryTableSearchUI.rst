@@ -200,7 +200,7 @@ The following information is displayed:
    * **Table ID** - The BigQuery table ID.
    * **Description** - A description of the table, which includes information such as how the data was created, its source, data type, and contents.
    * **Schema** - The schema displays the Field Name, Type, Mode and Field Description for each field in the table.
-   * **Labels** - Labels are table metadata describing the source, data type, reference genome build, status, and access of the table data.
+   * **Labels** - Labels are table metadata describing the source, category, program, data type, reference genome build, status, version and access of the table data.
 
 
 **Copy button**
