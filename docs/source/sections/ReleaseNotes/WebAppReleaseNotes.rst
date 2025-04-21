@@ -2,6 +2,15 @@
 ISB-CGC Web App Release Notes
 #############################
 
+
+*February 24, 2025* 
+
+- Change references to Gender to Sex.
+
+*January 9, 2025* 
+
+- Add the CGC Data Version section to the Cohorts page.
+
 *August 6, 2024* 
 
 - ISB-CGC no longer supports controlled access data or integrates with the IGV Genomic Viewer.
