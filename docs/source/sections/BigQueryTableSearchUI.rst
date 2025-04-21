@@ -15,7 +15,7 @@ Currently, ISB-CGC hosts open access BigQuery tables containing data for over 25
 
 
 .. image:: BigQuery/BigQueryTableSearch-UI-homepage.png
-   :scale: 50
+   :scale: 40
    :align: center
 
 
@@ -33,7 +33,7 @@ Filters
 
 The search filters consist of a combination of multi-select dropdown lists, checkboxes and free-form text fields. 
 
-Selecting multiple items within a multi-select dropdown list or checkbox filter will perform a Boolean "AND" on those selections and bring back any data that match any of the selected items. For example, selecting Data Type BIOSPECIMEN and CLINICAL will display both biospecimen and clinical data.
+Selecting multiple items within a multi-select dropdown list or checkbox filter will perform a Boolean "AND" on those selections and bring back any data that match any of the selected items. For example, selecting Data Type BIOSPECIMEN and CLINICAL DATA will display both biospecimen and clinical data.
 
 Selecting multiple filters will perform a Boolean "OR" on those selections and bring back only data that fits all criteria. For example, selecting Data Type BIOSPECIMEN and Source of CCLE will only display CCLE biospecimen data.
 
@@ -52,6 +52,22 @@ By default, the Status filter is set to Current.
 .. image:: BigQuery/Status-filter.png
    :align: center
    
+**Include Always Newest tables**
+
+   * When set to **Off**, only stable tables will display. These tables will never change. The **Version** is based on the version of the source data (such as GDC or PDC).
+       - Here's an example using filters Status: ALL, Program: BEATAML, and Category: CLINICAL BIOSPECIMEN Data and Include Always Newest tables set to Off. Only stable tables display.
+
+         .. image:: BigQuery/beataml-clinical-off.png
+            :align: center
+
+   * When set to **On**, **Always Newest** tables will display along with the stable tables. These tables are a copy of the latest versioned stable table. Because they are a copy of the latest versioned table, they will be updated every time a table is created for a new version of data. 
+      - Here's an example using filters Status: ALL, Program: BEATAML, and Category: CLINICAL BIOSPECIMEN Data and Include Always Newest tables set to On. Stable tables display but also the Always Newest table displays. In this example, this table is actually the same as the r38 versioned table. When the next version is added, it will then be the same as that table.
+
+         .. image:: BigQuery/beataml-clinical-on.png
+            :align: center
+
+Note: Setting to **On** when the selected Status is **ARCHIVED** or **DEPRECATED** will not change what is displayed on the list, as archived and deprecated tables are by definition not the newest tables.
+
 **Name**   
 
 The **Name** filter is a free-form text field; the user can type all or a portion of the name into the field to perform the search. It will match against the Name column. 
@@ -72,11 +88,11 @@ The tables are grouped into four high-level categories:
 
 * **Clinical Biospecimen Data**: Patient case and sample information (includes clinical tables with patient demographic data, and biospecimen data with detailed sample information)
 
-* **File Metadata**: Information about raw data files including Google Cloud Storage Paths (includes tables with information about files available at the GDC, including GCS paths, creation dates, sizes, etc.)
+* **Metadata**: Information about raw data files including Google Cloud Storage Paths (includes tables with information about files available at the GDC, including GCS paths, creation dates, sizes, etc.)
 
-* **Genomic Reference Database**: Genomic information that can be used to cross-reference against processed-omics data tables (examples include ClinVar, cytoBand, dbSNP, Ensembl, Ensembl2Reactome)
+* **Processed -omics Data**: Processed data primarily from the GDC (i.e. raw data that has gone through GDC pipeline processing e.g. gene expression, miRNA expression, copy number, somatic mutations, methylation)
 
-* **Processed-omics Datasets**: Processed data primarily from the GDC (i.e. raw data that has gone through GDC pipeline processing e.g. gene expression, miRNA expression, copy number, somatic mutations, methylation)
+* **Reference Database**: Genomic and Proteomic information that can be used to cross-reference against processed -omics data tables (examples include ClinVar, cytoBand, dbSNP, Ensembl, Ensembl2Reactome)
 
 
 Click on one or more checkboxes to select categories. 
@@ -128,7 +144,7 @@ These fields are most useful for users already familiar with the BigQuery tables
 
 **Labels**
 
-Each table was tagged with labels relating to the status, program, reference genome build, source, data type, experimental strategy and access. Users can search on any of these labels on the Labels filter field. Users can find the **Labels** search filter under the **Show More Filters** option. 
+Each table was tagged with labels relating to the status, program, categoryreference genome build, source, data type, experimental strategy, access and version. Users can search on any of these labels on the Labels filter field. Users can find the **Labels** search filter under the **Show More Filters** option. 
 
 The labels for a table can be viewed when the blue plus sign (+) to the left of the table row is clicked. See the screen shot in the Schema section below.
 
@@ -184,7 +200,7 @@ The following information is displayed:
    * **Table ID** - The BigQuery table ID.
    * **Description** - A description of the table, which includes information such as how the data was created, its source, data type, and contents.
    * **Schema** - The schema displays the Field Name, Type, Mode and Field Description for each field in the table.
-   * **Labels** - Labels are table metadata describing the source, data type, reference genome build, status, and access of the table data.
+   * **Labels** - Labels are table metadata describing the source, category, program, data type, reference genome build, status, version and access of the table data.
 
 
 **Copy button**
