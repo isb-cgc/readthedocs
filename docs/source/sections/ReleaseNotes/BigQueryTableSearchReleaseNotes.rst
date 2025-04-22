@@ -6,11 +6,14 @@ To learn about this discovery tool created by the ISB-CGC, please visit `ISB-CGC
 
 For more detailed information about the data stored in ISB-CGC BigQuery tables please visit `ISB-CGC BigQuery Tables <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQuery.html>`_.
 
+*April 2, 2025* v2.2
 
-*March 2025* v2.1
+- Add the "Include Always Newest Tables" filter
+- Enhancement with the backend query (SQL)
 
-- Add the Version column and label.
-- Add the "Include Always Newest Tables" filter.
+*December 24, 2024* v2.1
+
+- Version system added (version labels and columns) to the tables
 
 *June 13, 2024* v2.0
 

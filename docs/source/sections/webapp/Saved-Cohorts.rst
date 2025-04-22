@@ -26,7 +26,7 @@ This panel in the top left of the screen displays the latest version of data ing
 Select Program
 ===================
 
-This panel in the top left of the screen allows you to pick the programs and user data sets that you want included in the cohort.
+This next panel on the left of the screen allows you to pick the programs and user data sets that you want included in the cohort.
 
 The drop down list will display the ISB-CGC programs that the Web App is currently supporting. Next to each progam, it will list the origin of this data (Genomics Data Commons (GDC), Proteomics Data Commons (PDC), Imaging Data Commons (IDC)).
 
