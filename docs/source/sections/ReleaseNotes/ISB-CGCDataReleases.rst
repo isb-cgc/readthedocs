@@ -2,6 +2,92 @@
 ISB-CGC Data Release Notes
 ############################
 
+*April 17, 2025*
+
+New and updated GDC data from release 42.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.GDC_case_file_metadata_versioned.GDCfileID_to_GCSurl_r42
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_active_r42
+- isb-cgc-bq.GDC_case_file_metadata_versioned.caseData_r42
+- isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r42
+- isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r42
+- isb-cgc-bq.APOLLO_versioned.per_sample_file_metadata_hg38_gdc_r42
+- isb-cgc-bq.CGCI_versioned.per_sample_file_metadata_hg38_gdc_r42
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_hg38_gdc_r42
+- isb-cgc-bq.CTSP_versioned.per_sample_file_metadata_hg38_gdc_r42
+- isb-cgc-bq.HCMI_versioned.per_sample_file_metadata_hg38_gdc_r42
+- isb-cgc-bq.MMRF_versioned.per_sample_file_metadata_hg38_gdc_r42
+- isb-cgc-bq.MP2PRT_versioned.per_sample_file_metadata_hg38_gdc_r42
+- isb-cgc-bq.REBC_versioned.per_sample_file_metadata_hg38_gdc_r42
+- isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg38_gdc_r42
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_r42
+- isb-cgc-bq.WCDT_versioned.per_sample_file_metadata_hg38_gdc_r42
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.GDC_case_file_metadata.GDCfileID_to_GCSurl_current
+- isb-cgc-bq.GDC_case_file_metadata.fileData_active_current
+- isb-cgc-bq.GDC_case_file_metadata.caseData_current
+- isb-cgc-bq.GDC_case_file_metadata.slide2caseIDmap_current
+- isb-cgc-bq.GDC_case_file_metadata.aliquot2caseIDmap_current
+- isb-cgc-bq.APOLLO.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CGCI.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CTSP.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.HCMI.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.MMRF.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.MP2PRT.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.REBC.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TARGET.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TCGA.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.WCDT.per_sample_file_metadata_hg38_gdc_current
+
+*April 15, 2025*
+
+New and updated PDC data for V4.7.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.PDC_metadata_versioned.aliquot_to_case_mapping_V4_7
+- isb-cgc-bq.PDC_metadata_versioned.case_metadata_V4_7
+- isb-cgc-bq.PDC_metadata_versioned.file_metadata_V4_7
+- isb-cgc-bq.PDC_metadata_versioned.file_associated_entity_mapping_V4_7
+- isb-cgc-bq.PDC_metadata_versioned.studies_V4_7
+- isb-cgc-bq.APOLLO_versioned.clinical_APOLLO_OV_pdc_V4_7
+- isb-cgc-bq.APOLLO.clinical_APOLLO_OV_pdc_current
+- isb-cgc-bq.CPTAC_versioned.clinical_CPTAC3_discovery_and_confirmatory_pdc_V4_7
+- isb-cgc-bq.CPTAC_versioned.clinical_CPTAC3_other_pdc_V4_7
+- isb-cgc-bq.ICPC_versioned.clinical_Proteogenomic_characterization_non_functional_pancreatic_neuroendocrine_tumors_pdc_V4_7
+- isb-cgc-bq.ICPC.clinical_Proteogenomic_characterization_non_functional_pancreatic_neuroendocrine_tumors_pdc_current
+- isb-cgc-bq.ICPC_versioned.clinical_Proteogenomics_Oral_Squamous_Cell_Carcinoma_pdc_V4_7
+- isb-cgc-bq.ICPC.clinical_Proteogenomics_Oral_Squamous_Cell_Carcinoma_pdc_current
+- isb-cgc-bq.ICPC_versioned.clinical_academia_sinica_LUAD_100_pdc_V4_7
+- isb-cgc-bq.CPTAC_versioned.clinical_proteogenomic_translational_research_centers_pdc_V4_7
+- isb-cgc-bq.APOLLO_versioned.per_sample_file_metadata_APOLLO_OV_pdc_V4_7
+- isb-cgc-bq.APOLLO.per_sample_file_metadata_APOLLO_OV_pdc_current
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_CPTAC_TCGA_pdc_V4_7
+- isb-cgc-bq.ICPC_versioned.per_sample_file_metadata_Proteogenomic_characterization_non_functional_pancreatic_neuroendocrine_tumors_pdc_V4_7
+- isb-cgc-bq.ICPC.per_sample_file_metadata_Proteogenomic_characterization_non_functional_pancreatic_neuroendocrine_tumors_pdc_current
+- isb-cgc-bq.ICPC_versioned.per_sample_file_metadata_Proteogenomics_Oral_Squamous_Cell_Carcinoma_pdc_V4_7
+- isb-cgc-bq.ICPC.per_sample_file_metadata_Proteogenomics_Oral_Squamous_Cell_Carcinoma_pdc_current
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_proteogenomic_translational_research_centers_pdc_V4_7
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.PDC_metadata.aliquot_to_case_mapping_current
+- isb-cgc-bq.PDC_metadata.case_metadata_current
+- isb-cgc-bq.PDC_metadata.file_metadata_current
+- isb-cgc-bq.PDC_metadata.file_associated_entity_mapping_current
+- isb-cgc-bq.PDC_metadata.studies_current
+- isb-cgc-bq.CPTAC.clinical_CPTAC3_discovery_and_confirmatory_pdc_current
+- isb-cgc-bq.CPTAC.clinical_CPTAC3_other_pdc_current
+- isb-cgc-bq.ICPC.clinical_academia_sinica_LUAD_100_pdc_current
+- isb-cgc-bq.CPTAC.clinical_proteogenomic_translational_research_centers_pdc_current
+- isb-cgc-bq.TCGA.per_sample_file_metadata_CPTAC_TCGA_pdc_current
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_proteogenomic_translational_research_centers_pdc_current
+
 *March 6, 2025*
 
 New tables created for GDC clinical from supplemental files from TARGET and TCGA.
