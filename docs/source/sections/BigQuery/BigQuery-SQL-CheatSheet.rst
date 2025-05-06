@@ -11,6 +11,7 @@ Conditionals
 The WHERE clause in SQL can be used to subset a table by only returning rows that match a specific characteristic.
 
 .. code-block:: sql
+
   SELECT
     submitter_id,
     demo__age_at_index,
@@ -24,6 +25,7 @@ Basic math functions
 A query to perform a simple calculation, note that it is aggregating rows with the GROUP BY functionality for selecting which values to average. There are more functions built natively into BigQuery such as MAX, STDDEV, VARIANCE etc.
 
 .. code-block:: sql
+
   SELECT
     sample_type_name,
     AVG(fpkm_uq_unstranded) avg_fpkm
@@ -36,6 +38,7 @@ Joining data between tables
 A query to join data from two different tables. In this example it is joining the mutational status of each gene onto the corresponding row of expression data. Note that it uses both sample barcode and gene identifier as keys.
 
 .. code-block:: sql
+
   SELECT
     rna.case_barcode, rna.sample_type_name, rna.gene_name,
     rna.fpkm_uq_unstranded, mut.HGVSc
@@ -49,6 +52,7 @@ Chaining queries
 You may encounter instances where you wish to perform multiple operations in sequence without saving to an intermediate table. You can directly "pipe" the output similar to a bash shell. As an example maybe we wish to eliminate all genetic elements that have an average expression below a specific threshold from the query example above.
 
 .. code-block:: sql
+
   SELECT 
     sample_type_name,
     AVG(fpkm_uq_unstranded) avg_fpkm
@@ -67,6 +71,7 @@ Working with nested fields
 You may encounter "nested" fields in some of our tables. There are several methods for interacting with these fields, such as using the UNNEST() function to create individual rows for each value.
 
 .. code-block:: sql
+
   SELECT
     PatientId, 
   FROM
