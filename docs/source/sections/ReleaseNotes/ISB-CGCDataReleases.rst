@@ -2,6 +2,28 @@
 ISB-CGC Data Release Notes
 ############################
 
+*May 9, 2025*
+
+New and updated GDC derived data from release 42.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.TCGA_versioned.miRNAseq_isoform_hg38_gdc_r42
+- isb-cgc-bq.TCGA_versioned.miRNAseq_hg38_gdc_r42
+- isb-cgc-bq.TCGA_versioned.RNAseq_hg38_gdc_r42
+- isb-cgc-bq.TARGET_versioned.RNAseq_hg38_gdc_r42
+- isb-cgc-bq.HCMI_versioned.miRNAseq_isoform_hg38_gdc_r42
+- isb-cgc-bq.HCMI_versioned.miRNAseq_hg38_gdc_r42
+- isb-cgc-bq.HCMI.miRNAseq_isoform_hg38_gdc_current
+- isb-cgc-bq.HCMI.miRNAseq_hg38_gdc_current
+
+**BigQuery tables updated**
+
+- TCGA.miRNAseq_isoform_hg38_gdc_current
+- TCGA.miRNAseq_hg38_gdc_current
+- TCGA.RNAseq_hg38_gdc_current
+- TARGET.RNAseq_hg38_gdc_current
+
 *April 17, 2025*
 
 New and updated GDC data from release 42.
