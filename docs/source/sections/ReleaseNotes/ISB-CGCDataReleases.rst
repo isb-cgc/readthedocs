@@ -2,6 +2,193 @@
 ISB-CGC Data Release Notes
 ############################
 
+*May 15, 2025*
+
+New and updated PDC V4.1-V4.9 derived data.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.APOLLO_versioned.quant_proteome_APOLLO_LUAD_pdc_V4_1
+- isb-cgc-bq.APOLLO_versioned.quant_proteome_APOLLO_LUAD_pdc_V4_3
+- isb-cgc-bq.APOLLO_versioned.quant_proteome_APOLLO_LUAD_pdc_V4_9
+- isb-cgc-bq.CBTN_versioned.quant_phosphoproteome_pediatric_brain_cancer_pilot_study_pdc_V4_9
+- isb-cgc-bq.CBTN_versioned.quant_proteome_pediatric_brain_cancer_pilot_study_pdc_V4_1
+- isb-cgc-bq.CBTN_versioned.quant_proteome_pediatric_brain_cancer_pilot_study_pdc_V4_3
+- isb-cgc-bq.CBTN_versioned.quant_proteome_pediatric_brain_cancer_pilot_study_pdc_V4_9
+- isb-cgc-bq.CPTAC.quant_acetylome_CPTAC_GBM_confirmatory_study_pdc_current
+- isb-cgc-bq.CPTAC.quant_phosphoproteome_beat_AML_baseline_clinical_pdc_current
+- isb-cgc-bq.CPTAC.quant_phosphoproteome_CPTAC_GBM_confirmatory_study_pdc_current
+- isb-cgc-bq.CPTAC.quant_phosphoproteome_CPTAC_non_ccrcc_study_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_beat_AML_baseline_clinical_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_GBM_confirmatory_study_pdc_current
+- isb-cgc-bq.CPTAC_versioned.quant_acetylome_CPTAC_GBM_confirmatory_study_pdc_V4_9
+- isb-cgc-bq.CPTAC_versioned.quant_phosphoproteome_beat_AML_baseline_clinical_pdc_V4_9
+- isb-cgc-bq.CPTAC_versioned.quant_phosphoproteome_CPTAC_GBM_confirmatory_study_pdc_V4_9
+- isb-cgc-bq.CPTAC_versioned.quant_phosphoproteome_CPTAC_non_ccrcc_study_pdc_V4_9
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_ex_vivo_drug_response_combination_treatment_pdc_V4_1
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_ex_vivo_drug_response_combination_treatment_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_ex_vivo_drug_response_combination_treatment_pdc_V4_9
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_ex_vivo_drug_response_primary_cohort_pdc_V4_1
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_ex_vivo_drug_response_primary_cohort_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_ex_vivo_drug_response_primary_cohort_pdc_V4_9
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_ex_vivo_drug_response_sorafenib_treatment_pdc_V4_1
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_ex_vivo_drug_response_sorafenib_treatment_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_ex_vivo_drug_response_sorafenib_treatment_pdc_V4_9
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_gilteritinib_resistance_pdc_V4_1
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_gilteritinib_resistance_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_gilteritinib_resistance_pdc_V4_9
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_gilteritinib_timecourse_pdc_V4_1
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_gilteritinib_timecourse_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_gilteritinib_timecourse_pdc_V4_9
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_quizartinib_resistance_pdc_V4_1
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_AML_quizartinib_resistance_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_beat_AML_baseline_clinical_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_beat_AML_baseline_clinical_pdc_V4_9
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_CCRCC_discovery_study_pdc_V4_1
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_CCRCC_discovery_study_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_GBM_confirmatory_study_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_GBM_confirmatory_study_pdc_V4_9
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_GBM_discovery_study_pdc_V4_1
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_GBM_discovery_study_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_GBM_discovery_study_pdc_V4_9
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_HNSCC_discovery_study_pdc_V4_1
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_HNSCC_discovery_study_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_HNSCC_discovery_study_pdc_V4_9
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_LSCC_discovery_study_pdc_V4_1
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_LSCC_discovery_study_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_LSCC_discovery_study_pdc_V4_9
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_LUAD_discovery_study_pdc_V4_1
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_LUAD_discovery_study_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_LUAD_discovery_study_pdc_V4_9
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_non_ccrcc_study_pdc_V4_1
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_non_ccrcc_study_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_non_ccrcc_study_pdc_V4_5
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_non_ccrcc_study_pdc_V4_9
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_PDA_discovery_study_pdc_V4_1
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_PDA_discovery_study_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_PDA_discovery_study_pdc_V4_9
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_UCEC_confirmatory_study_pdc_V4_1
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_UCEC_confirmatory_study_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_UCEC_confirmatory_study_pdc_V4_9
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_UCEC_discovery_study_pdc_V4_1
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_UCEC_discovery_study_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_CPTAC_UCEC_discovery_study_pdc_V4_9
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_prospective_breast_BI_pdc_V4_1
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_prospective_breast_BI_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_prospective_breast_BI_pdc_V4_9
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_prospective_colon_PNNL_qeplus_pdc_V4_1
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_prospective_colon_PNNL_qeplus_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_prospective_ovarian_JHU_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_prospective_ovarian_JHU_pdc_V4_9
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_prospective_ovarian_PNNL_qeplus_pdc_V4_1
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_prospective_ovarian_PNNL_qeplus_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_prospective_ovarian_PNNL_qeplus_pdc_V4_9
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_PTRC_HGSOC_FFPE_discovery_pdc_V4_1
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_PTRC_HGSOC_FFPE_discovery_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_PTRC_HGSOC_FFPE_discovery_pdc_V4_9
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_PTRC_HGSOC_FFPE_validation_pdc_V4_1
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_PTRC_HGSOC_FFPE_validation_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_PTRC_HGSOC_FFPE_validation_pdc_V4_9
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_PTRC_HGSOC_frozen_validation_pdc_V4_1
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_PTRC_HGSOC_frozen_validation_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_PTRC_HGSOC_frozen_validation_pdc_V4_9
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_PTRC_TNBC_pdc_V4_1
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_PTRC_TNBC_PDX_pdc_V4_1
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_PTRC_TNBC_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_PTRC_TNBC_pdc_V4_9
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_PTRC_TNBC_PDX_pdc_V4_3
+- isb-cgc-bq.CPTAC_versioned.quant_proteome_PTRC_TNBC_PDX_pdc_V4_9
+- isb-cgc-bq.ICPC.quant_phosphoproteome_CGU_OSCC_APOBEC3A_global_pdc_current
+- isb-cgc-bq.ICPC.quant_phosphoproteome_CGU_OSCC_APOBEC3A_multiple_pdc_current
+- isb-cgc-bq.ICPC.quant_phosphoproteome_KNCC_glioblastoma_evolution_pdc_current
+- isb-cgc-bq.ICPC.quant_proteome_CGU_OSCC_APOBEC3A_pdc_current
+- isb-cgc-bq.ICPC.quant_proteome_KNCC_glioblastoma_evolution_pdc_current
+- isb-cgc-bq.ICPC_versioned.quant_phosphoproteome_CGU_OSCC_APOBEC3A_global_pdc_V4_9
+- isb-cgc-bq.ICPC_versioned.quant_phosphoproteome_CGU_OSCC_APOBEC3A_multiple_pdc_V4_9
+- isb-cgc-bq.ICPC_versioned.quant_phosphoproteome_KNCC_glioblastoma_evolution_pdc_V4_9
+- isb-cgc-bq.ICPC_versioned.quant_proteome_academia_sinica_LUAD100_pdc_V4_1
+- isb-cgc-bq.ICPC_versioned.quant_proteome_academia_sinica_LUAD100_pdc_V4_3
+- isb-cgc-bq.ICPC_versioned.quant_proteome_academia_sinica_LUAD100_pdc_V4_9
+- isb-cgc-bq.ICPC_versioned.quant_proteome_CGU_OSCC_APOBEC3A_pdc_V4_9
+- isb-cgc-bq.ICPC_versioned.quant_proteome_HBV_related_hepatocellular_carcinoma_pdc_V4_1
+- isb-cgc-bq.ICPC_versioned.quant_proteome_HBV_related_hepatocellular_carcinoma_pdc_V4_3
+- isb-cgc-bq.ICPC_versioned.quant_proteome_HBV_related_hepatocellular_carcinoma_pdc_V4_9
+- isb-cgc-bq.ICPC_versioned.quant_proteome_KNCC_glioblastoma_evolution_pdc_V4_9
+- isb-cgc-bq.ICPC_versioned.quant_proteome_KU_PDAC_discovery_study_global_proteome_pdc_V4_1
+- isb-cgc-bq.ICPC_versioned.quant_proteome_KU_PDAC_discovery_study_global_proteome_pdc_V4_3
+- isb-cgc-bq.ICPC_versioned.quant_proteome_KU_PDAC_discovery_study_global_proteome_pdc_V4_9
+- isb-cgc-bq.ICPC_versioned.quant_proteome_proteogenomics_of_gastric_cancer_pdc_V4_1
+- isb-cgc-bq.ICPC_versioned.quant_proteome_proteogenomics_of_gastric_cancer_pdc_V4_3
+- isb-cgc-bq.ICPC_versioned.quant_proteome_proteogenomics_of_gastric_cancer_pdc_V4_9
+- isb-cgc-bq.TCGA_versioned.quant_proteome_TCGA_breast_cancer_pdc_V4_1
+- isb-cgc-bq.TCGA_versioned.quant_proteome_TCGA_breast_cancer_pdc_V4_3
+- isb-cgc-bq.TCGA_versioned.quant_proteome_TCGA_breast_cancer_pdc_V4_9
+- isb-cgc-bq.TCGA_versioned.quant_proteome_TCGA_ovarian_JHU_pdc_V4_1
+- isb-cgc-bq.TCGA_versioned.quant_proteome_TCGA_ovarian_JHU_pdc_V4_3
+- isb-cgc-bq.TCGA_versioned.quant_proteome_TCGA_ovarian_JHU_pdc_V4_9
+- isb-cgc-bq.TCGA_versioned.quant_proteome_TCGA_ovarian_PNNL_pdc_V4_1
+- isb-cgc-bq.TCGA_versioned.quant_proteome_TCGA_ovarian_PNNL_pdc_V4_3
+- isb-cgc-bq.TCGA_versioned.quant_proteome_TCGA_ovarian_PNNL_pdc_V4_9
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.APOLLO.quant_proteome_APOLLO_LUAD_pdc_current
+- isb-cgc-bq.CBTN.quant_proteome_pediatric_brain_cancer_pilot_study_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_AML_ex_vivo_drug_response_combination_treatment_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_AML_ex_vivo_drug_response_primary_cohort_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_AML_ex_vivo_drug_response_sorafenib_treatment_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_AML_gilteritinib_resistance_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_AML_gilteritinib_timecourse_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_AML_quizartinib_resistance_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_CCRCC_discovery_study_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_GBM_discovery_study_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_HNSCC_discovery_study_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_LSCC_discovery_study_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_LUAD_discovery_study_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_non_ccrcc_study_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_PDA_discovery_study_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_UCEC_confirmatory_study_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_CPTAC_UCEC_discovery_study_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_prospective_breast_BI_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_prospective_colon_PNNL_qeplus_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_prospective_ovarian_PNNL_qeplus_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_PTRC_HGSOC_FFPE_discovery_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_PTRC_HGSOC_FFPE_validation_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_PTRC_HGSOC_frozen_validation_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_PTRC_TNBC_pdc_current
+- isb-cgc-bq.CPTAC.quant_proteome_PTRC_TNBC_PDX_pdc_current
+- isb-cgc-bq.ICPC.quant_proteome_academia_sinica_LUAD100_pdc_current
+- isb-cgc-bq.ICPC.quant_proteome_HBV_related_hepatocellular_carcinoma_pdc_current
+- isb-cgc-bq.ICPC.quant_proteome_KU_PDAC_discovery_study_global_proteome_pdc_current
+- isb-cgc-bq.ICPC.quant_proteome_proteogenomics_of_gastric_cancer_pdc_current
+- isb-cgc-bq.TCGA.quant_proteome_TCGA_breast_cancer_pdc_current
+- isb-cgc-bq.TCGA.quant_proteome_TCGA_ovarian_JHU_pdc_current
+- isb-cgc-bq.TCGA.quant_proteome_TCGA_ovarian_PNNL_pdc_current
+
+*May 13, 2025*
+
+New and updated PDC V4.9 metadata.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.CPTAC_versioned.clinical_proteogenomic_translational_research_centers_pdc_V4_9
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_proteogenomic_translational_research_centers_pdc_V4_9
+- isb-cgc-bq.PDC_metadata_versioned.aliquot_to_case_mapping_V4_9
+- isb-cgc-bq.PDC_metadata_versioned.case_metadata_V4_9
+- isb-cgc-bq.PDC_metadata_versioned.file_metadata_V4_9
+- isb-cgc-bq.PDC_metadata_versioned.file_associated_entity_mapping_V4_9
+- isb-cgc-bq.PDC_metadata_versioned.studies_V4_9
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.CPTAC.clinical_proteogenomic_translational_research_centers_pdc_current
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_proteogenomic_translational_research_centers_pdc_current
+- isb-cgc-bq.PDC_metadata.aliquot_to_case_mapping_current
+- isb-cgc-bq.PDC_metadata.case_metadata_current
+- isb-cgc-bq.PDC_metadata.file_metadata_current
+- isb-cgc-bq.PDC_metadata.file_associated_entity_mapping_current
+- isb-cgc-bq.PDC_metadata.studies_current
+
 *May 9, 2025*
 
 New and updated GDC derived data from release 42.
