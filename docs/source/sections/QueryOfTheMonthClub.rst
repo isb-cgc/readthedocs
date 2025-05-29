@@ -696,10 +696,7 @@ Platform. Using this transform pipeline, one can load hundreds of
 thousands of VCF files with millions of samples and billions of records
 into BigQuery.
 
-In the near future, ISB-CGC will make available controlled-access VCFs,
-transformed into BigQuery tables, allowing users with approved
-authorization to harness the power of BigQuery to conduct powerful
-variant analyses. This month, we will explore variant analysis in
+This month, we will explore variant analysis in
 BigQuery. We transform a VCF into a BigQuery table and perform queries
 to gain biological insights into variant data.
 
