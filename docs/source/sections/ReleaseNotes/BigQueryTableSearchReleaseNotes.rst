@@ -6,6 +6,18 @@ To learn about this discovery tool created by the ISB-CGC, please visit `ISB-CGC
 
 For more detailed information about the data stored in ISB-CGC BigQuery tables please visit `ISB-CGC BigQuery Tables <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/BigQuery.html>`_.
 
+*May 29, 2025* v2.4
+
+- New feature: Swagger API
+
+    - Swagger API Documentation is added to support API calls
+    - Adding ‘show_details=true’ as a URL parameter will always open the details section of the top result
+
+- UI enhancements:
+
+    - A new ‘Reset all filters’ button is added to the top of the search page
+    - Preview and open in BQ buttons are relocated for better visibility
+
 *April 2, 2025* v2.2
 
 - Add the "Include Always Newest Tables" filter
