@@ -18,10 +18,13 @@ Currently, ISB-CGC hosts open access BigQuery tables containing data for over 25
    :scale: 40
    :align: center
 
+Menu Bar
+--------
 
-Links to various helpful documentation pages are available, including Google BigQuery's documentation and ISB-CGC's BigQuery documentation under the **Resources** dropdown. 
-This documentation page can be navigated to directly by clicking on **Help**. 
-A link to the Release Notes for the ISB-CGC BigQuery Table Search are on the **About** page.
+- Links to various helpful documentation pages are available, including Google BigQuery's documentation and ISB-CGC's BigQuery documentation under the **Resources** dropdown. 
+- This documentation page can be navigated to directly by clicking on **Help**. 
+- A link to the Release Notes for the ISB-CGC BigQuery Table Search is on the **About** page.
+- Clicking on **API** will bring you to a Swagger page which allows you to get BigQuery Table Search data via APIs.
 
 
 .. image:: BigQuery/BigQueryTableSearch-Documentation.png
