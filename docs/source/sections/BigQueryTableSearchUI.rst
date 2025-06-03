@@ -214,7 +214,7 @@ Next to the Copy button is an **Open** button. Clicking on this button opens the
 Table Preview
 ++++++++++++++
 
-A few rows of the data in a BigQuery table can be viewed by clicking on the **Preview** button on the right-hand side. This feature allows the user to get a better idea of the contents and format of the data.
+A few rows of the data in a BigQuery table can be viewed by clicking on the **Preview** button. This feature allows the user to get a better idea of the contents and format of the data.
 
 
 .. image:: BigQuery/BigQueryTableSearch-PreviewTableOption.png
