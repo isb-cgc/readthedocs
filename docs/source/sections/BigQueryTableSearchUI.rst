@@ -256,7 +256,7 @@ The following information is displayed:
  
 Table Access in Google BigQuery
 -------------
-To access the BigQuery tables in Google Cloud Console directly from the Table Search UI, simply click on the **Open** button on the right-hand side. 
+To access the BigQuery tables in Google Cloud Console directly from the Table Search UI, click on the **Open BQ** button. 
 
 **Note:** 
 
@@ -265,9 +265,6 @@ To access the BigQuery tables in Google Cloud Console directly from the Table Se
  * If you have never accessed Google Cloud Platform, you will be presented with a Google login page. You can use any Google ID to log in. Instructions on how to create a Google identity if you don't already have one can be found `here <HowToGetStartedonISB-CGC.html#data-access-and-google-cloud-project-setup>`_. You will be prompted to create a project, free of charge. Once you create the project, you will be directed to the BigQuery table you wished to open in the Google BigQuery Cloud Platform Console. 
 
 `Google Cloud Platform's free tier <https://cloud.google.com/free>`_ allows users to access many common Google Cloud resources including BigQuery free of charge and query up to 1 TB of data per month for free.
-
-.. image:: BigQuery/BigQueryOpenButton.gif
-   :align: center
 
 Please see the following ISB-CGC documentation pages for guidance:
 
