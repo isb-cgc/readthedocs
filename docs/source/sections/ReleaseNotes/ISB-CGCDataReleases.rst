@@ -2,6 +2,31 @@
 ISB-CGC Data Release Notes
 ############################
 
+*June 11, 2025*
+
+New and updated GDC data from release 43.
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.TCGA_versioned.clinical_diagnosis_gdc_r43
+- isb-cgc-bq.TCGA_versioned.clinical_gdc_r43
+- isb-cgc-bq.TARGET_versioned.clinical_gdc_r43
+- isb-cgc-bq.HCMI_versioned.clinical_follow_up_molecular_test_gdc_r43
+- isb-cgc-bq.HCMI_versioned.clinical_follow_up_gdc_r43
+- isb-cgc-bq.HCMI_versioned.clinical_exposure_gdc_r43
+- isb-cgc-bq.HCMI_versioned.clinical_diagnosis_treatment_gdc_r43
+- isb-cgc-bq.HCMI_versioned.clinical_diagnosis_pathology_detail_gdc_r43
+- isb-cgc-bq.HCMI_versioned.clinical_diagnosis_gdc_r43
+- isb-cgc-bq.HCMI_versioned.clinical_gdc_r43
+- isb-cgc-bq.CPTAC_versioned.clinical_follow_up_gdc_r43
+- isb-cgc-bq.CPTAC_versioned.clinical_diagnosis_treatment_gdc_r43
+- isb-cgc-bq.CPTAC_versioned.clinical_gdc_r43
+- isb-cgc-bq.CGCI_versioned.clinical_diagnosis_gdc_r43
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_active_r43
+- isb-cgc-bq.GDC_case_file_metadata_versioned.caseData_r43
+- isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r43
+- isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r43
+
 *June 4, 2025*
 
 New and updated HTAN tables.
@@ -10,7 +35,7 @@ New and updated HTAN tables.
 
 - isb-cgc-bq.HTAN_versioned.gc_drs_map_r6_v2
 
-**BigQuery tables created**
+**BigQuery tables updated**
 
 - isb-cgc-bq.HTAN_versioned.dataFileSynapseID_to_BigQueryTableID_map_r6_v2
 - isb-cgc-bq.HTAN_versioned.id_provenance_r6_v2
