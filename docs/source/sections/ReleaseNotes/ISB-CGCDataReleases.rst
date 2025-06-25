@@ -2,6 +2,232 @@
 ISB-CGC Data Release Notes
 ############################
 
+*June 20, 2025*
+
+New and updated PDC data from version 4.11
+
+**BigQuery tables created**
+
+- isb-cgc-bq.ICPC_versioned.per_sample_file_metadata_KNCC_Cancer_Proteogenomics_Group_pdc_V4_11
+- isb-cgc-bq.ICPC.clinical_Korea_University_Cervical_cancer_pdc_current
+- isb-cgc-bq.ICPC_versioned.clinical_Korea_University_Cervical_cancer_pdc_V4_11
+- isb-cgc-bq.ICPC.per_sample_file_metadata_Korea_University_Cervical_cancer_pdc_current
+- isb-cgc-bq.ICPC_versioned.per_sample_file_metadata_Korea_University_Cervical_cancer_pdc_V4_11
+- isb-cgc-bq.PDC_metadata_versioned.aliquot_to_case_mapping_V4_11
+- isb-cgc-bq.PDC_metadata_versioned.case_metadata_V4_11
+- isb-cgc-bq.PDC_metadata_versioned.file_associated_entity_mapping_V4_11
+- isb-cgc-bq.PDC_metadata_versioned.file_metadata_V4_11
+- isb-cgc-bq.PDC_metadata_versioned.gene_info_V4_11
+- isb-cgc-bq.PDC_metadata_versioned.studies_V4_11
+- isb-cgc-bq.PDC_metadata_versioned.refseq_mapping_2025_02
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.ICPC.per_sample_file_metadata_KNCC_Cancer_Proteogenomics_Group_pdc_current
+- isb-cgc-bq.PDC_metadata.aliquot_to_case_mapping_current
+- isb-cgc-bq.PDC_metadata.case_metadata_current
+- isb-cgc-bq.PDC_metadata.file_metadata_current
+- isb-cgc-bq.PDC_metadata.file_associated_entity_mapping_current
+- isb-cgc-bq.PDC_metadata.gene_info_current
+- isb-cgc-bq.PDC_metadata.studies_current
+- isb-cgc-bq.PDC_metadata.refseq_mapping_current
+
+*June 11, 2025*
+
+New and updated GDC data from release 43.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.CGCI_versioned.clinical_diagnosis_gdc_r43
+- isb-cgc-bq.CPTAC_versioned.clinical_diagnosis_treatment_gdc_r43
+- isb-cgc-bq.CPTAC_versioned.clinical_follow_up_gdc_r43
+- isb-cgc-bq.CPTAC_versioned.clinical_gdc_r43
+- isb-cgc-bq.GDC_case_file_metadata_versioned.aliquot2caseIDmap_r43
+- isb-cgc-bq.GDC_case_file_metadata_versioned.caseData_r43
+- isb-cgc-bq.GDC_case_file_metadata_versioned.fileData_active_r43
+- isb-cgc-bq.GDC_case_file_metadata_versioned.slide2caseIDmap_r43
+- isb-cgc-bq.HCMI_versioned.clinical_diagnosis_pathology_detail_gdc_r43
+- isb-cgc-bq.HCMI_versioned.clinical_diagnosis_gdc_r43
+- isb-cgc-bq.HCMI_versioned.clinical_diagnosis_treatment_gdc_r43
+- isb-cgc-bq.HCMI.clinical_exposure_gdc_current
+- isb-cgc-bq.HCMI_versioned.clinical_exposure_gdc_r43
+- isb-cgc-bq.HCMI_versioned.clinical_follow_up_molecular_test_gdc_r43
+- isb-cgc-bq.HCMI_versioned.clinical_follow_up_gdc_r43
+- isb-cgc-bq.HCMI_versioned.clinical_gdc_r43
+- isb-cgc-bq.TARGET_versioned.clinical_gdc_r43
+- isb-cgc-bq.TCGA_versioned.clinical_diagnosis_gdc_r43
+- isb-cgc-bq.TCGA_versioned.clinical_gdc_r43
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.CGCI.clinical_diagnosis_gdc_current
+- isb-cgc-bq.CPTAC.clinical_gdc_current
+- isb-cgc-bq.CPTAC.clinical_diagnosis_treatment_gdc_current
+- isb-cgc-bq.CPTAC.clinical_follow_up_gdc_current
+- isb-cgc-bq.GDC_case_file_metadata.aliquot2caseIDmap_current
+- isb-cgc-bq.GDC_case_file_metadata.caseData_current
+- isb-cgc-bq.GDC_case_file_metadata.fileData_active_current
+- isb-cgc-bq.GDC_case_file_metadata.slide2caseIDmap_current
+- isb-cgc-bq.HCMI.clinical_gdc_current
+- isb-cgc-bq.HCMI.clinical_diagnosis_gdc_current
+- isb-cgc-bq.HCMI.clinical_diagnosis_pathology_detail_gdc_current
+- isb-cgc-bq.HCMI.clinical_diagnosis_treatment_gdc_current
+- isb-cgc-bq.HCMI.clinical_follow_up_gdc_current
+- isb-cgc-bq.HCMI.clinical_follow_up_molecular_test_gdc_current
+- isb-cgc-bq.TARGET.clinical_gdc_current
+- isb-cgc-bq.TCGA.clinical_gdc_current
+- isb-cgc-bq.TCGA.clinical_diagnosis_gdc_current
+
+*June 4, 2025*
+
+New and updated HTAN tables.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.HTAN_versioned.accessory_manifest_r6_v2
+- isb-cgc-bq.HTAN_versioned.dataFileSynapseID_to_BigQueryTableID_map_r6_v2
+- isb-cgc-bq.HTAN_versioned.biospecimen_r6_v2
+- isb-cgc-bq.HTAN_versioned.bulkMethylationseq_level1_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.bulkMethylationseq_level2_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.bulkRNAseq_level1_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.bulkRNAseq_level2_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.bulkRNAseq_level3_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.bulkWES_level1_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.bulkWES_level2_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.bulkWES_level3_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.participantVitalStatusUpdate_r6_v2
+- isb-cgc-bq.HTAN_versioned.clinical_tier1_demographics_r6_v2
+- isb-cgc-bq.HTAN_versioned.clinical_tier1_diagnosis_r6_v2
+- isb-cgc-bq.HTAN_versioned.clinical_tier1_exposure_r6_v2
+- isb-cgc-bq.HTAN_versioned.clinical_tier1_familyhistory_r6_v2
+- isb-cgc-bq.HTAN_versioned.clinical_tier1_followup_r6_v2
+- isb-cgc-bq.HTAN_versioned.clinical_tier1_moleculartest_r6_v2
+- isb-cgc-bq.HTAN_versioned.clinical_tier1_therapy_r6_v2
+- isb-cgc-bq.HTAN_versioned.clinical_tier2_r6_v2
+- isb-cgc-bq.HTAN_versioned.clinical_tier3_breast_r6_v2
+- isb-cgc-bq.HTAN_versioned.clinical_tier3_colorectal_r6_v2
+- isb-cgc-bq.HTAN_versioned.clinical_tier3_lung_r6_v2
+- isb-cgc-bq.HTAN_versioned.clinical_tier3_melanoma_r6_v2
+- isb-cgc-bq.HTAN_versioned.clinical_tier3_brain_r6_v2
+- isb-cgc-bq.HTAN_versioned.schema_r6_v2
+- isb-cgc-bq.HTAN_versioned.electron_microscopy_level1_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.electron_microscopy_level2_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.exseq_minimal_r6_v2
+- isb-cgc-bq.HTAN.gc_drs_map_current
+- isb-cgc-bq.HTAN_versioned.gc_drs_map_r6_v2
+- isb-cgc-bq.HTAN_versioned.nanostring_spatialtranscriptomics_geomx_level1_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.nanostring_spatialtranscriptomics_geomx_level3_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.hiCseq_level1_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.hiCseq_level2_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.hiCseq_level3_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.id_provenance_r6_v2
+- isb-cgc-bq.HTAN_versioned.imaging_channel_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.imaging_level1_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.imaging_level2_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.imaging_level3_segmentation_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.imaging_level4_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.massSpectrometry_level1_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.massSpectrometry_level3_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.massSpectrometry_level4_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.other_assay_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.rppa_level2_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.rppa_level3_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.rppa_level4_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.scATACseq_level1_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.scATACseq_level2_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.scATACseq_level3_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.scATACseq_level4_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.scRNAseq_level1_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.scRNAseq_level2_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.scRNAseq_level3_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.scRNAseq_level4_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.Slide_seqLevel1_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.Slide_seqLevel2_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.Slide_seqLevel3_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.srrs_biospecimen_r6_v2
+- isb-cgc-bq.HTAN_versioned.srrs_clinical_tier2_r6_v2
+- isb-cgc-bq.HTAN_versioned.srrs_imaging_level2_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.10xvisium_spatialtranscriptomics_auxiliaryfiles_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.10xvisium_spatialtranscriptomics_scRNAseq_level1_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.10xvisium_spatialtranscriptomics_scRNAseq_level2_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.10xvisium_spatialtranscriptomics_scRNAseq_level3_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.10xvisium_spatialtranscriptomics_scRNAseq_level4_metadata_r6_v2
+- isb-cgc-bq.HTAN_versioned.10xxenium_spatialtranscriptomics_experiment_metadata_r6_v2
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.HTAN.accessory_manifest_current
+- isb-cgc-bq.HTAN.dataFileSynapseID_to_BigQueryTableID_map_current
+- isb-cgc-bq.HTAN.biospecimen_current
+- isb-cgc-bq.HTAN.bulkMethylationseq_level1_metadata_current
+- isb-cgc-bq.HTAN.bulkMethylationseq_level2_metadata_current
+- isb-cgc-bq.HTAN.bulkRNAseq_level1_metadata_current
+- isb-cgc-bq.HTAN.bulkRNAseq_level2_metadata_current
+- isb-cgc-bq.HTAN.bulkRNAseq_level3_metadata_current
+- isb-cgc-bq.HTAN.bulkWES_level1_metadata_current
+- isb-cgc-bq.HTAN.bulkWES_level2_metadata_current
+- isb-cgc-bq.HTAN.bulkWES_level3_metadata_current
+- isb-cgc-bq.HTAN.participantVitalStatusUpdate_current
+- isb-cgc-bq.HTAN.clinical_tier1_demographics_current
+- isb-cgc-bq.HTAN.clinical_tier1_diagnosis_current
+- isb-cgc-bq.HTAN.clinical_tier1_exposure_current
+- isb-cgc-bq.HTAN.clinical_tier1_familyhistory_current
+- isb-cgc-bq.HTAN.clinical_tier1_followup_current
+- isb-cgc-bq.HTAN.clinical_tier1_moleculartest_current
+- isb-cgc-bq.HTAN.clinical_tier1_therapy_current
+- isb-cgc-bq.HTAN.clinical_tier2_current
+- isb-cgc-bq.HTAN.clinical_tier3_breast_current
+- isb-cgc-bq.HTAN.clinical_tier3_colorectal_current
+- isb-cgc-bq.HTAN.clinical_tier3_lung_current
+- isb-cgc-bq.HTAN.clinical_tier3_melanoma_current
+- isb-cgc-bq.HTAN.clinical_tier3_brain_current
+- isb-cgc-bq.HTAN.schema_current
+- isb-cgc-bq.HTAN.electron_microscopy_level1_metadata_current
+- isb-cgc-bq.HTAN.electron_microscopy_level2_metadata_current
+- isb-cgc-bq.HTAN.exseq_minimal_current
+- isb-cgc-bq.HTAN.nanostring_spatialtranscriptomics_geomx_level1_metadata_current
+- isb-cgc-bq.HTAN.nanostring_spatialtranscriptomics_geomx_level3_metadata_current
+- isb-cgc-bq.HTAN.hiCseq_level1_metadata_current
+- isb-cgc-bq.HTAN.hiCseq_level2_metadata_current
+- isb-cgc-bq.HTAN.hiCseq_level3_metadata_current
+- isb-cgc-bq.HTAN.id_provenance_current
+- isb-cgc-bq.HTAN.imaging_channel_metadata_current
+- isb-cgc-bq.HTAN.imaging_level1_metadata_current
+- isb-cgc-bq.HTAN.imaging_level2_metadata_current
+- isb-cgc-bq.HTAN.imaging_level3_segmentation_metadata_current
+- isb-cgc-bq.HTAN.imaging_level4_metadata_current
+- isb-cgc-bq.HTAN.massSpectrometry_level1_metadata_current
+- isb-cgc-bq.HTAN.massSpectrometry_level3_metadata_current
+- isb-cgc-bq.HTAN.massSpectrometry_level4_metadata_current
+- isb-cgc-bq.HTAN.other_assay_metadata_current
+- isb-cgc-bq.HTAN.rppa_level2_metadata_current
+- isb-cgc-bq.HTAN.rppa_level3_metadata_current
+- isb-cgc-bq.HTAN.rppa_level4_metadata_current
+- isb-cgc-bq.HTAN.scATACseq_level1_metadata_current
+- isb-cgc-bq.HTAN.scATACseq_level2_metadata_current
+- isb-cgc-bq.HTAN.scATACseq_level3_metadata_current
+- isb-cgc-bq.HTAN.scATACseq_level4_metadata_current
+- isb-cgc-bq.HTAN.scRNAseq_level1_metadata_current
+- isb-cgc-bq.HTAN.scRNAseq_level2_metadata_current
+- isb-cgc-bq.HTAN.scRNAseq_level3_metadata_current
+- isb-cgc-bq.HTAN.scRNAseq_level4_metadata_current
+- isb-cgc-bq.HTAN.Slide_seqLevel1_metadata_current
+- isb-cgc-bq.HTAN.Slide_seqLevel2_metadata_current
+- isb-cgc-bq.HTAN.Slide_seqLevel3_metadata_current
+- isb-cgc-bq.HTAN.srrs_biospecimen_current
+- isb-cgc-bq.HTAN.srrs_clinical_tier2_current
+- isb-cgc-bq.HTAN.srrs_imaging_level2_metadata_current
+- isb-cgc-bq.HTAN.10xvisium_spatialtranscriptomics_auxiliaryfiles_metadata_current
+- isb-cgc-bq.HTAN.10xvisium_spatialtranscriptomics_scRNAseq_level1_metadata_current
+- isb-cgc-bq.HTAN.10xvisium_spatialtranscriptomics_scRNAseq_level2_metadata_current
+- isb-cgc-bq.HTAN.10xvisium_spatialtranscriptomics_scRNAseq_level3_metadata_current
+- isb-cgc-bq.HTAN.10xvisium_spatialtranscriptomics_scRNAseq_level4_metadata_current
+- isb-cgc-bq.HTAN.10xxenium_spatialtranscriptomics_experiment_metadata_current
+
+**BigQuery tables removed**
+
+- isb-cgc-bq.HTAN.cds_drs_map_current
+
 *May 15, 2025*
 
 New and updated PDC V4.1-V4.9 derived data.
