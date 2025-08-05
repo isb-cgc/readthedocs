@@ -8,11 +8,8 @@ The ISB-CGC has created documentation to inform researchers about major changes 
    :maxdepth: 1
    
    ReleaseNotes/ISB-CGCDataReleases
-   ReleaseNotes/MigrationToISB-CGC-BQ
    ReleaseNotes/BigQueryTableSearchReleaseNotes
-   ReleaseNotes/MitelmanReleaseNotes
-   ReleaseNotes/TP53_release_notes
-   ReleaseNotes/WebAppReleaseNotes
+   ReleaseNotes/MitelmanReleaseNote
 
 
   
