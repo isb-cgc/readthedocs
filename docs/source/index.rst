@@ -41,9 +41,6 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    sections/Hosted-Data
    sections/BigQueryTableSearchUI
    sections/BigQuery
-   sections/Web-UI
-   sections/DataExplorer
-   sections/DataBrowser
 
 .. toctree::
    :hidden:
