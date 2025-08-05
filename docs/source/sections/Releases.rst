@@ -9,7 +9,7 @@ The ISB-CGC has created documentation to inform researchers about major changes 
    
    ReleaseNotes/ISB-CGCDataReleases
    ReleaseNotes/BigQueryTableSearchReleaseNotes
-   ReleaseNotes/MitelmanReleaseNote
+   ReleaseNotes/MitelmanReleaseNotes
 
 
   
