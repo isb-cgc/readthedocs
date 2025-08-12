@@ -11,10 +11,11 @@ Follow us on `BlueSky <https://bsky.app/profile/isb-cgc.bsky.social>`_ and `X <h
 
 For feature requests or bug reports, please send e-mail to feedback@isb-cgc.org.
 
-We have `virtual Office Hours on Tuesdays and Thursdays <office_hours.html>`_ for any questions on ISB-CGC functionality or data that you may have. We look forward to speaking with you.
+Office Hours
+------------
 
+Do you need assistance with getting started? Questions on merging your research with cancer data in the cloud? Or possibly help with troubleshooting?
 
-.. toctree::
-   :maxdepth: 1
-   
-   office_hours
+We have **virtual Office Hours on request** for any questions on ISB-CGC functionality or data that you may have. We look forward to speaking with you.
+Please contact us at feedback@isb-cgc.org to set up a session.
+
