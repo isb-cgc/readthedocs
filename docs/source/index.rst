@@ -27,11 +27,8 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    sections/ExploringISB-CGC
    sections/HowToGetStartedonISB-CGC
    sections/HowToGetStarted-Analysis
-   sections/HowtoRequestCloudCredits
    sections/BestPractices
-   sections/Benefits
    sections/CostManagement
-   sections/office_hours
    
 .. toctree::
    :hidden:
