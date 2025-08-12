@@ -13,9 +13,6 @@ filter data from one or more public data sets (such as TCGA, CCLE, and TARGET), 
    :widths: 60, 40
    :header-rows: 0 
 
-   * - Interactive Pathology and Radiology Image Viewers  
-        | *View images from cancer patients using integrated image viewers*
-     - * `ISB-CGC Image Viewers Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/webapp/OsimisWebViewer.html>`_ 
    * - Integrative Genomics Viewer (IGV)
         | *Explore and visualize genomic data. IGV is no longer integrated with ISB-CGC*
      - * `Integrative Genomics Viewer (IGV) website <https://igv.org/>`_
