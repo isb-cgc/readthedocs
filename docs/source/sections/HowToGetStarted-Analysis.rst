@@ -64,11 +64,10 @@ ISB-CGC enables the use of as many workflow technologies as possible through doc
         | *Programmatically access data and user-generated cancer patient cohort information* 
      - * `ISB-CGC API Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/progapi/progAPI-v4/Programmatic-Demo.html>`_
        * `ISB-CGC API <https://api-dot-isb-cgc.appspot.com/v4/swagger/>`_
-   * - **Connecting to GA4GH and Cloud Life Sciences APIs:**
+   * - **Connecting to GA4GH:**
         | *Easily connect to APIs from ISB-CGC*
      - * `How to find a tool using GA4GH TRS Notebook <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_find_a_tool_using_GA4GH_TRS.ipynb>`_ 
        * `How to use a GA4GH tool using WES Notebook <https://nbviewer.jupyter.org/github/isb-cgc/Community-Notebooks/blob/master/Notebooks/How_to_use_a_GA4GH_tool_using_WES.ipynb>`_ 
-       * `Google API Documentation <https://cloud.google.com/life-sciences/docs/apis>`_
    * - **Running workflows on ISB-CGC**
         | *Execute open-source and custom pipelines/algorithms on scalable virtual machines*
      - * `ISB-CGC Workflow Documentation <gcp-info/GCE-101.html>`_  
