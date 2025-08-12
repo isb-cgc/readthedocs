@@ -16,10 +16,6 @@ filter data from one or more public data sets (such as TCGA, CCLE, and TARGET), 
    * - Integrative Genomics Viewer (IGV)
         | *Explore and visualize genomic data. IGV is no longer integrated with ISB-CGC*
      - * `Integrative Genomics Viewer (IGV) website <https://igv.org/>`_
-   * - Cancer Data File Browser   
-        | *Browse and identify files associated with cohorts of interest*
-     - * `ISB-CGC Cancer Data File Browser Documentation <DataBrowser.html>`_
-       * `ISB-CGC Cancer Data File Browser <https://isb-cgc.appspot.com/cohorts/filelist/>`_ 
    * - Mitelman Database for Chromosome Aberrations and Gene Fusions in Cancer
         | *Explore relationships between chromosomal changes and cancer*
      - * `ISB-CGC Mitelman Database Documentation <https://isb-cancer-genomics-cloud.readthedocs.io/en/latest/sections/data/Mitelman_about.html>`_
