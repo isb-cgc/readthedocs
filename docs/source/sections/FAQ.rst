@@ -37,27 +37,6 @@ or your own personal project) and the ISB-CGC is your Google identity
 Access to all ISB-CGC hosted data is controlled using the `Data Commons Framework Gen3 <https://dcf.gen3.org/>`_ which defines the
 permissions attached to each data set, bucket, or object.
 
-
-ISB-CGC Web Interface
-########################
-
-I ran the same query in the Web App that I've run before, but the results were different. Why is that?
--------------------------------------------------------------------------------------------------------
-
-The Web App performs its data retrieval and counts on ISB-CGC Google BigQuery tables which are based on the latest GDC data release. So, it's possible that a new GDC release
-occurred since you last performed that query.
-
-Why do I sometimes get a "Do you want to leave this site?" pop-up box when leaving a page or canceling a workflow edit?
---------------------------------------------------------------------------------------------------------------------------
-
-This is a security feature when working with forms found in most web browsers; it lets you know that you may have made some changes which will be lost when you navigate away from the page. If you intend to cancel what you were doing, you can safely ignore it.
-
-Which web browser is recommended when working with the site?
-------------------------------------------------------------
-
-We recommend using Google Chrome browser. 
-
-
 Data Access
 ###########
 
@@ -75,16 +54,6 @@ next to your project name at the top of the left side-bar, select "Switch to Pro
 and enter "isb-cgc-bq" (without quotes) in the text box labeled "Project ID". For older ISB-CGC data sets, repeat and enter "isb-cgc". All ISB-CGC public BigQuery
 data sets and tables will now be visible in the left side-bar of the BigQuery web interface. 
 *Note that in order to use BigQuery, you need to be a member of a Google Cloud Project.*
-
-
-
-Data Content
-############
-
-I get a different number of samples in BigQuery than I do with the same query in the Web App. Why?
------------------------------------------------------------------------------------------------------
-
-Older programs like TCGA have both legacy data (data from the original program) and harmonized data (data run through the Genomics Data Commons).  The Web App primarily uses harmonized data whereas BigQuery contains both legacy and harmonized data.  In addition, some cases and samples have been removed from the Web App if annotation suggests the data from those cases or samples are incorrect, misleading or from cases of uncertain origin.  Most of these cases and samples are still in BigQuery and users are encouraged to check the annotations tables.
 
 Python Users
 ############ 
