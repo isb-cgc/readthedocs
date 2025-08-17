@@ -209,15 +209,15 @@ View Files
 
 Clicking the **View Files** button displays the **Cancer Data File Browser** screen with a list of data files associated with your current cohort.  
 
-Cancer Data File Browser
+Cancer Data Resource Browser
 #######################
 
-The Cancer Data File Browser displays a listing of all files associated with the cohort, pathology reports and viewable images.
+The Cancer Data Resource Browser displays a listing of all files associated with the cohort, pathology reports and viewable images.
 
-All Files
+All Resources
 ============
 
-This list on the **All Files** tab includes all files which are stored on the Google Cloud, including both controlled access and open access data.
+This list on the **All REsources** tab includes all resources which are stored on the Google Cloud, including both controlled access and open access data.
 
 .. image:: CohortFileBrowser.png
    :align: center
@@ -227,7 +227,7 @@ You can use "Show", "Page", "Previous" and "Next" to navigate through the list. 
 
 You can filter by full or partial Case Barcode on all tabs; click the CASE filter to expand it. To remove the search key word, click the "X" button adjacent to it. Filtering by Case Barcode updates the number to the right of all the other filters. 
 
-You may also filter by program name, build (Hg38, Hg19), data type, data category, experimental strategy, data format, platform, node (GDC, PDC, IDC) and/or access.  Selecting a filter will update the associated list.  The numbers next to the filter refers to the number of files available for that filter.
+You may also filter by program name, build (Hg38, Hg19), data type, data category, experimental strategy, data format, platform, node (GDC, PDC, IDC) and/or access.  Selecting a filter will update the associated list.  The numbers next to the filter refers to the number of resources available for that filter.
 
 Pathology Reports
 =================
