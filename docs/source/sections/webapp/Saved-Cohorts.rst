@@ -247,21 +247,19 @@ To find images that can be viewed, click on the **Viewable Images** tab. There a
 Radiology Images
 -----------------
 
-Hovering over the Study Instance UID column and clicking on "Open in CHIF Viewer" will open the series Selection panel in a new tab using Osimis DICOM. (HINT: Using a smaller cohort will provide faster response in creating the list of files available.)
-
-For a more detailed step-by-step process of Viewing Radiology Images using the Osimis DICOM viewer please go `here <OsimisWebViewer.html>`_.
+Hovering over the Study Instance UID column and clicking on "Open in IDC OHIF" will open the Study in the Imaging Data Commons OHIF viewer in a new tab. Individual series can be selected from this viewer.
 
 Pathology Images
 -----------------
 
-When available, pathology images can be viewed using the caMicroscope tool (see more about caMicroscope provide `here <http://camicroscope.org>`_).  These are the pathology images that are associated with TCGA samples. Hovering over the File Name and clicking on "Open in caMicroscope" will open the image file in a new tab using caMicroscope. (HINT: using a smaller cohort will provide faster response in creating the list of files available).
+When available, pathology images can be viewed using IDC's SliM viewer. These are the pathology images that are associated with TCGA and CPTAC samples. Hovering over the File Name and clicking on "Open in IDC SliM" will open the Study in the Imaging Data Commons SliM viewer in a new tab.
 
-To zoom into the image, either click the left button or use your wheel to zoom in.  Use your mouse to move around the image.  To zoom out of the image, shift-slick the left mouse button or use your wheel to zoom out.  Selecting caMicroscope at the top of page will send you to the caMicroscope homepage. If you hover over the Slide Barcode section on the top right hand side you will see metadata information listed.
+To zoom into the image, either click the left button or use your wheel to zoom in. Use your mouse to move around the image. To zoom out of the image, shift-slick the left mouse button or use your wheel to zoom out. Clicking on the Imaging Data Commons logo in the upper-left corner of the page will take you to the Imaing Data Commons portal. Slide metadata information is listed on the right-hand side.
 
 Download File List as CSV
 -------------------------
 
-To download a list of files that are part of this cohort, select the **CSV** button in the upper right on the File Listing panel of the Cancer Data File Browser. 
+To download a list of files that are part of this cohort, select the **CSV** button in the upper right on the Resource Listing panel of the Cancer Data Resource Browser. 
 
 The file contains the following information for each file:
 
@@ -284,11 +282,10 @@ The file contains the following information for each file:
 Export File List to BigQuery
 ----------------------------
 
-To export the File List to BigQuery, select the **BQ** button on the Cancer Data File Browser.  You will need to have a Google Cloud Project and a BigQuery dataset to be able to export to BigQuery.  You can either make a new table or append to an existing table.  You can also give the table a unique name; if left blank, a name will be provided for the table.
+To export the File List to BigQuery, select the **BQ** button on the Cancer Data Resource Browser.  The table will be exported and you will receive a link to access it which will be valid for three (3) days.
 
 The table will contain the following information (for each of the data type tabs):
 
-* row
 * cohort_id
 * case_barcode
 * sample_barcode
