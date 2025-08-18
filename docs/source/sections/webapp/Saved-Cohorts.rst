@@ -221,7 +221,7 @@ This list on the **All Resources** tab includes all resources which are stored o
 
 .. image:: CohortResourceBrowser.png
    :align: center
-   :scale: 75
+   :scale: 50
 
 
 You can use "Show", "Page", "Previous" and "Next" to navigate through the list.  The columns are sortable by selecting the column header.  You can select a subset of the default columns to show by using the "Choose Columns to Display" tool.
