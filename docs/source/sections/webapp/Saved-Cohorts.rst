@@ -204,20 +204,20 @@ Note: You shouldn't ever set UUID to 'required' because sometimes a sample doesn
 
 .. _file-browser-page:
 
-View Files
-============
+View Resources (Theses Cases)
+=============================
 
-Clicking the **View Files** button displays the **Cancer Data File Browser** screen with a list of data files associated with your current cohort.  
+Clicking the **View Resources (Theses Cases)** button displays the **Cancer Data Resource Browser** screen with a list of resources associated with your current cohort.  
 
 Cancer Data Resource Browser
-#######################
+############################
 
 The Cancer Data Resource Browser displays a listing of all files associated with the cohort, pathology reports and viewable images.
 
 All Resources
 ============
 
-This list on the **All REsources** tab includes all resources which are stored on the Google Cloud, including both controlled access and open access data.
+This list on the **All Resources** tab includes all resources which are stored on the Google Cloud, including both controlled access and open access data.
 
 .. image:: CohortFileBrowser.png
    :align: center
@@ -232,7 +232,7 @@ You may also filter by program name, build (Hg38, Hg19), data type, data categor
 Pathology Reports
 =================
 
-Click on the **Pathology Reports** tab to see a listing of all files containing Pathology Reports.
+Click on the **Pathology Reports** tab to see a listing of all resources containing Pathology Reports.
 
 To download a pathology report, click on the File Name.
 
