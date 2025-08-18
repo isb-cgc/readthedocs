@@ -204,10 +204,10 @@ Note: You shouldn't ever set UUID to 'required' because sometimes a sample doesn
 
 .. _file-browser-page:
 
-View Resources (Theses Cases)
-=============================
+View Resources
+===============
 
-Clicking the **View Resources (Theses Cases)** button displays the **Cancer Data Resource Browser** screen with a list of resources associated with your current cohort.  
+Clicking the **View Resources** button displays the **Cancer Data Resource Browser** screen with a list of resources associated with your current cohort.  
 
 Cancer Data Resource Browser
 ############################
