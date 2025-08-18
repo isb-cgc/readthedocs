@@ -219,7 +219,7 @@ All Resources
 
 This list on the **All Resources** tab includes all resources which are stored on the Google Cloud, including both controlled access and open access data.
 
-.. image:: CohortFileBrowser.png
+.. image:: CohortResourceBrowser.png
    :align: center
 
 
