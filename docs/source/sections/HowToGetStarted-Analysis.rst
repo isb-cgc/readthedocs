@@ -2,7 +2,7 @@
 Getting Started with Analysis
 *****************************
 
-ISB-CGC enables researchers to analyze cloud-based cancer data through a collection of powerful web-based tools and Google Cloud technologies. Learn more about the different analytical methods ISB-CGC users employ on their research projects. 
+ISB-CGC enables people to analyze cloud-based cancer data. Learn more about the different analytical methods ISB-CGC users can employ. 
 
 Google Cloud Project Setup and Data Access
 ##########################################################
