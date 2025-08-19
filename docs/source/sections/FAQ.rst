@@ -22,7 +22,7 @@ How do I connect my Google Cloud Project to the ISB-CGC?
 ---------------------------------------------------------
 
 Your Google Cloud Project gives you access to all of the technologies that make
-up the Google Cloud Platform.  These technologies include BigQuery, Cloud Storage, Compute Engine, etc.  The ISB-CGC makes use of a variety of these technologies to provide access to the TCGA data, as well as many other data sets. Please see the `Google Cloud Project Setup and Data Access <HowToGetStartedonISB-CGC.html#data-access-and-google-cloud-project-setup>`_ section in the Quick Start Guide.
+up the Google Cloud Platform.  These technologies include BigQuery, Cloud Storage, Compute Engine, etc.  The ISB-CGC makes use of a variety of these technologies to provide access to the TCGA data, as well as many other data sets. Please see the `Google Cloud Project Setup and Data Access <HowToGetStarted-Analysis.html#google-cloud-project-setup-and-data-access>`_ section on the Getting Started with Analysis page.
 
 The connection between your Google Cloud Project (whether it is an ISB-CGC sponsored and funded project
 or your own personal project) and the ISB-CGC is your Google identity 
