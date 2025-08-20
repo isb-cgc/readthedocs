@@ -32,6 +32,7 @@ They can also access the data by writing their own custom scripts using language
    :maxdepth: 1
    :caption: USER GUIDE
    
+   sections/Hosted-Data
    sections/BigQueryTableSearchUI
    sections/BigQuery
    sections/Tutorials/KidneyCancerDemo/KidneyCancerDemo
