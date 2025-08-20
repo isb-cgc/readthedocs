@@ -31,7 +31,7 @@ Using the ISB-CGC BigQuery Table Search
 Navigate to the ISB-CGC homepage: https://isb-cgc.org and click on the **Launch** icon in the **BigQuery Table Search** box.
 
 .. image:: ISB-homepage.png
-   :scale: 30
+   :scale: 75
    :align: center
 
 Let's search for ISB-CGC hosted BigQuery tables that contain information for TCGA gene expression, protein expression and clinical data. We want to build a cohort of TCGA patients for which both gene expression and protein abundance data exists. Enter **TCGA** in the **Program** filter and **Clinical Data**, **Gene Expression**, and **Protein Expression** in the **Data Type** filter. To see the table schema of the clinical table, click on the (+) icon.
