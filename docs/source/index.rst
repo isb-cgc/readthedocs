@@ -33,7 +33,6 @@ The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of
    :maxdepth: 1
    :caption: USER GUIDE
    
-   sections/Hosted-Data
    sections/BigQueryTableSearchUI
    sections/BigQuery
    sections/Tutorials/KidneyCancerDemo/KidneyCancerDemo
