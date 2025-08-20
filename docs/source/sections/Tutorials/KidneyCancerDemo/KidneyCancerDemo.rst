@@ -19,7 +19,7 @@ There are no prerequisites for using the ISB-CGC BigQuery Table Search, but in o
 and within an R program, you'll need to have a Google Cloud Platform project and have linked it to the ISB-CGC BigQuery tables. Please see these sections of the 
 ISB-CGC documentation for guidance:
 
-* `How to create a Google Cloud Platform (GCP) project <../../HowToGetStartedonISB-CGC.html>`_ 
+* `How to create a Google Cloud Platform (GCP) project <../../HowToGetStarted-Analysis.html>`_ 
 * `How to link ISB-CGC BigQuery tables to your Google Cloud Platform (GCP) project <../../progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_ 
 
 
