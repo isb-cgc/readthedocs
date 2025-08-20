@@ -17,6 +17,10 @@ They can also access the data by writing their own custom scripts using language
 
 -- the ISB-CGC team
 
+.. image:: ISB-homepage.png
+   :align: center
+
+
 .. toctree::
    :hidden:
    :maxdepth: 1
