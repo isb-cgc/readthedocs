@@ -11,10 +11,9 @@ ISB-CGC
 
 Contained within this documentation are descriptions of ISB-CGC features along with guides and tips for exploring data sets hosted on the Google Cloud Platform.
 
-.. image:: overview_image.png
-   :align: left
-
-The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of a broad range of cancer researchers ranging from scientists or clinicians who prefer to use an interactive web-based application to access and explore the rich TCGA, TARGET, CCLE, and other data sets, to computational scientists who want to write their own custom scripts using languages such as R or Python, accessing the data through APIs, and to algorithm developers who wish to spin up thousands of virtual machines to analyze hundreds of terabytes of sequence data.
+The `ISB-CGC <https://isb-cgc.org>`_ aims to serve the needs of cancer researchers who would like to explore cancer data from the Genomic Data Commons (GDC), Proteomics Data Commons (PDC), 
+Imaging Data Commons (IDC) and other programs in user-friendly data sets stored on the Google Cloud in BigQuery tables, easily accessed through SQL. 
+They can also access the data by writing their own custom scripts using languages such as R or Python, accessing the data through APIs, and by utilizing virtual machines to analyze hundreds of terabytes of sequence data.
 
 -- the ISB-CGC team
 
