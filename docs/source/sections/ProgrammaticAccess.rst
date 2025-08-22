@@ -31,7 +31,7 @@ We have compiled a collection of tutorials and sample workflows designed to intr
 St. Jude Bioinformatics Tools
 =============================
 
-The following bioinformatics tools and workflows developed by St. Jude have been containerized and made available for execution in the cloud. Each link below navigates to the tools' original documentation. If you would like guidance on how to run these on ISB-CGC, please attend our `office hours <office_hours.html>`_ or contact us (feedback@isb-cgc.org).
+The following bioinformatics tools and workflows developed by St. Jude have been containerized and made available for execution in the cloud. Each link below navigates to the tools' original documentation. If you would like guidance on how to run these on ISB-CGC, please attend our `office hours <Support.html#office-hours>`_ or contact us (feedback@isb-cgc.org).
 
 .. list-table::
    :widths: 100 25

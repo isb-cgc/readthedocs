@@ -19,7 +19,7 @@ There are no prerequisites for using the ISB-CGC BigQuery Table Search, but in o
 and within an R program, you'll need to have a Google Cloud Platform project and have linked it to the ISB-CGC BigQuery tables. Please see these sections of the 
 ISB-CGC documentation for guidance:
 
-* `How to create a Google Cloud Platform (GCP) project <../../HowToGetStartedonISB-CGC.html>`_ 
+* `How to create a Google Cloud Platform (GCP) project <../../HowToGetStarted-Analysis.html>`_ 
 * `How to link ISB-CGC BigQuery tables to your Google Cloud Platform (GCP) project <../../progapi/bigqueryGUI/LinkingBigQueryToIsb-cgcProject.html>`_ 
 
 
@@ -31,7 +31,7 @@ Using the ISB-CGC BigQuery Table Search
 Navigate to the ISB-CGC homepage: https://isb-cgc.org and click on the **Launch** icon in the **BigQuery Table Search** box.
 
 .. image:: ISB-homepage.png
-   :scale: 30
+   :scale: 40
    :align: center
 
 Let's search for ISB-CGC hosted BigQuery tables that contain information for TCGA gene expression, protein expression and clinical data. We want to build a cohort of TCGA patients for which both gene expression and protein abundance data exists. Enter **TCGA** in the **Program** filter and **Clinical Data**, **Gene Expression**, and **Protein Expression** in the **Data Type** filter. To see the table schema of the clinical table, click on the (+) icon.

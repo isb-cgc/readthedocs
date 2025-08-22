@@ -304,4 +304,3 @@ The table will contain the following information (for each of the data type tabs
 * file_size_bytes
 * index_file_gdc_uuid
 * index_file_cloud_storage_location
-

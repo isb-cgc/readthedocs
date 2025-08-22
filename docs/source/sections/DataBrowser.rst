@@ -18,4 +18,3 @@ If you decide to log into the ISB-CGC Web App (using **Sign In** in the upper ri
 .. image:: webapp/DataBrowser-noSignIn.png
    :scale: 50
    :align: center
-

@@ -12,7 +12,7 @@ About the HTAN Data
 ---------------------------------------------------------------------------------
 
 HTAN data encompasses at least 11 atlases and 17 primary tumor sites.
-Data (Release 2 and 3) was extracted from the HTAN Data Portal via Synapse (https://humantumoratlas.org/data-download).
+Data (Release 2 and 3) was extracted from the HTAN Data Portal via Synapse.
 
 To explore HTAN data, please see the `HTAN Data Portal <https://humantumoratlas.org/explore/>`_.
 
