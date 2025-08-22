@@ -2,6 +2,57 @@
 ISB-CGC Data Release Notes
 ############################
 
+*August 21, 2025*
+
+New dataset and tables from the now-retired ISB Cancer Regulome Explorer site (http://www.cancerregulome.org).
+
+*BigQuery dataset created*
+
+- ISB_Regulome_Explorer
+
+*BigQuery tables created*
+
+- isb-cgc-bq.ISB_Regulome_Explorer.projects_tcga
+- isb-cgc-bq.ISB_Regulome_Explorer.features_tcga
+- isb-cgc-bq.ISB_Regulome_Explorer.feature_values_string_tcga
+- isb-cgc-bq.ISB_Regulome_Explorer.feature_values_numeric_tcga
+- isb-cgc-bq.ISB_Regulome_Explorer.barcodes_tcga
+- isb-cgc-bq.ISB_Regulome_Explorer.feature_associations_tcga
+
+*August 8, 2025*
+
+New and updated GDC data from release 43.
+
+**BigQuery tables created**
+
+- isb-cgc-bq.WCDT_versioned.per_sample_file_metadata_hg38_gdc_r43
+- isb-cgc-bq.TCGA_versioned.per_sample_file_metadata_hg38_gdc_r43
+- isb-cgc-bq.TARGET_versioned.per_sample_file_metadata_hg38_gdc_r43
+- isb-cgc-bq.REBC_versioned.per_sample_file_metadata_hg38_gdc_r43
+- isb-cgc-bq.MP2PRT_versioned.per_sample_file_metadata_hg38_gdc_r43
+- isb-cgc-bq.MMRF_versioned.per_sample_file_metadata_hg38_gdc_r43
+- isb-cgc-bq.HCMI_versioned.per_sample_file_metadata_hg38_gdc_r43
+- isb-cgc-bq.CPTAC_versioned.per_sample_file_metadata_hg38_gdc_r43
+- isb-cgc-bq.CGCI_versioned.per_sample_file_metadata_hg38_gdc_r43
+- isb-cgc-bq.CDDP_EAGLE_versioned.per_sample_file_metadata_hg38_gdc_r43
+- isb-cgc-bq.APOLLO_versioned.per_sample_file_metadata_hg38_gdc_r43
+- isb-cgc-bq.GDC_case_file_metadata_versioned.GDCfileID_to_GCSurl_r43
+
+**BigQuery tables updated**
+
+- isb-cgc-bq.WCDT.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TCGA.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.TARGET.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.REBC.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.MP2PRT.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.MMRF.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.HCMI.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CPTAC.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CGCI.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.CDDP_EAGLE.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.APOLLO.per_sample_file_metadata_hg38_gdc_current
+- isb-cgc-bq.GDC_case_file_metadata.GDCfileID_to_GCSurl_current
+
 *June 20, 2025*
 
 New and updated PDC data from version 4.11
